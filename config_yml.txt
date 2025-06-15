@@ -1,0 +1,48 @@
+# Site settings
+title: "WILL Geometry Research"
+description: "Geometric framework for unified physics - from postulate to revolution"
+author: "Anton Rize"
+email: "egeometricity@gmail.com"
+baseurl: "/WILL"
+url: "https://antonrize.github.io"
+
+# Jekyll settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# MathJax settings
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: /
+  - title: "Parts"
+    url: /parts/
+  - title: "Results"
+    url: /results/
+  - title: "About"
+    url: /about/
+
+# Exclusions
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Collections for content organization
+collections:
+  parts:
+    output: true
+    permalink: /:collection/:name/
+  results:
+    output: true
+    permalink: /:collection/:name/
