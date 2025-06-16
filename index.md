@@ -53,7 +53,7 @@ All physical phenomena emerge from projections on the unit circle:
 
 ## Research Structure
 
-### [Part I: Relativistic Foundations](/Documents/WILL_PART_I_SR_GR.pdf)
+### [Part I: Relativistic Foundations](/documents/WILL_PART_I_SR_GR.pdf)
 From postulate to SR and GR through projection geometry
 
 ### [Part II: Cosmology](/parts/cosmology)
