@@ -4,7 +4,6 @@ title: "Revolutionary Result: α = β"
 date: 2025-01-16
 categories: [quantum, fundamental-constants]
 ---
-
 # Fine Structure Constant as Geometric Projection Parameter
 
 ## Key Discovery
