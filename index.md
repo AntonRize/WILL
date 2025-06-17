@@ -6,10 +6,8 @@ title: "WILL Geometry: Unified Geometric Framework"
 # WILL Geometry Research
 
 
-**This work is not the product of formal academic research, institutional funding, or collaboration with established scientific communities. It is the result of personal inquiry, curiosity, and an ongoing attempt to understand the fundamental nature of space, time, and energy from the most elementary and geometric principles.**
+T**This work is not an attempt to replace or dispute existing physics but rather to reinterpret it from a geometric and philosophical standpoint.**
 
-**The motivation behind this framework is rooted in a deep philosophical belief that the structure of the Universe must, at its core, can be described without arbitrary parameters, assumptions, or external mathematical constructs. It's not an attempt to replace or dispute existing physics but rather to reinterpret it from a geometric and philosophical standpoint:**
- **The ideal theory should not rely on pre-existing formalism but should emerge naturally from the geometry of the Universe itself.**
 
 
 **This work remains an ongoing exploration**
