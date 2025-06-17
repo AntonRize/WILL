@@ -5,8 +5,14 @@ title: "WILL Geometry: Unified Geometric Framework"
 
 # WILL Geometry Research
 
-**Investigation of the fundamental nature of space, time and energy through unified geometric structure**
 
+**This work is not the product of formal academic research, institutional funding, or collaboration with established scientific communities. It is the result of personal inquiry, curiosity, and an ongoing attempt to understand the fundamental nature of space, time, and energy from the most elementary and geometric principles.**
+
+**The motivation behind this framework is rooted in a deep philosophical belief that the structure of the Universe must, at its core, can be described without arbitrary parameters, assumptions, or external mathematical constructs. It's not an attempt to replace or dispute existing physics but rather to reinterpret it from a geometric and philosophical standpoint:**
+ **The ideal theory should not rely on pre-existing formalism but should emerge naturally from the geometry of the Universe itself.**
+
+
+**This work remains an ongoing exploration**
 ---
 
 ## Fundamental Postulate
@@ -29,15 +35,15 @@ From this single postulate, without free parameters, we derive:
 - Resolution of singularity problem
 - Natural boundaries $\kappa^2 \leq 1$
 
-### ✅ Quantum Mechanics without quantum magic
-- Geometric quantization: $n\lambda = 2\pi r$
-- **Independent derivation of fine structure constant: $\alpha = \beta$**
-- Hydrogen spectral lines without wave functions
-
 ### ✅ Cosmology
 - Derivation of cosmological parameters $\Omega_\Lambda = \frac{2}{3}$, $\Omega_m = \frac{1}{3}$
 - Geometric explanation of dark energy
 - Equation of state $w = -1$ from symmetry
+
+### ✅ Quantum Mechanics without quantum magic
+- Geometric quantization: $n\lambda = 2\pi r$
+- **Independent derivation of fine structure constant: $\alpha = \beta$**
+- Hydrogen spectral lines without wave functions
 
 ---
 
@@ -45,8 +51,8 @@ From this single postulate, without free parameters, we derive:
 
 All physical phenomena emerge from projections on the unit circle:
 
-- **$\beta = \cos(\theta_S)$** — kinetic projection (spatial)
-- **$\kappa = \sin(\theta_G)$** — gravitational projection (temporal)
+- **$\beta = \cos(\theta_S)$** — kinetic projection (spatial like)
+- **$\kappa = \sin(\theta_G)$** — potential projection (temporal like)
 - **$\kappa^2 = 2\beta^2$** — universal geometric relation
 
 ---
@@ -56,21 +62,19 @@ All physical phenomena emerge from projections on the unit circle:
 ### [Part I: Relativistic Foundations](/documents/WILL_PART_I_SR_GR.pdf)
 From postulate to SR and GR through projection geometry
 
-### [Part II: Cosmology](/parts/cosmology)
+### [Part II: Cosmology](/documents/WILL_PART_II_Cosmology.pdf)
 Two-parameter cosmology without Friedmann equations
 
-### [Part III: Quantum Mechanics](/parts/quantum)
+### [Part III: Quantum Mechanics](/documents/WILL_PART_III_QM.pdf)
 Atomic structure as geometric quantization
 
-### [Part IV: α = β](/parts/alpha-beta)
-**Revolutionary result:** fine structure constant is not a constant
 
 ---
 
 ## Latest Updates
 
 {% for post in site.posts limit:3 %}
-- **{{ post.date | date: "%d.%m.%Y" }}:** [{{ post.title }}]({{ post.url }})
+- **{{ post.date | date: "%d.%m.%Y" }}:** [{{post.title }}]({{ post.url }})
 {% endfor %}
 
 ---
