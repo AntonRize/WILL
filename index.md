@@ -5,8 +5,7 @@ title: "WILL Geometry: Unified Geometric Framework"
 
 # WILL Geometry Research
 
-
-T**This work is not an attempt to replace or dispute existing physics but rather to reinterpret it from a geometric and philosophical standpoint.**
+**This work is not an attempt to replace or dispute existing physics but rather to understend it from a geometric and philosophical standpoint.**
 
 
 
