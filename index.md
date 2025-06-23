@@ -70,6 +70,36 @@ Atomic structure as geometric quantization
 
 ## Latest Updates
 
+## 🧮 Interactive Calculator
+
+Test WILL Geometry against real galactic data from the SPARC database:
+
+<div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #e8f4fd 0%, #d5f4e6 100%); border-radius: 10px;">
+    <h3 style="color: #2c3e50; margin-bottom: 15px;">🌌 WILL Geometry Calculator</h3>
+    <p style="margin-bottom: 20px;">Predict galactic rotation curves without dark matter</p>
+    <a href="/WILL/calculator/" style="
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-block;
+        transition: transform 0.3s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    " onmouseover="this.style.transform='translateY(-2px)'" 
+       onmouseout="this.style.transform='translateY(0px)'">
+        🚀 Launch Calculator
+    </a>
+    <p style="margin-top: 15px; font-size: 14px; color: #666;">
+        Test against NGC3198, DDO154, and other SPARC galaxies<br>
+        Median RMS: ~21 km/s across 149 galaxies
+    </p>
+</div>
+
+---
+
 {% for post in site.posts limit:3 %}
 - **{{ post.date | date: "%d.%m.%Y" }}:** [{{post.title }}]({{ post.url }})
 {% endfor %}
