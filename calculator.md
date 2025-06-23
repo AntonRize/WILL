@@ -214,29 +214,29 @@ title: "WILL Geometry Calculator"
 </style>
 
 # 🌌 WILL Geometry Calculator
-## Adaptive Geometric Depth System
+## Experimental Parameter Optimization
 
 <div class="database-info">
-    <h3>🧠 Revolutionary Adaptive Algorithm</h3>
-    <p><strong>Auto-selects optimal geometric depth</strong> • <strong>Morphology-based parameters</strong> • <strong>Educational transparency</strong></p>
-    <p>From edge-on spirals to dwarf irregulars • Each galaxy gets its perfect geometric treatment</p>
+    <h3>🔬 Experimental Adaptive System</h3>
+    <p><strong>Research prototype</strong> • <strong>Parameter optimization study</strong> • <strong>Work in progress</strong></p>
+    <p>Testing morphology-based parameter selection • Manual override available for comparison</p>
 </div>
 
 <div class="calculator-container">
 
 <div class="theory-section">
-    <h3>🔬 WILL Adaptive Geometric Evolution</h3>
-    <p><strong>Revolutionary Discovery:</strong> Different galaxy morphologies require different geometric depths!</p>
+    <h3>🔬 WILL Parameter Optimization Study</h3>
+    <p><strong>Research Question:</strong> Do different galaxy morphologies require different geometric parameters?</p>
     
     <div style="text-align: center; margin: 15px 0; font-size: 18px;">
-        $$v^2_{(n+1)}(r) = v_b^2(r) + \lambda \times \frac{1}{r} \int_0^r v^2_{(n)}(r') dr'$$
+        $v^2_{(n+1)}(r) = v_b^2(r) + \lambda \times \frac{1}{r} \int_0^r v^2_{(n)}(r') dr'$
     </div>
     
-    <p><strong>Adaptive Parameters:</strong> λ and iteration depth automatically selected based on galaxy structure</p>
+    <p><strong>Testing:</strong> Automated parameter selection vs. manual optimization for different galaxy types</p>
 </div>
 
 <div class="adaptive-system">
-    <h3>🧠 Adaptive Depth Criterion</h3>
+    <h3>🔬 Experimental Parameter Selection</h3>
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 15px 0;">
         <div style="text-align: center; margin: 10px;">
             <div class="depth-indicator depth-0">DEPTH 0</div>
@@ -252,7 +252,8 @@ title: "WILL Geometry Calculator"
         </div>
     </div>
     <p style="text-align: center; font-size: 14px; margin-top: 15px;">
-        <strong>Criterion:</strong> Edge-on + V<sub>flat</sub>≥180 + B/T<0.1 → Depth 0 | 0.1≤B/T<0.3 → Depth 1 | Gas-rich/Irregular → Depth 5
+        <strong>Hypothesis:</strong> Edge-on + V<sub>flat</sub>≥180 + B/T<0.1 → Depth 0 | 0.1≤B/T<0.3 → Depth 1 | Gas-rich/Irregular → Depth 5<br>
+        <em>Results show this classification needs refinement</em>
     </p>
 </div>
 
@@ -285,8 +286,8 @@ title: "WILL Geometry Calculator"
     <div class="control-group">
         <label>🤖 Calculation Mode</label>
         <select id="calculationMode">
-            <option value="adaptive" selected>🧠 Adaptive (Recommended)</option>
-            <option value="manual">🛠️ Manual Override</option>
+            <option value="adaptive">🔬 Experimental Auto-Select</option>
+            <option value="manual" selected>🛠️ Manual Control (Recommended)</option>
         </select>
     </div>
     
@@ -315,9 +316,9 @@ title: "WILL Geometry Calculator"
 </div>
 
 <div id="adaptivePanel" class="adaptive-panel">
-    <h3>🧠 Adaptive Algorithm Decision</h3>
+    <h3>🔬 Experimental Algorithm Decision</h3>
     <div id="adaptiveReasoning" class="reasoning-box">
-        Select a galaxy to see the adaptive algorithm's reasoning...
+        Select a galaxy to see the experimental algorithm's reasoning...
     </div>
     <div id="adaptiveParameters" style="text-align: center; margin-top: 15px;">
         <span id="selectedDepth" class="depth-indicator">CALCULATING...</span>
