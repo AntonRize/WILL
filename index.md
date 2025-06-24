@@ -5,9 +5,7 @@ title: "WILL Geometry: Unified Geometric Framework"
 
 # WILL Geometry Research
 
-** This work is not an attempt to replace or dispute existing physics but rather to understend it from a geometric and philosophical standpoint. **
-
-
+** This work is not an attempt to replace or dispute existing physics but rather to understand it from a geometric and philosophical standpoint. **
 
 **This work remains an ongoing exploration**
 ---
@@ -65,10 +63,7 @@ Two-parameter cosmology without Friedmann equations
 ### [Part III: Quantum Mechanics](/documents/WILL_PART_III_QM.pdf)
 Atomic structure as geometric quantization
 
-
 ---
-
-## Latest Updates
 
 ## 🧮 Interactive Calculator
 
@@ -99,6 +94,52 @@ Test WILL Geometry against real galactic data from the SPARC database:
 </div>
 
 ---
+
+## 💬 Join the Scientific Discussion
+
+<div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #fff3cd 0%, #d1ecf1 100%); border-radius: 10px;">
+    <h3 style="color: #2c3e50; margin-bottom: 15px;">🔬 Scientific Forums</h3>
+    <p style="margin-bottom: 20px;">Engage with researchers, discuss derivations, and contribute to the development of geometric unified physics</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
+        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #e74c3c;">
+            <strong>Relativity</strong><br>
+            <small>SR & GR discussions</small>
+        </div>
+        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #8e44ad;">
+            <strong>Cosmology</strong><br>
+            <small>Dark energy & Ω parameters</small>
+        </div>
+        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #27ae60;">
+            <strong>Quantum</strong><br>
+            <small>α = β & quantization</small>
+        </div>
+        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #f39c12;">
+            <strong>Galaxies</strong><br>
+            <small>Rotation curves & SPARC</small>
+        </div>
+    </div>
+    
+    <a href="/WILL/discussions/" style="
+        background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+        color: white;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        display: inline-block;
+        transition: transform 0.3s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    " onmouseover="this.style.transform='translateY(-2px)'" 
+       onmouseout="this.style.transform='translateY(0px)'">
+        💬 Enter Forums
+    </a>
+</div>
+
+---
+
+## Latest Updates
 
 {% for post in site.posts limit:3 %}
 - **{{ post.date | date: "%d.%m.%Y" }}:** [{{post.title }}]({{ post.url }})
