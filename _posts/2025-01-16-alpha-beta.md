@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Revolutionary Result: α = β"
+title: "Exiting Result: α = β"
 date: 2025-01-16
 categories: [quantum, fundamental-constants]
 ---
