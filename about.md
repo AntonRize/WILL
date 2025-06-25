@@ -48,7 +48,7 @@ Above all, this document serves as a personal record and reflection of a journey
     <p><strong>This work remains an ongoing exploration</strong>, and further developments may reveal deeper connections between geometry, energy, and the fabric of reality.</p>
 </div>
 
-The WILL Geometry framework represents three years of independent theoretical development, resulting in:
+The WILL Geometry framework represents nearly one year of independent theoretical development, resulting in:
 
 - **105+ pages** of detailed mathematical derivations
 - **Complete derivation** of Special and General Relativity from geometry

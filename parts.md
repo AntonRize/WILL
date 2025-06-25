@@ -94,8 +94,8 @@ Complete research documentation in three parts, covering the theoretical foundat
 | Part | Pages | Focus | Status |
 |------|-------|-------|--------|
 | **I: Relativity** | ~40 | SR/GR from geometry | ✅ Complete |
-| **II: Cosmology** | ~35 | Dark energy, cosmic parameters | ✅ Complete |
-| **III: Quantum** | ~30 | Atomic physics, α = β | ✅ Complete |
+| **II: Cosmology** | ~35 | Dark energy, cosmic parameters | 🔄 In Progress |
+| **III: Quantum** | ~30 | Atomic physics, α = β | 🔄 In Progress |
 
 ---
 
