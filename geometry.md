@@ -158,8 +158,8 @@ Explore the geometric foundations of WILL theory through interactive visualizati
         
         <p><strong>Geometric derivation:</strong></p>
         <ul>
-            <li><strong>Rest energy:</strong> E₀ = mc² (base of triangle)</li>
-            <li><strong>Momentum energy:</strong> pc (height of triangle)</li>
+            <li><strong>Rest energy:</strong> E₀ = mc² (height of triangle)</li>
+            <li><strong>Momentum energy:</strong> pc (base of triangle)</li>
             <li><strong>Total energy:</strong> E (hypotenuse)</li>
             <li><strong>Lorentz factor:</strong> γ = 1/√(1-β²) from unit circle constraint</li>
         </ul>
