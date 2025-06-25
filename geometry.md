@@ -166,7 +166,7 @@ Explore the geometric foundations of WILL theory through interactive visualizati
     </div>
     
     <div class="desmos-container">
-        <!-- ЗАГОТОВКА 2: Вставь сюда ссылку на твой Desmos проект -->
+        <https://www.desmos.com/geometry/50al3wdj8o>
         <div class="placeholder-note">
             <h4>🔧 Desmos Integration Placeholder #2</h4>
             <p><strong>Для интеграции:</strong> Замени этот блок на:</p>
