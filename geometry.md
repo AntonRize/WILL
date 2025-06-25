@@ -12,12 +12,16 @@ title: "Interactive Geometry"
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.desmos-container {
+.graph-container {
     width: 100%;
     height: 400px;
     margin: 20px 0;
     border: 1px solid #ddd;
     border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
 }
 
 .geometry-description {
@@ -41,17 +45,11 @@ title: "Interactive Geometry"
     border-radius: 8px;
     text-align: center;
 }
-
-@media (max-width: 768px) {
-    .desmos-container {
-        height: 300px;
-    }
-}
 </style>
 
 # 🔺 Interactive WILL Geometry
 
-Explore the geometric foundations of WILL theory through interactive visualizations. These tools demonstrate how all physical phenomena emerge from simple projections on the unit circle.
+Explore the geometric foundations of WILL theory through visualizations. These demonstrate how all physical phenomena emerge from projections on the unit circle.
 
 ---
 
@@ -60,21 +58,81 @@ Explore the geometric foundations of WILL theory through interactive visualizati
 <div class="geometry-container">
     <div class="geometry-description">
         <h4>🌐 Fundamental Unit Circle</h4>
-        <p>The foundation of WILL Geometry: <strong>β² + κ²/2 = 1</strong></p>
+        <p>The foundation of WILL Geometry: <strong>β² + κ² = 3β²</strong></p>
         <p>This constraint generates all physical laws through geometric necessity.</p>
     </div>
     
-    <div id="unit-circle" class="desmos-container"></div>
+    <div style="text-align: center; margin: 30px 0;">
+        <svg width="500" height="500" viewBox="-250 -250 500 500" style="border: 1px solid #ddd; border-radius: 10px; background: white;">
+            <!-- Grid -->
+            <defs>
+                <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#f0f0f0" stroke-width="1"/>
+                </pattern>
+            </defs>
+            <rect x="-250" y="-250" width="500" height="500" fill="url(#grid)"/>
+            
+            <!-- Axes -->
+            <line x1="-220" y1="0" x2="220" y2="0" stroke="#999" stroke-width="2"/>
+            <line x1="0" y1="-220" x2="0" y2="220" stroke="#999" stroke-width="2"/>
+            
+            <!-- Unit circle -->
+            <circle cx="0" cy="0" r="150" fill="none" stroke="#333" stroke-width="3"/>
+            
+            <!-- β projection (horizontal, red) -->
+            <line x1="0" y1="0" x2="106" y2="0" stroke="#e74c3c" stroke-width="5"/>
+            <text x="115" y="-10" font-size="18" font-weight="bold" fill="#e74c3c">β = cos(θₛ)</text>
+            
+            <!-- κ projection (vertical, blue) -->
+            <line x1="0" y1="0" x2="0" y2="-106" stroke="#3498db" stroke-width="5"/>
+            <text x="10" y="-115" font-size="18" font-weight="bold" fill="#3498db">κ = sin(θ_G)</text>
+            
+            <!-- β point on circle -->
+            <circle cx="106" cy="-75" r="6" fill="#e74c3c"/>
+            <text x="110" y="-80" font-size="12" fill="#e74c3c">β point</text>
+            
+            <!-- κ point on circle -->
+            <circle cx="75" cy="-106" r="6" fill="#3498db"/>
+            <text x="80" y="-110" font-size="12" fill="#3498db">κ point</text>
+            
+            <!-- Radius to β point -->
+            <line x1="0" y1="0" x2="106" y2="-75" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,3"/>
+            
+            <!-- Radius to κ point -->
+            <line x1="0" y1="0" x2="75" y2="-106" stroke="#3498db" stroke-width="2" stroke-dasharray="6,3"/>
+            
+            <!-- β angle arc -->
+            <path d="M 40 0 A 40 40 0 0 0 28 -20" fill="none" stroke="#e74c3c" stroke-width="3"/>
+            <text x="50" y="-10" font-size="14" fill="#e74c3c" font-weight="bold">θₛ</text>
+            
+            <!-- κ angle arc -->
+            <path d="M 0 -40 A 40 40 0 0 1 20 -35" fill="none" stroke="#3498db" stroke-width="3"/>
+            <text x="15" y="-50" font-size="14" fill="#3498db" font-weight="bold">θ_G</text>
+            
+            <!-- Labels -->
+            <text x="180" y="10" font-size="16" font-weight="bold" fill="#666">β-axis (kinetic)</text>
+            <text x="10" y="-180" font-size="16" font-weight="bold" fill="#666">κ-axis (potential)</text>
+            
+            <!-- Key relations -->
+            <text x="-220" y="-200" font-size="16" font-weight="bold" fill="#2c3e50">κ² = 2β²</text>
+            <text x="-220" y="-180" font-size="14" fill="#666">β² + κ² = 3β²</text>
+            
+            <!-- Critical angles -->
+            <text x="-220" y="200" font-size="12" fill="#999">Two independent angles:</text>
+            <text x="-220" y="215" font-size="12" fill="#e74c3c">θₛ - spatial projection</text>
+            <text x="-220" y="230" font-size="12" fill="#3498db">θ_G - gravitational projection</text>
+        </svg>
+    </div>
     
     <div class="controls">
         <div class="control-panel">
             <h5>Kinetic Projection</h5>
-            <p><strong>β = v/c</strong></p>
+            <p><strong>β = v/c = cos(θₛ)</strong></p>
             <p>Horizontal component (spatial)</p>
         </div>
         <div class="control-panel">
             <h5>Potential Projection</h5>
-            <p><strong>κ = v_e/c</strong></p>
+            <p><strong>κ = v_e/c = sin(θ_G)</strong></p>
             <p>Vertical component (temporal)</p>
         </div>
         <div class="control-panel">
@@ -91,165 +149,96 @@ Explore the geometric foundations of WILL theory through interactive visualizati
 
 <div class="geometry-container">
     <div class="geometry-description">
-        <h4>🚀 Lorentz Factor Visualization</h4>
-        <p>See how <strong>γ = 1/√(1-β²)</strong> emerges naturally from circle geometry</p>
+        <h4>🚀 Lorentz Factor from Geometry</h4>
+        <p>The Lorentz factor <strong>γ = 1/√(1-β²)</strong> emerges naturally from the unit circle constraint</p>
     </div>
     
-    <div id="lorentz-factor" class="desmos-container"></div>
+    <div style="text-align: center; margin: 30px 0;">
+        <svg width="500" height="350" viewBox="0 0 500 350" style="border: 1px solid #ddd; border-radius: 10px; background: white;">
+            <!-- Axes -->
+            <line x1="50" y1="300" x2="450" y2="300" stroke="#333" stroke-width="2"/>
+            <line x1="50" y1="300" x2="50" y2="50" stroke="#333" stroke-width="2"/>
+            
+            <!-- Lorentz curve -->
+            <path d="M 50 300 Q 200 250 350 100 Q 400 80 450 50" fill="none" stroke="#e74c3c" stroke-width="3"/>
+            
+            <!-- Grid lines -->
+            <g stroke="#f0f0f0" stroke-width="1">
+                <line x1="50" y1="250" x2="450" y2="250"/>
+                <line x1="50" y1="200" x2="450" y2="200"/>
+                <line x1="50" y1="150" x2="450" y2="150"/>
+                <line x1="50" y1="100" x2="450" y2="100"/>
+                <line x1="150" y1="50" x2="150" y2="300"/>
+                <line x1="250" y1="50" x2="250" y2="300"/>
+                <line x1="350" y1="50" x2="350" y2="300"/>
+            </g>
+            
+            <!-- Asymptote at β = 1 -->
+            <line x1="425" y1="50" x2="425" y2="300" stroke="#999" stroke-width="2" stroke-dasharray="8,4"/>
+            <text x="430" y="175" font-size="12" fill="#999">β = 1</text>
+            
+            <!-- Sample points -->
+            <circle cx="125" cy="275" r="4" fill="#27ae60"/>
+            <circle cx="200" cy="240" r="4" fill="#27ae60"/>
+            <circle cx="275" cy="180" r="4" fill="#27ae60"/>
+            <circle cx="350" cy="100" r="4" fill="#27ae60"/>
+            
+            <!-- Labels -->
+            <text x="250" y="330" text-anchor="middle" font-size="14" fill="#333">β = v/c</text>
+            <text x="25" y="175" text-anchor="middle" font-size="14" fill="#333" transform="rotate(-90 25 175)">γ</text>
+            <text x="250" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">γ = 1/√(1-β²)</text>
+            
+            <!-- X-axis labels -->
+            <text x="50" y="320" text-anchor="middle" font-size="10" fill="#666">0</text>
+            <text x="150" y="320" text-anchor="middle" font-size="10" fill="#666">0.25</text>
+            <text x="250" y="320" text-anchor="middle" font-size="10" fill="#666">0.5</text>
+            <text x="350" y="320" text-anchor="middle" font-size="10" fill="#666">0.75</text>
+            <text x="425" y="320" text-anchor="middle" font-size="10" fill="#666">1</text>
+            
+            <!-- Y-axis labels -->
+            <text x="40" y="305" text-anchor="end" font-size="10" fill="#666">1</text>
+            <text x="40" y="250" text-anchor="end" font-size="10" fill="#666">2</text>
+            <text x="40" y="200" text-anchor="end" font-size="10" fill="#666">3</text>
+            <text x="40" y="150" text-anchor="end" font-size="10" fill="#666">4</text>
+            <text x="40" y="100" text-anchor="end" font-size="10" fill="#666">5</text>
+        </svg>
+    </div>
 </div>
 
 ---
 
-## 🌑 General Relativity Connection
+## 🌑 Gravitational Geometry
 
 <div class="geometry-container">
     <div class="geometry-description">
-        <h4>🕳️ Gravitational Projection</h4>
-        <p>Explore how <strong>κ² = R_s/r</strong> relates curvature to energy density</p>
+        <h4>🕳️ κ² = R_s/r Relationship</h4>
+        <p>The gravitational projection parameter relates Schwarzschild radius to distance</p>
     </div>
     
-    <div id="gravity-projection" class="desmos-container"></div>
-</div>
-
----
-
-## 🌌 Cosmological Parameters
-
-<div class="geometry-container">
-    <div class="geometry-description">
-        <h4>🌠 Cosmic Energy Budget</h4>
-        <p>Interactive demonstration of <strong>Ω_Λ = 2/3</strong> and <strong>Ω_m = 1/3</strong> from geometry</p>
+    <div style="text-align: center; margin: 30px 0;">
+        <svg width="500" height="350" viewBox="0 0 500 350" style="border: 1px solid #ddd; border-radius: 10px; background: white;">
+            <!-- Axes -->
+            <line x1="50" y1="300" x2="450" y2="300" stroke="#333" stroke-width="2"/>
+            <line x1="50" y1="300" x2="50" y2="50" stroke="#333" stroke-width="2"/>
+            
+            <!-- Hyperbola κ² = Rs/r -->
+            <path d="M 75 280 Q 150 200 250 120 Q 350 80 450 60" fill="none" stroke="#8e44ad" stroke-width="3"/>
+            
+            <!-- Event horizon -->
+            <line x1="125" y1="50" x2="125" y2="300" stroke="#e74c3c" stroke-width="2" stroke-dasharray="8,4"/>
+            <text x="130" y="70" font-size="12" fill="#e74c3c">r = R_s</text>
+            
+            <!-- Maximum κ -->
+            <line x1="50" y1="100" x2="450" y2="100" stroke="#f39c12" stroke-width="2" stroke-dasharray="8,4"/>
+            <text x="300" y="95" font-size="12" fill="#f39c12">κ² = 1 (maximum)</text>
+            
+            <!-- Labels -->
+            <text x="250" y="330" text-anchor="middle" font-size="14" fill="#333">r/R_s</text>
+            <text x="25" y="175" text-anchor="middle" font-size="14" fill="#333" transform="rotate(-90 25 175)">κ²</text>
+            <text x="250" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">κ² = R_s/r</text>
+        </svg>
     </div>
-    
-    <div id="cosmic-parameters" class="desmos-container"></div>
 </div>
-
----
-
-## ⚛️ Quantum Mechanics
-
-<div class="geometry-container">
-    <div class="geometry-description">
-        <h4>🔬 Fine Structure Constant</h4>
-        <p>Visualize how <strong>α = β</strong> emerges from geometric quantization</p>
-    </div>
-    
-    <div id="fine-structure" class="desmos-container"></div>
-</div>
-
----
-
-## 🎮 Interactive Controls
-
-<div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin: 30px 0;">
-    <h4>📱 How to Use</h4>
-    <ul>
-        <li><strong>Drag sliders</strong> to change parameters and see real-time effects</li>
-        <li><strong>Zoom and pan</strong> to explore different regions of the graphs</li>
-        <li><strong>Click expressions</strong> to hide/show specific curves</li>
-        <li><strong>Hover over points</strong> to see exact coordinates and values</li>
-    </ul>
-    <p><em>All graphs are live and interactive - experiment to understand the geometric relationships!</em></p>
-</div>
-
----
-
-<script src="https://www.desmos.com/api/v1.7/calculator.js?apikey=dcb31709b452b1cf9dc26972add0fda6"></script>
-<script>
-// Initialize Desmos calculators
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // 1. Unit Circle - Fundamental Relations
-    var unitCircle = Desmos.GraphingCalculator(document.getElementById('unit-circle'), {
-        expressions: false,
-        settingsMenu: false,
-        zoomButtons: false,
-        expressionsTopbar: false
-    });
-    
-    unitCircle.setExpressions([
-        {id: 'circle', latex: 'x^2 + y^2 = 1', color: '#333'},
-        {id: 'beta', latex: '\\beta = 0.7', sliderBounds: {min: 0, max: 1, step: 0.01}},
-        {id: 'kappa', latex: '\\kappa = \\sqrt{2\\beta^2}'},
-        {id: 'beta-line', latex: 'y = 0 \\{0 \\leq x \\leq \\beta\\}', color: '#e74c3c', lineWidth: 4},
-        {id: 'kappa-line', latex: 'x = 0 \\{0 \\leq y \\leq \\kappa\\}', color: '#3498db', lineWidth: 4},
-        {id: 'point', latex: '(\\beta, \\kappa)', color: '#27ae60', pointSize: 8},
-        {id: 'radius', latex: '\\{(1-t)\\cdot 0 + t\\cdot\\beta, (1-t)\\cdot 0 + t\\cdot\\kappa: 0 \\leq t \\leq 1\\}', color: '#27ae60', lineStyle: 'dashed'},
-        {id: 'relation', latex: '\\kappa^2 = 2\\beta^2', color: '#f39c12'}
-    ]);
-    
-    // 2. Lorentz Factor
-    var lorentzFactor = Desmos.GraphingCalculator(document.getElementById('lorentz-factor'), {
-        expressions: false,
-        settingsMenu: false,
-        zoomButtons: false
-    });
-    
-    lorentzFactor.setExpressions([
-        {id: 'gamma', latex: '\\gamma = \\frac{1}{\\sqrt{1-\\beta^2}}', color: '#e74c3c'},
-        {id: 'beta-slider', latex: '\\beta = 0.5', sliderBounds: {min: 0, max: 0.99, step: 0.01}},
-        {id: 'current-gamma', latex: '(\\beta, \\gamma)', color: '#27ae60', pointSize: 8},
-        {id: 'asymptote', latex: 'x = 1', color: '#999', lineStyle: 'dashed'}
-    ]);
-    
-    lorentzFactor.setMathBounds({left: 0, right: 1, bottom: 1, top: 10});
-    
-    // 3. Gravity Projection
-    var gravityProjection = Desmos.GraphingCalculator(document.getElementById('gravity-projection'), {
-        expressions: false,
-        settingsMenu: false,
-        zoomButtons: false
-    });
-    
-    gravityProjection.setExpressions([
-        {id: 'schwarzschild', latex: '\\kappa^2 = \\frac{R_s}{r}', color: '#8e44ad'},
-        {id: 'rs', latex: 'R_s = 2', sliderBounds: {min: 0.5, max: 5, step: 0.1}},
-        {id: 'kappa-gravity', latex: '\\kappa^2 = \\frac{R_s}{x}', color: '#8e44ad'},
-        {id: 'horizon', latex: 'x = R_s', color: '#e74c3c', lineStyle: 'dashed'},
-        {id: 'max-kappa', latex: 'y = 1', color: '#f39c12', lineStyle: 'dashed'}
-    ]);
-    
-    gravityProjection.setMathBounds({left: 0, right: 10, bottom: 0, top: 2});
-    
-    // 4. Cosmic Parameters
-    var cosmicParameters = Desmos.GraphingCalculator(document.getElementById('cosmic-parameters'), {
-        expressions: false,
-        settingsMenu: false,
-        zoomButtons: false
-    });
-    
-    cosmicParameters.setExpressions([
-        {id: 'omega-lambda', latex: '\\Omega_{\\Lambda} = \\frac{2}{3}', color: '#8e44ad'},
-        {id: 'omega-matter', latex: '\\Omega_m = \\frac{1}{3}', color: '#27ae60'},
-        {id: 'lambda-bar', latex: '\\{(0, 0), (0, \\frac{2}{3})\\}', color: '#8e44ad', lineWidth: 20},
-        {id: 'matter-bar', latex: '\\{(1, 0), (1, \\frac{1}{3})\\}', color: '#27ae60', lineWidth: 20},
-        {id: 'total', latex: '\\{(2, 0), (2, 1)\\}', color: '#333', lineWidth: 20},
-        {id: 'labels1', latex: '(0, -0.1)', color: '#8e44ad', label: 'Dark Energy', showLabel: true},
-        {id: 'labels2', latex: '(1, -0.1)', color: '#27ae60', label: 'Matter', showLabel: true},
-        {id: 'labels3', latex: '(2, -0.1)', color: '#333', label: 'Total', showLabel: true}
-    ]);
-    
-    cosmicParameters.setMathBounds({left: -0.5, right: 2.5, bottom: -0.2, top: 1.2});
-    
-    // 5. Fine Structure Constant
-    var fineStructure = Desmos.GraphingCalculator(document.getElementById('fine-structure'), {
-        expressions: false,
-        settingsMenu: false,
-        zoomButtons: false
-    });
-    
-    fineStructure.setExpressions([
-        {id: 'alpha-value', latex: '\\alpha = \\frac{1}{137.036}', color: '#e74c3c'},
-        {id: 'beta-hydrogen', latex: '\\beta_1 = \\alpha', color: '#3498db'},
-        {id: 'identity', latex: 'y = x', color: '#333', lineStyle: 'dashed'},
-        {id: 'alpha-point', latex: '(\\alpha, \\alpha)', color: '#27ae60', pointSize: 12},
-        {id: 'alpha-line1', latex: 'x = \\alpha \\{0 \\leq y \\leq \\alpha\\}', color: '#999', lineStyle: 'dotted'},
-        {id: 'alpha-line2', latex: 'y = \\alpha \\{0 \\leq x \\leq \\alpha\\}', color: '#999', lineStyle: 'dotted'}
-    ]);
-    
-    fineStructure.setMathBounds({left: 0, right: 0.02, bottom: 0, top: 0.02});
-});
-</script>
 
 ---
 
@@ -262,4 +251,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-*Experience the beauty of geometric unified physics through interactive exploration*
+*Experience the beauty of geometric unified physics*

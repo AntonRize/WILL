@@ -41,12 +41,58 @@ The algebraic framework extends to universal scale, explaining cosmological obse
 - **Dark Energy Solution:** Not a substance but geometric consequence of "accumulated projectional loss"
 - **Cosmic Energy Budget:** Direct prediction `Ω_Λ = 2/3` and `Ω_m = 1/3` from geometric necessity
 - **Equation of State:** `w = -1` derived as consequence of maximal symmetry
+- **Galactic Dynamics:** Applied to galaxy rotation curves, explaining observed phenomena without dark matter halos through "geometric energy density". **Empirical Success:** Median RMSE of 20.1 km/s when applied to SPARC galaxy database.
 
-### 🌀 Part III: Galactic Dynamics
+<div style="text-align: center; margin: 20px 0;">
+    <svg width="400" height="300" viewBox="0 0 400 300" style="background: white; border: 1px solid #ddd; border-radius: 8px;">
+        <!-- Title -->
+        <text x="200" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">WILL 3.1: RMSE Distribution</text>
+        
+        <!-- Axes -->
+        <line x1="60" y1="250" x2="360" y2="250" stroke="#333" stroke-width="2"/>
+        <line x1="60" y1="250" x2="60" y2="50" stroke="#333" stroke-width="2"/>
+        
+        <!-- Bars (simplified histogram) -->
+        <rect x="70" y="100" width="25" height="150" fill="#5DADE2" stroke="#2E86AB" stroke-width="1"/>
+        <rect x="100" y="130" width="25" height="120" fill="#5DADE2" stroke="#2E86AB" stroke-width="1"/>
+        <rect x="130" y="180" width="25" height="70" fill="#5DADE2" stroke="#2E86AB" stroke-width="1"/>
+        <rect x="160" y="210" width="25" height="40" fill="#5DADE2" stroke="#2E86AB" stroke-width="1"/>
+        <rect x="190" y="230" width="25" height="20" fill="#5DADE2" stroke="#2E86AB" stroke-width="1"/>
+        <rect x="220" y="200" width="25" height="50" fill="#5DADE2" stroke="#2E86AB" stroke-width="1"/>
+        <rect x="250" y="240" width="25" height="10" fill="#5DADE2" stroke="#2E86AB" stroke-width="1"/>
+        <rect x="280" y="240" width="25" height="10" fill="#5DADE2" stroke="#2E86AB" stroke-width="1"/>
+        <rect x="310" y="245" width="25" height="5" fill="#5DADE2" stroke="#2E86AB" stroke-width="1"/>
+        
+        <!-- Median line -->
+        <line x1="130" y1="50" x2="130" y2="250" stroke="#333" stroke-width="2" stroke-dasharray="8,4"/>
+        <text x="135" y="70" font-size="12" fill="#333" font-weight="bold">Median = 20.1 km/s</text>
+        
+        <!-- X-axis labels -->
+        <text x="70" y="270" text-anchor="middle" font-size="10" fill="#666">0</text>
+        <text x="130" y="270" text-anchor="middle" font-size="10" fill="#666">25</text>
+        <text x="190" y="270" text-anchor="middle" font-size="10" fill="#666">50</text>
+        <text x="250" y="270" text-anchor="middle" font-size="10" fill="#666">75</text>
+        <text x="310" y="270" text-anchor="middle" font-size="10" fill="#666">100</text>
+        <text x="210" y="290" text-anchor="middle" font-size="12" fill="#333">RMSE [km s⁻¹]</text>
+        
+        <!-- Y-axis labels -->
+        <text x="45" y="255" text-anchor="middle" font-size="10" fill="#666">0</text>
+        <text x="45" y="200" text-anchor="middle" font-size="10" fill="#666">25</text>
+        <text x="45" y="150" text-anchor="middle" font-size="10" fill="#666">40</text>
+        <text x="45" y="100" text-anchor="middle" font-size="10" fill="#666">50</text>
+        <text x="25" y="150" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-90 25 150)">Number of Galaxies</text>
+    </svg>
+</div>
 
-Applied to galaxy rotation curves, explaining observed phenomena without dark matter halos through "geometric energy density" (`ρ_geo = v² / 4πGr²`).
+### ⚛️ Part III: Quantum Mechanics
 
-**Empirical Success:** Median RMSE of 20.1 km/s when applied to SPARC galaxy database, demonstrating high accuracy in predicting rotation curves from baryonic mass alone.
+Atomic structure through geometric quantization without wave functions, replacing the probabilistic formalism with pure geometric relationships.
+
+**Key Achievements:**
+- **Geometric Quantization:** Fundamental condition `nλ = 2πr` replaces wave function formalism
+- **Fine Structure Constant:** Independent derivation showing `α = β₁` where β₁ is the kinetic projection parameter for hydrogen ground state
+- **Hydrogen Spectrum:** Complete energy level prediction `E_n = -α²m_e c²/(2n²)` from pure geometry
+- **No Wave Functions:** Atomic physics emerges from geometric constraints on the unit circle
 
 ---
 
@@ -60,7 +106,7 @@ Applied to galaxy rotation curves, explaining observed phenomena without dark ma
             <li><strong>κ = sin(θ<sub>G</sub>)</strong> — potential projection (temporal like)</li>
             <li><strong>κ² = 2β²</strong> — universal geometric relation</li>
         </ul>
-        <p>The unit circle constraint <strong>β² + κ²/2 = 1</strong> ensures energy conservation and establishes natural boundaries for all physical processes.</p>
+        <p>The fundamental constraint <strong>β² + κ² = 3β²</strong> ensures energy conservation and establishes natural boundaries for all physical processes.</p>
     </div>
     
     <div style="text-align: center;">
@@ -88,19 +134,25 @@ Applied to galaxy rotation curves, explaining observed phenomena without dark ma
             <line x1="0" y1="0" x2="0" y2="-85" stroke="#3498db" stroke-width="4"/>
             <text x="8" y="-90" font-size="16" font-weight="bold" fill="#3498db">κ</text>
             
-            <!-- Point on circle -->
-            <circle cx="85" cy="-85" r="6" fill="#27ae60"/>
+            <!-- β point on circle (different angle) -->
+            <circle cx="85" cy="-60" r="5" fill="#e74c3c"/>
             
-            <!-- Angle arcs -->
-            <path d="M 30 0 A 30 30 0 0 0 21 -21" fill="none" stroke="#e74c3c" stroke-width="2"/>
-            <text x="35" y="-12" font-size="12" fill="#e74c3c">θₛ</text>
+            <!-- κ point on circle (different angle) -->
+            <circle cx="60" cy="-85" r="5" fill="#3498db"/>
             
-            <path d="M 0 -30 A 30 30 0 0 1 21 -21" fill="none" stroke="#3498db" stroke-width="2"/>
-            <text x="12" y="-35" font-size="12" fill="#3498db">θ_G</text>
+            <!-- Radius to β point -->
+            <line x1="0" y1="0" x2="85" y2="-60" stroke="#e74c3c" stroke-width="2" stroke-dasharray="4,2"/>
             
-            <!-- Radius to point -->
-            <line x1="0" y1="0" x2="85" y2="-85" stroke="#27ae60" stroke-width="2" stroke-dasharray="4,2"/>
-            <text x="45" y="-45" font-size="12" fill="#27ae60" transform="rotate(-45 45 -45)">R = 1</text>
+            <!-- Radius to κ point -->
+            <line x1="0" y1="0" x2="60" y2="-85" stroke="#3498db" stroke-width="2" stroke-dasharray="4,2"/>
+            
+            <!-- β angle arc -->
+            <path d="M 30 0 A 30 30 0 0 0 21 -15" fill="none" stroke="#e74c3c" stroke-width="2"/>
+            <text x="35" y="-8" font-size="12" fill="#e74c3c">θₛ</text>
+            
+            <!-- κ angle arc -->
+            <path d="M 0 -30 A 30 30 0 0 1 17 -25" fill="none" stroke="#3498db" stroke-width="2"/>
+            <text x="12" y="-40" font-size="12" fill="#3498db">θ_G</text>
             
             <!-- Labels -->
             <text x="150" y="8" font-size="14" font-weight="bold" fill="#666">β-axis</text>
@@ -108,9 +160,10 @@ Applied to galaxy rotation curves, explaining observed phenomena without dark ma
             
             <!-- Key relation -->
             <text x="-170" y="-160" font-size="14" font-weight="bold" fill="#2c3e50">κ² = 2β²</text>
+            <text x="-170" y="-140" font-size="12" fill="#666">β² + κ² = 3β²</text>
         </svg>
         <p style="font-size: 12px; color: #666; margin-top: 10px;">
-            Fundamental geometric constraint underlying all physics
+            Two independent angles: θₛ (spatial) and θ_G (gravitational)
         </p>
     </div>
 </div>
