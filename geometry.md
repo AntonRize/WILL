@@ -158,15 +158,15 @@ Explore the geometric foundations of WILL theory through interactive visualizati
         
         <p><strong>Geometric derivation:</strong></p>
         <ul>
-            <li><strong>Rest energy:</strong> E₀ = mc² (height of triangle)</li>
-            <li><strong>Momentum energy:</strong> pc (base of triangle)</li>
+            <li><strong>Rest energy:</strong> E₀ = mc² (base of triangle)</li>
+            <li><strong>Momentum energy:</strong> pc (height of triangle)</li>
             <li><strong>Total energy:</strong> E (hypotenuse)</li>
             <li><strong>Lorentz factor:</strong> γ = 1/√(1-β²) from unit circle constraint</li>
         </ul>
     </div>
     
     <div class="desmos-container">
-        <https://www.desmos.com/geometry/50al3wdj8o>
+        <!-- ЗАГОТОВКА 2: Вставь сюда ссылку на твой Desmos проект -->
         <div class="placeholder-note">
             <h4>🔧 Desmos Integration Placeholder #2</h4>
             <p><strong>Для интеграции:</strong> Замени этот блок на:</p>
