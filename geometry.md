@@ -170,7 +170,7 @@ Explore the geometric foundations of WILL theory through interactive visualizati
         <div class="placeholder-note">
             <h4>🔧 Desmos Integration Placeholder #2</h4>
             <p><strong>Для интеграции:</strong> Замени этот блок на:</p>
-            <code>&lt;iframe src="https://www.desmos.com/calculator/ТВОЙ_ID_ПРОЕКТА_2" width="100%" height="500" frameborder="0"&gt;&lt;/iframe&gt;</code>
+            <code>&lt;iframe src="https://www.desmos.com/geometry/50al3wdj8o" width="100%" height="500" frameborder="0"&gt;&lt;/iframe&gt;</code>
             <p><strong>Содержание:</strong> Special Relativity с выводом E=mc² через прямоугольный треугольник Пифагора</p>
         </div>
     </div>
