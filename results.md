@@ -1,68 +1,4 @@
 ---
-
-## ⚖️ Causal Closure without Circularity
-
-The structure of WILL Geometry is causally closed but not circular. Each parameter is either independently observable or computable from a minimal input pair consisting of one dynamic projection (such as κ or β) and one scale quantity (such as r, M, or ρ).
-
-<div style="margin: 40px 0; text-align: center;">
-    <svg width="800" height="500" viewBox="0 0 800 500" style="background: white; border: 1px solid #ddd; border-radius: 10px;">
-        <!-- Central box -->
-        <rect x="325" y="225" width="150" height="50" fill="#f8f9fa" stroke="#343a40" stroke-width="2" rx="5"/>
-        <text x="400" y="255" text-anchor="middle" font-size="16" font-weight="bold">κ² = 2β²</text>
-        
-        <!-- Left velocity -->
-        <text x="150" y="255" text-anchor="middle" font-size="14">v_e = κc</text>
-        
-        <!-- Right velocity -->
-        <text x="650" y="255" text-anchor="middle" font-size="14">v = βc</text>
-        
-        <!-- Top geometry section -->
-        <text x="400" y="100" text-anchor="middle" font-size="16" font-weight="bold">M</text>
-        <text x="250" y="130" text-anchor="middle" font-size="14">R_s = 2GM/c²</text>
-        <text x="550" y="130" text-anchor="middle" font-size="14">r_d = R_s/κ²</text>
-        <text x="680" y="160" text-anchor="middle" font-size="12">t_d = r_d/c</text>
-        
-        <!-- Bottom energy section -->
-        <text x="250" y="380" text-anchor="middle" font-size="12">ρ_max = c²/(8πGr_d²)</text>
-        <text x="550" y="380" text-anchor="middle" font-size="12">ρ = κ²·ρ_max</text>
-        
-        <!-- Arrows to center -->
-        <line x1="220" y1="250" x2="320" y2="250" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
-        <line x1="580" y1="250" x2="480" y2="250" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
-        <line x1="350" y1="140" x2="350" y2="220" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
-        <line x1="520" y1="140" x2="450" y2="220" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
-        <line x1="450" y1="360" x2="450" y2="280" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
-        
-        <!-- Geometry arrows -->
-        <line x1="380" y1="110" x2="280" y2="120" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/>
-        <line x1="420" y1="110" x2="520" y2="120" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/>
-        <line x1="600" y1="140" x2="650" y2="150" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/>
-        
-        <!-- Energy arrows -->
-        <line x1="320" y1="370" x2="480" y2="370" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/>
-        <line x1="520" y1="150" x2="300" y2="360" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
-        
-        <!-- Dashed boxes -->
-        <rect x="180" y="90" width="520" height="90" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="8,4" rx="5"/>
-        <text x="450" y="75" text-anchor="middle" font-size="14" font-weight="bold" fill="#666">Geometric Structure (GR)</text>
-        
-        <rect x="180" y="340" width="440" height="60" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="8,4" rx="5"/>
-        <text x="400" y="430" text-anchor="middle" font-size="14" font-weight="bold" fill="#666">Energy Structure (SR)</text>
-        
-        <!-- Arrow marker -->
-        <defs>
-            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
-            </marker>
-        </defs>
-    </svg>
-</div>
-
-The result is a structure where **causality is internal**, **coherence is enforced**, and **dynamics is simply the shifting of balanced configurations** — not the unfolding of arbitrary functions over time.
-
-Multiple valid entry points exist, but all reduce to consistent, non-redundant relationships governed by the fundamental geometric field equation.
-
----
 layout: default
 title: "Key Results"
 ---
@@ -266,11 +202,11 @@ Logical flow charts showing how all major physics results emerge from the fundam
 
 ### Core Geometric Relations
 
-$\frac{m_0}{m_P} \cdot \frac{l_P}{r_{d}} = \beta^2 \quad \Rightarrow \quad \kappa^2 = 2 \beta^2$
+$$\frac{m_0}{m_P} \cdot \frac{l_P}{r_{d}} = \beta^2 \quad \Rightarrow \quad \kappa^2 = 2 \beta^2$$
 
-$\Delta E_{A \to C} + \Delta E_{C \to A} = 0$
+$$\Delta E_{A \to C} + \Delta E_{C \to A} = 0$$
 
-$Q^2 = \kappa^2 + \beta^2 = 3\beta^2$
+$$Q^2 = \kappa^2 + \beta^2 = 3\beta^2$$
 
 ### Special Points
 
@@ -280,37 +216,37 @@ $Q^2 = \kappa^2 + \beta^2 = 3\beta^2$
 
 At the critical point where $\theta_S = \theta_G = 54.7356103172°$:
 
-$\kappa^2 + \beta^2 = 1$
-$\beta = T_c, \quad \kappa = L_c$
-$Q_t = \sqrt{1-3\beta^2} = 0 \quad \text{(Instability threshold)}$
+$$\kappa^2 + \beta^2 = 1$$
+$$\beta = T_c, \quad \kappa = L_c$$
+$$Q_t = \sqrt{1-3\beta^2} = 0 \quad \text{(Instability threshold)}$$
 
 ### Unified Field Equation
 
-$\boxed{\frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}} = \kappa^2}$
+$$\boxed{\frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}} = \kappa^2}$$
 
 For any spherically symmetric density $\rho(r)$:
 
-$\boxed{\frac{d}{dr}\bigl(\kappa^{2}r\bigr) = \frac{8\pi G}{c^{2}} r^{2}\rho(r)} \quad\Longrightarrow\quad \kappa^{2}(r)=\frac{2G}{c^{2}}\frac{m(r)}{r}$
+$$\boxed{\frac{d}{dr}\bigl(\kappa^{2}r\bigr) = \frac{8\pi G}{c^{2}} r^{2}\rho(r)} \quad\Longrightarrow\quad \kappa^{2}(r)=\frac{2G}{c^{2}}\frac{m(r)}{r}$$
 
 For the homogeneous layer ($\kappa=\text{const}$) this reduces to:
 
-$\rho(r)=\frac{\kappa^{2}c^{2}}{8\pi G r^{2}}$
+$$\rho(r)=\frac{\kappa^{2}c^{2}}{8\pi G r^{2}}$$
 
 ### Cosmological Relations
 
-$\boxed{\Lambda = \frac{\kappa^2}{r_{d}^2} \quad \text{with} \quad w = -1 \quad \text{(symmetry-enforced)}}$
+$$\boxed{\Lambda = \frac{\kappa^2}{r_{d}^2} \quad \text{with} \quad w = -1 \quad \text{(symmetry-enforced)}}$$
 
-$H = \frac{c}{r_{d}} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\rho} = \frac{\kappa^{2}c^{3}}{2Gm_{0}}$
+$$H = \frac{c}{r_{d}} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\rho} = \frac{\kappa^{2}c^{3}}{2Gm_{0}}$$
 
-$\rho = \rho_\Lambda = \frac{\kappa^2 c^2}{8 \pi G r_{d}^2} = \frac{H^{2}\kappa^{2}}{8\pi G}$
+$$\rho = \rho_\Lambda = \frac{\kappa^2 c^2}{8 \pi G r_{d}^2} = \frac{H^{2}\kappa^{2}}{8\pi G}$$
 
-$\rho_{max} = \frac{c^2}{8 \pi G r_{d}^2}$
+$$\rho_{max} = \frac{c^2}{8 \pi G r_{d}^2}$$
 
-$\Omega_\Lambda = \kappa^2$
+$$\Omega_\Lambda = \kappa^2$$
 
 ### WILL Invariant
 
-$W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}} = 1$
+$$W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}} = 1$$
 
 <div style="text-align: center; margin: 40px 0; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #6c757d;">
     <h4 style="color: #2c3e50; margin-bottom: 15px;">⚖️ Theoretical Closure</h4>
@@ -327,11 +263,71 @@ $W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d
 
 ### Ultimate Unity
 
-$\boxed{\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}}$
+$$\boxed{\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}}$$
 
-<div style="text-align: center; font-style: italic; color: #666; padding: 20px 0;">
-    <p>"Energy is not a substance, but a differential invariant of state transitions"</p>
+---
+
+## ⚖️ Causal Closure without Circularity
+
+The structure of WILL Geometry is causally closed but not circular. Each parameter is either independently observable or computable from a minimal input pair consisting of one dynamic projection (such as κ or β) and one scale quantity (such as r, M, or ρ).
+
+<div style="margin: 40px 0; text-align: center;">
+    <svg width="800" height="500" viewBox="0 0 800 500" style="background: white; border: 1px solid #ddd; border-radius: 10px;">
+        <!-- Central box -->
+        <rect x="325" y="225" width="150" height="50" fill="#f8f9fa" stroke="#343a40" stroke-width="2" rx="5"/>
+        <text x="400" y="255" text-anchor="middle" font-size="16" font-weight="bold">κ² = 2β²</text>
+        
+        <!-- Left velocity -->
+        <text x="150" y="255" text-anchor="middle" font-size="14">v_e = κc</text>
+        
+        <!-- Right velocity -->
+        <text x="650" y="255" text-anchor="middle" font-size="14">v = βc</text>
+        
+        <!-- Top geometry section -->
+        <text x="400" y="100" text-anchor="middle" font-size="16" font-weight="bold">M</text>
+        <text x="250" y="130" text-anchor="middle" font-size="14">R_s = 2GM/c²</text>
+        <text x="550" y="130" text-anchor="middle" font-size="14">r_d = R_s/κ²</text>
+        <text x="680" y="160" text-anchor="middle" font-size="12">t_d = r_d/c</text>
+        
+        <!-- Bottom energy section -->
+        <text x="250" y="380" text-anchor="middle" font-size="12">ρ_max = c²/(8πGr_d²)</text>
+        <text x="550" y="380" text-anchor="middle" font-size="12">ρ = κ²·ρ_max</text>
+        
+        <!-- Arrows to center -->
+        <line x1="220" y1="250" x2="320" y2="250" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <line x1="580" y1="250" x2="480" y2="250" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <line x1="350" y1="140" x2="350" y2="220" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <line x1="520" y1="140" x2="450" y2="220" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <line x1="450" y1="360" x2="450" y2="280" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
+        
+        <!-- Geometry arrows -->
+        <line x1="380" y1="110" x2="280" y2="120" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/>
+        <line x1="420" y1="110" x2="520" y2="120" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/>
+        <line x1="600" y1="140" x2="650" y2="150" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/>
+        
+        <!-- Energy arrows -->
+        <line x1="320" y1="370" x2="480" y2="370" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/>
+        <line x1="520" y1="150" x2="300" y2="360" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+        
+        <!-- Dashed boxes -->
+        <rect x="180" y="90" width="520" height="90" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="8,4" rx="5"/>
+        <text x="450" y="75" text-anchor="middle" font-size="14" font-weight="bold" fill="#666">Geometric Structure (GR)</text>
+        
+        <rect x="180" y="340" width="440" height="60" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="8,4" rx="5"/>
+        <text x="400" y="430" text-anchor="middle" font-size="14" font-weight="bold" fill="#666">Energy Structure (SR)</text>
+        
+        <!-- Arrow marker -->
+        <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+            </marker>
+        </defs>
+    </svg>
 </div>
+
+The result is a structure where **causality is internal**, **coherence is enforced**, and **dynamics is simply the shifting of balanced configurations** — not the unfolding of arbitrary functions over time.
+
+Multiple valid entry points exist, but all reduce to consistent, non-redundant relationships governed by the fundamental geometric field equation.
 
 ---
 
@@ -344,4 +340,6 @@ $\boxed{\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}}$
 
 ---
 
-*Geometric unity of fundamental physics might be achieved through pure reasoning*
+<div style="text-align: center; font-style: italic; color: #666; padding: 20px 0;">
+    <p>"Energy is not a substance, but a differential invariant of state transitions"</p>
+</div>

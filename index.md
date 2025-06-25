@@ -5,50 +5,62 @@ title: "WILL Geometry: Unified Geometric Framework"
 
 # WILL Geometry Research
 
-** This work is not an attempt to replace or dispute existing physics but rather to understand it from a geometric and philosophical standpoint. **
+**This work is not an attempt to replace or dispute existing physics but rather to understand it from a geometric and philosophical standpoint.**
 
 **This work remains an ongoing exploration**
+
 ---
 
 ## Fundamental Postulate
 
-$\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}$
+$$\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}$$
 
 From this single postulate, without free parameters, we derive:
 
 ---
 
-## Key Results
+## Framework Overview
 
-### ✅ Special Relativity
-- Geometric derivation of relativistic factor $\gamma = \frac{1}{\sqrt{1-\beta^2}}$
-- Projectional derivation of $E = mc^2$
-- Explanation of speed of light limit
+The "WILL Geometry" framework is a comprehensive physical model that aims to unify special relativity, general relativity, cosmology, and galactic dynamics from a single foundational principle. It replaces the traditional apparatus of differential equations and metric tensors with a closed system of algebraic relationships.
 
-### ✅ General Relativity
-- Complete equivalence with Einstein's equations
-- Resolution of singularity problem
-- Natural boundaries $\kappa^2 \leq 1$
+### ⚡ Part I: Foundational Principles (SR & GR)
 
-### ✅ Cosmology
-- Derivation of cosmological parameters $\Omega_\Lambda = \frac{2}{3}$, $\Omega_m = \frac{1}{3}$
-- Geometric explanation of dark energy
-- Equation of state $w = -1$ from symmetry
+The framework is built from the principle **"Spacetime ≡ Energy Evolution"**. Physical phenomena are described by two dimensionless energy projections: a kinetic parameter, `β = v/c`, and a potential parameter, `κ = v_e/c`.
 
-### ✅ Quantum Mechanics without quantum magic
-- Geometric quantization: $n\lambda = 2\pi r$
-- **Independent derivation of fine structure constant: $\alpha = \beta$**
-- Hydrogen spectral lines without wave functions
+**Key Achievements:**
+- **Unification of SR & GR:** Standard results from Special and General Relativity are reproduced through trigonometric re-parameterizations of `β` and `κ`
+- **Resolution of GR Problems:** 
+  - **Singularities:** Avoided by construction through geometric limit `κ² ≤ 1`
+  - **Local Energy Density:** Explicitly defined through algebraic field equation `κ² = ρ/ρ_max = R_s/r`
+
+### 🌌 Part II: Cosmological Applications
+
+The algebraic framework extends to universal scale, explaining cosmological observations without a metric or free parameters.
+
+**Key Achievements:**
+- **Dark Energy Solution:** Not a substance but geometric consequence of "accumulated projectional loss"
+- **Cosmic Energy Budget:** Direct prediction `Ω_Λ = 2/3` and `Ω_m = 1/3` from geometric necessity
+- **Equation of State:** `w = -1` derived as consequence of maximal symmetry
+
+### 🌀 Part III: Galactic Dynamics
+
+Applied to galaxy rotation curves, explaining observed phenomena without dark matter halos through "geometric energy density" (`ρ_geo = v² / 4πGr²`).
+
+**Empirical Success:** Median RMSE of 20.1 km/s when applied to SPARC galaxy database, demonstrating high accuracy in predicting rotation curves from baryonic mass alone.
 
 ---
 
-## Fundamental Geometry
+## Core Relations
 
-All physical phenomena emerge from projections on the unit circle:
-
-- **$\beta = \cos(\theta_S)$** — kinetic projection (spatial like)
-- **$\kappa = \sin(\theta_G)$** — potential projection (temporal like)
-- **$\kappa^2 = 2\beta^2$** — universal geometric relation
+<div style="text-align: center; margin: 40px 0; padding: 25px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 15px; border-left: 5px solid #667eea;">
+    <h3 style="color: #2c3e50; margin-bottom: 20px;">🏆 Fundamental Relations</h3>
+    <div style="font-size: 18px; line-height: 2; margin: 20px 0;">
+        <div style="margin: 12px 0;"><strong>κ² = 2β²</strong></div>
+        <div style="margin: 12px 0;"><strong>κ² = ρ/ρ<sub>max</sub> = R<sub>s</sub>/r</strong></div>
+        <div style="margin: 12px 0;"><strong>α = β</strong> (fine structure constant)</div>
+        <div style="margin: 12px 0;"><strong>Ω<sub>Λ</sub> = 2/3, Ω<sub>m</sub> = 1/3</strong></div>
+    </div>
+</div>
 
 ---
 
