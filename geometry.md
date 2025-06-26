@@ -115,13 +115,7 @@ Explore the geometric foundations of WILL theory through interactive visualizati
     </div>
     
     <div class="desmos-container">
-        <!-- ЗАГОТОВКА 1: Вставь сюда ссылку на твой Desmos проект -->
-        <div class="placeholder-note">
-            <h4>🔧 Desmos Integration Placeholder #1</h4>
-            <p><strong>Для интеграции:</strong> Замени этот блок на:</p>
-            <code>&lt;iframe src="https://www.desmos.com/calculator/ТВОЙ_ID_ПРОЕКТА_1" width="100%" height="500" frameborder="0"&gt;&lt;/iframe&gt;</code>
-            <p><strong>Содержание:</strong> WILL fundamental projectional structure с правильными проекциями β и κ</p>
-        </div>
+        <iframe src="https://www.desmos.com/geometry/rrxxvl2pdo" width="100%" height="500" frameborder="0"></iframe>
     </div>
     
     <div class="results-grid">
@@ -205,13 +199,7 @@ Explore the geometric foundations of WILL theory through interactive visualizati
     </div>
     
     <div class="desmos-container">
-        <!-- ЗАГОТОВКА 3: Вставь сюда ссылку на твой Desmos проект -->
-        <div class="placeholder-note">
-            <h4>🔧 Desmos Integration Placeholder #3</h4>
-            <p><strong>Для интеграции:</strong> Замени этот блок на:</p>
-            <code>&lt;iframe src="https://www.desmos.com/calculator/ТВОЙ_ID_ПРОЕКТА_3" width="100%" height="500" frameborder="0"&gt;&lt;/iframe&gt;</code>
-            <p><strong>Содержание:</strong> Critical balance point showing photon sphere и ISCO emergence</p>
-        </div>
+        <iframe src="https://www.desmos.com/geometry/6xjbla688b" width="100%" height="500" frameborder="0"></iframe>
     </div>
     
     <div class="critical-points">
