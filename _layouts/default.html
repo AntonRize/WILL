@@ -39,7 +39,6 @@
             background-color: #111827; /* bg-gray-900 */
             color: #d1d5db; /* text-gray-300 */
         }
-        /* Styles for the content rendered from Markdown files */
         .markdown-content h1, .markdown-content h2, .markdown-content h3 {
             color: #ffffff;
             border-bottom: 1px solid #374151;
@@ -65,6 +64,20 @@
             border-left: 4px solid #4b5563; /* border-gray-600 */
             padding-left: 1em;
             color: #9ca3af; /* text-gray-400 */
+        }
+        /* FIX FOR READABILITY: This forces text inside custom-styled divs to be dark and readable */
+        .markdown-content div[style*="background"] {
+            color: #1f2937 !important; /* A dark color readable on light gradients */
+        }
+        .markdown-content div[style*="background"] h3,
+        .markdown-content div[style*="background"] h4,
+        .markdown-content div[style*="background"] p,
+        .markdown-content div[style*="background"] li,
+        .markdown-content div[style*="background"] strong {
+            color: #1f2937 !important;
+        }
+        .markdown-content div[style*="background"] a {
+             color: #0056b3 !important; /* A dark blue for links on light backgrounds */
         }
     </style>
 </head>
