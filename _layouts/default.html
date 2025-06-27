@@ -37,10 +37,52 @@
         .markdown-content table, .markdown-content th, .markdown-content td { border-color: #374151; }
         .markdown-content th { color: #ffffff; }
 
-        /* === GLOBAL FIX FOR READABILITY === */
-        .markdown-content div[style*="background"] { color: #1f2937 !important; }
-        .markdown-content div[style*="background"] * { color: #1f2937 !important; }
-        .markdown-content div[style*="background"] a { color: #0056b3 !important; text-decoration: underline !important; }
+        /* === GLOBAL FIX FOR READABILITY ON ALL PAGES === */
+        /* This CSS targets any div with an inline style OR a class used on your pages */
+        /* and ensures all text elements inside are dark and readable on light backgrounds. */
+        .markdown-content div[style*="background"],
+        .markdown-content .calculator-container,
+        .markdown-content .theory-section,
+        .markdown-content .adaptive-system,
+        .markdown-content .override-controls,
+        .markdown-content .adaptive-panel,
+        .markdown-content .galaxy-info,
+        .markdown-content .results-grid .stat-card,
+        .markdown-content .flow-box,
+        .markdown-content .geometry-container,
+        .markdown-content .geometry-description,
+        .markdown-content .theorem-box,
+        .markdown-content .critical-points,
+        .markdown-content .results-grid .result-card {
+            color: #1f2937 !important;
+        }
+        .markdown-content div[style*="background"] *,
+        .markdown-content .calculator-container *,
+        .markdown-content .theory-section *,
+        .markdown-content .adaptive-system *,
+        .markdown-content .override-controls *,
+        .markdown-content .adaptive-panel *,
+        .markdown-content .galaxy-info *,
+        .markdown-content .results-grid .stat-card *,
+        .markdown-content .flow-box *,
+        .markdown-content .geometry-container *,
+        .markdown-content .geometry-description *,
+        .markdown-content .theorem-box *,
+        .markdown-content .critical-points *,
+        .markdown-content .results-grid .result-card * {
+            color: #1f2937 !important;
+        }
+        .markdown-content div[style*="background"] a,
+        .markdown-content .calculator-container a,
+        .markdown-content .geometry-container a {
+            color: #0056b3 !important;
+            text-decoration: underline !important;
+        }
+        /* Keep button text white */
+        .markdown-content .btn-calculator {
+            color: white !important;
+        }
+        /* === END OF FIX === */
     </style>
 </head>
 <body class="antialiased">
@@ -182,6 +224,7 @@
 
                 function drawGeometry() {
                     const kappa = parseFloat(slider.value);
+                    if (kappa > 1.414) return;
                     const beta = kappa / Math.sqrt(2);
                     if (beta > 1) return;
 
