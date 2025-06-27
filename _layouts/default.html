@@ -1,84 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-    
-    <!-- Scripts & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- MathJax for mathematical formulas -->
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-                displayMath: [['$$','$$'], ['\\[','\\]']],
-                processEscapes: true,
-                processEnvironments: true
-            },
-            TeX: {
-                equationNumbers: { autoNumber: "AMS" },
-                extensions: ["AMSmath.js", "AMSsymbols.js"]
-            },
-            displayAlign: "center"
-        });
-    </script>
-    <script type="text/javascript" async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-    
-    <!-- Custom Styles for Jekyll Content -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* bg-gray-900 */
-            color: #d1d5db; /* text-gray-300 */
+            background-color: #111827;
+            color: #E5E7EB;
         }
-        .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+        .pillar-card .details {
+            display: none; max-height: 0; overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding-top 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+        }
+        .pillar-card.active .details {
+            display: block; max-height: 200px; padding-top: 1rem; margin-top: 1rem;
+        }
+        .pillar-card.active .chevron {
+            transform: rotate(180deg);
+        }
+        .markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4 {
             color: #ffffff;
             border-bottom: 1px solid #374151;
             padding-bottom: 0.3em;
             margin-top: 1.5em;
         }
-        .markdown-content a {
-            color: #67e8f9; /* text-cyan-300 */
-        }
-        .markdown-content code {
-            color: #f9a8d4; /* text-pink-300 */
-            background-color: #1f2937; /* bg-gray-800 */
-            padding: 0.2em 0.4em;
-            border-radius: 6px;
-        }
-        .markdown-content pre {
-            background-color: #1f2937;
-            padding: 1em;
-            border-radius: 8px;
-            overflow-x: auto;
-        }
-        .markdown-content blockquote {
-            border-left: 4px solid #4b5563; /* border-gray-600 */
-            padding-left: 1em;
-            color: #9ca3af; /* text-gray-400 */
-        }
-        /* FIX FOR READABILITY: This forces text inside custom-styled divs to be dark and readable */
-        .markdown-content div[style*="background"] {
-            color: #1f2937 !important; /* A dark color readable on light gradients */
-        }
-        .markdown-content div[style*="background"] h3,
-        .markdown-content div[style*="background"] h4,
-        .markdown-content div[style*="background"] p,
-        .markdown-content div[style*="background"] li,
-        .markdown-content div[style*="background"] strong {
-            color: #1f2937 !important;
-        }
-        .markdown-content div[style*="background"] a {
-             color: #0056b3 !important; /* A dark blue for links on light backgrounds */
-        }
+        .markdown-content a { color: #67e8f9; }
+        .markdown-content code { color: #f9a8d4; background-color: #1f2937; padding: 0.2em 0.4em; border-radius: 6px; }
+        .markdown-content pre { background-color: #1f2937; padding: 1em; border-radius: 8px; overflow-x: auto; }
+        .markdown-content blockquote { border-left: 4px solid #4b5563; padding-left: 1em; color: #9ca3af; }
+        .markdown-content table, .markdown-content th, .markdown-content td { border-color: #374151; }
+        .markdown-content th { color: #ffffff; }
+
+        /* === GLOBAL FIX FOR READABILITY === */
+        .markdown-content div[style*="background"] { color: #1f2937 !important; }
+        .markdown-content div[style*="background"] * { color: #1f2937 !important; }
+        .markdown-content div[style*="background"] a { color: #0056b3 !important; text-decoration: underline !important; }
     </style>
 </head>
 <body class="antialiased">
@@ -92,23 +54,194 @@
                     <a href="{{ item.url | relative_url }}" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ item.title }}</a>
                 {% endfor %}
             </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6H4"></path></svg>
+                </button>
+            </div>
         </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                 {% for item in site.navigation %}
+                    <a href="{{ item.url | relative_url }}" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">{{ item.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="container mx-auto px-6 py-8 max-w-4xl">
-        <div class="markdown-content">
+    <main class="container mx-auto px-6 max-w-4xl">
+        {% if page.url == "/" %}
+        <!-- ============== HOME PAGE CONTENT ============== -->
+        <div id="home-content">
+            <!-- Hero Section -->
+            <section class="text-center py-20 md:py-24">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">A New Foundation for Physics</h1>
+                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">Unifying physics from a single geometric postulate, without free parameters.</p>
+                <div class="mt-12 max-w-2xl mx-auto border-2 border-cyan-500/30 bg-gray-800/50 rounded-xl p-6 shadow-2xl shadow-cyan-500/10">
+                    <p class="text-lg text-gray-300">Fundamental Postulate:</p>
+                    <p class="text-2xl md:text-3xl font-bold text-cyan-400 tracking-wider mt-2">SPACETIME ≡ ENERGY EVOLUTION</p>
+                </div>
+            </section>
+
+            <!-- Core Concepts Section -->
+            <section class="py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">The Core Geometry</h2>
+                    <p class="mt-3 max-w-3xl mx-auto text-gray-400">All physics emerges from two related projections, β and κ, defined by separate angles on the unit circle. Use the slider to control κ and observe the relationships.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-gray-800/50 p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Geometric Relations</h3>
+                        <div class="mb-6">
+                            <label for="kappa-slider" class="block mb-2 text-sm font-medium text-gray-300">Control Parameter: κ (from 0 to √2 ≈ 1.414)</label>
+                            <input id="kappa-slider" type="range" min="0" max="1.414" value="0.8" step="0.001" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="bg-gray-900 p-3 rounded"><p class="text-gray-400">κ (Potential)</p><p id="kappa-val" class="text-xl font-bold text-purple-400">0.800</p></div>
+                            <div class="bg-gray-900 p-3 rounded"><p class="text-gray-400">β (Kinetic)</p><p id="beta-val" class="text-xl font-bold text-cyan-400">0.566</p></div>
+                            <div class="bg-gray-900 p-3 rounded"><p class="text-gray-400">θ<sub>G</sub> (from κ)</p><p id="thetaG-val" class="text-xl font-bold text-purple-400">53.13°</p></div>
+                            <div class="bg-gray-900 p-3 rounded"><p class="text-gray-400">θ<sub>S</sub> (from β)</p><p id="thetaS-val" class="text-xl font-bold text-cyan-400">55.55°</p></div>
+                            <div class="bg-gray-900 p-3 rounded"><p class="text-gray-400">T<sub>c</sub> = cos(θ<sub>G</sub>)</p><p id="tc-val" class="text-xl font-bold text-purple-400">0.600</p></div>
+                            <div class="bg-gray-900 p-3 rounded"><p class="text-gray-400">L<sub>c</sub> = sin(θ<sub>S</sub>)</p><p id="lc-val" class="text-xl font-bold text-cyan-400">0.825</p></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 p-2 rounded-lg flex justify-center items-center"><canvas id="geometry-canvas"></canvas></div>
+                </div>
+            </section>
+            
+            <!-- Pillars Section -->
+            <section class="py-20">
+                <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-white">The Three Pillars of WILL</h2><p class="mt-3 max-w-3xl mx-auto text-gray-400">The geometric framework is applied across three core domains of physics. Click each pillar to learn more.</p></div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                        <div class="flex justify-between items-center"><h3 class="text-xl font-bold text-cyan-400">⚡ Relativity Reimagined</h3><span class="chevron text-gray-400 transition-transform">▼</span></div>
+                        <p class="mt-2 text-gray-400">Derives SR & GR from geometry, inherently avoiding singularities.</p>
+                        <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2"><p><strong>• Unifies SR & GR:</strong> Reproduces standard results via trigonometric re-parameterization.</p><p><strong>• Solves Singularities:</strong> The geometric limit `κ² ≤ 1` naturally prevents infinite densities.</p><p><strong>• Defines Local Energy:</strong> Provides an algebraic field equation: `κ² = R_s/r`.</p></div>
+                    </div>
+                    <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                        <div class="flex justify-between items-center"><h3 class="text-xl font-bold text-purple-400">🌌 Cosmology without Dark Forces</h3><span class="chevron text-gray-400 transition-transform">▼</span></div>
+                        <p class="mt-2 text-gray-400">Explains cosmic observations without Dark Matter or Dark Energy.</p>
+                        <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2"><p><strong>• Dark Energy is Geometric:</strong> Explained as "accumulated projectional loss," not a substance.</p><p><strong>• Predicts Cosmic Budget:</strong> Derives `Ω_Λ = 2/3` and `Ω_m = 1/3` from first principles.</p><p><strong>• Explains Galaxy Rotation:</strong> Models rotation curves without dark matter halos (Median RMSE: 20.1 km/s).</p></div>
+                    </div>
+                    <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                        <div class="flex justify-between items-center"><h3 class="text-xl font-bold text-amber-400">⚛️ Quantum Mechanics from Geometry</h3><span class="chevron text-gray-400 transition-transform">▼</span></div>
+                        <p class="mt-2 text-gray-400">Replaces wave-function probability with deterministic geometric constraints.</p>
+                        <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2"><p><strong>• No Wave Functions:</strong> Atomic physics emerges from pure geometric constraints.</p><p><strong>• Derives Fine Structure Constant:</strong> Shows `α` is the kinetic projection for hydrogen's ground state.</p><p><strong>• Predicts Hydrogen Spectrum:</strong> Replicates the energy level formula `E_n = -α²m_e c²/(2n²)`.</p></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        {% else %}
+        <!-- ============== DEFAULT PAGE CONTENT ============== -->
+        <div class="markdown-content py-8">
             {{ content }}
         </div>
+        {% endif %}
     </main>
     
     <!-- Footer -->
     <footer class="bg-gray-900 mt-16 border-t border-gray-800">
         <div class="container mx-auto px-6 py-6 text-center text-gray-500">
             <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
-            <p>Created to advance understanding of fundamental physics.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            }
+
+            const pillarCards = document.querySelectorAll('.pillar-card');
+            pillarCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const isActive = card.classList.contains('active');
+                    pillarCards.forEach(c => c.classList.remove('active'));
+                    if (!isActive) card.classList.add('active');
+                });
+            });
+
+            const canvas = document.getElementById('geometry-canvas');
+            if(canvas) {
+                const slider = document.getElementById('kappa-slider');
+                const kappaValEl = document.getElementById('kappa-val');
+                const betaValEl = document.getElementById('beta-val');
+                const thetaGValEl = document.getElementById('thetaG-val');
+                const thetaSValEl = document.getElementById('thetaS-val');
+                const tcValEl = document.getElementById('tc-val');
+                const lcValEl = document.getElementById('lc-val');
+
+                const ctx = canvas.getContext('2d');
+                const size = 320;
+                const center = size / 2;
+                const radius = size * 0.45;
+                canvas.width = size;
+                canvas.height = size;
+
+                function drawGeometry() {
+                    const kappa = parseFloat(slider.value);
+                    const beta = kappa / Math.sqrt(2);
+                    if (beta > 1) return;
+
+                    const theta_S_rad = Math.acos(beta);
+                    const theta_G_rad = Math.asin(kappa > 1 ? 1 : kappa);
+                    const Lc = Math.sin(theta_S_rad);
+                    const Tc = Math.cos(theta_G_rad);
+
+                    kappaValEl.textContent = kappa.toFixed(3);
+                    betaValEl.textContent = beta.toFixed(3);
+                    thetaSValEl.textContent = `${(theta_S_rad * 180 / Math.PI).toFixed(2)}°`;
+                    thetaGValEl.textContent = `${(theta_G_rad * 180 / Math.PI).toFixed(2)}°`;
+                    lcValEl.textContent = Lc.toFixed(3);
+                    tcValEl.textContent = Tc.toFixed(3);
+                    
+                    ctx.clearRect(0, 0, size, size);
+                    ctx.font = '11px Inter';
+                    ctx.lineWidth = 1;
+
+                    ctx.beginPath();
+                    for(let i = 0; i <= size; i += 20) {
+                        ctx.moveTo(i, 0); ctx.lineTo(i, size);
+                        ctx.moveTo(0, i); ctx.lineTo(size, i);
+                    }
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(0, center); ctx.lineTo(size, center);
+                    ctx.moveTo(center, 0); ctx.lineTo(center, size);
+                    ctx.strokeStyle = '#4B5563';
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(center, center, radius, 0, 2 * Math.PI);
+                    ctx.strokeStyle = '#6B7280';
+                    ctx.stroke();
+                    
+                    const x_S = center + radius * beta;
+                    const y_S = center - radius * Lc;
+                    ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_S, y_S); ctx.strokeStyle = '#67e8f9'; ctx.lineWidth = 2; ctx.stroke();
+                    
+                    const x_G = center + radius * Tc;
+                    const y_G = center - radius * kappa;
+                    ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_G, y_G); ctx.strokeStyle = '#c084fc'; ctx.lineWidth = 2; ctx.stroke();
+                    
+                    ctx.lineWidth = 1;
+
+                    ctx.fillStyle = '#67e8f9';
+                    ctx.fillText('β', x_S - 25, center + 15);
+                    ctx.fillText('Lc', center - 25, y_S + 15);
+                    ctx.fillStyle = '#c084fc';
+                    ctx.fillText('κ', center + 5, y_G + 15);
+                    ctx.fillText('Tc', x_G - 25, center - 5);
+                }
+                slider.addEventListener('input', drawGeometry);
+                drawGeometry();
+            }
+        });
+    </script>
 
 </body>
 </html>
