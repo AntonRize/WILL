@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,28 +14,11 @@
             background-color: #111827;
             color: #E5E7EB;
         }
-        .chart-container {
-            position: relative;
-            margin: auto;
-            height: 350px;
-            width: 100%;
-            max-width: 450px;
-        }
-        .pillar-card .details {
-            display: none;
-            transition: all 0.5s ease-in-out;
-        }
-        .pillar-card.active .details {
-            display: block;
-        }
-        .pillar-card.active .chevron {
-            transform: rotate(180deg);
-        }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header & Navigation -->
+    <!-- Header & Navigation with Mobile Menu support -->
     <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-5xl">
             <a href="{{ "/" | relative_url }}" class="text-xl font-bold text-white">WILL Geometry</a>
@@ -45,12 +27,26 @@
                     <a href="{{ item.url | relative_url }}" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ item.title }}</a>
                 {% endfor %}
             </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6H4"></path></svg>
+                </button>
+            </div>
         </nav>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                 {% for item in site.navigation %}
+                    <a href="{{ item.url | relative_url }}" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">{{ item.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
     </header>
 
     <main class="container mx-auto px-6">
         <!-- Hero Section -->
-        <section class="text-center py-20 md:py-32">
+        <section class="text-center py-20 md:py-24">
             <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
                 A New Foundation for Physics
             </h1>
@@ -66,87 +62,52 @@
         </section>
 
         <!-- Core Concepts Section -->
-        <section class="py-20">
+        <section class="py-16">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">The Core Geometry</h2>
-                <p class="mt-3 max-w-3xl mx-auto text-gray-400">All physics emerges from two fundamental projections on a unit circle. Interact with the slider to see how they relate.</p>
+                <p class="mt-3 max-w-3xl mx-auto text-gray-400">All physics emerges from two related projections, β and κ, defined by separate angles on the unit circle. Use the slider to control κ and observe the relationships.</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="bg-gray-800/50 p-8 rounded-lg">
-                    <h3 class="text-2xl font-semibold text-white mb-4">The Projections</h3>
-                    <ul class="space-y-4 text-gray-300">
-                        <li>
-                            <strong class="text-cyan-400">β (Kinetic Projection):</strong> Represents motion and spatial-like properties. Defined as `β = cos(θ)`.
-                        </li>
-                        <li>
-                            <strong class="text-purple-400">κ (Potential Projection):</strong> Represents potential energy and temporal-like properties. Defined as `κ = sin(θ)`.
-                        </li>
-                        <li class="pt-4 border-t border-gray-700">
-                            <strong class="text-white">Universal Relation:</strong> The framework establishes a universal geometric link: <span class="font-mono text-amber-400">κ² = 2β²</span>. This constraint governs all physical interactions.
-                        </li>
-                    </ul>
-                    <div class="mt-8">
-                         <input id="geometry-slider" type="range" min="0" max="90" value="35.26" step="0.01" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-                         <div class="flex justify-between text-xs text-gray-400 mt-2">
-                            <span>θ = 0°</span>
-                            <span>θ = 90°</span>
-                         </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-gray-800/50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Geometric Relations</h3>
+                    <div class="mb-6">
+                         <label for="kappa-slider" class="block mb-2 text-sm font-medium text-gray-300">Control Parameter: κ (from 0 to √2)</label>
+                         <input id="kappa-slider" type="range" min="0" max="1.4142" value="0.8" step="0.001" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">κ (Potential)</p>
+                            <p id="kappa-val" class="text-xl font-bold text-purple-400">0.800</p>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">β (Kinetic)</p>
+                            <p id="beta-val" class="text-xl font-bold text-cyan-400">0.566</p>
+                        </div>
+                         <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">θ<sub>G</sub> (from κ)</p>
+                            <p id="thetaG-val" class="text-xl font-bold text-purple-400">53.13°</p>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">θ<sub>S</sub> (from β)</p>
+                            <p id="thetaS-val" class="text-xl font-bold text-cyan-400">55.55°</p>
+                        </div>
+                         <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">T<sub>c</sub> = cos(θ<sub>G</sub>)</p>
+                            <p id="tc-val" class="text-xl font-bold text-purple-400">0.600</p>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">L<sub>c</sub> = sin(θ<sub>S</sub>)</p>
+                            <p id="lc-val" class="text-xl font-bold text-cyan-400">0.825</p>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-gray-800/50 p-4 rounded-lg flex justify-center items-center">
+                <div class="bg-gray-800/50 p-2 rounded-lg flex justify-center items-center">
                     <canvas id="geometry-canvas"></canvas>
                 </div>
             </div>
         </section>
-
-        <!-- Pillars Section -->
-        <section class="py-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">The Three Pillars of WILL</h2>
-                <p class="mt-3 max-w-3xl mx-auto text-gray-400">The geometric framework is applied across three core domains of physics, providing novel solutions to long-standing problems. Click each pillar to learn more.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pillar 1: Relativity -->
-                <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-cyan-400">⚡ Relativity Reimagined</h3>
-                        <span class="chevron text-gray-400 transition-transform">▼</span>
-                    </div>
-                    <p class="mt-2 text-gray-400">Derives SR & GR from geometry, inherently avoiding singularities.</p>
-                    <div class="details mt-4 pt-4 border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
-                        <p><strong>• Unifies SR & GR:</strong> Reproduces standard results via trigonometric re-parameterization.</p>
-                        <p><strong>• Solves Singularities:</strong> The geometric limit `κ² ≤ 1` naturally prevents infinite densities.</p>
-                        <p><strong>• Defines Local Energy:</strong> Provides an algebraic field equation: `κ² = R_s/r`.</p>
-                    </div>
-                </div>
-                <!-- Pillar 2: Cosmology -->
-                <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
-                     <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-purple-400">🌌 Cosmology without Dark Forces</h3>
-                        <span class="chevron text-gray-400 transition-transform">▼</span>
-                    </div>
-                    <p class="mt-2 text-gray-400">Explains cosmic observations without Dark Matter or Dark Energy.</p>
-                     <div class="details mt-4 pt-4 border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
-                        <p><strong>• Dark Energy is Geometric:</strong> Explained as "accumulated projectional loss," not a substance.</p>
-                        <p><strong>• Predicts Cosmic Budget:</strong> Derives `Ω_Λ = 2/3` and `Ω_m = 1/3` from first principles.</p>
-                        <p><strong>• Explains Galaxy Rotation:</strong> Models rotation curves without dark matter halos (Median RMSE: 20.1 km/s).</p>
-                    </div>
-                </div>
-                <!-- Pillar 3: Quantum Mechanics -->
-                <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
-                     <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-amber-400">⚛️ Quantum Mechanics from Geometry</h3>
-                         <span class="chevron text-gray-400 transition-transform">▼</span>
-                    </div>
-                    <p class="mt-2 text-gray-400">Replaces wave-function probability with deterministic geometric constraints.</p>
-                     <div class="details mt-4 pt-4 border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
-                        <p><strong>• No Wave Functions:</strong> Atomic physics emerges from pure geometric constraints.</p>
-                        <p><strong>• Derives Fine Structure Constant:</strong> Shows `α` is the kinetic projection for hydrogen's ground state.</p>
-                        <p><strong>• Predicts Hydrogen Spectrum:</strong> Replicates the energy level formula `E_n = -α²m_e c²/(2n²)`.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
+        <!-- Other sections from your index.md could be placed here if needed -->
     </main>
 
     <footer class="bg-gray-900 mt-20">
@@ -157,67 +118,116 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const pillarCards = document.querySelectorAll('.pillar-card');
-            pillarCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    card.classList.toggle('active');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
                 });
-            });
+            }
 
+            // --- Corrected Interactive Geometry Canvas ---
             const canvas = document.getElementById('geometry-canvas');
             if(canvas) {
-                const slider = document.getElementById('geometry-slider');
+                const slider = document.getElementById('kappa-slider');
+                const kappaValEl = document.getElementById('kappa-val');
+                const betaValEl = document.getElementById('beta-val');
+                const thetaGValEl = document.getElementById('thetaG-val');
+                const thetaSValEl = document.getElementById('thetaS-val');
+                const tcValEl = document.getElementById('tc-val');
+                const lcValEl = document.getElementById('lc-val');
+
                 const ctx = canvas.getContext('2d');
-                const size = 300;
+                const size = 320;
                 const center = size / 2;
-                const radius = size * 0.4;
+                const radius = size * 0.45;
                 canvas.width = size;
                 canvas.height = size;
 
                 function drawGeometry() {
-                    const angleDeg = slider.value;
-                    const angleRad = angleDeg * (Math.PI / 180);
-                    const beta = Math.cos(angleRad);
-                    const kappa = Math.sin(angleRad);
+                    // 1. Get value from slider
+                    const kappa = parseFloat(slider.value);
+                    
+                    // 2. Calculate related parameters
+                    const beta = kappa / Math.sqrt(2);
+                    
+                    // Angles (handle domain for arcsin)
+                    const theta_S_rad = Math.acos(beta);
+                    const theta_G_rad = kappa <= 1 ? Math.asin(kappa) : NaN;
+
+                    const theta_S_deg = theta_S_rad * (180 / Math.PI);
+                    const theta_G_deg = !isNaN(theta_G_rad) ? theta_G_rad * (180 / Math.PI) : NaN;
+
+                    // Projections
+                    const Lc = Math.sin(theta_S_rad);
+                    const Tc = !isNaN(theta_G_rad) ? Math.cos(theta_G_rad) : NaN;
+
+                    // 3. Update text values
+                    kappaValEl.textContent = kappa.toFixed(3);
+                    betaValEl.textContent = beta.toFixed(3);
+                    thetaSValEl.textContent = `${theta_S_deg.toFixed(2)}°`;
+                    thetaGValEl.textContent = !isNaN(theta_G_deg) ? `${theta_G_deg.toFixed(2)}°` : "Invalid";
+                    lcValEl.textContent = Lc.toFixed(3);
+                    tcValEl.textContent = !isNaN(Tc) ? Tc.toFixed(3) : "Invalid";
+                    
+                    // 4. Draw on canvas
                     ctx.clearRect(0, 0, size, size);
+                    ctx.font = '12px Inter';
+                    ctx.lineWidth = 1;
+
+                    // Grid
                     ctx.beginPath();
-                    ctx.moveTo(0, center);
-                    ctx.lineTo(size, center);
-                    ctx.moveTo(center, 0);
-                    ctx.lineTo(center, size);
+                    for(let i = 0; i <= size; i += 20) {
+                        ctx.moveTo(i, 0); ctx.lineTo(i, size);
+                        ctx.moveTo(0, i); ctx.lineTo(size, i);
+                    }
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+                    ctx.stroke();
+
+                    // Axes
+                    ctx.beginPath();
+                    ctx.moveTo(0, center); ctx.lineTo(size, center);
+                    ctx.moveTo(center, 0); ctx.lineTo(center, size);
                     ctx.strokeStyle = '#4B5563';
                     ctx.stroke();
+
+                    // Unit Circle
                     ctx.beginPath();
                     ctx.arc(center, center, radius, 0, 2 * Math.PI);
                     ctx.strokeStyle = '#6B7280';
                     ctx.stroke();
-                    const xPos = center + radius * beta;
-                    const yPos = center - radius * kappa;
-                    ctx.beginPath();
-                    ctx.moveTo(center, center);
-                    ctx.lineTo(xPos, center);
-                    ctx.strokeStyle = '#2dd4bf';
-                    ctx.lineWidth = 3;
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.moveTo(xPos, center);
-                    ctx.lineTo(xPos, yPos);
-                    ctx.strokeStyle = '#a78bfa';
-                    ctx.lineWidth = 3;
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.moveTo(center, center);
-                    ctx.lineTo(xPos, yPos);
-                    ctx.strokeStyle = '#9CA3AF';
-                    ctx.lineWidth = 1;
-                    ctx.stroke();
-                    ctx.font = '14px Inter';
-                    ctx.fillStyle = '#2dd4bf';
-                    ctx.fillText(`β = ${beta.toFixed(3)}`, center + 10, center + 20);
-                    ctx.fillStyle = '#a78bfa';
-                    ctx.fillText(`κ = ${kappa.toFixed(3)}`, xPos + 10 > size-50 ? xPos-50 : xPos+10, yPos - 10 < 20 ? yPos+20 : yPos-10);
-                    ctx.fillStyle = '#E5E7EB';
-                    ctx.fillText(`θ = ${parseFloat(angleDeg).toFixed(2)}°`, 20, 30);
+                    
+                    // --- Theta_S visualization (from beta) ---
+                    const x_S = center + radius * beta;
+                    const y_S = center - radius * Lc;
+                    // Radius
+                    ctx.beginPath(); ctx.moveTo(center, 0); ctx.lineTo(x_S, y_S); ctx.strokeStyle = '#67e8f9'; ctx.stroke();
+                    // Projections
+                    ctx.beginPath(); ctx.moveTo(x_S, y_S); ctx.lineTo(x_S, center); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(103, 232, 249, 0.5)'; ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(x_S, y_S); ctx.lineTo(center, y_S); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(103, 232, 249, 0.5)'; ctx.stroke();
+                    ctx.setLineDash([]);
+                    // Labels
+                    ctx.fillStyle = '#67e8f9';
+                    ctx.fillText('β', x_S - 20, center + 15);
+                    ctx.fillText('Lc', center - 25, y_S + 5);
+
+
+                    // --- Theta_G visualization (from kappa) ---
+                    if (!isNaN(theta_G_rad)) {
+                        const x_G = center + radius * Tc;
+                        const y_G = center - radius * kappa;
+                        // Radius
+                        ctx.beginPath(); ctx.moveTo(center, 0); ctx.lineTo(x_G, y_G); ctx.strokeStyle = '#c084fc'; ctx.stroke();
+                        // Projections
+                        ctx.beginPath(); ctx.moveTo(x_G, y_G); ctx.lineTo(x_G, center); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(192, 132, 252, 0.5)'; ctx.stroke();
+                        ctx.beginPath(); ctx.moveTo(x_G, y_G); ctx.lineTo(center, y_G); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(192, 132, 252, 0.5)'; ctx.stroke();
+                        ctx.setLineDash([]);
+                        // Labels
+                        ctx.fillStyle = '#c084fc';
+                        ctx.fillText('κ', center + 5, y_G + 15);
+                        ctx.fillText('Tc', x_G - 10, center - 5);
+                    }
                 }
                 slider.addEventListener('input', drawGeometry);
                 drawGeometry();
