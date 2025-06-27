@@ -6,7 +6,13 @@
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
     
-    <!-- MathJax -->
+    <!-- Scripts & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- MathJax for mathematical formulas -->
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
@@ -17,7 +23,7 @@
             },
             TeX: {
                 equationNumbers: { autoNumber: "AMS" },
-                extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"]
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
             },
             displayAlign: "center"
         });
@@ -26,156 +32,70 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     
-    <!-- CSS -->
+    <!-- Custom Styles for Jekyll Content -->
     <style>
-        /* Base styles */
         body {
-            font-family: 'Times New Roman', serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #fafafa;
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #d1d5db; /* text-gray-300 */
         }
-        
-        /* Headers */
-        h1, h2, h3, h4, h5, h6 {
-            color: #2c3e50;
-            margin-top: 2em;
-            margin-bottom: 0.5em;
+        /* Styles for the content rendered from Markdown files */
+        .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+            color: #ffffff;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 0.3em;
+            margin-top: 1.5em;
         }
-        
-        h1 { border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-        h2 { border-bottom: 2px solid #95a5a6; padding-bottom: 5px; }
-        
-        /* Navigation */
-        nav {
-            background: #34495e;
+        .markdown-content a {
+            color: #67e8f9; /* text-cyan-300 */
+        }
+        .markdown-content code {
+            color: #f9a8d4; /* text-pink-300 */
+            background-color: #1f2937; /* bg-gray-800 */
+            padding: 0.2em 0.4em;
+            border-radius: 6px;
+        }
+        .markdown-content pre {
+            background-color: #1f2937;
             padding: 1em;
-            margin-bottom: 2em;
-            border-radius: 5px;
-        }
-        
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 2em;
-        }
-        
-        nav a {
-            color: #ecf0f1;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        nav a:hover {
-            color: #3498db;
-        }
-        
-        /* Mathematical formulas */
-        .MathJax_Display {
-            margin: 1.5em 0 !important;
-        }
-        
-        /* Theorem blocks */
-        .theorem {
-            background: #e8f4fd;
-            border-left: 5px solid #3498db;
-            padding: 1em;
-            margin: 1em 0;
-        }
-        
-        .result {
-            background: #d5f4e6;
-            border-left: 5px solid #27ae60;
-            padding: 1em;
-            margin: 1em 0;
-        }
-        
-        .warning {
-            background: #fdf2e9;
-            border-left: 5px solid #e67e22;
-            padding: 1em;
-            margin: 1em 0;
-        }
-        
-        /* Code */
-        code {
-            background: #f8f8f8;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-        }
-        
-        pre {
-            background: #f8f8f8;
-            padding: 1em;
-            border-radius: 5px;
+            border-radius: 8px;
             overflow-x: auto;
         }
-        
-        /* Tables */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 1em 0;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        
-        th {
-            background: #f2f2f2;
-        }
-        
-        /* Links */
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Footer */
-        footer {
-            margin-top: 3em;
-            padding-top: 2em;
-            border-top: 1px solid #ddd;
-            text-align: center;
-            color: #666;
-        }
-        
-        /* Responsive */
-        @media (max-width: 600px) {
-            body { padding: 10px; }
-            nav ul { flex-direction: column; gap: 1em; }
+        .markdown-content blockquote {
+            border-left: 4px solid #4b5563; /* border-gray-600 */
+            padding-left: 1em;
+            color: #9ca3af; /* text-gray-400 */
         }
     </style>
 </head>
-<body>
-    <nav>
-        <ul>
-            {% for item in site.navigation %}
-            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
-            {% endfor %}
-        </ul>
-    </nav>
-    
-    <main>
-        {{ content }}
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-5xl">
+            <a href="{{ "/" | relative_url }}" class="text-xl font-bold text-white">WILL Geometry</a>
+            <div class="hidden md:flex items-center space-x-6">
+                {% for item in site.navigation %}
+                    <a href="{{ item.url | relative_url }}" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ item.title }}</a>
+                {% endfor %}
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-6 py-8 max-w-4xl">
+        <div class="markdown-content">
+            {{ content }}
+        </div>
     </main>
     
-    <footer>
-        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
-        <p>Created to advance understanding of fundamental physics</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 mt-16 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
+            <p>Created to advance understanding of fundamental physics.</p>
+        </div>
     </footer>
+
 </body>
 </html>
