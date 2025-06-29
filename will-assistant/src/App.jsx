@@ -1,75 +1,80 @@
+/*  will-assistant/src/App.jsx
+    – dynamic RAG (TF-IDF top-k)
+    – Markdown output with LaTeX formulas
+    – answers in English by default, auto-switch to Russian if question is RU   */
+
 import React, { useState, useEffect } from 'react';
+import { marked } from 'marked';
 
 const KB_FILES = [
   'WILL%20DATABASE/WILL%20PART%20I%20SR%20GR.txt',
   'WILL%20DATABASE/WILL%20PART%20II%20COSMO%20.txt',
   'WILL%20DATABASE/WILL%20PART%20III%20QM%20.txt'
 ];
+const PROXY_URL = 'https://proxy-flame-seven.vercel.app/api/gemini';
+const TOP_K = 3;
 
-/* —-- утилиты TF-IDF --— */
-function tokenize(t){return t.toLowerCase().match(/[a-zа-яё0-9]+/g)||[];}
-function tf(words){return Object.fromEntries(words.map(w=>[w,1]).reduce((a,[k,v])=>(a[k]=(a[k]||0)+v,a),{}));}
-
-function rankChunks(question, chunks){
-  const qWords = tokenize(question), qSet = new Set(qWords);
-  const idf = {};                       // частоты слов по всем chunk’ам
-  chunks.forEach(c => tokenize(c).forEach(w => idf[w]=(idf[w]||0)+1));
-  Object.keys(idf).forEach(w => idf[w]=Math.log(chunks.length / idf[w]));
-
-  const scores = chunks.map((c,i)=>{
-    const words = tokenize(c), freqs=tf(words);
-    const score = qWords.reduce((s,w)=>s+(freqs[w]||0)*idf[w],0);
-    return {i,score};
-  });
-  return scores.sort((a,b)=>b.score-a.score).slice(0,3).map(s=>chunks[s.i]);
+/* ---------- tiny TF-IDF ---------- */
+const tok = t => (t.toLowerCase().match(/[a-zа-яё0-9]+/g) || []);
+const tf  = arr => arr.reduce((m,w)=>(m[w]=(m[w]||0)+1,m),{});
+function rank(q,chunks){
+  const qw = tok(q); const idf={};
+  chunks.forEach(c=>new Set(tok(c)).forEach(w=>idf[w]=(idf[w]||0)+1));
+  Object.keys(idf).forEach(w=>idf[w]=Math.log(chunks.length/idf[w]));
+  return chunks.map(t=>{
+    const freq=tf(tok(t));
+    const s=qw.reduce((s,w)=>s+(freq[w]||0)*idf[w]||0,0);
+    return {t,s};
+  }).sort((a,b)=>b.s-a.s).slice(0,TOP_K).map(o=>o.t);
 }
 
-async function loadKB() {
-  const base='https://raw.githubusercontent.com/AntonRize/WILL/main/';
-  const texts = await Promise.all(KB_FILES.map(p=>fetch(base+p).then(r=>r.text())));
-  return texts.join('\n').split(/\n{2,}/);          // массив абзацев
+/* ---------- load KB ---------- */
+async function loadKB(){
+  const root='https://raw.githubusercontent.com/AntonRize/WILL/main/';
+  const txt=await Promise.all(KB_FILES.map(p=>fetch(root+p).then(r=>r.text())));
+  return txt.join('\n').split(/\n{2,}/);
 }
 
-export default function App() {
-  const [kb,setKb]=useState([]);          // массив строк-абзацев
-  const [msgs,setMsgs]=useState([]);
-  const [inp,setInp]=useState('');
+export default function App(){
+  const [kb,setKb]=useState([]);   const [log,setLog]=useState([]);  const [inp,setInp]=useState('');
+  useEffect(()=>{loadKB().then(setKb);},[]);
 
-  useEffect(()=>{ loadKB().then(setKb); },[]);
+  const send=async()=>{
+    const q=inp.trim(); if(!q)return; setInp('');
+    setLog(l=>[...l,{role:'user',content:q}]);
 
-  async function send(){
-    const q = inp.trim();
-    if(!q) return;
-    setMsgs(m=>[...m,{role:'user',content:q}]);
-    setInp('');
+    /* --- language detect: RU letters? --- */
+    const isRU=/[а-яё]/i.test(q);
 
-    const context = rankChunks(q,kb).join('\n');
-    const system = "You are WILL assistant. Answer in **Markdown** with headings and bullet lists when useful.";
-    const prompt  = `${system}\n\nContext:\n${context}\n\nQuestion:\n${q}`;
+    const context=rank(q,kb).join('\n');
+    const system=`You are WILL assistant.
+• Reply in **English by default**. If the question is written in Russian, reply in Russian instead.
+• Format using Markdown headings, bullet lists.
+• Write every formula in LaTeX ($ … $ or $$ … $$). No raw HTML tags like <sub> or <sup>.`;
 
-    const res = await fetch('https://proxy-flame-seven.vercel.app/api/gemini',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({prompt})
+    const prompt=`${system}\n\nContext:\n${context}\n\nQuestion:\n${q}`;
+
+    const res=await fetch(PROXY_URL,{
+      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})
     });
-    const json = await res.json();
-    setMsgs(m=>[...m,{role:'assistant',content:json.reply||json.error}]);
-  }
+    const data=await res.json();
+    setLog(l=>[...l,{role:'assistant',content:data.reply||data.error}]);
+  };
 
-  return (
+  const md=txt=>({__html:marked.parse(txt)});
+
+  return(
     <div style={{fontFamily:'sans-serif',padding:24}}>
-      <h2>WILL AI Assistant</h2>
-
+      <h1>WILL AI Assistant</h1>
       <div style={{maxHeight:400,overflowY:'auto',marginBottom:12}}>
-        {msgs.map((m,i)=><div key={i} style={{marginBottom:8}}>
-          <b>{m.role==='user'?'You':'AI'}:</b>&nbsp;
-          <span dangerouslySetInnerHTML={{__html:marked.parseInline(m.content)}} />
+        {log.map((m,i)=><div key={i} style={{marginBottom:8}}>
+          <b>{m.role==='user'?'You':'AI'}:</b>
+          <div dangerouslySetInnerHTML={md(m.content)}/>
         </div>)}
       </div>
-
-      <input value={inp} onChange={e=>setInp(e.target.value)}
-             onKeyDown={e=>e.key==='Enter'&&send()}
-             placeholder="Ask something…" style={{width:'75%',marginRight:8}}/>
+      <input style={{width:'75%',marginRight:8}}
+        value={inp} onChange={e=>setInp(e.target.value)}
+        onKeyDown={e=>e.key==='Enter'&&send()} placeholder="Ask something…"/>
       <button onClick={send}>Send</button>
     </div>
   );
