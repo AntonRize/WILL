@@ -6,3 +6,12 @@ body          { font-family: system-ui, sans-serif; background:#f6f7fb; }
 .input-row    { display:flex; gap:8px; }
 input,button  { font-size:1rem; padding:10px 12px; }
 button        { cursor:pointer; }
+/*
+  This is the real fix for the "wall of text" problem.
+  It tells the browser to preserve all line breaks and white space
+  from the AI's response, making it readable.
+*/
+.msg.ai {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
