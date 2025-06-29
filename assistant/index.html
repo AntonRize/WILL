@@ -76,7 +76,6 @@
           <p style={{textAlign:'center', fontSize:'0.75rem', color:'#9CA3AF', marginBottom:'1rem'}}>AI can make mistakes. Double-check with the main WILL documentation.</p>
           <div style={{ minHeight: '300px', border: '1px solid #374151', padding: '1rem', marginBottom: '1rem', borderRadius: '8px' }}>
             {messages.map((m, i) => (
-hupauy-codex/fix-ai-assistant-response-formatting
               <p key={i} className={`msg ${m.role}`} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}><strong>{m.role === 'user' ? 'You' : 'AI'}:</strong> {m.content}</p>
             ))}
           </div>
