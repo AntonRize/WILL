@@ -2,15 +2,15 @@ import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks'; // <-- IMPORT THE PLUGIN
 import 'katex/dist/katex.min.css';
 
-// This component is now updated to show the debug information
-// we are getting from the server.
 export default function ChatMessage({ role, text, debug_raw_response }) {
   return (
     <div className={`msg ${role}`}>
       <ReactMarkdown
-        remarkPlugins={[remarkMath, remarkGfm]}
+        // Add remarkBreaks to the list of plugins
+        remarkPlugins={[remarkMath, remarkGfm, remarkBreaks]}
         rehypePlugins={[rehypeKatex]}
       >
         {text}
