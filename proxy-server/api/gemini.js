@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { prompt } = req.body;
+    const { prompt } = req.body || {};
     if (!prompt) {
       res.status(400).json({ error: 'Missing prompt' });
       return;
@@ -22,6 +22,13 @@ export default async function handler(req, res) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
     });
+
+    if (!resp.ok) {
+      const text = await resp.text();
+      res.status(resp.status).json({ error: text });
+      return;
+    }
+
     const data = await resp.json();
     const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
     res.status(200).json({ reply });

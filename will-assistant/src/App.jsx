@@ -30,14 +30,18 @@ export default function App() {
     setInput('');
 
     const prompt = `${input}\n\nKnowledge:\n${knowledge}`;
-    const res = await fetch('https://proxy-flame-seven.vercel.app/api/gemini', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt })
-    });
-    const data = await res.json();
-    const reply = { role: 'assistant', content: data.reply || data.error };
-    setMessages(m => [...m, reply]);
+    try {
+      const res = await fetch('https://proxy-flame-seven.vercel.app/api/gemini', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+      });
+      const data = await res.json();
+      const reply = { role: 'assistant', content: data.reply || data.error };
+      setMessages(m => [...m, reply]);
+    } catch(err) {
+      setMessages(m => [...m, { role: 'assistant', content: 'Error: ' + err.message }]);
+    }
   };
 
   return (
