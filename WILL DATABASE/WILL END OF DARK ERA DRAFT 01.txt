@@ -152,15 +152,15 @@ This principle makes a specific prediction: any energy distribution that is geom
 \end{itemize}
 Therefore, applying the \(\lambda \approx 0.45\) kernel to the Bullet Cluster's shock front is not an \textit{ad hoc} choice. It is a direct test of the core theoretical claim that geometry is the dominant factor. By using the same kernel, we test the framework's ability to unify these phenomena under a single physical principle. The success of this approach, as demonstrated in Section \ref{sec:results}, provides strong evidence for the underlying geometric nature of the missing-mass problem.
 
-Quiq recap from "WILL PART 1" document:
-Geometric Foundation}
+\subsection{Quick recap from "WILL PART 1" document:}
+\subsubsection{Geometric Foundation}
 From the projecional analysis established in the previous sections, we have the fundamental relation:
 \[
 \kappa^2 = \frac{R_s}{r_{d}}
 \]
 where $\kappa$ emerges from the energy projections on the unit circle, and $R_s = 2Gm_0/c^2$ connects to the mass scale factor $m_0 = E_0/c^2$.
 
-\subsection{Self-Consistency Requirement}
+\subsubsection{Self-Consistency Requirement}
 The mass scale factor can be expressed in two independent ways within the geometric framework:
 
 \subsubsection{From Geometric Definition}
@@ -176,7 +176,7 @@ m_0 = \alpha \cdot r_{d}^n \cdot \rho
 \end{equation}
 where $\alpha$ and $n$ are to be determined by geometric consistency.
 
-\subsection{Determination of the Surface Distribution}
+\subsubsection{Determination of the Surface Distribution}
 
 The requirement that equations \eqref{eq:mass_geometric} and \eqref{eq:mass_density} represent the same physical quantity constrains both the functional form and coefficients.
 
@@ -192,7 +192,7 @@ m_0 &= \alpha \cdot r_{d}^n \times \frac{\kappa^2 c^2}{8\pi G r_{d}^2} \\
 &= \frac{\alpha \kappa^2 c^2 r_{d}^{n-2}}{8\pi G}
 \end{align}
 
-\subsection{Geometric Self-Consistency}
+\subsubsection{Geometric Self-Consistency}
 Equating with \eqref{eq:mass_geometric}:
 \begin{equation}
 \frac{\alpha \kappa^2 c^2 r_{d}^{n-2}}{8\pi G} = \frac{\kappa^2 c^2 r_{d}}{2G}
@@ -210,7 +210,7 @@ This yields: $\frac{\alpha}{8\pi} = \frac{1}{2} \Rightarrow \alpha = 4\pi$
 m_0=(4\pi r_d^2)\cdot (r_d\rho)
 \]
 
-this way, you can see that the mass scales directly with the surface area term, \((4\pi r_d)^2\). 
+this way, you can see that the mass scales directly with the surface area term, \((4\pi r_d^2)\). 
 
 \section{Methodology}
 \label{sec:methods}
@@ -369,8 +369,7 @@ Angular averaging yields
 
 \section{Code Availability}
 All Python notebooks (galaxy fits, Bullet Cluster multigrid) are archived
-at \url{https://github.com/anton/will-geometry}.
+at \url{https://github.com/AntonRize/WILL}.
 
 \end{document}
-
 
