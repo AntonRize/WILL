@@ -23,7 +23,13 @@ export default function App() {
         }
       );
 
-      const data = await r.json();
+      const rawText = await r.text();
+      let data;
+      try {
+        data = JSON.parse(rawText);
+      } catch {
+        throw new Error(rawText);
+      }
 
       if (r.ok) {
         // This is the fix: We now pass the debug info into the message state

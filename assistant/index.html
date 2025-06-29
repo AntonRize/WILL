@@ -60,7 +60,13 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt })
           });
-          const data = await res.json();
+          const text = await res.text();
+          let data;
+          try {
+            data = JSON.parse(text);
+          } catch(_) {
+            throw new Error(text);
+          }
           const reply = { role: 'assistant', content: data.reply || data.error };
           setMessages(prev => [...prev, reply]);
           if (data.model) setModel(data.model);
