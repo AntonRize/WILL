@@ -5,6 +5,7 @@ import './App.css';
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [model, setModel] = useState('');
 
   async function send() {
     if (!input.trim()) return;
@@ -26,11 +27,12 @@ export default function App() {
 
       if (r.ok) {
         // This is the fix: We now pass the debug info into the message state
-        setMessages(m => [...m, { 
-          role: 'ai', 
-          text: data.reply, 
-          debug_raw_response: data.debug_raw_response 
+        setMessages(m => [...m, {
+          role: 'ai',
+          text: data.reply,
+          debug_raw_response: data.debug_raw_response
         }]);
+        if (data.model) setModel(data.model);
       } else {
         const errorText = `Error: ${data.error || 'An unknown server error occurred.'}`;
         setMessages(m => [...m, { role: 'ai', text: errorText }]);
@@ -44,6 +46,12 @@ export default function App() {
 
   return (
     <div className="chat-box">
+      <h1 className="title">WILL AI Assistant</h1>
+      {model && (
+        <p className="model-name">Model: {model}</p>
+      )}
+      <p className="disclaimer">AI can make mistakes. Double-check with the main WILL documentation.</p>
+
       {/* The spread operator {...m} will now correctly pass all props */}
       {messages.map((m, i) => <ChatMessage key={i} {...m} />)}
       <div className="input-row">
