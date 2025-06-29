@@ -6,77 +6,71 @@ const KB_FILES = [
   'WILL%20DATABASE/WILL%20PART%20III%20QM%20.txt'
 ];
 
-const MAX_KB_CHARS = 30000; // ≈10-15 k токенов
+/* —-- утилиты TF-IDF --— */
+function tokenize(t){return t.toLowerCase().match(/[a-zа-яё0-9]+/g)||[];}
+function tf(words){return Object.fromEntries(words.map(w=>[w,1]).reduce((a,[k,v])=>(a[k]=(a[k]||0)+v,a),{}));}
 
-async function loadKnowledge() {
-  const base = 'https://raw.githubusercontent.com/AntonRize/WILL/main/';
-  const texts = await Promise.all(
-    KB_FILES.map(p => fetch(base + p).then(r => r.text()))
-  );
-  return texts.join('\n');
+function rankChunks(question, chunks){
+  const qWords = tokenize(question), qSet = new Set(qWords);
+  const idf = {};                       // частоты слов по всем chunk’ам
+  chunks.forEach(c => tokenize(c).forEach(w => idf[w]=(idf[w]||0)+1));
+  Object.keys(idf).forEach(w => idf[w]=Math.log(chunks.length / idf[w]));
+
+  const scores = chunks.map((c,i)=>{
+    const words = tokenize(c), freqs=tf(words);
+    const score = qWords.reduce((s,w)=>s+(freqs[w]||0)*idf[w],0);
+    return {i,score};
+  });
+  return scores.sort((a,b)=>b.score-a.score).slice(0,3).map(s=>chunks[s.i]);
+}
+
+async function loadKB() {
+  const base='https://raw.githubusercontent.com/AntonRize/WILL/main/';
+  const texts = await Promise.all(KB_FILES.map(p=>fetch(base+p).then(r=>r.text())));
+  return texts.join('\n').split(/\n{2,}/);          // массив абзацев
 }
 
 export default function App() {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
-  const [knowledge, setKnowledge] = useState('');
+  const [kb,setKb]=useState([]);          // массив строк-абзацев
+  const [msgs,setMsgs]=useState([]);
+  const [inp,setInp]=useState('');
 
-  useEffect(() => { loadKnowledge().then(setKnowledge); }, []);
+  useEffect(()=>{ loadKB().then(setKb); },[]);
 
-  const sendMessage = async () => {
-    const question = input.trim();
-    if (!question) return;
-    setMessages(m => [...m, { role: 'user', content: question }]);
-    setInput('');
+  async function send(){
+    const q = inp.trim();
+    if(!q) return;
+    setMsgs(m=>[...m,{role:'user',content:q}]);
+    setInp('');
 
-    const prompt = `${question}\n\nKnowledge:\n${knowledge.slice(0, MAX_KB_CHARS)}`;
+    const context = rankChunks(q,kb).join('\n');
+    const system = "You are WILL assistant. Answer in **Markdown** with headings and bullet lists when useful.";
+    const prompt  = `${system}\n\nContext:\n${context}\n\nQuestion:\n${q}`;
 
-    try {
-      const res = await fetch('https://proxy-flame-seven.vercel.app/api/gemini', {
-        method : 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body   : JSON.stringify({ prompt })
-      });
-
-      // определяем, что именно вернул сервер
-      const isJson = res.headers.get('content-type')?.includes('application/json');
-      const data   = isJson ? await res.json() : { error: await res.text() };
-
-      if (!res.ok) {
-        throw new Error(data.error || `HTTP ${res.status}`);
-      }
-
-      setMessages(m => [...m,
-        { role: 'assistant', content: data.reply || '[empty reply]' }
-      ]);
-
-    } catch (err) {
-      setMessages(m => [...m,
-        { role: 'assistant', content: `Error: ${err.message}` }
-      ]);
-    }
-  };
+    const res = await fetch('https://proxy-flame-seven.vercel.app/api/gemini',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({prompt})
+    });
+    const json = await res.json();
+    setMsgs(m=>[...m,{role:'assistant',content:json.reply||json.error}]);
+  }
 
   return (
-    <div style={{ padding: 24, fontFamily: 'sans-serif' }}>
-      <h1>WILL AI Assistant</h1>
+    <div style={{fontFamily:'sans-serif',padding:24}}>
+      <h2>WILL AI Assistant</h2>
 
-      <div style={{ maxHeight: 400, overflowY: 'auto', marginBottom: 12 }}>
-        {messages.map((m, i) => (
-          <div key={i} style={{ marginBottom: 6 }}>
-            <strong>{m.role === 'user' ? 'You' : 'AI'}:</strong> {m.content}
-          </div>
-        ))}
+      <div style={{maxHeight:400,overflowY:'auto',marginBottom:12}}>
+        {msgs.map((m,i)=><div key={i} style={{marginBottom:8}}>
+          <b>{m.role==='user'?'You':'AI'}:</b>&nbsp;
+          <span dangerouslySetInnerHTML={{__html:marked.parseInline(m.content)}} />
+        </div>)}
       </div>
 
-      <input
-        value={input}
-        onChange={e => setInput(e.target.value)}
-        onKeyDown={e => e.key === 'Enter' ? sendMessage() : null}
-        placeholder="Ask something..."
-        style={{ width: '75%', marginRight: 8 }}
-      />
-      <button onClick={sendMessage}>Send</button>
+      <input value={inp} onChange={e=>setInp(e.target.value)}
+             onKeyDown={e=>e.key==='Enter'&&send()}
+             placeholder="Ask something…" style={{width:'75%',marginRight:8}}/>
+      <button onClick={send}>Send</button>
     </div>
   );
 }
