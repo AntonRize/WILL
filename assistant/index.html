@@ -60,7 +60,7 @@
           <h1>WILL AI Assistant</h1>
           <div style={{ minHeight: '300px', border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem' }}>
             {messages.map((m, i) => (
-              <p key={i}><strong>{m.role === 'user' ? 'You' : 'AI'}:</strong> {m.content}</p>
+              <p key={i} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}><strong>{m.role === 'user' ? 'You' : 'AI'}:</strong> {m.content}</p>
             ))}
           </div>
           <div>
