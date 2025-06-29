@@ -24,18 +24,19 @@ export default function App() {
 
       const data = await r.json();
 
-      // --- NEW: Proper Error Handling ---
-      // This checks if the response was successful or an error.
-      let messageText;
       if (r.ok) {
-        messageText = data.reply;
+        // This is the fix: We now pass the debug info into the message state
+        setMessages(m => [...m, { 
+          role: 'ai', 
+          text: data.reply, 
+          debug_raw_response: data.debug_raw_response 
+        }]);
       } else {
-        messageText = `Error: ${data.error || 'An unknown server error occurred.'}`;
+        const errorText = `Error: ${data.error || 'An unknown server error occurred.'}`;
+        setMessages(m => [...m, { role: 'ai', text: errorText }]);
       }
-      setMessages(m => [...m, { role: 'ai', text: messageText }]);
 
     } catch (e) {
-      // This catches network errors or if the server returns non-JSON text.
       const errorText = `Error: Failed to connect to the server. ${e.message}`;
       setMessages(m => [...m, { role: 'ai', text: errorText }]);
     }
@@ -43,6 +44,7 @@ export default function App() {
 
   return (
     <div className="chat-box">
+      {/* The spread operator {...m} will now correctly pass all props */}
       {messages.map((m, i) => <ChatMessage key={i} {...m} />)}
       <div className="input-row">
         <input
