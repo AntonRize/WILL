@@ -1,17 +1,14 @@
-import ReactMarkdown  from 'react-markdown';
-import remarkMath      from 'remark-math';
-import rehypeKatex     from 'rehype-katex';
-import remarkGfm       from 'remark-gfm';
-import remarkBreaks    from 'remark-breaks';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 import 'katex/dist/katex.min.css';
 
-/* Автопараграф:
-   ставит двойной \n после точки-пробела «. » и перед звёздочкой списка. */
-function autoParagraph(txt) {
-  return txt
-    .replace(/\. (\p{Lu})/gu, '.\n\n$1')   // новый абзац после точки
-    .replace(/\* \*\*/g, '\n\n* **');       // перед bullet-списком
-}
+/* The custom 'autoParagraph' function has been removed.
+  The 'remarkBreaks' plugin is the standard and more reliable way 
+  to ensure that line breaks from the AI are displayed correctly.
+*/
 
 export default function ChatMessage({ role, text }) {
   return (
@@ -20,7 +17,7 @@ export default function ChatMessage({ role, text }) {
         remarkPlugins={[remarkMath, remarkGfm, remarkBreaks]}
         rehypePlugins={[rehypeKatex]}
       >
-        {autoParagraph(text)}
+        {text}
       </ReactMarkdown>
     </div>
   );
