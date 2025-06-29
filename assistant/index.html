@@ -73,7 +73,7 @@
         <div style={{ maxWidth: 600, margin: '0 auto', padding: '1rem' }}>
           <h1 style={{ textAlign:'center', fontSize:'1.5rem', fontWeight:'600', marginBottom:'0.5rem' }}>WILL AI Assistant</h1>
           {model && <p style={{textAlign:'center', fontSize:'0.875rem', color:'#9CA3AF'}}>Model: {model}</p>}
-          <p style={{textAlign:'center', fontSize:'0.75rem', color:'#9CA3AF', marginBottom:'1rem'}}>AI can make mistakes. Double check with main WILL documentation.</p>
+          <p style={{textAlign:'center', fontSize:'0.75rem', color:'#9CA3AF', marginBottom:'1rem'}}>AI can make mistakes. Double-check with the main WILL documentation.</p>
           <div style={{ minHeight: '300px', border: '1px solid #374151', padding: '1rem', marginBottom: '1rem', borderRadius: '8px' }}>
             {messages.map((m, i) => (
               <p key={i} className={`msg ${m.role}`} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}><strong>{m.role === 'user' ? 'You' : 'AI'}:</strong> {m.content}</p>

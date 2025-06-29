@@ -50,7 +50,7 @@ export default function App() {
       {model && (
         <p className="model-name">Model: {model}</p>
       )}
-      <p className="disclaimer">AI can make mistakes. Double check with main WILL documentation.</p>
+      <p className="disclaimer">AI can make mistakes. Double-check with the main WILL documentation.</p>
 
       {/* The spread operator {...m} will now correctly pass all props */}
       {messages.map((m, i) => <ChatMessage key={i} {...m} />)}
