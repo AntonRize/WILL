@@ -1,122 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WILL AI Assistant</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body { font-family:'Inter',sans-serif; background:#111827; color:#E5E7EB; }
-    .msg { background:#1F2937; padding:16px 20px; border-radius:12px; line-height:1.6; margin-bottom:14px; box-shadow:0 1px 4px #0005; }
-    .msg.user { background:#374151; }
-    .input-row { display:flex; gap:8px; margin-top:16px; }
-    .input-row input { flex:1; background:#111827; border:1px solid #374151; border-radius:8px; color:#E5E7EB; padding:10px 12px; }
-    .input-row button { background:#2563EB; color:#fff; border:none; border-radius:8px; padding:10px 16px; cursor:pointer; }
-  </style>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>WILL Assistant</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- React 18 -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<style>
+ body{background:#0f172a;color:#f1f5f9;font-family:Inter,Arial,sans-serif}
+ textarea::-webkit-scrollbar{width:4px}
+</style>
 </head>
 <body>
-  <div id="root"></div>
-  <p style="text-align:center;font-size:0.75rem;color:#9CA3AF;margin-top:1rem;">AI can make mistakes. Double-check with the main WILL documentation.</p>
-  <script type="text/babel">
-    const KB_FILES = [
-      'WILL%20DATABASE/WILL%20PART%20I%20SR%20GR.txt',
-      'WILL%20DATABASE/WILL%20PART%20II%20COSMO%20.txt',
-      'WILL%20DATABASE/WILL%20PART%20III%20QM%20.txt'
-    ];
+<div id="root"></div>
 
-    async function loadKnowledge() {
-      const base = 'https://raw.githubusercontent.com/AntonRize/WILL/main/';
-      const texts = await Promise.all(
-        KB_FILES.map(p => fetch(base + p).then(r => r.text()))
-      );
-      return texts.join('\n');
-    }
+<script>
+const {useState,useEffect,useRef}=React;
 
-    function App() {
-      const [messages, setMessages] = React.useState([]);
-      const [input, setInput] = React.useState('');
-      const [fuse, setFuse] = React.useState(null);
-      const [model, setModel] = React.useState('');
+/* ---------- CONFIG ---------- */
+const FILES=[
+ 'WILL%20DATABASE/WILL%20PART%20I%20SR%20GR.txt',
+ 'WILL%20DATABASE/WILL%20PART%20II%20COSMO%20.txt',
+ 'WILL%20DATABASE/WILL%20PART%20III%20QM%20.txt'
+];
+const CORE=`β (beta)=v/c  ·  κ (kappa)=vₑ/c  ·  κ²=2β²`;
+const PROXY='https://proxy-flame-seven.vercel.app/api/gemini';
 
-      React.useEffect(() => {
-        loadKnowledge().then(text => {
-          const sections = text.split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
-          setFuse(new Fuse(sections.map(t => ({ text: t })), { keys: ['text'], includeScore: true, threshold: 0.4 }));
-        });
-      }, []);
+/* quick local dictionary */
+const QUICK={
+  'beta':  'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
+  'β':     'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
+  'kappa': 'κ (kappa) is the gravitational projection vₑ / c. Relation κ² = 2 β².',
+  'κ':     'κ (kappa) is the gravitational projection vₑ / c. Relation κ² = 2 β².'
+};
 
-      const sendMessage = async () => {
-        if (!input.trim()) return;
-        const userMsg = { role: 'user', content: input };
-        setMessages(prev => [...prev, userMsg]);
-        setInput('');
+/* ---------- HELPERS ---------- */
+function loadKB(){
+  const base='https://raw.githubusercontent.com/AntonRize/WILL/main/';
+  return Promise.all(FILES.map(p=>fetch(base+p).then(r=>{
+    if(!r.ok)throw new Error('KB fetch '+r.status);
+    return r.text();
+  }))).then(t=>t.join('\n\n').replace(/\\beta/g,'β (beta)').replace(/\\kappa/g,'κ (kappa)'));
+}
+function askGemini(prompt){
+  return fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})})
+    .then(r=>r.text())
+    .then(t=>{let d;try{d=JSON.parse(t);}catch{throw new Error(t);}if(!d.reply)throw new Error(d.error||'Proxy');return d.reply;});
+}
+const isRu=s=>/[а-яё]/i.test(s);
 
-        if (!fuse) {
-          setMessages(prev => [...prev, { role: 'assistant', content: 'Knowledge base is loading, please try again shortly.' }]);
-          return;
-        }
+/* ---------- APP ---------- */
+function App(){
+  const [kb,setKb]=useState('');          // KB text
+  const [ks,setKs]=useState('loading');   // loading | ok | error
+  const [log,setLog]=useState([]);        // messages
+  const [inp,setInp]=useState('');        // user input
+  const [busy,setBusy]=useState(false);   // spinner
+  const endRef=useRef(null);
 
-        const results = fuse.search(input).slice(0, 3);
-        if (results.length === 0) {
-          setMessages(prev => [...prev, { role: 'assistant', content: 'I could not find an answer in the WILL documentation. Please ask your question here: https://antonrize.github.io/WILL/discussions/' }]);
-          return;
-        }
+  useEffect(()=>{loadKB().then(d=>{setKb(d);setKs('ok');}).catch(()=>setKs('error'));},[]);
+  useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[log]);
+  const push=(txt,user=false)=>setLog(L=>[...L,{id:Date.now()+Math.random(),txt,user}]);
 
-        const context = results.map(r => r.item.text).join('\n');
-        const prompt = `${input}\n\nContext:\n${context}`;
-        try {
-          const res = await fetch('https://proxy-flame-seven.vercel.app/api/gemini', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt })
-          });
-          const text = await res.text();
-          let data;
-          try {
-            data = JSON.parse(text);
-          } catch(_) {
-            throw new Error(text);
-          }
-          const reply = { role: 'assistant', content: data.reply || data.error };
-          setMessages(prev => [...prev, reply]);
-          if (data.model) setModel(data.model);
-        } catch(err) {
-          setMessages(prev => [...prev, { role: 'assistant', content: 'Error: ' + err.message }]);
-        }
-      };
+  async function send(){
+    const q=inp.trim();
+    if(!q||busy)return;
+    push(q,true);
+    setInp('');
 
-      return (
-        <div style={{ maxWidth: 600, margin: '0 auto', padding: '1rem' }}>
-          <h1 style={{ textAlign:'center', fontSize:'1.5rem', fontWeight:'600', marginBottom:'0.5rem' }}>WILL AI Assistant</h1>
-          {model && <p style={{textAlign:'center', fontSize:'0.875rem', color:'#9CA3AF'}}>Model: {model}</p>}
-          <p style={{textAlign:'center', fontSize:'0.75rem', color:'#9CA3AF', marginBottom:'1rem'}}>AI can make mistakes. Double-check with the main WILL documentation.</p>
-          <div style={{ minHeight: '300px', border: '1px solid #374151', padding: '1rem', marginBottom: '1rem', borderRadius: '8px' }}>
-            {messages.map((m, i) => (
-              <p key={i} className={`msg ${m.role}`} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}><strong>{m.role === 'user' ? 'You' : 'AI'}:</strong> {m.content}</p>
-            ))}
-          </div>
-          <div className="input-row">
-            <input
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' ? sendMessage() : null}
-              placeholder="Ask something..."
-              style={{ width: '100%' }}
-            />
-            <button onClick={sendMessage}>Send</button>
-          </div>
-        </div>
-      );
-    }
+    /* quick local answer */
+    const qKey=q.toLowerCase().replace('?','');
+    if(QUICK[qKey]){push(QUICK[qKey]);return;}
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
+    if(ks!=='ok'){push('Knowledge base still loading…');return;}
+    setBusy(true);
+    try{
+      const lang=isRu(q)?'Russian':'English';
+      const prompt=`Answer in ${lang}. CORE: ${CORE}\nDATABASE:\n${kb}\nQUESTION: """${q}"""`;
+      push(await askGemini(prompt));
+    }catch(e){push('⚠️ '+e.message);}
+    setBusy(false);
+  }
+
+  return React.createElement('div',{className:'flex flex-col h-screen max-w-2xl mx-auto p-4'},
+    React.createElement('h1',{className:'text-2xl font-bold text-center mb-3'},"WILL AI Assistant"),
+    ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 mb-2'},
+      ks==='loading'?'KB loading…':'KB error (check console)'
+    ),
+    React.createElement('div',{className:'flex-1 overflow-y-auto space-y-4 bg-slate-800 p-4 rounded-lg'},
+      log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
+        React.createElement('div',{className:`max-w-[80%] p-3 rounded-xl ${m.user?'bg-indigo-600 text-white':'bg-slate-700'}`},m.txt)
+      )),
+      busy&&React.createElement('div',{className:'text-slate-300'},"Thinking…"),
+      React.createElement('div',{ref:endRef})
+    ),
+    React.createElement('div',{className:'mt-3 flex gap-2'},
+      React.createElement('textarea',{
+        className:'flex-1 resize-none bg-slate-700 text-slate-50 rounded-xl p-3 focus:outline-none',
+        rows:1,value:inp,placeholder:'Ask about WILL Geometry…',
+        onChange:e=>setInp(e.target.value),
+        onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
+      }),
+      React.createElement('button',{
+        className:'px-4 py-2 bg-indigo-600 text-white rounded-xl disabled:opacity-50',
+        disabled:!inp.trim()||busy,onClick:send
+      },'Send')
+    )
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
 </body>
 </html>
