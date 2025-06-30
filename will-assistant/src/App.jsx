@@ -1,11 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Fuse from 'fuse.js';
 import ChatMessage from './ChatMessage';
 import './App.css';
+
+const KB_FILES = [
+  'WILL%20DATABASE/WILL%20PART%20I%20SR%20GR.txt',
+  'WILL%20DATABASE/WILL%20PART%20II%20COSMO%20.txt',
+  'WILL%20DATABASE/WILL%20PART%20III%20QM%20.txt'
+];
+
+async function loadKnowledge() {
+  const base = 'https://raw.githubusercontent.com/AntonRize/WILL/main/';
+  const texts = await Promise.all(
+    KB_FILES.map(p => fetch(base + p).then(r => r.text()))
+  );
+  return texts.join('\n');
+}
 
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [model, setModel] = useState('');
+  const [fuse, setFuse] = useState(null);
+
+  useEffect(() => {
+    loadKnowledge().then(text => {
+      const sections = text.split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
+      setFuse(new Fuse(sections.map(t => ({ text: t })), { keys: ['text'], includeScore: true, threshold: 0.4 }));
+    });
+  }, []);
 
   async function send() {
     if (!input.trim()) return;
@@ -13,13 +36,26 @@ export default function App() {
     setMessages(m => [...m, { role: 'user', text: userInput }]);
     setInput('');
 
+    if (!fuse) {
+      setMessages(m => [...m, { role: 'ai', text: 'Knowledge base is still loading. Please try again in a moment.' }]);
+      return;
+    }
+
+    const results = fuse.search(userInput).slice(0, 3);
+    if (results.length === 0) {
+      setMessages(m => [...m, { role: 'ai', text: 'I could not find an answer in the WILL documentation. Please ask your question here: https://antonrize.github.io/WILL/discussions/' }]);
+      return;
+    }
+
+    const context = results.map(r => r.item.text).join('\n');
+
     try {
       const r = await fetch(
         'https://proxy-flame-seven.vercel.app/api/gemini',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt: userInput })
+          body: JSON.stringify({ prompt: `${userInput}\n\nContext:\n${context}` })
         }
       );
 
