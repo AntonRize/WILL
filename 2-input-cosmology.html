@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-Input Cosmology Calculator - Will Geometry</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 2em;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .calculator-section, .results-section, .presets-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+        select, input[type="number"] {
+            padding: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .results-table th, .results-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .results-table th {
+            background-color: #f2f2f2;
+        }
+        .tcolorbox {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .tcolorbox-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>2-Input Cosmology Calculator</h1>
+        <p>This calculator allows you to compute major cosmological parameters based on the principles of Will Geometry. For more information on the theoretical background, please refer to the main page: <a href="https://antonrize.github.io/WILL/">https://antonrize.github.io/WILL/</a>.</p>
+        <p>Select any two input parameters from the dropdown menus and enter their values. The calculator will derive the other quantities.</p>
+
+        <div class="presets-section">
+            <h3>Load Preset Values</h3>
+            <button onclick="loadPreset('planck')">Load Planck 2018 (CMB)</button>
+            <button onclick="loadPreset('shoes')">Load SH0ES 2024 (Supernovae)</button>
+        </div>
+
+        <div class="calculator-section">
+            <h2>Inputs</h2>
+            <div class="input-group">
+                <select id="param1-select" onchange="updateInputs()">
+                    <option value="H">Hubble Parameter (H)</option>
+                    <option value="kappa2">Energy Projection (κ²)</option>
+                    <option value="m0">Total Mass (m₀)</option>
+                    <option value="rd">Hubble Radius (r_d)</option>
+                </select>
+                <input type="number" id="param1-value" placeholder="Value">
+                <span id="param1-unit"></span>
+            </div>
+            <div class="input-group">
+                <select id="param2-select" onchange="updateInputs()">
+                    <option value="kappa2">Energy Projection (κ²)</option>
+                    <option value="H">Hubble Parameter (H)</option>
+                    <option value="m0">Total Mass (m₀)</option>
+                    <option value="rd">Hubble Radius (r_d)</option>
+                </select>
+                <input type="number" id="param2-value" placeholder="Value">
+                <span id="param2-unit"></span>
+            </div>
+            <button onclick="calculate()">Calculate</button>
+        </div>
+
+        <div class="results-section">
+            <h2>Results</h2>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tcolorbox">
+            <div class="tcolorbox-title">Interpretation</div>
+            <p>In the framework of Will Geometry, the Hubble constant is not a free cosmological parameter — it is a derived geometric ratio between the universal speed of projection (c), the characteristic radius of energy distribution (r_d), and the corresponding projection time (t_d).</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Physical Constants
+        const G = 6.67430e-11; // Gravitational constant in m^3 kg^-1 s^-2
+        const c = 299792458;   // Speed of light in m/s
+        const Mpc_to_m = 3.0857e22; // Megaparsec to meters
+
+        const units = {
+            H: 'km/s/Mpc',
+            kappa2: '',
+            m0: 'kg',
+            rd: 'm',
+            Rs: 'm',
+            td: 's',
+            Lambda: 'm⁻²',
+            rho: 'kg/m³',
+            rho_max: 'kg/m³',
+            Omega_Lambda: '',
+            Omega_m: '',
+            beta: '',
+        };
+
+        function updateInputs() {
+            const param1Select = document.getElementById('param1-select').value;
+            const param2Select = document.getElementById('param2-select').value;
+            document.getElementById('param1-unit').textContent = `(${units[param1Select]})`;
+            document.getElementById('param2-unit').textContent = `(${units[param2Select]})`;
+        }
+
+        function loadPreset(preset) {
+            if (preset === 'planck') {
+                document.getElementById('param1-select').value = 'H';
+                document.getElementById('param1-value').value = 67.4;
+                document.getElementById('param2-select').value = 'kappa2';
+                document.getElementById('param2-value').value = 0.6847;
+            } else if (preset === 'shoes') {
+                document.getElementById('param1-select').value = 'H';
+                document.getElementById('param1-value').value = 73.2;
+                document.getElementById('param2-select').value = 'kappa2';
+                document.getElementById('param2-value').value = 0.7000;
+            }
+            updateInputs();
+            calculate();
+        }
+
+        function calculate() {
+            const param1_name = document.getElementById('param1-select').value;
+            const param2_name = document.getElementById('param2-select').value;
+            const param1_val = parseFloat(document.getElementById('param1-value').value);
+            const param2_val = parseFloat(document.getElementById('param2-value').value);
+
+            if (isNaN(param1_val) || isNaN(param2_val)) {
+                alert("Please enter valid numbers for the inputs.");
+                return;
+            }
+            
+            if (param1_name === param2_name) {
+                alert("Please select two different parameters.");
+                return;
+            }
+
+            let params = {};
+            params[param1_name] = param1_val;
+            params[param2_name] = param2_val;
+
+            // Convert H from km/s/Mpc to s^-1 for calculations
+            if (params.H) {
+                params.H_si = params.H * 1000 / Mpc_to_m;
+            }
+
+            // Core calculation logic
+            let iter = 0;
+            while (Object.keys(params).length < 8 && iter < 10) {
+                // Given H and kappa2
+                if (params.H_si && params.kappa2) {
+                    params.rd = c / params.H_si;
+                    params.Rs = params.rd * params.kappa2;
+                    params.m0 = (params.Rs * c**2) / (2 * G);
+                }
+                // Given m0 and kappa2
+                else if (params.m0 && params.kappa2) {
+                    params.Rs = (2 * G * params.m0) / c**2;
+                    params.rd = params.Rs / params.kappa2;
+                    params.H_si = c / params.rd;
+                }
+                 // Given rd and kappa2
+                else if (params.rd && params.kappa2) {
+                    params.H_si = c / params.rd;
+                    params.Rs = params.rd * params.kappa2;
+                    params.m0 = (params.Rs * c**2) / (2 * G);
+                }
+                // Given H and m0
+                else if (params.H_si && params.m0) {
+                    params.rd = c / params.H_si;
+                    params.Rs = (2 * G * params.m0) / c**2;
+                    params.kappa2 = params.Rs / params.rd;
+                }
+                
+                // Once rd and kappa2 are known, we can find the rest
+                if (params.rd && params.kappa2) {
+                    params.H_si = params.H_si || c / params.rd;
+                    params.H = params.H || params.H_si * Mpc_to_m / 1000;
+                    params.td = 1 / params.H_si;
+                    params.Lambda = params.kappa2 / params.rd**2;
+                    params.rho_max = c**2 / (8 * Math.PI * G * params.rd**2);
+                    params.rho = params.kappa2 * params.rho_max;
+                    params.Omega_Lambda = params.kappa2;
+                    params.Omega_m = 1 - params.kappa2;
+                    params.beta_sq = params.kappa2 / 2;
+                    params.beta = Math.sqrt(params.beta_sq);
+                }
+                iter++;
+            }
+            
+            displayResults(params);
+        }
+
+        function displayResults(params) {
+            const resultsBody = document.getElementById('results-body');
+            resultsBody.innerHTML = '';
+
+            const results_map = {
+                'H': { value: params.H, unit: units.H, name: 'Hubble Parameter (H)' },
+                'kappa2': { value: params.kappa2, unit: units.kappa2, name: 'Energy Projection (κ²)' },
+                'Omega_Lambda': { value: params.Omega_Lambda, unit: units.Omega_Lambda, name: 'Omega Lambda (Ω_Λ)' },
+                'Omega_m': { value: params.Omega_m, unit: units.Omega_m, name: 'Omega Matter (Ω_m)' },
+                'Lambda': { value: params.Lambda, unit: units.Lambda, name: 'Cosmological Constant (Λ)' },
+                'rho': { value: params.rho, unit: units.rho, name: 'Energy Density (ρ)' },
+                'rho_max': { value: params.rho_max, unit: units.rho_max, name: 'Critical Density (ρ_max)' },
+                'm0': { value: params.m0, unit: units.m0, name: 'Total Mass (m₀)' },
+                'Rs': { value: params.Rs, unit: units.Rs, name: 'Schwarzschild Radius (R_s)' },
+                'rd': { value: params.rd, unit: units.rd, name: 'Hubble Radius (r_d)' },
+                'td': { value: params.td, unit: units.td, name: 'Hubble Time (t_d)' },
+                'beta': { value: params.beta, unit: units.beta, name: 'Kinematic Projection (β)' },
+            };
+
+            for (const key in results_map) {
+                const item = results_map[key];
+                let value_str = 'N/A';
+                if (item.value !== undefined && !isNaN(item.value)) {
+                    value_str = item.value.toExponential(4);
+                }
+
+                const row = `<tr>
+                                <td>${item.name}</td>
+                                <td>${value_str}</td>
+                                <td>${item.unit}</td>
+                             </tr>`;
+                resultsBody.innerHTML += row;
+            }
+        }
+
+        // Initial setup
+        window.onload = function() {
+            updateInputs();
+        };
+
+    </script>
+
+</body>
+</html>
