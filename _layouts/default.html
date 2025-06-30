@@ -95,7 +95,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header & Navigation -->
     <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-5xl">
             <a href="{{ "/" | relative_url }}" class="text-xl font-bold text-white">WILL Geometry</a>
@@ -103,6 +102,7 @@
                 {% for item in site.navigation %}
                     <a href="{{ item.url | relative_url }}" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ item.title }}</a>
                 {% endfor %}
+                <a href="/WILL/2-input-cosmology.html" class="text-gray-300 hover:text-cyan-400 transition-colors">2-Input Cosmology</a>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
@@ -115,15 +115,14 @@
                  {% for item in site.navigation %}
                     <a href="{{ item.url | relative_url }}" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">{{ item.title }}</a>
                 {% endfor %}
+                <a href="/WILL/2-input-cosmology.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">2-Input Cosmology</a>
             </div>
         </div>
     </header>
 
     <main class="container mx-auto px-6 max-w-4xl">
         {% if page.url == "/" %}
-        <!-- ============== HOME PAGE CONTENT ============== -->
         <div id="home-content">
-            <!-- Hero Section -->
             <section class="text-center py-20 md:py-24">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">A New Foundation for Physics</h1>
                 <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">Unifying physics from a single geometric postulate, without free parameters.</p>
@@ -133,7 +132,6 @@
                 </div>
             </section>
 
-            <!-- Core Concepts Section -->
             <section class="py-16">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">The Core Geometry</h2>
@@ -159,7 +157,6 @@
                 </div>
             </section>
             
-            <!-- Pillars Section -->
             <section class="py-20">
                 <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-white">The Three Pillars of WILL</h2><p class="mt-3 max-w-3xl mx-auto text-gray-400">The geometric framework is applied across three core domains of physics. Click each pillar to learn more.</p></div>
                 <div class="grid md:grid-cols-3 gap-8">
@@ -182,14 +179,12 @@
             </section>
         </div>
         {% else %}
-        <!-- ============== DEFAULT PAGE CONTENT ============== -->
         <div class="markdown-content py-8">
             {{ content }}
         </div>
         {% endif %}
     </main>
     
-    <!-- Footer -->
     <footer class="bg-gray-900 mt-16 border-t border-gray-800">
         <div class="container mx-auto px-6 py-6 text-center text-gray-500">
             <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
