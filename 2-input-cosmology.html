@@ -1,298 +1,442 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2-Input Cosmology Calculator - Will Geometry</title>
+    <title>2-Input Cosmology Calculator | WILL Geometry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif;
-            line-height: 1.6;
-            margin: 2em;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #E5E7EB;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
+        .markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4 {
+            color: #ffffff;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 0.3em;
+            margin-top: 1.5em;
+        }
+        .markdown-content a { color: #67e8f9; }
+        .markdown-content code { color: #f9a8d4; background-color: #1f2937; padding: 0.2em 0.4em; border-radius: 6px; }
+        .formula-box {
+            background-color: #1f2937;
+            padding: 1em;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            margin-bottom: 1rem;
         }
-        h1, h2, h3 {
-            color: #333;
+        .summary-box {
+            border: 2px solid #374151;
+            padding: 1em;
+            margin: 0.5em 0;
+            text-align: center;
+            font-size: 1.25rem;
+            background-color: #1f2937;
+            border-radius: 8px;
         }
-        .calculator-section, .results-section, .presets-section {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .gemini-output {
+            background-color: #1f2937;
+            border-left: 4px solid #67e8f9;
+            padding: 1em;
+            border-radius: 8px;
+            margin-top: 1rem;
+            color: #d1d5db;
         }
-        .input-group {
-            margin-bottom: 10px;
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #67e8f9;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
         }
-        label {
-            display: inline-block;
-            width: 150px;
-        }
-        select, input[type="number"] {
-            padding: 5px;
-            width: 200px;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #555;
-        }
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .results-table th, .results-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        .results-table th {
-            background-color: #f2f2f2;
-        }
-        .tcolorbox {
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-        }
-        .tcolorbox-title {
-            font-weight: bold;
-            margin-bottom: 10px;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
-<body>
+<body class="antialiased">
 
-    <div class="container">
-        <h1>2-Input Cosmology Calculator</h1>
-        <p>This calculator allows you to compute major cosmological parameters based on the principles of Will Geometry. For more information on the theoretical background, please refer to the main page: <a href="https://antonrize.github.io/WILL/">https://antonrize.github.io/WILL/</a>.</p>
-        <p>Select any two input parameters from the dropdown menus and enter their values. The calculator will derive the other quantities.</p>
+    <!-- This assumes the main layout's header/footer are handled by Jekyll. -->
+    <!-- When used as a standalone page, this content will be wrapped by `_layouts/default.html` -->
+    <div class="markdown-content py-8">
+        <h1 class="text-4xl font-extrabold tracking-tight">2-Input Cosmology Calculator</h1>
+        <p class="mt-4 text-lg text-gray-400">
+            Explore the interconnectedness of cosmological parameters within the Will Geometry framework. This tool demonstrates how the entire cosmos can be described by specifying just two fundamental values. All other parameters emerge directly from the core geometric relations.
+        </p>
 
-        <div class="presets-section">
-            <h3>Load Preset Values</h3>
-            <button onclick="loadPreset('planck')">Load Planck 2018 (CMB)</button>
-            <button onclick="loadPreset('shoes')">Load SH0ES 2024 (Supernovae)</button>
+        <h2 class="text-3xl font-bold">Core Geometric Equations</h2>
+        <p class="mt-2 text-gray-400">
+            The calculations are based on the following scale-invariant formulas. These equations link the dynamic and scale inputs to all major cosmological quantities without free parameters.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+            <div class="bg-gray-800/50 p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-cyan-400 mb-4">Fundamental Parameters</h3>
+                <div class="formula-box">$\kappa^2 = \frac{R_s}{r_d} = \Omega$</div>
+                <div class="formula-box">$\beta^2 = \frac{R_s}{2r_d} = \frac{\kappa^2}{2}$</div>
+            </div>
+            <div class="bg-gray-800/50 p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-purple-400 mb-4">Derived Quantities</h3>
+                <div class="formula-box">$R_s = \frac{2 G m_0}{c^2}$</div>
+                <div class="formula-box">$H = \frac{c}{r_d} = \frac{\kappa^2 c}{R_s}$</div>
+                <div class="formula-box">$\Lambda = \frac{\kappa^2}{r_d^2} = \frac{\kappa^2 H^2}{c^2}$</div>
+                <div class="formula-box">$\rho = \frac{\kappa^2 c^2}{8 \pi G r_d^2} = \kappa^2 \rho_{max}$</div>
+            </div>
         </div>
 
-        <div class="calculator-section">
-            <h2>Inputs</h2>
-            <div class="input-group">
-                <select id="param1-select" onchange="updateInputs()">
-                    <option value="H">Hubble Parameter (H)</option>
-                    <option value="kappa2">Energy Projection (κ²)</option>
-                    <option value="m0">Total Mass (m₀)</option>
-                    <option value="rd">Hubble Radius (r_d)</option>
-                </select>
-                <input type="number" id="param1-value" placeholder="Value">
-                <span id="param1-unit"></span>
+        <h2 class="text-3xl font-bold">Interactive Calculator</h2>
+
+        <div class="bg-gray-800/50 p-6 rounded-lg mt-6">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Input Controls -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">1. Select Two Inputs</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <select id="param1-select" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-cyan-500 focus:border-cyan-500"></select>
+                            <input type="number" id="param1-value" class="w-full mt-2 bg-gray-900 border border-gray-600 rounded-md p-2" placeholder="Value 1">
+                        </div>
+                        <div>
+                            <select id="param2-select" class="w-full bg-gray-700 border border-gray-600 rounded-md p-2 focus:ring-cyan-500 focus:border-cyan-500"></select>
+                            <input type="number" id="param2-value" class="w-full mt-2 bg-gray-900 border border-gray-600 rounded-md p-2" placeholder="Value 2">
+                        </div>
+                    </div>
+                     <div class="mt-6">
+                        <label for="kappa-slider" class="block mb-2 text-sm font-medium text-gray-300">Manual Override for $\kappa^2$: <span id="kappa-slider-value" class="font-bold text-purple-400">0.685</span></label>
+                        <input id="kappa-slider" type="range" min="0" max="1" value="0.6847" step="0.0001" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                </div>
+                <!-- Presets -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Or Load Presets</h3>
+                    <div class="space-y-3">
+                        <button onclick="loadPreset('planck')" class="w-full text-white bg-cyan-600 hover:bg-cyan-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-colors">Load Planck 2018 (CMB)</button>
+                        <button onclick="loadPreset('shoes')" class="w-full text-white bg-purple-600 hover:bg-purple-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-colors">Load SH0ES 2024 (Supernovae)</button>
+                    </div>
+                </div>
             </div>
-            <div class="input-group">
-                <select id="param2-select" onchange="updateInputs()">
-                    <option value="kappa2">Energy Projection (κ²)</option>
-                    <option value="H">Hubble Parameter (H)</option>
-                    <option value="m0">Total Mass (m₀)</option>
-                    <option value="rd">Hubble Radius (r_d)</option>
-                </select>
-                <input type="number" id="param2-value" placeholder="Value">
-                <span id="param2-unit"></span>
-            </div>
-            <button onclick="calculate()">Calculate</button>
         </div>
 
-        <div class="results-section">
-            <h2>Results</h2>
-            <table class="results-table">
-                <thead>
+        <h2 class="text-3xl font-bold">Derived Cosmological Parameters</h2>
+        <div class="bg-gray-800/50 p-2 md:p-4 rounded-lg mt-6 overflow-x-auto">
+            <table class="w-full text-left">
+                <thead class="text-xs text-gray-300 uppercase bg-gray-900/50">
                     <tr>
-                        <th>Quantity</th>
-                        <th>Value</th>
-                        <th>Unit</th>
+                        <th class="px-4 py-3">Quantity</th>
+                        <th class="px-4 py-3">Value</th>
+                        <th class="px-4 py-3 hidden md:table-cell">Unit</th>
                     </tr>
                 </thead>
-                <tbody id="results-body">
+                <tbody id="results-body" class="divide-y divide-gray-700">
+                    <!-- Results will be injected here -->
                 </tbody>
             </table>
         </div>
-
-        <div class="tcolorbox">
-            <div class="tcolorbox-title">Interpretation</div>
-            <p>In the framework of Will Geometry, the Hubble constant is not a free cosmological parameter — it is a derived geometric ratio between the universal speed of projection (c), the characteristic radius of energy distribution (r_d), and the corresponding projection time (t_d).</p>
+        
+        <!-- Gemini API Section -->
+        <h2 class="text-3xl font-bold">✨ Gemini-Powered Cosmological Interpretation</h2>
+        <div class="bg-gray-800/50 p-6 rounded-lg mt-6">
+            <p class="text-gray-400 mb-4">Click the button below to ask Gemini to provide a simple explanation of the cosmological scenario described by the calculated parameters, based on the principles of Will Geometry.</p>
+            <button id="gemini-explain-button" class="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-colors">✨ Explain these results</button>
+            <div id="gemini-loader" class="loader hidden"></div>
+            <div id="gemini-output-container" class="gemini-output hidden"></div>
         </div>
 
+        <h2 class="text-3xl font-bold">Compact Summary</h2>
+        <div class="bg-gray-800/50 p-6 rounded-lg mt-6">
+             <p class="text-gray-400 mb-4">All late-time “dark-energy” relations emerge from a single algebraic identity once the radial scale $r_d$ is specified:</p>
+            <div class="summary-box">
+                $\Lambda r_{d}^{2}=\kappa^{2} \;\Longleftrightarrow\; \Lambda=\frac{\kappa^{2}H^{2}}{c^{2}} \;\Longleftrightarrow\; \rho_\Lambda=\kappa^{2}\rho_{\max}$
+            </div>
+             <p class="mt-4 text-gray-400">No additional fields, free parameters or metric assumptions are required.</p>
+            <div class="summary-box mt-6 text-cyan-400 tracking-widest">
+                $\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}$
+            </div>
+        </div>
     </div>
 
     <script>
         // Physical Constants
-        const G = 6.67430e-11; // Gravitational constant in m^3 kg^-1 s^-2
-        const c = 299792458;   // Speed of light in m/s
-        const Mpc_to_m = 3.0857e22; // Megaparsec to meters
+        const G = 6.67430e-11; // m^3 kg^-1 s^-2
+        const c = 299792458;   // m/s
+        const Mpc_to_m = 3.0857e22; // meters
+        let currentParams = {}; // Global store for parameters
 
-        const units = {
-            H: 'km/s/Mpc',
-            kappa2: '',
-            m0: 'kg',
-            rd: 'm',
-            Rs: 'm',
-            td: 's',
-            Lambda: 'm⁻²',
-            rho: 'kg/m³',
-            rho_max: 'kg/m³',
-            Omega_Lambda: '',
-            Omega_m: '',
-            beta: '',
+        // All available parameters for selection
+        const parameterDefinitions = {
+            H: { name: 'Hubble Parameter (H)', unit: 'km/s/Mpc' },
+            kappa2: { name: 'Energy Projection (κ²)', unit: '' },
+            m0: { name: 'Total Mass (m₀)', unit: 'kg' },
+            rd: { name: 'Hubble Radius (r_d)', unit: 'm' },
         };
 
-        function updateInputs() {
-            const param1Select = document.getElementById('param1-select').value;
-            const param2Select = document.getElementById('param2-select').value;
-            document.getElementById('param1-unit').textContent = `(${units[param1Select]})`;
-            document.getElementById('param2-unit').textContent = `(${units[param2Select]})`;
+        const param1Select = document.getElementById('param1-select');
+        const param2Select = document.getElementById('param2-select');
+        const param1Value = document.getElementById('param1-value');
+        const param2Value = document.getElementById('param2-value');
+        const kappaSlider = document.getElementById('kappa-slider');
+        const kappaSliderValue = document.getElementById('kappa-slider-value');
+        const geminiButton = document.getElementById('gemini-explain-button');
+        const geminiLoader = document.getElementById('gemini-loader');
+        const geminiOutputContainer = document.getElementById('gemini-output-container');
+
+
+        function populateSelectors() {
+            Object.keys(parameterDefinitions).forEach(key => {
+                const option1 = document.createElement('option');
+                option1.value = key;
+                option1.textContent = parameterDefinitions[key].name;
+                param1Select.appendChild(option1);
+
+                const option2 = document.createElement('option');
+                option2.value = key;
+                option2.textContent = parameterDefinitions[key].name;
+                param2Select.appendChild(option2);
+            });
+            // Set default selections
+            param1Select.value = 'H';
+            param2Select.value = 'kappa2';
         }
 
-        function loadPreset(preset) {
-            if (preset === 'planck') {
-                document.getElementById('param1-select').value = 'H';
-                document.getElementById('param1-value').value = 67.4;
-                document.getElementById('param2-select').value = 'kappa2';
-                document.getElementById('param2-value').value = 0.6847;
-            } else if (preset === 'shoes') {
-                document.getElementById('param1-select').value = 'H';
-                document.getElementById('param1-value').value = 73.2;
-                document.getElementById('param2-select').value = 'kappa2';
-                document.getElementById('param2-value').value = 0.7000;
+        function calculateAndDisplay() {
+            const param1_name = param1Select.value;
+            const param2_name = param2Select.value;
+            let param1_val = parseFloat(param1Value.value);
+            let param2_val = parseFloat(param2Value.value);
+
+            if (param1_name === param2_name) {
+                // To prevent conflict, temporarily invalidate the second input
+                param2_val = NaN;
             }
-            updateInputs();
-            calculate();
-        }
-
-        function calculate() {
-            const param1_name = document.getElementById('param1-select').value;
-            const param2_name = document.getElementById('param2-select').value;
-            const param1_val = parseFloat(document.getElementById('param1-value').value);
-            const param2_val = parseFloat(document.getElementById('param2-value').value);
 
             if (isNaN(param1_val) || isNaN(param2_val)) {
-                alert("Please enter valid numbers for the inputs.");
-                return;
-            }
-            
-            if (param1_name === param2_name) {
-                alert("Please select two different parameters.");
+                clearResults();
                 return;
             }
 
             let params = {};
             params[param1_name] = param1_val;
             params[param2_name] = param2_val;
+            
+            // --- Core Calculation Logic ---
+            if (params.H) params.H_si = params.H * 1000 / Mpc_to_m;
 
-            // Convert H from km/s/Mpc to s^-1 for calculations
-            if (params.H) {
-                params.H_si = params.H * 1000 / Mpc_to_m;
-            }
-
-            // Core calculation logic
             let iter = 0;
-            while (Object.keys(params).length < 8 && iter < 10) {
-                // Given H and kappa2
+            while (Object.keys(params).length < 5 && iter < 5) {
                 if (params.H_si && params.kappa2) {
                     params.rd = c / params.H_si;
                     params.Rs = params.rd * params.kappa2;
-                    params.m0 = (params.Rs * c**2) / (2 * G);
-                }
-                // Given m0 and kappa2
-                else if (params.m0 && params.kappa2) {
-                    params.Rs = (2 * G * params.m0) / c**2;
+                    params.m0 = (params.Rs * c * c) / (2 * G);
+                } else if (params.m0 && params.kappa2) {
+                    params.Rs = (2 * G * params.m0) / (c * c);
                     params.rd = params.Rs / params.kappa2;
                     params.H_si = c / params.rd;
-                }
-                 // Given rd and kappa2
-                else if (params.rd && params.kappa2) {
+                } else if (params.rd && params.kappa2) {
                     params.H_si = c / params.rd;
                     params.Rs = params.rd * params.kappa2;
-                    params.m0 = (params.Rs * c**2) / (2 * G);
-                }
-                // Given H and m0
-                else if (params.H_si && params.m0) {
+                    params.m0 = (params.Rs * c * c) / (2 * G);
+                } else if (params.H_si && params.m0) {
                     params.rd = c / params.H_si;
-                    params.Rs = (2 * G * params.m0) / c**2;
+                    params.Rs = (2 * G * params.m0) / (c * c);
                     params.kappa2 = params.Rs / params.rd;
-                }
-                
-                // Once rd and kappa2 are known, we can find the rest
-                if (params.rd && params.kappa2) {
-                    params.H_si = params.H_si || c / params.rd;
-                    params.H = params.H || params.H_si * Mpc_to_m / 1000;
-                    params.td = 1 / params.H_si;
-                    params.Lambda = params.kappa2 / params.rd**2;
-                    params.rho_max = c**2 / (8 * Math.PI * G * params.rd**2);
-                    params.rho = params.kappa2 * params.rho_max;
-                    params.Omega_Lambda = params.kappa2;
-                    params.Omega_m = 1 - params.kappa2;
-                    params.beta_sq = params.kappa2 / 2;
-                    params.beta = Math.sqrt(params.beta_sq);
+                } else if (params.H_si && params.rd) {
+                     params.kappa2 = (c / params.H_si) / params.rd; // Should be 1, but for completeness
+                     params.m0 = (c * c * params.rd * params.kappa2) / (2*G);
                 }
                 iter++;
             }
             
+            // --- Derive all other parameters ---
+            if (params.rd && params.hasOwnProperty('kappa2')) {
+                params.H_si = params.H_si || c / params.rd;
+                params.H = params.H || params.H_si * Mpc_to_m / 1000;
+                params.td = 1 / params.H_si;
+                params.Lambda = params.kappa2 / (params.rd * params.rd);
+                params.rho_max = (c * c) / (8 * Math.PI * G * params.rd * params.rd);
+                params.rho = params.kappa2 * params.rho_max;
+                params.Omega_Lambda = params.kappa2;
+                params.Omega_m = 1 - params.kappa2;
+                params.beta2 = params.kappa2 / 2;
+                params.beta = Math.sqrt(params.beta2);
+                 if (params.m0 === undefined) {
+                    params.Rs = params.rd * params.kappa2;
+                    params.m0 = (params.Rs * c * c) / (2 * G);
+                 }
+            }
+            
+            currentParams = params; // Store globally
             displayResults(params);
         }
 
         function displayResults(params) {
             const resultsBody = document.getElementById('results-body');
             resultsBody.innerHTML = '';
-
+            
             const results_map = {
-                'H': { value: params.H, unit: units.H, name: 'Hubble Parameter (H)' },
-                'kappa2': { value: params.kappa2, unit: units.kappa2, name: 'Energy Projection (κ²)' },
-                'Omega_Lambda': { value: params.Omega_Lambda, unit: units.Omega_Lambda, name: 'Omega Lambda (Ω_Λ)' },
-                'Omega_m': { value: params.Omega_m, unit: units.Omega_m, name: 'Omega Matter (Ω_m)' },
-                'Lambda': { value: params.Lambda, unit: units.Lambda, name: 'Cosmological Constant (Λ)' },
-                'rho': { value: params.rho, unit: units.rho, name: 'Energy Density (ρ)' },
-                'rho_max': { value: params.rho_max, unit: units.rho_max, name: 'Critical Density (ρ_max)' },
-                'm0': { value: params.m0, unit: units.m0, name: 'Total Mass (m₀)' },
-                'Rs': { value: params.Rs, unit: units.Rs, name: 'Schwarzschild Radius (R_s)' },
-                'rd': { value: params.rd, unit: units.rd, name: 'Hubble Radius (r_d)' },
-                'td': { value: params.td, unit: units.td, name: 'Hubble Time (t_d)' },
-                'beta': { value: params.beta, unit: units.beta, name: 'Kinematic Projection (β)' },
+                'H': { value: params.H, unit: 'km/s/Mpc', name: 'Hubble Parameter (H)' },
+                'kappa2': { value: params.kappa2, unit: '', name: 'Energy Projection (κ²)' },
+                'Omega_Lambda': { value: params.Omega_Lambda, unit: '', name: 'Omega Lambda (Ω_Λ)' },
+                'Omega_m': { value: params.Omega_m, unit: '', name: 'Omega Matter (Ω_m)' },
+                'Lambda': { value: params.Lambda, unit: 'm⁻²', name: 'Cosmological Constant (Λ)' },
+                'rho': { value: params.rho, unit: 'kg/m³', name: 'Energy Density (ρ)' },
+                'rho_max': { value: params.rho_max, unit: 'kg/m³', name: 'Critical Density (ρ_max)' },
+                'm0': { value: params.m0, unit: 'kg', name: 'Total Mass (m₀)' },
+                'Rs': { value: params.Rs || params.rd * params.kappa2, unit: 'm', name: 'Schwarzschild Radius (R_s)' },
+                'rd': { value: params.rd, unit: 'm', name: 'Hubble Radius (r_d)' },
+                'td': { value: params.td, unit: 's', name: 'Hubble Time (t_d)' },
+                'beta': { value: params.beta, unit: '', name: 'Kinematic Projection (β)' },
             };
 
             for (const key in results_map) {
                 const item = results_map[key];
-                let value_str = 'N/A';
+                let value_str = '<span class="text-gray-500">N/A</span>';
                 if (item.value !== undefined && !isNaN(item.value)) {
                     value_str = item.value.toExponential(4);
                 }
 
-                const row = `<tr>
-                                <td>${item.name}</td>
-                                <td>${value_str}</td>
-                                <td>${item.unit}</td>
+                const row = `<tr class="hover:bg-gray-800">
+                                <td class="px-4 py-3 font-medium">${item.name}</td>
+                                <td class="px-4 py-3 text-cyan-400">${value_str}</td>
+                                <td class="px-4 py-3 hidden md:table-cell text-gray-400">${item.unit}</td>
                              </tr>`;
                 resultsBody.innerHTML += row;
             }
         }
+        
+        function clearResults() {
+             document.getElementById('results-body').innerHTML = `<tr><td colspan="3" class="text-center py-4 text-gray-500">Enter two valid inputs to see results.</td></tr>`;
+             currentParams = {};
+        }
+
+        function loadPreset(preset) {
+            if (preset === 'planck') {
+                param1Select.value = 'H';
+                param1Value.value = 67.4;
+                param2Select.value = 'kappa2';
+                param2Value.value = 0.6847;
+                kappaSlider.value = 0.6847;
+            } else if (preset === 'shoes') {
+                param1Select.value = 'H';
+                param1Value.value = 73.2;
+                param2Select.value = 'kappa2';
+                param2Value.value = 0.7000;
+                kappaSlider.value = 0.7000;
+            }
+            kappaSliderValue.textContent = parseFloat(kappaSlider.value).toFixed(4);
+            calculateAndDisplay();
+        }
+        
+        function handleSliderInput() {
+            const sliderValue = parseFloat(kappaSlider.value);
+            kappaSliderValue.textContent = sliderValue.toFixed(4);
+            // Find which input is set to kappa2 and update it
+            if(param1Select.value === 'kappa2') {
+                param1Value.value = sliderValue;
+            } else if (param2Select.value === 'kappa2') {
+                param2Value.value = sliderValue;
+            }
+            calculateAndDisplay();
+        }
+        
+        function handleParamChange() {
+             if (param1Select.value === 'kappa2') {
+                kappaSlider.value = param1Value.value;
+             } else if(param2Select.value === 'kappa2') {
+                kappaSlider.value = param2Value.value;
+             }
+             kappaSliderValue.textContent = parseFloat(kappaSlider.value).toFixed(4);
+             calculateAndDisplay();
+        }
+        
+        async function getGeminiExplanation() {
+            if (Object.keys(currentParams).length === 0) {
+                geminiOutputContainer.textContent = "Please calculate some parameters first.";
+                geminiOutputContainer.classList.remove('hidden');
+                return;
+            }
+            
+            geminiButton.disabled = true;
+            geminiLoader.classList.remove('hidden');
+            geminiOutputContainer.classList.add('hidden');
+
+            const prompt = `
+                In the context of "Will Geometry," where spacetime is energy evolution and cosmological parameters are derived from geometric principles, please provide a concise, easy-to-understand explanation for a universe with the following calculated parameters:
+
+                - Hubble Parameter (H): ${currentParams.H ? currentParams.H.toFixed(2) : 'N/A'} km/s/Mpc
+                - Energy Projection (κ²): ${currentParams.kappa2 ? currentParams.kappa2.toFixed(4) : 'N/A'}
+                - Omega Lambda (Ω_Λ): ${currentParams.Omega_Lambda ? currentParams.Omega_Lambda.toFixed(4) : 'N/A'}
+                - Omega Matter (Ω_m): ${currentParams.Omega_m ? currentParams.Omega_m.toFixed(4) : 'N/A'}
+                - Total Mass (m₀): ${currentParams.m0 ? currentParams.m0.toExponential(4) : 'N/A'} kg
+                - Hubble Radius (r_d): ${currentParams.rd ? currentParams.rd.toExponential(4) : 'N/A'} m
+
+                Focus on explaining the meaning of κ² as the primary driver. Describe what this value of κ² implies about the nature of the universe (e.g., its expansion, energy balance) according to Will Geometry principles. Keep the tone accessible to a layperson interested in cosmology.
+            `;
+
+            try {
+                let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // Canvas will provide this
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+                
+                const result = await response.json();
+
+                if (result.candidates && result.candidates[0] && result.candidates[0].content && result.candidates[0].content.parts[0]) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    geminiOutputContainer.textContent = text;
+                } else {
+                    geminiOutputContainer.textContent = "Could not retrieve an explanation. The response from the model was empty.";
+                }
+
+            } catch (error) {
+                console.error("Gemini API Error:", error);
+                geminiOutputContainer.textContent = "An error occurred while trying to get an explanation. Please check the browser console for details.";
+            } finally {
+                geminiButton.disabled = false;
+                geminiLoader.classList.add('hidden');
+                geminiOutputContainer.classList.remove('hidden');
+            }
+        }
+
 
         // Initial setup
-        window.onload = function() {
-            updateInputs();
-        };
+        document.addEventListener('DOMContentLoaded', () => {
+            populateSelectors();
+            loadPreset('planck'); // Load default values on page start
 
+            [param1Select, param2Select, param1Value, param2Value].forEach(el => {
+                el.addEventListener('change', handleParamChange);
+                el.addEventListener('keyup', handleParamChange);
+            });
+            
+            kappaSlider.addEventListener('input', handleSliderInput);
+            geminiButton.addEventListener('click', getGeminiExplanation);
+        });
     </script>
-
 </body>
 </html>
