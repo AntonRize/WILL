@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Fuse from 'fuse.js';
 import ChatMessage from './ChatMessage';
 import './App.css';
 
@@ -21,13 +20,14 @@ export default function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [model, setModel] = useState('');
-  const [fuse, setFuse] = useState(null);
+  const [knowledge, setKnowledge] = useState('');
 
   useEffect(() => {
-    loadKnowledge().then(text => {
-      const sections = text.split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
-      setFuse(new Fuse(sections.map(t => ({ text: t })), { keys: ['text'], includeScore: true, threshold: 0.4 }));
-    });
+    loadKnowledge()
+      .then(setKnowledge)
+      .catch(err => {
+        console.error('Failed to load knowledge base', err);
+      });
   }, []);
 
   async function send() {
@@ -36,18 +36,12 @@ export default function App() {
     setMessages(m => [...m, { role: 'user', text: userInput }]);
     setInput('');
 
-    if (!fuse) {
+    if (!knowledge) {
       setMessages(m => [...m, { role: 'ai', text: 'Knowledge base is still loading. Please try again in a moment.' }]);
       return;
     }
 
-    const results = fuse.search(userInput).slice(0, 3);
-    if (results.length === 0) {
-      setMessages(m => [...m, { role: 'ai', text: 'I could not find an answer in the WILL documentation. Please ask your question here: https://antonrize.github.io/WILL/discussions/' }]);
-      return;
-    }
-
-    const context = results.map(r => r.item.text).join('\n');
+    const promptText = `${userInput}\n\nKnowledge:\n${knowledge}`;
 
     try {
       const r = await fetch(
@@ -55,7 +49,7 @@ export default function App() {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt: `${userInput}\n\nContext:\n${context}` })
+          body: JSON.stringify({ prompt: promptText })
         }
       );
 
@@ -68,12 +62,7 @@ export default function App() {
       }
 
       if (r.ok) {
-        // This is the fix: We now pass the debug info into the message state
-        setMessages(m => [...m, {
-          role: 'ai',
-          text: data.reply,
-          debug_raw_response: data.debug_raw_response
-        }]);
+        setMessages(m => [...m, { role: 'ai', text: data.reply }]);
         if (data.model) setModel(data.model);
       } else {
         const errorText = `Error: ${data.error || 'An unknown server error occurred.'}`;
@@ -94,7 +83,6 @@ export default function App() {
       )}
       <p className="disclaimer">AI can make mistakes. Double-check with the main WILL documentation.</p>
 
-      {/* The spread operator {...m} will now correctly pass all props */}
       {messages.map((m, i) => <ChatMessage key={i} {...m} />)}
       <div className="input-row">
         <input
