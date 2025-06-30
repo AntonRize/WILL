@@ -79,12 +79,25 @@ title: 2-Input Cosmology Calculator
     </div>
     
     <!-- Gemini API Section -->
-    <h2 class="text-3xl font-bold">✨ Gemini-Powered Cosmological Interpretation</h2>
+    <h2 class="text-3xl font-bold">✨ Gemini-Powered Analysis</h2>
     <div class="bg-gray-800/50 p-6 rounded-lg mt-6">
-        <p class="text-gray-400 mb-4">Click the button below to ask Gemini to provide a simple explanation of the cosmological scenario described by the calculated parameters, based on the principles of Will Geometry.</p>
-        <button id="gemini-explain-button" class="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-colors">✨ Explain these results</button>
-        <div id="gemini-loader" class="loader hidden"></div>
-        <div id="gemini-output-container" class="gemini-output hidden"></div>
+        <p class="text-gray-400 mb-4">Use the buttons below to ask Gemini for an AI-powered analysis of the calculated results.</p>
+        <div class="grid md:grid-cols-2 gap-4">
+             <button id="gemini-explain-button" class="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-colors">✨ Explain these results</button>
+             <button id="gemini-compare-button" class="w-full text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-colors">✨ Compare with Standard Model</button>
+        </div>
+       
+        <div id="gemini-explanation-section" class="mt-4 hidden">
+            <h3 class="text-xl font-semibold text-white mb-2">Will Geometry Interpretation</h3>
+            <div id="gemini-explanation-loader" class="loader hidden"></div>
+            <div id="gemini-explanation-output" class="gemini-output"></div>
+        </div>
+        
+        <div id="gemini-comparison-section" class="mt-4 hidden">
+            <h3 class="text-xl font-semibold text-white mb-2">Comparison with Standard Cosmology (ΛCDM)</h3>
+            <div id="gemini-comparison-loader" class="loader hidden"></div>
+            <div id="gemini-comparison-output" class="gemini-output"></div>
+        </div>
     </div>
 
     <h2 class="text-3xl font-bold">Compact Summary</h2>
@@ -124,9 +137,10 @@ title: 2-Input Cosmology Calculator
         border-radius: 8px;
         margin-top: 1rem;
         color: #d1d5db;
+        white-space: pre-wrap;
     }
     .loader {
-        border: 4px solid #f3f3f3;
+        border: 4px solid #374151;
         border-top: 4px solid #67e8f9;
         border-radius: 50%;
         width: 30px;
@@ -147,7 +161,6 @@ title: 2-Input Cosmology Calculator
     const Mpc_to_m = 3.0857e22; // meters
     let currentParams = {}; // Global store for parameters
 
-    // All available parameters for selection
     const parameterDefinitions = {
         H: { name: 'Hubble Parameter (H)', unit: 'km/s/Mpc' },
         kappa2: { name: 'Energy Projection (κ²)', unit: '' },
@@ -155,15 +168,24 @@ title: 2-Input Cosmology Calculator
         rd: { name: 'Hubble Radius (r_d)', unit: 'm' },
     };
 
+    // DOM Elements
     const param1Select = document.getElementById('param1-select');
     const param2Select = document.getElementById('param2-select');
     const param1Value = document.getElementById('param1-value');
     const param2Value = document.getElementById('param2-value');
     const kappaSlider = document.getElementById('kappa-slider');
     const kappaSliderValue = document.getElementById('kappa-slider-value');
-    const geminiButton = document.getElementById('gemini-explain-button');
-    const geminiLoader = document.getElementById('gemini-loader');
-    const geminiOutputContainer = document.getElementById('gemini-output-container');
+    
+    const geminiExplainButton = document.getElementById('gemini-explain-button');
+    const geminiCompareButton = document.getElementById('gemini-compare-button');
+
+    const explanationSection = document.getElementById('gemini-explanation-section');
+    const explanationLoader = document.getElementById('gemini-explanation-loader');
+    const explanationOutput = document.getElementById('gemini-explanation-output');
+
+    const comparisonSection = document.getElementById('gemini-comparison-section');
+    const comparisonLoader = document.getElementById('gemini-comparison-loader');
+    const comparisonOutput = document.getElementById('gemini-comparison-output');
 
 
     function populateSelectors() {
@@ -178,7 +200,6 @@ title: 2-Input Cosmology Calculator
             option2.textContent = parameterDefinitions[key].name;
             param2Select.appendChild(option2);
         });
-        // Set default selections
         param1Select.value = 'H';
         param2Select.value = 'kappa2';
     }
@@ -189,10 +210,7 @@ title: 2-Input Cosmology Calculator
         let param1_val = parseFloat(param1Value.value);
         let param2_val = parseFloat(param2Value.value);
 
-        if (param1_name === param2_name) {
-            param2_val = NaN;
-        }
-
+        if (param1_name === param2_name) { param2_val = NaN; }
         if (isNaN(param1_val) || isNaN(param2_val)) {
             clearResults();
             return;
@@ -275,7 +293,6 @@ title: 2-Input Cosmology Calculator
             if (item.value !== undefined && !isNaN(item.value)) {
                 value_str = item.value.toExponential(4);
             }
-
             const row = `<tr class="hover:bg-gray-800">
                             <td class="px-4 py-3 font-medium">${item.name}</td>
                             <td class="px-4 py-3 text-cyan-400">${value_str}</td>
@@ -329,29 +346,18 @@ title: 2-Input Cosmology Calculator
          calculateAndDisplay();
     }
     
-    async function getGeminiExplanation() {
+    async function callGemini(prompt, loader, output, section) {
         if (Object.keys(currentParams).length === 0) {
-            geminiOutputContainer.textContent = "Please calculate some parameters first.";
-            geminiOutputContainer.classList.remove('hidden');
+            section.classList.remove('hidden');
+            output.textContent = "Please calculate some parameters first.";
             return;
         }
         
-        geminiButton.disabled = true;
-        geminiLoader.classList.remove('hidden');
-        geminiOutputContainer.classList.add('hidden');
-
-        const prompt = `
-            In the context of "Will Geometry," where spacetime is energy evolution and cosmological parameters are derived from geometric principles, please provide a concise, easy-to-understand explanation for a universe with the following calculated parameters:
-
-            - Hubble Parameter (H): ${currentParams.H ? currentParams.H.toFixed(2) : 'N/A'} km/s/Mpc
-            - Energy Projection (κ²): ${currentParams.kappa2 ? currentParams.kappa2.toFixed(4) : 'N/A'}
-            - Omega Lambda (Ω_Λ): ${currentParams.Omega_Lambda ? currentParams.Omega_Lambda.toFixed(4) : 'N/A'}
-            - Omega Matter (Ω_m): ${currentParams.Omega_m ? currentParams.Omega_m.toFixed(4) : 'N/A'}
-            - Total Mass (m₀): ${currentParams.m0 ? currentParams.m0.toExponential(4) : 'N/A'} kg
-            - Hubble Radius (r_d): ${currentParams.rd ? currentParams.rd.toExponential(4) : 'N/A'} m
-
-            Focus on explaining the meaning of κ² as the primary driver. Describe what this value of κ² implies about the nature of the universe (e.g., its expansion, energy balance) according to Will Geometry principles. Keep the tone accessible to a layperson interested in cosmology.
-        `;
+        geminiExplainButton.disabled = true;
+        geminiCompareButton.disabled = true;
+        section.classList.remove('hidden');
+        loader.classList.remove('hidden');
+        output.textContent = '';
 
         try {
             let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
@@ -371,21 +377,43 @@ title: 2-Input Cosmology Calculator
             
             const result = await response.json();
 
-            if (result.candidates && result.candidates[0] && result.candidates[0].content && result.candidates[0].content.parts[0]) {
-                const text = result.candidates[0].content.parts[0].text;
-                geminiOutputContainer.textContent = text;
+            if (result.candidates && result.candidates[0]?.content?.parts[0]) {
+                output.textContent = result.candidates[0].content.parts[0].text;
             } else {
-                geminiOutputContainer.textContent = "Could not retrieve an explanation. The response from the model was empty.";
+                output.textContent = "Could not retrieve an explanation. The response from the model was empty.";
             }
 
         } catch (error) {
             console.error("Gemini API Error:", error);
-            geminiOutputContainer.textContent = "An error occurred while trying to get an explanation. Please check the browser console for details.";
+            output.textContent = "An error occurred while trying to get an explanation. Please check the browser console for details.";
         } finally {
-            geminiButton.disabled = false;
-            geminiLoader.classList.add('hidden');
-            geminiOutputContainer.classList.remove('hidden');
+            geminiExplainButton.disabled = false;
+            geminiCompareButton.disabled = false;
+            loader.classList.add('hidden');
         }
+    }
+
+    function getGeminiExplanation() {
+        const prompt = `In the context of "Will Geometry," where spacetime is energy evolution, please provide a concise, easy-to-understand explanation for a universe with κ² = ${currentParams.kappa2 ? currentParams.kappa2.toFixed(4) : 'N/A'}. Focus on explaining the meaning of κ² as the primary driver. Describe what this value of κ² implies about the energy balance (like Ω_Λ vs Ω_m) and the nature of the universe's expansion according to Will Geometry principles. Keep the tone accessible to a layperson interested in cosmology.`;
+        callGemini(prompt, explanationLoader, explanationOutput, explanationSection);
+    }
+
+    function getGeminiComparison() {
+        const prompt = `As an expert in cosmology, briefly compare two models based on the following data.
+        
+        A model called "Will Geometry" has produced these results:
+        - Hubble Parameter (H): ${currentParams.H ? currentParams.H.toFixed(2) : 'N/A'} km/s/Mpc
+        - Omega Lambda (Ω_Λ from κ²): ${currentParams.Omega_Lambda ? currentParams.Omega_Lambda.toFixed(4) : 'N/A'}
+        
+        The standard Lambda-CDM (ΛCDM) model uses similar parameter values.
+        
+        Explain the key *conceptual differences* in what Ω_Λ and the cosmological constant (Λ) represent in each model.
+        1.  In ΛCDM, what is Ω_Λ generally thought to be (e.g., vacuum energy)?
+        2.  In Will Geometry, what is Ω_Λ (or κ²) derived from (e.g., geometric projection)?
+        3.  How does the interpretation of cosmic expansion differ between the two models based on this?
+        
+        Keep the explanation clear and concise for someone familiar with basic cosmology.`;
+        callGemini(prompt, comparisonLoader, comparisonOutput, comparisonSection);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -398,6 +426,7 @@ title: 2-Input Cosmology Calculator
         });
         
         kappaSlider.addEventListener('input', handleSliderInput);
-        geminiButton.addEventListener('click', getGeminiExplanation);
+        geminiExplainButton.addEventListener('click', getGeminiExplanation);
+        geminiCompareButton.addEventListener('click', getGeminiComparison);
     });
 </script>
