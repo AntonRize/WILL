@@ -19,7 +19,6 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
 </head>
 <body>
   <div id="root"></div>
@@ -42,14 +41,16 @@
     function App() {
       const [messages, setMessages] = React.useState([]);
       const [input, setInput] = React.useState('');
-      const [fuse, setFuse] = React.useState(null);
+      const [sections, setSections] = React.useState(null);
       const [model, setModel] = React.useState('');
 
       React.useEffect(() => {
-        loadKnowledge().then(text => {
-          const sections = text.split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
-          setFuse(new Fuse(sections.map(t => ({ text: t })), { keys: ['text'], includeScore: true, threshold: 0.4 }));
-        });
+        loadKnowledge()
+          .then(text => {
+            const parts = text.split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
+            setSections(parts);
+          })
+          .catch(err => console.error('Failed to load knowledge base', err));
       }, []);
 
       const sendMessage = async () => {
@@ -58,18 +59,28 @@
         setMessages(prev => [...prev, userMsg]);
         setInput('');
 
-        if (!fuse) {
+        if (!sections) {
           setMessages(prev => [...prev, { role: 'assistant', content: 'Knowledge base is loading, please try again shortly.' }]);
           return;
         }
 
-        const results = fuse.search(input).slice(0, 3);
-        if (results.length === 0) {
+        const words = input.toLowerCase().split(/\s+/);
+        const ranked = sections
+          .map(t => {
+            const l = t.toLowerCase();
+            const score = words.reduce((c, w) => l.includes(w) ? c + 1 : c, 0);
+            return { t, score };
+          })
+          .filter(r => r.score > 0)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 3);
+
+        if (ranked.length === 0) {
           setMessages(prev => [...prev, { role: 'assistant', content: 'I could not find an answer in the WILL documentation. Please ask your question here: https://antonrize.github.io/WILL/discussions/' }]);
           return;
         }
 
-        const context = results.map(r => r.item.text).join('\n');
+        const context = ranked.map(r => r.t).join('\n');
         const prompt = `${input}\n\nContext:\n${context}`;
         try {
           const res = await fetch('https://proxy-flame-seven.vercel.app/api/gemini', {
