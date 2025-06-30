@@ -3,7 +3,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
-import 'katex/dist/katex.min.css';
+// KaTeX styles are loaded from CDN in index.html
 
 export default function ChatMessage({ role, text, debug_raw_response }) {
   return (

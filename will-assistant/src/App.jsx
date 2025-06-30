@@ -1,11 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ChatMessage from './ChatMessage';
 import './App.css';
+
+const KB_FILES = [
+  'WILL%20DATABASE/WILL%20PART%20I%20SR%20GR.txt',
+  'WILL%20DATABASE/WILL%20PART%20II%20COSMO%20.txt',
+  'WILL%20DATABASE/WILL%20PART%20III%20QM%20.txt'
+];
+
+async function loadKnowledge() {
+  const base = 'https://raw.githubusercontent.com/AntonRize/WILL/main/';
+  const texts = await Promise.all(
+    KB_FILES.map(p => fetch(base + p).then(r => r.text()))
+  );
+  return texts.join('\n');
+}
 
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [model, setModel] = useState('');
+  const [knowledge, setKnowledge] = useState('');
+
+  useEffect(() => {
+    loadKnowledge()
+      .then(setKnowledge)
+      .catch(err => {
+        console.error('Failed to load knowledge base', err);
+      });
+  }, []);
 
   async function send() {
     if (!input.trim()) return;
@@ -13,13 +36,20 @@ export default function App() {
     setMessages(m => [...m, { role: 'user', text: userInput }]);
     setInput('');
 
+    if (!knowledge) {
+      setMessages(m => [...m, { role: 'ai', text: 'Knowledge base is still loading. Please try again in a moment.' }]);
+      return;
+    }
+
+    const promptText = `${userInput}\n\nKnowledge:\n${knowledge}`;
+
     try {
       const r = await fetch(
         'https://proxy-flame-seven.vercel.app/api/gemini',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt: userInput })
+          body: JSON.stringify({ prompt: promptText })
         }
       );
 
@@ -32,12 +62,7 @@ export default function App() {
       }
 
       if (r.ok) {
-        // This is the fix: We now pass the debug info into the message state
-        setMessages(m => [...m, {
-          role: 'ai',
-          text: data.reply,
-          debug_raw_response: data.debug_raw_response
-        }]);
+        setMessages(m => [...m, { role: 'ai', text: data.reply }]);
         if (data.model) setModel(data.model);
       } else {
         const errorText = `Error: ${data.error || 'An unknown server error occurred.'}`;
