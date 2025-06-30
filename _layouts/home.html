@@ -41,8 +41,8 @@
                 {% for item in site.navigation %}
                     <a href="{{ item.url | relative_url }}" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ item.title }}</a>
                 {% endfor %}
-                <!-- === CORRECTED LINK === -->
-                <a href="{{ '/2-input-cosmology.html' | relative_url }}" class="text-gray-300 hover:text-cyan-400 transition-colors">2-Input Cosmology</a>
+                <!-- === CORRECTED LINK V2 === -->
+                <a href="{{ site.baseurl }}/2-input-cosmology.html" class="text-gray-300 hover:text-cyan-400 transition-colors">2-Input Cosmology</a>
             </div>
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
@@ -57,8 +57,8 @@
                  {% for item in site.navigation %}
                     <a href="{{ item.url | relative_url }}" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">{{ item.title }}</a>
                 {% endfor %}
-                <!-- === CORRECTED LINK === -->
-                <a href="{{ '/2-input-cosmology.html' | relative_url }}" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">2-Input Cosmology</a>
+                <!-- === CORRECTED LINK V2 === -->
+                <a href="{{ site.baseurl }}/2-input-cosmology.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">2-Input Cosmology</a>
             </div>
         </div>
     </header>
