@@ -188,7 +188,6 @@ permalink: /2-input-cosmology.html
     const comparisonLoader = document.getElementById('gemini-comparison-loader');
     const comparisonOutput = document.getElementById('gemini-comparison-output');
 
-
     function populateSelectors() {
         Object.keys(parameterDefinitions).forEach(key => {
             const option1 = document.createElement('option');
@@ -360,33 +359,37 @@ permalink: /2-input-cosmology.html
         loader.classList.remove('hidden');
         output.textContent = '';
 
-        try {
-            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-            const payload = { contents: chatHistory };
-            const apiKey = ""; // Canvas will provide this
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        // --- NEW: Use the proxy server ---
+        // This URL points to the proxy function. Your assistant page uses a similar one.
+        // This assumes the proxy is available at '/api/gemini' on the same domain.
+        // If your proxy is hosted elsewhere (e.g., on Vercel), you'll need the full URL.
+        const proxyApiUrl = "/api/gemini"; 
 
-            const response = await fetch(apiUrl, {
+        try {
+            const payload = { prompt: prompt }; // The proxy expects a simple object with a 'prompt' key
+
+            const response = await fetch(proxyApiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
             
             if (!response.ok) {
-                throw new Error(`API request failed with status ${response.status}`);
+                throw new Error(`API request failed with status ${response.status}: ${await response.text()}`);
             }
             
             const result = await response.json();
 
-            if (result.candidates && result.candidates[0]?.content?.parts[0]) {
-                output.textContent = result.candidates[0].content.parts[0].text;
+            // The proxy returns the text directly in a 'response' field
+            if (result.response) {
+                output.textContent = result.response;
             } else {
-                output.textContent = "Could not retrieve an explanation. The response from the model was empty.";
+                output.textContent = "Could not retrieve an explanation. The response from the proxy was empty or malformed.";
             }
 
         } catch (error) {
             console.error("Gemini API Error:", error);
-            output.textContent = "An error occurred while trying to get an explanation. Please check the browser console for details.";
+            output.textContent = "An error occurred while trying to get an explanation. This is likely a network or proxy configuration issue. Please check the browser console for details.";
         } finally {
             geminiExplainButton.disabled = false;
             geminiCompareButton.disabled = false;
