@@ -1,120 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>WILL Assistant</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>WILL Assistant</title>
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- React 18 -->
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- React 18 -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-<style>
- body{background:#0f172a;color:#f1f5f9;font-family:Inter,Arial,sans-serif}
- textarea::-webkit-scrollbar{width:4px}
-</style>
+  <style>
+    body{background:#0f172a;color:#f1f5f9;font-family:Inter,Arial,sans-serif}
+    textarea::-webkit-scrollbar{width:4px}
+  </style>
 </head>
 <body>
-<div id="root"></div>
+  <!-- Navigation Bar (matches WILL site) -->
+  <nav class="bg-slate-900 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex-shrink-0 flex items-center space-x-2">
+          <span class="text-indigo-400 font-bold text-xl tracking-wider">WILL</span>
+          <span class="hidden sm:inline text-slate-400 text-sm tracking-wide">Geometry Project</span>
+        </div>
+        <div class="flex space-x-4">
+          <a href="/WILL/" class="text-slate-300 hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+          <a href="/WILL/database/" class="text-slate-300 hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium">Database</a>
+          <a href="/WILL/assistant/" class="text-indigo-400 px-3 py-2 rounded-md text-sm font-medium underline">Assistant</a>
+          <a href="/WILL/about/" class="text-slate-300 hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium">About</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-<script>
-const {useState,useEffect,useRef}=React;
+  <div id="root"></div>
 
-/* ---------- CONFIG ---------- */
-const FILES=[
- 'WILL%20DATABASE/WILL%20PART%20I%20SR%20GR.txt',
- 'WILL%20DATABASE/WILL%20PART%20II%20COSMO%20.txt',
- 'WILL%20DATABASE/WILL%20PART%20III%20QM%20.txt'
-];
-const CORE=`β (beta)=v/c  ·  κ (kappa)=vₑ/c  ·  κ²=2β²`;
-const PROXY='https://proxy-flame-seven.vercel.app/api/gemini';
+  <script>
+    const {useState, useEffect, useRef} = React;
 
-/* quick local dictionary */
-const QUICK={
-  'beta':  'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
-  'β':     'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
-  'kappa': 'κ (kappa) is the gravitational projection vₑ / c. Relation κ² = 2 β².',
-  'κ':     'κ (kappa) is the gravitational projection vₑ / c. Relation κ² = 2 β².'
-};
+    /* ---------- CONFIG ---------- */
+    const FILES = [
+      'WILL%20DATABASE/WILL%20PART%20I%20SR%20GR.txt',
+      'WILL%20DATABASE/WILL%20PART%20II%20COSMO%20.txt',
+      'WILL%20DATABASE/WILL%20PART%20III%20QM%20.txt'
+    ];
+    const CORE = `β (beta)=v/c  ·  κ (kappa)=vₑ/c  ·  κ²=2β²`;
+    const PROXY = 'https://proxy-flame-seven.vercel.app/api/gemini';
 
-/* ---------- HELPERS ---------- */
-function loadKB(){
-  const base='https://raw.githubusercontent.com/AntonRize/WILL/main/';
-  return Promise.all(FILES.map(p=>fetch(base+p).then(r=>{
-    if(!r.ok)throw new Error('KB fetch '+r.status);
-    return r.text();
-  }))).then(t=>t.join('\n\n').replace(/\\beta/g,'β (beta)').replace(/\\kappa/g,'κ (kappa)'));
-}
-function askGemini(prompt){
-  return fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})})
-    .then(r=>r.text())
-    .then(t=>{let d;try{d=JSON.parse(t);}catch{throw new Error(t);}if(!d.reply)throw new Error(d.error||'Proxy');return d.reply;});
-}
-const isRu=s=>/[а-яё]/i.test(s);
+    /* quick local dictionary */
+    const QUICK = {
+      'beta':  'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
+      'β':     'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
+      'kappa': 'κ (kappa) is the gravitational projection vₑ / c. Relation κ² = 2 β².',
+      'κ':     'κ (kappa) is the gravitational projection vₑ / c. Relation κ² = 2 β².'
+    };
 
-/* ---------- APP ---------- */
-function App(){
-  const [kb,setKb]=useState('');          // KB text
-  const [ks,setKs]=useState('loading');   // loading | ok | error
-  const [log,setLog]=useState([]);        // messages
-  const [inp,setInp]=useState('');        // user input
-  const [busy,setBusy]=useState(false);   // spinner
-  const endRef=useRef(null);
+    /* ---------- HELPERS ---------- */
+    function loadKB(){
+      const base='https://raw.githubusercontent.com/AntonRize/WILL/main/';
+      return Promise.all(FILES.map(p=>fetch(base+p).then(r=>{
+        if(!r.ok)throw new Error('KB fetch '+r.status);
+        return r.text();
+      }))).then(t=>t.join('\n\n').replace(/\\beta/g,'β (beta)').replace(/\\kappa/g,'κ (kappa)'));
+    }
+    function askGemini(prompt){
+      return fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})})
+        .then(r=>r.text())
+        .then(t=>{let d;try{d=JSON.parse(t);}catch{throw new Error(t);}if(!d.reply)throw new Error(d.error||'Proxy');return d.reply;});
+    }
+    const isRu=s=>/[а-яё]/i.test(s);
 
-  useEffect(()=>{loadKB().then(d=>{setKb(d);setKs('ok');}).catch(()=>setKs('error'));},[]);
-  useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[log]);
-  const push=(txt,user=false)=>setLog(L=>[...L,{id:Date.now()+Math.random(),txt,user}]);
+    /* ---------- APP ---------- */
+    function App(){
+      const [kb,setKb]=useState('');          // KB text
+      const [ks,setKs]=useState('loading');   // loading | ok | error
+      const [log,setLog]=useState([{
+        id: 0,
+        txt: "👋 Welcome to the WILL Geometry Assistant! You can ask me questions about the WILL theory and documents. \n\n**Disclaimer:** AI can make mistakes — so do you. Doublecheck with original WILL documents (.pdf).",
+        user: false,
+        isWelcome: true
+      }]);        // messages
+      const [inp,setInp]=useState('');        // user input
+      const [busy,setBusy]=useState(false);   // spinner
+      const endRef=useRef(null);
 
-  async function send(){
-    const q=inp.trim();
-    if(!q||busy)return;
-    push(q,true);
-    setInp('');
+      useEffect(()=>{loadKB().then(d=>{setKb(d);setKs('ok');}).catch(()=>setKs('error'));},[]);
+      useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[log]);
+      const push=(txt,user=false)=>setLog(L=>[...L,{id:Date.now()+Math.random(),txt,user}]);
 
-    /* quick local answer */
-    const qKey=q.toLowerCase().replace('?','');
-    if(QUICK[qKey]){push(QUICK[qKey]);return;}
+      async function send(){
+        const q=inp.trim();
+        if(!q||busy)return;
+        push(q,true);
+        setInp('');
 
-    if(ks!=='ok'){push('Knowledge base still loading…');return;}
-    setBusy(true);
-    try{
-      const lang=isRu(q)?'Russian':'English';
-      const prompt=`Answer in ${lang}. CORE: ${CORE}\nDATABASE:\n${kb}\nQUESTION: """${q}"""`;
-      push(await askGemini(prompt));
-    }catch(e){push('⚠️ '+e.message);}
-    setBusy(false);
-  }
+        /* quick local answer */
+        const qKey=q.toLowerCase().replace('?','');
+        if(QUICK[qKey]){push(QUICK[qKey]);return;}
 
-  return React.createElement('div',{className:'flex flex-col h-screen max-w-2xl mx-auto p-4'},
-    React.createElement('h1',{className:'text-2xl font-bold text-center mb-3'},"WILL AI Assistant"),
-    ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 mb-2'},
-      ks==='loading'?'KB loading…':'KB error (check console)'
-    ),
-    React.createElement('div',{className:'flex-1 overflow-y-auto space-y-4 bg-slate-800 p-4 rounded-lg'},
-      log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
-        React.createElement('div',{className:`max-w-[80%] p-3 rounded-xl ${m.user?'bg-indigo-600 text-white':'bg-slate-700'}`},m.txt)
-      )),
-      busy&&React.createElement('div',{className:'text-slate-300'},"Thinking…"),
-      React.createElement('div',{ref:endRef})
-    ),
-    React.createElement('div',{className:'mt-3 flex gap-2'},
-      React.createElement('textarea',{
-        className:'flex-1 resize-none bg-slate-700 text-slate-50 rounded-xl p-3 focus:outline-none',
-        rows:1,value:inp,placeholder:'Ask about WILL Geometry…',
-        onChange:e=>setInp(e.target.value),
-        onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
-      }),
-      React.createElement('button',{
-        className:'px-4 py-2 bg-indigo-600 text-white rounded-xl disabled:opacity-50',
-        disabled:!inp.trim()||busy,onClick:send
-      },'Send')
-    )
-  );
-}
-ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
-</script>
+        if(ks!=='ok'){push('Knowledge base still loading…');return;}
+        setBusy(true);
+        try{
+          const lang=isRu(q)?'Russian':'English';
+          const prompt=`Answer in ${lang}. CORE: ${CORE}\nDATABASE:\n${kb}\nQUESTION: """${q}"""`;
+          push(await askGemini(prompt));
+        }catch(e){push('⚠️ '+e.message);}
+        setBusy(false);
+      }
+
+      return React.createElement('div',{className:'flex flex-col h-[calc(100vh-4rem)] max-w-2xl mx-auto p-4'},
+        React.createElement('h1',{className:'text-2xl font-bold text-center mb-3'},"WILL AI Assistant"),
+        ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 mb-2'},
+          ks==='loading'?'KB loading…':'KB error (check console)'
+        ),
+        React.createElement('div',{className:'flex-1 overflow-y-auto space-y-4 bg-slate-800 p-4 rounded-lg'},
+          log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
+            React.createElement('div',{
+              className:`max-w-[80%] p-3 rounded-xl ${m.user?'bg-indigo-600 text-white':'bg-slate-700'} ${m.isWelcome?'border border-yellow-400':''}`
+            },m.txt)
+          )),
+          busy&&React.createElement('div',{className:'text-slate-300'},"Thinking…"),
+          React.createElement('div',{ref:endRef})
+        ),
+        React.createElement('div',{className:'mt-3 flex gap-2'},
+          React.createElement('textarea',{
+            className:'flex-1 resize-none bg-slate-700 text-slate-50 rounded-xl p-3 focus:outline-none',
+            rows:1,value:inp,placeholder:'Ask about WILL Geometry…',
+            onChange:e=>setInp(e.target.value),
+            onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
+          }),
+          React.createElement('button',{
+            className:'px-4 py-2 bg-indigo-600 text-white rounded-xl disabled:opacity-50',
+            disabled:!inp.trim()||busy,onClick:send
+          },'Send')
+        )
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+  </script>
 </body>
 </html>
