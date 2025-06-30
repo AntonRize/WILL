@@ -83,7 +83,6 @@ export default function App() {
       )}
       <p className="disclaimer">AI can make mistakes. Double-check with the main WILL documentation.</p>
 
-      {/* The spread operator {...m} will now correctly pass all props */}
       {messages.map((m, i) => <ChatMessage key={i} {...m} />)}
       <div className="input-row">
         <input
