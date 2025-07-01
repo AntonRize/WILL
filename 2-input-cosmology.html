@@ -359,14 +359,13 @@ permalink: /2-input-cosmology.html
         loader.classList.remove('hidden');
         output.textContent = '';
 
-        // --- NEW: Use the proxy server ---
-        // This URL points to the proxy function. Your assistant page uses a similar one.
-        // This assumes the proxy is available at '/api/gemini' on the same domain.
-        // If your proxy is hosted elsewhere (e.g., on Vercel), you'll need the full URL.
-        const proxyApiUrl = "/api/gemini"; 
+        // --- THE FIX ---
+        // Replace the placeholder with the actual, full URL of your deployed Vercel proxy.
+        // It will look something like: https://your-project-name.vercel.app/api/gemini
+        const proxyApiUrl = "https://will-assistant-proxy.vercel.app/api/gemini"; // <-- IMPORTANT: REPLACE IF YOUR URL IS DIFFERENT
 
         try {
-            const payload = { prompt: prompt }; // The proxy expects a simple object with a 'prompt' key
+            const payload = { prompt: prompt }; 
 
             const response = await fetch(proxyApiUrl, {
                 method: 'POST',
@@ -375,12 +374,12 @@ permalink: /2-input-cosmology.html
             });
             
             if (!response.ok) {
-                throw new Error(`API request failed with status ${response.status}: ${await response.text()}`);
+                const errorText = await response.text();
+                throw new Error(`API request failed with status ${response.status}: ${errorText}`);
             }
             
             const result = await response.json();
 
-            // The proxy returns the text directly in a 'response' field
             if (result.response) {
                 output.textContent = result.response;
             } else {
