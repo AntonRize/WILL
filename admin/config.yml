@@ -42,3 +42,13 @@ collections:
       - {label: "?????????", name: "title", widget: "string"}
       - {label: "????", name: "date", widget: "datetime"}
       - {label: "??????????", name: "body", widget: "markdown"}
+
+  # Home page structured data
+  - name: "home"
+    label: "Home Content (YAML)"
+    files:
+      - file: "_data/home.yml"
+        label: "Home Page Text"
+        name: "home_yaml"
+        fields:
+          - {label: "YAML", name: "body", widget: "yaml"}
