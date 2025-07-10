@@ -39,6 +39,8 @@ navigation:
     url: /discussions/
   - title: "About"
     url: /about/
+  - title: "2-Input Cosmology"
+    url: /2-input-cosmology.html
 
 # Exclusions
 exclude:
@@ -57,3 +59,8 @@ collections:
   discussions:
     output: true
     permalink: /:collection/:name/
+
+# --- НОВАЯ ДИРЕКТИВА ДЛЯ CMS ---
+# Эта директива приказывает сборщику включить папку 'admin' в финальный сайт.
+include:
+  - admin

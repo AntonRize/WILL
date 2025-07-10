@@ -92,33 +92,7 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header & Navigation -->
-    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-5xl">
-            <a href="{{ "/" | relative_url }}" class="text-xl font-bold text-white">WILL Geometry</a>
-            <div class="hidden md:flex items-center space-x-6">
-                {% for item in site.navigation %}
-                    <a href="{{ item.url | relative_url }}" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ item.title }}</a>
-                {% endfor %}
-                <!-- === CORRECTED LINK V2 === -->
-                <a href="{{ site.baseurl }}/2-input-cosmology.html" class="text-gray-300 hover:text-cyan-400 transition-colors">2-Input Cosmology</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6H4"></path></svg>
-                </button>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                 {% for item in site.navigation %}
-                    <a href="{{ item.url | relative_url }}" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">{{ item.title }}</a>
-                {% endfor %}
-                <!-- === CORRECTED LINK V2 === -->
-                <a href="{{ site.baseurl }}/2-input-cosmology.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">2-Input Cosmology</a>
-            </div>
-        </div>
-    </header>
+    {% include header.html %}
 
     <main class="container mx-auto px-6 max-w-4xl">
         {% if page.url == "/" %}
@@ -134,12 +108,7 @@
         {% endif %}
     </main>
     
-    <!-- Footer -->
-    <footer class="bg-gray-900 mt-16 border-t border-gray-800">
-        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
-            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
-        </div>
-    </footer>
+    {% include footer.html %}
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
