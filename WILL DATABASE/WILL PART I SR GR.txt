@@ -141,7 +141,7 @@ Thus, the theory is perfectly closed upon itself: \textit{the fundamental princi
 \end{tcolorbox}
 
 
-\section{Motivation and Core Principles}
+\subsection{Motivation and Core Principles}
 
 The standard formulation of General Relativity often relies on the concept of an asymptotically flat spacetime, introducing an implicit external reference frame beyond the physical systems under study. While some modern approaches (e.g., shape dynamics) seek greater relationality, we proceed from strict epistemic minimalism, disallowing all background structures, even hidden or asymptotic ones.
 
@@ -158,6 +158,8 @@ The standard formulation of General Relativity often relies on the concept of an
 \vspace{1em}
 \textbf{What is Energy?} Energy is not an intrinsic property of objects, but a measure of difference between possible states. It expresses the system's capacity to transition, always encountered as a relative potential for change—not as something possessed, but as a comparative structure between observers. In this framework, energy marks the directional tendency for one configuration to transform into another. 
 
+
+\section{Single Unifying Postulate}
 \vspace{1em}
 We therefore posit a single unifying postulate:
 
@@ -169,7 +171,7 @@ We therefore posit a single unifying postulate:
 
 The goal of this framework is not merely to reconstruct the formulas of Special and General Relativity, but to demonstrate that they are the unique and necessary consequences of a single, deeper principle of relational geometry. By showing \textit{why} these specific mathematical structures must arise, the model provides a more fundamental explanation for them than the standard formalisms alone.
 
-\section{Fundamental Structure of Will}
+\subsection{Fundamental Structure of Will}
 
 From our postulate, several key properties of the Will framework can be derived:
 
@@ -213,7 +215,7 @@ closed-manifold symmetry $\rightarrow$ projection algebra
 $\rightarrow$ relativistic factors $\rightarrow$ unified field identity.
 \end{proof}
 
-\subsection*{Fundamental Axiom: Will‐Manifold \(\mathcal W\)}
+\subsection{Fundamental Axiom: Will‐Manifold \(\mathcal W\)}
 
 \begin{definition}[Structure of the Will‐manifold]\label{def:will}
 The Will‐manifold \(\mathcal W\) is the set of all possible
@@ -541,8 +543,6 @@ Thus:
   \item All inertial and gravitational effects (kinetic terms, Schwarzschild radius \(R_s\), etc.) follow by substituting \(E_0 = m\,c^2\) into the dual‐scaling laws.
 \end{itemize}
 
-
-
 \subsection*{Interpretation}
 
 All relativistic properties—energy diverging as \(v \to c\), correct normalization at \(v=0\), and the conservation of energy–momentum—follow immediately.  In this framework:
@@ -609,6 +609,13 @@ Equivalent to our previous derivation of $\beta$ as kinetic energy component, no
         \item $L_d =\frac{1}{T_c}=\frac{1}{\sqrt{1-\kappa^2} }=\frac{1}{\cos(\theta_G)}\text{ (Length dilation factor)}$.
     \end{itemize}
 where $R_s = \frac{2GM}{c^2}$
+
+\begin{tikzpicture}
+\draw[thick] (0,0) circle(1);
+\draw[-, thick] (0,0.8) -- (0.6,0.8) node[above, right] {$\sqrt{1 - \kappa^2}$};
+\draw[->, thick] (0,0) -- (0.6,0.8) node[midway, right] {$E$};
+\draw[->, thick] (0,0) -- (0,0.8) node[midway, left] {$\kappa$};
+\end{tikzpicture}
 
 \subsection{General Theory of Relativity (Length Dilation Factor)}
 The relevant component of the Schwarzschild metric, related to gravitational length dilation, is given by:
@@ -1733,6 +1740,15 @@ A notable geometric equilibrium occurs at the critical angle
     \theta_S = \theta_G= 54.7356103172^{\circ} \text{ (balance point for photon sphere and ISCO)}
 \end{equation}
 or approximately $\theta_S = \theta_G \approx 0.9553\,\text{radians}$.
+
+\begin{tikzpicture}
+\draw[thick] (0,0) circle(1);
+\draw[-, thick] (0,0.816) -- (0.577,0.816) node[midway, above] {$\sqrt{1 - \kappa^2}$};
+\draw[->, thick] (0,0) -- (0.577,0.816) node[below, right] {$E$};
+\draw[->, thick] (0,0) -- (0,0.816) node[midway, left] {$\kappa$};
+\draw[->, thick] (0,0) -- (0.577,0) node[midway, below] {$\beta$};;
+\draw[->, thick] (0.577,0) -- (0.577,0.816) node[midway, right] {$\sqrt{1 - \beta^2}$};
+\end{tikzpicture}
 
 This equilibrium yields the fundamental relation:
 \begin{equation}

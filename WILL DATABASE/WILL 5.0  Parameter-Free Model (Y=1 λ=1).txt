@@ -1,0 +1,122 @@
+# ============  WILL 5.0 : Parameter-Free Model (Y*=1, λ=1) ===============
+# Проверяем "чистую" модель без свободных параметров.
+# Y_star и lambda принудительно установлены в 1.0.
+# ========================================================================
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import cumulative_trapezoid
+from IPython.display import display
+
+# ---------- 1. Подготовка данных (без изменений) --------------------
+DATA = '/content/DATA'
+META_FILE = f'{DATA}/table1.dat'
+CURV_FILE = f'{DATA}/table2.dat'
+
+# Загрузка метаданных
+meta = pd.read_fwf(
+    META_FILE,
+    colspecs=[(0,11), (112,115)],
+    names=['Galaxy', 'Qual']
+)
+meta['Qual'] = pd.to_numeric(meta['Qual'], errors='coerce')
+
+# Загрузка кривых вращения
+curves = pd.read_table(
+    CURV_FILE, sep=r'\s+', comment='#', header=None,
+    usecols=[0, 2, 3, 5, 6, 7],
+    names=['Galaxy', 'r', 'Vobs', 'Vgas', 'Vdisk', 'Vbul']
+)
+num_cols = ['r', 'Vobs', 'Vgas', 'Vdisk', 'Vbul']
+curves[num_cols] = curves[num_cols].apply(pd.to_numeric, errors='coerce')
+curves.dropna(subset=['r', 'Vobs'], inplace=True)
+
+
+# ---------- 2. Решатель без параметров -----------------------------------
+def will_v_parameter_free(df):
+    """
+    Рассчитывает скорость по формуле, где Y_star=1 и lambda=1.
+    """
+    df = df.sort_values('r').copy()
+    
+    # Y_star = 1.0
+    v_bary_sq = df['Vgas']**2 + (df['Vdisk']**2 + df['Vbul']**2)
+    
+    integral = cumulative_trapezoid(v_bary_sq, df['r'], initial=0.0)
+    
+    # lambda = 1.0
+    geom_term = np.zeros_like(df['r'])
+    non_zero_r = df['r'] > 0
+    geom_term[non_zero_r] = integral[non_zero_r] / df.loc[non_zero_r, 'r']
+    
+    v_pred_sq = v_bary_sq + geom_term
+    return np.sqrt(np.clip(v_pred_sq, 0, None))
+
+
+# ---------- 3. Основной цикл (без оптимизации) ------------------------
+results = []
+galaxies_to_run = meta[meta['Qual'] <= 2]['Galaxy'].unique()
+
+for galaxy_name in galaxies_to_run:
+    gdf = curves[curves['Galaxy'] == galaxy_name]
+    if len(gdf) < 3:
+        continue
+    
+    v_predicted = will_v_parameter_free(gdf)
+    rmse = np.sqrt(np.mean((gdf['Vobs'] - v_predicted)**2))
+    
+    if np.isfinite(rmse):
+        results.append({'Galaxy': galaxy_name, 'RMSE': rmse})
+
+# Создаем итоговый DataFrame
+df_results = pd.DataFrame(results).set_index('Galaxy').sort_values('RMSE')
+
+
+# ---------- 4. Вывод результатов ---------------------------------------
+print("\n===== WILL 5.0 : Parameter-Free Model (Y*=1, λ=1) =====")
+print(f"Galaxies analysed : {len(df_results)}")
+print(f"Median RMSE [km/s]: {df_results.RMSE.median():.2f}\n")
+display(df_results.head(20))
+
+plt.figure(figsize=(9, 5))
+plt.hist(df_results.RMSE, bins=np.arange(0, 150, 10), edgecolor='k', alpha=0.8)
+plt.axvline(df_results.RMSE.median(), ls='--', lw=2, c='k',
+            label=f"Median = {df_results.RMSE.median():.1f} km/s")
+plt.xlabel('RMSE [km s⁻¹]')
+plt.ylabel('Number of Galaxies')
+plt.title('WILL 5.0 : RMSE Distribution for Parameter-Free Model')
+plt.legend()
+plt.grid(alpha=0.4)
+plt.tight_layout()
+plt.show()
+
+
+===== WILL 5.0 : Parameter-Free Model (Y*=1, λ=1) =====
+Galaxies analysed : 163
+Median RMSE [km/s]: 24.62
+
+
+
+|Galaxy|RMSE|
+|---|---|
+|UGC07690|1\.989041535385202|
+|UGC07151|2\.4595153973400086|
+|UGC07559|2\.7824305803986364|
+|UGC07125|2\.9303529522268197|
+|UGC07866|3\.385617928095173|
+|UGC07577|3\.4481662668332516|
+|UGC09992|3\.560619909979868|
+|UGC04483|3\.7522764780783024|
+|NGC4068|4\.098126954818341|
+|UGC08837|4\.2730020810109615|
+|UGC05414|4\.597725576661473|
+|KK98-251|4\.641584116165789|
+|UGC07232|4\.86717920477018|
+|UGC07323|5\.007925889598385|
+|UGC07089|5\.232909681844009|
+|NGC3917|5\.351622872679655|
+|NGC3972|5\.522201049543545|
+|UGC02023|6\.1354596902900225|
+|CamB|7\.161291909740569|
+|D564-8|7\.322234656515572|
