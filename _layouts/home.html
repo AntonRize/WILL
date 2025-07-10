@@ -33,58 +33,24 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header & Navigation with Mobile Menu support -->
-    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-5xl">
-            <a href="{{ "/" | relative_url }}" class="text-xl font-bold text-white">WILL Geometry</a>
-            <div class="hidden md:flex items-center space-x-6">
-                {% for item in site.navigation %}
-                    <a href="{{ item.url | relative_url }}" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ item.title }}</a>
-                {% endfor %}
-                <!-- === CORRECTED LINK V2 === -->
-                <a href="{{ site.baseurl }}/2-input-cosmology.html" class="text-gray-300 hover:text-cyan-400 transition-colors">2-Input Cosmology</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6H4"></path></svg>
-                </button>
-            </div>
-        </nav>
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                 {% for item in site.navigation %}
-                    <a href="{{ item.url | relative_url }}" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">{{ item.title }}</a>
-                {% endfor %}
-                <!-- === CORRECTED LINK V2 === -->
-                <a href="{{ site.baseurl }}/2-input-cosmology.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">2-Input Cosmology</a>
-            </div>
-        </div>
-    </header>
+    {% include header.html %}
 
     <main class="container mx-auto px-6">
         <!-- Hero Section -->
         <section class="text-center py-20 md:py-24">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
-                WILL Geometry - relational framework 
-            </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">
-                Unifying physics from a single geometric postulate, without free parameters.
-            </p>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">{{ site.data.home.hero.title }}</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">{{ site.data.home.hero.subtitle }}</p>
             <div class="mt-12 max-w-2xl mx-auto border-2 border-cyan-500/30 bg-gray-800/50 rounded-xl p-6 shadow-2xl shadow-cyan-500/10">
                 <p class="text-lg text-gray-300">Fundamental Postulate:</p>
-                <p class="text-2xl md:text-3xl font-bold text-cyan-400 tracking-wider mt-2">
-                    SPACETIME ≡ ENERGY DISTRIBUTION
-                </p>
+                <p class="text-2xl md:text-3xl font-bold text-cyan-400 tracking-wider mt-2">{{ site.data.home.hero.postulate }}</p>
             </div>
         </section>
 
         <!-- Core Concepts Section -->
         <section class="py-16">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">The Core Geometry</h2>
-                <p class="mt-3 max-w-3xl mx-auto text-gray-400">All physics emerges from two related projections, β and κ, defined by separate angles on the unit circle. Use the slider to control κ and observe the relationships.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-white">{{ site.data.home.core.heading }}</h2>
+                <p class="mt-3 max-w-3xl mx-auto text-gray-400">{{ site.data.home.core.description }}</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="bg-gray-800/50 p-6 rounded-lg">
@@ -133,55 +99,26 @@
                 <p class="mt-3 max-w-3xl mx-auto text-gray-400">The geometric framework is applied across three core domains of physics, providing novel solutions to long-standing problems. Click each pillar to learn more.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pillar 1: Relativity -->
-                <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-cyan-400">⚡ Relativity Reimagined</h3>
-                        <span class="chevron text-gray-400 transition-transform">▼</span>
-                    </div>
-                    <p class="mt-2 text-gray-400">Derives SR & GR from geometry, inherently avoiding singularities.</p>
-                    <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
-                        <p><strong>• Unifies SR & GR:</strong> Reproduces standard results via trigonometric re-parameterization.</p>
-                        <p><strong>• Solves Singularities:</strong> The geometric limit `κ² ≤ 1` naturally prevents infinite densities.</p>
-                        <p><strong>• Defines Local Energy:</strong> Provides an algebraic field equation: `κ² = R_s/r`.</p>
-                    </div>
+              {% for pillar in site.data.home.pillars %}
+              <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold {{ pillar.color_class }}">{{ pillar.heading }}</h3>
+                  <span class="chevron text-gray-400 transition-transform">▼</span>
                 </div>
-                <!-- Pillar 2: Cosmology -->
-                <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
-                     <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-purple-400">🌌 Cosmology without Dark Forces</h3>
-                        <span class="chevron text-gray-400 transition-transform">▼</span>
-                    </div>
-                    <p class="mt-2 text-gray-400">Explains cosmic observations without Dark Matter or Dark Energy.</p>
-                     <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
-                        <p><strong>• Dark Energy is Geometric:</strong> Explained as "accumulated projectional loss," not a substance.</p>
-                        <p><strong>• Predicts Cosmic Budget:</strong> Derives `Ω_Λ = 2/3` and `Ω_m = 1/3` from first principles.</p>
-                        <p><strong>• Explains Galaxy Rotation:</strong> Models rotation curves without dark matter halos (Median RMSE: 20.1 km/s).</p>
-                    </div>
+                <p class="mt-2 text-gray-400">{{ pillar.summary }}</p>
+                <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
+                  {% for d in pillar.details %}
+                  <p>{{ d }}</p>
+                  {% endfor %}
                 </div>
-                <!-- Pillar 3: Quantum Mechanics -->
-                <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
-                     <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-amber-400">⚛️ Quantum Mechanics from Geometry</h3>
-                         <span class="chevron text-gray-400 transition-transform">▼</span>
-                    </div>
-                    <p class="mt-2 text-gray-400">Replaces wave-function probability with deterministic geometric constraints.</p>
-                     <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
-                        <p><strong>• No Wave Functions:</strong> Atomic physics emerges from pure geometric constraints.</p>
-                        <p><strong>• Derives Fine Structure Constant:</strong> Shows `α` is the kinetic projection for hydrogen's ground state.</p>
-                        <p><strong>• Predicts Hydrogen Spectrum:</strong> Replicates the energy level formula `E_n = -α²m_e c²/(2n²)`.</p>
-                    </div>
-                </div>
+              </div>
+              {% endfor %}
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-gray-900 mt-20">
-        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
-            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
-        </div>
-    </footer>
+    {% include footer.html %}
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

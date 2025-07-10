@@ -1,7 +1,9 @@
 backend:
   name: github
   repo: antonrize/WILL
-  branch: main # ?????????, ??? ??? ???? ???????? ?????
+  branch: main
+  base_url: "https://proxy-flame-seven.vercel.app/api"
+  site_domain: "antonrize.github.io"
 
 publish_mode: editorial_workflow
 
@@ -42,3 +44,13 @@ collections:
       - {label: "?????????", name: "title", widget: "string"}
       - {label: "????", name: "date", widget: "datetime"}
       - {label: "??????????", name: "body", widget: "markdown"}
+
+  # Home page structured data
+  - name: "home"
+    label: "Home Content (YAML)"
+    files:
+      - file: "_data/home.yml"
+        label: "Home Page Text"
+        name: "home_yaml"
+        fields:
+          - {label: "YAML", name: "body", widget: "yaml"}
