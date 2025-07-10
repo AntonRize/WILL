@@ -52,6 +52,14 @@ PART I - RELATIVITY'S}
 \newpage
 
 \begin{abstract}
+    This paper introduces WILL Geometry, a new framework unifying special and general relativity. 
+We posit a \textbf{single fundamental postulate}:   $\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}$.
+Spacetime is identical to energy evolution. This principle, unlike existing theories, introduces \textbf{no free parameters}; all measurable quantities emerge from purely \textbf{geometric projections} on maximally symmetric \textbf{closed} \textbf{manifolds}. 
+    This approach\textbf{ eliminates} curvature \textbf{singularities}, unifies \textbf{gravitational and kinematic time dilation} without invoking dark matter or modified gravity, and yields \textbf{verifiable orbital relations}. This paper reconstructs the standard Schwarzschild and Kerr metrics, demonstrating the unique and necessary consequences of our\textbf{ relational geometry}. We will detail the core principles, show the derivation of key relativistic equations, and outline the implications for future research. 
+
+
+
+
 We present WILL Geometry, a relational framework that derives both
 special and general relativistic phenomena from a \emph{single} postulate:
 \emph{Spacetime is identical to energy evolution}.
@@ -950,6 +958,7 @@ For radius independence: $n-2 = 1 \Rightarrow n = 3$
 
 This yields: $\frac{\alpha}{8\pi} = \frac{1}{2} \Rightarrow \alpha = 4\pi$
 
+
 \subsection{Fundamental Relations}
 The geometric self-consistency uniquely determines the energy-geometry relations:
 
@@ -966,6 +975,47 @@ m_0 &= 4\pi r_{d}^3 \rho \label{eq:mass_surface} \\
 The factor $4\pi$ emerges not as an assumption but as an inevitable consequence of geometric consistency. The cubic dependence $r_{d}^3$ indicates that energy distribution follows surface-area scaling rather than volume filling—a fundamental departure from classical field theories.
 
 The critical density $\rho_{max}$ corresponds to the geometric limit $\kappa = 1$, representing the maximum energy concentration before causal disconnection (event horizon formation).
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, 
+                  title=Projected {\large vs} Volume Density]
+\textbf{About the ``missing'' factor $1/3$.}
+
+In \emph{Will} Geometry we interpret the density
+\[
+  \rho \;\equiv\; \rho_{\text{proj}}
+  \;=\;
+  \frac{dE}{4\pi r^{2}\,dr}\; \Bigl[\mathrm{J\,m^{-1}}\Bigr],
+\]
+i.e.\ energy per radial layer (a surface–projection
+measure).  
+Classical continuum physics instead uses
+\[
+  \rho_{\text{vol}}
+  =\frac{dE}{dV}\; \Bigl[\mathrm{J\,m^{-3}}\Bigr],
+\qquad
+dV = 4\pi r^{2}\,dr .
+\]
+
+The two conventions are related by
+\[
+  \rho_{\text{proj}} \;=\; 3\,\rho_{\text{vol}},
+\]
+hence
+\[
+  M
+  \;=\;
+  4\pi r^{3}\rho_{\text{proj}}
+  \;=\;
+  \frac{4\pi}{3}r^{3}\rho_{\text{vol}} .
+\]
+
+Thus the ``factor 3’’ that appears in
+\(\displaystyle\int r^{2}dx\) but not in our
+mass formula is \emph{only a change of measure},
+not a physical discrepancy.  All observable
+predictions remain identical once the
+conversion is applied.
+\end{tcolorbox}
 
 
 \subsection{Pressure as Surface Curvature Gradient}
