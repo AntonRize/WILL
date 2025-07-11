@@ -8,7 +8,10 @@
       background tasks like authentication without loading the full UI.
       This should resolve the errors.
     -->
-    <script src="https://unpkg.com/decap-cms-app@^3.0.0/dist/decap-cms-app.js"></script>
+    <!-- Use the full Decap bundle so the OAuth token from the proxy can be
+         processed correctly. Using the smaller decap-cms-app bundle results
+         in the login page reloading after authentication. -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
   </body>
