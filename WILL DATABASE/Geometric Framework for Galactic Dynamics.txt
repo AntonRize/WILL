@@ -59,7 +59,82 @@ Before addressing galactic dynamics, it is crucial to understand the fundamental
 
 In standard physics, mass is a fundamental, intrinsic property of matter. For a uniform density $\rho$, the mass is calculated via a volumetric integral, represented by the formula $M = \frac{4}{3}\pi r^3 \rho$. Mass is the \textbf{source} of the gravitational field.
 
-In WILL Geometry, this logic is inverted. Mass is not a fundamental source, but an **emergent consequence** of a self-consistent, relational geometry. Through the requirement of geometric self-consistency between different projections of energy, the framework derives the following relation for the mass-scale factor $m_0$:
+In WILL Geometry, this logic is inverted. Mass is not a fundamental source, but an **emergent consequence** of a self-consistent, relational geometry:
+
+\subsection{Geometric Foundation}
+From the projecional analysis established in WILL PART I, we have the fundamental relation:
+\[
+\kappa^2 = \frac{R_s}{r_{d}}
+\]
+where $\kappa$ emerges from the energy projections on the unit circle, and $R_s = 2Gm_0/c^2$ connects to the mass scale factor $m_0 = E_0/c^2$.
+
+\subsection{Self-Consistency Requirement}
+The mass scale factor can be expressed in two independent ways within the geometric framework:
+
+\subsubsection{From Geometric Definition}
+\begin{equation}
+m_0 = \frac{\kappa^2 c^2 r_{d}}{2G} \quad \text{(from } \kappa^2 = R_s/r_{d}\text{)}
+\label{eq:mass_geometric}
+\end{equation}
+\subsubsection{From Energy Density}
+If energy density $\rho$ exists at radius $r_{d}$, the mass scale factor must also satisfy:
+\begin{equation}
+m_0 = \alpha \cdot r_{d}^n \cdot \rho
+\label{eq:mass_density}
+\end{equation}
+where $\alpha$ and $n$ are to be determined by geometric consistency.
+
+\subsection{Determination of the Surface Distribution}
+
+The requirement that equations \eqref{eq:mass_geometric} and \eqref{eq:mass_density} represent the same physical quantity constrains both the functional form and coefficients.
+
+From the dual scaling principle, energy density follows the same inversion pattern:
+\begin{equation}
+\rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2}
+\label{eq:density_form}
+\end{equation}
+
+Substituting \eqref{eq:density_form} into \eqref{eq:mass_density}:
+
+\[
+m_0 = \alpha \cdot r_{d}^n \cdot  \frac{\kappa^2 c^2}{8\pi G r_{d}^2} \\
+= \frac{\alpha \kappa^2 c^2 r_{d}^{n-2}}{8\pi G}
+\]
+
+\subsection{Geometric Self-Consistency}
+Equating with \eqref{eq:mass_geometric}:
+\begin{equation}
+\frac{\alpha \kappa^2 c^2 r_{d}^{n-2}}{8\pi G} = \frac{\kappa^2 c^2 r_{d}}{2G}
+\end{equation}
+
+Simplifying:
+\begin{equation}
+\frac{\alpha r_{d}^{n-2}}{8\pi} = \frac{r_{d}}{2}
+\end{equation}
+
+For radius independence: $n-2 = 1 \Rightarrow n = 3$
+
+This yields: $\frac{\alpha}{8\pi} = \frac{1}{2} \Rightarrow \alpha = 4\pi$
+
+
+\subsection{Fundamental Relations}
+The geometric self-consistency uniquely determines the energy-geometry relations:
+
+\begin{itemize}
+    \item $m_0 = 4\pi r_{d}^3 \rho \label{eq:mass_surface}$
+    \item $\rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2} \label{eq:density_final}$
+    \item $\kappa^2 = \frac{\rho}{\rho_{max}}=
+\kappa^{2}(r)=\frac{2G}{c^{2}}\frac{1}{r}\int_{0}^{r}4\pi r'^{2}\rho(r')\,dr$
+\item $\rho_{max} = \frac{c^2}{8\pi G r_{d}^2} \label{eq:density_ratio}$
+\end{itemize}
+
+\subsection{Physical Interpretation}
+The factor $4\pi$ emerges not as an assumption but as an inevitable consequence of geometric consistency. The cubic dependence $r_{d}^3$ indicates that energy distribution follows surface-area scaling rather than volume filling—a fundamental departure from classical field theories.
+
+The critical density $\rho_{max}$ corresponds to the geometric limit $\kappa = 1$, representing the maximum energy concentration before causal disconnection (event horizon formation).
+
+
+Through the requirement of geometric self-consistency between different projections of energy, the framework derives the following relation for the mass-scale factor $m_0$:
 $$ m_0 = 4\pi r_d^3 \rho $$
 This result is fundamentally different. It reflects a **surface-area scaling** rather than volume filling, indicating a projectional, not volumetric, nature of energy distribution. In this framework, mass is an outcome of the underlying geometry, not its cause.
 
@@ -70,16 +145,34 @@ where $\Upsilon_*$ is the stellar mass-to-light ratio. This calculation, rooted 
 
 Our analysis revealed that the principles of WILL Geometry can be expressed in a predictive equation that corrects this classical view.
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=The WILL Predictive Equation]
-The square of the predicted velocity $V_{\text{pred}}$ at a radius $r$ is given by:
-$$ V_{\text{pred}}^2(r) = V_{\text{bary}}^2(r) + \lambda \cdot \frac{\displaystyle\int_0^{r} V_{\text{bary}}^2(r')\, dr'}{r} $$
+The square of the predicted velocity $V_{\text{WILL}}$ at a radius $r$ is given by:
+$$ V_{\text{WILL}}^2(r) = V_{\text{bary}}^2(r) + \lambda \cdot \frac{\displaystyle\int_0^{r} V_{\text{bary}}^2(r')\, dr'}{r} $$
 \end{tcolorbox}
 
 \paragraph{Physical Interpretation:}
 This equation can be understood as a mathematical bridge from the classical data representation to the WILL physics.
 \begin{itemize}
     \item \textbf{The first term ($V_{\text{bary}}^2$)} is the gravitational effect calculated in the classical, "volumetric" way, as it is embedded in the SPARC data.
-    \item \textbf{The second term (the integral term)} is the **correction term**. It transforms the incorrect volumetric calculation into the correct one based on the "surface-area scaling" principle of WILL Geometry. It represents the non-local contribution of the full gravitational context.
+    \item \textbf{The second term (the integral term)} is the **correction term**. It transforms the incorrect volumetric calculation into the correct one based on the "surface-area scaling" principle of WILL Geometry.
 \end{itemize}
+
+\subsubsection{\textbf{Core Statement: What This Equation Really Does}}
+
+\textbackslash{}begin\{tcolorbox\}[colback=yellow!5, colframe=black!80!black, title=What is WILL Actually Calculating?]
+
+ The WILL model predicts the orbital velocity at any radius not only by summing up the local gravitational pull from visible matter, but also by integrating the \textit{total kinetic effect} of all visible matter inside that radius.
+
+ In other words:
+
+ \textbackslash{}textbf\{Each point in the galaxy "feels" not just the mass at its location, but the cumulative influence of all the energetic motion within its orbit.\}
+
+ The formula is a direct way to capture this influence, which is fundamentally ignored in standard mass-based models.
+
+ \textbackslash{}end\{tcolorbox\}
+
+ 
+
+
 
 \section{Data and Analysis}
 We test this equation against the SPARC database. Our most rigorous test uses a parameter-free version of the model, where we set the stellar mass-to-light ratio to unity ($\Upsilon_*=1$) and the geometric scaling factor to unity ($\lambda=1$). This allows us to test the raw predictive power of the equation's structure without any fitting.
@@ -140,7 +233,7 @@ The top 20 best-fit galaxies are listed in Table \ref{tab:top20}.
 \section{Interpretation and Conclusion}
 The median error of \textbf{24.6 km/s} for a model with zero free parameters is a stunning success. It demonstrates that the fundamental structure of the WILL equation captures the essential physics of galactic rotation. It explains the majority of the velocity discrepancy across a wide range of galaxy types without any tuning.
 
-Our further analysis, where we allowed `λ` to be a free parameter, reduced the median error to just \textbf{12.9 km/s}. This confirmed that the model can be made even more accurate by accounting for galaxy-specific variations. That investigation revealed that the optimal value of `λ` is not random, but is a predictable function of the galaxy's physical properties, primarily its total luminosity and gas fraction.
+Our further analysis, where we allowed `$\lambda$` to be a free parameter, reduced the median error to just \textbf{12.9 km/s}. This confirmed that the model can be made even more accurate by accounting for galaxy-specific variations. That investigation revealed that the optimal value of `$\lambda$` is not random, but is a predictable function of the galaxy's physical properties, primarily its total luminosity and gas fraction.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Final Conclusion]
 The WILL framework successfully explains galactic rotation curves without invoking dark matter. It achieves this by re-interpreting gravity through a geometric lens where mass is an emergent property and non-local effects, arising from the total distribution of baryonic matter, are significant. The "dark matter problem" is not a problem of missing matter, but a result of using an incomplete, volumetric theory of gravity.
