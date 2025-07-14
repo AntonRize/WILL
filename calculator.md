@@ -13,17 +13,17 @@ title: "WILL Geometry Calculator"
 <style>
     /* This style block only affects the calculator, not your site's main design. */
     .calculator-container {
-        background: #fdfdff; /* A very soft, almost white background for the main block */
+        background: #f8f9fa; /* A very soft, light gray background for the main block */
         border-radius: 15px;
         padding: 30px 40px;
         margin: 20px auto;
         box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        border: 1px solid #e9ecef;
+        border: 1px solid #dee2e6;
         max-width: 1000px;
     }
 
     .theory-section {
-        background: #f8f9fa;
+        background: #ffffff;
         border-radius: 10px;
         padding: 25px;
         margin-bottom: 30px;
@@ -102,7 +102,7 @@ title: "WILL Geometry Calculator"
     }
 
     .plot-container {
-        border-top: 1px solid #e9ecef;
+        border-top: 1px solid #dee2e6;
         padding-top: 25px;
         margin-top: 25px;
     }
@@ -298,8 +298,16 @@ title: "WILL Geometry Calculator"
         const selectedGalaxy = galaxySelect.value;
         if (!selectedGalaxy) return;
 
-        const lambda = parseFloat(lambdaSlider.value);
-        const yStar = parseFloat(ystarSlider.value);
+        let lambda = parseFloat(lambdaSlider.value);
+        let yStar = parseFloat(ystarSlider.value);
+
+        if (unifiedCheckbox.checked) {
+            // If unified model is on, Y* is determined by lambda
+            if (lambda > 0) {
+                yStar = 1.0 / lambda;
+                ystarSlider.value = yStar; // Update the slider position
+            }
+        }
 
         lambdaValueSpan.textContent = lambda.toFixed(2);
         ystarValueSpan.textContent = yStar.toFixed(2);
@@ -316,10 +324,10 @@ title: "WILL Geometry Calculator"
         const plotLayout = {
             xaxis: { title: 'Radius (kpc)', gridcolor: '#e9ecef', zerolinecolor: '#ced4da' },
             yaxis: { title: 'Velocity (km/s)', gridcolor: '#e9ecef', zerolinecolor: '#ced4da', range: [0, Math.max(...obs_v, ...v_will) * 1.1] },
-            legend: { x: 0.05, y: 0.95, bgcolor: 'rgba(255,255,255,0.7)', bordercolor: '#ced4da', borderwidth: 1 },
+            legend: { x: 0.05, y: 0.95, bgcolor: 'rgba(255,255,255,0.8)', bordercolor: '#ced4da', borderwidth: 1, orientation: 'h' },
             margin: { l: 60, r: 30, b: 50, t: 60 },
             paper_bgcolor: 'rgba(0,0,0,0)',
-            plot_bgcolor: '#f8f9fa'
+            plot_bgcolor: '#ffffff' // White background for the plot area itself
         };
 
         // Main Plot
@@ -340,39 +348,41 @@ title: "WILL Geometry Calculator"
              marker: { color: '#adb5bd', size: 6, symbol: 'circle-open' }
         },{
             x: rad, y: components.v_gas, mode: 'lines', type: 'scatter', name: 'Gas',
-            line: { color: '#198754', width: 2 }
+            line: { color: '#198754', width: 2.5 }
         }, {
             x: rad, y: components.v_disk_scaled, mode: 'lines', type: 'scatter', name: 'Disk (scaled by Y*)',
-            line: { color: '#0d6efd', width: 2 }
+            line: { color: '#0d6efd', width: 2.5 }
         }, {
             x: rad, y: components.v_bulge_scaled, mode: 'lines', type: 'scatter', name: 'Bulge (scaled by Y*)',
-            line: { color: '#fd7e14', width: 2 }
+            line: { color: '#fd7e14', width: 2.5 }
         }], { ...plotLayout, title: { text: `Baryonic Components for ${selectedGalaxy}`, font: { size: 20, color: '#343a40' } } });
     }
     
     // --- EVENT LISTENERS ---
-    function handleUnifiedLink() {
+    function handleLambdaChange() {
         if (unifiedCheckbox.checked) {
             const lambda = parseFloat(lambdaSlider.value);
             if (lambda > 0) {
-                ystarSlider.value = (1.0 / lambda);
+                ystarSlider.value = 1.0 / lambda;
             }
         }
         updateAll();
     }
-    
-    galaxySelect.addEventListener('change', updateAll);
-    lambdaSlider.addEventListener('input', handleUnifiedLink);
-    ystarSlider.addEventListener('input', () => {
-         if (unifiedCheckbox.checked) {
+
+    function handleYstarChange() {
+        if (unifiedCheckbox.checked) {
             const yStar = parseFloat(ystarSlider.value);
             if (yStar > 0) {
-                lambdaSlider.value = (1.0 / yStar);
+                lambdaSlider.value = 1.0 / yStar;
             }
         }
         updateAll();
-    });
-    unifiedCheckbox.addEventListener('change', handleUnifiedLink);
+    }
+
+    galaxySelect.addEventListener('change', updateAll);
+    lambdaSlider.addEventListener('input', handleLambdaChange);
+    ystarSlider.addEventListener('input', handleYstarChange);
+    unifiedCheckbox.addEventListener('change', handleLambdaChange); // Re-sync when checkbox is toggled
 
     // --- INITIALIZATION ---
     document.addEventListener('DOMContentLoaded', loadData);
