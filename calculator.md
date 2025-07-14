@@ -12,13 +12,17 @@ title: "WILL Geometry Calculator"
 
 <style>
     /* Main container and general styling */
+    body {
+        background-color: #f4f6f8; /* Softer background color */
+    }
     .calculator-container {
         background: #ffffff;
         border-radius: 15px;
-        padding: 30px;
-        margin: 20px 0;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        border: 1px solid #dee2e6;
+        padding: 30px 40px; /* More padding */
+        margin: 20px auto;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        border: 1px solid #e9ecef;
+        max-width: 1000px;
     }
 
     /* Section for theory explanation */
@@ -27,30 +31,32 @@ title: "WILL Geometry Calculator"
         border-radius: 10px;
         padding: 25px;
         margin-bottom: 30px;
-        border-left: 5px solid #007bff;
+        border-left: 5px solid #0d6efd;
     }
     .theory-section h3 {
         margin-top: 0;
-        color: #343a40;
+        color: #212529;
+        font-size: 1.5em;
     }
     .theory-section p {
         color: #495057;
-        line-height: 1.6;
+        line-height: 1.7;
     }
     .formula {
-        font-size: 1.2em;
+        font-size: 1.1em; /* Adjusted for complex formula */
         text-align: center;
-        padding: 15px;
+        padding: 20px;
         background-color: #e9ecef;
         border-radius: 5px;
-        margin-top: 15px;
+        margin-top: 20px;
         overflow-x: auto;
+        white-space: nowrap;
     }
 
     /* Grid for control elements */
     .controls-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
         margin-bottom: 20px;
     }
@@ -81,7 +87,7 @@ title: "WILL Geometry Calculator"
     }
     .param-display {
         font-weight: bold;
-        color: #007bff;
+        color: #0d6efd;
     }
 
     /* Unified Model Checkbox Styling */
@@ -92,9 +98,10 @@ title: "WILL Geometry Calculator"
         gap: 10px;
         padding: 12px;
         background-color: #e9f5ff;
+        border: 1px solid #bde0fe;
         border-radius: 5px;
         margin-bottom: 25px;
-        grid-column: 1 / -1; /* Span all columns */
+        grid-column: 1 / -1;
     }
     .unified-model input[type="checkbox"] {
         width: auto;
@@ -107,7 +114,17 @@ title: "WILL Geometry Calculator"
     }
 
     /* Plot and results styling */
-    #plot-div {
+    .plot-container {
+        margin-top: 30px;
+        border-top: 1px solid #e9ecef;
+        padding-top: 30px;
+    }
+    .plot-container h4 {
+        text-align: center;
+        color: #495057;
+        margin-bottom: 15px;
+    }
+    #plot-div, #plot-div-components {
         width: 100%;
         height: 500px;
         border-radius: 8px;
@@ -118,9 +135,9 @@ title: "WILL Geometry Calculator"
         font-weight: bold;
         margin-top: 25px;
         color: #343a40;
-        padding: 10px;
-        background-color: #f8f9fa;
-        border-radius: 5px;
+        padding: 15px;
+        background-color: #e9ecef;
+        border-radius: 8px;
     }
     #loader {
         text-align: center;
@@ -139,7 +156,7 @@ title: "WILL Geometry Calculator"
             This calculator implements the final, simplified WILL model for galactic rotation curves. It posits that the observed velocity ($V_{WILL}$) is a combination of the classical gravitational effect of baryons ($V_{classic}$) and a non-local geometric term derived from the cumulative kinetic energy of the system.
         </p>
         <div class="formula">
-            $$ V_{WILL}^{2}(r) = V_{classic}^{2}(r) + \frac{\lambda}{r}\int_{0}^{r}V_{classic}^{2}(r')\,dr' $$
+            $$ V_{WILL}^{2}(r) = \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right] + \frac{\lambda}{r}\int_{0}^{r}\left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right]dr' $$
         </div>
     </div>
 
@@ -147,35 +164,35 @@ title: "WILL Geometry Calculator"
 
     <div id="calculator-body" style="display: none;">
         <div class="controls-grid">
-            <!-- Galaxy Selector -->
             <div class="control-group">
                 <label for="galaxy-select">Select Galaxy:</label>
                 <select id="galaxy-select" class="form-control"></select>
             </div>
-            
-            <!-- Lambda Slider -->
             <div class="control-group">
                 <label for="lambda-slider">Geometric Factor (λ): <span id="lambda-value" class="param-display">4.00</span></label>
-                <input type="range" id="lambda-slider" class="form-range" min="0.1" max="6.0" step="0.01" value="4.0">
+                <input type="range" id="lambda-slider" class="form-range" min="0.1" max="8.0" step="0.01" value="4.0">
             </div>
-            
-            <!-- Y_STAR Slider -->
             <div class="control-group">
                 <label for="ystar-slider">Stellar M/L Ratio (Y*): <span id="ystar-value" class="param-display">0.25</span></label>
                 <input type="range" id="ystar-slider" class="form-range" min="0.1" max="2.0" step="0.01" value="0.25">
             </div>
         </div>
 
-        <!-- Unified Model Checkbox -->
         <div class="unified-model">
-            <input type="checkbox" id="unified-model-checkbox">
+            <input type="checkbox" id="unified-model-checkbox" checked>
             <label for="unified-model-checkbox">Enforce Unified Model ($Y_* = 1/\lambda$)</label>
         </div>
 
-        <!-- Plotting Area -->
-        <div id="plot-div"></div>
+        <div class="plot-container">
+            <h4>Overall Rotation Curve</h4>
+            <div id="plot-div"></div>
+        </div>
         
-        <!-- Results Display -->
+        <div class="plot-container">
+            <h4>Baryonic Component Breakdown</h4>
+            <div id="plot-div-components"></div>
+        </div>
+        
         <div id="results"></div>
     </div>
 </div>
@@ -198,15 +215,13 @@ title: "WILL Geometry Calculator"
     const ystarValueSpan = document.getElementById('ystar-value');
     const unifiedCheckbox = document.getElementById('unified-model-checkbox');
     const resultsDiv = document.getElementById('results');
+    const plotDiv = document.getElementById('plot-div');
+    const plotDivComponents = document.getElementById('plot-div-components');
 
     // --- DATA HANDLING ---
     async function loadData() {
         try {
-            const [t1_response, t2_response] = await Promise.all([
-                fetch(URL_TABLE1),
-                fetch(URL_TABLE2)
-            ]);
-
+            const [t1_response, t2_response] = await Promise.all([fetch(URL_TABLE1), fetch(URL_TABLE2)]);
             if (!t1_response.ok || !t2_response.ok) throw new Error('Network response was not ok.');
 
             const t1_text = await t1_response.text();
@@ -223,12 +238,8 @@ title: "WILL Geometry Calculator"
                 const parts = line.trim().split(/\s+/);
                 if (parts.length >= 7) {
                     sparcT2.push({
-                        'Name': parts[0],
-                        'Rad': parseFloat(parts[1]),
-                        'Vobs': parseFloat(parts[2]),
-                        'Vgas': parseFloat(parts[4]),
-                        'Vdisk': parseFloat(parts[5]),
-                        'Vbul': parseFloat(parts[6])
+                        'Name': parts[0], 'Rad': parseFloat(parts[1]), 'Vobs': parseFloat(parts[2]),
+                        'Vgas': parseFloat(parts[4]), 'Vdisk': parseFloat(parts[5]), 'Vbul': parseFloat(parts[6])
                     });
                 }
             });
@@ -250,7 +261,7 @@ title: "WILL Geometry Calculator"
 
             loader.style.display = 'none';
             calculatorBody.style.display = 'block';
-            updatePlot();
+            updateAll();
 
         } catch (error) {
             loader.textContent = 'Error: Could not load data from GitHub. Please check the URLs in the script.';
@@ -278,6 +289,10 @@ title: "WILL Geometry Calculator"
         const data = galaxyData[galaxyName].sort((a, b) => a.Rad - b.Rad);
         const rad = data.map(d => d.Rad);
         
+        const v_gas = data.map(d => d.Vgas);
+        const v_disk_scaled = data.map(d => Math.sqrt(yStar) * d.Vdisk);
+        const v_bulge_scaled = data.map(d => Math.sqrt(yStar) * d.Vbul);
+
         const v_bary_sq = data.map(d => (d.Vgas**2) + yStar * ((d.Vdisk**2) + (d.Vbul**2)));
         
         const integral = [0];
@@ -292,19 +307,17 @@ title: "WILL Geometry Calculator"
         const v_will = v_will_sq.map(val => Math.sqrt(Math.max(0, val)));
         const v_bary = v_bary_sq.map(v => Math.sqrt(Math.max(0, v)));
 
-        return { rad, v_bary, v_will };
+        return { rad, v_bary, v_will, components: {v_gas, v_disk_scaled, v_bulge_scaled} };
     }
     
     function calculateRMSE(v_obs, v_pred) {
         let sum_sq_err = 0;
-        for(let i = 0; i < v_obs.length; i++) {
-            sum_sq_err += (v_obs[i] - v_pred[i])**2;
-        }
+        for(let i = 0; i < v_obs.length; i++) sum_sq_err += (v_obs[i] - v_pred[i])**2;
         return Math.sqrt(sum_sq_err / v_obs.length);
     }
 
     // --- UI & PLOTTING ---
-    function updatePlot() {
+    function updateAll() {
         const selectedGalaxy = galaxySelect.value;
         if (!selectedGalaxy) return;
 
@@ -318,41 +331,48 @@ title: "WILL Geometry Calculator"
         const obs_rad = galaxyCurveData.map(d => d.Rad);
         const obs_v = galaxyCurveData.map(d => d.Vobs);
 
-        const { rad, v_bary, v_will } = calculateWillVelocity(selectedGalaxy, lambda, yStar);
+        const { rad, v_bary, v_will, components } = calculateWillVelocity(selectedGalaxy, lambda, yStar);
         const rmse = calculateRMSE(obs_v, v_will);
 
         resultsDiv.textContent = `Model RMSE: ${rmse.toFixed(2)} km/s`;
 
-        Plotly.react('plot-div', [{
-            x: obs_rad,
-            y: obs_v,
-            mode: 'markers',
-            type: 'scatter',
-            name: 'Observed (Vobs)',
-            marker: { color: '#343a40', size: 8, symbol: 'circle' }
-        }, {
-            x: rad,
-            y: v_bary,
-            mode: 'lines',
-            type: 'scatter',
-            name: 'Classical Baryonic (Vbary)',
-            line: { color: '#007bff', width: 2.5, dash: 'dash' }
-        }, {
-            x: rad,
-            y: v_will,
-            mode: 'lines',
-            type: 'scatter',
-            name: 'Predicted (V_WILL)',
-            line: { color: '#dc3545', width: 4 }
-        }], {
-            title: { text: `Rotation Curve for ${selectedGalaxy}`, font: { size: 20 } },
-            xaxis: { title: 'Radius (kpc)', gridcolor: '#e9ecef' },
-            yaxis: { title: 'Velocity (km/s)', gridcolor: '#e9ecef', range: [0, Math.max(...obs_v) * 1.25] },
+        // Main Plot
+        const plotLayout = {
+            title: { text: `Rotation Curve for ${selectedGalaxy}`, font: { size: 20, color: '#343a40' } },
+            xaxis: { title: 'Radius (kpc)', gridcolor: '#e9ecef', zerolinecolor: '#ced4da' },
+            yaxis: { title: 'Velocity (km/s)', gridcolor: '#e9ecef', zerolinecolor: '#ced4da', range: [0, Math.max(...obs_v) * 1.25] },
             legend: { x: 0.05, y: 0.95, bgcolor: 'rgba(255,255,255,0.7)', bordercolor: '#ced4da', borderwidth: 1 },
             margin: { l: 60, r: 30, b: 50, t: 60 },
             paper_bgcolor: '#ffffff',
             plot_bgcolor: '#f8f9fa'
-        });
+        };
+
+        Plotly.react(plotDiv, [{
+            x: obs_rad, y: obs_v, mode: 'markers', type: 'scatter', name: 'Observed (Vobs)',
+            marker: { color: '#343a40', size: 8, symbol: 'circle' }
+        }, {
+            x: rad, y: v_bary, mode: 'lines', type: 'scatter', name: 'Classical Baryonic (Vbary)',
+            line: { color: '#6c757d', width: 2.5, dash: 'dash' }
+        }, {
+            x: rad, y: v_will, mode: 'lines', type: 'scatter', name: 'Predicted (V_WILL)',
+            line: { color: '#dc3545', width: 4 }
+        }], plotLayout);
+        
+        // Component Breakdown Plot
+        const componentLayout = { ...plotLayout, title: { text: `Baryonic Components for ${selectedGalaxy}`, font: { size: 20, color: '#343a40' } } };
+        Plotly.react(plotDivComponents, [{
+             x: obs_rad, y: obs_v, mode: 'markers', type: 'scatter', name: 'Observed',
+             marker: { color: '#adb5bd', size: 6, symbol: 'circle-open' }
+        },{
+            x: rad, y: components.v_gas, mode: 'lines', type: 'scatter', name: 'Gas',
+            line: { color: '#198754', width: 2 }
+        }, {
+            x: rad, y: components.v_disk_scaled, mode: 'lines', type: 'scatter', name: 'Disk (scaled by Y*)',
+            line: { color: '#0d6efd', width: 2 }
+        }, {
+            x: rad, y: components.v_bulge_scaled, mode: 'lines', type: 'scatter', name: 'Bulge (scaled by Y*)',
+            line: { color: '#fd7e14', width: 2 }
+        }], componentLayout);
     }
     
     // --- EVENT LISTENERS ---
@@ -363,10 +383,10 @@ title: "WILL Geometry Calculator"
                 ystarSlider.value = (1.0 / lambda);
             }
         }
-        updatePlot();
+        updateAll();
     }
     
-    galaxySelect.addEventListener('change', updatePlot);
+    galaxySelect.addEventListener('change', updateAll);
     lambdaSlider.addEventListener('input', handleUnifiedLink);
     ystarSlider.addEventListener('input', () => {
          if (unifiedCheckbox.checked) {
@@ -375,7 +395,7 @@ title: "WILL Geometry Calculator"
                 lambdaSlider.value = (1.0 / yStar);
             }
         }
-        updatePlot();
+        updateAll();
     });
     unifiedCheckbox.addEventListener('change', handleUnifiedLink);
 
