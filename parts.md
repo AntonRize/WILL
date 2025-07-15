@@ -1,9 +1,13 @@
 ---
 layout: default
-title: "Research Parts"
+title: "Research Documents"
 ---
 
-# 📚 WILL Geometry Research Documents
+<div class="markdown-content py-8">
+    <h1 class="text-4xl font-extrabold tracking-tight">📚 WILL Geometry Research Documents</h1>
+    <p class="mt-4 text-lg text-gray-400">
+        Complete research documentation in three parts, covering the theoretical foundation, cosmological applications, and quantum mechanical framework.
+    </p>
 
 Complete research documentation in three parts, covering the theoretical foundation, cosmological applications, and quantum mechanical framework.
 
@@ -109,3 +113,4 @@ Complete research documentation in three parts, covering the theoretical foundat
 ---
 
 *Complete theoretical framework for unified geometric physics*
+</div>

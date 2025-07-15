@@ -3,7 +3,11 @@ layout: default
 title: "Key Results"
 ---
 
-# 🎯 WILL Geometry: Key Results
+<div class="markdown-content py-8">
+    <h1 class="text-4xl font-extrabold tracking-tight">🎯 WILL Geometry: Key Results</h1>
+    <p class="mt-4 text-lg text-gray-400">
+        Logical flow charts showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.
+    </p>
 
 Logical flow charts showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.
 
@@ -342,4 +346,5 @@ Multiple valid entry points exist, but all reduce to consistent, non-redundant r
 
 <div style="text-align: center; font-style: italic; color: #666; padding: 20px 0;">
     <p>"Energy is not a substance, but a differential invariant of state transitions"</p>
+</div>
 </div>

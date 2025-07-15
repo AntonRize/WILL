@@ -212,12 +212,17 @@ title: "Galactic Dynamics Calculator"
     // --- DATA HANDLING ---
     async function loadData() {
         try {
+            console.log('Loading SPARC data...');
             const [t1_response, t2_response] = await Promise.all([fetch(URL_TABLE1), fetch(URL_TABLE2)]);
-            if (!t1_response.ok || !t2_response.ok) throw new Error('Network response was not ok.');
+            
+            if (!t1_response.ok || !t2_response.ok) {
+                throw new Error(`Network response was not ok. T1: ${t1_response.status}, T2: ${t2_response.status}`);
+            }
 
             const t1_text = await t1_response.text();
             const t2_text = await t2_response.text();
             
+            console.log('Parsing table1.dat...');
             // Parse table1.dat (fixed-width format)
             const t1_lines = t1_text.trim().split('\n');
             const sparcT1 = [];
@@ -248,6 +253,7 @@ title: "Galactic Dynamics Calculator"
                 }
             });
 
+            console.log('Parsing table2.dat...');
             // Parse table2.dat (space-delimited format)
             const t2_lines = t2_text.trim().split('\n');
             const sparcT2 = [];
@@ -267,6 +273,7 @@ title: "Galactic Dynamics Calculator"
                 }
             });
             
+            console.log('Grouping data by galaxy...');
             // Group data by galaxy
             sparcT2.forEach(row => {
                 if (typeof row.Rad !== 'number' || typeof row.Vobs !== 'number' || isNaN(row.Rad) || isNaN(row.Vobs)) return;
@@ -274,6 +281,7 @@ title: "Galactic Dynamics Calculator"
                 galaxyData[row.Name].push(row);
             });
 
+            console.log('Populating galaxy selector...');
             // Populate galaxy selector
             sparcT1.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(galaxy => {
                 if (galaxyData[galaxy.Name] && galaxyData[galaxy.Name].length > 2) {
@@ -284,13 +292,18 @@ title: "Galactic Dynamics Calculator"
                 }
             });
 
+            console.log('Data loading complete. Found', Object.keys(galaxyData).length, 'galaxies');
             loader.style.display = 'none';
             calculatorBody.style.display = 'block';
-            updateAll();
+            
+            // Initialize with first galaxy if available
+            if (galaxySelect.options.length > 0) {
+                updateAll();
+            }
 
         } catch (error) {
-            loader.textContent = 'Error: Could not load data from GitHub. Please check the URLs in the script.';
             console.error('Data loading error:', error);
+            loader.textContent = 'Error: Could not load data from GitHub. Please check the URLs in the script.';
         }
     }
 
@@ -437,11 +450,17 @@ title: "Galactic Dynamics Calculator"
         updateAll();
     }
 
-    galaxySelect.addEventListener('change', updateAll);
-    lambdaSlider.addEventListener('input', handleLambdaChange);
-    ystarSlider.addEventListener('input', handleYstarChange);
-    unifiedCheckbox.addEventListener('change', handleLambdaChange);
-
     // --- INITIALIZATION ---
-    document.addEventListener('DOMContentLoaded', loadData);
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('Calculator initializing...');
+        
+        // Set up event listeners
+        galaxySelect.addEventListener('change', updateAll);
+        lambdaSlider.addEventListener('input', handleLambdaChange);
+        ystarSlider.addEventListener('input', handleYstarChange);
+        unifiedCheckbox.addEventListener('change', handleLambdaChange);
+        
+        // Load data
+        loadData();
+    });
 </script>

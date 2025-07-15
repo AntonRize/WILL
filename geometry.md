@@ -3,6 +3,12 @@ layout: default
 title: "Interactive Geometry"
 ---
 
+<div class="markdown-content py-8">
+    <h1 class="text-4xl font-extrabold tracking-tight">🔺 Interactive WILL Geometry</h1>
+    <p class="mt-4 text-lg text-gray-400">
+        Explore the geometric foundations of WILL theory through interactive visualizations. These demonstrate how all physical phenomena emerge from projections on the unit circle.
+    </p>
+
 <style>
 .geometry-container {
     margin: 30px 0;
@@ -277,4 +283,5 @@ Explore the geometric foundations of WILL theory through interactive visualizati
 <div style="text-align: center; font-style: italic; color: #666; padding: 30px 0; border-top: 1px solid #ddd; margin-top: 50px;">
     <p><strong>"Experience the beauty of geometric unified physics"</strong></p>
     <p>Interactive visualization reveals the elegant simplicity underlying complex phenomena</p>
+</div>
 </div>

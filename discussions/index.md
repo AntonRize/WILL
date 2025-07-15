@@ -3,7 +3,11 @@ layout: default
 title: "Discussions & Forums"
 ---
 
-# 💬 WILL Geometry Discussions
+<div class="markdown-content py-8">
+    <h1 class="text-4xl font-extrabold tracking-tight">💬 WILL Geometry Discussions</h1>
+    <p class="mt-4 text-lg text-gray-400">
+        Scientific discussion forums for WILL Geometry research. Join conversations with researchers and contribute to the development of geometric unified physics.
+    </p>
 
 Scientific discussion forums for WILL Geometry research. Join conversations with researchers and contribute to the development of geometric unified physics.
 
@@ -60,3 +64,4 @@ Scientific discussion forums for WILL Geometry research. Join conversations with
 ---
 
 **Quick Links:** [Research Documents](/WILL/) | [Calculator](/WILL/calculator/) | [Email Contact](mailto:egeometricity@gmail.com)
+</div>

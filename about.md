@@ -3,7 +3,8 @@ layout: default
 title: "About This Work"
 ---
 
-# 📖 About WILL Geometry Research
+<div class="markdown-content py-8">
+    <h1 class="text-4xl font-extrabold tracking-tight">📖 About WILL Geometry Research</h1>
 
 ---
 
@@ -92,3 +93,4 @@ This work was developed independently, but it builds upon centuries of scientifi
 ---
 
 **Navigation:** [Research Documents](/WILL/parts/) | [Key Results](/WILL/results/) | [Join Discussion](/WILL/discussions/)
+</div>
