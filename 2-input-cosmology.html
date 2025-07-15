@@ -359,7 +359,10 @@ permalink: /2-input-cosmology.html
         loader.classList.remove('hidden');
         output.textContent = '';
 
-        const proxyApiUrl = "https://proxy-flame-seven.vercel.app/api/gemini";
+        // --- THE FIX ---
+        // Replace the placeholder with the actual, full URL of your deployed Vercel proxy.
+        // It will look something like: https://your-project-name.vercel.app/api/gemini
+        const proxyApiUrl = "https://will-assistant-proxy.vercel.app/api/gemini"; // <-- IMPORTANT: REPLACE IF YOUR URL IS DIFFERENT
 
         try {
             const payload = { prompt: prompt }; 
@@ -377,8 +380,8 @@ permalink: /2-input-cosmology.html
             
             const result = await response.json();
 
-            if (result.reply) {
-                output.textContent = result.reply;
+            if (result.response) {
+                output.textContent = result.response;
             } else {
                 output.textContent = "Could not retrieve an explanation. The response from the proxy was empty or malformed.";
             }

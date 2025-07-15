@@ -3,7 +3,7 @@ layout: home
 title: "WILL Geometry: Unified Geometric Framework"
 ---
 
-$$\boxed{\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}}$$
+# WILL Geometry Research
 
 **This work is not an attempt to replace or dispute existing physics but rather to understand it from a geometric and philosophical standpoint.**
 
