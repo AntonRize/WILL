@@ -1,7 +1,9 @@
 ---
 layout: default
-title: "Research Parts"
+title: "Research Documents"
 ---
+
+<div class="markdown-content py-8">
 
 # 📚 WILL Geometry Research Documents
 
@@ -13,9 +15,9 @@ Complete research documentation in three parts, covering the theoretical foundat
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
 
-<div style="background: linear-gradient(135deg, #e8f4fd 0%, #d5f4e6 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #3498db;">
+<div style="background: linear-gradient(135deg, #e8f4fd 0%, #d5f4e6 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #3498db; color: #1f2937;">
     <h3 style="color: #2c3e50; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations</h3>
-    <p style="margin-bottom: 20px; line-height: 1.6;">
+    <p style="margin-bottom: 20px; line-height: 1.6; color: #1f2937;">
         From fundamental postulate to Special and General Relativity through pure projection geometry. 
         Derives Einstein's equations without assuming spacetime structure.
     </p>
@@ -37,9 +39,9 @@ Complete research documentation in three parts, covering the theoretical foundat
     </a>
 </div>
 
-<div style="background: linear-gradient(135deg, #fff3cd 0%, #d1ecf1 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #8e44ad;">
+<div style="background: linear-gradient(135deg, #fff3cd 0%, #d1ecf1 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #8e44ad; color: #1f2937;">
     <h3 style="color: #2c3e50; margin-bottom: 15px;">🌌 Part II: Cosmology</h3>
-    <p style="margin-bottom: 20px; line-height: 1.6;">
+    <p style="margin-bottom: 20px; line-height: 1.6; color: #1f2937;">
         Two-parameter cosmology without Friedmann equations. Geometric derivation of dark energy 
         and cosmological parameters from pure algebraic closure.
     </p>
@@ -61,9 +63,9 @@ Complete research documentation in three parts, covering the theoretical foundat
     </a>
 </div>
 
-<div style="background: linear-gradient(135deg, #d5f4e6 0%, #f8d7da 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #27ae60;">
+<div style="background: linear-gradient(135deg, #d5f4e6 0%, #f8d7da 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #27ae60; color: #1f2937;">
     <h3 style="color: #2c3e50; margin-bottom: 15px;">⚛️ Part III: Quantum Mechanics</h3>
-    <p style="margin-bottom: 20px; line-height: 1.6;">
+    <p style="margin-bottom: 20px; line-height: 1.6; color: #1f2937;">
         Atomic structure through geometric quantization without wave functions. 
         Independent derivation of the fine structure constant α = β.
     </p>
@@ -102,10 +104,12 @@ Complete research documentation in three parts, covering the theoretical foundat
 ## 🔗 Quick Navigation
 
 - **[Results Overview](/WILL/results/)** - Key achievements and logical flowcharts
-- **[Interactive Calculator](/WILL/calculator/)** - Test predictions on galaxy data
+- **[Galactic Dynamics](/WILL/calculator/)** - Test predictions on galaxy data
 - **[Discussion Forums](/WILL/discussions/)** - Join scientific discussions
 - **[Main Research Page](/WILL/)** - Return to overview
 
 ---
 
 *Complete theoretical framework for unified geometric physics*
+
+</div>

@@ -353,8 +353,9 @@ permalink: /2-input-cosmology.html
             return;
         }
         
-        geminiExplainButton.disabled = true;
-        geminiCompareButton.disabled = true;
+        // Fix: Only disable buttons if they exist
+        if (geminiExplainButton) geminiExplainButton.disabled = true;
+        if (geminiCompareButton) geminiCompareButton.disabled = true;
         section.classList.remove('hidden');
         loader.classList.remove('hidden');
         output.textContent = '';
@@ -390,8 +391,9 @@ permalink: /2-input-cosmology.html
             console.error("Gemini API Error:", error);
             output.textContent = "An error occurred while trying to get an explanation. This is likely a network or proxy configuration issue. Please check the browser console for details.";
         } finally {
-            geminiExplainButton.disabled = false;
-            geminiCompareButton.disabled = false;
+            // Fix: Only re-enable buttons if they exist
+            if (geminiExplainButton) geminiExplainButton.disabled = false;
+            if (geminiCompareButton) geminiCompareButton.disabled = false;
             loader.classList.add('hidden');
         }
     }
@@ -427,9 +429,13 @@ permalink: /2-input-cosmology.html
             el.addEventListener('change', handleParamChange);
             el.addEventListener('keyup', handleParamChange);
         });
-        
         kappaSlider.addEventListener('input', handleSliderInput);
-        geminiExplainButton.addEventListener('click', getGeminiExplanation);
-        geminiCompareButton.addEventListener('click', getGeminiComparison);
+        // Fix: Only add event listeners if buttons exist
+        if (geminiExplainButton && geminiCompareButton) {
+            geminiExplainButton.addEventListener('click', getGeminiExplanation);
+            geminiCompareButton.addEventListener('click', getGeminiComparison);
+        } else {
+            console.error('Gemini buttons not found in DOM.');
+        }
     });
 </script>
