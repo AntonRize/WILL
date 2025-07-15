@@ -5,111 +5,72 @@ title: "Research Documents"
 
 <div class="markdown-content py-8">
 
-# 📚 WILL Geometry Research Documents
+<h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4">📚 WILL Geometry Research Documents</h1>
+<p class="text-gray-300 mb-8">Complete research documentation in three parts, covering the theoretical foundation, cosmological applications, and quantum mechanical framework.</p>
 
-Complete research documentation in three parts, covering the theoretical foundation, cosmological applications, and quantum mechanical framework.
-
----
-
-## 📖 Research Parts
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
-
-<div style="background: linear-gradient(135deg, #e8f4fd 0%, #d5f4e6 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #3498db; color: #1f2937;">
-    <h3 style="color: #2c3e50; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations</h3>
-    <p style="margin-bottom: 20px; line-height: 1.6; color: #1f2937;">
-        From fundamental postulate to Special and General Relativity through pure projection geometry. 
-        Derives Einstein's equations without assuming spacetime structure.
-    </p>
-    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
-        <strong>Topics:</strong> Geometric postulate, SR derivation, GR equivalence, unified field equations
-    </p>
-    <a href="/WILL/documents/WILL_PART_I_SR_GR.pdf" target="_blank" style="
-        background: #3498db;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        display: inline-block;
-        transition: background 0.3s;
-    " onmouseover="this.style.background='#2980b9'" 
-       onmouseout="this.style.background='#3498db'">
-        📄 Download Part I
-    </a>
+<div class="grid md:grid-cols-3 gap-6 mb-10">
+  <div class="bg-gray-800/50 p-6 rounded-lg border-l-4 border-cyan-400">
+    <h3 class="text-xl font-bold text-cyan-300 mb-2">⚡ Part I: Relativistic Foundations</h3>
+    <p class="text-gray-200 mb-3">From fundamental postulate to Special and General Relativity through pure projection geometry. Derives Einstein's equations without assuming spacetime structure.</p>
+    <p class="text-gray-400 text-sm mb-4"><strong>Topics:</strong> Geometric postulate, SR derivation, GR equivalence, unified field equations</p>
+    <a href="/WILL/documents/WILL_PART_I_SR_GR.pdf" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-4 py-2 rounded transition-colors">📄 Download Part I</a>
+  </div>
+  <div class="bg-gray-800/50 p-6 rounded-lg border-l-4 border-purple-400">
+    <h3 class="text-xl font-bold text-purple-300 mb-2">🌌 Part II: Cosmology</h3>
+    <p class="text-gray-200 mb-3">Two-parameter cosmology without Friedmann equations. Geometric derivation of dark energy and cosmological parameters from pure algebraic closure.</p>
+    <p class="text-gray-400 text-sm mb-4"><strong>Topics:</strong> Cosmic evolution, Ωₘ = 1/3, ΩΛ = 2/3, w = -1, holographic entropy</p>
+    <a href="/WILL/documents/WILL_PART_II_Cosmology.pdf" target="_blank" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold px-4 py-2 rounded transition-colors">📄 Download Part II</a>
+  </div>
+  <div class="bg-gray-800/50 p-6 rounded-lg border-l-4 border-green-400">
+    <h3 class="text-xl font-bold text-green-300 mb-2">⚛️ Part III: Quantum Mechanics</h3>
+    <p class="text-gray-200 mb-3">Atomic structure through geometric quantization without wave functions. Independent derivation of the fine structure constant α = β.</p>
+    <p class="text-gray-400 text-sm mb-4"><strong>Topics:</strong> Geometric quantization, α = β derivation, hydrogen spectra, atomic physics</p>
+    <a href="/WILL/documents/WILL_PART_III_QM.pdf" target="_blank" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-2 rounded transition-colors">📄 Download Part III</a>
+  </div>
 </div>
 
-<div style="background: linear-gradient(135deg, #fff3cd 0%, #d1ecf1 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #8e44ad; color: #1f2937;">
-    <h3 style="color: #2c3e50; margin-bottom: 15px;">🌌 Part II: Cosmology</h3>
-    <p style="margin-bottom: 20px; line-height: 1.6; color: #1f2937;">
-        Two-parameter cosmology without Friedmann equations. Geometric derivation of dark energy 
-        and cosmological parameters from pure algebraic closure.
-    </p>
-    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
-        <strong>Topics:</strong> Cosmic evolution, Ωₘ = 1/3, ΩΛ = 2/3, w = -1, holographic entropy
-    </p>
-    <a href="/WILL/documents/WILL_PART_II_Cosmology.pdf" target="_blank" style="
-        background: #8e44ad;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        display: inline-block;
-        transition: background 0.3s;
-    " onmouseover="this.style.background='#7d3c98'" 
-       onmouseout="this.style.background='#8e44ad'">
-        📄 Download Part II
-    </a>
+<h2 class="text-2xl font-bold text-white mt-10 mb-4">📊 Document Overview</h2>
+<div class="overflow-x-auto mb-8">
+<table class="w-full text-left rounded-lg overflow-hidden">
+  <thead class="bg-gray-900/50 text-gray-300">
+    <tr>
+      <th class="px-4 py-3">Part</th>
+      <th class="px-4 py-3">Pages</th>
+      <th class="px-4 py-3">Focus</th>
+      <th class="px-4 py-3">Status</th>
+    </tr>
+  </thead>
+  <tbody class="divide-y divide-gray-700">
+    <tr class="hover:bg-gray-800">
+      <td class="px-4 py-3 font-medium text-cyan-300">I: Relativity</td>
+      <td class="px-4 py-3 text-gray-200">~40</td>
+      <td class="px-4 py-3 text-gray-200">SR/GR from geometry</td>
+      <td class="px-4 py-3 text-green-400">✅ Complete</td>
+    </tr>
+    <tr class="hover:bg-gray-800">
+      <td class="px-4 py-3 font-medium text-purple-300">II: Cosmology</td>
+      <td class="px-4 py-3 text-gray-200">~35</td>
+      <td class="px-4 py-3 text-gray-200">Dark energy, cosmic parameters</td>
+      <td class="px-4 py-3 text-yellow-400">🔄 In Progress</td>
+    </tr>
+    <tr class="hover:bg-gray-800">
+      <td class="px-4 py-3 font-medium text-green-300">III: Quantum</td>
+      <td class="px-4 py-3 text-gray-200">~30</td>
+      <td class="px-4 py-3 text-gray-200">Atomic physics, α = β</td>
+      <td class="px-4 py-3 text-yellow-400">🔄 In Progress</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
-<div style="background: linear-gradient(135deg, #d5f4e6 0%, #f8d7da 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #27ae60; color: #1f2937;">
-    <h3 style="color: #2c3e50; margin-bottom: 15px;">⚛️ Part III: Quantum Mechanics</h3>
-    <p style="margin-bottom: 20px; line-height: 1.6; color: #1f2937;">
-        Atomic structure through geometric quantization without wave functions. 
-        Independent derivation of the fine structure constant α = β.
-    </p>
-    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
-        <strong>Topics:</strong> Geometric quantization, α = β derivation, hydrogen spectra, atomic physics
-    </p>
-    <a href="/WILL/documents/WILL_PART_III_QM.pdf" target="_blank" style="
-        background: #27ae60;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        display: inline-block;
-        transition: background 0.3s;
-    " onmouseover="this.style.background='#229954'" 
-       onmouseout="this.style.background='#27ae60'">
-        📄 Download Part III
-    </a>
-</div>
+<h2 class="text-2xl font-bold text-white mt-10 mb-4">🔗 Quick Navigation</h2>
+<ul class="space-y-2 mb-8">
+  <li><a href="/WILL/results/" class="text-cyan-400 hover:underline">Results Overview</a> <span class="text-gray-400">- Key achievements and logical flowcharts</span></li>
+  <li><a href="/WILL/calculator/" class="text-cyan-400 hover:underline">Galactic Dynamics</a> <span class="text-gray-400">- Test predictions on galaxy data</span></li>
+  <li><a href="/WILL/discussions/" class="text-cyan-400 hover:underline">Discussion Forums</a> <span class="text-gray-400">- Join scientific discussions</span></li>
+  <li><a href="/WILL/" class="text-cyan-400 hover:underline">Main Research Page</a> <span class="text-gray-400">- Return to overview</span></li>
+</ul>
 
-</div>
-
----
-
-## 📊 Document Overview
-
-| Part | Pages | Focus | Status |
-|------|-------|-------|--------|
-| **I: Relativity** | ~40 | SR/GR from geometry | ✅ Complete |
-| **II: Cosmology** | ~35 | Dark energy, cosmic parameters | 🔄 In Progress |
-| **III: Quantum** | ~30 | Atomic physics, α = β | 🔄 In Progress |
-
----
-
-## 🔗 Quick Navigation
-
-- **[Results Overview](/WILL/results/)** - Key achievements and logical flowcharts
-- **[Galactic Dynamics](/WILL/calculator/)** - Test predictions on galaxy data
-- **[Discussion Forums](/WILL/discussions/)** - Join scientific discussions
-- **[Main Research Page](/WILL/)** - Return to overview
-
----
-
-*Complete theoretical framework for unified geometric physics*
+<p class="text-gray-400 italic">Complete theoretical framework for unified geometric physics</p>
 
 </div>
