@@ -64,7 +64,7 @@ Logical flow charts showing how all major physics results emerge from the fundam
 
 ---
 
-## ⚡ Part I: Relativistic Foundations
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">## ⚡ Part I: Relativistic Foundations </h3>
 
 <div class="flowchart">
     <div class="flow-box postulate-box">
@@ -102,7 +102,7 @@ Logical flow charts showing how all major physics results emerge from the fundam
 
 ---
 
-## 🌌 Part II: Cosmology
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">## 🌌 Part II: Cosmology </h3>
 
 <div class="flowchart">
     <div class="flow-box postulate-box">
@@ -147,7 +147,7 @@ Logical flow charts showing how all major physics results emerge from the fundam
 
 ---
 
-## ⚛️ Part III: Quantum Mechanics
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">## ⚛️ Part III: Quantum Mechanics </h3>
 
 <div class="flowchart">
     <div class="flow-box postulate-box">
