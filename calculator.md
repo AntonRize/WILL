@@ -38,7 +38,7 @@ title: "Galactic Dynamics Calculator"
         }
         
         .calculator-container {
-            background: #1f2937;
+            background-color: rgba(31,41,55,0.5);
             border-radius: 15px;
             padding: 30px 40px;
             margin: 20px auto;
@@ -155,7 +155,7 @@ title: "Galactic Dynamics Calculator"
         }
     </style>
 
-    <div class="calculator-container">
+    <div class="calculator-container bg-gray-800/50 p-6 rounded-lg">
         <div id="loader">Loading SPARC Database...</div>
 
         <div id="calculator-body" style="display: none;">

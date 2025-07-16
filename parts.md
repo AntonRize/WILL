@@ -13,7 +13,7 @@ Complete research documentation in three parts, covering the theoretical foundat
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
 
-<div style="background: linear-gradient(135deg, #e8f4fd 0%, #d5f4e6 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #3498db;">
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db;">
     <h3 style="color: #2c3e50; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations</h3>
     <p style="margin-bottom: 20px; line-height: 1.6;">
         From fundamental postulate to Special and General Relativity through pure projection geometry. 
@@ -22,22 +22,12 @@ Complete research documentation in three parts, covering the theoretical foundat
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
         <strong>Topics:</strong> Geometric postulate, SR derivation, GR equivalence, unified field equations
     </p>
-    <a href="/WILL/documents/WILL_PART_I_SR_GR.pdf" target="_blank" style="
-        background: #3498db;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        display: inline-block;
-        transition: background 0.3s;
-    " onmouseover="this.style.background='#2980b9'" 
-       onmouseout="this.style.background='#3498db'">
+    <a href="/WILL/documents/WILL_PART_I_SR_GR.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
         📄 Download Part I
     </a>
 </div>
 
-<div style="background: linear-gradient(135deg, #fff3cd 0%, #d1ecf1 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #8e44ad;">
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #8e44ad;">
     <h3 style="color: #2c3e50; margin-bottom: 15px;">🌌 Part II: Cosmology</h3>
     <p style="margin-bottom: 20px; line-height: 1.6;">
         Two-parameter cosmology without Friedmann equations. Geometric derivation of dark energy 
@@ -46,22 +36,12 @@ Complete research documentation in three parts, covering the theoretical foundat
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
         <strong>Topics:</strong> Cosmic evolution, Ωₘ = 1/3, ΩΛ = 2/3, w = -1, holographic entropy
     </p>
-    <a href="/WILL/documents/WILL_PART_II_Cosmology.pdf" target="_blank" style="
-        background: #8e44ad;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        display: inline-block;
-        transition: background 0.3s;
-    " onmouseover="this.style.background='#7d3c98'" 
-       onmouseout="this.style.background='#8e44ad'">
+    <a href="/WILL/documents/WILL_PART_II_Cosmology.pdf" target="_blank" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded inline-block">
         📄 Download Part II
     </a>
 </div>
 
-<div style="background: linear-gradient(135deg, #d5f4e6 0%, #f8d7da 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #27ae60;">
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60;">
     <h3 style="color: #2c3e50; margin-bottom: 15px;">⚛️ Part III: Quantum Mechanics</h3>
     <p style="margin-bottom: 20px; line-height: 1.6;">
         Atomic structure through geometric quantization without wave functions. 
@@ -70,17 +50,7 @@ Complete research documentation in three parts, covering the theoretical foundat
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
         <strong>Topics:</strong> Geometric quantization, α = β derivation, hydrogen spectra, atomic physics
     </p>
-    <a href="/WILL/documents/WILL_PART_III_QM.pdf" target="_blank" style="
-        background: #27ae60;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        display: inline-block;
-        transition: background 0.3s;
-    " onmouseover="this.style.background='#229954'" 
-       onmouseout="this.style.background='#27ae60'">
+    <a href="/WILL/documents/WILL_PART_III_QM.pdf" target="_blank" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded inline-block">
         📄 Download Part III
     </a>
 </div>
