@@ -3,7 +3,7 @@ layout: default
 title: "Research Parts"
 ---
 
-# 📚 WILL Geometry Research Documents
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">📚 WILL Geometry Research Documents</h3>
 
 Complete research documentation in three parts, covering the theoretical foundation, cosmological applications, and quantum mechanical framework.
 
