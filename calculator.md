@@ -291,10 +291,11 @@ title: "Galactic Dynamics Calculator"
                     galaxySelect.appendChild(option);
                 }
             });
+            galaxySelect.selectedIndex = 0;
 
             loader.style.display = 'none';
             calculatorBody.style.display = 'block';
-            updateAll();
+            if (galaxySelect.value) updateAll();
 
         } catch (error) {
             loader.textContent = 'Error: Could not load data from GitHub. Please check the URLs in the script.';
