@@ -1,0 +1,30 @@
+const fs = require('fs');
+const {JSDOM} = require('jsdom');
+
+const html = fs.readFileSync('calculator.md', 'utf8');
+const dom = new JSDOM(html, {runScripts: "dangerously"});
+const window = dom.window;
+
+const mockTable1 = "GALAXY1        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1\n";
+const mockTable2 = [
+  "GALAXY1 0 50 0 10 20 5",
+  "GALAXY1 1 60 0 10 20 5",
+  "GALAXY1 2 70 0 10 20 5"
+].join('\n');
+window.fetch = (url) => Promise.resolve({ok: true, text: () => Promise.resolve(url.includes('table1') ? mockTable1 : mockTable2)});
+window.Plotly = {react: () => { window.__react_called = true; }};
+
+function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+(async () => {
+  await wait(10); // allow scripts to run
+  const lambdaSlider = window.document.getElementById('lambda-slider');
+  lambdaSlider.value = '2.5';
+  lambdaSlider.dispatchEvent(new window.Event('input', {bubbles: true}));
+
+  if (!window.__react_called) {
+    console.error('Test failed: Plotly.react not called');
+    process.exit(1);
+  }
+  console.log('Test passed');
+})();
