@@ -272,15 +272,17 @@ title: "Galactic Dynamics Calculator"
             t2_lines.forEach(line => {
                 if (line.startsWith('#')) return;
                 const parts = line.trim().split(/\s+/);
-                if (parts.length >= 7) {
+                // Name, Dist, Rad, Vobs, Vobs_err, Vgas, Vdisk, Vbul
+                if (parts.length >= 8) {
                     sparcT2.push({
-                        'Name': parts[0], 
-                        'Rad': parseFloat(parts[1]), 
-                        'Vobs': parseFloat(parts[2]),
-                        'Vobs_err': parseFloat(parts[3]),
-                        'Vgas': parseFloat(parts[4]), 
-                        'Vdisk': parseFloat(parts[5]), 
-                        'Vbul': parseFloat(parts[6])
+                        'Name': parts[0],
+                        'Dist': parseFloat(parts[1]),
+                        'Rad': parseFloat(parts[2]),
+                        'Vobs': parseFloat(parts[3]),
+                        'Vobs_err': parseFloat(parts[4]),
+                        'Vgas': parseFloat(parts[5]),
+                        'Vdisk': parseFloat(parts[6]),
+                        'Vbul': parseFloat(parts[7])
                     });
                 }
             });
