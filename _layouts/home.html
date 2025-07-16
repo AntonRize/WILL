@@ -9,6 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        .summary-box {
+    border: 2px solid #374151;
+    padding: 1em;
+    margin: 0.5em 0;
+    text-align: center;
+    font-size: 1.25rem;
+    background-color: #1f2937;
+    border-radius: 8px;
+}
         body {
             font-family: 'Inter', sans-serif;
             background-color: #111827;
@@ -46,7 +55,9 @@
     <main class="container mx-auto px-6">
         <!-- Hero Section -->
         <section class="text-center py-20 md:py-24">
-            <h2 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">$ \boxed{\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}} $</h2>
+           <div class="summary-box mt-6 text-cyan-400 tracking-widest">
+    $\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}$
+</div>
             <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">{{ site.data.home.hero.subtitle }}</p>
             <div class="mt-12 max-w-2xl mx-auto border-2 border-cyan-500/30 bg-gray-800/50 rounded-xl p-6 shadow-2xl shadow-cyan-500/10">
                 <p class="text-lg text-gray-300">Fundamental Postulate:</p>
