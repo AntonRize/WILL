@@ -29,7 +29,7 @@ Above all, this document serves as a personal record and reflection of a journey
 
 ## Research Philosophy
 
-<div style="background: #e8f4fd; padding: 25px; border-radius: 10px; margin: 30px 0; border-left: 5px solid #3498db;">
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db;">
     <h4>Core Principles</h4>
     <ul>
         <li><strong>Geometric Simplicity:</strong> All physics should emerge from elementary geometric relationships</li>
@@ -44,7 +44,7 @@ Above all, this document serves as a personal record and reflection of a journey
 
 ## Current Status
 
-<div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin: 30px 0; border-left: 5px solid #856404;">
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #856404;">
     <p><strong>This work remains an ongoing exploration</strong>, and further developments may reveal deeper connections between geometry, energy, and the fabric of reality.</p>
 </div>
 
