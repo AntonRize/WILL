@@ -11,6 +11,7 @@ Discussion of special and general relativity within the WILL Geometry framework.
 
 ## 💬 Forum Discussion
 
+<div class="bg-gray-800/50 p-6 rounded-lg">
 <script src="https://utteranc.es/client.js"
         repo="AntonRize/WILL"
         issue-term="title"
@@ -19,6 +20,7 @@ Discussion of special and general relativity within the WILL Geometry framework.
         crossorigin="anonymous"
         async>
 </script>
+</div>
 
 ---
 

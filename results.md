@@ -19,7 +19,7 @@ Logical flow charts showing how all major physics results emerge from the fundam
 }
 
 .flow-box {
-    background: linear-gradient(135deg, #e8f4fd 0%, #d5f4e6 100%);
+    background-color: rgba(31,41,55,0.5);
     border: 2px solid #3498db;
     border-radius: 10px;
     padding: 15px 20px;
@@ -42,13 +42,13 @@ Logical flow charts showing how all major physics results emerge from the fundam
 }
 
 .postulate-box {
-    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    background-color: rgba(31,41,55,0.5);
     border-color: #f39c12;
     font-weight: bold;
 }
 
 .result-box {
-    background: linear-gradient(135deg, #d5f4e6 0%, #a8edea 100%);
+    background-color: rgba(31,41,55,0.5);
     border-color: #27ae60;
 }
 
@@ -189,7 +189,7 @@ Logical flow charts showing how all major physics results emerge from the fundam
 
 ## 🎯 Unified Achievement
 
-<div style="text-align: center; margin: 50px 0; padding: 30px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 15px; border-left: 5px solid #667eea;">
+<div class="text-center my-12 p-6 bg-gray-800/50 rounded-lg border-l-4" style="border-color: #667eea;">
     <h3 style="color: #2c3e50; margin-bottom: 25px;">🏆 Core Relations</h3>
     
     <div style="font-size: 20px; line-height: 2; margin: 25px 0;">
@@ -248,7 +248,7 @@ $$\Omega_\Lambda = \kappa^2$$
 
 $$W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}} = 1$$
 
-<div style="text-align: center; margin: 40px 0; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 5px solid #6c757d;">
+<div class="text-center my-10 p-6 bg-gray-800/50 rounded-lg border-l-4" style="border-color: #6c757d;">
     <h4 style="color: #2c3e50; margin-bottom: 15px;">⚖️ Theoretical Closure</h4>
     <p style="font-size: 16px; line-height: 1.6; margin-bottom: 15px;">
         The unified field equation completes the <em>ab initio</em> derivation begun with the fundamental postulate:
