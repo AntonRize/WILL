@@ -121,6 +121,12 @@ title: "Galactic Dynamics Calculator"
             background-color: #374151;
             border-radius: 8px;
         }
+        #warning {
+            text-align: center;
+            color: #f87171;
+            font-weight: bold;
+            margin-top: 10px;
+        }
 
         .plot-container {
             border-top: 1px solid #4b5563;
@@ -174,6 +180,7 @@ title: "Galactic Dynamics Calculator"
             </div>
             
             <div id="results"></div>
+            <div id="warning" class="warning"></div>
 
             <div class="plot-container">
                 <h4>Overall Rotation Curve</h4>
@@ -203,6 +210,7 @@ title: "Galactic Dynamics Calculator"
     const lambdaSlider = document.getElementById('lambda-slider');
     const ystarSlider = document.getElementById('ystar-slider');
     const lambdaValueSpan = document.getElementById('lambda-value');
+    const warningDiv = document.getElementById("warning");
     const ystarValueSpan = document.getElementById('ystar-value');
     const unifiedCheckbox = document.getElementById('unified-model-checkbox');
     const resultsDiv = document.getElementById('results');
@@ -357,8 +365,9 @@ title: "Galactic Dynamics Calculator"
         const { rad, v_bary, v_will, components } = calculateWillVelocity(selectedGalaxy, lambda, yStar);
         const rmse = calculateRMSE(obs_v, v_will);
 
+        const hasInvalid = [...v_will, ...v_bary].some(v => !isFinite(v));
         resultsDiv.textContent = `Model RMSE: ${rmse.toFixed(2)} km/s`;
-
+        warningDiv.textContent = hasInvalid ? "⚠ Calculation issue detected. Results may be incorrect." : "";
         const plotLayout = {
             xaxis: { 
                 title: 'Radius (kpc)', 
@@ -389,7 +398,7 @@ title: "Galactic Dynamics Calculator"
         };
 
         // Main Plot
-        Plotly.newPlot(plotDiv, [{
+        Plotly.react(plotDiv, [{
             x: obs_rad, y: obs_v, mode: 'markers', type: 'scatter', name: 'Observed (Vobs)',
             marker: { color: '#d1d5db', size: 8, symbol: 'circle' }
         }, {
@@ -401,7 +410,7 @@ title: "Galactic Dynamics Calculator"
         }], { ...plotLayout, title: { text: `Rotation Curve for ${selectedGalaxy}`, font: { size: 20, color: '#d1d5db' } } });
         
         // Component Breakdown Plot
-        Plotly.newPlot(plotDivComponents, [{
+        Plotly.react(plotDivComponents, [{
              x: obs_rad, y: obs_v, mode: 'markers', type: 'scatter', name: 'Observed',
              marker: { color: '#9ca3af', size: 6, symbol: 'circle-open' }
         },{
