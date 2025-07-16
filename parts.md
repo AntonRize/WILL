@@ -14,7 +14,7 @@ Complete research documentation in three parts, covering the theoretical foundat
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
 
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db;">
-    <h3 style="color: #2c3e50; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations</h3>
+   <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations</h3>
     <p style="margin-bottom: 20px; line-height: 1.6;">
         From fundamental postulate to Special and General Relativity through pure projection geometry. 
         Derives Einstein's equations without assuming spacetime structure.
@@ -28,7 +28,7 @@ Complete research documentation in three parts, covering the theoretical foundat
 </div>
 
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #8e44ad;">
-    <h3 style="color: #2c3e50; margin-bottom: 15px;">🌌 Part II: Cosmology</h3>
+    <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🌌 Part II: Cosmology</h3>
     <p style="margin-bottom: 20px; line-height: 1.6;">
         Two-parameter cosmology without Friedmann equations. Geometric derivation of dark energy 
         and cosmological parameters from pure algebraic closure.
@@ -42,7 +42,7 @@ Complete research documentation in three parts, covering the theoretical foundat
 </div>
 
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60;">
-    <h3 style="color: #2c3e50; margin-bottom: 15px;">⚛️ Part III: Quantum Mechanics</h3>
+    <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚛️ Part III: Quantum Mechanics</h3>
     <p style="margin-bottom: 20px; line-height: 1.6;">
         Atomic structure through geometric quantization without wave functions. 
         Independent derivation of the fine structure constant α = β.
