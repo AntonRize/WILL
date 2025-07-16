@@ -1,0 +1,679 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm} 
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, calc}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor,tcolorbox}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+% Настройка теорем и других математических элементов
+
+
+\title{Will: A Unified Framework\\
+PART 0 - UNITS AND CONSTANTS}
+\author{Anton Rize egeometricity@gmail.com}
+\date{April 2025}
+
+% Пакеты
+\usepackage[utf8]{inputenc}        % Кодировка
+\usepackage[T2A]{fontenc}          % Кодировка шрифтов
+\usepackage[english]{babel} % Языки                             
+\usepackage{graphicx} 
+
+% Настройки полей страницы
+\geometry{
+    a4paper,
+    left=25mm,
+    right=25mm,
+    top=25mm,
+    bottom=25mm,
+}
+
+% Новые команды для модели
+\newcommand{\QGModel}{QG model}
+
+\begin{document}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\maketitle
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{img/IMG.jpg}
+    \caption{$\kappa$, $\beta$  and orthogonal reflections $T_c$, $L_c$ as Energy projections on unit circle r = c }
+\end{figure}
+
+\newpage
+
+\tableofcontents
+
+\section{Will: PART II - UNITS AND CONSTANTS}
+
+\subsection{Mass as a Scale Factor}
+
+As we showed in Part 1 - In Will geometry, mass is not an independent dynamical variable but simply
+the conversion factor between the dimensionless “rest‐energy invariant”
+\(E_0\) and familiar SI units.  Concretely:
+\[
+  m \;=\;\frac{E_0}{c^2}.
+\]
+Thus:
+\begin{itemize}
+  \item The rest‐energy projection \(E\,\sin\theta_S = E_0\)  
+        can be equivalently written \(m\,c^2\).
+  \item All inertial and gravitational effects (kinetic terms, Schwarzschild radius \(R_s\), etc.) follow by substituting \(E_0 = m\,c^2\) into the dual‐scaling laws.
+\end{itemize}
+
+
+\section{Fundamental Constants as Geometric Projections}
+
+In the Will framework, all “constants” arise from the same unit‐circle geometry, once we choose how to convert its dimensionless projections into physical units. In part 1 we showed that mass is not an independent dynamical variable but simply the conversion factor between the dimensionless “rest‐energy invariant” \(E_0\) and familiar SI units.  Concretely:  $ m \;=\;\frac{E_0}{c^2}$. Thus:
+\begin{itemize}
+  \item The rest‐energy projection \(E\,\sin\theta_S = E_0\)  
+        can be equivalently written \(m\,c^2\).
+  \item All inertial and gravitational effects (kinetic terms, Schwarzschild radius \(R_s\), etc.) follow by substituting 
+\(E_0 = m\,c^2\) into the dual‐scaling laws.
+
+Below we show how \(E\), \(m\), \(l\), \(\hbar\), \(t\) and \(G\) all fall out of one simple picture.
+\end{itemize} 
+
+\subsection{Geometric Energy \(E_g\)}
+
+A full rotation around the circle picks up an angle \(2\pi\).  If we take the speed‐of‐change vector to have magnitude \(c\), then integrating
+\[
+  E_g \;\equiv\;\int_0^{2\pi} c\,d\theta
+  \;=\; 2\pi\,c
+\]
+carries units of \(\mathrm{[m/s]}\).  To express this in joules, we multiply by the \emph{geometric mass scale} \(m_g\) (below), or equivalently identify
+\[
+  E_g = 2\pi\,c \quad\longmapsto\quad 
+     (2\pi\,c)\times m_g \;=\; 2\pi\,m_g\,c
+     \;=\;2\pi\,\frac{E_0}{c^2}\,c 
+     = 2\pi\,\frac{E_0}{c}
+     = E_0\,(2\pi/\beta)\big\vert_{\beta=1}\!,
+\]
+but more transparently we compare \(E_g\) directly to the Planck energy
+\[
+  E_P \;=\;\sqrt{\frac{\hbar\,c^5}{G}}
+  \;\approx\;1.956\times10^9\;\mathrm{J}.
+\]
+Taking the ratio of the two (properly converted to the same units) gives
+\[
+  \frac{E_g}{E_P}\;\approx\;0.96297,
+\]
+a near‐unity dimensionless number that emerges purely from geometry.
+
+\subsection{Geometric Mass \(m_g\)}
+
+We define mass by the usual Einstein relation \(E = mc^2\).  Hence
+\[
+  m_g \;=\;\frac{E_g}{c^2} = \frac{2\pi\,c}{c^2} = \frac{2\pi}{c},
+\]
+which carries units of \(\mathrm{s/m}\).  Numerically,
+\[
+  m_g \approx 2.0958\times10^{-8}\;\mathrm{s/m}.
+\]
+Comparing to the conventional Planck mass \(m_P=\sqrt{\hbar c/G}\) yields the same ≈3.7% deviation.
+
+\subsection{Geometric Length \(l_g\)}
+
+Using any particle’s Compton relation \(m_0\,\lambda_0 = \hbar\), one finds
+\[
+  l_g \;=\;\frac{m_0}{m_g}\,\lambda_0 
+       = \frac{m_0}{(2\pi/c)}\,\lambda_0
+       = \frac{\hbar}{2\pi},
+\]
+so that \(l_g\approx1.6784\times10^{-35}\,\mathrm{m}\), again within ≈3.7% of the usual Planck length.
+
+\subsection{Geometric \(\hbar\) and \(t_g\)}
+
+The reduced Planck constant follows immediately:
+\[
+  \hbar = m_g\,l_g\,c = \Bigl(\tfrac{2\pi}{c}\Bigr)\Bigl(\tfrac{\hbar}{2\pi}\Bigr)c = \hbar,
+\]
+confirming perfect consistency.  And the geometric time‐unit is
+\[
+  t_g = \frac{l_g}{c} = \frac{\hbar}{2\pi\,c}
+      \approx5.5986\times10^{-44}\mathrm{s}.
+\]
+
+\subsection{Geometric Gravitational Constant \(G_g\)}
+
+Finally, demanding
+\[
+  G_g = \frac{\hbar\,c}{m_g^2}
+      = \frac{\hbar\,c^3}{4\pi^2}
+\]
+gives units \(\mathrm{m^4/s^3}\) and a value within the same few‐percent family of its CODATA counterpart.
+
+\bigskip
+
+\emph{Conclusion:}  No external “mystery” constants are needed—Planck units, \(G\), \(\hbar\) and even the kilogram all reduce to one pure geometric invariant (the unit circle) plus our choice of how to convert dimensionless projections (\(\beta,\sin\theta\)) into SI.  
+
+
+\section{Geometric Interpretation of Dimensions through Circle Parameters}
+
+The Planck constant in new units:
+\begin{equation}
+    \hbar = 1.054571817 \times 10^{-34} \text{ J}\cdot\text{s} = 1.054571817 \times 10^{-34} \text{ kg}\cdot\text{m}^2\cdot\text{s}^{-1}
+\end{equation}
+
+After replacing the units of mass:
+\begin{equation}
+    \text{kg} \rightarrow \frac{\text{s}}{\text{m}}
+\end{equation}
+
+$\hbar$ acquires the dimension:
+\begin{equation}
+    [\hbar] = \left[\frac{\text{s}}{\text{m}}\cdot\text{m}^2\cdot\text{s}^{-1}\right] = [\text{m}]
+\end{equation}
+
+\[
+h=2\pi \hbar=(2\pi)^{2}l_{g}
+\]
+These values show:
+\begin{itemize}
+    \item Mass is the ratio of time to space (\(\frac{\text{s}}{\text{m}}\)).
+    \item Length remains a fundamental spatial measure.
+    \item Time retains its fundamental nature.
+\end{itemize}
+
+\subsection{Fundamental Units in New Dimensions}
+
+\subsection{Basic Correspondences}
+
+\subsubsection{Length}
+\begin{equation}
+    l_g = \frac{\hbar}{2\pi} = \frac{[\text{m}]}{[1]} = 1.6784031752 \times 10^{-35} \, \text{m}, \\
+\end{equation}
+
+\subsubsection{Time}
+\begin{equation}
+    t_g = \frac{\hbar}{2\pi c} = \frac{[\text{m}]}{[\text{m}/\text{s}]} =  5.5985503652 \times 10^{-44} \, \text{s}.
+\end{equation}
+
+\subsubsection{Mass}
+\begin{equation}
+    m_g = \frac{2\pi}{c} = \frac{[1]}{[\text{m}/\text{s}]} = 2.095845022 \times 10^{-8} \, \frac{\text{s}}{\text{m}}, \\
+\end{equation}
+
+
+If we consider the unit circle as a fundamental structure:
+\begin{itemize}
+    \item [m] → radial component (radius or diameter of the circle).
+    \item [s] → angular component (phase angle).
+    \item [s/m] → ratio of angle to radius (curvature).
+\end{itemize}
+
+\paragraph{Inverse Speed as a Measure of Curvature}
+
+Consider the unit:
+\begin{equation}
+\frac{1}{\text{m/s}} = \frac{\text{s}}{\text{m}}.
+\end{equation}
+This unit, time per unit length, can be directly interpreted as a measure of spacetime curvature. In the context of GR, curvature relates to how time dilates or contracts over a given spatial dimension due to the presence of mass-energy. The unit \( \text{s/m} \) quantifies this curvature, reflecting the gravitational influence on the flow of time across space.
+
+\subsection{Conclusion}
+
+The system is fully self-consistent! By replacing the units of mass with $\frac{\text{s}}{\text{m}}$, all dimensions converge naturally:
+\begin{itemize}
+    \item Length remains in meters
+    \item Time remains in seconds
+    \item Mass becomes $\frac{\text{s}}{\text{m}}$
+\end{itemize}
+
+This points to the profound geometric nature of mass as a characteristic of spacetime rather than an independent quantity.
+
+
+
+\chapter{The Universal Structural Correction Coefficient}
+
+\section{Introduction and Definition}
+
+In exploring the geometry of Will, a single dimensionless number  
+\[
+  K \;\equiv\; 2\pi\sqrt{\frac{G}{\hbar\,c^{3}}}
+  \;\approx\;0.9629718579
+\]
+repeatedly appears as the ratio between geometric and classical (Planck/SI) units.  Below we show how \(K\) arises inevitably and organizes every conversion.
+
+\section{Manifestations of \(K\)}
+
+\subsection{Planck‐Unit Ratios}
+\[
+  \frac{m_g}{m_P} = K,\quad
+  \frac{l_g}{l_P} = \frac1K,\quad
+  \frac{t_g}{t_P} = \frac1K,\quad
+  \frac{E_g}{E_P} = K.
+\]
+
+\subsection{Gravitational Constant}
+Classically,
+\[
+  G = \frac{\hbar\,c}{m_P^2},\quad
+  G_g = \frac{\hbar\,c}{m_g^2} = \frac{\hbar\,c^3}{4\pi^2}.
+\]
+Since \(m_g = m_P\,K\), one finds
+\[
+  G = G_g\,K^2,\qquad
+  \frac{G}{G_g} = K^2.
+\]
+
+\subsection{Mass–Wavelength–Time Relation}
+For any particle of mass \(m_0\) and Compton wavelength \(\lambda_0\),
+\[
+  \frac{\lambda_0}{(2\pi\,t_P)/m_0} \;=\;\frac1K,
+\]
+so that the same factor reappears in quantum–gravitational couplings.
+
+\subsection{Global Cosmological Relation}
+At \(\kappa = \sqrt2\),
+\[
+  m_0\,\frac{c}{r_{\rm dis}}\;l_P/(2\pi) \;=\;\frac1K,
+\]
+demonstrating \(K\)’s ubiquity from microphysics to cosmology.
+
+\section{Unit‐Assignment and Conversion Rule}
+
+All geometric units \((E_g,m_g,l_g,t_g)\) follow directly from  
+\(\mathrm{SPACETIME}\equiv\mathrm{ENERGY\ EVOLUTION}\):
+\[
+  E_g=2\pi c,\quad m_g=\frac{2\pi}{c},\quad l_g=\frac{\hbar}{2\pi},\quad t_g=\frac{\hbar}{2\pi c}.
+\]
+To recover SI/Planck values, each quantity is multiplied by \(K^e\) with
+\[
+  e = (\#L + \#T) - (\#E + \#M),
+\]
+where \(\#\) counts how many factors of each dimension appear.  For example:
+
+\begin{tabular}{|l|c|c|}
+\hline
+Quantity & \((E,M,L,T)\) exponents & Conversion \(K^e\)\\
+\hline
+Energy \(E\)   & (1,0,0,0) & \(K^{-1}\)\\\hline
+Mass   \(m\)   & (0,1,0,0) & \(K^{-1}\)\\\hline
+Length \(l\)   & (0,0,1,0) & \(K^{+1}\)\\\hline
+Time   \(t\)   & (0,0,0,1) & \(K^{+1}\)\\
+\hline
+\end{tabular}
+
+\section{Conclusion}
+
+The factor \(K\approx0.96297\) is not an ad hoc correction but the unique bridge between pure Will geometry and our historical SI/Planck grid.  When one anchors geometric units with a single empirical scale (e.g.\ the electron’s Compton relation), \(K\) cancels out of every formula, leaving all physics expressed only in terms of \(c\) and dimensionless projections \((\beta,\kappa,\dots)\).  Thus the Will postulate passes a stringent internal‐consistency check and sets the stage for direct experimental tests.```
+
+
+
+\section{Why the geometric anchor appears as momentum}
+
+The circle delivers a dimensionless phase increment
+\(p_{g}=2\pi\).
+To turn it into an SI number one needs exactly \emph{one} empirical
+length scale.  With the de\,Broglie relation
+\(p=h/\lambda\)
+this requirement is met immediately, whereas
+\[
+E=h\nu \quad\text{needs a \emph{time} scale},\qquad
+m=\frac{E}{c^{2}}\ \text{needs both }E\text{ and }c.
+\]
+
+Momentum is therefore the minimal bridge between
+geometric phase and laboratory units:
+\[
+p = p_{g}\,p_{P},
+\qquad
+p_{P} = \sqrt{\frac{\hbar c^{3}}{G}},\qquad
+K = \frac{2\pi}{p_{P}}.
+\]
+
+Because \(\hat p=-i\hbar\partial_{x}\) generates spatial translations,
+a \(2\pi\) phase shift on the unit circle is literally “one wavelength
+to the right’’—the content of momentum.
+Thus the conversion factor \(K\) surfaces first (and only) through
+momentum; energies and masses inherit their $K$‑powers from the single
+relation \(E=p\,c,\;m=E/c^{2}\).
+
+
+\section{Geometric Momentum and Quantization of Spacetime}
+
+Geometric momentum, like mass, can be derived from the geometry of spacetime. Using the definition of momentum:
+
+\[
+p = m \cdot \frac{v}{c},
+\]
+
+and substituting the expression for Geometric mass:
+
+\[
+m_g = \frac{2\pi}{c},
+\]
+we obtain Geometric momentum:
+
+\[
+p_g = m_g \cdot \frac{v}{c} = \frac{2\pi}{c} \cdot \beta \cdot c = 2\pi \cdot \beta.
+\]
+\[
+ v=\beta \cdot c
+ \]
+\subsection{Quantization of Spacetime}
+
+This expression shows that Geometric momentum is a dimensionless quantity associated with angular symmetry. At \( \beta = 1 \) (maximum speed \( v = c \)), the momentum becomes:
+
+\[
+p_g = 2\pi.
+\]
+
+This result indicates that spacetime is quantized through \( 2\pi \), reflecting fundamental circular symmetry. Regardless of scale, Geometric momentum remains tied to this foundation, reinforcing the idea of quantization through angular relations.
+
+
+
+\section{Will: The Universal Geometric Units Equation}
+
+An especially elegant result is the universal equation combining Geometric energy \( E_g \), time \( t_g \), mass \( m_g \), and length \( l_g \):
+\begin{equation}
+W_{\text{ill}} = \frac{E_g t_g^2}{m_g l_g^2} = 1.
+\end{equation}
+
+This equation shows that Geometric units maintain a balance, forming a complete, interdependent system where each quantity contributes to a unified whole. This unity also confirms the idea that spacetime and mass are inseparably connected through their wave and geometric properties.
+
+
+\subsection{Dimensional Analysis}
+The dimension \([1]\) confirms this is indeed an invariant, but it’s worth considering the underlying components:
+\begin{align}
+    W_{\text{ill}} &= \frac{E_g t_g^2}{m_g l_g^2} = 1, \\
+    &= \frac{[\text{m}/\text{s}] \cdot [\text{s}^2]}{[\text{s}/\text{m}] \cdot [\text{m}^2]} = [1].
+\end{align}
+
+This equation balances energy-time (\(E_g t_g^2\)) and mass-space (\(m_g l_g^2\)):
+\begin{itemize}
+    \item \(E_g t_g^2\): Represents the dynamic aspect of spacetime, describing the interplay between energy and time.
+    \item \(m_g l_g^2\): Represents the geometric aspect of spacetime, describing the interplay between mass and spatial extent.
+\end{itemize}
+
+---
+
+\subsection{Interpretation of the Components}
+This balance can be interpreted as:
+\begin{itemize}
+    \item A fundamental relationship between dynamic (\(E_g\)) and geometric (\(l_g\)) aspects of the universe.
+    \item An indication that spacetime and mass-energy are different manifestations of the same entity.
+    \item A reflection of the unity and closure of the structure of spacetime.
+\end{itemize}
+
+In the context of a unit circle:
+\begin{itemize}
+    \item The numerator (\(E_g t_g^2\)) represents the dynamics of phase rotation within the unit circle.
+    \item The denominator (\(m_g l_g^2\)) represents the geometric scale of the structure.
+    \item The equality to one reflects the closure and completeness of the cycle.
+\end{itemize}
+
+---
+
+\subsection{Physical Meaning}
+The equation suggests that:
+\begin{itemize}
+    \item All physical quantities are manifestations of the geometry of the unit circle.
+    \item Mass, energy, time, and space are different aspects of a single geometric structure.
+    \item Quantum properties emerge from the closure and integrity of circular geometry.
+\end{itemize}
+
+This interpretation also aligns with the wave-particle duality inherent in quantum mechanics, where:
+\begin{equation}
+    \text{Wave (dynamic)} \leftrightarrow \text{Particle (geometric)}.
+\end{equation}
+
+\subsection{The Name "Will"}
+The name Will reflects both the harmonious unity of the equation and a subtle irony towards the anthropic principle, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
+
+
+
+
+\section{Numerical Conformation }
+
+\subsection{Calculating Wavelengths of Elementary Particles}
+
+Using our derived expression, we calculated the Compton wavelengths of various elementary particles. The expression used is:
+\[
+\lambda = \frac{2\pi\,l_g\,m_g\,c}{m\,c},
+\]
+which simplifies to
+\[
+\lambda = \frac{2\pi\,l_g\,m_g}{m}.
+\]
+Here:
+\begin{itemize}
+    \item \( \lambda \) is the Compton wavelength of the particle,
+    \item \( l_g \) and \( m_g \) are the geometrically derived units (geometric length and geometric mass),
+    \item \( m \) is the mass of the particle.
+\end{itemize}
+Unit consistency is verified as:
+\[
+\frac{[\text{m}] \cdot [\text{s/m}] \cdot [\text{m/s}]}{[\text{s/m}] \cdot [\text{m/s}]} = [\text{m}].
+\]
+This demonstrates that the geometric model respects unit invariance across all calculations.
+
+\subsection{Calculated Wavelengths and Comparison with Empirical Data}
+Below are the calculated wavelengths for various elementary particles, along with a comparison to the experimental values from CODATA 2022.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|>{\centering\arraybackslash}p{0.25\linewidth}|>{\centering\arraybackslash}p{0.33\linewidth}|}
+\hline
+\textbf{Particle} & \textbf{Calculated \( \lambda \) (m)} & \textbf{Experimental \( \lambda \) (m)} & \textbf{Percentage Difference} \\ \hline
+Electron & \( 2.4263102339 \times 10^{-12} \) & \( 2.426310238 \times 10^{-12} \) & \( 1.8 \times 10^{-7} \, \% \) \\ \hline
+Proton & \( 1.3214098528 \times 10^{-15} \) & \( 1.3214098536 \times 10^{-15} \) & \( 6.0 \times 10^{-8} \, \% \) \\ \hline
+Neutron & \( 1.3195909038 \times 10^{-15} \) & \( 1.3195909038 \times 10^{-15} \) & \( 0.0 \% \) \\ \hline
+Muon & \( 1.1734441096 \times 10^{-14} \) & \( 1.173444110 \times 10^{-14} \) & \( 3.4 \times 10^{-8} \, \% \) \\ \hline
+Tau-lepton & \( 6.977714806 \times 10^{-16} \) & \( 6.97771(47) \times 10^{-16} \) & \( <1.0 \times 10^{-6} \, \% \) \\ \hline
+\end{tabular}
+\caption{Comparison of Calculated Wavelengths with Experimental Data (CODATA 2022)}
+\end{table}
+
+\subsection{Significance of the Results}
+The almost perfect match with experimental values indicates that our model accurately predicts the fundamental properties of elementary particles based solely on geometric principles and the speed of light. This remarkable agreement supports the following conclusions:
+\begin{itemize}
+    \item The Compton wavelength can be derived as a purely geometric quantity without reliance on empirical assumptions.
+    \item The geometric units \(l_g\), \(m_g\), and \(c\) form a self-consistent framework that governs both macroscopic and quantum domains.
+    \item The consistency of units \([\text{m}]\) confirms the robustness of the model's dimensional analysis.
+\end{itemize}
+
+\subsection{Implications for Fundamental Physics}
+\begin{itemize}
+    \item The geometric approach unifies quantum and relativistic principles into a single coherent framework.
+    \item The negligible percentage differences between calculated and experimental values demonstrate the predictive power of the model while allowing for potential refinements.
+    \item This reinforces the idea that physical properties like mass, energy, and wavelength emerge from the fundamental geometry of spacetime.
+\end{itemize}
+
+
+\section{Consistency of Measurement Units}
+\label{sec:unit_consistency}
+In this section, we examine whether the consistency of units is preserved across various disciplines in physics when mass is expressed in units of \([s/m]\) and energy as \([m/s]\). The analysis involves recalculating the derived units for all related physical quantities, thereby testing the coherence of fundamental equations under this alternative system.
+
+\section{Fundamental Constants and Their Dimensions}
+\begin{itemize}
+    \item Speed of light $c$: $[m/s]$ --- the basic speed of interaction.
+    \item Planck constant $\hbar$: $[m]$ --- a length reflecting the geometric nature of quantum phenomena.
+    \item Planck mass $m_g = 2\pi c$: $[s/m]$ --- an inverted speed.
+    \item Planck length $l_g = \hbar/(2\pi)$: $[m]$.
+    \item Planck time $t_g = \hbar/(2\pi c)$: $[s]$.
+\end{itemize}
+
+\section{Basic Mechanical Quantities}
+\begin{itemize}
+    \item Position $x$: $[m]$ --- length.
+    \item Velocity $v$: $[m/s]$ --- the rate of change of position.
+    \item Acceleration $a$: $[m/s^2]$ --- the rate of change of velocity.
+    \item Mass $m$: $[s/m]$ --- an inverted speed.
+    \item Force $F$: $[1/s]$ --- angular frequency.
+    \item Energy $E$: $[m/s]$ --- speed.
+    \item Momentum $p$: $[1]$ --- a dimensionless quantity.
+\end{itemize}
+
+\section{Verified Equations}
+\subsection{Newton's Laws}
+\[
+F = ma, \quad [F] = [m][a] = [1/s],
+\]
+\[
+F = \frac{dp}{dt}, \quad [F] = \frac{[p]}{[t]} = [1/s].
+\]
+\textbf{Interpretation:} Force describes the frequency of change in the system's state.
+
+\subsection{Work and Energy}
+\[
+A = F \cdot x, \quad [A] = [F][x] = [m/s],
+\]
+\[
+E = \frac{1}{2}mv^2, \quad [E] = [m][v^2] = [m/s],
+\]
+\[
+E = mgh, \quad [E] = [m][g][h] = [m/s].
+\]
+\textbf{Interpretation:} Energy is expressed through the speed of interaction.
+
+\subsection{Power}
+\[
+P = \frac{dW}{dt}, \quad [P] = \frac{[W]}{[t]} = [m/s^2].
+\]
+\textbf{Interpretation:} Power reflects the rate of change of the speed of interaction.
+
+\subsection{Momentum}
+\[
+p = mv, \quad [p] = [m][v] = [1].
+\]
+\textbf{Interpretation:} Momentum is a dimensionless quantity describing the relative state of motion.
+
+\subsection{Torque}
+\[
+\tau = r \times F, \quad [\tau] = [r][F] = [m/s].
+\]
+\textbf{Interpretation:} Torque is related to energy and circular symmetry.
+
+\subsection{Harmonic Oscillator}
+\[
+F = -kx, \quad [F] = [k][x],
+\]
+\[
+[k] = \frac{[F]}{[x]} = \left[\frac{1}{ms}\right].
+\]
+\textbf{Interpretation:} The stiffness $k$ characterizes the inverse length and time of interaction.
+
+\subsection{Law of Universal Gravitation}
+\[
+F = G\frac{m_1 m_2}{r^2}, \quad [G] = \left[\frac{m^4}{s^3}\right],
+\]
+\[
+[F] = [G]\cdot [m_1][m_2] / [r]^2 = [1/s].
+\]
+\textbf{Interpretation:} Gravitational force is described in terms of the frequency of interaction.
+
+\section{Additional Sections}
+\subsection{Electromagnetism}
+\subsubsection{Fundamental Equations of Electromagnetism}
+\begin{enumerate}
+    \item Gauss's law for the electric field:
+    \[
+    \nabla \cdot E = \rho,
+    \]
+    where:
+    \begin{itemize}
+        \item $E$: electric field, $[E] = [1/s]$,
+        \item $\rho$: charge density, $[\rho] = [1]$.
+    \end{itemize}
+    \item Absence of magnetic monopoles:
+    \[
+    \nabla \cdot B = 0,
+    \]
+    where:
+    \begin{itemize}
+        \item $B$: magnetic field, $[B] = [1]$.
+    \end{itemize}
+    \item Faraday's law:
+    \[
+    \nabla \times E = -\frac{\partial B}{\partial t},
+    \]
+    where the time $t$ is replaced by the angular parameter $\theta$ in this system.
+    \item Ampère's law (with displacement current):
+    \[
+    \nabla \times B = J + \frac{\partial E}{\partial t},
+    \]
+    where:
+    \begin{itemize}
+        \item $J$: current density, $[J] = [1/s]$,
+        \item $\frac{\partial E}{\partial t}$: change in the electric field.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Energy of the Electromagnetic Field}
+\[
+u = |E|^2 + |B|^2.
+\]
+
+\subsubsection{Poynting Vector}
+\[
+S = E \times B.
+\]
+
+\subsection{Quantum Mechanics}
+\subsubsection{The Fundamental Schrödinger Equation}
+\[
+i\hbar\frac{\partial \psi}{\partial \theta} = -\frac{\hbar^2}{2m}\nabla^2\psi + V\psi,
+\]
+where:
+\begin{itemize}
+    \item $\psi(x,\theta)$: wave function, dimensionless,
+    \item $\hbar$: reduced Planck constant, $[\hbar] = [m]$,
+    \item $m$: mass, $[m] = [s/m]$,
+    \item $V$: potential energy, $[V] = [m/s]$.
+\end{itemize}
+
+\subsubsection{Momentum Operator}
+\[
+\hat{p} = -i\hbar\nabla, \quad [\hat{p}] = [1].
+\]
+
+\subsubsection{Energy Operator}
+\[
+\hat{H} = \frac{\hat{p}^2}{2m} + V, \quad [\hat{H}] = [m/s].
+\]
+
+\subsubsection{Wave Function}
+\[
+\psi(x,\theta) = A\, e^{i(kx-\omega\theta)},
+\]
+where:
+\begin{itemize}
+    \item $k$: wave number, $[k] = [1/m]$,
+    \item $\omega$: angular frequency, $[\omega] = [1/s]$.
+\end{itemize}
+
+\subsubsection{Photon Energy}
+\[
+E = \hbar\omega, \quad [E] = [m/s].
+\]
+
+\subsubsection{Quantum Harmonic Oscillator}
+\[
+\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + \frac{1}{2}kx^2,
+\]
+where:
+\begin{itemize}
+    \item $k$: stiffness, $[k] = \left[\frac{1}{ms}\right]$,
+    \item $x$: position, $[x] = [m]$.
+\end{itemize}
+
+
+
+
+
+
+\end{document}

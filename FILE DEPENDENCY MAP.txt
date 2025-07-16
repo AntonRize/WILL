@@ -1,0 +1,24 @@
+_config.yml
+├── site.title → All pages
+├── navigation → _includes/header.html
+└── baseurl → All links
+
+_data/home.yml
+├── hero.title → Homepage title
+├── hero.subtitle → Homepage subtitle  
+├── hero.postulate → Homepage postulate
+└── pillars → Homepage pillar cards
+
+_layouts/home.html
+├── Uses _data/home.yml for ALL content
+├── Has its own CSS/styling
+└── COMPLETELY SEPARATE from default.html
+
+_layouts/default.html
+├── Wraps content in .markdown-content
+├── Has global CSS fixes
+└── Used by ALL pages except homepage
+
+_includes/header.html
+├── Gets navigation from _config.yml
+└── Used by both layouts
