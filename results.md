@@ -3,7 +3,7 @@ layout: default
 title: "Key Results"
 ---
 
-# 🎯 WILL Geometry: Key Results
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🎯 WILL Geometry: Key Results </h3>
 
 Logical flow charts showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.
 
@@ -64,7 +64,7 @@ Logical flow charts showing how all major physics results emerge from the fundam
 
 ---
 
-<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">## ⚡ Part I: Relativistic Foundations </h3>
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations </h3>
 
 <div class="flowchart">
     <div class="flow-box postulate-box">
@@ -102,7 +102,7 @@ Logical flow charts showing how all major physics results emerge from the fundam
 
 ---
 
-<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">## 🌌 Part II: Cosmology </h3>
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🌌 Part II: Cosmology </h3>
 
 <div class="flowchart">
     <div class="flow-box postulate-box">
@@ -147,7 +147,7 @@ Logical flow charts showing how all major physics results emerge from the fundam
 
 ---
 
-<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">## ⚛️ Part III: Quantum Mechanics </h3>
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚛️ Part III: Quantum Mechanics </h3>
 
 <div class="flowchart">
     <div class="flow-box postulate-box">
@@ -187,10 +187,10 @@ Logical flow charts showing how all major physics results emerge from the fundam
 
 ---
 
-## 🎯 Unified Achievement
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🎯 Unified Achievement </h3>
 
 <div class="text-center my-12 p-6 bg-gray-800/50 rounded-lg border-l-4" style="border-color: #667eea;">
-    <h3 style="color: #2c3e50; margin-bottom: 25px;">🏆 Core Relations</h3>
+    <h2 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🏆 Core Relations</h2>
     
     <div style="font-size: 20px; line-height: 2; margin: 25px 0;">
         <div style="margin: 15px 0;"><strong>κ² = 2β²</strong></div>
@@ -249,7 +249,7 @@ $$\Omega_\Lambda = \kappa^2$$
 $$W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}} = 1$$
 
 <div class="text-center my-10 p-6 bg-gray-800/50 rounded-lg border-l-4" style="border-color: #6c757d;">
-    <h4 style="color: #2c3e50; margin-bottom: 15px;">⚖️ Theoretical Closure</h4>
+   <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚖️ Theoretical Closure</h3>
     <p style="font-size: 16px; line-height: 1.6; margin-bottom: 15px;">
         The unified field equation completes the <em>ab initio</em> derivation begun with the fundamental postulate:
     </p>
@@ -267,7 +267,7 @@ $$\boxed{\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}}$$
 
 ---
 
-## ⚖️ Causal Closure without Circularity
+<h2 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚖️ Causal Closure without Circularity </h2>
 
 The structure of WILL Geometry is causally closed but not circular. Each parameter is either independently observable or computable from a minimal input pair consisting of one dynamic projection (such as κ or β) and one scale quantity (such as r, M, or ρ).
 
