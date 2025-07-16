@@ -341,6 +341,8 @@ title: "Galactic Dynamics Calculator"
 
     // --- UI & PLOTTING ---
     function updateAll() {
+        window.__update_called = true; // debug flag for tests
+        console.log('updateAll triggered');
         const selectedGalaxy = galaxySelect.value;
         if (!selectedGalaxy) return;
 

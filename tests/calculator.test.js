@@ -26,5 +26,9 @@ function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
     console.error('Test failed: Plotly.react not called');
     process.exit(1);
   }
+  if (!window.__update_called) {
+    console.error('Test failed: updateAll not triggered');
+    process.exit(1);
+  }
   console.log('Test passed');
 })();
