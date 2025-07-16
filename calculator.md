@@ -24,7 +24,7 @@ title: "Galactic Dynamics Calculator"
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- Plotly.js for graphing -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+   <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
 
     <style>
         .formula-box {
