@@ -184,6 +184,8 @@ title: "Galactic Dynamics Calculator"
                 </div>
             </div>
 
+            <div id="galaxy-info" class="bg-gray-800/50 p-4 rounded-lg mb-4"></div>
+
             <div class="unified-model">
                 <input type="checkbox" id="unified-model-checkbox" checked>
                 <label for="unified-model-checkbox">Enforce Unified Model ($Y_* = 1/\lambda$)</label>
@@ -212,6 +214,16 @@ title: "Galactic Dynamics Calculator"
 
     // --- GLOBAL VARIABLES ---
     let galaxyData = {};
+    let galaxyMeta = {};
+
+    const hubbleTypes = ["S0","Sa","Sab","Sb","Sbc","Sc","Scd","Sd","Sdm","Sm","Im","BCD"];
+    const distMethods = {
+        1: "Hubble Flow",
+        2: "Tip of the Red Giant Branch",
+        3: "Cepheids",
+        4: "Ursa Major Cluster",
+        5: "Supernova"
+    };
 
     // --- DOM ELEMENTS ---
     const loader = document.getElementById('loader');
@@ -226,6 +238,7 @@ title: "Galactic Dynamics Calculator"
     const resultsDiv = document.getElementById('results');
     const plotDiv = document.getElementById('plot-div');
     const plotDivComponents = document.getElementById('plot-div-components');
+    const galaxyInfoDiv = document.getElementById('galaxy-info');
 
     // --- DATA HANDLING ---
     async function loadData() {
@@ -236,32 +249,34 @@ title: "Galactic Dynamics Calculator"
             const t1_text = await t1_response.text();
             const t2_text = await t2_response.text();
             
-            // Parse table1.dat (fixed-width format)
+            // Parse table1.dat
             const t1_lines = t1_text.trim().split('\n');
             const sparcT1 = [];
             t1_lines.forEach(line => {
                 if (line.startsWith('#')) return;
-                // Fixed-width parsing: Name (9 chars), then space-delimited values
-                const name = line.substring(0, 9).trim();
-                const rest = line.substring(9).trim().split(/\s+/);
-                if (rest.length >= 15) {
+                const name = line.substring(0, 11).trim();
+                const rest = line.substring(11).trim().split(/\s+/);
+                if (rest.length >= 18) {
                     sparcT1.push({
                         'Name': name,
-                        'Dist': parseFloat(rest[0]),
-                        'Dist_err': parseFloat(rest[1]),
-                        'Qual': parseInt(rest[2]),
-                        'Inc': parseFloat(rest[3]),
-                        'Inc_err': parseFloat(rest[4]),
-                        'L36': parseFloat(rest[5]),
-                        'L36_err': parseFloat(rest[6]),
-                        'MHI': parseFloat(rest[7]),
-                        'MHI_err': parseFloat(rest[8]),
-                        'Mstar': parseFloat(rest[9]),
-                        'Mstar_err': parseFloat(rest[10]),
-                        'Mgas': parseFloat(rest[11]),
-                        'Mgas_err': parseFloat(rest[12]),
-                        'Mbulge': parseFloat(rest[13]),
-                        'Mbulge_err': parseFloat(rest[14])
+                        'Type': parseInt(rest[0]),
+                        'Dist': parseFloat(rest[1]),
+                        'Dist_err': parseFloat(rest[2]),
+                        'f_Dist': parseInt(rest[3]),
+                        'Inc': parseFloat(rest[4]),
+                        'Inc_err': parseFloat(rest[5]),
+                        'L36': parseFloat(rest[6]),
+                        'L36_err': parseFloat(rest[7]),
+                        'Reff': parseFloat(rest[8]),
+                        'SBeff': parseFloat(rest[9]),
+                        'Rdisk': parseFloat(rest[10]),
+                        'SBdisk': parseFloat(rest[11]),
+                        'MHI': parseFloat(rest[12]),
+                        'RHI': parseFloat(rest[13]),
+                        'Vflat': parseFloat(rest[14]),
+                        'Vflat_err': parseFloat(rest[15]),
+                        'Qual': parseInt(rest[16]),
+                        'Ref': rest[17]
                     });
                 }
             });
@@ -294,6 +309,9 @@ title: "Galactic Dynamics Calculator"
                 galaxyData[row.Name].push(row);
             });
 
+            // Build metadata lookup
+            sparcT1.forEach(g => { galaxyMeta[g.Name] = g; });
+
             // Populate galaxy selector
             sparcT1.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(galaxy => {
                 if (galaxyData[galaxy.Name] && galaxyData[galaxy.Name].length > 2) {
@@ -307,7 +325,10 @@ title: "Galactic Dynamics Calculator"
 
             loader.style.display = 'none';
             calculatorBody.style.display = 'block';
-            if (galaxySelect.value) updateAll();
+            if (galaxySelect.value) {
+                updateGalaxyInfo();
+                updateAll();
+            }
 
         } catch (error) {
             loader.textContent = 'Error: Could not load data from GitHub. Please check the URLs in the script.';
@@ -439,7 +460,24 @@ title: "Galactic Dynamics Calculator"
             line: { color: '#f59e0b', width: 2.5 }
         }], { ...plotLayout, title: { text: `Baryonic Components for ${selectedGalaxy}`, font: { size: 20, color: '#d1d5db' } } });
     }
-    
+
+    function updateGalaxyInfo() {
+        const meta = galaxyMeta[galaxySelect.value];
+        if (!meta) { galaxyInfoDiv.textContent = ''; return; }
+        const hub = `${meta.Type} (${hubbleTypes[meta.Type] || '?'})`;
+        const dist = `${meta.Dist.toFixed(2)} ± ${meta.Dist_err.toFixed(2)} Mpc (${distMethods[meta.f_Dist] || '?'})`;
+        const inc = `${meta.Inc.toFixed(1)}° ± ${meta.Inc_err.toFixed(1)}°`;
+        const lum = `${meta.L36.toFixed(3)} ± ${meta.L36_err.toFixed(3)} G L☉`;
+        const vf = `${meta.Vflat.toFixed(1)} ± ${meta.Vflat_err.toFixed(1)} km/s`;
+        galaxyInfoDiv.innerHTML = `
+            <p><strong>Hubble Type:</strong> ${hub}</p>
+            <p><strong>Distance:</strong> ${dist}</p>
+            <p><strong>Inclination:</strong> ${inc}</p>
+            <p><strong>Total Luminosity:</strong> ${lum}</p>
+            <p><strong>V_flat:</strong> ${vf}</p>
+            <p><strong>RC Quality:</strong> ${meta.Qual}</p>`;
+    }
+
     // --- EVENT LISTENERS ---
     function handleLambdaChange() {
         if (unifiedCheckbox.checked) {
@@ -461,7 +499,7 @@ title: "Galactic Dynamics Calculator"
         updateAll();
     }
 
-    galaxySelect.addEventListener('change', updateAll);
+    galaxySelect.addEventListener('change', () => { updateGalaxyInfo(); updateAll(); });
     lambdaSlider.addEventListener('input', handleLambdaChange);
     ystarSlider.addEventListener('input', handleYstarChange);
     unifiedCheckbox.addEventListener('change', handleLambdaChange);
