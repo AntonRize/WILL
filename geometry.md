@@ -6,7 +6,7 @@ title: "Interactive Geometry"
 <style>
 .geometry-container {
     margin: 30px 0;
-    background: white;
+    background-color: rgba(31,41,55,0.5);
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
@@ -24,7 +24,7 @@ title: "Interactive Geometry"
 }
 
 .geometry-description {
-    background: linear-gradient(135deg, #e8f4fd 0%, #d5f4e6 100%);
+    background-color: rgba(31,41,55,0.5);
     padding: 20px;
     border-radius: 10px;
     margin: 20px 0;
@@ -32,7 +32,7 @@ title: "Interactive Geometry"
 }
 
 .theorem-box {
-    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    background-color: rgba(31,41,55,0.5);
     border-radius: 10px;
     padding: 20px;
     margin: 25px 0;
@@ -40,7 +40,7 @@ title: "Interactive Geometry"
 }
 
 .critical-points {
-    background: linear-gradient(135deg, #d5f4e6 0%, #a8edea 100%);
+    background-color: rgba(31,41,55,0.5);
     border-radius: 10px;
     padding: 20px;
     margin: 20px 0;
@@ -55,7 +55,7 @@ title: "Interactive Geometry"
 }
 
 .result-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: rgba(31,41,55,0.5);
     color: white;
     padding: 20px;
     border-radius: 12px;
@@ -69,7 +69,7 @@ title: "Interactive Geometry"
 }
 
 .placeholder-note {
-    background: #f8f9fa;
+    background-color: rgba(31,41,55,0.5);
     border: 2px dashed #dee2e6;
     border-radius: 8px;
     padding: 15px;
@@ -206,14 +206,14 @@ Explore the geometric foundations of WILL theory through interactive visualizati
         <h4>🔍 Mathematical Derivation of Critical Points</h4>
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
-            <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #e74c3c;">
+            <div class="bg-gray-800/50 p-4 rounded-lg border-l-4" style="border-color: #e74c3c;">
                 <h5>Photon Sphere</h5>
                 <p><strong>κ = √(2/3) ≈ 0.816</strong></p>
                 <p><strong>β = 1/√3 ≈ 0.577</strong></p>
                 <p><strong>r = 1.5Rₛ</strong></p>
             </div>
             
-            <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #8e44ad;">
+            <div class="bg-gray-800/50 p-4 rounded-lg border-l-4" style="border-color: #8e44ad;">
                 <h5>ISCO</h5>
                 <p><strong>κ = √(1/3) ≈ 0.577</strong></p>
                 <p><strong>β = 1/√6 ≈ 0.408</strong></p>
@@ -221,7 +221,7 @@ Explore the geometric foundations of WILL theory through interactive visualizati
             </div>
         </div>
         
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
+        <div class="bg-gray-800/50 p-4 rounded-lg mt-5">
             <h5>At the Critical Point:</h5>
             <ul>
                 <li><strong>θₛ = θ_G</strong> (angle equality)</li>
@@ -232,7 +232,7 @@ Explore the geometric foundations of WILL theory through interactive visualizati
         </div>
     </div>
     
-    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; text-align: center; margin: 20px 0;">
+    <div class="bg-gray-800/50 p-6 rounded-lg text-white text-center my-5">
         <h4>🌟 Interpretive Note</h4>
         <p>While the radii 1.5Rₛ (photon sphere) and 3Rₛ (ISCO) are known from General Relativity, their <strong>spontaneous emergence from angle equality θₛ = θ_G</strong> in WILL Geometry is not imposed but arises from internal energy projection symmetries.</p>
         
@@ -247,25 +247,25 @@ Explore the geometric foundations of WILL theory through interactive visualizati
 ## 🔗 Explore Further
 
 <div class="results-grid">
-    <div style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+    <div class="bg-gray-800/50 p-6 rounded-lg text-white text-center border-l-4" style="border-color: #3498db;">
         <h4>📚 Research Documents</h4>
         <p>Mathematical derivations behind the geometry</p>
         <a href="/WILL/parts/" style="color: white; text-decoration: underline;">→ Read Full Theory</a>
     </div>
     
-    <div style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+    <div class="bg-gray-800/50 p-6 rounded-lg text-white text-center border-l-4" style="border-color: #27ae60;">
         <h4>🧮 Galaxy Calculator</h4>
         <p>Apply WILL geometry to real data</p>
         <a href="/WILL/calculator/" style="color: white; text-decoration: underline;">→ Test Predictions</a>
     </div>
     
-    <div style="background: linear-gradient(135deg, #8e44ad 0%, #7d3c98 100%); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+    <div class="bg-gray-800/50 p-6 rounded-lg text-white text-center border-l-4" style="border-color: #8e44ad;">
         <h4>📊 Results Overview</h4>
         <p>Complete logical flowcharts</p>
         <a href="/WILL/results/" style="color: white; text-decoration: underline;">→ View Results</a>
     </div>
     
-    <div style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+    <div class="bg-gray-800/50 p-6 rounded-lg text-white text-center border-l-4" style="border-color: #f39c12;">
         <h4>💬 Join Discussions</h4>
         <p>Scientific community forums</p>
         <a href="/WILL/discussions/" style="color: white; text-decoration: underline;">→ Enter Forums</a>
