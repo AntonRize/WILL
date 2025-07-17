@@ -108,16 +108,3 @@ sr.reveal(`.home__data, .home__img,
            .footer__content`, {
     interval: 200
 })
-
-const toggle = document.getElementById('nav-toggle'),
-    // ЭТА СТРОКА ИСПРАВЛЕНА
-    nav = document.getElementById('navbar'),
-    navMenu = document.getElementById('nav-menu');
-
-
-if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-        nav.classList.toggle('show-menu');
-        navMenu.classList.toggle('show-menu');
-    });
-}
