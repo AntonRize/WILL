@@ -13,7 +13,8 @@ const showMenu = (toggleId, navId) => {
 }
 showMenu('nav-toggle', 'nav-menu')
 
-/*=============== REMOVE MENU MOBILE ===============*/
+/*=============== REMOVE MENU MOBILE (ВРЕМЕННО ОТКЛЮЧЕНО ДЛЯ ТЕСТА) ===============*/
+/*
 const navLink = document.querySelectorAll('.nav__link')
 
 function linkAction() {
@@ -22,6 +23,7 @@ function linkAction() {
     navMenu.classList.remove('show-menu')
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
+*/
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
