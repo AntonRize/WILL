@@ -31,5 +31,18 @@ function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
     console.error('Test failed: Plotly.react not called');
     process.exit(1);
   }
+  window.__react_called = false;
+  const resetBtn = window.document.getElementById('reset-defaults-btn');
+  resetBtn.click();
+
+  const ystarSlider = window.document.getElementById('ystar-slider');
+  if (parseFloat(lambdaSlider.value) !== 4 || parseFloat(ystarSlider.value) !== 0.25) {
+    console.error('Test failed: defaults not reset');
+    process.exit(1);
+  }
+  if (!window.__react_called) {
+    console.error('Test failed: Plotly.react not called after reset');
+    process.exit(1);
+  }
   console.log('Test passed');
 })();
