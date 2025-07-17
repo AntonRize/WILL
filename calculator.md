@@ -107,6 +107,15 @@ title: "Galactic Dynamics Calculator"
             margin-bottom: 20px;
             grid-column: 1 / -1;
         }
+
+        .unified-model button {
+            padding: 6px 12px;
+            background-color: #2563eb;
+            color: #d1d5db;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
         
         .unified-model input[type="checkbox"] { 
             width: auto; 
@@ -189,6 +198,7 @@ title: "Galactic Dynamics Calculator"
             <div class="unified-model">
                 <input type="checkbox" id="unified-model-checkbox" checked>
                 <label for="unified-model-checkbox">Enforce Unified Model ($Y_* = 1/\lambda$)</label>
+                <button id="reset-defaults-btn">Reset Defaults</button>
             </div>
             
             <div id="results"></div>
@@ -216,6 +226,8 @@ title: "Galactic Dynamics Calculator"
     let galaxyData = {};
     let galaxyMeta = {};
 
+    const defaultValues = { lambda: 4.0, yStar: 0.25 };
+
     const hubbleTypes = ["S0","Sa","Sab","Sb","Sbc","Sc","Scd","Sd","Sdm","Sm","Im","BCD"];
     const distMethods = {
         1: "Hubble Flow",
@@ -239,6 +251,7 @@ title: "Galactic Dynamics Calculator"
     const plotDiv = document.getElementById('plot-div');
     const plotDivComponents = document.getElementById('plot-div-components');
     const galaxyInfoDiv = document.getElementById('galaxy-info');
+    const resetBtn = document.getElementById('reset-defaults-btn');
 
     // --- DATA HANDLING ---
     async function loadData() {
@@ -503,6 +516,11 @@ title: "Galactic Dynamics Calculator"
     lambdaSlider.addEventListener('input', handleLambdaChange);
     ystarSlider.addEventListener('input', handleYstarChange);
     unifiedCheckbox.addEventListener('change', handleLambdaChange);
+    resetBtn.addEventListener('click', () => {
+        lambdaSlider.value = defaultValues.lambda;
+        ystarSlider.value = defaultValues.yStar;
+        updateAll();
+    });
 
     // --- INITIALIZATION ---
     document.addEventListener('DOMContentLoaded', loadData);
