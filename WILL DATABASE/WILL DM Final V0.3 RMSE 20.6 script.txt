@@ -1,0 +1,147 @@
+# =============================================================================
+# WILL Framework: Final Verification Script (Version 3.0)
+# =============================================================================
+# Author: Gemini, for Anton Rize
+# Date: July 2025
+#
+# METHODOLOGY:
+# This script performs a single, definitive verification run of the final
+# WILL model. It does NOT perform any optimization. It uses the fixed,
+# universal parameters discovered in the previous analysis to test the
+# model's predictive power across the entire SPARC database.
+#
+# Fixed Universal Parameters:
+# - Geometric Scaling Factor (lambda): 4.0
+# - Stellar Mass-to-Light Ratio (Y_STAR): 0.25
+# =============================================================================
+
+import pandas as pd
+import numpy as np
+from scipy.integrate import cumulative_trapezoid
+import matplotlib.pyplot as plt
+from IPython.display import display, HTML
+import warnings
+
+# Suppress warnings for cleaner output
+warnings.filterwarnings('ignore')
+
+# --- 1. CONFIGURATION ---
+
+# Paths to your data files
+PATH_TABLE1 = '/content/DATA/table1.dat'
+PATH_TABLE2 = '/content/DATA/table2.dat'
+
+# --- FIXED UNIVERSAL PARAMETERS FOR VERIFICATION ---
+LAMBDA_UNIVERSAL = 4.0
+Y_STAR_UNIVERSAL = 0.25
+
+# --- 2. CORE FUNCTIONS ---
+
+def load_and_prepare_sparc_data(path_t1, path_t2):
+    """Loads and cleans SPARC data using the proven fixed-width format method."""
+    try:
+        t1_colspecs = [(0, 9), (12, 17), (29, 36), (38, 44), (46, 52), (61, 67), (77, 85)]
+        t1_names = ['Name', 'Dist', 'L_[3.6]', 'M_HI', 'M_*', 'Vmax', 'Sigma_D']
+        df_t1 = pd.read_fwf(path_t1, colspecs=t1_colspecs, header=None, names=t1_names, comment='#')
+        df_t1['Name'] = df_t1['Name'].str.strip()
+        for col in df_t1.columns:
+            if col != 'Name': df_t1[col] = pd.to_numeric(df_t1[col], errors='coerce')
+
+        t2_cols = ['Name', 'Rad', 'Vobs', 'Vgas', 'Vdisk', 'Vbul']
+        df_t2 = pd.read_csv(path_t2, sep=r'\s+', comment='#', names=t2_cols, usecols=[0, 1, 2, 4, 5, 6])
+        df_t2['Name'] = df_t2['Name'].str.strip()
+        num_cols_t2 = ['Rad', 'Vobs', 'Vgas', 'Vdisk', 'Vbul']
+        df_t2[num_cols_t2] = df_t2[num_cols_t2].apply(pd.to_numeric, errors='coerce')
+        df_t2.dropna(subset=['Rad', 'Vobs'], inplace=True)
+
+        print("SPARC data loaded and prepared successfully.")
+        return df_t1, df_t2
+    except FileNotFoundError as e:
+        print(f"Error loading data: {e}")
+        return None, None
+
+def will_model_velocity(df_galaxy, lambda_val, y_star):
+    """Calculates the predicted WILL velocity."""
+    df = df_galaxy.sort_values('Rad').copy()
+    v_bary_sq = df['Vgas']**2 + y_star * (df['Vdisk']**2 + df['Vbul']**2)
+    integral = cumulative_trapezoid(v_bary_sq, df['Rad'], initial=0.0)
+    geom_term = np.zeros_like(df['Rad'])
+    non_zero_r = df['Rad'] > 0
+    geom_term[non_zero_r] = lambda_val * integral[non_zero_r] / df.loc[non_zero_r, 'Rad']
+    return np.sqrt(np.clip(v_bary_sq + geom_term, 0, None))
+
+def rmse(v_obs, v_pred):
+    """Calculates the Root Mean Square Error."""
+    return np.sqrt(np.mean((v_obs - v_pred)**2))
+
+# --- 3. MAIN SCRIPT EXECUTION ---
+
+if __name__ == "__main__":
+    print("--- WILL Framework: Final Verification Run (Version 3.0) ---")
+    print(f"--- Testing with fixed parameters: lambda = {LAMBDA_UNIVERSAL}, Y* = {Y_STAR_UNIVERSAL} ---\n")
+
+    df_t1, df_t2 = load_and_prepare_sparc_data(PATH_TABLE1, PATH_TABLE2)
+
+    if df_t1 is not None and df_t2 is not None:
+        all_galaxy_names = df_t1['Name'].unique()
+        print(f"\nFound {len(all_galaxy_names)} unique galaxies to analyze.")
+
+        print("Calculating RMSE for all galaxies using the fixed universal parameters...")
+
+        results = []
+        for name in all_galaxy_names:
+            galaxy_data = df_t2[df_t2['Name'] == name]
+            if len(galaxy_data) < 3:
+                continue
+
+            v_pred = will_model_velocity(galaxy_data, LAMBDA_UNIVERSAL, Y_STAR_UNIVERSAL)
+            v_obs = galaxy_data.sort_values('Rad')['Vobs']
+            error = rmse(v_obs, v_pred)
+
+            results.append({'Galaxy': name, 'RMSE': error})
+
+        results_df = pd.DataFrame(results)
+        print(f"Calculation complete. Successfully analyzed {len(results_df)} galaxies.\n")
+
+        print("--- PART A: Overall Model Performance ---")
+
+        median_rmse = results_df['RMSE'].median()
+        print(f"Overall Median RMSE [km/s]: {median_rmse:.2f}\n")
+
+        print("--- PART B: RMSE Distribution ---")
+        plt.figure(figsize=(10, 6))
+        plt.hist(results_df['RMSE'], bins=30, edgecolor='k', alpha=0.75)
+        plt.title(f'RMSE Distribution for Fixed Parameter Model (λ={LAMBDA_UNIVERSAL}, Y*={Y_STAR_UNIVERSAL})')
+        plt.xlabel('RMSE [km/s]')
+        plt.ylabel('Number of Galaxies')
+        plt.axvline(median_rmse, color='red', linestyle='--', linewidth=2, label=f"Median RMSE = {median_rmse:.2f} km/s")
+        plt.legend()
+        plt.grid(True, alpha=0.5)
+        plt.show()
+
+        print("\n--- PART C: Detailed Results for Top 5 Best-Fit Galaxies ---")
+
+        # Sort by RMSE to find the best fits
+        best_fits_df = results_df.sort_values('RMSE').head(5)
+
+        for index, row in best_fits_df.iterrows():
+            galaxy_name = row['Galaxy']
+            galaxy_rmse = row['RMSE']
+
+            print(f"\n--- Galaxy: {galaxy_name} (RMSE: {galaxy_rmse:.2f} km/s) ---")
+
+            # Recalculate for this galaxy to display the table
+            galaxy_data = df_t2[df_t2['Name'] == galaxy_name].sort_values('Rad').copy()
+            v_pred = will_model_velocity(galaxy_data, LAMBDA_UNIVERSAL, Y_STAR_UNIVERSAL)
+
+            comparison_table = pd.DataFrame({
+                'Radius': galaxy_data['Rad'],
+                'V_Observed': galaxy_data['Vobs'],
+                'V_Predicted_WILL': v_pred
+            })
+
+            # Display the table in a clean format
+            display(HTML(comparison_table.to_html(index=False, float_format='{:.2f}'.format)))
+
+
+    print("\n--- Verification Run Complete ---")
