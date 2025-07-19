@@ -335,6 +335,90 @@ title: "Key Results"
 
 <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚛️ Part III: Quantum Mechanics </h3>
 
+<p>This domain attempts to explain quantum phenomena not through new postulates or "quantum magic," but as the natural consequence of the same geometric and topological principles that govern relativity and cosmology.</p>
+
+<style>
+    details {
+        background-color: #1f2937;
+        border: 1px solid #374151;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    summary {
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        color: #9ca3af;
+    }
+    summary:hover {
+        color: #e5e7eb;
+    }
+    details[open] summary {
+        color: #67e8f9; /* Cyan color when open */
+    }
+    .details-content {
+        padding-top: 1rem;
+        margin-top: 1rem;
+        border-top: 1px solid #374151;
+        color: #d1d5db;
+        line-height: 1.6;
+    }
+    .status {
+        font-style: italic;
+        color: #fca5a5; /* Light red for emphasis */
+        font-size: 0.9rem;
+    }
+</style>
+
+<details>
+    <summary>1. The Origin of Decoherence from the Energy Symmetry Law.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> A physical mechanism for quantum decoherence is proposed. Coherent superpositions are possible only for isolated systems. The moment a system interacts with any external object (e.g., a detector), the Energy Symmetry Law ($\Delta E_{A \to C} + \Delta E_{C \to A} = 0$) forces it into a single, definite energetic state. This "collapse" is not a mystery, but a geometric-energetic necessity.</p>
+    </div>
+</details>
+
+<details>
+    <summary>2. Geometric Origin of Quantization.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> Quantization is shown to be a consequence of a simple geometric condition ($n\lambda = 2\pi r$), not a separate quantum postulate. This replaces the need for a probabilistic wave function with topological self-consistency.</p>
+    </div>
+</details>
+
+<details>
+    <summary>3. Physical Meaning of the Fine Structure Constant ($\alpha$).</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The model provides a physical identity for one of nature's most mysterious numbers. The fine structure constant, $\alpha$, is derived as being identical to the kinetic projection parameter ($\beta$) for the ground state of the hydrogen atom.</p>
+    </div>
+</details>
+
+<details>
+    <summary>4. Topological Explanation for Quantum Numbers and Fine Structure.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> Quantum numbers ($n, l, m$) are reinterpreted as topological winding numbers for orthogonal electric and magnetic phase cycles. This naturally explains selection rules and the origin of fine structure splitting without invoking "spin."</p>
+        <p class="status">Status: This is a recent result and its full implications are still under active investigation.</p>
+    </div>
+</details>
+
+<details>
+    <summary>5. Solution to the Electron Collapse Paradox.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The stability of the atom is shown to be a topological necessity. The state $n=0$ is not an electron on the nucleus, but the complete absence of a closed energetic projection. The electron cannot "collapse" because that would mean it ceases to exist as a structured entity.</p>
+    </div>
+</details>
+
+<details>
+    <summary>6. Unification of GR, Cosmology, and QM.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The same algebraic projection geometry ($\kappa$ and $\beta$) that describes cosmological dynamics and black hole orbits is shown to govern atomic structure, demonstrating a deep, underlying unity across all scales of physics.</p>
+    </div>
+</details>
+
+<div align="center">
+<strong>Logical Flow Charts</strong><br>
+<em>Showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.</em>
+</div>
+
 <div class="flowchart">
     <div class="flow-box postulate-box">
         <strong>Geometric Quantization Principle</strong><br>
