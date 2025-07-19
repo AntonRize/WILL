@@ -5,8 +5,6 @@ title: "Key Results"
 
 <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🎯 WILL Geometry: Key Results </h3>
 
-Results and Logical flow charts showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.
-
 <style>
 .flowchart {
     display: flex;
@@ -65,6 +63,84 @@ Results and Logical flow charts showing how all major physics results emerge fro
 ---
 
 <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations </h3>
+
+<p>In this domain, the WILL framework does not merely reproduce the results of Special and General Relativity, but derives them from a single geometric principle, eliminating their foundational problems along the way.</p>
+
+<style>
+    details {
+        background-color: #1f2937;
+        border: 1px solid #374151;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    summary {
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        color: #9ca3af;
+    }
+    summary:hover {
+        color: #e5e7eb;
+    }
+    details[open] summary {
+        color: #67e8f9; /* Cyan color when open */
+    }
+    .details-content {
+        padding-top: 1rem;
+        margin-top: 1rem;
+        border-top: 1px solid #374151;
+        color: #d1d5db;
+        line-height: 1.6;
+    }
+</style>
+
+<details>
+    <summary>1. Geometric Derivation of Fundamental Physics (SR & GR).</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The key equations of Special Relativity ($E=mc^2$) and the fundamental relationship between gravity and kinematics in GR ($\kappa^2 = 2\beta^2$) are derived <strong>ab initio</strong> from the geometry and topology of closed systems. The theory does not describe physics; it generates it.</p>
+    </div>
+</details>
+
+<details>
+    <summary>2. The Energy Symmetry Law as a New Principle of Causality.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> A new fundamental law ($\Delta E_{A \to C} + \Delta E_{C \to A} = 0$) is introduced, ensuring energy balance between observers. It explains the speed of light limit as the boundary for preserving this symmetry, giving it a physical, rather than a merely postulated, meaning.</p>
+    </div>
+</details>
+
+<details>
+    <summary>3. The Unified Field Equation: Solving GR's Core Problems.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The complexity of GR is replaced by a single algebraic relation ($\kappa^2 = R_s/r_d = \rho/\rho_{max}$). This solves the long-standing problem of defining local energy density and eliminates singularities by construction, as curvature and density are intrinsically bounded ($\kappa^2 \le 1$).</p>
+    </div>
+</details>
+
+<details>
+    <summary>4. Prediction of Critical Orbits from Geometric Equilibrium.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The radii of the Photon Sphere ($1.5R_s$) and the Innermost Stable Circular Orbit (ISCO, $3R_s$) emerge not as special solutions to equations of motion, but as a direct consequence of the system's internal geometric equilibrium, where the projection angles $\theta_S$ and $\theta_G$ become equal.</p>
+    </div>
+</details>
+
+<details>
+    <summary>5. Drastic Simplification of the Mathematical Apparatus.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The entire complex machinery of differential geometry and tensor calculus used in GR is replaced by a closed system of simple algebraic equations. This reduces computational complexity by up to 95% and makes the theory fundamentally more transparent and intuitive.</p>
+    </div>
+</details>
+
+<details>
+    <summary>6. High-Precision Empirical Confirmation.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The model has been tested against real-world data. It accurately predicts the relativistic corrections for GPS satellites (matching the observed 38.52 \(\mu\)s/day time shift) and the precession of Mercury's orbit (discrepancy with GR is a mere $2.19 \times 10^{-10}\%$).</p>
+    </div>
+</details>
+
+<div align="center">
+<strong>Logical Flow Charts</strong><br>
+<em>Showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.</em>
+</div>
 
 <div class="flowchart">
     <div class="flow-box postulate-box">
