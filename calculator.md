@@ -6,13 +6,13 @@ title: "Galactic Dynamics Calculator"
 <div class="markdown-content py-8">
     <h1 class="text-4xl font-extrabold tracking-tight">Galactic Dynamics Calculator</h1>
     <p class="mt-4 text-lg text-gray-400">
-        Predict galactic rotation curves using the WILL model without dark matter. This calculator implements the final, simplified WILL model for galactic rotation curves.
+        Predict galactic rotation curves using the WILL model without dark matter. It posits that the observed velocity ($V_{WILL}$) is a combination of the classical gravitational effect of baryons ($V_{classic}$) and a non-local geometric term derived from the cumulative kinetic energy of the system. In short: rotating galaxy's are more massive then the stationary one's. That simple!
     </p>
 
     <h2 class="text-3xl font-bold">The WILL Predictive Model</h2>
     <div class="bg-gray-800/50 p-6 rounded-lg mt-6">
         <p class="text-gray-400 mb-4">
-            This calculator implements the final, simplified WILL model for galactic rotation curves. It posits that the observed velocity ($V_{WILL}$) is a combination of the classical gravitational effect of baryons ($V_{classic}$) and a non-local geometric term derived from the cumulative kinetic energy of the system.
+             We test this equation against the SPARC database. Our most rigorous test uses a parameter-free version of the model, where we fixed the stellar mass-to-light ratio to ($\Upsilon_*=0.25$) and the geometric scaling factor to ($\lambda=4$). This allows us to test the raw predictive power of the equation's structure without any fitting. The parameter-free model demonstrates remarkable predictive power without any tuning: Galaxies Analysed: 171 Median RMSE: 20.6 km/s.
         </p>
         <div class="formula-box">
             $$ V_{WILL}^{2}(r) = \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right] + \frac{\lambda}{r}\int_{0}^{r}\left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right]dr' $$
@@ -205,12 +205,10 @@ title: "Galactic Dynamics Calculator"
             <div id="warning" class="warning"></div>
 
             <div class="plot-container">
-                <h4>Overall Rotation Curve</h4>
                 <div id="plot-div"></div>
             </div>
             
             <div class="plot-container">
-                <h4>Baryonic Component Breakdown</h4>
                 <div id="plot-div-components"></div>
             </div>
         </div>
