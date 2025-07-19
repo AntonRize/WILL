@@ -5,7 +5,7 @@ title: "Key Results"
 
 <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🎯 WILL Geometry: Key Results </h3>
 
-Logical flow charts showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.
+Results and Logical flow charts showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.
 
 <style>
 .flowchart {
@@ -103,6 +103,114 @@ Logical flow charts showing how all major physics results emerge from the fundam
 ---
 
 <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🌌 Part II: Cosmology </h3>
+
+<p>This domain offers the most radical restructuring of the standard model, replacing it with a set of algebraic relations derived from the same geometric principles.</p>
+
+<style>
+    details {
+        background-color: #1f2937;
+        border: 1px solid #374151;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    summary {
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        color: #9ca3af;
+    }
+    summary:hover {
+        color: #e5e7eb;
+    }
+    details[open] summary {
+        color: #67e8f9; /* Cyan color when open */
+    }
+    .details-content {
+        padding-top: 1rem;
+        margin-top: 1rem;
+        border-top: 1px solid #374151;
+        color: #d1d5db;
+        line-height: 1.6;
+    }
+    .status {
+        font-style: italic;
+        color: #fca5a5; /* Light red for emphasis */
+        font-size: 0.9rem;
+    }
+</style>
+
+<h3>Core Predictions & Established Results</h3>
+<p><i>(These results are direct, mathematically rigorous consequences of the framework and/or are confirmed by empirical data.)</i></p>
+
+<details>
+    <summary>1. A "One-Parameter" Cosmology: Replacing the ΛCDM Model.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The entire standard cosmological model is replaced by an algebraic system that requires only <strong>one input parameter to set the scale</strong> (e.g., $H_0$). All other quantities, including the cosmic energy budget ($\Omega_\Lambda \approx 2/3$), are <strong>predictions</strong> of the model, not adjustable parameters.</p>
+    </div>
+</details>
+
+<details>
+    <summary>2. Solving the Galactic Rotation Problem without Dark Matter.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The model accurately predicts galactic rotation curves using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 20.6 km/s) <strong>without invoking dark matter and without free parameters.</strong></p>
+    </div>
+</details>
+
+<details>
+    <summary>3. Deriving the Dark Energy Equation of State ($w=-1$) from First Principles.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> The equation of state $w=-1$ is not postulated but is <strong>derived</strong> as a necessary consequence of the principle of maximal global symmetry, where forces in a closed universe must be perfectly balanced.</p>
+    </div>
+</details>
+
+<h3>Fundamental Theoretical Implications</h3>
+<p><i>(These points represent deep theoretical conclusions of the model that shift the understanding of fundamental concepts.)</i></p>
+
+<details>
+    <summary>4. The Nature of "Dark Energy": A Geometric Consequence of Information Loss.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> "Dark Energy" is explained not as a substance but as a <strong>geometric effect of irreversible information loss</strong> (of $\kappa^2$ projections) across cosmological horizons.</p>
+    </div>
+</details>
+
+<details>
+    <summary>5. The Origin of Entropy and the Arrow of Time.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> Entropy ($S = A/4l_P^2$) and the irreversibility of time are given a clear physical origin: they are consequences of the breaking of the Energy Symmetry Law.</p>
+    </div>
+</details>
+
+<details>
+    <summary>6. The "Zeno Cascade" and a Solution to the Information Paradox.</summary>
+    <div class="details-content">
+        <p><strong>Result:</strong> A new model for the internal structure of black holes is proposed as a "holographic Zeno cascade" of nested horizons. This resolves the information loss paradox: information is not destroyed but is hierarchically redistributed across layers down to the Planck scale.</p>
+    </div>
+</details>
+
+
+<h3>Strong Hypotheses & Ongoing Research</h3>
+<p><i>(These hypotheses are natural consequences of the model that are under active investigation.)</i></p>
+
+<details>
+    <summary>7. The Origin of Inertia: Mach's Principle from First Principles.</summary>
+    <div class="details-content">
+        <p><strong>Hypothesis:</strong> Inertia and local gravity are not fundamental forces but are <strong>emergent relativistic effects</strong>, arising from the difference between the local ($H(r) = c/r$) and global ($H_0$) rate of spatial transformation. Gravitational waves are dynamic modulations of this frequency.</p>
+        <p class="status">Status: This conclusion is a direct interpretation of the derived equations and is under active theoretical review.</p>
+    </div>
+</details>
+
+<details>
+    <summary>8. Redshift as a Geometric Projection.</summary>
+    <div class="details-content">
+        <p><strong>Hypothesis:</strong> The observed cosmological redshift is not a Doppler effect from expansion but a <strong>geometric distortion</strong> due to our observational position within a hierarchy of causal horizons.</p>
+         <p class="status">Status: This model successfully derives H_0 from CMB data, and its broader implications are being explored.</p>
+    </div>
+</details>
+
+
+
+
 
 <div class="flowchart">
     <div class="flow-box postulate-box">
