@@ -208,8 +208,8 @@ Results and Logical flow charts showing how all major physics results emerge fro
     </div>
 </details>
 
-
-Logical flow charts showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.
+Logical Flow Charts
+Showing how all major physics results emerge from the fundamental postulate through pure geometric reasoning.
 
 <div class="flowchart">
     <div class="flow-box postulate-box">
