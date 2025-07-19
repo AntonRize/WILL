@@ -10,33 +10,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
        .summary-box {
-    display: inline-block;
-    border: 2px solid #374151;
-    padding: 1em;
-    margin: 0.5em 0;
-    text-align: center;
-    font-size: 1.25rem;
-    background-color: #1f2937;
-    border-radius: 8px;
-}
+          display: inline-block;
+          border: 2px solid #374151;
+          padding: 1em;
+          margin: 0.5em 0;
+          text-align: center;
+          font-size: 1.25rem;
+          background-color: #1f2937;
+          border-radius: 8px;
+       }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #111827;
             color: #E5E7EB;
         }
-        .pillar-card .details {
+        /* Styling for both pillar sections */
+        .pillar-card .details, .method-card .details {
             display: none;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-in-out, padding-top 0.5s ease-in-out, margin-top 0.5s ease-in-out;
         }
-        .pillar-card.active .details {
+        .pillar-card.active .details, .method-card.active .details {
             display: block;
-            max-height: 200px; /* Adjust as needed */
+            max-height: 300px; /* Increased height for more text */
             padding-top: 1rem;
             margin-top: 1rem;
         }
-        .pillar-card.active .chevron {
+        .pillar-card.active .chevron, .method-card.active .chevron {
             transform: rotate(180deg);
         }
     </style>
@@ -54,24 +55,81 @@
     {% include header.html %}
 
     <main class="container mx-auto px-6">
-        <!-- Hero Section -->
         <section class="text-center py-20 md:py-24">
- <div class="mt-12 max-w-2xl mx-auto border-2 border-cyan-500/30 bg-gray-800/50 rounded-xl p-6 shadow-2xl shadow-cyan-500/10">
+            <div class="mt-12 max-w-2xl mx-auto border-2 border-cyan-500/30 bg-gray-800/50 rounded-xl p-6 shadow-2xl shadow-cyan-500/10">
                 <p class="text-lg text-gray-300">Fundamental Postulate:</p>
                 <p class="text-2xl md:text-3xl font-bold text-cyan-400 tracking-wider mt-2">{{ site.data.home.hero.postulate }}</p>
             </div>
-
             <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">{{ site.data.home.hero.subtitle }}</p>
-            
-           <div style="text-align:center;">
-  <div class="summary-box mt-6 text-cyan-400 tracking-widest">
-    $\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}$
-  </div>
-</div>
-           
+            <div style="text-align:center;">
+                <div class="summary-box mt-6 text-cyan-400 tracking-widest">
+                    $\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}$
+                </div>
+            </div>
         </section>
 
-        <!-- Core Concepts Section -->
+        <section class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Methodological Pillars</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="method-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                    <div class="summary-trigger flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-white">1. NO ONTOLOGICAL COMMITMENTS</h3>
+                        <span class="chevron text-gray-400 transition-transform">▼</span>
+                    </div>
+                    <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
+                        <p>This model makes no claims about the "existence" of space, particles, or fields as independent entities. Instead, all phenomena are treated as observer-dependent energetic projections. Physics is derived from the relational structure between observers, governed by the foundational Energy Symmetry Law: $$\Delta E_{A \rightarrow B} + \Delta E_{B \rightarrow A} = 0$$ This ensures that energy is always conserved and redistributed in any interaction, never created or destroyed.</p>
+                    </div>
+                </div>
+                <div class="method-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                    <div class="summary-trigger flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-white">2. EPISTEMIC HYGIENE</h3>
+                        <span class="chevron text-gray-400 transition-transform">▼</span>
+                    </div>
+                    <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
+                         <p>WILL Geometry enforces a disciplined refusal to introduce unjustified assumptions or hidden parameters. The guiding principle is: <em>Nothing is assumed. Everything is derived</em>. All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities.</p>
+                    </div>
+                </div>
+                <div class="method-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                    <div class="summary-trigger flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-white">3. STRICT RELATIONALISM</h3>
+                        <span class="chevron text-gray-400 transition-transform">▼</span>
+                    </div>
+                    <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
+                        <p>All physical quantities are defined purely by their relations to one another, not by absolute properties or external frames. The framework disallows all background structures, even asymptotic ones, which are often implicitly used in other theories. Energy itself is not a substance but a <em>differential invariant</em> of state transitions within the WILL framework.</p>
+                    </div>
+                </div>
+                <div class="method-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                    <div class="summary-trigger flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-white">4. ZERO FREE PARAMETERS</h3>
+                        <span class="chevron text-gray-400 transition-transform">▼</span>
+                    </div>
+                    <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
+                        <p>The framework introduces no free parameters. All measurable quantities and fundamental "constants"—from the cosmological density parameter \( \Omega_\Lambda \) to the equation of state \(w = -1\)—emerge as necessary consequences of the geometric and algebraic closure of the system. They are not fitted to data, but are derived from first principles.</p>
+                    </div>
+                </div>
+                <div class="method-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                     <div class="summary-trigger flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-white">5. STRUCTURAL DYNAMICS</h3>
+                        <span class="chevron text-gray-400 transition-transform">▼</span>
+                    </div>
+                    <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
+                        <p>The system is not described by differential equations of motion evolving <em>in</em> time. Instead, its evolution is dictated by a closed network of algebraic relations that enforce a perpetually balanced configuration. Any change in one parameter necessitates a coordinated shift in all others to maintain geometric self-consistency. What we perceive as "dynamics" is this ordered succession of balanced states. The framework thus inverts the classical paradigm: <strong>Time does not drive change — change defines time</strong>.</p>
+                    </div>
+                </div>
+                <div class="method-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                    <div class="summary-trigger flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-white">6. GEOMETRIC NECESSITY</h3>
+                        <span class="chevron text-gray-400 transition-transform">▼</span>
+                    </div>
+                    <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
+                        <p>There is only one valid configuration for a system at any moment: the one where all projectional constraints are satisfied. Everything else is not forbidden—it is geometrically and topologically undefined. The universe does not "choose" a path that minimizes action; it simply exists in the state of perfect balance. Causality is internal, coherence is enforced, and the laws of physics are an inevitable consequence of the system's self-consistency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="py-16">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">{{ site.data.home.core.heading }}</h2>
@@ -117,7 +175,6 @@
             </div>
         </section>
         
-        <!-- Pillars Section (Restored) -->
         <section class="py-20">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">The Three Pillars of WILL</h2>
@@ -167,6 +224,27 @@
                     card.classList.toggle('active');
                 });
             });
+
+            // --- Methodological Pillars Interaction ---
+            const methodCards = document.querySelectorAll('.method-card');
+            methodCards.forEach(card => {
+                // Find the clickable trigger area within the card
+                const trigger = card.querySelector('.summary-trigger');
+                if (trigger) {
+                    trigger.addEventListener('click', (event) => {
+                        event.stopPropagation(); // Prevent card click from firing twice
+                        // Close other cards
+                        methodCards.forEach(otherCard => {
+                            if (otherCard !== card) {
+                                otherCard.classList.remove('active');
+                            }
+                        });
+                        // Toggle the current card
+                        card.classList.toggle('active');
+                    });
+                }
+            });
+
 
             // --- Corrected Interactive Geometry Canvas ---
             const canvas = document.getElementById('geometry-canvas');
