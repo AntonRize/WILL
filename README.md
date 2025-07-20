@@ -4,7 +4,7 @@
 
 ## About The Project
 
-"WILL Geometry" is a comprehensive theoretical physics model that build on principals of relatinalism, episteamic hiygine and makes no ontological commitments. 
+"WILL Geometry" is a comprehensive theoretical physics model that build on principles of relationalism, epistemic hygiene and makes no ontological commitments. 
 
 ## Nothing is assumed. Everything is derived.
 
