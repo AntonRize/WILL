@@ -21,7 +21,14 @@ From this single postulate, without free parameters, we derive:
 
 ## Framework Overview
 
-The "WILL Geometry" framework is a comprehensive physical model that aims to unify special relativity, general relativity, cosmology, and galactic dynamics from a single foundational principle. It replaces the traditional apparatus of differential equations and metric tensors with a closed system of algebraic relationships.
+"WILL Geometry" is a comprehensive theoretical physics model that build on principals of relatinalism, episteamic hiygine and makes no ontological commitments. Nothing is assumed. Everything is derived. All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities.
+**Motivation:** To understand the fundamental nature of reality through epistemological purity and geometric simplicity.
+
+**Status:** All results are open, verifiable, and await criticism from the scientific community.
+
+
+
+to unify special relativity, general relativity, cosmology, galactic dynamics and quantum mechanics from a single postulate SPACETIME ≡ ENERGY EVOLUTION. It replaces the traditional apparatus of differential equations and metric tensors with a closed system of algebraic relationships.
 
 ### ⚡ Part I: Foundational Principles (SR & GR)
 
