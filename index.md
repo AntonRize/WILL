@@ -22,6 +22,14 @@ From this single postulate, without free parameters, we derive:
 ## Framework Overview
 
 "WILL Geometry" is a comprehensive theoretical physics model that build on principals of relatinalism, episteamic hiygine and makes no ontological commitments. Nothing is assumed. Everything is derived. All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities.
+
+**WILL Geometry at this stage covering the domains of:
+*Spacial Relativity
+*General Relativity
+*Cosmology
+*Galactic Dynamics
+*Quantum Mechanics
+
 **Motivation:** To understand the fundamental nature of reality through epistemological purity and geometric simplicity.
 
 **Status:** All results are open, verifiable, and await criticism from the scientific community.
