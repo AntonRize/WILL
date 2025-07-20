@@ -6,7 +6,7 @@
 
 "WILL Geometry" is a comprehensive theoretical physics model that build on principals of relatinalism, episteamic hiygine and makes no ontological commitments. 
 
-Nothing is assumed. Everything is derived.
+## Nothing is assumed. Everything is derived.
 
 All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities.
 This research, conducted by Anton Rize, presents a more general and parsimonious alternative to General Relativity, Cosmology and Quantum Mechanics.
