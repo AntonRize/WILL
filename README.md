@@ -13,7 +13,7 @@ This research, conducted by Anton Rize, presents a more general and parsimonious
 
 ## Fundamental Postulate
 
-$$\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}$$
+$$\boxed{SPACETIME \equiv  ENERGY\ EVOLUTION}$$
 
 From this single postulate, without free parameters, we derive:
 
