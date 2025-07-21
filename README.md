@@ -11,17 +11,21 @@
 All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities.
 This research, conducted by Anton Rize, presents a more general and parsimonious alternative to General Relativity, Cosmology and Quantum Mechanics.
 
-## Key Result: Solving the Galactic Rotation Problem
+## Key Results:
 
-1. This framework provides a novel solution to the galactic rotation problem using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 20.6 km/s) without invoking dark matter and without free parameters.
+##1. Solving the Galactic Rotation Problem
+
+This framework provides a novel solution to the galactic rotation problem using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 20.6 km/s) without invoking dark matter and without free parameters.
  
 **Interactive online rotation curve calculator allows you to test it your self against inbuild SPARC dataset: https://antonrize.github.io/WILL/calculator/.
 
-2. The entire standard cosmological model is replaced by an algebraic system that requires only one input parameter to set the scale (e.g $H_{0}$) All other quantities, including the cosmic energy budget ($\Omega_{\Lambda} \approx 2 / 3$ are predictions of the model, NO adjustable parameters.
+##2. One Input Cosmlogy
+
+ The entire standard cosmological model is replaced by an algebraic system that requires only one input parameter to set the scale (e.g $H_{0}$) All other quantities, including the cosmic energy budget ($\Omega_{\Lambda} \approx 2 / 3$ are predictions of the model, NO adjustable parameters.
 
 **Interactive online Cosmology Calculator Explore the interconnectedness of cosmological parameters within the Will Geometry framework. This tool demonstrates how the entire cosmos can be described by specifying just two fundamental values. All other parameters emerge directly from the core geometric relations https://antonrize.github.io/WILL/2-input-cosmology.html.
 
-The results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single postulate:
+Results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single postulate:
 
 ## Fundamental Postulate
 
@@ -58,7 +62,9 @@ Part III: Quantum Mechanics
 ## Getting Started
 
 Ask WILL AI anything about the WILL Theory or its documents: https://antonrize.github.io/WILL/assistant/
+
 To get more details on results: https://antonrize.github.io/WILL/results/
+
 To download research documents: https://antonrize.github.io/WILL/parts/ 
 
 
