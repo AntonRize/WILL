@@ -13,13 +13,13 @@ This research, conducted by Anton Rize, presents a more general and parsimonious
 
 ## Key Results:
 
-##1. Solving the Galactic Rotation Problem
+### Solving the Galactic Rotation Problem
 
 This framework provides a novel solution to the galactic rotation problem using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 20.6 km/s) without invoking dark matter and without free parameters.
  
 **Interactive online rotation curve calculator allows you to test it your self against inbuild SPARC dataset: https://antonrize.github.io/WILL/calculator/.
 
-##2. One Input Cosmlogy
+### One Input Cosmology
 
  The entire standard cosmological model is replaced by an algebraic system that requires only one input parameter to set the scale (e.g $H_{0}$) All other quantities, including the cosmic energy budget ($\Omega_{\Lambda} \approx 2 / 3$ are predictions of the model, NO adjustable parameters.
 
@@ -33,7 +33,7 @@ $$\boxed{SPACETIME \equiv  ENERGY\ EVOLUTION}$$
  
 From this single postulate, without free parameters, we derive:
 
-Part I: Relativistic Foundations
+### Part I: Relativistic Foundations
 1. Geometric Derivation of Fundamental Physics (SR & GR).
 2. The Energy Symmetry Law as a New Principle of Causality.
 3. The Unified Field Equation: Solving GR's Core Problems.
@@ -41,7 +41,7 @@ Part I: Relativistic Foundations
 5. Drastic Simplification of the Mathematical Apparatus.
 6. High-Precision Empirical Confirmation.
 
-Part II: Cosmology   
+### Part II: Cosmology   
 1. A "One-Parameter" Cosmology: Replacing the ΛCDM Model.   
 2. Solving the Galactic Rotation Problem without Dark Matter.
 3. Deriving the Dark Energy Equation of State ($w = - 1$) from First Principles.
@@ -51,7 +51,7 @@ Part II: Cosmology
 7. The Origin of Inertia: Mach's Principle from First Principles.
 8. Redshift as a Geometric Projection.
 
-Part III: Quantum Mechanics
+### Part III: Quantum Mechanics
 1. The Origin of Decoherence from the Energy Symmetry Law.
 2. Geometric Origin of Quantization.
 3. Physical Meaning of the Fine Structure Constant ($\alpha$).
@@ -61,11 +61,11 @@ Part III: Quantum Mechanics
 
 ## Getting Started
 
-Ask WILL AI anything about the WILL Theory or its documents: https://antonrize.github.io/WILL/assistant/
+### Ask WILL AI anything about the WILL Theory or its documents: https://antonrize.github.io/WILL/assistant/
 
-To get more details on results: https://antonrize.github.io/WILL/results/
+### To get more details on results: https://antonrize.github.io/WILL/results/
 
-To download research documents: https://antonrize.github.io/WILL/parts/ 
+### To download research documents: https://antonrize.github.io/WILL/parts/ 
 
 
 To explore the model, please visit the interactive documentation site. No local installation is required.
