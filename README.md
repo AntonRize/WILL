@@ -4,32 +4,31 @@
 
 ## About The Project
 
-"WILL Geometry" is a comprehensive theoretical physics model that build on principles of relationalism, epistemic hygiene and makes no ontological commitments. 
+"WILL Geometry" is a comprehensive theoretical physics model that builds on principles of relationalism, epistemic hygiene and makes no ontological commitments. 
 
 ## Nothing is assumed. Everything is derived.
 
-All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities.
-This research, conducted by Anton Rize, presents a more general and parsimonious alternative to General Relativity, Cosmology and Quantum Mechanics.
+All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities. This research, conducted by Anton Rize, presents a more general and parsimonious alternative to General Relativity, Cosmology and Quantum Mechanics.
 
-## Key Results:
+## Key Results
 
 ### Solving the Galactic Rotation Problem
 
 This framework provides a novel solution to the galactic rotation problem using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 20.6 km/s) without invoking dark matter and without free parameters.
- 
-**Interactive online rotation curve calculator allows you to test it your self against inbuild SPARC dataset: https://antonrize.github.io/WILL/calculator/.
+
+**[Test it yourself with the interactive rotation curve calculator](https://antonrize.github.io/WILL/calculator/)**
 
 ### One Input Cosmology
 
- The entire standard cosmological model is replaced by an algebraic system that requires only one input parameter to set the scale (e.g $H_{0}$) All other quantities, including the cosmic energy budget ($\Omega_{\Lambda} \approx 2 / 3$ are predictions of the model, NO adjustable parameters.
+The entire standard cosmological model is replaced by an algebraic system that requires only one input parameter to set the scale (e.g., $H_0$). All other quantities, including the cosmic energy budget ($\Omega_{\Lambda} \approx 2/3$), are predictions of the model, with NO adjustable parameters.
 
-**Interactive online Cosmology Calculator Explore the interconnectedness of cosmological parameters within the Will Geometry framework. This tool demonstrates how the entire cosmos can be described by specifying just two fundamental values. All other parameters emerge directly from the core geometric relations https://antonrize.github.io/WILL/2-input-cosmology.html.
+**[Explore the model with the interactive cosmology calculator](https://antonrize.github.io/WILL/2-input-cosmology.html)**
 
-Results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single postulate:
+*Results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single postulate:*
 
 ## Fundamental Postulate
 
-$$\boxed{SPACETIME \equiv  ENERGY\ EVOLUTION}$$
+$$\boxed{SPACETIME \equiv ENERGY\ EVOLUTION}$$
  
 From this single postulate, without free parameters, we derive:
 
@@ -41,10 +40,10 @@ From this single postulate, without free parameters, we derive:
 5. Drastic Simplification of the Mathematical Apparatus.
 6. High-Precision Empirical Confirmation.
 
-### Part II: Cosmology   
-1. A "One-Parameter" Cosmology: Replacing the ΛCDM Model.   
+### Part II: Cosmology
+1. A "One-Parameter" Cosmology: Replacing the ΛCDM Model.
 2. Solving the Galactic Rotation Problem without Dark Matter.
-3. Deriving the Dark Energy Equation of State ($w = - 1$) from First Principles.
+3. Deriving the Dark Energy Equation of State ($w = -1$) from First Principles.
 4. The Nature of "Dark Energy": A Geometric Consequence of Information Loss.
 5. The Origin of Entropy and the Arrow of Time.
 6. The "Zeno Cascade" and a Solution to the Information Paradox.
@@ -61,24 +60,15 @@ From this single postulate, without free parameters, we derive:
 
 ## Getting Started
 
-### Ask WILL AI anything about the WILL Theory or its documents: https://antonrize.github.io/WILL/assistant/
-
-### To get more details on results: https://antonrize.github.io/WILL/results/
-
-### To download research documents: https://antonrize.github.io/WILL/parts/ 
-
-
-To explore the model, please visit the interactive documentation site. No local installation is required.
-1. Go to [https://antonrize.github.io/WILL/](https://antonrize.github.io/WILL/)
-2. Explore the concepts and simulations.
+* **[Ask WILL AI](https://antonrize.github.io/WILL/assistant/)**: Ask anything about the WILL Theory or its documents.
+* **[See Key Results](https://antonrize.github.io/WILL/results/)**: Get more details on the main findings.
+* **[Download Documents](https://antonrize.github.io/WILL/parts/)**: Access the core research papers.
 
 ## Contact
 
-Anton Rize - [egeometricity@gmail.com](mailto:anton.rize@email.com) 
+Anton Rize - [egeometricity@gmail.com](mailto:egeometricity@gmail.com) 
 
 Project Link: [https://github.com/AntonRize/WILL](https://github.com/AntonRize/WILL)
-
-
 
 All code and documents are released for scientific use.
 
