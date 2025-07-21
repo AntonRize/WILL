@@ -164,4 +164,218 @@
 
         <section class="getting-started" style="padding: 40px 15px; text-align: center; margin-bottom: 64px;">
             <h2 style="font-size: 2.5em; margin-bottom: 40px; color: #E5E7EB;">Getting Started</h2>
-            <div class="links-container" style="max-width
+            <div class="links-container" style="max-width: 900px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+                <a href="https://antonrize.github.io/WILL/assistant/" class="start-link" style="font-size: 1.2em; font-weight: bold; color: #9CA3AF; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#E5E7EB'" onmouseout="this.style.color='#9CA3AF'">Ask WILL AI</a>
+                <a href="https://antonrize.github.io/WILL/results/" class="start-link" style="font-size: 1.2em; font-weight: bold; color: #9CA3AF; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#E5E7EB'" onmouseout="this.style.color='#9CA3AF'">See Key Results</a>
+                <a href="https://antonrize.github.io/WILL/parts/" class="start-link" style="font-size: 1.2em; font-weight: bold; color: #9CA3AF; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#E5E7EB'" onmouseout="this.style.color='#9CA3AF'">Download Documents</a>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">{{ site.data.home.core.heading }}</h2>
+                <p class="mt-3 max-w-3xl mx-auto text-gray-400">{{ site.data.home.core.description }}</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-gray-800/50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Geometric Relations</h3>
+                    <div class="mb-6">
+                         <label for="kappa-slider" class="block mb-2 text-sm font-medium text-gray-300">Control Parameter: κ (from 0 to √2 ≈ 1.414)</label>
+                         <input id="kappa-slider" type="range" min="0" max="1.414" value="0.8" step="0.001" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">κ (Potential)</p>
+                            <p id="kappa-val" class="text-xl font-bold text-purple-400">0.800</p>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">β (Kinetic)</p>
+                            <p id="beta-val" class="text-xl font-bold text-cyan-400">0.566</p>
+                        </div>
+                         <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">θ<sub>G</sub> (from κ)</p>
+                            <p id="thetaG-val" class="text-xl font-bold text-purple-400">53.13°</p>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">θ<sub>S</sub> (from β)</p>
+                            <p id="thetaS-val" class="text-xl font-bold text-cyan-400">55.55°</p>
+                        </div>
+                         <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">T<sub>c</sub> = cos(θ<sub>G</sub>)</p>
+                            <p id="tc-val" class="text-xl font-bold text-purple-400">0.600</p>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded">
+                            <p class="text-gray-400">L<sub>c</sub> = sin(θ<sub>S</sub>)</p>
+                            <p id="lc-val" class="text-xl font-bold text-cyan-400">0.825</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800/50 p-2 rounded-lg flex justify-center items-center">
+                    <canvas id="geometry-canvas"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">The Three Domains of WILL</h2>
+                <p class="mt-3 max-w-3xl mx-auto text-gray-400">The geometric framework is applied across three core domains of physics, providing novel solutions to long-standing problems. Click each pillar to learn more.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+              {% for pillar in site.data.home.pillars %}
+              <div class="pillar-card bg-gray-800/50 rounded-lg p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold {{ pillar.color_class }}">{{ pillar.heading }}</h3>
+                  <span class="chevron text-gray-400 transition-transform">▼</span>
+                </div>
+                <p class="mt-2 text-gray-400">{{ pillar.summary }}</p>
+                <div class="details border-t border-gray-700/50 text-sm text-gray-300 space-y-2">
+                  {% for d in pillar.details %}
+                  <p>{{ d }}</p>
+                  {% endfor %}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    {% include footer.html %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Mobile Menu ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // --- Pillar Cards Interaction ---
+            const pillarCards = document.querySelectorAll('.pillar-card');
+            pillarCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    pillarCards.forEach(otherCard => {
+                        if (otherCard !== card) {
+                            otherCard.classList.remove('active');
+                        }
+                    });
+                    card.classList.toggle('active');
+                });
+            });
+
+            // --- Methodological Pillars Interaction ---
+            const methodCards = document.querySelectorAll('.method-card');
+            methodCards.forEach(card => {
+                // Find the clickable trigger area within the card
+                const trigger = card.querySelector('.summary-trigger');
+                if (trigger) {
+                    trigger.addEventListener('click', (event) => {
+                        event.stopPropagation(); // Prevent card click from firing twice
+                        // Close other cards
+                        methodCards.forEach(otherCard => {
+                            if (otherCard !== card) {
+                                otherCard.classList.remove('active');
+                            }
+                        });
+                        // Toggle the current card
+                        card.classList.toggle('active');
+                    });
+                }
+            });
+
+
+            // --- Corrected Interactive Geometry Canvas ---
+            const canvas = document.getElementById('geometry-canvas');
+            if(canvas) {
+                const slider = document.getElementById('kappa-slider');
+                const kappaValEl = document.getElementById('kappa-val');
+                const betaValEl = document.getElementById('beta-val');
+                const thetaGValEl = document.getElementById('thetaG-val');
+                const thetaSValEl = document.getElementById('thetaS-val');
+                const tcValEl = document.getElementById('tc-val');
+                const lcValEl = document.getElementById('lc-val');
+
+                const ctx = canvas.getContext('2d');
+                const size = 320;
+                const center = size / 2;
+                const radius = size * 0.45;
+                canvas.width = size;
+                canvas.height = size;
+
+                function drawGeometry() {
+                    const kappa = parseFloat(slider.value);
+                    if (kappa > 1.414) return; // Physical limit for kappa
+                    const beta = kappa / Math.sqrt(2);
+                    if (beta > 1) return; // Mathematical limit for acos
+
+                    const theta_S_rad = Math.acos(beta);
+                    const theta_G_rad = Math.asin(kappa > 1 ? 1 : kappa); // Clamp kappa for asin
+                    const theta_S_deg = theta_S_rad * (180 / Math.PI);
+                    const theta_G_deg = theta_G_rad * (180 / Math.PI);
+                    const Lc = Math.sin(theta_S_rad);
+                    const Tc = Math.cos(theta_G_rad);
+
+                    kappaValEl.textContent = kappa.toFixed(3);
+                    betaValEl.textContent = beta.toFixed(3);
+                    thetaSValEl.textContent = `${theta_S_deg.toFixed(2)}°`;
+                    thetaGValEl.textContent = `${theta_G_deg.toFixed(2)}°`;
+                    lcValEl.textContent = Lc.toFixed(3);
+                    tcValEl.textContent = Tc.toFixed(3);
+                    
+                    ctx.clearRect(0, 0, size, size);
+                    ctx.font = '11px Inter';
+                    ctx.lineWidth = 1;
+
+                    ctx.beginPath();
+                    for(let i = 0; i <= size; i += 20) {
+                        ctx.moveTo(i, 0); ctx.lineTo(i, size);
+                        ctx.moveTo(0, i); ctx.lineTo(size, i);
+                    }
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(0, center); ctx.lineTo(size, center);
+                    ctx.moveTo(center, 0); ctx.lineTo(center, size);
+                    ctx.strokeStyle = '#4B5563';
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(center, center, radius, 0, 2 * Math.PI);
+                    ctx.strokeStyle = '#6B7280';
+                    ctx.stroke();
+                    
+                    // --- Theta_S visualization (from beta) ---
+                    const x_S = center + radius * beta;
+                    const y_S = center - radius * Lc;
+                    ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_S, y_S); ctx.strokeStyle = '#67e8f9'; ctx.lineWidth = 2; ctx.stroke();
+                    // Projections
+                    ctx.beginPath(); ctx.moveTo(x_S, y_S); ctx.lineTo(x_S, center); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(103, 232, 249, 0.5)'; ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(x_S, center); ctx.lineTo(center, center); ctx.setLineDash([]); ctx.lineWidth=3; ctx.strokeStyle = '#67e8f9'; ctx.stroke(); ctx.lineWidth=1;
+                    // Labels
+                    ctx.fillStyle = '#67e8f9';
+                    ctx.fillText('β', x_S - 25, center + 15);
+                    ctx.fillText('Lc', center - 25, y_S + 15);
+                    
+                    // --- Theta_G visualization (from kappa) ---
+                    const x_G = center + radius * Tc;
+                    const y_G = center - radius * kappa;
+                    ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_G, y_G); ctx.strokeStyle = '#c084fc'; ctx.lineWidth = 2; ctx.stroke();
+                    // Projections
+                    ctx.beginPath(); ctx.moveTo(x_G, y_G); ctx.lineTo(center, y_G); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(192, 132, 252, 0.5)'; ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(center, y_G); ctx.lineTo(center, center); ctx.setLineDash([]); ctx.lineWidth=3; ctx.strokeStyle = '#c084fc'; ctx.stroke(); ctx.lineWidth=1;
+                    // Labels
+                    ctx.fillStyle = '#c084fc';
+                    ctx.fillText('κ', center + 5, y_G + 15);
+                    ctx.fillText('Tc', x_G - 25, center - 5);
+                }
+                slider.addEventListener('input', drawGeometry);
+                drawGeometry();
+            }
+        });
+    </script>
+</body>
+</html>
