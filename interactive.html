@@ -1,0 +1,704 @@
+---
+layout: default
+title: "Relativistic Foundations"
+---
+
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #E5E7EB;
+            scroll-behavior: smooth;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #F9FAFB;
+            margin-bottom: 1rem;
+        }
+        .narrative-text {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            color: #D1D5DB;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+        .card {
+            background-color: #1F2937;
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #374151;
+            margin: 4rem auto;
+            max-width: 1100px;
+        }
+        .interactive-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        @media (min-width: 1024px) {
+            .interactive-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            min-height: 380px;
+            margin-left: auto;
+            margin-right: auto;
+            aspect-ratio: 1 / 1;
+        }
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #374151;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+        .slider:hover {
+            opacity: 1;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #2DD4BF;
+            cursor: pointer;
+            border: 4px solid #1F2937;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #2DD4BF;
+            cursor: pointer;
+            border: 4px solid #1F2937;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        .highlight {
+            color: #5EEAD4;
+            font-weight: 600;
+        }
+        .equation-box {
+            background-color: #1E293B;
+            border-left: 4px solid #38BDF8;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            font-size: 1.25rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: #E0F2FE;
+        }
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s, color 0.3s;
+            color: #D1D5DB;
+        }
+        .nav-link:hover, .nav-link.active {
+            background-color: #374151;
+            color: #F9FAFB;
+        }
+        header {
+           background-color: rgba(17, 24, 39, 0.8);
+        }
+        .canvas-container { width: 100%; height: 100%; }
+        .canvas-container canvas { width: 100%; height: 100%; display: block; }
+    </style>
+
+<header class="backdrop-blur-lg sticky top-0 z-50 border-b border-gray-700">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-100">WILL Geometry</h1>
+            <div class="hidden md:flex space-x-1 font-medium text-sm">
+                <a href="#postulate" class="nav-link">Postulate</a>
+                <a href="#sr" class="nav-link">Act I: SR</a>
+                <a href="#emc2" class="nav-link">E=mc²</a>
+                <a href="#gr" class="nav-link">Act II: GR</a>
+                <a href="#unification" class="nav-link">Unification</a>
+                <a href="#symmetry" class="nav-link">Symmetry Law</a>
+                <a href="#validation" class="nav-link">Validation</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 md:py-20">
+
+        <section id="hero" class="text-center mb-20 md:mb-32">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-50 mb-6 leading-tight">The Shape of Energy</h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">An interactive exploration of a theory where space, time, and energy are derived from a single, fundamental principle.</p>
+            <div class="bg-gray-800 border border-gray-700 shadow-lg rounded-lg p-6 inline-block">
+                <p class="text-xl md:text-2xl font-semibold text-cyan-400">SPACETIME &equiv; ENERGY EVOLUTION</p>
+            </div>
+        </section>
+
+        <section id="postulate" class="scroll-mt-20">
+            <div class="text-center">
+                <h2 class="section-title">A Universe from First Principles</h2>
+            </div>
+            <p class="narrative-text">
+                Modern theoretical physics is a majestic edifice built on a foundation of astonishing predictive power. Relativity and quantum mechanics describe the world with incredible precision, from subatomic particles to cosmic horizons. Yet, this foundation contains enigmatic elements that cast a shadow on the completeness of our understanding: gravitational singularities where our known laws break down; arbitrary constants we can measure but cannot explain; and the need to introduce "dark" entities like dark matter and dark energy to reconcile theory with observation. These phenomena suggest our description of reality may be incomplete.
+            </p>
+            <p class="narrative-text">
+                Against this backdrop, a fundamental question arises: what if we could build a Universe without any "extra pieces"? What if all observable phenomena—space, time, mass, energy—could be derived from a single, simple, self-evident statement, without needing to introduce free parameters or unexplained constants? This approach, which can be called the principle of "epistemological hygiene," requires us to abandon any assumptions that are not strictly necessary and to build a theory solely on the basis of logical consequence.
+            </p>
+            <p class="narrative-text">
+                It is on this path of uncompromising minimalism that the central, unifying postulate of WILL Geometry is born:
+            </p>
+            <div class="max-w-3xl mx-auto">
+                <div class="equation-box text-2xl">SPACETIME &equiv; ENERGY EVOLUTION</div>
+            </div>
+            <p class="narrative-text">
+                This statement, simple at first glance, carries revolutionary meaning. It implies that space and time are not some pre-existing "container" or stage on which physical processes unfold. Rather, the very fabric of spacetime is <em>identical</em> to the complete structure of all possible transitions and interrelations between energy states. Spacetime is not the stage; it is the dance itself. Energy does not exist <em>in</em> spacetime; it <em>defines</em> it through its projections and relationships.
+            </p>
+        </section>
+
+        <section id="sr" class="scroll-mt-20">
+             <div class="text-center">
+                <h2 class="section-title">Act I: Motion as a Shadow on a Circle</h2>
+            </div>
+            <p class="narrative-text">
+                If we accept the fundamental postulate, we must confront its strict logical consequences. A self-contained universe must be closed and symmetric. This forces a unique choice of geometric canvases for reality: the circle (for 1D phenomena like motion) and the sphere (for 2D phenomena like gravity).
+            </p>
+            <p class="narrative-text">
+                Within this framework, the speed of light, c, is reinterpreted as the <strong>universal rate of evolution</strong>. This total "speed" is like a vector of constant length. The physical processes we observe are just projections of this single vector. Let's consider motion. We can represent the state of motion on a unit circle, where the radius is c=1. The total evolution vector can be broken down into two orthogonal projections:
+            </p>
+             <p class="narrative-text">
+                1.  <strong>The Spatial (Kinetic) Projection:</strong> This is what we perceive as velocity, <code>v</code>. We define this projection as the dimensionless ratio <code>&beta; = v/c</code>. On our circle, we can set <code>&beta; = cos(&theta;_S)</code>.
+                2.  <strong>The Temporal Projection:</strong> The remaining part of the evolution. By the Pythagorean theorem, if the hypotenuse is 1 and one leg is <code>&beta;</code>, the other leg must be <code>&#8730;(1-&beta;&sup2;)</code>. This is the famous <strong>Lorentz factor for length contraction</strong>, <code>L_c</code>, and it is equal to <code>sin(&theta;_S)</code>. The time dilation factor, <code>&gamma;</code>, is simply its reciprocal: <code>&gamma; = 1/L_c</code>.
+            </p>
+             <p class="narrative-text">
+                Time dilation is not a mysterious effect but a direct geometric consequence: as the spatial projection (<code>&beta;</code>) increases, the temporal projection (<code>L_c</code>) must decrease to keep the total vector length constant. This simple geometry is the foundation of Special Relativity.
+            </p>
+        </section>
+
+        <section id="emc2" class="scroll-mt-20">
+            <div class="text-center">
+                 <h2 class="section-title">The Geometry of E=mc²</h2>
+            </div>
+            <p class="narrative-text">
+                The most striking result of this approach is the derivation of the famous formula E = mc². In standard physics, it is often introduced as a postulate or the result of complex dynamical arguments. Here, it emerges as a pure geometric consequence. The total energy of a system, E, must increase with velocity such that its projection onto the temporal axis always remains equal to the invariant rest energy, E₀. This geometric constraint directly yields the relationships E = &gamma;E₀ and, by identifying the mass <code>m</code> as the scaling factor <code>E₀/c²</code>, we arrive at E = &gamma;mc².
+            </p>
+            <p class="narrative-text">
+                The core relationship <code>E² = (pc)² + (m₀c²)²</code> can be visualized as a right triangle. Unlike the projection triangle on the unit circle, this Energy-Momentum triangle has sides representing physical quantities. As you increase velocity (<code>&beta;</code>), the momentum component (<code>pc</code>) grows, and the total energy (<code>E</code>) grows with it, while the rest energy (<code>m₀c²</code>) remains constant.
+            </p>
+            <div class="card">
+                <div class="interactive-container">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-100">The Energy-Momentum Triangle</h3>
+                        <label for="emc2-beta-slider" class="font-semibold text-gray-200">Velocity (&beta; = v/c): <span id="emc2-beta-value" class="highlight font-bold">0.650</span></label>
+                        <input type="range" min="0" max="0.999" value="0.65" step="0.001" class="slider mt-2 mb-6" id="emc2-beta-slider">
+                        
+                        <div class="space-y-3 text-lg">
+                            <p>Rest Energy (E₀): <span class="highlight">m₀c² (constant)</span></p>
+                            <p>Momentum (pc): <span id="emc2-pc-value" class="highlight">0.855</span> m₀c</p>
+                            <p>Total Energy (E): <span id="emc2-energy-value" class="highlight">1.316</span> m₀c²</p>
+                        </div>
+                         <div class="equation-box text-lg">E² = (pc)² + (m₀c²)²</div>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="emc2-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gr" class="scroll-mt-20">
+            <div class="text-center">
+                <h2 class="section-title">Act II: Gravity as a Shadow on a Sphere</h2>
+            </div>
+            <p class="narrative-text">
+                Having reconstructed Special Relativity on a circle, we turn to gravity. If directional motion is naturally described by a 1D projection, then a gravitational field, being isotropic, requires a 2D canvas. As established, this canvas must be the surface of a sphere.
+            </p>
+            <p class="narrative-text">
+                Here, the protagonist is the <strong>potential projection, <code>&kappa;</code> (kappa)</strong>. It's defined as the dimensionless ratio of the escape velocity to c, <code>&kappa; = vₑ/c = √(Rₛ/r)</code>. This parameter measures how much of the universal evolution rate is "used" to overcome gravity. When we project this onto our sphere, we find that the orthogonal component, <strong><code>T_c = √(1-&kappa;²)</code></strong>, exactly reproduces the <strong>gravitational time dilation factor</strong> from Einstein's General Relativity. The warping of time by gravity emerges naturally from projective geometry.
+            </p>
+             <div class="card">
+                <div class="interactive-container">
+                     <div class="canvas-container">
+                        <canvas id="gr-canvas"></canvas>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-100">Interactive GR</h3>
+                        <label for="kappa-slider" class="font-semibold text-gray-200">Gravity (&kappa;): <span id="kappa-value" class="highlight font-bold">0.500</span></label>
+                        <input type="range" min="0" max="0.999" value="0.5" step="0.001" class="slider mt-2 mb-6" id="kappa-slider">
+                        
+                        <div class="space-y-3 text-lg">
+                            <p>Radius (r): <span id="radius-value" class="highlight">4.00</span> Rₛ</p>
+                            <p>Grav. Time Dilation (T_c): <span id="time-contraction-value" class="highlight">0.866</span></p>
+                            <p>Clocks run <span id="gr-time-dilation-value" class="highlight">13.4%</span> slower.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="unification" class="scroll-mt-20">
+            <div class="text-center">
+                <h2 class="section-title">Unification: When the Circle Meets the Sphere</h2>
+            </div>
+            <p class="narrative-text">
+                We arrive at the narrative's climax. If <code>&beta;</code> (kinetics) and <code>&kappa;</code> (gravity) are just different facets of the same fundamental entity, can they be independent? WILL Geometry's logic says no. There must be an unbreakable link between them. This link is the theory's central discovery, derived <em>a priori</em> from pure topology:
+            </p>
+            <div class="max-w-3xl mx-auto">
+                <div class="equation-box text-2xl">&kappa;&sup2; = 2&beta;&sup2;</div>
+            </div>
+            <p class="narrative-text">
+                The mysterious factor of "2" arises from the ratio of the fundamental measures of our geometric canvases: the surface area of a sphere (4&pi;) and the circumference of a circle (2&pi;). Their ratio is 2. Since <code>&beta;²</code> and <code>&kappa;²</code> represent energy densities distributed on these manifolds from a single conserved budget, their ratio must be fixed by this topological invariant.
+            </p>
+             <p class="narrative-text">
+                A remarkable consequence of this unification occurs at a critical equilibrium point where the kinetic and potential projections are perfectly balanced, such that <code>&kappa;² + &beta;² = 1</code>. This happens precisely when the angles are equal (<code>&theta;_S = &theta;_G</code>), which geometrically corresponds to the <strong>Photon Sphere</strong> at a radius of <code>r = 1.5 Rₛ</code>, a region where gravity is so strong that photons can orbit the central mass.
+            </p>
+            <div class="card">
+                <div class="interactive-container">
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-100">Unified Energy Budget</h3>
+                        <div class="mb-6">
+                            <label for="unif-slider" class="font-semibold text-gray-200">Control Parameter (&kappa;): <span id="unif-kappa-display" class="highlight font-bold">0.631</span></label>
+                            <input type="range" min="0" max="1.413" value="0.631" step="0.001" class="slider mt-2" id="unif-slider">
+                        </div>
+                        <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-lg p-4 bg-gray-900 rounded-lg">
+                            <div>&kappa; (Potential): <span id="unif-kappa-value" class="highlight">0.631</span></div>
+                            <div>&beta; (Kinetic): <span id="unif-beta-value" class="highlight">0.446</span></div>
+                            <div>&theta; G (from &kappa;): <span id="unif-thetaG-value" class="highlight">39.12°</span></div>
+                            <div>&theta; S (from &beta;): <span id="unif-thetaS-value" class="highlight">63.50°</span></div>
+                            <div>T_c = cos(&theta; G): <span id="unif-Tc-value" class="highlight">0.776</span></div>
+                            <div>L_c = sin(&theta; S): <span id="unif-Lc-value" class="highlight">0.895</span></div>
+                        </div>
+                        <div id="photon-sphere-indicator" class="mt-4 text-center text-cyan-400 font-bold text-lg opacity-0 transition-opacity">Photon Sphere: r = 1.5 Rₛ</div>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="unification-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="symmetry" class="scroll-mt-20">
+            <div class="text-center">
+                <h2 class="section-title">The Law of Energy Symmetry</h2>
+            </div>
+            <p class="narrative-text">
+                For the framework to be self-consistent, energy cannot be created or destroyed, only redistributed. This is formalized by the Energy Symmetry Law, which states that the energy change required for observer A to match observer B's state is exactly the opposite of the change required for B to match A.
+            </p>
+             <div class="max-w-3xl mx-auto">
+                 <div class="equation-box text-2xl">&Delta;E (A&rarr;B) + &Delta;E (B&rarr;A) = 0</div>
+            </div>
+            <p class="narrative-text">
+                Consider an astronomer (A) on Earth's surface and a cosmonaut (B) in a stable circular orbit. From the astronomer's perspective, to match the cosmonaut, they must expend energy to overcome gravity (a potential energy gain, <code>&Delta;&kappa;²</code>) and accelerate to orbital speed (a kinetic energy gain, <code>&beta;²</code>). From the cosmonaut's perspective, to match the astronomer, they must lose kinetic energy (<code>-&beta;²</code>) and descend deeper into the gravity well (a potential energy loss, <code>-&Delta;&kappa;²</code>). The two perspectives are perfectly opposite, and their sum is always zero. This isn't an assumption; it's a requirement for a relational, causally consistent universe.
+            </p>
+        </section>
+
+        <section id="validation" class="scroll-mt-20">
+            <div class="text-center">
+                <h2 class="section-title">Grounding the Vision</h2>
+            </div>
+             <p class="narrative-text">
+                An elegant theory is useless if it doesn't match reality. WILL Geometry is rigorously tested against two key relativistic phenomena, demonstrating its predictive power. It correctly calculates the net time correction for GPS satellites by unifying SR and GR effects, and it reproduces the anomalous precession of Mercury's orbit with machine precision. The theory, born from pure logic, finds its precise reflection in the workings of the real world.
+            </p>
+            <div class="card">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-100">1. GPS Time Correction</h3>
+                        <p class="text-gray-300 mb-4">Unifying SR and GR effects into a single calculation yields the correct daily time adjustment.</p>
+                        <div class="space-y-2 text-lg mt-6">
+                            <p>SR Effect (Velocity): <span class="text-red-400 font-semibold">-7 &mu;s/day</span></p>
+                            <p>GR Effect (Gravity): <span class="text-green-400 font-semibold">+45 &mu;s/day</span></p>
+                            <hr class="my-2 border-gray-600">
+                            <p>Net WILL Correction: <span class="highlight font-bold">+38 &mu;s/day</span></p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-100">2. Mercury's Orbital Precession</h3>
+                        <p class="text-gray-300 mb-4">The theory's prediction for the shift in Mercury's orbit perfectly matches observation.</p>
+                        <div class="canvas-container !aspect-video !min-h-[250px]">
+                           <canvas id="mercury-canvas"></canvas>
+                        </div>
+                         <p class="mt-4 text-sm text-gray-400 text-center">Animation shows the slow rotation of the orbit's axis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-10 border-t border-gray-700 mt-20">
+        <p class="text-gray-400">Based on the work "WILL: Unified Framework" by Anton Rize.</p>
+        <p class="text-sm text-gray-500 mt-2">Interactive application created for educational and research purposes.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Global Elements & State ---
+    const elements = {
+        navLinks: document.querySelectorAll('.nav-link'),
+        sections: document.querySelectorAll('section[id]'),
+        
+        emc2: {
+            slider: document.getElementById('emc2-beta-slider'),
+            value: document.getElementById('emc2-beta-value'),
+            pcValue: document.getElementById('emc2-pc-value'),
+            energyValue: document.getElementById('emc2-energy-value'),
+            canvas: document.getElementById('emc2-canvas'),
+            ctx: null
+        },
+        gr: {
+            slider: document.getElementById('kappa-slider'),
+            value: document.getElementById('kappa-value'),
+            radiusValue: document.getElementById('radius-value'),
+            timeContractionValue: document.getElementById('time-contraction-value'),
+            grTimeDilationValue: document.getElementById('gr-time-dilation-value'),
+            canvas: document.getElementById('gr-canvas'),
+            ctx: null
+        },
+        unif: {
+            slider: document.getElementById('unif-slider'),
+            canvas: document.getElementById('unification-canvas'),
+            photonIndicator: document.getElementById('photon-sphere-indicator'),
+            displays: {
+                kappa: document.getElementById('unif-kappa-value'),
+                beta: document.getElementById('unif-beta-value'),
+                thetaG: document.getElementById('unif-thetaG-value'),
+                thetaS: document.getElementById('unif-thetaS-value'),
+                Tc: document.getElementById('unif-Tc-value'),
+                Lc: document.getElementById('unif-Lc-value'),
+                kappaSlider: document.getElementById('unif-kappa-display')
+            },
+            ctx: null
+        },
+        mercury: {
+            canvas: document.getElementById('mercury-canvas'),
+            ctx: null,
+            precessionAngle: 0,
+            orbitAngle: 0,
+            animationFrameId: null
+        }
+    };
+
+    // --- Canvas Setup ---
+    const setupCanvas = (canvas) => {
+        if (!canvas) return null;
+        const dpr = window.devicePixelRatio || 1;
+        const width = canvas.offsetWidth;
+        const height = canvas.offsetHeight;
+        if (width === 0 || height === 0) return null;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        const ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+        return ctx;
+    };
+
+    // --- Drawing Functions ---
+    function drawEmc2() {
+        if (!elements.emc2.ctx) return;
+        const ctx = elements.emc2.ctx;
+        const width = elements.emc2.canvas.clientWidth;
+        const height = elements.emc2.canvas.clientHeight;
+        ctx.clearRect(0, 0, width, height);
+
+        const beta = parseFloat(elements.emc2.slider.value);
+        const gamma = 1 / Math.sqrt(1 - beta * beta);
+        const p_val = gamma * beta;
+        
+        const padding = 40;
+        const E0_height = height / 4;
+        const max_p_width = width - padding * 2;
+        const p_width = p_val * (max_p_width / 5);
+
+        const origin = { x: padding, y: height - padding };
+        const p_end = { x: origin.x + p_width, y: origin.y };
+        const E0_end = { x: p_end.x, y: p_end.y - E0_height };
+
+        ctx.beginPath();
+        ctx.moveTo(origin.x, origin.y);
+        ctx.lineTo(p_end.x, p_end.y);
+        ctx.lineTo(E0_end.x, E0_end.y);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(45, 212, 191, 0.1)';
+        ctx.fill();
+        ctx.strokeStyle = '#2DD4BF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(origin.x, origin.y);
+        ctx.lineTo(E0_end.x, E0_end.y);
+        ctx.strokeStyle = '#5EEAD4';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.fillStyle = '#E5E7EB';
+        ctx.font = 'bold 14px Inter';
+        ctx.textAlign = 'center';
+        ctx.fillText('pc', origin.x + p_width / 2, origin.y + 20);
+        ctx.textAlign = 'left';
+        ctx.fillText('m₀c²', p_end.x + 10, origin.y - E0_height / 2);
+        
+        ctx.save();
+        ctx.translate(origin.x + p_width / 2, origin.y - E0_height / 2);
+        ctx.rotate(Math.atan2(-E0_height, p_width));
+        ctx.textAlign = 'center';
+        ctx.fillText('E', 0, -10);
+        ctx.restore();
+    }
+    
+    function drawGR() {
+        if (!elements.gr.ctx) return;
+        const ctx = elements.gr.ctx;
+        const width = elements.gr.canvas.clientWidth;
+        const height = elements.gr.canvas.clientHeight;
+        ctx.clearRect(0, 0, width, height);
+        
+        const kappa = parseFloat(elements.gr.slider.value);
+        const tc = Math.sqrt(1 - kappa * kappa);
+
+        const center = { x: width / 2, y: height / 2 };
+        const radius = Math.min(width, height) * 0.45;
+        
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = '#4B5563';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        const xPos = center.x + radius * tc;
+        const yPos = center.y - radius * kappa;
+
+        ctx.beginPath();
+        ctx.moveTo(center.x, center.y);
+        ctx.lineTo(xPos, center.y);
+        ctx.strokeStyle = '#9CA3AF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.fillStyle = '#D1D5DB';
+        ctx.font = 'bold 14px Inter';
+        ctx.textAlign = 'center';
+        ctx.fillText('T_c', center.x + radius * tc / 2, center.y + 20);
+
+        ctx.beginPath();
+        ctx.moveTo(xPos, center.y);
+        ctx.lineTo(xPos, yPos);
+        ctx.strokeStyle = '#2DD4BF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.textAlign = 'left';
+        ctx.fillText('κ', xPos + 10, center.y - radius * kappa / 2);
+
+        ctx.beginPath();
+        ctx.moveTo(center.x, center.y);
+        ctx.lineTo(xPos, yPos);
+        ctx.strokeStyle = '#5EEAD4';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+    }
+    
+    function drawUnification() {
+        if(!elements.unif.ctx) return;
+        const ctx = elements.unif.ctx;
+        const width = elements.unif.canvas.clientWidth;
+        const height = elements.unif.canvas.clientHeight;
+        ctx.clearRect(0, 0, width, height);
+
+        const kappa = parseFloat(elements.unif.slider.value);
+        const beta = Math.sqrt(kappa * kappa / 2);
+
+        const center = { x: width / 2, y: height / 2 };
+        const radius = Math.min(width, height) * 0.45;
+        
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = '#4B5563';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        const thetaG = Math.asin(kappa > 1 ? 1 : kappa);
+        const tc = Math.cos(thetaG);
+        const grX = center.x + radius * tc;
+        const grY = center.y - radius * kappa;
+
+        ctx.beginPath();
+        ctx.moveTo(center.x, center.y);
+        ctx.lineTo(grX, grY);
+        ctx.strokeStyle = '#A78BFA';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        
+        const thetaS = Math.acos(beta > 1 ? 1 : beta);
+        const lc = Math.sin(thetaS);
+        const srX = center.x + radius * beta;
+        const srY = center.y - radius * lc;
+
+        ctx.beginPath();
+        ctx.moveTo(center.x, center.y);
+        ctx.lineTo(srX, srY);
+        ctx.strokeStyle = '#2DD4BF';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.fillStyle = '#E5E7EB';
+        ctx.font = 'bold 14px Inter';
+        ctx.fillText('κ', grX - 25, grY);
+        ctx.fillText('β', srX, srY + 25);
+    }
+
+    function animateMercury() {
+        if(!elements.mercury.ctx) {
+            elements.mercury.animationFrameId = requestAnimationFrame(animateMercury);
+            return;
+        };
+        const ctx = elements.mercury.ctx;
+        const width = elements.mercury.canvas.clientWidth;
+        const height = elements.mercury.canvas.clientHeight;
+        ctx.clearRect(0, 0, width, height);
+
+        const center = { x: width / 2, y: height / 2 };
+        const a = width * 0.45;
+        const b = a * 0.8; 
+
+        elements.mercury.orbitAngle += 0.02;
+        elements.mercury.precessionAngle += 0.0001;
+        if (elements.mercury.orbitAngle > 2 * Math.PI) elements.mercury.orbitAngle -= 2 * Math.PI;
+
+        ctx.fillStyle = '#FBBF24';
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Draw previous orbit path
+        ctx.save();
+        ctx.translate(center.x, center.y);
+        ctx.rotate(elements.mercury.precessionAngle - 0.1); // slightly behind
+        ctx.beginPath();
+        ctx.ellipse(0, 0, a, b, 0, 0, 2 * Math.PI);
+        ctx.strokeStyle = 'rgba(107, 114, 128, 0.4)';
+        ctx.setLineDash([5, 5]);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.restore();
+
+        // Draw current orbit
+        ctx.save();
+        ctx.translate(center.x, center.y);
+        ctx.rotate(elements.mercury.precessionAngle);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, a, b, 0, 0, 2 * Math.PI);
+        ctx.strokeStyle = 'rgba(45, 212, 191, 0.7)';
+        ctx.setLineDash([]);
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        const planetX = a * Math.cos(elements.mercury.orbitAngle);
+        const planetY = b * Math.sin(elements.mercury.orbitAngle);
+        ctx.fillStyle = '#E5E7EB';
+        ctx.beginPath();
+        ctx.arc(planetX, planetY, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.restore();
+
+        elements.mercury.animationFrameId = requestAnimationFrame(animateMercury);
+    }
+
+    // --- Update Functions ---
+    function updateEmc2() {
+        const beta = parseFloat(elements.emc2.slider.value);
+        const gamma = 1 / Math.sqrt(1 - beta * beta);
+        elements.emc2.value.textContent = beta.toFixed(3);
+        elements.emc2.pcValue.textContent = (gamma * beta).toFixed(3);
+        elements.emc2.energyValue.textContent = gamma.toFixed(3);
+        drawEmc2();
+    }
+
+    function updateGR() {
+        const kappa = parseFloat(elements.gr.slider.value);
+        const kappa_sq = kappa * kappa;
+        const radius = 1 / (kappa_sq > 0 ? kappa_sq : 0.00001);
+        const tc = Math.sqrt(1 - kappa_sq);
+        elements.gr.value.textContent = kappa.toFixed(3);
+        elements.gr.radiusValue.textContent = radius.toFixed(2);
+        elements.gr.timeContractionValue.textContent = tc.toFixed(3);
+        elements.gr.grTimeDilationValue.textContent = ((1 - tc) * 100).toFixed(1) + '%';
+        drawGR();
+    }
+
+    function updateUnification() {
+        const kappa = parseFloat(elements.unif.slider.value);
+        const beta = Math.sqrt(kappa * kappa / 2);
+        const thetaG_rad = Math.asin(kappa > 1 ? 1 : kappa);
+        const thetaS_rad = Math.acos(beta > 1 ? 1 : beta);
+        
+        const d = elements.unif.displays;
+        d.kappa.textContent = kappa.toFixed(3);
+        d.beta.textContent = beta.toFixed(3);
+        d.thetaG.textContent = (thetaG_rad * 180 / Math.PI).toFixed(2) + '°';
+        d.thetaS.textContent = (thetaS_rad * 180 / Math.PI).toFixed(2) + '°';
+        d.Tc.textContent = Math.cos(thetaG_rad).toFixed(3);
+        d.Lc.textContent = Math.sin(thetaS_rad).toFixed(3);
+        d.kappaSlider.textContent = kappa.toFixed(3);
+
+        const combined_sq = kappa*kappa + beta*beta;
+        elements.unif.photonIndicator.style.opacity = Math.abs(combined_sq - 1.0) < 0.002 ? '1' : '0';
+        drawUnification();
+    }
+
+    // --- Initialization and Resize ---
+    function initializeAndDrawAll() {
+        // Setup contexts
+        elements.emc2.ctx = setupCanvas(elements.emc2.canvas);
+        elements.gr.ctx = setupCanvas(elements.gr.canvas);
+        elements.unif.ctx = setupCanvas(elements.unif.canvas);
+        elements.mercury.ctx = setupCanvas(elements.mercury.canvas);
+
+        // Initial updates
+        updateEmc2();
+        updateGR();
+        updateUnification();
+
+        // Start animation
+        if (elements.mercury.animationFrameId) {
+            cancelAnimationFrame(elements.mercury.animationFrameId);
+        }
+        animateMercury();
+    }
+
+    function init() {
+        // Setup Nav
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    elements.navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.3 });
+        elements.sections.forEach(section => observer.observe(section));
+
+        // Attach Event Listeners
+        elements.emc2.slider.addEventListener('input', updateEmc2);
+        elements.gr.slider.addEventListener('input', updateGR);
+        elements.unif.slider.addEventListener('input', updateUnification);
+        
+        // Resize handler
+        window.addEventListener('resize', initializeAndDrawAll);
+
+        // Initial setup and draw
+        initializeAndDrawAll();
+    }
+
+    init();
+});
+</script>
