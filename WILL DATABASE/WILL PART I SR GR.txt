@@ -753,146 +753,90 @@ Our geometric approach is mathematically equivalent to the standard formulas but
 \end{tcolorbox}
 
 
-\section{Energy Symmetry Law}
+\section{Energy–Symmetry Law}\label{sec:energy-symmetry}
 
-\subsection{Causal Continuity and the Energy Symmetry Law}
-
+\subsection{Causal Continuity and Energy Symmetry}
 \begin{theorem}[Energy Symmetry]
-The energy differences perceived by two observers at different positions are balanced according to the Energy Symmetry Law:
-\begin{align}
-\Delta E_{\text{A}\rightarrow\text{B}} + \Delta E_{\text{B}\rightarrow\text{A}} = 0.
-\end{align}
+The energy differences perceived by two observers at different positions balance according to the Energy–Symmetry Law:
+\begin{equation}
+\Delta E_{A \to B} + \Delta E_{B \to A} = 0.
+\end{equation}
 \end{theorem}
-
 \begin{proof}
-Consider an astronomer on the surface of a planet at radius $r_A = R_{\text{planet}}$ and a cosmonaut in a stable circular orbit at radius $r_C = r_{\text{orbit}} > r_A$.
-
-From the astronomer's perspective:
+Consider two observers:
 \begin{itemize}
-\item The cosmonaut is at a higher gravitational potential and moves with orbital speed.
-\item To match the cosmonaut's state, the astronomer must escape from $r_A$ to $r_C$ and acquire the orbital speed.
-\item This requires gaining energy, described by
-\begin{align}
-\Delta E_{\text{astronomer}\rightarrow\text{cosmonaut}} = (\kappa^2_A - \kappa^2_C) + \beta^2_C.
-\end{align}
+\item Observer $A$ at rest on the surface at radius $r_A$.
+\item Observer $B$ orbiting at radius $r_B > r_A$ with orbital velocity $v_B$.
 \end{itemize}
-
-From the cosmonaut's perspective:
-\begin{itemize}
-\item The astronomer is deeper in the gravitational well and at rest.
-\item To synchronize with the astronomer, the cosmonaut must descend to $r_A$ and lose kinetic energy.
-\item This requires losing energy, described by
-\begin{align}
-\Delta E_{\text{cosmonaut}\rightarrow\text{astronomer}} = (\kappa^2_C - \kappa^2_A) - \beta^2_C.
-\end{align}
-\end{itemize}
-
-Each observer perceives the energy difference through complementary parameters, reflecting the observer-centered nature of WILL Geometry.
-
-The energy differences are balanced according to the Energy Symmetry Law:
-\begin{align}
-\Delta E_{\text{astronomer}\rightarrow\text{cosmonaut}} + \Delta E_{\text{cosmonaut}\rightarrow\text{astronomer}} = 0.
-\end{align}
-
-With:
-\begin{align}
-\Delta E_{\text{astronomer}\rightarrow\text{cosmonaut}} &= (\kappa^2_A - \kappa^2_C) + \beta^2_C, \\
-\Delta E_{\text{cosmonaut}\rightarrow\text{astronomer}} &= (\kappa^2_C - \kappa^2_A) - \beta^2_C,
-\end{align}
-where
-\begin{align}
-\kappa^2_A = \frac{R_s}{r_A}, \kappa^2_C = \frac{R_s}{r_C}, \beta^2_C = \frac{R_s}{2r_C}, R_s = \frac{2GM}{c^2}.
-\end{align}
-
-Summing the two:
-\begin{align}
-\Delta E_{\text{astronomer}\rightarrow\text{cosmonaut}} + \Delta E_{\text{cosmonaut}\rightarrow\text{astronomer}} &= [(\kappa^2_A - \kappa^2_C) + \beta^2_C] + [(\kappa^2_C - \kappa^2_A) - \beta^2_C] \\
-&= (\kappa^2_A - \kappa^2_A) + (-\kappa^2_C + \kappa^2_C) + (\beta^2_C - \beta^2_C) \\
-&= 0
-\end{align}
-
-Thus, the total energy exchange balances exactly, confirming the Energy Symmetry Law. This law ensures that the total energetic difference between observers sums to zero, preserving causality and consistency.
-
-\subsection{Observer-Agnostic Symmetry for Arbitrary Energy Functions}
-
-The Symmetry principle between two observers does not depend on the specific geometric or metric model of motion, but only on the symmetry of energy difference perception.
-
-Let the cosmonaut be in an arbitrary orbital or dynamic state with energy characterized by some function \( f(v) \), where \( v \) is the local velocity of the cosmonaut as perceived by an external observer. The exact form of \( f \) is irrelevant—it can follow Newtonian, relativistic, or any other framework—as long as both observers agree on its operational meaning.
-
-From the astronomer's perspective:
-\begin{itemize}
-    \item The cosmonaut is at a different gravitational potential and possesses motion described by \( f(v) \).
-    \item To match the cosmonaut's state, the astronomer must gain energy:
-    \[
-    \Delta E_{A \rightarrow C} = \Delta \Phi + f(v),
-    \]
-    where \( \Delta \Phi \) represents the gravitational potential difference.
-\end{itemize}
-
-From the cosmonaut's perspective:
-\begin{itemize}
-    \item The astronomer lies deeper in the potential well and has no kinetic component.
-    \item To match the astronomer's state, the cosmonaut must lose energy:
-    \[
-    \Delta E_{C \rightarrow A} = -\Delta \Phi - f(v).
-    \]
-\end{itemize}
-
-Summing both expressions yields:
-\[
-\Delta E_{A \rightarrow C} + \Delta E_{C \rightarrow A} = (\Delta \Phi + f(v)) + (-\Delta \Phi - f(v)) = 0.
-\]
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Geometric Independence]
-This demonstrates that the Energy Symmetry Law holds for any energy function \( f(v) \), regardless of the geometry, orbit type, or spacetime metric. For any two observers A and C in any potential or dynamical context: 
-\[
-\boxed{
-\Delta E_{A \rightarrow C} + \Delta E_{C \rightarrow A} = 0 \quad \forall \ f(v)
-}
-\]
-What matters is not how energy is geometrically expressed, but that observers agree on its differential accounting.
-\end{tcolorbox}
-
-\[
-\boxed{
-
-\Delta E_{A\rightarrow C} + \Delta E_{C\rightarrow A} = 0 \implies \text{Energy is redistributed, never created never destroyed.}}
-
-\]
+Each observer perceives energy transfers differently due to gravitational and kinetic differences:
+From $A$'s perspective (surface → orbit):
+\begin{enumerate}
+\item Object gains potential energy by moving away from gravitational center.
+\item Object gains kinetic energy by accelerating to orbital velocity.
+\end{enumerate}
+This results in energy difference:
+\begin{equation}
+\boxed{\Delta E_{A \to B} = \frac{1}{2}\left((\kappa_A^2 - \kappa_B^2) + \beta_B^2\right)}
+\end{equation}
+From $B$'s perspective (orbit → surface):
+\begin{enumerate}
+\item Object loses gravitational potential energy descending into stronger gravitational field.
+\item Object loses kinetic energy by reducing velocity from orbital speed to rest.
+\end{enumerate}
+This results in energy difference:
+\begin{equation}
+\boxed{\Delta E_{B \to A} = \frac{1}{2}\left((\kappa_B^2 - \kappa_A^2) - \beta_B^2\right)}
+\end{equation}
+Summing these transfers:
+\begin{equation}
+\Delta E_{A \to B} + \Delta E_{B \to A} = 0
+\end{equation}
+Thus, no net energy is created or destroyed, confirming the Energy–Symmetry Law.
 \end{proof}
 
-\subsection{Why the Speed of Light Cannot Be Exceeded}
-
-\begin{theorem}[Universal Speed Limit]
-The universal speed limit emerges naturally from the structure of WILL Geometry.
+\subsection{Observer-Agnostic Symmetry}
+\begin{theorem}[Observer-Agnostic Energy Symmetry]
+The Energy–Symmetry Law holds true independent of the specific model of gravitational or kinetic energy:
+\begin{equation}
+\Delta E_{A \to B} + \Delta E_{B \to A} = 0 \quad \forall f(v)
+\end{equation}
 \end{theorem}
-
 \begin{proof}
-Let us consider the spatial projection parameter $\beta = \frac{v}{c}$, and the temporal projection parameter $\kappa = \sqrt{\frac{R_s}{r}}$. These represent, respectively, the kinetic and gravitational energy components of an observer-object system, expressed as dimensionless projections on orthogonal axes.
+Regardless of the chosen energy function $f(v)$ representing kinetic or gravitational energy differences, consistency demands that:
+\begin{equation}
+\Delta E_{A \to B} + \Delta E_{B \to A} = 0.
+\end{equation}
+The crucial point is mutual consistency, not specific energy definitions.
+\end{proof}
 
-If an object were to exceed the speed of light, then:
-\begin{align}
-\beta > 1 \Rightarrow \beta^2 > 1
-\end{align}
+\subsection{Physical Meaning of Factor $\frac{1}{2}$}
+The factor $\frac{1}{2}$ arises naturally from:
+\begin{itemize}
+\item Potential energy: $U = -\frac{GMm}{r}$ corresponds geometrically to $-\frac{1}{2}\kappa^2$.
+\item Kinetic energy: $K = \frac{1}{2}mv^2$ translates geometrically directly into $\frac{1}{2}\beta^2$.
+\end{itemize}
+This ensures geometric expressions correctly match classical definitions.
 
-Since $\kappa^2 \leq 1$ for all physically realizable positions ($r \geq R_s$), it follows that:
-\begin{align}
-\Delta E_{\text{observer}} = \beta^2 - \kappa^2 > 1 - \kappa^2 > 0
-\end{align}
-
-This results in an unbalanced energy difference that cannot be reciprocated from the object's frame:
-\begin{align}
-\Delta E_{\text{observer}} + \Delta E_{\text{object}} \neq 0
-\end{align}
-which violates the Energy Symmetry Law. The energy structure becomes asymmetric, breaking the internal balance required for causal consistency.
-
-Therefore, the condition $\beta \leq 1$ is not imposed externally but arises as a necessary consequence of maintaining energetic symmetry and causal continuity between observers. Beyond the limit $\beta \leq 1$, the observer-object energetic system becomes unbalanced, making reciprocal synchronization of causal states impossible. The speed of light limit ensures that no observer ever perceives a net gain or loss of energy without cause.
-
+\subsection{Universal Speed Limit as Consequence of Energy Symmetry}
+\begin{theorem}[Universal Speed Limit]
+The universal speed limit ($v \leq c$) emerges naturally from Energy–Symmetry conditions.
+\end{theorem}
+\begin{proof}
+Assume an object could exceed the speed of light ($\beta > 1$). In that scenario:
+\begin{itemize}
+\item The kinetic component ($\beta^2$) surpasses unity excessively, causing an irreversible imbalance in energy transfer.
+\item No reciprocal transfer could balance this energy, breaking the fundamental symmetry:
+\end{itemize}
+\begin{equation}
+\Delta E_{A \to B} + \Delta E_{B \to A} \neq 0
+\end{equation}
+Thus, $\beta \leq 1$ ($v \leq c$) is required intrinsically to preserve causal and energetic consistency.
+\end{proof}
 In essence, WILL Geometry encodes the principle that:
 \begin{quote}
 The speed of light is the boundary beyond which the energetic symmetry between perspectives breaks down. Causality is not an external rule but a built-in feature of the universe's energetic geometry.
 \end{quote}
-\end{proof}
+
 \section{Derivation of Energy Density and Mass Relations from Geometric First Principles}
 
 \subsection{Geometric Foundation}
@@ -1211,8 +1155,7 @@ W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d E_0 T_c t^2_{d}}{T_d m_0 L
 
 \textbf{Proof:} Substituting the geometric definitions:
 \begin{align}
-W_{\text{ill}} &= \frac{\frac{1}{\cos \theta_G} m_0c^2 \cos \theta_G \frac{r^2_{d}}{c^2}}{\frac{1}{\sin\theta_S} m_0 \sin\theta_S r^2_{d}} \\
-&= \frac{m_0c^2 r^2_{d}}{c^2} \cdot \frac{\sin\theta_S}{m_0 r^2_{d}} \cdot \frac{1}{\sin\theta_S} = 1
+W_{\text{ill}} &= \frac{\frac{1}{\cos \theta_G}\ m_0c^2 \cos \theta_G \frac{r^2_{d}}{c^2}}{\frac{1}{\sin\theta_S}\ m_0 \sin\theta_S r^2_{d}} = \frac{m_0c^2 r^2_{d}}{c^2} \cdot \frac{\sin\theta_S}{m_0 r^2_{d}} \cdot \frac{1}{\sin\theta_S} = 1
 \end{align}
 
 This invariant holds universally for all values of $m_0$, $G$, $c$, and $\kappa$. Unlike dimensional analysis, this identity emerges from the projectional interdependence of energy-mass $(E,M)$ and spacetime metrics $(T,L)$ within the unified structure.
@@ -1398,9 +1341,12 @@ All the derived relations for local energy density, pressure, enclosed mass, and
 
 Moreover, this formulation fully reproduces the predictive content and central equations of both Special and General Relativity, while simultaneously addressing their foundational inconsistencies: (1) the lack of an operational definition of local gravitational energy density in GR, (2) the artificial separation of kinetic and gravitational energy in SR and GR, and (3) the emergence of singularities as pathological artifacts of coordinate-based models. By treating energy evolution as the true basis of geometry, WILL unifies and extends these frameworks into a fully relational and operationally grounded description of spacetime.
 
-\section{Beyond Differential Formalism: Rethinking Dynamics}
+\section{Beyond Differential Formalism: Structural Dynamics}
 
 \subsection{Intrinsic Dynamics via Energy Redistribution}
+
+
+The system is not described by differential equations of motion evolving \textit{in} time. Instead, its evolution is dictated by a closed network of algebraic relations that enforce a perpetually balanced configuration. Any change in one parameter necessitates a coordinated shift in all others to maintain geometric self-consistency. What we perceive as "dynamics" is this ordered succession of balanced states. The framework thus inverts the classical paradigm: 
 
 The foundation of WILL Geometry lies in the principle that spacetime geometry is fully determined by the distribution of energy, parameterized by the dimensionless quantities \(\beta\) and \(\kappa\). Any change in the system's energy—due to mass variation, motion, or redistribution—directly reshapes the geometry. This intrinsic linkage ensures that dynamics is embedded within the model itself, without requiring external equations of motion.
 
@@ -1443,7 +1389,7 @@ In this model:
 \begin{itemize}
     \item Each observable is locked in a network of algebraic relations.
     \item Any change in one parameter \textit{necessitates} coherent changes in the others.
-    \item What exists is not what minimizes something --- but what is \textbf{balanced}.
+    \item   Self-consistency enforces projectional  \textbf{balance}.
 \end{itemize}
 
 There is only one valid configuration at any moment:  
@@ -1846,30 +1792,30 @@ We verify the Energy Symmetry Law on real orbital data for a GPS satellite and a
 \begin{itemize}
 \item Gravitational constant: $G = 6.67430 \times 10^{-11}$ m$^3$/kg/s$^2$
 \item Speed of light: $c = 2.99792458 \times 10^8$ m/s
-\item Mass of Earth: $M_{\text{Earth}} = 5.972 \times 10^{24}$ kg
-\item Radius of Earth: $R_{\text{Earth}} = 6.370 \times 10^6$ m
-\item Radius of GPS orbit: $r_{\text{GPS}} = 2.6571 \times 10^7$ m
+\item Mass of Earth: $M_{Earth} = 5.972 \times 10^{24}$ kg
+\item Radius of Earth: $R_{Earth} = 6.370 \times 10^6$ m
+\item Radius of GPS orbit: $r_{GPS} = 2.6571 \times 10^7$ m
 \end{itemize}
 
 The orbital velocity of the GPS satellite is:
 \begin{align}
-v_{\text{GPS}} &= \sqrt{\frac{GM_{\text{Earth}}}{r_{\text{GPS}}}} \\
+v_{GPS} &= \sqrt{\frac{GM_{Earth}}{r_{GPS}}} \\
 &= \sqrt{\frac{6.67430 \times 10^{-11} \times 5.972 \times 10^{24}}{2.6571 \times 10^7}} \\
 &= 3873.10090455 \text{ m/s}
 \end{align}
 
 Converting to dimensionless parameters:
 \begin{align}
-\beta_{\text{GPS}} &= \frac{v_{\text{GPS}}}{c} = \frac{3873.10090455}{2.99792458 \times 10^8} =0.0000129192739884 \\
-\kappa_{\text{GPS}} &= \sqrt{\frac{2GM_{Earth}}{c^2 r_{GPS}}} =0.0000182706124904 \\
+\beta_{GPS} &= \frac{v_{GPS}}{c} = \frac{3873.10090455}{2.99792458 \times 10^8} =0.0000129192739884 \\
+\kappa_{GPS} &= \sqrt{\frac{2GM_{Earth}}{c^2 r_{GPS}}} =0.0000182706124904 \\
 \frac{\kappa_{GPS}^{2}}{\beta_{GPS}^{2}} &=\frac{3.3381528077\times10^{-10}}{1.6690764039\times10^{-10}}=2 \\
 Q_{GPS} &=\sqrt{\beta_{GPS}^{2}\ +\kappa_{GPS}^{2}}=0.0000223768389448 \\
 Q_{tGPS} &=\sqrt{1-Q_{GPS}^{2}}=\sqrt{1-3\beta_{GPS}^{2}}=0.99999999975
 \end{align}
 For the Earth's surface:
 \begin{align}
-\kappa_{\text{Earth}} &= \sqrt{\frac{2GM_{\text{Earth}}}{c^2 R_{\text{Earth}}}} = 0.000037312405944\\
-\beta_{\text{Earth}} &= 0 \text{ (at rest)} \\
+\kappa_{Earth} &= \sqrt{\frac{2GM_{Earth}}{c^2 R_{Earth}}} = 0.000037312405944\\
+\beta_{Earth} &= 0 \text{ (at rest)} \\
 Q_{Earth} &=\sqrt{\beta_{Earth}^{2}\ +\kappa_{Earth}^{2}}=0.000037312405944 \\
 Q_{tEarth} &=\sqrt{1-Q_{Earth}^{2}}=0.999999999304
 \end{align}
@@ -1877,32 +1823,29 @@ The daily relativistic time offset between GPS and Earth is:
 \[
 \Delta Q_{t,{\rm GPS} \rightarrow {\rm Earth}} = (Q_{t,{\rm GPS}} - Q_{t,{\rm Earth}}) \cdot 86400 \cdot 10^6 = 38.52~\mu\text{s/day}
 \]
-This matches the empirical time correction required for GPS synchronization.
+This matches the empirical time correction required for GPS synchronization  to high precision.
 
 The energy difference from Earth observer to GPS satellite is:
 \begin{align}
-\Delta E_{\text{Earth} \rightarrow \text{GPS}} &=\left(\kappa_{Earth}^{2}-\beta_{GPS}^{2}\right)= (\kappa^2_{\text{Earth}} - \kappa^2_{\text{GPS}}) + \beta^2_{\text{GPS}} \\
-&= (1.3922156373\times10^{-9} - 3.3381528077\times10^{-10}) + 1.6690764039\times10^{-10} \\
-&= 1.2253079969\times10^{-9}
+\Delta E_{Earth \rightarrow GPS} &= \frac{1}{2}((\kappa^2_{Earth} - \kappa^2_{GPS}) + \beta^2_{GPS})
+= 6.1265399845\times10^{-10}
 \end{align}
 
 The energy difference from GPS satellite to Earth is:
 \begin{align}
-\Delta E_{\text{GPS} \rightarrow \text{Earth}} &= \left(\beta_{GPS}^{2}-\kappa_{Earth}^{2}\right)=(\kappa^2_{\text{GPS}} - \kappa^2_{\text{Earth}}) - \beta^2_{\text{GPS}} \\
-&= (3.3381528077\times10^{-10} - 1.3922156373\times10^{-9}) - 1.6690764039\times10^{-10} \\
-&= -1.2253079969\times10^{-9}
+\Delta E_{GPS \rightarrow Earth} &= \frac{1}{2}( (\kappa^2_{GPS} - \kappa^2_{Earth}) - \beta^2_{GPS}) = -6.1265399845\times10^{-10}
 \end{align}
 
 Therefore:
 \begin{align}
-\Delta E_{\text{GPS} \rightarrow \text{Earth}}+\Delta E_{\text{Earth} \rightarrow \text{GPS}}  = -1.2253079969\times10^{-9} + 1.2253079969\times10^{-9} = 0
+\Delta E_{GPS \rightarrow Earth}+\Delta E_{Earth \rightarrow GPS}  = -6.1265399845\times10^{-10} + 6.1265399845\times10^{-10} = 0
 \end{align}
 
 This confirms the Energy Symmetry Law to high precision.
 
 The explicit $W_{ILL}=ET^2 / ML^2=1$ - invariant for the GPS–Earth system, including both GR and SR effects, is:
 \[
-WILL{\text{GPS} \rightarrow \text{Earth}}= \frac{
+WILL{GPS \rightarrow Earth}= \frac{
    L_{d}\frac{\kappa_{\rm GPS}^{2} c^{4} r_{\rm GPS}}{2G}
     \cdot T_{c} \left(\frac{2 G M_{\rm Earth}}{\kappa_{\rm GPS}^{2} c^{3}}\right)^{2}
 }{
