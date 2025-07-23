@@ -12,7 +12,7 @@ title: "Galactic Dynamics Calculator"
     <h2 class="text-3xl font-bold">The WILL Predictive Model</h2>
     <div class="bg-gray-800/50 p-6 rounded-lg mt-6">
         <p class="text-gray-400 mb-4">
-             We test this equation against the SPARC database. Our most rigorous test uses a parameter-free version of the model, where we fixed the stellar mass-to-light ratio to ($\Upsilon_*=0.25$) and the geometric scaling factor to ($\lambda=4$). This allows us to test the raw predictive power of the equation's structure without any fitting. The parameter-free model demonstrates remarkable predictive power without any tuning: Galaxies Analysed: 171 Median RMSE: 20.6 km/s.
+             We test this equation against the SPARC database. Our most rigorous test uses a parameter-free version of the model, where we fixed the stellar mass-to-light ratio to ($\Upsilon_*=0.25$) and the geometric scaling factor to ($\lambda=4$). This allows us to test the raw predictive power of the equation's structure without any fitting. The parameter-free model demonstrates remarkable predictive power without any tuning: Galaxies Analysed: 175 Median RMSE: 23.05 km/s.
         </p>
         <div class="formula-box">
             $$ V_{WILL}^{2}(r) = \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right] + \frac{\lambda}{r}\int_{0}^{r}\left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right]dr' $$
