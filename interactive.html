@@ -267,8 +267,8 @@ permalink: /interactive.html
                 <summary><strong>Show math</strong></summary>
                 <p class="mt-2">
                     The relationship between space and time projections is just Pythagoras’ theorem for a unit circle:<br>
-                    β = v/c = cos(θ)<br>
-                    sin(θ) = √(1−β²)
+                    β = v/c = cos(θ_S)<br>
+                    sin(θ_S) = √(1−β²)
                 </p>
             </details>
         </div>
@@ -285,7 +285,7 @@ permalink: /interactive.html
             <details>
                 <summary><strong>Show math</strong></summary>
                 <p class="mt-2">The time slowdown (Lorentz factor) is:<br>
-                γ = 1/√(1−v²/c²)</p>
+                γ = 1/sin(θ_S) = 1/√(1−v²/c²)</p>
             </details>
         </div>
         <p class="narrative-text">
@@ -296,7 +296,7 @@ permalink: /interactive.html
                 <summary><strong>Show math</strong></summary>
                 <p class="mt-2">
                 Total energy: E = γmc²<br>
-                Rest energy: E₀ = mc²<br>
+                Rest energy: E₀ = m_oc²<br>
                 Momentum: p = γmv
                 </p>
             </details>
@@ -379,7 +379,7 @@ permalink: /interactive.html
                 <summary><strong>Show the math</strong></summary>
                 <p class="mt-2">
                     Time dilation near a massive object is:<br>
-                    √(1−κ²) = √(1−Rₛ/r) = √(1−2GM/(rc²))
+                    T_c = cos(θ_G) = √(1−κ²) = √(1−Rₛ/r) = √(1−2GM/(rc²))
                 </p>
             </details>
         </div>
@@ -511,6 +511,7 @@ permalink: /interactive.html
                 <summary>Show the math</summary>
                 <div class="equation-box text-xl py-4">$$ \Delta E_{A \to B} + \Delta E_{B \to A} = 0 $$</div>
                 <p class="mt-2 text-gray-300">Each transfer includes both gravitational (κ²) and kinetic (β²) parts, always balancing out.</p>
+                     <p class="mt-2 text-gray-300">\Delta E_{A \to B} = 1/2((κ_A² - κ_B²) + β_B²)    \Delta E_{B \to A} =  1/2((κ_B² - κ_A²) - β_B²) </p>
             </details>
         </div>
 
