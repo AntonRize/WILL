@@ -387,87 +387,109 @@ permalink: /interactive.html
         </div>
     </section>
 
-    <section id="unification" class="scroll-mt-20">
-        <div class="text-center">
-            <h2 class="section-title">Unification: When the Circle Meets the Sphere</h2>
-        </div>
+  <section id="unification" class="scroll-mt-20">
+    <div class="text-center">
+        <h2 class="section-title">Unification: When the Circle Meets the Sphere</h2>
+    </div>
+    <p class="narrative-text">
+        [cite_start]Now comes the punchline: All this time, we’ve seen motion (special relativity) and gravity (general relativity) as separate “shadows” of the same underlying process, just playing out on different shapes — the circle and the sphere. [cite: 101] [cite_start]But here’s the twist: <strong>these two worlds aren’t really separate.</strong> [cite: 102] [cite_start]In fact, there’s a deep, built‑in connection between them. [cite: 102] [cite_start]They’re just different “faces” of one and the same thing. [cite: 103]
+    </p>
+    <p class="narrative-text">
+        [cite_start]Imagine you have a bucket of paint. [cite: 103] [cite_start]You can use it to draw a line around a circle (one‑dimensional) or you can use it to cover the surface of a sphere (two‑dimensional). [cite: 104] [cite_start]No matter how you use it, your total paint doesn’t change — but the way it “spreads” over these shapes is fundamentally different. [cite: 105] [cite_start]This is exactly what happens with energy in the universe: sometimes it shows up as *motion* (moving around the circle) and sometimes as *gravity* (spread over the sphere). [cite: 106] [cite_start]But both are just different ways of splitting up the same “energy budget.” [cite: 106]
+    </p>
+    <div class="max-w-3xl mx-auto">
+        <details>
+            <summary><strong>Show the key connection</strong></summary>
+            <p class="mt-2">The “paint” covering for both shapes leads to a simple rule, derived from the ratio of the surface area of a sphere (4π) to the circumference of a circle (2π):</p>
+            <div class="equation-box text-xl" style="padding: 1rem;">
+                κ² = 2β²
+            </div>
+            [cite_start]<p>where β² is the “share” spent on motion and κ² is the “share” spent on gravity. [cite: 107] [cite_start]This isn’t a made‑up formula; it pops out from pure geometry. [cite: 108]</p>
+        </details>
+    </div>
+
+    <div class="max-w-3xl mx-auto mt-12">
+        <h3 class="text-2xl font-bold text-center text-gray-100 mb-4">Where Does the “2” Come From?</h3>
         <p class="narrative-text">
-            Now comes the punchline: All this time, we’ve seen motion (special relativity) and gravity (general relativity) as separate “shadows” of the same underlying process, just playing out on different shapes — the circle and the sphere. But here’s the twist: <strong>these two worlds aren’t really separate.</strong> In fact, there’s a deep, built‑in connection between them. They’re just different “faces” of one and the same thing.
+            All this talk about “budgeting” between circles and spheres leads to a natural question: <strong>Why exactly “2”? [cite_start]Where does it come from?</strong> [cite: 114]
         </p>
         <p class="narrative-text">
-            Imagine you have a bucket of paint. You can use it to draw a line around a circle (one‑dimensional) or you can use it to cover the surface of a sphere (two‑dimensional). No matter how you use it, your total paint doesn’t change — but the way it “spreads” over these shapes is fundamentally different. This is exactly what happens with energy in the universe: sometimes it shows up as *motion* (moving around the circle) and sometimes as *gravity* (spread over the sphere). But both are just different ways of splitting up the same “energy budget.”
+            Here’s the simple geometric truth:
         </p>
-        <div class="max-w-3xl mx-auto">
+        <ul class="narrative-text list-disc list-inside">
+            [cite_start]<li>The <em>circle</em> (our 1D case for motion) has a circumference of <strong>2π</strong> (for a unit radius). [cite: 115]</li>
+            [cite_start]<li>The <em>sphere</em> (our 2D case for gravity) has a surface area of <strong>4π</strong> (for a unit radius). [cite: 116]</li>
+        </ul>
+         <p class="narrative-text">
+            [cite_start]So when we ask, “How many times does a circle fit into a sphere?” [cite: 116] the answer is:
+        </p>
+        <div class="max-w-md mx-auto">
             <details>
-                <summary><strong>Show the key connection</strong></summary>
-                <p class="mt-2">The “paint” covering for both shapes leads to a simple rule, derived from the ratio of the surface area of a sphere (4π) to the circumference of a circle (2π):</p>
-                <div class="equation-box text-xl" style="padding: 1rem;">
-                    κ² = 2β²
+                <summary><strong>Show the calculation</strong></summary>
+                <div class="equation-box !text-lg !py-3 mt-2">
+                    $$ \frac{\text{Surface area of sphere}}{\text{Circumference of circle}} = \frac{4\pi}{2\pi} = 2 $$
                 </div>
-                <p>where β² is the “share” spent on motion and κ² is the “share” spent on gravity. This isn’t a made‑up formula; it pops out from pure geometry.</p>
             </details>
         </div>
-        <p class="narrative-text">
-            Motion and gravity are two sides of the same coin. Their relationship isn’t an accident — it’s a built‑in, geometric law of how the universe splits up its “energy resources.”
+        <p class="narrative-text mt-4">
+            [cite_start]That’s the source of the mysterious “2” in our key equation. [cite: 118] [cite_start]It’s not an arbitrary fudge factor — it’s pure geometry. [cite: 119]
         </p>
-        <div class="card">
-            <div class="interactive-container">
-                <div class="flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-100">Unified Energy Budget</h3>
-                    <div class="mb-6">
-                        <label for="unif-slider" class="font-semibold text-gray-200">Control Parameter (&kappa;): <span id="unif-kappa-display" class="highlight font-bold">0.631</span></label>
-                        <input type="range" min="0" max="1.413" value="0.816" step="0.001" class="slider mt-2" id="unif-slider">
-                    </div>
-                    <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-lg p-4 bg-gray-900 rounded-lg">
-                        <div>&kappa; (Potential): <span id="unif-kappa-value" class="highlight">0.816</span></div>
-                        <div>&beta; (Kinetic): <span id="unif-beta-value" class="highlight">0.577</span></div>
-                        <div>&theta; G (from &kappa;): <span id="unif-thetaG-value" class="highlight">54.69°</span></div>
-                        <div>&theta; S (from &beta;): <span id="unif-thetaS-value" class="highlight">54.76°</span></div>
-                        <div>T_c = cos(&theta; G): <span id="unif-Tc-value" class="highlight">0.578</span></div>
-                        <div>L_c = sin(&theta; S): <span id="unif-Lc-value" class="highlight">0.817</span></div>
-                    </div>
-                    <div id="photon-sphere-indicator" class="mt-4 text-center text-cyan-400 font-bold text-lg opacity-0 transition-opacity">Photon Sphere: r = 1.5 Rₛ</div>
-                </div>
-                <div class="canvas-container">
-                    <canvas id="unification-canvas"></canvas>
-                </div>
-            </div>
-        </div>
         <p class="narrative-text">
-            A remarkable consequence of this unification happens at a special “balance point” where the kinetic and potential projections are perfectly matched, such that <strong>κ² + β² = 1</strong>. This occurs when the two angles are equal, and it geometrically matches the <strong>Photon Sphere</strong> — the special zone around a massive object (at r = 1.5 Rₛ) where light itself can orbit in a perfect, albeit unstable, circle.
+            [cite_start]So when energy splits between motion (on the circle) and gravity (on the sphere), the “budget” gets shared according to this built-in, topological ratio. [cite: 120] The key relationship:
         </p>
+        <div class="equation-box text-xl"> κ² = 2β² </div>
+        <p class="narrative-text">
+            just says: <em>“Gravity’s share is always twice the motion’s share, because a sphere’s surface area is twice the length of a circle’s perimeter, at the most fundamental geometric level.”</em>
+        </p>
+    </div>
+    <p class="narrative-text">
+        [cite_start]Motion and gravity are two sides of the same coin. [cite: 111] [cite_start]Their relationship isn’t an accident — it’s a built‑in, geometric law of how the universe splits up its “energy resources.” [cite: 112]
+    </p>
+    
     </section>
     
-    <section id="symmetry" class="scroll-mt-20">
-        <div class="text-center">
-            <h2 class="section-title">Energy–Symmetry Law</h2>
-            <h3 class="text-xl text-gray-300 -mt-2 mb-8">(Why There's No Free Lunch in the Universe)</h3>
-        </div>
+ <section id="symmetry" class="scroll-mt-20">
+    <div class="text-center">
+        <h2 class="section-title">Energy–Symmetry Law</h2>
+        <h3 class="text-xl text-gray-300 -mt-2 mb-8">(Why There's No Free Lunch in the Universe)</h3>
+    </div>
+    <p class="narrative-text">
+        Whenever you compare two observers (say, someone on the ground and someone in orbit), <strong>the energy differences they see will always perfectly balance out.</strong> No matter how you swap perspectives — nobody ever gets “extra” energy for free. [cite_start]This is the universe’s built-in law of energetic fairness. [cite: 129]
+    </p>
+    <p class="narrative-text">
+        [cite_start]Imagine Observer A is standing on the ground, and Observer B is orbiting above. [cite: 130] [cite_start]If an object moves from A to B, it has to fight gravity (gaining potential energy) and speed up (gaining kinetic energy). [cite: 131] [cite_start]From B’s point of view, if the object comes down, it loses both potential and kinetic energy. [cite: 132] The key is: if you add up both “energy stories,” the total change is always zero. [cite_start]The universe never “creates” or “loses” energy when you swap perspectives — just moves it around. [cite: 133]
+    </p>
+    <div class="max-w-3xl mx-auto">
+        <details>
+            <summary>Show the math</summary>
+            <div class="equation-box text-xl" style="padding: 1rem;">
+                $$ \Delta E_{A \to B} + \Delta E_{B \to A} = 0 $$
+            </div>
+            [cite_start]<p class="mt-2 text-gray-300">Each transfer includes both gravitational (κ²) and kinetic (β²) parts, always balancing out. [cite: 134]</p>
+        </details>
+    </div>
+    <div class="max-w-3xl mx-auto my-8">
+        <h3 class="text-2xl font-bold text-gray-100 mb-4">The Magic of the “½” Factor</h3>
         <p class="narrative-text">
-            Whenever you compare two observers (say, someone on the ground and someone in orbit), <strong>the energy differences they see will always perfectly balance out.</strong> No matter how you swap perspectives — nobody ever gets “extra” energy for free. This is the universe’s built-in law of energetic fairness.
+            [cite_start]Why is there a “½” everywhere in the energy formulas? [cite: 135] [cite_start]It’s the same reason why classical formulas have ½mv² for kinetic energy or why gravity’s potential energy has a factor of ½ in the geometric model. [cite: 136] [cite_start]The “½” keeps our geometric story in sync with the classical, familiar energy equations. [cite: 137]
         </p>
+    </div>
+     <div class="max-w-3xl mx-auto my-8">
+        <h3 class="text-2xl font-bold text-gray-100 mb-4">Universal Speed Limit: Why Nothing Goes Faster than Light</h3>
         <p class="narrative-text">
-            Imagine Observer A is standing on the ground, and Observer B is orbiting above. If an object moves from A to B, it has to fight gravity (gaining potential energy) and speed up (gaining kinetic energy). From B’s point of view, if the object comes down, it loses both potential and kinetic energy. The key is: if you add up both “energy stories,” the total change is always zero. The universe never “creates” or “loses” energy when you swap perspectives — just moves it around.
+            [cite_start]This “energy symmetry” is so strict that it naturally sets the universe’s ultimate speed limit. [cite: 138] [cite_start]If something *could* go faster than light, the balance would be broken — one observer would see “extra” energy appear out of nowhere. [cite: 139] [cite_start]That’s not allowed: <strong>causality and energy symmetry would both collapse.</strong> [cite: 140] [cite_start]So, the speed of light isn’t just a cosmic “speed trap” — it’s the built-in edge of energetic fairness. [cite: 140]
         </p>
-        <div class="max-w-3xl mx-auto">
+         <div class="max-w-md mx-auto">
             <details>
-                <summary>Show the math</summary>
-                <div class="equation-box text-xl" style="padding: 1rem;">
-                    ΔE (A&rarr;B) + ΔE (B&rarr;A) = 0
+                <summary>Math explanation</summary>
+                 <div class="equation-box !text-lg !py-3 mt-2">
+                    If β > 1: ΔE (A→B) + ΔE (B→A) ≠ 0<br>
+                    So, must have β ≤ 1 (v ≤ c)
                 </div>
-                <p class="mt-2">Each transfer includes both gravitational (κ²) and kinetic (β²) parts, which always balance out.</p>
             </details>
         </div>
-        <div class="max-w-3xl mx-auto">
-            <details>
-                <summary>Why is there a “½” in energy formulas?</summary>
-                <p class="mt-2">The “½” in formulas like ½mv² and -½κ² is what keeps our geometric story in sync with the classical, familiar energy equations. It ensures that the potential energy (U = -GMm/r) maps correctly to -½κ² and kinetic energy (K = ½mv²) maps to ½β².</p>
-            </details>
-        </div>
-        <p class="narrative-text">
-            This “energy symmetry” is so strict that it naturally sets the universe’s ultimate speed limit. If something *could* go faster than light, the balance would be broken — one observer would see “extra” energy appear out of nowhere. That’s not allowed: <strong>causality and energy symmetry would both collapse.</strong> So, the speed of light isn’t just a cosmic “speed trap” — it’s the built-in edge of energetic fairness.
-        </p>
-    </section>
+    </div>
+</section>
     
     <section id="oneline" class="scroll-mt-20">
         <div class="text-center">
@@ -486,6 +508,25 @@ permalink: /interactive.html
                     This equation shows that the gravitational potential (κ²) is identical to the ratio of the Schwarzschild radius to the current radius, and also identical to the ratio of the current energy density (ρ) to the maximum possible density (ρ_max). Instead of singularities, black holes become places where everything is packed to the maximum allowed, but always stays finite.
                 </p>
             </details>
+        </div>
+            <div class="max-w-3xl mx-auto my-8">
+            <h3 class="text-2xl font-bold text-gray-100 mb-4">The “Critical Density” Explained</h3>
+            <p class="narrative-text">
+                At every point in space, there’s a built-in “speed limit” for how much energy you can pack into that spot. The <strong>critical density</strong> (ρ_max) isn’t universal — it depends on where you are (your distance from the center). The closer you get to the center, the higher this limit becomes — but it’s <em>never</em> infinite.
+            </p>
+            <div class="max-w-md mx-auto">
+                 <details>
+                    <summary><strong>How is the density limit set?</strong></summary>
+                    <div class="equation-box !text-lg !py-3 mt-2">
+                        $$ \rho_{\text{max}} = \frac{c^2}{8\pi G r_d^2} $$
+                    </div>
+                    <p class="mt-2 text-center text-gray-400">“The smaller the radius, the greater the allowed density — but there’s always a cap.”</p>
+                 </details>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-100 mt-8 mb-4">What does this solve?</h3>
+            <p class="narrative-text">
+                In ordinary general relativity, a black hole means a “point of infinite density” (a singularity). That’s where the math — and the physics — break down. In WILL Geometry, such infinite densities are <strong>impossible</strong>. The universe always sets a maximum — so you never reach a breakdown or “divide by zero”. Instead of singularities, black holes become places where everything is packed to the maximum allowed, but always stays finite and well-behaved.
+            </p>
         </div>
         <div class="max-w-3xl mx-auto">
             <details>
