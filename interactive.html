@@ -242,7 +242,7 @@ permalink: /interactive.html
             Now that the rules of the game have been established, let’s consider the simplest case: one‑dimensional motion.
             According to our logic, this process must be described on the only possible closed and symmetric 1D geometry—the circle.
             This act of our narrative is devoted to reconstructing special relativity (SR) using nothing but these geometric tools.
-            <!-- added --> <strong>The main character here is the kinetic projection, denoted by the Greek letter &beta; (beta).</strong> :contentReference[oaicite:0]{index=0}
+            <!-- added --> <strong>The main character here is the kinetic projection, denoted by the Greek letter &beta; (beta).</strong> 
         </p>
 
         <h3 class="text-2xl font-bold text-center text-gray-100 mb-4">How Motion and Time Are Just Two Sides of the Same Thing</h3>
@@ -251,7 +251,7 @@ permalink: /interactive.html
             Imagine all possible states of movement as points around a perfect circle.
             The <em>radius</em> of this circle is the fastest possible speed in the universe — the universal “speed of change.”
             Every moving object is like a pointer from the center of the circle to some spot on its edge.
-            <!-- added --> For clarity, we set <em>c = 1</em>; the total “speed of evolution” is a vector that can be decomposed into horizontal (space) and vertical (time) components. :contentReference[oaicite:1]{index=1}
+            <!-- added --> For clarity, we set <em>c = 1</em>; the total “speed of evolution” is a vector that can be decomposed into horizontal (space) and vertical (time) components. 
         </p>
 
         <ul class="narrative-text list-disc list-inside">
@@ -309,7 +309,7 @@ permalink: /interactive.html
                     <h3 class="text-2xl font-bold mb-4 text-gray-100">The Energy-Momentum Triangle</h3>
                     <p class="text-gray-300 mb-6">Visualize energy, mass, and momentum as a simple right triangle. One side (fixed) always represents the object's *rest energy*. The second side grows as the object’s speed increases — this is its *momentum*. The hypotenuse is the *total energy* — it stretches as you go faster.</p>
                     <label for="emc2-beta-slider" class="font-semibold text-gray-200">Velocity (&beta; = v/c): <span id="emc2-beta-value" class="highlight font-bold">0.650</span></label>
-                    <input type="range" min="0" max="0.999" value="0.65" step="0.001" class="slider mt-2 mb-6" id="emc2-beta-slider">
+                    <input type="range" min="0" max="1.414" value="0.65" step="0.001" class="slider mt-2 mb-6" id="emc2-beta-slider">
                     
                     <div class="space-y-3 text-lg">
                         <p>Rest Energy (E₀): <span class="highlight">m₀c² (constant)</span></p>
@@ -360,13 +360,13 @@ permalink: /interactive.html
                 <div class="flex flex-col justify-center">
                     <h3 class="text-2xl font-bold mb-4 text-gray-100">Gravity and Time Dilation</h3>
                     <p class="text-gray-300 mb-6">
-                        <!-- added -->Just like with the circle, we can still split everything into “directions” — but now it’s two‑dimensional. :contentReference[oaicite:0]{index=0}
+                        <!-- added -->Just like with the circle, we can still split everything into “directions” — but now it’s two‑dimensional. 
                         As you get closer to a massive object, κ goes up, and time starts to slow down. If you reach the event horizon (κ = 1), time (from an outside view) stops completely.
                         Gravity isn’t just pulling you in — it’s literally changing how fast your clock ticks, depending on where you are.
                     </p>
 
                     <label for="kappa-slider" class="font-semibold text-gray-200">Gravity (&kappa;): <span id="kappa-value" class="highlight font-bold">0.500</span></label>
-                    <input type="range" min="0" max="0.999" value="0.5" step="0.001" class="slider mt-2 mb-6" id="kappa-slider">
+                    <input type="range" min="0" max="1.414" value="0.5" step="0.001" class="slider mt-2 mb-6" id="kappa-slider">
 
                     <div class="space-y-3 text-lg">
                         <p>Radius (r): <span id="radius-value" class="highlight">4.00</span> Rₛ</p>
@@ -420,6 +420,31 @@ permalink: /interactive.html
         <p class="narrative-text">
             <!-- typo fixed -->Imagine you have a bucket of paint. You can use it to draw a line around a circle (one‑dimensional) or you can use it to cover the surface of a sphere (two‑dimensional). No matter how you use it, your total paint doesn’t change — but the way it “spreads” over these shapes is fundamentally different. This is exactly what happens with energy in the universe: sometimes it shows up as <em>motion</em> (moving around the circle) and sometimes as <em>gravity</em> (spread over the sphere). But both are just different ways of splitting up the same “energy budget.”
         </p>
+        <!-- Interactive κ–β Projection -->
+        <div class="card mt-8">
+            <div class="interactive-container">
+                <div class="canvas-container relative">
+                    <canvas id="unification-canvas"></canvas>
+                    <div id="photon-sphere-indicator" class="absolute w-2 h-2 bg-yellow-300 rounded-full" style="opacity:0;"></div>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-100">κ–β Projection</h3>
+                    <label for="unif-slider" class="font-semibold text-gray-200">
+                        Gravity (&kappa;): <span id="unif-kappa-display" class="highlight font-bold">0.500</span>
+                    </label>
+                    <input type="range" id="unif-slider" min="0" max="1.414" value="0.5" step="0.001" class="slider mt-2 mb-4">
+                    <div class="space-y-2 text-lg">
+                        <p>&kappa;: <span id="unif-kappa-value" class="highlight">0.500</span></p>
+                        <p>&beta;: <span id="unif-beta-value" class="highlight">0.354</span></p>
+                        <p>&theta;<sub>G</sub>: <span id="unif-thetaG-value" class="highlight">30.00°</span></p>
+                        <p>&theta;<sub>S</sub>: <span id="unif-thetaS-value" class="highlight">60.00°</span></p>
+                        <p>T<sub>c</sub>: <span id="unif-Tc-value" class="highlight">0.866</span></p>
+                        <p>L<sub>c</sub>: <span id="unif-Lc-value" class="highlight">0.500</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="max-w-3xl mx-auto">
             <details>
@@ -428,9 +453,9 @@ permalink: /interactive.html
                 <div class="equation-box text-xl py-4">κ² = 2β²</div>
                 <!-- added bullet trio -->
                 <ul class="list-disc list-inside narrative-text">
-                    <li>This isn’t some made‑up or “fit” formula; it falls straight out of geometry. :contentReference[oaicite:1]{index=1}</li>
-                    <li>It pops out just from how lines and surfaces relate. :contentReference[oaicite:2]{index=2}</li>
-                    <li>Even classical physics hinted at it (escape velocity: v<sub>e</sub>² = 2 v<sub>orb</sub>²). :contentReference[oaicite:3]{index=3}</li>
+                    <li>This isn’t some made‑up or “fit” formula; it falls straight out of geometry. </li>
+                    <li>It pops out just from how lines and surfaces relate. </li>
+                    <li>Even classical physics hinted at it (escape velocity: v<sub>e</sub>² = 2 v<sub>orb</sub>²). </li>
                 </ul>
             </details>
         </div>
@@ -508,7 +533,7 @@ permalink: /interactive.html
                     Potential energy: U = −½ κ²<br>
                     Kinetic energy: K = ½ β²
                 </div>
-            </details> :contentReference[oaicite:4]{index=4}
+            </details> 
         </div>
 
         <div class="max-w-3xl mx-auto my-8">
@@ -528,33 +553,86 @@ permalink: /interactive.html
         </div>
     </section>
     <!-- ---------- ONE‑LINE UNIVERSE ---------- -->
-    <section id="oneline" class="scroll-mt-20">
-        <div class="text-center">
-            <h2 class="section-title">The Whole Universe in a Single Line</h2>
-        </div>
+    
+<!-- ---------- ONE‑LINE UNIVERSE ---------- -->
+<section id="oneline" class="scroll-mt-20">
+  <div class="text-center">
+    <h2 class="section-title">The Whole Universe in a Single Line</h2>
+  </div>
 
-        <p class="narrative-text">
-            After all the geometric juggling, here’s the punchline: Everything — gravity, motion, energy, even the rules for black holes — can be summed up in just one line. It states that the universe always keeps you within the same “safe fraction” of the maximum possible energy density, preventing the singularities of General Relativity.
-        </p>
+  <p class="narrative-text font-semibold">
+    After all the geometric juggling, <strong>everything — gravity, motion, energy, even black‑hole rules — boils down to one line.</strong>
+    It says the universe always keeps you within the same safe fraction of the maximum possible energy density, so singularities never appear.
+  </p>
 
-        <div class="max-w-3xl mx-auto">
-            <details>
-                <summary><strong>See the Universe’s one-line “code”</strong></summary>
-                <div class="equation-box text-xl py-4">κ² = Rₛ / r = ρ / ρ_max</div>
-                <!-- added meaning bullets -->
-                <ul class="narrative-text list-disc list-inside mt-4">
-                    <li><strong>Critical radius / current radius</strong> = <strong>current density / critical density</strong> :contentReference[oaicite:0]{index=0}</li>
-                </ul>
-                <p class="narrative-text mt-2">
-                    No matter whether you view it as a distance or an amount of energy, the universe keeps you within the same safe fraction of the maximum possible. :contentReference[oaicite:1]{index=1}
-                </p>
-            </details>
-        </div>
+  <div class="max-w-3xl mx-auto mb-8">
+    <details>
+      <summary><strong>See the Universe’s one‑line “code”</strong></summary>
+      <div class="equation-box text-xl py-4">
+        κ² = Rₛ / r_d = ρ / ρ<sub>max</sub>
+      </div>
+    </details>
+  </div>
 
-        <!-- … “Critical Density”, “What does this solve?”, table — без изменений, только мелкая правка текста строки таблицы … -->
-        <!-- в строке Density Limit добавила “changes with position”: -->
-        <!-- <td>Always set, <em>changes with position,</em> never infinite</td> -->
-    </section>
+  <hr class="border-gray-600 my-6">
+
+  <h3 class="text-2xl font-bold text-gray-100 mb-4">What does this actually mean?</h3>
+  <ul class="narrative-text list-disc list-inside mb-6">
+    <li><strong>κ² = R<sub>s</sub>/r<sub>d</sub> = ρ/ρ<sub>max</sub></strong> – one ratio, three faces.</li>
+    <li><em>Critical radius / current radius</em> equals <em>current density / critical density</em>.</li>
+  </ul>
+  <p class="narrative-text italic">
+    No matter whether you phrase it as a distance or as an energy, the universe always keeps you in the same “safe fraction” of the maximum possible.
+  </p>
+
+  <hr class="border-gray-600 my-6">
+
+  <h3 class="text-2xl font-bold text-gray-100 mb-4">The “Critical Density” Explained</h3>
+  <ul class="narrative-text list-disc list-inside mb-4">
+    <li>Every point in space has a built‑in speed‑limit for how much energy you can pack there.</li>
+    <li>The <strong>critical density</strong> ρ<sub>max</sub> depends on radius: the smaller the radius, the higher the limit — but it is <em>never</em> infinite.</li>
+  </ul>
+
+  <div class="max-w-md mx-auto mb-6">
+    <details>
+      <summary><strong>How is the density limit set?</strong></summary>
+      <div class="equation-box !text-lg py-3 mt-2">
+        ρ<sub>max</sub> = c² / (8π G r<sub>d</sub>²)
+      </div>
+      <p class="mt-2 text-center text-gray-400">“The smaller the radius, the greater the allowed density — but there’s always a cap.”</p>
+    </details>
+  </div>
+
+  <h3 class="text-2xl font-bold text-gray-100 mb-4">What does this solve?</h3>
+  <ul class="narrative-text list-disc list-inside mb-6">
+    <li>In classical GR a black hole means a point of infinite density (a singularity) where math breaks down.</li>
+    <li>In WILL Geometry such infinities are <strong>impossible</strong>; the universe stops you at ρ<sub>max</sub>, so physics stays finite and well‑behaved.</li>
+  </ul>
+
+  <blockquote class="narrative-text italic border-l-4 border-cyan-500 pl-4 mb-6">
+    Instead of singularities, black holes become places where everything is packed to the maximum allowed, yet remains finite.
+  </blockquote>
+
+  <h3 class="text-2xl font-bold text-gray-100 mb-4">Table: “Old‑School” GR vs. WILL Geometry</h3>
+  <div class="overflow-x-auto mb-6">
+    <table class="min-w-full text-left">
+      <thead><tr><th class="pr-4"></th><th>General Relativity (GR)</th><th>WILL Geometry</th></tr></thead>
+      <tbody class="narrative-text">
+        <tr><td class="pr-4 font-semibold">Geometry &amp; Energy</td><td>Linked via differential equations</td><td>Identical algebraically (one‑to‑one)</td></tr>
+        <tr><td class="pr-4 font-semibold">Math Formalism</td><td>Complicated tensors</td><td>Simple projection logic</td></tr>
+        <tr><td class="pr-4 font-semibold">Singularities</td><td>Yes, possible</td><td>Impossible</td></tr>
+        <tr><td class="pr-4 font-semibold">Density Limit</td><td>Undefined (needs QG)</td><td>Always set, varies with position, never infinite</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="border-gray-600 my-6">
+
+  <p class="narrative-text font-semibold">
+    <em>Bottom line:</em> One “line of code” unifies geometry, energy, and density. There is always a local limit; the universe never lets you break it. No infinities, no singularities — pure built‑in self‑consistency.
+  </p>
+</section>
+
 
     <!-- ---------- VALIDATION ---------- -->
     <!-- после карточки Меркурия вставила ссылку на PDF расчётов -->
@@ -563,21 +641,55 @@ permalink: /interactive.html
     </p>
 
     <!-- ---------- DYNAMICS WITHOUT TIME ---------- -->
-    <section id="dynamics" class="scroll-mt-20">
+    
+    <section id="validation" class="scroll-mt-20">
+        <div class="text-center">
+            <h2 class="section-title">Grounding the Vision</h2>
+            <h3 class="text-xl text-gray-300 -mt-2 mb-8">(From Abstraction to Reality)</h3>
+        </div>
+        <p class="narrative-text">
+            A theory, no matter how beautiful, is just a clever idea until it passes real-world tests. Science is all about matching what we think to what we actually see in nature. This section is devoted to grounding the abstract vision of WILL Geometry by demonstrating that it makes precise, testable predictions about real physical phenomena. Let’s examine two key examples, which serve as rigorous empirical tests of the entire theoretical construction.
+        </p>
+        <div class="card">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-100">1. GPS Time Correction</h3>
+                    <p class="text-gray-300 mb-4">The GPS is the ideal laboratory for testing relativistic effects. For it to work, satellites must account for two effects:</p>
+                    <ul class="text-gray-300 list-disc list-inside mb-4">
+                        <li><strong>SR effect (Velocity):</strong> Satellites move at high speed (3.87 km/s), causing their clocks to run slower.</li>
+                        <li><strong>GR effect (Gravity):</strong> Satellites are in weaker gravity, causing their clocks to run faster.</li>
+                    </ul>
+                    <p class="text-gray-300 mb-4">WILL Geometry unifies these effects via the relation κ² = 2β² into a single parameter. The predicted correction is:</p>
+                    <hr class="my-2 border-gray-600">
+                    <p class="text-center mt-4 text-lg highlight font-bold">38 microseconds per day</p>
+                    <p class="text-center text-sm text-gray-400">This exactly matches the empirically measured value.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-100">2. Mercury's Orbital Precession</h3>
+                    <p class="text-gray-300 mb-4">One of the earliest triumphs of GR was explaining the anomalous shift of Mercury's orbit (43 arcseconds/century). WILL Geometry faces this classic test.</p>
+                    <div class="canvas-container !aspect-video !min-h-[250px]">
+                       <canvas id="mercury-canvas"></canvas>
+                    </div>
+                     <p class="mt-4 text-sm text-gray-400 text-center">The result from WILL Geometry matches both GR and observation with machine-level precision, providing a powerful confirmation of the theory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="dynamics" class="scroll-mt-20">
         <div class="text-center">
             <h2 class="section-title">A New Reality of Change</h2>
             <h3 class="text-xl text-gray-300 -mt-2 mb-8">(Dynamics Without Time)</h3>
         </div>
 
         <p class="narrative-text">
-            Let’s get to the wildest part of WILL Geometry: <strong>What if time isn’t fundamental at all?</strong> In “classic” physics, time is like a river: everything <em>happens inside</em> this flow. But in WILL Geometry, it’s the other way around: There’s no separate “river” of time. There are just possible states — all the ways the universe could be, as long as they satisfy the balance equations. <em>Change</em> is just moving from one balanced state to another. :contentReference[oaicite:2]{index=2}
+            Let’s get to the wildest part of WILL Geometry: <strong>What if time isn’t fundamental at all?</strong> In “classic” physics, time is like a river: everything <em>happens inside</em> this flow. But in WILL Geometry, it’s the other way around: There’s no separate “river” of time. There are just possible states — all the ways the universe could be, as long as they satisfy the balance equations. <em>Change</em> is just moving from one balanced state to another. 
         </p>
 
         <!-- added bullet breakdown -->
         <h3 class="text-2xl font-bold text-gray-100 mt-8 mb-4">So what is “dynamics” now?</h3>
         <ul class="narrative-text list-disc list-inside">
-            <li>Instead of motion playing out <em>in</em> time, there is a rigid web of allowed states. :contentReference[oaicite:3]{index=3}</li>
-            <li>Any tweak in one parameter instantly forces all others to adjust, so the equations stay balanced. :contentReference[oaicite:4]{index=4}</li>
+            <li>Instead of motion playing out <em>in</em> time, there is a rigid web of allowed states. </li>
+            <li>Any tweak in one parameter instantly forces all others to adjust, so the equations stay balanced. </li>
         </ul>
 
         <div class="max-w-3xl mx-auto my-6">
@@ -585,7 +697,7 @@ permalink: /interactive.html
         </div>
 
         <p class="narrative-text">
-            Bottom line: In WILL Geometry the universe is not a machine running inside time — it’s a perfectly balanced structure, forever reshaping itself. What we call “time” is simply our narrative for that ongoing process of rebalancing. :contentReference[oaicite:5]{index=5}
+            Bottom line: In WILL Geometry the universe is not a machine running inside time — it’s a perfectly balanced structure, forever reshaping itself. What we call “time” is simply our narrative for that ongoing process of rebalancing. 
         </p>
     </section>
 
@@ -597,15 +709,15 @@ permalink: /interactive.html
 
         <!-- added “scratching the surface” notice -->
         <p class="narrative-text">
-            In this short exploration we’re only scratching the surface. The model is already extended to cosmology and quantum mechanics — full results are <a href="https://antonrize.github.io/WILL/results/" class="text-cyan-400 hover:underline">here</a>. :contentReference[oaicite:6]{index=6}
+            In this short exploration we’re only scratching the surface. The model is already extended to cosmology and quantum mechanics — full results are <a href="https://antonrize.github.io/WILL/results/" class="text-cyan-400 hover:underline">here</a>. 
         </p>
 
         <p class="narrative-text">
-            We started with one simple idea: <strong>Spacetime is just energy in motion.</strong> From this, logic alone led us to circles and spheres as the natural “shapes” of the universe, relativity as a projection on these shapes, and the deep unification of motion and gravity. This journey uncovered a hidden unity behind the laws of physics, replacing arbitrary rules with pure geometry and energy flow. :contentReference[oaicite:7]{index=7}
+            We started with one simple idea: <strong>Spacetime is just energy in motion.</strong> From this, logic alone led us to circles and spheres as the natural “shapes” of the universe, relativity as a projection on these shapes, and the deep unification of motion and gravity. This journey uncovered a hidden unity behind the laws of physics, replacing arbitrary rules with pure geometry and energy flow. 
         </p>
 
         <p class="narrative-text font-bold text-center text-gray-100 text-xl">
-            Energy doesn’t just exist in space — it <em>creates</em> space, by its projection. :contentReference[oaicite:8]{index=8}
+            Energy doesn’t just exist in space — it <em>creates</em> space, by its projection. 
         </p>
 
         <p class="narrative-text">
@@ -618,13 +730,13 @@ permalink: /interactive.html
                 <div class="equation-box text-xl py-4">
                     W<sub>ill</sub> = (E · T²) / (M · L²) = 1
                 </div>
-                <p class="mt-2">Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self‑consistent structure. :contentReference[oaicite:9]{index=9}</p>
+                <p class="mt-2">Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self‑consistent structure. </p>
             </details>
         </div>
 
         <!-- link to full papers -->
         <p class="text-center text-sm text-cyan-400 mt-8">
-            Full mathematical papers: <a href="https://antonrize.github.io/WILL/parts/" class="hover:underline">WILL Geometry — Parts I‑III</a> :contentReference[oaicite:10]{index=10}
+            Full mathematical papers: <a href="https://antonrize.github.io/WILL/parts/" class="hover:underline">WILL Geometry — Parts I‑III</a> 
         </p>
     </section>
 
@@ -674,7 +786,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 thetaS: document.getElementById('unif-thetaS-value'),
                 Tc: document.getElementById('unif-Tc-value'),
                 Lc: document.getElementById('unif-Lc-value'),
-                kappaSlider: document.getElementById('unif-kappa-display')
+                kappaSlider: document.getElementById('unif-kappa-display'),
+                sum: document.getElementById('unif-sum-value')
             },
             ctx: null
         },
@@ -714,7 +827,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const padding = 40;
         const E0_height = Math.min(height / 3, 100);
         const max_p_width = width - padding * 2;
-        const p_width = p_val * (max_p_width / 5);
+        const p_width = p_val * (max_p_width / 2);
 
         const origin = { x: padding, y: height - padding };
         const p_end = { x: origin.x + p_width, y: origin.y };
@@ -931,6 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
         d.thetaS.textContent = (thetaS_rad * 180 / Math.PI).toFixed(2) + '°';
         d.Tc.textContent = Math.cos(thetaG_rad).toFixed(3);
         d.Lc.textContent = Math.sin(thetaS_rad).toFixed(3);
+        d.sum.textContent = combined_sq.toFixed(3);
         d.kappaSlider.textContent = kappa.toFixed(3);
 
         const combined_sq = kappa*kappa + beta*beta;
