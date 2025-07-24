@@ -229,7 +229,7 @@ title: "Key Results"
 <details>
     <summary>2. Solving the Galactic Rotation Problem without Dark Matter.</summary>
     <div class="details-content">
-        <p><strong>Result:</strong> The model accurately predicts galactic rotation curves using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 20.6 km/s) <strong>without invoking dark matter and without free parameters.</strong></p>
+        <p><strong>Result:</strong> The model accurately predicts galactic rotation curves using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 23.05 km/s) <strong>without invoking dark matter and without free parameters.</strong></p>
     </div>
 </details>
 
