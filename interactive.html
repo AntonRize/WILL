@@ -1,11 +1,9 @@
 ---
-layout: default
-title: "Relativistic Foundations"
+
+## layout: default title: "Relativistic Foundations" 
 permalink: /interactive.html
----
 
-<main class="container mx-auto px-4 py-12 md:py-20">
-
+```
 <section id="hero" class="text-center mb-20 md:mb-32">
     <h1 class="text-4xl md:text-6xl font-extrabold text-gray-50 mb-6 leading-tight">The Shape of Energy</h1>
     <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">An interactive exploration of a theory where space, time, and energy are derived from a single, fundamental principle.</p>
@@ -15,32 +13,20 @@ permalink: /interactive.html
 </section>
 
 <section id="postulate" class="scroll-mt-20">
-    <div id="postulate-content">
-        {% capture content %}{% include narrative/postulate.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="postulate-content"></div>
 </section>
 
 <section id="sr" class="scroll-mt-20">
-    <div id="sr-content">
-        {% capture content %}{% include narrative/sr.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="sr-content"></div>
 </section>
 
 <section id="emc2" class="scroll-mt-20">
-    <div id="emc2-content">
-        {% capture content %}{% include narrative/emc2.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="emc2-content"></div>
     <div class="card">
         <div class="interactive-container">
             <div>
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">The Energy-Momentum Triangle</h3>
-                <div id="emc2-triangle-content">
-                    {% capture content %}{% include narrative/emc2_triangle.md %}{% endcapture %}
-                    {{ content | markdownify }}
-                </div>
+                <div id="emc2-triangle-content"></div>
                 <label for="emc2-beta-slider" class="font-semibold text-gray-200">Velocity (&beta; = v/c): <span id="emc2-beta-value" class="highlight font-bold">0.650</span></label>
                 <input type="range" min="0" max="0.999" value="0.65" step="0.001" class="slider mt-2 mb-6" id="emc2-beta-slider">
                 <div class="space-y-3 text-lg">
@@ -58,10 +44,7 @@ permalink: /interactive.html
 </section>
 
 <section id="gr" class="scroll-mt-20">
-    <div id="gr-content">
-        {% capture content %}{% include narrative/gr.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="gr-content"></div>
     <div class="card">
         <div class="interactive-container">
             <div class="canvas-container">
@@ -69,10 +52,7 @@ permalink: /interactive.html
             </div>
             <div class="flex flex-col justify-center">
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">Gravity and Time Dilation</h3>
-                <div id="gr-dilation-content">
-                    {% capture content %}{% include narrative/gr_dilation.md %}{% endcapture %}
-                    {{ content | markdownify }}
-                </div>
+                <div id="gr-dilation-content"></div>
                 <label for="kappa-slider" class="font-semibold text-gray-200">Gravity (&kappa;): <span id="kappa-value" class="highlight font-bold">0.500</span></label>
                 <input type="range" min="0" max="0.999" value="0.5" step="0.001" class="slider mt-2 mb-6" id="kappa-slider">
                 <div class="space-y-3 text-lg">
@@ -86,17 +66,11 @@ permalink: /interactive.html
 </section>
 
 <section id="unification" class="scroll-mt-20">
-    <div id="unification-content">
-        {% capture content %}{% include narrative/unification.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="unification-content"></div>
     <div class="interactive-container">
         <div class="flex flex-col justify-center">
             <h3 class="text-2xl font-bold mb-4 text-gray-100">κ–β Projection</h3>
-            <div id="unification-projection-content">
-                {% capture content %}{% include narrative/unification_projection.md %}{% endcapture %}
-                {{ content | markdownify }}
-            </div>
+            <div id="unification-projection-content"></div>
             <label for="unif-slider" class="font-semibold text-gray-200">
                 Total Energy Share (Q²): <span id="unif-q2-display" class="highlight font-bold">1.000</span>
             </label>
@@ -138,17 +112,11 @@ permalink: /interactive.html
 </section>
 
 <section id="symmetry" class="scroll-mt-20">
-    <div id="symmetry-content">
-        {% capture content %}{% include narrative/symmetry.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="symmetry-content"></div>
 </section>
 
 <section id="oneline" class="scroll-mt-20">
-    <div id="oneline-content">
-        {% capture content %}{% include narrative/oneline.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="oneline-content"></div>
 </section>
 
 <p class="text-center text-sm text-cyan-400">
@@ -156,58 +124,26 @@ permalink: /interactive.html
 </p>
 
 <section id="validation" class="scroll-mt-20">
-    <div id="validation-content">
-        {% capture content %}{% include narrative/validation.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="validation-content"></div>
     <div class="card">
         <div class="grid md:grid-cols-2 gap-8">
             <div class="bg-gray-900 p-6 rounded-lg">
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">1. GPS Time Correction</h3>
-                <div id="validation-gps-content">
-                    {% capture content %}{% include narrative/validation_gps.md %}{% endcapture %}
-                    {{ content | markdownify }}
-                </div>
+                <div id="validation-gps-content"></div>
             </div>
             <div class="bg-gray-900 p-6 rounded-lg">
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">2. Mercury's Orbital Precession</h3>
                 <div class="canvas-container !aspect-video !min-h-[250px]">
                     <canvas id="mercury-canvas"></canvas>
                 </div>
-                <div id="validation-mercury-content">
-                    {% capture content %}{% include narrative/validation_mercury.md %}{% endcapture %}
-                    {{ content | markdownify }}
-                </div>
+                <div id="validation-mercury-content"></div>
             </div>
         </div>
     </div>
 </section>
-
 <section id="dynamics" class="scroll-mt-20">
-    <div id="dynamics-content">
-        {% capture content %}{% include narrative/dynamics.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="dynamics-content"></div>
 </section>
-
 <section id="conclusion" class="scroll-mt-20">
-    <div id="conclusion-content">
-        {% capture content %}{% include narrative/conclusion.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
+    <div id="conclusion-content"></div>
 </section>
-
-</main>
-
-<footer class="text-center py-10 border-t border-gray-700 mt-20">
-    <p class="text-gray-400">Based on the work "WILL: Unified Framework" by Anton Rize.</p>
-    <p class="text-sm text-gray-500 mt-2">
-        For the full mathematical theory, see:
-        <a href="https://antonrize.github.io/WILL/parts/" class="text-cyan-400 hover:underline">Full Papers & Results</a>
-        &
-        <a href="https://antonrize.github.io/WILL/results/" class="text-cyan-400 hover:underline">Results & Applications</a>
-    </p>
-</footer>
-
-</body>
-</html>
