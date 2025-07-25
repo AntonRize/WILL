@@ -723,12 +723,6 @@ permalink: /interactive.html
 
 </main>
 
-<footer class="text-center py-10 border-t border-gray-700 mt-20">
-    <p class="text-gray-400">Based on the work "WILL: Unified Framework" by Anton Rize.</p>
-    <p class="text-sm text-gray-500 mt-2">For the full mathematical theory, see: 
-        <a href="https://antonrize.github.io/WILL/parts/" class="text-cyan-400 hover:underline">Full Papers & Results</a> & 
-        <a href="https://antonrize.github.io/WILL/results/" class="text-cyan-400 hover:underline">Results & Applications</a>
-    </p>
 
 <footer class="text-center py-10 border-t border-gray-700 mt-20">
     <p class="text-gray-400">Based on the work "WILL: Unified Framework" by Anton Rize.</p>
@@ -743,7 +737,7 @@ permalink: /interactive.html
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-    /*  =========  Global Elements & State  =========  */
+    /* --------  Global Elements & State  -------- */
     const elements = {
         navLinks: document.querySelectorAll('.nav-link'),
         sections: document.querySelectorAll('section[id]'),
@@ -770,13 +764,14 @@ document.addEventListener('DOMContentLoaded', () => {
             canvas: document.getElementById('unification-canvas'),
             photonIndicator: document.getElementById('photon-sphere-indicator'),
             displays: {
-                kappa: document.getElementById('unif-kappa-value'),
-                beta:  document.getElementById('unif-beta-value'),
+                kappa:  document.getElementById('unif-kappa-display'),
+                beta:   document.getElementById('unif-beta-value'),
                 thetaG: document.getElementById('unif-thetaG-value'),
                 thetaS: document.getElementById('unif-thetaS-value'),
-                Tc: document.getElementById('unif-Tc-value'),
-                Lc: document.getElementById('unif-Lc-value'),
-                kappaSlider: document.getElementById('unif-kappa-display')
+                Tc:     document.getElementById('unif-Tc-value'),
+                Lc:     document.getElementById('unif-Lc-value'),
+                Qsq:    document.getElementById('unif-Qsq-value'),
+                radius: document.getElementById('unif-radius-value')
             },
             ctx: null
         },
@@ -789,7 +784,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    /*  =========  Canvas Setup  =========  */
+    /* --------  Canvas Setup  -------- */
     const setupCanvas = (canvas) => {
         if (!canvas) return null;
         const dpr = window.devicePixelRatio || 1;
@@ -802,28 +797,248 @@ document.addEventListener('DOMContentLoaded', () => {
         return ctx;
     };
 
-    /*  =========  Drawing Functions  =========  */
-    function drawEmc2()   { /* unchanged */ }
-    function drawGR()     { /* unchanged */ }
-    function drawUnification() { /* unchanged */ }
-    function animateMercury()  { /* unchanged */ }
+    /* --------  Drawing Functions  -------- */
+    function drawEmc2() {
+        if (!elements.emc2.ctx) return;
+        const ctx = elements.emc2.ctx;
+        const { clientWidth: width, clientHeight: height } = elements.emc2.canvas;
+        ctx.clearRect(0, 0, width, height);
 
-    /*  =========  Update Functions  =========  */
-    function updateEmc2() { /* unchanged */ }
-    function updateGR()   { /* unchanged */ }
+        const beta = parseFloat(elements.emc2.slider.value);
+        if (beta >= 1) return;
+        const gamma = 1 / Math.sqrt(1 - beta * beta);
+        const p_val = gamma * beta;
 
-    /*  =========  FIXED: updateUnification  =========  */
+        const padding = 40;
+        const E0_height = Math.min(height / 3, 100);
+        const max_p_width = width - padding * 2;
+        const p_width = p_val * (max_p_width / 4);
+
+        const origin = { x: padding, y: height - padding };
+        const p_end  = { x: origin.x + p_width, y: origin.y };
+        const E0_end = { x: p_end.x, y: p_end.y - E0_height };
+
+        ctx.beginPath();
+        ctx.moveTo(origin.x, origin.y);
+        ctx.lineTo(p_end.x, p_end.y);
+        ctx.lineTo(E0_end.x, E0_end.y);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(45, 212, 191, 0.1)';
+        ctx.fill();
+        ctx.strokeStyle = '#2DD4BF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(origin.x, origin.y);
+        ctx.lineTo(E0_end.x, E0_end.y);
+        ctx.strokeStyle = '#5EEAD4';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.fillStyle = '#E5E7EB';
+        ctx.font = 'bold 14px Inter';
+        ctx.textAlign = 'center';
+        ctx.fillText('pc', origin.x + p_width / 2, origin.y + 20);
+        ctx.textAlign = 'left';
+        ctx.fillText('m₀c²', p_end.x + 10, origin.y - E0_height / 2);
+
+        ctx.save();
+        ctx.translate(origin.x + p_width / 2, origin.y - E0_height / 2);
+        ctx.rotate(Math.atan2(-E0_height, p_width));
+        ctx.textAlign = 'center';
+        ctx.fillText('E', 0, -10);
+        ctx.restore();
+    }
+
+    function drawGR() {
+        if (!elements.gr.ctx) return;
+        const ctx = elements.gr.ctx;
+        const { clientWidth: width, clientHeight: height } = elements.gr.canvas;
+        ctx.clearRect(0, 0, width, height);
+
+        const kappa = parseFloat(elements.gr.slider.value);
+        if (kappa >= 1) return;
+        const tc = Math.sqrt(1 - kappa * kappa);
+
+        const center = { x: width / 2, y: height / 2 };
+        const radius = Math.min(width, height) * 0.45;
+
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = '#4B5563';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        const xPos = center.x + radius * tc;
+        const yPos = center.y - radius * kappa;
+
+        ctx.beginPath();
+        ctx.moveTo(center.x, center.y);
+        ctx.lineTo(xPos, center.y);
+        ctx.strokeStyle = '#9CA3AF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.fillStyle = '#D1D5DB';
+        ctx.font = 'bold 14px Inter';
+        ctx.textAlign = 'center';
+        ctx.fillText('T_c', center.x + radius * tc / 2, center.y + 20);
+
+        ctx.beginPath();
+        ctx.moveTo(xPos, center.y);
+        ctx.lineTo(xPos, yPos);
+        ctx.strokeStyle = '#2DD4BF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.textAlign = 'left';
+        ctx.fillText('κ', xPos + 10, center.y - radius * kappa / 2);
+
+        ctx.beginPath();
+        ctx.moveTo(center.x, center.y);
+        ctx.lineTo(xPos, yPos);
+        ctx.strokeStyle = '#5EEAD4';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+    }
+
+    function drawUnification() {
+        if (!elements.unif.ctx) return;
+        const ctx = elements.unif.ctx;
+        const { clientWidth: width, clientHeight: height } = elements.unif.canvas;
+        ctx.clearRect(0, 0, width, height);
+
+        const kappa = parseFloat(elements.unif.slider.value);
+        const beta  = Math.sqrt(kappa * kappa / 2);
+
+        const center = { x: width / 2, y: height / 2 };
+        const radius = Math.min(width, height) * 0.45;
+
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = '#4B5563';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        const thetaG_rad = Math.asin(kappa > 1 ? 1 : kappa);
+        const tc = Math.cos(thetaG_rad);
+        const grX = center.x + radius * tc;
+        const grY = center.y - radius * kappa;
+
+        ctx.beginPath();
+        ctx.moveTo(center.x, center.y);
+        ctx.lineTo(grX, grY);
+        ctx.strokeStyle = '#A78BFA';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        const thetaS_rad = Math.acos(beta > 1 ? 1 : beta);
+        const lc = Math.sin(thetaS_rad);
+        const srX = center.x + radius * beta;
+        const srY = center.y - radius * lc;
+
+        ctx.beginPath();
+        ctx.moveTo(center.x, center.y);
+        ctx.lineTo(srX, srY);
+        ctx.strokeStyle = '#2DD4BF';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.fillStyle = '#E5E7EB';
+        ctx.font = 'bold 14px Inter';
+        ctx.fillText('κ', grX - 25, grY);
+        ctx.fillText('β', srX, srY + 25);
+    }
+
+    function animateMercury() {
+        if (!elements.mercury.ctx) {
+            elements.mercury.animationFrameId = requestAnimationFrame(animateMercury);
+            return;
+        }
+        const ctx = elements.mercury.ctx;
+        const { clientWidth: width, clientHeight: height } = elements.mercury.canvas;
+        ctx.clearRect(0, 0, width, height);
+
+        const center = { x: width / 2, y: height / 2 };
+        const a = width * 0.45;
+        const b = a * 0.8;
+
+        elements.mercury.orbitAngle += 0.02;
+        elements.mercury.precessionAngle += 0.0001;
+        if (elements.mercury.orbitAngle > 2 * Math.PI) elements.mercury.orbitAngle -= 2 * Math.PI;
+
+        ctx.fillStyle = '#FBBF24';
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, 8, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.save();
+        ctx.translate(center.x, center.y);
+        ctx.rotate(elements.mercury.precessionAngle);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, a, b, 0, 0, 2 * Math.PI);
+        ctx.strokeStyle = 'rgba(45, 212, 191, 0.7)';
+        ctx.setLineDash([]);
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        const planetX = a * Math.cos(elements.mercury.orbitAngle);
+        const planetY = b * Math.sin(elements.mercury.orbitAngle);
+        ctx.fillStyle = '#E5E7EB';
+        ctx.beginPath();
+        ctx.arc(planetX, planetY, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.restore();
+
+        elements.mercury.animationFrameId = requestAnimationFrame(animateMercury);
+    }
+
+    /* --------  Update Functions  -------- */
+    function updateEmc2() {
+        if (!elements.emc2.slider) return;
+        const beta = parseFloat(elements.emc2.slider.value);
+        elements.emc2.value.textContent = beta.toFixed(3);
+        if (beta < 1) {
+            const gamma = 1 / Math.sqrt(1 - beta * beta);
+            elements.emc2.pcValue.textContent = (gamma * beta).toFixed(3);
+            elements.emc2.energyValue.textContent = gamma.toFixed(3);
+        } else {
+            elements.emc2.pcValue.textContent = '∞';
+            elements.emc2.energyValue.textContent = '∞';
+        }
+        drawEmc2();
+    }
+
+    function updateGR() {
+        if (!elements.gr.slider) return;
+        const kappa = parseFloat(elements.gr.slider.value);
+        elements.gr.value.textContent = kappa.toFixed(3);
+        const kappa_sq = kappa * kappa;
+        if (kappa < 1) {
+            const radius = 1 / (kappa_sq || 0.00001);
+            const tc = Math.sqrt(1 - kappa_sq);
+            elements.gr.radiusValue.textContent = radius.toFixed(2);
+            elements.gr.timeContractionValue.textContent = tc.toFixed(3);
+            elements.gr.grTimeDilationValue.textContent = ((1 / tc - 1) * 100).toFixed(1) + '%';
+        } else {
+            elements.gr.radiusValue.textContent = '1.00';
+            elements.gr.timeContractionValue.textContent = '0.000';
+            elements.gr.grTimeDilationValue.textContent = '∞';
+        }
+        drawGR();
+    }
+
     function updateUnification() {
         if (!elements.unif.slider) return;
         const kappa = parseFloat(elements.unif.slider.value);
         const beta  = Math.sqrt(kappa * kappa / 2);
 
-        /*  declare combined_sq BEFORE using it  */
         const combined_sq = kappa * kappa + beta * beta;
+        const radius_rs   = kappa > 0 ? (1 / (kappa * kappa)).toFixed(2) : '∞';
 
         const thetaG_rad = Math.asin(kappa > 1 ? 1 : kappa);
-        const thetaS_rad = Math.acos(beta  > 1 ? 1 : beta);
+        const thetaS_rad = Math.acos(beta > 1 ? 1 : beta);
 
+        /* update the κ–β projection info box */
         const d = elements.unif.displays;
         d.kappa.textContent  = kappa.toFixed(3);
         d.beta.textContent   = beta.toFixed(3);
@@ -831,7 +1046,8 @@ document.addEventListener('DOMContentLoaded', () => {
         d.thetaS.textContent = (thetaS_rad * 180 / Math.PI).toFixed(2) + '°';
         d.Tc.textContent = Math.cos(thetaG_rad).toFixed(3);
         d.Lc.textContent = Math.sin(thetaS_rad).toFixed(3);
-        d.kappaSlider.textContent = kappa.toFixed(3);
+        d.Qsq.textContent    = combined_sq.toFixed(3);
+        d.radius.textContent = radius_rs;
 
         elements.unif.photonIndicator.style.opacity =
             Math.abs(combined_sq - 1.0) < 0.005 ? '1' : '0';
@@ -839,7 +1055,7 @@ document.addEventListener('DOMContentLoaded', () => {
         drawUnification();
     }
 
-    /*  =========  Initialization & Resize  =========  */
+    /* --------  Initialization & Resize  -------- */
     let resizeTimer;
     function initializeAndDrawAll() {
         elements.emc2.ctx   = setupCanvas(elements.emc2.canvas);
@@ -863,7 +1079,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function init() {
-        /* Nav highlighting */
+        /* nav highlighting */
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -878,7 +1094,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { root: null, rootMargin: '-20% 0px -70% 0px', threshold: 0 });
         elements.sections.forEach(section => section && observer.observe(section));
 
-        /* Event listeners */
+        /* listeners */
         if (elements.emc2.slider) elements.emc2.slider.addEventListener('input', updateEmc2);
         if (elements.gr.slider)   elements.gr.slider.addEventListener('input', updateGR);
         if (elements.unif.slider) elements.unif.slider.addEventListener('input', updateUnification);
