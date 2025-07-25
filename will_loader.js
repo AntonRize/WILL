@@ -35,12 +35,14 @@ fetch('narrative/will_narrative1.txt')
         });
     }
     for (let i = 0; i < headers.length; i++) {
-        let start = headers[i].start;
-        let end = (i+1 < headers.length) ? headers[i+1].start : text.length;
-        let header = headers[i].header;
-        let body = text.slice(start, end).replace(/^\*\*|^##/gm, '').trim();
-        sections.push({header, body});
-    }
+    let start = headers[i].start;
+    let end = (i+1 < headers.length) ? headers[i+1].start : text.length;
+    // Убираем любые звёздочки в конце заголовка
+    let header = headers[i].header.replace(/\*\*$/, '').trim();
+    let body = text.slice(start, end).replace(/^\*\*|^##/gm, '').trim();
+    sections.push({header, body});
+}
+
     // 4. Insert each section in the proper div by id
     for (const section of sections) {
         const id = sectionMap[section.header];
