@@ -1,62 +1,61 @@
-// 1. Map: section header text (as found in TXT) => html id (from your cleaned_interactive.html)
-const sectionMap = {
-    "What is This Page?": "postulate-content",
-    "Section 1: The Universe from a Single Principle": "postulate-content",
-    "Section 2: The Rules of the Game — A Foundation of Pure Logic": "postulate-content",
-    "Section 3: Act I – Motion as a Shadow on the Circle": "sr-content",
-    "How E = mc² Falls Out Naturally": "emc2-content",
-    "The Energy-Momentum Triangle": "emc2-triangle-content",
-    "Section 4: Act II – Gravity as a Shadow on the Sphere": "gr-content",
-    "Gravity and Time Dilation": "gr-dilation-content",
-    "Section 5: Unification – When the Circle Meets the Sphere": "unification-content",
-    "κ–β Projection": "unification-projection-content",
-    "Energy–Symmetry Law (Why No Free Lunch in the Universe)": "symmetry-content",
-    "The Whole Universe in a Single Line": "oneline-content",
-    "Section 7: Grounding the Vision – From Abstraction to Reality": "validation-content",
-    // Ключи исправлены, чтобы точно соответствовать заголовкам в текстовом файле
-    "1. Time Correction in the GPS System": "validation-gps-content",
-    "2. Precession of Mercury’s Orbit": "validation-mercury-content",
-    "Section 8: A New Reality of Change": "dynamics-content",
-    "Section 9: Conclusion — The World as a Projection": "conclusion-content"
-};
+document.addEventListener('DOMContentLoaded', function() {
+    // Карта, связывающая заголовки из текста с ID элементов на странице
+    const sectionMap = {
+        "What is This Page?": "postulate-content",
+        "Section 1: The Universe from a Single Principle": "postulate-content",
+        "Section 2: The Rules of the Game — A Foundation of Pure Logic": "postulate-content",
+        "Section 3: Act I – Motion as a Shadow on the Circle (Special Relativity)": "sr-content",
+        "How E = mc² Falls Out Naturally": "emc2-content",
+        "The Energy-Momentum Triangle": "emc2-triangle-content",
+        "Section 4: Act II – Gravity as a Shadow on the Sphere": "gr-content",
+        "Gravity and Time Dilation": "gr-dilation-content",
+        "Section 5: Unification – When the Circle Meets the Sphere": "unification-content",
+        "κ–β Projection": "unification-projection-content",
+        "Energy–Symmetry Law (Why No Free Lunch in the Universe)": "symmetry-content",
+        "The Whole Universe in a Single Line": "oneline-content",
+        "Section 7: Grounding the Vision – From Abstraction to Reality": "validation-content",
+        "1. Time Correction in the GPS System": "validation-gps-content",
+        "2. Precession of Mercury’s Orbit": "validation-mercury-content",
+        "Section 8: A New Reality of Change — Dynamics Without Time": "dynamics-content",
+        "Section 9: Conclusion — The World as a Projection": "conclusion-content"
+    };
 
-// 2. Load the narrative file (use relative path as served by github pages)
-fetch('narrative/will_narrative1.txt')
-.then(r => r.text())
-.then(text => {
-    // 3. Split into sections by header: match lines starting with ** or any number of #
-    const splitRegex = /^(#+|\*\*)\s?(.+)$/gm; // Более гибкое регулярное выражение
-    let sections = [];
-    let match;
-    let headers = [];
-    while ((match = splitRegex.exec(text)) !== null) {
-        headers.push({
-            header: match[2].trim(),
-            start: match.index
-        });
-    }
-    for (let i = 0; i < headers.length; i++) {
-        let start = headers[i].start;
-        let end = (i+1 < headers.length) ? headers[i+1].start : text.length;
-        // Убираем любые звёздочки в конце заголовка
-        let header = headers[i].header.replace(/\*\*$/, '').trim();
-        // Улучшенная логика для извлечения "тела" секции (убирает всю строку с заголовком)
-        let body = text.slice(start, end).replace(/^(#+|\*\*).*\r?\n/, '').trim();
-        sections.push({header, body});
-    }
-
-    // 4. Insert each section in the proper div by id
-    for (const section of sections) {
-        const id = sectionMap[section.header];
-        if (id && document.getElementById(id)) {
-            const targetElement = document.getElementById(id);
-            // Если в элементе уже есть контент, добавляем новый, а не заменяем
-            // Это нужно для секций, которые грузятся в один div (например, postulate-content)
-            if (targetElement.innerHTML.length > 0) {
-                 targetElement.innerHTML += marked.parse(section.body.trim());
-            } else {
-                 targetElement.innerHTML = marked.parse(section.body.trim());
+    fetch('narrative/will_narrative1.txt')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        }
-    }
+            return response.text();
+        })
+        .then(text => {
+            // Умный парсер, который не ломает абзацы
+            const sections = [];
+            let currentSection = null;
+
+            text.split('\n').forEach(line => {
+                // Проверяем, является ли строка заголовком (начинается с ## или **)
+                const match = line.match(/^(?:##|\*\*)\s*(.*?)\s*(?:\*\*)*$/);
+                if (match) {
+                    const header = match[1].trim();
+                    currentSection = { header: header, body: '' };
+                    sections.push(currentSection);
+                } else if (currentSection) {
+                    // Если это не заголовок, добавляем строку к телу текущей секции
+                    currentSection.body += line + '\n';
+                }
+            });
+
+            // Вставляем обработанные секции в нужные div
+            sections.forEach(section => {
+                const id = sectionMap[section.header];
+                if (id) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        // Используем +=, чтобы добавлять контент, а не перезаписывать его
+                        element.innerHTML += marked.parse(section.body);
+                    }
+                }
+            });
+        })
+        .catch(e => console.error('Ошибка загрузки или обработки текста:', e));
 });
