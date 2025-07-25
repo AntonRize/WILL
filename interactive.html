@@ -424,6 +424,14 @@ permalink: /interactive.html
                 </div>
                 <div class="flex flex-col justify-center">
                     <h3 class="text-2xl font-bold mb-4 text-gray-100">κ–β Projection</h3>
+                        <p class="text-gray-300 mb-6">
+          This plot shows how **kinetic share** (β) and **gravitational share** (κ)
+          must always respect the energy‑budget
+          <span class="font-mono">Q² = κ² + β² = 1</span>.  
+          The yellow dot marks the “photon sphere” where the total budget is maxed out.
+        </p>
+        <p>Q: <span id="unif-Q-value" class="highlight">1.000</span></p>
+
                     <label for="unif-slider" class="font-semibold text-gray-200">
                         Gravity (&kappa;): <span id="unif-kappa-display" class="highlight font-bold">0.500</span>
                     </label>
@@ -435,6 +443,7 @@ permalink: /interactive.html
                         <p>&theta;<sub>S</sub>: <span id="unif-thetaS-value" class="highlight">60.00°</span></p>
                         <p>T<sub>c</sub>: <span id="unif-Tc-value" class="highlight">0.866</span></p>
                         <p>L<sub>c</sub>: <span id="unif-Lc-value" class="highlight">0.500</span></p>
+                            html\n<p>Q: <span id=\"unif-Q-value\" class=\"highlight\">1.000</span></p>
                     </div>
                 </div>
             </div>
@@ -735,7 +744,7 @@ permalink: /interactive.html
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('load', () => {
 
     /* --------  Global Elements & State  -------- */
     const elements = {
@@ -765,6 +774,7 @@ document.addEventListener('DOMContentLoaded', () => {
             photonIndicator: document.getElementById('photon-sphere-indicator'),
             displays: {
                 kappa:  document.getElementById('unif-kappa-display'),
+                    js\nQ: document.getElementById('unif-Q-value'),
                 beta:   document.getElementById('unif-beta-value'),
                 thetaG: document.getElementById('unif-thetaG-value'),
                 thetaS: document.getElementById('unif-thetaS-value'),
@@ -789,6 +799,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!canvas) return null;
         const dpr = window.devicePixelRatio || 1;
         const rect = canvas.getBoundingClientRect();
+            if (!rect.width || !rect.height) {   // страница ещё не влезла в layout
+  requestAnimationFrame(() => setupCanvas(canvas)); // пробуем позже
+  return null;                        // выходим, чтобы не рисовать впустую
+            }
         if (rect.width === 0 || rect.height === 0) return null;
         canvas.width  = rect.width  * dpr;
         canvas.height = rect.height * dpr;
@@ -1033,25 +1047,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const beta  = Math.sqrt(kappa * kappa / 2);
 
         /* declare BEFORE use */
-        const combined_sq = kappa * kappa + beta * beta;
-        const radius_rs   = kappa > 0 ? (1 / (kappa * kappa)).toFixed(2) : '∞';
-
-        const thetaG_rad = Math.asin(kappa > 1 ? 1 : kappa);
-        const thetaS_rad = Math.acos(beta  > 1 ? 1 : beta);
-
-        const d = elements.unif.displays;
-        d.kappa.textContent  = kappa.toFixed(3);
-        d.beta.textContent   = beta.toFixed(3);
-        d.thetaG.textContent = (thetaG_rad * 180 / Math.PI).toFixed(2) + '°';
-        d.thetaS.textContent = (thetaS_rad * 180 / Math.PI).toFixed(2) + '°';
-        d.Tc.textContent = Math.cos(thetaG_rad).toFixed(3);
-        d.Lc.textContent = Math.sin(thetaS_rad).toFixed(3);
-        d.Qsq.textContent    = combined_sq.toFixed(3);
-        d.radius.textContent = radius_rs;
-
-        elements.unif.photonIndicator.style.opacity =
-            Math.abs(combined_sq - 1.0) < 0.005 ? '1' : '0';
-
+      js\nconst Q = Math.hypot(kappa, beta);\nconst radius = Math.min(elements.unif.canvas.clientWidth,\n elements.unif.canvas.clientHeight) * 0.45;\nconst cX = elements.unif.canvas.clientWidth / 2;\nconst cY = elements.unif.canvas.clientHeight / 2;\nconst indX = cX + (beta / Q) * radius;\nconst indY = cY - (kappa / Q) * radius;\n\nelements.unif.photonIndicator.style.transform =\n `translate(${indX}px, ${indY}px) translate(-50%,-50%)`;\nelements.unif.photonIndicator.style.opacity = Math.abs(Q - 1) < 0.005 ? '1' : '0';\n\nd.Q.textContent = Q.toFixed(3);
         drawUnification();
     }
 
