@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Карта, связывающая заголовки из текста с ID элементов на странице
+    // 1. Карта: Заголовок в текстовом файле => ID элемента в HTML
     const sectionMap = {
         "What is This Page?": "postulate-content",
         "Section 1: The Universe from a Single Principle": "postulate-content",
@@ -28,34 +28,53 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         })
         .then(text => {
-            // Умный парсер, который не ломает абзацы
+            // Новый, надежный парсер, который обрабатывает текст построчно, сохраняя абзацы.
             const sections = [];
-            let currentSection = null;
+            let currentBody = '';
+            let currentHeader = null;
 
-            text.split('\n').forEach(line => {
-                // Проверяем, является ли строка заголовком (начинается с ## или **)
-                const match = line.match(/^(?:##|\*\*)\s*(.*?)\s*(?:\*\*)*$/);
+            // Разбиваем на строки, чтобы обработать каждую индивидуально
+            const lines = text.split(/\r?\n/);
+
+            for (const line of lines) {
+                // Ищем заголовки, которые начинаются с '## '
+                const match = line.match(/^##\s+(.*)/);
+
                 if (match) {
-                    const header = match[1].trim();
-                    currentSection = { header: header, body: '' };
-                    sections.push(currentSection);
-                } else if (currentSection) {
-                    // Если это не заголовок, добавляем строку к телу текущей секции
-                    currentSection.body += line + '\n';
+                    // Если мы нашли новый заголовок, сохраняем предыдущую секцию
+                    if (currentHeader) {
+                        sections.push({ header: currentHeader, body: currentBody });
+                    }
+                    // Начинаем новую секцию
+                    currentHeader = match[1].trim();
+                    currentBody = '';
+                } else {
+                    // Если это не заголовок, просто добавляем строку к телу текущей секции.
+                    // Важно: добавляем `\n`, чтобы сохранить переносы строк для Markdown-парсера.
+                    currentBody += line + '\n';
                 }
-            });
+            }
 
-            // Вставляем обработанные секции в нужные div
+            // Не забываем сохранить самую последнюю секцию после окончания цикла
+            if (currentHeader) {
+                sections.push({ header: currentHeader, body: currentBody });
+            }
+
+            // 5. Вставляем контент в нужные места на странице
             sections.forEach(section => {
                 const id = sectionMap[section.header];
                 if (id) {
                     const element = document.getElementById(id);
                     if (element) {
-                        // Используем +=, чтобы добавлять контент, а не перезаписывать его
+                        // `marked.parse` теперь получит текст с переносами строк и создаст <p> теги
                         element.innerHTML += marked.parse(section.body);
+                    } else {
+                        console.warn(`HTML элемент с id '${id}' не найден для заголовка '${section.header}'`);
                     }
+                } else {
+                     console.warn(`Заголовок '${section.header}' не найден в sectionMap.`);
                 }
             });
         })
-        .catch(e => console.error('Ошибка загрузки или обработки текста:', e));
+        .catch(e => console.error('Критическая ошибка при загрузке или обработке narrative.txt:', e));
 });
