@@ -417,32 +417,54 @@ permalink: /interactive.html
             Imagine you have a bucket of paint. You can use it to draw a line around a circle (one‑dimensional) or you can use it to cover the surface of a sphere (two‑dimensional). No matter how you use it, your total paint doesn’t change — but the way it “spreads” over these shapes is fundamentally different. This is exactly what happens with energy in the universe: sometimes it shows up as <em>motion</em> (moving around the circle) and sometimes as <em>gravity</em> (spread over the sphere). But both are just different ways of splitting up the same “energy budget.”
         </p>
         <div class="interactive-container">
-                <div class="canvas-container relative">
-                    <canvas id="unification-canvas"></canvas>
-                </div>
-                <div class="flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-100">κ–β Projection</h3>
-                    <p class="text-gray-300 mb-6">
-                        This plot shows the relationship between the <strong>kinetic share (β)</strong> and <strong>gravitational share (κ)</strong>. Use the slider to set the system's total energy budget <span class="font-mono">(Q²)</span> and see how it's partitioned according to the model's core rule: <span class="highlight font-mono">κ² = 2β²</span>.
-                    </p>
-                    
-                    <label for="unif-slider" class="font-semibold text-gray-200">
-                        Total Energy Share (Q²): <span id="unif-q2-display" class="highlight font-bold">1.00</span>
-                    </label>
-                    <input type="range" id="unif-slider" min="0" max="3" value="1" step="0.01" class="slider mt-2 mb-4">
-                    
-                    <div class="space-y-1 text-sm">
-                        <p><strong class="text-cyan-400 w-24 inline-block font-mono">Q² (Total):</strong> <span id="unif-q2-value" class="highlight">1.000</span></p>
-                        <p><strong class="text-cyan-400 w-24 inline-block font-mono">Q (Magnitude):</strong> <span id="unif-Q-value" class="highlight">1.000</span></p>
-                        <hr class="border-gray-600 my-1">
-                        <p><strong class="text-purple-400 w-24 inline-block font-mono">κ (Gravity):</strong> <span id="unif-kappa-value" class="highlight">0.816</span></p>
-                        <p><strong class="text-teal-400 w-24 inline-block font-mono">β (Kinetic):</strong> <span id="unif-beta-value" class="highlight">0.577</span></p>
-                        <hr class="border-gray-600 my-1">
-                        <p><strong class="text-purple-400 w-24 inline-block font-mono">T_c (Grav. Time):</strong> <span id="unif-Tc-value" class="highlight">0.577</span></p>
-                        <p><strong class="text-teal-400 w-24 inline-block font-mono">γ⁻¹ (Kin. Time):</strong> <span id="unif-Lc-value" class="highlight">0.816</span></p>
-                    </div>
-                </div>
+    <div class="flex flex-col justify-center">
+        <h3 class="text-2xl font-bold mb-4 text-gray-100">κ–β Projection</h3>
+        <p class="text-gray-300 mb-6">
+            This plot visualizes the deep connection between the kinetic (β) and gravitational (κ) shares of energy. The slider now controls the total energy budget, <span class="font-mono highlight">Q²</span>. Notice how all parameters adjust according to the model's core geometric rule: <span class="font-mono highlight">κ² = 2β²</span>.
+        </p>
+        <p class="text-gray-300 mb-6">
+            At the special value <span class="font-mono highlight">Q² = 1</span>, a unique state emerges: the **photon sphere**. This isn't an arbitrary condition, but a natural geometric consequence where the gravitational and kinetic angles become equal (<span class="font-mono highlight">θ_G = θ_S</span>), perfectly balancing the system.
+        </p>
+
+        <label for="unif-slider" class="font-semibold text-gray-200">
+            Total Energy Share (Q²): <span id="unif-q2-display" class="highlight font-bold">1.000</span>
+        </label>
+        <input type="range" id="unif-slider" min="0" max="1.5" value="1" step="0.001" class="slider mt-2 mb-6">
+
+        <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-lg">
+            <div>
+                <p>κ (Gravity):</p>
+                <p class="highlight" id="unif-kappa-value">0.816</p>
             </div>
+            <div>
+                <p>β (Kinetic):</p>
+                <p class="highlight" id="unif-beta-value">0.577</p>
+            </div>
+            <div>
+                <p>θ_G (from κ):</p>
+                <p class="highlight" id="unif-thetaG-value">54.74°</p>
+            </div>
+             <div>
+                <p>θ_S (from β):</p>
+                <p class="highlight" id="unif-thetaS-value">54.74°</p>
+            </div>
+            <div>
+                <p>T_c = cos(θ_G):</p>
+                <p class="highlight" id="unif-Tc-value">0.577</p>
+            </div>
+            <div>
+                <p>L_c = sin(θ_S):</p>
+                <p class="highlight" id="unif-Lc-value">0.816</p>
+            </div>
+        </div>
+        <div class="equation-box text-base mt-6">
+            Q² = κ² + β² = <span id="unif-Qsq-value" class="font-bold">1.000</span>
+        </div>
+    </div>
+    <div class="canvas-container relative">
+        <canvas id="unification-canvas"></canvas>
+    </div>
+</div>
 
 
         <div class="max-w-3xl mx-auto">
@@ -920,50 +942,96 @@ window.addEventListener('load', () => {
     const beta = Math.sqrt(Q_sq / 3);
     const kappa = Math.sqrt(2 * Q_sq / 3);
 
-    const padding = 30;
-    const origin = { x: padding, y: height - padding };
-
-    const scale = (width - padding * 2) / 1.05;
-
-    ctx.strokeStyle = '#4B5563';
-    ctx.lineWidth = 1;
+    const center = { x: width / 2, y: height / 2 };
+    const radius = Math.min(width, height) * 0.4;
+    
+    // Draw grid
+    ctx.strokeStyle = '#374151'; // Darker grid
+    ctx.lineWidth = 0.5;
+    for (let i = 1; i <= 4; i++) {
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, radius * (i / 4), 0, 2 * Math.PI);
+        ctx.stroke();
+    }
     ctx.beginPath();
-    ctx.moveTo(origin.x, origin.y);
-    ctx.lineTo(width - padding, origin.y);
-    ctx.moveTo(origin.x, origin.y);
-    ctx.lineTo(origin.x, padding);
+    ctx.moveTo(center.x, center.y - radius);
+    ctx.lineTo(center.x, center.y + radius);
+    ctx.moveTo(center.x - radius, center.y);
+    ctx.lineTo(center.x + radius, center.y);
     ctx.stroke();
 
-    ctx.fillStyle = '#9CA3AF';
-    ctx.font = 'bold 14px Inter';
-    ctx.fillText('β', width - padding - 10, origin.y + 15);
-    ctx.fillText('κ', origin.x - 20, padding + 10);
-
+    // Draw main unit circle
     ctx.beginPath();
-    ctx.moveTo(origin.x, origin.y);
-    const lineEndX = origin.x + 1 * scale;
-    const lineEndY = origin.y - Math.sqrt(2) * 1 * scale;
-    ctx.lineTo(lineEndX, lineEndY);
-    ctx.strokeStyle = '#5EEAD4';
+    ctx.arc(center.x, center.y, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = '#6B7280'; // Main circle
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    if (kappa > 1 || beta > 1) return; // Don't draw triangles if params are non-physical for this viz
+
+    // --- Draw Gravity Triangle (κ) ---
+    const tc_val = Math.sqrt(1 - kappa * kappa);
+    const grav_x = center.x + tc_val * radius;
+    const grav_y = center.y - kappa * radius;
+
+    // Tc line
+    ctx.beginPath();
+    ctx.moveTo(center.x, center.y);
+    ctx.lineTo(grav_x, center.y);
+    ctx.strokeStyle = '#A78BFA'; // Purple for gravity components
     ctx.lineWidth = 2;
-    ctx.setLineDash([5, 5]);
     ctx.stroke();
-    ctx.setLineDash([]);
 
-    const pointX = origin.x + beta * scale;
-    const pointY = origin.y - kappa * scale;
-
+    // kappa line
     ctx.beginPath();
-    ctx.moveTo(origin.x, origin.y);
-    ctx.lineTo(pointX, pointY);
-    ctx.strokeStyle = '#FBBF24';
+    ctx.moveTo(grav_x, center.y);
+    ctx.lineTo(grav_x, grav_y);
+    ctx.stroke();
+
+    // Hypotenuse
+    ctx.beginPath();
+    ctx.moveTo(center.x, center.y);
+    ctx.lineTo(grav_x, grav_y);
+    ctx.strokeStyle = '#C4B5FD';
     ctx.lineWidth = 3;
     ctx.stroke();
 
+    // --- Draw Kinetic Triangle (β) ---
+    const lc_val = Math.sqrt(1 - beta * beta);
+    const kin_x = center.x + beta * radius;
+    const kin_y = center.y + lc_val * radius;
+
+    // beta line
     ctx.beginPath();
-    ctx.arc(pointX, pointY, 6, 0, 2 * Math.PI);
-    ctx.fillStyle = '#FBBF24';
-    ctx.fill();
+    ctx.moveTo(center.x, center.y);
+    ctx.lineTo(kin_x, center.y);
+    ctx.strokeStyle = '#2DD4BF'; // Teal for kinetic components
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    
+    // Lc line
+    ctx.beginPath();
+    ctx.moveTo(kin_x, center.y);
+    ctx.lineTo(kin_x, kin_y);
+    ctx.stroke();
+
+    // Hypotenuse
+    ctx.beginPath();
+    ctx.moveTo(center.x, center.y);
+    ctx.lineTo(kin_x, kin_y);
+    ctx.strokeStyle = '#5EEAD4';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Labels
+    ctx.fillStyle = '#E5E7EB';
+    ctx.font = 'bold 14px Inter';
+    ctx.textAlign = 'center';
+    ctx.fillText('T_c', center.x + (grav_x - center.x) / 2, center.y + 18);
+    ctx.fillText('β', center.x + (kin_x - center.x) / 2, center.y - 8);
+    ctx.textAlign = 'left';
+    ctx.fillText('κ', grav_x + 8, center.y - (center.y - grav_y) / 2);
+    ctx.fillText('L_c', kin_x + 8, center.y + (kin_y - center.y) / 2);
 }
 
     function animateMercury() {
@@ -1044,27 +1112,33 @@ window.addEventListener('load', () => {
         drawGR();
     }
 
-        function updateUnification() {
+     function updateUnification() {
     if (!elements.unif.slider) return;
 
     const Q_sq = parseFloat(elements.unif.slider.value);
-    const Q = Math.sqrt(Q_sq);
-
+    
+    // Core model logic
     const beta = Math.sqrt(Q_sq / 3);
     const kappa = Math.sqrt(2 * Q_sq / 3);
 
-    const Tc = (kappa <= 1) ? Math.sqrt(1 - kappa * kappa) : 0;
-    const Lc = (beta <= 1) ? Math.sqrt(1 - beta * beta) : 0;
+    // Derived parameters
+    const thetaG_rad = (kappa <= 1) ? Math.asin(kappa) : Math.PI / 2;
+    const thetaS_rad = (beta <= 1) ? Math.acos(beta) : 0;
+    const Tc = Math.cos(thetaG_rad);
+    const Lc = Math.sin(thetaS_rad);
 
-    document.getElementById('unif-q2-display').textContent = Q_sq.toFixed(2);
-
-    document.getElementById('unif-q2-value').textContent = Q_sq.toFixed(3);
-    elements.unif.displays.Q.textContent = Q.toFixed(3);
-    elements.unif.displays.kappa.textContent = kappa.toFixed(3);
-    elements.unif.displays.beta.textContent = beta.toFixed(3);
-    elements.unif.displays.Tc.textContent = (kappa <= 1) ? Tc.toFixed(3) : 'non-real'; 
-    elements.unif.displays.Lc.textContent = (beta <= 1) ? Lc.toFixed(3) : 'non-real';
-
+    // Update displays
+    const d = elements.unif.displays;
+    document.getElementById('unif-q2-display').textContent = Q_sq.toFixed(3);
+    
+    d.kappa.textContent = kappa.toFixed(3);
+    d.beta.textContent = beta.toFixed(3);
+    d.thetaG.textContent = (thetaG_rad * 180 / Math.PI).toFixed(2) + '°';
+    d.thetaS.textContent = (thetaS_rad * 180 / Math.PI).toFixed(2) + '°';
+    d.Tc.textContent = Tc.toFixed(3);
+    d.Lc.textContent = Lc.toFixed(3);
+    d.Qsq.textContent = (kappa*kappa + beta*beta).toFixed(3);
+    
     drawUnification();
 }
     /* --------  Initialization & Resize  -------- */
