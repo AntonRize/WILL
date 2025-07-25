@@ -1027,18 +1027,18 @@ document.addEventListener('DOMContentLoaded', () => {
         drawGR();
     }
 
-    function updateUnification() {
+        function updateUnification() {
         if (!elements.unif.slider) return;
         const kappa = parseFloat(elements.unif.slider.value);
         const beta  = Math.sqrt(kappa * kappa / 2);
 
+        /* declare BEFORE use */
         const combined_sq = kappa * kappa + beta * beta;
         const radius_rs   = kappa > 0 ? (1 / (kappa * kappa)).toFixed(2) : '∞';
 
         const thetaG_rad = Math.asin(kappa > 1 ? 1 : kappa);
-        const thetaS_rad = Math.acos(beta > 1 ? 1 : beta);
+        const thetaS_rad = Math.acos(beta  > 1 ? 1 : beta);
 
-        /* update the κ–β projection info box */
         const d = elements.unif.displays;
         d.kappa.textContent  = kappa.toFixed(3);
         d.beta.textContent   = beta.toFixed(3);
