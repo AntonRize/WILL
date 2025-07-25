@@ -416,38 +416,33 @@ permalink: /interactive.html
         <p class="narrative-text">
             Imagine you have a bucket of paint. You can use it to draw a line around a circle (one‑dimensional) or you can use it to cover the surface of a sphere (two‑dimensional). No matter how you use it, your total paint doesn’t change — but the way it “spreads” over these shapes is fundamentally different. This is exactly what happens with energy in the universe: sometimes it shows up as <em>motion</em> (moving around the circle) and sometimes as <em>gravity</em> (spread over the sphere). But both are just different ways of splitting up the same “energy budget.”
         </p>
-        <div class="card mt-8">
-            <div class="interactive-container">
+        <div class="interactive-container">
                 <div class="canvas-container relative">
                     <canvas id="unification-canvas"></canvas>
-                    <div id="photon-sphere-indicator" class="absolute w-2 h-2 bg-yellow-300 rounded-full" style="opacity:0;"></div>
                 </div>
                 <div class="flex flex-col justify-center">
                     <h3 class="text-2xl font-bold mb-4 text-gray-100">κ–β Projection</h3>
-                        <p class="text-gray-300 mb-6">
-          This plot shows how **kinetic share** (β) and **gravitational share** (κ)
-          must always respect the energy‑budget
-          <span class="font-mono">Q² = κ² + β² = 1</span>.  
-          The yellow dot marks the “photon sphere” where the total budget is maxed out.
-        </p>
-        <p>Q: <span id="unif-Q-value" class="highlight">1.000</span></p>
-
+                    <p class="text-gray-300 mb-6">
+                        This plot shows the relationship between the <strong>kinetic share (β)</strong> and <strong>gravitational share (κ)</strong>. Use the slider to set the system's total energy budget <span class="font-mono">(Q²)</span> and see how it's partitioned according to the model's core rule: <span class="highlight font-mono">κ² = 2β²</span>.
+                    </p>
+                    
                     <label for="unif-slider" class="font-semibold text-gray-200">
-                        Gravity (&kappa;): <span id="unif-kappa-display" class="highlight font-bold">0.500</span>
+                        Total Energy Share (Q²): <span id="unif-q2-display" class="highlight font-bold">1.00</span>
                     </label>
-                    <input type="range" id="unif-slider" min="0" max="1.414" value="0.5" step="0.001" class="slider mt-2 mb-4">
-                    <div class="space-y-2 text-lg">
-                        <p>&kappa;: <span id="unif-kappa-value" class="highlight">0.500</span></p>
-                        <p>&beta;: <span id="unif-beta-value" class="highlight">0.354</span></p>
-                        <p>&theta;<sub>G</sub>: <span id="unif-thetaG-value" class="highlight">30.00°</span></p>
-                        <p>&theta;<sub>S</sub>: <span id="unif-thetaS-value" class="highlight">60.00°</span></p>
-                        <p>T<sub>c</sub>: <span id="unif-Tc-value" class="highlight">0.866</span></p>
-                        <p>L<sub>c</sub>: <span id="unif-Lc-value" class="highlight">0.500</span></p>
-                            <p>Q: <span id=\"unif-Q-value\" class=\"highlight\">1.000</span></p>
+                    <input type="range" id="unif-slider" min="0" max="3" value="1" step="0.01" class="slider mt-2 mb-4">
+                    
+                    <div class="space-y-1 text-sm">
+                        <p><strong class="text-cyan-400 w-24 inline-block font-mono">Q² (Total):</strong> <span id="unif-q2-value" class="highlight">1.000</span></p>
+                        <p><strong class="text-cyan-400 w-24 inline-block font-mono">Q (Magnitude):</strong> <span id="unif-Q-value" class="highlight">1.000</span></p>
+                        <hr class="border-gray-600 my-1">
+                        <p><strong class="text-purple-400 w-24 inline-block font-mono">κ (Gravity):</strong> <span id="unif-kappa-value" class="highlight">0.816</span></p>
+                        <p><strong class="text-teal-400 w-24 inline-block font-mono">β (Kinetic):</strong> <span id="unif-beta-value" class="highlight">0.577</span></p>
+                        <hr class="border-gray-600 my-1">
+                        <p><strong class="text-purple-400 w-24 inline-block font-mono">T_c (Grav. Time):</strong> <span id="unif-Tc-value" class="highlight">0.577</span></p>
+                        <p><strong class="text-teal-400 w-24 inline-block font-mono">γ⁻¹ (Kin. Time):</strong> <span id="unif-Lc-value" class="highlight">0.816</span></p>
                     </div>
                 </div>
             </div>
-        </div>
 
 
         <div class="max-w-3xl mx-auto">
@@ -915,53 +910,61 @@ window.addEventListener('load', () => {
         ctx.stroke();
     }
 
-    function drawUnification() {
-        if (!elements.unif.ctx) return;
-        const ctx = elements.unif.ctx;
-        const { clientWidth: width, clientHeight: height } = elements.unif.canvas;
-        ctx.clearRect(0, 0, width, height);
+   function drawUnification() {
+    if (!elements.unif.ctx) return;
+    const ctx = elements.unif.ctx;
+    const { clientWidth: width, clientHeight: height } = elements.unif.canvas;
+    ctx.clearRect(0, 0, width, height);
 
-        const kappa = parseFloat(elements.unif.slider.value);
-        const beta  = Math.sqrt(kappa * kappa / 2);
+    const Q_sq = parseFloat(elements.unif.slider.value);
+    const beta = Math.sqrt(Q_sq / 3);
+    const kappa = Math.sqrt(2 * Q_sq / 3);
 
-        const center = { x: width / 2, y: height / 2 };
-        const radius = Math.min(width, height) * 0.45;
+    const padding = 30;
+    const origin = { x: padding, y: height - padding };
 
-        ctx.beginPath();
-        ctx.arc(center.x, center.y, radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = '#4B5563';
-        ctx.lineWidth = 1;
-        ctx.stroke();
+    const scale = (width - padding * 2) / 1.05;
 
-        const thetaG_rad = Math.asin(kappa > 1 ? 1 : kappa);
-        const tc = Math.cos(thetaG_rad);
-        const grX = center.x + radius * tc;
-        const grY = center.y - radius * kappa;
+    ctx.strokeStyle = '#4B5563';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(origin.x, origin.y);
+    ctx.lineTo(width - padding, origin.y);
+    ctx.moveTo(origin.x, origin.y);
+    ctx.lineTo(origin.x, padding);
+    ctx.stroke();
 
-        ctx.beginPath();
-        ctx.moveTo(center.x, center.y);
-        ctx.lineTo(grX, grY);
-        ctx.strokeStyle = '#A78BFA';
-        ctx.lineWidth = 3;
-        ctx.stroke();
+    ctx.fillStyle = '#9CA3AF';
+    ctx.font = 'bold 14px Inter';
+    ctx.fillText('β', width - padding - 10, origin.y + 15);
+    ctx.fillText('κ', origin.x - 20, padding + 10);
 
-        const thetaS_rad = Math.acos(beta > 1 ? 1 : beta);
-        const lc = Math.sin(thetaS_rad);
-        const srX = center.x + radius * beta;
-        const srY = center.y - radius * lc;
+    ctx.beginPath();
+    ctx.moveTo(origin.x, origin.y);
+    const lineEndX = origin.x + 1 * scale;
+    const lineEndY = origin.y - Math.sqrt(2) * 1 * scale;
+    ctx.lineTo(lineEndX, lineEndY);
+    ctx.strokeStyle = '#5EEAD4';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([5, 5]);
+    ctx.stroke();
+    ctx.setLineDash([]);
 
-        ctx.beginPath();
-        ctx.moveTo(center.x, center.y);
-        ctx.lineTo(srX, srY);
-        ctx.strokeStyle = '#2DD4BF';
-        ctx.lineWidth = 3;
-        ctx.stroke();
+    const pointX = origin.x + beta * scale;
+    const pointY = origin.y - kappa * scale;
 
-        ctx.fillStyle = '#E5E7EB';
-        ctx.font = 'bold 14px Inter';
-        ctx.fillText('κ', grX - 25, grY);
-        ctx.fillText('β', srX, srY + 25);
-    }
+    ctx.beginPath();
+    ctx.moveTo(origin.x, origin.y);
+    ctx.lineTo(pointX, pointY);
+    ctx.strokeStyle = '#FBBF24';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(pointX, pointY, 6, 0, 2 * Math.PI);
+    ctx.fillStyle = '#FBBF24';
+    ctx.fill();
+}
 
     function animateMercury() {
         if (!elements.mercury.ctx) {
@@ -1042,29 +1045,28 @@ window.addEventListener('load', () => {
     }
 
         function updateUnification() {
-        if (!elements.unif.slider) return;
-        const kappa = parseFloat(elements.unif.slider.value);
-        const beta  = Math.sqrt(kappa * kappa / 2);
+    if (!elements.unif.slider) return;
 
-        /* declare BEFORE use */
-      const Q = Math.hypot(kappa, beta);
-const radius = Math.min(elements.unif.canvas.clientWidth,
-                        elements.unif.canvas.clientHeight) * 0.45;
-const cX = elements.unif.canvas.clientWidth / 2;
-const cY = elements.unif.canvas.clientHeight / 2;
-const indX = cX + (beta / Q) * radius;
-const indY = cY - (kappa / Q) * radius;
+    const Q_sq = parseFloat(elements.unif.slider.value);
+    const Q = Math.sqrt(Q_sq);
 
-elements.unif.photonIndicator.style.transform =
-      `translate(${indX}px, ${indY}px) translate(-50%,-50%)`;
-elements.unif.photonIndicator.style.opacity =
-      Math.abs(Q - 1) < 0.005 ? '1' : '0';
+    const beta = Math.sqrt(Q_sq / 3);
+    const kappa = Math.sqrt(2 * Q_sq / 3);
 
-elements.unif.displays.Q.textContent = Q.toFixed(3);
+    const Tc = (kappa <= 1) ? Math.sqrt(1 - kappa * kappa) : 0;
+    const Lc = (beta <= 1) ? Math.sqrt(1 - beta * beta) : 0;
 
-drawUnification();
-    }
+    document.getElementById('unif-q2-display').textContent = Q_sq.toFixed(2);
 
+    document.getElementById('unif-q2-value').textContent = Q_sq.toFixed(3);
+    elements.unif.displays.Q.textContent = Q.toFixed(3);
+    elements.unif.displays.kappa.textContent = kappa.toFixed(3);
+    elements.unif.displays.beta.textContent = beta.toFixed(3);
+    elements.unif.displays.Tc.textContent = (kappa <= 1) ? Tc.toFixed(3) : 'non-real'; 
+    elements.unif.displays.Lc.textContent = (beta <= 1) ? Lc.toFixed(3) : 'non-real';
+
+    drawUnification();
+}
     /* --------  Initialization & Resize  -------- */
     let resizeTimer;
     function initializeAndDrawAll() {
