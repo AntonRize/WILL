@@ -2,7 +2,7 @@
 const sectionMap = {
     "What is This Page?": "postulate-content",
     "Section 1: The Universe from a Single Principle": "postulate-content",
-    "Section 2: The Rules of the Game": "postulate-content",
+    "Section 2: The Rules of the Game — A Foundation of Pure Logic": "postulate-content",
     "Section 3: Act I – Motion as a Shadow on the Circle": "sr-content",
     "How E = mc² Falls Out Naturally": "emc2-content",
     "The Energy-Momentum Triangle": "emc2-triangle-content",
