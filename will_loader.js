@@ -13,8 +13,9 @@ const sectionMap = {
     "Energy–Symmetry Law (Why No Free Lunch in the Universe)": "symmetry-content",
     "The Whole Universe in a Single Line": "oneline-content",
     "Section 7: Grounding the Vision – From Abstraction to Reality": "validation-content",
-    "GPS Time Correction": "validation-gps-content",
-    "Mercury's Orbital Precession": "validation-mercury-content",
+    // Ключи исправлены, чтобы точно соответствовать заголовкам в текстовом файле
+    "1. Time Correction in the GPS System": "validation-gps-content",
+    "2. Precession of Mercury’s Orbit": "validation-mercury-content",
     "Section 8: A New Reality of Change": "dynamics-content",
     "Section 9: Conclusion — The World as a Projection": "conclusion-content"
 };
@@ -23,8 +24,8 @@ const sectionMap = {
 fetch('narrative/will_narrative1.txt')
 .then(r => r.text())
 .then(text => {
-    // 3. Split into sections by header: match lines starting with ** or ## (not with $!)
-    const splitRegex = /^(\*\*|##)\s?(.+)$/gm;
+    // 3. Split into sections by header: match lines starting with ** or any number of #
+    const splitRegex = /^(#+|\*\*)\s?(.+)$/gm; // Более гибкое регулярное выражение
     let sections = [];
     let match;
     let headers = [];
@@ -35,19 +36,27 @@ fetch('narrative/will_narrative1.txt')
         });
     }
     for (let i = 0; i < headers.length; i++) {
-    let start = headers[i].start;
-    let end = (i+1 < headers.length) ? headers[i+1].start : text.length;
-    // Убираем любые звёздочки в конце заголовка
-    let header = headers[i].header.replace(/\*\*$/, '').trim();
-    let body = text.slice(start, end).replace(/^\*\*|^##/gm, '').trim();
-    sections.push({header, body});
-}
+        let start = headers[i].start;
+        let end = (i+1 < headers.length) ? headers[i+1].start : text.length;
+        // Убираем любые звёздочки в конце заголовка
+        let header = headers[i].header.replace(/\*\*$/, '').trim();
+        // Улучшенная логика для извлечения "тела" секции (убирает всю строку с заголовком)
+        let body = text.slice(start, end).replace(/^(#+|\*\*).*\r?\n/, '').trim();
+        sections.push({header, body});
+    }
 
     // 4. Insert each section in the proper div by id
     for (const section of sections) {
         const id = sectionMap[section.header];
         if (id && document.getElementById(id)) {
-            document.getElementById(id).innerHTML = marked.parse(section.body.trim());
+            const targetElement = document.getElementById(id);
+            // Если в элементе уже есть контент, добавляем новый, а не заменяем
+            // Это нужно для секций, которые грузятся в один div (например, postulate-content)
+            if (targetElement.innerHTML.length > 0) {
+                 targetElement.innerHTML += marked.parse(section.body.trim());
+            } else {
+                 targetElement.innerHTML = marked.parse(section.body.trim());
+            }
         }
     }
 });
