@@ -14,7 +14,7 @@ All physical quantities, including space, time, mass, and energy, must emerge di
 
 ### Solving the Galactic Rotation Problem
 
-This framework provides a novel solution to the galactic rotation problem using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 20.6 km/s) without invoking dark matter and without free parameters.
+This framework provides a novel solution to the galactic rotation problem using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 23.05 km/s) without invoking dark matter and without free parameters.
 
 **[Test it yourself with the interactive rotation curve calculator](https://antonrize.github.io/WILL/calculator/)**
 
