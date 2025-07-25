@@ -355,26 +355,24 @@ permalink: /interactive.html
                 </div>
 
                 <div class="flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-100">κ–β Projection</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-100">Gravity and Time Dilation</h3>
                     <p class="text-gray-300 mb-6">
-                        This plot shows the relationship between the <strong>kinetic share (β)</strong> and <strong>gravitational share (κ)</strong>. Use the slider to set the total energy budget <span class="font-mono">(Q²)</span> and observe how this budget is partitioned by the model's deductive cornerstone: <span class="highlight font-mono">κ² = 2β²</span>.
+                        Just like with the circle, we can still split everything into “directions” — but now it’s two‑dimensional. 
+                        As you get closer to a massive object, κ goes up, and time starts to slow down. If you reach the event horizon (κ = 1), time (from an outside view) stops completely.
+                        Gravity isn’t just pulling you in — it’s literally changing how fast your clock ticks, depending on where you are.
                     </p>
-                    
-                    <label for="unif-slider" class="font-semibold text-gray-200">
-                        Total Energy Share (Q²): <span id="unif-q2-display" class="highlight font-bold">1.00</span>
-                    </label>
-                    <input type="range" id="unif-slider" min="0" max="3" value="1" step="0.01" class="slider mt-2 mb-4">
-                    
-                    <div class="space-y-1 text-sm">
-                        <p><strong class="text-cyan-400 w-24 inline-block font-mono">Q² (Total):</strong> <span id="unif-q2-value" class="highlight">1.000</span></p>
-                        <hr class="border-gray-600 my-1">
-                        <p><strong class="text-purple-400 w-24 inline-block font-mono">κ (Gravity):</strong> <span id="unif-kappa-value" class="highlight">0.000</span></p>
-                        <p><strong class="text-teal-400 w-24 inline-block font-mono">β (Kinetic):</strong> <span id="unif-beta-value" class="highlight">0.000</span></p>
-                        <hr class="border-gray-600 my-1">
-                        <p><strong class="text-purple-400 w-24 inline-block font-mono">T_c (Grav. Time):</strong> <span id="unif-Tc-value" class="highlight">1.000</span></p>
-                        <p><strong class="text-teal-400 w-24 inline-block font-mono">L_c (Kin. Time):</strong> <span id="unif-Lc-value" class="highlight">1.000</span></p>
+
+                    <label for="kappa-slider" class="font-semibold text-gray-200">Gravity (&kappa;): <span id="kappa-value" class="highlight font-bold">0.500</span></label>
+                    <input type="range" min="0" max="0.999" value="0.5" step="0.001" class="slider mt-2 mb-6" id="kappa-slider">
+
+                    <div class="space-y-3 text-lg">
+                        <p>Radius (r): <span id="radius-value" class="highlight">4.00</span> Rₛ</p>
+                        <p>Grav. Time Dilation (T_c): <span id="time-contraction-value" class="highlight">0.866</span></p>
+                        <p>Clocks run <span id="gr-time-dilation-value" class="highlight">13.4%</span> slower.</p>
                     </div>
                 </div>
+            </div>
+        </div>
 
         <div class="max-w-3xl mx-auto">
             <details>
@@ -744,7 +742,7 @@ permalink: /interactive.html
 window.addEventListener('load', () => {
 
     /* --------  Global Elements & State  -------- */
-   const elements = {
+    const elements = {
         navLinks: document.querySelectorAll('.nav-link'),
         sections: document.querySelectorAll('section[id]'),
 
@@ -768,12 +766,17 @@ window.addEventListener('load', () => {
         unif: {
             slider: document.getElementById('unif-slider'),
             canvas: document.getElementById('unification-canvas'),
+            photonIndicator: document.getElementById('photon-sphere-indicator'),
             displays: {
-                q2Value: document.getElementById('unif-q2-value'),
-                kappa:   document.getElementById('unif-kappa-value'),
-                beta:    document.getElementById('unif-beta-value'),
-                Tc:      document.getElementById('unif-Tc-value'),
-                Lc:      document.getElementById('unif-Lc-value')
+               kappa: document.getElementById('unif-kappa-display'),
+        Q:     document.getElementById('unif-Q-value'),
+        beta:  document.getElementById('unif-beta-value'),
+                thetaG: document.getElementById('unif-thetaG-value'),
+                thetaS: document.getElementById('unif-thetaS-value'),
+                Tc:     document.getElementById('unif-Tc-value'),
+                Lc:     document.getElementById('unif-Lc-value'),
+                Qsq:    document.getElementById('unif-Qsq-value'),
+                radius: document.getElementById('unif-radius-value')
             },
             ctx: null
         },
@@ -1042,30 +1045,28 @@ window.addEventListener('load', () => {
     }
 
         function updateUnification() {
-        if (!elements.unif.slider) return;
-        
-        const Q_sq = parseFloat(elements.unif.slider.value);
-        
-        const beta = Math.sqrt(Q_sq / 3);
-        const kappa = Math.sqrt(2 * Q_sq / 3);
+    if (!elements.unif.slider) return;
 
-        const Tc = (kappa <= 1) ? Math.sqrt(1 - kappa * kappa) : 0;
-        const Lc = (beta <= 1) ? Math.sqrt(1 - beta * beta) : 0;
+    const Q_sq = parseFloat(elements.unif.slider.value);
+    const Q = Math.sqrt(Q_sq);
 
-        // Update the display for the slider's label
-        document.getElementById('unif-q2-display').textContent = Q_sq.toFixed(2);
+    const beta = Math.sqrt(Q_sq / 3);
+    const kappa = Math.sqrt(2 * Q_sq / 3);
 
-        // Update all parameter values in the infobox
-        const displays = elements.unif.displays;
-        displays.q2Value.textContent = Q_sq.toFixed(3);
-        displays.kappa.textContent = kappa.toFixed(3);
-        displays.beta.textContent = beta.toFixed(3);
-        displays.Tc.textContent = (kappa <= 1) ? Tc.toFixed(3) : 'non-real'; 
-        displays.Lc.textContent = (beta <= 1) ? Lc.toFixed(3) : 'non-real';
+    const Tc = (kappa <= 1) ? Math.sqrt(1 - kappa * kappa) : 0;
+    const Lc = (beta <= 1) ? Math.sqrt(1 - beta * beta) : 0;
 
-        // Redraw the canvas with the new values
-        drawUnification();
-    }
+    document.getElementById('unif-q2-display').textContent = Q_sq.toFixed(2);
+
+    document.getElementById('unif-q2-value').textContent = Q_sq.toFixed(3);
+    elements.unif.displays.Q.textContent = Q.toFixed(3);
+    elements.unif.displays.kappa.textContent = kappa.toFixed(3);
+    elements.unif.displays.beta.textContent = beta.toFixed(3);
+    elements.unif.displays.Tc.textContent = (kappa <= 1) ? Tc.toFixed(3) : 'non-real'; 
+    elements.unif.displays.Lc.textContent = (beta <= 1) ? Lc.toFixed(3) : 'non-real';
+
+    drawUnification();
+}
     /* --------  Initialization & Resize  -------- */
     let resizeTimer;
     function initializeAndDrawAll() {
