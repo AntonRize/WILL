@@ -744,7 +744,7 @@ permalink: /interactive.html
 </footer>
 
 <script>
-document.addEventListener('load', () => {
+window.addEventListener('load', () => {
 
     /* --------  Global Elements & State  -------- */
     const elements = {
@@ -773,9 +773,9 @@ document.addEventListener('load', () => {
             canvas: document.getElementById('unification-canvas'),
             photonIndicator: document.getElementById('photon-sphere-indicator'),
             displays: {
-                kappa:  document.getElementById('unif-kappa-display'),
-                    js\nQ: document.getElementById('unif-Q-value'),
-                beta:   document.getElementById('unif-beta-value'),
+               kappa: document.getElementById('unif-kappa-display'),
+        Q:     document.getElementById('unif-Q-value'),
+        beta:  document.getElementById('unif-beta-value'),
                 thetaG: document.getElementById('unif-thetaG-value'),
                 thetaS: document.getElementById('unif-thetaS-value'),
                 Tc:     document.getElementById('unif-Tc-value'),
@@ -1047,8 +1047,22 @@ document.addEventListener('load', () => {
         const beta  = Math.sqrt(kappa * kappa / 2);
 
         /* declare BEFORE use */
-      js\nconst Q = Math.hypot(kappa, beta);\nconst radius = Math.min(elements.unif.canvas.clientWidth,\n elements.unif.canvas.clientHeight) * 0.45;\nconst cX = elements.unif.canvas.clientWidth / 2;\nconst cY = elements.unif.canvas.clientHeight / 2;\nconst indX = cX + (beta / Q) * radius;\nconst indY = cY - (kappa / Q) * radius;\n\nelements.unif.photonIndicator.style.transform =\n `translate(${indX}px, ${indY}px) translate(-50%,-50%)`;\nelements.unif.photonIndicator.style.opacity = Math.abs(Q - 1) < 0.005 ? '1' : '0';\n\nd.Q.textContent = Q.toFixed(3);
-        drawUnification();
+      const Q = Math.hypot(kappa, beta);
+const radius = Math.min(elements.unif.canvas.clientWidth,
+                        elements.unif.canvas.clientHeight) * 0.45;
+const cX = elements.unif.canvas.clientWidth / 2;
+const cY = elements.unif.canvas.clientHeight / 2;
+const indX = cX + (beta / Q) * radius;
+const indY = cY - (kappa / Q) * radius;
+
+elements.unif.photonIndicator.style.transform =
+      `translate(${indX}px, ${indY}px) translate(-50%,-50%)`;
+elements.unif.photonIndicator.style.opacity =
+      Math.abs(Q - 1) < 0.005 ? '1' : '0';
+
+elements.unif.displays.Q.textContent = Q.toFixed(3);
+
+drawUnification();
     }
 
     /* --------  Initialization & Resize  -------- */
