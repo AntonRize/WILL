@@ -16,21 +16,21 @@ permalink: /interactive.html
 
 <section id="postulate" class="scroll-mt-20">
     <div id="postulate-content">
-        {% capture content %}{% include_relative narrative/postulate.md %}{% endcapture %}
+        {% capture content %}{% include narrative/postulate.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
 </section>
 
 <section id="sr" class="scroll-mt-20">
     <div id="sr-content">
-        {% capture content %}{% include_relative narrative/sr.md %}{% endcapture %}
+        {% capture content %}{% include narrative/sr.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
 </section>
 
 <section id="emc2" class="scroll-mt-20">
     <div id="emc2-content">
-        {% capture content %}{% include_relative narrative/emc2.md %}{% endcapture %}
+        {% capture content %}{% include narrative/emc2.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
     <div class="card">
@@ -38,7 +38,7 @@ permalink: /interactive.html
             <div>
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">The Energy-Momentum Triangle</h3>
                 <div id="emc2-triangle-content">
-                    {% capture content %}{% include_relative narrative/emc2_triangle.md %}{% endcapture %}
+                    {% capture content %}{% include narrative/emc2_triangle.md %}{% endcapture %}
                     {{ content | markdownify }}
                 </div>
                 <label for="emc2-beta-slider" class="font-semibold text-gray-200">Velocity (&beta; = v/c): <span id="emc2-beta-value" class="highlight font-bold">0.650</span></label>
@@ -59,7 +59,7 @@ permalink: /interactive.html
 
 <section id="gr" class="scroll-mt-20">
     <div id="gr-content">
-        {% capture content %}{% include_relative narrative/gr.md %}{% endcapture %}
+        {% capture content %}{% include narrative/gr.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
     <div class="card">
@@ -70,7 +70,7 @@ permalink: /interactive.html
             <div class="flex flex-col justify-center">
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">Gravity and Time Dilation</h3>
                 <div id="gr-dilation-content">
-                    {% capture content %}{% include_relative narrative/gr_dilation.md %}{% endcapture %}
+                    {% capture content %}{% include narrative/gr_dilation.md %}{% endcapture %}
                     {{ content | markdownify }}
                 </div>
                 <label for="kappa-slider" class="font-semibold text-gray-200">Gravity (&kappa;): <span id="kappa-value" class="highlight font-bold">0.500</span></label>
@@ -87,14 +87,14 @@ permalink: /interactive.html
 
 <section id="unification" class="scroll-mt-20">
     <div id="unification-content">
-        {% capture content %}{% include_relative narrative/unification.md %}{% endcapture %}
+        {% capture content %}{% include narrative/unification.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
     <div class="interactive-container">
         <div class="flex flex-col justify-center">
             <h3 class="text-2xl font-bold mb-4 text-gray-100">κ–β Projection</h3>
             <div id="unification-projection-content">
-                {% capture content %}{% include_relative narrative/unification_projection.md %}{% endcapture %}
+                {% capture content %}{% include narrative/unification_projection.md %}{% endcapture %}
                 {{ content | markdownify }}
             </div>
             <label for="unif-slider" class="font-semibold text-gray-200">
@@ -139,14 +139,14 @@ permalink: /interactive.html
 
 <section id="symmetry" class="scroll-mt-20">
     <div id="symmetry-content">
-        {% capture content %}{% include_relative narrative/symmetry.md %}{% endcapture %}
+        {% capture content %}{% include narrative/symmetry.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
 </section>
 
 <section id="oneline" class="scroll-mt-20">
     <div id="oneline-content">
-        {% capture content %}{% include_relative narrative/oneline.md %}{% endcapture %}
+        {% capture content %}{% include narrative/oneline.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
 </section>
@@ -157,7 +157,7 @@ permalink: /interactive.html
 
 <section id="validation" class="scroll-mt-20">
     <div id="validation-content">
-        {% capture content %}{% include_relative narrative/validation.md %}{% endcapture %}
+        {% capture content %}{% include narrative/validation.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
     <div class="card">
@@ -165,7 +165,7 @@ permalink: /interactive.html
             <div class="bg-gray-900 p-6 rounded-lg">
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">1. GPS Time Correction</h3>
                 <div id="validation-gps-content">
-                    {% capture content %}{% include_relative narrative/validation_gps.md %}{% endcapture %}
+                    {% capture content %}{% include narrative/validation_gps.md %}{% endcapture %}
                     {{ content | markdownify }}
                 </div>
             </div>
@@ -175,7 +175,7 @@ permalink: /interactive.html
                     <canvas id="mercury-canvas"></canvas>
                 </div>
                 <div id="validation-mercury-content">
-                    {% capture content %}{% include_relative narrative/validation_mercury.md %}{% endcapture %}
+                    {% capture content %}{% include narrative/validation_mercury.md %}{% endcapture %}
                     {{ content | markdownify }}
                 </div>
             </div>
@@ -185,14 +185,14 @@ permalink: /interactive.html
 
 <section id="dynamics" class="scroll-mt-20">
     <div id="dynamics-content">
-        {% capture content %}{% include_relative narrative/dynamics.md %}{% endcapture %}
+        {% capture content %}{% include narrative/dynamics.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
 </section>
 
 <section id="conclusion" class="scroll-mt-20">
     <div id="conclusion-content">
-        {% capture content %}{% include_relative narrative/conclusion.md %}{% endcapture %}
+        {% capture content %}{% include narrative/conclusion.md %}{% endcapture %}
         {{ content | markdownify }}
     </div>
 </section>
@@ -209,6 +209,5 @@ permalink: /interactive.html
     </p>
 </footer>
 
-<script src="path/to/your/interactive_charts.js"></script>
 </body>
 </html>
