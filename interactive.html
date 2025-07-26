@@ -186,6 +186,31 @@ permalink: /interactive.html
     </div>
 </section>
 
+<h4 class="mt-10 text-xl font-semibold">β vs 1/γ on the unit circle</h4>
+<canvas id="betaGammaChart" class="w-full sm:w-2/3 aspect-[4/3] my-6"></canvas>
+
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const θ = Array.from({length:91},(_,i)=>i);          // 0..90°
+const cos = θ.map(t=>Math.cos(t*Math.PI/180));
+const sin = θ.map(t=>Math.sin(t*Math.PI/180));       // sin θ  == 1/γ
+new Chart(document.getElementById('betaGammaChart'),{
+  type:'line',
+  data:{
+    labels:θ,
+    datasets:[
+      {label:'β = cos θ', data:cos, borderWidth:2},
+      {label:'1/γ = sin θ', data:sin, borderWidth:2}
+    ]
+  },
+  options:{responsive:true, scales:{x:{title:{display:true,text:'θ (deg)'}},
+                                    y:{min:0,max:1}}}
+});
+</script>
+
+
+
+        
 <section id="emc2" class="scroll-mt-20">
     <div id="emc2-content">
         {% capture content %}{% include narrative/emc2.md %}{% endcapture %}
