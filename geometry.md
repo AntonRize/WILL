@@ -199,7 +199,7 @@ Explore the geometric foundations of WILL theory through interactive visualizati
     </div>
     
     <div class="desmos-container">
-        <iframe src="https://www.desmos.com/geometry/6xjbla688b" width="100%" height="500" frameborder="0"></iframe>
+        <iframe src="https://www.desmos.com/geometry/scqm9niuaw" width="100%" height="500" frameborder="0"></iframe>
     </div>
     
     <div class="critical-points">
