@@ -282,7 +282,6 @@ updateGr();
             <canvas id="qCircle" class="w-full aspect-[1/1] my-6"></canvas>
         </div>
         <script>
-import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
  const loop=Array.from({length:361},(_,i)=>i*Math.PI/180);
  const circle=loop.map(t=>({x:Math.cos(t),y:Math.sin(t)}));
 
@@ -299,7 +298,6 @@ import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
    chart.data.datasets[1].data=[{x:beta,y:kappa}];
    chart.update();
  };
-});
         </script>
     </div>
 </section>
@@ -406,7 +404,6 @@ updateValues(Number(qSlider.value));
     </p>
 </footer>
 
-<script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </body>
 </html>
