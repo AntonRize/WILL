@@ -391,7 +391,9 @@ import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
                     {{ content | markdownify }}
                 </div>
                 <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 text-sm italic">
-                  [https://www.desmos.com/geometry/gfe2jpfh1g]
+                           
+                  /polish-interactive.html-for-production-quality
+                  ⚙️ Interactive Desmos calculation coming soon…
                 </div>
             </div>
         </div>
