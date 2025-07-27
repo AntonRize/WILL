@@ -176,8 +176,9 @@ permalink: /interactive/
 const deg = Array.from({length:91},(_,i)=>i);
 const cos = deg.map(t=>Math.cos(t*Math.PI/180));
 const sin = deg.map(t=>Math.sin(t*Math.PI/180));   // 1/γ
+const betaGammaChartEl = document.getElementById("betaGammaChart");
 
-new Chart(betaGammaChart,{
+new Chart(betaGammaChartEl,{
  type:'line',
  data:{labels:deg,
        datasets:[{label:'β = cos θ',data:cos,borderWidth:2},
@@ -190,6 +191,7 @@ new Chart(betaGammaChart,{
 
 
 <script>
+const betaTriangle = document.getElementById("emc2-canvas");
 const betaTri = new Chart(betaTriangle,{type:'line',data:{datasets:[{label:'β-γ',data:[{x:0,y:1},{x:0.65,y:1.316}]}]},options:{responsive:true,scales:{x:{min:0,max:1},y:{min:0,max:3}}});
 function updateBetaTri(){
   const b=parseFloat(document.getElementById('emc2-beta-slider').value);
@@ -225,7 +227,8 @@ updateBetaTri();
             </div>
         </div>
         <script>
-const gChart=new Chart(gravityPlot,{type:'line',data:{datasets:[{label:'κ',data:[{x:0,y:0.5},{x:1,y:0.5}]}]},options:{responsive:true,scales:{x:{min:0,max:1},y:{min:0,max:1}}});
+const gravityPlotEl = document.getElementById("gravityPlot");
+const gChart=new Chart(gravityPlotEl,{type:'line',data:{datasets:[{label:'κ',data:[{x:0,y:0.5},{x:1,y:0.5}]}]},options:{responsive:true,scales:{x:{min:0,max:1},y:{min:0,max:1}}});
 function updateGr(){
   const k=parseFloat(document.getElementById('kappa-slider').value);
   gChart.data.datasets[0].data=[{x:0,y:k},{x:1,y:k}];
@@ -282,10 +285,11 @@ updateGr();
             <canvas id="qCircle" class="w-full aspect-[1/1] my-6"></canvas>
         </div>
         <script>
+const qCircleEl = document.getElementById("qCircle");
  const loop=Array.from({length:361},(_,i)=>i*Math.PI/180);
  const circle=loop.map(t=>({x:Math.cos(t),y:Math.sin(t)}));
 
- const chart=new Chart(qCircle,{
+ const chart=new Chart(qCircleEl,{
    type:'scatter',
    data:{datasets:[
      {label:'Q² = 1 (photon sphere)',data:circle,showLine:true,borderWidth:1},
