@@ -3,6 +3,10 @@ layout: default
 title: Interactive Playground
 permalink: /interactive/
 ---
+<!-- TODO: Replace hardcoded hero and postulate sections with
+{% include narrative.md part="hero" %}
+{% include narrative.md part="postulate" %}
+-->
 
 <style>
         body {

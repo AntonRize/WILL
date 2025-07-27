@@ -1,4 +1,21 @@
-{% if include.part == "intro" %}
+{% if include.part == "hero" %}
+    <section id="hero" class="text-center mb-20 md:mb-32">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-50 mb-6 leading-tight">The Shape of Energy</h1>
+        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">An interactive exploration of a theory where space, time, and energy are derived from a single, fundamental principle.</p>
+        <div class="bg-gray-800 border border-gray-700 shadow-lg rounded-lg p-6 inline-block">
+            <p class="text-xl md:text-2xl font-semibold text-cyan-400">SPACETIME &equiv; ENERGY EVOLUTION</p>
+        </div>
+    </section>
+{% elsif include.part == "postulate" %}
+    <section id="postulate" class="scroll-mt-20">
+        <div class="text-center">
+            <h2 class="section-title">What is This Page?</h2>
+        </div>
+        <p class="narrative-text">
+            This interactive page was created to <strong>explain the essential meaning and logic of the WILL Geometry model</strong> — but <strong>without</strong> the heavy mathematical machinery. Here, the focus is on the core ideas, intuitive explanations, and geometric visualizations, making this new approach to fundamental physics accessible to a much wider audience. If you want to see the full mathematical derivations, download the complete documents here: <a href="https://antonrize.github.io/WILL/parts/" class="text-cyan-400 hover:underline">Full WILL Geometry Papers</a>.
+        </p>
+        <div class="text-center mt-16">
+{% elsif include.part == "intro" %}
             <h2 class="section-title">The Universe from a Single Principle</h2>
         </div>
         <p class="narrative-text">
@@ -705,23 +722,6 @@ The time slowdown (Lorentz factor) is:<br>
   </div>
 </section>
 
-{% elsif include.part == "uncategorized" %}
-    <section id="hero" class="text-center mb-20 md:mb-32">
-        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-50 mb-6 leading-tight">The Shape of Energy</h1>
-        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">An interactive exploration of a theory where space, time, and energy are derived from a single, fundamental principle.</p>
-        <div class="bg-gray-800 border border-gray-700 shadow-lg rounded-lg p-6 inline-block">
-            <p class="text-xl md:text-2xl font-semibold text-cyan-400">SPACETIME &equiv; ENERGY EVOLUTION</p>
-        </div>
-    </section>
-
-    <section id="postulate" class="scroll-mt-20">
-        <div class="text-center">
-            <h2 class="section-title">What is This Page?</h2>
-        </div>
-        <p class="narrative-text">
-            This interactive page was created to <strong>explain the essential meaning and logic of the WILL Geometry model</strong> — but <strong>without</strong> the heavy mathematical machinery. Here, the focus is on the core ideas, intuitive explanations, and geometric visualizations, making this new approach to fundamental physics accessible to a much wider audience. If you want to see the full mathematical derivations, download the complete documents here: <a href="https://antonrize.github.io/WILL/parts/" class="text-cyan-400 hover:underline">Full WILL Geometry Papers</a>.
-        </p>
-        <div class="text-center mt-16">
 <section id="dynamics" class="scroll-mt-20">
   <div class="text-center">
     <h2 class="section-title">Section 8: A New Reality of Change — Dynamics Without Time</h2>
@@ -776,7 +776,6 @@ The time slowdown (Lorentz factor) is:<br>
     </div>
   </div>
 </section>
-
 <section id="conclusion" class="scroll-mt-20">
   <div class="text-center">
     <h2 class="section-title">Section 9: Conclusion — The World as a Projection</h2>
@@ -825,13 +824,6 @@ The time slowdown (Lorentz factor) is:<br>
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
 
 
 
