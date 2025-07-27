@@ -1,0 +1,165 @@
+
+
+# WILL Geometry Repository Structure: Full Overview  (estimated)
+
+## 1. **Repository Structure (Folders & Files)**
+
+**Root:**
+
+* `.github/`, `.gitignore`, `.nojekyll`, `Gemfile`, `README.md`, etc.
+* The root contains your standard Jekyll/GitHub Pages scaffolding and configuration.
+
+**Key Directories:**
+
+* `WILL DATABASE/`, `SPARC DATA/`, `Colab Notebooks/`
+
+  * Contain datasets, reference notebooks, raw and processed empirical data.
+  * Mostly not used directly in web builds but as research artifacts.
+
+* `_data/`
+
+  * YAML or CSV data for site configuration or dynamic content.
+  * Not heavily used for interactive/narrative content.
+
+* `_includes/`
+
+  * **Critical for content composition in Jekyll.**
+  * Contains:
+
+    * `narrative/` (sometimes now a single `narrative.md`)
+
+      * Used to store either many modular narrative .md files (each for a section: `sr.md`, `gr.md`, `emc2.md`, etc.)
+      * Or, more recently, one large `narrative.md` with all text and Liquid guards for section includes.
+    * `footer.html`, etc.
+
+* `_layouts/`
+
+  * Contains HTML templates:
+
+    * `default.html` (main site wrapper, includes navbar, loads Chart.js, pulls in content)
+    * Any special layouts (e.g., for calculators, geometry page, etc.)
+
+* `_posts/`
+
+  * For Jekyll blog posts or news; sometimes used for long-form “papers.”
+
+* `admin/`, `assistant/`, `discussions/`, `documents/`
+
+  * Each used for different aspects of the project (content management, AI assistant code, discussion documents, etc.)
+
+**Page Files:**
+
+* `interactive.md` (formerly `interactive.html`)
+
+  * The main page for interactive demonstrations.
+  * Combines narrative includes and direct placement of interactive elements (charts, sliders).
+  * Contains all initialization code for Chart.js and UI logic.
+  * Places `{% include narrative/section.md %}` or `{% include narrative.md part="section" %}` to embed narrative at specific places.
+
+* `geometry.md`, `calculator.md`, etc.
+
+  * Specialized static/interactive pages, each with its own structure.
+
+---
+
+## 2. **File Interdependencies & Composition**
+
+* **Jekyll** is the static site generator.
+
+  * Uses `_config.yml` for navigation, settings, and plugin config.
+  * All Markdown/HTML pages are rendered through layouts and includes.
+
+* **Narrative and Interactive Split:**
+
+  * The goal is to keep all **pure narrative** (explanatory text, math, spoilers, collapsible blocks) in `_includes/narrative.md` (or as multiple `_includes/narrative/*.md` files).
+  * All **interactive code** (canvas, Chart.js, sliders, JS handlers) is placed in `interactive.md` and/or directly in the HTML through scripts in the main layout.
+  * **Sections** of narrative are “included” at specific places in `interactive.md` with Liquid:
+
+    * Modern: `{% include narrative.md part="sr" %}`
+    * Legacy: `{% include narrative/sr.md %}`
+  * This allows you to insert narrative **between** interactive widgets, charts, and info blocks.
+
+* **Interactive Elements:**
+
+  * **Chart.js** loaded globally in the layout (no double-import).
+  * All initialization (`new Chart(...)`) is in `interactive.md`.
+  * Each chart (e.g., “energy-momentum triangle,” “Q-circle,” “gravity plot”) gets a `<canvas id="...">` in the page, **not** in the narrative.
+  * **Sliders** and other UI elements also live in `interactive.md`, not in narrative.
+
+* **Spoilers & Collapsible Blocks:**
+
+  * Two types:
+
+    * `<div class="spoiler">...</div>` for math sections hidden by default.
+    * `<details><summary>...</summary>...</details>` for general collapsibles.
+  * Both are considered narrative, NOT interactive code.
+
+* **Desmos Infoboxes:**
+
+  * Plain HTML “infoboxes” with a placeholder for a Desmos link.
+  * Placed near GPS and Mercury validation sections in the narrative, but rendered via interactive.md.
+
+---
+
+## 3. **Build Logic & Assembly**
+
+* Jekyll reads all pages, applies layouts, resolves `{% include ... %}` directives.
+* Narrative is inserted wherever needed, interactive code lives only in designated files.
+* If an `{% include ... %}` references a missing file, Jekyll **fails the build** with a clear error.
+* No symlinks are allowed in safe mode (GH Pages).
+
+---
+
+## 4. **Physical & Epistemological Intent**
+
+* The project is a **theoretical physics exploration** aimed at unifying relativity and quantum mechanics (“WILL Geometry”).
+* **Narrative** explains the physical context, postulates, and step-by-step derivations in accessible form.
+* **Interactive elements** (charts, sliders, infoboxes) let users explore geometric and physical relationships in real time.
+* **Spoilers/collapsibles** make the page approachable, hiding heavy math by default for a wider audience.
+* **Desmos links** let users check calculations empirically outside the site.
+
+---
+
+## 5. **Recent Refactors & Best Practices**
+
+* Migration from many small `_includes/narrative/*.md` files to a single `_includes/narrative.md` with Liquid guards (to simplify editing).
+* Interactive code now **never resides** in narrative includes.
+* All Chart.js usage is made browser-safe (no global variable pollution).
+* Clean, modular insertion of info blocks, narrative, and interactive widgets.
+
+---
+
+## 6. **Common Failure Modes**
+
+* Build errors if `{% include ... %}` references a missing or renamed file.
+* Errors if interactive code slips into narrative.md (breaks reusability and layout).
+* Layout/design bugs if Chart.js or canvas elements are duplicated/misplaced.
+
+---
+
+## 7. **How Everything Fits Together**
+
+* **Jekyll’s pipeline** pulls narrative chunks into interactive.md at precise locations, allowing alternating narrative and interactivity.
+* Layout files ensure Chart.js is loaded **before** any charts initialize.
+* All critical narrative content is always available for refactor, export, or re-inclusion elsewhere.
+
+---
+
+## 8. **Summary Table**
+
+| File/Folder                 | Purpose                                 | Rules                                 |
+| --------------------------- | --------------------------------------- | ------------------------------------- |
+| `_includes/narrative.md`    | All main narrative/text, math, spoilers | No interactive code/scripts/canvas    |
+| `interactive.md`            | Page for all interactivity              | All JS, canvas, chart logic here      |
+| `_layouts/default.html`     | Page wrapper, nav, Chart.js load        | Only layout/boilerplate code          |
+| `_config.yml`               | Navigation, site config                 | Must match actual file structure      |
+| `_includes/` (legacy \*.md) | Used for modular includes               | Only if not using single narrative.md |
+| Data & research folders     | Raw/reference data, not rendered        | Only for backend/research             |
+
+---
+
+**In summary:**
+The structure is designed for modular, maintainable, and error-free Jekyll builds, with a strict separation of narrative and interactive code, maximum clarity, and easy debugging.
+Your philosophy of “no hidden code in narrative, no missing includes, all math is opt-in” is at the heart of the system.
+
+---
