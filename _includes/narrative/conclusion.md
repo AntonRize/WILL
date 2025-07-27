@@ -1,2 +1,0 @@
-### Conclusion
-Content coming soon.

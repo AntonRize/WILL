@@ -1,2 +1,0 @@
-### Validation
-Content coming soon.

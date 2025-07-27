@@ -1,2 +1,0 @@
-### Gravity
-Content coming soon.
