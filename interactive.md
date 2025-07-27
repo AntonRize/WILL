@@ -160,15 +160,13 @@ permalink: /interactive/
 
 <section id="postulate" class="scroll-mt-20">
     <div id="postulate-content">
-        {% capture content %}{% include narrative/postulate.md %}{% endcapture %}
-        {{ content | markdownify }}
+        {% capture content %}{% include narrative.md part="intro" %}{% endcapture %}{{ content | markdownify }}
     </div>
 </section>
 
 <section id="sr" class="scroll-mt-20">
     <div id="sr-content">
-        {% capture content %}{% include narrative/sr.md %}{% endcapture %}
-        {{ content | markdownify }}
+        {% capture content %}{% include narrative.md part="sr" %}{% endcapture %}{{ content | markdownify }}
     </div>
 </section>
 
@@ -191,36 +189,7 @@ new Chart(betaGammaChart,{
 </script>
 
 
-
-        
-<section id="emc2" class="scroll-mt-20">
-    <div id="emc2-content">
-        {% capture content %}{% include narrative/emc2.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
-    <div class="card">
-        <div class="interactive-container">
-            <div>
-                <h3 class="text-2xl font-bold mb-4 text-gray-100">The Energy-Momentum Triangle</h3>
-                <div id="emc2-triangle-content">
-                    {% capture content %}{% include narrative/emc2_triangle.md %}{% endcapture %}
-                    {{ content | markdownify }}
-                </div>
-                <label for="emc2-beta-slider" class="font-semibold text-gray-200">Velocity (&beta; = v/c): <span id="emc2-beta-value" class="highlight font-bold">0.650</span></label>
-                <input type="range" min="0" max="0.999" value="0.65" step="0.001" class="slider mt-2 mb-6" id="emc2-beta-slider">
-                <canvas id="betaTriangle" class="w-full h-56 my-6"></canvas>
-                <div class="space-y-3 text-lg">
-                    <p>Rest Energy (E₀): <span class="highlight">m₀c² (constant)</span></p>
-                    <p>Momentum (pc): <span id="emc2-pc-value" class="highlight">0.855</span> m₀c</p>
-                    <p>Total Energy (E): <span id="emc2-energy-value" class="highlight">1.316</span> m₀c²</p>
-                </div>
-                <div class="equation-box text-lg">E² = (pc)² + (m₀c²)²</div>
-            </div>
-            <div class="canvas-container">
-                <canvas id="emc2-canvas"></canvas>
-            </div>
-        </div>
-        <script>
+<script>
 const betaTri = new Chart(betaTriangle,{type:'line',data:{datasets:[{label:'β-γ',data:[{x:0,y:1},{x:0.65,y:1.316}]}]},options:{responsive:true,scales:{x:{min:0,max:1},y:{min:0,max:3}}});
 function updateBetaTri(){
   const b=parseFloat(document.getElementById('emc2-beta-slider').value);
@@ -230,14 +199,13 @@ function updateBetaTri(){
 }
 document.getElementById('emc2-beta-slider').addEventListener('input',updateBetaTri);
 updateBetaTri();
-        </script>
-    </div>
-</section>
+</script>
+
+        
 
 <section id="gr" class="scroll-mt-20">
     <div id="gr-content">
-        {% capture content %}{% include narrative/gr.md %}{% endcapture %}
-        {{ content | markdownify }}
+        {% capture content %}{% include narrative.md part="gr" %}{% endcapture %}{{ content | markdownify }}
     </div>
     <div class="card">
         <div class="interactive-container">
@@ -246,10 +214,6 @@ updateBetaTri();
             </div>
             <div class="flex flex-col justify-center">
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">Gravity and Time Dilation</h3>
-                <div id="gr-dilation-content">
-                    {% capture content %}{% include narrative/gr_dilation.md %}{% endcapture %}
-                    {{ content | markdownify }}
-                </div>
                 <label for="kappa-slider" class="font-semibold text-gray-200">Gravity (&kappa;): <span id="kappa-value" class="highlight font-bold">0.500</span></label>
                 <input type="range" min="0" max="0.999" value="0.5" step="0.001" class="slider mt-2 mb-6" id="kappa-slider">
                 <canvas id="gravityPlot" class="w-full h-56 my-6"></canvas>
@@ -275,16 +239,11 @@ updateGr();
 
 <section id="unification" class="scroll-mt-20">
     <div id="unification-content">
-        {% capture content %}{% include narrative/unification.md %}{% endcapture %}
-        {{ content | markdownify }}
+        {% capture content %}{% include narrative.md part="unification" %}{% endcapture %}{{ content | markdownify }}
     </div>
     <div class="interactive-container">
         <div class="flex flex-col justify-center">
             <h3 class="text-2xl font-bold mb-4 text-gray-100">Unified Q‑circle (β–κ plane)</h3>
-            <div id="unification-projection-content">
-                {% capture content %}{% include narrative/unification_projection.md %}{% endcapture %}
-                {{ content | markdownify }}
-            </div>
             <label for="unif-slider" class="font-semibold text-gray-200">
                 Total Energy Share (Q²): <span id="unif-q2-display" class="highlight font-bold">1.000</span>
             </label>
@@ -345,19 +304,6 @@ import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
     </div>
 </section>
 
-<section id="symmetry" class="scroll-mt-20">
-    <div id="symmetry-content">
-        {% capture content %}{% include narrative/symmetry.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
-</section>
-
-<section id="oneline" class="scroll-mt-20">
-    <div id="oneline-content">
-        {% capture content %}{% include narrative/oneline.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
-</section>
 
 
 <p class="text-center text-sm text-cyan-400">
@@ -366,17 +312,12 @@ import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
 
 <section id="validation" class="scroll-mt-20">
     <div id="validation-content">
-        {% capture content %}{% include narrative/validation.md %}{% endcapture %}
-        {{ content | markdownify }}
+        {% capture content %}{% include narrative.md part="validation" %}{% endcapture %}{{ content | markdownify }}
     </div>
     <div class="card">
         <div class="grid md:grid-cols-2 gap-8">
             <div class="bg-gray-900 p-6 rounded-lg">
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">1. GPS Time Correction</h3>
-                <div id="validation-gps-content">
-                    {% capture content %}{% include narrative/validation_gps.md %}{% endcapture %}
-                    {{ content | markdownify }}
-                </div>
                 <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 text-sm italic">
                   ⚙️ Interactive Desmos calculation coming soon…
                 </div>
@@ -385,10 +326,6 @@ import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">2. Mercury's Orbital Precession</h3>
                 <div class="canvas-container !aspect-video !min-h-[250px]">
                     <canvas id="mercury-canvas"></canvas>
-                </div>
-                <div id="validation-mercury-content">
-                    {% capture content %}{% include narrative/validation_mercury.md %}{% endcapture %}
-                    {{ content | markdownify }}
                 </div>
                 <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 text-sm italic">
                            
@@ -400,19 +337,6 @@ import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
     </div>
 </section>
 
-<section id="dynamics" class="scroll-mt-20">
-    <div id="dynamics-content">
-        {% capture content %}{% include narrative/dynamics.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
-</section>
-
-<section id="conclusion" class="scroll-mt-20">
-    <div id="conclusion-content">
-        {% capture content %}{% include narrative/conclusion.md %}{% endcapture %}
-        {{ content | markdownify }}
-    </div>
-</section>
 
 </div>
 </main>
