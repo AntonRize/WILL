@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Relativistic Foundations"
-permalink: /interactive.html
+title: Interactive Playground
+permalink: /interactive/
 ---
 
 <style>
@@ -146,23 +146,9 @@ permalink: /interactive.html
         }
 </style>
 
-<header class="backdrop-blur-lg sticky top-0 z-50 border-b border-gray-700">
-    <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 class="text-xl font-bold text-gray-100">WILL Geometry</h1>
-        <div class="hidden md:flex space-x-1 font-medium text-sm">
-            <a href="#postulate" class="nav-link">Postulate</a>
-            <a href="#sr" class="nav-link">Act I: SR</a>
-            <a href="#gr" class="nav-link">Act II: GR</a>
-            <a href="#unification" class="nav-link">Unification</a>
-            <a href="#symmetry" class="nav-link">Symmetry</a>
-            <a href="#validation" class="nav-link">Validation</a>
-            <a href="#dynamics" class="nav-link">Dynamics</a>
-            <a href="#conclusion" class="nav-link">Conclusion</a>
-        </div>
-    </nav>
-</header>
 
 <main class="container mx-auto px-4 py-12 md:py-20">
+  <div class="prose mx-auto max-w-3xl px-4">
 
     <section id="hero" class="text-center mb-20 md:mb-32">
         <h1 class="text-4xl md:text-6xl font-extrabold text-gray-50 mb-6 leading-tight">The Shape of Energy</h1>
@@ -188,23 +174,19 @@ permalink: /interactive.html
 
 <h4 class="mt-10 text-xl font-semibold">β vs 1/γ on the unit circle</h4>
 <canvas id="betaGammaChart" class="w-full sm:w-2/3 aspect-[4/3] my-6"></canvas>
-
-<script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-const θ = Array.from({length:91},(_,i)=>i);          // 0..90°
-const cos = θ.map(t=>Math.cos(t*Math.PI/180));
-const sin = θ.map(t=>Math.sin(t*Math.PI/180));       // sin θ  == 1/γ
-new Chart(document.getElementById('betaGammaChart'),{
-  type:'line',
-  data:{
-    labels:θ,
-    datasets:[
-      {label:'β = cos θ', data:cos, borderWidth:2},
-      {label:'1/γ = sin θ', data:sin, borderWidth:2}
-    ]
-  },
-  options:{responsive:true, scales:{x:{title:{display:true,text:'θ (deg)'}},
-                                    y:{min:0,max:1}}}
+const deg = Array.from({length:91},(_,i)=>i);
+const cos = deg.map(t=>Math.cos(t*Math.PI/180));
+const sin = deg.map(t=>Math.sin(t*Math.PI/180));   // 1/γ
+
+new Chart(betaGammaChart,{
+ type:'line',
+ data:{labels:deg,
+       datasets:[{label:'β = cos θ',data:cos,borderWidth:2},
+                 {label:'1/γ = sin θ',data:sin,borderWidth:2}]},
+ options:{responsive:true,
+          scales:{x:{title:{display:true,text:'θ (deg)'}},
+                  y:{min:0,max:1}}}
 });
 </script>
 
@@ -226,6 +208,7 @@ new Chart(document.getElementById('betaGammaChart'),{
                 </div>
                 <label for="emc2-beta-slider" class="font-semibold text-gray-200">Velocity (&beta; = v/c): <span id="emc2-beta-value" class="highlight font-bold">0.650</span></label>
                 <input type="range" min="0" max="0.999" value="0.65" step="0.001" class="slider mt-2 mb-6" id="emc2-beta-slider">
+                <canvas id="betaTriangle" class="w-full h-56 my-6"></canvas>
                 <div class="space-y-3 text-lg">
                     <p>Rest Energy (E₀): <span class="highlight">m₀c² (constant)</span></p>
                     <p>Momentum (pc): <span id="emc2-pc-value" class="highlight">0.855</span> m₀c</p>
@@ -237,6 +220,17 @@ new Chart(document.getElementById('betaGammaChart'),{
                 <canvas id="emc2-canvas"></canvas>
             </div>
         </div>
+        <script>
+const betaTri = new Chart(betaTriangle,{type:'line',data:{datasets:[{label:'β-γ',data:[{x:0,y:1},{x:0.65,y:1.316}]}]},options:{responsive:true,scales:{x:{min:0,max:1},y:{min:0,max:3}}});
+function updateBetaTri(){
+  const b=parseFloat(document.getElementById('emc2-beta-slider').value);
+  const g=1/Math.sqrt(1-b*b);
+  betaTri.data.datasets[0].data=[{x:0,y:1},{x:b,y:g}];
+  betaTri.update();
+}
+document.getElementById('emc2-beta-slider').addEventListener('input',updateBetaTri);
+updateBetaTri();
+        </script>
     </div>
 </section>
 
@@ -258,6 +252,7 @@ new Chart(document.getElementById('betaGammaChart'),{
                 </div>
                 <label for="kappa-slider" class="font-semibold text-gray-200">Gravity (&kappa;): <span id="kappa-value" class="highlight font-bold">0.500</span></label>
                 <input type="range" min="0" max="0.999" value="0.5" step="0.001" class="slider mt-2 mb-6" id="kappa-slider">
+                <canvas id="gravityPlot" class="w-full h-56 my-6"></canvas>
                 <div class="space-y-3 text-lg">
                     <p>Radius (r): <span id="radius-value" class="highlight">4.00</span> Rₛ</p>
                     <p>Grav. Time Dilation (T_c): <span id="time-contraction-value" class="highlight">0.866</span></p>
@@ -265,6 +260,16 @@ new Chart(document.getElementById('betaGammaChart'),{
                 </div>
             </div>
         </div>
+        <script>
+const gChart=new Chart(gravityPlot,{type:'line',data:{datasets:[{label:'κ',data:[{x:0,y:0.5},{x:1,y:0.5}]}]},options:{responsive:true,scales:{x:{min:0,max:1},y:{min:0,max:1}}});
+function updateGr(){
+  const k=parseFloat(document.getElementById('kappa-slider').value);
+  gChart.data.datasets[0].data=[{x:0,y:k},{x:1,y:k}];
+  gChart.update();
+}
+document.getElementById('kappa-slider').addEventListener('input',updateGr);
+updateGr();
+        </script>
     </div>
 </section>
 
@@ -275,7 +280,7 @@ new Chart(document.getElementById('betaGammaChart'),{
     </div>
     <div class="interactive-container">
         <div class="flex flex-col justify-center">
-            <h3 class="text-2xl font-bold mb-4 text-gray-100">κ–β Projection</h3>
+            <h3 class="text-2xl font-bold mb-4 text-gray-100">Unified Q‑circle (β–κ plane)</h3>
             <div id="unification-projection-content">
                 {% capture content %}{% include narrative/unification_projection.md %}{% endcapture %}
                 {{ content | markdownify }}
@@ -315,8 +320,28 @@ new Chart(document.getElementById('betaGammaChart'),{
             </div>
         </div>
         <div class="canvas-container relative">
-            <canvas id="unification-canvas"></canvas>
+            <canvas id="qCircle" class="w-full aspect-[1/1] my-6"></canvas>
         </div>
+        <script>
+import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
+ const loop=Array.from({length:361},(_,i)=>i*Math.PI/180);
+ const circle=loop.map(t=>({x:Math.cos(t),y:Math.sin(t)}));
+
+ const chart=new Chart(qCircle,{
+   type:'scatter',
+   data:{datasets:[
+     {label:'Q² = 1 (photon sphere)',data:circle,showLine:true,borderWidth:1},
+     {label:'State',data:[{x:0.577,y:0.816}],pointRadius:5}
+   ]},
+   options:{aspectRatio:1,scales:{x:{min:0,max:1},y:{min:0,max:1.2}}}
+ });
+ window.updateQ=q=>{
+   const beta=Math.sqrt(q/3), kappa=Math.sqrt(q-beta*beta);
+   chart.data.datasets[1].data=[{x:beta,y:kappa}];
+   chart.update();
+ };
+});
+        </script>
     </div>
 </section>
 
@@ -352,6 +377,9 @@ new Chart(document.getElementById('betaGammaChart'),{
                     {% capture content %}{% include narrative/validation_gps.md %}{% endcapture %}
                     {{ content | markdownify }}
                 </div>
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 text-sm italic">
+                  ⚙️ Interactive Desmos calculation coming soon…
+                </div>
             </div>
             <div class="bg-gray-900 p-6 rounded-lg">
                 <h3 class="text-2xl font-bold mb-4 text-gray-100">2. Mercury's Orbital Precession</h3>
@@ -361,6 +389,9 @@ new Chart(document.getElementById('betaGammaChart'),{
                 <div id="validation-mercury-content">
                     {% capture content %}{% include narrative/validation_mercury.md %}{% endcapture %}
                     {{ content | markdownify }}
+                </div>
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 text-sm italic">
+                  ⚙️ Interactive Desmos calculation coming soon…
                 </div>
             </div>
         </div>
@@ -381,6 +412,7 @@ new Chart(document.getElementById('betaGammaChart'),{
     </div>
 </section>
 
+</div>
 </main>
 
 <footer class="text-center py-10 border-t border-gray-700 mt-20">
@@ -392,6 +424,8 @@ new Chart(document.getElementById('betaGammaChart'),{
         <a href="https://antonrize.github.io/WILL/results/" class="text-cyan-400 hover:underline">Results & Applications</a>
     </p>
 </footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </body>
 </html>
