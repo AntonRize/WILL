@@ -346,15 +346,15 @@ updateValues(Number(qSlider.value));
 
 <section id="symmetry" class="scroll-mt-20">
     <div id="symmetry-content">
-        {% capture content %}{% include narrative/symmetry.md %}{% endcapture %}
-        {{ content | markdownify }}
+        <!-- {% capture content %}{% include narrative/symmetry.md %}{% endcapture %} 
+{{ content | markdownify }} -->
     </div>
 </section>
 
 <section id="oneline" class="scroll-mt-20">
     <div id="oneline-content">
-        {% capture content %}{% include narrative/oneline.md %}{% endcapture %}
-        {{ content | markdownify }}
+        <!-- {% capture content %}{% include narrative/oneline.md %}{% endcapture %} 
+{{ content | markdownify }} -->
     </div>
 </section>
 
