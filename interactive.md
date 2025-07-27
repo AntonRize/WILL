@@ -305,6 +305,8 @@ import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
 </section>
 
 
+
+
 <script>
 // Q GRAPH !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 const qSlider = document.getElementById("q-slider");
@@ -355,6 +357,7 @@ updateValues(Number(qSlider.value));
         {{ content | markdownify }}
     </div>
 </section>
+
 
 
 
