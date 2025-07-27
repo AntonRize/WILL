@@ -151,27 +151,6 @@ The time slowdown (Lorentz factor) is:<br>
                 </p>
             </details>
         </div>
-        <div class="card">
-            <div class="interactive-container">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-100">The Energy-Momentum Triangle</h3>
-                    <p class="text-gray-300 mb-6">Visualize energy, mass, and momentum as a simple right triangle. One side (fixed) always represents the object's *rest energy*. 
-                            The second side grows as the object’s speed increases — this is its *momentum*. The hypotenuse is the *total energy* — it stretches as you go faster.</p>
-                    <label for="emc2-beta-slider" class="font-semibold text-gray-200">Velocity (&beta; = v/c): <span id="emc2-beta-value" class="highlight font-bold">0.650</span></label>
-                    <input type="range" min="0" max="0.999" value="0.65" step="0.001" class="slider mt-2 mb-6" id="emc2-beta-slider">
-                    
-                    <div class="space-y-3 text-lg">
-                        <p>Rest Energy (E₀): <span class="highlight">m₀c² (constant)</span></p>
-                        <p>Momentum (pc): <span id="emc2-pc-value" class="highlight">0.855</span> m₀c</p>
-                        <p>Total Energy (E): <span id="emc2-energy-value" class="highlight">1.316</span> m₀c²</p>
-                    </div>
-                     <div class="equation-box text-lg">E² = (pc)² + (m₀c²)²</div>
-                </div>
-                <div class="canvas-container">
-                    <canvas id="emc2-canvas"></canvas>
-                </div>
-            </div>
-        </div>
 
 <section id="energy-summary" class="scroll-mt-20">
 
@@ -465,48 +444,6 @@ The time slowdown (Lorentz factor) is:<br>
       Explore the fundamental relation <span class="text-cyan-400">Q² = κ² + β²</span>, where geometry unites motion and gravity. Adjust Q and see how the balance leads to the photon sphere at the “magic” point <span class="text-purple-400 font-bold">Q = 1</span>.
     </p>
   </div>
-  <div class="grid md:grid-cols-2 gap-8 items-center">
-    <div class="bg-gray-800/50 p-6 rounded-lg">
-      <h3 class="text-2xl font-semibold text-white mb-4">Geometric Relations</h3>
-      <div class="mb-6">
-        <label for="q-slider" class="block mb-2 text-sm font-medium text-gray-300">Control Parameter: Q (<span class="text-cyan-400">Q = √(κ² + β²)</span>), 0 ≤ Q ≤ √3 ≈ 1.732</label>
-        <input id="q-slider" type="range" min="0" max="1.732" value="1.0" step="0.001" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-      </div>
-      <div class="grid grid-cols-2 gap-4 text-sm">
-        <div class="bg-gray-900 p-3 rounded">
-          <p class="text-gray-400">κ (Potential)</p>
-          <p id="kappa-val" class="text-xl font-bold text-purple-400">—</p>
-        </div>
-        <div class="bg-gray-900 p-3 rounded">
-          <p class="text-gray-400">β (Kinetic)</p>
-          <p id="beta-val" class="text-xl font-bold text-cyan-400">—</p>
-        </div>
-        <div class="bg-gray-900 p-3 rounded">
-          <p class="text-gray-400">θ<sub>G</sub> (from κ)</p>
-          <p id="thetaG-val" class="text-xl font-bold text-purple-400">—</p>
-        </div>
-        <div class="bg-gray-900 p-3 rounded">
-          <p class="text-gray-400">θ<sub>S</sub> (from β)</p>
-          <p id="thetaS-val" class="text-xl font-bold text-cyan-400">—</p>
-        </div>
-        <div class="bg-gray-900 p-3 rounded">
-          <p class="text-gray-400">κ² + β²</p>
-          <p id="sum-sq-val" class="text-xl font-bold" style="color: #a78bfa;">—</p>
-        </div>
-        <div class="bg-gray-900 p-3 rounded">
-          <p class="text-gray-400">Status</p>
-          <p id="photon-sphere-status" class="text-xl font-bold text-yellow-400">—</p>
-        </div>
-      </div>
-      <div id="photon-sphere-info" class="mt-6 p-4 bg-gray-700 rounded-lg text-yellow-200 font-semibold hidden">
-        <span>🌐 <b>Photon Sphere!</b> At Q = 1: κ² + β² = 1, θ<sub>S</sub> = θ<sub>G</sub>. Light can orbit in a perfect circle — but only on this razor’s edge.</span>
-      </div>
-    </div>
-    <div class="bg-gray-800/50 p-2 rounded-lg flex justify-center items-center">
-      <canvas id="geometry-canvas"></canvas>
-    </div>
-  </div>
-</section>
 
 
 
