@@ -21,9 +21,6 @@
         </p>
 
 
-//The Rules of the Game — A Foundation of Pure Logic !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
         <div class="text-center mt-16">
             <h2 class="section-title">The Rules of the Game — A Foundation of Pure Logic</h2>
         </div>
@@ -98,7 +95,8 @@
         </div>
     </section>
 
-  <p class="narrative-text"> **Why This Explains All the Weirdness of Relativity**
+  <p class="narrative-text"> **Why This Explains All the Weirdness of Relativity  </p>
+
 
         When you look at it this way, all the “strange” effects of special relativity — like time slowing down as you go faster — are just the result of keeping the total “speed of change” fixed, 
                   but sharing it differently between space and time.
@@ -114,8 +112,6 @@ The time slowdown (Lorentz factor) is:<br>
 </div>
      
 
-
-//How E = mc² Falls Out Naturally !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
    
     <section id="emc2" class="scroll-mt-20">
@@ -177,7 +173,7 @@ The time slowdown (Lorentz factor) is:<br>
 
 
 
-//Act II: Gravity as a Shadow on the Sphere  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 
 
@@ -274,8 +270,6 @@ The time slowdown (Lorentz factor) is:<br>
 
 
 
-//Unification – When the Circle Meets the Sphere !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 
 
 {% elsif include.part == "unification" %}
@@ -297,7 +291,6 @@ The time slowdown (Lorentz factor) is:<br>
   </div>
 
 
-//The Universal “Budget” Principle !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
   <div class="max-w-3xl mx-auto mb-8">
@@ -354,7 +347,6 @@ The time slowdown (Lorentz factor) is:<br>
 
 
 
-//Where Does the “2” Come From?  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
   <div class="max-w-3xl mx-auto mb-8">
@@ -434,7 +426,6 @@ The time slowdown (Lorentz factor) is:<br>
 </section>
 
 
-// Q GRAPH !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 <section class="py-16">
@@ -450,9 +441,6 @@ The time slowdown (Lorentz factor) is:<br>
 
 
 
-
-
-// energy-symmetry !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 <section id="energy-symmetry" class="scroll-mt-20">
@@ -552,8 +540,6 @@ The time slowdown (Lorentz factor) is:<br>
 </section>
 
 
-
-//The Whole Universe in a Single Line !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
@@ -718,6 +704,7 @@ The time slowdown (Lorentz factor) is:<br>
     </blockquote>
   </div>
 </section>
+
 {% elsif include.part == "uncategorized" %}
     <section id="hero" class="text-center mb-20 md:mb-32">
         <h1 class="text-4xl md:text-6xl font-extrabold text-gray-50 mb-6 leading-tight">The Shape of Energy</h1>
