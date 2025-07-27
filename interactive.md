@@ -345,6 +345,43 @@ import('https://cdn.jsdelivr.net/npm/chart.js').then(()=>{
     </div>
 </section>
 
+<script>
+// Q GRAPH !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+const qSlider = document.getElementById("q-slider");
+const kappaVal = document.getElementById("kappa-val");
+const betaVal = document.getElementById("beta-val");
+const thetaGVal = document.getElementById("thetaG-val");
+const thetaSVal = document.getElementById("thetaS-val");
+const sumSqVal = document.getElementById("sum-sq-val");
+const photonStatus = document.getElementById("photon-sphere-status");
+const photonInfo = document.getElementById("photon-sphere-info");
+
+function updateValues(q) {
+    const beta2 = q * q / 3;
+    const kappa2 = 2 * q * q / 3;
+    const beta = Math.sqrt(beta2);
+    const kappa = Math.sqrt(kappa2);
+    const thetaS = Math.asin(Math.min(beta, 1)) * 180 / Math.PI;
+    const thetaG = Math.acos(Math.min(kappa, 1)) * 180 / Math.PI;
+    betaVal.textContent = beta.toFixed(3);
+    kappaVal.textContent = kappa.toFixed(3);
+    thetaSVal.textContent = thetaS.toFixed(2) + "";
+    thetaGVal.textContent = thetaG.toFixed(2) + "";
+    sumSqVal.textContent = (beta2 + kappa2).toFixed(3);
+    if (Math.abs(q - 1) < 0.01) {
+        sumSqVal.style.color = "#facc15";
+        photonStatus.textContent = "Photon Sphere!";
+        photonInfo.classList.remove("hidden");
+    } else {
+        sumSqVal.style.color = "#a78bfa";
+        photonStatus.textContent = "";
+        photonInfo.classList.add("hidden");
+    }
+}
+qSlider.addEventListener("input", e => updateValues(Number(e.target.value)));
+updateValues(Number(qSlider.value));
+</script>
+
 <section id="symmetry" class="scroll-mt-20">
     <div id="symmetry-content">
         {% capture content %}{% include narrative/symmetry.md %}{% endcapture %}
