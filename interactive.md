@@ -192,7 +192,12 @@ new Chart(betaGammaChartEl,{
 
 <script>
 const betaTriangle = document.getElementById("emc2-canvas");
-const betaTri = new Chart(betaTriangle,{type:'line',data:{datasets:[{label:'β-γ',data:[{x:0,y:1},{x:0.65,y:1.316}]}]},options:{responsive:true,scales:{x:{min:0,max:1},y:{min:0,max:3}}});
+const betaTri = new Chart(betaTriangle, {
+  type: 'line',
+  data: { datasets: [{ label: 'β-γ', data: [{ x: 0, y: 1 }, { x: 0.65, y: 1.316 }] }] },
+  options: { responsive: true, scales: { x: { min: 0, max: 1 }, y: { min: 0, max: 3 } } }
+});
+  
 function updateBetaTri(){
   const b=parseFloat(document.getElementById('emc2-beta-slider').value);
   const g=1/Math.sqrt(1-b*b);
