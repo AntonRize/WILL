@@ -674,11 +674,10 @@ Detailed calculations for both examples are provided in https://antonrize.github
   </summary>
   <div class="geometry-container">
     <div class="desmos-container">
-      <iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"></iframe>
+      <iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"></iframe>
     </div>
   </div>
 </details>
-
 ---
 
 ## Section 8: A New Reality of Change — Dynamics Without Time
