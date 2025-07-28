@@ -55,7 +55,7 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 <details>
 <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)</summary>
 <div class="my-4">
-  <!-- [https://www.desmos.com/geometry/50al3wdj8o] -->
+  (https://www.desmos.com/geometry/50al3wdj8o)
 </div>
 </details>
 
