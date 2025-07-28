@@ -155,18 +155,18 @@ Where:
   - $p$: Momentum
   - $m_0 c^2$: Rest energy
 
-</details\>
+</details>
 
-<details\>
-<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
 Show Interactive Graph: The Energy-Momentum Triangle (Desmos)
-</summary\>
-<div class="geometry-container"\>
-<div class="desmos-container"\>
-<iframe src="https://www.desmos.com/geometry/pfckyxazhl" width="100%" height="500" frameborder="0"\></iframe\>
-</div\>
-</div\>
-</details\>
+</summary>
+<div class="geometry-container">
+<div class="desmos-container">
+<iframe src="https://www.desmos.com/geometry/pfckyxazhl" width="100%" height="500" frameborder="0"></iframe>
+</div>
+</div>
+</details>
 
 Simply saying:
 
@@ -208,8 +208,8 @@ Here’s where the sphere magic happens:
 
 > Gravity isn’t just pulling you in — it’s literally changing how fast your clock ticks, depending on where you are.
 
-<details\>
-<summary\><strong\>Show the math</strong\></summary\>
+<details>
+<summary><strong>Show the math</strong></summary>
 
 Time dilation near a massive object is:
 
@@ -218,18 +218,18 @@ $$
 $$
 
 
-</details\>
+</details>
 
-<details\>
-<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
 Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos)
-</summary\>
-<div class="geometry-container"\>
-<div class="desmos-container"\>
-<iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"\></iframe\>
-</div\>
-</div\>
-</details\>
+</summary>
+<div class="geometry-container">
+<div class="desmos-container">
+<iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"></iframe>
+</div>
+</div>
+</details>
 
 ### The Hidden Symmetry
 
@@ -301,8 +301,8 @@ No matter how you use it, your total paint doesn’t change — but the way it �
 
 But both are just different ways of splitting up the same “energy budget.”
 
-<details\>
-<summary\><strong\>Show the key connection</strong\></summary\>
+<details>
+<summary><strong>Show the key connection</strong></summary>
 
 The “paint” covering for both shapes leads to a simple rule:
 
@@ -324,7 +324,7 @@ where
   - β² = “share” spent on motion
   - κ² = “share” spent on gravity
 
-</details\>
+</details>
 
 #### Why does it matter?
 
@@ -345,15 +345,15 @@ Here’s the simple geometric truth:
 
 So when we ask, “How many times does a circle fit into a sphere?” the answer is:
 
-<details\>
-<summary\><strong\>Show the calculation</strong\></summary\>
+<details>
+<summary><strong>Show the calculation</strong></summary>
 
 $$
 \frac{\text{Surface area of sphere}}{\text{Circumference of circle}} = \frac{4\pi}{2\pi} = 2
 $$
 
 
-</details\>
+</details>
 
 That’s the source of the mysterious “2” in our key equation. It’s not an arbitrary fudge factor — it’s pure geometry.
 
@@ -373,16 +373,16 @@ just says: *“Gravity’s share is always twice the motion’s share, because a
 
 ### The Photon Sphere: A Point of Perfect Balance
 
-<details\>
-<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
 Show Interactive Graph: Q Circle (Desmos)
-</summary\>
-<div class="geometry-container"\>
-<div class="desmos-container"\>
-<iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"\></iframe\>
-</div\>
-</div\>
-</details\>
+</summary>
+<div class="geometry-container">
+<div class="desmos-container">
+<iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"></iframe>
+</div>
+</div>
+</details>
 
 A remarkable consequence of this unification happens at a special “balance point” — where the two projections, kinetic and potential, are perfectly matched. This occurs when:
 
@@ -395,10 +395,10 @@ and the two angles are exactly equal.
 
 **At this moment, something amazing appears: it matches the “photon sphere” — the special zone around a massive object where light itself can orbit in a perfect circle.** (For a black hole, that’s at a distance of 1.5 times its radius.)
 
-<details\>
-<summary\><strong\>What happens to light at the photon sphere?</strong\></summary\>
+<details>
+<summary><strong>What happens to light at the photon sphere?</strong></summary>
 At the photon sphere, a photon moving exactly along the perfect circle could orbit forever — but this path is incredibly unstable. If the photon’s path points even a tiny bit outward, it escapes to infinity. If it’s angled a bit inward, it falls into the black hole. So, the photon sphere is not a prison — it’s a tightrope. Light can still escape if it’s not traveling exactly along the circle.
-</details\>
+</details>
 
 -----
 
@@ -429,8 +429,8 @@ From B’s point of view, if the object comes *down*:
 
 > The universe never “creates” or “loses” energy when you swap perspectives — just moves it around.
 
-<details\>
-<summary\><strong\>Show the math</strong\></summary\>
+<details>
+<summary><strong>Show the math</strong></summary>
 
 $$
 \Delta E_{A \to B} + \Delta E_{B \to A} = 0
@@ -446,7 +446,7 @@ E_{SYMETRY}=E_{AtoB}+E_{BtoA}=0
 $$
 
 Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, always balancing out.
-</details\>
+</details>
 
 ### Universal Speed Limit: Why Nothing Goes Faster than Light
 
@@ -456,14 +456,14 @@ This “energy symmetry” is so strict that it naturally sets the universe’s 
   * That’s not allowed: **causality and energy symmetry would both collapse.**
   * So, the speed of light isn’t just a cosmic “speed trap” — it’s the built-in edge of energetic fairness.
 
-<details\>
-<summary\><strong\>Math explanation</strong\></summary\>
+<details>
+<summary><strong>Math explanation</strong></summary>
 
-If $β \> 1$ (faster than light): $\\Delta E\_{A \\to B} + \\Delta E\_{B \\to A} \\neq 0$.
-<br\>
+If $β > 1$ (faster than light): $\\Delta E_{A \\to B} + \\Delta E_{B \\to A} \\neq 0$.
+<br>
 So, it must be that $β \\leq 1$ (or $v \\leq c$).
 
-</details\>
+</details>
 
 **In plain English:**
 
@@ -476,18 +476,16 @@ So, it must be that $β \\leq 1$ (or $v \\leq c$).
 
 After all the geometric juggling, here’s the punchline: **Everything — gravity, motion, energy, even the rules for black holes — can be summed up in just one line.**
 
-<details\>
-<summary\><strong\>See the Universe’s one-line “code”</strong\></summary\>
+<details>
+<summary><strong>See the Universe’s one-line “code”</strong></summary>
 
 $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
 $$
 
-```latex
-\kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
-```
 
-</details\>
+
+</details>
 
 ### What does this actually mean?
 
@@ -504,19 +502,17 @@ Or:
   * At every point in space, there’s a built-in “speed limit” for how much energy you can pack into that spot.
   * The **critical density** ($\rho_{max}$) isn’t universal — it depends on where you are (your distance from the center). The closer you get to the center, the higher this limit becomes — but it’s *never* infinite.
 
-<details\>
-<summary\><strong\>How is the density limit set?</strong\></summary\>
+<details>
+<summary><strong>How is the density limit set?</strong></summary>
 
 $$
 \rho_{max} = \frac{c^2}{8\pi G r_d^2}
 $$
 
-```latex
-\rho_{max} = \frac{c^2}{8\pi G r_d^2}
-```
+
 
 — “The smaller the radius, the greater the allowed density — but there’s always a cap.”
-</details\>
+</details>
 
 ### What this solves
 
@@ -559,16 +555,16 @@ The standard approach is to calculate these two corrections separately and sum t
 
 This result exactly matches the empirically measured value that must be continually added to the GPS system for it to function correctly. The success of this prediction is a powerful confirmation not only of the individual parts of the theory, but—more importantly—of the very principle of unification. It shows that treating kinetic and gravitational effects as unified geometric projections is not just a theoretical sophistication but a practical necessity for arriving at the correct answer.
 
-<details\>
-<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
 Show Interactive Graph: Earth GPS (Desmos)
-</summary\>
-<div class="geometry-container"\>
-<div class="desmos-container"\>
-<iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"\></iframe\>
-</div\>
-</div\>
-</details\>
+</summary>
+<div class="geometry-container">
+<div class="desmos-container">
+<iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"\</iframe>
+</div>
+</div>
+</details>
 
 ### 2. Precession of Mercury’s Orbit
 
@@ -578,16 +574,16 @@ WILL Geometry also faces this classic test. Using its fundamental equations and 
 
 Detailed calculations for both examples are provided in [this document](https://antonrize.github.io/WILL/documents/WILL_PART_I_SR_GR.pdf), but the narrative conclusion is clear: WILL Geometry is not merely a philosophical construction. It passes the most rigorous experimental and observational tests. It not only reproduces the successes of standard relativistic physics but does so from deeper, more unified first principles, lending its predictions extra weight and elegance. A theory born of pure logic finds its exact reflection in the workings of the real world. WILL Geometry stands up to every challenge that nature throws at it, not just matching standard physics, but explaining it from the ground up, using nothing but logic and geometry.
 
-<details\>
-<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
 Show Interactive Graph: Sun Mercury (Desmos)
-</summary\>
-<div class="geometry-container"\>
-<div class="desmos-container"\>
-<iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"\></iframe\>
-</div\>
-</div\>
-</details\>
+</summary>
+<div class="geometry-container">
+<div class="desmos-container">
+<iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"></iframe>
+</div>
+</div>
+</details>
 
 -----
 
@@ -656,17 +652,13 @@ At the core is one bold claim:
 > **Energy doesn’t just exist in space — it *creates* space, by its projection.**
 
 All of physics becomes a story about “the projective curvature of the energy flow.” And the essence of it all is captured in a single, dimensionless invariant:
-<details\>
-<summary\><strong\>See the WILL invariant</strong\></summary\>
+<details>
+<summary><strong>See the WILL invariant</strong></summary>
 $$
 W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = 1
 $$
 
-```latex
-W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = 1
-```
-
-</details\>
+</details>
 
 
 Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self-consistent structure.
