@@ -2,7 +2,7 @@
 ---
 layout: default
 title: "Relativistic Foundations"
-permalink: /relativistic_foundations/
+permalink: /relativistic-foundations/
 ---
 
 # Shape of Energy: A Narrative Exposition of WILL Geometry
