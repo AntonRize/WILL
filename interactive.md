@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Narrative Exposition
+title: Interactive Geometry
 ---
 
 <style>
