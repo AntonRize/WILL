@@ -5,9 +5,28 @@ title: Interactive Geometry
 
 <style>
     /* Styles for interactive cards, sliders, and text formatting.
-      FIX: Added 'white-space: normal' and 'word-wrap: break-word' to p, li elements
-      to fix the unreadable blocky text issue.
+      FIX V2: Applying a more robust fix for the non-wrapping text issue.
+      This targets the sections directly and resets white-space properties to ensure readability.
     */
+    #section-1, #section-2, #section-3, #section-4, #section-5, #section-6, #section-7, #section-8, #section-9, #conclusion {
+        white-space: normal;
+    }
+
+    #section-1 p, #section-1 li,
+    #section-2 p, #section-2 li,
+    #section-3 p, #section-3 li,
+    #section-4 p, #section-4 li, #section-4 td,
+    #section-5 p, #section-5 li,
+    #section-6 p, #section-6 li,
+    #section-7 p, #section-7 li, #section-7 td,
+    #section-8 p, #section-8 li,
+    #section-9 p, #section-9 li,
+    #conclusion p, #conclusion li {
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        line-height: 1.75;
+    }
+
     .interactive-card {
         background-color: #1f2937;
         border: 1px solid #374151;
@@ -24,14 +43,6 @@ title: Interactive Geometry
             grid-template-columns: 1fr 1fr;
         }
     }
-
-    /* Text formatting fix */
-    main p, main li {
-        white-space: normal !important;
-        word-wrap: break-word !important;
-        line-height: 1.75;
-    }
-
     .highlight { color: #6ee7b7; }
     .slider {
         width: 100%;
