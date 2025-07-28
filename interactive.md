@@ -1,5 +1,5 @@
 layout: default 
-title: Interactive Geometry 
+title: Interactive
 
 
 <style>/*FIX V4: Adopting the user's site structure.- Removed aggressive CSS overrides.- Added a simple wrapper class '.narrative-content' to ensure text wrapping workswithout conflicting with the site's global design.- Styles for interactive cards remain as they are self-contained.*/
