@@ -1,4 +1,11 @@
-layout: default title: Interactive Geometry<style>/*FIX V4: Adopting the user's site structure.- Removed aggressive CSS overrides.- Added a simple wrapper class '.narrative-content' to ensure text wrapping workswithout conflicting with the site's global design.- Styles for interactive cards remain as they are self-contained.*/.narrative-content p,.narrative-content li,.narrative-content td,.narrative-content blockquote {white-space: normal !important;word-wrap: break-word !important;}.interactive-card {
+layout: default 
+title: Interactive Geometry 
+
+
+<style>/*FIX V4: Adopting the user's site structure.- Removed aggressive CSS overrides.- Added a simple wrapper class '.narrative-content' to ensure text wrapping workswithout conflicting with the site's global design.- Styles for interactive cards remain as they are self-contained.*/
+    .narrative-content p,.narrative-content li,
+    .narrative-content td,.narrative-content blockquote {white-space: normal !important;word-wrap: break-word !important;}
+    .interactive-card {
     background-color: #1f2937;
     border: 1px solid #374151;
     border-radius: 0.75rem;
