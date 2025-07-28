@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Relativistic Foundations"
-permalink: /relativistic-foundations/
 ---
 
 # Shape of Energy: A Narrative Exposition of WILL Geometry
@@ -37,19 +36,33 @@ This work is not merely a reformulation of existing theories, but rather a narra
 
 If we accept the fundamental postulate—that spacetime is identical to energy evolution—we are immediately confronted with its strict logical consequences. First and foremost: if all of reality is a self-sufficient system of energetic relations, then by definition nothing can exist “outside” this system. There is no external observer, no absolute reference frame or background on which events unfold. The Universe of WILL Geometry must be entirely closed and self-sufficient.
 
+---
+
 This restriction, philosophical at first glance, generates concrete physical and geometric “rules of the game”:
+
+---
 
 * **Conservation Law:** In a closed system, nothing can appear from outside or disappear without a trace. This means that the total energy of the system must be conserved. The law of conservation is not an added assumption, but a direct consequence of the Universe’s self-sufficiency.
 * **Symmetry:** In the absence of external reference points, no location in space and no direction can be privileged from the outset. Any asymmetry would require a preferred frame, contradicting our foundational principle. Therefore, the geometry of the Universe must be maximally symmetric.
 
+---
+
 This immediately raises the question: What geometric structures satisfy these strict requirements—being both closed and maximally symmetric? Mathematics gives a definitive answer. Among all possible manifolds, only certain forms possess these properties to perfection.
+
+---
 
 * In one dimension, the only such form is the circle (`S¹`).
 * In two dimensions—the surface of a sphere (`S²`).
 
+---
+
 These geometries are not arbitrary choices or convenient models. They are forced upon us by the logic of the postulate itself. If the Universe is a closed and symmetric system of energetic relations, then any projections of those relations must “live” on these unique surfaces. The circle and the sphere become the only possible “canvases” on which the picture of physical reality can be drawn.
 
+---
+
 Finally, we must rethink one of the fundamental constants of nature—the speed of light, *c*. In WILL Geometry, *c* is not merely the speed at which photons travel. It is the universal speed of evolution, the fundamental tempo of change in the Universe itself. Every interaction, every transformation of energy, occurs at this single, invariant rate. This universal “speed of evolution” is like a vector of constant length. The various physical processes we observe are merely projections of this single vector onto different axes, just as a car’s velocity can be decomposed into northward and eastward motion. The sum of the squares of the projections always remains constant, naturally returning us to the geometry of the circle, where the radius (*c*) is invariant.
+
+---
 
 Thus, from a single postulate, we derive the entire set of rules: conservation, symmetry, and specific geometric structures (the circle and the sphere) that will serve as the arena for all subsequent physical phenomena. Geometry is not imposed upon physics; it is its inevitable logical consequence.
 
@@ -59,7 +72,11 @@ Thus, from a single postulate, we derive the entire set of rules: conservation, 
 
 Now that the rules of the game have been established, let’s consider the simplest case: one-dimensional motion. According to our logic, this process must be described on the only possible closed and symmetric 1D geometry—the circle. This act of our narrative is devoted to reconstructing special relativity (SR) using nothing but these geometric tools. The main character here is the kinetic projection, denoted by the Greek letter β (beta).
 
+---
+
 Imagine a unit circle whose radius symbolizes the universal speed of evolution, *c*, which for simplicity we set to 1. Any state of motion of an object can be represented as a point on this circle. The total “speed of evolution” is a vector drawn from the center to this point. This vector can be decomposed into horizontal (X axis) and vertical (Y axis) projections.
+
+---
 
 <details>
   <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
@@ -72,14 +89,22 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
   </div>
 </details>
 
+---
+
 ### How Motion and Time Are Just Two Sides of the Same Thing
 
 Imagine all possible states of movement as points around a perfect circle. The *radius* of this circle is the fastest possible speed in the universe — the universal “speed of change.” Every moving object is like a pointer from the center of the circle to some spot on its edge.
 
+---
+
 * **Movement:** How fast something moves through space is just “how much” of that pointer is aimed sideways around the circle. The faster it goes, the more it “leans” into space, and the less is left “pointing” upward — toward time.
 * **Time:** How fast time ticks for something is just “how much” of that pointer is aimed along the time direction. If the object speeds up through space, less of the pointer is left for time — so its time slows down.
 
+---
+
 Think of it like sharing a fixed budget: If you spend more of your “change” moving through space, you have less left for moving through time.
+
+---
 
 <details>
 <summary><strong>Show the math</strong></summary>
@@ -92,11 +117,17 @@ sin(θ_S) = √(1−β²)
 
 </details>
 
+---
+
 ### Why This Explains All the Weirdness of Relativity
 
 When you look at it this way, all the “strange” effects of special relativity — like time slowing down as you go faster — are just the result of keeping the total “speed of change” fixed, but sharing it differently between space and time. There’s nothing mysterious:
 
+---
+
 * More speed through space = less speed through time.
+
+---
 
 <details>
 <summary><strong>Show the math</strong></summary>
@@ -107,12 +138,18 @@ The time slowdown (Lorentz factor) is:
 
 </details>
 
+---
+
 ### How E = mc² Falls Out Naturally
 
 Here’s the coolest part: That famous equation, E = mc², isn’t some magic law — it’s just what you get when you realize energy and mass are two sides of the same coin. At rest, all of an object’s energy points along the time direction. When it moves, some energy “tilts” into space — but the total stays balanced, so that the piece along time remains constant.
 
+---
+
 * **Mass** is just a way to relate an object’s energy at rest to its fundamental “speed of change.”
 * **Energy** increases as the object moves, simply to keep the system in balance.
+
+---
 
 <details>
 <summary><strong>Show the math</strong></summary>
@@ -125,20 +162,34 @@ Momentum: p = γmv
 
 </details>
 
+---
+
 ### The Energy-Momentum Triangle
 
+---
+
 **Visualize energy, mass, and momentum as a simple right triangle:**
+
+---
 
 * **One side** (fixed) always represents the object's *rest energy* — this never changes, no matter how fast it moves.
 * **The second side** grows as the object’s speed increases — this is its *momentum*.
 * **The hypotenuse** is the *total energy* — it stretches as you go faster.
 
+---
+
 > When you slide the velocity, you can see how “momentum” grows, and total energy stretches to keep the triangle in perfect balance, but rest energy always stays the same.
+
+---
 
 #### What’s the point?
 
+---
+
 * The triangle shows that you can’t just add energies and momenta any way you like. They’re always connected by a simple geometric rule — just like the sides of any right triangle.
 * No matter how fast you go, all three always fit together. The triangle is never broken.
+
+---
 
 <details>
 <summary><strong>Show the math</strong></summary>
@@ -157,6 +208,8 @@ Where:
 
 </details>
 
+---
+
 <details>
 <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
 Show Interactive Graph: The Energy-Momentum Triangle (Desmos)
@@ -168,13 +221,21 @@ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)
 </div>
 </details>
 
+---
+
 Simply saying:
+
+---
 
   * **Rest energy** is your “starting stash” — it never goes away.
   * **Momentum** is what you get when you start moving.
   * **Total energy** is always the “longest side,” combining both.
 
+---
+
 ### What This Means
+
+---
 
 Special relativity stops being a bunch of rules about “strange time effects” or “postulates about light.” Instead, it’s just a simple story of how all things must share a fixed “budget” of change between motion and time. Mass, energy, and momentum are simply three perspectives on the same underlying geometric fact.
 
@@ -182,7 +243,11 @@ Special relativity stops being a bunch of rules about “strange time effects”
 
 ## Section 4: Act II – Gravity as a Shadow on the Sphere
 
+---
+
 Having cracked motion using a simple circle, let’s tackle gravity. Gravity is different: instead of working in one direction, like motion, it pulls equally from every side — like being surrounded in all directions. So our “canvas” has to be not a line or circle, but a whole **sphere**.
+
+---
 
 ### How Gravity is Just a Different Kind of Projection
 
