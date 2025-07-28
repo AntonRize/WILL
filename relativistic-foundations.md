@@ -1,4 +1,5 @@
 
+
 ---
 layout: default
 title: "Relativistic Foundations"
@@ -84,11 +85,13 @@ Think of it like sharing a fixed budget: If you spend more of your “change” 
 
 <details>
 <summary><strong>Show the math</strong></summary>
+
 The relationship between space and time projections is just Pythagoras’ theorem for a unit circle:
 <br>
 β = v/c = cos(θ_S)
 <br>
 sin(θ_S) = √(1−β²)
+
 </details>
 
 ### Why This Explains All the Weirdness of Relativity
@@ -99,9 +102,11 @@ When you look at it this way, all the “strange” effects of special relativit
 
 <details>
 <summary><strong>Show the math</strong></summary>
+
 The time slowdown (Lorentz factor) is:
 <br>
 γ = 1/√(1−v²/c²) = 1/sin(θ_S)
+
 </details>
 
 ### How E = mc² Falls Out Naturally
@@ -113,11 +118,13 @@ Here’s the coolest part: That famous equation, E = mc², isn’t some magic la
 
 <details>
 <summary><strong>Show the math</strong></summary>
+
 Total energy: E = γmc²
 <br>
 Rest energy: E₀ = mc²
 <br>
 Momentum: p = γmv
+
 </details>
 
 ### The Energy-Momentum Triangle
@@ -207,6 +214,7 @@ Here’s where the sphere magic happens:
 
 \<details\>
 \<summary\>\<strong\>Show the math\</strong\>\</summary\>
+
 Time dilation near a massive object is:
 
 $$
@@ -237,10 +245,10 @@ Here’s the coolest part:
   * Time-slowing by *moving fast* (special relativity) and by *being near gravity* (general relativity) are really the SAME effect, just from different geometric “views.”
   * Both are about how much of your “change budget” gets “spent” in different directions.
 
-| Situation            | Geometry | Time Slowdown Formula |
-| -------------------- | :------: | --------------------- |
-| **Moving fast (SR)** |  Circle  | `√(1−β²)`            |
-| **Near mass (GR)**   |  Sphere  | `√(1−κ²)`            |
+| Situation | Geometry | Time Slowdown Formula |
+| :--- | :---: | :--- |
+| **Moving fast (SR)** | Circle | `√(1−β²)` |
+| **Near mass (GR)** | Sphere | `√(1−κ²)` |
 
 So, what looks like two separate “mysteries” in physics are actually just two projections of the same fundamental story.
 
@@ -453,9 +461,6 @@ $$
 ```
 
 Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, always balancing out.
-$$E_{AtoB}=\frac{1}{2}((\kappa_{A}^{2}-\kappa_{B}^{2})+\beta_{B}^{2})$$
-$$E_{BtoA}=\frac{1}{2}\left((\kappa_{B}^{2}-\kappa_{A}^{2})-\beta_{B}^{2}\right)$$
-$$E_{SYMETRY}=E_{AtoB}+E_{BtoA}=0$$
 \</details\>
 
 ### Universal Speed Limit: Why Nothing Goes Faster than Light
@@ -468,9 +473,11 @@ This “energy symmetry” is so strict that it naturally sets the universe’s 
 
 \<details\>
 \<summary\>\<strong\>Math explanation\</strong\>\</summary\>
+
 If $β \> 1$ (faster than light): $\\Delta E\_{A \\to B} + \\Delta E\_{B \\to A} \\neq 0$.
 \<br\>
 So, it must be that $β \\leq 1$ (or $v \\leq c$).
+
 \</details\>
 
 **In plain English:**
@@ -535,12 +542,12 @@ $$
 
 ### Table: “Old School” GR vs. WILL Geometry
 
-|                   | **General Relativity (GR)** | **WILL Geometry** |
-| ----------------- | -------------------------------------------------- | ------------------------------------------------- |
-| Geometry & Energy | Equated by differential equations                  | Identified algebraically (one-to-one)             |
-| Math Formalism    | Complicated tensors, calculus                      | Simple, projection-based logic                    |
-| Singularities     | Yes, possible (bad news\!)                          | Impossible                                        |
-| Density Limit     | Undefined (needs quantum gravity, still a mystery) | Always set, changes with position, never infinite |
+| | **General Relativity (GR)** | **WILL Geometry** |
+| :--- | :--- | :--- |
+| Geometry & Energy | Equated by differential equations | Identified algebraically (one-to-one) |
+| Math Formalism | Complicated tensors, calculus | Simple, projection-based logic |
+| Singularities | Yes, possible (bad news\!) | Impossible |
+| Density Limit | Undefined (needs quantum gravity, still a mystery) | Always set, changes with position, never infinite |
 
 **Bottom line:** This single “line of code” is the ultimate summary of WILL Geometry:
 
@@ -649,7 +656,7 @@ Our journey through WILL Geometry draws to a close. But remember: **in this shor
 [WILL Geometry — Results & Predictions](https://antonrize.github.io/WILL/results/)
 
 We started with one simple idea:
-**Spacetime is just energy in motion.**
+**SpacETIME is just energy in motion.**
 
 From this, logic alone led us to:
 
@@ -681,3 +688,6 @@ This is not the end, but just a beginning. **For the full mathematical theory, a
   * [Results & Applications](https://antonrize.github.io/WILL/results/)
 
 -----
+
+```
+```
