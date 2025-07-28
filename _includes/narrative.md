@@ -104,7 +104,7 @@ This version has been corrected to include all text from the source document wit
     <blockquote>Gravity isn’t just pulling you in — it’s literally changing how fast your clock ticks, depending on where you are.</blockquote>
     <details><summary>Show Math</summary>
         Time dilation near a massive object is:
-        $$ \sqrt{1-\kappa} = \sqrt{1-R_S/r} = \sqrt{1-2GM/(rc^2)} $$
+        $$ \sqrt{1-\kappa^2} = \sqrt{1-R_S/r} = \sqrt{1-2GM/(rc^2)} $$
     </details>
 {% elsif include.part == 'section4_outro' %}
     <h3 class="text-2xl">The Hidden Symmetry</h3>
@@ -117,7 +117,7 @@ This version has been corrected to include all text from the source document wit
         <thead><tr><th>Situation</th><th>Geometry</th><th>Time Slowdown Formula</th></tr></thead>
         <tbody>
             <tr><td><strong>Moving fast (SR)</strong></td><td>Circle</td><td>$\sqrt{1-\beta^2}$</td></tr>
-            <tr><td><strong>Near mass (GR)</strong></td><td>Sphere</td><td>$\sqrt{1-\kappa}$</td></tr>
+            <tr><td><strong>Near mass (GR)</strong></td><td>Sphere</td><td>$\sqrt{1-\kappa^2}$</td></tr>
         </tbody>
     </table>
     <p>So, what looks like two separate “mysteries” in physics are actually just two projections of the same fundamental story.</p>
@@ -226,6 +226,8 @@ This version has been corrected to include all text from the source document wit
     <details><summary>Show Math</summary>
         $$ \Delta E_{A \to B} + \Delta E_{B \to A} = 0 $$
         Each transfer includes both gravitational ($\kappa^2$) and kinetic ($\beta^2$) parts, always balancing out.
+        $E_{A \to B} = \frac{1}{2}((\kappa_{A}^{2}-\kappa_{B}^{2})+\beta_{B}^{2})$   $E_{B \to A} = \frac{1}{2}((\kappa_{B}^{2}-\kappa_{A}^{2})-\beta_{B}^{2}$
+        $$E_{A \to B} + E_{B \to A} = 0$$
     </details>
     <h3 class="text-2xl">Universal Speed Limit: Why Nothing Goes Faster than Light</h3>
     <p>This “energy symmetry” is so strict that it naturally sets the universe’s ultimate speed limit.</p>
