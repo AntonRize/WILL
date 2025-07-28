@@ -147,9 +147,7 @@ The Energy-Momentum Relation:
 $$
 E^2 = (pc)^2 + (m_0 c^2)^2
 $$
-```latex
-E^2 = (pc)^2 + (m_0 c^2)^2
-````
+
 
 Where:
 
@@ -165,7 +163,7 @@ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)
 </summary\>
 <div class="geometry-container"\>
 <div class="desmos-container"\>
-<iframe src="https://www.desmos.com/geometry/pfckyxazhl" width="100%" height="500" frameborder="0"\>\</iframe\>
+<iframe src="https://www.desmos.com/geometry/pfckyxazhl" width="100%" height="500" frameborder="0"\></iframe\>
 </div\>
 </div\>
 </details\>
@@ -211,7 +209,7 @@ Here’s where the sphere magic happens:
 > Gravity isn’t just pulling you in — it’s literally changing how fast your clock ticks, depending on where you are.
 
 <details\>
-<summary\>\<strong\>Show the math\</strong\>\</summary\>
+<summary\><strong\>Show the math</strong\></summary\>
 
 Time dilation near a massive object is:
 
@@ -219,9 +217,6 @@ $$
 \sqrt{1−\kappa^2} = \sqrt{1−\frac{R_S}{r}} = \sqrt{1−\frac{2GM}{rc^2}}
 $$
 
-```latex
-\sqrt{1−\kappa^2} = \sqrt{1−\frac{R_S}{r}} = \sqrt{1−\frac{2GM}{rc^2}}
-```
 
 </details\>
 
@@ -231,7 +226,7 @@ Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos)
 </summary\>
 <div class="geometry-container"\>
 <div class="desmos-container"\>
-<iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"\>\</iframe\>
+<iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"\></iframe\>
 </div\>
 </div\>
 </details\>
@@ -315,9 +310,7 @@ $$
 \kappa^2 = 2\beta^2
 $$
 
-```latex
-\kappa^2 = 2\beta^2
-```
+
 
 or
 
@@ -325,9 +318,6 @@ $$
 \frac{\kappa^2}{\beta^2} = 2
 $$
 
-```latex
-\frac{\kappa^2}{\beta^2} = 2
-```
 
 where
 
@@ -356,15 +346,12 @@ Here’s the simple geometric truth:
 So when we ask, “How many times does a circle fit into a sphere?” the answer is:
 
 <details\>
-<summary\><strong\>Show the calculation\</strong\></summary\>
+<summary\><strong\>Show the calculation</strong\></summary\>
 
 $$
 \frac{\text{Surface area of sphere}}{\text{Circumference of circle}} = \frac{4\pi}{2\pi} = 2
 $$
 
-```latex
-\frac{\text{Surface area of sphere}}{\text{Circumference of circle}} = \frac{4\pi}{2\pi} = 2
-```
 
 </details\>
 
@@ -378,9 +365,7 @@ $$
 \kappa^2 = 2\beta^2
 $$
 
-```latex
-\kappa^2 = 2\beta^2
-```
+
 
 just says: *“Gravity’s share is always twice the motion’s share, because a sphere’s surface area is twice the length of a circle’s perimeter, at the most fundamental geometric level.”*
 
@@ -405,16 +390,13 @@ $$
 \kappa^2 + \beta^2 = 1
 $$
 
-```latex
-\kappa^2 + \beta^2 = 1
-```
 
 and the two angles are exactly equal.
 
 **At this moment, something amazing appears: it matches the “photon sphere” — the special zone around a massive object where light itself can orbit in a perfect circle.** (For a black hole, that’s at a distance of 1.5 times its radius.)
 
 <details\>
-<summary\><strong\>What happens to light at the photon sphere?\</strong\></summary\>
+<summary\><strong\>What happens to light at the photon sphere?</strong\></summary\>
 At the photon sphere, a photon moving exactly along the perfect circle could orbit forever — but this path is incredibly unstable. If the photon’s path points even a tiny bit outward, it escapes to infinity. If it’s angled a bit inward, it falls into the black hole. So, the photon sphere is not a prison — it’s a tightrope. Light can still escape if it’s not traveling exactly along the circle.
 </details\>
 
@@ -448,15 +430,20 @@ From B’s point of view, if the object comes *down*:
 > The universe never “creates” or “loses” energy when you swap perspectives — just moves it around.
 
 <details\>
-<summary\><strong\>Show the math\</strong\></summary\>
+<summary\><strong\>Show the math</strong\></summary\>
 
 $$
 \Delta E_{A \to B} + \Delta E_{B \to A} = 0
 $$
-
-```latex
-\Delta E_{A \to B} + \Delta E_{B \to A} = 0
-```
+$$
+E_{AtoB}=\frac{1}{2}((\kappa_{A}^{2}-\kappa_{B}^{2})+\beta_{B}^{2})
+$$
+$$
+E_{BtoA}=\frac{1}{2}((\kappa_{B}^{2}-\kappa_{A}^{2})-\beta_{B}^{2})
+$$
+$$
+E_{SYMETRY}=E_{AtoB}+E_{BtoA}=0
+$$
 
 Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, always balancing out.
 </details\>
@@ -490,7 +477,7 @@ So, it must be that $β \\leq 1$ (or $v \\leq c$).
 After all the geometric juggling, here’s the punchline: **Everything — gravity, motion, energy, even the rules for black holes — can be summed up in just one line.**
 
 <details\>
-<summary\><strong\>See the Universe’s one-line “code”\</strong\></summary\>
+<summary\><strong\>See the Universe’s one-line “code”</strong\></summary\>
 
 $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
@@ -518,7 +505,7 @@ Or:
   * The **critical density** ($\rho_{max}$) isn’t universal — it depends on where you are (your distance from the center). The closer you get to the center, the higher this limit becomes — but it’s *never* infinite.
 
 <details\>
-<summary\><strong\>How is the density limit set?\</strong\></summary\>
+<summary\><strong\>How is the density limit set?</strong\></summary\>
 
 $$
 \rho_{max} = \frac{c^2}{8\pi G r_d^2}
@@ -544,7 +531,7 @@ $$
 | :--- | :--- | :--- |
 | Geometry & Energy | Equated by differential equations | Identified algebraically (one-to-one) |
 | Math Formalism | Complicated tensors, calculus | Simple, projection-based logic |
-| Singularities | Yes, possible (bad news\!) | Impossible |
+| Singularities | Yes, possible (bad news!) | Impossible |
 | Density Limit | Undefined (needs quantum gravity, still a mystery) | Always set, changes with position, never infinite |
 
 **Bottom line:** This single “line of code” is the ultimate summary of WILL Geometry:
@@ -561,7 +548,7 @@ A theory, no matter how beautiful, is just a clever idea until it passes real-wo
 
 Let’s examine these two key examples, which serve as rigorous empirical tests of the entire theoretical construction.
 
-### 1\. Time Correction in the GPS System
+### 1. Time Correction in the GPS System
 
 The Global Positioning System (GPS) is perhaps the ideal laboratory for testing relativistic effects in everyday life. For the system to function with high accuracy, GPS satellites must account for two relativistic effects that influence the rate of their onboard clocks compared to clocks on Earth:
 
@@ -572,18 +559,18 @@ The standard approach is to calculate these two corrections separately and sum t
 
 This result exactly matches the empirically measured value that must be continually added to the GPS system for it to function correctly. The success of this prediction is a powerful confirmation not only of the individual parts of the theory, but—more importantly—of the very principle of unification. It shows that treating kinetic and gravitational effects as unified geometric projections is not just a theoretical sophistication but a practical necessity for arriving at the correct answer.
 
-\<details\>
-\<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details\>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
 Show Interactive Graph: Earth GPS (Desmos)
-\</summary\>
-\<div class="geometry-container"\>
-\<div class="desmos-container"\>
-\<iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"\>\</iframe\>
-\</div\>
-\</div\>
-\</details\>
+</summary\>
+<div class="geometry-container"\>
+<div class="desmos-container"\>
+<iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"\></iframe\>
+</div\>
+</div\>
+</details\>
 
-### 2\. Precession of Mercury’s Orbit
+### 2. Precession of Mercury’s Orbit
 
 One of the earliest triumphs of Einstein’s general relativity was its explanation of the anomalous precession (slow rotation) of Mercury’s elliptical orbit. Observations showed that the perihelion (the point closest to the Sun) of Mercury’s orbit shifts by an additional 43 arcseconds per century, above what Newtonian gravity predicted.
 
@@ -591,16 +578,16 @@ WILL Geometry also faces this classic test. Using its fundamental equations and 
 
 Detailed calculations for both examples are provided in [this document](https://antonrize.github.io/WILL/documents/WILL_PART_I_SR_GR.pdf), but the narrative conclusion is clear: WILL Geometry is not merely a philosophical construction. It passes the most rigorous experimental and observational tests. It not only reproduces the successes of standard relativistic physics but does so from deeper, more unified first principles, lending its predictions extra weight and elegance. A theory born of pure logic finds its exact reflection in the workings of the real world. WILL Geometry stands up to every challenge that nature throws at it, not just matching standard physics, but explaining it from the ground up, using nothing but logic and geometry.
 
-\<details\>
-\<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details\>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
 Show Interactive Graph: Sun Mercury (Desmos)
-\</summary\>
-\<div class="geometry-container"\>
-\<div class="desmos-container"\>
-\<iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"\>\</iframe\>
-\</div\>
-\</div\>
-\</details\>
+</summary\>
+<div class="geometry-container"\>
+<div class="desmos-container"\>
+<iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"\></iframe\>
+</div\>
+</div\>
+</details\>
 
 -----
 
@@ -669,7 +656,8 @@ At the core is one bold claim:
 > **Energy doesn’t just exist in space — it *creates* space, by its projection.**
 
 All of physics becomes a story about “the projective curvature of the energy flow.” And the essence of it all is captured in a single, dimensionless invariant:
-
+<details\>
+<summary\><strong\>See the WILL invariant</strong\></summary\>
 $$
 W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = 1
 $$
@@ -677,6 +665,9 @@ $$
 ```latex
 W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = 1
 ```
+
+</details\>
+
 
 Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self-consistent structure.
 
