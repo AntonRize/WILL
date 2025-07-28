@@ -155,20 +155,20 @@ Where:
 
   - $E$: Total energy
   - $p$: Momentum
-  - $m\_0 c^2$: Rest energy
+  - $m_0 c^2$: Rest energy
 
-\</details\>
+</details\>
 
-\<details\>
-\<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details\>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
 Show Interactive Graph: The Energy-Momentum Triangle (Desmos)
-\</summary\>
-\<div class="geometry-container"\>
-\<div class="desmos-container"\>
-\<iframe src="https://www.desmos.com/geometry/pfckyxazhl" width="100%" height="500" frameborder="0"\>\</iframe\>
-\</div\>
-\</div\>
-\</details\>
+</summary\>
+<div class="geometry-container"\>
+<div class="desmos-container"\>
+<iframe src="https://www.desmos.com/geometry/pfckyxazhl" width="100%" height="500" frameborder="0"\>\</iframe\>
+</div\>
+</div\>
+</details\>
 
 Simply saying:
 
@@ -210,8 +210,8 @@ Here’s where the sphere magic happens:
 
 > Gravity isn’t just pulling you in — it’s literally changing how fast your clock ticks, depending on where you are.
 
-\<details\>
-\<summary\>\<strong\>Show the math\</strong\>\</summary\>
+<details\>
+<summary\>\<strong\>Show the math\</strong\>\</summary\>
 
 Time dilation near a massive object is:
 
@@ -223,18 +223,18 @@ $$
 \sqrt{1−\kappa^2} = \sqrt{1−\frac{R_S}{r}} = \sqrt{1−\frac{2GM}{rc^2}}
 ```
 
-\</details\>
+</details\>
 
-\<details\>
-\<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details\>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
 Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos)
-\</summary\>
-\<div class="geometry-container"\>
-\<div class="desmos-container"\>
-\<iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"\>\</iframe\>
-\</div\>
-\</div\>
-\</details\>
+</summary\>
+<div class="geometry-container"\>
+<div class="desmos-container"\>
+<iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"\>\</iframe\>
+</div\>
+</div\>
+</details\>
 
 ### The Hidden Symmetry
 
@@ -306,8 +306,8 @@ No matter how you use it, your total paint doesn’t change — but the way it �
 
 But both are just different ways of splitting up the same “energy budget.”
 
-\<details\>
-\<summary\>\<strong\>Show the key connection\</strong\>\</summary\>
+<details\>
+<summary\><strong\>Show the key connection</strong\></summary\>
 
 The “paint” covering for both shapes leads to a simple rule:
 
@@ -334,13 +334,13 @@ where
   - β² = “share” spent on motion
   - κ² = “share” spent on gravity
 
-\</details\>
+</details\>
 
 #### Why does it matter?
 
   * This isn’t some made‑up or “fit” formula.
   * It pops out just from how geometry itself works — how lines and surfaces relate.
-  * Even old-school physics quietly hinted at this (for example, the escape velocity in Newton’s gravity, $v\_e^2 = 2v\_{orb}^2$).
+  * Even old-school physics quietly hinted at this (for example, the escape velocity in Newton’s gravity, $v_e^2 = 2v_{orb}^2$).
 
 **Bottom line:** Motion and gravity are *two sides of the same coin*. Their relationship isn’t an accident — it’s a built-in, geometric law of how the universe splits up its “energy resources.” This is why they can’t ever be truly separated, and why geometry is the hidden glue in everything.
 
@@ -355,8 +355,8 @@ Here’s the simple geometric truth:
 
 So when we ask, “How many times does a circle fit into a sphere?” the answer is:
 
-\<details\>
-\<summary\>\<strong\>Show the calculation\</strong\>\</summary\>
+<details\>
+<summary\><strong\>Show the calculation\</strong\></summary\>
 
 $$
 \frac{\text{Surface area of sphere}}{\text{Circumference of circle}} = \frac{4\pi}{2\pi} = 2
@@ -366,7 +366,7 @@ $$
 \frac{\text{Surface area of sphere}}{\text{Circumference of circle}} = \frac{4\pi}{2\pi} = 2
 ```
 
-\</details\>
+</details\>
 
 That’s the source of the mysterious “2” in our key equation. It’s not an arbitrary fudge factor — it’s pure geometry.
 
@@ -388,16 +388,16 @@ just says: *“Gravity’s share is always twice the motion’s share, because a
 
 ### The Photon Sphere: A Point of Perfect Balance
 
-\<details\>
-\<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
+<details\>
+<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"\>
 Show Interactive Graph: Q Circle (Desmos)
-\</summary\>
-\<div class="geometry-container"\>
-\<div class="desmos-container"\>
-\<iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"\>\</iframe\>
-\</div\>
-\</div\>
-\</details\>
+</summary\>
+<div class="geometry-container"\>
+<div class="desmos-container"\>
+<iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"\></iframe\>
+</div\>
+</div\>
+</details\>
 
 A remarkable consequence of this unification happens at a special “balance point” — where the two projections, kinetic and potential, are perfectly matched. This occurs when:
 
@@ -413,10 +413,10 @@ and the two angles are exactly equal.
 
 **At this moment, something amazing appears: it matches the “photon sphere” — the special zone around a massive object where light itself can orbit in a perfect circle.** (For a black hole, that’s at a distance of 1.5 times its radius.)
 
-\<details\>
-\<summary\>\<strong\>What happens to light at the photon sphere?\</strong\>\</summary\>
+<details\>
+<summary\><strong\>What happens to light at the photon sphere?\</strong\></summary\>
 At the photon sphere, a photon moving exactly along the perfect circle could orbit forever — but this path is incredibly unstable. If the photon’s path points even a tiny bit outward, it escapes to infinity. If it’s angled a bit inward, it falls into the black hole. So, the photon sphere is not a prison — it’s a tightrope. Light can still escape if it’s not traveling exactly along the circle.
-\</details\>
+</details\>
 
 -----
 
@@ -447,8 +447,8 @@ From B’s point of view, if the object comes *down*:
 
 > The universe never “creates” or “loses” energy when you swap perspectives — just moves it around.
 
-\<details\>
-\<summary\>\<strong\>Show the math\</strong\>\</summary\>
+<details\>
+<summary\><strong\>Show the math\</strong\></summary\>
 
 $$
 \Delta E_{A \to B} + \Delta E_{B \to A} = 0
@@ -459,7 +459,7 @@ $$
 ```
 
 Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, always balancing out.
-\</details\>
+</details\>
 
 ### Universal Speed Limit: Why Nothing Goes Faster than Light
 
@@ -469,14 +469,14 @@ This “energy symmetry” is so strict that it naturally sets the universe’s 
   * That’s not allowed: **causality and energy symmetry would both collapse.**
   * So, the speed of light isn’t just a cosmic “speed trap” — it’s the built-in edge of energetic fairness.
 
-\<details\>
-\<summary\>\<strong\>Math explanation\</strong\>\</summary\>
+<details\>
+<summary\><strong\>Math explanation</strong\></summary\>
 
 If $β \> 1$ (faster than light): $\\Delta E\_{A \\to B} + \\Delta E\_{B \\to A} \\neq 0$.
-\<br\>
+<br\>
 So, it must be that $β \\leq 1$ (or $v \\leq c$).
 
-\</details\>
+</details\>
 
 **In plain English:**
 
@@ -489,8 +489,8 @@ So, it must be that $β \\leq 1$ (or $v \\leq c$).
 
 After all the geometric juggling, here’s the punchline: **Everything — gravity, motion, energy, even the rules for black holes — can be summed up in just one line.**
 
-\<details\>
-\<summary\>\<strong\>See the Universe’s one-line “code”\</strong\>\</summary\>
+<details\>
+<summary\><strong\>See the Universe’s one-line “code”\</strong\></summary\>
 
 $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
@@ -500,7 +500,7 @@ $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
 ```
 
-\</details\>
+</details\>
 
 ### What does this actually mean?
 
@@ -515,10 +515,10 @@ Or:
 ### The “Critical Density” Explained
 
   * At every point in space, there’s a built-in “speed limit” for how much energy you can pack into that spot.
-  * The **critical density** ($\\rho\_{max}$) isn’t universal — it depends on where you are (your distance from the center). The closer you get to the center, the higher this limit becomes — but it’s *never* infinite.
+  * The **critical density** ($\rho_{max}$) isn’t universal — it depends on where you are (your distance from the center). The closer you get to the center, the higher this limit becomes — but it’s *never* infinite.
 
-\<details\>
-\<summary\>\<strong\>How is the density limit set?\</strong\>\</summary\>
+<details\>
+<summary\><strong\>How is the density limit set?\</strong\></summary\>
 
 $$
 \rho_{max} = \frac{c^2}{8\pi G r_d^2}
@@ -529,7 +529,7 @@ $$
 ```
 
 — “The smaller the radius, the greater the allowed density — but there’s always a cap.”
-\</details\>
+</details\>
 
 ### What this solves
 
