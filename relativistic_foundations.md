@@ -51,13 +51,24 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 
 ---
 
+
 <!-- 1. INFObox: (unit circle & motion-time projections, before "How Motion and Time Are Just Two Sides...") -->
 <details>
-<summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)</summary>
-<div class="my-4">
-  (https://www.desmos.com/geometry/50al3wdj8o)
-</div>
+  <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
+    Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)
+  </summary>
+  <div class="geometry-container">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/calculator/50al3wdj8o" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
 </details>
+
+
+
+
+
+
 
 ---
 
