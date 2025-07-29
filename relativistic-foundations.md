@@ -4,7 +4,7 @@ title: "Relativistic Foundations"
 ---
 
 <style>
-.container.mx-auto { max-width: 70vw; }
+.container.mx-auto { max-width: 50vw; }
 .markdown-content p {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -15,6 +15,8 @@ title: "Relativistic Foundations"
 
 
 # Shape of Energy: A Narrative Exposition of WILL Geometry
+
+---
 
 ## What is This Page?
 
@@ -48,37 +50,32 @@ This work is not merely a reformulation of existing theories, but rather a narra
 
 If we accept the fundamental postulate—that spacetime is identical to energy evolution—we are immediately confronted with its strict logical consequences. First and foremost: if all of reality is a self-sufficient system of energetic relations, then by definition nothing can exist “outside” this system. There is no external observer, no absolute reference frame or background on which events unfold. The Universe of WILL Geometry must be entirely closed and self-sufficient.
 
----
 
 This restriction, philosophical at first glance, generates concrete physical and geometric “rules of the game”:
 
----
 
 -   **Conservation Law:** In a closed system, nothing can appear from outside or disappear without a trace. This means that the total energy of the system must be conserved. The law of conservation is not an added assumption, but a direct consequence of the Universe’s self-sufficiency.
     
 -   **Symmetry:** In the absence of external reference points, no location in space and no direction can be privileged from the outset. Any asymmetry would require a preferred frame, contradicting our foundational principle. Therefore, the geometry of the Universe must be maximally symmetric.
     
 
----
+
 
 This immediately raises the question: What geometric structures satisfy these strict requirements—being both closed and maximally symmetric? Mathematics gives a definitive answer. Among all possible manifolds, only certain forms possess these properties to perfection.
 
----
+
 
 -   In one dimension, the only such form is the circle (`S¹`).
     
 -   In two dimensions—the surface of a sphere (`S²`).
     
 
----
 
 These geometries are not arbitrary choices or convenient models. They are forced upon us by the logic of the postulate itself. If the Universe is a closed and symmetric system of energetic relations, then any projections of those relations must “live” on these unique surfaces. The circle and the sphere become the only possible “canvases” on which the picture of physical reality can be drawn.
 
----
 
 Finally, we must rethink one of the fundamental constants of nature—the speed of light, *c*. In WILL Geometry, *c* is not merely the speed at which photons travel. It is the universal speed of evolution, the fundamental tempo of change in the Universe itself. Every interaction, every transformation of energy, occurs at this single, invariant rate. This universal “speed of evolution” is like a vector of constant length. The various physical processes we observe are merely projections of this single vector onto different axes, just as a car’s velocity can be decomposed into northward and eastward motion. The sum of the squares of the projections always remains constant, naturally returning us to the geometry of the circle, where the radius (*c*) is invariant.
 
----
 
 Thus, from a single postulate, we derive the entire set of rules: conservation, symmetry, and specific geometric structures (the circle and the sphere) that will serve as the arena for all subsequent physical phenomena. Geometry is not imposed upon physics; it is its inevitable logical consequence.
 
@@ -88,11 +85,11 @@ Thus, from a single postulate, we derive the entire set of rules: conservation, 
 
 Now that the rules of the game have been established, let’s consider the simplest case: one-dimensional motion. According to our logic, this process must be described on the only possible closed and symmetric 1D geometry—the circle. This act of our narrative is devoted to reconstructing special relativity (SR) using nothing but these geometric tools. The main character here is the kinetic projection, denoted by the Greek letter β (beta).
 
----
+
 
 Imagine a unit circle whose radius symbolizes the universal speed of evolution, *c*, which for simplicity we set to 1. Any state of motion of an object can be represented as a point on this circle. The total “speed of evolution” is a vector drawn from the center to this point. This vector can be decomposed into horizontal (X axis) and vertical (Y axis) projections.
 
----
+
 
 <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Motion/Time on the Unit Circle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/mpdksbsf9q" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
 
@@ -102,18 +99,18 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 
 Imagine all possible states of movement as points around a perfect circle. The *radius* of this circle is the fastest possible speed in the universe — the universal “speed of change.” Every moving object is like a pointer from the center of the circle to some spot on its edge.
 
----
+
 
 -   **Movement:** How fast something moves through space is just “how much” of that pointer is aimed sideways around the circle. The faster it goes, the more it “leans” into space, and the less is left “pointing” upward — toward time.
     
 -   **Time:** How fast time ticks for something is just “how much” of that pointer is aimed along the time direction. If the object speeds up through space, less of the pointer is left for time — so its time slows down.
     
 
----
+
 
 Think of it like sharing a fixed budget: If you spend more of your “change” moving through space, you have less left for moving through time.
 
----
+
 
 <details> <summary><strong>Show the math</strong></summary>
 
@@ -131,12 +128,12 @@ L\_c = sin(θ\_S) = √(1−β²)  Length contraction factor
 
 When you look at it this way, all the “strange” effects of special relativity — like time slowing down as you go faster — are just the result of keeping the total “speed of change” fixed, but sharing it differently between space and time. There’s nothing mysterious:
 
----
+
 
 -   More speed through space = less speed through time.
     
 
----
+
 
 <details> <summary><strong>Show the math</strong></summary>
 
@@ -152,14 +149,14 @@ The time slowdown (Lorentz factor) is:
 
 Here’s the coolest part: That famous equation, E = mc², isn’t some magic law — it’s just what you get when you realize energy and mass are two sides of the same coin. At rest, all of an object’s energy points along the time direction. When it moves, some energy “tilts” into space — but the total stays balanced, so that the piece along time remains constant.
 
----
+
 
 -   **Mass** is just a way to relate an object’s energy at rest to its fundamental “speed of change.”
     
 -   **Energy** increases as the object moves, simply to keep the system in balance.
     
 
----
+
 
 <details> <summary><strong>Show the math</strong></summary>
 
@@ -175,11 +172,11 @@ Momentum: p = γmv
 
 ### The Energy-Momentum Triangle
 
----
+
 
 **Visualize energy, mass, and momentum as a simple right triangle:**
 
----
+
 
 -   **One side** (fixed) always represents the object's *rest energy* — this never changes, no matter how fast it moves.
     
@@ -188,7 +185,7 @@ Momentum: p = γmv
 -   **The hypotenuse** is the *total energy* — it stretches as you go faster.
     
 
----
+
 
 > When you slide the velocity, you can see how “momentum” grows, and total energy stretches to keep the triangle in perfect balance, but rest energy always stays the same.
 
@@ -196,14 +193,14 @@ Momentum: p = γmv
 
 #### What’s the point?
 
----
+
 
 -   The triangle shows that you can’t just add energies and momenta any way you like. They’re always connected by a simple geometric rule — just like the sides of any right triangle.
     
 -   No matter how fast you go, all three always fit together. The triangle is never broken.
     
 
----
+
 
 <details> <summary><strong>Show the math</strong></summary>
 
@@ -224,15 +221,14 @@ Where:
 
 </details>
 
----
+
 
 <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: The Energy-Momentum Triangle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/pfckyxazhl" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
 
----
+
 
 Simply saying:
 
----
 
 -   **Rest energy** is your “starting stash” — it never goes away.
     
@@ -245,7 +241,7 @@ Simply saying:
 
 ### What This Means
 
----
+
 
 Special relativity stops being a bunch of rules about “strange time effects” or “postulates about light.” Instead, it’s just a simple story of how all things must share a fixed “budget” of change between motion and time. Mass, energy, and momentum are simply three perspectives on the same underlying geometric fact.
 
@@ -253,7 +249,7 @@ Special relativity stops being a bunch of rules about “strange time effects”
 
 ## Section 4: Act II – Gravity as a Shadow on the Sphere
 
----
+
 
 Having cracked motion using a simple circle, let’s tackle gravity. Gravity is different: instead of working in one direction, like motion, it pulls equally from every side — like being surrounded in all directions. So our “canvas” has to be not a line or circle, but a whole **sphere**.
 
@@ -266,7 +262,9 @@ Imagine standing at the center of a big sphere — gravity “spreads out” the
 -   To measure “how much” gravity there is, we use a new slider — let’s call it **kappa** (κ).
     
 -   κ tells us how close you are to the point where gravity is so strong that nothing, not even light, can escape — the edge of a black hole.
+
     
+---
 
 #### What does κ mean?
 
@@ -276,6 +274,10 @@ Imagine standing at the center of a big sphere — gravity “spreads out” the
     
 
 You can think of κ as “how much of the universe’s speed limit you’d need to escape gravity right here.”
+
+
+---
+
 
 ### How Gravity Warps Time
 
@@ -288,6 +290,7 @@ Here’s where the sphere magic happens:
 -   If you reach the event horizon (κ = 1), time (from an outside view) stops completely.
     
 
+
 > Gravity isn’t just pulling you in — it’s literally changing how fast your clock ticks, depending on where you are.
 
 <details> <summary><strong>Show the math</strong></summary>
@@ -298,6 +301,8 @@ $$
 \sqrt{1−\kappa^2} = \sqrt{1−\frac{R_S}{r}} = \sqrt{1−\frac{2GM}{rc^2}}
 $$
  </details> <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+
+---
 
 ### The Hidden Symmetry
 
@@ -319,7 +324,10 @@ So, what looks like two separate “mysteries” in physics are actually just tw
 
 ## Section 5: Energy as a Relation — What κ and β Actually Mean
 
+
+
 ### Key Principle:
+
 
 **Energy isn't something objects "have"—it's a measure of differences between states.**
 
@@ -370,6 +378,8 @@ Now comes the punchline: All this time, we’ve seen motion (special relativity)
 
 But here’s the twist: **these two worlds aren’t really separate.** In fact, there’s a deep, built‑in connection between them. They’re just different “faces” of one and the same thing.
 
+---
+
 ### The Universal “Budget” Principle
 
 Imagine you have a bucket of paint. You can use it to draw a line around a circle (one‑dimensional) —or— you can use it to cover the surface of a sphere (two‑dimensional).
@@ -406,13 +416,15 @@ where
 
 </details>
 
+---
+
 #### Why does it matter?
 
 -   This isn’t some made‑up or “fit” formula.
     
 -   It pops out just from how geometry itself works — how lines and surfaces relate.
     
--   Even old-school physics quietly hinted at this (for example, the escape velocity in Newton’s gravity, $v\_e^2 = 2v\_{orb}^2$).
+-   Even old-school physics quietly hinted at this (for example, the escape velocity in Newton’s gravity, $v_e^2 = 2v_{orb}^2$).
     
 
 **Bottom line:** Motion and gravity are *two sides of the same coin*. Their relationship isn’t an accident — it’s a built-in, geometric law of how the universe splits up its “energy resources.” This is why they can’t ever be truly separated, and why geometry is the hidden glue in everything.
@@ -438,6 +450,8 @@ $$
 
 That’s the source of the mysterious “2” in our key equation. It’s not an arbitrary fudge factor — it’s pure geometry.
 
+---
+
 ### How It Ties Together
 
 So when energy splits between motion (on the circle) and gravity (on the sphere), the “budget” gets shared according to this built-in, topological ratio. The key relationship:
@@ -448,7 +462,11 @@ $$
 
 just says: *“Gravity’s share is always twice the motion’s share, because a sphere’s surface area is twice the length of a circle’s perimeter, at the most fundamental geometric level.”*
 
+
+
 **In short:** The “2” isn’t magic, it’s the deep fingerprint of geometry itself, forever tying together movement and gravity in the universe.
+
+---
 
 ### The Photon Sphere: A Point of Perfect Balance
 
@@ -470,11 +488,16 @@ and the two angles are exactly equal.
 
 ## Section 7: Energy–Symmetry Law (Why No Free Lunch)
 
+
 ### The Big Idea
+
 
 Whenever you compare two observers (say, someone on the ground and someone in orbit), **the energy differences they see will always perfectly balance out.** No matter how you swap perspectives — nobody ever gets “extra” energy for free. This is the universe’s built-in law of energetic fairness.
 
+
 ### How it Works (Without Math)
+
+
 
 Imagine:
 
@@ -507,22 +530,26 @@ $$
 $$
  
 $$
-E_{AtoB}=\frac{1}{2}((\kappa_{A}^{2}-\kappa_{B}^{2})+\beta_{B}^{2})
+E_{A \to B}=\frac{1}{2}((\kappa_{A}^{2}-\kappa_{B}^{2})+\beta_{B}^{2})
 $$
  
 $$
-E_{BtoA}=\frac{1}{2}((\kappa_{B}^{2}-\kappa_{A}^{2})-\beta_{B}^{2})
+E_{B \to A}=\frac{1}{2}((\kappa_{B}^{2}-\kappa_{A}^{2})-\beta_{B}^{2})
 $$
  
 $$
-E_{SYMETRY}=E_{AtoB}+E_{BtoA}=0
+E_{SYMETRY}=E_{A \to B}+E_{B \to A}=0
 $$
 
 Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, always balancing out.
 
 </details>
 
+---
+
 ### Universal Speed Limit: Why Nothing Goes Faster than Light
+
+
 
 This “energy symmetry” is so strict that it naturally sets the universe’s ultimate speed limit.
 
@@ -535,7 +562,7 @@ This “energy symmetry” is so strict that it naturally sets the universe’s 
 
 <details> <summary><strong>Math explanation</strong></summary>
 
-Assume an object could exceed the speed of light ($\beta > 1$). In that scenario:
+Assume an object could exceed the speed of light ($ \beta > 1$). In that scenario:
 \begin{itemize}
 \item The kinetic component ($\beta^2$) surpasses unity excessively, causing an irreversible imbalance in energy transfer.
 \item No reciprocal transfer could balance this energy, breaking the fundamental symmetry:
@@ -543,8 +570,9 @@ Assume an object could exceed the speed of light ($\beta > 1$). In that scenario
 \begin{equation}
 \Delta E_{A \to B} + \Delta E_{B \to A} \neq 0
 \end{equation}
-Thus, $\beta \leq 1$ ($v \leq c$) is required intrinsically to preserve causal and energetic consistency.
+Thus, $ \beta \leq 1$ ($v \leq c$) is required intrinsically to preserve causal and energetic consistency.
 </details>
+
 
 **In plain English:**
 
@@ -557,6 +585,7 @@ Thus, $\beta \leq 1$ ($v \leq c$) is required intrinsically to preserve causal a
 
 ## Section 8: The Whole Universe in a Single Line
 
+
 After all the geometric juggling, here’s the punchline: **Everything — gravity, motion, energy, even the rules for black holes — can be summed up in just one line.**
 
 <details> <summary><strong>See the Universe’s one-line “code”</strong></summary> 
@@ -564,6 +593,8 @@ $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
 $$
  </details>
+
+---
 
 ### What does this actually mean?
 
@@ -574,6 +605,8 @@ In plain words:
 Or:
 
 > No matter how you look at it — as a distance, or as an amount of energy — the universe always keeps you within the same “safe fraction” of the maximum possible.
+
+---
 
 ### The “Critical Density” Explained
 
@@ -591,7 +624,10 @@ $$
 
 </details>
 
+---
+
 ### What this solves
+
 
 -   In ordinary general relativity, a black hole means a “point of infinite density” (a singularity). That’s where the math — and the physics — break down.
     
@@ -599,6 +635,8 @@ $$
     
 
 > Instead of singularities, black holes become places where everything is packed to the maximum allowed, but always stays finite and well-behaved.
+
+---
 
 ### Table: “Old School” GR vs. WILL Geometry
 
@@ -622,11 +660,15 @@ $$
 
 ## Section 9: Grounding the Vision – From Abstraction to Reality
 
+
 A theory, no matter how beautiful, is just a clever idea until it passes real-world tests. Science is all about matching what we think to what we actually see in nature. A beautiful theory is useless if it does not align with what we observe. This section is devoted to grounding the abstract vision of WILL Geometry by demonstrating that it makes precise, testable predictions about real physical phenomena.
 
 Let’s examine these two key examples, which serve as rigorous empirical tests of the entire theoretical construction.
 
-### 1\. Time Correction in the GPS System
+---
+
+### 1. Time Correction in the GPS System
+
 
 The Global Positioning System (GPS) is perhaps the ideal laboratory for testing relativistic effects in everyday life. For the system to function with high accuracy, GPS satellites must account for two relativistic effects that influence the rate of their onboard clocks compared to clocks on Earth:
 
@@ -640,6 +682,8 @@ The standard approach is to calculate these two corrections separately and sum t
 This result exactly matches the empirically measured value that must be continually added to the GPS system for it to function correctly. The success of this prediction is a powerful confirmation not only of the individual parts of the theory, but—more importantly—of the very principle of unification. It shows that treating kinetic and gravitational effects as unified geometric projections is not just a theoretical sophistication but a practical necessity for arriving at the correct answer.
 
 <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Earth GPS (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+
+---
 
 ### 2\. Precession of Mercury’s Orbit
 
@@ -656,6 +700,8 @@ Detailed calculations for both examples are provided in this document, but the n
 ## Section 10: A New Reality of Change — Dynamics Without Time
 
 Let’s get to the wildest part of WILL Geometry: **What if time isn’t fundamental at all?**
+
+---
 
 ### Rethinking Change and Time
 
@@ -675,7 +721,8 @@ Here, time is like a river: everything *happens inside* this flow.
 -   There are just possible states — all the ways the universe could be, as long as they satisfy the balance equations.
     
 -   *Change* is just moving from one balanced state to another.
-    
+
+---    
 
 ### So what is “dynamics” now?
 
@@ -693,6 +740,8 @@ Imagine a black hole gaining mass:
 **Time is just our way of describing the difference between one balanced state and the next.** It’s not some external clock ticking in the background — it’s a label for the sequence of changes.
 
 > **Time does not drive change — instead, change defines time.**
+
+---
 
 ### Why does this matter?
 
@@ -712,6 +761,7 @@ Our journey through WILL Geometry draws to a close. But remember: **in this shor
 WILL Geometry — Results & Predictions
 
 We started with one simple idea:  
+
 **SpaceTime is just energy in motion.**
 
 From this, logic alone led us to:
@@ -731,9 +781,8 @@ At the core is one bold claim:
 
 All of physics becomes a story about “the projective curvature of the energy flow.” And the essence of it all is captured in a single, dimensionless invariant:
 
-<details> <summary><strong>See the WILL invariant</strong></summary> $$
-    W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}}= \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 
- $$
+<details> <summary><strong>See the WILL invariant</strong></summary> 
+$$ W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}}= \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 $$
  </details>
 
 Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self-consistent structure.
