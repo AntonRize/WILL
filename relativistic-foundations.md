@@ -431,7 +431,7 @@ where
     
 -   It pops out just from how geometry itself works — how lines and surfaces relate.
     
--   Even old-school physics quietly hinted at this (for example, the escape velocity in Newton’s gravity, $v_e^2 = 2v_{orb}^2$).
+-   Even old-school physics quietly hinted at this (for example, the escape velocity in Newton’s gravity, $v_e^2 = 2v_{orb}^2$.
     
 
 **Bottom line:** Motion and gravity are *two sides of the same coin*. Their relationship isn’t an accident — it’s a built-in, geometric law of how the universe splits up its “energy resources.” This is why they can’t ever be truly separated, and why geometry is the hidden glue in everything.
@@ -571,7 +571,7 @@ This “energy symmetry” is so strict that it naturally sets the universe’s 
 
 Assume an object could exceed the speed of light ($ \beta > 1$). In that scenario:
 \begin{itemize}
-\item The kinetic component ($\beta^2$) surpasses unity excessively, causing an irreversible imbalance in energy transfer.
+\item The kinetic component (β²) surpasses unity excessively, causing an irreversible imbalance in energy transfer.
 \item No reciprocal transfer could balance this energy, breaking the fundamental symmetry:
 \end{itemize}
 \begin{equation}
