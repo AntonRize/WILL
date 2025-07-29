@@ -11,8 +11,9 @@ This interactive page was created to **explain the essential meaning and logic o
 
 Here, the focus is on the core ideas, intuitive explanations, and geometric visualizations, making this new approach to fundamental physics accessible to a much wider audience.
 
-If you want to see the full mathematical derivations, download the complete documents here:  
-Full WILL Geometry Papers
+If you want to see the full mathematical derivations, download the complete documents here:
+[Full WILL Geometry Papers](https://antonrize.github.io/WILL/parts/)
+
 
 ---
 
@@ -207,7 +208,7 @@ Where:
     
 -   $p$: Momentum
     
--   $m\_0 c^2$: Rest energy
+-   $m_0 c^2$: Rest energy
     
 
 </details>
@@ -523,10 +524,15 @@ This “energy symmetry” is so strict that it naturally sets the universe’s 
 
 <details> <summary><strong>Math explanation</strong></summary>
 
-If $β > 1$ (faster than light): $\\Delta E\_{A \\to B} + \\Delta E\_{B \\to A} \\neq 0$.  
-<br>  
-So, it must be that $β \\leq 1$ (or $v \\leq c$).
-
+Assume an object could exceed the speed of light ($\beta > 1$). In that scenario:
+\begin{itemize}
+\item The kinetic component ($\beta^2$) surpasses unity excessively, causing an irreversible imbalance in energy transfer.
+\item No reciprocal transfer could balance this energy, breaking the fundamental symmetry:
+\end{itemize}
+\begin{equation}
+\Delta E_{A \to B} + \Delta E_{B \to A} \neq 0
+\end{equation}
+Thus, $\beta \leq 1$ ($v \leq c$) is required intrinsically to preserve causal and energetic consistency.
 </details>
 
 **In plain English:**
@@ -562,7 +568,7 @@ Or:
 
 -   At every point in space, there’s a built-in “speed limit” for how much energy you can pack into that spot.
     
--   The **critical density** ($\\rho\_{max}$) isn’t universal — it depends on where you are (your distance from the center). The closer you get to the center, the higher this limit becomes — but it’s *never* infinite.
+-   The **critical density** ($ \rho_{max}$) isn’t universal — it depends on where you are (your distance from the center). The closer you get to the center, the higher this limit becomes — but it’s *never* infinite.
     
 
 <details> <summary><strong>How is the density limit set?</strong></summary> 
@@ -695,7 +701,7 @@ Our journey through WILL Geometry draws to a close. But remember: **in this shor
 WILL Geometry — Results & Predictions
 
 We started with one simple idea:  
-**SpacETIME is just energy in motion.**
+**SpaceTime is just energy in motion.**
 
 From this, logic alone led us to:
 
@@ -714,15 +720,18 @@ At the core is one bold claim:
 
 All of physics becomes a story about “the projective curvature of the energy flow.” And the essence of it all is captured in a single, dimensionless invariant:
 
-<details> <summary><strong>See the WILL invariant</strong></summary> $$ W\_{ill} = \\frac{E \\cdot T^2}{M \\cdot L^2} = 1 $$ </details>
+<details> <summary><strong>See the WILL invariant</strong></summary> $$
+    W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}}= \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 
+ $$
+ </details>
 
 Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self-consistent structure.
 
+
 This is not the end, but just a beginning. **For the full mathematical theory, and its extensions to cosmology and quantum mechanics, see:**
 
--   WILL Geometry — Full Papers & Results
-    
--   Results & Applications
-    
+-----
+ -   [WILL Geometry — Full Papers & Results](https://antonrize.github.io/WILL/parts/)
+ -   [Results & Applications](https://antonrize.github.io/WILL/results/)
 
----
+-----
