@@ -116,9 +116,9 @@ Think of it like sharing a fixed budget: If you spend more of your “change” 
 
 The relationship between space and time projections is just Pythagoras’ theorem for a unit circle:  
 <br>  
-β = v/c = cos(θ\_S)  
+$ \beta = \frac{v}{c} = cos(\theta_S) $  Kinetic projection
 <br>  
-L\_c = sin(θ\_S) = √(1−β²)  Length contraction factor
+$ L_c = sin(θ_S) = \sqrt{1 − \beta^2} $  Length contraction factor
 
 </details>
 
@@ -139,7 +139,9 @@ When you look at it this way, all the “strange” effects of special relativit
 
 The time slowdown (Lorentz factor) is:  
 <br>  
-γ = 1/√(1−v²/c²) = 1/sin(θ\_S)
+γ = 1/√(1−v²/c²) = 1/sin(θ\_S) 
+or
+$ T_{d}=\frac{1}{L_{c}} $  Time dialation 
 
 </details>
 
