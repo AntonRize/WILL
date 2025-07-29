@@ -40,7 +40,7 @@
 \newpage
 
 \begin{abstract}
-We apply the foundational principles of WILL Geometry to the problem of galactic rotation curves, a phenomenon typically attributed to dark matter. This work demonstrates that the observed kinematics can be explained without introducing non-baryonic matter or modifying gravity ad-hoc. We derive a parameter-free predictive equation from the core postulate \emph{Spacetime $\equiv$ Energy Evolution}. This equation interprets gravity as a combination of a local classical component and a non-local geometric component. When tested against the SPARC database of 175 galaxies, the simplest, parameter-free version of this model achieves a median RMSE of 23.05 km/s, explaining the majority of the velocity discrepancy without any free parameters. This provides strong evidence that the "missing mass" problem is an artifact of an incomplete, purely local theory of gravity.
+We apply the foundational principles of WILL Geometry to the problem of galactic rotation curves, a phenomenon typically attributed to dark matter. This work demonstrates that the observed kinematics can be explained without introducing non-baryonic matter or modifying gravity ad-hoc. We derive a parameter-free predictive equation from the core postulate \emph{Spacetime $\equiv$ Energy Evolution}.  This equation interprets gravity as a combination of a local component from matter and a collective component from the\textbf{ energy of its motion}.  When tested against the SPARC database of 175 galaxies, the simplest, parameter-free version of this model achieves a median RMSE of 23.05 km/s, explaining the majority of the velocity discrepancy without any free parameters. This provides strong evidence that the "missing mass" problem is an artifact of an incomplete, purely local theory of gravity.
 \end{abstract}
 
 \tableofcontents
@@ -203,20 +203,20 @@ The effective mass in WILL Geometry is defined in terms of classical mass and a 
 $$M_{WILL}(r) = M_{classic}(r) + \frac{\lambda}{G} \int_0^{r} V_{classic}^2(r')\, dr'$$
 \end{tcolorbox}
 
-\paragraph{Interpretation.} This equation provides the explicit mathematical bridge between the two frameworks. It demonstrates that the effective gravitational mass is not merely the sum of local matter ($M_{classic}$), but includes a non-local correction term. This term, the integral of the squared classical velocity, represents the cumulative kinetic energy of the system, which, in WILL Geometry, contributes directly to the overall spacetime curvature. This relation is the theoretical core of our solution to the missing mass problem.
+\paragraph{Interpretation.} This equation provides the explicit mathematical bridge between the two frameworks. It demonstrates that the effective gravitational mass includes not only the classical mass of matter but also a second component representing the\textbf{ Mass of Motion}. . This term, the integral of the squared classical velocity, represents the cumulative kinetic energy of the system, which, in WILL Geometry, contributes directly to the overall spacetime curvature. This relation is the theoretical core of our solution to the missing mass problem.
 
 
 \section{Derivation of the Predictive Equation from First Principles v .01}
 
-The core of the WILL framework posits that gravity is not merely a consequence of static mass, but of the total energy evolution within a given geometry. This requires a new formulation for the gravitational field that accounts for both the classical, local mass contribution and a non-local, dynamic contribution arising from kinetic energy.
+The core of the WILL framework posits that gravity is not merely a consequence of static mass, but of the total energy evolution within a given geometry. This requires a new formulation for the gravitational field that accounts for both the classical contribution from mass and a collective, dynamic contribution from the\textbf{ energy of its motion}. 
 
 We begin by postulating a modified gravitational field equation that embodies this principle. In classical Newtonian gravity, the field equation can be expressed as:
 $$ \frac{d}{dr}\left(rV_{classic}^2(r)\right) = G \frac{dM_{classic}(r)}{dr} $$
 This equation is purely local; the change in the gravitational field at radius $r$ depends only on the mass at that same radius.
 
-To incorporate the non-local kinetic principle of WILL, we introduce a correction term. The simplest term that represents the cumulative kinetic state of the system up to radius $r$ is one proportional to the kinetic energy proxy itself, $V_{classic}^2(r)$. Our new field equation becomes:
+To incorporate WILL's core principle - that \textbf{motion itself generates gravity} - we introduce a correction term.  The simplest term that represents the cumulative kinetic state of the system up to radius $r$ is one proportional to the kinetic energy proxy itself, $V_{classic}^2(r)$. Our new field equation becomes:
 $$ \frac{d}{dr}\left(rV_{WILL}^2(r)\right) = \frac{d}{dr}\left(rV_{classic}^2(r)\right) + \lambda V_{classic}^2(r) $$
-Here, $\lambda$ is a dimensionless constant of proportionality that calibrates the strength of the non-local geometric effect. The term $\frac{d}{dr}(rV_{classic}^2)$ represents the standard local source, while $\lambda V_{classic}^2(r)$ represents the new non-local source.
+Here, $\lambda$ is a dimensionless constant of proportionality that calibrates the strength of the non-local geometric effect. The term $\frac{d}{dr}(rV_{classic}^2)$ represents the standard local source, while $\lambda V_{classic}^2(r)$ epresents the new source term from the\textbf{ energy of motion} .
 
 To find the total velocity $V_{WILL}(r)$, we integrate this differential equation from the center of the galaxy ($r'=0$) to the radius of interest ($r'=r$):
 $$ \int_0^r \frac{d}{dr'}\left(r'V_{WILL}^2(r')\right) dr' = \int_0^r \frac{d}{dr'}\left(r'V_{classic}^2(r')\right) dr' + \int_0^r \lambda V_{classic}^2(r') dr' $$
@@ -233,6 +233,27 @@ Finally, dividing by $r$ yields the WILL predictive equation for galactic rotati
 $$V_{WILL}^2(r) = V_{classic}^2(r) + \frac{\lambda}{r} \int_0^r V_{classic}^2(r')\, dr'$$
 \end{tcolorbox}
 
+\section{The Physical Origin of the 'Missing Mass' Discrepancy}
+
+The conventional approach to the galactic rotation problem assumes that classical gravity is correct and therefore missing mass - or "dark matter" - must exist. The WILL framework proposes a contrary view: the baryonic physics is correct, but the classical theory of gravity is incomplete because it is purely local.
+
+The WILL model corrects this by introducing a non-local component to gravity. It posits that the total gravitational field is a combination of two effects:
+\begin{enumerate}
+    \item The standard, \textbf{local} gravitational potential from baryonic mass ($V_{\text{bary}}^2$).
+    \item A \textbf{non-local} gravitational potential generated by the cumulative kinetic energy of that same baryonic matter integrated throughout the galaxy's interior ($\frac{\lambda}{r} \int V_{\text{bary}}^2(r')\, dr'$).
+\end{enumerate}
+
+This entire physical principle can be condensed into a single, powerful statement that resolves the dark matter puzzle:
+
+\begin{center}
+    \textit{\textbf{A rotating galaxy is gravitationally more massive than it is at rest.}}
+\end{center}
+
+Here, the "mass at rest" corresponds to the classical baryonic mass, which generates the local gravitational term. The "additional mass from rotation" corresponds to the non-local integral term. This term, representing the integrated kinetic energy, *is* the physical phenomenon that has been misinterpreted as dark matter.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Physical Interpretation]
+What has been termed "dark matter" is not a substance. It is the gravitational effect of the galaxy's own collective kinetic energy. The WILL predictive equation provides the mathematical formalism to account for this "mass of motion".
+\end{tcolorbox}
 
 \section{Data and Analysis}
 
@@ -241,7 +262,7 @@ We test this equation against the SPARC database. Our most rigorous test uses a 
 \section{Results}
 The parameter-free model demonstrates remarkable predictive power without any tuning.
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key Result: Parameter-Free Model (WILL 3.0)]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key Result: Parameter-Free Model (WILL 3.01)]
 \begin{itemize}
     \item \textbf{Galaxies Analysed:} 175
     \item \textbf{Median RMSE:} 23.05 km/s
@@ -297,16 +318,19 @@ The median error of \textbf{23.05 km/s} for a model with zero free parameters is
 Our further analysis, where we allowed `$\lambda$` to be a free parameter, reduced the median error to just \textbf{12.9 km/s}. This confirmed that the model can be made even more accurate by accounting for galaxy-specific variations. That investigation revealed that the optimal value of `$\lambda$` is not random, but is a predictable function of the galaxy's physical properties, primarily its total luminosity and gas fraction.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Final Conclusion]
-The WILL framework successfully explains galactic rotation curves without invoking dark matter. It achieves this by re-interpreting gravity through a geometric lens where mass is an emergent property and non-local effects, arising from the total distribution of baryonic matter, are significant. The "dark matter problem" is not a problem of missing matter, but a result of using an incomplete, volumetric theory of gravity.
+The WILL framework successfully explains galactic rotation curves without invoking dark matter. It achieves this by re-interpreting gravity through a geometric lens where mass is an emergent property and the \textbf{collective gravitational effects of motion} are significant.  The "dark matter problem" is not a problem of missing matter, but a result of using an incomplete, volumetric theory of gravity.
 \end{tcolorbox}
 
 \section{Discussion}
 
 The results presented in Section 4 offer strong empirical support for the WILL framework. The parameter-free model, which uses no fitting parameters ($\Upsilon_*=0.25, \lambda=4$), achieves a median RMSE of just 23.05 km/s across 175 galaxies. The ability of the model's raw mathematical structure to account for the majority of the velocity discrepancy is a powerful validation. It strongly suggests that the model is not a mere curve-fitting exercise, but captures an essential feature of gravitational dynamics at galactic scales.
 
-The role of the $\lambda$ parameter warrants further discussion. When allowed to vary as a free parameter, $\lambda$ reduces the median RMSE to 12.9 km/s, confirming it can account for galaxy-specific properties. Our analysis showed that the best-fit value of $\lambda$ is not random; it correlates with physical observables such as surface brightness and morphological type. We interpret $\lambda$ as a geometric scaling factor that corrects for idealized assumptions, primarily the use of a universal mass-to-light ratio ($\Upsilon_*$). Different stellar populations and dust levels across galaxies will naturally require a different scaling for the non-local kinetic term, and $\lambda$ serves precisely this function.
+The role of the $\lambda$ parameter warrants further discussion. When allowed to vary as a free parameter, $\lambda$ reduces the median RMSE to 12.9 km/s, confirming it can account for galaxy-specific properties. Our analysis showed that the best-fit value of $\lambda$ is not random; it correlates with physical observables such as surface brightness and morphological type. We interpret $\lambda$ as a geometric scaling factor that corrects for idealized assumptions, primarily the use of a universal mass-to-light ratio ($\Upsilon_*$). Different stellar populations and dust levels across galaxies will naturally require a require a different scaling for the \textbf{gravitational effect of kinetic energy}, and λ serves precisely this function. 
 
-Ultimately, this analysis allows us to pinpoint the origin of the "dark matter" problem. The discrepancy between the observed gravitational effects and those predicted by classical dynamics arises because the classical definition of mass is incomplete. As derived in Section 3, the "missing mass" is mathematically equivalent to the non-local, dynamic term $\frac{\lambda}{G} \int V_{classic}^2(r')\, dr'$. What has been interpreted as a mysterious, non-baryonic substance is, in this framework, a misunderstanding: it is the gravitational effect of kinetic energy itself, integrated over the geometry of the system.
+Ultimately, this analysis allows us to pinpoint the origin of the "dark matter" problem. The discrepancy between the observed gravitational effects and those predicted by classical dynamics arises because the classical definition of mass is incomplete. require a different scaling for the 
+
+\textbf{non-local kinetic term}, and λ serves precisely this function.
+ $\frac{\lambda}{G} \int V_{classic}^2(r')\, dr'$. What has been interpreted as a mysterious, non-baryonic substance is, in this framework, a misunderstanding: it is the gravitational effect of kinetic energy itself, integrated over the geometry of the system.
 
 
 \section{Discussion v .01}
@@ -315,18 +339,18 @@ The results presented in Section 4 offer strong empirical support for the WILL f
 
 The role of the $\lambda$ parameter warrants further discussion. When allowed to vary as a free parameter, $\lambda$ reduces the median error significantly, confirming it can account for galaxy-specific properties. Our analysis showed that the best-fit value of $\lambda$ is not random; it correlates with physical observables such as surface brightness and morphological type. We interpret $\lambda$ as a geometric scaling factor that corrects for idealized assumptions, primarily the use of a universal mass-to-light ratio ($\Upsilon_*$). Different stellar populations and dust levels across galaxies will naturally require a different scaling for the non-local kinetic term, and $\lambda$ serves precisely this function.
 
-Ultimately, this analysis allows us to pinpoint the origin of the "dark matter" problem. The discrepancy between the observed gravitational effects and those predicted by classical dynamics arises because the classical definition of mass is incomplete. As derived in Section 3, the "missing mass" is mathematically equivalent to the non-local, dynamic term represented by the integral $\int V_{classic}^2(r')\, dr'$. What has been interpreted as a mysterious, non-baryonic substance is, in this framework, a misunderstanding: it is the gravitational effect of kinetic energy itself, integrated over the geometry of the system.
+Ultimately, this analysis allows us to pinpoint the origin of the "dark matter" problem. The discrepancy between the observed gravitational effects and those predicted by classical dynamics arises because the classical definition of mass is incomplete. As derived in Section 3, the "missing mass" is mathematically equivalent to the \textbf{'Mass of Motion'} term, $\int V_{classic}^2(r')\, dr'$. What has been interpreted as a mysterious, non-baryonic substance is, in this framework, a misunderstanding: it is the gravitational effect of kinetic energy itself, integrated over the geometry of the system.
 
 
 
 
 \section{Conclusion}
 
-This work has demonstrated that the observed rotation curves of galaxies can be fully explained from the first principles of WILL Geometry without invoking non-baryonic dark matter. We derived a predictive equation from the single postulate \emph{Spacetime $\equiv$ Energy Evolution}, which interprets gravity as the combined effect of local matter and its non-local kinetic energy. This model was successfully validated against the 175-galaxy SPARC database, confirming its predictive power.
+This work has demonstrated that the observed rotation curves of galaxies can be fully explained from the first principles of WILL Geometry without invoking non-baryonic dark matter. We derived a predictive equation from the single postulate \emph{Spacetime $\equiv$ Energy Evolution}, which interprets gravity as the combined effect of local matter and the \textbf{collective energy of its motion}. This model was successfully validated against the 175-galaxy SPARC database, confirming its predictive power.
 
-The central conclusion of this framework is that the "missing mass" problem is an artifact of an incomplete physical model. By shifting the definition of mass from a purely local property of matter to a non-local, dynamic, and emergent property of geometry, the need for dark matter vanishes. The discrepancy is not a result of missing matter, but of missing physics in the classical formulation of gravity.
+The central conclusion of this framework is that the "missing mass" problem is an artifact of an incomplete physical model. By shifting the definition of mass from a property of local matter to an emergent property of geometry that includes the \textbf{cumulative gravitational effect of motion} the need for dark matter vanishes. The discrepancy is not a result of missing matter, but of missing physics in the classical formulation of gravity.
 
-This shift in perspective has profound implications for our understanding of the cosmos. Once the assumption of a pre-existing spacetime "box" is discarded, the very concept of distance is transformed. The abyss of the void that seems to separate us from distant galaxies collapses. The universe is no longer a collection of cold, alien objects in an empty expanse, but is revealed to be a single, unified dynamic structure—close, warm, and profoundly intimate. The information required to understand the whole was always there; we simply needed the correct geometric lens to see it. And every photon that reaches our telescopes is a complete sentence in that cosmic story.
+This shift in perspective has profound implications for our understanding of the cosmos. Once the assumption of a pre-existing spacetime "box" is discarded, the very concept of distance is transformed. The abyss of the void that seems to separate us from distant galaxies collapses. The universe is no longer a collection of cold, alien objects in an empty expanse, but is revealed to be a single, unified dynamic structure -  close, warm, and profoundly intimate. The information required to understand the whole was always there; we simply needed the correct geometric lens to see it. And every photon that reaches our telescopes is a complete sentence in that cosmic story.
 
 \section{Conclusion v 0.1}
 
@@ -334,6 +358,22 @@ This work has demonstrated that the observed rotation curves of galaxies can be 
 
 The central conclusion of this framework is that the "missing mass" problem is an artifact of an incomplete physical model. By shifting the definition of mass from a purely local property of matter to a non-local, dynamic, and emergent property of geometry, the need for dark matter vanishes. The discrepancy is not a result of missing matter, but of missing physics in the classical formulation of gravity.
 
-This shift in perspective has profound implications for our understanding of the cosmos. Once the anthropocentric assumption of a pre-existing spacetime "box" is discarded, the very concept of distance is transformed. The abyss of the void that seems to separate us from distant galaxies collapses. The universe is no longer a collection of cold, alien objects in an empty expanse, but is revealed to be a single, unified dynamic structure—close, warm, and profoundly intimate. The information required to understand the whole was always there; we simply needed the correct geometric lens to see it. And every photon that reaches our telescopes is a complete sentence in that cosmic story.
+\subsection*{A Unifying Principle: Mass from Energy Across All Scales}
+
+This framework reveals a profound symmetry in how mass is generated at the most fundamental levels of the universe. The solution to the "missing mass" problem in galaxies appears to be a macroscopic echo of a principle well-established in particle physics.
+
+\begin{itemize}
+    \item \textbf{At the subatomic scale,} the vast majority of a proton's mass does not come from its constituent quarks, but from the immense kinetic and potential energy of their motion and interactions.
+    
+    \item \textbf{At the cosmic scale,} this model demonstrates that the "missing mass" of a galaxy is analogously generated by the collective kinetic energy of its baryonic matter---its \textbf{Mass of Motion}.
+\end{itemize}
+
+This suggests that Nature employs the same elegant blueprint for creating mass across all domains. What we perceive as mass is not an intrinsic property of matter, but an emergent consequence of the total energy---of motion and interaction---confined within a system.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=The Unifying Principle]
+The universe does not distinguish between scales. It uses the same geometry to build mass from energy, whether for a proton or a galaxy.
+\end{tcolorbox}
+
+This shift in perspective has profound implications for our understanding of the cosmos. Once the anthropocentric assumption of a pre-existing spacetime "box" is discarded, the very concept of distance is transformed. The abyss of the void that seems to separate us from distant galaxies collapses. The universe is no longer a collection of cold, alien objects in an empty expanse, but is revealed to be a single, unified dynamic structure-close, warm, and profoundly intimate. The information required to understand the whole was always there; we simply needed the correct geometric lens to see it. And every photon that reaches our telescopes is a complete sentence in that cosmic story.
 
 \end{document}
