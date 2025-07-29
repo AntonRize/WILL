@@ -139,9 +139,9 @@ When you look at it this way, all the “strange” effects of special relativit
 
 The time slowdown (Lorentz factor) is:  
 <br>  
-γ = 1/√(1−v²/c²) = 1/sin(θ\_S) 
+$  T_{d} = \frac{1}{L_{c}}  = \frac{1}{\sqrt{1- \beta^2}} = 1/sin(θ_S) $  Time dialation 
 or
-$ T_{d}=\frac{1}{L_{c}} $  Time dialation 
+$ \gamma = \frac{1}{\sqrt{1 - v²/c²}}$  
 
 </details>
 
@@ -302,6 +302,8 @@ Time dilation near a massive object is:
 $$
 \sqrt{1−\kappa^2} = \sqrt{1−\frac{R_S}{r}} = \sqrt{1−\frac{2GM}{rc^2}}
 $$
+
+
  </details> <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
 
 ---
