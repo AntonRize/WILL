@@ -3,6 +3,17 @@ layout: default
 title: "Relativistic Foundations"
 ---
 
+<style>
+.container.mx-auto { max-width: 70vw; }
+.markdown-content p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+</style>
+
+
 # Shape of Energy: A Narrative Exposition of WILL Geometry
 
 ## What is This Page?
