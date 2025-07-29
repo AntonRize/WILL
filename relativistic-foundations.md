@@ -304,6 +304,9 @@ $$
 $$
 
 
+---
+
+
  </details> <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
 
 ---
