@@ -32,7 +32,7 @@ If you want to see the full mathematical derivations, download the complete docu
 ---
 
 <p align="center">
-  <img src="images/card 1.jpg" alt="Diagram of relativity" width="400"/>
+  <img src="images/card1.jpg" alt="Unified Framework" width="400"/>
 </p>
 
 ---
