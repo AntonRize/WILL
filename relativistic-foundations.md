@@ -11,41 +11,7 @@ title: "Relativistic Foundations"
   line-height: 1.6;
   font-size: 1.05rem;
 }
-  <!-- Mobile-first fix for WILL-Geometry page -->
-
-/* 1. Let the viewport do the heavy lifting */
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-/* 2. Force tables to scroll horizontally instead of overflow */
-table {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  white-space: nowrap;
-  border-collapse: collapse;
-}
-
-/* 3. Shrink giant inline-math images */
-img[alt*="math"], img[src*="latex"], img[src*="codecogs"] {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 4. Smaller fonts & line-height on narrow screens */
-@media (max-width: 600px) {
-  body {
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 0 0.8rem;
-  }
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.3rem; }
-  pre {
-    font-size: 0.8rem;
-    overflow-x: auto;
-  }
-}
+  
 </style>
 
 
