@@ -572,10 +572,11 @@ This “energy symmetry” is so strict that it naturally sets the universe’s 
 <details> <summary><strong>Math explanation</strong></summary>
 
 Assume an object could exceed the speed of light ($ \beta > 1$). In that scenario:
-\begin{itemize}
-\item The kinetic component (β²) surpasses unity excessively, causing an irreversible imbalance in energy transfer.
-\item No reciprocal transfer could balance this energy, breaking the fundamental symmetry:
-\end{itemize}
+
+-  The kinetic component ($\beta$) surpasses unity excessively, causing an irreversible imbalance in energy transfer.
+
+-  No reciprocal transfer could balance this energy, breaking the fundamental symmetry:
+
 \begin{equation}
 \Delta E_{A \to B} + \Delta E_{B \to A} \neq 0
 \end{equation}
