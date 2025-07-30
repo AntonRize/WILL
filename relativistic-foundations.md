@@ -43,7 +43,7 @@ Against this backdrop, a fundamental question arises: What if we could construct
 
 ---
 
-![Methodological Pillars](images/Methodological-Pillars.png)
+![Methodological Pillars](images/Methodological-Pillars.jpg)
 
 ---
 
@@ -71,7 +71,7 @@ This restriction, philosophical at first glance, generates concrete physical and
     
 ---
 
-![Postulate-card](images/Postulate-card.jpg)
+![SPACETIME-ENERGY-EVOLUTION.png](images/SPACETIME-ENERGY-EVOLUTION.png)
 
 ---
 
