@@ -31,8 +31,9 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-[![Video Presentation](https://github.com/AntonRize/WILL/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-07-30%20223426.jpg)](https://notebooklm.google.com/notebook/c92b5080-b684-4f5a-8e95-1f2c6cc2d072?artifactId=9c27515b-beaa-49f0-814a-a79df30a9703)
-
+<p align="center">
+  <img src="images/Postulate card.jpg" alt="Diagram of relativity" width="400"/>
+</p>
 
 ---
 
