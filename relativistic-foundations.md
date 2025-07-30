@@ -31,9 +31,7 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-<p align="center">
-  <img src="images/card1.jpg" alt="Unified Framework" width="400"/>
-</p>
+![Unified Framework](images/card1.jpg)
 
 ---
 
