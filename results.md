@@ -280,7 +280,7 @@ title: "Key Results"
     <summary>8. Redshift as a Geometric Projection.</summary>
     <div class="details-content">
         <p><strong>Hypothesis:</strong> The observed cosmological redshift is not a Doppler effect from expansion but a <strong>geometric distortion</strong> due to our observational position within a hierarchy of causal horizons.</p>
-         <p class="status">Status: This model successfully derives H_0 from CMB data, and its broader implications are being explored.</p>
+         <p class="status">Status: This conclusion is a direct interpretation of the derived equations and is under active theoretical review.</p>
     </div>
 </details>
 
