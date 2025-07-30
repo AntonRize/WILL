@@ -41,6 +41,12 @@ Modern theoretical physics is a magnificent edifice built on the foundation of a
 
 Against this backdrop, a fundamental question arises: What if we could construct the Universe without any “extraneous details”? What if all observable phenomena—space, time, mass, energy—could be derived from a single, simple, and self-evident statement, without the need for free parameters or inexplicable constants? This approach—what might be called the principle of “epistemological hygiene”—demands that we reject all assumptions not strictly necessary, and build the theory solely on the basis of logical sequence.
 
+---
+
+![Methodological Pillars](images/Methodological-Pillars.png)
+
+---
+
 It is on this path of uncompromising minimalism that the central, unifying postulate of WILL Geometry is born:
 
 > **SPACETIME ≡ ENERGY EVOLUTION**
@@ -63,8 +69,11 @@ This restriction, philosophical at first glance, generates concrete physical and
     
 -   **Symmetry:** In the absence of external reference points, no location in space and no direction can be privileged from the outset. Any asymmetry would require a preferred frame, contradicting our foundational principle. Therefore, the geometry of the Universe must be maximally symmetric.
     
+---
 
+![Postulate-card](images/Postulate-card.jpg)
 
+---
 
 This immediately raises the question: What geometric structures satisfy these strict requirements—being both closed and maximally symmetric? Mathematics gives a definitive answer. Among all possible manifolds, only certain forms possess these properties to perfection.
 
@@ -94,6 +103,11 @@ Now that the rules of the game have been established, let’s consider the simpl
 
 Imagine a unit circle whose radius symbolizes the universal speed of evolution, *c*, which for simplicity we set to 1. Any state of motion of an object can be represented as a point on this circle. The total “speed of evolution” is a vector drawn from the center to this point. This vector can be decomposed into horizontal (X axis) and vertical (Y axis) projections.
 
+---
+
+![Spacetime-evolution-beta](images/Spacetime-evolution-beta.jpg)
+
+---
 
 
 <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Motion/Time on the Unit Circle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/mpdksbsf9q" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
