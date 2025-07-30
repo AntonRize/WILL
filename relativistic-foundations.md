@@ -4,7 +4,7 @@ title: "Relativistic Foundations"
 ---
 
 <style>
-.container.mx-auto { max-width: 50vw; }
+
 .markdown-content p {
   margin-top: 1rem;
   margin-bottom: 1rem;
