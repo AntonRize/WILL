@@ -307,7 +307,7 @@ $$
 ---
 
 
- </details> <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/afiyj1j8yc" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+ </details> <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
 
 ---
 
@@ -477,6 +477,7 @@ just says: *“Gravity’s share is always twice the motion’s share, because a
 
 ### The Photon Sphere: A Point of Perfect Balance
 
+
 <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Q Circle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
 
 A remarkable consequence of this unification happens at a special “balance point” — where the two projections, kinetic and potential, are perfectly matched. This occurs when:
@@ -501,6 +502,7 @@ and the two angles are exactly equal.
 
 Whenever you compare two observers (say, someone on the ground and someone in orbit), **the energy differences they see will always perfectly balance out.** No matter how you swap perspectives — nobody ever gets “extra” energy for free. This is the universe’s built-in law of energetic fairness.
 
+---
 
 ### How it Works (Without Math)
 
@@ -708,7 +710,7 @@ Detailed calculations for both examples are provided in this document, but the n
 
 Let’s get to the wildest part of WILL Geometry: **What if time isn’t fundamental at all?**
 
----
+
 
 ### Rethinking Change and Time
 
@@ -748,7 +750,7 @@ Imagine a black hole gaining mass:
 
 > **Time does not drive change — instead, change defines time.**
 
----
+
 
 ### Why does this matter?
 
