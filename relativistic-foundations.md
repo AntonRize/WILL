@@ -31,9 +31,7 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-<p align="center">
-  <img src="images/Postulate card.jpg" alt="Diagram of relativity" width="400"/>
-</p>
+![Unified Framework](images/card1.jpg)
 
 ---
 
