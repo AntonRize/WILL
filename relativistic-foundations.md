@@ -466,9 +466,19 @@ where
 
 </details>
 
+
+
 ---
 
+![The-Fundamental-Conservation-Law-kb-2](images/The-Fundamental-Conservation-Law-kb-2.png)
+
+---
+
+
+
 #### Why does it matter?
+
+
 
 -   This isn’t some made‑up or “fit” formula.
     
@@ -655,7 +665,13 @@ In plain words:
 
 **Critical radius / current radius = current density / critical density**
 
-Or:
+
+---
+
+![Unified-Field-Equation](images/Unified-Field-Equation.png)
+
+---
+
 
 > No matter how you look at it — as a distance, or as an amount of energy — the universe always keeps you within the same “safe fraction” of the maximum possible.
 
@@ -717,6 +733,11 @@ $$
 A theory, no matter how beautiful, is just a clever idea until it passes real-world tests. Science is all about matching what we think to what we actually see in nature. A beautiful theory is useless if it does not align with what we observe. This section is devoted to grounding the abstract vision of WILL Geometry by demonstrating that it makes precise, testable predictions about real physical phenomena.
 
 Let’s examine these two key examples, which serve as rigorous empirical tests of the entire theoretical construction.
+
+---
+
+![Empirical-Validation](Empirical-Validation.png)
+
 
 ---
 
@@ -840,6 +861,19 @@ $$ W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T
 
 Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self-consistent structure.
 
+
+---
+
+![The-WILL-Invariant](The-WILL-Invariant.png)
+
+
+---
+
+> ### The Name "Will"
+>
+> The name Will reflects both the harmonious unity of the equation and a subtle irony towards the anthropic principle, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
+
+---
 
 This is not the end, but just a beginning. **For the full mathematical theory, and its extensions to cosmology and quantum mechanics, see:**
 
