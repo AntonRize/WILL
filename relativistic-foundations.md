@@ -141,7 +141,6 @@ $ L_c = sin(θ_S) = \sqrt{1 − \beta^2} $  Length contraction factor
 
 </details>
 
----
 
 ### Why This Explains All the Weirdness of Relativity
 
@@ -194,6 +193,20 @@ Momentum: p = γmv
 ### The Energy-Momentum Triangle
 
 
+> **A Guide to Interpreting This Combined Diagram:**
+>
+> This diagram intentionally superimposes two different geometric views to illustrate their deep connection. To avoid confusion, please read the following guide:
+>
+> 1.  **The Background (Unit Circle):** The white unit circle and its associated labels (like `L_c`, `θ_S`, and "Time evolution") represent the 'Spacetime Projection' model discussed previously. It is shown here as a **reference** to illustrate where the fundamental velocity parameter `β` originates. In this background view, the hypotenuse is always constant (equal to 1).
+>
+> 2.  **The Foreground (Energy Triangle):** The shaded triangle is the main subject of this section. For this **Energy-Momentum Triangle**, the axes take on a new, physical meaning:
+>     - The **vertical axis** represents the constant **Invariant Rest Energy ($E_0$)**.
+>     - The **horizontal axis** represents the growing **Momentum ($p$)**.
+>
+> The hypotenuse of this main triangle represents the growing **Total Energy ($E$)**, which clearly extends beyond the bounds of the background unit circle.
+>
+> The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy-momentum triangle, visually linking the geometry of spacetime to the energy of an object.
+
 
 **Visualize energy, mass, and momentum as a simple right triangle:**
 
@@ -205,6 +218,12 @@ Momentum: p = γmv
     
 -   **The hypotenuse** is the *total energy* — it stretches as you go faster.
     
+
+---
+
+![Energy-Momentum-Triangle](images/Energy-Momentum-Triangle.png)
+
+---
 
 
 
