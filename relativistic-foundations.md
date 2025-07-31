@@ -736,7 +736,7 @@ Let’s examine these two key examples, which serve as rigorous empirical tests 
 
 ---
 
-![Empirical-Validation](Empirical-Validation.png)
+![Empirical-Validation](images/Empirical-Validation.png)
 
 
 ---
