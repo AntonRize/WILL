@@ -329,6 +329,12 @@ Here’s where the sphere magic happens:
 -   If you reach the event horizon (κ = 1), time (from an outside view) stops completely.
     
 
+---
+
+![Potential-Energy-The-Temporal-Projection](images/Potential-Energy-The-Temporal-Projection.png)
+
+---
+
 
 > Gravity isn’t just pulling you in — it’s literally changing how fast your clock ticks, depending on where you are.
 
