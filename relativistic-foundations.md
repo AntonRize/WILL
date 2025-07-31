@@ -105,7 +105,7 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 
 ---
 
-![Spacetime-evolution-beta](images/Spacetime-evolution-beta.jpg)
+![Spacetime-evolution-beta](images/Kinetic-Energy-The-Spatial-Projection.png.jpg)
 
 ---
 
