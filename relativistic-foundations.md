@@ -244,7 +244,7 @@ Where:
 
 
 
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: The Energy-Momentum Triangle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/xjozrilkov" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: The Energy-Momentum Triangle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
 
 
 Simply saying:
