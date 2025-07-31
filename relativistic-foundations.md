@@ -29,6 +29,8 @@ If you want to see the full mathematical derivations, download the complete docu
 [Full WILL Geometry Papers](https://antonrize.github.io/WILL/parts/)
 
 
+<iframe src="https://open.spotify.com/episode/5nOJdWgDAYVhM6g85Z1CWW?si=YKfSyemhRPW_wc9SaDz5_w" width="100%" height="102" frameBorder="0" scrolling="no"></iframe>
+
 ---
 
 ![Unified Framework](images/card1.jpg)
