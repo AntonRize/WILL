@@ -864,7 +864,7 @@ Energy, mass, time, and length — not disconnected ideas, but tightly bound fac
 
 ---
 
-![The-WILL-Invariant](The-WILL-Invariant.png)
+![The-WILL-Invariant](images/The-WILL-Invariant.png)
 
 
 ---
