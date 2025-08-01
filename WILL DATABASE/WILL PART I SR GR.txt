@@ -356,12 +356,33 @@ Within the WILL Geometry framework \(E = mc^2\) emerges purely from first princi
     \]
 This structure forms a right triangle in projection space:
 
-\begin{tikzpicture}
-\draw[thick] (0,0) circle(1);
-\draw[->, thick] (0,0) -- (0.8,0) node[midway, below] {$\beta$};
-\draw[->, thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
-\draw[->, thick] (0.8,0) -- (0.8,0.6) node[midway, right] {$\sqrt{1 - \beta^2}$};
+
+\begin{tikzpicture}[scale=3]
+  % Circle of radius 1
+  \draw (0,0) circle (1);
+
+  % Angle theta_S
+  \draw[->] (0.3,0) arc (0:50:0.3) node[midway,right] {$\theta_S$};
+
+  % Energy vector E
+  \draw[->, thick, blue] (0,0) -- ({cos(50)}, {sin(50)})
+    node[above right] {$\mathbf{E}$};
+
+  % Projections
+  \draw[dashed] ({cos(50)}, {sin(50)}) -- ({cos(50)},0)
+    node[midway,right] {$L_c$};
+  \draw[dashed] ({cos(50)},0) -- (0,0)
+    node[midway,below] {$\beta$};
+
+  % Axis labels
+  \draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta$};
+  \draw[->] (0,-0.2) -- (0,1.2) node[above] {$L_c$};
+
+  % Numeric labels (example)
+  \node at (0.5,-0.05) {cos θₛ};
+  \node at (-0.05,0.5) {sin θₛ};
 \end{tikzpicture}
+
 
 \noindent where the hypotenuse represents the total energy vector \( E \), geometrically arising from the projectional composition of motion and inertia.
 
@@ -1960,6 +1981,46 @@ P.S. \textit{This work remains an ongoing exploration, and further developments 
 }
 
                                                                                                                                                                \subparagraph{\textit{Anton Rize.}}
+
+                                                                                                                                                               
+                         \section{Glossary of Key Terms}
+                         
+• β (Beta): The kinetic projection in WILL Geometry, representing the ratio of an object's velocity to the universal speed of evolution (v/c). It quantifies how much of the "speed of change" is perceived as motion through space from an observer's perspective.
+
+• c (Universal Speed of Evolution): The fundamental, invariant tempo of change in the universe. It is not merely the speed of light but the constant rate at which all energetic interactions and transformations occur.
+
+• Conservation Law: The principle stating that the total energy of the universe must remain constant. In WILL Geometry, this is a direct logical consequence of the universe being a closed and self-sufficient system.
+
+• Critical Density (ρmax): A local, finite limit on how much energy can be packed into a given point in space, dependent on the distance from the center. In WILL Geometry, this prevents the formation of infinite densities (singularities).
+
+• Energy-Momentum Triangle: A geometric visualization in WILL Geometry that depicts the relationship between an object's rest energy, momentum, and total energy as the sides of a right triangle, illustrating their constant interconnectedness.
+
+• Energy-Symmetry Law: The principle in WILL Geometry stating that energy differences observed between any two frames of reference will always perfectly balance out, ensuring no "extra" energy is created or lost, and thus enforcing causality.
+
+• Epistemological Hygiene: A guiding principle in WILL Geometry that demands the rejection of all assumptions not strictly necessary, building the theory solely on logical sequence from a minimalist foundation.
+
+• Event Horizon: The boundary around a black hole beyond which nothing, not even light, can escape. In WILL Geometry, κ = 1 at this point, indicating the maximum gravitational projection.
+
+• Geometric Structures (Circle S¹ and Sphere S²): The fundamental, maximally symmetric and closed geometric "canvases" on which physical reality is projected in WILL Geometry. The circle describes 1D motion (Special Relativity), and the sphere describes 2D gravity (General Relativity).
+
+• κ (Kappa): The gravitational projection in WILL Geometry. It measures how deeply an object is situated within a gravitational field, relative to an observer, and indicates proximity to an event horizon.
+
+• Photon Sphere: A specific region around a massive object where light can orbit in a perfect, unstable circular path. In WILL Geometry, this corresponds to a point of perfect balance where kinetic and potential projections are matched (κ² + β² = 1).
+
+• Relational View of Energy: The concept in WILL Geometry that energy is not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.
+
+• Singularity: A point of infinite density predicted by traditional General Relativity (e.g., at the center of a black hole). WILL Geometry's framework inherently prevents singularities, replacing them with finite, maximum allowed densities.
+
+• SPACETIME ≡ ENERGY EVOLUTION: The central, unifying postulate of WILL Geometry, asserting that the fabric of spacetime is identical to the full structure of all possible transitions and interconnections between energetic states.
+
+• Symmetry: A core principle in WILL Geometry derived from the postulate, stating that in a closed system without external reference points, the geometry of the universe must be maximally symmetric.
+
+• Time Dilation: The phenomenon where time passes more slowly for an observer or object. In WILL Geometry, it is explained as a consequence of how the universal "speed of evolution" budget is allocated between motion (kinetic time dilation) and gravitational potential (gravitational time dilation).
+
+• WILL Invariant (W_ill): A dimensionless constant (equal to 1) that mathematically connects energy, mass, time, and length within the WILL Geometry framework, demonstrating the self-consistency of the system.                                                                                                                                      
+                                                                                                                                                               
+                                                                                                                                                               
+                                                                                                                                                               
                                                                                                                                                                
 
 \section{Key Equations Reference}
