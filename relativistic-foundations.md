@@ -224,7 +224,7 @@ Momentum: p = γmv
 
 ---
 
-![Energy-Momentum-Triangle](images/Energy-Momentum-Triangle.jpg)
+![Energy-Momentum-Triangle](images/Energy-momentum-triangle.jpg)
 
 ---
 
