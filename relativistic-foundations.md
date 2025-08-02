@@ -74,7 +74,7 @@ This restriction, philosophical at first glance, generates concrete physical and
     
 ---
 
-![SPACETIME-ENERGY-EVOLUTION.png](images/SPACETIME-ENERGY-EVOLUTION.lpg)
+![SPACETIME-ENERGY-EVOLUTION.png](images/SPACETIME-ENERGY-EVOLUTION.jpg)
 
 ---
 
