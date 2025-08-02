@@ -74,7 +74,7 @@ This restriction, philosophical at first glance, generates concrete physical and
     
 ---
 
-![SPACETIME-ENERGY-EVOLUTION.png](images/SPACETIME-ENERGY-EVOLUTION.png)
+![SPACETIME-ENERGY-EVOLUTION.png](images/SPACETIME-ENERGY-EVOLUTION.lpg)
 
 ---
 
@@ -108,7 +108,7 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 
 ---
 
-![Kinetic-Energy-The-Spatial-Projection](images/Kinetic-Energy-The-Spatial-Projection.png)
+![Kinetic-Energy-The-Spatial-Projection](images/Kinetic-Energy-The-Spatial-Projection.jpg)
 
 ---
 
@@ -224,7 +224,7 @@ Momentum: p = γmv
 
 ---
 
-![Energy-Momentum-Triangle](images/Energy-Momentum-Triangle.png)
+![Energy-Momentum-Triangle](images/Energy-Momentum-Triangle.jpg)
 
 ---
 
@@ -334,7 +334,7 @@ Here’s where the sphere magic happens:
 
 ---
 
-![Potential-Energy-The-Temporal-Projection](images/Potential-Energy-The-Temporal-Projection.png)
+![Potential-Energy-The-Temporal-Projection](images/Potential-Energy-The-Temporal-Projection.jpg)
 
 ---
 
@@ -898,7 +898,7 @@ Energy, mass, time, and length — not disconnected ideas, but tightly bound fac
 
 ---
 
-![The-WILL-Invariant](images/The-WILL-Invariant.png)
+![The-WILL-Invariant](images/The-WILL-Invariant.jpg)
 
 
 ---
