@@ -473,7 +473,7 @@ where
 
 ---
 
-![The-Fundamental-Conservation-Law-kb-2](images/Topological-Ratio-k-b-2.png)
+![The-Fundamental-Conservation-Law-kb-2](images/Topological-Ratio-k-b-23.jpg)
 
 ---
 
@@ -612,6 +612,10 @@ Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, a
 
 ---
 
+![Energy-Symmetry-Law](images/Energy-Symmetry-Law2.jpg)
+
+---
+
 ### Universal Speed Limit: Why Nothing Goes Faster than Light
 
 
@@ -671,7 +675,7 @@ In plain words:
 
 ---
 
-![Unified-Field-Equation](images/Unified-Field-Equation.png)
+![Unified-Field-Equation](images/Unified-Field-Equation2.jpg)
 
 ---
 
@@ -731,7 +735,7 @@ $$
 
 ---
 
-![Theoretical-Ouroboros](images/Theoretical-Ouroboros.png)
+![Theoretical-Ouroboros](images/Theoretical-Ouroboros-min.jpg)
 
 ---
 
@@ -766,7 +770,7 @@ Let’s examine these two key examples, which serve as rigorous empirical tests 
 
 ---
 
-![Empirical-Validation](images/Empirical-Validation.jpg)
+![Empirical-Validation](images/Empirical-Validation2.jpg)
 
 
 ---
