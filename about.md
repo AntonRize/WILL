@@ -71,7 +71,7 @@ I welcome critique, collaboration, and engagement from physicists, mathematician
 - **Email:** [egeometricity@gmail.com](mailto:egeometricity@gmail.com)
 - **GitHub:** [WILL Geometry Repository](https://github.com/AntonRize/WILL)
 - **Discussions:** [Scientific Forums](/WILL/discussions/)
-
+- **test:** [test](https://g.co/gemini/share/0760a2a11e27)
 ---
 
 ## Acknowledgments
