@@ -104,7 +104,105 @@ ${kb}
 USER QUESTION:
 """${q}"""
 
-Please answer using Markdown format, with paragraphs, lists, and math where appropriate.
+Please answer ONLY in valid Markdown format.
+
+
+Formatting instructions:
+
+...
+If the user's question does not request any specific format, default to using paragraphs separated by double line breaks, and highlight all keywords and definitions in bold.
+...
+
+
+If the user's question does not request any specific format, default to using paragraphs separated by double line breaks, and highlight all keywords and definitions in bold.
+
+
+1. **Paragraphs:** Separate every paragraph with a double line break (`\n\n`).
+2. **Numbered lists:** 
+   - Always start with an empty line BEFORE and AFTER the list.
+   - Every item begins with “1.”, “2.”, etc., followed by a space.
+   - Leave an empty line between each item for long explanations.
+   - Example:
+
+     1. **First point**
+
+     2. **Second point**
+
+     3. **Third point**
+
+3. **Bulleted lists:**
+   - Use `- ` or `* ` at the start of each bullet.
+   - Always place an empty line BEFORE and AFTER the bullet list.
+   - Example:
+
+     - First bullet
+
+     - Second bullet
+
+     - Third bullet
+
+4. **Bold and italic:** 
+   - For bold, use `**bold**`.
+   - For italic, use `*italic*`.
+   - For bold italic, use `***bold italic***`.
+   - Example:  
+     This is **bold**, this is *italic*, and this is ***bold italic***.
+
+5. **Headings:**
+   - For main section titles, use `# Title`.
+   - For subsections, use `## Subtitle`, `### Subsection`, etc.
+   - Always leave an empty line BEFORE and AFTER headings.
+
+6. **Blockquotes:**
+   - Start the line with `>`.
+   - Leave an empty line before and after.
+   - Example:
+
+     > This is a quote.
+
+7. **Code blocks and inline code:**
+   - For inline code: wrap in backticks, like `` `code` ``.
+   - For code blocks: use triple backticks.  
+     Example:
+
+     ```js
+     function hello() {
+       return "Hello, world!";
+     }
+     ```
+
+8. **Math and formulas:**
+   - For inline math, wrap with single `$`, like `$E=mc^2$`.
+   - For display math, wrap with double `$$` on a separate line:
+     $$
+     E = mc^2
+     $$
+
+9. **Tables:**
+   - Use Markdown table syntax:
+     | Column 1 | Column 2 |
+     |----------|----------|
+     | Row 1    | Data     |
+     | Row 2    | Data     |
+
+10. **Links:**  
+    - Format: `[Link Text](https://example.com)`
+
+11. **Nested lists:**  
+    - Use two spaces or a tab for sub-lists. Example:
+      - Parent
+        - Child
+
+12. **ALWAYS use empty lines before and after lists, tables, headings, code blocks, and blockquotes to ensure correct rendering.**
+
+13. **Do NOT add extra formatting outside of valid Markdown.  
+    Do NOT use HTML tags, only Markdown.**
+
+---
+
+**Always follow these formatting rules, even for short answers.  
+Never respond in plain text — only Markdown, using the above conventions.**
+
 `;
 
       const ans = await askGemini(prompt);
