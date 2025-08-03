@@ -1,5 +1,6 @@
 // src/App.jsx  —  WILL Assistant • RAW-FULL • English-only
 import { useState, useEffect, useRef } from 'react';
+import ChatMessage from './ChatMessage.jsx';
 import { Send, Database, Clock, AlertTriangle } from 'lucide-react';
 
 /* 1. Knowledge-base file paths */
@@ -91,7 +92,7 @@ export default function App() {
     setBusy(true);
     try {
       const lang = isRussian(q) ? 'Russian' : 'English';
-      const prompt = `
+     const prompt = `
 You are the WILL Geometry assistant. Answer in **${lang}** only.
 
 CORE OVERVIEW:
@@ -102,7 +103,10 @@ ${kb}
 
 USER QUESTION:
 """${q}"""
+
+Please answer using Markdown format, with paragraphs, lists, and math where appropriate.
 `;
+
       const ans = await askGemini(prompt);
       push(ans);
     } catch (e) {
@@ -129,13 +133,17 @@ USER QUESTION:
 
       {/* Chat log */}
       <main className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
-        {log.map(m => (
-          <div key={m.id} className={`flex ${m.user ? 'justify-end' : 'justify-start'}`}>
-            <div className={`${m.user ? 'bg-indigo-600 text-white' : 'bg-white border'} rounded-2xl p-4 max-w-[80%] whitespace-pre-wrap`}>
-              {m.txt}
-            </div>
-          </div>
-        ))}
+       {log.map(m => (
+  <div key={m.id} className={`flex ${m.user ? 'justify-end' : 'justify-start'}`}>
+    <div className={`${m.user ? 'bg-indigo-600 text-white' : 'bg-white border'} rounded-2xl p-4 max-w-[80%]`}>
+      <ChatMessage
+        role={m.user ? 'user' : 'ai'}
+        text={m.txt}
+      />
+    </div>
+  </div>
+))}
+
         {busy && (
           <div className="flex justify-start">
             <div className="bg-white border rounded-2xl p-4 flex items-center gap-2 text-gray-600">
