@@ -19,6 +19,7 @@ permalink: /assistant/
     textarea::-webkit-scrollbar{width:4px}
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
     const {useState, useEffect, useRef} = React;
     const FILES = [
@@ -53,7 +54,7 @@ permalink: /assistant/
         const [ks,setKs]=useState('loading');
         const [log,setLog]=useState([{
             id: 0,
-            txt: "👋 Welcome to the WILL Geometry Assistant!\n\nAsk me anything about the WILL Theory or its documents.\n\n**Disclaimer:** AI can make mistakes — so do you. Doublecheck with original WILL documents (.pdf).",
+            txt: marked.parse("👋 Welcome to the WILL Geometry Assistant!\n\nAsk me anything about the WILL Theory or its documents.\n\n**Disclaimer:** AI can make mistakes — so do you. Doublecheck with original WILL documents (.pdf)."),
             user: false,
             isWelcome: true
         }]);
@@ -63,7 +64,10 @@ permalink: /assistant/
 
         useEffect(()=>{loadKB().then(d=>{setKb(d);setKs('ok');}).catch(()=>setKs('error'));},[]);
         useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[log]);
-        const push=(txt,user=false)=>setLog(L=>[...L,{id:Date.now()+Math.random(),txt,user}]);
+        const push=(txt,user=false)=>{
+            const content=user?txt:marked.parse(txt);
+            setLog(L=>[...L,{id:Date.now()+Math.random(),txt:content,user}]);
+        };
 
         async function send(){
             const q=inp.trim();
@@ -90,9 +94,16 @@ permalink: /assistant/
             ),
             React.createElement('div',{className:'flex-1 overflow-y-auto space-y-4 bg-slate-800 p-4 rounded-lg'},
                 log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
+                    m.user?
                     React.createElement('div',{
-                        className:`max-w-[80%] p-3 rounded-xl ${m.user?'bg-cyan-700 text-white':'bg-slate-700'} ${m.isWelcome?'border border-yellow-400':''}`
+                        className:`max-w-[80%] p-3 rounded-xl bg-cyan-700 text-white`,
+                        style:{whiteSpace:'pre-wrap'}
                     },m.txt)
+                    :
+                    React.createElement('div',{
+                        className:`max-w-[80%] p-3 rounded-xl bg-slate-700 ${m.isWelcome?'border border-yellow-400':''}`,
+                        dangerouslySetInnerHTML:{__html:m.txt}
+                    })
                 )),
                 busy&&React.createElement('div',{className:'text-slate-300'},"Thinking…"),
                 React.createElement('div',{ref:endRef})
