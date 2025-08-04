@@ -11,6 +11,55 @@ title: "Relativistic Foundations"
   line-height: 1.6;
   font-size: 1.05rem;
 }
+  .video-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* Соотношение сторон 16:9 */
+  border-radius: 12px; /* Скругленные углы, как у других элементов */
+  margin: 1.5rem 0; /* Отступы сверху и снизу */
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- Style for the Video Dropdown --- */
+.video-dropdown-container {
+  /* This container holds the entire dropdown component. */
+  margin: 2rem 0; /* Adds some space above and below. */
+}
+
+.video-dropdown-summary {
+  /* This is the visible, clickable 'button' or 'backdrop'. */
+  display: block; /* Ensures it behaves like a container. */
+  padding: 1rem; /* Adds space inside the button. */
+  background-color: #181818; /* A dark background similar to the Spotify player. */
+  color: #FFFFFF; /* White text for high contrast. */
+  border-radius: 12px; /* Rounded corners to match the player. */
+  font-weight: 600; /* Bolder text. */
+  font-size: 1.05rem;
+  cursor: pointer; /* Shows a hand cursor on hover. */
+  outline: none; /* Removes the default blue outline on click. */
+  list-style: none; /* Removes the default triangle/arrow marker. */
+  transition: background-color 0.2s; /* Smooth hover effect. */
+}
+
+.video-dropdown-summary:hover {
+  background-color: #282828; /* Slightly lighter on hover. */
+}
+
+/* Hides the default dropdown arrow from the browser */
+.video-dropdown-summary::-webkit-details-marker {
+  display: none;
+}
   
 </style>
 
@@ -31,11 +80,26 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-<iframe style="border-radius:12px; border: 0;" src="https://open.spotify.com/episode/453qzoMo5GqJXMx0qTltUF?si=L1lGexV9TWGoHq6tgOw7NQ" width="100%" height="315" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<details class="video-dropdown-container">
+  
+  <summary class="video-dropdown-summary">
+    Show Video Introduction
+  </summary>
+
+  <div class="video-wrapper">
+    <iframe 
+        src="https://www.youtube.com/embed/XejFET7NgUs?si=o2olTsRgm_BT_A3r" 
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
+  </div>
+
+</details>
 
 ---
 
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/4yRiftUbNo1WZSq1ngqOMZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/episode/5nOJdWgDAYVhM6g85Z1CWW?si=YKfSyemhRPW_wc9SaDz5_w" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 ---
 
