@@ -11,6 +11,25 @@ title: "Relativistic Foundations"
   line-height: 1.6;
   font-size: 1.05rem;
 }
+  .video-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* Соотношение сторон 16:9 */
+  border-radius: 12px; /* Скругленные углы, как у других элементов */
+  margin: 1.5rem 0; /* Отступы сверху и снизу */
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
   
 </style>
 
