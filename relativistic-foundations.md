@@ -31,7 +31,7 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/episode/453qzoMo5GqJXMx0qTltUF?si=L1lGexV9TWGoHq6tgOw7NQ" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px; border: 0;" src="https://open.spotify.com/episode/453qzoMo5GqJXMx0qTltUF?si=L1lGexV9TWGoHq6tgOw7NQ" width="100%" height="315" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 ---
 
