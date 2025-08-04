@@ -30,6 +30,36 @@ title: "Relativistic Foundations"
   height: 100%;
   border: 0;
 }
+
+/* --- Style for the Video Dropdown --- */
+.video-dropdown-container {
+  /* This container holds the entire dropdown component. */
+  margin: 2rem 0; /* Adds some space above and below. */
+}
+
+.video-dropdown-summary {
+  /* This is the visible, clickable 'button' or 'backdrop'. */
+  display: block; /* Ensures it behaves like a container. */
+  padding: 1rem; /* Adds space inside the button. */
+  background-color: #181818; /* A dark background similar to the Spotify player. */
+  color: #FFFFFF; /* White text for high contrast. */
+  border-radius: 12px; /* Rounded corners to match the player. */
+  font-weight: 600; /* Bolder text. */
+  font-size: 1.05rem;
+  cursor: pointer; /* Shows a hand cursor on hover. */
+  outline: none; /* Removes the default blue outline on click. */
+  list-style: none; /* Removes the default triangle/arrow marker. */
+  transition: background-color 0.2s; /* Smooth hover effect. */
+}
+
+.video-dropdown-summary:hover {
+  background-color: #282828; /* Slightly lighter on hover. */
+}
+
+/* Hides the default dropdown arrow from the browser */
+.video-dropdown-summary::-webkit-details-marker {
+  display: none;
+}
   
 </style>
 
@@ -50,10 +80,12 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-<details>
-  <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
-   Show Video Introduction 
+<details class="video-dropdown-container">
+  
+  <summary class="video-dropdown-summary">
+    Show Video Introduction
   </summary>
+
   <div class="video-wrapper">
     <iframe 
         src="https://www.youtube.com/embed/XejFET7NgUs?si=o2olTsRgm_BT_A3r" 
@@ -62,6 +94,7 @@ If you want to see the full mathematical derivations, download the complete docu
         allowfullscreen>
     </iframe>
   </div>
+
 </details>
 
 ---
