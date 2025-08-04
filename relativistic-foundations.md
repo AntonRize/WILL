@@ -99,7 +99,15 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/episode/5nOJdWgDAYVhM6g85Z1CWW?si=YKfSyemhRPW_wc9SaDz5_w" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe
+  style="border-radius:12px"
+  src="https://open.spotify.com/embed/episode/5nOJdWgDAYVhM6g85Z1CWW"
+  width="100%"
+  height="232"
+  frameborder="0"
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+  loading="lazy">
+</iframe>
 
 ---
 
