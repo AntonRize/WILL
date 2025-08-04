@@ -28,6 +28,11 @@ Here, the focus is on the core ideas, intuitive explanations, and geometric visu
 If you want to see the full mathematical derivations, download the complete documents here:
 [Full WILL Geometry Papers](https://antonrize.github.io/WILL/parts/)
 
+
+---
+
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/episode/453qzoMo5GqJXMx0qTltUF?si=L1lGexV9TWGoHq6tgOw7NQ" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
 ---
 
 <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/4yRiftUbNo1WZSq1ngqOMZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
