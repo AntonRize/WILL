@@ -52,7 +52,7 @@ If you want to see the full mathematical derivations, download the complete docu
 
 <details>
   <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg">
-    Показать видео-иллюстрацию
+   Show Video Introduction 
   </summary>
   <div class="video-wrapper">
     <iframe 
