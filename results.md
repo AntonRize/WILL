@@ -522,12 +522,6 @@ Complete research documentation in three parts, covering the theoretical foundat
 
 ---
 
-### Ultimate Unity
-
-$$\boxed{\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}}$$
-
----
-
 <h2 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚖️ Causal Closure without Circularity </h2>
 
 The structure of WILL Geometry is causally closed but not circular. Each parameter is either independently observable or computable from a minimal input pair consisting of one dynamic projection (such as κ or β) and one scale quantity (such as r, M, or ρ).
