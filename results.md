@@ -1,6 +1,71 @@
 ---
 layout: default
-title: "Key Results"
+title: "Documents & Key Results"
+---
+<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">📚 WILL Geometry Research Documents</h3>
+
+Complete research documentation in three parts, covering the theoretical foundation, cosmological applications, and quantum mechanical framework.
+
+---
+
+## 📖 Research Parts
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
+
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db;">
+   <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations</h3>
+    <p style="margin-bottom: 20px; line-height: 1.6;">
+        From fundamental postulate to Special and General Relativity through pure projection geometry. 
+        Derives Einstein's equations without assuming spacetime structure.
+    </p>
+    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+        <strong>Topics:</strong> Geometric postulate, SR derivation, GR equivalence, unified field equations
+    </p>
+    <a href="/WILL/documents/WILL_PART_I_SR_GR.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
+        📄 Download Part I
+    </a>
+</div>
+
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #8e44ad;">
+    <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🌌 Part II: Cosmology</h3>
+    <p style="margin-bottom: 20px; line-height: 1.6;">
+        Two-parameter cosmology without Friedmann equations. Geometric derivation of dark energy 
+        and cosmological parameters from pure algebraic closure.
+    </p>
+    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+        <strong>Topics:</strong> Cosmic evolution, Ωₘ = 1/3, ΩΛ = 2/3, w = -1, holographic entropy
+    </p>
+    <a href="/WILL/documents/WILL_PART_II_Cosmology.pdf" target="_blank" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded inline-block">
+        📄 Download Part II
+    </a>
+</div>
+
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60;">
+    <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚛️ Part III: Quantum Mechanics</h3>
+    <p style="margin-bottom: 20px; line-height: 1.6;">
+        Atomic structure through geometric quantization without wave functions. 
+        Independent derivation of the fine structure constant α = β.
+    </p>
+    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+        <strong>Topics:</strong> Geometric quantization, α = β derivation, hydrogen spectra, atomic physics
+    </p>
+    <a href="/WILL/documents/WILL_PART_III_QM.pdf" target="_blank" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded inline-block">
+        📄 Download Part III
+    </a>
+</div>
+
+</div>
+
+---
+
+## 📊 Document Overview
+
+| Part | Pages | Focus | Status |
+|------|-------|-------|--------|
+| **I: Relativity** | ~40 | SR/GR from geometry | ✅ Complete |
+| **II: Cosmology** | ~35 | Dark energy, cosmic parameters | 🔄 In Progress |
+| **III: Quantum** | ~30 | Atomic physics, α = β | 🔄 In Progress |
+
 ---
 
 <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🎯 WILL Geometry: Key Results </h3>
@@ -456,80 +521,6 @@ title: "Key Results"
 </div>
 
 ---
-
-<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🎯 Unified Achievement </h3>
-
-<div class="text-center my-12 p-6 bg-gray-800/50 rounded-lg border-l-4" style="border-color: #667eea;">
-    <h2 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🏆 Core Relations</h2>
-    
-    <div style="font-size: 20px; line-height: 2; margin: 25px 0;">
-        <div style="margin: 15px 0;"><strong>κ² = 2β²</strong></div>
-        <div style="margin: 15px 0;"><strong>R<sub>s</sub>/r<sub>d</sub> = ρ/ρ<sub>max</sub> = κ²</strong></div>
-        <div style="margin: 15px 0;"><strong>W<sub>ill</sub> = E·T²/(M·L²) = 1</strong></div>
-        <div style="margin: 15px 0;"><strong>α = β</strong></div>
-    </div>
-</div>
-
-### Core Geometric Relations
-
-$$\frac{m_0}{m_P} \cdot \frac{l_P}{r_{d}} = \beta^2 \quad \Rightarrow \quad \kappa^2 = 2 \beta^2$$
-
-$$\Delta E_{A \to C} + \Delta E_{C \to A} = 0$$
-
-$$Q^2 = \kappa^2 + \beta^2 = 3\beta^2$$
-
-### Special Points
-
-**Photon Sphere:** $r = \frac{3}{2}R_s$ where $\kappa = \sqrt{\frac{2}{3}} \approx 0.816$, $\beta = \frac{1}{\sqrt{3}} \approx 0.577$
-
-**ISCO:** $r = 3R_s$ where $\beta = \frac{1}{\sqrt{6}} \approx 0.408$
-
-At the critical point where $\theta_S = \theta_G = 54.7356103172°$:
-
-$$\kappa^2 + \beta^2 = 1$$
-$$\beta = T_c, \quad \kappa = L_c$$
-$$Q_t = \sqrt{1-3\beta^2} = 0 \quad \text{(Instability threshold)}$$
-
-### Unified Field Equation
-
-$$\boxed{\frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}} = \kappa^2}$$
-
-For any spherically symmetric density $\rho(r)$:
-
-$$\boxed{\frac{d}{dr}\bigl(\kappa^{2}r\bigr) = \frac{8\pi G}{c^{2}} r^{2}\rho(r)} \quad\Longrightarrow\quad \kappa^{2}(r)=\frac{2G}{c^{2}}\frac{m(r)}{r}$$
-
-For the homogeneous layer ($\kappa=\text{const}$) this reduces to:
-
-$$\rho(r)=\frac{\kappa^{2}c^{2}}{8\pi G r^{2}}$$
-
-### Cosmological Relations
-
-$$\boxed{\Lambda = \frac{\kappa^2}{r_{d}^2} \quad \text{with} \quad w = -1 \quad \text{(symmetry-enforced)}}$$
-
-$$H = \frac{c}{r_{d}} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\rho} = \frac{\kappa^{2}c^{3}}{2Gm_{0}}$$
-
-$$\rho = \rho_\Lambda = \frac{\kappa^2 c^2}{8 \pi G r_{d}^2} = \frac{H^{2}\kappa^{2}}{8\pi G}$$
-
-$$\rho_{max} = \frac{c^2}{8 \pi G r_{d}^2}$$
-
-$$\Omega_\Lambda = \kappa^2$$
-
-### WILL Invariant
-
-$$W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}} = 1$$
-
-<div class="text-center my-10 p-6 bg-gray-800/50 rounded-lg border-l-4" style="border-color: #6c757d;">
-   <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚖️ Theoretical Closure</h3>
-    <p style="font-size: 16px; line-height: 1.6; margin-bottom: 15px;">
-        The unified field equation completes the <em>ab initio</em> derivation begun with the fundamental postulate:
-    </p>
-    <p style="font-size: 18px; font-weight: bold; color: #495057;">
-        SPACETIME ≡ ENERGY EVOLUTION
-    </p>
-    <p style="font-size: 14px; font-style: italic; color: #6c757d; margin-top: 15px;">
-        Perfect logical closure: the fundamental postulate is proven as the inevitable consequence of geometric consistency.
-    </p>
-</div>
 
 ### Ultimate Unity
 
