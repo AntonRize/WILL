@@ -614,70 +614,87 @@ V_{WILL}^{2}(r) = a \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2
     });
   }
 
-  async function analyzeSelectedTypes() {
-    const types = Array.from(
-      document.querySelectorAll("#type-checkboxes input:checked")
-    ).map((cb) => +cb.value);
-    if (!types.length) return;
-  const selectedNames = selectedIDs.map(id => hubbleTypes[id]);
-    const rmseVals = [];
+ /* -------------------------------------------------
+ * 1.  Analyze RMSE for selected types (robust)
+ * -------------------------------------------------*/
+function analyzeSelectedTypes (evt) {
+  console.log('[Analyze RMSE] button clicked');           // DEBUG
+  
+  // Gather checked boxes
+  const selectedIDs = Array.from(
+      document.querySelectorAll('#type-checkboxes input:checked')
+    ).map(cb => +cb.value);
 
-    for (const name in galaxyData) {
-      const meta = galaxyMeta[name];
-      if (!meta || !types.includes(meta.Type)) continue;
-
-      const lambda = +lambdaSlider.value || 4;
-      let yStar = +ystarSlider.value || 0.25;
-      if (unifiedCheckbox.checked && lambda > 0) yStar = 1 / lambda;
-
-      const obs = galaxyData[name].map((d) => d.Vobs);
-      const pred = calculateWillVelocity(name, lambda, yStar).v_will;
-      rmseVals.push(calculateRMSE(obs, pred));
-    }
-
-      plotRMSEHistogram(rmseValues, selectedNames); 
+  if (!selectedIDs.length) {
+    alert('Select at least one galaxy type first.');
+    return;
   }
 
-  function plotRMSEHistogram(rmseArray, typeNames = []) {
-  if (!rmseArray.length) return;
+  const selectedNames = selectedIDs.map(id => hubbleTypes[id]);
+  const rmseValues = [];
 
-  // quick stats
-  const mean = rmseArray.reduce((s, v) => s + v, 0) / rmseArray.length;
-  const N    = rmseArray.length;
+  // Current λ and Y* sliders
+  const λ      = +lambdaSlider.value || 4;
+  let   yStar  = +ystarSlider.value  || 0.25;
+  if (unifiedCheckbox.checked && λ > 0) yStar = 1/λ;
+
+  // Loop galaxies
+  for (const name in galaxyData) {
+    const meta = galaxyMeta[name];
+    if (!meta || !selectedIDs.includes(meta.Type)) continue;
+
+    const obs  = galaxyData[name].map(d => d.Vobs);
+    const pred = calculateWillVelocity(name, λ, yStar).v_will;
+
+    if (obs.length === pred.length) {
+      rmseValues.push( calculateRMSE(obs, pred) );
+    }
+  }
+
+  if (!rmseValues.length) {
+    alert('No galaxies matched the selected types.');
+    return;
+  }
+  plotRMSEHistogram(rmseValues, selectedNames);
+}
+
+/* -------------------------------------------------
+ * 2.  Draw the histogram + headline annotation
+ * -------------------------------------------------*/
+function plotRMSEHistogram(rmseArr, typeNames = []) {
+  // basic stats
+  const N    = rmseArr.length;
+  const mean = rmseArr.reduce((s,v) => s+v, 0) / N;
 
   const layout = {
-    title: 'RMSE Distribution of Selected Galaxy Types',
-    xaxis: { title: 'RMSE (km/s)', color: '#d1d5db', gridcolor: '#4b5563' },
-    yaxis: { title: 'Number of Galaxies', color: '#d1d5db', gridcolor: '#4b5563' },
-    paper_bgcolor: 'transparent',
-    plot_bgcolor : '#1f2937',
-    font: { color: '#d1d5db' },
-    margin: { l: 60, r: 30, b: 60, t: 80 },
-
-    // 📌 NEW annotation block
-    annotations: [{
+    title : 'RMSE Distribution of Selected Galaxy Types',
+    xaxis : { title:'RMSE (km/s)', color:'#d1d5db', gridcolor:'#4b5563' },
+    yaxis : { title:'Number of Galaxies', color:'#d1d5db', gridcolor:'#4b5563' },
+    font  : { color:'#d1d5db' },
+    paper_bgcolor:'transparent',
+    plot_bgcolor :'#1f2937',
+    margin:{ l:60,r:30,t:90,b:60 },
+    annotations:[{
       text:
-        `Types: <b>${typeNames.join(', ') || 'all'}</b><br>` +
-        `N = ${N},  Mean RMSE = ${mean.toFixed(2)} km/s`,
-      xref: 'paper', yref: 'paper',
-      x: 0.5, y: 1.15, showarrow: false,
-      font: { size: 14, color: '#d1d5db' },
-      align: 'center'
+        `Types: <b>${typeNames.join(', ')}</b><br>`+
+        `N&nbsp;=&nbsp;${N} &nbsp;&nbsp;Mean&nbsp;RMSE&nbsp;=&nbsp;${mean.toFixed(2)} km/s`,
+      xref:'paper', yref:'paper', x:0.5, y:1.18,
+      showarrow:false, align:'center',
+      font:{ size:14, color:'#d1d5db' }
     }]
   };
 
   Plotly.newPlot(
     'rmse-histogram',
-    [{
-      x: rmseArray,
-      type: 'histogram',
-      marker: { color: '#3b82f6' },
-      nbinsx: 20
-    }],
+    [{ x: rmseArr, type:'histogram', nbinsx:20,
+       marker:{ color:'#3b82f6' } }],
     layout
   );
+
+  // Un-hide the container
   document.getElementById('type-plot').style.display = 'block';
 }
+
 
   /* ---------- EVENT LISTENERS ---------- */
   galaxySelect.addEventListener("change", () => {
@@ -707,9 +724,9 @@ V_{WILL}^{2}(r) = a \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2
       MathJax.typeset();
     });
 
-  document
-    .getElementById("analyze-types-btn")
-    .addEventListener("click", analyzeSelectedTypes);
+  document.getElementById('analyze-types-btn')
+        .addEventListener('click', analyzeSelectedTypes);
+
 
   /* ---------- INITIALIZATION ---------- */
   document.addEventListener("DOMContentLoaded", () => {
