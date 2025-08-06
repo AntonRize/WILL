@@ -29,6 +29,7 @@ permalink: /assistant/
     ];
     const CORE = `β (beta)=v/c  ·  κ (kappa)=vₑ/c  ·  κ²=2β²`;
     const PROXY = 'https://proxy-flame-seven.vercel.app/api/gemini';
+    const LOG_API = 'https://proxy-flame-seven.vercel.app/api/log';
     const QUICK = {
         'beta':  'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
         'β':     'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
@@ -52,43 +53,57 @@ permalink: /assistant/
     function App(){
         const [kb,setKb]=useState('');
         const [ks,setKs]=useState('loading');
-        const [log,setLog]=useState([{
-            id: 0,
-            txt: marked.parse("👋 Welcome to the WILL Geometry Assistant!\n\nAsk me anything about the WILL Theory or its documents.\n\n**Disclaimer:** AI can make mistakes — so do you. Doublecheck with original WILL documents (.pdf)."),
-            user: false,
-            isWelcome: true
-        }]);
+        const welcome={
+            id:0,
+            txt:marked.parse("👋 Welcome to the WILL Geometry Assistant!\n\nAsk me anything about the WILL Theory or its documents.\n\n**Disclaimer:** AI can make mistakes — so do you. Doublecheck with original WILL documents (.pdf)."),
+            user:false,
+            isWelcome:true,
+            raw:"👋 Welcome to the WILL Geometry Assistant! Ask me anything about the WILL Theory or its documents. Disclaimer: AI can make mistakes — so do you. Doublecheck with original WILL documents (.pdf)."
+        };
+        const [log,setLog]=useState([welcome]);
+        const logRef=useRef([welcome]);
         const [inp,setInp]=useState('');
         const [busy,setBusy]=useState(false);
         const endRef=useRef(null);
+        const textRef=useRef(null);
 
         useEffect(()=>{loadKB().then(d=>{setKb(d);setKs('ok');}).catch(()=>setKs('error'));},[]);
         useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[log]);
-        const push=(txt,user=false)=>{
+        const push=(txt,user=false,raw=txt)=>{
             const content=user?txt:marked.parse(txt);
-            setLog(L=>[...L,{id:Date.now()+Math.random(),txt:content,user}]);
+            const entry={id:Date.now()+Math.random(),txt:content,user,raw};
+            logRef.current=[...logRef.current,entry];
+            setLog(logRef.current);
         };
+
+        function sendLog(){
+            fetch(LOG_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({log:logRef.current.map(m=>({user:m.user,raw:m.raw}))})}).catch(()=>{});
+        }
 
         async function send(){
             const q=inp.trim();
             if(!q||busy)return;
-            push(q,true);
+            push(q,true,q);
             setInp('');
+            if(textRef.current)textRef.current.style.height='auto';
 
             const qKey=q.toLowerCase().replace('?','');
-            if(QUICK[qKey]){push(QUICK[qKey]);return;}
+            if(QUICK[qKey]){push(QUICK[qKey],false,QUICK[qKey]);sendLog();return;}
 
-            if(ks!=='ok'){push('Knowledge base still loading…');return;}
+            if(ks!=='ok'){const msg='Knowledge base still loading…';push(msg,false,msg);sendLog();return;}
             setBusy(true);
             try{
                 const lang=isRu(q)?'Russian':'English';
-                const prompt=`Answer in ${lang}. CORE: ${CORE}\nDATABASE:\n${kb}\nQUESTION: """${q}"""`;
-                push(await askGemini(prompt));
-            }catch(e){push('⚠️ '+e.message);}
+                const conversation=logRef.current.filter(m=>!m.isWelcome).map(m=>`${m.user?'User':'Assistant'}: ${m.raw}`).join('\n');
+                const prompt=`Answer in ${lang}. Use Markdown and cite sources as "doc. Part n - Section name". CORE: ${CORE}\nDATABASE:\n${kb}\nCONVERSATION:\n${conversation}\nQUESTION: """${q}"""`;
+                const ans=await askGemini(prompt);
+                push(ans,false,ans);
+                sendLog();
+            }catch(e){const err='⚠️ '+e.message;push(err,false,err);sendLog();}
             setBusy(false);
         }
 
-        return React.createElement('div',{className:'flex flex-col h-[calc(100vh-20rem)] max-w-2xl mx-auto p-4'},
+        return React.createElement('div',{className:'flex flex-col h-[calc(100vh-8rem)] w-full p-4'},
             ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 mb-2'},
                 ks==='loading'?'KB loading…':'KB error (check console)'
             ),
@@ -110,9 +125,10 @@ permalink: /assistant/
             ),
             React.createElement('div',{className:'mt-3 flex gap-2'},
                 React.createElement('textarea',{
+                    ref:textRef,
                     className:'flex-1 resize-none bg-slate-700 text-slate-50 rounded-xl p-3 focus:outline-none',
                     rows:1,value:inp,placeholder:'Ask about WILL Geometry…',
-                    onChange:e=>setInp(e.target.value),
+                    onInput:e=>{setInp(e.target.value);e.target.style.height='auto';e.target.style.height=e.target.scrollHeight+'px';},
                     onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
                 }),
                 React.createElement('button',{
