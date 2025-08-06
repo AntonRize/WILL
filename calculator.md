@@ -619,7 +619,7 @@ V_{WILL}^{2}(r) = a \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2
       document.querySelectorAll("#type-checkboxes input:checked")
     ).map((cb) => +cb.value);
     if (!types.length) return;
-
+  const selectedNames = selectedIDs.map(id => hubbleTypes[id]);
     const rmseVals = [];
 
     for (const name in galaxyData) {
@@ -635,26 +635,49 @@ V_{WILL}^{2}(r) = a \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2
       rmseVals.push(calculateRMSE(obs, pred));
     }
 
-    plotRMSEHistogram(rmseVals);
+      plotRMSEHistogram(rmseValues, selectedNames); 
   }
 
-  function plotRMSEHistogram(rmse) {
-    if (!rmse.length) return;
-    const layout = {
-      title: "RMSE Distribution of Selected Galaxy Types",
-      xaxis: { title: "RMSE (km/s)", color: "#d1d5db", gridcolor: "#4b5563" },
-      yaxis: { title: "Number of Galaxies", color: "#d1d5db", gridcolor: "#4b5563" },
-      paper_bgcolor: "transparent",
-      plot_bgcolor: "#1f2937",
-      font: { color: "#d1d5db" },
-    };
-    Plotly.newPlot(
-      "rmse-histogram",
-      [{ x: rmse, type: "histogram", marker: { color: "#3b82f6" }, nbinsx: 20 }],
-      layout
-    );
-    document.getElementById("type-plot").style.display = "block";
-  }
+  function plotRMSEHistogram(rmseArray, typeNames = []) {
+  if (!rmseArray.length) return;
+
+  // quick stats
+  const mean = rmseArray.reduce((s, v) => s + v, 0) / rmseArray.length;
+  const N    = rmseArray.length;
+
+  const layout = {
+    title: 'RMSE Distribution of Selected Galaxy Types',
+    xaxis: { title: 'RMSE (km/s)', color: '#d1d5db', gridcolor: '#4b5563' },
+    yaxis: { title: 'Number of Galaxies', color: '#d1d5db', gridcolor: '#4b5563' },
+    paper_bgcolor: 'transparent',
+    plot_bgcolor : '#1f2937',
+    font: { color: '#d1d5db' },
+    margin: { l: 60, r: 30, b: 60, t: 80 },
+
+    // 📌 NEW annotation block
+    annotations: [{
+      text:
+        `Types: <b>${typeNames.join(', ') || 'all'}</b><br>` +
+        `N = ${N},  Mean RMSE = ${mean.toFixed(2)} km/s`,
+      xref: 'paper', yref: 'paper',
+      x: 0.5, y: 1.15, showarrow: false,
+      font: { size: 14, color: '#d1d5db' },
+      align: 'center'
+    }]
+  };
+
+  Plotly.newPlot(
+    'rmse-histogram',
+    [{
+      x: rmseArray,
+      type: 'histogram',
+      marker: { color: '#3b82f6' },
+      nbinsx: 20
+    }],
+    layout
+  );
+  document.getElementById('type-plot').style.display = 'block';
+}
 
   /* ---------- EVENT LISTENERS ---------- */
   galaxySelect.addEventListener("change", () => {
