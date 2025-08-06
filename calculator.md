@@ -33,6 +33,18 @@ title: "Galactic Dynamics Calculator"
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 
+<div id="type-filter" class="bg-gray-800/50 p-4 rounded-lg mb-4">
+    <h4 class="text-lg font-bold text-gray-200 mb-2">Filter by Galaxy Type:</h4>
+    <div id="type-checkboxes" class="flex flex-wrap gap-4 text-gray-300">
+        <!-- Checkboxes will be inserted dynamically -->
+    </div>
+    <button id="analyze-types-btn" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">Analyze RMSE by Type</button>
+</div>
+<div id="type-plot" class="bg-gray-800/50 p-4 rounded-lg mb-4" style="display: none;">
+    <div id="rmse-histogram"></div>
+</div>
+
+
     <!-- Plotly.js for graphing -->
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
 
@@ -544,4 +556,69 @@ title: "Galactic Dynamics Calculator"
 
     // --- INITIALIZATION ---
     document.addEventListener('DOMContentLoaded', loadData);
+    document.addEventListener('DOMContentLoaded', () => {
+    loadData();
+    initGalaxyTypeCheckboxes();
+});
+
+function initGalaxyTypeCheckboxes() {
+    const container = document.getElementById('type-checkboxes');
+    hubbleTypes.forEach((type, index) => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${index}" checked> ${type}`;
+        label.className = "flex items-center space-x-1";
+        container.appendChild(label);
+    });
+}
+
+document.getElementById('analyze-types-btn').addEventListener('click', analyzeSelectedTypes);
+
+async function analyzeSelectedTypes() {
+    const selectedTypes = Array.from(document.querySelectorAll('#type-checkboxes input:checked')).map(cb => parseInt(cb.value));
+    if (selectedTypes.length === 0) return;
+
+    const rmseValues = [];
+
+    for (const name in galaxyData) {
+        const meta = galaxyMeta[name];
+        if (!meta || !selectedTypes.includes(meta.Type)) continue;
+
+        const lambda = parseFloat(lambdaSlider.value) || 4.0;
+        let yStar = parseFloat(ystarSlider.value) || 0.25;
+        if (unifiedCheckbox.checked && lambda > 0) yStar = 1.0 / lambda;
+
+        const obs = galaxyData[name].map(d => d.Vobs);
+        const pred = calculateWillVelocity(name, lambda, yStar).v_will;
+        if (obs.length && pred.length === obs.length) {
+            const rmse = calculateRMSE(obs, pred);
+            if (isFinite(rmse)) rmseValues.push(rmse);
+        }
+    }
+
+    plotRMSEHistogram(rmseValues);
+}
+
+function plotRMSEHistogram(rmseValues) {
+    if (!rmseValues.length) return;
+
+    const layout = {
+        title: { text: 'RMSE Distribution of Selected Galaxy Types', font: { size: 18 } },
+        xaxis: { title: 'RMSE (km/s)', color: '#d1d5db', gridcolor: '#4b5563' },
+        yaxis: { title: 'Number of Galaxies', color: '#d1d5db', gridcolor: '#4b5563' },
+        plot_bgcolor: '#1f2937',
+        paper_bgcolor: 'transparent',
+        font: { color: '#d1d5db' }
+    };
+
+    const data = [{
+        x: rmseValues,
+        type: 'histogram',
+        marker: { color: '#3b82f6' },
+        nbinsx: 20
+    }];
+
+    document.getElementById('type-plot').style.display = 'block';
+    Plotly.newPlot('rmse-histogram', data, layout);
+}
+
 </script>
