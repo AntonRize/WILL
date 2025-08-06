@@ -493,7 +493,7 @@ V_{WILL}^{2}(r) = a \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2
 
     const plotLayout = {
       xaxis: {
-        title: "Radius (kpc)",
+        title: ".",
         color: "#d1d5db",
         gridcolor: "#4b5563",
       },
@@ -667,7 +667,7 @@ function plotRMSEHistogram(rmseArr, typeNames = []) {
   const mean = rmseArr.reduce((s,v) => s+v, 0) / N;
 
   const layout = {
-    title : 'RMSE Distribution of Selected Galaxy Types',
+    title : '.',
     xaxis : { title:'RMSE (km/s)', color:'#d1d5db', gridcolor:'#4b5563' },
     yaxis : { title:'Number of Galaxies', color:'#d1d5db', gridcolor:'#4b5563' },
     font  : { color:'#d1d5db' },
