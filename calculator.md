@@ -231,7 +231,6 @@ title: "Galactic Dynamics Calculator"
     <div class="plot-box">
         <div id="plot-div-components"></div>
     </div>
-</div>
             
             </div>
         </div>
