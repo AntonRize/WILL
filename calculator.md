@@ -14,10 +14,15 @@ title: "Galactic Dynamics Calculator"
         <p class="text-gray-400 mb-4">
              We test this equation against the SPARC database. Our most rigorous test uses a parameter-free version of the model, where we fixed the stellar mass-to-light ratio to ($\Upsilon_*=0.25$) and the geometric scaling factor to ($\lambda=4$). This allows us to test the raw predictive power of the equation's structure without any fitting. The parameter-free model demonstrates remarkable predictive power without any tuning: Galaxies Analysed: 175 Median RMSE: 23.05 km/s.
         </p>
-        <div class="formula-box">
-            $$ V_{WILL}^{2}(r) = \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right] + \frac{\lambda}{r}\int_{0}^{r}\left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right]dr' $$
-        </div>
-    </div>
+       
+<div class="formula-box">
+    <label for="equation-input" class="block mb-2 text-gray-300">Editable Equation (LaTeX):</label>
+    <textarea id="equation-input" rows="3" class="w-full p-2 bg-gray-700 text-white rounded border border-gray-600">
+V_{WILL}^{2}(r) = a \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right] + \frac{b \lambda}{r} \int_{0}^{r} \left[ V_{gas}^{2} + \Upsilon_* (V_{disk}^{2} + V_{bulge}^{2}) \right] dr
+    </textarea>
+    <div id="equation-preview" class="mt-4"></div>
+</div>
+
 
     <!-- Tailwind Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -96,6 +101,16 @@ title: "Galactic Dynamics Calculator"
             background-color: #374151;
             color: #d1d5db;
         }
+
+<div class="control-group">
+    <label for="a-factor">Multiplier a:</label>
+    <input type="number" id="a-factor" value="1" step="0.01" class="form-control">
+</div>
+<div class="control-group">
+    <label for="b-factor">Multiplier b:</label>
+    <input type="number" id="b-factor" value="1" step="0.01" class="form-control">
+</div>
+
         
         .form-range { 
             padding: 0; 
@@ -382,24 +397,35 @@ title: "Galactic Dynamics Calculator"
     }
 
     // --- PHYSICS CALCULATION ---
-    function calculateWillVelocity(galaxyName, lambda, yStar) {
-        const data = galaxyData[galaxyName].sort((a, b) => a.Rad - b.Rad);
-        const rad = data.map(d => d.Rad);
-        
-        const v_gas = data.map(d => d.Vgas);
-        const v_disk_scaled = data.map(d => Math.sqrt(yStar) * Math.abs(d.Vdisk));
-        const v_bulge_scaled = data.map(d => Math.sqrt(yStar) * Math.abs(d.Vbul));
+   function calculateWillVelocity(galaxyName, lambda, yStar) {
+    const a = parseFloat(document.getElementById('a-factor').value) || 1.0;
+    const b = parseFloat(document.getElementById('b-factor').value) || 1.0;
 
-        // Classical baryonic velocity squared
-        const v_bary_sq = data.map(d => (d.Vgas**2) + yStar * ((d.Vdisk**2) + (d.Vbul**2)));
-        
-        // Calculate the integral term: ∫[V_bary²]dr from 0 to r
-        const integral = [0];
-        for (let i = 1; i < rad.length; i++) {
-            const dx = rad[i] - rad[i - 1];
-            const dy_avg = (v_bary_sq[i] + v_bary_sq[i - 1]) / 2.0;
-            integral.push(integral[i - 1] + dy_avg * dx);
-        }
+    const data = galaxyData[galaxyName].sort((a, b) => a.Rad - b.Rad);
+    const rad = data.map(d => d.Rad);
+
+    const v_gas = data.map(d => d.Vgas);
+    const v_disk_scaled = data.map(d => Math.sqrt(yStar) * Math.abs(d.Vdisk));
+    const v_bulge_scaled = data.map(d => Math.sqrt(yStar) * Math.abs(d.Vbul));
+
+    const v_bary_sq = data.map(d => (d.Vgas**2) + yStar * ((d.Vdisk**2) + (d.Vbul**2)));
+
+    const integral = [0];
+    for (let i = 1; i < rad.length; i++) {
+        const dx = rad[i] - rad[i - 1];
+        const dy_avg = (v_bary_sq[i] + v_bary_sq[i - 1]) / 2.0;
+        integral.push(integral[i - 1] + dy_avg * dx);
+    }
+
+    const geom_term = integral.map((val, i) => rad[i] > 0 ? (b * lambda * val / rad[i]) : 0);
+
+    const v_will_sq = v_bary_sq.map((val, i) => a * val + geom_term[i]);
+    const v_will = v_will_sq.map(val => Math.sqrt(Math.max(0, val)));
+    const v_bary = v_bary_sq.map(v => Math.sqrt(Math.max(0, v)));
+
+    return { rad, v_bary, v_will, components: { v_gas, v_disk_scaled, v_bulge_scaled } };
+}
+
 
         // Geometric term: λ/r * ∫[V_bary²]dr
         const geom_term = integral.map((val, i) => rad[i] > 0 ? lambda * val / rad[i] : 0);
@@ -559,6 +585,71 @@ title: "Galactic Dynamics Calculator"
     document.addEventListener('DOMContentLoaded', () => {
     loadData();
     initGalaxyTypeCheckboxes();
+});
+
+function initGalaxyTypeCheckboxes() {
+    const container = document.getElementById('type-checkboxes');
+    hubbleTypes.forEach((type, index) => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" value="${index}" checked> ${type}`;
+        label.className = "flex items-center space-x-1";
+        container.appendChild(label);
+    });
+}
+
+document.getElementById('analyze-types-btn').addEventListener('click', analyzeSelectedTypes);
+
+async function analyzeSelectedTypes() {
+    const selectedTypes = Array.from(document.querySelectorAll('#type-checkboxes input:checked')).map(cb => parseInt(cb.value));
+    if (selectedTypes.length === 0) return;
+
+    const rmseValues = [];
+
+    for (const name in galaxyData) {
+        const meta = galaxyMeta[name];
+        if (!meta || !selectedTypes.includes(meta.Type)) continue;
+
+        const lambda = parseFloat(lambdaSlider.value) || 4.0;
+        let yStar = parseFloat(ystarSlider.value) || 0.25;
+        if (unifiedCheckbox.checked && lambda > 0) yStar = 1.0 / lambda;
+
+        const obs = galaxyData[name].map(d => d.Vobs);
+        const pred = calculateWillVelocity(name, lambda, yStar).v_will;
+        if (obs.length && pred.length === obs.length) {
+            const rmse = calculateRMSE(obs, pred);
+            if (isFinite(rmse)) rmseValues.push(rmse);
+        }
+    }
+
+    plotRMSEHistogram(rmseValues);
+}
+
+function plotRMSEHistogram(rmseValues) {
+    if (!rmseValues.length) return;
+
+    const layout = {
+        title: { text: 'RMSE Distribution of Selected Galaxy Types', font: { size: 18 } },
+        xaxis: { title: 'RMSE (km/s)', color: '#d1d5db', gridcolor: '#4b5563' },
+        yaxis: { title: 'Number of Galaxies', color: '#d1d5db', gridcolor: '#4b5563' },
+        plot_bgcolor: '#1f2937',
+        paper_bgcolor: 'transparent',
+        font: { color: '#d1d5db' }
+    };
+
+    const data = [{
+        x: rmseValues,
+        type: 'histogram',
+        marker: { color: '#3b82f6' },
+        nbinsx: 20
+    }];
+
+    document.getElementById('type-plot').style.display = 'block';
+    Plotly.newPlot('rmse-histogram', data, layout);
+}
+document.getElementById('equation-input').addEventListener('input', () => {
+    const latex = document.getElementById('equation-input').value;
+    document.getElementById('equation-preview').innerHTML = `$$${latex}$$`;
+    MathJax.typeset();
 });
 
 function initGalaxyTypeCheckboxes() {
