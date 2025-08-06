@@ -172,6 +172,26 @@ title: "Galactic Dynamics Calculator"
             padding: 50px;
             color: #9ca3af;
         }
+.plot-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #4b5563;
+    justify-content: center;
+}
+
+.plot-box {
+    flex: 1 1 45%;
+    min-width: 350px;
+    max-width: 600px;
+    height: 500px;
+    border-radius: 8px;
+    background-color: #1f2937;
+    position: relative;
+}
+        
     </style>
 
     <div class="calculator-container bg-gray-800/50 p-6 rounded-lg">
@@ -204,12 +224,15 @@ title: "Galactic Dynamics Calculator"
             <div id="results"></div>
             <div id="warning" class="warning"></div>
 
-            <div class="plot-container">
-                <div id="plot-div"></div>
-            </div>
+<div class="plot-wrapper">
+    <div class="plot-box">
+        <div id="plot-div"></div>
+    </div>
+    <div class="plot-box">
+        <div id="plot-div-components"></div>
+    </div>
+</div>
             
-            <div class="plot-container">
-                <div id="plot-div-components"></div>
             </div>
         </div>
     </div>
