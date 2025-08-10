@@ -675,50 +675,71 @@ The striking parallel between these parameters suggests a profound geometric con
 
 \section{Fundamental Relation Between Potential and Kinetic Energy Parameters}
 
-\subsection{Topological Basis and Unified Interpretation}
+In the framework of WILL, all motion and interaction are described in 
+terms of the distribution of a single conserved \textit{evolution resource}.  
+This resource can be allocated in different ways, but it is always finite 
+and symmetric in projectional form.
 
-Our single foundational postulate, 
-\[
-\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}},
-\]
-imposes strict requirements on all physical projections:  
+Two fundamental allocation modes are considered:
+
 \begin{enumerate}
-    \item \textbf{Self-contained geometry:} No external objects or reference frames are allowed. The geometry must be closed and self-contained.
-    \item \textbf{Conservation law:} Closed geometry naturally leads to conservation—nothing enters or leaves; the total energy is constant.
-    \item \textbf{Symmetry:} All directions and positions are equivalent; any asymmetry would imply a forbidden preferred frame.
-    \item \textbf{Unique closed geometry:} Only maximally symmetric, closed topological manifolds are permitted: the circle (in 1D) and the sphere (in 2D).
+    \item \textbf{Linear (one–directional) motion:}  
+    Represented by the parameter $\beta$, this is the fraction of the 
+    evolution resource devoted to displacement from point $A$ to point $B$ 
+    along a single spatial direction.  
+    Geometrically, $\beta$ is a point on the \emph{X-axis} of an abstract 
+    unit circle.  
+    The full length of this axis corresponds to the maximum achievable 
+    rate of change — later shown in Sec.~\textit{Universal Speed Limit as Consequence of Energy Symmetry} 
+    to be $c$.
+
+    \item \textbf{Omnidirectional gravitational cost:}  
+    Represented by $\kappa$, this is the fraction of the same resource 
+    required to \emph{resist displacement} within a gravitational flow.  
+    Unlike $\beta$, it has no preferred direction and is instead a point 
+    on the surface of an abstract sphere whose radius equals the total 
+    evolution resource.  
+    Its physical meaning is analogous to the effort needed to “swim 
+    upstream” against a flow moving at the same speed as the current itself.
 \end{enumerate}
 
-\vspace{0.5em}
-Thus, the projections $\beta$ and $\kappa$ emerge as dimensionless measures of energy distribution:
-\begin{itemize}
-    \item $\beta$ quantifies the spatial (kinetic) projection, associated with a closed 1D manifold (circle).
-    \item $\kappa$ quantifies the temporal (potential) projection, associated with a closed 2D manifold (sphere).
-\end{itemize}
-Both are normalized to the universal rate of change $c$.
+From the postulate of projectional symmetry, each mode must be 
+\emph{closed and symmetric} within its own domain:
 
-\vspace{0.5em}
-\subsection{The Principle of the Unified Energy Budget \& Topological Necessity}
-
-The founding postulate \texttt{SPACETIME} $\equiv$ \texttt{ENERGY EVOLUTION} demands a closed, self-contained, and maximally symmetric geometry. This strict constraint permits only specific topological manifolds for the energy projections.
-
-\begin{itemize}
-    \item The \textbf{kinetic projection ($\beta$)}, being fundamentally directional, is mapped onto a 1-D manifold. The only closed, maximally symmetric 1-D manifold is the unit circle, whose fundamental measure is its circumference, \textbf{2$\pi$}.
-    \item The \textbf{potential projection ($\kappa$)}, being fundamentally isotropic, is mapped onto a 2-D manifold. The only closed, maximally symmetric 2-D manifold is the unit sphere, whose fundamental measure is its surface area, \textbf{4$\pi$}.
-\end{itemize}
-
-Because both projections are merely different aspects of a single, conserved energy budget, the ratio of their maximal distributions is fixed by the ratio of the fundamental measures of their underlying manifolds.
-
-\subsection{Fundamental Conservation Law}
-
-The ratio of these topological measures dictates a necessary and unavoidable conservation law between the energy projections:
 \[
-\frac{\text{Measure of 2D Manifold}}{\text{Measure of 1D Manifold}} = \frac{4\pi}{2\pi} = 2
+\text{Linear closure:} \quad C_{\mathrm{linear}} = 2\pi r
 \]
-This leads directly to the fundamental relation:
-\begin{equation}
-\boxed{\frac{\kappa^2}{\beta^2} = 2}
-\end{equation}
+\[
+\text{Omnidirectional closure:} \quad C_{\mathrm{omni}} = 4\pi r
+\]
+
+Here, $r$ is the normalized radius representing the full evolution resource.
+
+The ratio of these closures is purely topological:
+\[
+\frac{C_{\mathrm{omni}}}{C_{\mathrm{linear}}} 
+= \frac{4\pi r}{2\pi r} = 2
+\]
+
+Because $\beta$ and $\kappa$ are both normalized to the same $r$, their 
+magnitudes must satisfy:
+\[
+\boxed{\kappa^2 = 2\beta^2}
+\]
+
+\paragraph{Important clarification.}  
+This factor of $2$ is not an empirical constant, not a Newtonian 
+mechanical result, and not related to orbital dynamics.  
+It is a direct consequence of the difference in closure geometry between 
+a one–dimensional circular projection and a two–dimensional spherical 
+projection of the same conserved resource.
+
+\paragraph{Physical implication.}  
+In WILL Geometry, this relation is foundational.  
+It links linear and gravitational modes without reference to spacetime 
+as a background fabric, showing that their connection is a matter of 
+geometric necessity, not dynamic coincidence.
+
 This relation is not derived from physical observation, but is imposed by the topological constraints of the founding postulate. Classical physics, in its successful predictions, unknowingly traces the consequences of this deeper geometric law.
 
 \[
@@ -727,7 +748,6 @@ This relation is not derived from physical observation, but is imposed by the to
 \[
 \boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}
 \]
-\vspace{0.5em}
 \subsection{Physical and Conceptual Significance}
 
 While this relation is echoed in concrete physical scenarios (such as the link between escape and orbital velocity in Newtonian gravity), here it is not derived from those cases but is instead the deeper, organizing principle from which such results flow.
@@ -833,12 +853,21 @@ The crucial point is mutual consistency, not specific energy definitions.
 \end{proof}
 
 \subsection{Physical Meaning of Factor $\frac{1}{2}$}
-The factor $\frac{1}{2}$ arises naturally from:
+
+The factor $\frac{1}{2}$ does not originate from classical mechanics, but from the geometric nature of the quadratic form that measures the ``evolution budget'' $Q^2 = \kappa^2 + \beta^2$. 
+
+When comparing two nearby states, the change in this quadratic form is
+\[
+\delta Q^2 = (\kappa_2^2 - \kappa_1^2) + (\beta_2^2 - \beta_1^2).
+\]
+In energetic terms, only \emph{half} of this variation is attributed to the ``active'' transfer in one direction, because the other half belongs to the reciprocal change seen from the opposite frame. This division is the same geometric reason why kinetic energy in classical mechanics is $K = \frac12 m v^2$: the quadratic metric is naturally paired with a factor $\frac12$ when representing stored or exchanged energy.
+
+Thus:
 \begin{itemize}
-\item Potential energy: $U = -\frac{GMm}{r}$ corresponds geometrically to $-\frac{1}{2}\kappa^2$.
-\item Kinetic energy: $K = \frac{1}{2}mv^2$ translates geometrically directly into $\frac{1}{2}\beta^2$.
+\item Gravitational potential term: $U \propto -\frac{1}{2}\kappa^2$.
+\item Kinetic term: $K \propto \frac{1}{2}\beta^2$.
 \end{itemize}
-This ensures geometric expressions correctly match classical definitions.
+The $\frac12$ reflects the symmetric partition of a quadratic budget between mutually consistent perspectives, not an externally imposed convention.
 
 \subsection{Universal Speed Limit as Consequence of Energy Symmetry}
 \begin{theorem}[Universal Speed Limit]
@@ -904,7 +933,7 @@ will accrue at  $\kappa^2 = R_s/r_{d}=1$ witch will correspond to maximal observ
 \rho_{max} = \frac{c^2}{8\pi G r_{d}^2}
 \]
 
-This brings us to profound connection between our unit less parameter  $\kappa$  and energy density ratio:
+This brings us to profound connection between our unitless parameter  $\kappa$  and energy density ratio:
 
 \[
 \boxed{\kappa^2 = \frac{\rho}{\rho_{max}}   \quad \Rightarrow  \quad  \kappa^2 = \Omega }
@@ -970,7 +999,7 @@ The critical density $\rho_{max}$ corresponds to the geometric limit $\kappa = 1
 
 \begin{quote}\small
 \textbf{Consistency note.}\;
-For the density profile implied by the invariant $W=1$ one has
+For the density profile implied by the invariant $W_{ILL}=1$ (The Fundamental Invariant section) one has
 $\rho(r)\propto r^{-2}$.
 With this profile the usual integral definition
 \[
@@ -1965,19 +1994,23 @@ The Energy Symmetry Law holds precisely for the Earth-GPS satellite system.
 
 \begin{proof}
 We verify the Energy Symmetry Law on real orbital data for a GPS satellite and an observer on the Earth's surface, using the following parameters:
+
+\textbf{ Input Data}
 \begin{itemize}
 \item Gravitational constant: $G = 6.67430 \times 10^{-11}$ m$^3$/kg/s$^2$
 \item Speed of light: $c = 2.99792458 \times 10^8$ m/s
 \item Mass of Earth: $M_{Earth} = 5.972 \times 10^{24}$ kg
 \item Radius of Earth: $R_{Earth} = 6.370 \times 10^6$ m
 \item Radius of GPS orbit: $r_{GPS} = 2.6571 \times 10^7$ m
+\item Seconds in 24 hours $D_{aySeconds} =86400 \quad  \text{s}$
+\item Nanoseconds in 1 second $N_{ano}=10^6  \quad \mu\text{ s}$
 \end{itemize}
 
 The orbital velocity of the GPS satellite is:
 \begin{align}
-v_{GPS} &= \sqrt{\frac{GM_{Earth}}{r_{GPS}}} \\
-&= \sqrt{\frac{6.67430 \times 10^{-11} \times 5.972 \times 10^{24}}{2.6571 \times 10^7}} \\
-&= 3873.10090455 \text{ m/s}
+v_{GPS} &= \sqrt{\frac{GM_{Earth}}{r_{GPS}}} 
+= \sqrt{\frac{6.67430 \times 10^{-11} \times 5.972 \times 10^{24}}{2.6571 \times 10^7}} 
+= 3873.10090455 \text{ m/s}
 \end{align}
 
 Converting to dimensionless parameters:
@@ -1999,7 +2032,45 @@ The daily relativistic time offset between GPS and Earth is:
 \[
 \Delta Q_{t,{\rm GPS} \rightarrow {\rm Earth}} = (Q_{t,{\rm GPS}} - Q_{t,{\rm Earth}}) \cdot 86400 \cdot 10^6 = 38.52~\mu\text{s/day}
 \]
-This matches the empirical time correction required for GPS synchronization  to high precision.
+This \textbf{matches the empirical time correction required} for GPS synchronization  to high precision.
+
+\subsubsection{WILL invariant validation:}
+
+$W_{ILLGPS}$ parameters of mass energy time and space:
+\begin{align*}
+
+M_{GPS} &= T_{dGPS} \beta_{GPS}^2 c^2 \frac{r_{GPS}}{G} \\
+
+E_{GPS} &= L_{dGPS} \frac{\kappa_{GPS}^2 c^4 r_{GPS}}{2G} \\
+
+T_{GPS} &= T_{cGPS} \left(\frac{2GM_{Earth}}{\kappa_{GPS}^2 c^3}\right)^2 \\
+
+L_{GPS} &= L_{cGPS} \left(\frac{GM_{Earth}}{\beta_{GPS}^2 c^2}\right)^2
+
+\end{align*}
+Where:
+\begin{align*}
+
+L_{cGPS} &= \sqrt{1-\beta_{GPS}^2} \\
+
+T_{dGPS} &= \frac{1}{\sqrt{1-\beta_{GPS}^2}} \\
+
+L_{dGPS} &= \frac{1}{\sqrt{1-\kappa_{GPS}^2}} \\
+
+T_{cGPS} &= \sqrt{1-\kappa_{GPS}^2}
+
+\end{align*}
+The explicit $W_{ILL}=ET^2 / ML^2=1$ - invariant for the GPS–Earth system, including both GR and SR effects, is:  $$W_{ILLGPS}=\frac{E_{GPS} \cdot T_{GPS}}{M_{GPS} \cdot L_{GPS}} = \frac{
+   L_{dGPS}\frac{\kappa_{\rm GPS}^{2} c^{4} r_{\rm GPS}}{2G}
+    \cdot T_{cGPS} \left(\frac{2 G M_{\rm Earth}}{\kappa_{\rm GPS}^{2} c^{3}}\right)^{2}
+}{
+    T_{dGPS}\frac{\beta_{\rm GPS}^{2} c^{2} r_{\rm GPS}}{G}
+    \cdot L_{cGPS} \left(\frac{G M_{\rm Earth}}{\beta_{\rm GPS}^{2} c^{2}}\right)^{2}
+} = 1$$
+
+All physical quantities cancel identically, leaving $L_{dGPS} T_{cGPS} = T_{dGPS} L_{cGPS}$, which is satisfied by geometric construction.
+
+\subsubsection{Energy Symmetry Law validation:}
 
 The energy difference from Earth observer to GPS satellite is:
 \begin{align}
@@ -2011,26 +2082,44 @@ The energy difference from GPS satellite to Earth is:
 \begin{align}
 \Delta E_{GPS \rightarrow Earth} &= \frac{1}{2}( (\kappa^2_{GPS} - \kappa^2_{Earth}) - \beta^2_{GPS}) = -6.1265399845\times10^{-10}
 \end{align}
-
 Therefore:
 \begin{align}
 \Delta E_{GPS \rightarrow Earth}+\Delta E_{Earth \rightarrow GPS}  = -6.1265399845\times10^{-10} + 6.1265399845\times10^{-10} = 0
 \end{align}
 
-This confirms the Energy Symmetry Law to high precision.
+This \textbf{confirms the Energy Symmetry Law} to machine precision using real-world orbital and physical data.
 
-The explicit $W_{ILL}=ET^2 / ML^2=1$ - invariant for the GPS–Earth system, including both GR and SR effects, is:
+And lets also compare the results with real total energy. We will take aproximate mass of GPS satellite:
+
 \[
-WILL{GPS \rightarrow Earth}= \frac{
-   L_{d}\frac{\kappa_{\rm GPS}^{2} c^{4} r_{\rm GPS}}{2G}
-    \cdot T_{c} \left(\frac{2 G M_{\rm Earth}}{\kappa_{\rm GPS}^{2} c^{3}}\right)^{2}
-}{
-    T_{d}\frac{\beta_{\rm GPS}^{2} c^{2} r_{\rm GPS}}{G}
-    \cdot L_{c} \left(\frac{G M_{\rm Earth}}{\beta_{\rm GPS}^{2} c^{2}}\right)^{2}
-} = 1
+m_{sat}=600 \quad kg
 \]
-All physical quantities cancel identically, leaving $L_{d} T_{c} = T_{d} L_{c}$, which is satisfied by geometric construction.
-This confirms the Energy Symmetry Law to machine precision using real-world orbital and physical data.
+
+Classical potential energy   $E_{pGPS}=(-\frac{GM_{Earth}m_{sat}}{r_{GPS}})-(-\frac{GM_{Earth}m_{sat}}{R_{Earth}})$
+
+Classical kinetic energy     $E_{kGPS}=\frac{1}{2}m_{sat}\ v_{GPS}^{2}$
+
+Classical total energy   $E_{tot}=E_{pGPS}+E_{kGPS} = 3.3043450143\times10^{10}  \quad    kg   (m^2
+/ s^2)$
+
+\textbf{Conformation of nontriviality of Energy Symmetry Law.} 
+\[
+\frac{\frac{E_{tot}}{m_{sat}c^{2}}}{\Delta E_{Earth \rightarrow GPS} } = 1
+\]
+
+Remarkably, satellite mass $m_{sat}$ does not appear anywhere in the computation of the geometric energy $\Delta E_{Earth \rightarrow GPS}$. Yet, when the total physical energy $E_{tot}$ (the sum of kinetic and potential energies, which does depend on $m_{sat}$ is normalized by the satellite’s rest energy $E_{0GPS} = m_{sat} c^2$ the ratio exactly matches the unitless geometric value as shown above. This confirms that $\Delta E_{Earth \rightarrow GPS}$ precisely encodes the relationship between the system’s real energy and the satellite’s own rest energy, entirely independent of its absolute mass.
+In other words, the geometric projection captures the physical “share” of energy—purely as a relational quantity—regardless of the object's individual mass.
+
+\textbf{Physical Logic:}
+\begin{itemize}
+    \item All gravitational and velocity (SR+GR) effects are simple projections, not metric-dependent.
+    \item No tensors, no differentials, no explicit metric.
+    \item The universe’s “time flow” at each location is just a geometric combination of energy projections.
+\end{itemize}
+
+\begin{center}
+\emph{“Time does not drive change — instead, change defines time.”}
+\end{center}
 
 \end{proof}
 
