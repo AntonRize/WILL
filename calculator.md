@@ -10,7 +10,7 @@ title: "Galactic Dynamics Calculator"
     <b>Update (QWILL √3 law):</b> After extensive testing, the integral-based model collapses to a remarkably simple law:
     <span class="font-mono">V<sub>QWILL</sub>(r) = √3 · V<sub>bary</sub>(r)</span>.
     Rotation curves are computed with a single control — the stellar mass-to-light ratio <span class="font-mono">Υ*</span>.
-    <span class="block mt-2">All plots and metrics on this page use the <b>SPARCS</b> database.</span>
+    <span class="block mt-2">All plots and metrics on this page use the <b>SPARC</b> database.</span>
   </p>
 
   <div class="rounded-xl p-4 mt-4 border border-gray-700 bg-gray-800/40">
@@ -21,19 +21,17 @@ title: "Galactic Dynamics Calculator"
   <div class="mt-6 text-gray-300 leading-relaxed" id="howto">
     <h3 class="text-xl font-bold mb-2">What this page is & how to use it</h3>
     <ul class="list-disc pl-6 space-y-1">
-      <li><b>Data:</b> rotation curves from the SPARC catalog (radius <span class="font-mono">Rad</span>, observed speed <span class="font-mono">Vobs</span>, baryonic components <span class="font-mono">Vgas</span>, <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>).</li>
+      <li><b>Data:</b> rotation curves from the <b>SPARC</b> catalog (radius <span class="font-mono">Rad</span>, observed speed <span class="font-mono">Vobs</span>, baryonic components <span class="font-mono">Vgas</span>, <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>).</li>
       <li><b>QWILL law:</b> <span class="font-mono">V<sub>QWILL</sub> = √3 · V<sub>bary</sub></span>, where <span class="font-mono">V<sub>bary</sub>² = V<sub>gas</sub>² + Υ* · (V<sub>disk</sub>² + V<sub>bul</sub>²)</span>.</li>
       <li><b>Controls:</b> pick a galaxy; adjust <span class="font-mono">Υ*</span> with the slider. Left plot: Observed vs QWILL. Right plot: gas/disk/bulge contributions.</li>
       <li><b>Quality:</b> per-galaxy RMSE is shown below. The button builds the RMSE distribution by type and shows the <u>median</u> for the selected groups.</li>
     </ul>
   </div>
 
-  
-
   <details class="mt-3 bg-gray-800/50 border border-gray-700 rounded-xl p-4">
     <summary class="cursor-pointer select-none text-gray-200 font-semibold">FAQ — using this calculator</summary>
     <div class="mt-3 text-gray-300 space-y-2">
-      <p><b>What dataset is used?</b> The plots and metrics use the <b>SPARCS</b> catalog (Spitzer Photometry & Accurate Rotation Curves): radius <span class="font-mono">Rad</span>, observed speed <span class="font-mono">Vobs</span>, and baryonic components <span class="font-mono">Vgas</span>, <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>.</p>
+      <p><b>What dataset is used?</b> The plots and metrics use the <b>SPARC</b> catalog (Spitzer Photometry & Accurate Rotation Curves): radius <span class="font-mono">Rad</span>, observed speed <span class="font-mono">Vobs</span>, and baryonic components <span class="font-mono">Vgas</span>, <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>.</p>
       <p><b>How is Υ* used?</b> In the baryonic term: <span class="font-mono">V<sub>bary</sub>² = V<sub>gas</sub>² + Υ*·(V<sub>disk</sub>² + V<sub>bul</sub>²)</span>. Prediction: <span class="font-mono">V<sub>QWILL</sub> = √3 · V<sub>bary</sub></span>.</p>
       <p><b>How to read the plots?</b> Left: observed rotation curve vs QWILL prediction. Right: gas/disk/bulge contributions (disk & bulge scaled by Υ*). The headline shows the <b>median RMSE</b> for the current selection; the inline value above shows the overall median across all types.</p>
     </div>
@@ -183,7 +181,8 @@ title: "Galactic Dynamics Calculator"
 
       loader.style.display="none"; bodyEl.style.display="block";
       galaxySelect.selectedIndex=0;
-      ystarSlider.value = defaultValues.yStar; ystarValueSpan.textContent = Number(defaultValues.yStar).toFixed(2); updateGalaxyInfo();
+      ystarSlider.value = defaultValues.yStar; ystarValueSpan.textContent = Number(defaultValues.yStar).toFixed(2);
+      updateGalaxyInfo();
       updateAll();
       selfTest(); // run lightweight self-tests in console
     }catch(err){
@@ -238,6 +237,16 @@ title: "Galactic Dynamics Calculator"
     return (k>0) ? Math.sqrt(s/k) : NaN;
   }
 
+  /* ---------- COLOR UTILS (blue → red) ---------- */
+  function blueRedColor(v, vmin, vmax){
+    if(!isFinite(v) || !isFinite(vmin) || !isFinite(vmax) || vmax<=vmin) return "rgb(128,128,128)";
+    const t = (v - vmin) / (vmax - vmin); // 0..1
+    const r = 59 + (239-59)*t;
+    const g = 130 + (68-130)*t;
+    const b = 246 + (68-246)*t;
+    return `rgb(${Math.round(r)},${Math.round(g)},${Math.round(b)})`;
+  }
+
   /* ---------- UPDATE UI & PLOTS ---------- */
   function computeOverallMedianRMSE(yStar){
     const values=[];
@@ -254,7 +263,6 @@ title: "Galactic Dynamics Calculator"
   function updateOverallMedianInline(){
     const yStar=(+ystarSlider.value || defaultValues.yStar);
     const med=computeOverallMedianRMSE(yStar);
-    const N=Object.keys(galaxyData).filter(n=> (galaxyData[n]||[]).length>0).length;
     const el=document.getElementById("overall-median-inline");
     if(Number.isFinite(med)){
       el.innerHTML = `Overall <b>Median RMSE</b> (all types, Υ*=${yStar.toFixed(2)}): <b>${med.toFixed(2)} km/s</b>`;
@@ -338,12 +346,18 @@ title: "Galactic Dynamics Calculator"
 
     const yStar=+ystarSlider.value || defaultValues.yStar;
     const rmseValues=[];
+    const vInitValues=[]; // initial observed velocity per galaxy
+
     for(const name in galaxyData){
       const meta=galaxyMeta[name]; if(!meta) continue;
       const labelName = (meta.TypeLabel!==undefined) ? meta.TypeLabel : ( (Number.isFinite(parseInt(meta.TypeRaw,10)) && hubbleTypes[parseInt(meta.TypeRaw,10)]!==undefined) ? hubbleTypes[parseInt(meta.TypeRaw,10)] : String(meta.TypeRaw) );
       if(!selected.includes(labelName)) continue;
+
       const S=seriesQWILL(name,yStar);
-      if(S.Vobs.length===S.Vq.length && S.Vobs.length>0) rmseValues.push(rmse(S.Vobs,S.Vq));
+      if(S.Vobs.length===S.Vq.length && S.Vobs.length>0){
+        rmseValues.push(rmse(S.Vobs,S.Vq));
+        vInitValues.push(S.Vobs[0]);
+      }
     }
     if(!rmseValues.length){ alert("No galaxies matched the selected types."); return; }
 
@@ -352,9 +366,45 @@ title: "Galactic Dynamics Calculator"
     const mid = Math.floor(N/2);
     const median = (N%2===0) ? (sorted[mid-1]+sorted[mid])/2 : sorted[mid];
 
-    // Show clear headline with only the median (no mean anywhere)
+    // Headline (median only)
     const headline = `Types: <b>${selected.join(", ")}</b> — N = ${N} — <b>Median RMSE = ${median.toFixed(2)} km/s</b>`;
-    document.getElementById("overall-median").innerHTML = headline;
+    document.getElementById("overall-median").innerHTML = headline + `<div class="opacity-70 text-sm">Bar color encodes initial observed velocity: blue → red</div>`;
+
+    // --- Colored histogram by RMSE, colored by avg initial Vobs per bin ---
+    const bins = 20;
+    const minRMSE = Math.min(...rmseValues);
+    const maxRMSE = Math.max(...rmseValues);
+    const binWidth = (maxRMSE - minRMSE) / bins || 1;
+
+    const counts = new Array(bins).fill(0);
+    const sumInit = new Array(bins).fill(0);
+
+    for(let i=0;i<N;i++){
+      let idx = Math.floor((rmseValues[i]-minRMSE)/binWidth);
+      if(idx===bins) idx = bins-1; // edge case
+      if(idx<0) idx=0; if(idx>=bins) idx=bins-1;
+      counts[idx] += 1;
+      const vi = Number.isFinite(vInitValues[i]) ? vInitValues[i] : 0;
+      sumInit[idx] += vi;
+    }
+
+    const avgInit = counts.map((c,i)=> c>0 ? sumInit[i]/c : 0);
+    const minInit = Math.min(...avgInit.filter(x=>isFinite(x)));
+    const maxInit = Math.max(...avgInit.filter(x=>isFinite(x)));
+
+    const colors = avgInit.map(v => blueRedColor(v, minInit, maxInit));
+
+    const binEdges = Array.from({length: bins+1}, (_,i)=> minRMSE + i*binWidth);
+    const binCenters = Array.from({length: bins}, (_,i)=> (binEdges[i]+binEdges[i+1])/2);
+
+    const trace = {
+      type: "bar",
+      x: binCenters,
+      y: counts,
+      marker: { color: colors, line: { color: "#111827", width: 1 } },
+      width: binWidth*0.95,
+      hovertemplate: "RMSE bin: %{x:.2f}±"+(binWidth/2).toFixed(2)+"<br>Count: %{y}<extra></extra>",
+    };
 
     const layout = {
       title: ".",
@@ -363,7 +413,7 @@ title: "Galactic Dynamics Calculator"
       font:{ color:"#d1d5db" }, paper_bgcolor:"transparent", plot_bgcolor:"#1f2937",
       margin:{ l:60,r:30,t:60,b:60 }
     };
-    Plotly.newPlot("rmse-histogram", [{ x:rmseValues, type:"histogram", nbinsx:20, marker:{ color:"#3b82f6" } }], layout);
+    Plotly.newPlot("rmse-histogram", [trace], layout);
     document.getElementById("type-plot").style.display="block";
   }
 
@@ -389,6 +439,17 @@ title: "Galactic Dynamics Calculator"
       console.assert(S.r.length===3 && S.Vobs.length===3, "series should keep all rows with valid Vobs");
       console.assert(S.components.Vgas[1]===0, "missing gas should be treated as 0");
       console.assert(Math.abs(S.Vq[0] - Math.sqrt(3)*S.Vbary[0])<1e-9, "QWILL = √3·V_bary holds");
+      // Test 4: RMSE on shifted arrays should equal shift magnitude
+      const r4 = rmse([10,20,30],[11,21,31]);
+      console.assert(Math.abs(r4-1)<1e-12, "RMSE of +1 shift should be 1");
+      // Test 5: Color mapping edge case (flat range)
+      console.assert(blueRedColor(5,5,5)==="rgb(128,128,128)", "Flat v-range should yield gray");
+      // Test 6: One-point galaxy sanity for seriesQWILL
+      galaxyData.__one__ = [{Rad:1,Vobs:10,Vgas:3,Vdisk:4,Vbul:0}];
+      const S1 = seriesQWILL("__one__", 0.66);
+      const vb2 = 3*3 + 0.66*(4*4 + 0*0);
+      console.assert(Math.abs(S1.Vbary[0]-Math.sqrt(vb2))<1e-12, "Vbary formula matches");
+      delete galaxyData.__one__;
       delete galaxyData.__mock__;
       console.groupEnd();
     }catch(e){
