@@ -3,23 +3,24 @@
     <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
 
     <div class="mt-6 flex flex-col items-center">
-      <!-- Responsive GitHub Sponsors card -->
-      <div class="w-full max-w-[600px]">
+      <!-- "Card" container -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden max-w-[600px] w-full shadow-lg">
+        <!-- GitHub Sponsors iframe -->
         <iframe
           src="https://github.com/sponsors/AntonRize/card"
           title="Sponsor AntonRize on GitHub Sponsors"
           class="w-full"
-          style="border:0; border-radius:12px; height:225px;"
+          style="border:0; height:190px;"
           loading="lazy"
         ></iframe>
+
+        <!-- CTA styled to blend with the card -->
+        <div class="px-4 py-3 text-gray-300 text-sm sm:text-base border-t border-gray-700">
+          If you believe fundamental physics should be open, transparent, and built from first principles — you can help make it happen.
+        </div>
       </div>
 
-      <!-- Clear, mission-aligned CTA -->
-      <p class="mt-4 text-gray-300 text-sm sm:text-base max-w-2xl">
-        If you believe fundamental physics should be open, transparent, and built from first principles — you can help make it happen.
-      </p>
-
-      <!-- Soft secondary option (Patreon) -->
+      <!-- Secondary option -->
       <div class="mt-2 text-xs text-gray-500">
         Prefer Patreon?
         <a href="https://www.patreon.com/c/AntonRize" target="_blank" rel="noopener noreferrer"
