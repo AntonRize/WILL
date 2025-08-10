@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Galactic Dynamics"
+title: "Galactic Dynamics Calculator"
 ---
 
 <div class="markdown-content py-8">
@@ -10,11 +10,12 @@ title: "Galactic Dynamics"
     <b>Update (QWILL √3 law):</b> After extensive testing, the integral-based model collapses to a remarkably simple law:
     <span class="font-mono">V<sub>QWILL</sub>(r) = √3 · V<sub>bary</sub>(r)</span>.
     Rotation curves are computed with a single control — the stellar mass-to-light ratio <span class="font-mono">Υ*</span>.
+    <span class="block mt-2">All plots and metrics on this page use the <b>SPARCS</b> database.</span>
   </p>
 
-  <div class="bg-amber-500/10 border border-amber-400/40 rounded-xl p-4 mt-4">
-    <p class="text-amber-200 font-semibold text-lg">In short:</p>
-    <p class="text-amber-100"><em>“Rotating galaxies are more massive than stationary ones.”</em> In WILL/QWILL this is expressed by <span class="font-mono">V<sub>QWILL</sub> = √3 · V<sub>bary</sub></span>.</p>
+  <div class="rounded-xl p-4 mt-4 border border-gray-700 bg-gray-800/40">
+    <p class="text-gray-200 font-semibold">In short</p>
+    <p class="text-gray-200"><em>“Rotating galaxies are more massive than stationary ones.”</em> In WILL/QWILL this is expressed by <span class="font-mono">V<sub>QWILL</sub> = √3 · V<sub>bary</sub></span>.</p>
   </div>
 
   <div class="mt-6 text-gray-300 leading-relaxed" id="howto">
@@ -32,10 +33,8 @@ title: "Galactic Dynamics"
   <details class="mt-3 bg-gray-800/50 border border-gray-700 rounded-xl p-4">
     <summary class="cursor-pointer select-none text-gray-200 font-semibold">FAQ — using this calculator</summary>
     <div class="mt-3 text-gray-300 space-y-2">
-      <p><b>What dataset is used?</b> The plots and metrics use the <b>SPARC</b> catalog (Spitzer Photometry & Accurate Rotation Curves): radius <span class="font-mono">Rad</span>, observed speed <span class="font-mono">Vobs</span>, and baryonic components <span class="font-mono">Vgas</span>, <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>.</p>
+      <p><b>What dataset is used?</b> The plots and metrics use the <b>SPARCS</b> catalog (Spitzer Photometry & Accurate Rotation Curves): radius <span class="font-mono">Rad</span>, observed speed <span class="font-mono">Vobs</span>, and baryonic components <span class="font-mono">Vgas</span>, <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>.</p>
       <p><b>How is Υ* used?</b> In the baryonic term: <span class="font-mono">V<sub>bary</sub>² = V<sub>gas</sub>² + Υ*·(V<sub>disk</sub>² + V<sub>bul</sub>²)</span>. Prediction: <span class="font-mono">V<sub>QWILL</sub> = √3 · V<sub>bary</sub></span>.</p>
-      <p><b>Data handling (important):</b> Component values flagged as missing/negative are set to <b>0</b>, and the radius is kept. Points with invalid <span class="font-mono">Vobs</span> are excluded. <i>Rationale:</i> this exactly mirrors the benchmark Python script; avoids squaring sentinels; and prevents biasing toward only well-measured radii.</p>
-      <p><b>Alternatives:</b> (i) drop the radius whenever any component is missing — conservative, typically increases RMSE and reduces sample size; (ii) impute components from neighbouring radii — adds modelling assumptions; (iii) uncertainty-weighted fits — requires per-point σ, not used here. We stick to zero-fill to match the published SPARC preprocessing and the reference script.</p>
       <p><b>How to read the plots?</b> Left: observed rotation curve vs QWILL prediction. Right: gas/disk/bulge contributions (disk & bulge scaled by Υ*). The headline shows the <b>median RMSE</b> for the current selection; the inline value above shows the overall median across all types.</p>
     </div>
   </details>
