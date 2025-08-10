@@ -1,11 +1,10 @@
 <footer class="bg-gray-900 mt-16 border-t border-gray-800">
   <div class="container mx-auto px-6 py-6 text-center text-gray-500">
-    
 
     <div class="mt-6 flex flex-col items-center">
       <!-- Unified card wrapper to blend iframe + CTA -->
       <div class="bg-gray-800 rounded-xl overflow-hidden max-w-[600px] w-full shadow-lg">
-        <!-- Sponsors iframe (responsive height via media query) -->
+        <!-- Sponsors iframe (tight crop) -->
         <iframe
           id="sponsor-frame"
           src="https://github.com/sponsors/AntonRize/card"
@@ -15,10 +14,11 @@
           loading="lazy"
         ></iframe>
 
-        <!-- CTA that looks like part of the card -->
-        <div class="px-4 py-3 text-gray-300 text-sm sm:text-base border-t border-gray-700">
+        <!-- CTA as a full-width link (better CTR) -->
+        <a href="https://github.com/sponsors/AntonRize" target="_blank" rel="noopener noreferrer"
+           class="block px-4 py-3 text-gray-300 text-sm sm:text-base border-t border-gray-700 hover:bg-gray-700/40 transition">
           If you believe fundamental physics should be open, transparent, and built from first principles — you can help make it happen.
-        </div>
+        </a>
       </div>
 
       <div class="mt-2 text-xs text-gray-500">
@@ -28,21 +28,18 @@
           Support on Patreon
         </a>
       </div>
-
-      <noscript>
-        <p class="mt-3">
-          <a href="https://github.com/sponsors/AntonRize" target="_blank" rel="noopener noreferrer"
-             class="underline text-cyan-300 hover:text-cyan-200">Sponsor on GitHub</a>
-        </p>
-      </noscript>
     </div>
-<p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
+
+    <p class="mt-3">&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
   </div>
 
-  <!-- Desktop-only tighter crop for the iframe -->
+  <!-- Safer desktop heights across zoom/OS text scaling -->
   <style>
-    @media (min-width: 1024px) {
-      #sponsor-frame { height: 50px; } /* safe crop: кнопка и заголовок остаются видимы */
+    @media (min-width: 1024px) and (max-width: 1279.98px) {
+      #sponsor-frame { height: 56px; }
+    }
+    @media (min-width: 1280px) {
+      #sponsor-frame { height: 50px; }
     }
   </style>
 </footer>
