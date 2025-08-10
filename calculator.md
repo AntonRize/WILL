@@ -28,15 +28,6 @@ title: "Galactic Dynamics Calculator"
     </ul>
   </div>
 
-  <details class="mt-3 bg-gray-800/50 border border-gray-700 rounded-xl p-4">
-    <summary class="cursor-pointer select-none text-gray-200 font-semibold">FAQ — using this calculator</summary>
-    <div class="mt-3 text-gray-300 space-y-2">
-      <p><b>What dataset is used?</b> The plots and metrics use the <b>SPARC</b> catalog (Spitzer Photometry & Accurate Rotation Curves): radius <span class="font-mono">Rad</span>, observed speed <span class="font-mono">Vobs</span>, and baryonic components <span class="font-mono">Vgas</span>, <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>.</p>
-      <p><b>How is Υ* used?</b> In the baryonic term: <span class="font-mono">V<sub>bary</sub>² = V<sub>gas</sub>² + Υ*·(V<sub>disk</sub>² + V<sub>bul</sub>²)</span>. Prediction: <span class="font-mono">V<sub>QWILL</sub> = √3 · V<sub>bary</sub></span>.</p>
-      <p><b>How to read the plots?</b> Left: observed rotation curve vs QWILL prediction. Right: gas/disk/bulge contributions (disk & bulge scaled by Υ*). The headline shows the <b>median RMSE</b> for the current selection; the inline value above shows the overall median across all types.</p>
-    </div>
-  </details>
-
   <div id="overall-median-inline" class="mt-4 text-cyan-200 font-semibold"></div>
 
   <div id="type-filter" class="bg-gray-800/50 p-4 rounded-lg mb-4">
@@ -340,6 +331,36 @@ title: "Galactic Dynamics Calculator"
     });
   }
 
+  // pure helper to prepare histogram data (testable)
+  function buildHistogramData(rmseValues, vInitValues, bins){
+    const N = rmseValues.length; if(!N) return null;
+    const B = bins || 20;
+    const minRMSE = Math.min(...rmseValues);
+    const maxRMSE = Math.max(...rmseValues);
+    const binWidth = (maxRMSE - minRMSE) / B || 1;
+
+    const counts = new Array(B).fill(0);
+    const sumInit = new Array(B).fill(0);
+
+    for(let i=0;i<N;i++){
+      let idx = Math.floor((rmseValues[i]-minRMSE)/binWidth);
+      if(idx===B) idx = B-1;
+      if(idx<0) idx=0; if(idx>=B) idx=B-1;
+      counts[idx] += 1;
+      const vi = Number.isFinite(vInitValues[i]) ? vInitValues[i] : 0;
+      sumInit[idx] += vi;
+    }
+
+    const avgInit = counts.map((c,i)=> c>0 ? sumInit[i]/c : 0);
+    const minInit = Math.min(...avgInit.filter(x=>isFinite(x)));
+    const maxInit = Math.max(...avgInit.filter(x=>isFinite(x)));
+
+    const binEdges = Array.from({length: B+1}, (_,i)=> minRMSE + i*binWidth);
+    const binCenters = Array.from({length: B}, (_,i)=> (binEdges[i]+binEdges[i+1])/2);
+
+    return {counts, avgInit, minInit, maxInit, binCenters, binWidth};
+  }
+
   function analyzeSelectedTypes(){
     const selected = Array.from(document.querySelectorAll("#type-checkboxes input:checked")).map(cb=>cb.value);
     if(!selected.length){ alert("Select at least one galaxy type first."); return; }
@@ -370,50 +391,41 @@ title: "Galactic Dynamics Calculator"
     const headline = `Types: <b>${selected.join(", ")}</b> — N = ${N} — <b>Median RMSE = ${median.toFixed(2)} km/s</b>`;
     document.getElementById("overall-median").innerHTML = headline + `<div class="opacity-70 text-sm">Bar color encodes initial observed velocity: blue → red</div>`;
 
-    // --- Colored histogram by RMSE, colored by avg initial Vobs per bin ---
-    const bins = 20;
-    const minRMSE = Math.min(...rmseValues);
-    const maxRMSE = Math.max(...rmseValues);
-    const binWidth = (maxRMSE - minRMSE) / bins || 1;
-
-    const counts = new Array(bins).fill(0);
-    const sumInit = new Array(bins).fill(0);
-
-    for(let i=0;i<N;i++){
-      let idx = Math.floor((rmseValues[i]-minRMSE)/binWidth);
-      if(idx===bins) idx = bins-1; // edge case
-      if(idx<0) idx=0; if(idx>=bins) idx=bins-1;
-      counts[idx] += 1;
-      const vi = Number.isFinite(vInitValues[i]) ? vInitValues[i] : 0;
-      sumInit[idx] += vi;
-    }
-
-    const avgInit = counts.map((c,i)=> c>0 ? sumInit[i]/c : 0);
-    const minInit = Math.min(...avgInit.filter(x=>isFinite(x)));
-    const maxInit = Math.max(...avgInit.filter(x=>isFinite(x)));
-
-    const colors = avgInit.map(v => blueRedColor(v, minInit, maxInit));
-
-    const binEdges = Array.from({length: bins+1}, (_,i)=> minRMSE + i*binWidth);
-    const binCenters = Array.from({length: bins}, (_,i)=> (binEdges[i]+binEdges[i+1])/2);
+    // --- Build histogram data (testable helper) ---
+    const H = buildHistogramData(rmseValues, vInitValues, 20);
+    const colors = H.avgInit.map(v => blueRedColor(v, H.minInit, H.maxInit));
 
     const trace = {
       type: "bar",
-      x: binCenters,
-      y: counts,
+      x: H.binCenters,
+      y: H.counts,
       marker: { color: colors, line: { color: "#111827", width: 1 } },
-      width: binWidth*0.95,
-      hovertemplate: "RMSE bin: %{x:.2f}±"+(binWidth/2).toFixed(2)+"<br>Count: %{y}<extra></extra>",
+      width: H.binWidth*0.95,
+      hovertemplate: "RMSE bin: %{x:.2f}±"+(H.binWidth/2).toFixed(2)+"<br>Count: %{y}<br>Avg V₀: "+"%{customdata:.1f}"+" km/s<extra></extra>",
+      customdata: H.avgInit
     };
 
-    const layout = {
+    // vertical colorbar (blue→red) calibrated to initial velocity
+    const colorscaleBR = [ [0, "rgb(59,130,246)"], [1, "rgb(239,68,68)"] ];
+    const ticks = [H.minInit, (2*H.minInit+H.maxInit)/3, (H.minInit+2*H.maxInit)/3, H.maxInit].map(v=>Math.round(v*10)/10);
+    const dummy = {
+      type: "heatmap",
+      z: [[H.minInit, H.maxInit]],
+      colorscale: colorscaleBR,
+      showscale: true,
+      opacity: 0,
+      colorbar: { title:{text:"Initial V₀ (km/s)",side:"right"}, thickness:16, len:0.8, y:0.5, tickvals:ticks, ticktext:ticks.map(String) }
+    };
+
+    const layoutHist = {
       title: ".",
       xaxis:{ title:"RMSE (km/s)", color:"#d1d5db", gridcolor:"#4b5563" },
       yaxis:{ title:"Number of Galaxies", color:"#d1d5db", gridcolor:"#4b5563" },
       font:{ color:"#d1d5db" }, paper_bgcolor:"transparent", plot_bgcolor:"#1f2937",
       margin:{ l:60,r:30,t:60,b:60 }
     };
-    Plotly.newPlot("rmse-histogram", [trace], layout);
+
+    Plotly.newPlot("rmse-histogram", [trace, dummy], layoutHist);
     document.getElementById("type-plot").style.display="block";
   }
 
@@ -427,14 +439,11 @@ title: "Galactic Dynamics Calculator"
       const r2 = rmse([1,NaN,3],[1,5,3]);
       console.assert(r2 === 0, "RMSE should ignore NaN pairs and be 0 for the valid ones");
       // Test 3: seriesQWILL treats negative components as 0 (keeps the row)
-      const mock = {
-        X: [
-          {Rad:1,Vobs:10,Vgas:6,Vdisk:8,Vbul:0},       // valid
-          {Rad:2,Vobs:20,Vgas:-999,Vdisk:8,Vbul:0},    // gas missing => treated as 0, row kept
-          {Rad:3,Vobs:30,Vgas:10,Vdisk:0,Vbul:0}       // valid
-        ]
-      };
-      galaxyData.__mock__ = mock.X; // inject
+      galaxyData.__mock__ = [
+        {Rad:1,Vobs:10,Vgas:6,Vdisk:8,Vbul:0},
+        {Rad:2,Vobs:20,Vgas:-999,Vdisk:8,Vbul:0},
+        {Rad:3,Vobs:30,Vgas:10,Vdisk:0,Vbul:0}
+      ];
       const S = seriesQWILL("__mock__", 0.66);
       console.assert(S.r.length===3 && S.Vobs.length===3, "series should keep all rows with valid Vobs");
       console.assert(S.components.Vgas[1]===0, "missing gas should be treated as 0");
@@ -449,6 +458,9 @@ title: "Galactic Dynamics Calculator"
       const S1 = seriesQWILL("__one__", 0.66);
       const vb2 = 3*3 + 0.66*(4*4 + 0*0);
       console.assert(Math.abs(S1.Vbary[0]-Math.sqrt(vb2))<1e-12, "Vbary formula matches");
+      // Test 7: histogram helper returns consistent lengths
+      const H = buildHistogramData([10,20,30,40],[5,6,7,8],4);
+      console.assert(H && H.counts.length===4 && H.avgInit.length===4, "histogram helper produces 4 bins");
       delete galaxyData.__one__;
       delete galaxyData.__mock__;
       console.groupEnd();
