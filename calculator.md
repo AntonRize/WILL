@@ -11,6 +11,7 @@ title: "Galactic Dynamics Calculator"
     <span class="font-mono">V<sub>QWILL</sub>(r) = √3 · V<sub>bary</sub>(r)</span>.
     Rotation curves are computed with a single control — the stellar mass-to-light ratio <span class="font-mono">Υ*</span>.
     <span class="block mt-2">All plots and metrics on this page use the <b>SPARC</b> database.</span>
+    <span class="block mt-2">The detailed QWILL paper on galactic dynamics is in development.</span>
   </p>
 
   <div class="rounded-xl p-4 mt-4 border border-gray-700 bg-gray-800/40">
