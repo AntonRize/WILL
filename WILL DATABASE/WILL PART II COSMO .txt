@@ -316,8 +316,9 @@ R_s &= \frac{2 G m_0}{c^2} \quad m \\
 r_{d} &= \frac{R_s}{\kappa^2} = \frac{c}{H} \quad m \\
 t_{d} &= \frac{r_{d}}{c} = \frac{1}{H}  \quad s\\
 m_{0} &= \frac{c^{2}}{2G}R_{s} = \frac{\kappa^2 c^{2}}{2G} r_{d}=\frac{\beta^{2}m_{P}}{l_{P}}\ \frac{c}{H}\  \quad kg \\
+\omega_{L} & =\sqrt{\frac{Gm_{0}}{r_{d}^{3}}} \\
 H &= \frac{c}{r_{d}} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\rho} = \frac{\kappa^{2}c^{3}}{2Gm_{0}} = \frac{\kappa^{2}c^{3}}{Gm_{0}}=\frac{\omega_{L}}{\beta}  \quad  s^{-1}\\
-\Lambda &= \frac{\kappa^2}{r_{d}^2} = \frac{R_s}{r_{d}^3}=\frac{\kappa^{6}}{R_{s}^{2}}=\frac{\kappa^{2}H^{2}}{c^{2}} \quad m^{-2}\\
+\Lambda &= \frac{\kappa^2}{r_{d}^2} = \frac{R_s}{r_{d}^3}=\frac{\kappa^{6}}{R_{s}^{2}}=\frac{\kappa^{2}H^{2}}{c^{2}}=\frac{2Gm_{0}}{r_{d}^{3}c^{2}}=\frac{2\omega_{L}^{2}}{c^{2}} \quad m^{-2}\\
 \rho &= \rho_\Lambda = \frac{\kappa^2 c^2}{8 \pi G r_{d}^2} = \frac{H^{2}\kappa^{2}}{8\pi G}=\Lambda \frac{c^{2}}{8\pi G}  \quad kg^1 m^{-3}\\
 \rho_{max} &= \frac{c^2}{8 \pi G r_{d}^2}=\frac{H^{2}}{8\pi G}\quad kg^1 m^{-3} \\
 \Omega_\Lambda &= \kappa^2 \\[1ex]
@@ -327,13 +328,27 @@ H &= \frac{c}{r_{d}} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\
 \section*{Invariant Relations}
 
 \[
+\boxed{
+\frac{m_{0}}{r_{d}}\frac{2l_{P}}{m_{P}}=\frac{\Lambda}{H^{2}}c^{2}= \frac{\rho}{\rho_{max}}=\kappa^{2}
+}
+\]
+
+\[
+\boxed{
+\kappa^2 = \frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}}=\frac{\Lambda}{H^2}c^2
+}
+\]
+\[
 H \cdot r_{d}= c
 \]
 \[
 r_{d} \cdot \kappa^2 = R_s
 \]
 \[
-\frac{r_{d} \cdot \kappa^2 \cdot c^2}{2G} =4\pi r_{d}^{3}\rho= m_0
+\frac{H}{\omega_{L}}=\sqrt{3}
+\]
+\[
+m_0\ =\ \int_{0}^{r_{d}}\frac{\kappa^{2}c^{2}}{2G}dx\ =\ \frac{r_{d} \cdot \kappa^2 \cdot c^2}{2G} =\ 4\pi r_{d}^{3}\rho
 \]
 \[
 \frac{\kappa^4 c}{R_s} = r_{d} \cdot \Lambda \cdot c
@@ -503,7 +518,6 @@ This leads to a projectional divergence:
 \Delta \kappa^2 = \kappa_B^2 - \kappa_{O_2}^2
 \]
 
-\begin{additions}
 \textbf{Projectional placement of $O_2$.}
 A material observer cannot hover at a rigid coordinate radius
 $r=R_s$ without infinite thrust.
@@ -511,7 +525,6 @@ Instead, we characterise $O_2$ purely by its projectional state
 $\kappa_{O_2}^{2}=1$ 
 and leave the coordinate label open; this avoids introducing
 super-luminal stresses while keeping the relational description intact.
-\end{additions}
 
 \subsection*{Causal Decoupling Condition}
 
@@ -530,11 +543,10 @@ Once:
 \]
 the system reaches the critical point beyond which energetic projection becomes asymmetric and irreversible. This corresponds to a new emergent causal horizon from the observer's point of view.
 
-\begin{additions}
+
 \textbf{Energetic meaning of the unit threshold.}
 The critical value $\Delta\kappa^{2}=1$ is not arbitrary: it is the point where, in the frame of the observer, the local invariant $W_{\text{ill}}=\frac{E\,T^{2}}{M\,L^{2}}$ would soar to \textit{twice} its balanced value, $W_{\text{ill}}^{(O_2)}=2$.
 In other words, the projected energy budget and the projected mass–length budget differ by 100\%, breaking the symmetry that normally enforces projectional coherence. Any larger divergence makes reciprocal energetic projection impossible, so a new causal horizon must form.
-\end{additions}
 
 Solving:
 \[
@@ -546,10 +558,10 @@ Thus, observer $O_2$ perceives a secondary horizon forming at:
 \boxed{r = \frac{1}{2} R_s}
 \]
 
-\begin{additions}
+
 \textbf{Observer-dependence.}
 The surface at $r=\frac{1}{2}R_s$ is \emph{not} a universal, metric horizon; it is a horizon for the specific pair $(O_2,B)$. A differently situated agent would in general construct a different inner boundary. Hence these "second horizons" are projectional and observer-dependent, not new absolute structures.
-\end{additions}
+
 
 \subsection*{Switching to the Black Hole Surface Frame}
 
@@ -586,10 +598,10 @@ Assuming the surface is initially stationary in its own frame, $\beta_H = 0$, th
 \beta_B = 1 \quad\Rightarrow\quad \frac{R_s}{2r} = 1 \quad\Rightarrow\quad r = \frac{1}{2} R_s
 \]
 
-\begin{additions}
+
 \textbf{Relative, not local, velocity.}
 Throughout this section, $\beta$ is a \emph{projectional} (observer-dependent) velocity parameter. Even inside the classical Schwarzschild horizon each infalling body is locally sub-luminal in its proper frame; what reaches $\beta=1$ here is the \emph{relative} projection between the object and the chosen reference surface $H$.
-\end{additions}
+
 
 \textbf{Result:}  
 The relative velocity between black hole surface and falling object reaches the speed of light at:
@@ -615,10 +627,10 @@ r_n = \frac{R_s}{2^n}
 \quad\text{for } n \in \mathbb{N}
 \]
 
-\begin{additions}
+
 \textbf{Planck cut-off.}
-The recursion must terminate once $r_n \lesssim l_P$, because below the Planck scale the smooth projectional manifold is no longer meaningful. The series is therefore finite in physical practice, avoiding an actual Zeno divergence.
-\end{additions}
+The recursion must terminate once $r_n \lesssim l_P$, because below the Planck scale the smooth projectional manifold is no longer meaningful. The series is therefore finite in physical practice, avoiding an actual Zeno divergence. (this is an assumption based on Standard model, it needs to be tested)
+
 
 \subsection{Layered Holographic Ledger}
 
@@ -691,7 +703,6 @@ The paradox dissolves when adopting a fully relational model:
 
 \textbf{Conclusion:}  
 Black hole interiors in WILL Geometry consist of sequences of projectionally separated causal layers — each inaccessible from the last once the energy symmetry breaks. The fall is not toward a point, but into a structured cascade of coherence domains.
-
 
 
 \section{Dark Energy as Accumulated Projectional Loss}
@@ -774,69 +785,13 @@ where $r_d = c/H_0$ is the Hubble radius. This yields:
 \rho_\Lambda = \frac{2}{3} \cdot \rho_{max}
 \end{equation}
 
-exactly reproducing the observed cosmological ratios.
-
-\subsection{Interpretation}
-
-Dark energy is not a mysterious substance but the geometric shadow of energetic incompleteness:
-
-\begin{itemize}
-\item It reflects the loss of internal symmetry across cosmic horizons
-\item It does not drive expansion - it compensates for broken energy balance
-\item It emerges wherever projectional frames become causally inaccessible
-\end{itemize}
-
-
-\subsection{Geometric Resonance at \(\kappa^2 = 2/3\)}
-
-A remarkable convergence arises when we examine the cosmological projection parameter \(\kappa^2 = \Omega_\Lambda = 2/3\) in light of the inner geometric structure of compact objects.
-
-From the internal projectional symmetry:
-\[
-\boxed{
-\kappa^2 + \beta^2 = 1
-}
-\quad \Rightarrow \quad
-\kappa^2 = \frac{2}{3},\quad \beta^2 = \frac{1}{3}
-\]
-
-This configuration corresponds precisely to the radius of the photon sphere \( r = 1.5R_s \) and the innermost stable circular orbit (ISCO) at \( r = 3R_s \) in classical GR. But in the Energy Geometry model, these values are not imposed — they emerge naturally from the critical angle equality:
-
-\[
-\theta_S = \theta_G \approx 54.7356^\circ
-\]
-
-At this angle, the energy projections satisfy:
-\[
-\beta = T_c,\quad \kappa = L_c,\quad Q_t = \sqrt{1 - 3\beta^2} = 0
-\]
-
-This point marks the precise boundary between stable causal geometry and curvature-induced causal disconnection. It is the maximal surface from which coherent projection is still recoverable.
-
-\subsection{Lambda as Curvature at the Radial Limit}
-
-The cosmological "constant" is defined in this framework as:
-\[
-\Lambda = \frac{\kappa^2}{r_{d}^2}
-\quad \text{and} \quad
-\rho_\Lambda = \frac{\kappa^2 c^2}{8 \pi G r_{d}^2}
-\]
-
-If \(\kappa^2 = 2/3\), then:
-\[
-\boxed{
-\Lambda = \frac{2}{3} \cdot \frac{1}{r_{d}^2}
-}
-\quad \Rightarrow \quad
-\rho_\Lambda = \frac{2}{3} \cdot \rho_{max}
-\]
-
 This exactly reproduces the observed cosmological ratio:
 \[
 \boxed{
 \Omega_\Lambda = \frac{2}{3}, \quad \Omega_m = \frac{1}{3}
 }
 \]
+
 
 \subsection{Interpretation}
 
@@ -848,6 +803,14 @@ The Universe operates in a geometric configuration equivalent to the boundary of
 It is the frequency of coherence at the edge of universal causal  disconnection.
 }
 \end{tcolorbox}
+
+Dark energy is not a mysterious substance but the geometric shadow of energetic incompleteness:
+
+\begin{itemize}
+\item It reflects the loss of internal symmetry across cosmic horizons
+\item It does not drive expansion - it compensates for broken energy balance
+\item It emerges wherever projectional frames become causally inaccessible
+\end{itemize}
 
 \subsection{Conclusion}
 
