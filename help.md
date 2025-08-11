@@ -2,7 +2,7 @@
 
 layout: default
 
-permalink: /help-this-research/
+permalink: /help/
 
 title: Help This Research
 
