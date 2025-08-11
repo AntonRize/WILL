@@ -1,10 +1,8 @@
 ---
-
 layout: default
 title: "Predictions"
 permalink: /predictions/
 description: This page aggregates reproducible numerical checks of WILL predictions. Each item links to a runnable notebook (and static HTML) and, where available, an interactive demo. Minimal standard: fixed Python environment, explicit inputs, a single evaluation metric, and a clear falsifiability clause.
-
 ---
 
 ## Interactive Labs
