@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Predictions"
-permalink: /WILL/predictions/
+permalink: /predictions/
 toc: false
 ---
 
