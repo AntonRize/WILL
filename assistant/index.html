@@ -80,13 +80,37 @@ permalink: /assistant/
             fetch(LOG_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({log:logRef.current.map(m=>({user:m.user,raw:m.raw}))})}).catch(()=>{});
         }
 
-        async function send(){
-    // ... (existing code before the prompt) ...
-    try{
-        const lang=isRu(q)?'Russian':'English';
-        const conversation=logRef.current.filter(m=>!m.isWelcome).map(m=>`${m.user?'User':'Assistant'}: ${m.raw}`).join('\n');
-        
-        // 1. Define the new formatting instruction
+async function send() {
+    // 1. These lines were accidentally omitted in the previous example
+    // They define the variable 'q' and must be at the beginning.
+    const q = inp.trim();
+    if (!q || busy) return;
+
+    push(q, true, q);
+    setInp('');
+    if (textRef.current) textRef.current.style.height = 'auto';
+
+    const qKey = q.toLowerCase().replace('?', '');
+    if (QUICK[qKey]) {
+        push(QUICK[qKey], false, QUICK[qKey]);
+        sendLog();
+        return;
+    }
+
+    if (ks !== 'ok') {
+        const msg = 'Knowledge base still loading…';
+        push(msg, false, msg);
+        sendLog();
+        return;
+    }
+    
+    setBusy(true);
+    try {
+        // 2. The rest of the logic goes here
+        const lang = isRu(q) ? 'Russian' : 'English';
+        const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
+
+        // 3. Define the formatting instruction
         const formattingInstruction = `
 CRITICAL FORMATTING RULE:
 You MUST format your entire response using Markdown.
@@ -102,13 +126,18 @@ This is the first paragraph.
 This is the second paragraph.
 `;
 
-        // 2. Prepend the instruction to the main prompt
-        const prompt=`${formattingInstruction}\n\nAnswer in ${lang}. Use Markdown and cite sources as "doc. Part n - Section name". CORE: ${CORE}\nDATABASE:\n${kb}\nCONVERSATION:\n${conversation}\nQUESTION: """${q}"""`;
-        
-        const ans=await askGemini(prompt);
-        // ... (existing code after the prompt) ...
-    }catch(e){const err='⚠️ '+e.message;push(err,false,err);sendLog();}
-    // ...
+        // 4. Prepend the instruction to the main prompt
+        const prompt = `${formattingInstruction}\n\nAnswer in ${lang}. Use Markdown and cite sources as "doc. Part n - Section name". CORE: ${CORE}\nDATABASE:\n${kb}\nCONVERSATION:\n${conversation}\nQUESTION: """${q}"""`;
+
+        const ans = await askGemini(prompt);
+        push(ans, false, ans);
+        sendLog();
+    } catch (e) {
+        const err = '⚠️ ' + e.message;
+        push(err, false, err);
+        sendLog();
+    }
+    setBusy(false);
 }
 
         return React.createElement('div',{className:'flex flex-col h-[calc(100vh-8rem)] w-full p-4'},
