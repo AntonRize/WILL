@@ -4,18 +4,10 @@ title: "WILL AI Assistant"
 permalink: /assistant/
 ---
 
-<div class="markdown-content py-8">
-    <h1 class="text-4xl font-extrabold tracking-tight">WILL AI Assistant</h1>
-    <p class="mt-4 text-lg text-gray-400">
-        Ask me anything about the WILL Theory or its documents. I can help explain concepts, analyze results, and provide insights into the geometric framework.
-    </p>
-
-    <div class="bg-gray-800/50 p-6 rounded-lg mt-6">
-        <div id="root"></div>
-    </div>
-</div>
+<div id="root"></div>
 
 <style>
+    body { margin: 0; background-color: #111827; } /* DOUBLE SCROLL FIX */
     textarea::-webkit-scrollbar{width:4px}
 </style>
 
@@ -140,7 +132,7 @@ This is the second paragraph.
     setBusy(false);
 }
 
-        return React.createElement('div',{className:'flex flex-col h-[calc(100vh-8rem)] w-full p-4'},
+        return React.createElement('div',{className:'flex flex-col h-screen w-full max-w-4xl mx-auto p-4 box-border'},
             ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 mb-2'},
                 ks==='loading'?'KB loading…':'KB error (check console)'
             ),
