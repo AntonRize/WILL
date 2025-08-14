@@ -889,6 +889,82 @@ In essence, WILL Geometry encodes the principle that:
 The speed of light is the boundary beyond which the energetic symmetry between perspectives breaks down. Causality is not an external rule but a built-in feature of the universe's energetic geometry.
 \end{quote}
 
+\section{Classical Keplerian Energy as a WILL--Minkowski Projection}
+
+A striking consequence of the Energy--Symmetry Law is that, when the
+zero of gravitational potential is chosen on the surface of the central body
+rather than at infinity, the total specific orbital energy (potential $+$ kinetic,
+per unit mass) naturally appears in \emph{Minkowski form}.
+
+\subsection{Classical Result with Surface Reference}
+
+For a test body of mass $m$ on a circular orbit of radius $a$ about
+a central mass $M_\oplus$ (Earth in our example),
+classical Newtonian mechanics gives:
+\begin{align}
+\Delta U &= -\frac{GM_\oplus m}{a} + \frac{GM_\oplus m}{R_\oplus},\\
+K &= \frac12 m\frac{GM_\oplus}{a}.
+\end{align}
+Adding these and dividing by the rest--energy $E_0 = m c^2$ yields
+the dimensionless total:
+\begin{equation}
+\frac{E_{\text{tot}}}{E_0}
+= \frac{GM_\oplus}{R_\oplus c^2}
+ - \frac12\frac{GM_\oplus}{a c^2}.
+\label{eq:classical_surface}
+\end{equation}
+
+\subsection{Projection Parameters and Minkowski Form}
+
+Define the WILL projection parameters for the surface and the orbit:
+\begin{align}
+\kappa_\oplus^2 &\equiv \frac{2GM_\oplus}{R_\oplus c^2},\\
+\beta_{\text{orbit}}^2 &\equiv \frac{GM_\oplus}{a c^2}.
+\end{align}
+Substituting into \eqref{eq:classical_surface} gives the exact identity:
+\begin{equation}
+\frac{E_{\text{tot}}}{E_0}
+= \frac12\bigl(\kappa_\oplus^2 - \beta_{\text{orbit}}^2\bigr).
+\label{eq:will_minkowski_energy}
+\end{equation}
+
+This is already in the form of a \emph{hyperbolic difference of squares}:
+if we set $x \equiv \kappa_\oplus$ and $y \equiv \beta_{\text{orbit}}$, then
+\begin{equation}
+\frac{E_{\text{tot}}}{E_0} = \frac12\,(x^2 - y^2),
+\end{equation}
+which is structurally identical to a Minkowski interval in $(1+1)$ dimensions,
+up to the constant factor $\frac12$.
+
+\subsection{Physical Interpretation}
+
+In classical derivations, \eqref{eq:classical_surface} is just the sum
+$\Delta U + K$ with a particular choice of potential zero.
+In the WILL framework, \eqref{eq:will_minkowski_energy} emerges directly from the
+energy--symmetry relation:
+\[
+\Delta E_{A\to B}
+= \frac12\bigl((\kappa_A^2 - \kappa_B^2) + \beta_B^2\bigr),
+\]
+with $(A,B) = (\text{surface},\ \text{orbit})$,
+and is \emph{invariantly} expressible as a difference of squared projections.
+
+This shows that the Keplerian total energy is not an isolated Newtonian
+artifact but a special case of a deeper geometric structure: the Minkowski--type
+projection algebra of WILL Geometry.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Why This Matters]
+\begin{itemize}
+\item In classical form, the total orbital energy per unit mass depends only on
+$GM$ and $a$, and is independent of the test--mass $m$.
+\item In WILL form, the same fact is embedded in a Lorentz--like difference
+of squared projections, with no need for separate ``gravitational'' and
+``kinetic'' constructs.
+\item This reframing answers \emph{why} the Keplerian combination appears:
+it is enforced by the underlying geometry of energy evolution.
+\end{itemize}
+\end{tcolorbox}
+
 \section{Derivation of Energy Density and Mass Relations from Geometric First Principles}
 
 \subsection{Geometric Foundation}
