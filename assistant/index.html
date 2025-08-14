@@ -73,8 +73,6 @@ permalink: /assistant/
         }
 
 async function send() {
-    // 1. These lines were accidentally omitted in the previous example
-    // They define the variable 'q' and must be at the beginning.
     const q = inp.trim();
     if (!q || busy) return;
 
@@ -97,12 +95,13 @@ async function send() {
     }
     
     setBusy(true);
-    try {
-        // 2. The rest of the logic goes here
-        const lang = isRu(q) ? 'Russian' : 'English';
-        const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
 
-        // 3. Define the formatting instruction
+    // Define 'lang' here to make it accessible in the 'catch' block
+    const lang = isRu(q) ? 'Russian' : 'English';
+
+    try {
+        const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
+    
         const formattingInstruction = `
 CRITICAL FORMATTING RULE:
 You MUST format your entire response using Markdown.
@@ -118,20 +117,35 @@ This is the first paragraph.
 This is the second paragraph.
 `;
 
-        // 4. Prepend the instruction to the main prompt
-        const prompt = `${formattingInstruction}\n\nAnswer in ${lang}. Use Markdown and cite sources as "doc. Part n - Section name". CORE: ${CORE}\nDATABASE:\n${kb}\nCONVERSATION:\n${conversation}\nQUESTION: """${q}"""`;
+        const prompt = `${formattingInstruction}\n\nAnswer in ${lang}. Use Markdown and cite sources as "doc. Part n - Section name". CORE: ${CORE}\nDATABASE:\n${kb}\nCONVERSION:\n${conversation}\nQUESTION: """${q}"""`;
 
         const ans = await askGemini(prompt);
         push(ans, false, ans);
         sendLog();
+
     } catch (e) {
-        const err = '⚠️ ' + e.message;
-        push(err, false, err);
+        // NEW: User-friendly error handling
+        let friendlyError;
+        const errorMessage = String(e.message || '');
+
+        if (errorMessage.includes('overloaded')) {
+            friendlyError = lang === 'Russian' 
+                ? 'Сервер AI сейчас перегружен большим количеством запросов. Это как час пик на дорогах! 🚗 Пожалуйста, повторите ваш запрос через минуту.'
+                : 'The AI server is currently overloaded with requests. It\'s like rush hour traffic! 🚗 Please try your request again in a moment.';
+        } else if (errorMessage.includes('TIMEOUT')) {
+            friendlyError = lang === 'Russian'
+                ? 'Ваш запрос очень сложный, и AI потребовалось слишком много времени на размышления. ⏳ Пожалуйста, попробуйте задать тот же вопрос еще раз или немного упростите его.'
+                : 'Your request is very complex and the AI took too long to think. ⏳ Please try asking the same question again, or try simplifying it a little.';
+        } else {
+            // Fallback for any other unexpected errors
+            friendlyError = '⚠️ ' + errorMessage;
+        }
+        
+        push(friendlyError, false, friendlyError);
         sendLog();
     }
     setBusy(false);
 }
-
         return React.createElement('div',{className:'flex flex-col h-screen w-full max-w-4xl mx-auto p-4 box-border'},
             ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 mb-2'},
                 ks==='loading'?'KB loading…':'KB error (check console)'
