@@ -1,3 +1,7 @@
+---
+sitemap: false
+---
+
 # Proxy Server
 
 This folder contains the Vercel serverless function that forwards requests to the Google Gemini API. Deploy it to Vercel so the assistant can interact with Gemini without exposing the API key.
