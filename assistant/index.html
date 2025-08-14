@@ -117,15 +117,6 @@ permalink: /assistant/
         
                 const formattingInstruction = `
 <SYSTEM_INSTRUCTIONS>
-CRITICAL FORMATTING RULE:
-You MUST format your entire response using Markdown.
-To ensure readability, you MUST separate all paragraphs, headings, and list items with a double line break (a blank line).
-Never wrap your entire response in a code block.
-
-
-const formattingInstruction = `
-
-<SYSTEM_INSTRUCTIONS>
 
 <RULES_OF_INTELLECTUAL_CONDUCT>
 1.  **Substantiate All Claims:** You must justify every critical assertion. If you claim a concept is "partial," "incomplete," or "problematic," you must cite a specific reason or example from the provided knowledge base. Do not make unsubstantiated dismissive statements.
@@ -143,7 +134,7 @@ Never wrap your entire response in a code block.
 
 </SYSTEM_INSTRUCTIONS>
 `;
-                // NEW, UNAMBIGUOUS PROMPT STRUCTURE
+
                 const prompt = `${formattingInstruction}
 <KNOWLEDGE_BASE>
 ${kb}
