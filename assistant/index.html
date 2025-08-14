@@ -81,27 +81,35 @@ permalink: /assistant/
         }
 
         async function send(){
-            const q=inp.trim();
-            if(!q||busy)return;
-            push(q,true,q);
-            setInp('');
-            if(textRef.current)textRef.current.style.height='auto';
+    // ... (existing code before the prompt) ...
+    try{
+        const lang=isRu(q)?'Russian':'English';
+        const conversation=logRef.current.filter(m=>!m.isWelcome).map(m=>`${m.user?'User':'Assistant'}: ${m.raw}`).join('\n');
+        
+        // 1. Define the new formatting instruction
+        const formattingInstruction = `
+CRITICAL FORMATTING RULE:
+You MUST format your entire response using Markdown.
+To ensure readability, you MUST separate all paragraphs, headings, and list items with a double line break (a blank line).
 
-            const qKey=q.toLowerCase().replace('?','');
-            if(QUICK[qKey]){push(QUICK[qKey],false,QUICK[qKey]);sendLog();return;}
+BAD EXAMPLE (never do this):
+This is the first paragraph.
+This is the second paragraph.
 
-            if(ks!=='ok'){const msg='Knowledge base still loading…';push(msg,false,msg);sendLog();return;}
-            setBusy(true);
-            try{
-                const lang=isRu(q)?'Russian':'English';
-                const conversation=logRef.current.filter(m=>!m.isWelcome).map(m=>`${m.user?'User':'Assistant'}: ${m.raw}`).join('\n');
-                const prompt=`Answer in ${lang}. Use Markdown and cite sources as "doc. Part n - Section name". CORE: ${CORE}\nDATABASE:\n${kb}\nCONVERSATION:\n${conversation}\nQUESTION: """${q}"""`;
-                const ans=await askGemini(prompt);
-                push(ans,false,ans);
-                sendLog();
-            }catch(e){const err='⚠️ '+e.message;push(err,false,err);sendLog();}
-            setBusy(false);
-        }
+GOOD EXAMPLE (always do this):
+This is the first paragraph.
+
+This is the second paragraph.
+`;
+
+        // 2. Prepend the instruction to the main prompt
+        const prompt=`${formattingInstruction}\n\nAnswer in ${lang}. Use Markdown and cite sources as "doc. Part n - Section name". CORE: ${CORE}\nDATABASE:\n${kb}\nCONVERSATION:\n${conversation}\nQUESTION: """${q}"""`;
+        
+        const ans=await askGemini(prompt);
+        // ... (existing code after the prompt) ...
+    }catch(e){const err='⚠️ '+e.message;push(err,false,err);sendLog();}
+    // ...
+}
 
         return React.createElement('div',{className:'flex flex-col h-[calc(100vh-8rem)] w-full p-4'},
             ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 mb-2'},
