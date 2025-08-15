@@ -49,6 +49,19 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
+
+defaults:
+  -
+    scope:
+      path: "documents/"
+    values:
+      sitemap: false
+  -
+    scope:
+      path: "FR/"
+    values:
+      sitemap: false
+
 # Collections for content organization
 collections:
   parts:
