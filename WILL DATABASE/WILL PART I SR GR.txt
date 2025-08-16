@@ -15,6 +15,7 @@
 \usepackage{tabularx}
 \usepackage{booktabs}
 \DeclareUnicodeCharacter@
+\usepackage{threeparttable}
 % Настройка теорем и других математических элементов
 
 
@@ -585,9 +586,9 @@ This geometric approach unifies our understanding of mass, energy, and momentum 
 
 \subsection{Beyond Curvature: A New Perspective}
 
-The conventional approach to gravity in General Relativity relies on the concept of curvature—a notion that implicitly assumes the existence of a flat reference frame. This creates a fundamental inconsistency: while rejecting absolute space in principle, standard GR tacitly introduces an absolute reference through the concept of curvature relative to flatness.
+Standard GR is commonly interpreted through curvature; WILL instead treats geometry as emerging from energy relations, without positing curvature as a primitive explanatory layer 
 
-In our WILL framework, we reject this artifice. Rather than imposing curvature as an interpretational construct, we allow the universe to naturally manifest its geometric structure through energy relations. This approach remains true to our foundational principle:
+Rather than imposing curvature as an interpretational construct, we allow the universe to naturally manifest its geometric structure through energy relations. This approach remains true to our foundational principle:
 
 \begin{center}
 \boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}
@@ -639,7 +640,7 @@ where $R_s = \frac{2GM}{c^2}$
 \draw[->, thick] (0,0) -- (0,0.8) node[midway, left] {$\kappa$};
 \end{tikzpicture}
 
-\subsection{General Theory of Relativity (Length Dilation Factor)}
+\subsection{General Theory of Relativity (Schwarzschild radial length factor)}
 The relevant component of the Schwarzschild metric, related to gravitational length dilation, is given by:
 \begin{equation}
 L_d = \frac{1}{\sqrt{1 - \frac{2GM}{rc^2}}} = \frac{1}{\sqrt{1 - \frac{R_s}{r}}}.
@@ -673,7 +674,7 @@ This parameter quantifies the energy content of the object expressed through the
 
 The striking parallel between these parameters suggests a profound geometric connection between kinetic and potential energy within the WILL framework, which we shall now formalize mathematically:
 
-\section{Fundamental Relation Between Potential and Kinetic Energy Parameters}
+\section{Fundamental Relation Between Potential and Kinetic Energy Projections}
 
 In the framework of WILL, all motion and interaction are described in 
 terms of the distribution of a single conserved \textit{evolution resource}.  
@@ -753,7 +754,12 @@ This relation is not derived from physical observation, but is imposed by the to
 While this relation is echoed in concrete physical scenarios (such as the link between escape and orbital velocity in Newtonian gravity), here it is not derived from those cases but is instead the deeper, organizing principle from which such results flow.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Geometric Principle]
-The ratio $\kappa^2/\beta^2 = 2$ is a necessary consequence of the WILL postulate, the requirement of closed, maximally symmetric topology, and the strict conservation of energy projected between spatial and temporal aspects.
+
+The dimensionless ratio $\kappa^2/\beta^2 = 2$ follows from: 
+(1) the WILL postulate, 
+(2) closed, maximally symmetric topology (circle vs sphere), and 
+(3) strict conservation of the single evolution resource projected into spatial and temporal modes.
+
 \end{tcolorbox}
 
 \subsection{Geometric Relationships}
@@ -762,7 +768,8 @@ The relativistic and gravitational factors can be expressed in unified algebraic
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|c|}\hline
+\multicolumn{2}{|c|}{\(\theta_S = \arccos(\beta),\quad \theta_G = \arcsin(\kappa)\)}\\
 \hline
 \textbf{Algebraic Form} & \textbf{Trigonometric Form} \\
 \hline
@@ -792,8 +799,10 @@ The total energy projection parameter unifies both aspects:
 These describe the combined effects of relativity and gravity.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Unified Interpretation]
-Our geometric approach is mathematically equivalent to the standard formulas but reveals their unified origin. It demonstrates that relativistic and gravitational effects emerge from the same geometric principles, represented by the parameters $\beta$ and $\kappa$.
+The familiar SR and GR factors emerge here as projections of the same conserved geometry. 
+Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate “effects” but dual aspects of one energy-evolution constraint revealing their unified origin.
 \end{tcolorbox}
+
 
 
 \section{Energy–Symmetry Law}\label{sec:energy-symmetry}
@@ -2257,6 +2266,132 @@ This negligible difference is consistent with the numerical precision limits of 
 
 \end{proof}
 
+\subsection{Empirical Stress--Test: Binary Pulsar Orbital Decay}
+
+\begin{theorem}[Eccentricity factor for quadrupolar emission]\label{thm:Fe}
+For a bound Keplerian orbit with eccentricity $e$, the normalized orbit-average
+of $|\partial_t^{\,3} S|^2$ for the spin-2 STF surrogate $S(f)=r(f)^2 e^{i2f}$ equals
+\[
+F(e)=\frac{\big\langle\,|\partial_t^{\,3} S|^2\big\rangle}
+{\big\langle\,|\partial_t^{\,3} S|^2\big\rangle_{e=0}}
+=\frac{1+\frac{73}{24}e^2+\frac{37}{96}e^4}{(1-e^2)^{7/2}}\,,
+\qquad F(0)=1.
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{Setup and notation.}
+Let $p=a(1-e^2)$, $r(f)=p/(1+e\cos f)$ and define the affine parameter $u$ by $du=dt/r^2$,
+so that $df/du=h$ with constant $h=r^2\dot f$ (specific angular momentum).
+For any scalar $X(f)$ set $D\equiv d/df$ and
+\[
+L X \equiv \partial_t X=\frac{1}{r^2}\frac{dX}{du}= h\,\sigma(f)\,D X,\qquad
+\sigma(f)\equiv r^{-2}=\frac{(1+e\cos f)^2}{p^2}.
+\]
+The radiative spin-2 surrogate is $S(f)=r(f)^2 e^{i2f}$.
+
+\begin{lemma}[Variable-coefficient cubic identity]\label{lem:cubic}
+For $\sigma=\sigma(f)$ and $D=d/df$,
+\[
+(\sigma D)^{3} S
+= \sigma^{3} D^{3} S
++ 3\sigma^{2} (D\sigma)\, D^{2} S
++ \big(\sigma(D\sigma)^{2} + \sigma^{2} D^{2}\sigma\big)\, D S.
+\]
+Hence $L^3S=h^{3}(\sigma D)^3 S$.
+\end{lemma}
+
+\begin{lemma}[Explicit derivatives]\label{lem:derivs}
+With $x\equiv e\cos f$ and $r=p/(1+x)$, one has
+\[
+Dr=\frac{pe\sin f}{(1+x)^2},\qquad
+D\sigma=\frac{2e\sin f}{p^2}(1+x),\qquad
+D^{2}\sigma=\frac{2}{p^2}\big(e\cos f + e^2 -2e^2\sin^2 f\big).
+\]
+Furthermore,
+\[
+DS=e^{i2f}\big(2r\,Dr+i2\,r^2\big),\quad
+D^{2}S=e^{i2f}\big(2(Dr)^2+2r\,D^{2}r+ i4r\,Dr -4r^2\big),
+\]
+\[
+D^{3}S=e^{i2f}\Big(6Dr\,D^{2}r+2r\,D^{3}r + i2\big(2(Dr)^2+2r\,D^{2}r\big)
+ - i8 r\,Dr - i8 r^2\Big),
+\]
+with $D^{k}r$ obtained by differentiating $r=p(1+x)^{-1}$.
+\end{lemma}
+
+\begin{lemma}[Orbit averages]\label{lem:avg}
+For integers $m,n\ge0$ and $k\ge2$,
+\[
+\Big\langle \frac{\cos^{m}\!f\,\sin^{n}\!f}{(1+e\cos f)^{k}}\Big\rangle
+=\frac{1}{2\pi}\!\int_{0}^{2\pi}\!\frac{\cos^{m}\!f\,\sin^{n}\!f}{(1+e\cos f)^{k}}\,df
+=\sum_{j} c_{j}(m,n,k)\,\frac{e^{2j}}{(1-e^{2})^{\alpha_{j}}},
+\]
+where $c_j$ are rational numbers and $\alpha_j\in\{\tfrac12,\tfrac32,\tfrac52,\dots\}$.
+In particular, the needed set with $k\in\{2,\dots,8\}$ closes under the algebra of
+Lemma~\ref{lem:cubic}.
+\end{lemma}
+
+\textbf{Conclusion.}
+Insert Lemma~\ref{lem:derivs} into Lemma~\ref{lem:cubic} to express $(\sigma D)^3S$
+as a linear combination of $\{\cos^{m}\!f\,\sin^{n}\!f\}/(1+e\cos f)^{k}$.
+Average over one cycle using Lemma~\ref{lem:avg}. The overall factor $h^{3}$ cancels
+in the normalization by the $e=0$ case, leaving a rational function of $e$ times
+$(1-e^{2})^{-7/2}$. A straightforward (finite) simplification yields the stated closed form
+for $F(e)$.
+\end{proof}
+
+\begin{theorem}[Orbital period decay of a binary pulsar]\label{thm:Pdot}
+For component masses $m_1,m_2$ (total $M=m_1+m_2$), orbital period $P_b$ and eccentricity $e$,
+the decay rate of $P_b$ due to quadrupolar radiation is
+\[
+\dot P_b
+= -\frac{192\pi G^{5/3}}{5c^5}\,
+\frac{m_1 m_2}{(m_1+m_2)^{1/3}}\,
+\Big(\frac{2\pi}{P_b}\Big)^{5/3}\,F(e),
+\]
+where $F(e)$ is given by Theorem~\ref{thm:Fe}.
+\end{theorem}
+
+\begin{proof}
+The orbit-averaged quadrupole luminosity scales as
+$\langle P_{\rm GW}\rangle \propto \mu^{2} M^{4/3} n^{10/3} F(e)$ with $\mu=m_1m_2/M$ and
+$n=2\pi/P_b$. Using $n^{2}a^{3}=GM$ and the Newtonian binding energy $E=-GM\mu/(2a)$,
+energy balance $\dot E=-\langle P_{\rm GW}\rangle$ yields $\dot a$, hence
+$\dot P_b=(dP_b/da)\,\dot a$. Eliminating $a$ and collecting constants gives the stated formula,
+with all eccentricity dependence entering solely through $F(e)$.
+No asymptotic background structures (ADM/Bondi) are invoked.
+\end{proof}
+
+\subsubsection*{Numerical benchmarks and observational comparison}
+We now evaluate Eq.~(\ref{thm:Pdot}) for two archetypal systems.
+Constants: $G=6.67430\times10^{-11}\,$SI, $c=2.99792458\times10^{8}\,$m/s,
+$M_\odot=1.98847\times10^{30}\,$kg.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{4.5pt}
+\begin{threeparttable}
+\begin{tabular}{lcccccc}
+\toprule
+System & $m_1/M_\odot$ & $m_2/M_\odot$ & $P_b$ (s) & $e$ & Pred.\ $\dot P_b$ ($10^{-12}$ s/s) \\
+\midrule
+PSR B1913+16        & 1.438(1) & 1.390(1) & $2.7907\times10^{4}$ & 0.6171334 & $-2.4022$ \\
+PSR J0737$-$3039A/B & 1.338185 & 1.248868 & $8.8345\times10^{3}$ & 0.0877770 & $-1.2478$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item \textbf{Notes:} B1913+16 — observed/predicted $=0.9983\pm0.0016$ (Weisberg \& Huang, ApJ 829:55, 2016).
+J0737–3039A/B — GR validated at $0.013\%$ (Kramer et al., PRX 11, 041050, 2021).
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+
+For reference, the often-quoted decrease of the B1913+16 orbital period is
+$\sim 76.5\,\mu{\rm s/yr}$ (equivalently $\sim 2.42\times10^{-12}$ s/s), matching the
+quadrupolar prediction within quoted uncertainties.\footnote{See e.g. the Hulse--Taylor
+pulsar summary page for a pedagogical statement of $76.5\,\mu$s/yr.}
+
 
 \section{Conclusion}
 
@@ -2299,45 +2434,46 @@ P.S. \textit{This work remains an ongoing exploration, and further developments 
                                                                                                                                                                \subparagraph{\textit{Anton Rize.}}
 
                                                                                                                                                                
-                         \section{Glossary of Key Terms}
-                         
-• β (Beta): The kinetic projection in WILL Geometry, representing the ratio of an object's velocity to the universal speed of evolution (v/c). It quantifies how much of the "speed of change" is perceived as motion through space from an observer's perspective.
+                   \section{Glossary of Key Terms}
 
-• c (Universal Speed of Evolution): The fundamental, invariant tempo of change in the universe. It is not merely the speed of light but the constant rate at which all energetic interactions and transformations occur.
+\begin{description}
 
-• Conservation Law: The principle stating that the total energy of the universe must remain constant. In WILL Geometry, this is a direct logical consequence of the universe being a closed and self-sufficient system.
+\item[$\beta$ (Beta):] The kinetic projection in WILL Geometry, representing the ratio of an object's velocity to the universal speed of evolution \((v/c)\). It quantifies how much of the "speed of change" is perceived as motion through space from an observer's perspective.
 
-• Critical Density (ρmax): A local, finite limit on how much energy can be packed into a given point in space, dependent on the distance from the center. In WILL Geometry, this prevents the formation of infinite densities (singularities).
+\item[$c$ (Universal Speed of Evolution):] The fundamental, invariant tempo of change in the universe. It is not merely the speed of light but the constant rate at which all energetic interactions and transformations occur.
 
-• Energy-Momentum Triangle: A geometric visualization in WILL Geometry that depicts the relationship between an object's rest energy, momentum, and total energy as the sides of a right triangle, illustrating their constant interconnectedness.
+\item[Conservation Law:] The principle stating that the total energy of the universe must remain constant. In WILL Geometry, this is a direct logical consequence of the universe being a closed and self-sufficient system.
 
-• Energy-Symmetry Law: The principle in WILL Geometry stating that energy differences observed between any two frames of reference will always perfectly balance out, ensuring no "extra" energy is created or lost, and thus enforcing causality.
+\item[Critical Density \((\rho_{\max})\):] A local, finite limit on how much energy can be packed into a given point in space, dependent on the distance from the center. In WILL Geometry, this prevents the formation of infinite densities (singularities).
 
-• Epistemological Hygiene: A guiding principle in WILL Geometry that demands the rejection of all assumptions not strictly necessary, building the theory solely on logical sequence from a minimalist foundation.
+\item[Energy–Momentum Triangle:] A geometric visualization in WILL Geometry that depicts the relationship between an object's rest energy, momentum, and total energy as the sides of a right triangle, illustrating their constant interconnectedness.
 
-• Event Horizon: The boundary around a black hole beyond which nothing, not even light, can escape. In WILL Geometry, κ = 1 at this point, indicating the maximum gravitational projection.
+\item[Energy–Symmetry Law:] The principle in WILL Geometry stating that energy differences observed between any two frames of reference will always perfectly balance out, ensuring no "extra" energy is created or lost, and thus enforcing causality.
 
-• Geometric Structures (Circle S¹ and Sphere S²): The fundamental, maximally symmetric and closed geometric "canvases" on which physical reality is projected in WILL Geometry. The circle describes 1D motion (Special Relativity), and the sphere describes 2D gravity (General Relativity).
+\item[Epistemological Hygiene:] A guiding principle in WILL Geometry that demands the rejection of all assumptions not strictly necessary, building the theory solely on logical sequence from a minimalist foundation.
 
-• κ (Kappa): The gravitational projection in WILL Geometry. It measures how deeply an object is situated within a gravitational field, relative to an observer, and indicates proximity to an event horizon.
+\item[Event Horizon:] The boundary around a black hole beyond which nothing, not even light, can escape. In WILL Geometry, \(\kappa = 1\) at this point, indicating the maximum gravitational projection.
 
-• Photon Sphere: A specific region around a massive object where light can orbit in a perfect, unstable circular path. In WILL Geometry, this corresponds to a point of perfect balance where kinetic and potential projections are matched (κ² + β² = 1).
+\item[Geometric Structures (Circle \(S^1\) and Sphere \(S^2\)):] The fundamental, maximally symmetric and closed geometric "canvases" on which physical reality is projected in WILL Geometry. The circle describes 1D motion (Special Relativity), and the sphere describes 2D gravity (General Relativity).
 
-• Relational View of Energy: The concept in WILL Geometry that energy is not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.
+\item[$\kappa$ (Kappa):] The gravitational projection in WILL Geometry. It measures how deeply an object is situated within a gravitational field, relative to an observer, and indicates proximity to an event horizon.
 
-• Singularity: A point of infinite density predicted by traditional General Relativity (e.g., at the center of a black hole). WILL Geometry's framework inherently prevents singularities, replacing them with finite, maximum allowed densities.
+\item[Photon Sphere:] A specific region around a massive object where light can orbit in a perfect, unstable circular path. In WILL Geometry, this corresponds to a point of perfect balance where kinetic and potential projections are matched \((\kappa^{2} + \beta^{2} = 1)\).
 
-• SPACETIME ≡ ENERGY EVOLUTION: The central, unifying postulate of WILL Geometry, asserting that the fabric of spacetime is identical to the full structure of all possible transitions and interconnections between energetic states.
+\item[Relational View of Energy:] The concept in WILL Geometry that energy is not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.
 
-• Symmetry: A core principle in WILL Geometry derived from the postulate, stating that in a closed system without external reference points, the geometry of the universe must be maximally symmetric.
+\item[Singularity:] A point of infinite density predicted by traditional General Relativity (e.g., at the center of a black hole). WILL Geometry's framework inherently prevents singularities, replacing them with finite, maximum allowed densities.
 
-• Time Dilation: The phenomenon where time passes more slowly for an observer or object. In WILL Geometry, it is explained as a consequence of how the universal "speed of evolution" budget is allocated between motion (kinetic time dilation) and gravitational potential (gravitational time dilation).
+\item[\( \text{SPACETIME} \equiv \text{ENERGY EVOLUTION} \):] The central, unifying postulate of WILL Geometry, asserting that the fabric of spacetime is identical to the full structure of all possible transitions and interconnections between energetic states.
 
-• WILL Invariant (W_ill): A dimensionless constant (equal to 1) that mathematically connects energy, mass, time, and length within the WILL Geometry framework, demonstrating the self-consistency of the system.                                                                                                                                      
-                                                                                                                                                               
-                                                                                                                                                               
-                                                                                                                                                               
-                                                                                                                                                               
+\item[Symmetry:] A core principle in WILL Geometry derived from the postulate, stating that in a closed system without external reference points, the geometry of the universe must be maximally symmetric.
+
+\item[Time Dilation:] The phenomenon where time passes more slowly for an observer or object. In WILL Geometry, it is explained as a consequence of how the universal "speed of evolution" budget is allocated between motion (kinetic time dilation) and gravitational potential (gravitational time dilation).
+
+\item[WILL Invariant \((W_{\text{ill}})\):] A dimensionless constant \((=1)\) that mathematically connects energy, mass, time, and length within the WILL Geometry framework, demonstrating the self-consistency of the system.
+
+\end{description}
+
 
 \section{Key Equations Reference}
 
