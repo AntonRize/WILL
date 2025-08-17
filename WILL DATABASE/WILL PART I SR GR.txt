@@ -715,6 +715,28 @@ This leads to the unique and necessary unification equation:
 \paragraph{Important Clarification.}
 This factor of 2 is not an empirical constant, a Newtonian mechanical result, or a coincidence of orbital dynamics. It is a direct consequence of the ratio of the fundamental angular measures (steradians to radians) that define the complete projection spaces for omnidirectional and linear phenomena.
 
+\paragraph{Closure Condition.}
+The relation $\kappa^2=2\beta^2$ is therefore more than a proportionality: it is the precise criterion for energetic closure. Whenever the equality is satisfied, the system under study is fully self-contained, with no leakage of the conserved resource into unaccounted channels. Whenever the equality \emph{appears} to fail (for instance in highly elliptical binaries or in radiating systems), this does not contradict the principle but indicates that additional energy pathways --- such as gravitational-wave emission or cosmological expansion --- must be included to restore the balance. In this sense, the relation acts as a diagnostic invariant: it tells us whether our description has captured the full closed geometry or whether unseen flows remain.
+
+\subsection*{Illustrative Examples}
+
+To clarify the meaning of this closure condition, consider two contrasting cases:
+
+\begin{itemize}
+    \item \textbf{Circular Orbit (Closed Subsystem).}  
+    For a test body in a perfectly circular orbit around a central mass, the condition $\kappa^2 = 2\beta^2$ is exactly fulfilled. The orbital system can be treated as energetically closed: all of the conserved resource is accounted for between the kinetic projection along the orbit and the gravitational projection toward the center. No external channels are needed, and the equality signals full closure.
+
+    \item \textbf{Radiating Binary (Open Subsystem).}  
+    In contrast, for a highly elliptical binary system of compact objects (such as neutron stars. (full calculation in section: Empirical Validation; subsection: Orbital Decay: Binary Pulsar)), the orbital evolution is accompanied by gravitational-wave emission. If one considers only the orbital mechanics, the relation $\kappa^2 = 2\beta^2$ will appear to be violated. Yet this is not a failure of the principle. Instead, it reveals that the subsystem is not closed: part of the resource leaves through radiation. When the gravitational-wave channel is included in the balance, the closure is restored and the equality holds again.
+\end{itemize}
+
+These examples highlight the diagnostic role of the relation: it identifies whether the chosen subsystem is complete, or whether additional flows of the evolution resource must be incorporated to recover closure.
+
+\begin{quote}
+\textbf{Principle of Closure.}  
+The relation $\kappa^2 = 2\beta^2$ holds if and only if the system under consideration is fully closed, with no leakage of energy into channels not included in the description.
+\end{quote}
+
 \paragraph{Physical Implication.}
 In WILL Geometry, this relation is foundational. It links gravitational and kinetic modes without reference to spacetime as a background fabric, showing that their connection is a matter of geometric and topological necessity, not dynamic coincidence. Classical physics, in its successful predictions, unknowingly traces the consequences of this deeper geometric law.
 
@@ -725,8 +747,6 @@ In WILL Geometry, this relation is foundational. It links gravitational and kine
 \boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}
 \]
 
-
-
 \subsection{Physical and Conceptual Significance}
 
 While this relation is echoed in concrete physical scenarios (such as the link between escape and orbital velocity in Newtonian gravity), here it is not derived from those cases but is instead the deeper, organizing principle from which such results flow.
@@ -735,7 +755,8 @@ While this relation is echoed in concrete physical scenarios (such as the link b
 The dimensionless ratio $\kappa^2/\beta^2 = 2$ follows from: 
 (1) the WILL postulate, 
 (2) the ratio of total solid angle to total planar angle for the required closed, maximally symmetric topologies (sphere vs. circle), and 
-(3) the quadratic nature of energetic projections.
+(3) the quadratic nature of energetic projections.  
+It holds exactly whenever the system under study is \textbf{closed and complete}. Deviations mark the presence of missing energy channels, not a failure of the principle itself.
 \end{tcolorbox}
 
 \subsection{Geometric Relationships}
@@ -778,8 +799,6 @@ These describe the combined effects of relativity and gravity.
 The familiar SR and GR factors emerge here as projections of the same conserved geometry. 
 Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate “effects” but dual aspects of one energy-evolution constraint revealing their unified origin.
 \end{tcolorbox}
-
-
 
 \section{Energy–Symmetry Law}\label{sec:energy-symmetry}
 
@@ -2344,7 +2363,7 @@ This negligible difference is consistent with the numerical precision limits of 
 
 \end{proof}
 
-\subsection{Empirical Stress--Test: Binary Pulsar Orbital Decay}
+\subsection{Orbital Decay: Binary Pulsar}
 
 \begin{theorem}[Eccentricity factor for quadrupolar emission]\label{thm:Fe}
 For a bound Keplerian orbit with eccentricity $e$, the normalized orbit-average
