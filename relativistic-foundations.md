@@ -568,7 +568,11 @@ where
     
 
 **Bottom line:** Motion and gravity are *two sides of the same coin*. Their relationship isn’t an accident — it’s a built-in, geometric law of how the universe splits up its “energy resources.” This is why they can’t ever be truly separated, and why geometry is the hidden glue in everything.
+---
 
+![Q-Circle](images/Q-Circle.jpg)
+
+---
 ### Where Does the “2” Come From?
 
 All this talk about “budgeting” between circles and spheres leads to a natural question: **Why exactly “2”? Where does it come from?**
