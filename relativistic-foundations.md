@@ -60,29 +60,32 @@ title: "Relativistic Foundations"
 .video-dropdown-summary::-webkit-details-marker {
   display: none;
 }
-.will-button-summary {
+/* Hero-like toggle button for <summary> */
+.will-hero-summary {
   display: block;
-  padding: 1.2rem;
+  padding: 0.9rem 1.1rem;
   margin: 1rem 0;
-  background-color: #fff;
-  color: #000;
-  border: 2px solid #000;
-  border-radius: 12px;
+  background-color: rgba(31,41,55,0.5); /* ~ bg-gray-800/50 */
+  color: #22d3ee; /* ~ text-cyan-400 */
+  border: 2px solid rgba(6,182,212,0.3); /* ~ border-cyan-500/30 */
+  border-radius: 12px; /* match hero rounded-xl */
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   text-align: center;
   cursor: pointer;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 10px 25px rgba(6,182,212,0.10); /* ~ shadow-cyan-500/10 */
+  transition: background-color .2s ease, transform .12s ease, box-shadow .2s ease;
 }
-
-.will-button-summary:hover {
-  background-color: #f2f2f2;
-  transform: translateY(-2px);
+/* Hover/active feedback */
+.will-hero-summary:hover {
+  background-color: rgba(31,41,55,0.7);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(6,182,212,0.12);
 }
-.will-button-summary::-webkit-details-marker {
-  display: none;
-}
+/* Remove default disclosure marker */
+.will-hero-summary::-webkit-details-marker { display: none; }
+/* Keep container spacing consistent (reuse your existing container class) */
+.hero-details { margin-top: 0.5rem; }
 </style>
 
 
@@ -212,10 +215,10 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 ---
 
 <details class="video-dropdown-container">
-  <summary class="will-button-summary">
+  <summary class="will-hero-summary">
     ▶ Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)
   </summary>
-  <div class="geometry-container">
+  <div class="geometry-container hero-details">
     <div class="desmos-container">
       <iframe src="https://www.desmos.com/geometry/mpdksbsf9q" width="100%" height="500" frameborder="0"></iframe>
     </div>
