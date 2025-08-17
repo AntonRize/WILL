@@ -2002,6 +2002,108 @@ Consistent; explains phenomena without "dark entities" \\
 \subsection{Asymmetric Generality}
 The correspondence between these frameworks is fundamentally asymmetric. General Relativity, with its reliance on a pre-supposed metric tensor and the formalism of differential geometry, can be viewed as a specific, parameter-heavy instance of the WILL framework's principles. One can derive GR by adding these additional structures to WILL's minimalist foundation. Therefore, the choice between them is not one of preference, but of logical generality and parsimony, with WILL being presented as the more fundamental underlying structure.
 
+\section{Relational Foundation Theorem: WILL vs. GR}
+
+\begin{definition}[GR Core Axioms]
+General Relativity (GR) is assumed to rest on the following axioms:
+\begin{itemize}
+    \item[(A1)] The spacetime arena is a smooth Lorentzian manifold with metric $g_{\mu\nu}$.
+    \item[(A2)] Diffeomorphism invariance (general covariance): the form of physical laws is independent of coordinates.
+    \item[(A3)] Local Lorentz invariance / Einstein equivalence principle: locally, spacetime is Minkowskian.
+    \item[(A4)] Einstein Field Equations (EFE): $G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}$.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[WILL Foundational Postulate]
+The WILL framework is based on a single axiom:
+\begin{itemize}
+    \item[(W1)] \textbf{Relational Postulate:} All physical magnitudes are defined purely by relations between entities; spacetime is equivalent to energy evolution.
+\end{itemize}
+\end{definition}
+
+\begin{lemma}[Relationality in GR]
+From A2 and A3 it follows that observable quantities in GR are coordinate-independent
+and must be expressed relationally. In particular, no absolute magnitudes can serve
+as observables.
+\end{lemma}
+
+\begin{remark}[Bridge: From Relational Postulate to GR Axioms]
+If the Relational Postulate (W1) were false, then physical magnitudes
+could in principle be defined in absolute, non-relational terms. 
+Such absolutes would provide a hidden external reference structure.
+But this contradicts the core of GR:
+\begin{itemize}
+    \item It violates diffeomorphism invariance (A2), since coordinate independence
+    presupposes that only relational quantities are observable.
+    \item It undermines the equivalence principle (A3), since local Minkowski structure 
+    relies on the impossibility of distinguishing absolute magnitudes from relative ones.
+\end{itemize}
+Therefore, the negation of W1 directly negates A2 and A3. 
+This establishes the logical dependency required for the asymmetry theorem below.
+\end{remark}
+
+\begin{theorem}[Asymmetric Falsifiability of GR and WILL]
+\label{thm:asymmetry}
+Let $\mathsf{GR}$ denote the theory defined by axioms (A1)--(A4),
+and let $\mathsf{WILL}$ denote the theory defined by postulate (W1).
+Then:
+\begin{enumerate}
+    \item If (W1) is empirically falsified, then (A2)--(A3) are also falsified. 
+    Hence, $\mathsf{GR}$ is necessarily falsified.
+    \item If any of (A1)--(A3) are empirically falsified, $\mathsf{GR}$ collapses,
+    but (W1) may still remain valid as a stand-alone principle.
+\end{enumerate}
+Therefore, there exist possible empirical scenarios in which GR fails
+while WILL survives, but there exist no scenarios in which WILL fails
+while GR survives.
+\end{theorem}
+
+\begin{corollary}
+WILL is axiomatically more fundamental than GR: 
+its sole postulate (W1) is logically included within the core axioms of GR, 
+while GR requires additional ontological structures 
+(metric geometry, equivalence principle, Einstein equations) that are 
+not necessary for the consistency of WILL.
+\end{corollary}
+\begin{tikzpicture}[
+    node distance=1.3cm,
+    box/.style={rectangle, rounded corners, draw=black, thick, align=center, minimum width=3cm, minimum height=1cm},
+    every node/.style={font=\sffamily}
+]
+
+% WILL foundation
+\node[box, fill=blue!15] (w1) {W1: Relational Postulate \\ \small (Spacetime ≡ Energy Evolution)};
+
+% GR axioms stacked above
+\node[box, fill=green!15, above=of w1] (a2) {A2: Diffeomorphism Invariance};
+\node[box, fill=green!15, left=of a2, xshift=-0.5cm] (a1) {A1: Lorentzian Manifold};
+\node[box, fill=green!15, right=of a2, xshift=0.5cm] (a3) {A3: Equivalence Principle};
+\node[box, fill=green!15, above=of a2, yshift=1cm] (a4) {A4: Einstein Field Equations};
+
+% Arrows
+\draw[dashed, thick] (w1) -- (a2);
+\draw[dashed, thick] (w1) -- (a1);
+\draw[dashed, thick] (w1) -- (a3);
+\draw[->, thick] (a2) -- (a4);
+\draw[->, thick] (a1) -- (a4);
+\draw[->, thick] (a3) -- (a4);
+
+% Labels
+\node[below=0.3cm of w1] (labelWILL) {\textbf{WILL}};
+\node[above=0.3cm of a4] (labelGR) {\textbf{GR}};
+
+
+\node[box, fill=yellow!20, below=2.3cm of labelWILL, text width=12.2cm, align=left] (concl) {%
+\textbf{Conclusion (Axiomatic Inclusion and Asymmetric Falsifiability).} \\
+\emph{WILL} rests on the single relational postulate (W1). Core GR assumes additional structures (A1--A4). Hence:
+\begin{itemize}
+  \item If \textbf{W1} is empirically falsified, GR's core (A2--A3) is undermined; thus GR is falsified.
+  \item If any of \textbf{A1--A3} is falsified, GR collapses, while \textbf{W1} (and thus WILL) may still hold.
+\end{itemize}
+Therefore, there are scenarios where GR fails and WILL survives, but none where WILL fails while GR survives.
+};
+
+\end{tikzpicture}
 
 \section{Empirical Validation}
 
