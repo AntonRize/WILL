@@ -189,8 +189,16 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 
 ---
 
-
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Motion/Time on the Unit Circle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/mpdksbsf9q" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+<details class="video-dropdown-container">
+  <summary class="video-dropdown-summary">
+    ▶ Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)
+  </summary>
+  <div class="geometry-container">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/mpdksbsf9q" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
 ---
 
