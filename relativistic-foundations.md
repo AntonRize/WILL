@@ -60,7 +60,29 @@ title: "Relativistic Foundations"
 .video-dropdown-summary::-webkit-details-marker {
   display: none;
 }
-  
+.will-button-summary {
+  display: block;
+  padding: 1.2rem;
+  margin: 1rem 0;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.will-button-summary:hover {
+  background-color: #f2f2f2;
+  transform: translateY(-2px);
+}
+.will-button-summary::-webkit-details-marker {
+  display: none;
+}
 </style>
 
 
@@ -190,7 +212,7 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 ---
 
 <details class="video-dropdown-container">
-  <summary class="video-dropdown-summary">
+  <summary class="will-button-summary">
     ▶ Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)
   </summary>
   <div class="geometry-container">
