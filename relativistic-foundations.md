@@ -371,8 +371,19 @@ Where:
     
 -   $m_0 c^2$: Rest energy
     
-
 </details>
+
+
+Simply saying:
+
+
+-   **Rest energy** is your “starting stash” — it never goes away.
+    
+-   **Momentum** is what you get when you start moving.
+    
+-   **Total energy** is always the “longest side,” combining both.
+    
+
 
 ---
 
@@ -386,18 +397,6 @@ Where:
     </div>
   </div>
 </details>
-
----
-
-Simply saying:
-
-
--   **Rest energy** is your “starting stash” — it never goes away.
-    
--   **Momentum** is what you get when you start moving.
-    
--   **Total energy** is always the “longest side,” combining both.
-    
 
 ---
 
