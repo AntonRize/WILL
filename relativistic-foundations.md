@@ -467,7 +467,7 @@ Time dilation near a massive object is:
 $$
 \sqrt{1−\kappa^2} = \sqrt{1−\frac{R_S}{r}} = \sqrt{1−\frac{2GM}{rc^2}}
 $$
-
+</details>
 
 ---
 
