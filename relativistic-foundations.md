@@ -374,10 +374,20 @@ Where:
 
 </details>
 
+---
 
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: The Energy-Momentum Triangle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
-
+---
 
 Simply saying:
 
@@ -462,8 +472,16 @@ $$
 
 ---
 
-
- </details> <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
 ---
 
@@ -649,9 +667,6 @@ just says: *“Gravity’s share is always twice the motion’s share, because a
 
 ### The Photon Sphere: A Point of Perfect Balance
 
-
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Q Circle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
-
 A remarkable consequence of this unification happens at a special “balance point” — where the two projections, kinetic and potential, are perfectly matched. This occurs when:
 
 $$
@@ -659,6 +674,21 @@ $$
 $$
 
 and the two angles are exactly equal.
+
+---
+
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: Q Circle (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
+
+---
 
 **At this moment, something amazing appears: it matches the “photon sphere” — the special zone around a massive object where light itself can orbit in a perfect circle.** (For a black hole, that’s at a distance of 1.5 times its radius.)
 
@@ -904,8 +934,18 @@ The Global Positioning System (GPS) is perhaps the ideal laboratory for testing 
 The standard approach is to calculate these two corrections separately and sum them. WILL Geometry offers a more fundamental approach. It asserts that these two effects are not independent, but are linked by the unbreakable relation κ² = 2β² and can be combined into a single unified energetic parameter Q, where Q² = κ² + β². Using this single parameter to calculate the overall relativistic time shift for the Earth–satellite system, WILL Geometry predicts that the clocks on GPS satellites should run ahead of ground-based clocks by about **38 microseconds per day**.
 
 This result exactly matches the empirically measured value that must be continually added to the GPS system for it to function correctly. The success of this prediction is a powerful confirmation not only of the individual parts of the theory, but—more importantly—of the very principle of unification. It shows that treating kinetic and gravitational effects as unified geometric projections is not just a theoretical sophistication but a practical necessity for arriving at the correct answer.
+---
 
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Earth GPS (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: Earth GPS (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
 ---
 
@@ -917,7 +957,18 @@ WILL Geometry also faces this classic test. Using its fundamental equations and 
 
 Detailed calculations for both examples are provided in this document, but the narrative conclusion is clear: WILL Geometry is not merely a philosophical construction. It passes the most rigorous experimental and observational tests. It not only reproduces the successes of standard relativistic physics but does so from deeper, more unified first principles, lending its predictions extra weight and elegance. A theory born of pure logic finds its exact reflection in the workings of the real world. WILL Geometry stands up to every challenge that nature throws at it, not just matching standard physics, but explaining it from the ground up, using nothing but logic and geometry.
 
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Sun Mercury (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+---
+
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: Sun–Mercury (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
 ---
 
