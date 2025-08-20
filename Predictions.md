@@ -47,233 +47,192 @@ toc: false
     </div>
 </div>
 
+<!-- =======================
+     3) LAB 3 (REPLACEMENT)
+     ======================= -->
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60; margin-bottom: 2rem;">
-    <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">3) Relativity Lab — Orbital Slider</h3>
-    
-    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-        
-        <div style="flex: 2; min-width: 320px;">
+    <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">3) Lab: The Mass-Scale Invariance Principle</h3>
+
+    <div class="flex flex-wrap gap-8 mb-8">
+        <div class="flex-1 min-w-[250px]">
             <div>
-                <label for="radius-slider" style="display: block; margin-bottom: 0.5rem; color: #d1d5db;">Orbital Radius: <span id="radius-label" class="font-bold"></span> km</label>
-                <input type="range" id="radius-slider" min="6471" max="63710" value="26600" style="width: 100%;">
+                <label for="mass-input" class="block mb-2" style="color:#d1d5db;">Satellite Mass (kg):</label>
+                <input type="number" id="mass-input" value="600" class="w-full bg-gray-900 border border-gray-600 text-white p-2 rounded">
             </div>
-            
-            <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
-                <button id="btn-leo" class="bg-gray-600 hover:bg-gray-700 text-white py-1 px-3 rounded text-sm">LEO</button>
-                <button id="btn-gps" class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded text-sm">GPS</button>
-                <button id="btn-geo" class="bg-gray-600 hover:bg-gray-700 text-white py-1 px-3 rounded text-sm">GEO</button>
-            </div>
-
-            <div style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
-                <div>
-                    <p style="font-size: 0.9em; color: #9ca3af;">Δt per day (μs)</p>
-                    <p id="delta-t-val" style="font-size: 1.75em; font-weight: bold; color: #67e8f9;">--</p>
-                </div>
-                <div>
-                    <p style="font-size: 0.9em; color: #9ca3af;">Energy Symmetry</p>
-                    <p id="energy-sym-val" style="font-size: 1.75em; font-weight: bold; color: #fff;">--</p>
-                </div>
-                <div>
-                    <p style="font-size: 0.9em; color: #9ca3af;">W_ill Invariant</p>
-                    <p id="will-inv-val" style="font-size: 1.75em; font-weight: bold; color: #fff;">--</p>
-                </div>
+            <div class="mt-4">
+                <label for="radius-slider" class="block mb-2" style="color:#d1d5db;">Orbital Radius: <span id="radius-label" class="font-bold"></span> km</label>
+                <input type="range" id="radius-slider" min="6771" max="1600000" value="26600" step="100" class="w-full">
             </div>
         </div>
 
-        <div style="flex: 1; min-width: 200px; display: flex; align-items: center; justify-content: center;">
-            <canvas id="orbit-canvas" width="200" height="200"></canvas>
+        <div class="flex-1 min-w-[250px] flex flex-col justify-center">
+            <p class="mb-3">Presets:</p>
+            <div class="grid grid-cols-2 gap-2">
+                <button id="btn-iss" class="preset-btn bg-gray-600 hover:bg-gray-700 text-white py-2 px-3 rounded text-sm">ISS</button>
+                <button id="btn-gps" class="preset-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-3 rounded text-sm">GPS</button>
+                <button id="btn-jwst" class="preset-btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-3 rounded text-sm">JWST</button>
+                <button id="btn-moon" class="preset-btn bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-3 rounded text-sm">Moon</button>
+            </div>
         </div>
     </div>
-    
-    <div class="mt-4 space-y-2">
-        <details class="bg-gray-900/50 p-4 rounded-md">
-            <summary class="font-semibold text-cyan-400 cursor-pointer">Show Energy Symmetry Calculation</summary>
-            <div class="mt-4 pt-4 border-t border-gray-700 text-sm">
-                <p>\(\Delta E_{E \to S} = \frac{1}{2}((\kappa^2_{Earth} - \kappa^2_{Sat}) + \beta^2_{Sat}) = \) <span id="dE_E2S" class="font-mono"></span></p>
-                <p>\(\Delta E_{S \to E} = \frac{1}{2}((\kappa^2_{Sat} - \kappa^2_{Earth}) - \beta^2_{Sat}) = \) <span id="dE_S2E" class="font-mono"></span></p>
-                <p class="mt-2 font-bold">Sum: \(\Delta E_{E \to S} + \Delta E_{S \to E} = 0\)</p>
-            </div>
-        </details>
 
-        <details class="bg-gray-900/50 p-4 rounded-md">
-            <summary class="font-semibold text-cyan-400 cursor-pointer">Show W_ill Invariant Calculation</summary>
-            <div class="mt-4 pt-4 border-t border-gray-700 text-sm space-y-2">
-                <p class="font-bold">Intermediate Parameters (for Satellite):</p>
-                <div class="grid grid-cols-2 gap-x-4 gap-y-1 font-mono">
-                    <span>\(L_c = \sqrt{1-\beta^2}\): <span id="Lc_val"></span></span>
-                    <span>\(T_c = \sqrt{1-\kappa^2}\): <span id="Tc_val"></span></span>
-                    <span>\(T_d = 1/L_c\): <span id="Td_val"></span></span>
-                    <span>\(L_d = 1/T_c\): <span id="Ld_val"></span></span>
-                </div>
-                <p class="mt-4 font-bold">Result:</p>
-                <p>\(W_{ill} = \frac{L_d \cdot T_c}{T_d \cdot L_c} = 1\) (by construction)</p>
-            </div>
-        </details>
-
-        <details class="bg-gray-900/50 p-4 rounded-md">
-            <summary class="font-semibold text-cyan-400 cursor-pointer">Show Classical vs WILL Energy Comparison</summary>
-            <div class="mt-4 pt-4 border-t border-gray-700 text-sm space-y-2">
-                <p>Classical Total Energy \(E_{tot} = E_k + E_p\): <span id="Etot_val" class="font-mono"></span> J</p>
-                <p>Normalized by Rest Energy \(E_{tot} / (m c^2)\): <span id="Enorm_val" class="font-mono"></span></p>
-                <p>WILL Dimensionless Energy \(\Delta E_{E \to S}\): <span id="dE_comp_val" class="font-mono"></span></p>
-                <p class="mt-2 font-bold">Ratio: \(\frac{E_{tot} / (m c^2)}{\Delta E_{E \to S}} = \) <span id="ratio_val" class="font-mono text-lg text-white"></span></p>
-            </div>
-        </details>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-gray-900 p-4 rounded-lg">
+        <div class="text-center">
+            <p class="text-sm text-gray-400">Δt per day (μs)</p>
+            <p id="delta-t-val" class="text-2xl font-bold text-cyan-400">--</p>
+        </div>
+        <div class="text-center">
+            <p class="text-sm text-gray-400">Geometric Energy (ΔE)</p>
+            <p id="dE_val" class="text-2xl font-bold text-violet-400">--</p>
+        </div>
+        <div class="text-center">
+            <p class="text-sm text-gray-400">Normalized Physical Energy</p>
+            <p id="Enorm_val" class="text-2xl font-bold text-amber-400">--</p>
+        </div>
+        <div class="text-center">
+            <p class="text-sm text-gray-400">Energy Ratio</p>
+            <p id="ratio_val" class="text-2xl font-bold text-green-400">--</p>
+        </div>
     </div>
 
-    <div class="bg-gray-900/70 border border-amber-500/50 rounded-md p-4" style="margin-top: 2rem;">
-        <p style="font-weight: bold; color: #f59e0b; margin-bottom: 0.5rem;">Falsification Clauses</p>
-        <ul style="font-size: 0.9em; color: #d1d5db; list-style-type: disc; padding-left: 1.5rem;">
-            <li>If \(|\Delta t_{pred} - \Delta t_{empirical}| > 1\%\) for the GPS preset with current ephemeris data, the model is considered falsified.</li>
-            <li>If |Energy symmetry| > 1e-12, check input data for consistency.</li>
-            <li>If \(|W_{ill} - 1|\) > 1e-12, check model parameters for correctness.</li>
-        </ul>
+    <div class="mt-4">
+        <details class="bg-gray-900/50 p-4 rounded-md">
+            <summary class="font-semibold text-cyan-400 cursor-pointer">Show Calculation Breakdown</summary>
+            <div class="mt-4 pt-4 border-t border-gray-700 text-sm space-y-3">
+                <div>
+                    <h4 class="font-bold text-white mb-1">Physical Energy (Mass-Dependent)</h4>
+                    <p class="font-mono">E_total = E_potential + E_kinetic = <span id="Etot_val" class="text-white"></span> J</p>
+                    <p class="font-mono">E_rest = m₀c² = <span id="Erest_val" class="text-white"></span> J</p>
+                    <p class="font-mono font-bold">Normalized E = E_total / E_rest = <span id="Enorm_detailed" class="text-amber-400"></span></p>
+                </div>
+                <hr class="border-gray-700">
+                <div>
+                    <h4 class="font-bold text-white mb-1">Geometric Energy (Mass-Independent)</h4>
+                    <p class="font-mono">ΔE = (κ_Earth² / 2) - (β_Orbit² / 2) = <span id="dE_detailed" class="text-violet-400"></span></p>
+                </div>
+                <hr class="border-gray-700">
+                <p class="font-sans font-bold text-green-400 text-lg mt-2">Ratio: (Normalized E) / (Geometric ΔE) = <span id="final_ratio_detailed"></span></p>
+            </div>
+        </details>
     </div>
 </div>
 
 <script>
+// LAB 3 script
 document.addEventListener('DOMContentLoaded', () => {
     // === DOM Elements ===
+    const massInput = document.getElementById('mass-input');
     const slider = document.getElementById('radius-slider');
     const radiusLabel = document.getElementById('radius-label');
+
     const deltaTVal = document.getElementById('delta-t-val');
-    const energySymVal = document.getElementById('energy-sym-val');
-    const willInvVal = document.getElementById('will-inv-val');
-    
-    // Details sections
-    const dE_E2S = document.getElementById('dE_E2S');
-    const dE_S2E = document.getElementById('dE_S2E');
-    const Lc_val = document.getElementById('Lc_val');
-    const Tc_val = document.getElementById('Tc_val');
-    const Td_val = document.getElementById('Td_val');
-    const Ld_val = document.getElementById('Ld_val');
-    const Etot_val = document.getElementById('Etot_val');
+    const dE_val = document.getElementById('dE_val');
     const Enorm_val = document.getElementById('Enorm_val');
-    const dE_comp_val = document.getElementById('dE_comp_val');
     const ratio_val = document.getElementById('ratio_val');
 
-    const btnLeo = document.getElementById('btn-leo');
-    const btnGps = document.getElementById('btn-gps');
-    const btnGeo = document.getElementById('btn-geo');
-    
-    const canvas = document.getElementById('orbit-canvas');
-    const ctx = canvas.getContext('2d');
+    const Etot_val = document.getElementById('Etot_val');
+    const Erest_val = document.getElementById('Erest_val');
+    const dE_detailed = document.getElementById('dE_detailed');
+    const Enorm_detailed = document.getElementById('Enorm_detailed');
+    const final_ratio_detailed = document.getElementById('final_ratio_detailed');
 
-    // === Constants ===
+    // Buttons
+    const btnIss = document.getElementById('btn-iss');
+    const btnGps = document.getElementById('btn-gps');
+    const btnJwst = document.getElementById('btn-jwst');
+    const btnMoon = document.getElementById('btn-moon');
+
+    // === Physical Constants ===
     const G = 6.67430e-11;
     const M_earth = 5.97219e24;
     const R_earth_m = 6371000;
     const c = 299792458;
     const seconds_per_day = 86400;
-    const m_sat = 600; // kg
     const GM = G * M_earth;
 
-    // === Calculation Function ===
-    function calculateRelativity(r_m) {
-        // --- Satellite parameters ---
-        const v_sat = Math.sqrt(GM / r_m);
-        const beta_sat = v_sat / c;
-        const kappa_sq_sat = (2 * GM) / (r_m * c**2);
-        const kappa_sat = Math.sqrt(kappa_sq_sat);
-        
-        // --- Earth observer parameters ---
-        const r_earth_obs_m = R_earth_m;
-        const beta_earth_obs = 0;
-        const kappa_sq_earth_obs = (2 * GM) / (r_earth_obs_m * c**2);
-        const kappa_earth_obs = Math.sqrt(kappa_sq_earth_obs);
+    // === Presets [mass (kg), orbital radius (km)] ===
+    const presets = {
+        iss:  { mass: 450000,    radius: 6786 },     // ~415 km altitude
+        gps:  { mass: 600,       radius: 26600 },    // ~20200 km altitude
+        jwst: { mass: 6161,      radius: 1500000 },  // L2 point from Earth
+        moon: { mass: 7.347e22,  radius: 384748 }    // Moon
+    };
 
-        // --- Time Dilation ---
-        const Qt_sat = Math.sqrt(1 - kappa_sq_sat);
-        const Q_sat_lorentz = 1 / Math.sqrt(1 - beta_sat**2);
-        const Qt_earth_obs = Math.sqrt(1 - kappa_sq_earth_obs);
-        const rate_sat = (1 / Q_sat_lorentz) * Qt_sat;
-        const rate_earth = Qt_earth_obs;
-        const delta_t = ((rate_sat / rate_earth) - 1) * seconds_per_day * 1e6;
+    // === Core Calculation Function ===
+    function calculate(radius_m, mass_sat) {
+        // --- Satellite Parameters ---
+        const v_sat = Math.sqrt(GM / radius_m);
+        const beta_sq_sat = (v_sat / c) ** 2;
 
-        // --- Energy Symmetry Law ---
-        const delta_E_E_to_S = 0.5 * ((kappa_sq_earth_obs - kappa_sq_sat) + beta_sat**2);
-        const delta_E_S_to_E = 0.5 * ((kappa_sq_sat - kappa_sq_earth_obs) - beta_sat**2);
-        const energy_symmetry_sum = delta_E_E_to_S + delta_E_S_to_E;
+        // --- Earth Observer Parameters ---
+        const kappa_sq_earth = (2 * GM) / (R_earth_m * c ** 2);
 
-        // --- WILL Invariant ---
-        const Lc = Math.sqrt(1 - beta_sat**2);
-        const Tc = Math.sqrt(1 - kappa_sq_sat); // Same as Qt_sat
-        const Td = 1 / Lc; // Same as Q_sat_lorentz
-        const Ld = 1 / Tc;
-        const will_invariant = (Ld * Tc) / (Td * Lc);
+        // --- 1. Relativistic Time Dilation (GR + SR) ---
+        const kappa_sq_sat = (2 * GM) / (radius_m * c ** 2);
+        const gr_factor = (1 / Math.sqrt(1 - kappa_sq_earth)) - (1 / Math.sqrt(1 - kappa_sq_sat));
+        const sr_factor = (1 / Math.sqrt(1 - beta_sq_sat)) - 1;
+        const total_delta_t = (gr_factor - sr_factor) * seconds_per_day * 1e6;
 
-        // --- Classical vs WILL Energy ---
-        const Ep_gps = (-GM * m_sat / r_m) - (-GM * m_sat / R_earth_m);
-        const Ek_gps = 0.5 * m_sat * v_sat**2;
-        const Etot_gps = Ep_gps + Ek_gps;
-        const E_norm = Etot_gps / (m_sat * c**2);
-        const final_ratio = E_norm / delta_E_E_to_S;
+        // --- 2. Geometric Energy (WILL) ---
+        const delta_E_geom = 0.5 * (kappa_sq_earth - beta_sq_sat);
 
-        return {
-            delta_t, energy_symmetry_sum, will_invariant, final_ratio,
-            dE_E_to_S, dE_S_to_E, Lc, Tc, Td, Ld,
-            Etot_gps, E_norm
-        };
+        // --- 3. Physical Energy (Classical Mechanics & Normalization) ---
+        const E_potential = (-GM * mass_sat / radius_m) - (-GM * mass_sat / R_earth_m);
+        const E_kinetic = 0.5 * mass_sat * v_sat ** 2;
+        const E_total = E_potential + E_kinetic;
+        const E_rest = mass_sat * c ** 2;
+        const E_norm_phys = (E_rest > 0) ? E_total / E_rest : 0;
+
+        // --- 4. Final Ratio ---
+        const final_ratio = (delta_E_geom !== 0) ? E_norm_phys / delta_E_geom : 0;
+
+        return { total_delta_t, delta_E_geom, E_norm_phys, final_ratio, E_total, E_rest };
     }
 
     // === UI Update Function ===
     function updateUI() {
         const r_km = parseFloat(slider.value);
-        const r_m = r_km * 1000;
+        const m_sat = parseFloat(massInput.value);
+
+        if (isNaN(r_km) || isNaN(m_sat) || m_sat <= 0) return;
+
         radiusLabel.textContent = Math.round(r_km).toLocaleString();
-        
-        const res = calculateRelativity(r_m);
-        
-        // Main readouts
-        deltaTVal.textContent = res.delta_t.toFixed(2);
-        energySymVal.textContent = res.energy_symmetry_sum.toExponential(2);
-        willInvVal.textContent = res.will_invariant.toFixed(12);
-        
-        // Detailed calculations
-        dE_E2S.textContent = res.dE_E_to_S.toExponential(6);
-        dE_S2E.textContent = res.dE_S_to_E.toExponential(6);
-        Lc_val.textContent = res.Lc.toFixed(12);
-        Tc_val.textContent = res.Tc.toFixed(12);
-        Td_val.textContent = res.Td.toFixed(12);
-        Ld_val.textContent = res.Ld.toFixed(12);
-        Etot_val.textContent = res.Etot_gps.toExponential(6);
-        Enorm_val.textContent = res.E_norm.toExponential(6);
-        dE_comp_val.textContent = res.dE_E_to_S.toExponential(6);
-        ratio_val.textContent = res.final_ratio.toFixed(10);
-        
-        drawCanvas(r_m);
+        const results = calculate(r_km * 1000, m_sat);
+
+        // Update main readouts
+        deltaTVal.textContent = results.total_delta_t.toFixed(2);
+        dE_val.textContent = results.delta_E_geom.toExponential(4);
+        Enorm_val.textContent = results.E_norm_phys.toExponential(4);
+        ratio_val.textContent = results.final_ratio.toFixed(8);
+
+        // Update detailed breakdown
+        Etot_val.textContent = results.E_total.toExponential(4);
+        Erest_val.textContent = results.E_rest.toExponential(4);
+        dE_detailed.textContent = results.delta_E_geom.toExponential(6);
+        Enorm_detailed.textContent = results.E_norm_phys.toExponential(6);
+        final_ratio_detailed.textContent = results.final_ratio.toFixed(12);
     }
-    
-    function drawCanvas(r_m) {
-        // ... (Canvas drawing logic remains the same)
-        const size = 200;
-        const center = size / 2;
-        const earthRadiusPx = 30;
-        const maxOrbitPx = 95;
-        const r_max_m = 10 * R_earth_m;
-        
-        const orbitRadiusPx = earthRadiusPx + ((r_m - R_earth_m) / (r_max_m - R_earth_m)) * (maxOrbitPx - earthRadiusPx);
-        
-        ctx.clearRect(0, 0, size, size);
-        ctx.beginPath();
-        ctx.arc(center, center, orbitRadiusPx, 0, 2 * Math.PI);
-        ctx.strokeStyle = '#4b5563';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(center, center, earthRadiusPx, 0, 2 * Math.PI);
-        ctx.fillStyle = '#3498db';
-        ctx.fill();
+
+    function setPreset(preset) {
+        massInput.value = preset.mass;
+        slider.value = preset.radius;
+        // Adjust slider range to ensure preset is within bounds
+        slider.min = Math.min(6771, Math.floor(preset.radius * 0.1)).toString();
+        slider.max = Math.max(1600000, Math.floor(preset.radius * 1.2)).toString();
+        updateUI();
     }
 
     // === Event Listeners ===
     slider.addEventListener('input', updateUI);
-    btnLeo.addEventListener('click', () => { slider.value = 7000; updateUI(); });
-    btnGps.addEventListener('click', () => { slider.value = 26600; updateUI(); });
-    btnGeo.addEventListener('click', () => { slider.value = 42164; updateUI(); });
+    massInput.addEventListener('input', updateUI);
 
-    // Initial call
-    updateUI();
+    btnIss.addEventListener('click', () => setPreset(presets.iss));
+    btnGps.addEventListener('click', () => setPreset(presets.gps));
+    btnJwst.addEventListener('click', () => setPreset(presets.jwst));
+    btnMoon.addEventListener('click', () => setPreset(presets.moon));
+
+    // Initialisation
+    setPreset(presets.gps);
 });
 </script>
 
