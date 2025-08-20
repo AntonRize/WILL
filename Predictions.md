@@ -48,15 +48,68 @@ toc: false
 </div>
 
 <!-- =======================
-     3) LAB 3 (REPLACEMENT)
+     3) LAB 3 (UPDATED)
      ======================= -->
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60; margin-bottom: 2rem;">
-    <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">3) Lab: The Mass-Scale Invariance Principle</h3>
+    <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 0.5rem;">3) Lab — Relativistic Time Offset (Geometric Projections)</h3>
+    <p class="muted" style="color:#a3b1c2; margin-bottom:1rem;">
+        Primary calculation: the daily relativistic time offset between a surface observer and an orbiting body. Secondary checks: the Energy Symmetry Law, the WILL invariant, and classical energy consistency. The method is object-agnostic and applies to any circular orbit.
+    </p>
 
+    <!-- Explanation (object-agnostic) -->
+    <div class="bg-gray-900/50 border border-gray-700 rounded-md p-4" style="margin-bottom:1rem;">
+        <div class="grid" style="display:grid; gap:0.75rem;">
+            <div>
+                <h4 style="font-weight:600; color:#e5e7eb; margin:0 0 .25rem 0;">Time Offset (core result)</h4>
+                <p style="margin:0;">
+                    Define gravitational projections \(\kappa_A^2 = 2GM/(R_A c^2)\) for the surface \(A\) and \(\kappa_B^2 = 2GM/(a c^2)\) for the orbital radius \(a\). The kinematic projection at \(B\) is \(\beta_B^2 = GM/(a c^2)\) (since \(v^2 = GM/a\)).
+                    The daily clock offset (“orbiter vs surface”) is
+                    \[
+                    \Delta t_{B\to A}[\mu s/\text{day}] =
+                    \Bigg[\frac{1}{\sqrt{1-\kappa_A^2}} - \frac{1}{\sqrt{1-\kappa_B^2}}
+                    \;-\;\Big(\frac{1}{\sqrt{1-\beta_B^2}} - 1\Big)\Bigg]\times 86400\times 10^6 .
+                    \]
+                </p>
+            </div>
+            <div>
+                <h4 style="font-weight:600; color:#e5e7eb; margin:0 0 .25rem 0;">Energy Symmetry Law</h4>
+                <p style="margin:0;">
+                    For locations \(A\) (surface) and \(B\) (orbit) define
+                    \(\Delta E_{A\to B}=\tfrac{1}{2}\big[(\kappa_A^2-\kappa_B^2)+(\beta_B^2-\beta_A^2)\big]\),
+                    \(\Delta E_{B\to A}=-\Delta E_{A\to B}\),
+                    hence \(\Delta E_{A\to B}+\Delta E_{B\to A}=0\).
+                </p>
+            </div>
+            <div>
+                <h4 style="font-weight:600; color:#e5e7eb; margin:0 0 .25rem 0;">WILL invariant</h4>
+                <p style="margin:0;">
+                    In terms of \(E, T, M, L\) projections the invariant \(W_{ill}=\frac{E\,T^2}{M\,L^2}=1\) holds; dimensional factors cancel, leaving a purely geometric identity for the same subsystem (surface–orbit).
+                </p>
+            </div>
+            <div>
+                <h4 style="font-weight:600; color:#e5e7eb; margin:0 0 .25rem 0;">Classical energy consistency</h4>
+                <p style="margin:0;">
+                    The normalized total energy \(E_{tot}/(mc^2)\) at \(B\) equals the geometric quantity \(\Delta E_{A\to B}\).
+                    Thus the geometric projection encodes the physical energy share independent of the object’s mass.
+                </p>
+            </div>
+            <div class="bg-gray-900/70 border border-amber-500/50 rounded-md p-3">
+                <p style="font-weight:600; color:#f59e0b; margin:0 0 .25rem 0;">Falsification Clause</p>
+                <p style="margin:0; color:#d1d5db;">
+                    If the daily time offset or the symmetry/invariant identities systematically fail for accepted \(\{G,M,R_A,a,c\}\) across circular orbits, the principle is falsified.
+                </p>
+            </div>
+            <p style="margin:0.25rem 0 0 0; font-style:italic; color:#a3b1c2;">
+                Unlike GR, which obtains time dilation via Schwarzschild machinery, here the same offset emerges from transparent algebra on \(\kappa^2\) and \(\beta^2\). Identical empirical content, radically simpler path.
+            </p>
+        </div>
+    </div>
+
+    <!-- Controls + Results -->
     <div class="flex flex-wrap gap-8 mb-8">
         <div class="flex-1 min-w-[250px]">
             <div>
-                <label for="mass-input" class="block mb-2" style="color:#d1d5db;">Satellite Mass (kg):</label>
+                <label for="mass-input" class="block mb-2" style="color:#d1d5db;">Object Mass (kg):</label>
                 <input type="number" id="mass-input" value="600" class="w-full bg-gray-900 border border-gray-600 text-white p-2 rounded">
             </div>
             <div class="mt-4">
@@ -108,7 +161,7 @@ toc: false
                 <hr class="border-gray-700">
                 <div>
                     <h4 class="font-bold text-white mb-1">Geometric Energy (Mass-Independent)</h4>
-                    <p class="font-mono">ΔE = (κ_Earth² / 2) - (β_Orbit² / 2) = <span id="dE_detailed" class="text-violet-400"></span></p>
+                    <p class="font-mono">ΔE = (κ_A² − κ_B² + β_B² − β_A²)/2 = <span id="dE_detailed" class="text-violet-400"></span></p>
                 </div>
                 <hr class="border-gray-700">
                 <p class="font-sans font-bold text-green-400 text-lg mt-2">Ratio: (Normalized E) / (Geometric ΔE) = <span id="final_ratio_detailed"></span></p>
@@ -118,7 +171,7 @@ toc: false
 </div>
 
 <script>
-// LAB 3 script
+// LAB 3 script (kept minimal; UI + calculations remain functional)
 document.addEventListener('DOMContentLoaded', () => {
     // === DOM Elements ===
     const massInput = document.getElementById('mass-input');
@@ -159,86 +212,85 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // === Core Calculation Function ===
-    function calculate(radius_m, mass_sat) {
-        // --- Satellite Parameters ---
-        const v_sat = Math.sqrt(GM / radius_m);
-        const beta_sq_sat = (v_sat / c) ** 2;
+    function calculate(radius_m, mass_obj) {
+        // Orbital parameters
+        const v = Math.sqrt(GM / radius_m);
+        const beta_sq_B = (v / c) ** 2;
 
-        // --- Earth Observer Parameters ---
-        const kappa_sq_earth = (2 * GM) / (R_earth_m * c ** 2);
+        // Projections (surface A vs orbit B)
+        const kappa_sq_A = (2 * GM) / (R_earth_m * c ** 2);
+        const kappa_sq_B = (2 * GM) / (radius_m * c ** 2);
+        const beta_sq_A = 0;
 
-        // --- 1. Relativistic Time Dilation (GR + SR) ---
-        const kappa_sq_sat = (2 * GM) / (radius_m * c ** 2);
-        const gr_factor = (1 / Math.sqrt(1 - kappa_sq_earth)) - (1 / Math.sqrt(1 - kappa_sq_sat));
-        const sr_factor = (1 / Math.sqrt(1 - beta_sq_sat)) - 1;
-        const total_delta_t = (gr_factor - sr_factor) * seconds_per_day * 1e6;
+        // 1) Time offset (GR-like expression split as geometric + kinematic parts)
+        const grav_part = (1 / Math.sqrt(1 - kappa_sq_A)) - (1 / Math.sqrt(1 - kappa_sq_B));
+        const kin_part  = (1 / Math.sqrt(1 - beta_sq_B)) - 1;
+        const delta_t_us_per_day = (grav_part - kin_part) * seconds_per_day * 1e6;
 
-        // --- 2. Geometric Energy (WILL) ---
-        const delta_E_geom = 0.5 * (kappa_sq_earth - beta_sq_sat);
+        // 2) Geometric energy (mass-independent)
+        const delta_E_geom = 0.5 * ((kappa_sq_A - kappa_sq_B) + (beta_sq_B - beta_sq_A));
 
-        // --- 3. Physical Energy (Classical Mechanics & Normalization) ---
-        const E_potential = (-GM * mass_sat / radius_m) - (-GM * mass_sat / R_earth_m);
-        const E_kinetic = 0.5 * mass_sat * v_sat ** 2;
-        const E_total = E_potential + E_kinetic;
-        const E_rest = mass_sat * c ** 2;
-        const E_norm_phys = (E_rest > 0) ? E_total / E_rest : 0;
+        // 3) Classical energy (mass-dependent, normalized)
+        const E_pot = (-GM * mass_obj / radius_m) - (-GM * mass_obj / R_earth_m);
+        const E_kin = 0.5 * mass_obj * v ** 2;
+        const E_tot = E_pot + E_kin;
+        const E_rest = mass_obj * c ** 2;
+        const E_norm = (E_rest > 0) ? (E_tot / E_rest) : 0;
 
-        // --- 4. Final Ratio ---
-        const final_ratio = (delta_E_geom !== 0) ? E_norm_phys / delta_E_geom : 0;
+        // 4) Ratio
+        const ratio = (delta_E_geom !== 0) ? (E_norm / delta_E_geom) : 0;
 
-        return { total_delta_t, delta_E_geom, E_norm_phys, final_ratio, E_total, E_rest };
+        return { delta_t_us_per_day, delta_E_geom, E_norm, ratio, E_tot, E_rest, kappa_sq_A, kappa_sq_B, beta_sq_B };
     }
 
     // === UI Update Function ===
     function updateUI() {
         const r_km = parseFloat(slider.value);
-        const m_sat = parseFloat(massInput.value);
-
-        if (isNaN(r_km) || isNaN(m_sat) || m_sat <= 0) return;
+        const m_obj = parseFloat(massInput.value);
+        if (isNaN(r_km) || isNaN(m_obj) || m_obj <= 0) return;
 
         radiusLabel.textContent = Math.round(r_km).toLocaleString();
-        const results = calculate(r_km * 1000, m_sat);
+        const { delta_t_us_per_day, delta_E_geom, E_norm, ratio, E_tot, E_rest } =
+            calculate(r_km * 1000, m_obj);
 
-        // Update main readouts
-        deltaTVal.textContent = results.total_delta_t.toFixed(2);
-        dE_val.textContent = results.delta_E_geom.toExponential(4);
-        Enorm_val.textContent = results.E_norm_phys.toExponential(4);
-        ratio_val.textContent = results.final_ratio.toFixed(8);
+        // Main readouts
+        deltaTVal.textContent = delta_t_us_per_day.toFixed(2);
+        dE_val.textContent = delta_E_geom.toExponential(4);
+        Enorm_val.textContent = E_norm.toExponential(4);
+        ratio_val.textContent = ratio.toFixed(8);
 
-        // Update detailed breakdown
-        Etot_val.textContent = results.E_total.toExponential(4);
-        Erest_val.textContent = results.E_rest.toExponential(4);
-        dE_detailed.textContent = results.delta_E_geom.toExponential(6);
-        Enorm_detailed.textContent = results.E_norm_phys.toExponential(6);
-        final_ratio_detailed.textContent = results.final_ratio.toFixed(12);
+        // Detailed
+        Etot_val.textContent = E_tot.toExponential(4);
+        Erest_val.textContent = E_rest.toExponential(4);
+        dE_detailed.textContent = delta_E_geom.toExponential(6);
+        Enorm_detailed.textContent = E_norm.toExponential(6);
+        final_ratio_detailed.textContent = ratio.toFixed(12);
     }
 
     function setPreset(preset) {
         massInput.value = preset.mass;
         slider.value = preset.radius;
-        // Adjust slider range to ensure preset is within bounds
         slider.min = Math.min(6771, Math.floor(preset.radius * 0.1)).toString();
         slider.max = Math.max(1600000, Math.floor(preset.radius * 1.2)).toString();
         updateUI();
     }
 
-    // === Event Listeners ===
+    // Events
     slider.addEventListener('input', updateUI);
     massInput.addEventListener('input', updateUI);
-
     btnIss.addEventListener('click', () => setPreset(presets.iss));
     btnGps.addEventListener('click', () => setPreset(presets.gps));
     btnJwst.addEventListener('click', () => setPreset(presets.jwst));
     btnMoon.addEventListener('click', () => setPreset(presets.moon));
 
-    // Initialisation
+    // Init
     setPreset(presets.gps);
 });
 </script>
 
-   <hr style="border-color: #374151; margin: 3rem 0;">
+<hr style="border-color: #374151; margin: 3rem 0;">
 
-<h2 style="font-size: 2em; text-align: center; margin-bottom: 2.5rem;">📄 Reproducible Notebooks & Static Views</h2>
+<h2 style="font-size: 2em; text-align: center; margin-bottom: 2.5rem;">📄 Reproducible Notebooks</h2>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
 
