@@ -33,7 +33,7 @@ Complete research documentation in three parts, covering the theoretical foundat
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
         <strong>Topics:</strong> Cosmic evolution, Ωₘ = 1/3, ΩΛ = 2/3, w = -1, holographic entropy
     </p>
-   <a href="https://github.com/AntonRize/WILL/raw/main/documents/WILL_PART_II_Cosmology.pdf" download>Download Part I</a>
+   <a href="https://github.com/AntonRize/WILL/raw/main/documents/WILL_PART_II_Cosmology.pdf" download>Download Part II</a>
 </div>
 
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60;">
@@ -45,9 +45,7 @@ Complete research documentation in three parts, covering the theoretical foundat
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
         <strong>Topics:</strong> Geometric quantization, α = β derivation, hydrogen spectra, atomic physics
     </p>
-    <a href="https://github.com/AntonRize/WILL/raw/main/documents/WILL_PART_III_QM.pdf" download>Download Part I</a>
-        📄 Download Part III
-    </a>
+    <a href="https://github.com/AntonRize/WILL/raw/main/documents/WILL_PART_III_QM.pdf" download>Download Part III</a>
 </div>
 
 </div>
