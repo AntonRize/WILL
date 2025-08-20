@@ -60,7 +60,32 @@ title: "Relativistic Foundations"
 .video-dropdown-summary::-webkit-details-marker {
   display: none;
 }
-  
+/* Hero-like toggle button for <summary> */
+.will-hero-summary {
+  display: block;
+  padding: 0.9rem 1.1rem;
+  margin: 1rem 0;
+  background-color: rgba(31,41,55,0.5); /* ~ bg-gray-800/50 */
+  color: #22d3ee; /* ~ text-cyan-400 */
+  border: 2px solid rgba(6,182,212,0.3); /* ~ border-cyan-500/30 */
+  border-radius: 12px; /* match hero rounded-xl */
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(6,182,212,0.10); /* ~ shadow-cyan-500/10 */
+  transition: background-color .2s ease, transform .12s ease, box-shadow .2s ease;
+}
+/* Hover/active feedback */
+.will-hero-summary:hover {
+  background-color: rgba(31,41,55,0.7);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(6,182,212,0.12);
+}
+/* Remove default disclosure marker */
+.will-hero-summary::-webkit-details-marker { display: none; }
+/* Keep container spacing consistent (reuse your existing container class) */
+.hero-details { margin-top: 0.5rem; }
 </style>
 
 
@@ -189,8 +214,16 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 
 ---
 
-
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Motion/Time on the Unit Circle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/mpdksbsf9q" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/mpdksbsf9q" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
 ---
 
@@ -338,12 +371,7 @@ Where:
     
 -   $m_0 c^2$: Rest energy
     
-
 </details>
-
-
-
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: The Energy-Momentum Triangle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
 
 
 Simply saying:
@@ -355,6 +383,20 @@ Simply saying:
     
 -   **Total energy** is always the “longest side,” combining both.
     
+
+
+---
+
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
 ---
 
@@ -425,12 +467,20 @@ Time dilation near a massive object is:
 $$
 \sqrt{1−\kappa^2} = \sqrt{1−\frac{R_S}{r}} = \sqrt{1−\frac{2GM}{rc^2}}
 $$
-
+</details>
 
 ---
 
-
- </details> <details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: Gravity as a Shadow on the Sphere (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
 ---
 
@@ -568,11 +618,13 @@ where
     
 
 **Bottom line:** Motion and gravity are *two sides of the same coin*. Their relationship isn’t an accident — it’s a built-in, geometric law of how the universe splits up its “energy resources.” This is why they can’t ever be truly separated, and why geometry is the hidden glue in everything.
----
-
-![Q-Circle](images/Q-Circle.jpg)
 
 ---
+
+![Total-Q-projection](images/Total-Q-projection.jpg)
+
+---
+
 ### Where Does the “2” Come From?
 
 All this talk about “budgeting” between circles and spheres leads to a natural question: **Why exactly “2”? Where does it come from?**
@@ -614,9 +666,6 @@ just says: *“Gravity’s share is always twice the motion’s share, because a
 
 ### The Photon Sphere: A Point of Perfect Balance
 
-
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Q Circle (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
-
 A remarkable consequence of this unification happens at a special “balance point” — where the two projections, kinetic and potential, are perfectly matched. This occurs when:
 
 $$
@@ -624,6 +673,21 @@ $$
 $$
 
 and the two angles are exactly equal.
+
+---
+
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: Q Circle (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
+
+---
 
 **At this moment, something amazing appears: it matches the “photon sphere” — the special zone around a massive object where light itself can orbit in a perfect circle.** (For a black hole, that’s at a distance of 1.5 times its radius.)
 
@@ -870,7 +934,18 @@ The standard approach is to calculate these two corrections separately and sum t
 
 This result exactly matches the empirically measured value that must be continually added to the GPS system for it to function correctly. The success of this prediction is a powerful confirmation not only of the individual parts of the theory, but—more importantly—of the very principle of unification. It shows that treating kinetic and gravitational effects as unified geometric projections is not just a theoretical sophistication but a practical necessity for arriving at the correct answer.
 
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Earth GPS (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+---
+
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: Earth GPS (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
 ---
 
@@ -882,7 +957,18 @@ WILL Geometry also faces this classic test. Using its fundamental equations and 
 
 Detailed calculations for both examples are provided in this document, but the narrative conclusion is clear: WILL Geometry is not merely a philosophical construction. It passes the most rigorous experimental and observational tests. It not only reproduces the successes of standard relativistic physics but does so from deeper, more unified first principles, lending its predictions extra weight and elegance. A theory born of pure logic finds its exact reflection in the workings of the real world. WILL Geometry stands up to every challenge that nature throws at it, not just matching standard physics, but explaining it from the ground up, using nothing but logic and geometry.
 
-<details> <summary class="cursor-pointer font-semibold text-blue-400 hover:text-blue-200 text-lg"> Show Interactive Graph: Sun Mercury (Desmos) </summary> <div class="geometry-container"> <div class="desmos-container"> <iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"></iframe> </div> </div> </details>
+---
+
+<details class="video-dropdown-container">
+  <summary class="will-hero-summary">
+    ▶ Show Interactive Graph: Sun–Mercury (Desmos)
+  </summary>
+  <div class="geometry-container hero-details">
+    <div class="desmos-container">
+      <iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+  </div>
+</details>
 
 ---
 
