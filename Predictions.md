@@ -273,6 +273,13 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="{{ site.baseurl }}/Colab%20Notebooks/Double_Pulsar_orbital_decay_rate.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a>
   </div>
 
+<div class="bg-gray-800/50 p-6 rounded-lg">
+  <h4 style="font-size: 1.25em; margin-bottom: 1rem;">D) Absolute Scale Cosmology</h4>
+  <p style="margin-bottom: 1rem; color: #d1d5db;">Cosmological scale metric predictions, tests, and demonstrations</p>
+  <a href="{{ site.baseurl }}/Colab%20Notebooks/WILL_Geometry_absolute_scale_cosmology.ipynb"
+     class="text-cyan-400 hover:text-cyan-300">Notebook</a>
+</div>
+
 </div>
 
 </div>
