@@ -21,7 +21,7 @@ Complete research documentation in three parts, covering the theoretical foundat
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
         <strong>Topics:</strong> Geometric postulate, SR derivation, GR equivalence, unified field equations
     </p>
-    <a href="/WILL/documents/WILL_PART_I_SR_GR.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
+    <a href="/documents/WILL_PART_I_SR_GR.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
         📄 Download Part I
     </a>
 </div>
@@ -35,7 +35,7 @@ Complete research documentation in three parts, covering the theoretical foundat
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
         <strong>Topics:</strong> Cosmic evolution, Ωₘ = 1/3, ΩΛ = 2/3, w = -1, holographic entropy
     </p>
-    <a href="/WILL/documents/WILL_PART_II_Cosmology.pdf" target="_blank" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded inline-block">
+    <a href="/documents/WILL_PART_II_Cosmology.pdf" target="_blank" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded inline-block">
         📄 Download Part II
     </a>
 </div>
@@ -49,7 +49,7 @@ Complete research documentation in three parts, covering the theoretical foundat
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
         <strong>Topics:</strong> Geometric quantization, α = β derivation, hydrogen spectra, atomic physics
     </p>
-    <a href="/WILL/documents/WILL_PART_III_QM.pdf" target="_blank" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded inline-block">
+    <a href="/documents/WILL_PART_III_QM.pdf" target="_blank" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded inline-block">
         📄 Download Part III
     </a>
 </div>
