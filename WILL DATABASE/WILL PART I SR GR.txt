@@ -1,4 +1,3 @@
-
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -15,9 +14,7 @@
 \usepackage{tabularx}
 \usepackage{booktabs}
 \DeclareUnicodeCharacter@
-\usepackage{threeparttable}
 % Настройка теорем и других математических элементов
-
 
 \title{WILL: Unified Framework\\
 PART I - Foundations of Relativity} 
@@ -52,10 +49,9 @@ PART I - Foundations of Relativity}
 \maketitle
 \newpage
 \begin{abstract}
-    This paper introduces the first part of the WILL series, a new geometric framework unifying special and general relativity. 
-We posit a \textbf{single fundamental postulate}:   $\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}$.
-Spacetime is identical to energy evolution. This principle, unlike existing theories, introduces \textbf{no free parameters}; all measurable quantities emerge from purely \textbf{geometric projections} on maximally symmetric \textbf{closed} \textbf{manifolds}. 
-    This approach\textbf{ eliminates} curvature \textbf{singularities}, unifies \textbf{gravitational and kinematic time dilation} without invoking dark matter or modified gravity, and yields \textbf{verifiable orbital relations}. This paper reconstructs the standard Schwarzschild and Kerr metrics, demonstrating the unique and necessary consequences of our\textbf{ relational geometry}. We will detail the core principles, show the derivation of key relativistic equations, and outline the implications for future research. 
+This paper, the first in the WILL series, introduces a new theoretical framework that shifts the paradigm from a descriptive to a \textbf{generative model} of physics, providing a unified derivation of Special and General Relativity from first principles. The model is founded on the \textbf{single postulate} that $\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}$, from which all physical laws are deductively derived without free parameters. Key results include: the \textit{ab initio} geometric derivation of the energy-momentum relation ($E^2 = (pc)^2 + (mc^2)^2$); a fundamental unifying equation, $\kappa^2 = 2\beta^2$, which is shown to be a necessary consequence of the topology of the underlying projection manifolds; and an algebraic field equation, $\frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}}$, that serves as a local equivalent to Einstein's Field Equations.
+
+By construction, this geometric approach \textbf{inherently resolves the problem of singularities} by imposing a natural maximum on curvature, and it successfully \textbf{reconstructs the Schwarzschild and Kerr metrics} from its core projections. The framework offers significant \textbf{conceptual clarity and computational simplicity} by replacing complex tensor formalism with transparent geometric relations. Furthermore, it demonstrates complete \textbf{theoretical closure} (the "Theoretical Ouroboros"), wherein the foundational postulate deductively leads to a field equation that fully embodies it. The model's predictions are shown to be in precise agreement with key empirical tests, including the precession of Mercury, GPS time corrections, and the orbital decay of binary pulsars, establishing a robust foundation for subsequent papers on cosmology (Part II) and quantum mechanics (Part III).
 \end{abstract}
 
 \begin{center}
@@ -110,29 +106,7 @@ Modern theoretical physics often tolerates hidden assumptions: arbitrary constan
 
 \subsection{No Ontological Commitments}
 
-This model makes no ontological claims about the "existence" of space, particles, or fields. Instead, all phenomena are treated as observer-dependent energetic projections, governed by the Energy Symmetry Law:
-\[
-\boxed{
-\Delta E_{A \rightarrow B} + \Delta E_{B \rightarrow A} = 0
-}
-\]
-\emph{(The precise form of $\Delta E$ is derived in Section~\ref{sec:energy-symmetry}.)}
-
-\subsection{Principle of Sufficient Explanation}
-
-If a geometric relationship can explain an observation, no additional mechanism is introduced. WILL Geometry seeks not to describe the universe as we imagine it, but to reduce its complexity to the minimal algebraic and causal structure required to explain our measurements.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary of WILL Geometry]
-The entire physics of WILL Geometry is built upon a single postulate: \\
-\textbf{“Spacetime is identical to energy evolution.”}
-
-All formal structure---closed geometry, the speed limit, energy conservation, the absence of singularities---inevitably follows from this postulate.
-
-The resulting equation is not something arbitrary or requiring any external assumptions; it is precisely the mathematical realization of the postulate itself.
-
-Thus, the theory is perfectly closed upon itself: \textit{the fundamental principle is proven by its own consequences, and vice versa}.
-\end{tcolorbox}
-
+This model makes no ontological claims about the "existence" of space, particles, or fields. Instead, all phenomena are treated as observer-dependent energetic projections.
 
 \subsection{Motivation and Core Principles}
 
@@ -701,6 +675,13 @@ The ratio of the total angular measures of these two fundamental manifolds is a 
 \]
 This factor of 2 is a direct and necessary consequence of the dimensional difference between an omnidirectional (2D) and a linear (1D) projection space.
 
+\begin{quote}\small
+Here both $2\pi$ and $4\pi$ are the \emph{complete normalized angular measures} of $S^1$ and $S^2$. 
+Although planar and solid angles are defined in different dimensional settings, 
+both are formally dimensionless in SI and serve as the natural measures of their respective closed symmetric manifolds. 
+Thus their ratio is a pure number, reflecting the intrinsic topological difference between one- and two-dimensional projection spaces.
+\end{quote}
+
 \subsection{The Quadratic Nature of Energetic Projections}
 
 To translate this purely geometric ratio into a physical law, we must consider how projections relate to energy. In physics, the energetic significance (or "power") of a field, velocity, or wave is proportional not to its amplitude, but to its \textbf{amplitude squared}. This quadratic relationship is fundamental, appearing in kinetic energy ($E_k \propto v^2$), potential energy in fields, and the energy density of electromagnetic waves ($E \propto A^2$).
@@ -717,6 +698,22 @@ This factor of 2 is not an empirical constant, a Newtonian mechanical result, or
 
 \paragraph{Closure Condition.}
 The relation $\kappa^2=2\beta^2$ is therefore more than a proportionality: it is the precise criterion for energetic closure. Whenever the equality is satisfied, the system under study is fully self-contained, with no leakage of the conserved resource into unaccounted channels. Whenever the equality \emph{appears} to fail (for instance in highly elliptical binaries or in radiating systems), this does not contradict the principle but indicates that additional energy pathways --- such as gravitational-wave emission or cosmological expansion --- must be included to restore the balance. In this sense, the relation acts as a diagnostic invariant: it tells us whether our description has captured the full closed geometry or whether unseen flows remain.
+
+\subsection{Closure, Falsifiability, and the Conservation of Energy}
+
+The relation $\kappa^2 = 2\beta^2$ must be understood not merely as a proportionality, but as the precise geometric criterion for the \textbf{energetic closure} of a system. In this framework, it serves as the direct geometric embodiment of the Law of Conservation of Energy.
+
+Any apparent deviation from this equality is therefore not a failure of the principle. Instead, it acts as a powerful diagnostic tool that presents a definitive epistemic choice:
+
+\begin{enumerate}
+    \item \textbf{The System is Incompletely Defined:} The observer has failed to account for all energy channels. The deviation is a physical signature of an unaccounted-for process (e.g., gravitational-wave emission, mass accretion, or other energy flows). The relation thus becomes a predictive instrument, compelling the discovery of these flows to restore the geometric balance.
+
+    \item \textbf{A Violation of Fundamental Conservation:} If, hypothetically, a system were proven to be perfectly closed with all energy flows rigorously accounted for, and the relation $\kappa^2 = 2\beta^2$ was still systematically violated, this would imply a failure of the Law of Conservation of Energy itself.
+\end{enumerate}.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=The Principle as a Diagnostic Invariant]
+The relation $\boxed{\kappa^2 = 2\beta^2}$ holds if and only if the system under study is energetically closed. An apparent violation is not a contradiction of the theory, but a physical prediction that energy is flowing through an unaccounted-for channel. The principle is therefore falsifiable, with its falsification being equivalent to demonstrating a violation of energy conservation.
+\end{tcolorbox}
 
 \subsection*{Illustrative Examples}
 
@@ -969,249 +966,126 @@ it is enforced by the underlying geometry of energy evolution.
 \end{itemize}
 \end{tcolorbox}
 
-\section{Derivation of Energy Density and Mass Relations from Geometric First Principles}
+
+\section{Derivation of Density, Mass, and Pressure}
 
 \subsection{Geometric Foundation}
-From the projecional analysis established in the previous sections, we have the fundamental relation:
+From the projective analysis established in the previous sections, the fundamental invariant is
 \[
-\kappa^2 = \frac{R_s}{r_{d}}
+\kappa^2 = \frac{R_s}{r_d},
 \]
-where $\kappa$ emerges from the energy projections on the unit circle, and $R_s = 2Gm_0/c^2$ connects to the mass scale factor $m_0 = E_0/c^2$.
+where $\kappa$ emerges from the energy projection on the unit circle, and $R_s = 2Gm_0/c^2$ links to the mass scale factor $m_0 = E_0/c^2$.
 
-\subsection*{Determination of the Surface Distribution}
+\subsection{Derivation of Energy Density}
 
-To find the specific form of the energy density $\rho$, we must derive it from the foundational principles of the model rather than assuming it. The derivation follows a direct logical path from the established definition of the potential projection, $\kappa$.
-
-\paragraph{From Mass-Scale to Volumetric Potential}
-We begin with the relation for the mass-scale factor $m_0$, which was derived from the geometric definition $\kappa^2 = R_s/r_d$:
-\begin{equation}
-    m_0 = \frac{\kappa^2 c^2 r_{d}}{2G}
-\end{equation}
-
-To transition to a density, we can find the "volumetric potential equivalent" by relating this mass-scale to a corresponding volume, proxied by $r_d^3$:
-\begin{equation}
-    \frac{m_0}{r_d^3} = \frac{\kappa^2 c^2 r_d}{2G r_d^3} = \frac{\kappa^2 c^2}{2G r_d^2}
-\end{equation}
-
-\paragraph{Applying the Geometric Distribution Principle}\\
-
-A core principle of the WILL framework is that the potential projection ($\kappa$) is fundamentally associated with a 2D spherical manifold. Therefore, to obtain the correct physical point-density ($\rho$), the "raw" volumetric potential from the previous step must be distributed over the geometric measure of this manifold, which is the surface area of a unit sphere, $4\pi$.
-
-This yields the definitive form for the energy density:
-\begin{equation}
-    \rho = \frac{1}{4\pi} \left( \frac{\kappa^2 c^2}{2G r_d^2} \right) = \frac{\kappa^2 c^2}{8\pi G r_d^2}
-\end{equation}
-
-Now, having derived the required form for energy density, we can proceed with the self-consistency check. The energy density $\rho$ is thus given by:
-\begin{equation}
-    \rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2}
-    \label{eq:density_form}
-\end{equation}
-Now we can see that energy density required to form the event horizon on the given radial distance $r_d$  
-will accrue at  $\kappa^2 = R_s/r_{d}=1$ witch will correspond to maximal observable energy density on the given radial distance $r_d$:
+\paragraph{From Mass Scale to Volumetric Potential.}
+Starting from the geometric relation,
 \[
-\rho_{max} = \frac{c^2}{8\pi G r_{d}^2}
+m_0 = \frac{\kappa^2 c^2 r_d}{2G},
+\]
+we associate $m_0$ with a volumetric proxy $r_d^3$, obtaining a raw volumetric potential,
+\[
+\frac{m_0}{r_d^3} = \frac{\kappa^2 c^2}{2G r_d^2}.
 \]
 
-This brings us to profound connection between our unitless parameter  $\kappa$  and energy density ratio:
-
+\paragraph{Applying the Geometric Distribution Principle.}
+Because the potential projection $\kappa$ is fundamentally associated with a 2D spherical manifold, the volumetric expression must be normalized over the unit-sphere area $4\pi$. This yields the physical energy density,
 \[
-\boxed{\kappa^2 = \frac{\rho}{\rho_{max}}   \quad \Rightarrow  \quad  \kappa^2 = \Omega }
+\rho = \frac{1}{4\pi}\left(\frac{\kappa^2 c^2}{2G r_d^2}\right) 
+= \frac{\kappa^2 c^2}{8\pi G r_d^2}.
 \]
 
-\subsection{Determination of the Surface Distribution}
-
-The requirement that equations \eqref{eq:mass_geometric} and \eqref{eq:mass_density} represent the same physical quantity constrains both the functional form and coefficients.
+\paragraph{Maximal Density.}
+At $\kappa^2 = R_s/r_d = 1$, the horizon condition is reached, corresponding to the maximal observable energy density at radius $r_d$:
+\[
+\rho_{\max} = \frac{c^2}{8\pi G r_d^2}.
+\]
+\paragraph{Normalized Relation.}
+Thus the fundamental identification is
+\[
+\boxed{\;\kappa^2 = \frac{\rho}{\rho_{\max}} \;\;\Rightarrow\;\; \kappa^2 \equiv \Omega\;}.
+\]
 
 \subsection{Self-Consistency Requirement}
-The mass scale factor can be expressed in two independent ways within the geometric framework:
 
-\subsubsection{From Geometric Definition}
-\begin{equation}
-m_0 = \frac{\kappa^2 c^2 r_{d}}{2G} \quad \text{(from } \kappa^2 = R_s/r_{d}\text{)}
-\label{eq:mass_geometric}
-\end{equation}
-\subsubsection{From Energy Density}
-If energy density $\rho$ exists at radius $r_{d}$, the mass scale factor must also satisfy:
-\begin{equation}
-m_0 = \alpha \cdot r_{d}^n \cdot \rho
-\label{eq:mass_density}
-\end{equation}
-where $\alpha$ and $n$ are to be determined by geometric consistency.
+The mass scale factor can be expressed in two equivalent ways.
 
-Substituting \eqref{eq:density_form} into the general ansatz for the mass scale factor, \eqref{eq:mass_density}:
-\begin{align}
-    m_0 &= \alpha \cdot r_{d}^n \times \frac{\kappa^2 c^2}{8\pi G r_{d}^2} 
-    = \frac{\alpha \kappa^2 c^2 r_{d}^{n-2}}{8\pi G}
-\end{align}
-
-\subsection*{Geometric Self-Consistency}
-Equating with \eqref{eq:mass_geometric}:
-\begin{equation}
-    \frac{\alpha \kappa^2 c^2 r_{d}^{n-2}}{8\pi G} = \frac{\kappa^2 c^2 r_{d}}{2G}
-\end{equation}
-
-Simplifying:
-\begin{equation}
-    \frac{\alpha r_{d}^{n-2}}{8\pi} = \frac{r_{d}}{2}
-\end{equation}
-
-For radius independence: $n-2 = 1 \Rightarrow n = 3$.
-
-This yields: $\frac{\alpha}{8\pi} = \frac{1}{2} \Rightarrow \alpha = 4\pi$.
-
-\begin{equation}
-m_0 = \alpha \cdot r_{d}^n \cdot \rho \quad \Rightarrow  \quad  m_0 = 4\pi r_{d}^3 \rho
-\end{equation}
-
-\subsection{Fundamental Relations}
-The geometric self-consistency uniquely determines the energy-geometry relations:
-
+From the geometric definition:
 \[
-\boxed{
-m_0 = 4\pi r_{d}^3 \rho; \quad     \rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2}; \quad     \rho_{max} = \frac{c^2}{8\pi G r_{d}^2}; \quad   \quad  \kappa^{2}(r)=\frac{2G}{c^{2}}\frac{1}{r}\int_{0}^{r}4\pi r'^{2}\rho(r')\,dr.
-} \]
-
-\subsection{Physical Interpretation}
-The factor $4\pi$ emerges not as an assumption but as an inevitable consequence of geometric consistency. The cubic dependence $r_{d}^3$ indicates that energy distribution follows surface-area scaling rather than volume filling—a fundamental departure from classical field theories.
-
-The critical density $\rho_{max}$ corresponds to the geometric limit $\kappa = 1$, representing the maximum energy concentration before causal disconnection (event horizon formation).
-
-\begin{quote}\small
-\textbf{Consistency note.}\;
-For the density profile implied by the invariant $W_{ILL}=1$ (The Fundamental Invariant section) one has
-$\rho(r)\propto r^{-2}$.
-With this profile the usual integral definition
-\[
-M(r)=\int_{0}^{r} 4\pi r'^{2}\rho(r')\,dr'
+m_0 = \frac{\kappa^2 c^2 r_d}{2G}.
 \]
-gives exactly
-$M(r)=4\pi r^{3}\rho(r)$,
-matching the algebraic result above.
-If one inserts a hypothetical constant density
-$\rho=\text{const}$ the integral would yield
-$\tfrac{4}{3}\pi r^{3}\rho$ and, in addition,
-$\kappa^{2}$ would exceed~1, violating the
-$\kappa^{2}\le 1$ bound.
-Hence a constant–density core is not an admissible solution
-within the WILL framework.
-\end{quote}
+
+From the energy density:
+\[
+m_0 = \alpha \, r_d^n \, \rho.
+\]
+
+Substituting $\rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2}$ into $m_0 = \alpha \, r_d^n \, \rho$ gives
+\[
+m_0 = \frac{\alpha \kappa^2 c^2 r_d^{n-2}}{8\pi G}.
+\]
+
+Equating the two forms:
+\[
+\frac{\alpha r_d^{n-2}}{8\pi} = \frac{r_d}{2}.
+\]
+
+Radius independence requires $n=3$, yielding $\alpha=4\pi$. Hence,
+\[
+m_0 = 4\pi r_d^3 \rho,
+\]
+which closes the consistency loop between the geometric and density-based formulations.
 
 \subsection{Pressure as Surface Curvature Gradient}
 
-Pressure in WILL Geometry emerges directly from the gradient of curvature:
-\begin{align}
-P(r_{d}) = - \frac{c^2}{8\pi G} \cdot \frac{1}{r_{d}} \cdot \frac{d\kappa^2}{dr_{d}}
-\end{align}
-Consider the relationship between pressure and energy gradient. In a spherically symmetric system in hydrostatic equilibrium, the pressure gradient must compensate for changes in the system's energy state.
+In the WILL framework pressure is not a thermodynamic assumption but the direct consequence of curvature gradients.  
+The radial balance relation gives
+\[
+P(r) \;=\; \frac{c^4}{8\pi G}\,\frac{1}{r}\,\frac{d\kappa^2}{dr}.
+\]
 
-Since $\kappa^2$ represents a normalized energy parameter related to gravitational potential:
-\begin{align}
-\kappa^2 = \frac{R_s}{r_{d}} = \frac{2Gm_0}{c^2r_{d}}
-\end{align}
-The change of this parameter with radius, $\frac{d\kappa^2}{dr_{d}}$, reflects the gradient of potential energy. To maintain energy balance, this change must be related to the pressure gradient.
+Using $\kappa^2 = R_s/r$, one finds $d\kappa^2/dr = -\kappa^2/r$, hence
+\[
+P(r) \;=\; -\,\frac{\kappa^2 c^4}{8\pi G r^2}.
+\]
 
-Since pressure is a measure of energy per unit volume, and given that energy density is related to $\kappa^2$ through:
-\begin{align}
-\rho(r_{d}) = \frac{\kappa^2 c^2}{8\pi G r_{d}^2}
-\end{align}
-It can be shown that the pressure gradient must satisfy:
-\begin{align}
-P(r_{d}) = - \frac{c^2}{8\pi G} \cdot \frac{1}{r_{d}} \cdot \frac{d\kappa^2}{dr_{d}}
-\end{align}
-This expression establishes a direct link between pressure and changes in curvature, without the need to postulate an internal volume structure.
+Since the local energy density is
+\[
+\rho(r) \;=\; \frac{\kappa^2 c^2}{8\pi G r^2},
+\]
+this yields the invariant equation of state
+\[
+\boxed{\,P(r) = -\,\rho(r)\,c^2\,}.
+\]
+
+\paragraph{Interpretation.}
+$P$ is a surface-like negative pressure (isotropic tension), not a bulk volume pressure.  
+It expresses the resistance of energy–geometry itself to changes in projection.  
+
+\paragraph{Consistency.}
+If one formally freezes the projection parameter ($d\kappa^2/dr=0$), then $P=0$.  
+But in this case the angular curvature terms remain uncompensated, and the field equation is no longer satisfied.  
+Any nontrivial radial dependence of $\kappa$ inevitably generates the negative tension 
+\[
+P = -\rho c^2,
+\]
+which precisely cancels the residual curvature.  
+Thus the negative pressure is not optional but a necessary ingredient for full self-consistency.
+
+\paragraph{Maximum pressure.}
+At the geometric bound $\kappa^2=1$ (horizon condition), the density saturates at
+\[
+\rho_{\max} = \frac{c^2}{8\pi G r^2},
+\]
+and the corresponding pressure is
+\[
+P_{\max} = -\,\rho_{\max}\,c^2 \;=\; -\,\frac{c^4}{8\pi G r^2}.
+\]
+This negative surface pressure represents the ultimate tension limit of spacetime fabric at a given scale $r$.
 
 \begin{center}
-\boxed{\text{The Universe is not embedded in geometry; geometry emerges from energy.}}
+\boxed{\text{Pressure in WILL is the intrinsic surface tension of energy–geometry, saturating at $P_{\max}=-c^4/(8\pi G r^2)$.}}
 \end{center}
-
-
-\begin{quote}\small
-\textbf{Pressure remark.}\;
-For the admissible profile $\rho(r)\propto r^{-2}$ the relation
-\[
-P(r)= -\frac{c^{2}}{8\pi G}\,\frac{1}{r}\,\frac{d\kappa^{2}}{dr}
-\]
-reduces to
-$P(r)=-\rho(r)$:
-an isotropic tension that stabilises the surface-scaled
-energy distribution.
-If one formally substitutes a constant density
-$\rho=\text{const}$ the same formula would give
-$P=-2\rho$;
-but such a profile breaks the
-$\kappa^{2}\le 1$ condition and therefore lies outside
-the physically valid domain of the WILL geometry.
-\end{quote}
-\begin{quote}\small
-\textbf{Pressure consistency.}\;
-If one naively freezes the projection parameter
-($d\kappa^{2}/dr=0$) the formula
-$P=-\tfrac{c^{2}}{8\pi G}\,r^{-1}d\kappa^{2}/dr$ indeed gives
-$P=0$.  That choice, however, leaves the angular Einstein
-components with a non–vanishing curvature term
-$-\kappa^{2}/(2r^{2})$ and the field equation is no longer
-satisfied.  
-Whenever $\kappa$ carries \emph{any} radial dependence
-($d\kappa^{2}/dr\neq0$) the same formula provides the
-negative tension
-\[
-P = -\!\left(2-\!n\right)\rho
-\quad\bigl(\rho\propto r^{-n}\bigr),
-\]
-which exactly cancels the angular curvature term.  
-The canonical profile $n=1$ (so $P=-\rho$) is the analytically
-clean case in which \emph{all four} components of
-$G_{\mu\nu}=8\pi G T_{\mu\nu}/c^{4}$ match identically.
-Hence a small, negative surface–like pressure is not a bug but
-the necessary ingredient for full strong-field consistency in
-WILL geometry; the apparent $P=0$ scenario is only a limiting,
-non-self-gravitating idealization.
-\end{quote}
-
-
-\subsection{Unified Energy-Geometry Principle}
-
-The fundamental relations \eqref{eq:mass_surface}–\eqref{eq:density_ratio} reveal the core principle of Energy-Geometry:
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=WILL Geometry Equivalence]
-\[
-\boxed{
-\frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}} = \kappa^2
-}
-\]
-\textbf{The ratio of geometric scales equals the ratio of energy densities.}\\
-Spacetime geometry and energy distribution are identical manifestations of the same underlying structure.
-\end{tcolorbox}
-
-This equivalence is not imposed but emerges inevitably from the requirement that the geometric parameter $\kappa$ maintains consistent meaning across all physical contexts.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Meaning]
-
-\[
-\boxed{\textbf{Energy is not “inside” space — it is what defines space through projection.}}
-\]
-\end{tcolorbox}
-
-
-\subsection{Contrast with Classical Approaches}
-WILL Geometry differs fundamentally from standard field theories:
-
-\begin{itemize}
-\item \textbf{Surface vs Volume:} Energy scales as $4 \pi r_{d}^3 \cdot\rho$ rather than classical $\frac{4}{3}\pi r^3 \rho$, reflecting the projectional rather than volumetric nature of energy distribution.
-
-\item \textbf{Algebraic vs Differential:} All relations are algebraically closed. No differential equations, coordinate systems, or metric tensors are required.
-
-\item \textbf{Bounded vs Unbounded:} The parameter $\kappa^2 \leq 1$ provides natural bounds, eliminating singularities without additional assumptions.
-\end{itemize}
-
-\subsection{Elimination of Singularities}
-The geometric constraint $\kappa^2 \leq 1$ corresponds to $\rho \leq \rho_{max}$, ensuring that energy density cannot exceed its local critical value. At $\kappa = 1$:
-\[
-r_{d} = R_s \quad \text{and} \quad \rho = \rho_{max}
-\]
-$\kappa^2=2\beta^2$
-This represents the formation of an event horizon—not a pathological breakdown of the theory, but a natural  boundary where projectional structure reaches its causal horizon.
 
 \section{Unified Geometric Field Equation}
 
@@ -1224,113 +1098,44 @@ From the energy-geometry equivalence, the complete description of gravitational 
 }
 \label{eq:unified_field}
 \end{equation}
+                                        \textbf{The ratio of geometric scales equals the ratio of energy densities.}\\
 
 This is the unified geometric field equation of WILL Geometry. It expresses the complete equivalence:
 \[
 \text{GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}
 \]
-
-\subsection*{Physical Interpretation}
-
-Equation \eqref{eq:unified_field} encodes several profound principles:
-
-\begin{itemize}
-\item \textbf{Scale Invariance:} The relation holds at all radial scales from Planck length to cosmic horizons.
-
-\item \textbf{Observer Independence:} The ratio $\kappa^2$ is invariant under the energy symmetry transformations between observers.
-
-\item \textbf{Causal Structure:} Values $\kappa^2 > 1$ are geometrically forbidden, ensuring causal consistency (rotating systems are exception).
-
-\item \textbf{Unification:} Special relativity (through $\beta^2 = \kappa^2/2$) and general relativity emerge as different projections of the same geometric structure.
-\end{itemize}
-
-In this framework, \( \rho_{\text{max}} \) is not a universal constant but a local critical density, dynamically tied to radial geometry. The quantity \( \kappa^2 \) serves as a normalized energy curvature parameter, and the entire spacetime structure emerges from the distribution of \( \kappa \) as a function of radius.
-
-Unlike General Relativity, which lacks an invariant notion of local gravitational energy density and forbids the definition of a maximum density without resorting to external cutoffs (e.g., Planck scale or quantum gravity), the WILL framework provides a purely geometric origin for both the physical energy density and its upper bound.
-
-\subsection*{Predictive Significance}
-
-The above identity implies several unique predictions and theoretical advantages:
-
-\begin{itemize}
-  \item \textbf{Scale-local saturation:} The curvature of spacetime reaches its maximum at \( \kappa^2 = 1 \), corresponding to \( \rho = \rho_{\text{max}} \), which naturally occurs at the Schwarzschild radius \( r_{d} = R_s \). This defines the physical boundary of spacetime from within, without invoking singular behavior.
-
-  \item \textbf{Unified mass-density-radius relation:} From this identity, one can reconstruct mass profiles via
-  \[
-  m_0 = \frac{c^2}{2G} \kappa^2r_{d},
-  \]
-  showing that mass is not an input but a geometric outcome of local energy curvature.
-
-  \item \textbf{Break from GR constraints:} In GR, energy density is input into the stress-energy tensor \( T_{\mu\nu} \) and curvature is computed. In WILL Geometry, curvature and density are co-defined via a single projective ratio \( \kappa^2 \), offering conceptual and calculational unification.
-
-  \item \textbf{Elimination of coordinate ambiguity:} Since \( \rho_{\text{max}} \sim 1/r^2 \) and \( \rho \sim 1/r^3 \), the relation \( \rho/\rho_{max} \sim 1/r \) due to  $\rho / \rho_{max}= \kappa^2$ where $ \kappa^2=R_s/r$ eliminates dependence on specific coordinate slicing—critical in defining observable gravitational structures.
-\end{itemize}
-
-\subsection*{Contrast with General Relativity}
-
-In classical GR, there is no notion of \( \rho_{\text{max}} \) as a function of radius. Critical conditions such as the Buchdahl limit or Planck density are imposed externally, often with quantum or thermodynamic assumptions. By contrast, WILL Geometry derives all structural bounds intrinsically from the energy-curvature ratio \( \kappa^2 \), offering a fully relational description of gravitational systems.
-
-
-\subsection{Closure of the Theoretical Framework}
-
-The unified field equation completes the ab initio derivation begun with the fundamental postulate:
+.\begin{figure}[h!]
+\centering
+ \includegraphics[width=0.9\textwidth]{img/Theoretical-Ouroboros-min.jpg}
+The foundational postulate \(\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}\) closes into the unified field equation
 \[
-\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}
+\frac{R_s}{r_d} = \frac{\rho}{\rho_{\max}},
 \]
-We have shown that this single postulate, through pure geometric reasoning, necessarily leads to equation \eqref{eq:unified_field}—which mathematically expresses the very same equivalence we began with.
+\end{figure}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Theoretical Ouroboros]
-The WILL framework exhibits perfect logical closure: the fundamental postulate about the nature of spacetime and energy is proven as the inevitable consequence of geometric consistency.
+
+
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Meaning]
+\[
+\textbf{Energy is not “inside” space — it defines space through projection.}
+\]
 \end{tcolorbox}
 
-\subsection{Algebraic Mass Profile and Emergence of \(\Lambda(r)\)}
+\subsection{Contrast with Classical Approaches}
 
-In WILL Geometry, one works with a single “running’’ density and derives all mass and vacuum–curvature quantities algebraically.  No new parameters or arbitrary integration constants enter.
+\begin{itemize}
+\item \textbf{Surface–scaled closure (vs.\ volume filling).} 
+Mass follows the algebraic closure $m_0=4\pi r_d^3\rho$ with $\rho=\kappa^2 c^2/(8\pi G r_d^2)$; the $4\pi$ is the spherical projection measure, not a Newtonian volume average.
 
-\begin{enumerate}
-  \item \textbf{Density profile:}
-  \[
-    \rho(r)
-    \;=\;
-    \frac{\kappa^2\,c^2}{8\pi G\,r^2},
-    \quad
-    \kappa=\text{constant},\;0<\kappa<1.
-  \]
-  
-  \item \textbf{Enclosed mass:}
-  \[
-    m(r)
-    =\int_{0}^{r}4\pi\,r'^{2}\,\rho(r')\,dr'
-    =\int_{0}^{r}4\pi\,r'^{2}\,\frac{\kappa^2c^2}{8\pi G\,r'^{2}}\,dr'
-    =\frac{c^2}{2G}\,\kappa^2\,r.
-  \]
-  This exactly reproduces the relation
-  \(\displaystyle m(r)=\frac{c^2}{2G}\,\kappa^2\,r.\)
-  
-  \item \textbf{Field equation without “\(2/r^2\)” term:}\\
-  Substituting the running mass into the geometric field equation
-  \(\displaystyle \frac{d}{dr}(r\,\kappa^2)
-     =\frac{8\pi G}{c^2}\,r^2\,\rho(r)\)
-  gives
-  \[
-    \frac{d}{dr}(r\,\kappa^2)
-    =\frac{8\pi G}{c^2}\,r^2\,\frac{\kappa^2c^2}{8\pi G\,r^2}
-    =\kappa^2,
-  \]
-  with no extra \(\tfrac{2}{r^2}\) appearing.
-  
-  \item \textbf{Cosmological constant profile:}
-  \[
-    \Lambda(r)
-    \;=\;
-    \frac{\kappa^2}{r^2},
-    \quad\Longrightarrow\;
-    \Lambda\propto \frac{1}{r^2}.
-  \]
-  The “cosmological constant’’ \(\Lambda(r)\) is thus built into the geometry and falls off as \(1/r^2\), entirely determined by the constant projection parameter \(\kappa\).
-\end{enumerate}
+\item \textbf{Algebraic core (vs.\ differential ansatz).}
+The core invariants are algebraic and coordinate-free. Differential relations appear only as auxiliary scaffolding (e.g.\ to express curvature gradients as $P=-\rho c^2$), not as fundamental inputs.
 
-No dummy parameters or boundary densities are introduced—only the slider \(\kappa\) and the existing constants \(\{c,G,\pi\}\) plus the integration variable \(r\). This completes the algebraic derivation of the mass profile and the inescapable emergence of \(\Lambda(r)\). 
+\item \textbf{Natural bounds.}
+The constraint for non rotating systems $\kappa^2\le 1$ enforces $\rho\le\rho_{\max}$ and $|P|\le |P_{\max}|=c^4/(8\pi G r_d^2)$, avoiding singularities without extra hypotheses.
+\end{itemize}
+
 
 
 \section{The Fundamental Invariant $W_{\text{ill}} = 1$}
@@ -1365,105 +1170,24 @@ The name WILL reflects both the harmonious unity of the equation and a subtle ir
 \end{tcolorbox}
 
 
-\section{Strong-Field Consistency: $W=1$ and the Einstein Field Equation}
-
-\subsection{Metric and Energy Variables in WILL Geometry}
-
-For any static, spherically symmetric system, the WILL metric is
-\[
-ds^2 = T_c^2(r)\, c^2 dt^2 - L_d^2(r)\, dr^2 - r^2 d\Omega^2,
-\]
-where
-\[
-T_c^2 = 1 - \kappa^2(r), \qquad L_d^2 = \frac{1}{1 - \kappa^2(r)}
-\]
-and the projection parameter
-\[
-\kappa^2(r) = \frac{R_s(r)}{r} = \frac{2G\, m(r)}{c^2 r}
-\]
-is the only free function.
-
-The invariant $W=1$ yields the matter variables directly:
-\[
-\rho(r) = \frac{\kappa^2 c^2}{8\pi G r^2}
-\]
-\[
-P(r) = -\frac{c^2}{8\pi G} \frac{1}{r} \frac{d\kappa^2}{dr}
-\]
-with $T^t_t = -\rho c^2$, $T^r_r = P$, and $T^\theta_\theta = T^\phi_\phi = P$.
-
-\subsection{Einstein Tensor Components for the WILL Metric}
-
-The standard curvature components are
-\[
-G^t_t = -\frac{\kappa^2}{r^2} - \frac{1}{r} \frac{d\kappa^2}{dr}
-\]
-\[
-G^r_r = -\frac{\kappa^2}{r^2} + \frac{1}{r} \frac{d\kappa^2}{dr}
-\]
-\[
-G^\theta_\theta = G^\phi_\phi = -\frac{1}{2r} \frac{d\kappa^2}{dr} - \frac{\kappa^2}{2 r^2}
-\]
-
-\subsection{Component-by-Component Match with the Field Equation}
-
-\textbf{Temporal component:}
-\[
-G^t_t = -\frac{\kappa^2}{r^2} - \frac{1}{r} \frac{d\kappa^2}{dr}
-= -\frac{8\pi G}{c^4} T^t_t = -\frac{8\pi G}{c^2} \rho = -\frac{\kappa^2}{r^2}
-\]
-The extra term cancels when the pressure $P$ is included in $T^r_r$.
-
-\textbf{Radial component:}
-\[
-G^r_r = -\frac{\kappa^2}{r^2} + \frac{1}{r} \frac{d\kappa^2}{dr}
-= +\frac{8\pi G}{c^4} T^r_r
-\]
-
-\textbf{Angular components:}
-Using $\rho(r)$ and $P(r)$, one finds
-\[
-G^\theta_\theta = G^\phi_\phi = \frac{8\pi G}{c^4} T^\theta_\theta
-\]
-Thus, all four nonzero components satisfy the Einstein field equation for any strong-field profile $\kappa(r)$.
-
-\subsection{Numerical Verification Recipe}
-
-\begin{enumerate}
-    \item Choose a profile, e.g. $\kappa^2(r) = \min\{1,\, R_s/r\}$.
-    \item Compute $\rho(r)$ and $P(r)$ from the formulas above.
-    \item Evaluate $G^\mu_\nu$ numerically from the expressions above.
-    \item Verify that $G^\mu_\nu = 8\pi G T^\mu_\nu / c^4$ at each point with high precision.
-\end{enumerate}
-
-\begin{quote}\small
-\textbf{General density for varying $\kappa(r)$.}\;
-The “surface” formula
-$\rho=\kappa^{2}c^{2}/(8\pi G r^{2})$
-is exact only when $\kappa^{2}$ is radially constant
-(the $n=2$ shell).
-For an arbitrary strong-field profile one must use
-\[
-\rho(r)=\frac{\bigl[\kappa^{2}+r\,\kappa^{2\,\prime}\bigr]\,c^{2}}
-               {8\pi G\,r^{2}},
-\]
-obtained directly from the $tt$-component of the Einstein tensor.
-With this density and the pressure rule
-$P(r)=-(c^{2}/8\pi G)\,r^{-1}{\kappa^{2}}^{\prime}$
-\emph{all four} field-equation components are satisfied for any
-$\kappa(r)$; the special value $\kappa^{2}=1$ marks only the causal
-horizon, not a consistency constraint.
-\end{quote}
-
-
-\subsection{Conclusion}
-
-A single algebraic invariant $W=1$ together with the gradient-pressure rule fully reproduces all strong-field components of the Einstein equation. The metric tensor is therefore an emergent bookkeeping device for the deeper geometric-energy ratio $\kappa^2$.
-
-
-
-
 \section{Geometric Kerr–Newman Metric in the WILL Framework  (Space ⊗ Time ⊗ Energy)}
+
+\subsection{The Principle of Energetic Closure and Contextual Bounds}
+
+The framework establishes a clear hierarchy of principles. The supreme invariant is the \textbf{Law of Conservation of Energy}. The equation $\boxed{\kappa^2 = 2\beta^2}$ is the direct geometric embodiment of this law, acting as the precise criterion for the \textbf{energetic closure} of a system.
+
+This means the equality holds if, and only if, all energy flows have been fully accounted for. The different numerical limits on the projection parameters are not different rules, but are necessary \textbf{consequences} of applying this single, universal criterion of closure to different physical boundary conditions:
+
+\begin{itemize}
+    \item \textbf{For a gravitationally closed (static) system,} the physical boundary is defined by the condition $\kappa^2 = 1$. The closure principle ($\kappa^2 = 2\beta^2$) is what dictates that this corresponds to a kinetic state of $\beta^2 = 1/2$.
+    \item \textbf{For a kinematically closed (maximally rotating) system,} the physical boundary is defined by the condition $\beta^2 = 1$. The same closure principle ($\kappa^2 = 2\beta^2$) then necessitates that the corresponding gravitational state must be $\kappa^2 = 2$.
+\end{itemize}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Analogy: The Engine's Redline]
+A car engine's fundamental physical limit is its RPM redline (e.g., 6,000 RPM)—this is analogous to the Law of Conservation of Energy. The equation relating speed to RPM is fixed for each gear—this is the diagnostic tool, analogous to $\kappa^2 = 2\beta^2$. The observable maximum speed is a consequence, not a fundamental rule in itself: it might be 40 km/h in first gear and 180 km/h in fifth. It is not a contradiction to have different speed limits; it is the result of applying the same engine-and-gear relationship to different boundary conditions.
+\end{tcolorbox}
+
+Thus, the framework maintains a single, consistent principle of closure. Its geometric expression, $\kappa^2 = 2\beta^2$, yields different numerical bounds depending on whether the system's boundary is defined by its gravitational or its kinematic limit.
 
 For rotating black holes, we establish the connection between these parameters and the Kerr metric by defining:
 
