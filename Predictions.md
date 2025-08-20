@@ -34,7 +34,7 @@ toc: false
 
 <!-- Lab 2 -->
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #8e44ad; margin-bottom: 2rem;">
-  <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">2) Cosmology Lab — background cosmology</h3>
+  <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">2) Cosmology Lab — All cosmology out of one scale and one dynamic input</h3>
   <p style="margin-bottom: 1rem; line-height: 1.6;">
       <strong>Headline metric:</strong> \(\Omega_\Lambda = 2/3\), \(\Omega_m = 1/3\) (no free parameters).
   </p>
