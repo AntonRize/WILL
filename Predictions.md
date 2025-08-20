@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<hr style="border-color: #374151; margin: 3rem 0;">
+   <hr style="border-color: #374151; margin: 3rem 0;">
 
 <h2 style="font-size: 2em; text-align: center; margin-bottom: 2.5rem;">📄 Reproducible Notebooks & Static Views</h2>
 
@@ -245,23 +245,23 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="bg-gray-800/50 p-6 rounded-lg">
         <h4 style="font-size: 1.25em; margin-bottom: 1rem;">A) Galaxy rotation curves</h4>
         <p style="margin-bottom: 1rem; color: #d1d5db;">Metric: median RMSE ≈ <strong>20.3 km/s</strong></p>
-        <a href="{{ site.baseurl }}/Colab%20Notebooks/V_QWILL_=_sqrt(3)_V_bary.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a> | 
-        <a href="{{ site.baseurl }}/Colab%20Notebooks/V_QWILL_=_sqrt(3)_V_bary.html" class="text-cyan-400 hover:text-cyan-300">HTML</a>
+        <a href="{{ site.baseurl }}/Colab%20Notebooks/QWILL-galaxy-rotation-curves.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a>
     </div>
 
     <div class="bg-gray-800/50 p-6 rounded-lg">
         <h4 style="font-size: 1.25em; margin-bottom: 1rem;">B) Relativistic Tests</h4>
         <p style="margin-bottom: 1rem; color: #d1d5db;">Metrics: GPS, Mercury & S2 precession</p>
-        <a href="{{ site.baseurl }}/Colab%20Notebooks/GPS%20TIME%20+PRECESSION%20OF%20MERCURY+PRECESSION%20OF%20S2%20STAR+CONSERVATION%20LAW+RELATIVISTIC%20CORRECTION.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a> | 
-        <a href="{{ site.baseurl }}/Colab%20Notebooks/GPS%20TIME%20+PRECESSION%20OF%20MERCURY+PRECESSION%20OF%20S2%20STAR+CONSERVATION%20LAW+RELATIVISTIC%20CORRECTION.html" class="text-cyan-400 hover:text-cyan-300">HTML</a>
+        <a href="{{ site.baseurl }}/Colab%20Notebooks/WILL-relativistic-tests-gps-mercury-s2.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a>
     </div>
 
     <div class="bg-gray-800/50 p-6 rounded-lg">
-        <h4 style="font-size: 1.25em; margin-bottom: 1rem;">C) Cosmology from \(\kappa^2 = 2/3\)</h4>
-        <p style="margin-bottom: 1rem; color: #d1d5db;">Outputs: \(\Omega_\Lambda = 2/3\), \(t_0 \approx 14.53\) Gyr</p>
-        <a href="{{ site.baseurl }}/Colab%20Notebooks/WILL_Geometry_COSMO_%E2%80%93_scale_derivation_from_%CE%BA%C2%B2_=_2_3_.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a> |
-        <a href="{{ site.baseurl }}/Colab%20Notebooks/WILL_Geometry_COSMO_%E2%80%93_scale_derivation_from_%CE%BA%C2%B2_=_2_3_.html" class="text-cyan-400 hover:text-cyan-300">HTML</a>
+        <h4 style="font-size: 1.25em; margin-bottom: 1rem;">C) Double Pulsar orbital decay</h4>
+        <p style="margin-bottom: 1rem; color: #d1d5db;">Metric: orbital decay rate (Hulse–Taylor)</p>
+        <a href="{{ site.baseurl }}/Colab%20Notebooks/Double_Pulsar_orbital_decay_rate.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a>
     </div>
+
+</div>
+
 </div>
 
 </div>
