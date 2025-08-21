@@ -142,21 +142,23 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ## Section 1: The Universe from a Single Principle
 
-Modern theoretical physics is a magnificent edifice built on the foundation of astonishing predictive power. Theories of relativity and quantum mechanics describe the world with incredible precision, from subatomic particles to cosmic horizons. Yet, in this very foundation, there remain enigmatic elements that cast a shadow over the completeness of our understanding: gravitational singularities where known laws break down; arbitrary constants we can measure but cannot explain; and the necessity to introduce “dark” entities such as dark matter and dark energy simply to align theory with observation. These phenomena indicate that our description of reality may be incomplete.
 
-Against this backdrop, a fundamental question arises: What if we could construct the Universe without any “extraneous details”? What if all observable phenomena—space, time, mass, energy—could be derived from a single, simple, and self-evident statement, without the need for free parameters or inexplicable constants? This approach—what might be called the principle of “epistemological hygiene”—demands that we reject all assumptions not strictly necessary, and build the theory solely on the basis of logical sequence.
+Modern physics is extraordinarily powerful at predicting phenomena across scales, from subatomic particles to cosmic structures. Yet despite its successes, cracks remain in our understanding. We are forced to accept puzzling elements: gravitational singularities (points of infinite density where known laws break down), seemingly arbitrary fundamental constants we must measure but cannot deduce, and mysterious entities like dark matter and dark energy invoked just to make our equations fit observations. All these hints suggest that our current description of reality, as effective as it is, might be incomplete.
+
+This realization motivates a bold question: What if we could derive the universe from a single, simple principle, with no extra assumptions or ad hoc additions? In other words, is there a way to rebuild physics from the ground up, requiring no arbitrary "fudge factors" or unexplained constants. This rigorous minimalist approach – one might call it a principle of epistemological hygiene – would accept only what is logically unavoidable. Every aspect of nature would need to follow from one self-evident statement. Down this path of uncompromising simplicity, a central postulate emerges at the heart of the WILL (Whole Integrated Logical Landscape) Geometry model:
+
+> **SPACETIME ≡ ENERGY EVOLUTION**
+
+At first glance, this statement seems straightforward, but it carries revolutionary implications. It says that space and time are not a pre-existing stage or container where events happen. Instead, the fabric of spacetime is the network of all possible energy transformations. Space and time have no independent existence apart from energy; they are defined by the way energy changes and interconnects states. Spacetime is not a backdrop – it is the dance of energy itself. In this view, energy doesn't sit in spacetime; rather, energy's evolving relationships create spacetime.
+
+This essay narrates a journey based on that radical idea. It will show how the familiar laws of special and general relativity can be logically derived as natural consequences of a single principle, rather than being just postulates. We will follow the logical thread from this lone postulate through to its profound conclusions, seeing how it unfurls into the full complexity and beauty of the relativistic world.
+Along the way, we will maintain scientific rigor but use clear imagery to make the concepts accessible. The goal is not to overturn modern physics, but to peel back its layers and reveal a simpler unifying picture beneath.
 
 ---
 
 ![Methodological Pillars](images/Methodological-Pillars.jpg)
 
 ---
-
-It is on this path of uncompromising minimalism that the central, unifying postulate of WILL Geometry is born:
-
-> **SPACETIME ≡ ENERGY EVOLUTION**
-
-At first glance, this statement appears simple, but it carries a revolutionary meaning. It asserts that space and time are not some pre-existing “container” or stage on which physical processes unfold. On the contrary, the very fabric of spacetime is identical to the full structure of all possible transitions and interconnections between energetic states. Spacetime is not a stage; it is the dance itself. Energy does not exist in spacetime; rather, it defines it through its own projections and relations.
 
 This work is not merely a reformulation of existing theories, but rather a narrative account of this new perspective—born from a personal quest to understand the fundamental nature of reality based on the most elementary geometric principles. It is an intellectual journey motivated by the conviction that the Universe’s structure must, at its core, be simple, elegant, and logically closed. The aim of this narrative is not to refute established physics, but to offer a deeper perspective—showing how the known laws of special and general relativity can be not merely postulated, but *derived* as inevitable consequences of a single, more fundamental principle. We will trace the logical chain from this lone postulate to its ultimate conclusions, demonstrating how it gives rise to all the complexity and beauty of the relativistic world.
 
