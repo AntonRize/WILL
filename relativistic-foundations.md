@@ -3,28 +3,94 @@ layout: default
 title: "Relativistic Foundations"  
 ---  
 
-<style>  
-/* ... (styles unchanged from original, omitted for brevity) ... */  
-</style>  
+
+<style>
+
+.markdown-content p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+  .video-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* Соотношение сторон 16:9 */
+  border-radius: 12px; /* Скругленные углы, как у других элементов */
+  margin: 1.5rem 0; /* Отступы сверху и снизу */
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- Style for the Video Dropdown --- */
+.video-dropdown-container {
+  /* This container holds the entire dropdown component. */
+  margin: 2rem 0; /* Adds some space above and below. */
+}
+
+.video-dropdown-summary {
+  /* This is the visible, clickable 'button' or 'backdrop'. */
+  display: block; /* Ensures it behaves like a container. */
+  padding: 1rem; /* Adds space inside the button. */
+  background-color: #181818; /* A dark background similar to the Spotify player. */
+  color: #FFFFFF; /* White text for high contrast. */
+  border-radius: 12px; /* Rounded corners to match the player. */
+  font-weight: 600; /* Bolder text. */
+  font-size: 1.05rem;
+  cursor: pointer; /* Shows a hand cursor on hover. */
+  outline: none; /* Removes the default blue outline on click. */
+  list-style: none; /* Removes the default triangle/arrow marker. */
+  transition: background-color 0.2s; /* Smooth hover effect. */
+}
+
+.video-dropdown-summary:hover {
+  background-color: #282828; /* Slightly lighter on hover. */
+}
+
+/* Hides the default dropdown arrow from the browser */
+.video-dropdown-summary::-webkit-details-marker {
+  display: none;
+}
+/* Hero-like toggle button for <summary> */
+.will-hero-summary {
+  display: block;
+  padding: 0.9rem 1.1rem;
+  margin: 1rem 0;
+  background-color: rgba(31,41,55,0.5); /* ~ bg-gray-800/50 */
+  color: #22d3ee; /* ~ text-cyan-400 */
+  border: 2px solid rgba(6,182,212,0.3); /* ~ border-cyan-500/30 */
+  border-radius: 12px; /* match hero rounded-xl */
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(6,182,212,0.10); /* ~ shadow-cyan-500/10 */
+  transition: background-color .2s ease, transform .12s ease, box-shadow .2s ease;
+}
+/* Hover/active feedback */
+.will-hero-summary:hover {
+  background-color: rgba(31,41,55,0.7);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(6,182,212,0.12);
+}
+/* Remove default disclosure marker */
+.will-hero-summary::-webkit-details-marker { display: none; }
+/* Keep container spacing consistent (reuse your existing container class) */
+.hero-details { margin-top: 0.5rem; }
+</style>
+ 
 
 # Shape of Energy: A Narrative Exposition of WILL Geometry
-
----
-
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Quick Glossary: Key Terms & Concepts</summary>  
-  <div class="hero-details">  
-    <p><strong>Beta (β):</strong> The fraction of an object's motion through space relative to the fastest possible speed (<em>v</em>/<em>c</em>). In WILL, β is the <em>kinetic projection</em> (the share of change spent on motion).</p>  
-    <p><strong>Kappa (κ):</strong> A measure of how deeply an object is situated in a gravitational field (the fraction of “speed of change” used by gravity). In WILL, κ is the <em>gravitational projection</em>, with κ = 1 at a black hole’s event horizon.</p>  
-    <p><strong>Universal Speed of Evolution (c):</strong> Another name for the speed of light, viewed here as the Universe’s fundamental speed limit for any change or information transfer.</p>  
-    <p><strong>Epistemological Hygiene:</strong> The principle of removing all unnecessary assumptions when building a theory, using only what’s logically required (nothing extraneous).</p>  
-    <p><strong>Event Horizon:</strong> The boundary around a black hole beyond which nothing can escape. (At this “point of no return,” the escape velocity equals the speed of light.)</p>  
-    <p><strong>Photon Sphere:</strong> A region near a black hole (about 1.5 times the Schwarzschild radius) where light can orbit in a circle if moving tangentially. It's an unstable orbit – light can fall in or escape if perturbed.</p>  
-    <p><strong>Critical Density:</strong> The maximum energy density that can exist at a given location (due to gravity). It increases closer to a mass but never becomes infinite, thus preventing singularities.</p>  
-    <p><strong>Singularity:</strong> A point of infinite density where conventional physics breaks down. Standard GR predicts singularities (e.g. inside black holes); WILL Geometry avoids them by enforcing a finite critical density.</p>  
-    <p><strong>Energy–Symmetry Law:</strong> The rule that energy differences always balance out between perspectives. If one observer sees a gain, another sees an equal loss — preventing any “free” energy or causality violations (this also ensures a universal speed limit).</p>  
-  </div>  
-</details>
 
 ---
 
@@ -56,6 +122,23 @@ If you want to see the full mathematical derivations, download the complete docu
 ---
 
 ![Unified Framework](images/card1.jpg)
+
+---
+
+<details class="video-dropdown-container">  
+  <summary class="will-hero-summary">▶ Quick Glossary: Key Terms & Concepts</summary>  
+  <div class="hero-details">  
+    <p><strong>Beta (β):</strong> The fraction of an object's motion through space relative to the fastest possible speed (<em>v</em>/<em>c</em>). In WILL, β is the <em>kinetic projection</em> (the share of change spent on motion).</p>  
+    <p><strong>Kappa (κ):</strong> A measure of how deeply an object is situated in a gravitational field (the fraction of “speed of change” used by gravity). In WILL, κ is the <em>gravitational projection</em>, with κ = 1 at a black hole’s event horizon.</p>  
+    <p><strong>Universal Speed of Evolution (c):</strong> Another name for the speed of light, viewed here as the Universe’s fundamental speed limit for any change or information transfer.</p>  
+    <p><strong>Epistemological Hygiene:</strong> The principle of removing all unnecessary assumptions when building a theory, using only what’s logically required (nothing extraneous).</p>  
+    <p><strong>Event Horizon:</strong> The boundary around a black hole beyond which nothing can escape. (At this “point of no return,” the escape velocity equals the speed of light.)</p>  
+    <p><strong>Photon Sphere:</strong> A region near a black hole (about 1.5 times the Schwarzschild radius) where light can orbit in a circle if moving tangentially. It's an unstable orbit – light can fall in or escape if perturbed.</p>  
+    <p><strong>Critical Density:</strong> The maximum energy density that can exist at a given location (due to gravity). It increases closer to a mass but never becomes infinite, thus preventing singularities.</p>  
+    <p><strong>Singularity:</strong> A point of infinite density where conventional physics breaks down. Standard GR predicts singularities (e.g. inside black holes); WILL Geometry avoids them by enforcing a finite critical density.</p>  
+    <p><strong>Energy–Symmetry Law:</strong> The rule that energy differences always balance out between perspectives. If one observer sees a gain, another sees an equal loss — preventing any “free” energy or causality violations (this also ensures a universal speed limit).</p>  
+  </div>  
+</details>
 
 ---
 
