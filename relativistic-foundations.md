@@ -705,16 +705,20 @@ $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
 $$  
 
-<details> <summary><strong>See the Universe’s one-line “code”</strong></summary>  
+<details> <summary><strong>See the Universe's one-line "code"</strong></summary>
+
 $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
-$$  
-  $r_{d} = \frac{R_s}{\kappa^2} = \frac{2Gm_0}{\kappa^2 c^2}$ (radial distance from the central mass)
-  $R_s=\frac{2Gm_0}{c^2}$ (Schwarzschild radius. Radius from the center of mass where event horizon is forming)
-  $\rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2} = \kappa^2 \cdot \rho_{max}$ (Energy/mass density in the given radius)
-  $\rho_{max} = \frac{c^2}{8\pi G r_{d}^2}$ (Maximal energy density where $\kappa=1$ event horizon)
+$$
 
-  
+$r_{d} = \frac{R_s}{\kappa^2} = \frac{2Gm_0}{\kappa^2 c^2}$ (radial distance from the central mass)
+
+$R_s=\frac{2Gm_0}{c^2}$ (Schwarzschild radius. Radius from the center of mass where event horizon is forming)
+
+$\rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2} = \kappa^2 \cdot \rho_{max}$ (Energy/mass density in the given radius)
+
+$\rho_{max} = \frac{c^2}{8\pi G r_{d}^2}$ (Maximal energy density where $\kappa=1$ event horizon)
+
 </details>
 
 ---
@@ -727,7 +731,7 @@ reached)**
 
 Let’s unpack the terms:
 
-- $R_s$ is the critical radius for a given mass – essentially the Schwarzschildradius (the radius of a black hole event horizon for that mass).
+- $R_s$ is the critical radius for a given mass – essentially the Schwarzschild radius (the radius of a black hole event horizon for that mass).
 - $r_d$ is the distance from the center we are considering (the current radius).
 - $\rho$ is the energy density (including mass as energy) at that radius.
 - $\rho_{\max}$ is the critical density at that radius, meaning the maximum energy density that location can sustain without collapsing into a black hole.
