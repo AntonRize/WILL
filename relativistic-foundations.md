@@ -601,7 +601,13 @@ and the two angles are exactly equal.
 
 ---
 
-## Section 7: Energy–Symmetry Law (Why No Free Lunch)
+## Section 7: Energy–Symmetry Law
+
+---
+
+![Energy-Symmetry-Law2.jpg](images/Energy-Symmetry-Law2.jpg)
+
+---
 
 ### The Big Idea
 
@@ -659,10 +665,6 @@ Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, a
 
 ---
 
-![Energy-Symmetry-Law2.jpg](images/Energy-Symmetry-Law2.jpg)
-
----
-
 ### Universal Speed Limit: Why Nothing Goes Faster than Light
 
 This “energy symmetry” is so strict that it naturally sets the universe’s ultimate speed limit.
@@ -700,6 +702,11 @@ Thus, $ \beta \leq 1$ ($v \leq c$) is required intrinsically to preserve causal 
 ## Section 8: The Whole Universe in a Single Line
 
 After all the geometric juggling, here’s the punchline: **Everything — gravity, motion, energy, even the rules for black holes — can be summed up in just one line.**
+---
+
+![Unified-Field-Equation2.jpg](images/Unified-Field-Equation2.jpg)
+
+---
 
 $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
@@ -752,11 +759,6 @@ as we know it ceases to work. But in WILL Geometry, the unified equation forbids
 density. There is always a local maximum $\rho_{\max}$ given by the equation, which increases as you
 go inward but never becomes infinite at a finite radius (for details see section "Zeno-Type Divergence in Black Hole Infall" in part II document).
 
----
-
-![Unified-Field-Equation2.jpg](images/Unified-Field-Equation2.jpg)
-
----
 
 > No matter how you look at it — as a distance, or as an amount of energy — the universe always keeps you within the same “safe fraction” of the maximum possible.
 
@@ -807,15 +809,16 @@ $$
 - **There’s always a local limit — and the universe never lets you break it.**
     
 - **No infinities, no singularities, just pure, built-in self-consistency.**
-    
+
+  ---
+
+### Closure of the Theoretical Framework
 
 ---
 
 ![Theoretical-Ouroboros-min.jpg](images/Theoretical-Ouroboros-min.jpg)
 
 ---
-
-### Closure of the Theoretical Framework
 
 The unified field equation completes the ab initio derivation begun with the fundamental postulate:
 
@@ -840,13 +843,13 @@ We have shown that this single postulate, through pure geometric reasoning, nece
 
 A theory, no matter how beautiful, is just a clever idea until it passes real-world tests. Science is all about matching what we think to what we actually see in nature. A beautiful theory is useless if it does not align with what we observe. This section is devoted to grounding the abstract vision of WILL Geometry by demonstrating that it makes precise, testable predictions about real physical phenomena.
 
-Let’s examine these two key examples, which serve as rigorous empirical tests of the entire theoretical construction.
-
 ---
 
 ![Empirical-Validation2.jpg](images/Empirical-Validation2.jpg)
 
 ---
+
+Let’s examine these two key examples, which serve as rigorous empirical tests of the entire theoretical construction.
 
 ### 1. Time Correction in the GPS System
 
@@ -969,6 +972,12 @@ At the core is one bold claim:
 
 > **Energy doesn’t just exist in space — it *creates* space, by its projection.**
 
+---
+
+![The-WILL-Invariant.jpg](images/The-WILL-Invariant.jpg)
+
+---
+
 All of physics becomes a story about “the projective curvature of the energy flow.” And the essence of it all is captured in a single, dimensionless invariant:
 
 <details> <summary><strong>See the WILL invariant</strong></summary>  
@@ -977,12 +986,6 @@ W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\
 </details>
 
 Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self-consistent structure.
-
----
-
-![The-WILL-Invariant.jpg](images/The-WILL-Invariant.jpg)
-
----
 
 > ### The Name "Will"  
 > The name Will reflects both the harmonious unity of the equation and a subtle irony towards the <abbr title="the idea that the Universe must allow conscious observers to exist, so the laws of physics appear fine-tuned for life">anthropic principle</abbr>, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
