@@ -709,6 +709,12 @@ $$
 $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
 $$  
+  $r_{d} = \frac{R_s}{\kappa^2} = \frac{2Gm_0}{\kappa^2 c^2}$ (radial distance from the central mass)
+  $R_s=\frac{2Gm_0}{c^2}$ (Schwarzschild radius. Radius from the center of mass where event horizon is forming)
+  $\rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2} = \kappa^2 \cdot \rho_{max}$ (Energy/mass density in the given radius)
+  $\rho_{max} = \frac{c^2}{8\pi G r_{d}^2}$ (Maximal energy density where $\kappa=1$ event horizon)
+
+  
 </details>
 
 ---
@@ -719,11 +725,13 @@ In plain words:
 **(Gravitational depth) = (fraction of critical radius reached) = (fraction of maximum density
 reached)**
 
-Let’s unpack the terms: - $R_s$ is the critical radius for a given mass – essentially the Schwarzschild
-radius (the radius of a black hole event horizon for that mass). - $r_d$ is the distance from the center we
-are considering (the current radius). - $\rho$ is the energy density (including mass as energy) at that
-radius. - $\rho_{\max}$ is the critical density at that radius, meaning the maximum energy density that
-location can sustain without collapsing into a black hole.
+Let’s unpack the terms:
+
+- $R_s$ is the critical radius for a given mass – essentially the Schwarzschildradius (the radius of a black hole event horizon for that mass).
+- $r_d$ is the distance from the center we are considering (the current radius).
+- $\rho$ is the energy density (including mass as energy) at that radius.
+- $\rho_{\max}$ is the critical density at that radius, meaning the maximum energy density that location can sustain without collapsing into a black hole.
+
 The equation $\frac{R_s}{r_d} = \frac{\rho}{\rho_{\max}}$ says that at any radius in the universe, the
 proportion of “used-up” gravitational potential (left side) equals the proportion of the allowed energy
 density that is filled (right side). It’s a statement of cosmic balance: no matter how you express the
@@ -732,12 +740,13 @@ of energy (via fraction of maximum density reached) – you end up with the same
 Another way to phrase it: you are always at a fixed fraction of a total “energy-capacity” of space, locally. This fraction is $\kappa^2$, which
 doubles as the fraction of the way to becoming a black hole (since $R_s$ is the black hole threshold) and
 the fraction of maximum density achieved.
+
 This deceptively simple relation has profound consequences. In standard general relativity, if too much
 mass-energy is compressed in too small a volume, the theory predicts a singularity – a point of infinite
 density and zero volume – hidden behind an event horizon. Such singularities are places where physics
 as we know it ceases to work. But in WILL Geometry, the unified equation forbids reaching an infinite
 density. There is always a local maximum $\rho_{\max}$ given by the equation, which increases as you
-go inward but never becomes infinite at a finite radius (for details see section "Zeno-Type Divergence in Black Hole Infall" in document part II).
+go inward but never becomes infinite at a finite radius (for details see section "Zeno-Type Divergence in Black Hole Infall" in part II document).
 
 ---
 
