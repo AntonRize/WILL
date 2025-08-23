@@ -682,9 +682,7 @@ Assume an object could exceed the speed of light ($ \beta > 1$). In that scenari
 
 - No reciprocal transfer could balance this energy, breaking the fundamental symmetry:
 
-\begin{equation}
-\Delta E_{A \to B} + \Delta E_{B \to A} \neq 0
-\end{equation}
+$$\Delta E_{A \rightarrow B} + \Delta E_{B \rightarrow A} \neq 0$$
 
 Thus, $ \beta \leq 1$ ($v \leq c$) is required intrinsically to preserve causal and energetic consistency.
 
