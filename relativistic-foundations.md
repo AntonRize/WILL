@@ -1,6 +1,8 @@
 ---  
+
 layout: default  
-title: "Relativistic Foundations"  
+title: "Relativistic Foundations" 
+
 ---  
 
 
@@ -157,7 +159,7 @@ Against this backdrop, a fundamental question arises: What if we could construct
 It is on this path of uncompromising minimalism that the central, unifying postulate of WILL Geometry is born:
 
 ### SPACETIME ≡ ENERGY EVOLUTION  
-> *(In plain language: spacetime is just energy in motion — all of space and time emerges from energy changing.)*
+*(In plain language: spacetime is just energy in motion — all of space and time emerges from energy changing.)*
 
 > **Clarification: What “energy evolution”** Means  
 > By **“energy evolution”** we mean the total structure of possible <abbr title="changes from one measurable configuration to another">transitions</abbr> between observable states — not a process unfolding <em>in</em> spacetime, but the relational <abbr title="the mathematical structure describing connections and distances">geometry</abbr> from which both <abbr title="the three dimensions of extension in physics">space</abbr> and <abbr title="the ordered sequence of events we perceive">time</abbr> emerge. This is not a derived result but a foundational <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr>, subject to geometric and empirical audit in subsequent sections. “WILL” is used here as a technical term for this unified, emergent structure.  
@@ -166,7 +168,7 @@ It is on this path of uncompromising minimalism that the central, unifying postu
 
 At first glance, this statement appears simple, but it carries a revolutionary meaning. It asserts that space and time are not some pre-existing “container” or stage on which physical processes unfold. On the contrary, the very fabric of spacetime is identical to the full structure of all possible transitions and interconnections between energetic states. Spacetime is not a stage; it is the dance itself. Energy does not exist in spacetime; rather, it defines it through its own <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s and relations.
 
-This work is not merely a reformulation of existing theories, but rather a narrative account of this new perspective — born from a personal quest to understand the fundamental nature of reality based on the most elementary geometric principles. It is an intellectual journey motivated by the conviction that the Universe’s structure must, at its core, be simple, elegant, and logically closed. The aim of this narrative is not to refute established physics, but to offer a deeper perspective — showing how the known laws of special and general relativity can be not merely postulated, but *derived* as inevitable consequences of a single, more fundamental principle. We will trace the logical chain from this lone postulate to its ultimate conclusions, demonstrating how it gives rise to all the complexity and beauty of the relativistic world.
+This work is not merely a reformulation of existing theories, but rather a narrative account of this new perspective — born from a personal quest to understand the fundamental nature of reality based on the most elementary geometric principles. It is an intellectual journey motivated by the conviction that the Universe’s structure must, at its core, be simple, elegant, and logically closed. The aim of this narrative is not to refute established physics, but to offer a deeper perspective — showing how the known laws of <abbr title="Einstein’s theory of motion at constant velocity">Special Relativity</abbr> and <abbr title="Einstein’s theory of gravitation and curved spacetime">General Relativity</abbr> can be not merely postulated, but *derived* as inevitable consequences of a single, more fundamental principle of <abbr title="a structure defined only by relationships between elements, not by an external background">relational geometry</abbr>. We will trace the logical chain from this lone postulate to its ultimate conclusions, to test them against real world mesuerd phenomenon, demonstrating how it gives rise to all the complexity and beauty of the relativistic world.
 
 ---
 
@@ -195,7 +197,7 @@ This immediately raises the question: What geometric structures satisfy these st
 
 These geometries are not arbitrary choices or convenient models. They are forced upon us by the logic of the postulate itself. If the Universe is a closed and symmetric system of energetic relations, then any <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of those relations must “live” on these unique surfaces. The circle and the sphere become the only possible “canvases” on which the picture of physical reality can be drawn.
 
-Finally, we must rethink one of the fundamental constants of nature — the speed of light, *c*. In WILL Geometry, *c* (the speed of light) is not merely the speed at which photons travel; it is understood as the universal speed of evolution, the fundamental <abbr title="mapping of one quantity onto another axis or dimension">projections</abbr> <abbr title="a quantity that remains unchanged under transformations or invariant</abbr> tempo of change in the Universe itself. Every interaction, every transformation of energy, occurs at this single, unchanging rate. This universal “speed of evolution” is like a vector of constant length. The various physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this single vector onto different axes, just as a car’s velocity can be decomposed into northward and eastward components. The sum of the squares of the <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s always remains constant, naturally returning us to the geometry of the circle, where the radius (*c*) is <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>.
+Finally, we must rethink one of the fundamental constants of nature — the speed of light, *c*. In WILL Geometry, *c* (the speed of light) is not merely the speed at which photons travel; it is understood as the universal speed of evolution, the fundamental <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr> tempo of change in the Universe itself. Every interaction, every transformation of energy, occurs at this single, unchanging rate. This universal “speed of evolution” is like a vector of constant length. The various physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this single vector onto different axes, just as a car’s velocity can be decomposed into northward and eastward components. The sum of the squares of the <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s always remains constant, naturally returning us to the geometry of the circle, where the radius (*c*) is <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>.
 
 Thus, from a single postulate, we derive the entire set of rules: conservation, <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>, and specific geometric structures (the circle and the sphere) that will serve as the arena for all subsequent physical phenomena. Geometry is not imposed upon physics; it is its inevitable logical consequence.
 
@@ -209,7 +211,7 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 
 ---
 
-![Kinetic-Energy-The-Spatial-projection.jpg](images/Kinetic-Energy-The-Spatial-projection.jpg)
+![Kinetic-Energy-The-Spatial-projection.jpg](images/images/Kinetic-Energy-The-Spatial-Projection.jpg)
 
 ---
 
@@ -439,35 +441,24 @@ So, what look like two separate “mysteries” in physics are actually just two
 **Energy isn't something objects "have" — it's a measure of differences between states.**
 
 When we drop anthropocentric distortions, a clear and intuitive picture emerges:
-
 - Physical parameters like energy, speed, and gravitational potential don't belong to objects.
-    
 - Instead, they represent how we, as observers, measure differences from our own point of view.
     
 
 In this relational view, your perspective is always the reference frame. You are always at zero. Everything else is described by how it differs from your state:
-
 - **β (Beta)** is not an intrinsic property of a moving object. It is a measure of how much of the universal "speed of change" you see as motion through space, relative to yourself.
-    
 - **κ (Kappa)** doesn't describe an object's "stored" gravitational energy. It measures how deeply an object sits in a gravitational field, as seen from your position. It's your personal "ruler" for gravitational depth.
     
 
 Think of κ and β as your own relational measuring tools:
-
-- **β** is how far along your "motion ruler" you project another object's state.
-    
+- **β** is how far along your "motion ruler" you project another object's state.   
 - **κ** is how deep into your "gravity well" you see another object's state.
     
-
 Energy thus emerges naturally:
-
-- Energy is simply the capacity to move between states — it's not possessed, but relationally defined.
-    
+- Energy is simply the capacity to move between states — it's not possessed, but relationally defined. 
 - Saying "the object's energy" always implicitly means "the object's energy as measured from your perspective."
     
-
 Here's a simple analogy:
-
 > Imagine standing on a train platform. A train passes by rapidly: to you, it has significant kinetic energy. But if you jump onto the train, it instantly becomes stationary relative to you. Its kinetic energy is now zero — because your frame of reference shifted. The energy didn't vanish; your perspective changed.
 
 **Bottom line:**
@@ -480,11 +471,10 @@ Here's a simple analogy:
 
 ## Section 6: Unification – When the Circle Meets the Sphere
 
+
 Now comes the punchline: All this time, we’ve seen motion (special relativity) and gravity (general relativity) as separate “shadows” of the same underlying process, just playing out on different shapes — the circle and the sphere.
 
 But here’s the twist: **these two worlds aren’t really separate.** In fact, there’s a deep, built‑in connection between them. They’re just different “faces” of one and the same thing.
-
----
 
 ### The Universal “Budget” Principle
 
@@ -496,7 +486,6 @@ No matter how you use it, your total paint doesn’t change — but the way it �
     
 - Sometimes as *gravity* (spread over the sphere)
     
-
 But both are just different ways of splitting up the same “energy budget.”
 
 <details> <summary><strong>Show the key connection</strong></summary>
@@ -980,7 +969,7 @@ At the core is one bold claim:
 
 ---
 
-![The-WILL-invariant.jpg](images/The-WILL-invariant.jpg)
+![The-WILL-invariant.jpg](images/The-WILL-Invariant.jpg)
 
 ---
 
@@ -993,7 +982,7 @@ W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\
 
 Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self-consistent structure.
 
-> ### The Name "Will"  
+> ### The Name "WILL"  
 > The name Will reflects both the harmonious unity of the equation and a subtle irony towards the <abbr title="the idea that the Universe must allow conscious observers to exist, so the laws of physics appear fine-tuned for life">anthropic principle</abbr>, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
 
 ---
