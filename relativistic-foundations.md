@@ -178,7 +178,7 @@ This restriction, philosophical at first glance, generates concrete physical and
 
 - **Conservation Law:** In a closed system, nothing can appear from outside or disappear without a trace. This means that the total energy of the system must be conserved. The law of conservation is not an added assumption, but a direct consequence of the Universe’s self-sufficiency.
     
-- **<abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>:** In the absence of external reference points, no location in space and no direction can be privileged from the outset. Any a<abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr> would require a preferred frame, contradicting our foundational principle. Therefore, the geometry of the Universe must be maximally symmetric.
+- **<abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>:** In the absence of external reference points, no location in space and no direction can be privileged from the outset. Any asymmetry would require a preferred frame, contradicting our foundational principle. Therefore, the geometry of the Universe must be maximally symmetric.
     
 ---
 
@@ -661,7 +661,7 @@ E_{B \to A}=\frac{1}{2}((\kappa_{B}^{2}-\kappa_{A}^{2})-\beta_{B}^{2})
 $$
  
 $$
-E_{SYMETRY}=E_{A \to B}+E_{B \to A}=0
+E_{SYMMETRY}=E_{A \to B}+E_{B \to A}=0
 $$
 
 Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, always balancing out.
