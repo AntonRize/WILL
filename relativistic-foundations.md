@@ -98,7 +98,7 @@ title: "Relativistic Foundations"
 
 This interactive page was created to **explain the essential meaning and logic of the WILL Geometry model** — but **without** the heavy mathematical machinery.
 
-Here, the focus is on the core ideas, intuitive explanations, and geometric visualizations, making this new approach to fundamental physics accessible to a much wider audience.
+Here, the focus is on the core ideas, intuitive explanations, and geometric visualizations, making this new approach to fundamental physics accessible to a much wider audience (hover-tooltips added for clarity).
 
 If you want to see the full mathematical derivations, download the complete documents here:  
 [Full WILL Geometry Papers](https://antonrize.github.io/WILL/parts/)
@@ -146,20 +146,20 @@ If you want to see the full mathematical derivations, download the complete docu
 
 Modern theoretical physics is a magnificent edifice built on the foundation of astonishing predictive power. Theories of relativity and quantum mechanics describe the world with incredible precision, from subatomic particles to cosmic horizons. Yet, in this very foundation, there remain enigmatic elements that cast a shadow over the completeness of our understanding: gravitational singularities (points of infinite density where known laws break down); arbitrary constants (measurable values we cannot derive) that we can measure but cannot explain; and the necessity to introduce “dark” entities such as dark matter (unseen mass) and dark energy (unknown cosmic energy) simply to align theory with observation. These phenomena indicate that our description of reality may be incomplete.
 
-Against this backdrop, a fundamental question arises: What if we could construct the Universe without any “extraneous details”? What if all observable phenomena — space, time, mass, energy — could be derived from a single, simple, and self-evident statement, without the need for free parameters (tunable inputs) or inexplicable constants? This approach — what might be called the principle of “epistemological hygiene” — demands that we reject all assumptions not strictly necessary, and build the theory solely on the basis of logical sequence.
-
 ---
 
 ![Methodological Pillars](images/Methodological-Pillars.jpg)
 
 ---
 
+Against this backdrop, a fundamental question arises: What if we could construct the Universe without any “extraneous details”? What if all observable phenomena — space, time, mass, energy — could be derived from a single, simple, and self-evident statement, without the need for free parameters (tunable inputs) or inexplicable constants? This approach — what might be called the principle of “epistemological hygiene” — demands that we reject all assumptions not strictly necessary, and build the theory solely on the basis of logical sequence.
+
 It is on this path of uncompromising minimalism that the central, unifying postulate of WILL Geometry is born:
 
-> **SPACETIME ≡ ENERGY EVOLUTION**  
+### SPACETIME ≡ ENERGY EVOLUTION  
 > *(In plain language: spacetime is just energy in motion — all of space and time emerges from energy changing.)*
 
-> ### Clarification: What “energy evolution” Means  
+> **Clarification: What “energy evolution”** Means  
 > By **“energy evolution”** we mean the total structure of possible <abbr title="changes from one measurable configuration to another">transitions</abbr> between observable states — not a process unfolding <em>in</em> spacetime, but the relational <abbr title="the mathematical structure describing connections and distances">geometry</abbr> from which both <abbr title="the three dimensions of extension in physics">space</abbr> and <abbr title="the ordered sequence of events we perceive">time</abbr> emerge. This is not a derived result but a foundational <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr>, subject to geometric and empirical audit in subsequent sections. “WILL” is used here as a technical term for this unified, emergent structure.  
 >  
 > The goal of this framework is not merely to reconstruct the formulas of <abbr title="Einstein’s theory of motion at constant velocity">Special Relativity</abbr> and <abbr title="Einstein’s theory of gravitation and curved spacetime">General Relativity</abbr>, but to demonstrate that they are the unique and necessary consequences of a single, deeper principle of relational geometry. By showing <em>why</em> these specific mathematical structures must arise, the model provides a more fundamental explanation for them than the standard formalisms alone.
