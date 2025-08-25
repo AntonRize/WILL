@@ -130,7 +130,7 @@ If you want to see the full mathematical derivations, download the complete docu
   <div class="hero-details">  
     <p><strong>Beta (β):</strong>  The kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>. Representing the ratio of an object's velocity to the universal speed of evolution \((v/c)\). It quantifies how much of the "speed of change" is perceived as motion through space relative to observer. Not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.</p>  
     <p><strong>Kappa (κ):</strong>  The potential <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>. It measures how deeply an object is situated within a gravitational field, relative to an observer, and indicates proximity to an event horizon with κ = 1 at a black hole’s event horizon. Not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.</p>  
-    <p><strong>Universal Speed of Evolution (c):</strong> Another name for the speed of light, viewed here as the fundamental, <abbr title="a quantity that remains unchanged under transformations or <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s">invariant</abbr> tempo of change in the universe. It is not merely the speed of light but the constant rate at which all energetic interactions and transformations occur, speed limit for any change or information transfer.</p>  
+    <p><strong>Universal Speed of Evolution (c):</strong> Another name for the speed of light, viewed here as the fundamental, <abbr title="mapping of one quantity onto another axis or dimension">projections</abbr> <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr> tempo of change in the universe. It is not merely the speed of light but the constant rate at which all energetic interactions and transformations occur, speed limit for any change or information transfer.</p>  
     <p><strong>Epistemological Hygiene:</strong> The principle of removing all unnecessary assumptions when building a theory, using only what’s logically required (nothing extraneous).</p>  
     <p><strong>Event Horizon:</strong> The boundary around a black hole beyond which nothing can escape. (At this “point of no return,” the escape velocity equals the speed of light.)</p>  
     <p><strong>Photon Sphere:</strong> A region near a black hole (about 1.5 times the Schwarzschild radius) where light can orbit in a circle if moving tangentially. It's an unstable orbit – light can fall in or escape if perturbed.</p>  
@@ -195,7 +195,7 @@ This immediately raises the question: What geometric structures satisfy these st
 
 These geometries are not arbitrary choices or convenient models. They are forced upon us by the logic of the postulate itself. If the Universe is a closed and symmetric system of energetic relations, then any <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of those relations must “live” on these unique surfaces. The circle and the sphere become the only possible “canvases” on which the picture of physical reality can be drawn.
 
-Finally, we must rethink one of the fundamental constants of nature — the speed of light, *c*. In WILL Geometry, *c* (the speed of light) is not merely the speed at which photons travel; it is understood as the universal speed of evolution, the fundamental <abbr title="a quantity that remains unchanged under transformations or <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s">invariant</abbr> tempo of change in the Universe itself. Every interaction, every transformation of energy, occurs at this single, unchanging rate. This universal “speed of evolution” is like a vector of constant length. The various physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this single vector onto different axes, just as a car’s velocity can be decomposed into northward and eastward components. The sum of the squares of the <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s always remains constant, naturally returning us to the geometry of the circle, where the radius (*c*) is <abbr title="a quantity that remains unchanged under transformations or <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s">invariant</abbr>.
+Finally, we must rethink one of the fundamental constants of nature — the speed of light, *c*. In WILL Geometry, *c* (the speed of light) is not merely the speed at which photons travel; it is understood as the universal speed of evolution, the fundamental <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s"> <abbr title="a quantity that remains unchanged under transformations or invariant</abbr> tempo of change in the Universe itself. Every interaction, every transformation of energy, occurs at this single, unchanging rate. This universal “speed of evolution” is like a vector of constant length. The various physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this single vector onto different axes, just as a car’s velocity can be decomposed into northward and eastward components. The sum of the squares of the <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s always remains constant, naturally returning us to the geometry of the circle, where the radius (*c*) is <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>.
 
 Thus, from a single postulate, we derive the entire set of rules: conservation, <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>, and specific geometric structures (the circle and the sphere) that will serve as the arena for all subsequent physical phenomena. Geometry is not imposed upon physics; it is its inevitable logical consequence.
 
@@ -209,7 +209,7 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 
 ---
 
-![Kinetic-Energy-The-Spatial-<abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>.jpg](images/Kinetic-Energy-The-Spatial-<abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>.jpg)
+![Kinetic-Energy-The-Spatial-projection.jpg](images/Kinetic-Energy-The-Spatial-projection.jpg)
 
 ---
 
@@ -610,7 +610,7 @@ and the two angles are exactly equal.
 
 ---
 
-![Energy-symmetry-Law2.jpg](images/Energy-symmetry-Law2.jpg)
+![Energy-symmetry-Law2.jpg](images/Energy-Symmetry-Law2.jpg)
 
 ---
 
@@ -707,6 +707,7 @@ Thus, $ \beta \leq 1$ ($v \leq c$) is required intrinsically to preserve causal 
 ## Section 8: The Whole Universe in a Single Line
 
 After all the geometric juggling, here’s the punchline: **Everything — gravity, motion, energy, even the rules for black holes — can be summed up in just one line.**
+
 ---
 
 ![Unified-Field-Equation2.jpg](images/Unified-Field-Equation2.jpg)
@@ -819,12 +820,6 @@ $$
 
 ### Closure of the Theoretical Framework
 
----
-
-![Theoretical-Ouroboros-min.jpg](images/Theoretical-Ouroboros-min.jpg)
-
----
-
 The unified field equation completes the ab initio derivation begun with the fundamental postulate:
 
 $$
@@ -836,6 +831,12 @@ This is the unified geometric field equation we derived. It expresses the comple
 $$
 \text{GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}
 $$
+
+---
+
+![Theoretical-Ouroboros-min.jpg](images/Theoretical-Ouroboros-min.jpg)
+
+---
 
 We have shown that this single postulate, through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with a single fundamental statement about energy and its evolution, from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and space, proving the self-consistency of the initial postulate. From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework — the "Theoretical Ouroboros". But let's remain skeptical. We are here for Physics!
 
@@ -983,9 +984,9 @@ At the core is one bold claim:
 
 ---
 
-All of physics becomes a story about “the projective curvature of the energy flow.” And the essence of it all is captured in a single, dimensionless <abbr title="a quantity that remains unchanged under transformations or <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s">invariant</abbr>:
+All of physics becomes a story about “the projective curvature of the energy flow.” And the essence of it all is captured in a single, dimensionless  <abbr title="mapping of one quantity onto another axis or dimension">projections</abbr> <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>:
 
-<details> <summary><strong>See the WILL <abbr title="a quantity that remains unchanged under transformations or projection</abbr>s">invariant</abbr></strong></summary>  
+<details> <summary><strong>See the WILL <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr></strong></summary>
 $$ 
 W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}}= \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 $$  
 </details>
