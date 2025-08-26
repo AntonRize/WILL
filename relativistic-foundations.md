@@ -989,7 +989,9 @@ This is not the end, but just a beginning. **For the full mathematical theory, a
 
 -----
 
-- [WILL Geometry — Full Papers & Results](https://antonrize.github.io/WILL/parts/)  
-- [Results & Applications](https://antonrize.github.io/WILL/results/)
+- [WILL Geometry — Documents & Results](https://antonrize.github.io/WILL/results/)  
+- [Testable Predictions](https://antonrize.github.io/WILL/predictions/)
+- [Ask WILL AI](https://antonrize.github.io/WILL/assistant/)
+- [Help This Research](https://antonrize.github.io/WILL/help/)
 
 -----
