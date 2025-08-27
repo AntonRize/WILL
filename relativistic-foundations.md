@@ -287,14 +287,20 @@ Momentum: p = γ m v
 
 ### The Energy-Momentum Triangle
 
-><details> <summary><strong>Show **Guide to Interpreting This Combined Diagram:**</strong></summary>   
+><details> <summary><strong>Show Guide to Interpreting This Combined Diagram:</strong></summary>   
 > This diagram intentionally superimposes two different geometric views to illustrate their deep connection. To avoid confusion, please read the following guide:  
-> 1. **The Background (Unit Circle):** The white unit circle and its associated labels (like `L_c`, `θ_S`, and "Time evolution") represent the “Spacetime <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>” model discussed previously. It is shown here as a **reference** to illustrate where the fundamental velocity parameter `β` originates. In this background view, the hypotenuse is always constant (equal to 1).  
-> 2. **The Foreground (Energy Triangle):** The shaded triangle is the main subject of this section. For this **Energy–Momentum Triangle**, the axes take on a new, physical meaning:  
-> – The **vertical axis** represents the constant <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projection">invariant</abbr> Rest Energy ($E_0$).  
-> – The **horizontal axis** represents the growing **Momentum ($p$)**.  
-> The hypotenuse of this main triangle represents the growing **Total Energy ($E$)**, which clearly extends beyond the bounds of the background unit circle.  
-> The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy–momentum triangle, visually linking the geometry of spacetime to the energy of an object.</details>
+  
+> - The Background (Unit Circle): The white unit circle and its associated labels (like `L_c`, `θ_S`, and "Time evolution") represent the “Spacetime <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>” model discussed previously. It is shown here as a reference to illustrate where the fundamental velocity parameter `β` originates. In this background view, the hypotenuse is always constant (equal to 1).
+
+> - The Foreground (Energy Triangle): The shaded triangle is the main subject of this section. For this Energy–Momentum Triangle, the axes take on a new, physical meaning:
+
+> – The vertical axis represents the constant <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projection">invariant</abbr> Rest Energy ($E_0$).
+ 
+> - The horizontal axis represents the growing Momentum ($p$).
+  
+> The hypotenuse of this main triangle represents the growing Total Energy ($E$), which clearly extends beyond the bounds of the background unit circle.
+  
+> - The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy–momentum triangle, visually linking the geometry of spacetime to the energy of an object.</details>
 
 **Visualize energy, mass, and momentum as a simple right triangle:**
 
@@ -309,9 +315,19 @@ Momentum: p = γ m v
 
 ![Energy-Momentum-Triangle](images/Energy-momentum-triangle.jpg)
 
----
 
 > When you slide the velocity, you can see how “momentum” grows, and total energy stretches to keep the triangle in perfect balance, but rest energy always stays the same.
+
+---
+
+<details class="video-dropdown-container">  
+  <summary class="will-hero-summary">▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)</summary>  
+  <div class="geometry-container hero-details">  
+    <div class="desmos-container">  
+      <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe>  
+    </div>  
+  </div>  
+</details>
 
 ---
 
@@ -349,19 +365,6 @@ Simply saying:
 - **Total energy** is always the “longest side,” combining both.
     
 
----
-
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
-
----
-
 ### What This Means
 
 Special relativity stops being a bunch of rules about “strange time effects” or “postulates about light.” Instead, it’s just a simple story of how all things must share a fixed “budget” of change between motion and time. Mass, energy, and momentum are simply three perspectives on the same underlying geometric fact.
@@ -372,7 +375,6 @@ Special relativity stops being a bunch of rules about “strange time effects”
 
 Having cracked motion using a simple circle, let’s tackle gravity. Gravity is different: instead of working in one direction like motion, it pulls equally from every side — like being surrounded in all directions. So our “canvas” has to be not a line or circle, but a whole **sphere**.
 
----
 
 ### How Gravity is Just a Different Kind of <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>
 
