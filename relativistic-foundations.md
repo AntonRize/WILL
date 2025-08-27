@@ -385,6 +385,18 @@ Imagine standing at the center of a big sphere — gravity “spreads out” the
 
 You can think of κ as “how much of the universe’s speed limit you’d need to escape gravity right here.”
 
+
+---
+
+<details class="video-dropdown-container">  
+  <summary class="will-hero-summary">▶ Show Interactive Graph: Gravity/Time on the Unit Sphere (Desmos)</summary>  
+  <div class="geometry-container hero-details">  
+    <div class="desmos-container">  
+      <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe>  
+    </div>  
+  </div>  
+</details>
+
 ---
 
 ### How Gravity Warps Time
