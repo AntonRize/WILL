@@ -439,8 +439,8 @@ Here’s the coolest part:
 
 | Situation            | Geometry | Time Factor                                |
 | -------------------- | -------- | ------------------------------------------ |
-| **Moving fast (SR)** | Circle   | $L_c = \sqrt{1-\beta^2}$ (time dilation factor)        |
-| **Near mass (GR)**   | Sphere   | $T_c = \sqrt{1-\kappa^2}$ (gravitational time factor) |
+| **Moving fast (SR)** | Circle   | $T_d =1/\sqrt{1-\beta^2}$ (kinetic time dilation factor)        |
+| **Near mass (GR)**   | Sphere   | $T_c = \sqrt{1-\kappa^2}$ (gravitational time contraction factor) |
 
 So, what look like two separate “mysteries” in physics are actually just two <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of the same fundamental story.
 
