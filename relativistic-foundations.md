@@ -144,7 +144,7 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-## Section 1: The Universe from a Single Principle
+## Section 1: A Universe from a Single Principle
 
 Modern theoretical physics is a magnificent edifice built on the foundation of astonishing predictive power. Theories of relativity and quantum mechanics describe the world with incredible precision, from subatomic particles to cosmic horizons. Yet, in this very foundation, there remain enigmatic elements that cast a shadow over the completeness of our understanding: gravitational <abbr title="points of infinite density where known laws break down">singularities</abbr>; arbitrary <abbr title="measurable values we cannot derive or understend there origin">constants</abbr> that we can measure but cannot explain; and the necessity to introduce “dark” entities such as <abbr title="unseen source of gravity">dark matter</abbr> and <abbr title="unknown cosmic energy accelerating expantion">dark energy</abbr> simply to align theory with observation. These phenomena indicate that our description of reality may be incomplete.
 
