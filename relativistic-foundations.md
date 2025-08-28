@@ -146,7 +146,14 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ## Section 1: A Universe from a Single Principle
 
-Modern theoretical physics is a magnificent edifice built on the foundation of astonishing predictive power. Theories of relativity and quantum mechanics describe the world with incredible precision, from subatomic particles to cosmic horizons. Yet, in this very foundation, there remain enigmatic elements that cast a shadow over the completeness of our understanding: gravitational <abbr title="points of infinite density where known laws break down">singularities</abbr>; arbitrary <abbr title="measurable values we cannot derive or understend there origin">constants</abbr> that we can measure but cannot explain; and the necessity to introduce “dark” entities such as <abbr title="unseen source of gravity">dark matter</abbr> and <abbr title="unknown cosmic energy accelerating expantion">dark energy</abbr> simply to align theory with observation. These phenomena indicate that our description of reality may be incomplete.
+Modern physics is extraordinarily powerful at predicting phenomena across scales, from subatomic
+particles to cosmic structures. Yet despite its successes, cracks remain in our understanding. We are
+forced to accept puzzling elements: gravitational <abbr title="points of infinite density where known laws break down">singularities</abbr>, 
+seemingly arbitrary <abbr title="measurable values we cannot derive or understend there origin">constants</abbr> we must measure but cannot deduce,
+and the necessity to introduce “dark” entities such as <abbr title="unseen source of gravity">dark matter</abbr> and 
+<abbr title="unknown cosmic energy accelerating expantion of the Universe">dark energy</abbr> invoked just to make our equations fit
+observations. All these hints suggest that our current description of reality, as effective as it is,
+might be incomplete.
 
 ---
 
@@ -154,9 +161,11 @@ Modern theoretical physics is a magnificent edifice built on the foundation of a
 
 ---
 
-Against this backdrop, a fundamental question arises: What if we could construct the Universe without any <abbr title="of external origin, artificial">"extraneous details”</abbr>? What if all observable phenomena — space, time, mass, energy — could be derived from a single, simple, and self-evident statement, without the need for <abbr title="tunable inputs or limitations">free parameters or inexplicable constants</abbr>? This approach — what might be called the principle of “epistemological hygiene” — demands that we reject all assumptions not strictly necessary, and build the theory solely on the basis of logical sequence.
+This realization motivates a bold question: What if we could derive the universe from a single,
+simple principle, with no extra assumptions or <abbr title="tunable inputs">ad hoc additions</abbr>? In other words, is there a way to
+rebuild physics from the ground up, requiring no arbitrary  <abbr title="tunable inputs or limitations">"fudge factors"</abbr> or unexplained constants? This rigorous minimalist approach – one might call it a principle of <abbr title="enforces a disciplined refusal to introduce unjustified assumptions or hidden parameters. The guiding principle is: Nothing is assumed. Everything is derived. All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities">epistemological hygiene</abbr> – would accept only what is logically unavoidable. Every aspect of nature would need to follow from one selfevident statement.
 
-It is on this path of uncompromising minimalism that the central, unifying postulate of WILL Geometry is born:
+Down this path of uncompromising simplicity, a central <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr> emerges at the heart of the WILL model:
 
 ### SPACETIME ≡ ENERGY EVOLUTION  
 *(In plain language: spacetime is just energy in motion — all of space and time emerges from energy changing.)*
@@ -164,15 +173,24 @@ It is on this path of uncompromising minimalism that the central, unifying postu
 > **Clarification: What “energy evolution” Means:**  
 > By **“energy evolution”** we mean the total structure of possible <abbr title="changes from one measurable configuration to another">transitions</abbr> between observable states — not a process unfolding <em>in</em> spacetime, but the <abbr title="a structure defined only by relationships between elements, not by an external background">relational geometry</abbr> from which both <abbr title="the three dimensions of extension in physics">space</abbr> and <abbr title="the ordered sequence of events we perceive">time</abbr> emerge. This is not a derived result but a foundational <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr>, subject to geometric and empirical audit in subsequent sections. “WILL” is used here as a technical term for this unified, emergent structure.  
 
-At first glance, this statement appears simple, but it carries a profaund meaning. It asserts that space and time are not some pre-existing “container” or stage on which physical processes unfold. On the contrary, the very fabric of spacetime is identical to the full structure of all possible transitions and interconnections between energetic states. Spacetime is not a stage; it is the dance itself. Energy does not exist in spacetime; rather, it defines it through its own <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s and relations.
 
-This work is not merely a reformulation of existing theories, but rather a narrative account of this new perspective — born from a personal quest to understand the fundamental nature of reality based on the most elementary geometric principles. It is an intellectual journey motivated by the conviction that the Universe’s structure must, at its core, be simple, elegant, and logically closed. The aim of this narrative is not to refute established physics, but to offer a deeper perspective — showing how the known laws of <abbr title="Einstein’s theory of motion at constant velocity">Special Relativity</abbr> and <abbr title="Einstein’s theory of gravitation and curved spacetime">General Relativity</abbr> can be not merely postulated, but *derived* as inevitable consequences of a single, more fundamental principle of <abbr title="a structure defined only by relationships between elements, not by an external background">relational geometry</abbr>. We will trace the logical chain from this lone postulate to its ultimate conclusions, to test them against real world mesuerd phenomenon, demonstrating how it gives rise to all the complexity and beauty of the relativistic world.
+At first glance, this statement seems straightforward, but it carries profaund implications. It says
+that <abbr title="the three dimensions of extension in physics">space</abbr> and <abbr title="the ordered sequence of events we perceive">time</abbr> are not a pre-existing stage or container where <abbr title="changes from one measurable configuration to another">events and transitions</abbr> happen. Instead, the fabric of spacetime *is the network of all possible energy transformations. Space and time have no
+independent existence apart from energy; they are defined by the way energy changes and
+interconnects states. Spacetime is not a backdrop – it is the dance of energy itself . In this view,
+energy doesn't sit in spacetime; rather, energy's evolving relationships create spacetime.
+
+
+This page narrates a journey based on that radical idea. It will show how the familiar laws of <abbr title="Einstein’s theory of motion at constant velocity">Special Relativity</abbr> and
+<abbr title="Einstein’s theory of gravitation and curved spacetime">General Relativity</abbr> can be not merely postulated, but *derived* as inevitable consequences of a single, principle of <abbr title="a structure defined only by relationships between elements, not by an external background">relational geometry</abbr>. Along the way, we will maintain scientific rigor and test every step against real world mesurments. But use clear imagery and interactive graphs to make the concepts accessible to everyone.
+The goal is not to overturn modern physics, but to peel back its layers and reveal a simpler unifying
+picture beneath.
 
 ---
 
 ## Section 2: The Rules of the Game — A Foundation of Pure Logic
 
-If we accept the fundamental postulate — that spacetime is identical to energy evolution — we are immediately confronted with its strict logical consequences. First and foremost: if all of reality is a self-sufficient system of energetic relations, then by definition nothing can exist “outside” this system. There is no external observer, no absolute reference frame or background on which events unfold. The Universe of WILL Geometry must be entirely closed and self-sufficient.
+If we accept the central <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr> — that spacetime is identical to energy evolution — we are immediately confronted with its strict logical consequences. First and foremost: if all of reality is a self-sufficient system of energetic relations, then by definition nothing can exist “outside” this system. There is no external observer, no absolute reference frame or background on which events unfold. The Universe of WILL Geometry must be entirely closed and self-sufficient.
 
 This restriction, philosophical at first glance, generates concrete physical and geometric “rules of the game”:
 
@@ -195,9 +213,11 @@ This immediately raises the question: What geometric structures satisfy these st
 
 These geometries are not arbitrary choices or convenient models. They are forced upon us by the logic of the postulate itself. If the Universe is a closed and symmetric system of energetic relations, then any <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of those relations must “live” on these unique surfaces. The circle and the sphere become the only possible “canvases” on which the picture of physical reality can be drawn.
 
-Finally, we must rethink one of the fundamental constants of nature — the speed of light, *c*. In WILL Geometry, *c* (the speed of light) is not merely the speed at which photons travel; it is understood as the universal speed of evolution, the fundamental <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr> tempo of change in the Universe itself. Every interaction, every transformation of energy, occurs at this single, unchanging rate. This universal “speed of evolution” is like a vector of constant length. The various physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this single vector onto different axes, just as a car’s velocity can be decomposed into northward and eastward components. The sum of the squares of the <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s always remains constant, naturally returning us to the geometry of the circle, where the radius (*c*) is <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>.
+Finally, we must reconsider one of nature’s most fundamental constants: the speed of light, c. In WILL Geometry, c is not simply the velocity at which photons travel. Instead, it represents the universal rate of evolution—the fundamental <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr> tempo governing change throughout the Universe. Every interaction and energy transformation unfolds at this singular, unchanging pace.
 
-Thus, from a single postulate, we derive the entire set of rules: conservation, <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>, and specific geometric structures (the circle and the sphere) that will serve as the arena for all subsequent physical phenomena. Geometry is not imposed upon physics; it is its inevitable logical consequence.
+This universal “speed of evolution” can be likened to a radius vector of constant length. The diverse physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this vector onto different axes—just as a car’s velocity can be resolved into northward and eastward components. Crucially, the sum of the squares of these <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s is always fixed, echoing the geometry of the circle, where the radius (c) is <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>.
+
+With this single postulate, we derive an entire framework: conservation laws, <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>, and the geometric structures—the circle and sphere—that define the stage for all physical phenomena. In this view, geometry does not constrain physics; rather, it arises as an inevitable, logical consequence of the underlying principles.
 
 ---
 
@@ -205,7 +225,7 @@ Thus, from a single postulate, we derive the entire set of rules: conservation, 
 
 Now that the rules of the game have been established, let’s consider the simplest case: one-dimensional motion. According to our logic, this process must be described on the only possible closed and symmetric 1D geometry — the circle. This act of our narrative is devoted to reconstructing special relativity (SR) using nothing but these geometric tools. The main character here is the kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>, denoted by the Greek letter β (beta), which represents how much of the universal “speed of change” is experienced as motion through space.
 
-Imagine a unit circle whose radius symbolizes the universal speed of evolution, *c* (the speed of light, treated here as the ultimate speed of change), which for simplicity we set to 1. Any state of motion of an object can be represented as a point on this circle. The total “speed of evolution” is a vector drawn from the center to this point. This vector can be decomposed into horizontal (X axis) and vertical (Y axis) <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s.
+Imagine a unit circle whose radius symbolizes the universal speed of evolution, *c* (the speed of light, treated here as the ultimate speed of change), which for simplicity we set to 1. Any change an object undergoes can be split into spatial motion and temporal flow – but these components are constrained. The sum of their squares remains the same, set by that fixed  radius length (the speed of light). This radius a vector drawn from the center to some spot on the circles edge. This vector can be decomposed into horizontal (X axis) and vertical (Y axis) <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s.
 
 ---
 
@@ -226,7 +246,7 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 
 ### How Motion and Time Are Just Two Sides of the Same Thing
 
-Imagine all possible states of movement as points around a perfect circle. The *radius* of this circle is the fastest possible speed in the universe — the universal “speed of change” (*c*). Every moving object is like a pointer from the center of the circle to some spot on its edge.
+Imagine all possible states of movement as points around a perfect circle. The *radius* of this circle is the fastest possible speed in the universe — the universal “speed of change” (*c*). State of every moving object is like a pointer from the center of the circle to some spot on its edge.
 
 - **Movement:** How fast something moves through space is just “how much” of that pointer is aimed sideways around the circle. The faster it goes, the more it “leans” into space, and the less is left “pointing” upward — toward time.
     
