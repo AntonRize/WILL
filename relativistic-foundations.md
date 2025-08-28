@@ -169,8 +169,7 @@ Down this path of uncompromising simplicity, a central <abbr title="a statement 
 
 ### SPACETIME ≡ ENERGY EVOLUTION  
 *(In plain language: spacetime is just energy in motion — all of space and time emerges from energy changing.)*
-
-> **Clarification: What “energy evolution” Means:**  
+ 
 > By **“energy evolution”** we mean the total structure of possible <abbr title="changes from one measurable configuration to another">transitions</abbr> between observable states — not a process unfolding <em>in</em> spacetime, but the <abbr title="a structure defined only by relationships between elements, not by an external background">relational geometry</abbr> from which both <abbr title="the three dimensions of extension in physics">space</abbr> and <abbr title="the ordered sequence of events we perceive">time</abbr> emerge. This is not a derived result but a foundational <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr>, subject to geometric and empirical audit in subsequent sections. “WILL” is used here as a technical term for this unified, emergent structure.  
 
 
@@ -190,7 +189,7 @@ picture beneath.
 
 ## Section 2: The Rules of the Game — A Foundation of Pure Logic
 
-If we accept the central <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr> — that spacetime is identical to energy evolution — we are immediately confronted with its strict logical consequences. First and foremost: if all of reality is a self-sufficient system of energetic relations, then by definition nothing can exist “outside” this system. There is no external observer, no absolute reference frame or background on which events unfold. The Universe of WILL Geometry must be entirely closed and self-sufficient.
+If we accept the central <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr> - that spacetime is identical to energy evolution, we are immediately confronted with its strict logical consequences. First and foremost: if all of reality is a self-sufficient system of energetic relations, then by definition nothing can exist “outside” this system. There is no external observer, no absolute reference frame or background on which events unfold. The Universe of WILL Geometry must be entirely closed and self-sufficient.
 
 This restriction, philosophical at first glance, generates concrete physical and geometric “rules of the game”:
 
@@ -204,18 +203,18 @@ This restriction, philosophical at first glance, generates concrete physical and
 
 ---
 
-This immediately raises the question: What geometric structures satisfy these strict requirements — being both closed and maximally symmetric? Mathematics gives a definitive answer. Among all possible <abbr title="a smooth mathematical space that can be curved or multidimensional">manifolds</abbr>, only certain forms possess these properties to perfection.
+This immediately raises the question: What geometric structures satisfy these strict requirements - being both closed and maximally symmetric? Mathematics gives a definitive answer. Among all possible <abbr title="a smooth mathematical space that can be curved or multidimensional">manifolds</abbr>, only certain forms possess these properties to perfection.
 
 - In one dimension, the only such form is the circle (`S¹`).
     
-- In two dimensions — the surface of a sphere (`S²`).
+- In two dimensions - the surface of a sphere (`S²`).
     
 
 These geometries are not arbitrary choices or convenient models. They are forced upon us by the logic of the postulate itself. If the Universe is a closed and symmetric system of energetic relations, then any <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of those relations must “live” on these unique surfaces. The circle and the sphere become the only possible “canvases” on which the picture of physical reality can be drawn.
 
-Finally, we must reconsider one of nature’s most fundamental constants: the speed of light, c. In WILL Geometry, c is not simply the velocity at which photons travel. Instead, it represents the universal rate of evolution—the fundamental <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr> tempo governing change throughout the Universe. Every interaction and energy transformation unfolds at this singular, unchanging pace.
+Finally, we must reconsider one of nature’s most fundamental constants: the speed of light, c. In WILL Geometry, c is not simply the velocity at which photons travel. Instead, it represents the universal rate of evolution - the fundamental <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr> tempo governing change throughout the Universe. Every interaction and energy transformation unfolds at this singular, unchanging pace.
 
-This universal “speed of evolution” can be likened to a radius vector of constant length. The diverse physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this vector onto different axes—just as a car’s velocity can be resolved into northward and eastward components. Crucially, the sum of the squares of these <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s is always fixed, echoing the geometry of the circle, where the radius (c) is <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>.
+This universal “speed of evolution” can be likened to a radius vector of constant length. The diverse physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this radius vector onto different axes - just as a car’s velocity can be resolved into northward and eastward components. Crucially, the sum of the squares of these <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s is always fixed, echoing the geometry of the circle, where the radius (c) is <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>.
 
 With this single postulate, we derive an entire framework: conservation laws, <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>, and the geometric structures—the circle and sphere—that define the stage for all physical phenomena. In this view, geometry does not constrain physics; rather, it arises as an inevitable, logical consequence of the underlying principles.
 
@@ -225,7 +224,8 @@ With this single postulate, we derive an entire framework: conservation laws, <a
 
 Now that the rules of the game have been established, let’s consider the simplest case: one-dimensional motion. According to our logic, this process must be described on the only possible closed and symmetric 1D geometry — the circle. This act of our narrative is devoted to reconstructing special relativity (SR) using nothing but these geometric tools. The main character here is the kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>, denoted by the Greek letter β (beta), which represents how much of the universal “speed of change” is experienced as motion through space.
 
-Imagine a unit circle whose radius symbolizes the universal speed of evolution, *c* (the speed of light, treated here as the ultimate speed of change), which for simplicity we set to 1. Any change an object undergoes can be split into spatial motion and temporal flow – but these components are constrained. The sum of their squares remains the same, set by that fixed  radius length (the speed of light). This radius a vector drawn from the center to some spot on the circles edge. This vector can be decomposed into horizontal (X axis) and vertical (Y axis) <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s.
+Imagine a unit circle whose radius symbolizes the universal speed of evolution, *c* (the speed of light, treated here as the ultimate speed of change), which for simplicity we set to 1. Any change an object undergoes can be split into spatial motion (horizontal X axis) and temporal flow (vertical Y axis)  <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s. The sum of their squares of this  <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s remains the same, set by that fixed  radius length (the speed of light). 
+
 
 ---
 
@@ -262,7 +262,7 @@ The relationship between space and time <abbr title="mapping of one quantity ont
 $ \beta = \frac{v}{c} = \cos(\theta_S) $  Kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>  
 <br>  
 $ L_c = \sin(\theta_S) = \sqrt{1 - \beta^2} $  Length contraction factor
-
+$ \cos(\theta_S)^2 + \sin(\theta_S)^2 = 1 $
 </details>
 
 ### Why This Explains All the Weirdness of Relativity
