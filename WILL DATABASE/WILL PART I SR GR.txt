@@ -113,7 +113,7 @@ The standard formulation of General Relativity often relies on the concept of an
 
 \textbf{Principle:} \emph{All physical quantities must be defined purely by their relations.} Any introduction of absolute properties or external frames risks reintroducing metaphysical artifacts and contradicts the foundational insight of relativity.
 
-\textbf{What is Energy?} Energy is not an intrinsic property of objects, but a measure of difference between possible states. It expresses the system's capacity to transition, always encountered as a relative potential for change—not as something possessed, but as a comparative structure between observers. In this framework, energy marks the tendency for one configuration to transform into another. 
+\textbf{What is Energy?} Energy is not an intrinsic property of objects, but a measure of difference between possible states. It expresses the system's capacity to transition, always encountered as a relative potential for change, not as something possessed, but as a comparative structure between observers. In this framework, energy marks the tendency for one configuration to transform into another. 
 
 \[
 \begin{array}{c} \boxed{ 
@@ -289,13 +289,13 @@ Within the WILL Geometry framework \(E = mc^2\) emerges purely from first princi
 \begin{itemize}
     \item Consider a circle of radius \(c\).  Every point on this circle—parametrized by angle \(\theta_S\)—represents a possible distribution of “rate of change” between spatial and temporal components.
     \item Define \(\beta = \cos(\theta_S)\).  Then \(L_c=\sin(\theta_S) = \sqrt{1 - \beta^2}\).  Equivalently,
+    \end{itemize}
     \[
       \beta \;=\; \frac{v}{c}, 
       \quad 
       L_c \;=\;\sqrt{1 - \beta^2} \;=\; \sqrt{1 - \frac{v^2}{c^2}}.
     \]
 This structure forms a right triangle in projection space:
-
 
 \begin{tikzpicture}[scale=3]
   % Circle of radius 1
@@ -323,11 +323,10 @@ This structure forms a right triangle in projection space:
   \node at (-0.05,0.5) {sin θₛ};
 \end{tikzpicture}
 
-
 \noindent where the hypotenuse represents the total energy vector \( E \), geometrically arising from the projectional composition of motion and inertia.
 
-    \item Introduce a single positive constant \(E_0\) (with units of energy) as the “minimal” or “reference” projection when \(\beta = 0\).  In other words, at \(\theta_S = \tfrac{\pi}{2}\) (i.e.\ \(v=0\)), the vertical projection of the total energy must be exactly \(E_0\).  Thus \(E_0\) is not assumed to equal \(mc^2\) yet; it simply sets the physical scale.
-\end{itemize}
+Introduce a single positive constant \(E_0\) (with units of energy).
+$E_0$ is defined relationally: it is the invariant vertical projection measured in the slice operationally designated as “rest” ($\beta=0$).  In other words, at \(\theta_S = \tfrac{\pi}{2}\) (i.e.\ \(v=0\)), the vertical projection of the total energy must be exactly \(E_0\).  No absolute background is invoked. Any observer who locally realizes $\beta=0$  identifies the same $E_0$. This fixes the energy scale without presuming $E_0=mc^2$ and without appealing to external frames.
 
 Accordingly, any point on the circle at angle \(\theta_S\) has two dimensionless coordinates:
 \[
@@ -382,9 +381,10 @@ In classical mechanics, momentum is \(p = m\,v\).  We have introduced neither \(
 
 \[
   E\,\cos(\theta_S) \;=\; E\,\beta 
-  = \gamma\,E_0\,\beta.
+  = \gamma\,E_0\,\beta \;=\;E_0  \frac{\cos(\theta_S)}{\sin(\theta_S)}\;=\;   E_0 \cot(\theta_S)  .
 \]
 We identify the horizontal projection \(E\,\beta\) with \(p\,c\).  Thus
+
 \[
   p\,c \;=\; \gamma\,E_0\,\beta.
 \]
@@ -678,24 +678,21 @@ The geometry must now accommodate these classes while obeying the three constrai
 Closed, self-contained universe requires that the "total space of possibilities" for each projection mode be complete. The fundamental, dimensionless measure for the completeness of these geometries is their full angle:
 
 \begin{itemize}
-    \item For the circle ($S^1$), the total available "configurational space" is the full \textbf{planar angle}, measured as $2\pi$ \textbf{radians}.
-    \item For the sphere ($S^2$), the total available "configurational space" is the full \textbf{solid angle}, measured as $4\pi$ \textbf{steradians}.
+    \item For the circle ($S^1$), the total available "configurational space" is its full angle of closure: $2\pi$.
+    \item For the sphere ($S^2$), the total available "configurational space" is its full angle of closure: $4\pi$.
 \end{itemize}
 
 The ratio of the total angular measures of these two fundamental manifolds is a pure, dimensionless number dictated by their intrinsic topology:
 \[
-\frac{\text{Total Solid Angle (Sphere)}}{\text{Total Planar Angle (Circle)}} = \frac{4\pi \text{ sr}}{2\pi \text{ rad}} = 2
+\frac{\text{Total Closure of $S^2$}}{\text{Total Closure of $S^1$}} = \frac{4\pi}{2\pi} = 2
 \]
+
 This factor of 2 is a direct and necessary consequence of the dimensional difference between an omnidirectional (2D) and a linear (1D) projection space.
-
 \begin{quote}\small
-Here both $2\pi$ and $4\pi$ are the \emph{complete normalized angular measures} of $S^1$ and $S^2$. 
+Here both $2\pi$ and $4\pi$ are the \emph{complete closure measures} of $S^1$ and $S^2$. 
 \textbf{Not spatial objects, but abstract topological constructs.}
-Although planar and solid angles are defined in different dimensional settings, 
-both are formally dimensionless in SI and serve as the natural measures of their respective closed symmetric manifolds. 
-Thus their ratio is a pure number, reflecting the intrinsic topological difference between one- and two-dimensional projection spaces.
+They are universal, dimensionless invariants: the full angle of a closed loop and the full angle of a closed surface. Their ratio is therefore a pure number, reflecting the intrinsic topological difference between one- and two-dimensional projection spaces.
 \end{quote}
-
 \subsection{The Quadratic Nature of Energetic Projections}
 
 To translate this purely geometric ratio into a physical law, we must consider how projections relate to energy. In physics, the energetic significance (or "power") of a field, velocity, or wave is proportional not to its amplitude, but to its \textbf{amplitude squared}. This quadratic relationship is fundamental, appearing in kinetic energy ($E_k \propto v^2$), potential energy in fields, and the energy density of electromagnetic waves ($E \propto A^2$).
@@ -846,13 +843,23 @@ This results in energy difference:
 \begin{equation}
 \boxed{\Delta E_{B \to A} = \frac{1}{2}\left((\kappa_B^2 - \kappa_A^2) - \beta_B^2\right)}
 \end{equation}
+
+
+
 Summing these transfers:
 \begin{equation}
 \Delta E_{A \to B} + \Delta E_{B \to A} = 0
 \end{equation}
+\begin{lemma}[Quadratic budget difference]
+Define the quadratic budget $Q^2 \equiv \kappa^2+\beta^2$. For any two relationally defined states $A,B$, set
+\[
+\Delta E_{A\to B} \;\equiv\; \frac{1}{2}\bigl(Q_A^2 - Q_B^2\bigr),\qquad
+\Delta E_{B\to A} \;\equiv\; \frac{1}{2}\bigl(Q_B^2 - Q_A^2\bigr).
+\]
+Then $\Delta E_{A\to B} + \Delta E_{B\to A} = 0$ identically. This is a purely relational symmetry under the exchange $A\leftrightarrow B$ and does not rely on any specific potential model.
+\end{lemma}
 Thus, no net energy is created or destroyed, confirming the Energy–Symmetry Law.
 \end{proof}
-
 \subsection{Observer-Agnostic Symmetry}
 \begin{theorem}[Observer-Agnostic Energy Symmetry]
 The Energy–Symmetry Law holds true independent of the specific model of gravitational or kinetic energy:
@@ -1922,8 +1929,8 @@ We verify the Energy Symmetry Law on real orbital data for a GPS satellite and a
 \item Mass of Earth: $M_{Earth} = 5.972 \times 10^{24}$ kg
 \item Radius of Earth: $R_{Earth} = 6.370 \times 10^6$ m
 \item Radius of GPS orbit: $r_{GPS} = 2.6571 \times 10^7$ m
-\item Seconds in 24 hours $D_{aySeconds} =86400 \quad  \text{s}$
-\item Nanoseconds in 1 second $N_{ano}=10^6  \quad \mu\text{ s}$
+\item Seconds in 24 hours $D_{ayS} =86400 \quad  \text{s}$
+\item Microseconds in 1 second $M_{icro}=10^6  \quad \mu\text{ s}$
 \end{itemize}
 
 The orbital velocity of the GPS satellite is:
@@ -1950,7 +1957,7 @@ Q_{tEarth} &=\sqrt{1-Q_{Earth}^{2}}=0.999999999304
 \end{align}
 The daily relativistic time offset between GPS and Earth is:
 \[
-\Delta Q_{t,{\rm GPS} \rightarrow {\rm Earth}} = (Q_{t,{\rm GPS}} - Q_{t,{\rm Earth}}) \cdot 86400 \cdot 10^6 = 38.52~\mu\text{s/day}
+\Delta Q_{t,{\rm GPS} \rightarrow {\rm Earth}} = (Q_{t,{\rm GPS}} - Q_{t,{\rm Earth}}) \cdot D_{ayS} \cdot M_{icro} = 38.52~\mu\text{s/day}
 \]
 This \textbf{matches the empirical time correction required} for GPS synchronization  to high precision.
 
