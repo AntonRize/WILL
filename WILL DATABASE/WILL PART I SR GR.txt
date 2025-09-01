@@ -474,44 +474,6 @@ By anchoring this construction in our core postulate
 we derive \(E = \gamma\,m\,c^2\) and \(E^2 = (p\,c)^2 + (m\,c^2)^2\) directly from geometry, with no need for extra hypotheses.
 
 
-\subsection{Dual Scaling in WILL Geometry}
-
-The WILL framework reveals a striking symmetry: both energy and spatial distance emerge from the same unit‐circle projections, differing only by the power of the inverse projection used.
-
-\begin{itemize}
-  \item \textbf{Energy Scaling:}  
-    The total energy \(E\) scales inversely with the temporal projection 
-    \(L_c = \sin\theta_S\):
-    \[
-      E = \frac{E_0}{\sin\theta_S}
-        = \frac{E_0}{L_c}
-        = \gamma\,E_0,
-    \]
-    so that \(E\sin\theta_S = E_0\) remains invariant.
-
-  \item \textbf{Distance Scaling:}  
-    The (normalized) radial distance \(r/R_s\) in both Special and General Relativity scales inversely with the square of the spatial projection 
-    \(\beta = \cos\theta_S\):
-    \[
-      \frac{r}{R_s}
-      = \frac{1}{2\,\beta^2}
-      = \frac{1}{2\,\cos^2\theta_S}.
-    \]
-\end{itemize}
-\emph{(The distance scaling form is consistent with the later relation $\kappa^2 = 2\beta^2$ derived in Section~7.3.)}
-
-In each case, a single dimensionless projection \((\sin\theta_S\) or \(\cos\theta_S)\) is elevated to a physical quantity by taking its reciprocal (to the appropriate power) and multiplying by a fixed scale (\(E_0\) or \(R_s/2\)).
-
-\paragraph{Fundamental Implication}  
-This duality underscores that at thFe deepest level, space, time, energy, and distance are all encoded in the same dimensionless geometry of the unit circle.  Any physical observable arises from choosing:
-
-1.  A projection axis (\(\beta\) or \(L_c\)),  
-2.  An inversion power (1 for energy, 2 for distance),  
-3.  A conventional scale factor.  
-
-Thus, the entire edifice of relativistic kinematics and gravity can be built from pure, dimensionless projections plus minimal scale conventions.```
-
-
 \subsection{Mass as a Scale Factor}
 
 In WILL geometry, mass is not an independent dynamical variable but simply
@@ -1957,7 +1919,7 @@ Q_{tEarth} &=\sqrt{1-Q_{Earth}^{2}}=0.999999999304
 \end{align}
 The daily relativistic time offset between GPS and Earth is:
 \[
-\Delta Q_{t,{\rm GPS} \rightarrow {\rm Earth}} = (Q_{t,{\rm GPS}} - Q_{t,{\rm Earth}}) \cdot D_{ayS} \cdot M_{icro} = 38.52~\mu\text{s/day}
+\Delta Q_{t,{\rm GPS} \rightarrow {\rm Earth}} = (1-\frac{Q_{tEarth}}{Q_{tGPS}})\cdot D_{ayS}\cdot M_{icro}= 38.52~\mu\text{s/day}
 \]
 This \textbf{matches the empirical time correction required} for GPS synchronization  to high precision.
 
