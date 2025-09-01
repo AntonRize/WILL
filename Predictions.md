@@ -126,7 +126,7 @@ toc: false
           <h4 class="font-bold text-white mb-1">3) Time offset (core result)</h4>
           <p class="text-gray-300">
             Daily clock difference in microseconds per day:
-            \( \Delta t_{B\to A}[\mu s/\text{day}] = \big(Q_{tB} - Q_{tA}\big)\times 86400\times 10^6 \).
+            \( \Delta t_{B\to A}[\mu s/\text{day}] = (1 - \frac{Q_{tA}}{Q_{tB}})\times 86400\times 10^6 \).
           </p>
         </div>
 
