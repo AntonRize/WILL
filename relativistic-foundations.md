@@ -315,8 +315,8 @@ Momentum: p = T_d m v
 > - The vertical axis represents the constant <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projection">invariant</abbr> Rest Energy ($E_0$).
 > - The horizontal axis represents the growing Momentum ($p$).
 > - The hypotenuse of this main triangle represents the growing Total Energy ($E$), which clearly extends beyond the bounds of the background unit circle. 
-> - The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy–momentum triangle, visually linking the geometry of spacetime to the energy of an object.
-</details>
+> - The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy–momentum triangle, visually linking the geometry of spacetime to the energy of an object. </details>
+
 
 **Visualize energy, mass, and momentum as a simple right triangle:**
 
@@ -363,22 +363,22 @@ E^2 = (p c)^2 + (m_0 c^2)^2
 $$
 
 Where:
-
-- $E$: Total energy
-    
-- $p$: Momentum
-    
-- $m_0 c^2$: Rest energy
+<br>
+- $E$: Total energy (The hypotenuse)
+<br>    
+- $p$: Momentum (Horizontal side)
+<br>    
+- $m_0 c^2$: Rest energy (Vertical side)
     
 </details>
 
 Simply saying:
 
-- **Rest energy** is your “starting stash” — it never goes away.
+- **Rest energy** is your “starting stash” — it never goes away (Vertical side).
     
-- **Momentum** is what you get when you start moving.
+- **Momentum** is what you get when you start moving (Horizontal side).
     
-- **Total energy** is always the “longest side,” combining both.
+- **Total energy** is always the “longest side,” combining both (The hypotenuse).
     
 
 ### What This Means
@@ -435,10 +435,10 @@ Here’s where the sphere magic happens:
 Time dilation near a massive object is:  
 <br>  
 $$
-\sqrt{1 - \kappa^2} = \sqrt{1 - \frac{R_S}{r}} = \sqrt{1 - \frac{2 G M}{r c^2}}
+T_c = \sqrt{1 - \kappa^2} = \sqrt{1 - \frac{R_S}{r}} = \sqrt{1 - \frac{2 G M}{r c^2}}
 $$  
 <br>  
-*(Here, κ is the **gravitational share** — the fraction of the total change “used” by gravity at this location.)*
+(Here, κ is the gravitational share — the fraction of the total change “used” by gravity at this location.)
 
 </details>
 
@@ -578,7 +578,7 @@ $$
 
 That’s the source of the mysterious “2” in our key equation. It’s not an arbitrary fudge factor — it’s pure geometry.
 
-*(Note: This factor of 2 comes from our circle-vs-sphere analogy — a heuristic topological bridge. In WILL Geometry’s formalism, the same factor arises naturally from the <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> rules.)*
+*(Note: The relation $ \kappa^2 = 2\beta^2 $ holds if and only if the system under study is energetically closed. This factor of 2 comes from our circle-vs-sphere analogy — a heuristic topological bridge for simplicity. In WILL Geometry’s formalism, the same factor arises naturally from the <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> rules.)*
 
 ---
 
@@ -665,20 +665,18 @@ From B’s point of view, if the object comes *down*:
 > The universe never “creates” or “loses” energy when you swap perspectives — it just moves it around.
 
 <details> <summary><strong>Show the math</strong></summary>  
+
+ 
+$$
+\Delta E_{A \to B}=\frac{1}{2}((\kappa_{A}^{2}-\kappa_{B}^{2})+\beta_{B}^{2})
+$$
+ 
+$$
+\Delta E_{B \to A}=\frac{1}{2}((\kappa_{B}^{2}-\kappa_{A}^{2})-\beta_{B}^{2})
+$$
+ 
 $$
 \Delta E_{A \to B} + \Delta E_{B \to A} = 0
-$$
- 
-$$
-E_{A \to B}=\frac{1}{2}((\kappa_{A}^{2}-\kappa_{B}^{2})+\beta_{B}^{2})
-$$
- 
-$$
-E_{B \to A}=\frac{1}{2}((\kappa_{B}^{2}-\kappa_{A}^{2})-\beta_{B}^{2})
-$$
- 
-$$
-E_{SYMMETRY}=E_{A \to B}+E_{B \to A}=0
 $$
 
 Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, always balancing out.
@@ -742,11 +740,11 @@ $$
 $$
 
 $r_{d} = \frac{R_s}{\kappa^2} = \frac{2Gm_0}{\kappa^2 c^2}$ (radial distance from the central mass)
-
+<br>  
 $R_s=\frac{2Gm_0}{c^2}$ (Schwarzschild radius. Radius from the center of mass where event horizon is forming)
-
+<br>  
 $\rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2} = \kappa^2 \cdot \rho_{max}$ (Energy/mass density in the given radius)
-
+<br>  
 $\rho_{max} = \frac{c^2}{8\pi G r_{d}^2}$ (Maximal energy density where $\kappa=1$ event horizon)
 
 </details>
