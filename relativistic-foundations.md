@@ -262,6 +262,7 @@ The relationship between space and time <abbr title="mapping of one quantity ont
 $ \beta = \frac{v}{c} = \cos(\theta_S) $  Kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>  
 <br>  
 $ L_c = \sin(\theta_S) = \sqrt{1 - \beta^2} $  Length contraction factor
+<br>
 $ \cos(\theta_S)^2 + \sin(\theta_S)^2 = 1 $
 </details>
 
@@ -278,7 +279,7 @@ The time dilation factor (Lorentz factor) is:
 <br>  
 $ T_d = \frac{1}{L_c} = \frac{1}{\sqrt{1 - \beta^2}} = \frac{1}{\sin(\theta_S)} $  
 <br>  
-*(This is the same Lorentz factor often written as $\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$.)*
+(This is the same Lorentz factor often written as $\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$.)
 
 </details>
 
@@ -295,11 +296,11 @@ Here’s the coolest part: That famous equation, E = mc², isn’t some magic la
 
 <details> <summary><strong>Show the math</strong></summary>
 
-Total energy: E = γ m c²  
+Total energy: E = T_d m c²  
 <br>  
 Rest energy: E₀ = m c²  
 <br>  
-Momentum: p = γ m v
+Momentum: p = T_d m v
 
 </details>
 
@@ -309,24 +310,19 @@ Momentum: p = γ m v
 
 ><details> <summary><strong>Show Guide to Interpreting This Combined Diagram:</strong></summary>   
 > This diagram intentionally superimposes two different geometric views to illustrate their deep connection. To avoid confusion, please read the following guide:  
-  
 > - The Background (Unit Circle): The white unit circle and its associated labels (like `L_c`, `θ_S`, and "Time evolution") represent the “Spacetime <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>” model discussed previously. It is shown here as a reference to illustrate where the fundamental velocity parameter `β` originates. In this background view, the hypotenuse is always constant (equal to 1).
-
 > - The Foreground (Energy Triangle): The shaded triangle is the main subject of this section. For this Energy–Momentum Triangle, the axes take on a new, physical meaning:
-
-> – The vertical axis represents the constant <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projection">invariant</abbr> Rest Energy ($E_0$).
- 
+> - The vertical axis represents the constant <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projection">invariant</abbr> Rest Energy ($E_0$).
 > - The horizontal axis represents the growing Momentum ($p$).
-  
-> The hypotenuse of this main triangle represents the growing Total Energy ($E$), which clearly extends beyond the bounds of the background unit circle.
-  
-> - The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy–momentum triangle, visually linking the geometry of spacetime to the energy of an object.</details>
+> - The hypotenuse of this main triangle represents the growing Total Energy ($E$), which clearly extends beyond the bounds of the background unit circle. 
+> - The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy–momentum triangle, visually linking the geometry of spacetime to the energy of an object.
+</details>
 
 **Visualize energy, mass, and momentum as a simple right triangle:**
 
-- **One side** (fixed) always represents the object's *rest energy* — this never changes, no matter how fast it moves.
+- **Vertical side** (fixed) always represents the object's *rest energy* — this never changes, no matter how fast it moves.
     
-- **The second side** grows as the object’s speed increases — this is its *momentum*.
+- **Horizontal side** grows as the object’s speed increases — this is its *momentum*.
     
 - **The hypotenuse** is the *total energy* — it stretches as you go faster.
     
