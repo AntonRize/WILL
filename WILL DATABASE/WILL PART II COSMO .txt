@@ -316,8 +316,8 @@ R_s &= \frac{2 G m_0}{c^2} \quad m \\
 r_{d} &= \frac{R_s}{\kappa^2} = \frac{c}{H} \quad m \\
 t_{d} &= \frac{r_{d}}{c} = \frac{1}{H}  \quad s\\
 m_{0} &= \frac{c^{2}}{2G}R_{s} = \frac{\kappa^2 c^{2}}{2G} r_{d}=\frac{\beta^{2}m_{P}}{l_{P}}\ \frac{c}{H}\  \quad kg \\
-\omega_{L} & =\sqrt{\frac{Gm_{0}}{r_{d}^{3}}} \\
-H &= \frac{c}{r_{d}} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\rho} = \frac{\kappa^{2}c^{3}}{2Gm_{0}} = \frac{\kappa^{2}c^{3}}{Gm_{0}}=\frac{\omega_{L}}{\beta}  \quad  s^{-1}\\
+\omega_{L} & =\sqrt{\frac{Gm_{0}}{r_{d}^{3}}} \quad  s^{-1}\\
+H &= \frac{c}{r_{d}} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\rho} = \frac{\kappa^{2}c^{3}}{2Gm_{0}} = \frac{\beta^{2}c^{3}}{Gm_{0}}=\frac{\omega_{L}}{\beta}  \quad  s^{-1}\\
 \Lambda &= \frac{\kappa^2}{r_{d}^2} = \frac{R_s}{r_{d}^3}=\frac{\kappa^{6}}{R_{s}^{2}}=\frac{\kappa^{2}H^{2}}{c^{2}}=\frac{2Gm_{0}}{r_{d}^{3}c^{2}}=\frac{2\omega_{L}^{2}}{c^{2}} \quad m^{-2}\\
 \rho &= \rho_\Lambda = \frac{\kappa^2 c^2}{8 \pi G r_{d}^2} = \frac{H^{2}\kappa^{2}}{8\pi G}=\Lambda \frac{c^{2}}{8\pi G}  \quad kg^1 m^{-3}\\
 \rho_{max} &= \frac{c^2}{8 \pi G r_{d}^2}=\frac{H^{2}}{8\pi G}\quad kg^1 m^{-3} \\
@@ -404,7 +404,7 @@ $R_s\,[\text{m}]$& $9.3984677602\times10^{25}$& $8.8471539314\times10^{25}$\\\hl
 \subsection*{Statement}
 In standard $\Lambda$CDM, a single FRW metric with one scale factor $a(t)$ must simultaneously fit early (CMB) and late (SNe~Ia) data, yielding the well-known ``Hubble tension’’. In WILL geometry there is no FRW metric at all. Cosmology is closed algebraically by energy–projection identities, so any consistent observational pair $(\kappa^2,H_0)$ instantaneously closes the system without internal contradiction.
 
-\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=No metric, no tension]
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=No metric no tension]
 WILL uses algebraic closures
 \[
 \kappa^2=\frac{\rho}{\rho_{\max}},\quad 
@@ -920,7 +920,7 @@ In this section, we provide a rigorous algebraic derivation of the dark energy e
 In Will Geometry, we interpret the fundamental cosmological quantities in terms of directional forces:
 
 \begin{itemize}
-    \item \textbf{Energy density ρ}: Creates gravitational attraction → force \textbf{inward}
+    \item \textbf{Energy density $\rho$}: Creates gravitational attraction → force \textbf{inward}
     \item \textbf{Pressure P}: Creates spatial expansion → force \textbf{outward}
 \end{itemize}
 
@@ -957,26 +957,26 @@ The only configuration consistent with maximal symmetry is perfect equilibrium b
 
 Translating to cosmological parameters:
 \begin{equation}
-|ρ| = |P|
+|ρc^2| = |P|
 \end{equation}
 
 \subsubsection{Step 3: Sign Determination}
 
 Since inward and outward forces must have opposite orientations:
 \begin{equation}
-\boxed{P = -ρ}
+\boxed{P = -ρc^2}
 \end{equation}
 
 \subsubsection{Step 4: Equation of State}
 
 The cosmological equation of state parameter is defined as:
 \begin{equation}
-w = \frac{P}{ρ}
+w = \frac{P}{-ρc^2}
 \end{equation}
 
 Substituting our symmetry-derived relation:
 \begin{equation}
-\boxed{w = \frac{-ρ}{ρ} = -1}
+\boxed{w = \frac{P}{-\rho c^2} = -1}
 \end{equation}
 
 \subsection{Physical Interpretation}
@@ -1021,332 +1021,6 @@ This derivation confirms that the cosmological constant Λ represents not a myst
 \begin{tcolorbox}[colback=gray!4, colframe=black!80!black, title=Foundational Insight]
 Dark energy is not a substance or field, but the algebraic expression of geometric symmetry in a closed, self-contained universe. The equation of state w = -1 reflects the fundamental requirement that no preferential directions can exist in the fabric of spacetime itself.
 \end{tcolorbox}
-
-\section{Universal Mass Formula: Geometric Derivation and Classical Comparison}
-
-\subsection{Derivation from First Principles}
-
-Having established the fundamental equation of state $w = -1$ as a consequence of maximal global symmetry, we now demonstrate that the total mass of the universe can be derived directly from the geometric energy projection parameter $\kappa^2$.
-
-Recall the definition of $\kappa^2$ as the dimensionless escape projection:
-\begin{equation}
-    \kappa^2 = \frac{2G M_U}{r_H c^2}
-\end{equation}
-where $M_U$ is the total mass within the Hubble radius $r_H = c / H_0$.
-
-Solving for $M_U$, we immediately obtain the universal mass formula:
-\begin{equation}
-    \boxed{M_U = \frac{\kappa^2 c^2 r_H}{2G}}
-\end{equation}
-This relation is not an assumption or approximation, but an algebraic consequence of the projectional definition of $\kappa^2$.
-
-\subsection{Physical Interpretation}
-
-The formula $M_U = \frac{\kappa^2 c^2 r_H}{2G}$ expresses the total mass within the Hubble radius as a function of a single dimensionless geometric parameter, the speed of light, the Hubble radius, and Newton's gravitational constant. It generalizes the familiar expression for any gravitationally bound mass at scale $r$ and velocity $v$:
-\begin{equation}
-    M = \frac{v^2 r}{G}
-\end{equation}
-with $v^2 = \beta^2 c^2 = (\kappa^2/2) c^2$ and $r = r_H$.
-
-\subsection{Comparison with the Classical Cosmological Mass}
-
-In the standard cosmological model, the mass contained within the Hubble sphere is given by:
-\begin{equation}
-    M_{U,\mathrm{class}} = \frac{c^3}{G H_0}
-\end{equation}
-This form assumes a critical density filling the entire volume.
-
-\subsubsection{Revealing the $1/3$ Factor}
-
-Let us now compare our result to the classical expression. Substitute the predicted value $\kappa^2 = 2/3$:
-\begin{align}
-    M_U &= \frac{(2/3) c^2 r_H}{2G} = \frac{c^2 r_H}{3G}
-\end{align}
-Recall that $r_H = c / H_0$:
-\begin{equation}
-    M_U = \frac{c^3}{3 G H_0}
-\end{equation}
-
-We observe that our result is precisely \emph{one third} of the standard classical mass:
-\begin{equation}
-    M_U = \frac{1}{3} M_{U,\mathrm{class}}
-\end{equation}
-
-Conversely, multiplying our formula by $3$ gives:
-\begin{equation}
-    3 M_U = M_{U,\mathrm{class}}
-\end{equation}
-
-Or, in terms of the projection parameter:
-\begin{equation}
-    \frac{3 \kappa^2 c^2 r_H}{2G} = \frac{c^3}{G H_0}
-\end{equation}
-
-This identity demonstrates that the classical result is recovered if and only if $\kappa^2 = 1$, corresponding to a fully saturated geometric projection---a limit not realized in the actual universe.
-
-\subsection{Interpretation of the Factor $1/3$}
-
-The origin of the $1/3$ factor is now transparent: it arises naturally from the geometric prediction $\kappa^2 = 2/3$, not from any empirical adjustment. In standard cosmology, the factor of three is hidden in the assumption of critical volume-filling density. In Will Geometry, it is revealed as a fundamental projectional symmetry.
-
-\subsection{Empirical Confirmation}
-
-The agreement between our derived universal mass and observed cosmological values, together with the consistent appearance of the $1/3$ factor, provides an indirect but strong confirmation of the global geometric prediction $\kappa^2 = 2/3$.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Geometric Mass Formula]
-The universal mass formula $M_U = \frac{\kappa^2 c^2 r_H}{2G}$ follows directly from energy geometry, with the $1/3$ factor emerging from the intrinsic projectional structure of the cosmos. This demonstrates the internal consistency and predictive power of the Will framework.
-\end{tcolorbox}
-
-\section{Projectional Ontology and CMB Distortion}
-
-\subsection{Foundational Measurement Ontology}
-
-To ensure maximal epistemic rigor, we begin by stripping away all model-dependent assumptions and instead analyze the act of observation itself.
-
-From an empirical standpoint, our measurement procedure consists of the following:
-
-\begin{itemize}
-    \item We receive photons---massless carriers of information---from distant origins.
-    \item We record their \textbf{wavelength} $\lambda_{\text{obs}}$, \textbf{frequency} $f_{\text{obs}}$, and optionally \textbf{intensity} $I_{\text{obs}}$.
-    \item These values are obtained as purely relative ratios compared to a reference system, and typically reduced to dimensionless or normalized values.
-\end{itemize}
-
-In the specific case of the Cosmic Microwave Background (CMB), the maximal spectral intensity corresponds to a reference wavelength, which we define as:
-\[
-\lambda_{\text{emit}} = 1 \quad \text{(CMB emission peak, normalized)}
-\]
-Thus, the observed value is directly:
-\[
-z_{\text{obs}} = \lambda_{\text{obs}} - 1 = \text{Redshift}
-\]
-
-\subsection{Geometric Redshift without Assumptions}
-
-In standard treatments, redshift is interpreted as a result of metric expansion or Doppler-like recession. We reject all such assumptions and instead base redshift solely on geometric energy projections:
-
-We define the gravitational projection parameter:
-\[
-\kappa^2 = \frac{R_s}{r} = \frac{2GM}{c^2 r}
-\]
-and derive the relativistic length dilation:
-\[
-L_d = \frac{1}{\sqrt{1 - \kappa^2}} = z_{\text{obs}} + 1
-\]
-Solving algebraically, we obtain:
-\[
-\kappa^2 = 1 - \frac{1}{(1 + z_{\text{obs}})^2}
-\]
-This yields the observed value:
-\[
-\boxed{\kappa^2_{\text{obs}} \approx 0.999999175}
-\]
-
-\subsection{Causal Directionality of Projection}
-
-However, this observed value does not represent the global or intrinsic curvature of the universe. Why?
-
-Because the CMB is not a static background but a \emph{causal horizon} --- the maximal surface from which coherent photons can reach us. It is not an object we observe from above, but a boundary we have crossed.
-
-In our projectional model:
-\begin{itemize}
-    \item The CMB corresponds to a \emph{past horizon}, where causal exchange is nearly exhausted.
-    \item When causal projection symmetry breaks (e.g., crossing horizons), the external observer retains access only to the $\beta^2$ component.
-    \item The potential energy component $\kappa^2$ is lost across the projectional boundary.
-\end{itemize}
-
-This is not speculative—it is the direct generalization of the energy symmetry law:
-
-\begin{equation}
-\Delta E_{external} = \Delta E_{A \to C} + \Delta E_{C \to A} = 0 \quad \text{(symmetry)}
-\end{equation}
-
-When the reverse projection becomes inaccessible:
-\[
-\Delta E_{external} = \beta^2 - \kappa^2 \neq 0
-\]
-
-\subsection{Zeno-Type Causal Cascade}
-
-This situation corresponds to a Zeno-type divergence cascade: each successive horizon we cross further removes access to projectional symmetry. As we fall through the projectional hierarchy:
-
-\begin{itemize}
-    \item The internal $Q^2 = \kappa^2 + \beta^2$ remains fixed.
-    \item But the observer increasingly retains only the kinetic projection $\beta^2$.
-    \item This causes apparent inflation of the gravitational projection as seen from below.
-\end{itemize}
-
-\subsection{Inverse Reconstruction of Global Geometry}
-
-Let us invert the observed CMB redshift to reconstruct global geometry.
-
-From observation:
-\[
-\kappa^2_{\text{obs}} \approx 0.999999175,\quad \beta^2_{\text{obs}} \approx 0.5
-\Rightarrow Q^2_{\text{obs}} \approx 1.499999175
-\]
-
-We apply the correction factor:
-\[
-f = \frac{1}{Q^2_{\text{obs}}} = \frac{2}{3}
-\]
-
-And retrieve the global projections:
-\begin{align}
-\kappa^2_{\text{true}} &= f \cdot \kappa^2_{\text{obs}} = \frac{2}{3} \cdot 1 = \frac{2}{3} \\
-\beta^2_{\text{true}} &= f \cdot \beta^2_{\text{obs}} = \frac{2}{3} \cdot \frac{1}{2} = \frac{1}{3} \\
-Q^2_{\text{true}} &= \kappa^2 + \beta^2 = \frac{2}{3} + \frac{1}{3} = 1
-\end{align}
-
-\subsection{Conclusion: Projectional Inevitable Redshift}
-
-Thus, the redshift we observe is not evidence of expansion, nor motion, but the geometric shadow cast by incomplete projection. The critical surface of the CMB does not reflect a moment in time—it defines the curvature threshold of coherent information.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Projectional Interpretation]
-The observed redshift of the CMB is a consequence of cumulative projectional loss. It encodes our position within the global energy cascade of the Universe.
-\[
-\boxed{
-\kappa^2_{\text{true}} = \frac{2}{3},\quad \beta^2_{\text{true}} = \frac{1}{3},\quad Q^2 = 1
-}
-\]
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Ontological Summary]
-\textbf{Redshift is not motion. It is projection.}\\
-The geometry of energy defines causality. The loss of $\kappa^2$ projection across the CMB horizon defines our observational limit. The apparent value $\kappa^2 \approx 1$ is a distorted view of a globally symmetric Universe.
-\end{tcolorbox}
-
-\subsection{Geometric Contrast: Global vs. CMB Projection}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.7\textwidth]{img/QCMB vs QGlobal.png}
-    \caption{
-        \textbf{Comparison of Projectional Geometry for Global vs. CMB Frame.} 
-        The blue vector represents the apparent CMB frame with observed projection 
-        parameters \(\kappa^2_{\text{CMB}} \approx 1\), \(\beta^2_{\text{CMB}} \approx 0.5\), 
-        yielding a total projection magnitude \(Q^2_{\text{CMB}} \approx 1.5\). 
-
-        The green vector shows the corrected intrinsic projection based on energy symmetry: 
-        \(\kappa^2_{\text{global}} = \frac{2}{3}\), \(\beta^2_{\text{global}} = \frac{1}{3}\), 
-        giving \(Q^2_{\text{global}} = 1\).
-
-        The dashed circles mark contours of constant total projection \(Q^2 = \kappa^2 + \beta^2\): 
-        green for the global case (\(Q^2 = 1\)) and blue for the CMB-apparent case (\(Q^2 = 1.5\)).
-
-        The distortion is not observational error, but a projectional asymmetry arising from 
-        causal disconnection across the CMB horizon.
-    }
-    \label{fig:Q_compare}
-\end{figure}
-
-
-
-\section{Reconstruction of $H_0$ from Projection Geometry}
-
-\subsection{Motivation}
-
-In the Will framework, we derive cosmological parameters strictly from geometric projection principles. One such quantity is the Hubble constant $H_0$, which typically requires fitting from observational datasets. Here we demonstrate that $H_0$ emerges naturally and precisely from the projectional geometry of causal structure—without free parameters—based solely on the observed redshift and the internal coherence of the unified parameter $\kappa^2$.
-
-\subsection{Redshift-Projection Relation}
-
-Given the purely kinematic definition of redshift via projectional time distortion:
-
-\begin{equation}
-    z_{\text{red}} = \frac{1}{\sqrt{1 - \kappa^2}} - 1
-\end{equation}
-
-we invert the expression to obtain the projection parameter as a function of redshift:
-
-\begin{equation}
-    \kappa^2(z) = 1 - \frac{1}{(1 + z)^2}
-\end{equation}
-
-This expression contains no assumptions beyond the definition of redshift in a projectional framework. It gives direct access to geometric projection distortion as a function of $z$.
-
-\subsection{Canonical Redshift Value}
-
-Let us evaluate this at the critical value:
-
-\[
-z = \sqrt{3} - 1 \approx 0.73205
-\]
-
-which corresponds to:
-
-\[
-\kappa^2 = \frac{2}{3}, \quad \beta^2 = \frac{1}{3}, \quad Q^2 = \kappa^2 + \beta^2 = 1
-\]
-
-This is the unique global configuration satisfying maximal projectional symmetry. At this point, the time and space projection angles are equal:
-\[
-\theta_S = \theta_G = \arcsin(\kappa) = \arccos(\beta) \approx 54.7356^\circ
-\]
-
-\subsection{Projectional Derivation of $H(z)$}
-
-We now derive the redshift-dependent Hubble parameter using the geometric relation:
-
-\begin{equation}
-    r_d = \frac{R_s}{\kappa^2}, \quad H(z) = \frac{c}{r_d} = \kappa^2 \cdot \frac{c}{R_s}
-\end{equation}
-
-Therefore:
-
-\begin{equation}
-    H_{\text{red}}(z) = \left(1 - \frac{1}{(1 + z)^2} \right) \cdot \frac{c}{R_s}
-\end{equation}
-
-This formula directly expresses $H(z)$ in terms of the observable redshift and one physical scale parameter—the Schwarzschild radius $R_s$ associated with total cosmic mass.
-
-\subsection{Geometric Interpretation of the $1/3$ Factor}
-
-In the classical model, the total mass within the Hubble sphere is given by:
-
-\begin{equation}
-    M_{U,\mathrm{class}} = \frac{c^3}{G H_0}
-\end{equation}
-
-However, in the Will Geometry, total mass is derived from the projectional budget:
-
-\begin{equation}
-    M_U = \frac{\kappa^2 c^2 r_H}{2G}
-\end{equation}
-
-Substituting \( \kappa^2 = \frac{2}{3} \) and \( r_H = \frac{c}{H_0} \), we obtain:
-
-\begin{equation}
-    M_U = \frac{c^3}{3 G H_0}
-\end{equation}
-
-We immediately see:
-
-\begin{equation}
-    M_U = \frac{1}{3} M_{U,\mathrm{class}}, \quad \Rightarrow \quad H_0 = 3 \cdot H_{\text{red}}(z_{\kappa^2 = 2/3})
-\end{equation}
-
-Thus, the classical Hubble constant appears as a rescaled projectional quantity, where two-thirds of the energetic budget becomes inaccessible due to horizon-crossing effects in the Zeno-type divergence cascade.
-
-\subsection{Numerical Evaluation}
-
-Using the relation:
-
-\[
-H_0 = 3 \cdot \left(1 - \frac{1}{(1 + z)^2} \right) \cdot \frac{c}{R_s}
-\]
-
-and evaluating at \( z = \sqrt{3} - 1 \approx 0.73205 \), we get:
-
-\begin{align}
-    \left(1 - \frac{1}{(1 + 0.73205)^2} \right) &= \frac{2}{9} \\
-    H_{\text{red}}(0.73205) &= \frac{2c}{9R_s} \\
-    H_0 &= \frac{2c}{3R_s} = 2.1840560134 \times 10^{-18}~\text{s}^{-1} \approx 67.5~\text{km/s/Mpc}
-\end{align}
-
-This matches modern observational estimates, demonstrating that projectional geometry alone accounts for the present expansion rate.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Interpretive Summary]
-The observed value of the Hubble constant emerges not from empirical fitting, but from projectional energy asymmetry across causal horizons. The factor of $1/3$ appears naturally as a signature of this global loss in energetic completeness.
-\end{tcolorbox}
-
 
 
 \section{From Expansion to Resonance Decay:\\
