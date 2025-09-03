@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage[T2A]{fontenc}   
 \usepackage{amsmath}
 \usepackage{amsthm} 
 \usepackage{amssymb}
@@ -13,21 +14,21 @@
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{booktabs}
-\DeclareUnicodeCharacter@
-% Настройка теорем и других математических элементов
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
 
 \title{WILL: Unified Framework\\
 PART I - Foundations of Relativity} 
 \author{Anton Rize   egeometricity@gmail.com}
 \date{April 2025}
 
-% Пакеты
-\usepackage[utf8]{inputenc}        % Кодировка
-\usepackage[T2A]{fontenc}          % Кодировка шрифтов
-\usepackage[english]{babel} % Языки                             
-\usepackage{graphicx} 
+                                
 
-% Настройки полей страницы
+
 \geometry{
     a4paper,
     left=25mm,
@@ -36,24 +37,12 @@ PART I - Foundations of Relativity}
     bottom=25mm,
 }
 
-% Новые команды для модели
+
 \newcommand{\QGModel}{QG model}
 
 \begin{document}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollary}{Corollary}
 
 \maketitle
-\newpage
-\begin{abstract}
-This paper, the first in the WILL series, introduces a new theoretical framework that shifts the paradigm from a descriptive to a \textbf{generative model} of physics, providing a unified derivation of Special and General Relativity from first principles. The model is founded on the \textbf{single postulate} that $\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}$, from which all physical laws are deductively derived without free parameters. Key results include: the \textit{ab initio} geometric derivation of the energy-momentum relation ($E^2 = (pc)^2 + (mc^2)^2$); a fundamental unifying equation, $\kappa^2 = 2\beta^2$, which is shown to be a necessary consequence of the topology of the underlying projection manifolds; and an algebraic field equation, $\frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}}$, that serves as a local equivalent to Einstein's Field Equations.
-
-By construction, this geometric approach \textbf{inherently resolves the problem of singularities} by imposing a natural maximum on curvature, and it successfully \textbf{reconstructs the Schwarzschild and Kerr metrics} from its core projections. The framework offers significant \textbf{conceptual clarity and computational simplicity} by replacing complex tensor formalism with transparent geometric relations. Furthermore, it demonstrates complete \textbf{theoretical closure} (the "Theoretical Ouroboros"), wherein the foundational postulate deductively leads to a field equation that fully embodies it. The model's predictions are shown to be in precise agreement with key empirical tests, including the precession of Mercury, GPS time corrections, and the orbital decay of binary pulsars, establishing a robust foundation for subsequent papers on cosmology (Part II) and quantum mechanics (Part III).
-\end{abstract}
-
 \begin{center}
 \begin{tikzpicture}[
     node distance=1.5cm,
@@ -77,6 +66,16 @@ By construction, this geometric approach \textbf{inherently resolves the problem
 \draw[arrow] (G) -- (H);
 \end{tikzpicture}
 \end{center}
+
+
+
+\newpage
+
+\begin{abstract}
+This paper, the first in the WILL series, introduces a new theoretical framework that shifts the paradigm from a descriptive to a \textbf{generative model} of physics, providing a unified derivation of Special and General Relativity from first principles. The model is founded on the \textbf{single postulate} that $\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}$, from which all physical laws are deductively derived without free parameters. Key results include: the \textit{ab initio} geometric derivation of the energy-momentum relation ($E^2 = (pc)^2 + (mc^2)^2$); a fundamental unifying equation, $\kappa^2 = 2\beta^2$, which is shown to be a necessary consequence of the topology of the underlying projection manifolds; and an algebraic field equation, $\frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}}$, that serves as a local equivalent to Einstein's Field Equations.
+
+By construction, this geometric approach \textbf{inherently resolves the problem of singularities} by imposing a natural maximum on curvature, and it successfully \textbf{reconstructs the Schwarzschild and Kerr metrics} from its core projections. The framework offers significant \textbf{conceptual clarity and computational simplicity} by replacing complex tensor formalism with transparent geometric relations. Furthermore, it demonstrates complete \textbf{theoretical closure} (the "Theoretical Ouroboros"), wherein the foundational postulate deductively leads to a field equation that fully embodies it. The model's predictions are shown to be in precise agreement with key empirical tests, including the precession of Mercury, GPS time corrections, and the orbital decay of binary pulsars, establishing a robust foundation for subsequent papers on cosmology (Part II) and quantum mechanics (Part III).
+\end{abstract}
 
 \newpage
 
@@ -113,13 +112,13 @@ The standard formulation of General Relativity often relies on the concept of an
 
 \textbf{Principle:} \emph{All physical quantities must be defined purely by their relations.} Any introduction of absolute properties or external frames risks reintroducing metaphysical artifacts and contradicts the foundational insight of relativity.
 
-\textbf{What is Energy?} Energy is not an intrinsic property of objects, but a measure of difference between possible states. It expresses the system's capacity to transition, always encountered as a relative potential for change, not as something possessed, but as a comparative structure between observers. In this framework, energy marks the tendency for one configuration to transform into another. 
+\textbf{What is Energy?} Energy is not an intrinsic property of objects, but a relational measure of difference between possible states. It expresses the system's capacity to transition, always encountered as a relative potential for change, not as something possessed, but as a comparative structure between observers. In this framework, energy marks the tendency for one configuration to transform into another. 
 
 \[
 \begin{array}{c} \boxed{ 
 \begin{array}{c} 
 \text{Energy } \text{ is not an intrinsic property,} \\ 
-\text{but a } \textit{measure of difference} \\ 
+\text{but a } \textit{relational measure of difference} \\ 
 \text{between possible states. }
 \end{array} 
 } \end{array}
@@ -667,7 +666,7 @@ This leads to the unique and necessary unification equation:
 \]
 
 \paragraph{Important Clarification.}
-This factor of 2 is not an empirical constant, a Newtonian mechanical result, or a coincidence of orbital dynamics. It is a direct consequence of the ratio of the fundamental angular measures (steradians to radians) that define the complete projection spaces for omnidirectional and linear phenomena.
+This factor of 2 is not an empirical constant, a Newtonian mechanical result, or a coincidence of orbital dynamics. It is a direct consequence of the ratio of the fundamental angular measures that define the complete projection spaces for omnidirectional and linear phenomena.
 
 \paragraph{Closure Condition.}
 The relation $\kappa^2=2\beta^2$ is therefore more than a proportionality: it is the precise criterion for energetic closure. Whenever the equality is satisfied, the system under study is fully self-contained, with no leakage of the conserved resource into unaccounted channels. Whenever the equality \emph{appears} to fail (for instance in highly elliptical binaries or in radiating systems), this does not contradict the principle but indicates that additional energy pathways --- such as gravitational-wave emission or cosmological expansion --- must be included to restore the balance. In this sense, the relation acts as a diagnostic invariant: it tells us whether our description has captured the full closed geometry or whether unseen flows remain.
@@ -976,8 +975,12 @@ we associate $m_0$ with a volumetric proxy $r_d^3$, obtaining a raw volumetric p
 Because the potential projection $\kappa$ is fundamentally associated with a 2D spherical manifold, the volumetric expression must be normalized over the unit-sphere area $4\pi$. This yields the physical energy density,
 \[
 \rho = \frac{1}{4\pi}\left(\frac{\kappa^2 c^2}{2G r_d^2}\right) 
-= \frac{\kappa^2 c^2}{8\pi G r_d^2}.
+.
 \]
+\[
+\rho = \frac{\kappa^2c^2}{8\pi G r_d^2}.
+\]
+$$\text{Local Energy Density} \equiv \text{Relational Projection}$$
 
 \paragraph{Maximal Density.}
 At $\kappa^2 = R_s/r_d = 1$, the horizon condition is reached, corresponding to the maximal observable energy density at radius $r_d$:
@@ -1071,117 +1074,23 @@ This negative surface pressure represents the ultimate tension limit of spacetim
 \boxed{\text{Pressure in WILL is the intrinsic surface tension of energy–geometry, saturating at $P_{\max}=-c^4/(8\pi G r^2)$.}}
 \end{center}
 
-\section{Unified Geometric Field Equation}
-
-\subsection{The Fundamental Equation}
-From the energy-geometry equivalence, the complete description of gravitational phenomena reduces to a single algebraic relation:
-
-\begin{equation}
-\boxed{
-\kappa^2 = \frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}}
-}
-\label{eq:unified_field}
-\end{equation}
-                                        \textbf{The ratio of geometric scales equals the ratio of energy densities.}\\
-
-This is the unified geometric field equation of WILL Geometry. It expresses the complete equivalence:
-\[
-\text{GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}
-\]
-
-.\begin{figure}[h!]
-\centering
- \includegraphics[width=0.9\textwidth]{img/Theoretical-Ouroboros-min.jpg}
-The foundational postulate \(\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}\) closes into the unified field equation
-\[
-\frac{R_s}{r_d} = \frac{\rho}{\rho_{\max}},
-\]
-\end{figure}
-
-
-
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Meaning]
-\[
-\textbf{Energy is not “inside” space — it defines space through projection.}
-\]
-\end{tcolorbox}
-
-\subsection{Contrast with Classical Approaches}
-
-\begin{itemize}
-\item \textbf{Surface–scaled closure (vs.\ volume filling).} 
-Mass follows the algebraic closure $m_0=4\pi r_d^3\rho$ with $\rho=\kappa^2 c^2/(8\pi G r_d^2)$; the $4\pi$ is the spherical projection measure, not a Newtonian volume average.
-
-\item \textbf{Algebraic core (vs.\ differential ansatz).}
-The core invariants are algebraic and coordinate-free. Differential relations appear only as auxiliary scaffolding (e.g.\ to express curvature gradients as $P=-\rho c^2$), not as fundamental inputs.
-
-\item \textbf{Natural bounds.}
-The constraint for non rotating systems $\kappa^2\le 1$ enforces $\rho\le\rho_{\max}$ and $|P|\le |P_{\max}|=c^4/(8\pi G r_d^2)$, avoiding singularities without extra hypotheses.
-\end{itemize}
-
-
-
-\section{The Fundamental Invariant $W_{\text{ill}} = 1$}
-
-From the geometric closure of WILL framework, we derive a universal dimensionless invariant:
-
-\begin{equation}
-W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d E_0 T_c t^2_{d}}{T_d m_0 L_c r^2_{d}} = 1
-\end{equation}
-
-\textbf{Proof:} Substituting the geometric definitions:
-\begin{align}
-W_{\text{ill}} &= \frac{\frac{1}{\cos \theta_G}\ m_0c^2 \cos \theta_G \frac{r^2_{d}}{c^2}}{\frac{1}{\sin\theta_S}\ m_0 \sin\theta_S r^2_{d}} = \frac{m_0c^2 r^2_{d}}{c^2} \cdot \frac{\sin\theta_S}{m_0 r^2_{d}} \cdot \frac{1}{\sin\theta_S} = 1
-\end{align}
-
-This invariant holds universally for all values of $m_0$, $G$, $c$, and $\kappa$. Unlike dimensional analysis, this identity emerges from the projectional interdependence of energy-mass $(E,M)$ and spacetime metrics $(T,L)$ within the unified structure.
-
-\[
-\boxed{\text{The invariant } W_{\text{ill}} = 1 \text{ expresses geometric unity through energetic projection}}
-\]
-
-\subsection{The Name "WILL"}
-The name WILL reflects both the harmonious unity of the equation and a subtle irony towards the anthropic principle, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=WILL]
-\[
-\boxed{
-\textbf{It is not the unit of something—it is the unity of everything.}
-}
-\]
-\end{tcolorbox}
-
-
 \section{Geometric Kerr–Newman Metric in the WILL Framework  (Space ⊗ Time ⊗ Energy)}
 
-\subsection{The Principle of Energetic Closure and Contextual Bounds}
-
-The framework establishes a clear hierarchy of principles. The supreme invariant is the \textbf{Law of Conservation of Energy}. The equation $\boxed{\kappa^2 = 2\beta^2}$ is the direct geometric embodiment of this law, acting as the precise criterion for the \textbf{energetic closure} of a system.
-
-This means the equality holds if, and only if, all energy flows have been fully accounted for. The different numerical limits on the projection parameters are not different rules, but are necessary \textbf{consequences} of applying this single, universal criterion of closure to different physical boundary conditions:
+\subsection{Contextual Bounds}
 
 \begin{itemize}
     \item \textbf{For a gravitationally closed (static) system,} the physical boundary is defined by the condition $\kappa^2 = 1$. The closure principle ($\kappa^2 = 2\beta^2$) is what dictates that this corresponds to a kinetic state of $\beta^2 = 1/2$.
     \item \textbf{For a kinematically closed (maximally rotating) system,} the physical boundary is defined by the condition $\beta^2 = 1$. The same closure principle ($\kappa^2 = 2\beta^2$) then necessitates that the corresponding gravitational state must be $\kappa^2 = 2$.
 \end{itemize}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Analogy: The Engine's Redline]
-A car engine's fundamental physical limit is its RPM redline (e.g., 6,000 RPM)—this is analogous to the Law of Conservation of Energy. The equation relating speed to RPM is fixed for each gear—this is the diagnostic tool, analogous to $\kappa^2 = 2\beta^2$. The observable maximum speed is a consequence, not a fundamental rule in itself: it might be 40 km/h in first gear and 180 km/h in fifth. It is not a contradiction to have different speed limits; it is the result of applying the same engine-and-gear relationship to different boundary conditions.
-\end{tcolorbox}
-
-Thus, the framework maintains a single, consistent principle of closure. Its geometric expression, $\kappa^2 = 2\beta^2$, yields different numerical bounds depending on whether the system's boundary is defined by its gravitational or its kinematic limit.
-
-For rotating black holes, we establish the connection between these parameters and the Kerr metric by defining:
+For rotating black holes, we establish the connection between relational kinetic projection and the Kerr metric by defining:
 
 \[
 \beta =\frac{a c}{G m_0}, \quad \kappa = \sqrt{2} \beta
 \]
 where:
 \begin{itemize}
-    \item \(\beta\) is the rotation parameter, with \(0 \leq \beta \leq 1\),
+    \item \(\beta\) is the relational rotation parameter, with \(0 \leq \beta \leq 1\),
     \item \(\kappa\) is related to the geometry and rotation,
     \item \(R_s = \frac{2 G m_0}{c^2}\) is the Schwarzschild radius,
     \item \(a = \frac{J}{m_0 c}\) is the Kerr rotation parameter,
@@ -1237,23 +1146,14 @@ r = 0, \quad \theta = \frac{\pi}{2}
 The "size" of this ring is proportional to \(a = \frac{G m_0}{c} \beta\), reaching its maximum for extreme black holes (\(\beta = 1\)).
 
 \subsection{Naked Singularity}
-For \(\beta \leq 1\), a naked singularity does not emerge, aligning with the cosmic censorship hypothesis. In our model, we maintain this physical constraint by limiting \(\beta\) to the range \([0, 1]\).
+For \(\beta \leq 1\), a naked singularity does not emerge, aligning with the cosmic censorship hypothesis. In our model, Energy Symmetry Law enforce constraint by limiting \(\beta\) to the range \([0, 1]\).
 
 \subsection{The Relationship Between \(\kappa > 1\) and Rotation}
 For extreme rotation (\(\beta = 1\)), we find \(\kappa = \sqrt{2} > 1\), which reflects the displacement of the event horizon and the geometric properties of rotating black holes. This suggests that values of \(\kappa > 1\) are inherently connected to the physics of rotation in spacetime.
 
-\subsection{Physical and Philosophical Interpretation}
-The identification of the dimensionless rotation parameter \(a_* = \frac{c J}{G m_0^2}\) with \(\beta\) reveals a profound connection between the intrinsic rotation of the black hole and the orbital velocity of objects in its vicinity. In our model, \(\beta = \frac{a c}{G m_0}\), and when equated to \(a_*\), it implies:
-\[
-a_* = \beta
-\]
-This equivalence suggests that the rotation of a black hole can be understood through geometric parameters analogous to orbital mechanics. Physically, it indicates that the rotational properties of the black hole, encapsulated in \(a_*\), mirror the orbital velocity parameter \(\beta\), providing a unified description of spacetime dynamics.
+This connection suggests that the rotation of a black hole can be understood through geometric parameters analogous to orbital mechanics. Physically, it indicates that the rotational properties of the black hole, encapsulated in \(a_*\), mirror the orbital velocity parameter \(\beta\), providing a unified description of spacetime dynamics.
 
-Philosophically, this reinforces the notion that gravitational phenomena, including rotation, are manifestations of the underlying geometry of the universe. The absence of additional "material" parameters underscores the elegance of general relativity, where the curvature of spacetime alone dictates the behavior of massive rotating objects. This geometric interpretation bridges the gap between the abstract mathematics of the Kerr metric and the intuitive physics of orbital motion, offering a deeper insight into the nature of spacetime.
-
-\subsection{Conclusion}
-Our approach successfully describes the Kerr metric through the parameters \(\beta\) and \(\kappa\), demonstrating the elegance of geometric methods in studying spacetime. This framework provides a more intuitive understanding of rotating black holes while preserving the essential mathematical structure of general relativity.
-
+\textbf{Philosophically}, this reinforces the notion that gravitational phenomena, including rotation, are manifestations of the underlying geometry of the universe. The absence of additional "material" parameters underscores the elegance of general relativity, where the curvature of spacetime alone dictates the behavior of massive rotating objects. This geometric interpretation bridges the gap between the abstract mathematics of the Kerr metric and the intuitive physics of orbital motion, offering a deeper insight into the nature of spacetime.
 
 \subsection*{Physical Interpretation}
 
@@ -1263,75 +1163,6 @@ Our approach successfully describes the Kerr metric through the parameters \(\be
   \item \textbf{Scale invariance:} The same structure applies from Planck-scale objects to galactic black holes.
 \end{itemize}
 
-\section{Resolution of Singularities in Static and Rotating Spacetimes}
-
-In General Relativity, gravitational singularities represent points or regions where curvature invariants such as the Kretschmann scalar diverge, typically arising when energy density \( \rho \to \infty \) as \( r \to 0 \). These singularities are considered a breakdown of the theory’s predictive power, signaling the need for a quantum theory of gravity or new boundary conditions. WILL Geometry, by contrast, resolves the singularity problem from within its geometric foundation.
-
-\subsection*{1. Singularity Prevention in Static Systems}
-
-In spherically symmetric, non-rotating systems, WILL Geometry establishes that energy density cannot exceed the local critical density:
-
-\[
-\rho(r_{d}) \leq \rho_{\text{max}}(r_{d}) = \frac{c^2}{8\pi G r_{d}^2}
-\]
-
-The curvature parameter \( \kappa^2 = \rho / \rho_{\text{max}} \) is strictly bounded by \( \kappa^2 \leq 1 \), and this upper bound is realized precisely when:
-
-\[
-r_{d}= R_s = \frac{2Gm_0}{c^2}
-\]
-
-At this radius, the system reaches maximal curvature, and any attempt to compress further would violate the geometric constraints of the framework. Importantly, since \( \kappa^2 > 1 \) is undefined, configurations with \( r < R_s \) are not permitted within the projectional structure of WILL Geometry. There is no infinite curvature—rather, geometry saturates.
-
-\subsection*{2. Lower Bound on Radius and Finite Structure}
-
-In the classical Schwarzschild solution, the limit \( r \to 0 \) leads to divergent curvature scalars. In WILL Geometry, however, this limit is physically excluded. All valid configurations must satisfy:
-
-\[
-r_{d} \geq R_s \quad \text{and} \quad \kappa^2 \leq 1
-\]
-
-Thus, the interior \( r < R_s \) is not a region with hidden or pathological physics—it is a region without geometric projection, and therefore does not exist in the physical structure. The concept of "inside the Schwarzschild radius" is replaced by a geometrically complete, self-contained surface of maximal curvature.
-
-\subsection*{3. Rotating Systems and Extension to Kerr Geometry}
-
-The same principle naturally extends to rotating black holes. In WILL Geometry, rotation is described by the dimensionless parameter \( \beta = \frac{ac^2}{Gm_0} \), where \( a = J / (m_0 c) \) is the classical Kerr spin parameter. The rotational curvature parameter is then:
-
-\[
-\kappa = \sqrt{2} \beta
-\]
-
-This leads to a maximum value \( \kappa_{\text{max}} = \sqrt{2} \), corresponding to \( \beta = 1 \). The minimal geometrically allowed radius becomes:
-
-\[
-r_{\text{min}} = \frac{R_s}{\kappa_{\text{max}}^2} = \frac{R_s}{2}
-\]
-
-This coincides precisely with the extremal Kerr horizon, where \( r_+ = r_- = R_s / 2 \), and demonstrates that the classical ring singularity at \( r = 0, \theta = \pi/2 \) is never reached in the geometric projection. Instead, the structure terminates at \( r = R_s / 2 \), a finite and well-defined boundary of maximal rotational curvature.
-
-\subsection*{4. No Singularities, No Hidden Regions}
-
-This framework introduces no interior singularities, no coordinate patches hidden behind horizons, and no ambiguous initial conditions. The geometric field equation:
-
-\[
-\frac{R_{s}}{r_{d}}=\frac{8\pi G}{c^{2}}r_{d}^{2}\ \rho=\kappa^{2}
-\]
-
-ensures that curvature and energy density evolve smoothly and remain bounded across all observable scales.
-
-\subsection*{Conclusion}
-
-WILL Geometry resolves the singularity problem not by regularizing divergent terms, nor by introducing quantum effects, but by geometrically constraining the domain of valid projections. Curvature is always finite, and energy remains bounded by construction. Black holes become energetically saturated but nonsingular regions, described entirely by finite, dimensionless parameters.
-
-This projectional approach provides a clean, intrinsic termination to gravitational collapse, replacing singular endpoints with structured, maximally curved boundaries.
-
-\subsection*{Foundational Clarification}
-
-This curvature-density equivalence is not an additional postulate, but emerges directly and unavoidably from the single foundational postulate:
-\[
-\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}
-\]
-All the derived relations for local energy density, pressure, enclosed mass, and horizon formation are purely logical and mathematical consequences of this unique guiding principle. In this sense, the WILL Geometry framework achieves absolute epistemological cleanliness: it does not introduce any hidden assumptions or coordinate structures. The entire gravitational and relativistic sector (as reconstructed within the WILL Geometry model, from the single postulate without any external assumptions or coordinate backgrounds ) — including precise predictions about the onset of horizon formation, radial pressure gradients, and the resolution of classical singularity issues—is reconstructed from this single postulate.
 
 \section{Beyond Differential Formalism: Structural Dynamics}
 
@@ -1544,6 +1375,119 @@ but the geometric transformation of the energy landscape,\\
 where \textit{“time”} is simply the name we give to the sequence of such transitions.
 \end{tcolorbox}
 
+\section{The Fundamental Invariant $W_{\text{ill}} = 1$}
+
+From the geometric closure of WILL framework, we derive a universal dimensionless invariant:
+
+\begin{equation}
+W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d E_0 T_c t^2_{d}}{T_d m_0 L_c r^2_{d}} = 1
+\end{equation}
+
+\textbf{Proof:} Substituting the geometric definitions:
+\begin{align}
+W_{\text{ill}} &= \frac{\frac{1}{\cos \theta_G}\ m_0c^2 \cos \theta_G \frac{r^2_{d}}{c^2}}{\frac{1}{\sin\theta_S}\ m_0 \sin\theta_S r^2_{d}} = \frac{m_0c^2 r^2_{d}}{c^2} \cdot \frac{\sin\theta_S}{m_0 r^2_{d}} \cdot \frac{1}{\sin\theta_S} = 1
+\end{align}
+
+This invariant holds universally for all values of $m_0$, $G$, $c$, and $\kappa$. Unlike dimensional analysis, this identity emerges from the projectional interdependence of energy-mass $(E,M)$ and spacetime metrics $(T,L)$ within the unified structure.
+
+\[
+\boxed{\text{The invariant } W_{\text{ill}} = 1 \text{ expresses geometric unity through energetic projection}}
+\]
+
+\subsection{The Name "WILL"}
+The name WILL reflects both the harmonious unity of the equation and a subtle irony towards the anthropic principle, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=WILL]
+\[
+\boxed{
+\textbf{It is not the unit of something—it is the unity of everything.}
+}
+\]
+\end{tcolorbox}
+
+
+\section{Unified Geometric Field Equation}
+
+\subsection{The Theoretical Uroboros}
+From the energy-geometry equivalence, the complete description of gravitational phenomena reduces to a single algebraic relation:
+
+\begin{equation}
+\boxed{
+\kappa^2 = \frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}}
+}
+\label{eq:unified_field}
+\end{equation}
+                                        \textbf{The ratio of geometric scales equals the ratio of energy densities.}\\
+
+This is the unified geometric field equation of WILL Geometry. It expresses the complete equivalence:
+\[
+\text{GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}
+\]
+We have shown that this single postulate, through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with a single fundamental statement about energy and its evolution, from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and space, proving the self-consistency of the initial postulate.
+
+.\begin{figure}[h!]
+\centering
+ \includegraphics[width=0.9\textwidth]{img/Theoretical-Ouroboros-min.jpg}
+The foundational postulate \(\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}\) closes into the unified field equation
+\[
+\frac{R_s}{r_d} = \frac{\rho}{\rho_{\max}},
+\]
+\end{figure}
+
+
+\begin{quote}
+Theoretical Uroboros
+
+The WILL framework exhibits perfect logical closure: the fundamental postulate about the nature of spacetime and energy is proven as the inevitable consequence of geometric consistency.
+
+\end{quote}
+
+  From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework — the “Theoretical Uroboros”. But regardless of  aesthetic beauty of this result let’s remain skeptical.
+
+\subsection{No Singularities, No Hidden Regions}
+
+This framework introduces no interior singularities, no coordinate patches hidden behind horizons, and no ambiguous initial conditions. The geometric field equation:
+
+\[
+\frac{R_{s}}{r_{d}}=\frac{8\pi G}{c^{2}}r_{d}^{2}\ \rho=\kappa^{2}
+\]
+ensures that curvature and energy density evolve smoothly and remain bounded across all observable scales.
+
+WILL Geometry resolves the singularity problem not by regularizing divergent terms, nor by introducing quantum effects, but by geometrically constraining the domain of valid projections. Curvature is always finite, and energy remains bounded by construction. Black holes become energetically saturated but nonsingular regions, described entirely by finite, dimensionless parameters.
+
+This projectional approach provides a clean, intrinsic termination to gravitational collapse, replacing singular endpoints with structured, maximally curved boundaries.
+
+
+
+\section{Conclusions}
+
+
+\[
+\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}
+\]
+All the derived relations for local energy density, pressure, enclosed mass, and horizon formation are purely logical and mathematical consequences of this unique guiding principle. In this sense, the WILL Geometry framework achieves absolute epistemological cleanliness: it does not introduce any hidden assumptions or coordinate structures. The entire gravitational and relativistic sector (as reconstructed within the WILL Geometry model, from the single postulate without any external assumptions or coordinate backgrounds ) — including precise predictions about the onset of horizon formation, radial pressure gradients, and the resolution of classical singularity issues—is reconstructed from this single postulate.
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Meaning]
+\[
+\textbf{Energy is not “inside” space — it defines space through projection.}
+\]
+\end{tcolorbox}
+
+
+\begin{itemize}
+\item \textbf{Surface–scaled closure (vs.\ volume filling).} 
+Mass follows the algebraic closure $m_0=4\pi r_d^3\rho$ with $\rho=\kappa^2 c^2/(8\pi G r_d^2)$; the $4\pi$ is the spherical projection measure, not a Newtonian volume average.
+
+\item \textbf{Algebraic core (vs.\ differential ansatz).}
+The core invariants are algebraic and coordinate-free. Differential relations appear only as auxiliary scaffolding (e.g.\ to express curvature gradients as $P=-\rho c^2$), not as fundamental inputs.
+
+\item \textbf{Natural bounds.}
+The constraint for non rotating systems $\kappa^2\le 1$ enforces $\rho\le\rho_{\max}$ and $|P|\le |P_{\max}|=c^4/(8\pi G r_d^2)$, avoiding singularities without extra hypotheses.
+\end{itemize}
+
+
 \section{Correspondence with General Relativity}
 
 \subsection{Equivalence with Schwarzschild Solution}
@@ -1700,6 +1644,29 @@ Confirmed (with dark matter/energy assumptions) &
 Consistent; explains phenomena without "dark entities" \\
 \bottomrule
 \end{tabularx}
+
+
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Phenomenon} & \textbf{Radius $r$} & \(\kappa^2\) & \(\beta^2\) & \textbf{Comment} \\
+\hline
+\textbf{Photon sphere} & $r=\tfrac{3}{2}R_s$ & $\tfrac{2}{3}$ & $\tfrac{1}{3}$ & Null circular orbits, $Q=1$, $Q_t=0$ \\
+\hline
+\textbf{ISCO (innermost stable orbit)} & $r=3R_s$ & $\tfrac{1}{3}$ & $\tfrac{1}{6}$ & Marginal stability of timelike orbits \\
+\hline
+\textbf{Static horizon (Schwarzschild)} & $r=R_s$ & $1$ & $\tfrac{1}{2}$ & Purely gravitational closure, $\kappa^2=2\beta^2$ \\
+\hline
+\textbf{Extremal Kerr horizon} & $r=\tfrac{1}{2}R_s$ & $2$ & $1$ & Maximal rotation, $\beta=1$, merged horizons \\\hline
+\end{tabular}
+\caption{Critical radii and their projectional parameters in WILL Geometry. 
+All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as special values of $(\kappa,\beta)$ from the single closure law $\kappa^2=2\beta^2$.}
+\end{table}
+
+
 
 \subsection{Asymmetric Generality}
 The correspondence between these frameworks is fundamentally asymmetric. General Relativity, with its reliance on a pre-supposed metric tensor and the formalism of differential geometry, can be viewed as a specific, parameter-heavy instance of the WILL framework's principles. One can derive GR by adding these additional structures to WILL's minimalist foundation. Therefore, the choice between them is not one of preference, but of logical generality and parsimony, with WILL being presented as the more fundamental underlying structure.
@@ -1862,6 +1829,36 @@ At the critical point where \(\beta = \frac{1}{\sqrt{3}}\) and \(\kappa = \sqrt{
  Q &=\sqrt{\kappa^2 + \beta^2}=1 \\
 Q_t &= \sqrt{1-Q^2} =\sqrt{1-3\beta^2} = 0 \quad \text{(Instability threshold)}
 \end{align}
+
+\subsection*{Critical Radii from the $Q$--Invariant}
+
+The combined projection parameter
+\[
+Q^{2} \;=\; \kappa^{2} + \beta^{2}, 
+\qquad Q_{t} \;=\; \sqrt{\,1 - Q^{2}\,},
+\]
+measures the total causal budget of energy evolution.  
+Critical orbital radii correspond to special conditions of $Q$ and $Q_{t}$:
+
+\begin{itemize}
+    \item \textbf{Photon Sphere ($r = 1.5R_{s}$).}  
+    At this radius the causal budget is fully exhausted:
+    \[
+    Q = 1, \qquad Q_{t} = 0,
+    \]
+    leaving no timelike separation. Only null (photon) orbits are permitted.
+
+    \item \textbf{Innermost Stable Circular Orbit (ISCO, $r = 3R_{s}$).}  
+    Here the system reaches the stability threshold: $Q_{t}$ remains nonzero, but its radial slope vanishes,
+    \[
+    \frac{dQ_{t}}{dr}=0, \qquad Q_{t} = \frac{1}{\sqrt{2}}.
+    \]
+    This marks the last orbit where timelike geodesics remain stable.
+\end{itemize}
+
+\noindent
+Thus, both the photon sphere and ISCO emerge directly as critical solutions of the same invariant structure $(Q,Q_t)$, without additional assumptions.
+
 
 \begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=Interpretive Note]
 While the radii \(1.5R_s\) (photon sphere) and \(3R_s\) (ISCO) are known from classical General Relativity, their spontaneous emergence from angle equality \(\theta_S = \theta_G\) in our geometric framework is not imposed but arises from internal energy projection symmetries. This correspondence reinforces the internal consistency and explanatory power of WILL Geometry.
@@ -2290,6 +2287,23 @@ P.S. \textit{This work remains an ongoing exploration, and further developments 
 \end{description}
 
 
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Event Horizon in Relational Geometry]
+\[
+\textbf{What is the Event Horizon?}
+\]
+In relational geometry, the event horizon is not a physical wall or membrane, 
+but the relational boundary of observability. 
+It marks the limit where the universal rate of change ($c$) has been fully projected, 
+and no further temporal or spatial projection can be assigned to an observer. 
+
+\[
+\boxed{\;\text{Event Horizon } \equiv \text{ Relational limit of projection, not a physical surface. }\;}
+\]
+Beyond this limit, configurations cannot be mapped into the observer’s frame: 
+they are simply non-relational and thus unobservable.
+\end{tcolorbox}
+
+
 \section{Key Equations Reference}
 
 This section serves as a convenient reference for the core equations and relationships of the Energy Geometry framework.
@@ -2436,6 +2450,10 @@ At the critical point where $\theta_S = \theta_G = 54.7356103172^{\circ}$:
     \kappa &= L_c \\
     Q_t &= \sqrt{1-3\beta^2} = 0 \quad \text{(Instability threshold)}
 \end{align}
+
+
+
+
 
 
 \end{document}
