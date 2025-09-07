@@ -50,7 +50,7 @@ From this single postulate, without free parameters, we derive:
 <details>
     <summary>3. The Unified Field Equation: Solving GR's Core Problems.</summary>
     <div class="details-content">
-        <p><strong>Result:</strong> The complexity of GR is replaced by a single algebraic relation ($\kappa^2 = R_s/r_d = \rho/\rho_{max}$). This solves the long-standing problem of defining local energy density and eliminates singularities by construction, as curvature and density are intrinsically bounded ($\kappa^2 \le 1$).</p>
+        <p><strong>Result:</strong> The complexity of GR is replaced by a single algebraic relation ($\kappa^2 = R_s/r_d = \rho/\rho_{max}$). This solves the long-standing problem of defining local energy density and eliminates singularities by construction, as observable non rotating curvature and density are intrinsically bounded ($\kappa^2 \le 1$).</p>
     </div>
 </details>
 
