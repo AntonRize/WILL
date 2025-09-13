@@ -1,0 +1,221 @@
+# Lagrange equilateral (3 equal masses) in WILL projections
+# Integrator: leapfrog on p = gamma_Q m v
+# Units: SI
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+G = 6.67430e-11
+c = 2.99792458e8
+
+# ----- masses (equal) and length/period scale -----
+m0 = 1.0e26     # pick any scale; equal masses make the configuration exact
+m = np.array([m0, m0, m0])
+
+a_side = 1.0e9  # side length of the equilateral triangle (meters)
+
+# For three equal masses in equilateral configuration rotating about COM,
+# the angular frequency Omega follows from circular balance for each mass.
+# Distance from COM to each mass (circumradius of equilateral triangle):
+R = a_side / np.sqrt(3.0)
+# Gravitational acceleration at a vertex due to other two masses:
+# Magnitude toward COM is: a_g = (G m / a^2) * (sqrt(3))   (projection of two forces)
+a_g = (G*m0/(a_side**2)) * np.sqrt(3.0)
+# Circular balance: R * Omega^2 = a_g  =>  Omega:
+Omega = np.sqrt(a_g / R)
+Trot = 2*np.pi / Omega
+print(f"Omega = {Omega:.6e} s^-1,  T = {Trot/86400:.3f} days")
+
+# ----- initial positions (equilateral) around barycenter -----
+# Place vertices at 0°, 120°, 240° on circle of radius R
+angles = np.array([0.0, 2*np.pi/3, 4*np.pi/3])
+x = np.zeros((3,3))
+for i,th in enumerate(angles):
+    x[i,0] = R*np.cos(th)
+    x[i,1] = R*np.sin(th)
+    x[i,2] = 0.0
+
+# Initial velocities for rigid rotation about COM:
+# v = Omega * zhat x r
+v = np.zeros((3,3))
+v[:,0] = -Omega * x[:,1]
+v[:,1] =  Omega * x[:,0]
+v[:,2] = 0.0
+
+# Optional tiny perturbation to test stability (set eps=0 for exact solution)
+eps = 0.0
+v[2] += eps * np.array([0.0, 0.01*Omega*R, 0.0])
+
+# ----- WILL helpers -----
+def norm(v): return np.linalg.norm(v, axis=-1)
+
+def kappa_ij_sq(mj, rij):
+    return 2.0*G*mj/(c**2*rij)
+
+def compute_kappas(x, masses):
+    ksq = np.zeros(3)
+    kij = np.zeros((3,3))
+    for i in range(3):
+        for j in range(3):
+            if i==j: 
+                kij[i,j] = 0.0
+            else:
+                rij = np.linalg.norm(x[i]-x[j])
+                kij[i,j] = kappa_ij_sq(masses[j], rij)
+        ksq[i] = np.sum(kij[i])
+    return ksq, kij
+
+def compute_Q_gamma(x, v, masses):
+    beta2 = norm(v)**2 / c**2
+    ksq, kij = compute_kappas(x, masses)
+    Q2 = beta2 + ksq
+    Q2 = np.minimum(Q2, 1.0-1e-15)
+    gammaQ = 1.0/np.sqrt(1.0 - Q2)
+    return beta2, ksq, Q2, gammaQ, kij
+
+def forces_newton(x, masses):
+    F = np.zeros_like(x)
+    for i in range(3):
+        for j in range(i+1,3):
+            rij_vec = x[i]-x[j]
+            r = np.linalg.norm(rij_vec)
+            fmag = G*masses[i]*masses[j]/(r**3)
+            fij = -fmag*rij_vec
+            F[i] += fij
+            F[j] -= fij
+    return F
+
+def H_energy(x, v, masses):
+    beta2, _, _, _, kij = compute_Q_gamma(x, v, masses)
+    kinetic = 0.5*c**2 * np.sum(masses * beta2)
+    pot_sum = 0.0
+    for i in range(3):
+        for j in range(i+1,3):
+            pot_sum += (masses[i]*kij[i,j] + masses[j]*kij[j,i])
+    potential = -0.25*c**2 * pot_sum
+    return kinetic + potential
+
+# ----- integration setup -----
+days = 50.0                 # simulate ~50 days (several rotations)
+dt   = Trot/400.0           # ~400 steps per rotation
+N    = int(np.round(days*86400/dt))
+
+store_every = max(1, N//3000)
+H0 = H_energy(x, v, m)
+
+# Initialize momentum p = gamma_Q m v
+_, _, Q2, gammaQ, _ = compute_Q_gamma(x, v, m)
+p = gammaQ[:,None]*m[:,None]*v
+
+xs, vs, t_hist, H_hist, Qmax_hist = [], [], [], [], []
+r12_hist, r23_hist, r31_hist = [], [], []
+ang_hist = []
+
+def triangle_side_lengths(x):
+    r12 = np.linalg.norm(x[0]-x[1])
+    r23 = np.linalg.norm(x[1]-x[2])
+    r31 = np.linalg.norm(x[2]-x[0])
+    return r12, r23, r31
+
+def mean_angular_speed(x, v):
+    # Instantaneous omega = (r x v)_z / r^2 averaged over bodies
+    omegas = []
+    for i in range(3):
+        rxv = np.cross(x[i], v[i])
+        r2  = np.dot(x[i], x[i])
+        omegas.append(rxv[2]/r2)
+    return np.mean(omegas)
+
+# ----- leapfrog -----
+t = 0.0
+for n in range(N):
+    F = forces_newton(x, m)
+    p += 0.5*F*dt
+    v = p / (gammaQ[:,None]*m[:,None])
+    x += v*dt
+    t += dt
+    _, _, Q2, gammaQ, _ = compute_Q_gamma(x, v, m)
+    F_new = forces_newton(x, m)
+    p += 0.5*F_new*dt
+
+    if n%store_every==0 or n==N-1:
+        xs.append(x.copy()); vs.append(v.copy()); t_hist.append(t)
+        H_hist.append(H_energy(x, v, m))
+        Qmax_hist.append(np.max(Q2))
+        r12, r23, r31 = triangle_side_lengths(x)
+        r12_hist.append(r12); r23_hist.append(r23); r31_hist.append(r31)
+        ang_hist.append(mean_angular_speed(x, v))
+
+xs = np.array(xs); vs = np.array(vs)
+t  = np.array(t_hist)
+H_hist = np.array(H_hist)
+Qmax_hist = np.array(Qmax_hist)
+r12_hist = np.array(r12_hist); r23_hist = np.array(r23_hist); r31_hist = np.array(r31_hist)
+dH_ppm = 1e6*(H_hist - H0)/abs(H0)
+
+# ----- plots -----
+plt.figure(figsize=(6,6))
+plt.plot(xs[:,0,0]/R, xs[:,0,1]/R, label='Body 1')
+plt.plot(xs[:,1,0]/R, xs[:,1,1]/R, label='Body 2')
+plt.plot(xs[:,2,0]/R, xs[:,2,1]/R, label='Body 3')
+plt.axis('equal'); plt.grid(True); plt.legend()
+plt.xlabel('x/R'); plt.ylabel('y/R'); plt.title('Equilateral Lagrange (WILL)')
+plt.show()
+
+plt.figure(figsize=(7,3))
+plt.plot(t/86400.0, r12_hist, label='r12')
+plt.plot(t/86400.0, r23_hist, label='r23')
+plt.plot(t/86400.0, r31_hist, label='r31')
+plt.axhline(a_side, color='k', lw=1, alpha=0.5)
+plt.xlabel('time [days]'); plt.ylabel('side length [m]')
+plt.title('Side lengths vs time')
+plt.grid(True); plt.legend(); plt.show()
+
+plt.figure(figsize=(7,3))
+plt.plot(t/86400.0, dH_ppm)
+plt.xlabel('time [days]'); plt.ylabel('ΔH/H0 [ppm]')
+plt.title('Energy drift'); plt.grid(True); plt.show()
+
+plt.figure(figsize=(7,3))
+plt.plot(t/86400.0, Qmax_hist)
+plt.xlabel('time [days]'); plt.ylabel('max Q_i^2')
+plt.title('Max Q^2'); plt.grid(True); plt.show()
+
+plt.figure(figsize=(7,3))
+plt.plot(t/86400.0, ang_hist)
+plt.axhline(Omega, color='k', lw=1, alpha=0.6)
+plt.xlabel('time [days]'); plt.ylabel('mean Ω [s⁻¹]')
+plt.title('Angular speed about COM'); plt.grid(True); plt.show()
+
+print("---- SUMMARY ----")
+print("Target side length a [m]:", a_side)
+print("Mean side lengths [m]:", np.mean(r12_hist), np.mean(r23_hist), np.mean(r31_hist))
+print("Std side lengths   [m]:", np.std(r12_hist), np.std(r23_hist), np.std(r31_hist))
+print("Max |ΔH|/|H0| [ppm]:", np.max(np.abs(dH_ppm)))
+print("Max Q^2:", np.max(Qmax_hist))
+print("Mean Ω_measured [s^-1]:", np.mean(ang_hist))
+print("Ω_theory       [s^-1]:", Omega)
+print("Period theory  [days]:", Trot/86400.0)
+
+
+
+
+
+
+
+
+
+
+
+RESULTS:
+Omega = 4.474696e-06 s^-1, T = 16.252 days
+
+---- SUMMARY ----
+Target side length a [m]: 1000000000.0
+Mean side lengths [m]: 1000060194.6471487 1000060194.652058 1000060194.6613139
+Std side lengths   [m]: 44050.06816203988 44050.06954070089 44050.04924024169
+Max |ΔH|/|H0| [ppm]: 62.64625231446288
+Max Q^2: 3.7131259427693693e-10
+Mean Ω_measured [s^-1]: 4.474156889553854e-06
+Ω_theory       [s^-1]: 4.474695520367838e-06
+Period theory  [days]: 16.25184369202675
