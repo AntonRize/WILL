@@ -1,6 +1,27 @@
-# WILL Geometry: A Unified Physics Framework
+<p align="center">
+  <img src="https://antonrize.github.io/WILL/img/Theoretical-Ouroboros-min.jpg" alt="Theoretical Ouroboros" width="350"/>
+</p>
 
-**Live demonstration and documentation: [https://antonrize.github.io/WILL/](https://antonrize.github.io/WILL/)**
+<h1 align="center">WILL Geometry: A Unified Physics Framework</h1>
+
+<p align="center">
+  <a href="https://doi.org/10.5281/zenodo.17115270">
+    <img src="https://zenodo.org/badge/993127337.svg" alt="DOI">
+  </a>
+  <a href="https://antonrize.github.io/WILL/results/">
+    <img src="https://img.shields.io/badge/docs-live-blue.svg" alt="Documentation">
+  </a>
+  <a href="https://github.com/AntonRize/WILL">
+    <img src="https://img.shields.io/badge/source-GitHub-black.svg" alt="Source">
+  </a>
+</p>
+
+---
+
+**Live demo and documentation:** [https://antonrize.github.io/WILL/](https://antonrize.github.io/WILL/)
+
+**Citation:**  
+If you use this work, please cite via DOI: [10.5281/zenodo.17115270](https://doi.org/10.5281/zenodo.17115270).
 
 ## About The Project
 
