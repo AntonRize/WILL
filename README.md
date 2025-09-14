@@ -203,4 +203,5 @@ Project Link: [https://github.com/AntonRize/WILL](https://github.com/AntonRize/W
 
 All code and documents are released for scientific use.
 
-© 2025 Anton Rize
+© 2025 Anton Rize. Licensed under [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
