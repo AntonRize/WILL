@@ -1,6 +1,6 @@
-<p align="center">
-  <img src="https://antonrize.github.io/WILL/img/Theoretical-Ouroboros-min.jpg" alt="Theoretical Ouroboros" width="350"/>
-</p>
+
+  ![Theoretical-Ouroboros-min](https://github.com/user-attachments/assets/71774e6b-f394-4e8b-8d9c-29e08a8e7138)
+
 
 <h1 align="center">WILL Geometry: A Unified Physics Framework</h1>
 
