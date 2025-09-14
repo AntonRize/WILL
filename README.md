@@ -1,6 +1,27 @@
-# WILL Geometry: A Unified Physics Framework
 
-**Live demonstration and documentation: [https://antonrize.github.io/WILL/](https://antonrize.github.io/WILL/)**
+  ![Theoretical-Ouroboros-min](https://github.com/user-attachments/assets/71774e6b-f394-4e8b-8d9c-29e08a8e7138)
+
+
+<h1 align="center">WILL Geometry: A Unified Physics Framework</h1>
+
+<p align="center">
+  <a href="https://doi.org/10.5281/zenodo.17115270">
+    <img src="https://zenodo.org/badge/993127337.svg" alt="DOI">
+  </a>
+  <a href="https://antonrize.github.io/WILL/results/">
+    <img src="https://img.shields.io/badge/docs-live-blue.svg" alt="Documentation">
+  </a>
+  <a href="https://github.com/AntonRize/WILL">
+    <img src="https://img.shields.io/badge/source-GitHub-black.svg" alt="Source">
+  </a>
+</p>
+
+---
+
+**Live demo and documentation:** [https://antonrize.github.io/WILL/](https://antonrize.github.io/WILL/)
+
+**Citation:**  
+If you use this work, please cite via DOI: [10.5281/zenodo.17115270](https://doi.org/10.5281/zenodo.17115270).
 
 ## About The Project
 
@@ -203,4 +224,5 @@ Project Link: [https://github.com/AntonRize/WILL](https://github.com/AntonRize/W
 
 All code and documents are released for scientific use.
 
-© 2025 Anton Rize
+© 2025 Anton Rize. Licensed under [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
