@@ -172,7 +172,7 @@ Thus perfect symmetry is unavoidable.
 \end{enumerate}
 
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=IMPORTANT]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=IMPORTANT:]
 Throughout this work, $S^1$ and $S^2$ are not to be interpreted as spacetime geometries but purely as relational manifolds encoding conservation. Any reading otherwise is a misinterpretation.
 \end{tcolorbox}
 
@@ -380,9 +380,172 @@ The manifestation of any system is distributed between its internal (Phase) and 
 
 The redistribution of the budget between the Phase and Amplitude components directly produces the effects of General Relativity. An increase in the relational measure ($\kappa_Y$, gravitation potential) necessarily requires a decrease in the measure of the internal structure ($\kappa_X$). This geometric trade-off is observed physically as gravitational length and time corrections. Thus, the geometry of spacetime is nothing but the shadow cast by the geometry of relations.
 
-From here on we will wright \(\beta=\beta_X,\quad  \kappa=\kappa_Y\)  for notation simplicity.
 
-\section{Fundamental Relation Between Potential and Kinetic Energy Projections}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Notation simplicity:]
+From here on we will wright  \(\beta=\beta_X , \quad \beta_Y=\sqrt{1-\beta^{2}},\quad  \kappa=\kappa_Y , \qquad \kappa_{X} = \sqrt{1 - \kappa^{2}}\) for notation simplicity.
+\end{tcolorbox}
+
+\subsection{Gravitational Tangent Formulation}
+
+Just as the relativistic energy--momentum relation can be expressed in terms of the kinematic projection 
+$\beta = v/c$, we may construct its gravitational analogue using the potential projection 
+$\kappa = v_{e}/c$, where $v_{e}$ is the escape velocity at radius $r$. 
+
+In the kinematic case, with $\beta = \cos\theta_{1}$, the energy relation can be written as
+\begin{equation}
+    E^{2} = \bigl(\cot\theta_{1}\,E_{0}\bigr)^{2} + E_{0}^{2},
+\end{equation}
+so that the relativistic momentum is expressed as
+\begin{equation}
+    p = E_{0}\,\cot\theta_{1}.
+\end{equation}
+
+In full symmetry, the gravitational case follows from $\kappa = \sin\theta_{2}$. 
+We define the gravitational energy as
+\begin{equation}
+    E_{g} = \frac{E_{0}}{\kappa_{X}}, 
+    \qquad \kappa_{X} = \sqrt{1 - \kappa^{2}},
+\end{equation}
+and introduce the gravitational analogue of momentum:
+\begin{equation}
+    k \;=\; E_{0}\,\tan\theta_{2}.
+\end{equation}
+
+This yields the gravitational energy relation
+\begin{equation}
+    E_{g}^{2} = k^{2} + E_{0}^{2}.
+\end{equation}
+\begin{tcolorbox}[colback=gray!5, colframe=black!60!black, title=Relational Symmetry:]
+\[
+\beta = \cos\theta_{1}, 
+\qquad 
+\kappa = \sin\theta_{2},
+\]
+\[
+\beta \;\longleftrightarrow\; \kappa,
+\qquad
+\cot\theta_{1} \;\longleftrightarrow\; \tan\theta_{2}.
+\]
+
+Kinematic momentum $p$ and gravitational momentum $k$ are thus dual 
+projections of the same relational circle, expressed through complementary 
+trigonometric forms.
+\end{tcolorbox}
+
+\subsection{Geometric composition of SR and GR factors}
+
+The multiplicative law
+\[
+\boxed{\;E_{\rm loc}=\dfrac{E_0}{\beta_Y\,\kappa_X}\;}
+\qquad
+\left(\beta_Y=\sqrt{1-\beta^2},\; \kappa_X=\sqrt{1-\kappa^2}\right)
+\]
+has a direct geometric interpretation as a \emph{composition of two independent
+right–triangle scalings} on the unit circles of the kinematic and gravitational
+projections.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.0,>=Latex]
+% Left circle: kinematics
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y$};
+% angle theta1
+\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
+\draw[dashed] (0.8,0) -- (0.8,0.6);
+\draw[dashed] (0,0.6) -- (0.8,0.6);
+\node at (0.9,0.05) {$\beta$};
+\node at (-0.12,0.6) {$\beta_Y$};
+\draw (0.25,0) arc (0:36.87:0.25);
+\node at (0.32,0.13) {$\theta_1$};
+\node at (0,-1.45) {\small Kinematics: $E=E_0/\beta_Y$, $p=E_0\,\beta/\beta_Y$};
+
+% Right circle: gravity
+\begin{scope}[xshift=3.2cm]
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\kappa$};
+% angle theta2
+\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_g$};
+\draw[dashed] (0.6,0) -- (0.6,0.8);
+\draw[dashed] (0,0.8) -- (0.6,0.8);
+\node at (0.6,-0.12) {$\kappa_X$};
+\node at (-0.12,0.8) {$\kappa$};
+\draw (0.25,0) arc (0:53.13:0.25);
+\node at (0.33,0.12) {$\theta_2$};
+\node at (0,-1.45) {\small Gravity: $E_g=E_0/\kappa_X$, $k=E_0\,\kappa/\kappa_X$};
+\end{scope}
+
+% Composition arrow and box
+\draw[->,thick] (1.3,0.6) -- (1.9,0.6);
+\node at (1.6,0.77) {\small compose};
+\end{tikzpicture}
+\end{center}
+
+\paragraph{Geometric proof (one line).}
+On the unit circle, the vertical leg equals the cosine (kinematics: $\beta_Y=\cos\theta_1$;
+gravity: $\kappa_X=\cos\theta_2$). To keep the \emph{same invariant vertical leg} $E_0$
+after rescaling the hypotenuse, the hypotenuse must be stretched by the reciprocal
+of that cosine:
+\[
+E=\frac{E_0}{\beta_Y},\qquad E_g=\frac{E_0}{\kappa_X}.
+\]
+Applying first the SR rescaling and then the GR rescaling multiplies the
+stretch factors, hence the local scale (frequency/energy of a clock or photon)
+is
+\[
+\boxed{\;E_{\rm loc} \;=\; \frac{E_0}{\beta_Y}\times\frac{1}{\kappa_X}
+\;=\; \frac{E_0}{\beta_Y\,\kappa_X}\; }.
+\]
+
+\paragraph{Remarks.}
+(1) The two triangles live on different unit circles (kinematic $S^1$ and gravitational $S^2$ projection);
+their scalings are independent and therefore compose multiplicatively.
+(2) If a line-of-sight Doppler factor is relevant, it multiplies the SR part,
+but the SR$\times$GR factorization remains intact.
+
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Approach} & \textbf{Definition of Energy} & \textbf{Limitations / Issues} \\
+\hline
+\textbf{Einstein / Landau–Lifshitz pseudotensors} &
+Local energy density expressed as a non-tensorial object, dependent on coordinates. &
+Not covariant; ambiguous; can vanish in one frame and not in another. \\
+\hline
+\textbf{ADM mass} &
+Global conserved quantity defined at spatial infinity (asymptotically flat spacetimes). &
+Only valid at infinity; does not apply to cosmology or strong-field dynamical regions. \\
+\hline
+\textbf{Bondi mass} &
+Energy defined at null infinity for radiating systems (e.g. gravitational waves). &
+Again requires asymptotic structure; no truly local notion. \\
+\hline
+\textbf{Quasi-local masses (Komar, Misner–Sharp, etc.)} &
+Energy enclosed in a 2-surface, using symmetries (Killing vectors). &
+Depends on existence of symmetries; different definitions disagree in general. \\
+\hline
+\textbf{Projectional Geometry (\(\beta,\kappa\))} &
+Energy expressed locally as
+\[
+E_{\text{loc}}=\frac{E_0}{\beta_Y \kappa_X}
+=\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}},
+\]
+where $\beta$ (kinematic) and $\kappa$ (gravitational) are geometric projections. &
+Not yet formalized in tensor language; requires demonstration of universality for arbitrary spacetimes. \\
+\hline
+\end{tabular}
+\caption{Comparison of traditional GR approaches to gravitational energy and the projectional (\(\beta,\kappa\)) framework.}
+\end{table}
+
+
+
+
+
+\section{Relation Between Potential and Kinetic Energy Projections}
 
 \subsection{The Topological Necessity of \(S^1\) and \(S^2\) Projections}
 
@@ -1444,6 +1607,59 @@ Consistent; explains phenomena without "dark entities" \\
 All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as special values of $(\kappa,\beta)$ from the single closure law $\kappa^2=2\beta^2$.}
 \end{table}
 
+
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{4cm}|p{6cm}|p{6cm}|}
+\hline
+\textbf{Phenomenon} & \textbf{Standard GR Result} & \textbf{Projectional Geometry (\(\beta,\kappa\))} \\
+\hline
+\textbf{GPS time shift / gravitational redshift} &
+Frequency shift = combination of kinetic (SR) and gravitational (GR) effects. &
+Single symmetric law:
+\[
+E_{\text{loc}}=\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}},
+\]
+verified directly with GPS satellites. \\
+\hline
+\textbf{Photon sphere, ISCO, horizons} &
+Derived by solving geodesic equations in Schwarzschild metric. &
+Critical radii emerge from simple projectional relations
+(\(\kappa^2=2\beta^2\), \(Q^2=\kappa^2+\beta^2=1\)). \\
+\hline
+\textbf{Mercury’s perihelion precession} &
+Complex expansion of Einstein field equations. &
+Exact same number obtained from projection geometry with \(\beta,\kappa\). \\
+\hline
+\textbf{Binary pulsar orbital decay} &
+Explained via quadrupole radiation formula; requires asymptotic Bondi mass. &
+Emerges from balance of projection invariants without asymptotic constructs. \\
+\hline
+\textbf{Cosmological redshift} &
+Photon “loses energy” as universe expands. &
+Energy conserved; redshift = redistribution of projection parameters. \\
+\hline
+\textbf{Cosmological constant \(\Lambda\)} &
+Added by hand to fit data (“dark energy”). &
+Arises naturally as \(\Lambda = \kappa^2/r_d^2\). No extra entities required. \\
+\hline
+\textbf{Singularities} &
+Predicted in black holes and big bang (\(\rho \to \infty\)). &
+Forbidden: density bounded by \(\rho_{\max} = c^2/(8\pi G r^2)\). \\
+\hline
+\textbf{Local gravitational energy} &
+“Cannot be localized” (only ADM/Bondi at infinity). &
+Directly measurable via \(\kappa\), e.g. from light deflection angle. \\
+\hline
+\textbf{Unification with QM and SR} &
+No natural unification in GR framework. &
+Same projectional law applies from microscopic (QM) to cosmic (GR, COSMO) scales. \\
+\hline
+\end{tabular}
+\caption{Classical GR results vs. Projectional Geometry outcomes. Known effects are recovered by simpler symmetric laws, while new predictions eliminate singularities and explain cosmology without dark energy.}
+\end{table}
 
 
 \subsection{Asymmetric Generality}
