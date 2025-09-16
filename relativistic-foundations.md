@@ -259,11 +259,11 @@ Think of it like sharing a fixed budget: If you spend more of your “change” 
 
 The relationship between space and time <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s is just Pythagoras’ theorem for a unit circle:  
 <br>  
-$ \beta = \frac{v}{c} = \cos(\theta_S) $  Kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>  
+$ \beta = \frac{v}{c} = \cos(\theta_1) $  Kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>  
 <br>  
-$ L_c = \sin(\theta_S) = \sqrt{1 - \beta^2} $  Length contraction factor
+$ β_Y = \sin(\theta_1) = \sqrt{1 - \beta^2} $  Length contraction factor
 <br>
-$ \cos(\theta_S)^2 + \sin(\theta_S)^2 = 1 $
+$ \cos(\theta_1)^2 + \sin(\theta_1)^2 = 1 $
 </details>
 
 ### Why This Explains All the Weirdness of Relativity
@@ -277,7 +277,7 @@ When you look at it this way, all the “strange” effects of special relativit
 
 The time dilation factor (Lorentz factor) is:  
 <br>  
-$ T_d = \frac{1}{L_c} = \frac{1}{\sqrt{1 - \beta^2}} = \frac{1}{\sin(\theta_S)} $  
+$ 1/β_Y = \frac{1}{β_Y} = \frac{1}{\sqrt{1 - \beta^2}} = \frac{1}{\sin(\theta_1)} $  
 <br>  
 (This is the same Lorentz factor often written as $\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$.)
 
@@ -296,11 +296,11 @@ Here’s the coolest part: That famous equation, E = mc², isn’t some magic la
 
 <details> <summary><strong>Show the math</strong></summary>
 
-Total energy: E = T_d m c²  
+Total energy: E = 1/β_Y m c²  
 <br>  
 Rest energy: E₀ = m c²  
 <br>  
-Momentum: p = T_d m v
+Momentum: p = 1/β_Y m v
 
 </details>
 
@@ -310,7 +310,7 @@ Momentum: p = T_d m v
 
 ><details> <summary><strong>Show Guide to Interpreting This Combined Diagram:</strong></summary>   
 > This diagram intentionally superimposes two different geometric views to illustrate their deep connection. To avoid confusion, please read the following guide:  
-> - The Background (Unit Circle): The white unit circle and its associated labels (like `L_c`, `θ_S`, and "Time evolution") represent the “Spacetime <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>” model discussed previously. It is shown here as a reference to illustrate where the fundamental velocity parameter `β` originates. In this background view, the hypotenuse is always constant (equal to 1).
+> - The Background (Unit Circle): The white unit circle and its associated labels (like `β_Y`, `θ_1`, and "Time evolution") represent the “Spacetime <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>” model discussed previously. It is shown here as a reference to illustrate where the fundamental velocity parameter `β` originates. In this background view, the hypotenuse is always constant (equal to 1).
 > - The Foreground (Energy Triangle): The shaded triangle is the main subject of this section. For this Energy–Momentum Triangle, the axes take on a new, physical meaning:
 > - The vertical axis represents the constant <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projection">invariant</abbr> Rest Energy ($E_0$).
 > - The horizontal axis represents the growing Momentum ($p$).
@@ -435,7 +435,7 @@ Here’s where the sphere magic happens:
 Time dilation near a massive object is:  
 <br>  
 $$
-T_c = \sqrt{1 - \kappa^2} = \sqrt{1 - \frac{R_S}{r}} = \sqrt{1 - \frac{2 G M}{r c^2}}
+κ_X = \sqrt{1 - \kappa^2} = \sqrt{1 - \frac{R_S}{r}} = \sqrt{1 - \frac{2 G M}{r c^2}}
 $$  
 <br>  
 (Here, κ is the gravitational share — the fraction of the total change “used” by gravity at this location.)
@@ -455,8 +455,8 @@ Here’s the coolest part:
 
 | Situation            | Geometry | Time Factor                                |
 | -------------------- | -------- | ------------------------------------------ |
-| **Moving fast (SR)** | Circle   | $T_d =1/\sqrt{1-\beta^2}$ (kinetic time dilation factor)        |
-| **Near mass (GR)**   | Sphere   | $T_c = \sqrt{1-\kappa^2}$ (gravitational time contraction factor) |
+| **Moving fast (SR)** | Circle   | $1/β_Y =1/\sqrt{1-\beta^2}$ (kinetic time dilation factor)        |
+| **Near mass (GR)**   | Sphere   | $κ_X = \sqrt{1-\kappa^2}$ (gravitational time contraction factor) |
 
 So, what look like two separate “mysteries” in physics are actually just two <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of the same fundamental story.
 
@@ -1003,7 +1003,7 @@ All of physics becomes a story about “the projective curvature of the energy f
 
 <details> <summary><strong>See the WILL <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr></strong></summary>
 $$ 
-W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{L_d\,E_0\,T_c\,t_{d}^{2}}{T_d\,m_0\,L_c\,r_{d}^{2}}= \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 $$  
+W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{1/κ_X\,E_0\,κ_X\,t_{d}^{2}}{1/β_Y\,m_0\,β_Y\,r_{d}^{2}}= \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 $$  
 </details>
 
 Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self-consistent structure.
