@@ -28,11 +28,24 @@ export default async function handler(req, res) {
     }
     const { log } = req.body;
     const ua = req.headers['user-agent'] || '';
-    const now = new Date().toISOString();
-    const content = ['---', `date: ${now}`, `user-agent: ${ua}`, '---', '']
-      .concat(log.map(m => `**${m.user ? 'User' : 'Assistant'}:** ${m.raw || ''}`))
-      .join('\n\n');
-    const path = `assistant/logs/${now.replace(/[:]/g, '-')}.md`;
+    const now = new Date();
+    const now_iso = now.toISOString();
+
+    // Find the first user message to use as a title
+    const firstUserMessage = log.find(m => m.user && m.raw.trim());
+    const title = firstUserMessage ? firstUserMessage.raw.trim().substring(0, 50) : "Conversation Log";
+
+    const content = [
+        '---',
+        'layout: log',
+        `title: "${title.replace(/"/g, '\\"')}"`,
+        `date: ${now_iso}`,
+        `user_agent: "${ua.replace(/"/g, '\\"')}"`,
+        '---',
+        ''
+    ].concat(log.map(m => `**${m.user ? 'User' : 'Assistant'}:** ${m.raw || ''}`)).join('\n\n');
+
+    const path = `assistant/logs/${now_iso.replace(/[:]/g, '-')}.md`;
     const resp = await fetch(`https://api.github.com/repos/AntonRize/WILL/contents/${path}`, {
       method: 'PUT',
       headers: {
