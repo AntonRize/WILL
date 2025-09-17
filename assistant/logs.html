@@ -1,0 +1,30 @@
+---
+layout: default
+title: "Conversation Logs"
+permalink: /assistant/logs/
+---
+
+<div class="markdown-content py-8">
+  <h1>{{ page.title }}</h1>
+  <p>This page contains a list of all recorded conversations with the WILL AI Assistant.</p>
+
+  <div class="my-6">
+    {% if site.logs.size > 0 %}
+      <ul class="space-y-4">
+        {% assign sorted_logs = site.logs | sort: 'date' | reverse %}
+        {% for log in sorted_logs %}
+          <li>
+            <a href="{{ site.baseurl }}{{ log.url }}" class="text-lg text-cyan-400 hover:underline">
+              {{ log.title }}
+            </a>
+            <p class="text-sm text-gray-400">
+              {{ log.date | date_to_string }}
+            </p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No conversation logs have been saved yet.</p>
+    {% endif %}
+  </div>
+</div>
