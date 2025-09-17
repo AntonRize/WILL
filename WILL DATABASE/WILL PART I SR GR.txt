@@ -393,11 +393,11 @@ $\kappa = v_{e}/c$, where $v_{e}$ is the escape velocity at radius $r$.
 
 In the kinematic case, with $\beta = \cos\theta_{1}$, the energy relation can be written as
 \begin{equation}
-    E^{2} = \bigl(\cot\theta_{1}\,E_{0}\bigr)^{2} + E_{0}^{2},
+    E^{2} = \bigl(\cot\theta_{1}\,E_{0}/c\bigr)^{2} + E_{0}^{2},
 \end{equation}
 so that the relativistic momentum is expressed as
 \begin{equation}
-    p = E_{0}\,\cot\theta_{1}.
+    p = E_{0}/c\,\cot\theta_{1}.
 \end{equation}
 
 In full symmetry, the gravitational case follows from $\kappa = \sin\theta_{2}$. 
@@ -408,12 +408,12 @@ We define the gravitational energy as
 \end{equation}
 and introduce the gravitational analogue of momentum:
 \begin{equation}
-    k \;=\; E_{0}\,\tan\theta_{2}.
+    p_g \;=\; E_{0}/c\,\tan\theta_{2}.
 \end{equation}
 
 This yields the gravitational energy relation
 \begin{equation}
-    E_{g}^{2} = k^{2} + E_{0}^{2}.
+    E_{g}^{2} = p_g^{2} + E_{0}^{2}.
 \end{equation}
 \begin{tcolorbox}[colback=gray!5, colframe=black!60!black, title=Relational Symmetry:]
 \[
@@ -512,7 +512,7 @@ but the SR$\times$GR factorization remains intact.
 \hline
 \textbf{Approach} & \textbf{Definition of Energy} & \textbf{Limitations / Issues} \\
 \hline
-\textbf{Einstein / Landau–Lifshitz pseudotensors} &
+\textbf{Einstein /  pseudotensors} &
 Local energy density expressed as a non-tensorial object, dependent on coordinates. &
 Not covariant; ambiguous; can vanish in one frame and not in another. \\
 \hline
@@ -524,16 +524,16 @@ Only valid at infinity; does not apply to cosmology or strong-field dynamical re
 Energy defined at null infinity for radiating systems (e.g. gravitational waves). &
 Again requires asymptotic structure; no truly local notion. \\
 \hline
-\textbf{Quasi-local masses (Komar, Misner–Sharp, etc.)} &
+\textbf{Quasi-local masses} &
 Energy enclosed in a 2-surface, using symmetries (Killing vectors). &
 Depends on existence of symmetries; different definitions disagree in general. \\
 \hline
 \textbf{Projectional Geometry (\(\beta,\kappa\))} &
 Energy expressed locally as
-\[
-E_{\text{loc}}=\frac{E_0}{\beta_Y \kappa_X}
-=\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}},
-\]
+
+$$E_{\text{loc}}=\frac{E_0}{\beta_Y \kappa_X}
+=\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}$$,
+
 where $\beta$ (kinematic) and $\kappa$ (gravitational) are geometric projections. &
 Not yet formalized in tensor language; requires demonstration of universality for arbitrary spacetimes. \\
 \hline
@@ -896,6 +896,91 @@ it is enforced by the underlying geometry of energy evolution.
 \end{tcolorbox}
 
 
+\section{Lagrangian and Hamiltonian as Ontologically Corrupted WILL Approximations}
+
+We now demonstrate that the familiar Lagrangian and Hamiltonian formalisms 
+are not fundamental principles but ontologically ``dirty'' approximations of 
+the relational WILL framework. By collapsing the two-point relational structure 
+into a single-point description, classical mechanics gains computational convenience 
+at the cost of ontological clarity.
+
+\subsection{Definitions of Parameters}
+
+We consider a central mass $M$ and a test mass $m$. The state of the test 
+mass is described in polar coordinates $(r,\phi)$ relative to the central 
+mass.
+
+\begin{itemize}
+  \item $r_A$ --- reference radius associated with observer $A$ 
+  (e.g., planetary surface).
+  \item $r_B$ --- orbital radius of the test mass $m$ (position of observer $B$).
+  \item $v_B^2 = \dot r_B^2 + r_B^2 \dot\phi^2$ --- total squared orbital speed at $B$.
+  \item $\beta_B^2 = v_B^2/c^2$ --- dimensionless kinematic projection at $B$.
+  \item $\kappa_A^2 = 2GM/(r_A c^2)$ --- dimensionless potential projection defined at $A$.
+\end{itemize}
+
+\subsection{The Relational Lagrangian}
+
+Instead of a relational energy, we define the \emph{clean relational Lagrangian} $L_{\text{rel}}$, which represents the kinetic budget at point $B$ relative to the potential budget at point $A$:
+\begin{equation}
+L_{\text{rel}} = T(B) - U(A) = \tfrac{1}{2} m\left(\dot r_B^2 + r_B^2 \dot\phi^2\right) - \frac{GMm}{r_A}.
+\end{equation}
+In dimensionless form, using the rest energy $E_0 = mc^2$, this is:
+\begin{equation}
+\frac{L_{\text{rel}}}{E_0} = \tfrac{1}{2}\bigl(\beta_B^2 - \kappa_A^2\bigr).
+\end{equation}
+This two-point, relational form is the clean geometric statement.
+
+\subsection{First Ontological Collapse: The Newtonian Lagrangian}
+
+If one commits the first ontological violation by identifying the two 
+distinct points, $r_A = r_B = r$, the relational structure degenerates into a 
+local, single-point function:
+\begin{equation}
+L(r, \dot r, \dot\phi) = \tfrac{1}{2} m\left(\dot r^2 + r^2 \dot\phi^2\right) - \frac{GMm}{r}.
+\end{equation}
+This is precisely the standard Newtonian Lagrangian. Its origin is not fundamental 
+but arises from the collapse of the two-point relational Energy Symmetry law into 
+a one-point formalism.
+
+\subsection{Second Ontological Collapse: The Hamiltonian}
+
+Introducing canonical momenta,
+\begin{align}
+p_r &= \frac{\partial L}{\partial \dot r} = m\dot r, \\
+p_\phi &= \frac{\partial L}{\partial \dot\phi} = mr^2\dot\phi,
+\end{align}
+one defines the Hamiltonian via the Legendre transformation $H = p_r \dot r + p_\phi \dot\phi - L$. This evaluates to the total energy of the collapsed system:
+\begin{equation}
+H = T+U = \tfrac{1}{2} m\left(\dot r^2 + r^2 \dot\phi^2\right) + \frac{GMm}{r}.
+\end{equation}
+
+\subsection{Interpretation}
+
+In terms of the collapsed WILL projections ($\beta^2 = v^2/c^2$ and $\kappa^2 = 2GM/(rc^2)$, both strictly positive), the match to standard mechanics becomes explicit:
+\begin{align}
+L &= \tfrac{1}{2} m v^2 + \frac{GMm}{r}
+   \;\;\;\longleftrightarrow\;\;\;
+   \tfrac{1}{2} m c^2\bigl(\beta^2 + \kappa^2\bigr), \\[6pt]
+H &= \tfrac{1}{2} m v^2 - \frac{GMm}{r}
+   \;\;\;\longleftrightarrow\;\;\;
+   \tfrac{1}{2} m c^2\bigl(\beta^2 - \kappa^2\bigr).
+\end{align}
+
+Here the ``$+$'' or ``$-$'' signs do not come from $\kappa^2$ itself, which is always positive, but from the ontological collapse of the two-point relational energy law into a single-point formalism. In WILL, both projections are clean and positive; in standard mechanics, the apparent sign difference arises only after this collapse.
+
+Both are ontologically ``dirty''  approximations. The clean relational law, 
+involving distinct points $A$ and $B$, is collapsed into a local, 
+one-point description. This shows that  Hamiltonian and  Lagrangian are just needlessly overcomplicated approximations that  lose in ontological integrity.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key Message]
+The Lagrangian and Hamiltonian are not fundamental principles. They are 
+degenerate shadows of a deeper relational Energy Symmetry law. Classical mechanics, 
+Special Relativity, and General Relativity all operate within this corrupted 
+approximation. WILL restores the underlying two-point relational clarity.
+\end{tcolorbox}
+
+
 \section{Derivation of Density, Mass, and Pressure}
 
 \subsection{Geometric Foundation}
@@ -1037,7 +1122,7 @@ For rotating black holes, we establish the connection between relational kinetic
 where:
 \begin{itemize}
     \item \(\beta\) is the relational rotation parameter, with \(0 \leq \beta \leq 1\),
-    \item \(\kappa\) is related to the geometry and rotation,
+    \item \(\kappa\) is related to the geometry and gravity,
     \item \(R_s = \frac{2 G m_0}{c^2}\) is the Schwarzschild radius,
     \item \(a = \frac{J}{m_0 c}\) is the Kerr rotation parameter,
     \item \(J\) is the angular momentum of the black hole,
@@ -1806,11 +1891,11 @@ or approximately $\theta_1 = \theta_2 \approx 0.9553\,\text{radians}$.
 
 \begin{tikzpicture}
 \draw[thick] (0,0) circle(1);
-\draw[-, thick] (0,0.816) -- (0.577,0.816) node[midway, above] {$\sqrt{1 - \kappa^2}$};
+\draw[-, thick] (0,0.816) -- (0.577,0.816) node[midway, above] {$\kappa_X$};
 \draw[->, thick] (0,0) -- (0.577,0.816) node[below, right] {$E$};
 \draw[->, thick] (0,0) -- (0,0.816) node[midway, left] {$\kappa$};
 \draw[->, thick] (0,0) -- (0.577,0) node[midway, below] {$\beta$};;
-\draw[->, thick] (0.577,0) -- (0.577,0.816) node[midway, right] {$\sqrt{1 - \beta^2}$};
+\draw[->, thick] (0.577,0) -- (0.577,0.816) node[midway, right] {$\beta_Y$};
 \end{tikzpicture}
 
 This equilibrium yields the fundamental relation:
@@ -1840,7 +1925,7 @@ At the critical point where \(\beta = \frac{1}{\sqrt{3}}\) and \(\kappa = \sqrt{
 \theta_1 &= \theta_2 \\
 \beta &= \kappa_X \\
 \kappa &= \beta_Y \\
-\cos(\theta_{G}-\theta_{S}) &= 0 \\
+\cos(\theta_{2}-\theta_{1}) &= 0 \\
  Q &=\sqrt{\kappa^2 + \beta^2}=1 \\
 Q_t &= \sqrt{1-Q^2} =\sqrt{1-3\beta^2} = 0 \quad \text{(Instability threshold)}
 \end{align}
@@ -1884,6 +1969,35 @@ While the radii \(1.5R_s\) (photon sphere) and \(3R_s\) (ISCO) are known from cl
 \textit{Geometry defines causality before mass, and curvature before gravity.}
 \]
 \end{tcolorbox}
+\end{proof}
+
+\subsection{The Nature of Light (Gravitational Lensing)}
+\begin{theorem}
+Lets tests the model's predictions for massless particles. The deflection of starlight by the Sun was a landmark confirmation of GR, which predicted a bending angle twice that expected from a naive Newtonian corpuscular theory. Our model's prediction for the deflection angle \(\alpha\) is:
+\begin{equation}
+    \alpha = 2\kappa^2 = \frac{4Gm_0}{rc^2}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The crucial factor of 2 is not an ad-hoc addition but a profound consequence of the model's structure. As established by the Energy-Symmetry Law, any interaction between massive bodies involves two reciprocal frames of reference, and the energy budget is partitioned equally between them (hence the factor of `1/2` in energy terms).
+
+Light, however, is unique. It travels at a speed, \(c\), that is absolute for all observers. There is no valid reciprocal frame of reference "at rest" on a photon. Because there is no second frame to act as a counterbalance, the interaction is not partitioned. The photon experiences the \textbf{full, unpartitioned} geometric budget of the interaction, which is exactly double the partitioned, energetic budget experienced by a massive particle. The factor of 2 is thus a direct signature of the absolute and non-reciprocal nature of light's frame of reference. The third trial is passed.
+
+\subsection*{Light Deflection in WILL (metric-free)}
+For massive probes the effective potential per unit mass is 
+$\Phi_{\rm mass}=\tfrac12\kappa^2 c^2$ by Energy Symmetry. 
+Photons have no reciprocal frame; hence $\Phi_\gamma=\kappa^2 c^2$.
+In the small-angle/impulse regime
+\[
+\alpha = -\frac{1}{v^2}\int_{-\infty}^{\infty}\partial_\perp \Phi\,dz,
+\]
+and for light ($v=c$) with $\kappa^2(r)=2GM/(c^2 r)$ one finds
+\[
+\alpha=\frac{1}{c^2}\!\int\! c^2\,\partial_\perp \kappa^2\,dz
+=\frac{2GM}{c^2}\!\int_{-\infty}^{\infty}\!\!\left(-\frac{b}{(b^2+z^2)^{3/2}}\right)dz
+=\frac{4GM}{b c^2}=2\kappa^2.
+\]
+Thus the GR value is recovered without invoking metric or geodesics.
 \end{proof}
 
 \subsection{Energy Symmetry Validation: GPS Satellite and Earth}
@@ -1940,36 +2054,26 @@ This \textbf{matches the empirical time correction required} for GPS synchroniza
 $W_{ILLGPS}$ parameters of mass energy time and space:
 \begin{align*}
 
-M_{GPS} &= T_{dGPS} \beta_{GPS}^2 c^2 \frac{r_{GPS}}{G} \\
+M_{GPS} &= \frac{ \beta_{GPS}^2}{\beta_{YGPS}} c^2 \frac{r_{GPS}}{G} \\
 
-E_{GPS} &= L_{dGPS} \frac{\kappa_{GPS}^2 c^4 r_{GPS}}{2G} \\
+E_{GPS} &=\frac{\kappa_{GPS}^2}{\kappa_{XGPS}} \frac{ c^4 r_{GPS}}{2G} \\
 
-T_{GPS} &= T_{cGPS} \left(\frac{2GM_{Earth}}{\kappa_{GPS}^2 c^3}\right)^2 \\
+T_{GPS} &= \kappa_{XGPS} \left(\frac{2GM_{Earth}}{\kappa_{GPS}^2 c^3}\right)^2 \\
 
-L_{GPS} &= L_{cGPS} \left(\frac{GM_{Earth}}{\beta_{GPS}^2 c^2}\right)^2
+L_{GPS} &= \beta_{YGPS} \left(\frac{GM_{Earth}}{\beta_{GPS}^2 c^2}\right)^2
 
 \end{align*}
 Where:
 \begin{align*}
 
-L_{cGPS} &= \sqrt{1-\beta_{GPS}^2} \\
+\beta_{YGPS} &= \sqrt{1-\beta_{GPS}^2} \\
 
-T_{dGPS} &= \frac{1}{\sqrt{1-\beta_{GPS}^2}} \\
-
-L_{dGPS} &= \frac{1}{\sqrt{1-\kappa_{GPS}^2}} \\
-
-T_{cGPS} &= \sqrt{1-\kappa_{GPS}^2}
+\kappa_{XGPS} &= \sqrt{1-\kappa_{GPS}^2}
 
 \end{align*}
-The explicit $W_{ILL}=ET^2 / ML^2=1$ - invariant for the GPS–Earth system, including both GR and SR effects, is:  $$W_{ILLGPS}=\frac{E_{GPS} \cdot T_{GPS}}{M_{GPS} \cdot L_{GPS}} = \frac{
-   L_{dGPS}\frac{\kappa_{\rm GPS}^{2} c^{4} r_{\rm GPS}}{2G}
-    \cdot T_{cGPS} \left(\frac{2 G M_{\rm Earth}}{\kappa_{\rm GPS}^{2} c^{3}}\right)^{2}
-}{
-    T_{dGPS}\frac{\beta_{\rm GPS}^{2} c^{2} r_{\rm GPS}}{G}
-    \cdot L_{cGPS} \left(\frac{G M_{\rm Earth}}{\beta_{\rm GPS}^{2} c^{2}}\right)^{2}
-} = 1$$
+The explicit $W_{ILL}=ET^2 / ML^2=1$ - invariant for the GPS–Earth system, including both GR and SR effects, is:  $$W_{ILLGPS}=\frac{E_{GPS} \cdot T_{GPS}}{M_{GPS} \cdot L_{GPS}} =  1$$
 
-All physical quantities cancel identically, leaving $L_{dGPS} T_{cGPS} = T_{dGPS} L_{cGPS}$, which is satisfied by geometric construction.
+All physical quantities cancel identically, leaving $ \kappa_{XGPS}/\kappa_{XGPS} = \beta_{YGPS}/\beta_{YGPS}$, which is satisfied by geometric construction.
 
 \subsubsection{Energy Symmetry Law validation:}
 
@@ -2064,23 +2168,24 @@ Q_{Merc}^{2} &= 3 \beta_{Merc}^{2} = 3 \times (0.000159720355661)^2 = 7.65317760
 
 \textbf{Final WILL Geometry precession result:}
 \begin{align}
-M_{PWILL} &= \frac{3 \beta_{Merc}^{2}}{\frac{1 - e_{Merc}^{2}}{2\pi}} = \frac{2\pi Q_{Merc}^{2}}{\left(1-e_{Merc}^{2}\right)}=\frac{7.6531776038 \times 10^{-8}}{0.152427247197} = 5.0208724126 \times 10^{-7}
+Δ _{\phi WILL} &= \frac{3 \beta_{Merc}^{2}}{\frac{1 - e_{Merc}^{2}}{2\pi}} = \frac{2\pi Q_{Merc}^{2}}{\left(1-e_{Merc}^{2}\right)}=\frac{7.6531776038 \times 10^{-8}}{0.152427247197} = 5.0208724126 \times 10^{-7}
 \end{align}
 
 \textbf{Classical GR prediction for precession:}
 \begin{align}
-M_{PGR} &= \frac{3\pi R_{Ssun}}{a_{Merc} (1 - e_{Merc}^{2})} = \frac{3 \times 3.14159265359 \times 2953}{5.79 \times 10^{10} \times 0.9577} = 5.0208724126 \times 10^{-7}
+Δ _{\phi GR} &= \frac{3\pi R_{Ssun}}{a_{Merc} (1 - e_{Merc}^{2})} = \frac{3 \times 3.14159265359 \times 2953}{5.79 \times 10^{10} \times 0.9577} = 5.0208724126 \times 10^{-7}
 \end{align}
 
 \textbf{Relative difference:}
 \begin{align}
-\frac{M_{PGR} - M_{PWILL}}{M_{PGR}} \times 100 &= \frac{5.0208724126 \times 10^{-7} - 5.0208724126 \times 10^{-7}}{5.0208724126 \times 10^{-7}} \times 100 \\
+\frac{Δ _{\phi GR}-Δ _{\phi WILL}}{Δ _{\phi GR}} \times 100 &= \frac{5.0208724126 \times 10^{-7} - 5.0208724126 \times 10^{-7}}{5.0208724126 \times 10^{-7}} \times 100 \\
 &= 2.1918652104 \times 10^{-10} \%
 \end{align}
 
 This negligible difference is consistent with the numerical precision limits of floating-point arithmetic, confirming that Will Geometry reproduces the observed relativistic precession of Mercury to within machine accuracy.
 
 \end{proof}
+
 
 \subsection{Orbital Decay: Binary Pulsar}
 
