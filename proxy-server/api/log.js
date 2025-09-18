@@ -1,23 +1,14 @@
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
-  const allowedOrigin = process.env.ALLOWED_ORIGIN || 'https://antonrize.github.io';
-  const origin = req.headers.origin;
-
-  // Set CORS headers for all responses
-  res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
+  // Temporarily open CORS for debugging
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   // Handle preflight OPTIONS request
   if (req.method === 'OPTIONS') {
     res.status(200).end();
-    return;
-  }
-
-  // For POST requests, validate the origin
-  if (origin !== allowedOrigin) {
-    res.status(403).json({ error: 'Forbidden' });
     return;
   }
 
@@ -29,7 +20,6 @@ export default async function handler(req, res) {
   try {
     const token = process.env.GITHUB_TOKEN;
     if (!token) {
-      // This error will now be correctly reported back to the browser
       res.status(500).json({ error: 'Server configuration error: Missing GITHUB_TOKEN' });
       return;
     }
@@ -68,7 +58,6 @@ export default async function handler(req, res) {
 
     if (!resp.ok) {
       const txt = await resp.text();
-      // Log the error from GitHub API for easier debugging on Vercel
       console.error('GitHub API Error:', txt);
       res.status(resp.status).json({ error: `GitHub API error: ${txt}` });
       return;
