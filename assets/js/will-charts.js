@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         order: 3
                     },
                     {
-                        label: 'Lc Projection',
+                        label: 'β_Y Projection',
                         data: [],
                         borderColor: '#6ee7b7', // Green
                         borderDash: [5, 5],
@@ -199,3 +199,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // ... (logic for unified chart)
 
 });
+
