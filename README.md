@@ -47,11 +47,11 @@ The entire standard cosmological model is replaced by an algebraic system that r
 
 *Results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single postulate:*
 
-## Fundamental Postulate
+## Fundamental Hypothesis
 
-$$\boxed{SPACETIME \equiv ENERGY\ EVOLUTION}$$
+$$\boxed{SPACETIME \equiv ENERGY}$$
  
-From this single postulate, without free parameters, we derive:
+From this single hypothesis, without free parameters, we derive:
 
 ### Part I: Relativistic Foundations
 <details>
