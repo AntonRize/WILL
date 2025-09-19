@@ -45,7 +45,7 @@ The entire standard cosmological model is replaced by an algebraic system that r
 
 **[Explore the model with the interactive cosmology calculator](https://antonrize.github.io/WILL/2-input-cosmology.html)**
 
-*Results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single postulate:*
+*Results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single hypothesis:*
 
 ## Fundamental Hypothesis
 
