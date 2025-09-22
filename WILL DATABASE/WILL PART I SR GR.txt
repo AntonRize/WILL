@@ -1,78 +1,13 @@
-% =========================================================================
-% === FINAL, TESTED, AND WORKING PREAMBLE & DOCUMENT STRUCTURE (v8.0) ===
-% =========================================================================
-\documentclass[12pt, a4paper]{article}
 
-% --- 1. CORE SETUP (Language, Encoding, Page Layout) ---
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage{geometry}
-\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
 
-% --- 2. ESSENTIAL UTILITY PACKAGES ---
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}      % Needed for the default 'proof' environment
-\usepackage{booktabs}
-\usepackage{enumitem}
-\usepackage{tikz}
-\usetikzlibrary{shapes, positioning, arrows.meta, calc}
+\title{WILL: Unified Framework\\  PART I - Foundations of Relativity}
 
-% --- 3. THE STYLING ENGINE: tcolorbox ---
-\usepackage[most]{tcolorbox}
-\tcbuselibrary{theorems, breakable, skins}
 
-% --- 4. CUSTOM THEOREM DEFINITIONS (Robust Direct Method) ---
+\author{Anton Rize \\  egeometricity@gmail.com}
 
-% --- Part A: Define the styled environments using INTERNAL names ---
-% This is where we design the look and feel using tcolorbox's native command.
-\newtcbtheorem[number within=section]{WillTheorem}{Theorem}
-    {
-        enhanced, breakable,
-        colback=gray!8, colframe=white, boxrule=0pt, arc=0mm,
-        top=10pt, bottom=10pt, left=8pt, right=8pt,
-        fonttitle=\normalfont,
-        underlay={
-            \draw[black!30] (frame.north west) -- (frame.north east);
-            \draw[black!30] (frame.south west) -- (frame.south east);
-        },
-        % Custom title format: "Name Number: (Optional Title in bold/large)"
-        title={\tcbtitle~\thetcbcounter\ifstrempty{\tcbtitletext}{}{:\quad\bfseries\large\tcbtitletext}},
-    }
-    {th} % Prefix for labels
 
-% Define all other environments to look the same and share the same counter
-\newtcbtheorem[use counter from=WillTheorem]{WillLemma}{Lemma}{\tcbtheoremoptions}{lem}
-\newtcbtheorem[use counter from=WillTheorem]{WillCorollary}{Corollary}{\tcbtheoremoptions}{cor}
-\newtcbtheorem[use counter from=WillTheorem]{WillHypothesis}{Hypothesis}{\tcbtheoremoptions}{hyp}
-\newtcbtheorem[use counter from=WillTheorem]{WillRemark}{Remark}{\tcbtheoremoptions}{rem}
-\newtcbtheorem[use counter from=WillTheorem]{WillDefinition}{Definition}{\tcbtheoremoptions}{def}
-\newtcbtheorem[use counter from=WillTheorem]{WillProposition}{Proposition}{\tcbtheoremoptions}{prop}
-
-% --- Part B: Create "alias" environments for you to use (CORRECTED) ---
-% The command is \newenvironment (not \renewenvironment). My previous typo is fixed.
-\newenvironment{theorem}[1][]{\begin{WillTheorem}{#1}}{\end{WillTheorem}}
-\newenvironment{lemma}[1][]{\begin{WillLemma}{#1}}{\end{WillLemma}}
-\newenvironment{corollary}[1][]{\begin{WillCorollary}{#1}}{\end{WillCorollary}}
-\newenvironment{hypothesis}[1][]{\begin{WillHypothesis}{#1}}{\end{WillHypothesis}}
-\newenvironment{remark}[1][]{\begin{WillRemark}{#1}}{\end{WillRemark}}
-\newenvironment{definition}[1][]{\begin{WillDefinition}{#1}}{\end{WillDefinition}}
-\newenvironment{proposition}[1][]{\begin{WillProposition}{#1}}{\end{WillProposition}}
-
-% Part C: The standard 'proof' environment from amsthm will be used directly.
-% It works perfectly and doesn't need redefinition.
-
-% --- 5. DOCUMENT METADATA ---
-\title{WILL: Unified Framework\\ \large PART I - Foundations of Relativity}
-\author{Anton Rize \\ \small egeometricity@gmail.com}
 \date{September 2025}
 
-% =========================================================================
-% === END OF PREAMBLE ===
-% =========================================================================
 
 \begin{document}
 
@@ -83,7 +18,7 @@
     box/.style={rectangle, draw, rounded corners, text width=9.2cm, align=center, minimum height=1.1cm},
     arrow/.style={-Latex, thick}
     ]
-\node[box] (A) {Foundational Hypotheses: \textbf{Spacetime $\equiv$ Energy};
+\node[box] (A) {Foundational Hypotheses: \textbf{Spacetime $\equiv$ Energy}};
 \node[box, below=of A] (B) {Geometric Self-Consistency};
 \node[box, below=of B] (C) {Topological Requirement: Only Closed and Maximally Symmetric Structures Allowed};
 \node[box, below=of C] (D) {Circle (SR) and Sphere (GR) as Unique Permitted Geometries};
@@ -91,6 +26,7 @@
 \node[box, below=of E] (F) {Conservation, Symmetry, Speed Limit, Natural Bounds};
 \node[box, below=of F] (G) {Unified Field Equation: $\kappa^2 = R_s/r = \rho/\rho_{\max}$};
 \node[box, below=of G] (H) {Closure: Field Equation $\Longleftrightarrow$ Fundamental Hypotheses};
+
 \draw[arrow] (A) -- (B);
 \draw[arrow] (B) -- (C);
 \draw[arrow] (C) -- (D);
@@ -100,7 +36,6 @@
 \draw[arrow] (G) -- (H);
 \end{tikzpicture}
 \end{center}
-
 
 
 \newpage
@@ -152,7 +87,7 @@ P.S. \textit{This work remains an ongoing exploration, and further developments 
 
 \item[Critical Density \((\rho_{\max})\):] A local, finite limit on how much energy can be observed (determent by $\kappa=1$ observational limit) in a given radius, dependent on central mass $m_0$ and the distance $r_d$ from it center.  It increases closer to a central mass but never becomes infinite, thus preventing the formation of infinite densities (singularities).
 
-\item[Transformation/Evolution:]  The total structure of possible transitions between observable states-  
+\item[Transformation/Evolution:]  The total structure of possible transitions between observable states.  
 
 \item[Energy–Momentum Triangle:] A geometric visualization in WILL Geometry that depicts the relationship between an object's rest energy, momentum, and total energy as the sides of a right triangle, illustrating their constant interconnectedness.
 
@@ -182,22 +117,6 @@ P.S. \textit{This work remains an ongoing exploration, and further developments 
 
 \end{description}
 
-
-\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Event Horizon in Relational Geometry]
-\[
-\textbf{What is the Event Horizon?}
-\]
-In relational geometry, the event horizon is not a physical wall or membrane, 
-but the relational boundary of observability. 
-It marks the limit where the universal rate of change ($c$) has been fully projected, 
-and no further temporal or spatial projection can be assigned to an observer. 
-
-\[
-\boxed{\;\text{Event Horizon } \equiv \text{ Relational limit of projection, not a physical surface. }\;}
-\]
-Beyond this limit, configurations cannot be mapped into the observer’s frame: 
-they are simply non-relational and thus unobservable.
-\end{tcolorbox}
 
 \newpage
 
@@ -238,16 +157,21 @@ While some modern approaches (e.g., shape dynamics) seek greater relationality, 
 \textbf{Principle:} \emph{All physical quantities must be defined purely by their relations.} 
 Any introduction of absolute properties or external frames risks reintroducing metaphysical artifacts and contradicts the foundational insight of relativity.
 
+\subsection{What is "Everything"?}
+\begin{quote}
+We define the Universe as everything accessible to an observer.  
+By this very definition, it is closed, for if it were not closed, then something would exist outside of "everything".  
+An empirical confirmation of this closure is given by the dark night sky: if the Universe were infinite and unbounded, every line of sight would end on a star and the sky would shine with infinite brightness.  
+Instead, the visible horizon is finite, and the Universe is operationally closed.  
+\end{quote}
+
 \subsection*{What is Energy?}
-
+\begin{quote}
 Across all domains of physics, one empirical fact persists: in every closed system there exists a quantity that never disappears or arises spontaneously, but only transforms in form. This invariant is observed under many guises --- kinetic, potential, thermal, quantum --- yet all are interchangeable, pointing to a single underlying structure.
-
 Crucially, this quantity is never observed directly, but only through \textit{differences between states}: a change of velocity, a shift in configuration, a transition of phase. Its value is relational, not absolute: it depends on the chosen frame or comparison, never on an object in isolation.
-
 Moreover, this quantity provides continuity of causality. If it changes in one part of the system, a complementary change must occur elsewhere, ensuring the unbroken chain of transitions. Thus it is the bookkeeping of causality itself.
-
 From these empirical and relational facts the definition follows unavoidably:
-
+\end{quote}
 \[
 \begin{array}{c} \boxed{ 
 \begin{array}{c} 
@@ -282,7 +206,7 @@ To avoid the artifact of Lemma~\ref{lem:false-separation}, the structural arena 
 \begin{hypothesis}[Working Hypothesis: Removing the Hidden Assumption]
 \label{hyp:unifying}
 \[
-\boxed{\ \ \textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}\ \ }
+\boxed{\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}}
 \]
 This is not introduced as a new ontological entity but as a hypothesis with 
 \emph{negative ontological weight}: it removes the hidden unjustified separation 
@@ -645,17 +569,6 @@ $\beta_Y = \sqrt{1-\beta^2}= \sqrt{1-(v/c)^2}$& $\beta_Y = \sin(\theta_1) = \sin
 \textbf{The energy--momentum relation $E^{2}=p^{2}+m^{2}$ is nothing more then geometric identity of $S^1$.}
 \end{tcolorbox}
 
-
-
-
-
-
-
-
-
-
-
-
 \section{Potential Energy Projection on $S^2$}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=IMPORTANT:]
@@ -884,6 +797,10 @@ This factor of 2 is not an empirical constant, a Newtonian mechanical result, or
 
 \paragraph{Closure Condition.}
 The relation $\kappa^2=2\beta^2$ is therefore more than a proportionality: it is the precise criterion for energetic closure. Whenever the equality is satisfied, the system under study is fully self-contained, with no leakage of the conserved resource into unaccounted channels. Whenever the equality \emph{appears} to fail (for instance in highly elliptical binaries or in radiating systems), this does not contradict the principle but indicates that additional energy pathways --- such as gravitational-wave emission or cosmological expansion --- must be included to restore the balance. In this sense, the relation acts as a diagnostic invariant: it tells us whether our description has captured the full closed geometry or whether unseen flows remain.
+
+\begin{quote}
+ Linear relations would fail to respect both the physical definition of energy (quadratic in amplitude) and the Pythagorean structure of projections. Therefore only quadratic measures are consistent with closure and conservation. 
+\end{quote}
 
 \subsection{Closure, Falsifiability, and the Conservation of Energy}
 
@@ -1965,7 +1882,7 @@ High; built from observable and intrinsic relations \\
 
 12 & Observational Fit & 
 Confirmed (with dark matter/energy assumptions) & 
-Consistent; explains phenomena without "dark entities" \\
+Consistent; explains phenomena without "dark entities"  (Details in WILL PART 2) \\
 \bottomrule
 \end{tabularx}
 
@@ -2022,11 +1939,11 @@ Emerges from balance of projection invariants without asymptotic constructs. \\
 \hline
 \textbf{Cosmological redshift} &
 Photon “loses energy” as universe expands. &
-Energy conserved; redshift = redistribution of projection parameters. \\
+Energy conserved; redshift = redistribution of projection parameters.  (Details in WILL PART 2)\\
 \hline
 \textbf{Cosmological constant \(\Lambda\)} &
 Added by hand to fit data (“dark energy”). &
-Arises naturally as \(\Lambda = \kappa^2/r_d^2\). No extra entities required. \\
+Arises naturally as \(\Lambda = \kappa^2/r_d^2\). No extra entities required. (Details in WILL PART 2)\\
 \hline
 \textbf{Singularities} &
 Predicted in black holes and big bang (\(\rho \to \infty\)). &
@@ -2038,7 +1955,7 @@ Directly measurable via \(\kappa\), e.g. from light deflection angle. \\
 \hline
 \textbf{Unification with QM and SR} &
 No natural unification in GR framework. &
-Same projectional law applies from microscopic (QM) to cosmic (GR, COSMO) scales. \\
+Same projectional law applies from microscopic (QM) to cosmic (GR, COSMO) scales.  (Details in WILL PART 3)\\
 \hline
 \end{tabular}
 \caption{Classical GR results vs. Projectional Geometry outcomes. Known effects are recovered by simpler symmetric laws, while new predictions eliminate singularities and explain cosmology without dark energy.}
@@ -2178,7 +2095,7 @@ status as a non-fundamental limit of a more parsimonious principle.
 \subsection{Geometric Prediction of Photon Sphere and ISCO}
 
 \begin{theorem}[Critical Radii Emergence]
-In the WILL Geometry framework, the critical orbital radii of the photon sphere and innermost stable circular orbit (ISCO) emerge naturally from the geometric equilibrium where $\theta_1 = \theta_2$.
+In the WILL Geometry framework, the critical orbital radii of the photon sphere and innermost stable circular orbit (ISCO) emerge naturally from the geometric equilibrium where $\theta_1 = \theta_2$. With logical chain: $\kappa^2{=}\frac{R_s}{r},\ \kappa^2{=}2\beta^2,\ \kappa^2{+}\beta^2{=}1 \Rightarrow r=\frac{R_s}{\kappa^2}\in\{1.5R_s,3R_s\}$
 \end{theorem}
 \begin{proof}
 A notable geometric equilibrium occurs at the critical angle 
@@ -2400,7 +2317,7 @@ In the small-angle/impulse regime
 \[
 \alpha = -\frac{1}{v^2}\int_{-\infty}^{\infty}\partial_\perp \Phi\,dz,
 \]
-and for light ($v=c$) with $\kappa^2(r)=2GM/(c^2 r)$ one finds
+and for light ($v=c$) with $\kappa^2(r)=2GM/(c^2 r)$ where $r=b$ one finds
 \[
 \alpha=\frac{1}{c^2}\!\int\! c^2\,\partial_\perp \kappa^2\,dz
 =\frac{2GM}{c^2}\!\int_{-\infty}^{\infty}\!\!\left(-\frac{b}{(b^2+z^2)^{3/2}}\right)dz
