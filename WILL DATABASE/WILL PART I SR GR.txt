@@ -1,8 +1,44 @@
+\documentclass[12pt, a4paper]{article}
 
+% --- Encoding and language ---
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 
-\title{WILL: Unified Framework\\  PART I - Foundations of Relativity}
+% --- Page geometry ---
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
 
+% --- Math and fonts ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}      % For proof environment
 
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}    % <-- добавил для tabularx
+\usepackage{enumitem}
+
+% --- TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{shapes, positioning, arrows.meta, calc}
+
+% --- tcolorbox for styled theorems ---
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{principle}[theorem]{Principle}
+
+% --- Metadata ---
+\title{WILL Part I: Relational Geometry}
 \author{Anton Rize \\  egeometricity@gmail.com}
 
 
@@ -18,14 +54,14 @@
     box/.style={rectangle, draw, rounded corners, text width=9.2cm, align=center, minimum height=1.1cm},
     arrow/.style={-Latex, thick}
     ]
-\node[box] (A) {Foundational Hypotheses: \textbf{Spacetime $\equiv$ Energy}};
+\node[box] (A) {Foundational Principle: \textbf{Spacetime $\equiv$ Energy}};
 \node[box, below=of A] (B) {Geometric Self-Consistency};
 \node[box, below=of B] (C) {Topological Requirement: Only Closed and Maximally Symmetric Structures Allowed};
 \node[box, below=of C] (D) {Circle (SR) and Sphere (GR) as Unique Permitted Geometries};
 \node[box, below=of D] (E) {Result: Projections $\beta$ (kinetic) and $\kappa$ (potential) are Strictly Normalized};
 \node[box, below=of E] (F) {Conservation, Symmetry, Speed Limit, Natural Bounds};
 \node[box, below=of F] (G) {Unified Field Equation: $\kappa^2 = R_s/r = \rho/\rho_{\max}$};
-\node[box, below=of G] (H) {Closure: Field Equation $\Longleftrightarrow$ Fundamental Hypotheses};
+\node[box, below=of G] (H) {Closure: Field Equation $\Longleftrightarrow$ Fundamental Principle};
 
 \draw[arrow] (A) -- (B);
 \draw[arrow] (B) -- (C);
@@ -41,9 +77,13 @@
 \newpage
 
 \begin{abstract}
-This paper, the first in the WILL series, introduces a new theoretical framework that shifts the paradigm from a descriptive to a \textbf{generative model} of physics, providing a unified derivation of Special and General Relativity from first principles. The model is founded on the \textbf{single Hypotheses} that $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$, from which all physical laws are deductively derived without free parameters. Key results include: the \textit{ab initio} geometric derivation of the energy-momentum relation ($E^2 = (pc)^2 + (mc^2)^2$); a fundamental unifying equation, $\kappa^2 = 2\beta^2$, which is shown to be a necessary consequence of the topology of the underlying projection manifolds; and an algebraic field equation, $\frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}}$, that serves as a local equivalent to Einstein's Field Equations.
+This paper, the first in the WILL series, establishes \textit{Relational Geometry} - a foundational framework where spacetime is not a background arena but an emergent property of energy transformations. 
 
-By construction, this geometric approach \textbf{inherently resolves the problem of singularities} by imposing a natural maximum on curvature, and it successfully \textbf{reconstructs the Schwarzschild and Kerr metrics} from its core projections. The framework offers significant \textbf{conceptual clarity and computational simplicity} by replacing complex tensor formalism with transparent geometric relations. Furthermore, it demonstrates complete \textbf{theoretical closure} (the "Theoretical Uroboros"), wherein the foundational Hypotheses deductively leads to a field equation that fully embodies it. The model's predictions are shown to be in precise agreement with key empirical tests, including the precession of Mercury, GPS time corrections, and the orbital decay of binary pulsars, establishing a robust foundation for subsequent papers on cosmology (Part II) and quantum mechanics (Part III).
+From a single principle \textbf{SPACETIME $\equiv$ ENERGY}, we derive the complete geometric structure of physics. This equivalence is not postulated but derived by removing the hidden ontological assumption in modern physics that structure (spacetime) and dynamics (energy) are separate phenomena. 
+
+The result is a singularity-free, ontologically clean formalism that reproduces the core equations of Special Relativity (SR) and General Relativity (GR) as algebraic projections on closed relational manifolds $S^1$ (directional) and $S^2$ (omnidirectional). Without metrics, tensors, or free parameters, it reproduces Lorentz factors, the energy-momentum relation, Schwarzschild solutions, and Einstein field equations via dimensionless projections $\beta$ (kinematic) and $\kappa$ (gravitational). Critical features - photon sphere, ISCO, horizons - emerge as equilibria ($\kappa^2 = 2\beta^2$, $Q^2 = \kappa^2 + \beta^2 = 1$). Empirically validated (e.g., GPS time shift 38.52 $\mu$s/day, Mercury precession to $10^{-10}$\%).
+
+WILL Part I resolves GR's singularities (bounded $\rho_{\max}$) and local energy ambiguity, offering significant computational simplification establishing a robust foundation for subsequent papers on cosmology (Part II) and quantum mechanics (Part III).
 \end{abstract}
 
 \newpage
@@ -62,7 +102,7 @@ It is important to clarify that I do not consider myself an academic authority, 
 
 Throughout this research, I have maintained a rigorous internal skepticism, questioning every step and assumption. The fact that I have arrived at results equivalent to the standard formulations of Special and General Relativity using only geometric first principles may appear unlikely, even to myself. I fully acknowledge the statistical improbability of such an achievement by an individual without formal academic training.
 
-However, this work is not an attempt to replace or dispute existing physics but rather to reinterpret it from a geometric and philosophical standpoint. Whether this approach holds broader value is irrelevant to its primary purpose — to provide a coherent and intuitive framework that satisfies my own intellectual and philosophical curiosity.
+However, this work is not an attempt to replace or dispute existing physics but rather to reinterpret it from a geometric and philosophical standpoint. Whether this approach holds broader value is irrelevant to its primary purpose - to provide a coherent and intuitive framework that satisfies my own intellectual and philosophical curiosity.
 
 Above all, this document serves as a personal record and reflection of a journey toward understanding, reminding me of the reasons why I chose to embark on this path.
 
@@ -105,9 +145,9 @@ P.S. \textit{This work remains an ongoing exploration, and further developments 
 
 \item[Singularity:] A point of infinite density predicted by traditional General Relativity (e.g., at the center of a black hole). WILL Geometry's framework inherently prevents singularities, replacing them with finite, maximum allowed densities.
 
-\item[\( \text{SPACETIME} \equiv \text{ENERGY} \):] The central, unifying Hypotheses of WILL Geometry, idea that the fabric of spacetime is identical to the full structure of all possible transitions and interconnections between energetic states.
+\item[\( \text{SPACETIME} \equiv \text{ENERGY} \):] The central, unifying Principle of WILL Geometry, idea that the fabric of spacetime is identical to the full structure of all possible transitions and interconnections between energetic states.
 
-\item[Symmetry:] A core principle in WILL Geometry derived from the Hypotheses, stating that in a closed system without external reference points, the geometry of the universe must be maximally symmetric. No preferred directions.
+\item[Symmetry:] A core in WILL Geometry derived from the foundational  Principle, stating that in a closed system without external reference points, the geometry of the universe must be maximally symmetric. No preferred directions.
 
 \item[Time/Length Dilation/Contraction:] The phenomenon where time passes more slowly for an observer or object. In WILL Geometry, it is explained as a consequence of how the universal "speed of transformation" budget is allocated between motion (kinetic time dilation) and gravitational potential (gravitational time dilation).
  
@@ -122,13 +162,16 @@ P.S. \textit{This work remains an ongoing exploration, and further developments 
 
 
 \section{Foundational Approach}
+\begin{quote}
+  \textit{This Approach Does not Describe Physics; it Generates it.}
+\end{quote}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Guiding Principle:]
 \textbf{Nothing is assumed. Everything is derived.}\\
 \end{tcolorbox}
 
 \subsection {Methodological Purity}
-This framework is constructed under a single epistemic constraint: to derive all of physics by \textbf{removing one hidden assumption}, rather than introducing new postulates. This construction is deliberate and contains zero free parameters.  This is not a simplification — it is a deliberate epistemic constraint. No assumptions are introduced unless they follow strictly from first principles, and no constructs are retained unless they are geometrically or energetically necessary. 
+This framework is constructed under a single epistemic constraint: to derive all of physics by \textbf{removing one hidden assumption}, rather than introducing new postulates. This construction is deliberate and contains zero free parameters.  This is not a simplification - it is a deliberate epistemic constraint. No assumptions are introduced unless they follow strictly from first principles, and no constructs are retained unless they are geometrically or energetically necessary. 
 
 \subsection*{No Ontological Commitments}
 This model makes no ontological claims about the "existence" of space, particles, or fields. Instead, all phenomena are treated as observer-dependent energetic projections.
@@ -165,7 +208,7 @@ An empirical confirmation of this closure is given by the dark night sky: if the
 Instead, the visible horizon is finite, and the Universe is operationally closed.  
 \end{quote}
 
-\subsection*{What is Energy?}
+\subsection{What is Energy?}
 \begin{quote}
 Across all domains of physics, one empirical fact persists: in every closed system there exists a quantity that never disappears or arises spontaneously, but only transforms in form. This invariant is observed under many guises --- kinetic, potential, thermal, quantum --- yet all are interchangeable, pointing to a single underlying structure.
 Crucially, this quantity is never observed directly, but only through \textit{differences between states}: a change of velocity, a shift in configuration, a transition of phase. Its value is relational, not absolute: it depends on the chosen frame or comparison, never on an object in isolation.
@@ -184,56 +227,57 @@ From these empirical and relational facts the definition follows unavoidably:
 \]
 
 
-\section{Unifying Hypothesis Removing the Hidden Assumption}
+\section{Unifying Principle Removing the Hidden Assumption}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Removing the Hidden Assumption]
 Any attempt to treat \emph{``spacetime structure''} as separate from \emph{``dynamics''} smuggles in a background container that is not justified by the phenomena. This violates epistemic hygiene: it introduces an ontological artifact without necessity. Eliminating this separation compels the identification of structure and dynamics as two aspects of a single entity.
 \end{tcolorbox}
 
+\subsection{False Separation}
 \begin{lemma}[False Separation]
 \label{lem:false-separation}
 Any model that treats processes as unfolding \emph{within} an independent background necessarily assigns to that background structural features (metric, orientation, or frame) not derivable from the relations among the processes themselves. Such a background constitutes an \emph{extraneous absolute}.
 \end{lemma}
 
 \begin{proof}
-Suppose an independent background exists. Then at least one of its structural attributes—metric relations, a preferred orientation, or a class of inertial frames—remains fixed regardless of interprocess data. This attribute is not relationally inferred but posited a priori. It thereby violates the relational closure principle: it introduces a non-relational absolute external to the system. Hence the separation is illicit.  
+Suppose an independent background exists. Then at least one of its structural attributes - metric relations, a preferred orientation, or a class of inertial frames - remains fixed regardless of interprocess data. This attribute is not relationally inferred but posited a priori. It thereby violates the relational closure principle: it introduces a non-relational absolute external to the system. Hence the separation is illicit.  
 \end{proof}
 
 \begin{corollary}[Structure--Dynamics Coincidence]
 \label{cor:coincidence}
 To avoid the artifact of Lemma~\ref{lem:false-separation}, the structural arena and the dynamical content must be identified: geometry \emph{is} energy, and energy \emph{is} geometry.
 \end{corollary}
-\begin{hypothesis}[Working Hypothesis: Removing the Hidden Assumption]
-\label{hyp:unifying}
+\begin{Principle}[Working Principle: Removing the Hidden Assumption]
+\label{pr:unifying}
 \[
 \boxed{\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}}
 \]
-This is not introduced as a new ontological entity but as a hypothesis with 
+This is not introduced as a new ontological entity but as a Principle with 
 \emph{negative ontological weight}: it removes the hidden unjustified separation 
 between “geometry” and “dynamics.” Space and time are not containers but 
 emergent descriptors of relational energy.
-\end{hypothesis}
+\end{Principle}
 
 \begin{remark}[Auditability]
-Hypothesis~\ref{hyp:unifying} is foundational but testable: it is subject to (i) geometric audit (internal logical consequences) and (ii) empirical audit (agreement with phenomena customarily described by SR/GR).
+Principle~\ref{pr:unifying} is foundational but testable: it is subject to (i) geometric audit (internal logical consequences) and (ii) empirical audit (agreement with empirical data).
 \end{remark}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
-\textbf{This hypothesis does not add, it subtracts: it removes the hidden assumption.  Structure and dynamics are two aspects of a single entity - WILL.}
+\textbf{This Principle does not add, it subtracts: it removes the hidden assumption.  Structure and dynamics are two aspects of a single entity - WILL.}
 \end{tcolorbox}
 
 \section{Deriving the WILL Structure}
 
-Having established our working hypothesis (Hypothesis \textbackslash{}ref\{hyp:unifying\}) by removing the illicit separation of structure and dynamics, we now proceed to derive its necessary geometric and physical consequences. We will demonstrate that this single principle is sufficient to enforce the closure, conservation, and fundamental symmetries of the relational structure, leading to a unique set of geometric carriers for energy.
+Having established our working Principle (Principle \textbackslash{}ref\{pr:unifying\}) by removing the illicit separation of structure and dynamics, we now proceed to derive its necessary geometric and physical consequences. We will demonstrate that this single principle is sufficient to enforce the closure, conservation, and fundamental symmetries of the relational structure, leading to a unique set of geometric carriers for energy.
 
 \begin{definition}[WILL Geometry]
 \label{def:will}
-\emph{$ \textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY} $} is the unified relational structure determined by \ref{hyp:unifying} . All physically meaningful quantities are relational features of WILL; no external container is permitted.
+\emph{$ \textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY} $} is the unified relational structure determined by \ref{pr:unifying} . All physically meaningful quantities are relational features of WILL; no external container is permitted.
 \end{definition}
 
 \begin{lemma}[Closure]
 \label{lem:closure}
-Under  \ref{hyp:unifying}, WILL is self-contained: there is no external reservoir into or from which the relational resource can flow.
+Under  \ref{pr:unifying}, WILL is self-contained: there is no external reservoir into or from which the relational resource can flow.
 \end{lemma}
 
 \begin{proof}
@@ -278,7 +322,7 @@ By Lemma~\ref{lem:isotropy}, we require closed, maximally symmetric manifolds.
 
 \begin{corollary}[Uniqueness]
 \label{cor:uniqueness}
-Under \ref{hyp:unifying} with Closure, Conservation, and Isotropy (Lemmas \ref{lem:closure}--\ref{lem:isotropy}), \(S^1\) and \(S^2\) are not optional modeling choices but \emph{necessary} relational carriers for, respectively, directional and omnidirectional modes of energy transformation.
+Under \ref{pr:unifying} with Closure, Conservation, and Isotropy (Lemmas \ref{lem:closure}--\ref{lem:isotropy}), \(S^1\) and \(S^2\) are \emph{necessary} relational carriers for, respectively, directional and omnidirectional modes of energy transformation.
 \end{corollary}
 
 \begin{remark}[Non-spatial Reading]
@@ -287,11 +331,34 @@ Throughout, \(S^1\) and \(S^2\) are not to be interpreted as \emph{spacetime} ge
 \end{remark}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
-From removing the hidden assumption ~\ref{lem:false-separation} we inevitably arrive to \ref{hyp:unifying}   \(\text{SPACETIME}\equiv\text{ENERGY}\) from there we deduced: (i) closure, (ii) conservation, (iii) isotropy, and hence (iv) the unique selection of \(S^1\) and \(S^2\) as minimal relational carriers for directional and omnidirectional transformation. These objects are non-spatial encodings of conservation and symmetry; they are enforced by the\ref{hyp:unifying} rather than assumed independently.
+From removing the hidden assumption ~\ref{lem:false-separation} we inevitably arrive to \ref{pr:unifying}   \(\text{SPACETIME}\equiv\text{ENERGY}\) from there we deduced: (i) closure, (ii) conservation, (iii) isotropy, and hence (iv) the unique selection of \(S^1\) and \(S^2\) as minimal relational carriers for directional and omnidirectional transformation. These objects are non-spatial encodings of conservation and symmetry; they are enforced by the\ref{pr:unifying} rather than assumed independently.
 \end{tcolorbox}
 
+\subsection{Ontological Status of the Relational Manifolds \(S^1\) and \(S^2\)}
 
-\section{Emergence of Spacetime and The Hypotheses of Geometric Uncertainty}
+A natural question arises regarding the ontological status of the circle \(S^1\) and the sphere \(S^2\): What are they, and where do they "exist"?
+
+The answer requires a fundamental shift in perspective. In WILL Geometry, \(S^1\) and \(S^2\) are \textbf{not spatial entities} existing within a pre-defined container. They are the necessary \textbf{relational architectures} that implement the core identity \(\text{SPACETIME} \equiv \text{ENERGY}\).
+
+\paragraph{Energy as Relational Bookkeeping}
+Recall that energy is defined as the \textit{relational measure of difference between possible states}. It is not an intrinsic property but a comparative structure that guarantees causal continuity. It is never observed directly, only through transformations.
+
+\paragraph{The Manifolds as Protocols of Interaction}
+The manifolds \(S^1\) and \(S^2\) are the minimal, unique mathematical structures capable of hosting this relational "bookkeeping" for directional and omnidirectional transformations, respectively. They enforce closure, conservation, and symmetry by their very topology.
+
+Imagine two observers, \(A\) and \(B\):
+\begin{itemize}
+    \item Observer \(A\) is the center of their own relational framework. Observer \(B\) is a point on \(A\)'s \(S^1\) (for kinematic relations) and \(S^2\) (for gravitational relations).
+    \item Simultaneously, observer \(B\) is the center of their own framework. Observer \(A\) is a point on \(B\)'s \(S^1\) and \(S^2\).
+\end{itemize}
+There is no privileged "master" manifold. Each observable interaction is structured by these mutually-centered relational protocols. The parameters \(\beta\) and \(\kappa\) are the coordinates within these relational dimensions, and the conservation laws (e.g., \(\beta_X^2 + \beta_Y^2 = 1; \quad \kappa_X^2 + \kappa_Y^2 = 1\)) are the innate accounting rules of these protocols.
+
+\paragraph{Emergence of Spacetime}
+Therefore, the question "Where are \(S^1\) and \(S^2\)?" is a category error. They are not \textit{in} space; they are the structures whose coordinated, multi-centered interactions \textbf{give rise to} the phenomenon we perceive as spacetime. Spacetime is the emergent, collective shadow cast by the dynamics of energy relations projected onto these architectures.
+
+In essence, \(S^1\) and \(S^2\) are the ontological embodiment of the relational principle. They are not assumed but derived as the only possible structures that can house the transformational resource (energy) in a closed, conserved, and isotropic universe. Their status is that of a fundamental \textbf{relational geometry} from which physics is generated.
+
+\section{Emergence of Spacetime}
 
 \textit{In this construction, ``space,'' ``time,'' and the principle of uncertainty are not treated as separate, fundamental aspects of reality. Instead, they are shown to arise as necessary consequences of a single, underlying principle: the geometry of a closed, relational system.}
 
@@ -337,7 +404,7 @@ Since $S^1$ is closed, every point on the circle is constrained by the Pythagore
 
 The manifestation of any system is distributed between its internal (Phase) and relational (Amplitude) aspects. This single geometric constraint gives rise to the core phenomena of modern physics:
 
-\subsection{Consequence 1: Relativistic Effects}
+\subsection{Consequence: Relativistic Effects}
 
 \begin{proposition}[Physical Interpretation: Relativistic Effects]
 \label{prop:relativity}
@@ -358,71 +425,6 @@ of the geometric closure of $S^1$.
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
 \textbf{Geometry of spacetime is nothing but the shadow cast by the geometry of relations.}
 \end{tcolorbox}
-
-\subsection{(Hypotheses) Consequence 2: The Geometric Uncertainty Principle}
-
-The same conservation law also dictates a geometric analogue to Heisenberg's Uncertainty Principle. The relationship between the Amplitude Component (relational aspect) and the Phase Component (internal aspect) is one of necessary reciprocity.
-
-\begin{itemize}
-    \item To perfectly ascertain a system's \textbf{internal structure} ($\beta_Y=1$), its \textbf{relational aspect} must be null ($\beta_X=0$). This is a state of perfect localization (analogous to position) where the relational momentum is zero.
-
-    \item To have a maximal \textbf{relational aspect} ($\beta_X=1$), the system's \textbf{internal structure} must vanish ($\beta_Y=0$). This is analogous to a state of perfectly defined momentum where localization is completely lost.
-\end{itemize}
-
-Crucially, unlike the Heisenberg principle which is rooted in the non-commutativity of quantum operators and the constant $\hbar$, this geometric uncertainty arises directly from the single Foundational Hypotheses of a closed, relational universe. The model does not \textit{posit} uncertainty as a strange axiom; it \textit{derives} it as a logical inevitability of its geometry. This suggests that the uncertainty seen in quantum mechanics may be a manifestation of this more fundamental, geometric principle of conservation.
-
-
-\subsection{(Hypotheses) Geometric Form of Uncertainty}
-
-Let the relational circle $S^{1}$ be parametrized as
-\[
-\beta_X = \cos\theta_1, \qquad \beta_Y = \sin\theta_1, \qquad \beta_X^2 + \beta_Y^2 = 1.
-\]
-
-Small variations are controlled by a single parameter $\theta_1$:
-\[
-\delta\beta_X = -\sin\theta_1\,\delta\theta_1, 
-\qquad 
-\delta\beta_Y = \cos\theta_1\,\delta\theta_1.
-\]
-
-Thus the corresponding uncertainties are
-\[
-\Delta\beta_X = |\sin\theta_1|\,\Delta\theta_1, 
-\qquad 
-\Delta\beta_Y = |\cos\theta_1|\,\Delta\theta_1,
-\]
-and their product satisfies the identity
-\[
-\Delta\beta_X \,\Delta\beta_Y 
-= \tfrac{1}{2}\,|\sin 2\theta_1|\,(\Delta\theta_1)^2.
-\]
-
-In a closed relational system the phase must return to its initial value after a full circuit of $2\pi$. 
-This implies that only an \emph{integer number of phase wraps} can be consistently realized. 
-We denote this integer by $n$, the \textbf{winding number} or \textbf{phase index}. 
-It is a purely topological invariant of the closed geometry and not an externally imposed parameter.
-
-Consequently, the minimal angular step that remains physically distinguishable is set by this winding number:
-\[
-\Delta\theta_1 \;\gtrsim\; \frac{2\pi}{n}.
-\]
-
-Substituting yields the \textbf{geometric uncertainty relation}:
-\[
-\boxed{\;\Delta\beta_X \,\Delta\beta_Y 
-\;\gtrsim\; \tfrac{1}{2}\,|\sin 2\theta_1|\,\Bigl(\tfrac{2\pi}{n}\Bigr)^{2}\;}
-\]
-
-\textbf{Physical meaning:} 
-The trade-off between the amplitude component ($\beta_X$) and the phase component ($\beta_Y$) is not arbitrary but dictated by the closure of the relational circle and the requirement of integer phase winding. 
-This provides a geometric analogue of the Heisenberg uncertainty principle without invoking operator algebra or $\hbar$ as an axiom. 
-In this framework, Planck’s constant may be understood as the empirical calibration of the minimal phase grain $(2\pi/n)^2$ to observed dimensional quantities.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Note:]
-\textbf{This hypotheses will be put to test in document "WILL Part III QM" }
-\end{tcolorbox}
-
 
 \section{Kinetic Energy Projection on $S^1$}
 
@@ -601,8 +603,7 @@ From here on we will write  \(\beta=\beta_X , \quad \beta_Y=\sqrt{1-\beta^{2}},\
 \subsection{Gravitational Tangent Formulation}
 
 Just as the relativistic energy--momentum relation can be expressed in terms of the kinematic projection 
-$\beta = v/c$, we may construct its gravitational analogue using the potential projection 
-$\kappa = v_{e}/c$, where $v_{e}$ is the escape velocity at radius $r$. 
+$\beta = v/c$, we may construct its gravitational analogue using the potential projection $\kappa = v_{e}/c$, where $v_{e}$ is the escape velocity at radius $r$. 
 
 In the kinematic case, with $\beta = \cos\theta_{1}$, the energy relation can be written as
 \begin{equation}
@@ -628,7 +629,7 @@ This yields the gravitational energy relation
 \begin{equation}
     E_{g}^{2} = p_g^{2} + E_{0}^{2}.
 \end{equation}
-\begin{tcolorbox}[colback=gray!5, colframe=black!60!black, title=Relational Symmetry:]
+\begin{tcolorbox}[colback=gray!5, colframe=black!60!black, title=Summary:]
 \[
 \beta = \cos\theta_{1}, 
 \qquad 
@@ -640,7 +641,7 @@ This yields the gravitational energy relation
 \cot\theta_{1} \;\longleftrightarrow\; \tan\theta_{2}.
 \]
 
-Kinematic momentum $p$ and gravitational momentum $k$ are thus dual 
+Kinematic momentum $p$ and gravitational momentum $p_g$ are thus dual 
 projections of the same relational circle, expressed through complementary 
 trigonometric forms.
 \end{tcolorbox}
@@ -710,7 +711,12 @@ and therefore \(E_g^2=p_g^2+E_0^2\).
 \end{tikzpicture}
 \end{center}
 
-\paragraph{Geometric proof (one step).}
+\subsection{Equivalence Principle as Derived Identity}
+
+In General Relativity the Einstein Equivalence Principle is introduced as an 
+independent postulate: $m_g \equiv m_i$.  
+Within WILL, no such axiom is required:
+
 On the kinematic circle the vertical leg equals $\beta_Y=\sin\theta_1$; keeping the
 same invariant $E_0$ on that leg forces a stretch $E/E_0=1/\beta_Y$.
 On the gravitational circle the horizontal leg equals $\kappa_X=\cos\theta_2$;
@@ -722,46 +728,115 @@ Composing the two independent stretches gives
 =\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}.
 \]
 
-\paragraph{Remarks.}
-(1) The correspondence is
+The inertial and gravitational projections share the same operational scale,
 \[
-\beta \leftrightarrow \kappa,\qquad \cot\theta_1 \leftrightarrow \tan\theta_2.
+\tilde p = E_{\rm loc}\,\beta, \qquad 
+\tilde p_g = E_{\rm loc}\,\kappa,
 \]
-(2) If a line-of-sight Doppler factor is present, it multiplies the SR part,
-but the SR$\times$GR factorization remains intact.
+both governed by the identical stretch factor
+\[
+m_{\rm eff}=\frac{E_0}{\beta_Y\,\kappa_X}.
+\]
+Hence
+\[
+\boxed{\, m_g \;\equiv\; m_i \,=\, m_{\rm eff}\,},
+\]
+
+Thus, in WILL relational geometry the equality $m_g \equiv m_i$ 
+is not assumed but forced by structure. 
+
+\begin{remark}[On Eötvös-type precision]
+In GR, the equality $m_g=m_i$ is imposed, while distinct relativistic factors 
+later rescale energy and time. In WILL, there is no independent $m$ at all: 
+the only invariant is $E_0$, and the effective response is the universal 
+stretch factor $1/(\beta_Y\kappa_X)$. Since this factor depends solely on 
+geometry and not on the composition of the test body, 
+the universality of free fall (Eötvös experiments) follows identically. 
+What GR postulates, WILL reproduces as structural necessity.
+\end{remark}
+
+\subsection*{Composition-Independence, and Quantum Interface}
+
+\paragraph{Composition-Independence (Eötvös-type).}
+Let the rest invariant decompose into internal channels
+\[
+E_0=\sum_{a} E_0^{(a)}\quad\text{(rest mass, binding, EM, nuclear, vacuum bookkeeping, etc.)}.
+\]
+WILL couples \emph{only} through the universal geometric stretch:
+\[
+E_{\rm loc}=\frac{1}{\beta_Y\,\kappa_X}\sum_a E_0^{(a)} \;=\; \sum_a \frac{E_0^{(a)}}{\beta_Y\,\kappa_X}.
+\]
+Hence each channel is multiplied by the \emph{same} factor $1/(\beta_Y\kappa_X)$, and any ratio of channel weights cancels in observables governed by the common scale. 
+Therefore the operational response is composition–independent \emph{by construction}, matching the universality tested in Eötvös-type experiments, without a separate postulate $m_g=m_i$.
+
+\paragraph{Quantum Interface (phase bookkeeping).}
+In WILL the phase increment is purely relational and inherits the same scale:
+\[
+\Delta\phi \;\propto\; E_{\rm loc}\,\Delta\lambda
+\qquad(\text{no absolute time; }\Delta\lambda\text{ is the internal ordering parameter}).
+\]
+Thus
+\[
+p=\nabla_\xi \phi \;\propto\; E_{\rm loc}\,\beta, 
+\qquad 
+p_g=\nabla_\chi \phi \;\propto\; E_{\rm loc}\,\kappa,
+\]
+so matter-wave phases and redshifts share the \emph{identical} stretch $1/(\beta_Y\kappa_X)$ across all internal channels, again yielding composition–independent interferometric outcomes.
+
+\paragraph{Contrast with GR.}
+GR recovers universality by \emph{geodesic motion in a metric} after positing $m_g\equiv m_i$.
+WILL has no independent mass primitive and no external background: the same projection identity that generates 
+\[
+E=\frac{E_0}{\beta_Y},\quad E_g=\frac{E_0}{\kappa_X}
+\]
+forces the unified operational scale $E_{\rm loc}$; hence the equality of inertial and gravitational responses is an \emph{algebraic identity} of relational geometry, not an axiom. 
+GR’s geodesics are a \emph{representation}; WILL’s equivalence is a \emph{consequence}.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
+\textbf{What GR posits as a postulate, WILL delivers as an unavoidable consequence of Relational Geometry.}
+\end{tcolorbox}
 
 \section{Relation Between Potential and Kinetic Energy Projections}
 
-\subsection{The Topological Necessity of \(S^1\) and \(S^2\) Projections}
+\subsection{Quick recap: }
+
+  \textbf{ The Topological Necessity of \(S^1\) and \(S^2\) Projections}
+
+The foundational Principle \(\text{SPACETIME} \equiv \text{ENERGY}\) demands that all physical quantities emerge from the relational structure of transitions between observable states. This structure must be:
+\begin{enumerate}
+    \item \textbf{Self-contained:} There is no external background \ref{lem:closure}.
+    \item \textbf{Conservative:} The total "resource" for transformation is fixed ref{lem:conservation}.
+    \item \textbf{Maximally Symmetric:} No point or direction is privileged \ref{lem:isotropy}.
+\end{enumerate}
+ 
+Any geometry violating these principles would reintroduce an absolute background, violating the foundational Principle.
+
+The fundamental question is: \textit{What are the unique geometric arenas that can host such a complete description of physical transformations?}
+
+We must now characterize the types of "energy Transformation" that constitute physics. 
+There are two,  fundamental classes:
+\begin{itemize}
+    \item \textbf{Class I (Directional Transformation):} This describes a transition whose character is defined by a \textit{preferred axis}. \\ 
+    The act of measurement is the act of distinguishing this axis (e.g., the line connecting observer and object for relative velocity). \\
+    The energy measure is inherently tied to a specific direction. This is the domain of kinematics.
+    \item \textbf{Class II (Omnidirectional Transformation):} This describes a transition whose character is \textit{inherently without a preferred axis}. \\
+    The act of measurement is the act of establishing a relation to a center, but the resulting field is defined equally in all directions from that center. \\
+    This is the domain of a static, central potential.
+\end{itemize}
+
+This are an exhaustive catalogue of the fundamental relational categories implied by the foundational Principle \ref{cor:uniqueness}. 
+
+The geometry must now accommodate these classes while obeying the three constraints above \ref{thm:carriers}.
+\begin{itemize}
+    \item \textbf{For Class I (Directional):} The only closed, 1-dimensional manifold of constant positive curvature is the circle, \(S^1\). It is unique. It is maximally symmetric (all points and rotations are equivalent). It is self-contained and embodies conservation (the fixed radius). \textbf{Therefore, the kinematic parameter \(\beta\) must be a projection on \(S^1\). There is no other option.}
+    \item \textbf{For Class II (Omnidirectional):} The only closed, simply-connected 2-dimensional manifold of constant positive curvature is the sphere, \(S^2\). It is unique. It is maximally symmetric (all points and rotational axes are equivalent). It is self-contained. \textbf{Therefore, the gravitational parameter \(\kappa\) must be a projection on \(S^2\). There is no other option.}
+\end{itemize}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=IMPORTANT:]
 \textbf{Throughout this work, $S^1$ and $S^2$ are not to be interpreted as spacetime geometries but purely as relational manifolds encoding conservation. Any reading otherwise is a misinterpretation.}
 \end{tcolorbox}
 
-The foundational hypotheses \(\text{SPACETIME} \equiv \text{ENERGY}\) is not a vague metaphor but a precise geometric constraint. It demands that all physical quantities emerge from the relational structure of transitions between observable states. This structure must be:
-\begin{enumerate}
-    \item \textbf{Self-contained:} There is no external background.
-    \item \textbf{Conservative:} The total "resource" for transformation is fixed.
-    \item \textbf{Maximally Symmetric:} No point or direction is privileged.
-\end{enumerate}
-
-These are not additional assumptions; they are the \textit{operational definitions} of what it means for spacetime to be identical to energy. Any geometry violating these principles would reintroduce an absolute background, violating the foundational hypotheses.
-
-The fundamental question is: \textit{What are the unique geometric arenas that can host such a complete description of physical transformations?}
-
-We must now characterize the types of "energy Transformation" that constitute physics. There are two,  fundamental classes:
-\begin{itemize}
-    \item \textbf{Class I (Directional Transformation):} This describes a transition whose character is defined by a \textit{preferred axis}. The act of measurement is the act of distinguishing this axis (e.g., the line connecting observer and object for relative velocity). The energy measure is inherently tied to a specific direction. This is the domain of kinematics.
-    \item \textbf{Class II (Omnidirectional Transformation):} This describes a transition whose character is \textit{inherently without a preferred axis}. The act of measurement is the act of establishing a relation to a center, but the resulting field is defined equally in all directions from that center. This is the domain of a static, central potential.
-\end{itemize}
-
-These are not arbitrary choices. They are an exhaustive catalogue of the fundamental relational categories implied by the foundational hypotheses. Class I isolates a single degree of freedom for measurement. Class II encompasses the full set of directional possibilities from a point.
-
-The geometry must now accommodate these classes while obeying the three constraints above.
-\begin{itemize}
-    \item \textbf{For Class I (Directional):} The only closed, 1-dimensional manifold of constant positive curvature is the circle, \(S^1\). It is unique. It is maximally symmetric (all points and rotations are equivalent). It is self-contained and embodies conservation (the fixed radius). \textbf{Therefore, the kinematic parameter \(\beta\) must be a projection on \(S^1\). There is no other option.}
-    \item \textbf{For Class II (Omnidirectional):} The only closed, simply-connected 2-dimensional manifold of constant positive curvature is the sphere, \(S^2\). It is unique. It is maximally symmetric (all points and rotational axes are equivalent). It is self-contained. \textbf{Therefore, the gravitational parameter \(\kappa\) must be a projection on \(S^2\). There is no other option.}
-\end{itemize}
+\subsection{Relational ratio between $S^1$ and $S^2$ manifolds}
 
 Closed, self-contained universe requires that the "total space of possibilities" for each projection mode be complete. The fundamental, dimensionless measure for the completeness of these geometries is their full angle:
 
@@ -775,47 +850,31 @@ The ratio of the total angular measures of these two fundamental manifolds is a 
 \frac{\text{Total Closure of $S^2$}}{\text{Total Closure of $S^1$}} = \frac{4\pi}{2\pi} = 2
 \]
 
-This factor of 2 is a direct and necessary consequence of the dimensional difference between an omnidirectional (2D) and a linear (1D) projection space.
-\begin{quote}\small
-Here both $2\pi$ and $4\pi$ are the \emph{complete closure measures} of $S^1$ and $S^2$. 
-\textbf{Not spatial objects, but abstract topological constructs.}
-They are universal, dimensionless invariants: the full angle of a closed loop and the full angle of a closed surface. Their ratio is therefore a pure number, reflecting the intrinsic topological difference between one- and two-dimensional projection spaces.
-\end{quote}
+We can confirm this result comparing degrees of freedom on itch manifold:
+\[
+\frac{\text{2D on $S^2$}}{\text{1D on $S^1$}} = \frac{2D}{1D} = 2
+\]
+This factor of 2 is a direct and necessary consequence of the dimensional difference between an omnidirectional (2D) and a linear (1D) projection space on the relational manifolds $S^2$ and $S^2$.
+
 \subsection{The Quadratic Nature of Energetic Projections}
 
 To translate this purely geometric ratio into a physical law, we must consider how projections relate to energy. In physics, the energetic significance (or "power") of a field, velocity, or wave is proportional not to its amplitude, but to its \textbf{amplitude squared}. This quadratic relationship is fundamental, appearing in kinetic energy ($E_k \propto v^2$), potential energy in fields, and the energy density of electromagnetic waves ($E \propto A^2$).
 
 Furthermore, in any projectional geometry, the magnitudes of orthogonal components are related to the whole via a Pythagorean sum of squares. Therefore, the conserved Transformation resource is distributed among the squares of its projections. The fundamental relation must connect the ratio of the \textit{energetic significances} of the modes ($\kappa^2$ and $\beta^2$) to the underlying topological ratio of their geometric arenas.
-
+\begin{quote}
+ Linear relations would fail to respect both the physical definition of energy (quadratic in amplitude) and the Pythagorean structure of projections. Therefore only quadratic measures are consistent with closure and conservation. 
+\end{quote}.
 This leads to the unique and necessary unification equation:
 \[
 \frac{\kappa^2}{\beta^2} = 2 \quad \Longrightarrow \quad \boxed{\kappa^2 = 2\beta^2}
 \]
 
-\paragraph{Important Clarification.}
-This factor of 2 is not an empirical constant, a Newtonian mechanical result, or a coincidence of orbital dynamics. It is a direct consequence of the ratio of the fundamental angular measures that define the complete projection spaces for omnidirectional and linear phenomena.
+\subsection{Closure and Conservation of Energy}
 
-\paragraph{Closure Condition.}
-The relation $\kappa^2=2\beta^2$ is therefore more than a proportionality: it is the precise criterion for energetic closure. Whenever the equality is satisfied, the system under study is fully self-contained, with no leakage of the conserved resource into unaccounted channels. Whenever the equality \emph{appears} to fail (for instance in highly elliptical binaries or in radiating systems), this does not contradict the principle but indicates that additional energy pathways --- such as gravitational-wave emission or cosmological expansion --- must be included to restore the balance. In this sense, the relation acts as a diagnostic invariant: it tells us whether our description has captured the full closed geometry or whether unseen flows remain.
-
-\begin{quote}
- Linear relations would fail to respect both the physical definition of energy (quadratic in amplitude) and the Pythagorean structure of projections. Therefore only quadratic measures are consistent with closure and conservation. 
-\end{quote}
-
-\subsection{Closure, Falsifiability, and the Conservation of Energy}
-
-The relation $\kappa^2 = 2\beta^2$ must be understood not merely as a proportionality, but as the precise geometric criterion for the \textbf{energetic closure} of a system. In this framework, it serves as the direct geometric embodiment of the Law of Conservation of Energy.
-
-Any apparent deviation from this equality is therefore not a failure of the principle. Instead, it acts as a powerful diagnostic tool that presents a definitive epistemic choice:
-
-\begin{enumerate}
-    \item \textbf{The System is Incompletely Defined:} The observer has failed to account for all energy channels. The deviation is a physical signature of an unaccounted-for process (e.g., gravitational-wave emission, mass accretion, or other energy flows). The relation thus becomes a predictive instrument, compelling the discovery of these flows to restore the geometric balance.
-
-    \item \textbf{A Violation of Fundamental Conservation:} If, hypothetically, a system were proven to be perfectly closed with all energy flows rigorously accounted for, and the relation $\kappa^2 = 2\beta^2$ was still systematically violated, this would imply a failure of the Law of Conservation of Energy itself.
-\end{enumerate}.
+The relation $\kappa^2 = 2\beta^2$ must be understood not merely as a proportionality, but as the precise relational criterion for the \textbf{energetic closure} of a system. In this framework, it serves as the direct geometric embodiment of the f the virial theorem.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=The Principle as a Diagnostic Invariant]
-The relation $\boxed{\kappa^2 = 2\beta^2}$ holds if and only if the system under study is energetically closed. An apparent violation is not a contradiction of the theory, but a physical prediction that energy is flowing through an unaccounted-for channel. The principle is therefore falsifiable, with its falsification being equivalent to demonstrating a violation of energy conservation.
+The relation $\boxed{\kappa^2 = 2\beta^2}$ holds if the system under study is energetically closed momentarily (circular orbits) or periodically (elliptical orbits).  In open systems It can be used for determining the magnitude of energy flow through an unaccounted-for channels. When all the channels is included in the balance, the closure is restored and the equality holds again (see section "Numerical Validations" subsection "Earth--Moon").
 \end{tcolorbox}
 
 \subsection*{Illustrative Examples}
@@ -827,31 +886,22 @@ To clarify the meaning of this closure condition, consider two contrasting cases
     For a test body in a perfectly circular orbit around a central mass, the condition $\kappa^2 = 2\beta^2$ is exactly fulfilled. The orbital system can be treated as energetically closed: all of the conserved resource is accounted for between the kinetic projection along the orbit and the gravitational projection toward the center. No external channels are needed, and the equality signals full closure.
 
     \item \textbf{Radiating Binary (Open Subsystem).}  
-    In contrast, for a highly elliptical binary system of compact objects (such as neutron stars. (full calculation in section: Empirical Validation; subsection: Orbital Decay: Binary Pulsar)), the orbital Transformation is accompanied by gravitational-wave emission. If one considers only the orbital mechanics, the relation $\kappa^2 = 2\beta^2$ will appear to be violated. Yet this is not a failure of the principle. Instead, it reveals that the subsystem is not closed: part of the resource leaves through radiation. When the gravitational-wave channel is included in the balance, the closure is restored and the equality holds again.
+    In contrast, for a highly elliptical binary system of compact objects (such as neutron stars. (full calculation in section: Empirical Validation; subsection: Orbital Decay: Binary Pulsar)), the orbital energy is accompanied by gravitational-wave emission. If one considers only the orbital mechanics, the periodic  (elliptical orbit)  relation $\kappa^2 = 2\beta^2$ will be violated revealing the magnitude of energy flow through an unaccounted-for channels. When all the channels is included in the balance, the closure is restored and the equality holds again.
 \end{itemize}
 
-These examples highlight the diagnostic role of the relation: it identifies whether the chosen subsystem is complete, or whether additional flows of the Transformation resource must be incorporated to recover closure.
 
-\begin{quote}
-\textbf{Principle of Closure.}  
-The relation $\kappa^2 = 2\beta^2$ holds if and only if the system under consideration is fully closed, with no leakage of energy into channels not included in the description.
-\end{quote}
-
-The factor of 2 in the fundamental relation \(\kappa^2 = 2\beta^2\)  is the ratio of the total solid angle of the sphere (\(4\pi\) steradians) to the total planar angle of the circle (\(2\pi\) radians). This ratio is the geometric exchange rate between the two unique manifolds that host the two fundamental categories of energy Transformation.
-
-\vspace{1em}
-\noindent\textbf{In summary:} 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
 \begin{enumerate}
-    \item The foundational hypotheses defines the universe as a closed, conservative, symmetric relational structure.
-    \item The physical content of that universe consists of two and only two fundamental types of relations: directional and omnidirectional.
-    \item The mathematics of geometry dictates that the \textit{only} closed, maximally symmetric arenas for these relations are \(S^1\) and \(S^2\), respectively.
-    \item Therefore, the projection parameters \(\beta\) and \(\kappa\) are \textit{forced} to live on these \textbf{non-spatial} manifolds.
+    \item The foundational Principle defines the universe as a closed, conservative, symmetric relational structure $\text{SPACETIME} \equiv \text{ENERGY}$.
+    \item The relational geometry dictates that the \textit{only} closed, maximally symmetric arenas for these relations are \(S^1\) and \(S^2\), respectively.
+    \item Therefore, the projection parameters $\beta=\cos\theta_1$ and  $\kappa=\sin\theta_2$ are \textit{forced} to live on these \textbf{relational} manifolds.
+    \item The geometric exchange rate between this two manifolds is determent by the relational ratio of the respective manifolds $\frac{\text{Total Closure of $S^2$}}{\text{Total Closure of $S^1$}} = \frac{4\pi}{2\pi} = 2$.
 \end{enumerate}
+\end{tcolorbox}
 
-It is the \textit{only geometrical content} that can be housed within the geometric constrains dictated by the foundational hypotheses.
 
 \paragraph{Physical Implication.}
-In WILL Geometry, this relation is foundational. It links gravitational and kinetic modes without reference to spacetime as a background fabric, showing that their connection is a matter of geometric and topological necessity, not dynamic coincidence. Classical physics, in its successful predictions, unknowingly traces the consequences of this deeper geometric law.
+This ratio links potential and kinetic modes without reference to spacetime as a background fabric, showing that their connection is a matter of  relational geometry, not dynamic coincidence. Classical physics, in its successful predictions, unknowingly traces the consequences of this deeper geometric law:
 
 \[
 \boxed{\text{Spacetime Geometry (}\kappa^{2}\text{)} \;\equiv\; \text{Kinematic Energy distribution (}\beta^{2}\text{)}\;\times\;2}
@@ -860,15 +910,15 @@ In WILL Geometry, this relation is foundational. It links gravitational and kine
 \boxed{\text{SPACETIME} \equiv \text{ENERGY}}
 \]
 
-\subsection{Geometric Relationships}
+\subsection{Clear Relational Symmetry Between Kinematic and Potential Projections }
 
-The relativistic and gravitational factors can be expressed in unified algebraic and trigonometric forms, as shown in Table 1.
+Now we can clearly see the underling symmetry between relativistic and gravitational factors that can be expressed in unified algebraic and trigonometric forms, as shown in Table 1.
 
 
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|}\hline
-\multicolumn{2}{|c|}{\(\beta=\beta_X,\quad  \kappa=\kappa_Y,\quad \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\)}\\
+\multicolumn{2}{|c|}{\(\beta=\beta_X,\quad  \kappa=\kappa_Y,\quad \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\)  $\kappa^2 = 2\beta^2$}\\
 \hline
 \textbf{Algebraic Form} & \textbf{Trigonometric Form} \\
 \hline
@@ -878,12 +928,15 @@ $1/\kappa_X = \frac{1}{\sqrt{1-\kappa^2}}$& $1/\kappa_X  = \frac{1}{\cos(\theta_
 \hline
 $\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) = \sin(\arccos(\beta))$\\
 \hline
-$\kappa_X = \sqrt{1-\kappa^2}$& $\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa))$\\\hline
+$\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa))$\\
+\hline
+ $p=E_0\,\beta/\beta_Y$&$p=E_0\,\cot(\theta_1) $\\
+ \hline
+ $p_g=E_0\,\kappa/\kappa_X$&$p_g=E_0 \tan(\theta_2)$\\
+ \hline
 \end{tabular}
 \caption{Unified representation of relativistic and gravitational effects.}
 \end{table}
-
-
 
 \subsubsection{The Combined Energy Parameter $Q$}
 
@@ -898,9 +951,9 @@ The total energy projection parameter unifies both aspects:
 
 These describe the combined effects of relativity and gravity.
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Unified Interpretation]
-The familiar SR and GR factors emerge here as projections of the same conserved geometry. 
-Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate “effects” but dual aspects of one energy-transformation constraint revealing their unified origin.
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\textbf{The familiar SR and GR factors emerge here as projections of the same conserved geometry. 
+Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate “effects” but dual aspects of one energy-transformation constraint revealing their unified origin.}
 \end{tcolorbox}
 
 
@@ -994,10 +1047,11 @@ The energy transfer required to reach this state, $\Delta E_{A \to B}$, would al
 \end{equation}
 Therefore, the condition $\beta \leq 1$ (which implies $v \leq c$) is an intrinsic requirement for maintaining the causal and energetic consistency of the relational universe.
 \end{proof}
-In essence, WILL Geometry encodes the principle that:
-\begin{quote}
-The speed of light is the boundary beyond which the energetic symmetry between perspectives breaks down. Causality is not an external rule but a built-in feature of the universe's energetic geometry.
-\end{quote}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\textbf{The speed of light is the boundary beyond which the energetic symmetry between perspectives breaks down. Causality is not an external rule but a built-in feature of Relational Geometry.}
+\end{tcolorbox}
+
 \subsection{Transparent Energy Balance for Closed Orbits}
 
 When the closure condition for stable, periodic orbits ($\kappa^2 - 2\beta^2 = 0$) is applied, the general Energy-Symmetry Law simplifies into remarkably elegant and direct forms. These simplified equations provide the precise energy balance for transitions involving energetically closed systems, such as planets or satellites in stable orbits.
@@ -1095,11 +1149,9 @@ it is enforced by the underlying geometry of energy transformation.
 
 
 \section{Lagrangian and Hamiltonian as Ontologically Corrupted WILL Approximations}
-\noindent\textit{Remark.} 
-The following derivation is not philosophical commentary but a concrete algebraic 
+\textit{The following section present philosophical and algebraic 
 demonstration: the standard $L$ and $H$ arise as degenerate limits of the relational 
-Energy–Symmetry law.
-
+Energy–Symmetry law.}
 
 We now demonstrate that the familiar Lagrangian and Hamiltonian formalisms 
 are not fundamental principles but ontologically ``dirty'' approximations of 
@@ -1404,7 +1456,7 @@ r = 0, \quad \theta = \frac{\pi}{2}
 The "size" of this ring is proportional to \(a = \frac{G m_0}{c^2} \beta\), reaching its maximum for extreme black holes (\(\beta = 1\)).
 
 \subsection{Naked Singularity}
-For \(\beta \leq 1\), a naked singularity does not emerge, aligning with the cosmic censorship hypothesis. In our model, Energy Symmetry Law enforce constraint by limiting \(\beta\) to the range \([0, 1]\).
+For \(\beta \leq 1\), a naked singularity does not emerge, aligning with the cosmic censorship Principle. In our model, Energy Symmetry Law enforce constraint by limiting \(\beta\) to the range \([0, 1]\).
 
 \subsection{The Relationship Between \(\kappa > 1\) and Rotation}
 For extreme rotation (\(\beta = 1\)), we find \(\kappa = \sqrt{2} > 1\), which reflects the displacement of the event horizon and the geometric properties of rotating black holes. This suggests that values of \(\kappa > 1\) are inherently connected to the physics of rotation in spacetime.
@@ -1439,12 +1491,12 @@ This is the unified geometric field equation of WILL Geometry. It expresses the 
 \[
 \text{SPACETIME GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}
 \]
-We have shown that this single foundational hypotheses, through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with a single foundational  hypothesis \(\text{SPACETIME} \equiv \text{ENERGY}\), from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and spacetime, proving the self-consistency of the initial idea.
+We have shown that this single foundational Principle, through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with a single foundational  Principle \(\text{SPACETIME} \equiv \text{ENERGY}\), from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and spacetime, proving the self-consistency of the initial idea.
 
 \begin{figure}[h!]
 \centering
  \includegraphics[width=0.9\textwidth]{img/Theoretical-Ouroboros-min.jpg}
-The foundational  hypothesis \(\text{SPACETIME} \equiv \text{ENERGY}\) closes into the unified field equation
+The foundational  Principle \(\text{SPACETIME} \equiv \text{ENERGY}\) closes into the unified field equation
 \[
 \frac{R_s}{r_d} = \frac{\rho}{\rho_{\max}},
 \]
@@ -1454,7 +1506,7 @@ The foundational  hypothesis \(\text{SPACETIME} \equiv \text{ENERGY}\) closes in
 \begin{quote}
 Theoretical Uroboros
 
-The WILL framework exhibits perfect logical closure: the fundamental hypothesis about the nature of spacetime and energy is proven as the inevitable consequence of geometric consistency.
+The WILL framework exhibits perfect logical closure: the fundamental Principle about the nature of spacetime and energy is proven as the inevitable consequence of geometric consistency.
 
 \end{quote}
 
@@ -1614,7 +1666,7 @@ governed by the fundamental geometric field equation.
 \node (M) [above=2.5cm of center] {$M$};
 \node (Rs) [left=2.8cm of M] {$R_s = \frac{2GM}{c^2}$};
 \node (rd) [right=2.8cm of M] {$r_{d} = \frac{R_s}{\kappa^2}$};
-\node (td) [right=2.3cm of rdis] {$t_{d} = \frac{r_{d}}{c}$};
+\node (td) [right=2.3cm of rd] {$t_{d} = \frac{r_{d}}{c}$};
 
 % Energy (bottom)
 \node (rhomax) [below left=2.2cm and 2.3cm of center] {$\rho_{\text{max}} = \frac{c^2}{8\pi G r_{d}^2}$};
@@ -1624,12 +1676,12 @@ governed by the fundamental geometric field equation.
 \draw[->, thick] (ve) -- (center);
 \draw[->, thick] (v) -- (center);
 \draw[->, thick] (Rs) -- (center);
-\draw[->, thick] (rdis) -- (center);
+\draw[->, thick] (rd) -- (center);
 \draw[->, thick] (rho) -- (center);
 
 % Geometry arrows
 \draw[->] (M) -- (Rs);
-\draw[->] (M) -- (rdis);
+\draw[->] (M) -- (rd);
 \draw[->] (rd) -- (td);
 
 % Energy arrows
@@ -1719,7 +1771,7 @@ The name WILL reflects both the harmonious unity of the equation and a subtle ir
 \[
 \boxed{\text{SPACETIME} \equiv \text{ENERGY}}
 \]
-All the derived relations for local energy density, pressure, enclosed mass, and horizon formation are purely logical and mathematical consequences of this unique guiding principle. In this sense, the WILL Geometry framework achieves absolute epistemological cleanliness: it does not introduce any hidden assumptions or coordinate structures. The entire gravitational and relativistic sector (as reconstructed within the WILL Geometry model, from the single foundational hypotheses without any external assumptions or coordinate backgrounds ) — including precise predictions about the onset of horizon formation, radial pressure gradients, and the resolution of classical singularity issues—is reconstructed from this single idea.
+All the derived relations for local energy density, pressure, enclosed mass, and horizon formation are purely logical and mathematical consequences of this unique guiding principle. In this sense, the WILL Geometry framework achieves absolute epistemological cleanliness: it does not introduce any hidden assumptions or coordinate structures. The entire gravitational and relativistic sector (as reconstructed within the WILL Geometry model, from the single foundational Principle without any external assumptions or coordinate backgrounds ) — including precise predictions about the onset of horizon formation, radial pressure gradients, and the resolution of classical singularity issues—is reconstructed from this single idea.
 
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Meaning]
@@ -1977,10 +2029,10 @@ General Relativity (GR) is assumed to rest on the following axioms:
 \end{itemize}
 \end{definition}
 
-\begin{definition}[WILL Foundational Postulate]
-The WILL framework is based on a single axiom:
+\begin{definition}[WILL Foundational Principle]
+The WILL framework is based on a single Principle:
 \begin{itemize}
-    \item[(W1)] \textbf{Relational Postulate:} All physical magnitudes are defined purely by relations between entities; spacetime is equivalent to energy.
+    \item[(W1)] \textbf{Relational Principle:} All physical magnitudes are defined purely by relations between entities; spacetime is equivalent to energy.
 \end{itemize}
 \end{definition}
 
@@ -1990,8 +2042,8 @@ and must be expressed relationally. In particular, no absolute magnitudes can se
 as observables.
 \end{lemma}
 
-\begin{remark}[Bridge: From Relational Postulate to GR Axioms]
-If the Relational Postulate (W1) were false, then physical magnitudes
+\begin{remark}[Bridge: From Relational Principle to GR Axioms]
+If the Relational Principle (W1) were false, then physical magnitudes
 could in principle be defined in absolute, non-relational terms. 
 Such absolutes would provide a hidden external reference structure.
 But this contradicts the core of GR:
@@ -2008,7 +2060,7 @@ This establishes the logical dependency required for the asymmetry theorem below
 \begin{theorem}[Asymmetric Falsifiability of GR and WILL]
 \label{thm:asymmetry}
 Let $\mathsf{GR}$ denote the theory defined by axioms (A1)--(A4),
-and let $\mathsf{WILL}$ denote the theory defined by postulate (W1).
+and let $\mathsf{WILL}$ denote the theory defined by Principle (W1).
 Then:
 \begin{enumerate}
     \item If (W1) is empirically falsified, then (A2)--(A3) are also falsified. 
@@ -2023,7 +2075,7 @@ while GR survives.
 
 \begin{corollary}
 WILL is axiomatically more fundamental than GR: 
-its sole postulate (W1) is logically included within the core axioms of GR, 
+its sole Principle (W1) is logically included within the core axioms of GR, 
 while GR requires additional ontological structures 
 (metric geometry, equivalence principle, Einstein equations) that are 
 not necessary for the consistency of WILL.
@@ -2035,7 +2087,7 @@ not necessary for the consistency of WILL.
 ]
 
 % WILL foundation
-\node[box, fill=blue!15] (w1) {W1: Relational Hypotheses \\ \small (Spacetime ≡ Energy)};
+\node[box, fill=blue!15] (w1) {W1: Relational Hypotheses \\ \small (Spacetime $\equiv$ Energy)};
 
 % GR axioms stacked above
 \node[box, fill=green!15, above=of w1] (a2) {A2: Diffeomorphism Invariance};
@@ -2058,7 +2110,7 @@ not necessary for the consistency of WILL.
 
 \node[box, fill=yellow!20, below=2.3cm of labelWILL, text width=12.2cm, align=left] (concl) {%
 \textbf{Conclusion (Axiomatic Inclusion and Asymmetric Falsifiability).} \\
-\emph{WILL} rests on the single relational postulate (W1). Core GR assumes additional structures (A1--A4). Hence:
+\emph{WILL} rests on the single relational Principle (W1). Core GR assumes additional structures (A1--A4). Hence:
 \begin{itemize}
   \item If \textbf{W1} is empirically falsified, GR's core (A2--A3) is undermined; thus GR is falsified.
   \item If any of \textbf{A1--A3} is falsified, GR collapses, while \textbf{W1} (and thus WILL) may still hold.
@@ -2078,7 +2130,7 @@ $\kappa^2 = 2\beta^2$.
 Thus, GR is not a rival but a \textbf{specialized, parameter-heavy realization} of 
 WILL's more general relational principle. In logical terms: 
 \begin{itemize}
-    \item WILL can stand without GR, but GR cannot stand without the relational postulate (W1). 
+    \item WILL can stand without GR, but GR cannot stand without the relational Principle (W1). 
     \item The empirical successes of GR are preserved within WILL, but its pathologies 
     (singularities, dependence on dark entities, ambiguous notion of rest) are avoided. 
 \end{itemize}
@@ -2198,15 +2250,15 @@ c = 299{,}792{,}458\ \mathrm{m\,s^{-1}},
 R_\oplus = 6{,}371{,}000\ \mathrm{m}.
 \]
 \begin{theorem}
-\paragraph{Projection parameters.}
+\textbf{Projection parameters.}
 For a circular orbit of radius \(r\) with orbital speed \(v\),
-\[
-\beta^2 \equiv \frac{v^2}{c^2}, 
+
+$$\beta^2 \equiv \frac{v^2}{c^2}$$, 
 \qquad
-\kappa^2 \equiv \frac{2GM_\oplus}{r c^2} = \frac{R_s}{r},
+$$\kappa^2 \equiv \frac{2GM_\oplus}{r c^2} = \frac{R_s}{r}$$,
 \quad
-R_s \equiv \frac{2GM_\oplus}{c^2}.
-\]
+$$R_s \equiv \frac{2GM_\oplus}{c^2}$$.
+
 For circular motion the empirical relation \(v^2=\mu_\oplus/r\) holds to high accuracy, hence
 \[
 \beta^2 = \frac{\mu_\oplus}{r c^2}
@@ -2548,12 +2600,6 @@ Thus most tidal power is irreversibly thermalized within Earth’s oceans/solid 
 \paragraph{WILL interpretation (unitful closure diagnostic).}
 For a closed Keplerian limit one has $\kappa^{2}=2\beta^{2}$ and $W_{\rm ILL}=1$. The persistent $\dot a>0$ found above is exactly the nonzero third-channel flux; in unitful form the same conclusion follows from $W_{\rm ILL}\neq1$ when evaluated on the Earth–Moon state, with the sign indicating outward angular-momentum transfer and the magnitude fixed by $P_{\rm orbit}$.
 
-
-
-
-
-
-
 \subsection{Orbital Decay: Hulse–Taylor binary Pulsar (PSR B1913+16)}
 
 We analyze the orbital decay of the Hulse–Taylor binary as an open (radiative) subsystem within WILL. 
@@ -2819,7 +2865,7 @@ The two preceding analyses—one from high-level principles and the other from a
 
 By focusing on the projectional nature of energy, we have shown that spacetime itself is merely the manifestation of energy.
 
-From a single foundational hypotheses—that spacetime is equivalent to energy—we derived all the mathematical apparatus needed to describe gravitational and relativistic phenomena. This unification, showing that energy, time, space, and mass are merely different projections of the same underlying structure.
+From a single foundational Principle—that spacetime is equivalent to energy—we derived all the mathematical apparatus needed to describe gravitational and relativistic phenomena. This unification, showing that energy, time, space, and mass are merely different projections of the same underlying structure.
 \[
 \boxed{\text{Special and General Relativity emerge from the same geometric principles.}}
 \]
