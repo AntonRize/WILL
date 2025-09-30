@@ -1,0 +1,113 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- Encoding and language ---
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% --- Page geometry ---
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% --- Math and fonts ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}      % For proof environment
+
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}    % <-- добавил для tabularx
+\usepackage{enumitem}
+
+% --- TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{shapes, positioning, arrows.meta, calc}
+
+% --- tcolorbox for styled theorems ---
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{principle}[theorem]{Principle}
+
+% --- Metadata ---
+\title{WILL Part I: Relational Geometry}
+\author{Anton Rize \\ egeometricity@gmail.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115271}{doi.org/10.5281/zenodo.17115271}}}
+
+
+
+\date{September 2025}
+
+
+\begin{document}
+
+\maketitle
+\begin{center}
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    box/.style={rectangle, draw, rounded corners, text width=9.2cm, align=center, minimum height=1.1cm},
+    arrow/.style={-Latex, thick}
+    ]
+\node[box] (A) {Foundational Principle: \textbf{Spacetime $\equiv$ Energy}};
+\node[box, below=of A] (B) {Geometric Self-Consistency};
+\node[box, below=of B] (C) {Topological Requirement: Only Closed and Maximally Symmetric Structures Allowed};
+\node[box, below=of C] (D) {Relational Circle (SR) and Relational Sphere (GR) as Unique Permitted Geometries};
+\node[box, below=of D] (E) {Result: Projections $\beta$ (kinetic) and $\kappa$ (potential) are Strictly Normalized};
+\node[box, below=of E] (F) {Conservation, Symmetry, Speed Limit, Natural Bounds};
+\node[box, below=of F] (G) {Unified Field Equation: $\kappa^2 = R_s/r = \rho/\rho_{\max}$};
+\node[box, below=of G] (H) {Closure: Field Equation $\Longleftrightarrow$ Fundamental Principle};
+
+\draw[arrow] (A) -- (B);
+\draw[arrow] (B) -- (C);
+\draw[arrow] (C) -- (D);
+\draw[arrow] (D) -- (E);
+\draw[arrow] (E) -- (F);
+\draw[arrow] (F) -- (G);
+\draw[arrow] (G) -- (H);
+\end{tikzpicture}
+\end{center}
+
+
+\newpage
+
+\begin{abstract}
+This paper, the first in the WILL series, establishes \textit{Relational Geometry} - a foundational framework where spacetime is not a background arena but an emergent property of energy transformations. 
+
+From a single principle \textbf{SPACETIME $\equiv$ ENERGY}, we derive the complete geometric structure of physics. This equivalence is not postulated but derived by removing the hidden ontological assumption in modern physics that structure (spacetime) and dynamics (energy) are separate phenomena. 
+
+The result is a singularity-free, ontologically clean formalism that reproduces the core equations of Special Relativity (SR) and General Relativity (GR) as algebraic projections on closed relational manifolds $S^1$ (directional) and $S^2$ (omnidirectional). Without metrics, tensors, or free parameters, it reproduces Lorentz factors, the energy-momentum relation, Schwarzschild solutions, and Einstein field equations via dimensionless projections $\beta$ (kinematic) and $\kappa$ (gravitational). Critical features - photon sphere, ISCO, horizons - emerge as equilibria ($\kappa^2 = 2\beta^2$, $Q^2 = \kappa^2 + \beta^2 = 1$). Empirically validated (e.g., GPS time shift 38.52 $\mu$s/day, Mercury precession to $10^{-10}$\%).
+
+WILL Part I resolves GR's singularities (bounded $\rho_{\max}$) and local energy ambiguity, offering significant computational simplification establishing a robust foundation for subsequent papers on cosmology (Part II) and quantum mechanics (Part III).
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+
+
+\section{Foundational Approach}
+\begin{quote}
+  \textit{This Approach Does not Describe Physics; it Generates it. \ref{Generative Physics}}
+\end{quote}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Guiding Principle:]
+\textbf{Nothing is assumed. Everything is derived.}
+\end{tcolorbox}
+
+\subsection {Methodological Purity}
+This framework is constructed under a single epistemic constraint: to derive all of physics by \textbf{removing one hidden assumption}, rather than introducing new postulates. This construction is deliberate and contains zero free parameters.  This is not a simplification - it is a deliberate epistemic constraint. No assumptions are introduced unless they follow strictly from first principles, and no constructs are retained unless they are geometrically or energetically necessary. 
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Core Methodological Principle]
+\begin{principle}[Methodological Minimalism]
+\label{pr:minimalism}
+Any fundamental theory must proceed from the minimum possible number of ontological assumptions. The burden of proof lies with any assertion that introduces additional complexity or new entities. This principle is not a statement about the nature of reality, but a rule of logical hygiene for constructing a theory.
+\end{principle}
+\end{tcolorbox}
