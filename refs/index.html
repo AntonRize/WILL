@@ -1,0 +1,249 @@
+<!--
+  refs/index.html — WILL Sources, Data & References
+  Notes:
+  - Raw HTML only (per README FOR LLMs)
+  - Use \( ... \) for MathJax inline
+  - Use {{ site.baseurl }} for all INTERNAL links
+-->
+
+<div style="max-width: 980px; margin: 0 auto; padding: 28px 18px 48px 18px;">
+  <h1 style="font-size: 2.0em; line-height:1.2; margin: 0 0 12px 0;">Sources, Data & References</h1>
+  <p style="opacity:0.85; margin: 0 0 18px 0;">
+    This page collects external papers, datasets, constants, and experiment summaries used across
+    <a href="{{ site.baseurl }}/predictions/" style="text-decoration: underline;">Predictions</a>
+    and
+    <a href="{{ site.baseurl }}/results/" style="text-decoration: underline;">Results</a>.
+    Use the short tags in parentheses (e.g., <strong>[SPARC2016]</strong>) inside pages and link to the anchors below.
+  </p>
+
+  <div style="padding: 12px 14px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fafafa; margin-bottom: 24px;">
+    <strong>Legend:</strong>
+    <span style="margin-left:8px;">[D] Datasets</span>
+    <span style="margin-left:12px;">[C] Constants/Standards</span>
+    <span style="margin-left:12px;">[G] GR tests & classic results</span>
+    <span style="margin-left:12px;">[T] Timing & LLR</span>
+    <span style="margin-left:12px;">[K] Kerr/Schwarzschild/TOV</span>
+    <span style="margin-left:12px;">[P] Project releases</span>
+  </div>
+
+  <!-- ===================== Datasets ===================== -->
+  <h2 id="datasets" style="font-size: 1.6em; margin-top: 26px;">1) Datasets & Data Releases</h2>
+
+  <div id="sparc2016" style="margin: 12px 0 10px 0;">
+    <p style="margin:0;">
+      <strong>[SPARC2016]</strong> Lelli, F.; McGaugh, S.S.; Schombert, J.M. (2016).
+      <em>SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry.</em>
+      The Astronomical Journal 152, 157.
+      DOI: <a href="https://doi.org/10.3847/0004-6256/152/6/157" target="_blank" rel="noopener">10.3847/0004-6256/152/6/157</a>.
+      <br/>
+      Data access landing (add the exact URL you use in code): <a href="#" target="_blank" rel="noopener">SPARC site/CDS</a>.
+    </p>
+  </div>
+
+  <div id="mtol2014" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[MtoL2014]</strong> McGaugh, S.S.; Schombert, J.M. (2014).
+      <em>Color–Mass-to-Light Ratio Relations for Disk Galaxies.</em> AJ 148, 77.
+      DOI: <a href="https://doi.org/10.1088/0004-6256/148/4/77" target="_blank" rel="noopener">10.1088/0004-6256/148/4/77</a>.
+    </p>
+  </div>
+
+  <div id="btf2012" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[BTF2012]</strong> McGaugh, S.S. (2012).
+      <em>The Baryonic Tully–Fisher Relation of Gas–Rich Galaxies as a Test of ΛCDM and MOND.</em> AJ 143, 40.
+      DOI: <a href="https://doi.org/10.1088/0004-6256/143/2/40" target="_blank" rel="noopener">10.1088/0004-6256/143/2/40</a>.
+    </p>
+  </div>
+
+  <!-- ===================== Constants ===================== -->
+  <h2 id="constants" style="font-size: 1.6em; margin-top: 26px;">2) Physical Constants & Standards</h2>
+
+  <div id="codata2018" style="margin: 12px 0 10px 0;">
+    <p style="margin:0;">
+      <strong>[CODATA2018]</strong> Tiesinga, P., et al. (2021).
+      <em>CODATA Recommended Values of the Fundamental Physical Constants: 2018.</em>
+      Rev. Mod. Phys. 93, 025010.
+      DOI: <a href="https://doi.org/10.1103/RevModPhys.93.025010" target="_blank" rel="noopener">10.1103/RevModPhys.93.025010</a>.
+      <span style="margin-left:6px; opacity:.8;">(If you use 2022 values, add an entry [CODATA2022].)</span>
+    </p>
+  </div>
+
+  <div id="iauearth" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[IAU/EarthParams]</strong> Authoritative constants for \(GM_\oplus\), Earth radius, etc. (IERS Conventions or NASA/JPL). Add the exact link you read in code.
+    </p>
+  </div>
+
+  <!-- ===================== GR Tests ===================== -->
+  <h2 id="gr-tests" style="font-size: 1.6em; margin-top: 26px;">3) Classic GR Results & Experimental Status</h2>
+
+  <div id="will2018" style="margin: 12px 0 10px 0;">
+    <p style="margin:0;">
+      <strong>[Will2018]</strong> Will, C.M. (2018).
+      <em>The Confrontation between General Relativity and Experiment.</em>
+      Living Reviews in Relativity 21, 3.
+      DOI: <a href="https://doi.org/10.1007/s41114-018-0017-9" target="_blank" rel="noopener">10.1007/s41114-018-0017-9</a>.
+      <span style="margin-left:6px; opacity:.8;">(Light deflection \(\alpha = 4GM/(bc^2)\), Shapiro, frame-dragging, etc.)</span>
+    </p>
+  </div>
+
+  <div id="ashby2003" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[Ashby2003]</strong> Ashby, N. (2003).
+      <em>Relativity in the Global Positioning System.</em> Living Reviews in Relativity 6, 1.
+      DOI: <a href="https://doi.org/10.12942/lrr-2003-1" target="_blank" rel="noopener">10.12942/lrr-2003-1</a>.
+      <span style="margin-left:6px; opacity:.8;">(Total daily offset \(~38\,\mu\text{s}\)/day.)</span>
+    </p>
+  </div>
+
+  <div id="mercury" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[Will2018–Mercury]</strong> Mercury perihelion precession summary within Will (2018) or a modern GR text; add a primary reference if desired.
+    </p>
+  </div>
+
+  <div id="photon-isco" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[Claudel2001]</strong> Claudel, C.-M.; Virbhadra, K.S.; Ellis, G.F.R. (2001).
+      <em>The Geometry of Photon Surfaces.</em> J. Math. Phys. 42, 818–838.
+      DOI: <a href="https://doi.org/10.1063/1.1308507" target="_blank" rel="noopener">10.1063/1.1308507</a>.
+      &nbsp;|&nbsp;
+      <strong>[BPT1972]</strong> Bardeen, J.M.; Press, W.H.; Teukolsky, S.A. (1972). ApJ 178, 347.
+    </p>
+  </div>
+
+  <!-- ===================== Kerr/Schwarzschild/TOV ===================== -->
+  <h2 id="kerr-schwarzschild" style="font-size: 1.6em; margin-top: 26px;">4) Schwarzschild, Kerr & Interior (TOV)</h2>
+
+  <div id="schwarzschild1916" style="margin: 12px 0 10px 0;">
+    <p style="margin:0;">
+      <strong>[Schwarzschild1916]</strong> Schwarzschild, K. (1916). On the gravitational field of a mass point. (English translations available.)
+    </p>
+  </div>
+
+  <div id="kerr1963" style="margin: 8px 0 10px 0;">
+    <p style="margin:0;">
+      <strong>[Kerr1963]</strong> Kerr, R.P. (1963). <em>Gravitational Field of a Spinning Mass as an Example of Algebraically Special Metrics.</em> Phys. Rev. Lett. 11, 237.
+      DOI: <a href="https://doi.org/10.1103/PhysRevLett.11.237" target="_blank" rel="noopener">10.1103/PhysRevLett.11.237</a>.
+    </p>
+  </div>
+
+  <div id="bl1967" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[BoyerLindquist1967]</strong> Boyer, R.H.; Lindquist, R.W. (1967). <em>Maximal Analytic Extension of the Kerr Metric.</em> J. Math. Phys. 8, 265.
+    </p>
+  </div>
+
+  <div id="tov" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[Tolman1939]</strong> Tolman, R.C. (1939). Phys. Rev. 55, 364. &nbsp;|&nbsp;
+      <strong>[OV1939]</strong> Oppenheimer, J.R.; Volkoff, G.M. (1939). Phys. Rev. 55, 374.
+      <span style="margin-left:6px; opacity:.8;">(Interior solutions / TOV equations.)</span>
+    </p>
+  </div>
+
+  <!-- ===================== Timing & LLR ===================== -->
+  <h2 id="timing-llr" style="font-size: 1.6em; margin-top: 26px;">5) Timing Tests & LLR</h2>
+
+  <div id="weisberg2016" style="margin: 12px 0 10px 0;">
+    <p style="margin:0;">
+      <strong>[WeisbergHuang2016]</strong> Weisberg, J.M.; Huang, Y. (2016).
+      <em>Relativistic Measurements from Timing the Binary Pulsar PSR B1913+16.</em> ApJ 829, 55.
+      DOI: <a href="https://doi.org/10.3847/0004-637X/829/1/55" target="_blank" rel="noopener">10.3847/0004-637X/829/1/55</a>.
+    </p>
+  </div>
+
+  <div id="kramer2021" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[Kramer2021]</strong> Kramer, M., et al. (2021).
+      <em>Strong-Field Gravity Tests with the Double Pulsar.</em> Phys. Rev. X 11, 041050.
+      DOI: <a href="https://doi.org/10.1103/PhysRevX.11.041050" target="_blank" rel="noopener">10.1103/PhysRevX.11.041050</a>.
+    </p>
+  </div>
+
+  <div id="llr" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[Dickey1994]</strong> Dickey, J.O., et al. (1994). <em>Lunar Laser Ranging: A Continuing Legacy of the Apollo Program.</em> Science 265, 482–490.
+      DOI: <a href="https://doi.org/10.1126/science.265.5171.482" target="_blank" rel="noopener">10.1126/science.265.5171.482</a>.
+      &nbsp;|&nbsp;
+      <strong>[Williams2016]</strong> Williams, J.G.; Boggs, D.H. (2016). <em>Tides on the Moon: Theory and Determination of Dissipation.</em> JGR Planets 121, 688–705.
+      DOI: <a href="https://doi.org/10.1002/2015JE004559" target="_blank" rel="noopener">10.1002/2015JE004559</a>.
+    </p>
+  </div>
+
+  <!-- ===================== Cosmology ===================== -->
+  <h2 id="cosmology" style="font-size: 1.6em; margin-top: 26px;">6) Cosmology Baselines (for comparisons)</h2>
+
+  <div id="planck2018" style="margin: 12px 0 10px 0;">
+    <p style="margin:0;">
+      <strong>[Planck2018]</strong> Planck Collaboration (Aghanim, N., et al.) (2020).
+      <em>Planck 2018 results. VI. Cosmological parameters.</em> A&amp;A 641, A6.
+      DOI: <a href="https://doi.org/10.1051/0004-6361/201833910" target="_blank" rel="noopener">10.1051/0004-6361/201833910</a>.
+    </p>
+  </div>
+
+  <!-- ===================== Project & Reproducibility ===================== -->
+  <h2 id="project" style="font-size: 1.6em; margin-top: 26px;">7) Project Releases & Reproducibility</h2>
+
+  <div id="zenodo" style="margin: 12px 0 10px 0;">
+    <p style="margin:0;">
+      <strong>[WILL–Zenodo]</strong> Project archive (release-level snapshot): add your Zenodo DOI link here.
+    </p>
+  </div>
+
+  <div id="repro" style="margin: 8px 0 14px 0;">
+    <p style="margin:0;">
+      <strong>[Reproducibility]</strong> For each figure on <a href="{{ site.baseurl }}/results/" style="text-decoration: underline;">Results</a>, provide script ↔ data ↔ output mapping in a small table (commit hash, parameters, and artifact path). Consider a dedicated page <a href="{{ site.baseurl }}/reproducibility/" style="text-decoration: underline;">/reproducibility/</a>.
+    </p>
+  </div>
+
+  <!-- ===================== Mapping Helper ===================== -->
+  <h2 id="mapping" style="font-size: 1.6em; margin-top: 26px;">8) Quick Mapping (Claim → Evidence)</h2>
+  <div style="overflow-x:auto; border:1px solid #eee; border-radius:6px;">
+    <table style="width:100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding:8px; border-bottom:1px solid #eee;">Claim</th>
+          <th style="text-align:left; padding:8px; border-bottom:1px solid #eee;">Data/Ref</th>
+          <th style="text-align:left; padding:8px; border-bottom:1px solid #eee;">Script</th>
+          <th style="text-align:left; padding:8px; border-bottom:1px solid #eee;">Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px;">Parameter-free RC: \(V = \sqrt{3}\,V_{bary}\) on 175 SPARC (median RMSE ~20.23 km/s)</td>
+          <td style="padding:8px;">[SPARC2016], [MtoL2014]</td>
+          <td style="padding:8px;">(add) <code>scripts/rc_predict.py</code></td>
+          <td style="padding:8px;">(add) <code>img/RMSE_hist.png</code></td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">GPS daily offset \(~38\,\mu s\)</td>
+          <td style="padding:8px;">[Ashby2003]</td>
+          <td style="padding:8px;">(add) <code>notebooks/gps.ipynb</code></td>
+          <td style="padding:8px;">(add) <code>gps_report.html</code></td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Mercury perihelion match</td>
+          <td style="padding:8px;">[Will2018–Mercury]</td>
+          <td style="padding:8px;">(add) <code>notebooks/mercury.ipynb</code></td>
+          <td style="padding:8px;">(add) <code>mercury_out.txt</code></td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Earth–Moon tidal/open-channel power (~0.120 TW)</td>
+          <td style="padding:8px;">[Dickey1994], [Williams2016]</td>
+          <td style="padding:8px;">(add) <code>notebooks/llr.ipynb</code></td>
+          <td style="padding:8px;">(add) <code>llr_result.json</code></td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Binary pulsar \(\dot P\) (B1913+16; Double Pulsar)</td>
+          <td style="padding:8px;">[WeisbergHuang2016], [Kramer2021]</td>
+          <td style="padding:8px;">(add) <code>notebooks/binary.ipynb</code></td>
+          <td style="padding:8px;">(add) <code>pulsar_table.csv</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="opacity:.7; margin-top:16px;">This page is a living index. Add missing DOIs/links as you harden each section.</p>
+</div>

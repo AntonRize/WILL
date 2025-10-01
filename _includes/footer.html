@@ -43,14 +43,24 @@
     }
   </style>
 
-<div class="mt-4 text-xs text-gray-500">
-  Archived release available at
-  <a href="https://doi.org/10.5281/zenodo.17115271" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     class="underline text-cyan-300 hover:text-cyan-200">
-     Zenodo (DOI: 10.5281/zenodo.17115271)
-  </a>
+<div class="mt-4 text-xs text-gray-500 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+  <!-- Right side (desktop): Sources & References -->
+  <div class="order-1 md:order-2 text-center md:text-right">
+    <a href="{{ site.baseurl }}/refs/"
+       class="underline text-cyan-300 hover:text-cyan-200">
+      Sources &amp; References
+    </a>
+  </div>
+
+  <!-- Left side (desktop): Zenodo -->
+  <div class="order-2 md:order-1 text-center md:text-left">
+    Archived release available at
+    <a href="https://doi.org/10.5281/zenodo.17115271"
+       target="_blank" rel="noopener noreferrer"
+       class="underline text-cyan-300 hover:text-cyan-200">
+      Zenodo (DOI: 10.5281/zenodo.17115271)
+    </a>
+  </div>
 </div>
 
 </footer>
