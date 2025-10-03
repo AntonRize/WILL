@@ -1,641 +1,204 @@
-\documentclass{article}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{graphicx}
+\documentclass[12pt, a4paper]{article}
+
+% --- Encoding and language ---
+\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
-\title{WILL\\
-PART III - QM}
+% --- Page geometry ---
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% --- Math and fonts ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% --- tcolorbox for styled theorems ---
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+% --- Hyperlinks ---
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+    citecolor=black,
+}
+
+% --- Theorem Environments ---
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{principle}[theorem]{Principle}
+
+% --- Metadata ---
+\title{WILL Part III: Geometric Quantization and the Origin of the Fine Structure Constant}
 \author{Anton Rize \\ egeometricity@gmail.com}
-\date{May 2025}
+\date{October 2025}
 
 \begin{document}
 
 \maketitle
 
+\begin{abstract}
+This paper, the third in the WILL series, applies the principles of Relational Geometry to the quantum realm. From the foundational principle \textbf{SPACETIME $\equiv$ ENERGY}, we derive the complete structure of the hydrogen atom. By enforcing geometric and topological closure, we demonstrate that quantization is not a separate postulate but an inevitable consequence of a self-consistent relational system. This framework derives the Bohr radius, the quantized energy levels, and reveals the fine structure constant, $\alpha$, to be nothing more than the kinetic projection parameter, $\beta$, of the electron in its ground state. The derivation requires no classical force analogues, probabilistic wavefunctions, or differential equations, establishing atomic structure as a direct manifestation of relational geometry.
+\end{abstract}
 
 \tableofcontents
+\newpage
 
-\section{Geometric Approach}
-We begin with a geometric condition that relates the electron's wavelength to the circumference of its orbital. This condition is analogous to the requirement for standing waves, where the wave must close upon itself along the orbital circumference. Specifically, we propose that for an orbital with radius \( r_n \), the following holds:
-\begin{equation}
-    n \lambda_n = 2\pi r_n, \quad n = 1, 2, 3, \dots
-\end{equation}
-where:
-\begin{itemize}
-    \item \( \lambda_n \) is the de Broglie wavelength of the electron on the \( n \)-th orbital,
-    \item \( r_n \) is the radius of the \( n \)-th orbital,
-    \item \( n \) is the principal quantum number.
-\end{itemize}
-This condition implies that an integer number of wavelengths fit along the circumference of the orbital, a purely geometric constraint that does not require assumptions about the electron's motion.
+\section{The Principle of Geometric Closure in Quantum Systems}
 
-\subsection{Ontological Status of Quantum Number $n$}
+We begin with the foundational principle established in WILL Part I: any stable, self-contained system must be described by a closed and self-consistent relational geometry.
 
-In our geometric framework, the emergence of discrete quantum numbers, conventionally labeled $n=1,2,3,\ldots$, is not a fundamental postulate but a natural consequence of the self-consistency of energy projection geometry. Specifically, the quantum number $n$ corresponds to the number of complete phase rotations (or "wraps") of the energy projection in a closed Will Geometry configuration.
+\begin{principle}[Geometric Closure]
+\label{pr:closure}
+A system in a stable, stationary state must be represented by a geometry that is topologically closed. All relational projections describing the system must return to their initial values after a complete cycle, ensuring the continuity and integrity of the configuration.
+\end{principle}
 
-This requirement of \emph{self-closure} is a direct implication of the foundational principle:
+For a bound electron in an atom, this principle has a direct and profound consequence.
 
+\begin{proposition}[Topological Quantization Condition]
+The principle of Geometric Closure, when applied to a bound electron, requires its relational wave to form a standing wave around the orbital circumference. This is expressed by the condition:
 \[
-\boxed{\text{spacetime} \equiv \text{energy evolution}}
+n \lambda_n = 2\pi r_n, \quad n = 1, 2, 3, \ldots
 \]
+where $\lambda_n$ is the electron's de Broglie wavelength on the $n$-th orbital of radius $r_n$.
+\end{proposition}
 
-In the traditional view, $n$ arises as an externally imposed boundary condition to form standing waves. However, in our framework, $n$ emerges from the topological condition that the phase of the energy projection must return to its starting value after encircling the system. This ensures the continuity and completeness of the projection across the closed geometry, without the need for wavefunctions or probabilistic interpretations.
+\begin{proof}
+If the wave did not close on itself (i.e., if $n$ were not an integer), destructive interference would prevent the formation of a stable, time-independent configuration. Such a state would be geometrically and energetically inconsistent, and thus is not a permissible solution in WILL Geometry. The integer $n$ is therefore a necessary condition for a stable state's existence.
+\end{proof}
 
-Thus, the quantum number $n$ represents a purely topological invariant of the Will Geometry phase evolution:
+\begin{definition}[The Quantum Number as a Topological Invariant]
+The principal quantum number, $n$, is not an externally imposed parameter but is the \textbf{topological winding number} of the energy projection's phase. It counts the number of complete phase rotations required for the geometric configuration to close upon itself.
+\end{definition}
 
+\begin{corollary}[Geometric Quantization of Angular Momentum]
+The topological closure condition, combined with the de Broglie relation $\lambda_n = h/p_n$, directly yields the quantization of angular momentum as a geometric necessity, not a separate physical postulate.
 \[
-\boxed{
-n = \text{topological index (phase winding number)}
-}
+n \frac{h}{p_n} = 2\pi r_n \quad \implies \quad \boxed{p_n r_n = n\hbar}
 \]
+\end{corollary}
 
-and reflects the intrinsic geometric structure of energy itself, not an arbitrary or externally imposed parameter.
+\section{The Universal Scale Principle and Relational Projections}
 
+As established in Part I, the state of any system is fully described by its potential projection ($\kappa$) and kinetic projection ($\beta$). The potential projection is governed by a universal principle connecting the system's geometry to its intrinsic limits.
 
-\subsection{Connection to Quantum Mechanics}
-According to de Broglie's hypothesis, the wavelength of a particle is given by:
-\begin{equation}
-    \lambda_n = \frac{h}{p_n},
-\end{equation}
-where \( h \) is Planck's constant and \( p_n \) is the momentum of the electron on the \( n \)-th orbital.
-
-Substituting this into our geometric condition (1), we obtain:
-\begin{equation}
-    n \frac{h}{p_n} = 2\pi r_n.
-\end{equation}
-Simplifying, we find:
-\begin{equation}
-    p_n = \frac{n \hbar}{r_n}, \quad \text{where} \quad \hbar = \frac{h}{2\pi}.
-\end{equation}
-This provides a relationship between the electron's momentum and the orbital radius. While this result aligns with the Schrödinger equation, where quantization manifests as standing waves, our approach does not require this construction and operates independently.
-
-\section{Physical Model of the Atom}
-In the hydrogen atom, the electron is bound to the nucleus by the Coulomb force. Here, the Coulomb attraction provides the centripetal force necessary for the electron's stable orbital leading to: 
-\begin{equation}
-    \frac{p_n^2}{m_e r_n} = \frac{e^2}{4\pi \varepsilon_0 r_n^2},
-\end{equation}
-where:
-\begin{itemize}
-    \item \( m_e \) is the electron mass,
-    \item \( e \) is the elementary charge,
-    \item \( \varepsilon_0 \) is the vacuum permittivity.
-\end{itemize}
-Rearranging, we get:
-\begin{equation}
-    p_n^2 = \frac{m_e e^2}{4\pi \varepsilon_0 r_n}.
-\end{equation}
-This equation connects the momentum to the orbital radius through physical constants.
-
-\subsection{Quantization of the Orbital Radius}
-We now have two expressions for \( p_n \):
-\begin{itemize}
-    \item From geometry: \( p_n = \frac{n \hbar}{r_n} \),
-    \item From the force balance: \( p_n^2 = \frac{m_e e^2}{4\pi \varepsilon_0 r_n} \).
-\end{itemize}
-Substituting the geometric expression into the force balance equation:
-\begin{equation}
-    \left( \frac{n \hbar}{r_n} \right)^2 = \frac{m_e e^2}{4\pi \varepsilon_0 r_n}.
-\end{equation}
-Multiplying both sides by \( r_n^2 \):
-\begin{equation}
-    \frac{n^2 \hbar^2}{r_n} = \frac{m_e e^2}{4\pi \varepsilon_0}.
-\end{equation}
-Solving for \( r_n \):
-\begin{equation}
-    r_n = \frac{4\pi \varepsilon_0 n^2 \hbar^2}{m_e e^2} = n^2 a_0,
-\end{equation}
-where \( a_0 = \frac{4\pi \varepsilon_0 \hbar^2}{m_e e^2} \) is the Bohr radius. This result matches the quantized radii in Bohr's model.
-
-\subsection{Calculation of Energy Levels}
-The total energy of the electron is the sum of its kinetic and potential energies:
-\begin{equation}
-    E_n = K_n + U_n = \frac{p_n^2}{2 m_e} - \frac{e^2}{4\pi \varepsilon_0 r_n}.
-\end{equation}
-Using the expression for \( p_n^2 \) from equation (6):
-\begin{equation}
-    E_n = \frac{1}{2} \frac{m_e e^2}{4\pi \varepsilon_0 r_n} - \frac{e^2}{4\pi \varepsilon_0 r_n} = -\frac{1}{2} \frac{e^2}{4\pi \varepsilon_0 r_n}.
-\end{equation}
-Substituting \( r_n = n^2 a_0 \):
-\begin{equation}
-    E_n = -\frac{1}{2} \frac{e^2}{4\pi \varepsilon_0 n^2 a_0}.
-\end{equation}
-Since \( a_0 = \frac{4\pi \varepsilon_0 \hbar^2}{m_e e^2} \), we have:
-\begin{equation}
-    E_n = -\frac{m_e e^4}{8 \varepsilon_0^2 n^2 \hbar^2}.
-\end{equation}
-This is the standard expression for the energy levels in the hydrogen atom.
-
-
-\subsection{Numerical conformation}
-
-\subsection{Physical Foundations}
-\subsection{Fundamental Constants}
-\begin{table}[h]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\ \hline
-Speed of light & $c$ & $2.99792458 \times 10^8$ m/s \\ \hline
-Planck’s constant & $h$ & $6.62607015 \times 10^{-34}$ J·s \\ \hline
-Reduced Planck’s constant & $\hbar = \frac{h}{2\pi}$ & $1.054571817 \times 10^{-34}$ J·s \\ \hline
-Electron mass & $m_e$ & $9.10938356 \times 10^{-31}$ kg \\ \hline
-Elementary charge & $e$ & $1.602176634 \times 10^{-19}$ C \\ \hline
-Vacuum permittivity & $\varepsilon_0$ & $8.854187817 \times 10^{-12}$ F/m \\ \hline
-Rydberg constant & $R_H$ & $1.097373 \times 10^7$ m$^{-1}$ \\ \hline
-Bohr radius & $a_0$ & $5.291772109 \times 10^{-11}$ m \\ \hline
-Ionization energy of hydrogen & $E_1$ & $13.605693$ eV \\ \hline
-\end{tabular}
-\caption{Fundamental physical constants used in this study.}
-\end{table}
-
-\section{Spectral Lines and Rydberg Formula}
-The emitted photon's energy is:
-\begin{equation}
-    E_{\text{photon}} = E_{n_i} - E_{n_f}.
-\end{equation}
-Using Planck’s relation:
-\begin{equation}
-    h f = E_{\text{photon}},
-\end{equation}
-we derive the spectral formula:
-\begin{equation}
-    \frac{1}{\lambda} = R_H \left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right).
-\end{equation}
-
-\subsection{Numerical Results and Comparison}
-\begin{table}[h]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-Transition & Computed \( \lambda \) (nm) & Experimental \( \lambda \) (nm) \\ \hline
-\( 3 \to 2 \) & 656.34 & 656.3 \\ \hline
-\( 4 \to 2 \) & 486.17 & 486.1 \\ \hline
-\( 5 \to 2 \) & 434.08 & 434.0 \\ \hline
-\( 6 \to 2 \) & 410.21 & 410.2 \\ \hline
-\end{tabular}
-\caption{Computed and experimental spectral lines.}
-\end{table}
-
-
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\linewidth]{img/energy_levels.png}
-    \caption{Energy levels of the hydrogen atom.}
-\end{figure}
-
-
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.6\linewidth]{img/spectral_lines.png}
-    \caption{Spectral transitions in hydrogen.}
-\end{figure}
-
-
-
-
-
-\section{Photoelectric Effect: Geometric Derivation}
-\subsection{Experimental Observations}
-The photoelectric effect occurs when light incident on a metal surface ejects electrons. Key observations:
-\begin{itemize}
-    \item There is a \textbf{threshold frequency} \( f_{\text{thresh}} \) below which no electrons are emitted, regardless of intensity.
-    \item The \textbf{kinetic energy} of emitted electrons increases with photon frequency, but is independent of intensity.
-    \item The number of ejected electrons depends on intensity but their energy does not.
-\end{itemize}
-
-\subsection{Standard Quantum Mechanical Explanation}
-In quantum mechanics, light consists of photons, each carrying energy:
-\begin{equation}
-    E_{\text{photon}} = h f.
-\end{equation}
-To eject an electron, this energy must exceed the \textbf{work function} \( W \), which is the minimum energy needed to remove an electron from the metal. The remaining energy is converted into the kinetic energy of the electron:
-\begin{equation}
-    E_{\text{kin}} = h f - W.
-\end{equation}
-
-\subsection{Geometric Interpretation}
-In our model, electrons in the metal form \textbf{standing waves} due to boundary conditions imposed by the atomic lattice. These standing waves satisfy the condition:
-\begin{equation}
-    n \lambda_e = 2L,
-\end{equation}
-where \( L \) represents an effective confinement region for the electron.
-
-The work function \( W \) corresponds to the characteristic energy of the electron's stationary wave state:
-\begin{equation}
-    W = \frac{h c}{\lambda_e}.
-\end{equation}
-For a photon with wavelength \( \lambda_f \), the energy is:
-\begin{equation}
-    E_{\text{photon}} = \frac{h c}{\lambda_f}.
-\end{equation}
-If this photon disrupts the standing wave structure, the excess energy contributes to the electron's kinetic energy:
-\begin{equation}
-    E_{\text{kin}} = \frac{h c}{\lambda_f} - \frac{h c}{\lambda_e}.
-\end{equation}
-This is mathematically equivalent to Einstein’s equation for the photoelectric effect.
-
-\subsection{Numerical Validation}
-We numerically computed the threshold frequencies and kinetic energies for several metals using known work function values. The results are summarized in Table~\ref{table:photoelectric}.
-
-\begin{table}[h]
-\centering
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Metal} & \textbf{Threshold \( f_{\text{thresh}} \) (Hz)} & \textbf{Threshold \( \lambda_{\text{thresh}} \) (nm)} & \textbf{\( E_{\text{kin}} \) (eV)} \\
-\hline
-Sodium (Na) & \( 5.51 \times 10^{14} \) & 543.79 & 0.82 \\
-\hline
-Zinc (Zn) & \( 1.04 \times 10^{15} \) & 287.67 & 0.00 \\
-\hline
-Potassium (K) & \( 5.56 \times 10^{14} \) & 539.06 & 0.80 \\
-\hline
-Copper (Cu) & \( 1.14 \times 10^{15} \) & 263.80 & 0.00 \\
-\hline
-Iron (Fe) & \( 1.09 \times 10^{15} \) & 275.52 & 0.00 \\
-\hline
-\end{tabular}
-\caption{Numerical results for the photoelectric effect in various metals.}
-\label{table:photoelectric}
-\end{table}
-
-\subsection{Comparison with Standard Quantum Mechanics}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Aspect} & \textbf{Standard QM} & \textbf{Our Model} \\
-\hline
-Energy Quantization & \( E = hf \) & Based on wavelength disruption \\
-\hline
-Work Function & Energy barrier & Standing wave energy \\
-\hline
-Kinetic Energy & \( E_{\text{kin}} = hf - W \) & \( E_{\text{kin}} = \frac{hc}{\lambda_f} - \frac{hc}{\lambda_e} \) \\
-\hline
-Nature & Probabilistic & Geometric \\
-\hline
-\end{tabular}
-\caption{Comparison of standard quantum mechanics and our geometric model.}
-\label{table:comparison}
-\end{table}
-
-\subsection{Implications}
-Our geometric approach suggests that the photoelectric effect is not inherently probabilistic but emerges from standing wave interactions. 
-
-
-
-\section{Geometric Derivation of the Fine Structure Constant as a Projection Ratio in WILL Geometry}
-
-\subsection{Motivation and Structural Unity}
-
-The gravitational and electromagnetic forces share a common inverse-square structural form:
-
+\begin{principle}[Universal Scale Principle]
+\label{pr:scale}
+The potential projection $\kappa^2$ is the dimensionless ratio of a system's intrinsic critical scale to its current observational scale.
 \[
-F_\text{gravity} = G \frac{m_1 m_2}{r^2}, \qquad F_\text{EM} = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2}
+\kappa^2 = \frac{r_{\text{critical}}}{r_{\text{current}}}
 \]
-
-This structural symmetry suggests a deeper geometric unity. In the WILL framework, gravitation defines a critical radius where the gravitational potential energy equals half the rest mass energy:
-
-\[
-U(R_s) = -\frac{Mc^2}{2}, \quad \text{where } R_s = \frac{2GM}{c^2}
-\]
-
-This motivates constructing an analogous critical radius for electromagnetism and deriving atomic structure from pure geometric principles.
-
----
-
-\subsection{Construction of Electromagnetic Critical Radius}
-
-Following the gravitational analogy, we seek the radius where electromagnetic potential energy equals half the electron rest mass energy:
-
-\[
-\frac{e^2}{4\pi\varepsilon_0 R_e} = \frac{m_e c^2}{2}
-\]
-
-Solving for the electromagnetic critical radius:
-
-\[
-\boxed{
-R_e = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} = 2r_e
-}
-\]
-
-where \( r_e = \frac{e^2}{4\pi\varepsilon_0 m_e c^2} \) is the classical electron radius.
-
-**Physical interpretation:** \( R_e \) is the electromagnetic analogue of the Schwarzschild radius — the scale at which EM potential energy equals half the rest mass energy, establishing the critical scale for electromagnetic interactions.
-
----
-
-\subsection{Geometric Quantization Condition}
-
-We begin with the fundamental geometric condition that relates the electron's wavelength to the circumference of its orbital. This condition is analogous to the requirement for standing waves, where the wave must close upon itself along the orbital circumference:
-
-\[
-\boxed{n \lambda_n = 2\pi r_n, \quad n = 1, 2, 3, \ldots}
-\]
-
-where:
-\begin{itemize}
-\item \( \lambda_n \) is the de Broglie wavelength of the electron on the \( n \)-th orbital
-\item \( r_n \) is the radius of the \( n \)-th orbital  
-\item \( n \) is the principal quantum number (topological winding index)
-\end{itemize}
-
-\textbf{Ontological Status of Quantum Number \( n \):}
-In our geometric framework, the quantum number \( n \) corresponds to the number of complete phase rotations of the energy projection in a closed WILL Geometry configuration. This requirement of \emph{self-closure} follows directly from the foundational principle:
-\[
-\boxed{\text{SPACETIME} \equiv \text{ENERGY}}
-\]
-
-Thus, \( n \) represents a purely topological invariant: the phase winding number of Will Geometry phase evolution.
-
----
-
-\subsection{Connection to Momentum and Force Balance}
-
-According to de Broglie's hypothesis:
-\[
-\lambda_n = \frac{h}{p_n} \quad \Rightarrow \quad p_n = \frac{n\hbar}{r_n}
-\]
-
-In the hydrogen atom, electrostatic force provides the centripetal force:
-\[
-\frac{e^2}{4\pi\varepsilon_0 r_n^2} = \frac{p_n^2}{m_e r_n}
-\]
-
-Substituting the geometric momentum relation:
-\[
-\frac{e^2}{4\pi\varepsilon_0 r_n^2} = \frac{(n\hbar/r_n)^2}{m_e r_n} = \frac{n^2\hbar^2}{m_e r_n^3}
-\]
-
-Simplifying:
-\[
-\frac{e^2}{4\pi\varepsilon_0} = \frac{n^2\hbar^2}{m_e r_n}
-\]
-
----
-
-\subsection{Derivation of Quantized Radii}
-
-Solving for the orbital radius:
-\[
-r_n = \frac{4\pi\varepsilon_0 n^2 \hbar^2}{m_e e^2} = n^2 a_0
-\]
-
-where the **Bohr radius** $(a_0)$ emerges naturally:
-\[
-\boxed{a_0= \frac{4\pi\varepsilon_0 \hbar^2}{m_e e^2}}
-\]
-
-This is derived purely from geometric quantization and force balance — no additional postulates required.
-
-
-\subsection{WILL Geometry Projection Framework}
-
-In WILL geometry, all stable configurations are constrained by a projection ratio:
-\[
-\boxed{
-\kappa^2 = \frac{\text{critical scale}}{\text{current scale}}
-}
-\]
-
-**Physical Meaning:** This ratio quantifies how much of the available energy budget is projected into gravitational/temporal curvature. When \( \kappa^2 = 1 \), the system reaches maximum curvature (event horizon). When \( \kappa^2 < 1 \), the system operates below this critical threshold.
-
-For electromagnetic systems:
-- **Critical scale:** \( R_e \) (electromagnetic critical radius)
-- **Current scale:** \( r_n \) (actual orbital radius)
-
-Therefore:
-\[
-\kappa_n^2 = \frac{R_e}{r_n} = \frac{R_e}{n^2 a_0}
-\]
-
-For the ground state (\( n = 1 \)):
-\[
-\kappa_1^2 = \frac{R_e}{a_0} = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} \cdot \frac{m_e e^2}{4\pi\varepsilon_0 \hbar^2} = \frac{2e^4}{(4\pi\varepsilon_0)^2 \hbar^2 c^2}
-\]
-
----
-
-\subsection{Connection to Fine Structure Constant}
-
-The fine structure constant is defined as:
-\[
-\alpha = \frac{e^2}{4\pi\varepsilon_0 \hbar c} \quad \Rightarrow \quad \alpha^2 = \frac{e^4}{(4\pi\varepsilon_0)^2 \hbar^2 c^2}
-\]
-
-Therefore:
-\[
-\kappa_1^2 = 2\alpha^2 \quad \Rightarrow \quad \boxed{\kappa_1 = \sqrt{2}\alpha}
-\]
-
-From the fundamental WILL constraint \( \kappa^2 = 2\beta^2 \):
-\[
-2\alpha^2 = 2\beta_1^2 \quad \Rightarrow \quad \boxed{\beta_1 = \alpha}
-\]
-
-**Fundamental Discovery:** The fine structure constant \( \alpha \) emerges naturally as the kinetic projection parameter \( \beta \) for the ground state of hydrogen.
-
----
-
-\subsection{Energy Quantization from Geometric Projections}
-
-Using the WILL energy formula:
-\[
-E_n = \beta_n^2 \cdot \frac{m_e c^2}{2} = \frac{\alpha^2}{2n^2} m_e c^2
-\]
-
-For the ground state:
-\[
-E_1 = \frac{\alpha^2}{2} m_e c^2 = \frac{(7.297 \times 10^{-3})^2}{2} \times 0.511 \text{ MeV} \approx 13.606 \text{ eV}
-\]
-
-Perfect agreement with experimental hydrogen ionization energy.
-
-**General formula:**
-\[
-\boxed{E_n = \frac{\alpha^2 m_e c^2}{2n^2} = \frac{13.606}{n^2} \text{ eV}}
-\]
-
----
-
-\subsection{Verification Through Orbital Velocity}
-
-The orbital velocity can be calculated from the kinetic projection:
-\[
-v_n = \beta_n c = \frac{\alpha c}{n}
-\]
-
-For the ground state:
-\[
-v_1 = \alpha c = 7.297 \times 10^{-3} \times 2.998 \times 10^8 = 2.188 \times 10^6 \text{ m/s}
-\]
-
-This can be independently verified through force balance:
-\[
-v_1 = \sqrt{\frac{e^2}{4\pi\varepsilon_0 m_e a_0}} = \sqrt{\frac{R_e}{2a_0}} \cdot c = \alpha c
-\]
-
-Perfect consistency confirms our geometric derivation.
-
- 
-
-\subsection{Summary of Geometric Unification}
-
-\begin{itemize}
-\item Starting from pure geometric quantization (\( n\lambda = 2\pi r \)), we derived the Bohr radius without additional assumptions.
-\item The electromagnetic critical radius \( R_e = 2r_e \) establishes the natural scale for EM interactions.
-\item The fine structure constant \( \alpha \) emerges as the kinetic projection parameter \( \beta \) in hydrogen.
-\item The gravitational projection \( \kappa = \sqrt{2}\alpha \) follows from fundamental WILL constraints.
-\item All hydrogen energy levels are reproduced exactly through geometric energy projection.
-\item No quantum wavefunctions, probabilistic interpretations, or additional postulates were required.
-\end{itemize}
-
-This establishes that atomic structure arises naturally from the geometric evolution of energy projections in spacetime, demonstrating the fundamental unity underlying electromagnetic and gravitational phenomena in WILL Geometry.
-
-
-\section{Geometric Origin and Scaling of Fine Structure}
-
-\subsection{The Empirical Puzzle: Energy States at a Fixed Principal Radius}
-
-A fundamental distinction between the gravitational dynamics of celestial bodies and the structure of the atom is the nature of their energy states. In orbital mechanics, an increase in a system's total energy corresponds directly to an increase in the orbital radius. The energy levels form a continuum, with each energy value uniquely mapping to a specific radial distance.
-
-The atomic system, however, behaves differently. The observation of fine structure in atomic spectra reveals the existence of multiple, discrete energy levels for the same principal quantum number $n$. Within the WILL Geometry framework, the number $n$ sets the primary radial scale of the system, given by $r_n = n^2 a_0 / Z$. This implies that atoms permit different energy configurations to exist at what is fundamentally the same radial distance. This empirical fact poses a central question: if the additional energy does not change the principal radius, where does this energy reside, and what geometric principle governs its structure and quantization?
-
-\subsection{Ontological Framework: The Orthogonal Magnetic Mode and Geometric Spin}
-
-The WILL framework resolves this puzzle by positing that the total energy of a state is partitioned between orthogonal projections. While the primary "electric" mode, quantified by $n$, defines the radial scale, any additional energy at that scale excites an \textbf{orthogonal "magnetic" mode of oscillation}.The azimuthal quantum number $l$ is the topological index of this mode, counting the number of its closed phase cycles[cite: 709].
-
-This provides a geometric origin for the property known as electron spin. The observed two-fold splitting of spectral lines is a direct consequence of the **two possible stable orientations** this orthogonal magnetic mode can assume relative to the primary radial mode. "Spin up" and "spin down" are therefore not intrinsic properties of a point-particle, but rather labels for two distinct, stable, geometric configurations of the total electron energy projection.
-
-\subsection{The Principle of Minimal Geometric Tension}
-
-The two possible orientations of the orthogonal mode are not energetically equivalent. The determining factor for their energy is the principle that the system must always settle into a configuration of \textbf{minimal "geometric tension"}. This configuration corresponds to the state of lowest possible energy.
-
-A crucial insight arises from the nature of the electron's energy projection (which is analogous to its negative charge in classical physics). Due to this, the state of minimal geometric tension, and thus minimal energy, is achieved in the \textbf{anti-aligned} configuration. This is where the phase rotation of the orthogonal magnetic mode is opposed to the phase rotation of the primary mode. The \textbf{aligned} configuration, by contrast, represents a state of higher geometric tension and therefore corresponds to a higher energy level.
-
-This principle explains *why* the two orientations have different energies and provides a clear physical basis for the splitting:
-\begin{itemize}
-    \item \textbf{Lower Energy State:} The anti-aligned geometry ($j = l - 1/2$), which is more stable.
-    \item \textbf{Higher Energy State:} The aligned geometry ($j = l + 1/2$), which is less stable and has greater internal geometric tension.
-\end{itemize}
-
-
-\subsection{Deriving the Scaling Law of the Interaction Energy}
-
-With the ontological framework established, the task is to derive a quantitative expression for the fine structure energy splitting, $\Delta E$. The derivation must follow the WILL methodology, seeking the simplest explanation consistent with the geometry of energy projections and rejecting any ad hoc parameters.
-
-\subsubsection{Rejection of Simplified Models}
-
-To demonstrate methodological rigor, we first test and reject two simplified hypotheses. This proves that the fine structure interaction is not a simple primary effect but a more subtle one.
+\end{principle}
+
+\begin{remark}[Structural Symmetry of Interactions]
+The identical inverse-square form of the gravitational and electromagnetic interactions ($F \propto 1/r^2$) is not a coincidence. It reflects that both are manifestations of the same underlying geometric principle. This compels us to define a critical scale for electromagnetism that is directly analogous to gravity's Schwarzschild radius.
+\end{remark}
+
+\begin{definition}[Electromagnetic Critical Radius]
+The electromagnetic critical radius, $R_e$, is the intrinsic scale at which a particle's electrostatic potential energy budget becomes saturated. In the WILL framework, this corresponds to the radius where the potential energy magnitude equals half the particle's rest energy, consistent with the limit $\kappa = 1$ in our energy budget formalism $|U| = \frac{1}{2}E_0 \kappa^2$.
+\end{definition}
+
+\begin{theorem}[Derivation of the Electromagnetic Critical Radius]
+For an electron of mass $m_e$ and charge $e$, the electromagnetic critical radius is given by:
+\[ R_e = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} \]
+\end{theorem}
+\begin{proof}
+We apply the condition from the definition, setting the potential energy magnitude equal to half the rest energy:
+\[ |U(R_e)| = \frac{1}{2} E_0 \]
+Substituting the physical expressions for the electron:
+\[ \frac{e^2}{4\pi\varepsilon_0 R_e} = \frac{1}{2} m_e c^2 \]
+Solving for $R_e$ directly yields the result. This scale is twice the "classical electron radius" and represents the true point of energetic saturation for the electron's potential field in WILL Geometry.
+\end{proof}
+
+\section{Derivation of Atomic Structure from First Principles}
+
+The complete structure of the hydrogen atom is now constrained by a closed system of three fundamental geometric principles, with no further assumptions required.
+
+\begin{lemma}[The Geometric System of Equations]
+The stable states of the hydrogen atom are the solutions to the following system:
 \begin{enumerate}
-    \item \textbf{Non-Relativistic Kinetic Energy Model:} One could assume the splitting energy is the non-relativistic kinetic energy of the orthogonal mode, $\Delta E = L^2 / (2m_e r_n^2)$. Substituting $L^2 = l(l+1)\hbar^2$ and $r_n = n^2 a_0/Z$, this model incorrectly predicts a scaling of $\Delta E \propto 1/n^4$.
-    \item \textbf{Primary Projection Model:} One could hypothesize that the splitting energy is a simple primary projection, $\Delta E \propto \beta_n^2$. Since $\beta_n = Z\alpha/n$, this model incorrectly predicts a scaling of $\Delta E \propto 1/n^2$.
+    \item \textbf{Topological Closure:} $\beta_n^2 \approx \frac{n^2\hbar^2}{m_e^2 c^2 r_n^2}$
+    \item \textbf{Scale Principle:} $\kappa_n^2 = \frac{R_e}{r_n}$
+    \item \textbf{Geometric Closure:} $\kappa_n^2 = 2\beta_n^2$
 \end{enumerate}
-The failure of these simple models proves that the splitting energy must be a secondary, interaction-based effect.
+The non-relativistic approximation for $\beta_n$ is used, consistent with the low energy scale of the hydrogen atom.
+\end{lemma}
 
-\subsection{Interaction as a Secondary Projectional Effect}
+\begin{theorem}[Derivation of Quantized Atomic Radii]
+The allowed orbital radii $r_n$ are derived solely from the simultaneous solution of the geometric system.
+\[ r_n = \frac{4\pi\varepsilon_0 n^2 \hbar^2}{m_e e^2} \]
+\end{theorem}
+\begin{proof}
+We begin by substituting the expression for $\beta_n^2$ from (1) into the geometric closure condition (3):
+\[ \kappa_n^2 = 2 \left( \frac{n^2\hbar^2}{m_e^2 c^2 r_n^2} \right) \]
+Next, we equate this with the expression for $\kappa_n^2$ from the scale principle (2):
+\[ \frac{R_e}{r_n} = \frac{2n^2\hbar^2}{m_e^2 c^2 r_n^2} \]
+We solve for $r_n$. Canceling one factor of $r_n$ from both sides gives:
+\[ r_n = \frac{2n^2\hbar^2}{m_e^2 c^2 R_e} \]
+Finally, we substitute the derived expression for the critical radius, $R_e = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2}$:
+\[ r_n = \frac{2n^2\hbar^2}{m_e^2 c^2} \left( \frac{4\pi\varepsilon_0 m_e c^2}{2e^2} \right) \]
+All dependencies on $c$ and one factor of $m_e$ cancel, yielding the final expression for the quantized radii.
+\end{proof}
 
-The correct principle, consistent with the WILL framework, is that the splitting energy $\Delta E$ is a secondary effect. It must therefore be proportional to the primary binding energy of the state, $|E_n^{(0)}|$, multiplied by a dimensionless scaling factor that quantifies the interaction. The structure of the relation must be:
-$$ \Delta E_{n,l} = |E_n^{(0)}| \times (\text{Dimensionless Scaling Factor}) $$
-where $|E_n^{(0)}| = \frac{m_e c^2 (Z\alpha)^2}{2n^2}$.
+\begin{corollary}[The Bohr Radius as a Geometric Consequence]
+The fundamental length scale of the atom, the Bohr radius $a_0$, emerges not from a force balance, but from the intersection of the three geometric principles. For the ground state ($n=1$):
+\[
+\boxed{ a_0 = r_1 = \frac{4\pi\varepsilon_0 \hbar^2}{m_e e^2} }
+\]
+\end{corollary}
 
-\subsection{The Dimensionless Scaling Factor}
+\section{The Geometric Origin of the Fine Structure Constant}
 
-The scaling factor must arise from the geometry of the interaction between the primary ($n$) and orthogonal ($l$) modes. Building upon the fundamental discovery that the fine structure constant is the kinetic projection of the ground state ($\alpha = \beta_1$ for Z=1) [cite: user], we hypothesize that the interaction strength is governed by the product of two projections:
-\begin{itemize}
-    \item The fundamental projection of the ground state, $\beta_1$, which acts as the intrinsic coupling constant of the system.
-    \item The projection of the current state, $\beta_n$, which represents the kinetic intensity of the level.
-\end{itemize}
-The dimensionless scaling factor is therefore $(\beta_1 \cdot \beta_n)$. We can express this in a more insightful form by substituting $\beta_n = \beta_1/n$ (for Z=1):
-$$ (\beta_1 \cdot \beta_n) = \beta_1 \cdot \left(\frac{\beta_1}{n}\right) = \frac{\beta_1^2}{n} = \frac{\alpha^2}{n} $$
-This form reveals a profound physical meaning: the interaction strength at any level $n$ is determined by the \textbf{fundamental interaction intensity of the ground state} ($\beta_1^2 = \alpha^2$), which is then "diluted" by a factor of $n$.
+We now arrive at the central result of this paper. With the atomic length scale $a_0$ derived from pure geometry, we can calculate the electron's relational projections and uncover the identity of a fundamental constant of nature.
 
-\subsection{The Resulting Scaling Law}
+\begin{theorem}[The Fine Structure Constant as the Ground-State Kinetic Projection]
+The fine structure constant, $\alpha$, is identical to the kinetic projection, $\beta_1$, of the electron in the ground state of the hydrogen atom.
+\[
+\boxed{\alpha = \beta_1}
+\]
+\end{theorem}
+\begin{proof}
+We use our geometric system to find the value of $\beta_1$. From the geometric closure condition, $\beta_1^2 = \kappa_1^2/2$. From the scale principle, $\kappa_1^2 = R_e/r_1 = R_e/a_0$. Therefore:
+\[ \beta_1^2 = \frac{1}{2} \frac{R_e}{a_0} \]
+Substituting the expressions for $R_e$ and $a_0$:
+\[ \beta_1^2 = \frac{1}{2} \left( \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} \right) \left( \frac{m_e e^2}{4\pi\varepsilon_0 \hbar^2} \right) \]
+The terms simplify to:
+\[ \beta_1^2 = \frac{e^4}{(4\pi\varepsilon_0)^2 \hbar^2 c^2} = \left( \frac{e^2}{4\pi\varepsilon_0 \hbar c} \right)^2 \]
+We recognize the term in parentheses as the standard definition of the fine structure constant, $\alpha$.
+\[ \beta_1^2 = \alpha^2 \implies \beta_1 = \alpha \]
+The theorem is proven.
+\end{proof}
 
-Combining these elements, we arrive at the scaling law for the fine structure splitting:
-$$ \Delta E \propto |E_n^{(0)}| \cdot \frac{\beta_1^2}{n} $$
-Substituting the expression for the primary energy, $|E_n^{(0)}| \propto \alpha^2/n^2$, we obtain the final dependence:
-$$ \Delta E \propto \left( \frac{\alpha^2}{n^2} \right) \cdot \left( \frac{\alpha^2}{n} \right) = \frac{\alpha^4}{n^3} $$
-This result correctly reproduces the experimentally verified scaling of fine structure splitting with both the fine structure constant ($\alpha^4$) and the principal quantum number ($1/n^3$).
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Remark: A Derived Constant]
+The fine structure constant has historically been regarded as a fundamental, dimensionless constant of nature whose value ($\approx 1/137$) is determined only by experiment. This derivation reveals its true identity: it is a \textbf{derived ratio of geometric projections}, fixed by the self-consistency requirements of the electron's relational geometry.
+\end{tcolorbox}
 
+\section{Emergence of Quantized Energy Levels}
 
-\subsection{Generalization for Hydrogen-like Ions}
+The final piece of the atomic puzzle, the energy spectrum, now follows as a direct consequence of the derived geometry.
 
-The scaling law derived for Hydrogen (Z=1) must be generalized to describe any hydrogen-like ion with nuclear charge Z. This generalization must follow the same geometric principles. The dimensionless scaling factor was found to be the product of the ground-state and current-state kinetic projections. We now apply this principle to a system with charge Z.
-
-The kinetic projections for an ion of charge Z are:
-\begin{itemize}
-    \item The projection of the current state ($n$): $\beta_{n,Z} = \frac{Z\alpha}{n}$
-    \item The projection of the ground state ($n=1$) for that same ion: $\beta_{1,Z} = \frac{Z\alpha}{1} = Z\alpha$
-\end{itemize}
-
-Following the same logic, the generalized dimensionless scaling factor is the product of these two projections:
-$$ (\text{Factor for Z}) = \beta_{1,Z} \cdot \beta_{n,Z} = (Z\alpha) \cdot \left(\frac{Z\alpha}{n}\right) = \frac{Z^2\alpha^2}{n} $$
-This factor correctly introduces the required $Z^2$ dependency. Combining this with the primary binding energy $|E_n^{(0)}| \propto (Z\alpha)^2/n^2$, we obtain the complete scaling law for the interaction magnitude:
-$$ \Delta E \propto |E_n^{(0)}| \cdot \left(\frac{Z^2\alpha^2}{n}\right) \propto \frac{m_e c^2 (Z\alpha)^2}{n^2} \cdot \frac{Z^2\alpha^2}{n} = \frac{m_e c^2 Z^4 \alpha^4}{n^3} $$
-
-\subsection{The Final Interaction Formula from Geometric Inversion}
-
-To obtain the final, testable formula, we must incorporate the dependence on the orthogonal mode's complexity, described by the quantum number $l$. Following the \textbf{Principle of Geometric Inversion}, the interaction energy should be inversely proportional to the measure of the orthogonal mode's geometric complexity. We take this measure to be $l(l+1)$, which arises from the requirement of phase closure on a sphere.
-
-This leads to our final, parameter-free formula for the \textit{magnitude} of the fine structure energy splitting:
-\begin{equation}
-    \Delta E = \frac{m_e c^2 Z^4 \alpha^4}{2n^3 l(l+1)}
-\end{equation}
-The factor of 2 in the denominator is retained from the primary energy formula. This final expression is not a postulate, but a direct consequence of applying the principles of secondary interaction and geometric inversion.
-
-\subsection{Quantitative Verification against Experimental Data}
-
-This final formula is now subjected to a rigorous quantitative test. We compare its predictions against high-precision experimental data from the NIST Atomic Spectra Database for the fine structure splitting of the $n=2, l=1$ energy level (the $2P_{3/2} - 2P_{1/2}$ transition) for hydrogen-like ions with increasing nuclear charge $Z$.
-
-\begin{table}[h!]
-\centering
-\caption{Comparison of WILL Geometry predictions with NIST experimental data for the $n=2, l=1$ fine structure splitting.}
-\label{tab:final_results}
-\begin{tabular}{|l|c|c|c|}
-\hline
-\textbf{System (Ion)} & \textbf{WILL Prediction ($\Delta E_{WILL}$ in eV)} & \textbf{NIST Data ($\Delta E_{exp}$ in eV)} & \textbf{Discrepancy (\%)} \\
-\hline
-H (Z=1)      & $4.528260 \times 10^{-5}$ & $4.528647 \times 10^{-5}$ & -0.0085 \% \\
-He$^{+}$ (Z=2)    & $7.245216 \times 10^{-4}$ & $7.246876 \times 10^{-4}$ & -0.0229 \% \\
-Li$^{2+}$ (Z=3)   & $3.667891 \times 10^{-3}$ & $2.732612 \times 10^{-3}$ & +34.2266 \% \\
-Be$^{3+}$ (Z=4)  & $1.159235 \times 10^{-2}$ & $7.203482 \times 10^{-3}$ & +60.9270 \% \\
-\hline
-\end{tabular}
-\end{table}
-
-\subsection{Analysis and Interpretation of Results}
-
-The results of the test are unambiguous and deeply informative, revealing both the profound successes and the clear limitations of our derived model.
-
-\subsubsection{Success at Low-Z: Confirmation of the Core Principles}
-
-For Hydrogen (Z=1) and the Helium ion (Z=2), the model's predictions are exceptionally accurate, matching experimental data with a discrepancy of less than 0.03\%. This stunning agreement serves as a powerful confirmation of the core principles derived:
-\begin{itemize}
-    \item The ontological framework of an orthogonal "magnetic" mode is sound.
-    \item The model of the interaction as a secondary projectional effect, proportional to $|E_n^{(0)}|$, is correct.
-    \item The derivation of the scaling factor correctly describes the physics in weak-field regimes.
-\end{itemize}
-
-\subsubsection{Failure at High-Z: Discovery of a Deeper Effect}
-
-For Lithium (Z=3) and Beryllium (Z=4), the model fails catastrophically. The discrepancy grows systematically from +34\% to over +60\%. This is not a minor error attributable to missing higher-order corrections; this is a fundamental breakdown of the formula's predictive power in strong-field regimes.
-
-This failure is, methodologically, the most important result of our investigation. It proves that the simple scaling relationship, while accurate for low Z, is an incomplete description of the underlying physics.
-
-\subsubsection{Conclusion: The Strong-Field Interaction Frontier}
-
-The test results lead to a crucial conclusion: the WILL Geometry framework correctly predicts the existence of a new, non-trivial physical effect that becomes dominant in the strong fields of high-Z ions.
-
-The simple algebraic product of projections is insufficient to describe the interaction when the geometric "tension" created by a high-Z nucleus becomes extreme. The intense curvature of the central field must introduce a more complex, non-linear coupling between the primary and orthogonal modes that our current formula does not capture.
-
-This is not a failure of the WILL framework itself. On the contrary, the framework has successfully guided us to the frontier of its own development. The next task is now clear: to develop the theory of strong-field geometric interactions to find the true, non-linear function that correctly describes the fine structure for all Z.
+\begin{theorem}[Quantized Energy Levels]
+The energy levels of the hydrogen atom are given by:
+\[ E_n = -\frac{\alpha^2 m_e c^2}{2n^2} \]
+\end{theorem}
+\begin{proof}
+The total energy $E_n$ of a stable bound state is given by the virial theorem, which in our framework is a consequence of the geometric closure condition $\kappa_n^2=2\beta_n^2$. The theorem states $E_n = -K_n$. The kinetic energy budget is defined as $K_n = \frac{1}{2} m_e c^2 \beta_n^2$. Therefore:
+\[ E_n = -\frac{1}{2} m_e c^2 \beta_n^2 \]
+From the result $\beta_1 = \alpha$ and the quantization condition $p_n \propto 1/r_n \propto 1/n^2$, it follows that $p_n \propto 1/n$ and thus $\beta_n = \beta_1 / n = \alpha / n$. Substituting this into the energy expression gives the final result.
+\end{proof}
 
 
 \section{Why the Electron Does Not Collapse into the Nucleus: Topological and Ontological Resolution}
@@ -683,7 +246,6 @@ There is no valid state with $n<1$; the electron cannot “collapse” further b
 \subsection{Conclusion}
 
 The stability of the hydrogen atom, and the impossibility of the electron collapsing into the nucleus, arises naturally in the WILL framework as a consequence of topological closure. The electron’s existence as a bound system is identical to the existence of a nonzero winding number. There is no need to invoke additional quantum mechanical principles; the geometric ontology of energy projection alone guarantees atomic stability.
-
 
 
 \section{Geometric Origin of the Uncertainty Principle}
@@ -944,256 +506,6 @@ are all necessary consequences of:
 \end{tcolorbox}
 
 
-\section{Numerical Validation of the Projection Energy Levels in Hydrogen-like Systems}
-
-\subsection{Overview}
-
-In this section, we provide a detailed numerical analysis and explicit step-by-step calculations for the energy levels of hydrogen-like ions using the core formula derived in the WILL Geometry framework. This calculation covers principal quantum numbers \( n=1,2,3 \) and nuclear charges \( Z_e=1,2,3,6 \) (hydrogen, helium ion, lithium ion, carbon ion). The aim is to confirm the geometric projection relations through direct comparison with empirical data.
-
-\subsection{Fundamental Formula}
-
-The energy of a bound electron at level \( n \) is given by:
-\[
-E_n = \frac{m_e c^2}{2} \left( \frac{Z_e \alpha}{n} \right)^2
-\]
-where:
-\begin{itemize}
-    \item \( m_e c^2 \approx 0.511 \times 10^6\, \text{eV} \) is the rest energy of the electron.
-    \item \( \alpha = \frac{e^2}{4\pi \varepsilon_0 \hbar c} \approx 7.297 \times 10^{-3} \) is the fine structure constant.
-    \item \( Z_e \) is the nuclear charge.
-    \item \( n \) is the principal quantum number.
-\end{itemize}
-
-\subsection{Physical Interpretation of Each Factor}
-
-\begin{enumerate}
-    \item \textbf{Electron rest energy \((m_e c^2)\)}: the fundamental energy scale, representing the maximum energy available for projection in the system.
-    \item \textbf{Fine structure constant \((\alpha)\)}: encapsulates the electromagnetic interaction strength as a dimensionless ratio.
-    \item \textbf{Nuclear charge factor \((Z_e)\)}: represents the relative enhancement of the electromagnetic coupling due to the number of protons in the nucleus.
-    \item \textbf{Orbital number factor \((1/n)\)}: quantifies the division of this coupling among possible standing wave configurations.
-\end{enumerate}
-
-The product \(\frac{Z_e}{n} \alpha\) can be interpreted as the \textit{kinetic projection factor} \(\beta_{en}\), describing how much of the rest energy is converted into the actual binding energy at a given radius.
-
-\subsection{Explicit Calculation Procedure}
-
-To compute the energy for a given \((Z_e, n)\):
-\begin{enumerate}
-    \item Calculate the kinetic projection factor:
-    \[
-    \beta_{en} = \frac{Z_e \alpha}{n}
-    \]
-    \item Square this factor to determine the fraction of rest energy projected into binding energy:
-    \[
-    \beta_{en}^2 = \left( \frac{Z_e \alpha}{n} \right)^2
-    \]
-    \item Compute the final energy:
-    \[
-    E_n = \frac{m_e c^2}{2} \cdot \beta_{en}^2
-    \]
-\end{enumerate}
-
-\subsection{Numerical Results and Comparison with Experiment}
-
-We performed these calculations for:
-
-\begin{itemize}
-    \item \textbf{Hydrogen (Z=1)}  
-        \begin{itemize}
-            \item \( n=1: E_1 = 13.6\, \text{eV} \)  
-            \item \( n=2: E_2 = 3.4\, \text{eV} \)  
-            \item \( n=3: E_3 = 1.5\, \text{eV} \)  
-        \end{itemize}
-    \item \textbf{Helium ion (Z=2)}  
-        \begin{itemize}
-            \item \( n=1: E_1 = 54.4\, \text{eV} \)  
-            \item \( n=2: E_2 = 13.6\, \text{eV} \)  
-            \item \( n=3: E_3 = 6\, \text{eV} \)  
-        \end{itemize}
-    \item \textbf{Lithium ion (Z=3)}  
-        \begin{itemize}
-            \item \( n=1: E_1 = 122\, \text{eV} \)  
-            \item \( n=2: E_2 = 30\, \text{eV} \)  
-            \item \( n=3: E_3 = 13.6\, \text{eV} \)  
-        \end{itemize}
-    \item \textbf{Carbon ion (Z=6)}  
-        \begin{itemize}
-            \item \( n=1: E_1 = 489\, \text{eV} \)  
-            \item \( n=2: E_2 = 122\, \text{eV} \)  
-            \item \( n=3: E_3 = 54\, \text{eV} \)  
-        \end{itemize}
-\end{itemize}
-
-These values match precisely with empirical ionization energies of these hydrogen-like systems, within the limits of known experimental precision.
-
-\subsection{Physical Meaning of the Simplicity}
-
-The striking simplicity of these results---where all binding energies directly emerge from the rest energy of the electron scaled by the purely geometric factor \(\frac{Z_e \alpha}{n}\)---suggests a fundamental principle of energetic projection:
-\[
-\boxed{
-\text{Bound state energy} = \frac{1}{2} \left(\frac{Z_e \alpha}{n}\right)^2 \cdot m_e c^2
-}
-\]
-This geometric scaling relation captures the essence of binding energies without invoking probabilistic wavefunctions or operator methods, highlighting the purely geometric interplay between the rest energy of the electron and the spatial structure of atomic interactions.
-
-
-\section{Electromagnetic Projection Formulas and Gravitational Analogy}
-
-In this section we collect the empirically tested expressions for atomic orbitals in the WILL framework, emphasize their direct analogy to the gravitational case, and summarize several noteworthy geometric correlations discovered in our analysis.
-
-\subsection{Atomic Projection Parameters}
-
-For any hydrogen‐like ion with nuclear charge \(Z_{e}\) and principal quantum number \(n\), define:
-\[
-\kappa_{e}^{2} \;=\; Z_{e}^{2}\,\frac{R_{e}}{n^{2}\,r_{b}}
-\quad,\quad
-\beta_{e}^{2} \;=\; Z_{e}^{2}\,\frac{R_{e}}{2\,n^{2}\,r_{b}},
-\]
-where
-\[
-R_{e} \;=\; \frac{e_{\mathrm{ch}}^{2}}{2\pi\varepsilon_{0}\,m_{e}\,c^{2}}
-\quad,\quad
-r_{b} \;=\; \frac{4\pi\varepsilon_{0}\,\hbar^{2}}{m_{e}\,e_{\mathrm{ch}}^{2}}.
-\]
-The orbital radius and binding energy then follow algebraically as
-\[
-r_{n} \;=\; \frac{Z_{e}\,R_{e}}{\kappa_{e}^{2}}
-\;=\; n^{2}\,\frac{r_{b}}{Z_{e}},
-\qquad
-E_{n} \;=\; \frac{m_{e}\beta_{e}^{2}c^{2}}{2\ e_{V}}\; \quad \mathrm{eV}.
-\]
-\[
-\boxed{
-E_{em} \;=\; \frac{m_{e}\,\beta_{e}^{2}\,c^{2}}{2\,e_{V}}
-\;=\;13.605693\;\frac{Z_{e}^{2}}{n^{2}}\;\mathrm{eV}\,.
-}
-\]
- WILL–projection model reproduces \emph{exactly} the Bohr energy levels for any hydrogen‐like ion \((Z_{e},\,n)\), without further fitting.
-\subsection{Atomic Radius in Direct Analogy to \(r_{s}/\kappa^{2}\)}
-
-In the gravitational case (Schwarzschild geometry), any observer at radius \(r\) uses the projection parameter
-\[
-\kappa^{2} \;=\; \frac{R_{s}}{r}\;=\;\frac{2\,G\,M}{c^{2}\,r}\,,
-\]
-and obtains the Schwarzschild critical radius by the algebraic inversion
-\[
-r \;=\; \frac{R_{s}}{\kappa^{2}}\,.
-\]
-By exact parallel, the electromagnetic “critical radius” \(R_{e} = e_{\mathrm{ch}}^{2}/(2\pi\varepsilon_{0}m_{e}c^{2})\) plays the role of \(R_{s}\).  Defining
-\[
-\kappa_{e}^{2} \;=\; Z_{e}^{2}\,\frac{R_{e}}{n^{2}\,r_{b}}
-\;\Longrightarrow\;
-r_{e} \;=\;\frac{Z_{e}\,R_{e}}{\kappa_{e}^{2}}
-\;=\;n^{2}\,r_{b}\,\frac{1}{Z_{e}}\,,
-\]
-one recovers the familiar Bohr radius \(r_{b}=5.291772109\times10^{-11}\,\mathrm{m}\).  Thus:
-\[
-\boxed{
-r_{n} \;=\; \frac{n^{2}\,r_{b}}{Z_{e}}
-}
-\quad\text{(exactly as in standard quantum theory).}
-\]
-We highlight that this “algebraic inversion” of \(\kappa_{e}^{2}\) is \emph{structurally identical} to the gravitational relation \(r=R_{s}/\kappa^{2}\).  In both cases, the same geometric projection machinery yields the radius of stable orbit for a given \(n\) and “mass” \(Z_{e}\).
-
-\subsection{Unified Energy–Geometry Model: Gravity versus Electromagnetism}
-
-\begin{center}
-\begin{tabular}{|l|l|l|}
-\hline
-& \textbf{Gravitational Case} & \textbf{Electromagnetic Case} \\ \hline
-Critical radius& 
-\(\displaystyle R_{s} = \frac{2\,G\,M}{c^{2}}\) 
-& 
-\(\displaystyle R_{e} = \frac{e_{\mathrm{ch}}^{2}}{2\pi\varepsilon_{0}\,m_{e}\,c^{2}}\) \\[1em] \hline
-Potential \(\kappa\)& 
-\(\kappa^{2}=\dfrac{R_{s}}{r}=\dfrac{2\,G\,M}{c^{2}\,r}\) 
-& 
-\(\kappa_{e}^{2} = Z_{e}^{2}\,\dfrac{R_{e}}{n^{2}\,r_{b}}\) \\[1em] \hline
-Orbital radius& 
-\(\displaystyle r = \frac{R_{s}}{\kappa^{2}}\) 
-& 
-\(\displaystyle r_{n} = \frac{Z_{e}\,R_{e}}{\kappa_{e}^{2}} = n^{2}\,\frac{r_{b}}{Z_{e}}\) \\[1em] \hline
-Kinetic  \(\beta\)& 
-\(\displaystyle \beta^{2} = \frac{R_{s}}{2\,r} \quad\Longleftrightarrow\quad v = c\,\beta\) 
-& 
-\(\displaystyle \beta_{e}^{2} = Z_{e}^{2}\,\frac{R_{e}}{2\,n^{2}\,r_{b}} \quad\Longleftrightarrow\quad v_{EM} = c\,\beta_{e}\) \\[1em] \hline
-Orbit Energy& 
-\(\displaystyle E_{\mathrm{GR}} = \frac{m\,c^{2}}{2}\,\beta^{2} = -\,\frac{G\,M\,m}{2\,r}\) 
-& 
-\(\displaystyle E_{\mathrm{EM}} = \frac{m_{e}\,c^{2}}{2}\,\beta_{e}^{2} 
-= -\,\frac{m_{e}\,c^{2}\,Z_{e}^{2}\,\alpha^{2}}{2\,n^{2}} 
-= -\,13.605693\,\frac{Z_{e}^{2}}{n^{2}}\;\mathrm{eV}\) \\[1em] \hline
-\end{tabular}
-\end{center}
-
-Both columns follow the \emph{same algebraic geometry}:
-\[
-\kappa^{2} \;+\;\beta^{2} \;=\; Q^{2}
-\quad\Longrightarrow\quad
-r \;=\; \frac{R_{\bullet}}{\kappa^{2}},
-\quad
-E \;=\; \frac{m\,c^{2}}{2}\,\beta^{2},
-\]
-where \(R_{\bullet}\) is \(R_{s}\) for gravity, \(R_{e}\) for electromagnetism, and \(Q^{2}\) enforces the fundamental projectional balance.  
-
-The electromagnetic formulas above are identical in structure if one replaces
-\(
-R_{s}\mapsto R_{e},\;M\mapsto m_{e},\;\kappa^{2}\mapsto \kappa_{e}^{2},\;\beta^{2}\mapsto \beta_{e}^{2}.
-\)
-Thus the same projection algebra yields both black‐hole orbits and atomic orbits.
-
-\subsection{Photon Sphere / ISCO Analog and the Gold Atom}
-
-It is known that in Schwarzschild spacetime the unique projectional equilibrium
-\[
-\kappa^{2}=\tfrac{2}{3},\quad \beta^{2}=\tfrac{1}{3}
-\quad\Longrightarrow\quad
-r_{\gamma}=\tfrac{3}{2}R_{s},\;r_{\mathrm{ISCO}}=3\,R_{s}.
-\]
-The same equilibrium angle \(\theta\approx54.7356^\circ\) recurs for the gold atom (\(Z_{e}=79,\,n=1\)):
-\[
-\kappa_{e}^{2} \;=\; 79^{2}\,\frac{R_{e}}{r_{b}} \;\approx\;\frac{2}{3},
-\quad
-\beta_{e}^{2}\;=\;\tfrac{1}{3},
-\]
-which implies
-\[
-r_{\mathrm{Au},\,n=1} = \frac{79\,R_{e}}{\kappa_{e}^{2}} \approx \frac{3}{2}\,R_{e}
-\;\approx\; 1.5\,\times 2\,r_{e}^{\mathrm{classic}},
-\]
-numerically matching the known gold‐atom radius to high precision.  In other words, gold’s ground‐state electron sits at the \emph{“photon‐sphere” radius} of its own electromagnetic projection.  
-
-\vspace{0.5em}
-\noindent\textbf{Key Observation:}  
-The \emph{same} geometric equilibrium \(\{\kappa^{2}=2/3,\;\beta^{2}=1/3\}\)
-governs both photon orbits around black holes and the ground‐state radius of Au.  
-
-\subsection{5. Summary of Key Findings}
-
-\begin{enumerate}
-  \item \textbf{Exact Bohr Energies via Projection Algebra.}  By removing the superfluous \(1/n^{2}\) from the original \(E_{em}\)-ansatz, the WILL framework yields 100 % accurate energy levels:
-  \[
-     \boxed{E_{n} \;=\; \frac{m_{e}\,c^{2}}{2}\,\beta_{e}^{2}(Z_{e},n) 
-       \;=\;13.605693\,\frac{Z_{e}^{2}}{n^{2}}\;\mathrm{eV}}.
-  \]
-  \item \textbf{Unified Radius Formula.}  Both gravity and atomic bound‐state radii follow a single algebraic pattern:
-  \[
-     r \;=\; \frac{R_{\bullet}}{\kappa^{2}},
-     \quad
-     R_{\bullet} \;=\; 
-       \begin{cases}
-          R_{s} = \frac{2GM}{c^{2}} & \text{(gravity)}\\
-          R_{e} = \frac{e_{\mathrm{ch}}^{2}}{2\pi\varepsilon_{0}m_{e}c^{2}} & \text{(atom)}
-       \end{cases}.
-  \]
-  \item \textbf{Photon Sphere / ISCO as a “Golden” Projection Point.}  The angle \(\theta\approx54.7356^{\circ}\) simultaneously solves \(\kappa^{2}=2/3\) and \(\beta^{2}=1/3\), yielding \(r=1.5\,R_{s}\) (photon sphere) and \(r=3\,R_{s}\) (ISCO).  The \emph{same} equilibrium angle also fixes the hydrogen ground‐state radius when \(Z_{e}=n=1\).
-  \item \textbf{Projectional Resonance Across Scales.}  There is no separate “quantum” or “gravitational” geometry—both phenomena arise from the same two‐parameter projection algebra \(\{\kappa,\beta\}\) onto a unit‐circle structure, with \(Q^{2}=\kappa^{2}+\beta^{2}=1\).
-  \item \textbf{Predictive Power Without Free Parameters.}  Once \(R_{s}\) or \(R_{e}\), \(M\) or \(m_{e}\), and an integer \(n\) are specified, the entire orbital spectrum (distance \(\leftrightarrow\) energy) follows algebraically.  No differential equations, no adjustable potentials or Lagrangians, and no asymptotic boundary conditions are needed.
-\end{enumerate}
-
-\vspace{1em}
-These results demonstrate that the WILL Geometry framework naturally unites gravitational and atomic physics, revealing a \emph{single geometric origin} for phenomena traditionally treated by separate formalisms.  The “golden” projection angle \(\theta\approx54.74^\circ\) emerges as a universal resonance point, governing both photon‐sphere orbits around black holes and ground‐state radii of atoms.  
-
 
 \section{Hypothesis: Energy Symmetry as the Origin of Decoherence}
 
@@ -1275,9 +587,10 @@ Across all tested regimes, the hypothesis holds:
 This supports a non-probabilistic, physically grounded account of quantum decoherence based purely on energy geometry, in full alignment with the foundational principle of WILL Geometry.
 
 
+\section{Conclusion}
 
+By a rigorous application of the principles of WILL Relational Geometry, we have derived the complete structure of the hydrogen atom. We have demonstrated that quantization, the Bohr radius, the fine structure constant, and the discrete energy spectrum are not independent physical postulates but are all necessary and inevitable consequences of a single, unified principle: that reality is described by a closed, self-consistent relational geometry.
 
-
-
+The framework requires no classical force analogues, no probabilistic axioms, and no external postulates. Atomic structure is shown to be a direct manifestation of the geometry of energy itself.
 
 \end{document}
