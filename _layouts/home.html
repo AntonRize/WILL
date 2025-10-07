@@ -348,8 +348,8 @@
                     const img = document.createElement('img');
                     // IMPORTANT: Assumes images are named slide-01.jpeg, slide-02.jpeg, etc.
                     const slideNumber = i.toString().padStart(2, '0');
-                    img.src = `{{ site.baseurl }}/images/SLIDES-JPEG/slide-${slideNumber}.jpeg`;
-                    img.alt = `Slide ${i}`;
+                    img.src = `{{ site.baseurl }}/images/SLIDES-JPEG/${i}.jpeg`;
+                    img.alt = `${i}`;
                     img.className = 'w-full block';
                     slide.appendChild(img);
                     slidesContainer.appendChild(slide);
