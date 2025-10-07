@@ -224,7 +224,7 @@
                         </div>
                         <div class="bg-gray-900 p-3 rounded">
                             <p class="text-gray-400">θ<sub>S</sub> (from β)</p>
-                            <p id="thetaS-val" class="text-xl font-bold text-cyan-400">55.55°</p>
+                            <p id="theta1-val" class="text-xl font-bold text-cyan-400">55.55°</p>
                         </div>
                          <div class="bg-gray-900 p-3 rounded">
                             <p class="text-gray-400">T<sub>c</sub> = cos(θ<sub>G</sub>)</p>
@@ -337,8 +337,8 @@
                 const slider = document.getElementById('kappa-slider');
                 const kappaValEl = document.getElementById('kappa-val');
                 const betaValEl = document.getElementById('beta-val');
-                const thetaGValEl = document.getElementById('thetaG-val');
-                const thetaSValEl = document.getElementById('thetaS-val');
+                const theta2ValEl = document.getElementById('theta2-val');
+                const theta1ValEl = document.getElementById('theta1-val');
                 const tcValEl = document.getElementById('tc-val');
                 const lcValEl = document.getElementById('lc-val');
 
@@ -355,19 +355,19 @@
                     const beta = kappa / Math.sqrt(2);
                     if (beta > 1) return; // Mathematical limit for acos
 
-                    const theta_S_rad = Math.acos(beta);
-                    const theta_G_rad = Math.asin(kappa > 1 ? 1 : kappa); // Clamp kappa for asin
-                    const theta_S_deg = theta_S_rad * (180 / Math.PI);
-                    const theta_G_deg = theta_G_rad * (180 / Math.PI);
-                    const Lc = Math.sin(theta_S_rad);
-                    const Tc = Math.cos(theta_G_rad);
+                    const theta_1_rad = Math.acos(beta);
+                    const theta_2_rad = Math.asin(kappa > 1 ? 1 : kappa); // Clamp kappa for asin
+                    const theta_1_deg = theta_1_rad * (180 / Math.PI);
+                    const theta_2_deg = theta_2_rad * (180 / Math.PI);
+                    const βᵧ = Math.sin(theta_1_rad);
+                    const κₓ = Math.cos(theta_2_rad);
 
                     kappaValEl.textContent = kappa.toFixed(3);
                     betaValEl.textContent = beta.toFixed(3);
-                    thetaSValEl.textContent = `${theta_S_deg.toFixed(2)}°`;
-                    thetaGValEl.textContent = `${theta_G_deg.toFixed(2)}°`;
-                    lcValEl.textContent = Lc.toFixed(3);
-                    tcValEl.textContent = Tc.toFixed(3);
+                    theta1ValEl.textContent = `${theta_1_deg.toFixed(2)}°`;
+                    theta2ValEl.textContent = `${theta_2_deg.toFixed(2)}°`;
+                    lcValEl.textContent = βᵧ.toFixed(3);
+                    tcValEl.textContent = κₓ.toFixed(3);
                     
                     ctx.clearRect(0, 0, size, size);
                     ctx.font = '11px Inter';
@@ -392,9 +392,9 @@
                     ctx.strokeStyle = '#6B7280';
                     ctx.stroke();
                     
-                    // --- Theta_S visualization (from beta) ---
+                    // --- Theta_1 visualization (from beta) ---
                     const x_S = center + radius * beta;
-                    const y_S = center - radius * Lc;
+                    const y_S = center - radius * βᵧ;
                     ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_S, y_S); ctx.strokeStyle = '#67e8f9'; ctx.lineWidth = 2; ctx.stroke();
                     // Projections
                     ctx.beginPath(); ctx.moveTo(x_S, y_S); ctx.lineTo(x_S, center); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(103, 232, 249, 0.5)'; ctx.stroke();
@@ -402,10 +402,10 @@
                     // Labels
                     ctx.fillStyle = '#67e8f9';
                     ctx.fillText('β', x_S - 25, center + 15);
-                    ctx.fillText('Lc', center - 25, y_S + 15);
+                    ctx.fillText('βᵧ', center - 25, y_S + 15);
                     
-                    // --- Theta_G visualization (from kappa) ---
-                    const x_G = center + radius * Tc;
+                    // --- Theta_2 visualization (from kappa) ---
+                    const x_G = center + radius * κₓ;
                     const y_G = center - radius * kappa;
                     ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_G, y_G); ctx.strokeStyle = '#c084fc'; ctx.lineWidth = 2; ctx.stroke();
                     // Projections
@@ -414,7 +414,7 @@
                     // Labels
                     ctx.fillStyle = '#c084fc';
                     ctx.fillText('κ', center + 5, y_G + 15);
-                    ctx.fillText('Tc', x_G - 25, center - 5);
+                    ctx.fillText('κₓ', x_G - 25, center - 5);
                 }
                 slider.addEventListener('input', drawGeometry);
                 drawGeometry();
