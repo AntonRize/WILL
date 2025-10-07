@@ -146,66 +146,82 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-![Methodological Pillars](images/Methodological-Pillars.jpg)
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/3_Breakthroughs-Delete-Not-Add.png" alt="Historical Breakthroughs in Physics by Deleting Separations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            This approach follows a powerful historical pattern. The greatest leaps in physics have consistently come not from adding new entities, but from <strong class="text-white">removing a false separation</strong>. Just as Copernicus removed the Earth/cosmos divide and Einstein unified space and time, this framework targets the final, unexamined split in modern physics.
+        </p>
+    </div>
+</div>
 
 ---
 
-This realization motivates a bold question: What if we could derive the universe from a single,
-simple principle, with no extra assumptions or <abbr title="tunable inputs">ad hoc additions</abbr>? In other words, is there a way to
-rebuild physics from the ground up, requiring no arbitrary  <abbr title="tunable inputs or limitations">"fudge factors"</abbr> or unexplained constants? This rigorous minimalist approach – one might call it a principle of <abbr title="enforces a disciplined refusal to introduce unjustified assumptions or hidden parameters. The guiding principle is: Nothing is assumed. Everything is derived. All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities">epistemological hygiene</abbr> – would accept only what is logically unavoidable. Every aspect of nature would need to follow from one selfevident statement.
-
-Down this path of uncompromising simplicity, a central <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr> emerges at the heart of the WILL model:
-
-### SPACETIME ≡ ENERGY EVOLUTION  
-*(In plain language: spacetime is just energy in motion — all of space and time emerges from energy changing.)*
- 
-> By **“energy evolution”** we mean the total structure of possible <abbr title="changes from one measurable configuration to another">transitions</abbr> between observable states — not a process unfolding <em>in</em> spacetime, but the <abbr title="a structure defined only by relationships between elements, not by an external background">relational geometry</abbr> from which both <abbr title="the three dimensions of extension in physics">space</abbr> and <abbr title="the ordered sequence of events we perceive">time</abbr> emerge. This is not a derived result but a foundational <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr>, subject to geometric and empirical audit in subsequent sections. “WILL” is used here as a technical term for this unified, emergent structure.  
-
-
-At first glance, this statement seems straightforward, but it carries profaund implications. It says
-that <abbr title="the three dimensions of extension in physics">space</abbr> and <abbr title="the ordered sequence of events we perceive">time</abbr> are not a pre-existing stage or container where <abbr title="changes from one measurable configuration to another">events and transitions</abbr> happen. Instead, the fabric of spacetime *is the network of all possible energy transformations. Space and time have no
-independent existence apart from energy; they are defined by the way energy changes and
-interconnects states. Spacetime is not a backdrop – it is the dance of energy itself . In this view,
-energy doesn't sit in spacetime; rather, energy's evolving relationships create spacetime.
-
-
-This page narrates a journey based on that radical idea. It will show how the familiar laws of <abbr title="Einstein’s theory of motion at constant velocity">Special Relativity</abbr> and
-<abbr title="Einstein’s theory of gravitation and curved spacetime">General Relativity</abbr> can be not merely postulated, but *derived* as inevitable consequences of a single, principle of <abbr title="a structure defined only by relationships between elements, not by an external background">relational geometry</abbr>. Along the way, we will maintain scientific rigor and test every step against real world mesurments. But use clear imagery and interactive graphs to make the concepts accessible to everyone.
-The goal is not to overturn modern physics, but to peel back its layers and reveal a simpler unifying
-picture beneath.
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/4_False-Separation-as-Ontological-Blind-Spot.png" alt="The False Separation Between Structure and Dynamics" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            The contemporary split is between the <strong class="text-white">structure</strong> of the universe (a fixed stage, or manifold) and the <strong class="text-white">dynamics</strong> that unfold upon it (fields and energy). This separation is not an empirical discovery but an implicit assumption—an "unpaid ontological debt". By removing it, we are forced to identify geometry and energy as two aspects of a single entity.
+        </p>
+    </div>
+</div>
 
 ---
 
-## Section 2: The Rules of the Game — A Foundation of Pure Logic
-
-If we accept the central <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr> - that spacetime is identical to energy evolution, we are immediately confronted with its strict logical consequences. First and foremost: if all of reality is a self-sufficient system of energetic relations, then by definition nothing can exist “outside” this system. There is no external observer, no absolute reference frame or background on which events unfold. The Universe of WILL Geometry must be entirely closed and self-sufficient.
-
-This restriction, philosophical at first glance, generates concrete physical and geometric “rules of the game”:
-
-- **Conservation Law:** In a closed system, nothing can appear from outside or disappear without a trace. This means that the total energy of the system must be conserved. The law of conservation is not an added assumption, but a direct consequence of the Universe’s self-sufficiency.
-    
-- **<abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>:** In the absence of external reference points, no location in space and no direction can be privileged from the outset. Any asymmetry would require a preferred frame, contradicting our foundational principle. Therefore, the geometry of the Universe must be maximally symmetric.
-    
----
-
-![SPACETIME-ENERGY-EVOLUTION.jpg](images/SPACETIME-ENERGY-EVOLUTION.jpg)
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/5_Key-Constraints-on-the-Relational-Structure.png" alt="Key Constraints from the Unifying Principle: Closure, Conservation, Isotropy" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            These three constraints—<strong class="text-white">Closure, Conservation, and Isotropy</strong>—are immediate, unavoidable consequences of a universe built from a single, self-contained principle. The next crucial question is: what mathematical forms can possibly satisfy all these rigid requirements at once?
+        </p>
+    </div>
+</div>
 
 ---
 
-This immediately raises the question: What geometric structures satisfy these strict requirements - being both closed and maximally symmetric? Mathematics gives a definitive answer. Among all possible <abbr title="a smooth mathematical space that can be curved or multidimensional">manifolds</abbr>, only certain forms possess these properties to perfection.
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/6_Two-Minimal-Relational-Carriers.png" alt="The Circle (S¹) for Directional relations and the Sphere (S²) for Omnidirectional relations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            The only closed, maximally symmetric manifolds that can serve as minimal carriers of the conserved relational resource are:
 
-- In one dimension, the only such form is the circle (`S¹`).
-    
-- In two dimensions - the surface of a sphere (`S²`).
-    
+          
+        <strong class="text-white">circle (S¹)</strong> for \emph{directional} (one-degree-of-freedom) relational transformation;
 
-These geometries are not arbitrary choices or convenient models. They are forced upon us by the logic of the postulate itself. If the Universe is a closed and symmetric system of energetic relations, then any <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of those relations must “live” on these unique surfaces. The circle and the sphere become the only possible “canvases” on which the picture of physical reality can be drawn.
+        
+       <strong class="text-white">sphere (S²)</strong> for \emph{omnidirectional} (central, all-directions-equivalent) relational transformation.
 
-Finally, we must reconsider one of nature’s most fundamental constants: the speed of light, c. In WILL Geometry, c is not simply the velocity at which photons travel. Instead, it represents the universal rate of evolution - the fundamental <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr> tempo governing change throughout the Universe. Every interaction and energy transformation unfolds at this singular, unchanging pace.
+       
+Forced by Key Constraints as the unique carriers of Relational Geometry.
+        </p>
+    </div>
+</div>
 
-This universal “speed of evolution” can be likened to a radius vector of constant length. The diverse physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this radius vector onto different axes - just as a car’s velocity can be resolved into northward and eastward components. Crucially, the sum of the squares of these <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s is always fixed, echoing the geometry of the circle, where the radius (c) is <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>.
+--
 
-With this single postulate, we derive an entire framework: conservation laws, <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>, and the geometric structures—the circle and sphere—that define the stage for all physical phenomena. In this view, geometry does not constrain physics; rather, it arises as an inevitable, logical consequence of the underlying principles.
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Energy-in-the-Relational-Framework.png" alt="Defining Energy as Conserved, Relational, Causal, and Manifested as Change" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            Energy is the relational measure of difference between possible states, conserved in any closed whole.
+          It is not an intrinsic property of an object, but comparative structure between states (and observers), always manifesting as transformation.
+        </p>
+    </div>
+</div>
+
+---
+
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/8_Kinetic-Energy-b-projection-on-S.png" alt="Diagram of the Beta projection on the S¹ unit circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            Let us explore the consequences, starting with the simplest case: a directional relation on the circle (S¹). This is the act where the entire framework of <strong class="text-white">Special Relativity</strong> will emerge, not as a set of postulates, but as the pure geometry of projecting the universal rate of change onto two orthogonal components: Amplitude (space) and Phase (time).
+        </p>
+    </div>
+</div>
+
+---
+
 
 ---
 
