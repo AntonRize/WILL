@@ -62,10 +62,10 @@ permalink: /assistant/
         const [ks,setKs]=useState('loading');
         const welcome={
             id:0,
-            txt:marked.parse("👋 **Welcome to the WILL Geometry Assistant!**\n\nAsk me anything about the WILL Theory or its documents.\n\n**Disclaimer:** AI can make mistakes — so do you. Doublecheck with original WILL documents (.pdf)."),
+            txt:marked.parse("👋 **Hi! I am WILL AI**\n\nAsk me anything about WILL Relation Geometry.\n\n**Disclaimer:** I can make mistakes - always doublechek with WILL original documentation."),
             user:false,
             isWelcome:true,
-            raw:"👋 Welcome to the WILL Geometry Assistant! Ask me anything about the WILL Theory or its documents. Disclaimer: AI can make mistakes — so do you. Doublecheck with original WILL documents (.pdf)."
+            raw:"👋 Hi! I am WILL AI Ask me anything about WILL Relation Geometry. Disclaimer: I can make mistakes - always doublechek with WILL original documentation."
         };
         const [log,setLog]=useState([welcome]);
         const logRef=useRef([welcome]);
