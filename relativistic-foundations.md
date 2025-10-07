@@ -108,26 +108,6 @@ If you want to see the full mathematical derivations, download the complete docu
 ---
 
 <details class="video-dropdown-container">  
-  <summary class="video-dropdown-summary">  
-    Show Video Introduction  
-  </summary>  
-
-  <div class="video-wrapper">  
-    <iframe src="https://www.youtube.com/embed/XejFET7NgUs?si=o2olTsRgm_BT_A3r" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
-  </div>  
-</details>
-
----
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5nOJdWgDAYVhM6g85Z1CWW" width="100%" height="232" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
----
-
-![Unified Framework](images/card1.jpg)
-
----
-
-<details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Quick Glossary: Key Terms & Concepts</summary>  
   <div class="hero-details">  
     <p><strong>Beta (β):</strong>  The kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>. Representing the ratio of an object's velocity to the universal speed of evolution (β = v/c). It quantifies how much of the "speed of change" is perceived as motion through space relative to observer. Not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.</p>  
@@ -144,16 +124,25 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-## Section 1: A Universe from a Single Principle
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.jpg" alt="WILL: Relational Geometry - How to Construct Reality out of One Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            This page explores a foundational model of physics built from a single principle. Instead of describing observed phenomena with external laws, it <strong class="text-white">generates the laws of physics</strong> as an inevitable consequence of that principle.
+        </p>
+    </div>
+</div>
 
-Modern physics is extraordinarily powerful at predicting phenomena across scales, from subatomic
-particles to cosmic structures. Yet despite its successes, cracks remain in our understanding. We are
-forced to accept puzzling elements: gravitational <abbr title="points of infinite density where known laws break down">singularities</abbr>, 
-seemingly arbitrary <abbr title="measurable values we cannot derive or understend there origin">constants</abbr> we must measure but cannot deduce,
-and the necessity to introduce “dark” entities such as <abbr title="unseen source of gravity">dark matter</abbr> and 
-<abbr title="unknown cosmic energy accelerating expantion of the Universe">dark energy</abbr> invoked just to make our equations fit
-observations. All these hints suggest that our current description of reality, as effective as it is,
-might be incomplete.
+---
+
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/2_Methodological-Pillars.jpg" alt="Methodological Pillars: Epistemic Hygiene, Strict Relationalism, Zero Free Parameters" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            To construct a theory from a single idea without introducing new postulates requires an uncompromising methodology. These pillars serve as the logical rules that guide the entire framework, ensuring no hidden assumptions or arbitrary constants are smuggled in.
+        </p>
+    </div>
+</div>
 
 ---
 
