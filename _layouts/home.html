@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4YFFSYJGF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4YFFSYJGF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-M4YFFSYJGF');
-</script>
+      gtag('config', 'G-M4YFFSYJGF');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
@@ -41,16 +40,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        .summary-box {
-          display: inline-block;
-          border: 2px solid #374151;
-          padding: 1em;
-          margin: 0.5em 0;
-          text-align: center;
-          font-size: 1.25rem;
-          background-color: #1f2937;
-          border-radius: 8px;
-        }
          body {
             font-family: 'Inter', sans-serif;
             background-color: #111827;
@@ -87,36 +76,21 @@
     {% include header.html %}
 
     <main class="container mx-auto px-6">
-        <section class="text-center pt-20 pb-12">
-            <div class="mt-12 max-w-2xl mx-auto border-2 border-cyan-500/30 bg-gray-800/50 rounded-xl p-6 shadow-2xl shadow-cyan-500/10">
-                <p class="text-2xl md:text-3xl font-bold text-cyan-400 tracking-wider mt-2">{{ site.data.home.hero.postulate }}</p>
+
+       <section class="py-8">
+    <div class="max-w-7xl mx-auto">
+        <div id="presentation-facade" class="relative cursor-pointer group">
+            <img src="{{ site.baseurl }}/images/SLIDES-JPEG/1.jpeg" alt="WILL Relational Geometry Presentation" class="w-full rounded-lg border-2 border-gray-700/50">
+
+            <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-lg transition-opacity opacity-100 group-hover:opacity-100">
+                <div class="bg-black/50 backdrop-blur-sm p-5 rounded-full transform group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-16 h-16 text-white/80" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+                    </svg>
+                </div>
             </div>
-            <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">{{ site.data.home.hero.subtitle }}</p>
-        </section>
-
-        <section class="text-center pb-20">
-             <div style="text-align:center;">
-                 <div class="summary-box mt-4 text-cyan-400 tracking-widest">
-                     $\text{SPACETIME} \equiv \text{WILL} \equiv \text{ENERGY}$
-                 </div>
-                 <div class="summary-box mt-2 text-cyan-400 tracking-widest">
-                     $\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}$
-                 </div>
-             </div>
-        </section>
-
- <section class="py-16">
-  <div class="flex justify-center">
-    <iframe 
-      width="560" 
-      height="315" 
-      src="https://www.youtube.com/embed/Q-lD9W6xvIM" 
-      title="YouTube video player" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      allowfullscreen>
-    </iframe>
-  </div>
+        </div>
+    </div>
 </section>
         <section class="py-16">
             <div class="text-center mb-12">
@@ -250,7 +224,7 @@
                         </div>
                         <div class="bg-gray-900 p-3 rounded">
                             <p class="text-gray-400">θ<sub>S</sub> (from β)</p>
-                            <p id="thetaS-val" class="text-xl font-bold text-cyan-400">55.55°</p>
+                            <p id="theta1-val" class="text-xl font-bold text-cyan-400">55.55°</p>
                         </div>
                          <div class="bg-gray-900 p-3 rounded">
                             <p class="text-gray-400">T<sub>c</sub> = cos(θ<sub>G</sub>)</p>
@@ -338,6 +312,24 @@
                 }
             });
 
+// --- Gamma Presentation Facade Loader ---
+            const facade = document.getElementById('presentation-facade');
+            if (facade) {
+                facade.addEventListener('click', () => {
+                    const iframeHTML = `
+                        <div class="relative" style="padding-top: 56.25%;">
+                            <iframe 
+                                src="https://gamma.app/embed/26s66hgeyznd9zh" 
+                                class="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-gray-700/50" 
+                                allow="fullscreen" 
+                                title="WILL: Relational Geometry">
+                            </iframe>
+                        </div>`;
+                    // Replace the facade's parent container content with the iframe
+                    facade.parentElement.innerHTML = iframeHTML;
+                }, { once: true }); // The event will only fire once
+            }
+            
 
             // --- Corrected Interactive Geometry Canvas ---
             const canvas = document.getElementById('geometry-canvas');
@@ -345,8 +337,8 @@
                 const slider = document.getElementById('kappa-slider');
                 const kappaValEl = document.getElementById('kappa-val');
                 const betaValEl = document.getElementById('beta-val');
-                const thetaGValEl = document.getElementById('thetaG-val');
-                const thetaSValEl = document.getElementById('thetaS-val');
+                const theta2ValEl = document.getElementById('theta2-val');
+                const theta1ValEl = document.getElementById('theta1-val');
                 const tcValEl = document.getElementById('tc-val');
                 const lcValEl = document.getElementById('lc-val');
 
@@ -363,19 +355,19 @@
                     const beta = kappa / Math.sqrt(2);
                     if (beta > 1) return; // Mathematical limit for acos
 
-                    const theta_S_rad = Math.acos(beta);
-                    const theta_G_rad = Math.asin(kappa > 1 ? 1 : kappa); // Clamp kappa for asin
-                    const theta_S_deg = theta_S_rad * (180 / Math.PI);
-                    const theta_G_deg = theta_G_rad * (180 / Math.PI);
-                    const Lc = Math.sin(theta_S_rad);
-                    const Tc = Math.cos(theta_G_rad);
+                    const theta_1_rad = Math.acos(beta);
+                    const theta_2_rad = Math.asin(kappa > 1 ? 1 : kappa); // Clamp kappa for asin
+                    const theta_1_deg = theta_1_rad * (180 / Math.PI);
+                    const theta_2_deg = theta_2_rad * (180 / Math.PI);
+                    const βᵧ = Math.sin(theta_1_rad);
+                    const κₓ = Math.cos(theta_2_rad);
 
                     kappaValEl.textContent = kappa.toFixed(3);
                     betaValEl.textContent = beta.toFixed(3);
-                    thetaSValEl.textContent = `${theta_S_deg.toFixed(2)}°`;
-                    thetaGValEl.textContent = `${theta_G_deg.toFixed(2)}°`;
-                    lcValEl.textContent = Lc.toFixed(3);
-                    tcValEl.textContent = Tc.toFixed(3);
+                    theta1ValEl.textContent = `${theta_1_deg.toFixed(2)}°`;
+                    theta2ValEl.textContent = `${theta_2_deg.toFixed(2)}°`;
+                    lcValEl.textContent = βᵧ.toFixed(3);
+                    tcValEl.textContent = κₓ.toFixed(3);
                     
                     ctx.clearRect(0, 0, size, size);
                     ctx.font = '11px Inter';
@@ -400,9 +392,9 @@
                     ctx.strokeStyle = '#6B7280';
                     ctx.stroke();
                     
-                    // --- Theta_S visualization (from beta) ---
+                    // --- Theta_1 visualization (from beta) ---
                     const x_S = center + radius * beta;
-                    const y_S = center - radius * Lc;
+                    const y_S = center - radius * βᵧ;
                     ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_S, y_S); ctx.strokeStyle = '#67e8f9'; ctx.lineWidth = 2; ctx.stroke();
                     // Projections
                     ctx.beginPath(); ctx.moveTo(x_S, y_S); ctx.lineTo(x_S, center); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(103, 232, 249, 0.5)'; ctx.stroke();
@@ -410,10 +402,10 @@
                     // Labels
                     ctx.fillStyle = '#67e8f9';
                     ctx.fillText('β', x_S - 25, center + 15);
-                    ctx.fillText('Lc', center - 25, y_S + 15);
+                    ctx.fillText('βᵧ', center - 25, y_S + 15);
                     
-                    // --- Theta_G visualization (from kappa) ---
-                    const x_G = center + radius * Tc;
+                    // --- Theta_2 visualization (from kappa) ---
+                    const x_G = center + radius * κₓ;
                     const y_G = center - radius * kappa;
                     ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_G, y_G); ctx.strokeStyle = '#c084fc'; ctx.lineWidth = 2; ctx.stroke();
                     // Projections
@@ -422,7 +414,7 @@
                     // Labels
                     ctx.fillStyle = '#c084fc';
                     ctx.fillText('κ', center + 5, y_G + 15);
-                    ctx.fillText('Tc', x_G - 25, center - 5);
+                    ctx.fillText('κₓ', x_G - 25, center - 5);
                 }
                 slider.addEventListener('input', drawGeometry);
                 drawGeometry();
