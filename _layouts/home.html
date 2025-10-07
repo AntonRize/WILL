@@ -61,19 +61,6 @@
          .pillar-card.active .chevron, .method-card.active .chevron {
              transform: rotate(180deg);
          }
-         /* Carousel Styles */
-        .slider-container {
-            overflow: hidden;
-            position: relative;
-        }
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
     </style>
     <script>
         MathJax = {
@@ -97,21 +84,8 @@
         </section>
 
         <section class="py-16">
-            <div class="max-w-6xl mx-auto">
-                <div id="slider" class="slider-container rounded-lg shadow-2xl shadow-cyan-500/10 border-2 border-gray-700/50">
-                    <div class="slides">
-                        </div>
-
-                    <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/60 transition-colors focus:outline-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                    </button>
-                    <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/60 transition-colors focus:outline-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </button>
-
-                    <div id="dots-container" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-                        </div>
-                </div>
+            <div class="flex justify-center">
+                <iframe src="https://gamma.app/embed/26s66hgeyznd9zh" style="width: 900px; max-width: 100%; height: 550px; border-radius: 8px; border: 2px solid #374151;" allow="fullscreen" title="WILL: Relational Geometry"></iframe>
             </div>
         </section>
         <section class="py-16">
@@ -317,82 +291,22 @@
             // --- Methodological Pillars Interaction ---
             const methodCards = document.querySelectorAll('.method-card');
             methodCards.forEach(card => {
+                // Find the clickable trigger area within the card
                 const trigger = card.querySelector('.summary-trigger');
                 if (trigger) {
                     trigger.addEventListener('click', (event) => {
-                        event.stopPropagation();
+                        event.stopPropagation(); // Prevent card click from firing twice
+                        // Close other cards
                         methodCards.forEach(otherCard => {
                             if (otherCard !== card) {
                                 otherCard.classList.remove('active');
                             }
                         });
+                        // Toggle the current card
                         card.classList.toggle('active');
                     });
                 }
             });
-
-            // --- NEW CAROUSEL SCRIPT ---
-            const slider = document.getElementById('slider');
-            if (slider) {
-                const slidesContainer = slider.querySelector('.slides');
-                const dotsContainer = slider.querySelector('#dots-container');
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
-                const totalSlides = 17;
-                let currentSlide = 0;
-
-                // --- Create slides and dots ---
-                for (let i = 1; i <= totalSlides; i++) {
-                    const slide = document.createElement('div');
-                    slide.className = 'slide';
-                    const img = document.createElement('img');
-                    // IMPORTANT: Assumes images are named slide-01.jpeg, slide-02.jpeg, etc.
-                    const slideNumber = i.toString().padStart(2, '0');
-                    img.src = `{{ site.baseurl }}/images/SLIDES-JPEG/${i}.jpeg`;
-                    img.alt = `${i}`;
-                    img.className = 'w-full block';
-                    slide.appendChild(img);
-                    slidesContainer.appendChild(slide);
-
-                    const dot = document.createElement('button');
-                    dot.className = 'w-3 h-3 bg-white/40 rounded-full hover:bg-white/60 transition-colors';
-                    dot.addEventListener('click', () => goToSlide(i - 1));
-                    dotsContainer.appendChild(dot);
-                }
-
-                const dots = dotsContainer.querySelectorAll('button');
-
-                function goToSlide(slideIndex) {
-                    currentSlide = slideIndex;
-                    slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-                    updateDots();
-                }
-                
-                function updateDots() {
-                    dots.forEach((dot, index) => {
-                        if (index === currentSlide) {
-                            dot.classList.add('bg-white');
-                            dot.classList.remove('bg-white/40');
-                        } else {
-                            dot.classList.remove('bg-white');
-                            dot.classList.add('bg-white/40');
-                        }
-                    });
-                }
-
-                prevBtn.addEventListener('click', () => {
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                    goToSlide(currentSlide);
-                });
-
-                nextBtn.addEventListener('click', () => {
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                    goToSlide(currentSlide);
-                });
-                
-                // Initialize
-                goToSlide(0);
-            }
 
 
             // --- Corrected Interactive Geometry Canvas ---
@@ -415,12 +329,12 @@
 
                 function drawGeometry() {
                     const kappa = parseFloat(slider.value);
-                    if (kappa > 1.414) return;
+                    if (kappa > 1.414) return; // Physical limit for kappa
                     const beta = kappa / Math.sqrt(2);
-                    if (beta > 1) return;
+                    if (beta > 1) return; // Mathematical limit for acos
 
                     const theta_S_rad = Math.acos(beta);
-                    const theta_G_rad = Math.asin(kappa > 1 ? 1 : kappa);
+                    const theta_G_rad = Math.asin(kappa > 1 ? 1 : kappa); // Clamp kappa for asin
                     const theta_S_deg = theta_S_rad * (180 / Math.PI);
                     const theta_G_deg = theta_G_rad * (180 / Math.PI);
                     const Lc = Math.sin(theta_S_rad);
@@ -456,20 +370,26 @@
                     ctx.strokeStyle = '#6B7280';
                     ctx.stroke();
                     
+                    // --- Theta_S visualization (from beta) ---
                     const x_S = center + radius * beta;
                     const y_S = center - radius * Lc;
                     ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_S, y_S); ctx.strokeStyle = '#67e8f9'; ctx.lineWidth = 2; ctx.stroke();
+                    // Projections
                     ctx.beginPath(); ctx.moveTo(x_S, y_S); ctx.lineTo(x_S, center); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(103, 232, 249, 0.5)'; ctx.stroke();
                     ctx.beginPath(); ctx.moveTo(x_S, center); ctx.lineTo(center, center); ctx.setLineDash([]); ctx.lineWidth=3; ctx.strokeStyle = '#67e8f9'; ctx.stroke(); ctx.lineWidth=1;
+                    // Labels
                     ctx.fillStyle = '#67e8f9';
                     ctx.fillText('β', x_S - 25, center + 15);
                     ctx.fillText('Lc', center - 25, y_S + 15);
                     
+                    // --- Theta_G visualization (from kappa) ---
                     const x_G = center + radius * Tc;
                     const y_G = center - radius * kappa;
                     ctx.beginPath(); ctx.moveTo(center, center); ctx.lineTo(x_G, y_G); ctx.strokeStyle = '#c084fc'; ctx.lineWidth = 2; ctx.stroke();
+                    // Projections
                     ctx.beginPath(); ctx.moveTo(x_G, y_G); ctx.lineTo(center, y_G); ctx.setLineDash([2, 3]); ctx.strokeStyle = 'rgba(192, 132, 252, 0.5)'; ctx.stroke();
                     ctx.beginPath(); ctx.moveTo(center, y_G); ctx.lineTo(center, center); ctx.setLineDash([]); ctx.lineWidth=3; ctx.strokeStyle = '#c084fc'; ctx.stroke(); ctx.lineWidth=1;
+                    // Labels
                     ctx.fillStyle = '#c084fc';
                     ctx.fillText('κ', center + 5, y_G + 15);
                     ctx.fillText('Tc', x_G - 25, center - 5);
