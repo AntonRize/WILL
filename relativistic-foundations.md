@@ -125,7 +125,7 @@ If you want to see the full mathematical derivations, download the complete docu
 ---
 
 <div class="mb-12">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.jpg" alt="WILL: Relational Geometry - How to Construct Reality out of One Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.png" alt="WILL: Relational Geometry - How to Construct Reality out of One Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
             This page explores a foundational model of physics built from a single principle. Instead of describing observed phenomena with external laws, it <strong class="text-white">generates the laws of physics</strong> as an inevitable consequence of that principle.
@@ -136,7 +136,7 @@ If you want to see the full mathematical derivations, download the complete docu
 ---
 
 <div class="mb-12">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/2_Methodological-Pillars.jpg" alt="Methodological Pillars: Epistemic Hygiene, Strict Relationalism, Zero Free Parameters" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/2_Methodological-Pillars.png" alt="Methodological Pillars: Epistemic Hygiene, Strict Relationalism, Zero Free Parameters" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
             To construct a theory from a single idea without introducing new postulates requires an uncompromising methodology. These pillars serve as the logical rules that guide the entire framework, ensuring no hidden assumptions or arbitrary constants are smuggled in.
