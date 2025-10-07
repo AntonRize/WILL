@@ -77,17 +77,21 @@
 
     <main class="container mx-auto px-6">
 
-        <section class="py-8">
-            <div class="max-w-7xl mx-auto">
-                <div class="relative" style="padding-top: 56.25%;"> <iframe 
-                        src="https://gamma.app/embed/26s66hgeyznd9zh" 
-                        class="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-gray-700/50" 
-                        allow="fullscreen" 
-                        title="WILL: Relational Geometry">
-                    </iframe>
+       <section class="py-8">
+    <div class="max-w-7xl mx-auto">
+        <div id="presentation-facade" class="relative cursor-pointer group">
+            <img src="{{ site.baseurl }}images/SLIDES-JPEG/1.jpg" alt="WILL Relational Geometry Presentation" class="w-full rounded-lg border-2 border-gray-700/50">
+
+            <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-lg transition-opacity opacity-100 group-hover:opacity-100">
+                <div class="bg-black/50 backdrop-blur-sm p-5 rounded-full transform group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-16 h-16 text-white/80" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+                    </svg>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
         <section class="py-16">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">Methodological Pillars</h2>
@@ -308,6 +312,24 @@
                 }
             });
 
+// --- Gamma Presentation Facade Loader ---
+            const facade = document.getElementById('presentation-facade');
+            if (facade) {
+                facade.addEventListener('click', () => {
+                    const iframeHTML = `
+                        <div class="relative" style="padding-top: 56.25%;">
+                            <iframe 
+                                src="https://gamma.app/embed/26s66hgeyznd9zh" 
+                                class="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-gray-700/50" 
+                                allow="fullscreen" 
+                                title="WILL: Relational Geometry">
+                            </iframe>
+                        </div>`;
+                    // Replace the facade's parent container content with the iframe
+                    facade.parentElement.innerHTML = iframeHTML;
+                }, { once: true }); // The event will only fire once
+            }
+            
 
             // --- Corrected Interactive Geometry Canvas ---
             const canvas = document.getElementById('geometry-canvas');
