@@ -92,7 +92,7 @@ title: "Relativistic Foundations"
 </style>
  
 
-# Shape of Energy: A Narrative Exposition of WILL Geometry
+# WILL Part I: Relational Geometry
 
 ---
 
@@ -104,26 +104,6 @@ Here, the focus is on the core ideas, intuitive explanations, and geometric visu
 
 If you want to see the full mathematical derivations, download the complete documents here:  
 [Full WILL Geometry Papers](https://antonrize.github.io/WILL/parts/)
-
----
-
-<details class="video-dropdown-container">  
-  <summary class="video-dropdown-summary">  
-    Show Video Introduction  
-  </summary>  
-
-  <div class="video-wrapper">  
-    <iframe src="https://www.youtube.com/embed/XejFET7NgUs?si=o2olTsRgm_BT_A3r" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
-  </div>  
-</details>
-
----
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5nOJdWgDAYVhM6g85Z1CWW" width="100%" height="232" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
----
-
-![Unified Framework](images/card1.jpg)
 
 ---
 
@@ -144,92 +124,111 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-## Section 1: A Universe from a Single Principle
-
-Modern physics is extraordinarily powerful at predicting phenomena across scales, from subatomic
-particles to cosmic structures. Yet despite its successes, cracks remain in our understanding. We are
-forced to accept puzzling elements: gravitational <abbr title="points of infinite density where known laws break down">singularities</abbr>, 
-seemingly arbitrary <abbr title="measurable values we cannot derive or understend there origin">constants</abbr> we must measure but cannot deduce,
-and the necessity to introduce “dark” entities such as <abbr title="unseen source of gravity">dark matter</abbr> and 
-<abbr title="unknown cosmic energy accelerating expantion of the Universe">dark energy</abbr> invoked just to make our equations fit
-observations. All these hints suggest that our current description of reality, as effective as it is,
-might be incomplete.
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.png" alt="WILL: Relational Geometry - How to Construct Reality out of One Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            This page explores a foundational model of physics built from a single principle. Instead of describing observed phenomena with external laws, it <strong class="text-white">generates the laws of physics</strong> as an inevitable consequence of that principle.
+        </p>
+    </div>
+</div>
 
 ---
 
-![Methodological Pillars](images/Methodological-Pillars.jpg)
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/2_Methodological-Pillars.png" alt="Methodological Pillars: Epistemic Hygiene, Strict Relationalism, Zero Free Parameters" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            To construct a theory from a single idea without introducing new postulates requires an uncompromising methodology. These pillars serve as the logical rules that guide the entire framework, ensuring no hidden assumptions or arbitrary constants are smuggled in.
+        </p>
+    </div>
+</div>
 
 ---
 
-This realization motivates a bold question: What if we could derive the universe from a single,
-simple principle, with no extra assumptions or <abbr title="tunable inputs">ad hoc additions</abbr>? In other words, is there a way to
-rebuild physics from the ground up, requiring no arbitrary  <abbr title="tunable inputs or limitations">"fudge factors"</abbr> or unexplained constants? This rigorous minimalist approach – one might call it a principle of <abbr title="enforces a disciplined refusal to introduce unjustified assumptions or hidden parameters. The guiding principle is: Nothing is assumed. Everything is derived. All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities">epistemological hygiene</abbr> – would accept only what is logically unavoidable. Every aspect of nature would need to follow from one selfevident statement.
-
-Down this path of uncompromising simplicity, a central <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr> emerges at the heart of the WILL model:
-
-### SPACETIME ≡ ENERGY EVOLUTION  
-*(In plain language: spacetime is just energy in motion — all of space and time emerges from energy changing.)*
- 
-> By **“energy evolution”** we mean the total structure of possible <abbr title="changes from one measurable configuration to another">transitions</abbr> between observable states — not a process unfolding <em>in</em> spacetime, but the <abbr title="a structure defined only by relationships between elements, not by an external background">relational geometry</abbr> from which both <abbr title="the three dimensions of extension in physics">space</abbr> and <abbr title="the ordered sequence of events we perceive">time</abbr> emerge. This is not a derived result but a foundational <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr>, subject to geometric and empirical audit in subsequent sections. “WILL” is used here as a technical term for this unified, emergent structure.  
-
-
-At first glance, this statement seems straightforward, but it carries profaund implications. It says
-that <abbr title="the three dimensions of extension in physics">space</abbr> and <abbr title="the ordered sequence of events we perceive">time</abbr> are not a pre-existing stage or container where <abbr title="changes from one measurable configuration to another">events and transitions</abbr> happen. Instead, the fabric of spacetime *is the network of all possible energy transformations. Space and time have no
-independent existence apart from energy; they are defined by the way energy changes and
-interconnects states. Spacetime is not a backdrop – it is the dance of energy itself . In this view,
-energy doesn't sit in spacetime; rather, energy's evolving relationships create spacetime.
-
-
-This page narrates a journey based on that radical idea. It will show how the familiar laws of <abbr title="Einstein’s theory of motion at constant velocity">Special Relativity</abbr> and
-<abbr title="Einstein’s theory of gravitation and curved spacetime">General Relativity</abbr> can be not merely postulated, but *derived* as inevitable consequences of a single, principle of <abbr title="a structure defined only by relationships between elements, not by an external background">relational geometry</abbr>. Along the way, we will maintain scientific rigor and test every step against real world mesurments. But use clear imagery and interactive graphs to make the concepts accessible to everyone.
-The goal is not to overturn modern physics, but to peel back its layers and reveal a simpler unifying
-picture beneath.
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/3_Breakthroughs-Delete-Not-Add.png" alt="Historical Breakthroughs in Physics by Deleting Separations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            This approach follows a powerful historical pattern. The greatest leaps in physics have consistently come not from adding new entities, but from <strong class="text-white">removing a false separation</strong>. Just as Copernicus removed the Earth/cosmos divide and Einstein unified space and time, this framework targets the final, unexamined split in modern physics.
+        </p>
+    </div>
+</div>
 
 ---
 
-## Section 2: The Rules of the Game — A Foundation of Pure Logic
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/4_False-Separation-as-Ontological-Blind-Spot.png" alt="The False Separation Between Structure and Dynamics" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            The contemporary split is between the <strong class="text-white">structure</strong> of the universe (a fixed stage, or manifold) and the <strong class="text-white">dynamics</strong> that unfold upon it (fields and energy). This separation is not an empirical discovery but an implicit assumption—an "unpaid ontological debt". By removing it, we are forced to identify geometry and energy as two aspects of a single entity.
+        </p>
+    </div>
+</div>
 
-If we accept the central <abbr title="a statement taken as a starting point for reasoning or theory">postulate</abbr> - that spacetime is identical to energy evolution, we are immediately confronted with its strict logical consequences. First and foremost: if all of reality is a self-sufficient system of energetic relations, then by definition nothing can exist “outside” this system. There is no external observer, no absolute reference frame or background on which events unfold. The Universe of WILL Geometry must be entirely closed and self-sufficient.
+---
 
-This restriction, philosophical at first glance, generates concrete physical and geometric “rules of the game”:
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Energy-in-the-Relational-Framework.png" alt="Defining Energy as Conserved, Relational, Causal, and Manifested as Change" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            Energy is the relational measure of difference between possible states, conserved in any closed whole.
+          It is not an intrinsic property of an object, but comparative structure between states (and observers), always manifesting as transformation.
+        </p>
+    </div>
+</div>
 
-- **Conservation Law:** In a closed system, nothing can appear from outside or disappear without a trace. This means that the total energy of the system must be conserved. The law of conservation is not an added assumption, but a direct consequence of the Universe’s self-sufficiency.
+---
+
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/5_Key-Constraints-on-the-Relational-Structure.png" alt="Key Constraints from the Unifying Principle: Closure, Conservation, Isotropy" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            These three constraints—<strong class="text-white">Closure, Conservation, and Isotropy</strong>—are immediate, unavoidable consequences of a universe built from a single, self-contained principle. The next crucial question is: what mathematical forms can possibly satisfy all these rigid requirements at once?
+        </p>
+    </div>
+</div>
+
+---
+
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/6_Two-Minimal-Relational-Carriers.png" alt="The Circle (S¹) for Directional relations and the Sphere (S²) for Omnidirectional relations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
-- **<abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>:** In the absence of external reference points, no location in space and no direction can be privileged from the outset. Any asymmetry would require a preferred frame, contradicting our foundational principle. Therefore, the geometry of the Universe must be maximally symmetric.
-    
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Lemma: Closure</h4>
+            <p>Under Principle 4.1 (\(\text{SPACETIME} \equiv \text{ENERGY}\)), WILL is self-contained: there is no external reservoir into or from which the relational resource can flow.</p>
+        </div>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Lemma: Conservation</h4>
+            <p>Within WILL, the total relational "transformation resource" (energy) is conserved.</p>
+        </div>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Lemma: Isotropy from Background-Free Relationality</h4>
+            <p>If no external background is allowed, then no direction can be a priori privileged. Thus the admissible relational geometry of WILL must be maximally symmetric.</p>
+        </div>
+
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Theorem: Minimal Relational Carriers of the Conserved Resource</h4>
+            <p>The only closed, maximally symmetric manifolds that can serve as minimal carriers of the conserved relational resource are:</p>
+            <ol class="list-decimal list-inside ml-4 mt-2">
+                <li><strong class="text-white">\(S^1\)</strong> for <em>directional</em> (one-degree-of-freedom) relational transformation;</li>
+                <li><strong class="text-white">\(S^2\)</strong> for <em>omnidirectional</em> (central, all-directions-equivalent) relational transformation.</li>
+            </ol>
+        </div>
+         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>S¹ and S² are not spacetime geometries, but relational manifolds.</p>
+        </div>
+    </div>
+</div>
+
 ---
 
-![SPACETIME-ENERGY-EVOLUTION.jpg](images/SPACETIME-ENERGY-EVOLUTION.jpg)
-
----
-
-This immediately raises the question: What geometric structures satisfy these strict requirements - being both closed and maximally symmetric? Mathematics gives a definitive answer. Among all possible <abbr title="a smooth mathematical space that can be curved or multidimensional">manifolds</abbr>, only certain forms possess these properties to perfection.
-
-- In one dimension, the only such form is the circle (`S¹`).
-    
-- In two dimensions - the surface of a sphere (`S²`).
-    
-
-These geometries are not arbitrary choices or convenient models. They are forced upon us by the logic of the postulate itself. If the Universe is a closed and symmetric system of energetic relations, then any <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of those relations must “live” on these unique surfaces. The circle and the sphere become the only possible “canvases” on which the picture of physical reality can be drawn.
-
-Finally, we must reconsider one of nature’s most fundamental constants: the speed of light, c. In WILL Geometry, c is not simply the velocity at which photons travel. Instead, it represents the universal rate of evolution - the fundamental <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr> tempo governing change throughout the Universe. Every interaction and energy transformation unfolds at this singular, unchanging pace.
-
-This universal “speed of evolution” can be likened to a radius vector of constant length. The diverse physical processes we observe are merely <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of this radius vector onto different axes - just as a car’s velocity can be resolved into northward and eastward components. Crucially, the sum of the squares of these <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s is always fixed, echoing the geometry of the circle, where the radius (c) is <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>.
-
-With this single postulate, we derive an entire framework: conservation laws, <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>, and the geometric structures—the circle and sphere—that define the stage for all physical phenomena. In this view, geometry does not constrain physics; rather, it arises as an inevitable, logical consequence of the underlying principles.
-
----
-
-## Section 3: Act I – Motion as a Shadow on the Circle (Special Relativity)
-
-Now that the rules of the game have been established, let’s consider the simplest case: one-dimensional motion. According to our logic, this process must be described on the only possible closed and symmetric 1D geometry — the circle. This act of our narrative is devoted to reconstructing special relativity (SR) using nothing but these geometric tools. The main character here is the kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>, denoted by the Greek letter β (beta), which represents how much of the universal “speed of change” is experienced as motion through space.
-
-Imagine a unit circle whose radius symbolizes the universal speed of evolution, *c* (the speed of light, treated here as the ultimate speed of change), which for simplicity we set to 1. Any change an object undergoes can be split into spatial motion (horizontal X axis) and temporal flow (vertical Y axis)  <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s. The sum of their squares of this  <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s remains the same, set by that fixed  radius length (the speed of light). 
-
-
----
-
-![Kinetic-Energy-The-Spatial-projection.jpg](images/Kinetic-Energy-The-Spatial-Projection.jpg)
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/8_Kinetic-Energy-b-projection-on-S.png" alt="Diagram of the Beta projection on the S¹ unit circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
 
 ---
 
@@ -243,17 +242,230 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
 </details>
 
 ---
-
-### How Motion and Time Are Just Two Sides of the Same Thing
-
-Imagine all possible states of movement as points around a perfect circle. The *radius* of this circle is the fastest possible speed in the universe — the universal “speed of change” (*c*). State of every moving object is like a pointer from the center of the circle to some spot on its edge.
-
-- **Movement:** How fast something moves through space is just “how much” of that pointer is aimed sideways around the circle. The faster it goes, the more it “leans” into space, and the less is left “pointing” upward — toward time.
     
-- **Time:** How fast time ticks for something is just “how much” of that pointer is aimed along the time direction. If the object speeds up through space, less of the pointer is left for time — so its time slows down.
-    
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
 
-Think of it like sharing a fixed budget: If you spend more of your “change” moving through space, you have less left for moving through time.
+        <h3 class="text-2xl font-bold text-white mb-4">The Duality of Transformation</h3>
+        
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Lemma: Duality of Evolution</h4>
+            <p>The identification of spacetime with energy and its transformations necessitates two complementary relational measures:</p>
+            <ol class="list-decimal list-inside ml-4 mt-2">
+                <li>the <strong>extent</strong> of transformation (external displacement), and</li>
+                <li>the <strong>sequence</strong> of transformation (internal order).</li>
+            </ol>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>Any complete description of transformation must specify both what changes and how that change is internally ordered. A single measure cannot capture both. The circle \(S^1\) provides the minimal geometry enforcing such complementarity: its orthogonal projections furnish precisely two non-redundant coordinates.</p>
+        </div>
+
+        <p class="mt-6">We define these orthogonal projections as follows:</p>
+        <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
+            <li><strong>The Amplitude Component (\(\beta\)):</strong> This projection represents the <em>relational measure</em> between the system and the observer. It corresponds to the <em>extent</em> of transformation, which manifests physically as momentum.</li>
+            <li><strong>The Phase Component (\(\beta_Y\)):</strong> This projection represents the <em>internal structure</em> of a system. It governs the intrinsic scale of its proper space and proper time units, corresponding to the <em>sequence</em> of its transformation. A value of \(\beta_Y=1\) represents a complete and undisturbed manifestation of this internal structure, a state we identify as rest.</li>
+        </ul>
+
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Conservation Law of Relational Transformation</h3>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Theorem: Conservation Law of Relational Transformation</h4>
+            <p>The orthogonal components of transformation (\(\beta,\beta_Y\)) are bound by the closure relation:</p>
+            <p class="text-center text-2xl font-mono my-4">\(\beta^2 + \beta_Y^2 = 1\)</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>Since \(S^1\) is closed, every point on the circle is constrained by the Pythagorean identity of its projections. Thus no state can exceed or fall short of the finite relational "budget." This closure enforces conservation across all processes.</p>
+        </div>
+
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Consequence: Relativistic Effects</h3>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Proposition: Physical Interpretation: Relativistic Effects</h4>
+            <p>The conservation law implies that any redistribution between the orthogonal components (\(\beta,\beta_Y\)) manifests physically as the relativistic effects of time dilation and length contraction.</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>The components satisfy \(\beta^2 + \beta_Y^2 = 1\). An increase in the relational displacement \(\beta\) enforces a decrease in the internal measure \(\beta_Y\). This reduction of \(\beta_Y\) corresponds to dilation of proper time and contraction of proper length, while the growth of \(\beta\) represents momentum. Thus the relativistic trade-off is the direct physical expression of the geometric closure of \(S^1\).</p>
+        </div>
+
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>The geometry of spacetime is the shadow cast by the geometry of relations.</p>
+        </div>
+    </div>
+</div>
+
+---
+
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/9_Energy-Momentum-Identity-on-S.png" alt="Energy Momentum Identity on the S¹ Circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+
+---
+
+**Visualize energy, mass, and momentum as a simple right triangle:**
+
+- **Vertical leg** (fixed) always represents the object's *rest energy* — this never changes, no matter how fast it moves.
+    
+- **Horizontal leg** grows as the object’s β increases — this is its *momentum*.
+    
+- **The hypotenuse** is the *total energy* — it stretches between rest energy and momentum as β increases.
+    
+---
+  
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">Kinetic Energy Projection on \(S^1\)</h2>
+        <p>Since \(S^{1}\) encodes one-dimensional displacement, the total energy \(E\) of the system must project consistently onto both axes:</p>
+        <p class="text-center text-xl font-mono my-4">\(E_{X} = E \beta_{X}, \qquad E_{Y} = E \beta_{Y}\)</p>
+
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Theorem: Invariant Projection of Rest Energy</h4>
+            <p>For any state (\(\beta, \beta_Y\)) on the relational circle, the vertical projection of the total energy is invariant:</p>
+            <p class="text-center text-xl font-mono my-2">\(E \beta_Y = E_0\)</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>When \(\beta=0\), closure enforces \(\beta_Y=1\), yielding \(E=E_0\). Since closure applies for all \(\theta_1\), the vertical projection \(E\beta_Y\) remains equal to this rest value in every state.</p>
+        </div>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Corollary: Total Energy Relation</h4>
+            <p>From the theorem it follows that:</p>
+            <p class="text-center text-xl font-mono my-2">\(E = \frac{E_0}{\beta_Y} = \frac{E_0}{\sqrt{1-\beta^2}}\)</p>
+        </div>
+        
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>The historical Lorentz factor is the reciprocal of \(\beta_Y\): \(\gamma\) = 1/\(\beta_Y\).</p>
+        </div>
+
+        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Rest Energy and Mass Equivalence</h3>
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Corollary: Rest Energy and Mass Equivalence</h4>
+            <p>Within the normalization \(c=1\), the invariant rest energy equals mass:</p>
+            <p class="text-center text-xl font-mono my-2">\(E_{0} = m\)</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>From the invariant projection \(E\beta_Y = E_0\) and closure of \(S^1\), no additional scaling parameter is required. Hence the conventional bookkeeping identities \(E_0 = mc^2\) or \(m = E_0/c^2\) reduce to tautologies. Mass is therefore not independent, but the rest-energy invariant itself.</p>
+        </div>
+
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>Mass is the invariant projection of total rest energy.</p>
+        </div>
+        
+        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Energy–Momentum Relation</h3>
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Proposition: Horizontal Projection as Momentum</h4>
+            <p>On the relational circle, the unique relational measure of displacement from rest is the horizontal projection \(E\beta\); hence:</p>
+            <p class="text-center text-xl font-mono my-2">\(p \equiv E\beta \quad (c=1)\)</p>
+        </div>
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Corollary: Energy–Momentum Relation</h4>
+            <p>With \(p\) identified by the proposition and \(m=E_0\), the closure identity yields:</p>
+            <p class="text-center text-xl font-mono my-2">\(E^{2} = p^{2} + m^{2} \quad (c=1)\)</p>
+            <p>Equivalently, upon restoring \(c\):</p>
+            <p class="text-center text-xl font-mono my-2">\(E^{2} = (pc)^{2} + (mc^{2})^{2}\)</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>By closure, \((E\beta)^2 + (E\beta_Y)^2 = E^2\). Substituting \(p=E\beta\) and \(m=E_0\) proves the claim. Restoring \(c\) is dimensional bookkeeping: \(p\mapsto pc\) and \(m\mapsto mc^{2}\), while \(E\) remains \(E\), yielding the standard form.</p>
+        </div>
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>The relation \(E^{2}=p^{2}+m^{2}\) is the geometric identity of \(S^1\).</p>
+        </div>
+    </div>
+</div>
+
+---
+
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/10_Potential-Energy-k-projection-on-S.png" alt="Diagram of the Kappa projection on the S² unit sphere" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            Analogous to the kinetic projection on \(S^1\), the omnidirectional (gravitational) relation is described by projections on the sphere, \(S^2\). This establishes the framework for General Relativity, defining gravitational energy and its corresponding momentum as geometric projections.
+        </p>
+
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Show Formal Derivation of Potential Energy Projection on S²</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                
+                <p>Analogous to \(S^1\), the relational geometry of the sphere, \(S^2\), provides orthogonal projections for two aspects of omnidirectional transformation. We define them as follows:</p>
+                <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
+                    <li><strong>The Amplitude Component (\(\kappa\)):</strong> This projection represents the <em>relational gravitational measure</em> between the object and the observer. A value of \(\kappa=1\) corresponds to the event horizon.</li>
+                    <li><strong>The Phase Component (\(\kappa_X\)):</strong> This projection governs the intrinsic scale of proper length and proper time units.</li>
+                </ul>
+                <p class="mt-4">These components are bound by the conservation law of the closed system:</p>
+                <p class="text-center text-xl font-mono my-4">\(\kappa_X^2 + \kappa^2 = 1\)</p>
+
+                <div class="border-l-4 border-gray-600 pl-4 py-2 my-4 italic">
+                    By isotropy the omnidirectional carrier is \(S^2\), but any radially symmetric exchange reduces to a great-circle meridional section. We therefore work on a unit great circle of \(S^2\) with the parametrization \((\kappa_X,\kappa)=(\cos\theta_2,\sin\theta_2)\).
+                </div>
+
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Consequence: Gravitational Effects</h4>
+                <p>The redistribution of the budget between the Phase and Amplitude components produces the effects of General Relativity. An increase in the relational measure (\(\kappa\)) requires a decrease in the measure of the internal structure (\(\kappa_X\)). This geometric trade-off is observed physically as gravitational time corrections.</p>
+
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Gravitational Tangent Formulation</h4>
+                <p>Just as the relativistic energy-momentum relation is expressed via \(\beta = \cos\theta_{1}\), its gravitational analogue follows from \(\kappa = \sin\theta_{2}\). We define the gravitational energy and momentum:</p>
+                <p class="text-center text-xl font-mono my-4">\(E_{g} = \frac{E_{0}}{\kappa_{X}}\) where \(\kappa_{X} = \sqrt{1 - \kappa^{2}}\)</p>
+                <p class="text-center text-xl font-mono my-4">\(p_g = E_{0}/c \cdot \tan\theta_{2}\)</p>
+                <p>This yields the gravitational energy relation: \(E_{g}^{2} = p_g^{2} + E_{0}^{2}\).</p>
+                
+                <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4">
+                    <p>\(\beta = \cos\theta_{1}, \qquad \kappa = \sin\theta_{2}\)</p>
+                    <p>\(\cot\theta_{1} \longleftrightarrow \tan\theta_{2}\)</p>
+                    <p class="mt-2 text-base text-gray-300">Kinematic momentum \(p\) and gravitational momentum \(p_g\) are dual projections, expressed through complementary trigonometric forms.</p>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Geometric Composition of SR and GR factors</h4>
+                <p>On the unit kinematic circle (\(S^1\)), we have: \(E=\dfrac{E_0}{\sin\theta_1}\) and \(p=E_0\cot\theta_1\).</p>
+                <p>On the gravitational circle (\(S^2\)), we have: \(E_g=\dfrac{E_0}{\cos\theta_2}\) and \(p_g=E_0\tan\theta_2\).</p>
+                
+                <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/s1-s2-composition.png" alt="Composition of S1 and S2 projections" class="w-full max-w-2xl mx-auto rounded-lg my-4 bg-white p-2">
+
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Relational Symmetry Summary</h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse mt-4">
+                        <thead>
+                            <tr class="bg-gray-800">
+                                <th colspan="2" class="p-3 text-center border border-gray-600">Unified Representation of Relativistic and Gravitational Effects</th>
+                            </tr>
+                            <tr class="bg-gray-700">
+                                <th class="p-2 border border-gray-600">Algebraic Form</th>
+                                <th class="p-2 border border-gray-600">Trigonometric Form</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-gray-800/50">
+                                <td class="p-2 border border-gray-600 font-mono">\(1/\beta_Y= \frac{1}{\sqrt{1-\beta^2}}\)</td>
+                                <td class="p-2 border border-gray-600 font-mono">\(1/\sin(\theta_1)\)</td>
+                            </tr>
+                             <tr class="bg-gray-800/50">
+                                <td class="p-2 border border-gray-600 font-mono">\(1/\kappa_X = \frac{1}{\sqrt{1-\kappa^2}}\)</td>
+                                <td class="p-2 border border-gray-600 font-mono">\(1/\cos(\theta_2)\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </details>
+    </div>
+</div>
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <details> <summary><strong>Show the math</strong></summary>
 
@@ -285,15 +497,6 @@ $ 1/β_Y = \frac{1}{β_Y} = \frac{1}{\sqrt{1 - \beta^2}} = \frac{1}{\sin(\theta_
 
 ---
 
-### How E = mc² Falls Out Naturally
-
-Here’s the coolest part: That famous equation, E = mc², isn’t some magic law — it’s just what you get when you realize energy and mass are two sides of the same coin. At rest, all of an object’s energy points along the time direction. When it moves, some energy “tilts” into space — but the total stays balanced, so that the piece along time remains constant.
-
-- **Mass** is just a way to relate an object’s energy at rest to its fundamental “speed of change.”
-    
-- **Energy** increases as the object moves, simply to keep the system in balance.
-    
-
 <details> <summary><strong>Show the math</strong></summary>
 
 Total energy: E = 1/β_Y m c²  
@@ -318,16 +521,6 @@ Momentum: p = 1/β_Y m v
 > - The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy–momentum triangle, visually linking the geometry of spacetime to the energy of an object. </details>
 
 
-**Visualize energy, mass, and momentum as a simple right triangle:**
-
-- **Vertical side** (fixed) always represents the object's *rest energy* — this never changes, no matter how fast it moves.
-    
-- **Horizontal side** grows as the object’s speed increases — this is its *momentum*.
-    
-- **The hypotenuse** is the *total energy* — it stretches as you go faster.
-    
-
----
 
 ![Energy-Momentum-Triangle](images/Energy-momentum-triangle.jpg)
 
