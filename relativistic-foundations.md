@@ -781,6 +781,20 @@ Here's a simple analogy:
 
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/16_Unified-Field-Equation.png" alt="The Unified Field Equation" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+
+
+In plain words:
+**(Gravitational depth) = (fraction of critical radius reached) = (fraction of maximum density
+reached)**
+
+Let’s unpack the terms:
+
+- $R_s$ is the critical radius for a given mass – essentially the Schwarzschild radius (the radius of a black hole event horizon for that mass).
+- $r_d$ is the distance from the center we are considering (the current radius).
+- $\rho$ is the energy density (including mass as energy) at that radius.
+- $\rho_{\max}$ is the critical density at that radius, meaning the maximum energy density that location can sustain without collapsing into a black hole.
+
+---
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">The Unified Field Equation</h2>
@@ -823,208 +837,63 @@ Here's a simple analogy:
 
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$$
-\kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
-$$  
-
-<details> <summary><strong>See the Universe's one-line "code"</strong></summary>
-
-$$
-\kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
-$$
-
-$r_{d} = \frac{R_s}{\kappa^2} = \frac{2Gm_0}{\kappa^2 c^2}$ (radial distance from the central mass)
-<br>  
-$R_s=\frac{2Gm_0}{c^2}$ (Schwarzschild radius. Radius from the center of mass where event horizon is forming)
-<br>  
-$\rho = \frac{\kappa^2 c^2}{8\pi G r_{d}^2} = \kappa^2 \cdot \rho_{max}$ (Energy/mass density in the given radius)
-<br>  
-$\rho_{max} = \frac{c^2}{8\pi G r_{d}^2}$ (Maximal energy density where $\kappa=1$ event horizon)
-
-</details>
-
----
-
-### What does this actually mean?
-
-In plain words:
-**(Gravitational depth) = (fraction of critical radius reached) = (fraction of maximum density
-reached)**
-
-Let’s unpack the terms:
-
-- $R_s$ is the critical radius for a given mass – essentially the Schwarzschild radius (the radius of a black hole event horizon for that mass).
-- $r_d$ is the distance from the center we are considering (the current radius).
-- $\rho$ is the energy density (including mass as energy) at that radius.
-- $\rho_{\max}$ is the critical density at that radius, meaning the maximum energy density that location can sustain without collapsing into a black hole.
-
-The equation $\frac{R_s}{r_d} = \frac{\rho}{\rho_{\max}}$ says that at any radius in the universe, the
-proportion of “used-up” gravitational potential (left side) equals the proportion of the allowed energy
-density that is filled (right side). It’s a statement of cosmic balance: no matter how you express the
-contents of the universe – as curvature of space (via fraction of critical radius reached) or as concentration
-of energy (via fraction of maximum density reached) – you end up with the same fraction of the extreme limit.
-Another way to phrase it: you are always at a fixed fraction of a total “energy-capacity” of space, locally. This fraction is $\kappa^2$, which
-doubles as the fraction of the way to becoming a black hole (since $R_s$ is the black hole threshold) and
-the fraction of maximum density achieved.
-
-This deceptively simple relation has profound consequences. In standard general relativity, if too much
-mass-energy is compressed in too small a volume, the theory predicts a singularity – a point of infinite
-density and zero volume – hidden behind an event horizon. Such singularities are places where physics
-as we know it ceases to work. But in WILL Geometry, the unified equation forbids reaching an infinite
-density. There is always a local maximum $\rho_{\max}$ given by the equation, which increases as you
-go inward but never becomes infinite at a finite radius (for details see section "Zeno-Type Divergence in Black Hole Infall" in part II document).
-
-
-> No matter how you look at it — as a distance, or as an amount of energy — the universe always keeps you within the same “safe fraction” of the maximum possible.
-
----
-
-### The “Critical Density” Explained
-
-- At every point in space, there’s a built-in “speed limit” for how much energy you can pack into that spot.
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/17_Theoretical-Ouroboros.png" alt="The Theoretical Ouroboros" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
-- The **critical density** ($ \rho_{max}$) isn’t universal — it depends on where you are (your distance from the center). The closer you get to the center, the higher this limit becomes — but it’s *never* infinite.
-    
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">The Theoretical Ouroboros</h2>
+        <p>
+            The Unified Field Equation closes the theoretical loop. The single foundational principle, through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. 
+        </p>
+        <p class="mt-4">
+             The initial principle \(\text{SPACETIME} \equiv \text{ENERGY}\) logically derives the geometry and physical laws, and these derived laws then loop back to intrinsically define and prove the self-consistency of the initial idea.
+        </p>
 
-<details> <summary><strong>How is the density limit set?</strong></summary>  
-$$
-\rho_{max} = \frac{c^2}{8\pi G r_d^2}
-$$
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>The WILL framework exhibits perfect logical closure: the fundamental principle is proven as the inevitable consequence of geometric consistency.</strong></p>
+        </div>
 
-— “The smaller the radius, the greater the allowed density — but there’s always a cap.”
-
-</details>
-
----
-
-### What this solves
-
-- In ordinary general relativity, a black hole means a “point of infinite density” (a singularity). That’s where the math — and the physics — break down.
-    
-- In WILL Geometry, such infinite densities are **impossible**. The universe always sets a maximum — so you never reach a breakdown or “divide by zero”.
-    
-
-> Instead of singularities, black holes become places where everything is packed to the maximum allowed, but always stays finite and well-behaved.
+        <p class="mt-10">
+            This logical closure is elegant, but a physical theory is only as strong as its empirical predictions. The final step is to ground this abstract framework in real-world, measurable phenomena.
+        </p>
+    </div>
+</div>
 
 ---
 
-### Table: “Old School” GR vs. WILL Geometry
-
-|  | **General Relativity (GR)** | **WILL Geometry** |
-| --- | --- | --- |
-| Geometry & Energy | Equated by differential equations | Identified algebraically (one-to-one) |
-| Math Formalism | Complicated tensors, calculus | Simple, <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>-based logic |
-| Singularities | Yes, possible (bad news!) | Impossible |
-| Density Limit | Undefined (needs quantum gravity, still a mystery) | Always set, changes with position, never infinite |
-
-**Bottom line:** This single “line of code” is the ultimate summary of WILL Geometry:
-
-- **Geometry, energy, and density are always in sync.**
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/18_Empirical-Validation.png" alt="Empirical Validation of WILL Geometry" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
-- **There’s always a local limit — and the universe never lets you break it.**
-    
-- **No infinities, no singularities, just pure, built-in self-consistency.**
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">Grounding the Vision in Reality</h2>
+        <p>
+            A theory born of pure logic must find its reflection in the workings of the real world. WILL Geometry passes rigorous experimental and observational tests, reproducing the successes of standard physics from deeper, more unified first principles.
+        </p>
 
-  ---
+        <div class="mt-10">
+            <h3 class="text-2xl font-bold text-white mb-2">Critical Orbits (ISCO & Photon Sphere)</h3>
+            <p>All known GR critical surfaces emerge naturally from the geometric equilibrium of the \(\beta\) and \(\kappa\) projections, without solving geodesic equations.</p>
+            <details class="video-dropdown-container mt-4">
+                <summary class="will-hero-summary">▶ Show Derivation of Critical Orbits</summary>
+                <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                    <p>The critical orbital radii for the photon sphere and the innermost stable circular orbit (ISCO) emerge from conditions on the total projection budget, \(Q^2 = \kappa^2 + \beta^2\).</p>
+                    <p class="mt-4">A key geometric equilibrium occurs when \(\theta_1 = \theta_2\), which leads to \(Q^2=1\).</p>
+                    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/critical-orbits-diagram.png" alt="Diagram for critical orbits derivation" class="w-full max-w-sm mx-auto rounded-lg my-4 bg-white p-2">
+                    <ul class="list-disc list-inside space-y-4 mt-4">
+                        <li>
+                            <strong>Photon Sphere (\(r = 1.5R_s\)):</strong> Occurs when the causal budget is exhausted, \(Q^2 = 1\), leaving no timelike separation (\(Q_t = 0\)). This corresponds to \(\kappa = \sqrt{2/3}\) and \(\beta = \sqrt{1/3}\).
+                        </li>
+                        <li>
+                            <strong>ISCO (\(r = 3R_s\)):</strong> Occurs at the marginal stability condition \(Q^2 = 1/2\). This corresponds to \(\kappa=\sqrt{1/3}\) and \(\beta = \sqrt{1/6}\).
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
 
-### Closure of the Theoretical Framework
-
-The unified field equation completes the ab initio derivation begun with the fundamental postulate:
-
-$$
-\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}
-$$
-
-This is the unified geometric field equation we derived. It expresses the complete equivalence:
-
-$$
-\text{GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}
-$$
-
----
-
-![Theoretical-Ouroboros-min.jpg](images/Theoretical-Ouroboros-min.jpg)
-
----
-
-We have shown that this single postulate, through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with a single fundamental statement about energy and its evolution, from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and space, proving the self-consistency of the initial postulate. From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework — the "Theoretical Ouroboros". But let's remain skeptical. We are here for Physics!
-
-> **Theoretical Ouroboros**  
-> The WILL framework exhibits perfect logical closure: the fundamental postulate about the nature of spacetime and energy is proven as the inevitable consequence of geometric consistency.
-
----
-
-## Section 9: Grounding the Vision – From Abstraction to Reality
-
-A theory, no matter how beautiful, is just a clever idea until it passes real-world tests. Science is all about matching what we think to what we actually see in nature. A beautiful theory is useless if it does not align with what we observe. This section is devoted to grounding the abstract vision of WILL Geometry by demonstrating that it makes precise, testable predictions about real physical phenomena.
-
----
-
-![Empirical-Validation2.jpg](images/Empirical-Validation2.jpg)
-
----
-
-Let’s examine these two key examples, which serve as rigorous empirical tests of the entire theoretical construction.
-
-### 1. Time Correction in the GPS System
-
-The Global Positioning System (GPS) is perhaps the ideal laboratory for testing relativistic effects in everyday life. For the system to function with high accuracy, GPS satellites must account for two relativistic effects that influence the rate of their onboard clocks compared to clocks on Earth:
-
-- **Special Relativity (SR) effect:** Satellites move at high speed (about 3.87 km/s), which causes their clocks to run slower than those on Earth. This effect is described by our kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> β.
-    
-- **General Relativity (GR) effect:** Satellites are at high altitude (about 20,200 km), where Earth's gravitational field is weaker. This causes their clocks to run faster than those on Earth. This effect is described by our potential <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> κ.
-    
-
-The standard approach is to calculate these two corrections separately and sum them. WILL Geometry offers a more fundamental approach. It asserts that these two effects are not independent, but are linked by the unbreakable relation κ² = 2β² and can be combined into a single unified energetic parameter Q, where Q² = κ² + β². Using this single parameter to calculate the overall relativistic time shift for the Earth–satellite system, WILL Geometry predicts that the clocks on GPS satellites should run ahead of ground-based clocks by about **38 microseconds per day**.
-
-This result exactly matches the empirically measured value that must be continually added to the GPS system for it to function correctly. The success of this prediction is a powerful confirmation not only of the individual parts of the theory, but — more importantly — of the very principle of unification. It shows that treating kinetic and gravitational effects as unified geometric <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s is not just a theoretical sophistication but a practical necessity for arriving at the correct answer.
-
+        <div class="mt-10">
+            <h3 class="text-2xl font-bold text-white mb-2">GPS Satellites</h3>
+            <p>The model correctly predicts the empirically measured time correction by unifying kinetic (SR) and gravitational (GR) effects into a single calculation.</p>
 ---
 
 <details class="video-dropdown-container">  
@@ -1038,13 +907,26 @@ This result exactly matches the empirically measured value that must be continua
 
 ---
 
-### 2. Precession of Mercury’s Orbit
-
-One of the earliest triumphs of Einstein’s general relativity was its explanation of the anomalous precession (slow rotation) of Mercury’s elliptical orbit. Observations showed that the perihelion (the point closest to the Sun) of Mercury’s orbit shifts by an additional 43 arcseconds per century, above what Newtonian gravity predicted.
-
-WILL Geometry also faces this classic test. Using its fundamental equations and parameters (β and κ, calculated for Mercury in the gravitational field of the Sun), the theory allows us to compute the expected value of this relativistic precession. The result obtained within WILL Geometry matches both the GR prediction and the observed data with machine-level precision.
-
-Detailed calculations for both examples are provided in this document, but the narrative conclusion is clear: WILL Geometry is not merely a philosophical construction. It passes the most rigorous experimental and observational tests. It not only reproduces the successes of standard relativistic physics but does so from deeper, more unified first principles, lending its predictions extra weight and elegance. A theory born of pure logic finds its exact reflection in the workings of the real world. WILL Geometry stands up to every challenge that nature throws at it, not just matching standard physics, but explaining it from the ground up, using nothing but logic and geometry.
+            
+            <details class="video-dropdown-container mt-4">
+                <summary class="will-hero-summary">▶ Show Full Calculation for GPS Time Shift</summary>
+                <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                    <p>Using the combined time factor \(\tau = \beta_Y \cdot \kappa_X\), we calculate the daily relativistic offset between GPS satellite clocks and Earth-based clocks.</p>
+                    <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-4 space-y-1 overflow-x-auto">
+                        <p>\(\beta_{GPS} = 0.0000129... \Rightarrow \beta_{YGPS} = 0.999999999917\)</p>
+                        <p>\(\kappa_{GPS} = 0.0000182... \Rightarrow \kappa_{XGPS} = 0.999999999833\)</p>
+                        <p>\(\tau_{GPS} = \kappa_{XGPS} \cdot \beta_{YGPS} = 0.99999999975\)</p>
+                        <hr class="border-gray-600 my-2">
+                        <p>\(\kappa_{Earth} = 0.0000373... \Rightarrow \kappa_{XEarth} = 0.999999999304\)</p>
+                        <p>\(\tau_{Earth} = \kappa_{XEarth} \cdot 1 = 0.999999999304\)</p>
+                        <hr class="border-gray-600 my-2">
+                        <p class="text-white font-bold">\(\Delta \tau = (1-\frac{\tau_{Earth}}{\tau_{GPS}}) \cdot 86400 \cdot 10^6\)</p>
+                        <p class="text-cyan-400 font-bold">\(\Delta \tau \approx 38.52 \text{ µs/day}\)</p>
+                    </div>
+                     <p class="mt-4">This result exactly matches the empirical time correction required for GPS synchronization and confirms the Energy-Symmetry Law using real-world data.</p>
+                </div>
+            </details>
+        </div>
 
 ---
 
@@ -1059,94 +941,49 @@ Detailed calculations for both examples are provided in this document, but the n
 
 ---
 
-## Section 10: A New Reality of Change — Dynamics Without Time
-
-Let’s get to the wildest part of WILL Geometry: **What if time isn’t fundamental at all?**
-
-### Rethinking Change and Time
-
-In “classic” physics, you always start with:
-
-- A system’s current state.
-    
-- Rules (equations) that tell you how it changes step by step as time flows by.
-    
-
-Here, time is like a river: everything *happens inside* this flow.
-
-**But in WILL Geometry, it’s the other way around:**
-
-- There’s no separate “river” of time.
-    
-- There are just possible states — all the ways the universe could be, as long as they satisfy the balance equations.
-    
-
-### So what is “dynamics” now?
-
-Instead of motion playing out *in* time, you have a web of “allowed” states, all rigidly connected. Any change in one parameter instantly forces all others to adjust, so the system stays in balance.
-
-Imagine a black hole gaining mass:
-
-- Its mass increases — but instantly, every other quantity (radius, curvature, energy density) also shifts, so the equations remain true.
-    
-- No waiting, no flow — just a jump from one balanced setup to another.
-    
-
-### What, then, is time?
-
-**Time is just the label we give to the sequence of allowed, self-consistent states.** It’s not some external clock ticking in the background — it’s a label for the sequence of changes.
-
-> **Time does not drive change — instead, change defines time.**
-
-### Why does this matter?
-
-- It flips our intuition: Physics isn’t about “how things change over time”, but about “which states are allowed, and how they follow each other in a logical sequence.”
-    
-- This view might actually solve deep puzzles — like the “problem of time” in quantum gravity — where it’s unclear how to even define time in the first place.
-    
-
-**Bottom line:** In WILL Geometry, the universe is not a machine running inside time — it’s a perfectly balanced structure, forever reshaping itself. What we call “time” is simply our story for that ongoing process of rebalancing.
+        <div class="mt-10">
+            <h3 class="text-2xl font-bold text-white mb-2">Mercury Precession</h3>
+            <p>The theory computes the anomalous precession of Mercury’s orbit, matching the observed data with machine-level precision.</p>
+            <details class="video-dropdown-container mt-4">
+                <summary class="will-hero-summary">▶ Show Full Calculation for Mercury's Precession</summary>
+                <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                    <p>The precession is calculated from the combined energy parameter \(Q^2\) and orbital eccentricity \(e\).</p>
+                    <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-4 space-y-1 overflow-x-auto">
+                        <p>\(\kappa_{Merc} = 0.000225...\)</p>
+                        <p>\(\beta_{Merc} = 0.000159...\)</p>
+                        <p>\(Q_{Merc}^2 = 3 \beta_{Merc}^2 = 7.653... \times 10^{-8}\)</p>
+                         <hr class="border-gray-600 my-2">
+                        <p class="text-white font-bold">\(\Delta\phi_{WILL} = \frac{2\pi Q_{Merc}^{2}}{(1-e_{Merc}^{2})} = 5.02087... \times 10^{-7}\) radians</p>
+                        <p class="text-white font-bold">\(\Delta\phi_{GR} = \frac{3\pi R_{Ssun}}{a_{Merc} (1 - e_{Merc}^{2})} = 5.02087... \times 10^{-7}\) radians</p>
+                         <hr class="border-gray-600 my-2">
+                         <p class="text-cyan-400 font-bold">Relative Difference: \(< 10^{-9}\) %</p>
+                    </div>
+                    <p class="mt-4">The negligible difference confirms that WILL Geometry reproduces the observed relativistic precession of Mercury to within machine accuracy.</p>
+                </div>
+            </details>
+        </div>
+        
+        <div class="mt-12 text-center text-lg font-semibold text-green-400 tracking-wider border-2 border-green-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>SPACETIME ≡ ENERGY: One principle defines the structure and the symmetry of reality.</strong></p>
+        </div>
+    </div>
+</div>
 
 ---
 
-## Section 11: Conclusion — The World as a <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>
+<div class="text-center py-12">
+    <h2 class="text-3xl font-bold text-white">The World as a Projection</h2>
+    <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
+        This exploration is only the beginning. The model has been extended to cover cosmology and quantum mechanics, with further results and detailed applications available below. The core idea remains: energy does not exist <em>in</em> space—it <em>creates</em> space by its projection.
+    </p>
 
-Our journey through WILL Geometry draws to a close. But remember: **in this short exploration, we’re only scratching the surface.** The model itself has already been extended to cover cosmology and quantum mechanics — with results and detailed applications available here:
-
-WILL Geometry — Results & Predictions
-
-We started with one simple idea:  
-**SpaceTime is just energy in motion.**
-
-From this, logic alone led us to:
-
-- circles and spheres as the natural “shapes” of the universe,
-    
-- relativity as a <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> on these shapes,
-    
-- and the deep unification of motion and gravity.
-    
-
-This journey uncovered a hidden unity behind the laws of physics, replacing arbitrary rules with pure geometry and energy flow. Even the “weird” effects of black holes and GPS satellites fall naturally out of this approach.
-
-At the core is one bold claim:
-
-> **Energy doesn’t just exist in space — it *creates* space, by its <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>.**
-
----
-
-![The-WILL-invariant.jpg](images/The-WILL-Invariant.jpg)
-
----
-
-All of physics becomes a story about “the projective curvature of the energy flow.” And the essence of it all is captured in a single, dimensionless  <abbr title="mapping of one quantity onto another axis or dimension">projections</abbr> <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr>:
-
-<details> <summary><strong>See the WILL <abbr title="a quantity that remains unchanged under transformations or projections">invariant</abbr></strong></summary>
-$$ 
-W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{1/κ_X\,E_0\,κ_X\,t_{d}^{2}}{1/β_Y\,m_0\,β_Y\,r_{d}^{2}}= \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 $$  
-</details>
-
-Energy, mass, time, and length — not disconnected ideas, but tightly bound faces of a single self-consistent structure.
+    <div class="mt-10 flex justify-center items-center flex-wrap gap-6 md:gap-10">
+        <a href="{{ site.baseurl }}/results/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Documents & Results</a>
+        <a href="{{ site.baseurl }}/predictions/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Testable Predictions</a>
+        <a href="{{ site.baseurl }}/assistant/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Ask WILL AI</a>
+        <a href="{{ site.baseurl }}/help/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Help This Research</a>
+    </div>
+</div>
 
 > ### The Name "WILL"  
 > The name Will reflects both the harmonious unity of the equation and a subtle irony towards the <abbr title="the idea that the Universe must allow conscious observers to exist, so the laws of physics appear fine-tuned for life">anthropic principle</abbr>, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
