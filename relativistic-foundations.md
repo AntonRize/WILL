@@ -297,8 +297,20 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
+
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/9_Energy-Momentum-Identity-on-S.png" alt="Energy Momentum Identity on the S¹ Circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+
+---
+
+<details class="video-dropdown-container">  
+  <summary class="will-hero-summary">▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)</summary>  
+  <div class="geometry-container hero-details">  
+    <div class="desmos-container">  
+      <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe>  
+    </div>  
+  </div>  
+</details>
 
 ---
 
@@ -309,9 +321,10 @@ If you want to see the full mathematical derivations, download the complete docu
 - **Horizontal leg** grows as the object’s β increases — this is its *momentum*.
     
 - **The hypotenuse** is the *total energy* — it stretches between rest energy and momentum as β increases.
-    
+
+
 ---
-  
+
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">Kinetic Energy Projection on \(S^1\)</h2>
         <p>Since \(S^{1}\) encodes one-dimensional displacement, the total energy \(E\) of the system must project consistently onto both axes:</p>
@@ -380,6 +393,20 @@ If you want to see the full mathematical derivations, download the complete docu
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/10_Potential-Energy-k-projection-on-S.png" alt="Diagram of the Kappa projection on the S² unit sphere" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+
+---
+
+<details class="video-dropdown-container">  
+  <summary class="will-hero-summary">▶ Show Interactive Graph: Potential Energy projection on S² (Desmos)</summary>  
+  <div class="geometry-container hero-details">  
+    <div class="desmos-container">  
+      <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe>  
+    </div>  
+  </div>  
+</details>
+
+---
+   
         <p>
             Analogous to the kinetic projection on \(S^1\), the omnidirectional (gravitational) relation is described by projections on the sphere, \(S^2\). This establishes the framework for General Relativity, defining gravitational energy and its corresponding momentum as geometric projections.
         </p>
@@ -387,67 +414,44 @@ If you want to see the full mathematical derivations, download the complete docu
         <details class="video-dropdown-container mt-6">
             <summary class="will-hero-summary">▶ Show Formal Derivation of Potential Energy Projection on S²</summary>
             <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                
-                <p>Analogous to \(S^1\), the relational geometry of the sphere, \(S^2\), provides orthogonal projections for two aspects of omnidirectional transformation. We define them as follows:</p>
-                <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
-                    <li><strong>The Amplitude Component (\(\kappa\)):</strong> This projection represents the <em>relational gravitational measure</em> between the object and the observer. A value of \(\kappa=1\) corresponds to the event horizon.</li>
-                    <li><strong>The Phase Component (\(\kappa_X\)):</strong> This projection governs the intrinsic scale of proper length and proper time units.</li>
-                </ul>
-                <p class="mt-4">These components are bound by the conservation law of the closed system:</p>
-                <p class="text-center text-xl font-mono my-4">\(\kappa_X^2 + \kappa^2 = 1\)</p>
+    
+    <p>Analogous to \(S^1\), the relational geometry of the sphere, \(S^2\), provides orthogonal projections for two aspects of omnidirectional transformation. We define them as follows:</p>
+    <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
+        <li><strong>The Amplitude Component (\(\kappa\)):</strong> The <em>relational gravitational measure</em>. A value of \(\kappa=1\) corresponds to the event horizon.</li>
+        <li><strong>The Phase Component (\(\kappa_X\)):</strong> Governs the intrinsic scale of proper length and time units.</li>
+    </ul>
+    <p class="mt-4">These components are bound by the conservation law:</p>
+    <p class="text-center text-xl font-mono my-4">\(\kappa_X^2 + \kappa^2 = 1\)</p>
 
-                <div class="border-l-4 border-gray-600 pl-4 py-2 my-4 italic">
-                    By isotropy the omnidirectional carrier is \(S^2\), but any radially symmetric exchange reduces to a great-circle meridional section. We therefore work on a unit great circle of \(S^2\) with the parametrization \((\kappa_X,\kappa)=(\cos\theta_2,\sin\theta_2)\).
-                </div>
-
-                <h4 class="text-xl font-bold text-white mt-6 mb-2">Consequence: Gravitational Effects</h4>
-                <p>The redistribution of the budget between the Phase and Amplitude components produces the effects of General Relativity. An increase in the relational measure (\(\kappa\)) requires a decrease in the measure of the internal structure (\(\kappa_X\)). This geometric trade-off is observed physically as gravitational time corrections.</p>
-
-                <h4 class="text-xl font-bold text-white mt-6 mb-2">Gravitational Tangent Formulation</h4>
-                <p>Just as the relativistic energy-momentum relation is expressed via \(\beta = \cos\theta_{1}\), its gravitational analogue follows from \(\kappa = \sin\theta_{2}\). We define the gravitational energy and momentum:</p>
-                <p class="text-center text-xl font-mono my-4">\(E_{g} = \frac{E_{0}}{\kappa_{X}}\) where \(\kappa_{X} = \sqrt{1 - \kappa^{2}}\)</p>
-                <p class="text-center text-xl font-mono my-4">\(p_g = E_{0}/c \cdot \tan\theta_{2}\)</p>
-                <p>This yields the gravitational energy relation: \(E_{g}^{2} = p_g^{2} + E_{0}^{2}\).</p>
-                
-                <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4">
-                    <p>\(\beta = \cos\theta_{1}, \qquad \kappa = \sin\theta_{2}\)</p>
-                    <p>\(\cot\theta_{1} \longleftrightarrow \tan\theta_{2}\)</p>
-                    <p class="mt-2 text-base text-gray-300">Kinematic momentum \(p\) and gravitational momentum \(p_g\) are dual projections, expressed through complementary trigonometric forms.</p>
-                </div>
-
-                <h4 class="text-xl font-bold text-white mt-6 mb-2">Geometric Composition of SR and GR factors</h4>
-                <p>On the unit kinematic circle (\(S^1\)), we have: \(E=\dfrac{E_0}{\sin\theta_1}\) and \(p=E_0\cot\theta_1\).</p>
-                <p>On the gravitational circle (\(S^2\)), we have: \(E_g=\dfrac{E_0}{\cos\theta_2}\) and \(p_g=E_0\tan\theta_2\).</p>
-                
-                <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/s1-s2-composition.png" alt="Composition of S1 and S2 projections" class="w-full max-w-2xl mx-auto rounded-lg my-4 bg-white p-2">
-
-                <h4 class="text-xl font-bold text-white mt-6 mb-2">Relational Symmetry Summary</h4>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse mt-4">
-                        <thead>
-                            <tr class="bg-gray-800">
-                                <th colspan="2" class="p-3 text-center border border-gray-600">Unified Representation of Relativistic and Gravitational Effects</th>
-                            </tr>
-                            <tr class="bg-gray-700">
-                                <th class="p-2 border border-gray-600">Algebraic Form</th>
-                                <th class="p-2 border border-gray-600">Trigonometric Form</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="bg-gray-800/50">
-                                <td class="p-2 border border-gray-600 font-mono">\(1/\beta_Y= \frac{1}{\sqrt{1-\beta^2}}\)</td>
-                                <td class="p-2 border border-gray-600 font-mono">\(1/\sin(\theta_1)\)</td>
-                            </tr>
-                             <tr class="bg-gray-800/50">
-                                <td class="p-2 border border-gray-600 font-mono">\(1/\kappa_X = \frac{1}{\sqrt{1-\kappa^2}}\)</td>
-                                <td class="p-2 border border-gray-600 font-mono">\(1/\cos(\theta_2)\)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </details>
+    <div class="border-l-4 border-gray-600 pl-4 py-2 my-4 italic">
+        By isotropy the omnidirectional carrier is \(S^2\), but any radially symmetric exchange reduces to a great-circle meridional section. We therefore work on a unit great circle of \(S^2\) with the parametrization \((\kappa_X,\kappa)=(\cos\theta_2,\sin\theta_2)\).
     </div>
+
+    <h4 class="text-xl font-bold text-white mt-8 mb-4">Geometric Composition of SR and GR factors</h4>
+    
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/s1-s2-composition.png" alt="Composition of S1 and S2 projections" class="w-full max-w-2xl mx-auto rounded-lg my-4 bg-white p-2">
+
+    <div class="flex flex-col md:flex-row text-center text-sm font-mono mt-2 mb-8">
+        <div class="w-full md:w-1/2 p-2">
+            <p>\(E=E_0/\beta_Y\)</p>
+            <p>\(p=E_0\beta/\beta_Y=E_0\cot\theta_1\)</p>
+        </div>
+        <div class="w-full md:w-1/2 p-2">
+            <p>\(E_g=E_0/\kappa_X\)</p>
+            <p>\(p_g=E_0\kappa/\kappa_X=E_0\tan\theta_2\)</p>
+        </div>
+    </div>
+
+    <h4 class="text-xl font-bold text-white mt-8 mb-4">Composition of Factors and the Tau (\(\tau\)) Parameter</h4>
+    <p>Composing the two independent stretches from the kinematic (\(\beta_Y\)) and gravitational (\(\kappa_X\)) projections gives the total local time factor, \(\tau\). This parameter is essential for calculating the combined relativistic time shift, for instance in the GPS system.</p>
+    <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg mt-4 space-y-2">
+        <p class="text-center">\(\tau = \beta_Y \cdot \kappa_X = \sqrt{(1-\beta^2)(1-\kappa^2)}\)</p>
+    </div>
+    <p class="mt-4">The total local energy \(E_{\text{loc}}\) is then given by:</p>
+    <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg mt-4 space-y-2">
+        <p class="text-center">\(E_{\text{loc}} = \frac{E_0}{\tau} = \frac{E_0}{\beta_Y \kappa_X}\)</p>
+    </div>
+
 </div>
 
 ---
@@ -466,79 +470,6 @@ If you want to see the full mathematical derivations, download the complete docu
 
 
 
-
-<details> <summary><strong>Show the math</strong></summary>
-
-The relationship between space and time <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s is just Pythagoras’ theorem for a unit circle:  
-<br>  
-$ \beta = \frac{v}{c} = \cos(\theta_1) $  Kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>  
-<br>  
-$ β_Y = \sin(\theta_1) = \sqrt{1 - \beta^2} $  Length contraction factor
-<br>
-$ \cos(\theta_1)^2 + \sin(\theta_1)^2 = 1 $
-</details>
-
-### Why This Explains All the Weirdness of Relativity
-
-When you look at it this way, all the “strange” effects of special relativity — like time slowing down as you go faster — are just the result of keeping the total “speed of change” fixed, but sharing it differently between space and time. There’s nothing mysterious:
-
-- More speed through space = less speed through time.
-    
-
-<details> <summary><strong>Show the math</strong></summary>
-
-The time dilation factor (Lorentz factor) is:  
-<br>  
-$ 1/β_Y = \frac{1}{β_Y} = \frac{1}{\sqrt{1 - \beta^2}} = \frac{1}{\sin(\theta_1)} $  
-<br>  
-(This is the same Lorentz factor often written as $\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$.)
-
-</details>
-
----
-
-<details> <summary><strong>Show the math</strong></summary>
-
-Total energy: E = 1/β_Y m c²  
-<br>  
-Rest energy: E₀ = m c²  
-<br>  
-Momentum: p = 1/β_Y m v
-
-</details>
-
----
-
-### The Energy-Momentum Triangle
-
-><details> <summary><strong>Show Guide to Interpreting This Combined Diagram:</strong></summary>   
-> This diagram intentionally superimposes two different geometric views to illustrate their deep connection. To avoid confusion, please read the following guide:  
-> - The Background (Unit Circle): The white unit circle and its associated labels (like `β_Y`, `θ_1`, and "Time evolution") represent the “Spacetime <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>” model discussed previously. It is shown here as a reference to illustrate where the fundamental velocity parameter `β` originates. In this background view, the hypotenuse is always constant (equal to 1).
-> - The Foreground (Energy Triangle): The shaded triangle is the main subject of this section. For this Energy–Momentum Triangle, the axes take on a new, physical meaning:
-> - The vertical axis represents the constant <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> <abbr title="a quantity that remains unchanged under transformations or projection">invariant</abbr> Rest Energy ($E_0$).
-> - The horizontal axis represents the growing Momentum ($p$).
-> - The hypotenuse of this main triangle represents the growing Total Energy ($E$), which clearly extends beyond the bounds of the background unit circle. 
-> - The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy–momentum triangle, visually linking the geometry of spacetime to the energy of an object. </details>
-
-
-
-![Energy-Momentum-Triangle](images/Energy-momentum-triangle.jpg)
-
-
-> When you slide the velocity, you can see how “momentum” grows, and total energy stretches to keep the triangle in perfect balance, but rest energy always stays the same.
-
----
-
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
-
----
 
 #### What’s the point?
 
@@ -597,18 +528,7 @@ Imagine standing at the center of a big sphere — gravity “spreads out” the
 You can think of κ as “how much of the universe’s speed limit you’d need to escape gravity right here.”
 
 
----
 
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: Gravity/Time on the Unit Sphere (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
-
----
 
 ### How Gravity Warps Time
 
