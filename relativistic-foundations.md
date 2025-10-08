@@ -410,7 +410,21 @@ If you want to see the full mathematical derivations, download the complete docu
                 </ul>
                 <p class="mt-4">These components are bound by the conservation law of the closed system:</p>
                 <p class="text-center text-xl font-mono my-4">\(\kappa_X^2 + \kappa^2 = 1\)</p>
-            </div>
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Consequence: Gravitational Effects</h4>
+<p>The redistribution of the budget between the Phase and Amplitude components produces the effects of General Relativity. An increase in the relational measure (\(\kappa\)) requires a decrease in the measure of the internal structure (\(\kappa_X\)). This geometric trade-off is observed physically as gravitational time corrections.</p>
+
+<h4 class="text-xl font-bold text-white mt-6 mb-2">Gravitational Tangent Formulation</h4>
+<p>Just as the relativistic energy-momentum relation is expressed via \(\beta = \cos\theta_{1}\), its gravitational analogue follows from \(\kappa = \sin\theta_{2}\). We define the gravitational energy and momentum:</p>
+<p class="text-center text-xl font-mono my-4">\(E_{g} = \frac{E_{0}}{\kappa_{X}}\) where \(\kappa_{X} = \sqrt{1 - \kappa^{2}}\)</p>
+<p class="text-center text-xl font-mono my-4">\(p_g = E_{0}/c \cdot \tan\theta_{2}\)</p>
+<p>This yields the gravitational energy relation: \(E_{g}^{2} = p_g^{2} + E_{0}^{2}\).</p>
+
+<div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4">
+    <p>\(\beta = \cos\theta_{1}, \qquad \kappa = \sin\theta_{2}\)</p>
+    <p class="mt-2">\(\cot\theta_{1} \longleftrightarrow \tan\theta_{2}\)</p>
+    <p class="mt-2 text-base text-gray-300 font-normal">Kinematic momentum \(p\) and gravitational momentum \(p_g\) are dual projections, expressed through complementary trigonometric forms.</p>
+</div>
+           
         </details>
 
     <div class="mt-10">
