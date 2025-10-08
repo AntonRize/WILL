@@ -14,6 +14,7 @@ title: "Relativistic Foundations"
   line-height: 1.6;
   font-size: 1.05rem;
 }
+  
   .video-wrapper {
   position: relative;
   overflow: hidden;
@@ -63,6 +64,7 @@ title: "Relativistic Foundations"
 .video-dropdown-summary::-webkit-details-marker {
   display: none;
 }
+  
 /* Hero-like toggle button for <summary> */
 .will-hero-summary {
   display: block;
@@ -78,13 +80,15 @@ title: "Relativistic Foundations"
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(6,182,212,0.10); /* ~ shadow-cyan-500/10 */
   transition: background-color .2s ease, transform .12s ease, box-shadow .2s ease;
-}
+  }
+  
 /* Hover/active feedback */
 .will-hero-summary:hover {
   background-color: rgba(31,41,55,0.7);
   transform: translateY(-1px);
   box-shadow: 0 14px 28px rgba(6,182,212,0.12);
-}
+  }
+  
 /* Remove default disclosure marker */
 .will-hero-summary::-webkit-details-marker { display: none; }
 /* Keep container spacing consistent (reuse your existing container class) */
@@ -98,21 +102,34 @@ title: "Relativistic Foundations"
 
 ## What is This Page?
 
-This interactive page was created to **explain the essential meaning and logic of the WILL Geometry model** — but **without** the heavy mathematical machinery.
+<div class="my-8 text-center max-w-4xl mx-auto">
+    <p class="text-lg text-gray-400 italic leading-relaxed">
+        This page transparently demonstrates how the laws of Special and General Relativity inevitably arise from a single principle of reduction, pure logic, and geometry. By revealing their fundamental essence, it offers elegant solutions to many long-standing problems in physics. Through simple and clear numerical calculations of well-known phenomena, this narrative will show not only that the Universe is, at its core, incredibly elegant and simple, but also that fundamental physics is accessible to any dedicated seeker, regardless of their level of mathematical <strong class="text-white">perversion</strong>.
+    </p>
+</div>
 
-Here, the focus is on the core ideas, intuitive explanations, and geometric visualizations, making this new approach to fundamental physics accessible to a much wider audience (hover-tooltips added for clarity).
+---
 
-If you want to see the full mathematical derivations, download the complete documents here:  
-[Full WILL Geometry Papers](https://antonrize.github.io/WILL/parts/)
+For full mathematical derivations:  
+
+[WILL RG Papers](https://antonrize.github.io/WILL/parts/)
+
+For unique testable predictions:
+
+[WILL RG Predictions](https://antonrize.github.io/WILL/predictions/)
+
+For questions and curiosity:
+
+[WILL RG AI](https://antonrize.github.io/WILL/WILL-AI/)
 
 ---
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Quick Glossary: Key Terms & Concepts</summary>  
   <div class="hero-details">  
-    <p><strong>Beta (β):</strong>  The kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>. Representing the ratio of an object's velocity to the universal speed of evolution (β = v/c). It quantifies how much of the "speed of change" is perceived as motion through space relative to observer. Not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.</p>  
+    <p><strong>Beta (β):</strong>  The kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>. Representing the ratio of an object's velocity to the universal rate of change (β = v/c). It quantifies how much of the "speed of change" is perceived as motion through space relative to observer. Not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.</p>  
     <p><strong>Kappa (κ):</strong>  The potential <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>. It measures how deeply an object is situated within a gravitational field, relative to an observer, and asociated with <abbr title="The speed object has to move to escape the gravitational field">escape velocity</abbr>  (κ = v_e/c). It indicates proximity to an event horizon, at κ = 1 object has to move with the speed of light (c) in order to escape gravity (event horizon). Not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.</p>  
-    <p><strong>Universal Speed of Evolution (c):</strong> Another name for the speed of light, viewed here as the fundamental, <abbr title="a quantity that remains unchanged under transformations">invariant</abbr> tempo of change in the universe. It is not merely the speed of light but the constant rate at which all energetic interactions and transformations occur, speed limit for any change or information transfer.</p>  
+    <p><strong>Universal rate of channge (c):</strong> Another name for the speed of light, viewed here as the fundamental, <abbr title="a quantity that remains unchanged under transformations">invariant</abbr> tempo of change in the universe. It is not merely the speed of light but the constant rate at which all energetic interactions and transformations occur, speed limit for any change or information transfer.</p>  
     <p><strong>Epistemological Hygiene:</strong> The principle of removing all unnecessary assumptions when building a theory, using only what’s logically required (nothing extraneous).</p>  
     <p><strong>Event Horizon:</strong> The boundary around a black hole beyond which nothing can escape. (At this “point of no return,” the escape velocity equals the speed of light.)</p>  
     <p><strong>Photon Sphere:</strong> A region near a black hole (about 1.5 times the Schwarzschild radius) where light can orbit in a circle if moving tangentially. It's an unstable orbit – light can fall in or escape if perturbed.</p>  
