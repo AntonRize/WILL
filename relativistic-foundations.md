@@ -312,18 +312,9 @@ If you want to see the full mathematical derivations, download the complete docu
   </div>  
 </details>
 
----
-
-**Visualize energy, mass, and momentum as a simple right triangle:**
-
-- **Vertical leg** (fixed) always represents the object's *rest energy* — this never changes, no matter how fast it moves.
-    
-- **Horizontal leg** grows as the object’s β increases — this is its *momentum*.
-    
-- **The hypotenuse** is the *total energy* — it stretches between rest energy and momentum as β increases.
-
 
 ---
+
 
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">Kinetic Energy Projection on \(S^1\)</h2>
@@ -390,11 +381,9 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-<div class="mb-12">
+ <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/10_Potential-Energy-k-projection-on-S.png" alt="Diagram of the Kappa projection on the S² unit sphere" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-
----
+   <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Show Interactive Graph: Potential Energy projection on S² (Desmos)</summary>  
@@ -408,51 +397,89 @@ If you want to see the full mathematical derivations, download the complete docu
 ---
    
         <p>
-            Analogous to the kinetic projection on \(S^1\), the omnidirectional (gravitational) relation is described by projections on the sphere, \(S^2\). This establishes the framework for General Relativity, defining gravitational energy and its corresponding momentum as geometric projections.
+            With both the kinetic (SR on \(S^1\)) and potential (GR on \(S^2\)) projections defined, we can now compose them. This composition reveals how WILL Geometry derives one of General Relativity's core postulates—the Equivalence Principle—not as an axiom, but as a structural necessity.
         </p>
 
         <details class="video-dropdown-container mt-6">
-            <summary class="will-hero-summary">▶ Show Formal Derivation of Potential Energy Projection on S²</summary>
+            <summary class="will-hero-summary">▶ Show Formal Derivation of Potential Energy Projection</summary>
             <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-    
-    <p>Analogous to \(S^1\), the relational geometry of the sphere, \(S^2\), provides orthogonal projections for two aspects of omnidirectional transformation. We define them as follows:</p>
-    <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
-        <li><strong>The Amplitude Component (\(\kappa\)):</strong> The <em>relational gravitational measure</em>. A value of \(\kappa=1\) corresponds to the event horizon.</li>
-        <li><strong>The Phase Component (\(\kappa_X\)):</strong> Governs the intrinsic scale of proper length and time units.</li>
-    </ul>
-    <p class="mt-4">These components are bound by the conservation law:</p>
-    <p class="text-center text-xl font-mono my-4">\(\kappa_X^2 + \kappa^2 = 1\)</p>
+                <p>Analogous to \(S^1\), the relational geometry of the sphere, \(S^2\), provides orthogonal projections for two aspects of omnidirectional transformation. We define them as follows:</p>
+                <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
+                    <li><strong>The Amplitude Component (\(\kappa\)):</strong> The <em>relational gravitational measure</em>. A value of \(\kappa=1\) corresponds to the event horizon.</li>
+                    <li><strong>The Phase Component (\(\kappa_X\)):</strong> This projection governs the intrinsic scale of proper length and time units.</li>
+                </ul>
+                <p class="mt-4">These components are bound by the conservation law of the closed system:</p>
+                <p class="text-center text-xl font-mono my-4">\(\kappa_X^2 + \kappa^2 = 1\)</p>
+            </div>
+        </details>
 
-    <div class="border-l-4 border-gray-600 pl-4 py-2 my-4 italic">
-        By isotropy the omnidirectional carrier is \(S^2\), but any radially symmetric exchange reduces to a great-circle meridional section. We therefore work on a unit great circle of \(S^2\) with the parametrization \((\kappa_X,\kappa)=(\cos\theta_2,\sin\theta_2)\).
-    </div>
+    <div class="mt-10">
+            <h3 class="text-2xl font-bold text-white text-center mb-6">Clear Relational Symmetry Between Projections</h3>
+            
+            <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/s1-s2-composition.png" alt="Composition of S1 and S2 projections" class="w-full max-w-2xl mx-auto rounded-lg my-6 bg-white p-2">
 
-    <h4 class="text-xl font-bold text-white mt-8 mb-4">Geometric Composition of SR and GR factors</h4>
-    
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/s1-s2-composition.png" alt="Composition of S1 and S2 projections" class="w-full max-w-2xl mx-auto rounded-lg my-4 bg-white p-2">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse mt-4 text-base">
+                    <thead>
+                        <tr class="bg-gray-800">
+                            <th colspan="2" class="p-3 text-center border border-gray-600">
+                                <p>\(\beta=\beta_X, \quad \kappa=\kappa_Y, \quad \theta_1= \arccos(\beta), \quad \theta_2 = \arcsin(\kappa)\)</p>
+                                <p class="mt-1 font-bold text-cyan-400">\(\kappa^2 = 2\beta^2\)</p>
+                            </th>
+                        </tr>
+                        <tr class="bg-gray-700">
+                            <th class="p-2 border border-gray-600">Algebraic Form</th>
+                            <th class="p-2 border border-gray-600">Trigonometric Form</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-gray-800/50">
+                            <td class="p-2 border border-gray-600 font-mono">\(1/\beta_Y= \frac{1}{\sqrt{1-\beta^2}}\)</td>
+                            <td class="p-2 border border-gray-600 font-mono">\(1/\sin(\theta_1) = 1/\sin(\arccos(\beta))\)</td>
+                        </tr>
+                         <tr class="bg-gray-800/50">
+                            <td class="p-2 border border-gray-600 font-mono">\(1/\kappa_X = \frac{1}{\sqrt{1-\kappa^2}}\)</td>
+                            <td class="p-2 border border-gray-600 font-mono">\(1/\cos(\theta_2) = 1/\cos(\arcsin(\kappa))\)</td>
+                        </tr>
+                        <tr class="bg-gray-800/50">
+                            <td class="p-2 border border-gray-600 font-mono">\(\beta_Y = \sqrt{1-\beta^2}\)</td>
+                            <td class="p-2 border border-gray-600 font-mono">\(\sin(\theta_1) = \sin(\arccos(\beta))\)</td>
+                        </tr>
+                        <tr class="bg-gray-800/50">
+                            <td class="p-2 border border-gray-600 font-mono">\(\kappa_X = \sqrt{1-\kappa^2}\)</td>
+                            <td class="p-2 border border-gray-600 font-mono">\(\cos(\theta_2) = \cos(\arcsin(\kappa))\)</td>
+                        </tr>
+                        <tr class="bg-gray-800/50">
+                            <td class="p-2 border border-gray-600 font-mono">\(p=E_0\beta/\beta_Y\)</td>
+                            <td class="p-2 border border-gray-600 font-mono">\(p=E_0\cot(\theta_1)\)</td>
+                        </tr>
+                        <tr class="bg-gray-800/50">
+                            <td class="p-2 border border-gray-600 font-mono">\(p_g=E_0\kappa/\kappa_X\)</td>
+                            <td class="p-2 border border-gray-600 font-mono">\(p_g=E_0 \tan(\theta_2)\)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-    <div class="flex flex-col md:flex-row text-center text-sm font-mono mt-2 mb-8">
-        <div class="w-full md:w-1/2 p-2">
-            <p>\(E=E_0/\beta_Y\)</p>
-            <p>\(p=E_0\beta/\beta_Y=E_0\cot\theta_1\)</p>
+            <h4 class="text-xl font-bold text-white mt-8 mb-4">The Combined Energy Parameter \(Q\)</h4>
+            <p>The total energy projection parameter unifies both aspects, describing the combined effects of relativity and gravity.</p>
+            <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg mt-4 space-y-2">
+                <p>\(Q = \sqrt{\kappa^2 + \beta^2}\)</p>
+                <p>\(Q^{2} = 3\beta^2 = \frac{3}{2}\kappa^2 = \frac{3R_s}{2r}\)</p>
+                <p>\(Q_t = \sqrt{1-Q^2} = \sqrt{1-3\beta^2} = \sqrt{1-\frac{3}{2}\kappa^2}\)</p>
+                <p>\(Q_r = \frac{1}{Q_t}\)</p>
+            </div>
+
+            <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+                <p>Relativistic (\(\beta\)) and gravitational (\(\kappa\)) modes are dual aspects of one energy-transformation constraint.</p>
+            </div>
         </div>
-        <div class="w-full md:w-1/2 p-2">
-            <p>\(E_g=E_0/\kappa_X\)</p>
-            <p>\(p_g=E_0\kappa/\kappa_X=E_0\tan\theta_2\)</p>
-        </div>
     </div>
-
-    <h4 class="text-xl font-bold text-white mt-8 mb-4">Composition of Factors and the Tau (\(\tau\)) Parameter</h4>
-    <p>Composing the two independent stretches from the kinematic (\(\beta_Y\)) and gravitational (\(\kappa_X\)) projections gives the total local time factor, \(\tau\). This parameter is essential for calculating the combined relativistic time shift, for instance in the GPS system.</p>
-    <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg mt-4 space-y-2">
-        <p class="text-center">\(\tau = \beta_Y \cdot \kappa_X = \sqrt{(1-\beta^2)(1-\kappa^2)}\)</p>
-    </div>
-    <p class="mt-4">The total local energy \(E_{\text{loc}}\) is then given by:</p>
-    <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg mt-4 space-y-2">
-        <p class="text-center">\(E_{\text{loc}} = \frac{E_0}{\tau} = \frac{E_0}{\beta_Y \kappa_X}\)</p>
-    </div>
-
 </div>
+
+---
+
+   
 
 ---
 
