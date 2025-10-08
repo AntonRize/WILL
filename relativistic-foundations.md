@@ -381,22 +381,20 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
- <div class="mb-12">
+<div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/10_Potential-Energy-k-projection-on-S.png" alt="Diagram of the Kappa projection on the S² unit sphere" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-   <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
 
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: Potential Energy projection on S² (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
+        <details class="video-dropdown-container">  
+            <summary class="will-hero-summary">▶ Show Interactive Graph: Potential Energy projection on S² (Desmos)</summary>  
+            <div class="geometry-container hero-details">  
+                <div class="desmos-container">  
+                    <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe>  
+                </div>  
+            </div>  
+        </details>
 
----
-   
-        <p>
+        <p class="mt-6">
             With both the kinetic (SR on \(S^1\)) and potential (GR on \(S^2\)) projections defined, we can now compose them. This composition reveals how WILL Geometry derives one of General Relativity's core postulates—the Equivalence Principle—not as an axiom, but as a structural necessity.
         </p>
 
@@ -411,23 +409,22 @@ If you want to see the full mathematical derivations, download the complete docu
                 <p class="mt-4">These components are bound by the conservation law of the closed system:</p>
                 <p class="text-center text-xl font-mono my-4">\(\kappa_X^2 + \kappa^2 = 1\)</p>
                 <h4 class="text-xl font-bold text-white mt-6 mb-2">Consequence: Gravitational Effects</h4>
-<p>The redistribution of the budget between the Phase and Amplitude components produces the effects of General Relativity. An increase in the relational measure (\(\kappa\)) requires a decrease in the measure of the internal structure (\(\kappa_X\)). This geometric trade-off is observed physically as gravitational time corrections.</p>
+                <p>The redistribution of the budget between the Phase and Amplitude components produces the effects of General Relativity. An increase in the relational measure (\(\kappa\)) requires a decrease in the measure of the internal structure (\(\kappa_X\)). This geometric trade-off is observed physically as gravitational time corrections.</p>
 
-<h4 class="text-xl font-bold text-white mt-6 mb-2">Gravitational Tangent Formulation</h4>
-<p>Just as the relativistic energy-momentum relation is expressed via \(\beta = \cos\theta_{1}\), its gravitational analogue follows from \(\kappa = \sin\theta_{2}\). We define the gravitational energy and momentum:</p>
-<p class="text-center text-xl font-mono my-4">\(E_{g} = \frac{E_{0}}{\kappa_{X}}\) where \(\kappa_{X} = \sqrt{1 - \kappa^{2}}\)</p>
-<p class="text-center text-xl font-mono my-4">\(p_g = E_{0}/c \cdot \tan\theta_{2}\)</p>
-<p>This yields the gravitational energy relation: \(E_{g}^{2} = p_g^{2} + E_{0}^{2}\).</p>
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Gravitational Tangent Formulation</h4>
+                <p>Just as the relativistic energy-momentum relation is expressed via \(\beta = \cos\theta_{1}\), its gravitational analogue follows from \(\kappa = \sin\theta_{2}\). We define the gravitational energy and momentum:</p>
+                <p class="text-center text-xl font-mono my-4">\(E_{g} = \frac{E_{0}}{\kappa_{X}}\) where \(\kappa_{X} = \sqrt{1 - \kappa^{2}}\)</p>
+                <p class="text-center text-xl font-mono my-4">\(p_g = E_{0}/c \cdot \tan\theta_{2}\)</p>
+                <p>This yields the gravitational energy relation: \(E_{g}^{2} = p_g^{2} + E_{0}^{2}\).</p>
 
-<div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4">
-    <p>\(\beta = \cos\theta_{1}, \qquad \kappa = \sin\theta_{2}\)</p>
-    <p class="mt-2">\(\cot\theta_{1} \longleftrightarrow \tan\theta_{2}\)</p>
-    <p class="mt-2 text-base text-gray-300 font-normal">Kinematic momentum \(p\) and gravitational momentum \(p_g\) are dual projections, expressed through complementary trigonometric forms.</p>
-</div>
-           
-        </details>
+                <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4">
+                    <p>\(\beta = \cos\theta_{1}, \qquad \kappa = \sin\theta_{2}\)</p>
+                    <p class="mt-2">\(\cot\theta_{1} \longleftrightarrow \tan\theta_{2}\)</p>
+                    <p class="mt-2 text-base text-gray-300 font-normal">Kinematic momentum \(p\) and gravitational momentum \(p_g\) are dual projections, expressed through complementary trigonometric forms.</p>
+                </div>
+            </div> </details>
 
-    <div class="mt-10">
+        <div class="mt-10">
             <h3 class="text-2xl font-bold text-white text-center mb-6">Clear Relational Symmetry Between Projections</h3>
             
             <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/s1-s2-composition.png" alt="Composition of S1 and S2 projections" class="w-full max-w-2xl mx-auto rounded-lg my-6 bg-white p-2">
@@ -493,9 +490,45 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-   
+  <div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/11-Equivalence-Principle-as-Derived-Identity.png" alt="Derivation of the Equivalence Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">Equivalence Principle as a Derived Identity</h2>
+        <p>
+            In General Relativity, the Einstein Equivalence Principle is introduced as an independent postulate: \(m_g \equiv m_i\). Within WILL Geometry, no such axiom is required.
+        </p>
+        <p class="mt-4">
+            Composing the independent stretches from the kinematic (\(1/\beta_Y\)) and gravitational (\(1/\kappa_X\)) projections gives the total local energy:
+        </p>
+        <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg my-4 text-center">
+             <p>\(E_{\text{loc}} = \frac{E_0}{\beta_Y \cdot \kappa_X} = \frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}\)</p>
+        </div>
+        <p>
+            The inertial (\(\tilde p\)) and gravitational (\(\tilde p_g\)) projections share the same operational scale, governed by an identical effective mass factor, \(m_{\text{eff}}\). Hence, the equality is not assumed but is forced by the structure:
+        </p>
+        <div class="font-mono text-xl bg-cyan-900/30 border border-cyan-500/50 p-4 rounded-lg my-4 text-center">
+            <p>\(m_g \equiv m_i = m_{\text{eff}}\)</p>
+        </div>
 
----
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-6">
+            <h4 class="font-semibold text-white">Remark on Eötvös-type precision</h4>
+            <p>In WILL, the only invariant is \(E_0\), and the effective response is the universal stretch factor \(1/(\beta_Y\kappa_X)\). Since this factor depends solely on geometry and not on the composition of the test body, the universality of free fall follows by construction. What GR postulates, WILL reproduces as structural necessity.</p>
+        </div>
+        
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>What GR posits as a postulate, WILL delivers as an unavoidable consequence.</strong></p>
+        </div>
+
+        <p class="mt-10">
+            This derived equivalence is a profound consequence of composing the two projections. The framework's consistency, however, demands an even deeper connection: a precise 'exchange rate' that must exist between the kinetic and potential modes themselves.
+        </p>
+    </div>
+</div>
+
+--- 
+
+
 
 
 
