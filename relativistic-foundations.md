@@ -585,127 +585,43 @@ If you want to see the full mathematical derivations, download the complete docu
 
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### What’s the point?
-
-- The triangle shows that you can’t just add energies and momenta any way you like. They’re always connected by a simple geometric rule — just like the sides of any right triangle.
-    
-- No matter how fast you go, all three always fit together. The triangle is never broken.
-    
-
-<details> <summary><strong>Show the math</strong></summary>
-
-The Energy–Momentum Relation:
-
-$$
-E^2 = (p c)^2 + (m_0 c^2)^2
-$$
-
-Where:
-<br>
-- $E$: Total energy (The hypotenuse)
-<br>    
-- $p$: Momentum (Horizontal side)
-<br>    
-- $m_0 c^2$: Rest energy (Vertical side)
-    
-</details>
-
-Simply saying:
-
-- **Rest energy** is your “starting stash” — it never goes away (Vertical side).
-    
-- **Momentum** is what you get when you start moving (Horizontal side).
-    
-- **Total energy** is always the “longest side,” combining both (The hypotenuse).
-    
-
-### What This Means
-
-Special relativity stops being a bunch of rules about “strange time effects” or “postulates about light.” Instead, it’s just a simple story of how all things must share a fixed “budget” of change between motion and time. Mass, energy, and momentum are simply three perspectives on the same underlying geometric fact.
-
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/13_Total-Projection-as-Vector-on-b-k-plane.png" alt="Total Projection Q as a vector on the Beta-Kappa plane" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">The Total Projection Parameter Q</h2>
 ---
 
-## Section 4: Act II – Gravity as a Shadow on the Sphere
-
-Having cracked motion using a simple circle, let’s tackle gravity. Gravity is different: instead of working in one direction like motion, it pulls equally from every side — like being surrounded in all directions. So our “canvas” has to be not a line or circle, but a whole **sphere**.
-
-
-### How Gravity is Just a Different Kind of <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>
-
-Imagine standing at the center of a big sphere — gravity “spreads out” the same in every direction from the mass at the center.
-
-- To measure “how much” gravity there is, we use a new slider — let’s call it **kappa** (κ), *our gravitational share parameter*.
-    
-- κ tells us how close you are to the point where gravity is so strong that nothing, not even light, can escape — the edge of a black hole (the event horizon).
-    
-
-You can think of κ as “how much of the universe’s speed limit you’d need to escape gravity right here.”
-
-
-
-
-### How Gravity Warps Time
-
-Here’s where the sphere magic happens:
-
-- Just like with the circle, we can split everything into “directions” — but now it’s two-dimensional.
-    
-- As you get closer to a massive object, κ goes up, and time starts to slow down.
-    
-- If you reach the event horizon (κ = 1), time (from an outside view) stops completely.
-    
-
-> Gravity isn’t just pulling you in — it’s literally changing how fast your clock ticks, depending on where you are.
-
-<details> <summary><strong>Show the math</strong></summary>
-
-Time dilation near a massive object is:  
-<br>  
-$$
-κ_X = \sqrt{1 - \kappa^2} = \sqrt{1 - \frac{R_S}{r}} = \sqrt{1 - \frac{2 G M}{r c^2}}
-$$  
-<br>  
-(Here, κ is the gravitational share — the fraction of the total change “used” by gravity at this location.)
-
+<details class="video-dropdown-container">  
+  <summary class="will-hero-summary">▶ Show Interactive Graph: Q Circle (Desmos)</summary>  
+  <div class="geometry-container hero-details">  
+    <div class="desmos-container">  
+      <iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"></iframe>  
+    </div>  
+  </div>  
 </details>
 
 ---
 
-### The Hidden <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>
-
-Here’s the coolest part:
-
-- Time-slowing by *moving fast* (special relativity) and by *being near gravity* (general relativity) are really the **same effect**, just from different geometric “views.”
-    
-- Both are about how much of your “change budget” gets “spent” in different directions.
-    
-
-| Situation            | Geometry | Time Factor                                |
-| -------------------- | -------- | ------------------------------------------ |
-| **Moving fast (SR)** | Circle   | $1/β_Y =1/\sqrt{1-\beta^2}$ (kinetic time dilation factor)        |
-| **Near mass (GR)**   | Sphere   | $κ_X = \sqrt{1-\kappa^2}$ (gravitational time contraction factor) |
-
-So, what look like two separate “mysteries” in physics are actually just two <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s of the same fundamental story.
+        <p>
+            The combined effects of the kinetic (\(\beta\)) and potential (\(\kappa\)) projections are unified into a single vector, \(Q\), representing the system's total projection budget.
+        </p>
+        <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg mt-4 space-y-2">
+            <p>\(Q = \sqrt{\kappa^2 + \beta^2}\)</p>
+            <p>\(Q^{2} = 3\beta^2 = \frac{3}{2}\kappa^2\)</p>
+            <p>\(Q_t = \sqrt{1-Q^2}\)</p>
+        </div>
+        <p class="mt-4">
+            This parameter describes the total energetic state of a closed system. Its boundary condition, \(Q=1\), corresponds to a critical state of the system—the photon sphere, where the geometry reaches its null-circumnavigation limit.
+        </p>
+         <p class="mt-10">
+            While the \(Q\) parameter describes the static geometric state of a system, transformations <em>between</em> states are governed by the framework's core dynamical rule: the Energy-Symmetry Law.
+        </p>
+    </div>
+</div>
 
 ---
 
-## Section 5: Energy as a Relation — What κ and β Actually Mean
+## Energy as a Relation — What κ and β Actually Mean
 
 ### Key Principle:
 
@@ -740,123 +656,99 @@ Here's a simple analogy:
 
 ---
 
-## Section 6: Unification – When the Circle Meets the Sphere
-
-
-Now comes the punchline: All this time, we’ve seen motion (special relativity) and gravity (general relativity) as separate “shadows” of the same underlying process, just playing out on different shapes — the circle and the sphere.
-
-But here’s the twist: **these two worlds aren’t really separate.** In fact, there’s a deep, built‑in connection between them. They’re just different “faces” of one and the same thing.
-
-### The Universal “Budget” Principle
-
-Imagine you have a bucket of paint. You can use it to draw a line around a circle (one‑dimensional) — or — you can use it to cover the surface of a sphere (two‑dimensional).
-
-No matter how you use it, your total paint doesn’t change — but the way it “spreads” over these shapes is fundamentally different. This is exactly what happens with energy in the universe:
-
-- Sometimes it shows up as *motion* (moving around the circle)
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/14_Energy-Symmetry-Law.png" alt="The Energy-Symmetry Law" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
-- Sometimes as *gravity* (spread over the sphere)
-    
-But both are just different ways of splitting up the same “energy budget.”
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">The Energy-Symmetry Law</h2>
 
-<details> <summary><strong>Show the key connection</strong></summary>
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Theorem: Energy Symmetry</h4>
+            <p>The specific energy differences (per unit of rest energy) perceived by two observers for a transition between their states balance according to the Energy-Symmetry Law:</p>
+            <p class="text-center text-xl font-mono my-2">\(\Delta E_{A \to B} + \Delta E_{B \to A} = 0\)</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>Consider observer A at rest (\(\beta_A=0\)) on a surface with potential \(\kappa_A\), and observer B in an orbit with potential \(\kappa_B\) and velocity \(\beta_B\). The total specific energy for the transition \(A \to B\) is the sum of the change in potential and kinetic energy budgets:</p>
+            <p class="text-center text-xl font-mono my-4">\(\Delta E_{A \to B} = \frac{1}{2}\left((\kappa_A^2 - \kappa_B^2) + \beta_B^2\right)\)</p>
+            <p>From B's perspective, the transition \(B \to A\) yields:</p>
+            <p class="text-center text-xl font-mono my-4">\(\Delta E_{B \to A} = \frac{1}{2}\left((\kappa_B^2 - \kappa_A^2) - \beta_B^2\right)\)</p>
+            <p>Summing these transfers gives \(\Delta E_{A \to B} + \Delta E_{B \to A} = 0\). No net energy is created or destroyed in a closed cycle of transitions.</p>
+        </div>
 
-The “paint” covering for both shapes leads to a simple rule:
+        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Universal Speed Limit as a Consequence</h3>
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Theorem: Universal Speed Limit</h4>
+            <p>The universal speed limit (\(v \leq c\)) emerges from the requirement of energetic symmetry.</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>Assume an object could exceed the speed of light, implying \(\beta > 1\). The energy transfer required, \(\Delta E_{A \to B}\), would become arbitrarily large. Consequently, no finite physical process could provide a balancing reverse transfer, \(\Delta E_{B \to A}\), that would sum to zero. The fundamental symmetry would be broken. Therefore, the condition \(\beta \leq 1\) is an intrinsic requirement for maintaining the causal and energetic consistency of the relational universe.</p>
+        </div>
 
-$$
-\kappa^2 = 2\beta^2
-$$
+        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Single-Axis Energy Transfer and the Nature of Light</h3>
+         <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Theorem: Single-Axis Transformation Principle</h4>
+            <p>For light, the kinematic projection reaches its full extent: \(\beta = 1 \Rightarrow \beta_Y = 0\). All transformation of the relational energy occurs along a single orthogonal axis.</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>For massive systems, the energy exchange is distributed between two orthogonal projections. For light, \(\beta_Y = 0\), so the complementary projection disappears. The full relational resource is realized on a single projection. Therefore, the specific energy potential for light is not halved but complete, \(\Phi_\gamma = \kappa^2 c^2\), while for a massive body it remains partitioned, \(\Phi_{\text{mass}} = \frac{1}{2}\kappa^2 c^2\). This explains why light experiences a geometric effect exactly twice that of a massive particle in the same field.</p>
+        </div>
 
-or
-
-$$
-\frac{\kappa^2}{\beta^2} = 2
-$$
-
-where
-
-- β² = “share” spent on motion
-    
-- κ² = “share” spent on gravity
-    
-</details>
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Show Simplification for Closed Orbits</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                <p>When the closure condition for stable orbits (\(\kappa^2 = 2\beta^2\)) is applied, the general law simplifies.</p>
+                <ul class="list-disc list-inside space-y-4 mt-4">
+                    <li>
+                        <strong>Surface-to-Orbit Transfer:</strong> The specific energy balance is given by:<br>
+                        <span class="block text-center font-mono text-lg my-2">\(\frac{E_{A \to B}}{E_{0B}} = \frac{1}{2}(\kappa_A^2 - \beta_B^2)\)</span>
+                    </li>
+                    <li>
+                        <strong>Orbit-to-Orbit Transfer:</strong> The balance reduces further, with the potential terms cancelling out completely:<br>
+                        <span class="block text-center font-mono text-lg my-2">\(\frac{E_{A \to B}}{E_{0B}} = \frac{1}{2}(\beta_A^2 - \beta_B^2)\)</span>
+                    </li>
+                </ul>
+            </div>
+        </details>
+        
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>Causality is a built-in feature of Relational Geometry.</strong></p>
+        </div>
+    </div>
+</div>
 
 ---
 
-![Topological-Ratio-k-b-23.jpg](images/Topological-Ratio-k-b-23.jpg)
 
----
 
-#### Why does it matter?
 
-- This isn’t some made‑up or “fit” formula.
-    
-- It pops out just from how geometry itself works — how lines and surfaces relate.
-    
-- Even old-school physics quietly hinted at this (for example, the escape velocity in Newton’s gravity, $v_e^2 = 2v_{orb}^2$).
-    
 
-**Bottom line:** Motion and gravity are *two sides of the same coin*. Their relationship isn’t an accident — it’s a built-in, geometric law of how the universe splits up its “energy resources.” This is why they can’t ever be truly separated, and why geometry is the hidden glue in everything.
 
----
 
-### Where Does the “2” Come From?
 
-All this talk about “budgeting” between circles and spheres leads to a natural question: **Why exactly “2”? Where does it come from?**
 
-Here’s the simple geometric truth:
 
-- The *circle* (our 1D case for motion) has a circumference of **2π** (for a unit radius).
-    
-- The *sphere* (our 2D case for gravity) has a surface area of **4π** (for a unit radius).
-    
 
-So when we ask, “How many times does a circle fit into a sphere?” the answer is:
 
-<details> <summary><strong>Show the calculation</strong></summary>  
-$$
-\frac{\text{Surface area of sphere}}{\text{Circumference of circle}} = \frac{4\pi}{2\pi} = 2
-$$  
-</details>
 
-That’s the source of the mysterious “2” in our key equation. It’s not an arbitrary fudge factor — it’s pure geometry.
 
-*(Note: The relation $ \kappa^2 = 2\beta^2 $ holds if and only if the system under study is energetically closed. This factor of 2 comes from our circle-vs-sphere analogy — a heuristic topological bridge for simplicity. In WILL Geometry’s formalism, the same factor arises naturally from the <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr> rules.)*
 
----
 
-### How It Ties Together
 
-So when energy splits between motion (on the circle) and gravity (on the sphere), the “budget” gets shared according to this built-in, topological ratio. The key relationship:
 
-$$
-\kappa^2 = 2\beta^2
-$$
 
-just says: *“Gravity’s share is always twice the motion’s share, because a sphere’s surface area is twice the length of a circle’s perimeter, at the most fundamental geometric level.”*
 
-**In short:** The “2” isn’t magic, it’s the deep fingerprint of geometry itself, forever tying together movement and gravity in the universe.
 
----
 
-### The Photon Sphere: A Point of Perfect Balance
 
-A remarkable consequence of this unification happens at a special “balance point” — where the two <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s, kinetic and potential, are perfectly matched. This occurs when:
 
-$$
-\kappa^2 + \beta^2 = 1
-$$
 
-and the two angles are exactly equal.
 
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: Q Circle (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
+
+
+
 
 ---
 
