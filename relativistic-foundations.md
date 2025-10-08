@@ -169,7 +169,7 @@ If you want to see the full mathematical derivations, download the complete docu
 ---
 
 <div class="mb-12">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Energy-in-the-Relational-Framework.png" alt="Defining Energy as Conserved, Relational, Causal, and Manifested as Change" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/5_Energy-in-the-Relational-Framework.png" alt="Defining Energy as Conserved, Relational, Causal, and Manifested as Change" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
             Energy is the relational measure of difference between possible states, conserved in any closed whole.
@@ -181,7 +181,7 @@ If you want to see the full mathematical derivations, download the complete docu
 ---
 
 <div class="mb-12">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/5_Key-Constraints-on-the-Relational-Structure.png" alt="Key Constraints from the Unifying Principle: Closure, Conservation, Isotropy" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/6_Key-Constraints-on-the-Relational-Structure.png" alt="Key Constraints from the Unifying Principle: Closure, Conservation, Isotropy" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
             These three constraints—<strong class="text-white">Closure, Conservation, and Isotropy</strong>—are immediate, unavoidable consequences of a universe built from a single, self-contained principle. The next crucial question is: what mathematical forms can possibly satisfy all these rigid requirements at once?
@@ -192,7 +192,7 @@ If you want to see the full mathematical derivations, download the complete docu
 ---
 
 <div class="mb-12">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/6_Two-Minimal-Relational-Carriers.png" alt="The Circle (S¹) for Directional relations and the Sphere (S²) for Omnidirectional relations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Two-Minimal-Relational-Carriers.png" alt="The Circle (S¹) for Directional relations and the Sphere (S²) for Omnidirectional relations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
 
