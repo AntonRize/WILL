@@ -253,7 +253,7 @@ For questions and curiosity:
   <summary class="will-hero-summary">▶ Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)</summary>  
   <div class="geometry-container hero-details">  
     <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/mpdksbsf9q" width="100%" height="500" frameborder="0"></iframe>  
+      <iframe src="https://www.desmos.com/geometry/6k1um2qbzm" width="100%" height="500" frameborder="0"></iframe>  
     </div>  
   </div>  
 </details>
@@ -318,19 +318,15 @@ For questions and curiosity:
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/9_Energy-Momentum-Identity-on-S.png" alt="Energy Momentum Identity on the S¹ Circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
 
----
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)</summary>  
   <div class="geometry-container hero-details">  
     <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe>  
+      <iframe src="https://www.desmos.com/geometry/6k1um2qbzm" width="100%" height="500" frameborder="0"></iframe>  
     </div>  
   </div>  
 </details>
-
-
----
 
 
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
@@ -406,7 +402,7 @@ For questions and curiosity:
             <summary class="will-hero-summary">▶ Show Interactive Graph: Potential Energy projection on S² (Desmos)</summary>  
             <div class="geometry-container hero-details">  
                 <div class="desmos-container">  
-                    <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe>  
+                    <iframe src="https://www.desmos.com/geometry/lsjhnc2e9x" width="100%" height="500" frameborder="0"></iframe>  
                 </div>  
             </div>  
         </details>
