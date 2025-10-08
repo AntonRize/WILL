@@ -94,9 +94,7 @@ title: "Relativistic Foundations"
 
 # WILL Part I: Relational Geometry
 
-
 ---
-
 
 ## What is This Page?
 
@@ -107,9 +105,7 @@ Here, the focus is on the core ideas, intuitive explanations, and geometric visu
 If you want to see the full mathematical derivations, download the complete documents here:  
 [Full WILL Geometry Papers](https://antonrize.github.io/WILL/parts/)
 
-
 ---
-
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Quick Glossary: Key Terms & Concepts</summary>  
@@ -126,9 +122,7 @@ If you want to see the full mathematical derivations, download the complete docu
   </div>  
 </details>
 
-
 ---
-
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.png" alt="WILL: Relational Geometry - How to Construct Reality out of One Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -139,9 +133,7 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
-
 ---
-
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/2_Methodological-Pillars.png" alt="Methodological Pillars: Epistemic Hygiene, Strict Relationalism, Zero Free Parameters" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -152,9 +144,7 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
-
 ---
-
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/3_Breakthroughs-Delete-Not-Add.png" alt="Historical Breakthroughs in Physics by Deleting Separations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -165,9 +155,7 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
-
 ---
-
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/4_False-Separation-as-Ontological-Blind-Spot.png" alt="The False Separation Between Structure and Dynamics" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -178,9 +166,19 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
-
 ---
 
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Energy-in-the-Relational-Framework.png" alt="Defining Energy as Conserved, Relational, Causal, and Manifested as Change" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            Energy is the relational measure of difference between possible states, conserved in any closed whole.
+          It is not an intrinsic property of an object, but comparative structure between states (and observers), always manifesting as transformation.
+        </p>
+    </div>
+</div>
+
+---
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/5_Key-Constraints-on-the-Relational-Structure.png" alt="Key Constraints from the Unifying Principle: Closure, Conservation, Isotropy" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -191,9 +189,7 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
-
 ---
-
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/6_Two-Minimal-Relational-Carriers.png" alt="The Circle (S¹) for Directional relations and the Sphere (S²) for Omnidirectional relations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -229,30 +225,12 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
-
 ---
-
-
-<div class="mb-12">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Energy-in-the-Relational-Framework.png" alt="Defining Energy as Conserved, Relational, Causal, and Manifested as Change" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <p>
-            Energy is the relational measure of difference between possible states, conserved in any closed whole.
-          It is not an intrinsic property of an object, but comparative structure between states (and observers), always manifesting as transformation.
-        </p>
-    </div>
-</div>
-
-
----
-
 
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/8_Kinetic-Energy-b-projection-on-S.png" alt="Diagram of the Beta projection on the S¹ unit circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
 
-
 ---
-
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)</summary>  
@@ -263,9 +241,7 @@ If you want to see the full mathematical derivations, download the complete docu
   </div>  
 </details>
 
-
 ---
-
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
 
@@ -286,7 +262,7 @@ If you want to see the full mathematical derivations, download the complete docu
 
         <p class="mt-6">We define these orthogonal projections as follows:</p>
         <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
-            <li><strong>The Amplitude Component (\(\beta_X\)):</strong> This projection represents the <em>relational measure</em> between the system and the observer. It corresponds to the <em>extent</em> of transformation, which manifests physically as momentum.</li>
+            <li><strong>The Amplitude Component (\(\beta\)):</strong> This projection represents the <em>relational measure</em> between the system and the observer. It corresponds to the <em>extent</em> of transformation, which manifests physically as momentum.</li>
             <li><strong>The Phase Component (\(\beta_Y\)):</strong> This projection represents the <em>internal structure</em> of a system. It governs the intrinsic scale of its proper space and proper time units, corresponding to the <em>sequence</em> of its transformation. A value of \(\beta_Y=1\) represents a complete and undisturbed manifestation of this internal structure, a state we identify as rest.</li>
         </ul>
 
@@ -294,8 +270,8 @@ If you want to see the full mathematical derivations, download the complete docu
 
         <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
             <h4 class="font-semibold text-white">Theorem: Conservation Law of Relational Transformation</h4>
-            <p>The orthogonal components of transformation (\(\beta_X,\beta_Y\)) are bound by the closure relation:</p>
-            <p class="text-center text-2xl font-mono my-4">\(\beta_X^2 + \beta_Y^2 = 1\)</p>
+            <p>The orthogonal components of transformation (\(\beta,\beta_Y\)) are bound by the closure relation:</p>
+            <p class="text-center text-2xl font-mono my-4">\(\beta^2 + \beta_Y^2 = 1\)</p>
         </div>
         <div class="pl-4 my-4">
             <h4 class="font-semibold text-white">Proof</h4>
@@ -306,11 +282,11 @@ If you want to see the full mathematical derivations, download the complete docu
 
         <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
             <h4 class="font-semibold text-white">Proposition: Physical Interpretation: Relativistic Effects</h4>
-            <p>The conservation law implies that any redistribution between the orthogonal components (\(\beta_X,\beta_Y\)) manifests physically as the relativistic effects of time dilation and length contraction.</p>
+            <p>The conservation law implies that any redistribution between the orthogonal components (\(\beta,\beta_Y\)) manifests physically as the relativistic effects of time dilation and length contraction.</p>
         </div>
         <div class="pl-4 my-4">
             <h4 class="font-semibold text-white">Proof</h4>
-            <p>The components satisfy \(\beta_X^2 + \beta_Y^2 = 1\). An increase in the relational displacement \(\beta_X\) enforces a decrease in the internal measure \(\beta_Y\). This reduction of \(\beta_Y\) corresponds to dilation of proper time and contraction of proper length, while the growth of \(\beta_X\) represents momentum. Thus the relativistic trade-off is the direct physical expression of the geometric closure of \(S^1\).</p>
+            <p>The components satisfy \(\beta^2 + \beta_Y^2 = 1\). An increase in the relational displacement \(\beta\) enforces a decrease in the internal measure \(\beta_Y\). This reduction of \(\beta_Y\) corresponds to dilation of proper time and contraction of proper length, while the growth of \(\beta\) represents momentum. Thus the relativistic trade-off is the direct physical expression of the geometric closure of \(S^1\).</p>
         </div>
 
         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
@@ -319,17 +295,23 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
-
 ---
-
 
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/9_Energy-Momentum-Identity-on-S.png" alt="Energy Momentum Identity on the S¹ Circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
 
-
 ---
 
+**Visualize energy, mass, and momentum as a simple right triangle:**
+
+- **Vertical leg** (fixed) always represents the object's *rest energy* — this never changes, no matter how fast it moves.
     
+- **Horizontal leg** grows as the object’s β increases — this is its *momentum*.
+    
+- **The hypotenuse** is the *total energy* — it stretches between rest energy and momentum as β increases.
+    
+---
+  
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">Kinetic Energy Projection on \(S^1\)</h2>
         <p>Since \(S^{1}\) encodes one-dimensional displacement, the total energy \(E\) of the system must project consistently onto both axes:</p>
@@ -337,22 +319,22 @@ If you want to see the full mathematical derivations, download the complete docu
 
         <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
             <h4 class="font-semibold text-white">Theorem: Invariant Projection of Rest Energy</h4>
-            <p>For any state (\(\beta_X, \beta_Y\)) on the relational circle, the vertical projection of the total energy is invariant:</p>
+            <p>For any state (\(\beta, \beta_Y\)) on the relational circle, the vertical projection of the total energy is invariant:</p>
             <p class="text-center text-xl font-mono my-2">\(E \beta_Y = E_0\)</p>
         </div>
         <div class="pl-4 my-4">
             <h4 class="font-semibold text-white">Proof</h4>
-            <p>When \(\beta_X=0\), closure enforces \(\beta_Y=1\), yielding \(E=E_0\). Since closure applies for all \(\theta_1\), the vertical projection \(E\beta_Y\) remains equal to this rest value in every state.</p>
+            <p>When \(\beta=0\), closure enforces \(\beta_Y=1\), yielding \(E=E_0\). Since closure applies for all \(\theta_1\), the vertical projection \(E\beta_Y\) remains equal to this rest value in every state.</p>
         </div>
 
         <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
             <h4 class="font-semibold text-white">Corollary: Total Energy Relation</h4>
             <p>From the theorem it follows that:</p>
-            <p class="text-center text-xl font-mono my-2">\(E = \frac{E_0}{\beta_Y} = \frac{E_0}{\sqrt{1-\beta_X^2}}\)</p>
+            <p class="text-center text-xl font-mono my-2">\(E = \frac{E_0}{\beta_Y} = \frac{E_0}{\sqrt{1-\beta^2}}\)</p>
         </div>
         
         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p>The historical Lorentz factor \(\gamma\) is the reciprocal of \(\beta_Y\).</p>
+            <p>The historical Lorentz factor is the reciprocal of \(\beta_Y\): \(\gamma\) = 1/\(\beta_Y\).</p>
         </div>
 
         <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Rest Energy and Mass Equivalence</h3>
@@ -373,8 +355,8 @@ If you want to see the full mathematical derivations, download the complete docu
         <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Energy–Momentum Relation</h3>
         <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
             <h4 class="font-semibold text-white">Proposition: Horizontal Projection as Momentum</h4>
-            <p>On the relational circle, the unique relational measure of displacement from rest is the horizontal projection \(E\beta_X\); hence:</p>
-            <p class="text-center text-xl font-mono my-2">\(p \equiv E\beta_X \quad (c=1)\)</p>
+            <p>On the relational circle, the unique relational measure of displacement from rest is the horizontal projection \(E\beta\); hence:</p>
+            <p class="text-center text-xl font-mono my-2">\(p \equiv E\beta \quad (c=1)\)</p>
         </div>
         <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
             <h4 class="font-semibold text-white">Corollary: Energy–Momentum Relation</h4>
@@ -385,7 +367,7 @@ If you want to see the full mathematical derivations, download the complete docu
         </div>
         <div class="pl-4 my-4">
             <h4 class="font-semibold text-white">Proof</h4>
-            <p>By closure, \((E\beta_X)^2 + (E\beta_Y)^2 = E^2\). Substituting \(p=E\beta_X\) and \(m=E_0\) proves the claim. Restoring \(c\) is dimensional bookkeeping: \(p\mapsto pc\) and \(m\mapsto mc^{2}\), while \(E\) remains \(E\), yielding the standard form.</p>
+            <p>By closure, \((E\beta)^2 + (E\beta_Y)^2 = E^2\). Substituting \(p=E\beta\) and \(m=E_0\) proves the claim. Restoring \(c\) is dimensional bookkeeping: \(p\mapsto pc\) and \(m\mapsto mc^{2}\), while \(E\) remains \(E\), yielding the standard form.</p>
         </div>
         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
             <p>The relation \(E^{2}=p^{2}+m^{2}\) is the geometric identity of \(S^1\).</p>
@@ -393,6 +375,80 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
+---
+
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/10_Potential-Energy-k-projection-on-S.png" alt="Diagram of the Kappa projection on the S² unit sphere" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            Analogous to the kinetic projection on \(S^1\), the omnidirectional (gravitational) relation is described by projections on the sphere, \(S^2\). This establishes the framework for General Relativity, defining gravitational energy and its corresponding momentum as geometric projections.
+        </p>
+
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Show Formal Derivation of Potential Energy Projection on S²</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                
+                <p>Analogous to \(S^1\), the relational geometry of the sphere, \(S^2\), provides orthogonal projections for two aspects of omnidirectional transformation. We define them as follows:</p>
+                <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
+                    <li><strong>The Amplitude Component (\(\kappa\)):</strong> This projection represents the <em>relational gravitational measure</em> between the object and the observer. A value of \(\kappa=1\) corresponds to the event horizon.</li>
+                    <li><strong>The Phase Component (\(\kappa_X\)):</strong> This projection governs the intrinsic scale of proper length and proper time units.</li>
+                </ul>
+                <p class="mt-4">These components are bound by the conservation law of the closed system:</p>
+                <p class="text-center text-xl font-mono my-4">\(\kappa_X^2 + \kappa^2 = 1\)</p>
+
+                <div class="border-l-4 border-gray-600 pl-4 py-2 my-4 italic">
+                    By isotropy the omnidirectional carrier is \(S^2\), but any radially symmetric exchange reduces to a great-circle meridional section. We therefore work on a unit great circle of \(S^2\) with the parametrization \((\kappa_X,\kappa)=(\cos\theta_2,\sin\theta_2)\).
+                </div>
+
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Consequence: Gravitational Effects</h4>
+                <p>The redistribution of the budget between the Phase and Amplitude components produces the effects of General Relativity. An increase in the relational measure (\(\kappa\)) requires a decrease in the measure of the internal structure (\(\kappa_X\)). This geometric trade-off is observed physically as gravitational time corrections.</p>
+
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Gravitational Tangent Formulation</h4>
+                <p>Just as the relativistic energy-momentum relation is expressed via \(\beta = \cos\theta_{1}\), its gravitational analogue follows from \(\kappa = \sin\theta_{2}\). We define the gravitational energy and momentum:</p>
+                <p class="text-center text-xl font-mono my-4">\(E_{g} = \frac{E_{0}}{\kappa_{X}}\) where \(\kappa_{X} = \sqrt{1 - \kappa^{2}}\)</p>
+                <p class="text-center text-xl font-mono my-4">\(p_g = E_{0}/c \cdot \tan\theta_{2}\)</p>
+                <p>This yields the gravitational energy relation: \(E_{g}^{2} = p_g^{2} + E_{0}^{2}\).</p>
+                
+                <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4">
+                    <p>\(\beta = \cos\theta_{1}, \qquad \kappa = \sin\theta_{2}\)</p>
+                    <p>\(\cot\theta_{1} \longleftrightarrow \tan\theta_{2}\)</p>
+                    <p class="mt-2 text-base text-gray-300">Kinematic momentum \(p\) and gravitational momentum \(p_g\) are dual projections, expressed through complementary trigonometric forms.</p>
+                </div>
+
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Geometric Composition of SR and GR factors</h4>
+                <p>On the unit kinematic circle (\(S^1\)), we have: \(E=\dfrac{E_0}{\sin\theta_1}\) and \(p=E_0\cot\theta_1\).</p>
+                <p>On the gravitational circle (\(S^2\)), we have: \(E_g=\dfrac{E_0}{\cos\theta_2}\) and \(p_g=E_0\tan\theta_2\).</p>
+                
+                <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/s1-s2-composition.png" alt="Composition of S1 and S2 projections" class="w-full max-w-2xl mx-auto rounded-lg my-4 bg-white p-2">
+
+                <h4 class="text-xl font-bold text-white mt-6 mb-2">Relational Symmetry Summary</h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse mt-4">
+                        <thead>
+                            <tr class="bg-gray-800">
+                                <th colspan="2" class="p-3 text-center border border-gray-600">Unified Representation of Relativistic and Gravitational Effects</th>
+                            </tr>
+                            <tr class="bg-gray-700">
+                                <th class="p-2 border border-gray-600">Algebraic Form</th>
+                                <th class="p-2 border border-gray-600">Trigonometric Form</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-gray-800/50">
+                                <td class="p-2 border border-gray-600 font-mono">\(1/\beta_Y= \frac{1}{\sqrt{1-\beta^2}}\)</td>
+                                <td class="p-2 border border-gray-600 font-mono">\(1/\sin(\theta_1)\)</td>
+                            </tr>
+                             <tr class="bg-gray-800/50">
+                                <td class="p-2 border border-gray-600 font-mono">\(1/\kappa_X = \frac{1}{\sqrt{1-\kappa^2}}\)</td>
+                                <td class="p-2 border border-gray-600 font-mono">\(1/\cos(\theta_2)\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </details>
+    </div>
+</div>
 
 ---
 
@@ -403,16 +459,13 @@ If you want to see the full mathematical derivations, download the complete docu
 
 
 
-### How Motion and Time Are Just Two Sides of the Same Thing
 
-Imagine all possible states of movement as points around a perfect circle. The *radius* of this circle is the fastest possible speed in the universe — the universal “speed of change” (*c*). State of every moving object is like a pointer from the center of the circle to some spot on its edge.
 
-- **Movement:** How fast something moves through space is just “how much” of that pointer is aimed sideways around the circle. The faster it goes, the more it “leans” into space, and the less is left “pointing” upward — toward time.
-    
-- **Time:** How fast time ticks for something is just “how much” of that pointer is aimed along the time direction. If the object speeds up through space, less of the pointer is left for time — so its time slows down.
-    
 
-Think of it like sharing a fixed budget: If you spend more of your “change” moving through space, you have less left for moving through time.
+
+
+
+
 
 <details> <summary><strong>Show the math</strong></summary>
 
@@ -444,15 +497,6 @@ $ 1/β_Y = \frac{1}{β_Y} = \frac{1}{\sqrt{1 - \beta^2}} = \frac{1}{\sin(\theta_
 
 ---
 
-### How E = mc² Falls Out Naturally
-
-Here’s the coolest part: That famous equation, E = mc², isn’t some magic law — it’s just what you get when you realize energy and mass are two sides of the same coin. At rest, all of an object’s energy points along the time direction. When it moves, some energy “tilts” into space — but the total stays balanced, so that the piece along time remains constant.
-
-- **Mass** is just a way to relate an object’s energy at rest to its fundamental “speed of change.”
-    
-- **Energy** increases as the object moves, simply to keep the system in balance.
-    
-
 <details> <summary><strong>Show the math</strong></summary>
 
 Total energy: E = 1/β_Y m c²  
@@ -477,16 +521,6 @@ Momentum: p = 1/β_Y m v
 > - The key takeaway is to see how the parameter `β` from the reference circle is used to construct the much larger energy–momentum triangle, visually linking the geometry of spacetime to the energy of an object. </details>
 
 
-**Visualize energy, mass, and momentum as a simple right triangle:**
-
-- **Vertical side** (fixed) always represents the object's *rest energy* — this never changes, no matter how fast it moves.
-    
-- **Horizontal side** grows as the object’s speed increases — this is its *momentum*.
-    
-- **The hypotenuse** is the *total energy* — it stretches as you go faster.
-    
-
----
 
 ![Energy-Momentum-Triangle](images/Energy-momentum-triangle.jpg)
 
