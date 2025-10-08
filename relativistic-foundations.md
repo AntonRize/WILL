@@ -721,148 +721,153 @@ Here's a simple analogy:
 
 ---
 
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/15_Structural-Dynamics.png" alt="Structural Dynamics" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">Beyond Differential Formalism: Structural Dynamics</h2>
+        <p>
+            The system is not described by differential equations of motion evolving <em>in</em> time. Instead, its transformation is dictated by a closed network of algebraic relations that enforce a perpetually balanced configuration. What we perceive as "dynamics" is this ordered succession of balanced states.
+        </p>
+        <div class="mt-6 text-center text-xl font-bold text-cyan-400 tracking-wider border-2 border-cyan-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>Time does not drive change — change defines time.</p>
+        </div>
 
+        <h3 class="text-2xl font-bold text-white mt-10 mb-6">Time as an Emergent Property</h3>
+        <p>
+            In this framework, time is not a fundamental entity but a derived concept tied to changes in the system's geometry. Similar to time dilation, time intervals here are defined by the transformations of geometric parameters like \(r\) and \(\kappa\). A natural time scale arises from the geometry as \(t_{d} = r/c\). This intrinsic time scale encapsulates the system's dynamics without invoking an independent time variable.
+        </p>
 
+        <h3 class="text-2xl font-bold text-white mt-10 mb-6">Algebraic Closure and Structural Causality</h3>
+        <p>
+            Physical dynamics emerges from a set of algebraically closed invariants. Each parameter participates in a self-consistent configuration of relational constraints. Changing any one parameter necessitates a coordinated shift in all others to maintain validity. The following set of relations expresses this minimal algebraic closure:
+        </p>
+        <div class="font-mono text-lg bg-gray-900/50 p-6 rounded-lg my-6 text-center space-y-2">
+            <p>\(\kappa^2 = 2 \beta^2\)</p>
+            <p>\(r \cdot \kappa^2 = R_s \quad \text{where} \quad R_s = \frac{2G m_0}{c^2}\)</p>
+            <p>\(\rho = \frac{\kappa^2 c^2}{8\pi Gr^2}\)</p>
+            <p>\(m_0 = 4\pi r^3 \cdot \rho\)</p>
+        </div>
+        
+        <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/structural-dynamics-diagram.png" alt="Diagram of algebraic closure in WILL Geometry" class="w-full max-w-2xl mx-auto rounded-lg my-6">
 
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Show Comparison with Classical Dynamics</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                <h4 class="text-xl font-bold text-white mb-4">Why There Are No Equations of Motion</h4>
+                <p>Classical physics formulates dynamics through differential equations (Lagrangians, variational principles), assuming a continuum of paths where nature selects one by minimizing action. WILL Geometry begins from a different premise: there is no "space" of possible paths and no "freedom to vary." The system does not evolve through time; it defines time through its structure. There is only one valid configuration at any moment: the one where all projectional constraints are satisfied.</p>
+            </div>
+        </details>
 
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Show a Numerical Example</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                <h4 class="text-xl font-bold text-white mb-4">Accretion onto a Black Hole</h4>
+                <p>Consider a black hole of \(10 M_\odot\) accreting mass. Let \(\kappa = 0.1\). The initial radius is \(r = R_s/\kappa^2 = 2.95 \times 10^6\) m, and the time scale is \(t_d = r/c \approx 9.83\) ms. As it accretes mass to \(10.1 M_\odot\), its \(R_s\) increases. Assuming \(\kappa\) remains constant, the radius \(r\) and the time scale \(t_d\) adjust accordingly to \(2.98 \times 10^6\) m and \(9.93\) ms. This increase in \(t_d\) reflects the system's evolution, driven solely by the changing geometry without differential equations.</p>
+            </div>
+        </details>
+        
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>Dynamics is the ordered succession of balanced configurations.</strong></p>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <p class="mt-10">
+            This principle of structural dynamics culminates in the framework's central equation, which unifies geometry and energy density into a single, profound statement.
+        </p>
+    </div>
+</div>
 
 ---
 
-**At this moment, something amazing appears: it matches the “photon sphere” — the special zone around a massive object where light itself can orbit in a perfect circle.** (For a black hole, that’s at a distance of 1.5 times its radius.)
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/16_Unified-Field-Equation.png" alt="The Unified Field Equation" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">The Unified Field Equation</h2>
+        <p>
+            From the energy-geometry equivalence, the complete description of gravitational phenomena reduces to a single algebraic relation. This equation expresses the core identity: the ratio of geometric scales equals the ratio of energy densities.
+        </p>
+        <div class="font-mono text-xl bg-cyan-900/30 border border-cyan-500/50 p-6 rounded-lg my-6 text-center">
+            <p>\(\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{\text{max}}}\)</p>
+        </div>
+        <p>
+            This single algebraic relation is the unified field equation of WILL Geometry. It ensures that curvature and energy density evolve smoothly and remain bounded, resolving the singularity problem by geometrically constraining the domain of valid projections.
+        </p>
 
-<details> <summary><strong>What happens to light at the photon sphere?</strong></summary> At the photon sphere, a photon moving exactly along the perfect circle could orbit forever — but this path is incredibly unstable. If the photon’s path points even a tiny bit outward, it escapes to infinity. If it’s angled a bit inward, it falls into the black hole. So, the photon sphere is not a prison — it’s a tightrope. Light can still escape if it’s not traveling exactly along the circle. </details>
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Show Formal Derivation of Energy Density</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                <h4 class="text-xl font-bold text-white mb-4">Geometric Foundation</h4>
+                <p>From the projective analysis, the fundamental invariant is \(\kappa^2 = R_s/r\), where \(R_s = 2Gm_0/c^2\).</p>
+                
+                <h4 class="text-xl font-bold text-white mt-6 mb-4">Derivation of Energy Density (\(\rho\))</h4>
+                <p>Starting from the geometric relation \(m_0 = \frac{\kappa^2 c^2 r}{2G}\), we associate \(m_0\) with a volumetric proxy \(r^3\). Because the potential projection \(\kappa\) is distributed over a 2D spherical manifold (\(S^2\)), the expression must be normalized over the unit-sphere area \(4\pi\). This yields the physical energy density:</p>
+                <p class="text-center text-xl font-mono my-4">\(\rho = \frac{1}{4\pi}\left(\frac{\kappa^2 c^2}{2G r^2}\right) = \frac{\kappa^2c^2}{8\pi G r^2}\)</p>
+                
+                <h4 class="text-xl font-bold text-white mt-6 mb-4">Maximal Density (\(\rho_{\text{max}}\))</h4>
+                <p>At the horizon condition, \(\kappa^2 = 1\), the maximal observable energy density at radius \(r\) is reached:</p>
+                <p class="text-center text-xl font-mono my-4">\(\rho_{\text{max}} = \frac{c^2}{8\pi G r^2}\)</p>
+                <p>Thus, the fundamental identification is \(\kappa^2 = \rho/\rho_{\text{max}}\).</p>
+            </div>
+        </details>
+        
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>No Singularities:</strong> The constraint \(\kappa^2 \le 1\) naturally prevents infinite curvature.</p>
+        </div>
+
+        <p class="mt-10">
+            This equation closes the theoretical loop, demonstrating that the framework's foundational principle is proven as the inevitable consequence of its own geometric consistency—a concept best visualized as the Theoretical Ouroboros.
+        </p>
+    </div>
+</div>
 
 ---
 
-## Section 7: Energy–<abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr> Law
 
----
 
-![Energy-symmetry-Law2.jpg](images/Energy-Symmetry-Law2.jpg)
 
----
 
-### The Big Idea
 
-Whenever you compare two observers (say, someone on the ground and someone in orbit), **the energy differences they see will always perfectly balance out.** No matter how you swap perspectives — nobody ever gets “extra” energy for free. This is the universe’s built-in law of energetic fairness.
 
----
 
-### How it Works (Without Math)
 
-Imagine:
 
-- Observer **A** is standing on the ground.
-    
-- Observer **B** is orbiting above.
-    
 
-If an object moves from A (the ground) up to B (orbit):
 
-- It has to *fight gravity* (gaining potential energy).
-    
-- It needs to *speed up* (gaining kinetic energy).
-    
 
-From B’s point of view, if the object comes *down*:
 
-- It *drops* into stronger gravity (loses potential energy).
-    
-- It *slows down* to rest (loses kinetic energy).
-    
 
-**But if you add up both “energy stories,” the total change is always zero.**
 
-> The universe never “creates” or “loses” energy when you swap perspectives — it just moves it around.
 
-<details> <summary><strong>Show the math</strong></summary>  
 
- 
-$$
-\Delta E_{A \to B}=\frac{1}{2}((\kappa_{A}^{2}-\kappa_{B}^{2})+\beta_{B}^{2})
-$$
- 
-$$
-\Delta E_{B \to A}=\frac{1}{2}((\kappa_{B}^{2}-\kappa_{A}^{2})-\beta_{B}^{2})
-$$
- 
-$$
-\Delta E_{A \to B} + \Delta E_{B \to A} = 0
-$$
 
-Each transfer includes both gravitational ($κ^2$) and kinetic ($β^2$) parts, always balancing out.
 
-</details>
 
----
 
-### Universal Speed Limit: Why Nothing Goes Faster than Light
 
-This “energy <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>” is so strict that it naturally sets the universe’s ultimate speed limit.
 
-- If something *could* go faster than light, the balance would be broken — one observer would see “extra” energy appear out of nowhere.
-    
-- That’s not allowed: **causality and energy <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr> would both collapse.**
-    
-- So, the speed of light isn’t just a cosmic “speed trap” — it’s the built-in edge of energetic fairness.
-    
 
-<details> <summary><strong>Math explanation</strong></summary>
 
-Assume an object could exceed the speed of light ($ \beta > 1$). In that scenario:
 
-- The kinetic component ($\beta$) surpasses unity excessively, causing an irreversible imbalance in energy transfer.
 
-- No reciprocal transfer could balance this energy, breaking the fundamental <abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr>:
 
-$$\Delta E_{A \rightarrow B} + \Delta E_{B \rightarrow A} \neq 0$$
 
-Thus, $ \beta \leq 1$ ($v \leq c$) is required intrinsically to preserve causal and energetic consistency.
 
-</details>
 
-**In plain English:**
 
-- The universe is like the world’s most perfect accountant: every bit of energy spent or gained in one place is balanced by what’s lost or gained elsewhere.
-    
-- The speed of light is where this balance can just barely be maintained — go past it, and the rules snap.
-    
 
----
 
-## Section 8: The Whole Universe in a Single Line
 
-After all the geometric juggling, here’s the punchline: **Everything — gravity, motion, energy, even the rules for black holes — can be summed up in just one line.**
 
----
 
-![Unified-Field-Equation2.jpg](images/Unified-Field-Equation2.jpg)
 
----
+
+
+
+
+
+
+
 
 $$
 \kappa^2 = \frac{R_s}{r_d} = \frac{\rho}{\rho_{max}}
