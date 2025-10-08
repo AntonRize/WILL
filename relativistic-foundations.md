@@ -92,9 +92,11 @@ title: "Relativistic Foundations"
 </style>
  
 
-# Shape of Energy: A Narrative Exposition of WILL Geometry
+# WILL Part I: Relational Geometry
+
 
 ---
+
 
 ## What is This Page?
 
@@ -105,7 +107,9 @@ Here, the focus is on the core ideas, intuitive explanations, and geometric visu
 If you want to see the full mathematical derivations, download the complete documents here:  
 [Full WILL Geometry Papers](https://antonrize.github.io/WILL/parts/)
 
+
 ---
+
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Quick Glossary: Key Terms & Concepts</summary>  
@@ -122,7 +126,9 @@ If you want to see the full mathematical derivations, download the complete docu
   </div>  
 </details>
 
+
 ---
+
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.png" alt="WILL: Relational Geometry - How to Construct Reality out of One Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -133,7 +139,9 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
+
 ---
+
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/2_Methodological-Pillars.png" alt="Methodological Pillars: Epistemic Hygiene, Strict Relationalism, Zero Free Parameters" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -144,7 +152,9 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
+
 ---
+
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/3_Breakthroughs-Delete-Not-Add.png" alt="Historical Breakthroughs in Physics by Deleting Separations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -155,7 +165,9 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
+
 ---
+
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/4_False-Separation-as-Ontological-Blind-Spot.png" alt="The False Separation Between Structure and Dynamics" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -166,7 +178,9 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
+
 ---
+
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/5_Key-Constraints-on-the-Relational-Structure.png" alt="Key Constraints from the Unifying Principle: Closure, Conservation, Isotropy" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -177,27 +191,47 @@ If you want to see the full mathematical derivations, download the complete docu
     </div>
 </div>
 
+
 ---
+
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/6_Two-Minimal-Relational-Carriers.png" alt="The Circle (S¹) for Directional relations and the Sphere (S²) for Omnidirectional relations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <p>
-            The only closed, maximally symmetric manifolds that can serve as minimal carriers of the conserved relational resource are:
 
-          
-        <strong class="text-white">circle (S¹)</strong> for \emph{directional} (one-degree-of-freedom) relational transformation;
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Lemma: Closure</h4>
+            <p>Under Principle 4.1 (\(\text{SPACETIME} \equiv \text{ENERGY}\)), WILL is self-contained: there is no external reservoir into or from which the relational resource can flow.</p>
+        </div>
 
-        
-       <strong class="text-white">sphere (S²)</strong> for \emph{omnidirectional} (central, all-directions-equivalent) relational transformation.
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Lemma: Conservation</h4>
+            <p>Within WILL, the total relational "transformation resource" (energy) is conserved.</p>
+        </div>
 
-       
-Forced by Key Constraints as the unique carriers of Relational Geometry.
-        </p>
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Lemma: Isotropy from Background-Free Relationality</h4>
+            <p>If no external background is allowed, then no direction can be a priori privileged. Thus the admissible relational geometry of WILL must be maximally symmetric.</p>
+        </div>
+
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Theorem: Minimal Relational Carriers of the Conserved Resource</h4>
+            <p>The only closed, maximally symmetric manifolds that can serve as minimal carriers of the conserved relational resource are:</p>
+            <ol class="list-decimal list-inside ml-4 mt-2">
+                <li><strong class="text-white">\(S^1\)</strong> for <em>directional</em> (one-degree-of-freedom) relational transformation;</li>
+                <li><strong class="text-white">\(S^2\)</strong> for <em>omnidirectional</em> (central, all-directions-equivalent) relational transformation.</li>
+            </ol>
+        </div>
+         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>S¹ and S² are not spacetime geometries, but relational manifolds.</p>
+        </div>
     </div>
 </div>
 
---
+
+---
+
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Energy-in-the-Relational-Framework.png" alt="Defining Energy as Conserved, Relational, Causal, and Manifested as Change" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
@@ -209,34 +243,16 @@ Forced by Key Constraints as the unique carriers of Relational Geometry.
     </div>
 </div>
 
+
 ---
 
-<div class="mb-12">
+
+<div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/8_Kinetic-Energy-b-projection-on-S.png" alt="Diagram of the Beta projection on the S¹ unit circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <p>
-            Let us explore the consequences, starting with the simplest case: a directional relation on the circle (S¹). This is the act where the entire framework of <strong class="text-white">Special Relativity</strong> will emerge, not as a set of postulates, but as the pure geometry of projecting the universal rate of change onto two orthogonal components: Amplitude (space) and Phase (time).
-        </p>
-    </div>
-</div>
-
----
 
 
 ---
 
-## Section 3: Act I – Motion as a Shadow on the Circle (Special Relativity)
-
-Now that the rules of the game have been established, let’s consider the simplest case: one-dimensional motion. According to our logic, this process must be described on the only possible closed and symmetric 1D geometry — the circle. This act of our narrative is devoted to reconstructing special relativity (SR) using nothing but these geometric tools. The main character here is the kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>, denoted by the Greek letter β (beta), which represents how much of the universal “speed of change” is experienced as motion through space.
-
-Imagine a unit circle whose radius symbolizes the universal speed of evolution, *c* (the speed of light, treated here as the ultimate speed of change), which for simplicity we set to 1. Any change an object undergoes can be split into spatial motion (horizontal X axis) and temporal flow (vertical Y axis)  <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s. The sum of their squares of this  <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>s remains the same, set by that fixed  radius length (the speed of light). 
-
-
----
-
-![Kinetic-Energy-The-Spatial-projection.jpg](images/Kinetic-Energy-The-Spatial-Projection.jpg)
-
----
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)</summary>  
@@ -247,7 +263,145 @@ Imagine a unit circle whose radius symbolizes the universal speed of evolution, 
   </div>  
 </details>
 
+
 ---
+
+    
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+
+        <h3 class="text-2xl font-bold text-white mb-4">The Duality of Transformation</h3>
+        
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Lemma: Duality of Evolution</h4>
+            <p>The identification of spacetime with energy and its transformations necessitates two complementary relational measures:</p>
+            <ol class="list-decimal list-inside ml-4 mt-2">
+                <li>the <strong>extent</strong> of transformation (external displacement), and</li>
+                <li>the <strong>sequence</strong> of transformation (internal order).</li>
+            </ol>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>Any complete description of transformation must specify both what changes and how that change is internally ordered. A single measure cannot capture both. The circle \(S^1\) provides the minimal geometry enforcing such complementarity: its orthogonal projections furnish precisely two non-redundant coordinates.</p>
+        </div>
+
+        <p class="mt-6">We define these orthogonal projections as follows:</p>
+        <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
+            <li><strong>The Amplitude Component (\(\beta_X\)):</strong> This projection represents the <em>relational measure</em> between the system and the observer. It corresponds to the <em>extent</em> of transformation, which manifests physically as momentum.</li>
+            <li><strong>The Phase Component (\(\beta_Y\)):</strong> This projection represents the <em>internal structure</em> of a system. It governs the intrinsic scale of its proper space and proper time units, corresponding to the <em>sequence</em> of its transformation. A value of \(\beta_Y=1\) represents a complete and undisturbed manifestation of this internal structure, a state we identify as rest.</li>
+        </ul>
+
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Conservation Law of Relational Transformation</h3>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Theorem: Conservation Law of Relational Transformation</h4>
+            <p>The orthogonal components of transformation (\(\beta_X,\beta_Y\)) are bound by the closure relation:</p>
+            <p class="text-center text-2xl font-mono my-4">\(\beta_X^2 + \beta_Y^2 = 1\)</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>Since \(S^1\) is closed, every point on the circle is constrained by the Pythagorean identity of its projections. Thus no state can exceed or fall short of the finite relational "budget." This closure enforces conservation across all processes.</p>
+        </div>
+
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Consequence: Relativistic Effects</h3>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Proposition: Physical Interpretation: Relativistic Effects</h4>
+            <p>The conservation law implies that any redistribution between the orthogonal components (\(\beta_X,\beta_Y\)) manifests physically as the relativistic effects of time dilation and length contraction.</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>The components satisfy \(\beta_X^2 + \beta_Y^2 = 1\). An increase in the relational displacement \(\beta_X\) enforces a decrease in the internal measure \(\beta_Y\). This reduction of \(\beta_Y\) corresponds to dilation of proper time and contraction of proper length, while the growth of \(\beta_X\) represents momentum. Thus the relativistic trade-off is the direct physical expression of the geometric closure of \(S^1\).</p>
+        </div>
+
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>The geometry of spacetime is the shadow cast by the geometry of relations.</p>
+        </div>
+    </div>
+</div>
+
+
+---
+
+
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/9_Energy-Momentum-Identity-on-S.png" alt="Energy Momentum Identity on the S¹ Circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+
+
+---
+
+    
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">Kinetic Energy Projection on \(S^1\)</h2>
+        <p>Since \(S^{1}\) encodes one-dimensional displacement, the total energy \(E\) of the system must project consistently onto both axes:</p>
+        <p class="text-center text-xl font-mono my-4">\(E_{X} = E \beta_{X}, \qquad E_{Y} = E \beta_{Y}\)</p>
+
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Theorem: Invariant Projection of Rest Energy</h4>
+            <p>For any state (\(\beta_X, \beta_Y\)) on the relational circle, the vertical projection of the total energy is invariant:</p>
+            <p class="text-center text-xl font-mono my-2">\(E \beta_Y = E_0\)</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>When \(\beta_X=0\), closure enforces \(\beta_Y=1\), yielding \(E=E_0\). Since closure applies for all \(\theta_1\), the vertical projection \(E\beta_Y\) remains equal to this rest value in every state.</p>
+        </div>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Corollary: Total Energy Relation</h4>
+            <p>From the theorem it follows that:</p>
+            <p class="text-center text-xl font-mono my-2">\(E = \frac{E_0}{\beta_Y} = \frac{E_0}{\sqrt{1-\beta_X^2}}\)</p>
+        </div>
+        
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>The historical Lorentz factor \(\gamma\) is the reciprocal of \(\beta_Y\).</p>
+        </div>
+
+        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Rest Energy and Mass Equivalence</h3>
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Corollary: Rest Energy and Mass Equivalence</h4>
+            <p>Within the normalization \(c=1\), the invariant rest energy equals mass:</p>
+            <p class="text-center text-xl font-mono my-2">\(E_{0} = m\)</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>From the invariant projection \(E\beta_Y = E_0\) and closure of \(S^1\), no additional scaling parameter is required. Hence the conventional bookkeeping identities \(E_0 = mc^2\) or \(m = E_0/c^2\) reduce to tautologies. Mass is therefore not independent, but the rest-energy invariant itself.</p>
+        </div>
+
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>Mass is the invariant projection of total rest energy.</p>
+        </div>
+        
+        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Energy–Momentum Relation</h3>
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Proposition: Horizontal Projection as Momentum</h4>
+            <p>On the relational circle, the unique relational measure of displacement from rest is the horizontal projection \(E\beta_X\); hence:</p>
+            <p class="text-center text-xl font-mono my-2">\(p \equiv E\beta_X \quad (c=1)\)</p>
+        </div>
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Corollary: Energy–Momentum Relation</h4>
+            <p>With \(p\) identified by the proposition and \(m=E_0\), the closure identity yields:</p>
+            <p class="text-center text-xl font-mono my-2">\(E^{2} = p^{2} + m^{2} \quad (c=1)\)</p>
+            <p>Equivalently, upon restoring \(c\):</p>
+            <p class="text-center text-xl font-mono my-2">\(E^{2} = (pc)^{2} + (mc^{2})^{2}\)</p>
+        </div>
+        <div class="pl-4 my-4">
+            <h4 class="font-semibold text-white">Proof</h4>
+            <p>By closure, \((E\beta_X)^2 + (E\beta_Y)^2 = E^2\). Substituting \(p=E\beta_X\) and \(m=E_0\) proves the claim. Restoring \(c\) is dimensional bookkeeping: \(p\mapsto pc\) and \(m\mapsto mc^{2}\), while \(E\) remains \(E\), yielding the standard form.</p>
+        </div>
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>The relation \(E^{2}=p^{2}+m^{2}\) is the geometric identity of \(S^1\).</p>
+        </div>
+    </div>
+</div>
+
+
+---
+
+
+
+
+
+
+
 
 ### How Motion and Time Are Just Two Sides of the Same Thing
 
