@@ -528,6 +528,62 @@ If you want to see the full mathematical derivations, download the complete docu
 
 --- 
 
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/12_Topological-Ratio-k-b-2.png" alt="The topological ratio of S² to S¹ resulting in k²/β² = 2" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">Unification of Projections: The Geometric Exchange Rate</h2>
+        <p>
+            The Principle of a unified relational resource (Energy) requires a self-consistent "exchange rate" between its kinetic and potential modes. This rate is not an arbitrary parameter but is dictated by the intrinsic geometry of the relations themselves.
+        </p>
+
+        <h4 class="text-xl font-bold text-white mt-6 mb-2">1. The Ratio of Relational Degrees of Freedom</h4>
+        <p>
+            An omnidirectional spherical relation (\(\kappa^2\) on \(S^2\)) requires two degrees of freedom (2D), while a directional circular relation (\(\beta^2\) on \(S^1\)) requires only one (1D). The intrinsic ratio is therefore 2. This is formally expressed as the ratio of their total solid angles:
+        </p>
+        <p class="text-center text-xl font-mono my-4">\(\frac{\text{Total Closure of } S^2}{\text{Total Closure of } S^1} = \frac{4\pi}{2\pi} = 2\)</p>
+
+        <h4 class="text-xl font-bold text-white mt-6 mb-2">2. The Quadratic Nature of Energetic Realization</h4>
+        <p>
+            Energy is fundamentally quadratic in nature. The energetic significance of a state is proportional not to the amplitude of a projection (\(\beta\), \(\kappa\)), but to its <strong>square</strong> (\(\beta^2\), \(\kappa^2\)).
+        </p>
+
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Proposition: Energetic Closure Criterion</h4>
+            <p>In closed regimes, the unique quadratic balance compatible with directional (\(S^1\)) vs omnidirectional (\(S^2\)) resource splitting is:</p>
+            <p class="text-center text-xl font-mono my-2">\(\kappa^2=2\beta^2\)</p>
+        </div>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-6">
+            <h4 class="font-semibold text-white">The Principle as a Diagnostic Invariant</h4>
+            <p>The relation \(\kappa^2 = 2\beta^2\) holds if the system is energetically closed (e.g., circular orbits). In open systems, its violation can be used to determine the magnitude of energy flow through unaccounted-for channels. When all channels are included, the equality is restored.</p>
+        </div>
+        
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Show Illustrative Examples</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                <ul class="list-disc list-inside space-y-4">
+                    <li>
+                        <strong>Circular Orbit (Closed Subsystem):</strong> For a test body in a perfectly circular orbit, the condition \(\kappa^2 = 2\beta^2\) is exactly fulfilled. The system is energetically closed, and the equality signals full closure.
+                    </li>
+                    <li>
+                        <strong>Radiating Binary (Open Subsystem):</strong> For a binary system emitting gravitational waves, considering only orbital mechanics will show a violation of \(\kappa^2 = 2\beta^2\). This reveals the magnitude of energy flow through the unaccounted-for gravitational wave channel. When this channel is included in the balance, the equality holds again.
+                    </li>
+                </ul>
+            </div>
+        </details>
+
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>Geometric Distribution (\(\kappa^2\)) ≡ Kinetic Distribution (\(\beta^2\)) × 2</strong></p>
+        </div>
+
+        <p class="mt-10">
+            This topological ratio is the fundamental 'exchange rate' for energy within any closed system. It allows us to unify both kinetic and potential projections into a single, combined vector that describes the total energetic state of an object.
+        </p>
+    </div>
+</div>
+
+---
 
 
 
