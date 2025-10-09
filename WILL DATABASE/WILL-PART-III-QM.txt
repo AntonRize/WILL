@@ -108,19 +108,19 @@ The identical inverse-square form of the gravitational and electromagnetic inter
 \end{remark}
 
 \begin{definition}[Electromagnetic Critical Radius]
-The electromagnetic critical radius, $R_e$, is the intrinsic scale at which a particle's electrostatic potential energy budget becomes saturated. In the WILL framework, this corresponds to the radius where the potential energy magnitude equals half the particle's rest energy, consistent with the limit $\kappa = 1$ in our energy budget formalism $|U| = \frac{1}{2}E_0 \kappa^2$.
+The electromagnetic critical radius, $R_q$, is the intrinsic scale at which a particle's electrostatic potential energy budget becomes saturated. In the WILL framework, this corresponds to the radius where the potential energy magnitude equals half the particle's rest energy, consistent with the limit $\kappa = 1$ in our energy budget formalism $|U| = \frac{1}{2}E_0 \kappa^2$.
 \end{definition}
 
 \begin{theorem}[Derivation of the Electromagnetic Critical Radius]
 For an electron of mass $m_e$ and charge $e$, the electromagnetic critical radius is given by:
-\[ R_e = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} \]
+\[ R_q = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} \]
 \end{theorem}
 \begin{proof}
 We apply the condition from the definition, setting the potential energy magnitude equal to half the rest energy:
-\[ |U(R_e)| = \frac{1}{2} E_0 \]
+\[ |U(R_q)| = \frac{1}{2} E_0 \]
 Substituting the physical expressions for the electron:
-\[ \frac{e^2}{4\pi\varepsilon_0 R_e} = \frac{1}{2} m_e c^2 \]
-Solving for $R_e$ directly yields the result. This scale is twice the "classical electron radius" and represents the true point of energetic saturation for the electron's potential field in WILL Geometry.
+\[ \frac{e^2}{4\pi\varepsilon_0 R_q} = \frac{1}{2} m_e c^2 \]
+Solving for $R_q$ directly yields the result. This scale is twice the "classical electron radius" and represents the true point of energetic saturation for the electron's potential field in WILL Geometry.
 \end{proof}
 
 \section{Derivation of Atomic Structure from First Principles}
@@ -131,7 +131,7 @@ The complete structure of the hydrogen atom is now constrained by a closed syste
 The stable states of the hydrogen atom are the solutions to the following system:
 \begin{enumerate}
     \item \textbf{Topological Closure:} $\beta_n^2 \approx \frac{n^2\hbar^2}{m_e^2 c^2 r_n^2}$
-    \item \textbf{Scale Principle:} $\kappa_n^2 = \frac{R_e}{r_n}$
+    \item \textbf{Scale Principle:} $\kappa_n^2 = \frac{R_q}{r_n}$
     \item \textbf{Geometric Closure:} $\kappa_n^2 = 2\beta_n^2$
 \end{enumerate}
 The non-relativistic approximation for $\beta_n$ is used, consistent with the low energy scale of the hydrogen atom.
@@ -145,10 +145,10 @@ The allowed orbital radii $r_n$ are derived solely from the simultaneous solutio
 We begin by substituting the expression for $\beta_n^2$ from (1) into the geometric closure condition (3):
 \[ \kappa_n^2 = 2 \left( \frac{n^2\hbar^2}{m_e^2 c^2 r_n^2} \right) \]
 Next, we equate this with the expression for $\kappa_n^2$ from the scale principle (2):
-\[ \frac{R_e}{r_n} = \frac{2n^2\hbar^2}{m_e^2 c^2 r_n^2} \]
+\[ \frac{R_q}{r_n} = \frac{2n^2\hbar^2}{m_e^2 c^2 r_n^2} \]
 We solve for $r_n$. Canceling one factor of $r_n$ from both sides gives:
-\[ r_n = \frac{2n^2\hbar^2}{m_e^2 c^2 R_e} \]
-Finally, we substitute the derived expression for the critical radius, $R_e = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2}$:
+\[ r_n = \frac{2n^2\hbar^2}{m_e^2 c^2 R_q} \]
+Finally, we substitute the derived expression for the critical radius, $R_q = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2}$:
 \[ r_n = \frac{2n^2\hbar^2}{m_e^2 c^2} \left( \frac{4\pi\varepsilon_0 m_e c^2}{2e^2} \right) \]
 All dependencies on $c$ and one factor of $m_e$ cancel, yielding the final expression for the quantized radii.
 \end{proof}
@@ -159,6 +159,193 @@ The fundamental length scale of the atom, the Bohr radius $a_0$, emerges not fro
 \boxed{ a_0 = r_1 = \frac{4\pi\varepsilon_0 \hbar^2}{m_e e^2} }
 \]
 \end{corollary}
+
+
+\subsection{Calculation of Energy Levels}
+The total energy of the electron is the sum of its kinetic and potential energies:
+\begin{equation}
+    E_n = K_n + U_n = \frac{p_n^2}{2 m_e} - \frac{e^2}{4\pi \varepsilon_0 r_n}.
+\end{equation}
+Using the expression for \( p_n^2 \) from equation (6):
+\begin{equation}
+    E_n = \frac{1}{2} \frac{m_e e^2}{4\pi \varepsilon_0 r_n} - \frac{e^2}{4\pi \varepsilon_0 r_n} = -\frac{1}{2} \frac{e^2}{4\pi \varepsilon_0 r_n}.
+\end{equation}
+Substituting \( r_n = n^2 a_0 \):
+\begin{equation}
+    E_n = -\frac{1}{2} \frac{e^2}{4\pi \varepsilon_0 n^2 a_0}.
+\end{equation}
+Since \( a_0 = \frac{4\pi \varepsilon_0 \hbar^2}{m_e e^2} \), we have:
+\begin{equation}
+    E_n = -\frac{m_e e^4}{8 \varepsilon_0^2 n^2 h^2}.
+\end{equation}
+This is the standard expression for the energy levels in the hydrogen atom.
+
+\begin{equation}
+    E_n = -\frac{m_e e^4}{8 (2 \pi\varepsilon_0)^2 n^2 \hbar^2}=13.6056931396.
+\end{equation}
+
+
+
+\subsection{Numerical conformation}
+
+\subsection{Physical Foundations}
+\subsection{Fundamental Constants}
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\ \hline
+Speed of light & $c$ & $2.99792458 \times 10^8$ m/s \\ \hline
+Planck’s constant & $h$ & $6.62607015 \times 10^{-34}$ J·s \\ \hline
+Reduced Planck’s constant & $\hbar = \frac{h}{2\pi}$ & $1.054571817 \times 10^{-34}$ J·s \\ \hline
+Electron mass & $m_e$ & $9.10938356 \times 10^{-31}$ kg \\ \hline
+Elementary charge & $e$ & $1.602176634 \times 10^{-19}$ C \\ \hline
+Vacuum permittivity & $\varepsilon_0$ & $8.854187817 \times 10^{-12}$ F/m \\ \hline
+Rydberg constant & $R_H$ & $1.097373 \times 10^7$ m$^{-1}$ \\ \hline
+Bohr radius & $a_0$ & $5.291772109 \times 10^{-11}$ m \\ \hline
+Ionization energy of hydrogen & $E_1$ & $13.605693$ eV \\ \hline
+\end{tabular}
+\caption{Fundamental physical constants used in this study.}
+\end{table}
+
+\section{Spectral Lines and Rydberg Formula}
+The emitted photon's energy is:
+\begin{equation}
+    E_{\text{photon}} = E_{n_i} - E_{n_f}.
+\end{equation}
+Using Planck’s relation:
+\begin{equation}
+    h f = E_{\text{photon}},
+\end{equation}
+we derive the spectral formula:
+\begin{equation}
+    \frac{1}{\lambda} = R_H \left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right).
+\end{equation}
+
+\subsection{Numerical Results and Comparison}
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Transition & Computed \( \lambda \) (nm) & Experimental \( \lambda \) (nm) \\ \hline
+\( 3 \to 2 \) & 656.34 & 656.3 \\ \hline
+\( 4 \to 2 \) & 486.17 & 486.1 \\ \hline
+\( 5 \to 2 \) & 434.08 & 434.0 \\ \hline
+\( 6 \to 2 \) & 410.21 & 410.2 \\ \hline
+\end{tabular}
+\caption{Computed and experimental spectral lines.}
+\end{table}
+
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/energy_levels.png}
+    \caption{Energy levels of the hydrogen atom.}
+\end{figure}
+
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/spectral_lines.png}
+    \caption{Spectral transitions in hydrogen.}
+\end{figure}
+
+
+
+
+
+\section{Photoelectric Effect: Geometric Derivation}
+\subsection{Experimental Observations}
+The photoelectric effect occurs when light incident on a metal surface ejects electrons. Key observations:
+\begin{itemize}
+    \item There is a \textbf{threshold frequency} \( f_{\text{thresh}} \) below which no electrons are emitted, regardless of intensity.
+    \item The \textbf{kinetic energy} of emitted electrons increases with photon frequency, but is independent of intensity.
+    \item The number of ejected electrons depends on intensity but their energy does not.
+\end{itemize}
+
+\subsection{Standard Quantum Mechanical Explanation}
+In quantum mechanics, light consists of photons, each carrying energy:
+\begin{equation}
+    E_{\text{photon}} = h f.
+\end{equation}
+To eject an electron, this energy must exceed the \textbf{work function} \( W \), which is the minimum energy needed to remove an electron from the metal. The remaining energy is converted into the kinetic energy of the electron:
+\begin{equation}
+    E_{\text{kin}} = h f - W.
+\end{equation}
+
+\subsection{Geometric Interpretation}
+In our model, electrons in the metal form \textbf{standing waves} due to boundary conditions imposed by the atomic lattice. These standing waves satisfy the condition:
+\begin{equation}
+    n \lambda_e = 2L,
+\end{equation}
+where \( L \) represents an effective confinement region for the electron.
+
+The work function \( W \) corresponds to the characteristic energy of the electron's stationary wave state:
+\begin{equation}
+    W = \frac{h c}{\lambda_e}.
+\end{equation}
+For a photon with wavelength \( \lambda_f \), the energy is:
+\begin{equation}
+    E_{\text{photon}} = \frac{h c}{\lambda_f}.
+\end{equation}
+If this photon disrupts the standing wave structure, the excess energy contributes to the electron's kinetic energy:
+\begin{equation}
+    E_{\text{kin}} = \frac{h c}{\lambda_f} - \frac{h c}{\lambda_e}.
+\end{equation}
+This is mathematically equivalent to Einstein’s equation for the photoelectric effect.
+
+\subsection{Numerical Validation}
+We numerically computed the threshold frequencies and kinetic energies for several metals using known work function values. The results are summarized in Table~\ref{table:photoelectric}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Metal} & \textbf{Threshold \( f_{\text{thresh}} \) (Hz)} & \textbf{Threshold \( \lambda_{\text{thresh}} \) (nm)} & \textbf{\( E_{\text{kin}} \) (eV)} \\
+\hline
+Sodium (Na) & \( 5.51 \times 10^{14} \) & 543.79 & 0.82 \\
+\hline
+Zinc (Zn) & \( 1.04 \times 10^{15} \) & 287.67 & 0.00 \\
+\hline
+Potassium (K) & \( 5.56 \times 10^{14} \) & 539.06 & 0.80 \\
+\hline
+Copper (Cu) & \( 1.14 \times 10^{15} \) & 263.80 & 0.00 \\
+\hline
+Iron (Fe) & \( 1.09 \times 10^{15} \) & 275.52 & 0.00 \\
+\hline
+\end{tabular}
+\caption{Numerical results for the photoelectric effect in various metals.}
+\label{table:photoelectric}
+\end{table}
+
+\subsection{Comparison with Standard Quantum Mechanics}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Aspect} & \textbf{Standard QM} & \textbf{Our Model} \\
+\hline
+Energy Quantization & \( E = hf \) & Based on wavelength disruption \\
+\hline
+Work Function & Energy barrier & Standing wave energy \\
+\hline
+Kinetic Energy & \( E_{\text{kin}} = hf - W \) & \( E_{\text{kin}} = \frac{hc}{\lambda_f} - \frac{hc}{\lambda_e} \) \\
+\hline
+Nature & Probabilistic & Geometric \\
+\hline
+\end{tabular}
+\caption{Comparison of standard quantum mechanics and our geometric model.}
+\label{table:comparison}
+\end{table}
+
+\subsection{Implications}
+Our geometric approach suggests that the photoelectric effect is not inherently probabilistic but emerges from standing wave interactions. 
+
 
 \section{The Geometric Origin of the Fine Structure Constant}
 
@@ -171,9 +358,9 @@ The fine structure constant, $\alpha$, is identical to the kinetic projection, $
 \]
 \end{theorem}
 \begin{proof}
-We use our geometric system to find the value of $\beta_1$. From the geometric closure condition, $\beta_1^2 = \kappa_1^2/2$. From the scale principle, $\kappa_1^2 = R_e/r_1 = R_e/a_0$. Therefore:
-\[ \beta_1^2 = \frac{1}{2} \frac{R_e}{a_0} \]
-Substituting the expressions for $R_e$ and $a_0$:
+We use our geometric system to find the value of $\beta_1$. From the geometric closure condition, $\beta_1^2 = \kappa_1^2/2$. From the scale principle, $\kappa_1^2 = R_q/r_1 = R_q/a_0$. Therefore:
+\[ \beta_1^2 = \frac{1}{2} \frac{R_q}{a_0} \]
+Substituting the expressions for $R_q$ and $a_0$:
 \[ \beta_1^2 = \frac{1}{2} \left( \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} \right) \left( \frac{m_e e^2}{4\pi\varepsilon_0 \hbar^2} \right) \]
 The terms simplify to:
 \[ \beta_1^2 = \frac{e^4}{(4\pi\varepsilon_0)^2 \hbar^2 c^2} = \left( \frac{e^2}{4\pi\varepsilon_0 \hbar c} \right)^2 \]
@@ -199,6 +386,136 @@ The total energy $E_n$ of a stable bound state is given by the virial theorem, w
 \[ E_n = -\frac{1}{2} m_e c^2 \beta_n^2 \]
 From the result $\beta_1 = \alpha$ and the quantization condition $p_n \propto 1/r_n \propto 1/n^2$, it follows that $p_n \propto 1/n$ and thus $\beta_n = \beta_1 / n = \alpha / n$. Substituting this into the energy expression gives the final result.
 \end{proof}
+
+\section{The Unified State as a Geometric Equilibrium}
+
+Our previous investigations revealed that non-relativistic models and simple relativistic corrections fail to describe the fine structure of high-Z atoms. This failure proved that a perturbative approach is insufficient. The complete atomic state is not a simple sum of parts, but a single, unified geometric object.
+
+\begin{principle}[The Quantum State as Geometric Equilibrium]
+A stationary quantum state does not evolve in time. It is a point of stable geometric equilibrium in the composite phase space (relational space) describing the system. Its observable properties, including energy, are determined by the coordinates of this equilibrium point.
+\end{principle}
+
+Our task is to define the geometry of this phase space and find the location of its stable points.
+
+\section{The Hyperbolic Geometry of Angular Phase Space}
+
+The fine structure splitting arises from the interaction between the primary (orbital) and orthogonal (spin) modes. The strength of this interaction is quantified by the coupling parameter $Z\alpha$. In the weak-field limit ($Z\alpha \to 0$), the phase space of the angular quantum numbers can be treated as "flat," and the quantum numbers $l$ and $j$ behave as simple integers or half-integers.
+
+\begin{proposition}[Interaction-Induced Curvature]
+The kinetic interaction, quantified by the projection $Z\alpha$, induces a curvature in the phase space of the angular quantum numbers. Consequently, the flat-space integer quantum numbers must be replaced by real-valued geometric projections.
+\end{proposition}
+
+\begin{theorem}[The Hyperbolic Geometry of Phase Space]
+The fundamental geometry of all relativistic projections in the WILL framework is hyperbolic (Minkowski-like), governed by the relation $C^2 - A^2 = B^2$. This same geometry must apply to the curved angular phase space.
+\end{theorem}
+\begin{proof}
+This is a direct application of the universal structure of our framework. The relationship between total energy, momentum, and rest mass ($m^2=E^2-p^2$) and the definition of the phase component ($\beta_Y^2 = 1-\beta^2$) are both expressions of a fundamental hyperbolic geometry. To introduce a different geometry for the angular phase space would be an ad-hoc postulate. Methodological purity demands that we apply the same established geometry.
+\end{proof}
+
+This theorem allows us to define the true, relativistic angular number.
+
+\begin{definition}[Relativistic Angular Number]
+In the curved phase space, the integer angular number $k=j+1/2$ represents the "total" or "time-like" component. The interaction coupling $Z\alpha$ represents the "kinetic" or "space-like" component. The resulting invariant, or "rest" component, is the \textbf{relativistic angular number}, $k'$.
+\end{definition}
+
+\begin{corollary}[Derivation of $k'$]
+From the hyperbolic geometry of the phase space, the relativistic angular number $k'$ is given by:
+\[ (k')^2 = k^2 - (Z\alpha)^2 \]
+\[ \boxed{k' = \sqrt{(j+1/2)^2 - (Z\alpha)^2}} \]
+\end{corollary}
+
+
+\subsection{Quantized Relational Geometry}
+
+To maintain full structural symmetry between the classical and quantum domains,
+we extend the relational invariants $(\kappa_X, \beta_Y)$ into their quantized counterparts
+$(\kappa_{qX}, \beta_{qY})$.
+
+\paragraph{Definition.}
+The quantized projections obey the same closure relations as their classical analogues:
+\[
+\boxed{
+\kappa_{qX}^2 = \frac{R_q}{r_n}
+\qquad\text{and}\qquad
+\kappa_{qX}^2 = 2\,\beta_{qY}^2
+}
+\]
+where:
+\begin{itemize}
+    \item $R_q$ is the \textbf{critical quantum radius}, the electromagnetic or interaction-specific scale
+    (e.g.\ $R_q$ for the electron),
+    \item $r_n$ is the quantized orbital radius corresponding to the principal winding number $n$,
+    \item $\beta_{qY}$ represents the kinetic projection associated with the internal phase rotation of the quantum state.
+\end{itemize}
+
+\paragraph{Interpretation.}
+This notation preserves the geometric duality:
+\[
+\text{Potential projection: } \kappa_{qX}, 
+\qquad
+\text{Kinetic projection: } \beta_{qY},
+\]
+and guarantees that quantization enters the theory purely as a discrete set of
+\textit{geometrically closed configurations}, not as a probabilistic postulate.
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Relational Consistency]
+\textbf{The same relational law applies at all scales:}\\[2mm]
+\[
+\boxed{\kappa^2 = 2\beta^2}
+\quad\longrightarrow\quad
+\boxed{\kappa_{qX}^2 = 2\beta_{qY}^2}
+\]
+Quantization is the discretization of geometric closure,
+not the introduction of a separate quantum postulate.
+\end{tcolorbox}
+
+
+\section{The Unified Quantum Number and Total Energy}
+
+A stable state is defined by its complete set of winding numbers. The energy is determined by a unified quantum number that combines the radial and angular components within the curved geometry.
+
+\begin{definition}[Unified Quantum Number]
+The unified quantum number, $n_{eff}$, which holistically describes the geometric state, is the sum of the integer radial quantum number, $n_r$, and the relativistic angular number, $k'$.
+\[ n_{eff} = n_r + k' \]
+Given that $n_r = n-k$ (where $n$ is the principal quantum number), this becomes:
+\[ n_{eff} = (n - k) + \sqrt{k^2 - (Z\alpha)^2} \]
+\end{definition}
+
+The total energy is a fundamental projection based on this single, unified quantum number. The structure of this projection must be consistent with the relativistic energy-momentum relation.
+
+\begin{theorem}[The Unified Relativistic Energy Formula]
+The total relativistic energy of an electron in a hydrogen-like atom is a projection of its rest energy, $m_e c^2$, determined by the unified quantum number $n_{eff}$ and the coupling strength $Z\alpha$. The formula is:
+\[ \boxed{E_{n,j} = \frac{m_e c^2}{\sqrt{1 + \frac{(Z\alpha)^2}{n_{eff}^2}}} = \frac{m_e c^2}{\sqrt{1 + \frac{(Z\alpha)^2}{\left( (n - k) + \sqrt{k^2 - (Z\alpha)^2} \right)^2}}}} \]
+where $k=j+1/2$.
+\end{theorem}
+\begin{proof}
+The formula's structure, $E = E_0 / \sqrt{1+X^2}$, is the required form for a total relativistic energy in a bound system. It is the bound-state analogue of the free-particle relation $E = \sqrt{p^2c^2 + m_0^2c^4}$. Here, the "effective momentum" term is identified as $X = (Z\alpha)/n_{eff}$. This form is not postulated, but is the necessary structure for a consistent relativistic energy. The formula is constructed by inserting the geometrically derived $n_{eff}$ into this fundamental structure.
+\end{proof}
+
+\section{Comparison with the Dirac Equation Approach}
+
+The formula we have derived is numerically identical to the well-known Sommerfeld fine-structure formula, which gives the exact energy levels of the stationary states of the Dirac equation. It is therefore crucial to clarify the profound difference in methodology and ontology.
+
+\begin{remark}[On the Divergence of Methods]
+To arrive at this result, the Dirac approach begins by postulating a relativistic wave equation, synthesizing the separate axioms of special relativity and quantum mechanics through the introduction of abstract algebraic objects (spinors and gamma matrices). It is a masterpiece of descriptive synthesis.
+
+The WILL approach, in contrast, is generative. It begins with a single geometric principle ($\text{SPACETIME} \equiv \text{ENERGY}$) and derives the energy formula as a necessary consequence of stable, self-consistent geometry. Every component of our formula has a direct geometric interpretation.
+\end{remark}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Methodological Comparison]
+\begin{tabular}{p{0.45\linewidth} | p{0.45\linewidth}}
+    \textbf{Dirac Equation Approach} & \textbf{WILL Relational Geometry Approach} \\
+    \hline
+    \textbf{Starts with} a synthesis of SR and QM postulates. & \textbf{Starts with} a single principle of geometric unity. \\
+    \textbf{Introduces} abstract algebraic objects (spinors, matrices) to construct the wave equation. & \textbf{Derives} geometric quantities ($k'$, $n_{eff}$) from the curvature of phase space. \\
+    \textbf{Solves} a differential equation to find the allowed energy eigenvalues. & \textbf{Solves} for points of stable geometric equilibrium. \\
+    \textbf{Nature:} Descriptive. It successfully models the physical reality. & \textbf{Nature:} Generative. It explains why the reality must have this geometric form.
+\end{tabular}
+\end{tcolorbox}
+
+\begin{corollary}
+The Dirac equation is a successful operator-based representation of the underlying relativistic geometry of a quantum state. Our derivation does not replace it, but rather provides its ontological foundation.
+\end{corollary}
 
 
 \section{Why the Electron Does Not Collapse into the Nucleus: Topological and Ontological Resolution}
