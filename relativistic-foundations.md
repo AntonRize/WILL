@@ -990,10 +990,13 @@ Here's a simple analogy:
     </div>
 </div>
 
-> ### The Name "WILL"  
-
-> The name Will reflects both the harmonious unity between structure and dynamics and a subtle irony towards the <abbr title="the idea that the Universe must allow conscious observers to exist, so the laws of physics appear fine-tuned for life">anthropic principle</abbr>, which often intertwines human existence with the causality of the universe. This model stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
-
+<div class="max-w-4xl mx-auto my-12 text-center">
+    <h3 class="text-xl font-bold text-white">The Name "WILL"</h3>
+    <p class="mt-2 text-base text-gray-400">
+        The name Will reflects both the harmonious unity between structure and dynamics and a subtle irony towards the <abbr title="the idea that the Universe must allow conscious observers to exist, so the laws of physics appear fine-tuned for life">anthropic principle</abbr>, which often intertwines human existence with the causality of the universe. This model stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
+    </p>
+  
+</div>
 <div class="text-center py-12">
     <h2 class="text-3xl font-bold text-white">The World as a Projection</h2>
     <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
