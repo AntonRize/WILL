@@ -966,6 +966,8 @@ Here's a simple analogy:
         <div class="mt-10">
             <h3 class="text-2xl font-bold text-white mb-2">Mercury Precession</h3>
             <p>The theory computes the anomalous precession of Mercury’s orbit, matching the observed data with machine-level precision.</p>
+            
+            
             <details class="video-dropdown-container mt-4">
 
 <details class="video-dropdown-container">  
