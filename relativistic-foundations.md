@@ -246,22 +246,17 @@ For questions and curiosity:
 
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/8_Kinetic-Energy-b-projection-on-S.png" alt="Diagram of the Beta projection on the S¹ unit circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-
----
-
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/6k1um2qbzm" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
-
----
     
-    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+    <details class="video-dropdown-container mt-6">  
+      <summary class="will-hero-summary">▶ Show Interactive Graph: Kinetic projection β on the Circle S¹ (Desmos)</summary>  
+      <div class="geometry-container hero-details">  
+        <div class="desmos-container">  
+          <iframe src="https://www.desmos.com/geometry/6k1um2qbzm" width="100%" height="500" frameborder="0"></iframe>  
+        </div>  
+      </div>  
+    </details>
 
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h3 class="text-2xl font-bold text-white mb-4">The Duality of Transformation</h3>
         
         <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
@@ -274,13 +269,13 @@ For questions and curiosity:
         </div>
         <div class="pl-4 my-4">
             <h4 class="font-semibold text-white">Proof</h4>
-            <p>Any complete description of transformation must specify both what changes and how that change is internally ordered. A single measure cannot capture both. The circle \(S^1\) provides the minimal geometry enforcing such complementarity: its orthogonal projections furnish precisely two non-redundant coordinates.</p>
+            <p>Any complete description of transformation must specify both what changes and how that change is internally ordered. The circle \(S^1\) provides the minimal geometry enforcing such complementarity: its orthogonal projections furnish precisely two non-redundant coordinates.</p>
         </div>
 
         <p class="mt-6">We define these orthogonal projections as follows:</p>
         <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
             <li><strong>The Amplitude Component (\(\beta\)):</strong> This projection represents the <em>relational measure</em> between the system and the observer. It corresponds to the <em>extent</em> of transformation, which manifests physically as momentum.</li>
-            <li><strong>The Phase Component (\(\beta_Y\)):</strong> This projection represents the <em>internal structure</em> of a system. It governs the intrinsic scale of its proper space and proper time units, corresponding to the <em>sequence</em> of its transformation. A value of \(\beta_Y=1\) represents a complete and undisturbed manifestation of this internal structure, a state we identify as rest.</li>
+            <li><strong>The Phase Component (\(\beta_Y\)):</strong> This projection represents the <em>internal structure</em> of a system. It governs the intrinsic scale of its proper space and proper time units. A value of \(\beta_Y=1\) represents a complete and undisturbed manifestation of this internal structure, a state we identify as rest.</li>
         </ul>
 
         <h3 class="text-2xl font-bold text-white mt-10 mb-4">Conservation Law of Relational Transformation</h3>
@@ -292,7 +287,7 @@ For questions and curiosity:
         </div>
         <div class="pl-4 my-4">
             <h4 class="font-semibold text-white">Proof</h4>
-            <p>Since \(S^1\) is closed, every point on the circle is constrained by the Pythagorean identity of its projections. Thus no state can exceed or fall short of the finite relational "budget." This closure enforces conservation across all processes.</p>
+            <p>Since \(S^1\) is closed, every point on the circle is constrained by the Pythagorean identity of its projections. This closure enforces conservation across all processes.</p>
         </div>
 
         <h3 class="text-2xl font-bold text-white mt-10 mb-4">Consequence: Relativistic Effects</h3>
@@ -304,7 +299,7 @@ For questions and curiosity:
         <div class="pl-4 my-4">
             <h4 class="font-semibold text-white">Proof</h4>
             <p>The components satisfy \(\beta^2 + \beta_Y^2 = 1\). An increase in the relational displacement \(\beta\) enforces a decrease in the internal measure \(\beta_Y\). This reduction of \(\beta_Y\) corresponds to dilation of proper time and contraction of proper length, while the growth of \(\beta\) represents momentum. Thus the relativistic trade-off is the direct physical expression of the geometric closure of \(S^1\).</p>
-        </div>
+        </div> 
 
         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
             <p>The geometry of spacetime is the shadow cast by the geometry of relations.</p>
@@ -313,7 +308,6 @@ For questions and curiosity:
 </div>
 
 ---
-
 
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/9_Energy-Momentum-Identity-on-S.png" alt="Energy Momentum Identity on the S¹ Circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
