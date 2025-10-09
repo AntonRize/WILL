@@ -796,18 +796,7 @@ Here's a simple analogy:
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/16_Unified-Field-Equation.png" alt="The Unified Field Equation" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
 
 
-In plain words:
-**(Gravitational depth) = (fraction of critical radius reached) = (fraction of maximum density
-reached)**
 
-Let’s unpack the terms:
-
-- $R_s$ is the critical radius for a given mass – essentially the Schwarzschild radius (the radius of a black hole event horizon for that mass).
-- $r_d$ is the distance from the center we are considering (the current radius).
-- $\rho$ is the energy density (including mass as energy) at that radius.
-- $\rho_{\max}$ is the critical density at that radius, meaning the maximum energy density that location can sustain without collapsing into a black hole.
-
----
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">The Unified Field Equation</h2>
@@ -910,7 +899,7 @@ Let’s unpack the terms:
 
 <div class="mt-12">
     <h3 class="text-2xl font-bold text-white mb-4">2. ISCO from the Principle of Equilibrium (\(Q=Q_t\))</h3>
-    <p>The Innermost Stable Circular Orbit (ISCO) represents a state of perfect equilibrium, where the "used" projection budget (\(Q\)) equals the "complementary" budget (\(Q_t\)). This symmetry of marginal stability is expressed as:</p>
+    <p>The Innermost Stable Circular Orbit (ISCO) represents a state of perfect equilibrium, where the "used" projection budget (\(Q\)) equals the "complementary" budget (\(Q_t=\sqrt{1-Q^{2}}\)). This symmetry of marginal stability is expressed as:</p>
     <p class="text-center text-xl font-mono my-4">\(Q = Q_t \implies Q^2 = Q_t^2\)</p>
 
     <p>Using the definition \(Q_t^2 = 1 - Q^2\), we solve for \(Q^2\):</p>
@@ -926,16 +915,21 @@ Let’s unpack the terms:
     <p class="text-center text-xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(r_{isco} = \frac{R_s}{1/3} = 3 R_s\)</p>
 </div>
 
+
+<img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/ISCO-diagram.png" alt="Diagram of ISCO in WILL RG" class="w-full max-w-2xl mx-auto rounded-lg my-6">
+
+
 <div class="mt-12">
      <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
         <p><strong>While the radii are known from GR, their emergence from two distinct, fundamental symmetries (\(Q=1\) and \(Q=Q_t\)) reinforces the explanatory power of WILL Geometry.</strong></p>
     </div>
 </div>
+</details>
+
 
         <div class="mt-10">
             <h3 class="text-2xl font-bold text-white mb-2">GPS Satellites</h3>
             <p>The model correctly predicts the empirically measured time correction by unifying kinetic (SR) and gravitational (GR) effects into a single calculation.</p>
----
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Show Interactive Graph: Earth GPS (Desmos)</summary>  
@@ -945,8 +939,6 @@ Let’s unpack the terms:
     </div>  
   </div>  
 </details>
-
----
 
             
             <details class="video-dropdown-container mt-4">
@@ -968,8 +960,13 @@ Let’s unpack the terms:
                 </div>
             </details>
         </div>
-
+        
 ---
+
+        <div class="mt-10">
+            <h3 class="text-2xl font-bold text-white mb-2">Mercury Precession</h3>
+            <p>The theory computes the anomalous precession of Mercury’s orbit, matching the observed data with machine-level precision.</p>
+            <details class="video-dropdown-container mt-4">
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Show Interactive Graph: Sun–Mercury (Desmos)</summary>  
@@ -979,13 +976,7 @@ Let’s unpack the terms:
     </div>  
   </div>  
 </details>
-
----
-
-        <div class="mt-10">
-            <h3 class="text-2xl font-bold text-white mb-2">Mercury Precession</h3>
-            <p>The theory computes the anomalous precession of Mercury’s orbit, matching the observed data with machine-level precision.</p>
-            <details class="video-dropdown-container mt-4">
+        
                 <summary class="will-hero-summary">▶ Show Full Calculation for Mercury's Precession</summary>
                 <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
                     <p>The precession is calculated from the combined energy parameter \(Q^2\) and orbital eccentricity \(e\).</p>
@@ -1008,14 +999,18 @@ Let’s unpack the terms:
             <p><strong>SPACETIME ≡ ENERGY: One principle defines the structure and the symmetry of reality.</strong></p>
         </div>
     </div>
-</div>
+
 
 ---
+
+> ### The Name "WILL"  
+> The name Will reflects both the harmonious unity between structure and dinamics and a subtle irony towards the <abbr title="the idea that the Universe must allow conscious observers to exist, so the laws of physics appear fine-tuned for life">anthropic principle</abbr>, which often intertwines human existence with the causality of the universe. The model stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
+
 
 <div class="text-center py-12">
     <h2 class="text-3xl font-bold text-white">The World as a Projection</h2>
     <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
-        This exploration is only the beginning. The model has been extended to cover cosmology and quantum mechanics, with further results and detailed applications available below. The core idea remains: energy does not exist <em>in</em> space—it <em>creates</em> space by its projection.
+        This exploration is only the beginning. The model has been extended to cover cosmology and quantum mechanics, with further results and detailed applications available below. The core idea remains: energy does not exist <em>in</em> spacetime—it <em>creates</em> spacetime by its projection.
     </p>
 
     <div class="mt-10 flex justify-center items-center flex-wrap gap-6 md:gap-10">
@@ -1025,19 +1020,3 @@ Let’s unpack the terms:
         <a href="{{ site.baseurl }}/help/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Help This Research</a>
     </div>
 </div>
-
-> ### The Name "WILL"  
-> The name Will reflects both the harmonious unity of the equation and a subtle irony towards the <abbr title="the idea that the Universe must allow conscious observers to exist, so the laws of physics appear fine-tuned for life">anthropic principle</abbr>, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
-
----
-
-This is not the end, but just a beginning. **For the full mathematical theory, and its extensions to cosmology and quantum mechanics, see:**
-
------
-
-- [WILL Geometry — Documents & Results](https://antonrize.github.io/WILL/results/)  
-- [Testable Predictions](https://antonrize.github.io/WILL/predictions/)
-- [Ask WILL AI](https://antonrize.github.io/WILL/assistant/)
-- [Help This Research](https://antonrize.github.io/WILL/help/)
-
------
