@@ -253,7 +253,7 @@ For questions and curiosity:
   <summary class="will-hero-summary">▶ Show Interactive Graph: Motion/Time on the Unit Circle (Desmos)</summary>  
   <div class="geometry-container hero-details">  
     <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/mpdksbsf9q" width="100%" height="500" frameborder="0"></iframe>  
+      <iframe src="https://www.desmos.com/geometry/6k1um2qbzm" width="100%" height="500" frameborder="0"></iframe>  
     </div>  
   </div>  
 </details>
@@ -318,19 +318,15 @@ For questions and curiosity:
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/9_Energy-Momentum-Identity-on-S.png" alt="Energy Momentum Identity on the S¹ Circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
 
----
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)</summary>  
   <div class="geometry-container hero-details">  
     <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/ezmytl5lkh" width="100%" height="500" frameborder="0"></iframe>  
+      <iframe src="https://www.desmos.com/geometry/6k1um2qbzm" width="100%" height="500" frameborder="0"></iframe>  
     </div>  
   </div>  
 </details>
-
-
----
 
 
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
@@ -406,7 +402,7 @@ For questions and curiosity:
             <summary class="will-hero-summary">▶ Show Interactive Graph: Potential Energy projection on S² (Desmos)</summary>  
             <div class="geometry-container hero-details">  
                 <div class="desmos-container">  
-                    <iframe src="https://www.desmos.com/geometry/ifeyu1yg2b" width="100%" height="500" frameborder="0"></iframe>  
+                    <iframe src="https://www.desmos.com/geometry/lsjhnc2e9x" width="100%" height="500" frameborder="0"></iframe>  
                 </div>  
             </div>  
         </details>
@@ -800,18 +796,7 @@ Here's a simple analogy:
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/16_Unified-Field-Equation.png" alt="The Unified Field Equation" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
 
 
-In plain words:
-**(Gravitational depth) = (fraction of critical radius reached) = (fraction of maximum density
-reached)**
 
-Let’s unpack the terms:
-
-- $R_s$ is the critical radius for a given mass – essentially the Schwarzschild radius (the radius of a black hole event horizon for that mass).
-- $r_d$ is the distance from the center we are considering (the current radius).
-- $\rho$ is the energy density (including mass as energy) at that radius.
-- $\rho_{\max}$ is the critical density at that radius, meaning the maximum energy density that location can sustain without collapsing into a black hole.
-
----
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">The Unified Field Equation</h2>
@@ -882,118 +867,134 @@ Let’s unpack the terms:
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/18_Empirical-Validation.png" alt="Empirical Validation of WILL Geometry" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <h2 class="text-3xl font-bold text-white text-center mb-6">Grounding the Vision in Reality</h2>
-        <p>
-            A theory born of pure logic must find its reflection in the workings of the real world. WILL Geometry passes rigorous experimental and observational tests, reproducing the successes of standard physics from deeper, more unified first principles.
-        </p>
+    <h2 class="text-3xl font-bold text-white text-center mb-6">Grounding the Vision in Reality</h2>
+    <p>
+        A theory born of pure logic must find its reflection in the workings of the real world. WILL Relational Geometry passes rigorous experimental and observational tests, reproducing the successes of standard physics from deeper, more unified first principles.
+    </p>
 
-        <div class="mt-10">
-            <h3 class="text-2xl font-bold text-white mb-2">Critical Orbits (ISCO & Photon Sphere)</h3>
-            <p>All known GR critical surfaces emerge naturally from the geometric equilibrium of the \(\beta\) and \(\kappa\) projections, without solving geodesic equations.</p>
-            <details class="video-dropdown-container mt-4">
-                <summary class="will-hero-summary">▶ Show Derivation of Critical Orbits</summary>
-                <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                    <p>The critical orbital radii for the photon sphere and the innermost stable circular orbit (ISCO) emerge from conditions on the total projection budget, \(Q^2 = \kappa^2 + \beta^2\).</p>
-                    <p class="mt-4">A key geometric equilibrium occurs when \(\theta_1 = \theta_2\), which leads to \(Q^2=1\).</p>
-                    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/critical-orbits-diagram.png" alt="Diagram for critical orbits derivation" class="w-full max-w-sm mx-auto rounded-lg my-4 bg-white p-2">
-                    <ul class="list-disc list-inside space-y-4 mt-4">
-                        <li>
-                            <strong>Photon Sphere (\(r = 1.5R_s\)):</strong> Occurs when the causal budget is exhausted, \(Q^2 = 1\), leaving no timelike separation (\(Q_t = 0\)). This corresponds to \(\kappa = \sqrt{2/3}\) and \(\beta = \sqrt{1/3}\).
-                        </li>
-                        <li>
-                            <strong>ISCO (\(r = 3R_s\)):</strong> Occurs at the marginal stability condition \(Q^2 = 1/2\). This corresponds to \(\kappa=\sqrt{1/3}\) and \(\beta = \sqrt{1/6}\).
-                        </li>
-                    </ul>
-                </div>
-            </details>
-        </div>
+    <div class="mt-10">
+        <h3 class="text-2xl font-bold text-white mb-2">Critical Orbits (ISCO & Photon Sphere)</h3>
+        <p>All known GR critical surfaces emerge naturally from the geometric equilibrium of the \(\beta\) and \(\kappa\) projections, without solving geodesic equations.</p>
+        <details class="video-dropdown-container mt-4">
+            <summary class="will-hero-summary">▶ Show Derivation of Critical Orbits</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                <h2 class="text-3xl font-bold text-white text-center mb-6">Geometric Prediction of Photon Sphere and ISCO</h2>
+                <p class="text-center">
+                    Critical orbital radii emerge not from solving complex geodesic equations, but as direct consequences of fundamental symmetries within the projection budget \(Q\).
+                </p>
 
-        <div class="mt-10">
-            <h3 class="text-2xl font-bold text-white mb-2">GPS Satellites</h3>
-            <p>The model correctly predicts the empirically measured time correction by unifying kinetic (SR) and gravitational (GR) effects into a single calculation.</p>
----
-
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: Earth GPS (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
-
----
-
-            
-            <details class="video-dropdown-container mt-4">
-                <summary class="will-hero-summary">▶ Show Full Calculation for GPS Time Shift</summary>
-                <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                    <p>Using the combined time factor \(\tau = \beta_Y \cdot \kappa_X\), we calculate the daily relativistic offset between GPS satellite clocks and Earth-based clocks.</p>
-                    <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-4 space-y-1 overflow-x-auto">
-                        <p>\(\beta_{GPS} = 0.0000129... \Rightarrow \beta_{YGPS} = 0.999999999917\)</p>
-                        <p>\(\kappa_{GPS} = 0.0000182... \Rightarrow \kappa_{XGPS} = 0.999999999833\)</p>
-                        <p>\(\tau_{GPS} = \kappa_{XGPS} \cdot \beta_{YGPS} = 0.99999999975\)</p>
-                        <hr class="border-gray-600 my-2">
-                        <p>\(\kappa_{Earth} = 0.0000373... \Rightarrow \kappa_{XEarth} = 0.999999999304\)</p>
-                        <p>\(\tau_{Earth} = \kappa_{XEarth} \cdot 1 = 0.999999999304\)</p>
-                        <hr class="border-gray-600 my-2">
-                        <p class="text-white font-bold">\(\Delta \tau = (1-\frac{\tau_{Earth}}{\tau_{GPS}}) \cdot 86400 \cdot 10^6\)</p>
-                        <p class="text-cyan-400 font-bold">\(\Delta \tau \approx 38.52 \text{ µs/day}\)</p>
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">1. Photon Sphere from the Principle of Maximum Projection (\(Q=1\))</h3>
+                    <p>The Photon Sphere represents a state of maximum geometric saturation, where the entire projection budget is exhausted. This is expressed by the symmetry condition:</p>
+                    <p class="text-center text-xl font-mono my-4">\(Q = 1 \implies Q^2 = 1\)</p>
+                    <p>Using the system's definitions (\(Q^2 = \kappa^2 + \beta^2\)) and the universal law for closed systems (\(\kappa^2 = 2\beta^2\)), we solve:</p>
+                    <div class="font-mono text-lg bg-gray-900/70 p-4 rounded-lg my-4 space-y-2">
+                        <p>\(2\beta^2 + \beta^2 = 1 \implies 3\beta^2 = 1 \implies \beta^2 = \frac{1}{3}\)</p>
+                        <p>\(\kappa^2 = 2\beta^2 = \frac{2}{3}\)</p>
                     </div>
-                     <p class="mt-4">This result exactly matches the empirical time correction required for GPS synchronization and confirms the Energy-Symmetry Law using real-world data.</p>
+                    <p>From the definition \(r = R_s / \kappa^2\), we derive the physical radius:</p>
+                    <p class="text-center text-xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(r_{ps} = \frac{R_s}{2/3} = 1.5 R_s\)</p>
                 </div>
-            </details>
-        </div>
 
----
-
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: Sun–Mercury (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
-
----
-
-        <div class="mt-10">
-            <h3 class="text-2xl font-bold text-white mb-2">Mercury Precession</h3>
-            <p>The theory computes the anomalous precession of Mercury’s orbit, matching the observed data with machine-level precision.</p>
-            <details class="video-dropdown-container mt-4">
-                <summary class="will-hero-summary">▶ Show Full Calculation for Mercury's Precession</summary>
-                <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                    <p>The precession is calculated from the combined energy parameter \(Q^2\) and orbital eccentricity \(e\).</p>
-                    <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-4 space-y-1 overflow-x-auto">
-                        <p>\(\kappa_{Merc} = 0.000225...\)</p>
-                        <p>\(\beta_{Merc} = 0.000159...\)</p>
-                        <p>\(Q_{Merc}^2 = 3 \beta_{Merc}^2 = 7.653... \times 10^{-8}\)</p>
-                         <hr class="border-gray-600 my-2">
-                        <p class="text-white font-bold">\(\Delta\phi_{WILL} = \frac{2\pi Q_{Merc}^{2}}{(1-e_{Merc}^{2})} = 5.02087... \times 10^{-7}\) radians</p>
-                        <p class="text-white font-bold">\(\Delta\phi_{GR} = \frac{3\pi R_{Ssun}}{a_{Merc} (1 - e_{Merc}^{2})} = 5.02087... \times 10^{-7}\) radians</p>
-                         <hr class="border-gray-600 my-2">
-                         <p class="text-cyan-400 font-bold">Relative Difference: \(< 10^{-9}\) %</p>
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-white mb-4">2. ISCO from the Principle of Equilibrium (\(Q=Q_t\))</h3>
+                    <p>The Innermost Stable Circular Orbit (ISCO) represents a state of perfect equilibrium, where the "used" projection budget (\(Q\)) equals the "complementary" budget (\(Q_t=\sqrt{1-Q^{2}}\)). This symmetry of marginal stability is expressed as:</p>
+                    <p class="text-center text-xl font-mono my-4">\(Q = Q_t \implies Q^2 = Q_t^2\)</p>
+                    <p>Using the definition \(Q_t^2 = 1 - Q^2\), we solve for \(Q^2\):</p>
+                    <div class="font-mono text-lg bg-gray-900/70 p-4 rounded-lg my-4 space-y-2">
+                        <p>\(Q^2 = 1 - Q^2 \implies 2Q^2 = 1 \implies Q^2 = \frac{1}{2}\)</p>
                     </div>
-                    <p class="mt-4">The negligible difference confirms that WILL Geometry reproduces the observed relativistic precession of Mercury to within machine accuracy.</p>
+                    <p>Again, using the system's law (\(\kappa^2 = 2\beta^2\)) and definitions (\(Q^2 = \kappa^2 + \beta^2\)), we solve:</p>
+                    <div class="font-mono text-lg bg-gray-900/70 p-4 rounded-lg my-4 space-y-2">
+                        <p>\(2\beta^2 + \beta^2 = \frac{1}{2} \implies 3\beta^2 = \frac{1}{2} \implies \beta^2 = \frac{1}{6}\)</p>
+                        <p>\(\kappa^2 = 2\beta^2 = \frac{1}{3}\)</p>
+                    </div>
+                    <p>From \(r = R_s / \kappa^2\), we derive the physical radius:</p>
+                    <p class="text-center text-xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(r_{isco} = \frac{R_s}{1/3} = 3 R_s\)</p>
                 </div>
-            </details>
-        </div>
+                <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/ISCO-diagram.png" alt="Diagram of ISCO in WILL RG" class="w-full max-w-2xl mx-auto rounded-lg my-6">
+                <div class="mt-12">
+                    <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+                        <p><strong>While the radii are known from GR, their emergence from two distinct, fundamental symmetries (\(Q=1\) and \(Q=Q_t\)) reinforces the explanatory power of WILL Geometry.</strong></p>
+                    </div>
+                </div>
+            </div> </details>
+    </div>
+
+    <div class="mt-10">
+        <h3 class="text-2xl font-bold text-white mb-2">GPS Satellites</h3>
+        <p>The model correctly predicts the empirically measured time correction by unifying kinetic (SR) and gravitational (GR) effects into a single calculation.</p>
+        <details class="video-dropdown-container">  
+            <summary class="will-hero-summary">▶ Show Interactive Graph: Earth GPS (Desmos)</summary>  
+            <div class="geometry-container hero-details">  
+                <div class="desmos-container">  
+                    <iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"></iframe>  
+                </div>  
+            </div>  
+        </details>
+        <details class="video-dropdown-container mt-4">
+            <summary class="will-hero-summary">▶ Show Full Calculation for GPS Time Shift</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                <p>Using the combined time factor \(\tau = \beta_Y \cdot \kappa_X\), we calculate the daily relativistic offset between GPS satellite clocks and Earth-based clocks.</p>
+                <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-4 space-y-1 overflow-x-auto">
+                    <p>\(\beta_{GPS} = 0.0000129... \Rightarrow \beta_{YGPS} = 0.999999999917\)</p>
+                    <p>\(\kappa_{GPS} = 0.0000182... \Rightarrow \kappa_{XGPS} = 0.999999999833\)</p>
+                    <p>\(\tau_{GPS} = \kappa_{XGPS} \cdot \beta_{YGPS} = 0.99999999975\)</p>
+                    <hr class="border-gray-600 my-2">
+                    <p>\(\kappa_{Earth} = 0.0000373... \Rightarrow \kappa_{XEarth} = 0.999999999304\)</p>
+                    <p>\(\tau_{Earth} = \kappa_{XEarth} \cdot 1 = 0.999999999304\)</p>
+                    <hr class="border-gray-600 my-2">
+                    <p class="text-white font-bold">\(\Delta \tau = (1-\frac{\tau_{Earth}}{\tau_{GPS}}) \cdot 86400 \cdot 10^6\)</p>
+                    <p class="text-cyan-400 font-bold">\(\Delta \tau \approx 38.52 \text{ µs/day}\)</p>
+                </div>
+                <p class="mt-4">This result exactly matches the empirical time correction required for GPS synchronization and confirms the Energy-Symmetry Law using real-world data.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="mt-10">
+        <h3 class="text-2xl font-bold text-white mb-2">Mercury Precession</h3>
+        <p>The theory computes the anomalous precession of Mercury’s orbit, matching the observed data with machine-level precision.</p>
         
-        <div class="mt-12 text-center text-lg font-semibold text-green-400 tracking-wider border-2 border-green-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p><strong>SPACETIME ≡ ENERGY: One principle defines the structure and the symmetry of reality.</strong></p>
-        </div>
+        <details class="video-dropdown-container mt-4">
+            <summary class="will-hero-summary">▶ Show Full Calculation for Mercury's Precession</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
+                
+                <details class="video-dropdown-container mb-6">  
+                  <summary class="will-hero-summary">▶ Show Interactive Graph: Sun–Mercury (Desmos)</summary>  
+                  <div class="geometry-container hero-details">  
+                    <div class="desmos-container">  
+                      <iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"></iframe>  
+                    </div>  
+                  </div>  
+                </details>
+
+                <p>The precession is calculated from the combined energy parameter \(Q^2\) and orbital eccentricity \(e\).</p>
+                <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-4 space-y-1 overflow-x-auto">
+                    <p>\(\kappa_{Merc} = 0.000225...\)</p>
+                    <p>\(\beta_{Merc} = 0.000159...\)</p>
+                    <p>\(Q_{Merc}^2 = 3 \beta_{Merc}^2 = 7.653... \times 10^{-8}\)</p>
+                    <hr class="border-gray-600 my-2">
+                    <p class="text-white font-bold">\(\Delta\phi_{WILL} = \frac{2\pi Q_{Merc}^{2}}{(1-e_{Merc}^{2})} = 5.02087... \times 10^{-7}\) radians</p>
+                    <p class="text-white font-bold">\(\Delta\phi_{GR} = \frac{3\pi R_{Ssun}}{a_{Merc} (1 - e_{Merc}^{2})} = 5.02087... \times 10^{-7}\) radians</p>
+                    <hr class="border-gray-600 my-2">
+                    <p class="text-cyan-400 font-bold">Relative Difference: \(< 10^{-9}\) %</p>
+                </div>
+                <p class="mt-4">The negligible difference confirms that WILL Geometry reproduces the observed relativistic precession of Mercury to within machine accuracy.</p>
+            </div>
+        </details>
+    </div>
+    
+    <div class="mt-12 text-center text-lg font-semibold text-green-400 tracking-wider border-2 border-green-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+        <p><strong>SPACETIME ≡ ENERGY: One principle defines the structure and the symmetry of reality.</strong></p>
     </div>
 </div>
-
----
 
 <div class="text-center py-12">
     <h2 class="text-3xl font-bold text-white">The World as a Projection</h2>
     <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
-        This exploration is only the beginning. The model has been extended to cover cosmology and quantum mechanics, with further results and detailed applications available below. The core idea remains: energy does not exist <em>in</em> space—it <em>creates</em> space by its projection.
+        This exploration is only the beginning. The model has been extended to cover cosmology and quantum mechanics, with further results and detailed applications available below. The core idea remains: energy does not exist <em>in</em> spacetime—it <em>creates</em> spacetime by its projection.
     </p>
-
     <div class="mt-10 flex justify-center items-center flex-wrap gap-6 md:gap-10">
         <a href="{{ site.baseurl }}/results/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Documents & Results</a>
         <a href="{{ site.baseurl }}/predictions/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Testable Predictions</a>
@@ -1001,19 +1002,3 @@ Let’s unpack the terms:
         <a href="{{ site.baseurl }}/help/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Help This Research</a>
     </div>
 </div>
-
-> ### The Name "WILL"  
-> The name Will reflects both the harmonious unity of the equation and a subtle irony towards the <abbr title="the idea that the Universe must allow conscious observers to exist, so the laws of physics appear fine-tuned for life">anthropic principle</abbr>, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
-
----
-
-This is not the end, but just a beginning. **For the full mathematical theory, and its extensions to cosmology and quantum mechanics, see:**
-
------
-
-- [WILL Geometry — Documents & Results](https://antonrize.github.io/WILL/results/)  
-- [Testable Predictions](https://antonrize.github.io/WILL/predictions/)
-- [Ask WILL AI](https://antonrize.github.io/WILL/assistant/)
-- [Help This Research](https://antonrize.github.io/WILL/help/)
-
------
