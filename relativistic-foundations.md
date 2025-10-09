@@ -880,7 +880,7 @@ Let’s unpack the terms:
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">Grounding the Vision in Reality</h2>
         <p>
-            A theory born of pure logic must find its reflection in the workings of the real world. WILL Geometry passes rigorous experimental and observational tests, reproducing the successes of standard physics from deeper, more unified first principles.
+            A theory born of pure logic must find its reflection in the workings of the real world. WILL Relational Geometry passes rigorous experimental and observational tests, reproducing the successes of standard physics from deeper, more unified first principles.
         </p>
 
         <div class="mt-10">
@@ -889,20 +889,48 @@ Let’s unpack the terms:
             <details class="video-dropdown-container mt-4">
                 <summary class="will-hero-summary">▶ Show Derivation of Critical Orbits</summary>
                 <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                    <p>The critical orbital radii for the photon sphere and the innermost stable circular orbit (ISCO) emerge from conditions on the total projection budget, \(Q^2 = \kappa^2 + \beta^2\).</p>
-                    <p class="mt-4">A key geometric equilibrium occurs when \(\theta_1 = \theta_2\), which leads to \(Q^2=1\).</p>
-                    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/critical-orbits-diagram.png" alt="Diagram for critical orbits derivation" class="w-full max-w-sm mx-auto rounded-lg my-4 bg-white p-2">
-                    <ul class="list-disc list-inside space-y-4 mt-4">
-                        <li>
-                            <strong>Photon Sphere (\(r = 1.5R_s\)):</strong> Occurs when the causal budget is exhausted, \(Q^2 = 1\), leaving no timelike separation (\(Q_t = 0\)). This corresponds to \(\kappa = \sqrt{2/3}\) and \(\beta = \sqrt{1/3}\).
-                        </li>
-                        <li>
-                            <strong>ISCO (\(r = 3R_s\)):</strong> Occurs at the marginal stability condition \(Q^2 = 1/2\). This corresponds to \(\kappa=\sqrt{1/3}\) and \(\beta = \sqrt{1/6}\).
-                        </li>
-                    </ul>
-                </div>
-            </details>
-        </div>
+                  <h2 class="text-3xl font-bold text-white text-center mb-6">Geometric Prediction of Photon Sphere and ISCO</h2>
+<p class="text-center">
+    Critical orbital radii emerge not from solving complex geodesic equations, but as direct consequences of fundamental symmetries within the projection budget \(Q\).
+</p>
+
+<div class="mt-8">
+    <h3 class="text-2xl font-bold text-white mb-4">1. Photon Sphere from the Principle of Maximum Projection (\(Q=1\))</h3>
+    <p>The Photon Sphere represents a state of maximum geometric saturation, where the entire projection budget is exhausted. This is expressed by the symmetry condition:</p>
+    <p class="text-center text-xl font-mono my-4">\(Q = 1 \implies Q^2 = 1\)</p>
+    
+    <p>Using the system's definitions (\(Q^2 = \kappa^2 + \beta^2\)) and the universal law for closed systems (\(\kappa^2 = 2\beta^2\)), we solve:</p>
+    <div class="font-mono text-lg bg-gray-900/70 p-4 rounded-lg my-4 space-y-2">
+        <p>\(2\beta^2 + \beta^2 = 1 \implies 3\beta^2 = 1 \implies \beta^2 = \frac{1}{3}\)</p>
+        <p>\(\kappa^2 = 2\beta^2 = \frac{2}{3}\)</p>
+    </div>
+    <p>From the definition \(r = R_s / \kappa^2\), we derive the physical radius:</p>
+    <p class="text-center text-xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(r_{ps} = \frac{R_s}{2/3} = 1.5 R_s\)</p>
+</div>
+
+<div class="mt-12">
+    <h3 class="text-2xl font-bold text-white mb-4">2. ISCO from the Principle of Equilibrium (\(Q=Q_t\))</h3>
+    <p>The Innermost Stable Circular Orbit (ISCO) represents a state of perfect equilibrium, where the "used" projection budget (\(Q\)) equals the "complementary" budget (\(Q_t\)). This symmetry of marginal stability is expressed as:</p>
+    <p class="text-center text-xl font-mono my-4">\(Q = Q_t \implies Q^2 = Q_t^2\)</p>
+
+    <p>Using the definition \(Q_t^2 = 1 - Q^2\), we solve for \(Q^2\):</p>
+    <div class="font-mono text-lg bg-gray-900/70 p-4 rounded-lg my-4 space-y-2">
+        <p>\(Q^2 = 1 - Q^2 \implies 2Q^2 = 1 \implies Q^2 = \frac{1}{2}\)</p>
+    </div>
+    <p>Again, using the system's law (\(\kappa^2 = 2\beta^2\)) and definitions (\(Q^2 = \kappa^2 + \beta^2\)), we solve:</p>
+    <div class="font-mono text-lg bg-gray-900/70 p-4 rounded-lg my-4 space-y-2">
+        <p>\(2\beta^2 + \beta^2 = \frac{1}{2} \implies 3\beta^2 = \frac{1}{2} \implies \beta^2 = \frac{1}{6}\)</p>
+        <p>\(\kappa^2 = 2\beta^2 = \frac{1}{3}\)</p>
+    </div>
+    <p>From \(r = R_s / \kappa^2\), we derive the physical radius:</p>
+    <p class="text-center text-xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(r_{isco} = \frac{R_s}{1/3} = 3 R_s\)</p>
+</div>
+
+<div class="mt-12">
+     <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+        <p><strong>While the radii are known from GR, their emergence from two distinct, fundamental symmetries (\(Q=1\) and \(Q=Q_t\)) reinforces the explanatory power of WILL Geometry.</strong></p>
+    </div>
+</div>
 
         <div class="mt-10">
             <h3 class="text-2xl font-bold text-white mb-2">GPS Satellites</h3>
