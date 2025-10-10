@@ -19,6 +19,8 @@
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{tabularx}    
+\usepackage{enumitem}
+
 
 % --- TikZ ---
 \usepackage{tikz}
@@ -1171,19 +1173,28 @@ and the sequence of valid configurations is what we call \textit{dynamics}.
 
 From the geometric closure of RG framework, we derive a universal dimensionless invariant:
 
-\begin{equation}
-W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{\frac{1}{\kappa_{X}} E_0 \kappa_{X} t^2_{d}}{\frac{1}{\beta_{Y}} m_0\beta_{Y} r^2_{d}} = 1
-\end{equation}
-
-\textbf{Proof:} Substituting the geometric definitions:
+$W_{ILL}$ parameters of mass energy time and length:
 \begin{align}
-W_{\text{ill}} &= \frac{\frac{1}{\cos \theta_2}\ m_0c^2 \cos \theta_2 \frac{r^2_{d}}{c^2}}{\frac{1}{\sin\theta_1}\ m_0 \sin\theta_1 r^2_{d}} = \frac{m_0c^2 r^2_{d}}{c^2} \cdot \frac{\sin\theta_1}{m_0 r^2_{d}} \cdot \frac{1}{\sin\theta_1} = 1
+
+M &= \frac{ \beta^2}{\beta_{Y}} c^2 \frac{r}{G} \\
+
+E &=\frac{\kappa^2}{\kappa_{X}} \frac{ c^4 r}{2G} \\
+
+T &= \kappa_{X} \left(\frac{2Gm_0}{\kappa^2 c^3}\right)^2 \\
+
+L &= \beta_{Y} \left(\frac{Gm_0}{\beta^2 c^2}\right)^2
+
 \end{align}
+
+The explicit - invariant for any energetically closed system, including both GR and SR effects, is:  $$W_{ILL}=\frac{E \cdot T}{M \cdot L} =\frac{\frac{1}{\kappa_{X}} E_0 \cdot \kappa_{X} t^2}{\frac{1}{\beta_{Y}}  m_0 \cdot \beta_{Y} r^2} =   1$$
+
+All physical quantities cancel identically, leaving $ WILL=1$, which is satisfied by geometric closure.
+
 
 This invariant holds universally for all values of $m_0$, $G$, $c$, and $\kappa$. Unlike dimensional analysis, this identity emerges from the projectional interdependence of energy-mass $(E,M)$ and spacetime metrics $(T,L)$ within the unified structure.
 
 \[
-\boxed{\text{The invariant } W_{\text{ill}} = 1 \text{ expresses geometric unity through energetic projection}}
+\boxed{\text{The invariant } W_{\text{ILL}} = 1 \text{ expresses geometric unity through energetic projection}}
 \]
 
 \subsection{The Name "WILL"}
@@ -2254,7 +2265,6 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
     \item Misner, Thorne, Wheeler (1973). \textit{Gravitation}.
 \end{itemize}
  
-
 
 \end{document}
 
