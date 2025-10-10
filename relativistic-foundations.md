@@ -908,7 +908,7 @@ Here's a simple analogy:
                 <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/ISCO-diagram.png" alt="Diagram of ISCO in WILL RG" class="w-full max-w-2xl mx-auto rounded-lg my-6">
                 <div class="mt-12">
                     <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-                        <p><strong>While the radii are known from GR, their emergence from two distinct, fundamental symmetries (\(Q=1\) and \(Q=Q_t\)) reinforces the explanatory power of WILL Geometry.</strong></p>
+                        <p><strong>While the radii are known from GR, their emergence from two distinct, symmetries (\(Q=1\) and \(Q=Q_t\)) reinforces the explanatory power of Relational Geometry.</strong></p>
                     </div>
                 </div>
             </div> </details>
