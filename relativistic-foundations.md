@@ -317,7 +317,7 @@ For questions and curiosity:
   <summary class="will-hero-summary">▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)</summary>  
   <div class="geometry-container hero-details">  
     <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/6k1um2qbzm" width="100%" height="500" frameborder="0"></iframe>  
+      <iframe src="https://www.desmos.com/geometry/mbkzikthkh" width="100%" height="500" frameborder="0"></iframe>  
     </div>  
   </div>  
 </details>
@@ -596,18 +596,17 @@ For questions and curiosity:
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/13_Total-Projection-as-Vector-on-b-k-plane.png" alt="Total Projection Q as a vector on the Beta-Kappa plane" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">The Total Projection Parameter Q</h2>
----
 
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Show Interactive Graph: Q Circle (Desmos)</summary>  
   <div class="geometry-container hero-details">  
     <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/vo5xxlcglf" width="100%" height="500" frameborder="0"></iframe>  
+      <iframe src="https://www.desmos.com/geometry/2nkjtezjpi" width="100%" height="500" frameborder="0"></iframe>  
     </div>  
   </div>  
 </details>
 
----
+
 
         <p>
             The combined effects of the kinetic (\(\beta\)) and potential (\(\kappa\)) projections are unified into a single vector, \(Q\), representing the system's total projection budget.
@@ -909,7 +908,7 @@ Here's a simple analogy:
                 <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/ISCO-diagram.png" alt="Diagram of ISCO in WILL RG" class="w-full max-w-2xl mx-auto rounded-lg my-6">
                 <div class="mt-12">
                     <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-                        <p><strong>While the radii are known from GR, their emergence from two distinct, fundamental symmetries (\(Q=1\) and \(Q=Q_t\)) reinforces the explanatory power of WILL Geometry.</strong></p>
+                        <p><strong>While the radii are known from GR, their emergence from two distinct, symmetries (\(Q=1\) and \(Q=Q_t\)) reinforces the explanatory power of Relational Geometry.</strong></p>
                     </div>
                 </div>
             </div> </details>
@@ -922,7 +921,7 @@ Here's a simple analogy:
             <summary class="will-hero-summary">▶ Show Interactive Graph: Earth GPS (Desmos)</summary>  
             <div class="geometry-container hero-details">  
                 <div class="desmos-container">  
-                    <iframe src="https://www.desmos.com/geometry/gfe2jpfh1g" width="100%" height="500" frameborder="0"></iframe>  
+                    <iframe src="https://www.desmos.com/geometry/v6nrtv4vyx" width="100%" height="500" frameborder="0"></iframe>  
                 </div>  
             </div>  
         </details>
@@ -958,7 +957,7 @@ Here's a simple analogy:
                   <summary class="will-hero-summary">▶ Show Interactive Graph: Sun–Mercury (Desmos)</summary>  
                   <div class="geometry-container hero-details">  
                     <div class="desmos-container">  
-                      <iframe src="https://www.desmos.com/geometry/hkxjqfkchp" width="100%" height="500" frameborder="0"></iframe>  
+                      <iframe src="https://www.desmos.com/geometry/fhrsvs1nqs" width="100%" height="500" frameborder="0"></iframe>  
                     </div>  
                   </div>  
                 </details>
