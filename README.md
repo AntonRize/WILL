@@ -78,7 +78,7 @@ From this single hypothesis, without free parameters, we derive:
 <details>
     <summary>4. Prediction of Critical Orbits from Geometric Equilibrium.</summary>
     <div class="details-content">
-        <p><strong>Result:</strong> The radii of the Photon Sphere ($1.5R_s$) and the Innermost Stable Circular Orbit (ISCO, $3R_s$) emerge not as special solutions to equations of motion, but as a direct consequence of the system's internal geometric equilibrium, where the projection angles $\theta_S$ and $\theta_G$ become equal.</p>
+        <p><strong>Result:</strong> The radii of the Photon Sphere ($1.5R_s$) and the Innermost Stable Circular Orbit (ISCO, $3R_s$) emerge not as special solutions to equations of motion, but as a direct consequence of the system's internal geometric equilibrium, where the projection angles $\theta_1$ and $\theta_2$ become equal.</p>
     </div>
 </details>
 
