@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "WILL Geometry: Unified Geometric Framework"
+title: "WILL Relational Geometry"
 ---
 
 $$\boxed{\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}}$$
@@ -11,11 +11,11 @@ $$\boxed{\text{COSMOS} \equiv \text{LOGOS} \equiv \text{GEOMETRY}}$$
 
 ---
 
-## Fundamental Postulate
+## Unifying Principle
 
-$$\boxed{\text{SPACETIME} \equiv \text{ENERGY EVOLUTION}}$$
+$$\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$$
 
-From this single postulate, without free parameters, we derive:
+From this single principle, without free parameters, we derive:
 
 ---
 
@@ -36,11 +36,11 @@ From this single postulate, without free parameters, we derive:
 
 
 
-to unify special relativity, general relativity, cosmology, galactic dynamics and quantum mechanics from a single postulate SPACETIME ≡ ENERGY EVOLUTION. It replaces the traditional apparatus of differential equations and metric tensors with a closed system of algebraic relationships.
+to unify special relativity, general relativity, cosmology, galactic dynamics and quantum mechanics from a single Unifying Principle SPACETIME ≡ ENERGY. It replaces the traditional apparatus of differential equations and metric tensors with a closed system of algebraic relationships.
 
 ### ⚡ Part I: Foundational Principles (SR & GR)
 
-The framework is built from the principle **"Spacetime ≡ Energy Evolution"**. Physical phenomena are described by two dimensionless energy projections: a kinetic parameter, `β = v/c`, and a potential parameter, `κ = v_e/c`.
+The framework is built from the principle **"Spacetime ≡ Energy Evolution"**. Physical phenomena are described by two dimensionless energy projections: a kinetic parameter, `β = v/c`, and a potential parameter, `κ = v_e/c`.co_speechnotes_plugin_fab_id:1074,290
 
 **Key Achievements:**
 - **Unification of SR & GR:** Standard results from Special and General Relativity are reproduced through trigonometric re-parameterizations of `β` and `κ`
