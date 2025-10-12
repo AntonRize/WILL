@@ -6,6 +6,7 @@ layout: default
 
 <main class="min-h-screen flex flex-col items-center justify-center relative" style="background-color:#111827; color:white;">
 
+  <!-- Exact SVG embed (clean vector, no background) -->
   <object id="ouroboros-svg"
           data="{{ '/assets/OuroborosCLEAN.svg' | relative_url }}"
           type="image/svg+xml"
@@ -13,12 +14,14 @@ layout: default
           aria-label="Ouroboros Symbol">
   </object>
 
+  <!-- Tooltip (outside of SVG to avoid geometry edits) -->
   <div id="ob-tooltip"
        style="position:absolute;z-index:10;max-width:280px;background:rgba(0,0,0,0.85);
               padding:10px 14px;border-radius:8px;color:#fff;font-size:14px;
               line-height:1.4;opacity:0;pointer-events:none;transition:opacity 0.15s ease;">
   </div>
 
+  <!-- Minimal navigation below the object -->
   <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
     <a href="{{ '/relativistic-foundations/' | relative_url }}" class="hover:text-white">Relativistic Foundations</a>
     <a href="{{ '/results/' | relative_url }}" class="hover:text-white">Results</a>
@@ -33,14 +36,19 @@ layout: default
 
 <script>
 (function () {
+  // Target link on click
   const targetURL = '{{ "/relativistic-foundations/" | relative_url }}';
+
+  // Tooltip element
   const tooltip = document.getElementById('ob-tooltip');
+
+  // Object element (embedded SVG)
   const obj = document.getElementById('ouroboros-svg');
 
-  // порядок по часовой стрелке начиная с верхнего левого сегмента (∞)
+  // Segment order: clockwise starting at the top-left (infinity icon)
   const SEGMENTS = ['path34','path38','path42','path46','path50'];
 
-  // тексты как на оригинальном изображении
+  // Tooltip texts (exactly as on the image)
   const TIPS = {
     path34: 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “geometry” and “dynamics”.',
     path38: 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
@@ -53,12 +61,15 @@ layout: default
     const svg = obj.contentDocument && obj.contentDocument.querySelector('svg');
     if (!svg) return;
 
-    // fade-in
+    // Fade-in of the whole object
     obj.classList.remove('opacity-0');
     obj.classList.add('opacity-100');
 
-    // фильтр для свечения
-    const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
+    // White inner glow filter (subtle)
+    const defs = svg.querySelector('defs') || svg.insertBefore(
+      document.createElementNS('http://www.w3.org/2000/svg','defs'),
+      svg.firstChild
+    );
     const glow = document.createElementNS('http://www.w3.org/2000/svg','filter');
     glow.setAttribute('id','innerGlow');
     glow.innerHTML = `
@@ -75,20 +86,21 @@ layout: default
       </feMerge>`;
     defs.appendChild(glow);
 
-    // сегменты
+    // Resolve actual segment nodes
     const segments = SEGMENTS.map(id => svg.getElementById(id)).filter(Boolean);
 
-    // эффект пробегающего света
-    const fadeDelay = 2500; // после fade-in
-    const flashDur = 120;
+    // Running light after fade-in (clockwise sweep)
+    const fadeDelay = 2500;      // wait until fade-in completes
+    const flashDur  = 120;       // ms per flash
+    const step      = 200;       // ms between segments
     segments.forEach((seg, i) => {
       setTimeout(() => {
         seg.style.filter = 'url(#innerGlow)';
         setTimeout(() => seg.style.filter = 'none', flashDur);
-      }, fadeDelay + i * 200);
+      }, fadeDelay + i * step);
     });
 
-    // мягкое "дыхание"
+    // Subtle breathing (continuous, very gentle)
     setTimeout(() => {
       segments.forEach((seg, i) => {
         seg.animate(
@@ -101,30 +113,37 @@ layout: default
             duration: 7000,
             iterations: Infinity,
             easing: 'ease-in-out',
-            delay: i * 500 // легкий сдвиг между сегментами
+            delay: i * 500
           }
         );
       });
-    }, fadeDelay + SEGMENTS.length * 220);
+    }, fadeDelay + SEGMENTS.length * step + 150);
 
-    // интерактив
+    // Interactive hover + tooltip + click
     segments.forEach(seg => {
       seg.style.cursor = 'pointer';
       seg.style.transition = 'filter 150ms ease';
-      seg.addEventListener('mouseenter', e => {
-        seg.style.filter = 'url(#innerGlow)';
+
+      const showTip = (e) => {
         tooltip.textContent = TIPS[seg.id] || '';
         tooltip.style.left = (e.clientX + 16) + 'px';
-        tooltip.style.top = (e.clientY - 20) + 'px';
+        tooltip.style.top  = (e.clientY - 20) + 'px';
         tooltip.style.opacity = '1';
-      });
-      seg.addEventListener('mousemove', e => {
+      };
+      const moveTip = (e) => {
         tooltip.style.left = (e.clientX + 16) + 'px';
-        tooltip.style.top = (e.clientY - 20) + 'px';
+        tooltip.style.top  = (e.clientY - 20) + 'px';
+      };
+      const hideTip = () => { tooltip.style.opacity = '0'; };
+
+      seg.addEventListener('mouseenter', (e) => {
+        seg.style.filter = 'url(#innerGlow)';
+        showTip(e);
       });
+      seg.addEventListener('mousemove', moveTip);
       seg.addEventListener('mouseleave', () => {
         seg.style.filter = 'none';
-        tooltip.style.opacity = '0';
+        hideTip();
       });
       seg.addEventListener('click', () => window.location.href = targetURL);
     });
