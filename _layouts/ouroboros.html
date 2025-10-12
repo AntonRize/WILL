@@ -1,0 +1,133 @@
+---
+layout: default
+---
+
+{% include header.html %}
+
+<main class="min-h-screen flex flex-col items-center justify-center relative" style="background-color:#111827; color:white;">
+
+  <object id="ouroboros-svg"
+          data="{{ '/assets/OuroborosCLEAN.svg' | relative_url }}"
+          type="image/svg+xml"
+          class="w-[80vw] max-w-[700px] h-auto opacity-0 transition-opacity duration-[2500ms]"
+          aria-label="Ouroboros Symbol">
+  </object>
+
+  <div id="ob-tooltip"
+       style="position:absolute;z-index:10;max-width:280px;background:rgba(0,0,0,0.85);
+              padding:10px 14px;border-radius:8px;color:#fff;font-size:14px;
+              line-height:1.4;opacity:0;pointer-events:none;transition:opacity 0.15s ease;">
+  </div>
+
+  <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
+    <a href="{{ '/relativistic-foundations/' | relative_url }}" class="hover:text-white">Relativistic Foundations</a>
+    <a href="{{ '/results/' | relative_url }}" class="hover:text-white">Results</a>
+    <a href="{{ '/cosmology/' | relative_url }}" class="hover:text-white">Cosmology</a>
+    <a href="{{ '/predictions/' | relative_url }}" class="hover:text-white">Predictions</a>
+    <a href="{{ '/calculator/' | relative_url }}" class="hover:text-white">Calculator</a>
+  </nav>
+
+</main>
+
+{% include footer.html %}
+
+<script>
+(function () {
+  const targetURL = '{{ "/relativistic-foundations/" | relative_url }}';
+  const tooltip = document.getElementById('ob-tooltip');
+  const obj = document.getElementById('ouroboros-svg');
+
+  // порядок по часовой стрелке начиная с верхнего левого сегмента (∞)
+  const SEGMENTS = ['path34','path38','path42','path46','path50'];
+
+  // тексты как на оригинальном изображении
+  const TIPS = {
+    path34: 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “geometry” and “dynamics”.',
+    path38: 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
+    path42: 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and protentional (κ) components.',
+    path46: 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
+    path50: 'Unified Field Equation\nRₛ / r = ρ / ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
+  };
+
+  obj.addEventListener('load', () => {
+    const svg = obj.contentDocument && obj.contentDocument.querySelector('svg');
+    if (!svg) return;
+
+    // fade-in
+    obj.classList.remove('opacity-0');
+    obj.classList.add('opacity-100');
+
+    // фильтр для свечения
+    const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
+    const glow = document.createElementNS('http://www.w3.org/2000/svg','filter');
+    glow.setAttribute('id','innerGlow');
+    glow.innerHTML = `
+      <feMorphology operator="erode" radius="1" in="SourceAlpha" result="thin"/>
+      <feGaussianBlur in="thin" stdDeviation="3" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 1 1 0 0
+                1 1 1 0 0
+                1 1 1 0 0
+                0 0 0 0.9 0" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>`;
+    defs.appendChild(glow);
+
+    // сегменты
+    const segments = SEGMENTS.map(id => svg.getElementById(id)).filter(Boolean);
+
+    // эффект пробегающего света
+    const fadeDelay = 2500; // после fade-in
+    const flashDur = 120;
+    segments.forEach((seg, i) => {
+      setTimeout(() => {
+        seg.style.filter = 'url(#innerGlow)';
+        setTimeout(() => seg.style.filter = 'none', flashDur);
+      }, fadeDelay + i * 200);
+    });
+
+    // мягкое "дыхание"
+    setTimeout(() => {
+      segments.forEach((seg, i) => {
+        seg.animate(
+          [
+            { filter: 'none', opacity: 1 },
+            { filter: 'url(#innerGlow)', opacity: 1 },
+            { filter: 'none', opacity: 1 }
+          ],
+          {
+            duration: 7000,
+            iterations: Infinity,
+            easing: 'ease-in-out',
+            delay: i * 500 // легкий сдвиг между сегментами
+          }
+        );
+      });
+    }, fadeDelay + SEGMENTS.length * 220);
+
+    // интерактив
+    segments.forEach(seg => {
+      seg.style.cursor = 'pointer';
+      seg.style.transition = 'filter 150ms ease';
+      seg.addEventListener('mouseenter', e => {
+        seg.style.filter = 'url(#innerGlow)';
+        tooltip.textContent = TIPS[seg.id] || '';
+        tooltip.style.left = (e.clientX + 16) + 'px';
+        tooltip.style.top = (e.clientY - 20) + 'px';
+        tooltip.style.opacity = '1';
+      });
+      seg.addEventListener('mousemove', e => {
+        tooltip.style.left = (e.clientX + 16) + 'px';
+        tooltip.style.top = (e.clientY - 20) + 'px';
+      });
+      seg.addEventListener('mouseleave', () => {
+        seg.style.filter = 'none';
+        tooltip.style.opacity = '0';
+      });
+      seg.addEventListener('click', () => window.location.href = targetURL);
+    });
+  });
+})();
+</script>

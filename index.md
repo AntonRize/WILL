@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: ouroboros
 title: "WILL Relational Geometry"
 ---
 
