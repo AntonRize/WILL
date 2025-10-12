@@ -1,152 +1,166 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4YFFSYJGF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4YFFSYJGF');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
 
-{% include header.html %}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<main class="min-h-screen flex flex-col items-center justify-center relative" style="background-color:#111827; color:white;">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #111827;
+      color: #E5E7EB;
+    }
+    #ob-tooltip {
+      position: absolute;
+      z-index: 10;
+      max-width: 280px;
+      background: rgba(0,0,0,0.85);
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+      text-align: left;
+    }
+  </style>
+</head>
 
-  <!-- Exact SVG embed (clean vector, no background) -->
-  <object id="ouroboros-svg"
-          data="{{ '/assets/OuroborosCLEAN.svg' | relative_url }}"
-          type="image/svg+xml"
-          class="w-[80vw] max-w-[700px] h-auto opacity-0 transition-opacity duration-[2500ms]"
-          aria-label="Ouroboros Symbol">
-  </object>
+<body class="antialiased">
+  {% include header.html %}
 
-  <!-- Tooltip (outside of SVG to avoid geometry edits) -->
-  <div id="ob-tooltip"
-       style="position:absolute;z-index:10;max-width:280px;background:rgba(0,0,0,0.85);
-              padding:10px 14px;border-radius:8px;color:#fff;font-size:14px;
-              line-height:1.4;opacity:0;pointer-events:none;transition:opacity 0.15s ease;">
-  </div>
+  <main class="min-h-screen flex flex-col items-center justify-center relative">
+    <object id="ouroboros-svg"
+            data="{{ '/assets/OuroborosCLEAN.svg' | relative_url }}"
+            type="image/svg+xml"
+            class="w-[80vw] max-w-[700px] h-auto opacity-0 transition-opacity duration-[2500ms]"
+            aria-label="Ouroboros Symbol">
+    </object>
 
-  <!-- Minimal navigation below the object -->
-  <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
-    <a href="{{ '/relativistic-foundations/' | relative_url }}" class="hover:text-white">Relativistic Foundations</a>
-    <a href="{{ '/results/' | relative_url }}" class="hover:text-white">Results</a>
-    <a href="{{ '/cosmology/' | relative_url }}" class="hover:text-white">Cosmology</a>
-    <a href="{{ '/predictions/' | relative_url }}" class="hover:text-white">Predictions</a>
-    <a href="{{ '/calculator/' | relative_url }}" class="hover:text-white">Calculator</a>
-  </nav>
+    <div id="ob-tooltip"></div>
 
-</main>
+    <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
+      <a href="{{ '/relativistic-foundations/' | relative_url }}" class="hover:text-white">Relativistic Foundations</a>
+      <a href="{{ '/results/' | relative_url }}" class="hover:text-white">Results</a>
+      <a href="{{ '/cosmology/' | relative_url }}" class="hover:text-white">Cosmology</a>
+      <a href="{{ '/predictions/' | relative_url }}" class="hover:text-white">Predictions</a>
+      <a href="{{ '/calculator/' | relative_url }}" class="hover:text-white">Calculator</a>
+    </nav>
+  </main>
 
-{% include footer.html %}
+  {% include footer.html %}
 
-<script>
-(function () {
-  // Target link on click
-  const targetURL = '{{ "/relativistic-foundations/" | relative_url }}';
+  <script>
+  (function () {
+    const targetURL = '{{ "/relativistic-foundations/" | relative_url }}';
+    const tooltip = document.getElementById('ob-tooltip');
+    const obj = document.getElementById('ouroboros-svg');
+    const SEGMENTS = ['path34','path38','path42','path46','path50'];
 
-  // Tooltip element
-  const tooltip = document.getElementById('ob-tooltip');
+    const TIPS = {
+      path34: 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “geometry” and “dynamics”.',
+      path38: 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
+      path42: 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and protentional (κ) components.',
+      path46: 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
+      path50: 'Unified Field Equation\nRₛ / r = ρ / ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
+    };
 
-  // Object element (embedded SVG)
-  const obj = document.getElementById('ouroboros-svg');
+    obj.addEventListener('load', () => {
+      const svg = obj.contentDocument && obj.contentDocument.querySelector('svg');
+      if (!svg) return;
 
-  // Segment order: clockwise starting at the top-left (infinity icon)
-  const SEGMENTS = ['path34','path38','path42','path46','path50'];
+      // Fade-in entire symbol
+      obj.classList.remove('opacity-0');
+      obj.classList.add('opacity-100');
 
-  // Tooltip texts (exactly as on the image)
-  const TIPS = {
-    path34: 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “geometry” and “dynamics”.',
-    path38: 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
-    path42: 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and protentional (κ) components.',
-    path46: 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
-    path50: 'Unified Field Equation\nRₛ / r = ρ / ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
-  };
+      // Define glow filter
+      const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
+      const glow = document.createElementNS('http://www.w3.org/2000/svg','filter');
+      glow.setAttribute('id','innerGlow');
+      glow.innerHTML = `
+        <feMorphology operator="erode" radius="1" in="SourceAlpha" result="thin"/>
+        <feGaussianBlur in="thin" stdDeviation="3" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="1 1 1 0 0
+                  1 1 1 0 0
+                  1 1 1 0 0
+                  0 0 0 0.9 0" result="glow"/>
+        <feMerge>
+          <feMergeNode in="glow"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>`;
+      defs.appendChild(glow);
 
-  obj.addEventListener('load', () => {
-    const svg = obj.contentDocument && obj.contentDocument.querySelector('svg');
-    if (!svg) return;
+      const segments = SEGMENTS.map(id => svg.getElementById(id)).filter(Boolean);
 
-    // Fade-in of the whole object
-    obj.classList.remove('opacity-0');
-    obj.classList.add('opacity-100');
-
-    // White inner glow filter (subtle)
-    const defs = svg.querySelector('defs') || svg.insertBefore(
-      document.createElementNS('http://www.w3.org/2000/svg','defs'),
-      svg.firstChild
-    );
-    const glow = document.createElementNS('http://www.w3.org/2000/svg','filter');
-    glow.setAttribute('id','innerGlow');
-    glow.innerHTML = `
-      <feMorphology operator="erode" radius="1" in="SourceAlpha" result="thin"/>
-      <feGaussianBlur in="thin" stdDeviation="3" result="blur"/>
-      <feColorMatrix in="blur" type="matrix"
-        values="1 1 1 0 0
-                1 1 1 0 0
-                1 1 1 0 0
-                0 0 0 0.9 0" result="glow"/>
-      <feMerge>
-        <feMergeNode in="glow"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>`;
-    defs.appendChild(glow);
-
-    // Resolve actual segment nodes
-    const segments = SEGMENTS.map(id => svg.getElementById(id)).filter(Boolean);
-
-    // Running light after fade-in (clockwise sweep)
-    const fadeDelay = 2500;      // wait until fade-in completes
-    const flashDur  = 120;       // ms per flash
-    const step      = 200;       // ms between segments
-    segments.forEach((seg, i) => {
-      setTimeout(() => {
-        seg.style.filter = 'url(#innerGlow)';
-        setTimeout(() => seg.style.filter = 'none', flashDur);
-      }, fadeDelay + i * step);
-    });
-
-    // Subtle breathing (continuous, very gentle)
-    setTimeout(() => {
+      // Sweep light animation (clockwise)
+      const fadeDelay = 2500;
+      const flashDur = 120;
+      const step = 200;
       segments.forEach((seg, i) => {
-        seg.animate(
-          [
-            { filter: 'none', opacity: 1 },
-            { filter: 'url(#innerGlow)', opacity: 1 },
-            { filter: 'none', opacity: 1 }
-          ],
-          {
-            duration: 7000,
-            iterations: Infinity,
-            easing: 'ease-in-out',
-            delay: i * 500
-          }
-        );
+        setTimeout(() => {
+          seg.style.filter = 'url(#innerGlow)';
+          setTimeout(() => seg.style.filter = 'none', flashDur);
+        }, fadeDelay + i * step);
       });
-    }, fadeDelay + SEGMENTS.length * step + 150);
 
-    // Interactive hover + tooltip + click
-    segments.forEach(seg => {
-      seg.style.cursor = 'pointer';
-      seg.style.transition = 'filter 150ms ease';
+      // Breathing animation
+      setTimeout(() => {
+        segments.forEach((seg, i) => {
+          seg.animate(
+            [
+              { filter: 'none', opacity: 1 },
+              { filter: 'url(#innerGlow)', opacity: 1 },
+              { filter: 'none', opacity: 1 }
+            ],
+            {
+              duration: 7000,
+              iterations: Infinity,
+              easing: 'ease-in-out',
+              delay: i * 500
+            }
+          );
+        });
+      }, fadeDelay + SEGMENTS.length * step + 150);
 
-      const showTip = (e) => {
-        tooltip.textContent = TIPS[seg.id] || '';
-        tooltip.style.left = (e.clientX + 16) + 'px';
-        tooltip.style.top  = (e.clientY - 20) + 'px';
-        tooltip.style.opacity = '1';
-      };
-      const moveTip = (e) => {
-        tooltip.style.left = (e.clientX + 16) + 'px';
-        tooltip.style.top  = (e.clientY - 20) + 'px';
-      };
-      const hideTip = () => { tooltip.style.opacity = '0'; };
-
-      seg.addEventListener('mouseenter', (e) => {
-        seg.style.filter = 'url(#innerGlow)';
-        showTip(e);
+      // Hover + tooltip
+      segments.forEach(seg => {
+        seg.style.cursor = 'pointer';
+        seg.style.transition = 'filter 150ms ease';
+        seg.addEventListener('mouseenter', e => {
+          seg.style.filter = 'url(#innerGlow)';
+          tooltip.textContent = TIPS[seg.id] || '';
+          tooltip.style.opacity = '1';
+          tooltip.style.left = (e.clientX + 40) + 'px';
+          tooltip.style.top  = (e.clientY - 40) + 'px';
+        });
+        seg.addEventListener('mousemove', e => {
+          tooltip.style.left = (e.clientX + 40) + 'px';
+          tooltip.style.top  = (e.clientY - 40) + 'px';
+        });
+        seg.addEventListener('mouseleave', () => {
+          seg.style.filter = 'none';
+          tooltip.style.opacity = '0';
+        });
+        seg.addEventListener('click', () => window.location.href = targetURL);
       });
-      seg.addEventListener('mousemove', moveTip);
-      seg.addEventListener('mouseleave', () => {
-        seg.style.filter = 'none';
-        hideTip();
-      });
-      seg.addEventListener('click', () => window.location.href = targetURL);
     });
-  });
-})();
-</script>
+  })();
+  </script>
+</body>
+</html>
