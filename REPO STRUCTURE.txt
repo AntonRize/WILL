@@ -44,18 +44,6 @@
 
 **Page Files:**
 
-* `interactive.md` (formerly `interactive.html`)
-
-  * The main page for interactive demonstrations.
-  * Combines narrative includes and direct placement of interactive elements (charts, sliders).
-  * Contains all initialization code for Chart.js and UI logic.
-  * Places `{% include narrative/section.md %}` or `{% include narrative.md part="section" %}` to embed narrative at specific places.
-
-* `geometry.md`, `calculator.md`, etc.
-
-  * Specialized static/interactive pages, each with its own structure.
-
----
 
 ## 2. **File Interdependencies & Composition**
 
@@ -63,16 +51,6 @@
 
   * Uses `_config.yml` for navigation, settings, and plugin config.
   * All Markdown/HTML pages are rendered through layouts and includes.
-
-* **Narrative and Interactive Split:**
-
-  * The goal is to keep all **pure narrative** (explanatory text, math, spoilers, collapsible blocks) in `_includes/narrative.md` (or as multiple `_includes/narrative/*.md` files).
-  * All **interactive code** (canvas, Chart.js, sliders, JS handlers) is placed in `interactive.md` and/or directly in the HTML through scripts in the main layout.
-  * **Sections** of narrative are “included” at specific places in `interactive.md` with Liquid:
-
-    * Modern: `{% include narrative.md part="sr" %}`
-    * Legacy: `{% include narrative/sr.md %}`
-  * This allows you to insert narrative **between** interactive widgets, charts, and info blocks.
 
 * **Interactive Elements:**
 
