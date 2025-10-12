@@ -86,7 +86,7 @@ From this single hypothesis, without free parameters, we derive:
     <summary>5. Drastic Simplification of the Mathematical Apparatus.</summary>
     <div class="details-content">
         <p><strong>Result:</strong> 
-The entire complex machinery of differential geometry and tensor calculus used in GR is replaced by a closed system of simple algebraic equations. This greatly reduces computational complexity and makes the theory more transparent and intuitive..</p>
+The entire complex machinery of differential geometry and tensor calculus used in GR is replaced by a closed system of simple algebraic equations. This greatly reduces computational complexity and makes the theory more transparent and intuitive.</p>
     </div>
 </details>
 
