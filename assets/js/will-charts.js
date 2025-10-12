@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Graph 1: Interactive SR Projection (Beta Circle) ---
     const betaSlider = document.getElementById('beta-slider');
     const betaValueSpan = document.getElementById('beta-value');
-    const thetaSValueSpan = document.getElementById('theta-s-value');
-    const lcValueSpan = document.getElementById('lc-value');
+    const thetaSValueSpan = document.getElementById('theta-1-value');
+    const βᵧValueSpan = document.getElementById('βᵧ-value');
     const betaCosValueSpan = document.getElementById('beta-cos-value');
     const betaCircleCtx = document.getElementById('betaCircleChart');
 
@@ -95,13 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isNaN(beta)) return;
 
             const theta_s = Math.acos(beta);
-            const lc = Math.sin(theta_s);
-            const x = beta; // cos(theta_s)
-            const y = lc;   // sin(theta_s)
+            const βᵧ = Math.sin(theta_1);
+            const x = beta; // cos(theta_1)
+            const y = lc;   // sin(theta_1)
 
             betaValueSpan.textContent = beta.toFixed(2);
-            thetaSValueSpan.textContent = `${radToDeg(theta_s).toFixed(1)}°`;
-            lcValueSpan.textContent = lc.toFixed(3);
+            thetaSValueSpan.textContent = `${radToDeg(theta_1).toFixed(1)}°`;
+            βᵧValueSpan.textContent = βᵧ.toFixed(3);
             betaCosValueSpan.textContent = beta.toFixed(3);
 
             betaCircleChart.data.datasets[1].data = [{x: 0, y: 0}, {x: x, y: y}];
@@ -199,4 +199,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // ... (logic for unified chart)
 
 });
+
 
