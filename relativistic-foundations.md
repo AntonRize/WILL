@@ -197,7 +197,7 @@ For questions and curiosity:
 
 ---
 
-<div id="2W" class="mb-12">
+<div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/6_Key-Constraints-on-the-Relational-Structure.png" alt="Key Constraints from the Unifying Principle: Closure, Conservation, Isotropy" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
@@ -208,7 +208,7 @@ For questions and curiosity:
 
 ---
 
-<div class="mb-12">
+<div id="2W" class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Two-Minimal-Relational-Carriers.png" alt="The Circle (S¹) for Directional relations and the Sphere (S²) for Omnidirectional relations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
