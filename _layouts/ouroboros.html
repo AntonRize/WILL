@@ -49,10 +49,10 @@
       position: absolute;
       z-index: 10;
       max-width: 280px;
-      background: rgba(17, 24, 39, 0.85); /* bg-gray-900 */
+      background: rgba(17, 24, 39, 0.85);
       backdrop-filter: blur(4px);
       padding: 10px 14px;
-      border: 1px solid rgba(55, 65, 81, 0.5); /* border-gray-700 */
+      border: 1px solid rgba(55, 65, 81, 0.5);
       border-radius: 8px;
       color: #fff;
       font-size: 14px;
@@ -67,7 +67,7 @@
         width: 80vw;
         max-width: 800px;
         height: auto;
-        opacity: 0; /* Initially hidden */
+        opacity: 0;
         transition: opacity 3.5s ease-in-out;
     }
   </style>
@@ -77,7 +77,7 @@
   {% include header.html %}
 
   <main class="flex flex-col items-center relative p-4 py-20">
-    <div id="ouroboros-container" aria-live="polite"></div>
+    <div id="ouroboros-container"></div>
     <div id="ob-tooltip"></div>
     <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
        <a href="{{ site.baseurl }}/relativistic-foundations/" class="hover:text-white transition-colors">Relativistic Foundations</a>
@@ -97,14 +97,23 @@
     const svgUrl = '{{ site.baseurl }}/assets/OuroborosCLEAN.svg';
     
     const SEGMENT_IDS = ['path34', 'path38', 'path42', 'path46', 'path50'];
+    
     const TOOLTIP_TEXT = {
-      'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “structure” and “dynamics”.',
+      'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “geometry” and “dynamics”.',
       'path38': 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
-      'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (κ) components.',
+      'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (k) components.',
       'path46': 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
       'path50': 'Unified Field Equation\nRₛ/r = ρ/ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
     };
-    const targetURL = '{{ site.baseurl }}/relativistic-foundations/';
+
+    // Updated URLs with your new anchors
+    const SEGMENT_URLS = {
+      'path34': '{{ site.baseurl }}/relativistic-foundations/#1W',
+      'path38': '{{ site.baseurl }}/relativistic-foundations/#2W',
+      'path42': '{{ site.baseurl }}/relativistic-foundations/#3W',
+      'path46': '{{ site.baseurl }}/relativistic-foundations/#4W',
+      'path50': '{{ site.baseurl }}/relativistic-foundations/#5W'
+    };
 
     fetch(svgUrl)
       .then(response => {
@@ -134,22 +143,14 @@
       const glowFilter = document.createElementNS('http://www.w3.org/2000/svg','filter');
       glowFilter.setAttribute('id','innerGlow');
       
-      // ### ИЗМЕНЕНИЕ ЗДЕСЬ: делаем эффект свечения ярче и заметнее для теста ###
-      glowFilter.innerHTML = `
-        <feGaussianBlur in="SourceAlpha" stdDeviation="60000000" result="blur"/>
-        <feComposite in="SourceGraphic" in2="blur" operator="out" result="cutout"/>
-        <feFlood flood-color="rgba(250, 204, 21, 1)" result="glow-color"/> 
-        <feComposite in="glow-color" in2="cutout" operator="in" result="glow-effect"/>
-        <feMerge>
-            <feMergeNode in="glow-effect"/>
-            <feMergeNode in="SourceGraphic"/>
-        </feMerge>`;
+      // Using the most compatible filter for glow effect
+      glowFilter.innerHTML = `<feDropShadow dx="0" dy="0" stdDeviation="4.5" flood-color="rgba(167, 243, 208, 0.7)" />`;
       defs.appendChild(glowFilter);
       
       const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
       
       if (segments.length !== SEGMENT_IDS.length) {
-          console.error("Failed to find all SVG segments. Check IDs. Found:", segments.map(s => s.id));
+          console.error("Failed to find all SVG segments. Check IDs.");
           return;
       }
 
@@ -177,7 +178,7 @@
       segments.forEach(seg => {
         seg.style.cursor = 'pointer';
         seg.style.transition = 'filter 300ms ease';
-        seg.addEventListener('mouseenter', (e) => {
+        seg.addEventListener('mouseenter', () => {
           seg.style.filter = 'url(#innerGlow)';
           tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Info not found.';
           tooltip.style.opacity = '1';
@@ -190,7 +191,12 @@
           seg.style.filter = 'none';
           tooltip.style.opacity = '0';
         });
-        seg.addEventListener('click', () => window.location.href = targetURL);
+        seg.addEventListener('click', () => {
+          const url = SEGMENT_URLS[seg.id];
+          if (url) {
+            window.location.href = url;
+          }
+        });
       });
     }
   });
