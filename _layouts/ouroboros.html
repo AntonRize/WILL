@@ -61,14 +61,14 @@
       pointer-events: none;
       transition: opacity 0.2s ease-in-out;
       text-align: left;
-      white-space: pre-line; /* Allows \n to create new lines */
+      white-space: pre-line;
     }
     #ouroboros-container svg {
         width: 80vw;
         max-width: 800px;
         height: auto;
-        opacity: 0; /* Изначально SVG невидим */
-        transition: opacity 2.5s ease-in-out; /* Увеличил время для плавности */
+        opacity: 0; /* Initially hidden */
+        transition: opacity 2.5s ease-in-out;
     }
   </style>
 </head>
@@ -119,14 +119,14 @@
           return;
         }
         
-        // ИСПОЛЬЗУЕМ requestAnimationFrame ЧТОБЫ ДОЖДАТЬСЯ ОТРИСОВКИ
-        requestAnimationFrame(() => {
-          // Показываем SVG с плавным fade-in
+        // Use a short timeout to ensure the browser has processed the new DOM
+        setTimeout(() => {
+          // Trigger the fade-in
           svg.style.opacity = '1';
           
-          // Запускаем всю логику анимации ПОСЛЕ того, как SVG стал видим
+          // Initialize all other animations and interactions
           initializeAnimations(svg);
-        });
+        }, 100); // 100ms delay is usually enough
       })
       .catch(error => {
         console.error('Failed to fetch and load SVG:', error);
@@ -135,6 +135,7 @@
 
     function initializeAnimations(svg) {
       console.log("Initializing animations...");
+      
       const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
       const glowFilter = document.createElementNS('http://www.w3.org/2000/svg','filter');
       glowFilter.setAttribute('id','innerGlow');
@@ -157,7 +158,7 @@
       }
       console.log("All segments found successfully.");
 
-      const initialHighlightDelay = 1500;
+      const initialHighlightDelay = 2500; // Delay after fade-in starts
       const highlightDuration = 150;
       const stepDelay = 200;
       segments.forEach((seg, i) => {
@@ -183,7 +184,7 @@
         seg.style.transition = 'filter 300ms ease';
         seg.addEventListener('mouseenter', (e) => {
           seg.style.filter = 'url(#innerGlow)';
-          tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Информация не найдена.';
+          tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Info not found.';
           tooltip.style.opacity = '1';
         });
         seg.addEventListener('mousemove', (e) => {
