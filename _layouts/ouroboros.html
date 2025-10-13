@@ -63,13 +63,12 @@
       text-align: left;
       white-space: pre-line; /* Allows \n to create new lines */
     }
-    /* Стили для SVG, чтобы он был кликабельным и анимировался */
     #ouroboros-container svg {
         width: 80vw;
         max-width: 800px;
         height: auto;
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
+        opacity: 0; /* Изначально SVG невидим */
+        transition: opacity 2.5s ease-in-out; /* Увеличил время для плавности */
     }
   </style>
 </head>
@@ -78,10 +77,8 @@
   {% include header.html %}
 
   <main class="flex flex-col items-center relative p-4 py-20">
-    <div id="ouroboros-container"></div>
-
+    <div id="ouroboros-container" aria-live="polite"></div>
     <div id="ob-tooltip"></div>
-
     <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
        <a href="{{ site.baseurl }}/relativistic-foundations/" class="hover:text-white transition-colors">Relativistic Foundations</a>
        <a href="{{ site.baseurl }}/results/" class="hover:text-white transition-colors">Results</a>
@@ -94,7 +91,6 @@
   {% include footer.html %}
 
   <script>
-  // ИЗМЕНЕНИЕ: Весь скрипт теперь запускается после загрузки DOM
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('ouroboros-container');
     const tooltip = document.getElementById('ob-tooltip');
@@ -110,28 +106,27 @@
     };
     const targetURL = '{{ site.baseurl }}/relativistic-foundations/';
 
-    // Шаг 1: Загружаем SVG как текст
     fetch(svgUrl)
       .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         return response.text();
       })
       .then(svgText => {
-        // Шаг 2: Вставляем SVG прямо в контейнер
         container.innerHTML = svgText;
         const svg = container.querySelector('svg');
         if (!svg) {
-            console.error("SVG element not found after injection.");
-            return;
+          console.error("Critical Error: SVG element not found after injection.");
+          return;
         }
         
-        // Показываем SVG с fade-in эффектом
-        setTimeout(() => { svg.style.opacity = '1'; }, 100);
-
-        // Шаг 3: Теперь, когда SVG в документе, запускаем всю анимацию
-        initializeAnimations(svg);
+        // ИСПОЛЬЗУЕМ requestAnimationFrame ЧТОБЫ ДОЖДАТЬСЯ ОТРИСОВКИ
+        requestAnimationFrame(() => {
+          // Показываем SVG с плавным fade-in
+          svg.style.opacity = '1';
+          
+          // Запускаем всю логику анимации ПОСЛЕ того, как SVG стал видим
+          initializeAnimations(svg);
+        });
       })
       .catch(error => {
         console.error('Failed to fetch and load SVG:', error);
@@ -139,7 +134,7 @@
       });
 
     function initializeAnimations(svg) {
-      // 1. Создание фильтра для эффекта свечения
+      console.log("Initializing animations...");
       const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
       const glowFilter = document.createElementNS('http://www.w3.org/2000/svg','filter');
       glowFilter.setAttribute('id','innerGlow');
@@ -157,12 +152,12 @@
       const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
       
       if (segments.length !== SEGMENT_IDS.length) {
-          console.error("Failed to find all SVG segments after injection. Check IDs. Found:", segments.map(s => s.id));
+          console.error("Failed to find all SVG segments. Check IDs. Found:", segments.map(s => s.id));
           return;
       }
-      
-      // 2. Анимация: Последовательная подсветка
-      const initialHighlightDelay = 1500; // Уменьшено, т.к. fade-in уже идет
+      console.log("All segments found successfully.");
+
+      const initialHighlightDelay = 1500;
       const highlightDuration = 150;
       const stepDelay = 200;
       segments.forEach((seg, i) => {
@@ -172,46 +167,36 @@
         }, initialHighlightDelay + i * stepDelay);
       });
 
-      // 3. Анимация: "Дыхание"
       const breathingDelay = initialHighlightDelay + segments.length * stepDelay;
       setTimeout(() => {
         segments.forEach((seg) => {
           seg.animate([
-              { filter: 'none' },
-              { filter: 'url(#innerGlow)' },
-              { filter: 'none' }
+              { filter: 'none' }, { filter: 'url(#innerGlow)' }, { filter: 'none' }
             ], {
-              duration: 5000,
-              iterations: Infinity,
-              easing: 'ease-in-out',
-              delay: Math.random() * 2000 
+              duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 
             });
         });
       }, breathingDelay);
       
-      // 4. Интерактивность: Наведение, подсказка и клик
       segments.forEach(seg => {
         seg.style.cursor = 'pointer';
         seg.style.transition = 'filter 300ms ease';
-
         seg.addEventListener('mouseenter', (e) => {
           seg.style.filter = 'url(#innerGlow)';
           tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Информация не найдена.';
           tooltip.style.opacity = '1';
         });
-
         seg.addEventListener('mousemove', (e) => {
           tooltip.style.left = (e.clientX + 20) + 'px';
           tooltip.style.top  = (e.clientY - tooltip.offsetHeight - 10) + 'px';
         });
-
         seg.addEventListener('mouseleave', () => {
           seg.style.filter = 'none';
           tooltip.style.opacity = '0';
         });
-
         seg.addEventListener('click', () => window.location.href = targetURL);
       });
+      console.log("Event listeners attached.");
     }
   });
   </script>
