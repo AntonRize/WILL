@@ -68,7 +68,7 @@
         max-width: 800px;
         height: auto;
         opacity: 0; /* Initially hidden */
-        transition: opacity 2.5s ease-in-out;
+        transition: opacity 3.5s ease-in-out;
     }
   </style>
 </head>
@@ -153,9 +153,9 @@
           return;
       }
 
-      const initialHighlightDelay = 2500;
-      const highlightDuration = 150;
-      const stepDelay = 200;
+      const initialHighlightDelay = 4000;
+      const highlightDuration = 300;
+      const stepDelay = 400;
       segments.forEach((seg, i) => {
         setTimeout(() => {
           seg.style.filter = 'url(#innerGlow)';
