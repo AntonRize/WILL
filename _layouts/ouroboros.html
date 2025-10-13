@@ -98,9 +98,9 @@
     
     const SEGMENT_IDS = ['path34', 'path38', 'path42', 'path46', 'path50'];
     const TOOLTIP_TEXT = {
-      'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “geometry” and “dynamics”.',
+      'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “structure” and “dynamics”.',
       'path38': 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
-      'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (k) components.',
+      'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (κ) components.',
       'path46': 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
       'path50': 'Unified Field Equation\nRₛ/r = ρ/ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
     };
@@ -136,7 +136,7 @@
       
       // ### ИЗМЕНЕНИЕ ЗДЕСЬ: делаем эффект свечения ярче и заметнее для теста ###
       glowFilter.innerHTML = `
-        <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+        <feGaussianBlur in="SourceAlpha" stdDeviation="600" result="blur"/>
         <feComposite in="SourceGraphic" in2="blur" operator="out" result="cutout"/>
         <feFlood flood-color="rgba(250, 204, 21, 1)" result="glow-color"/> 
         <feComposite in="glow-color" in2="cutout" operator="in" result="glow-effect"/>
