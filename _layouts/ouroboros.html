@@ -119,14 +119,10 @@
           return;
         }
         
-        // Use a short timeout to ensure the browser has processed the new DOM
         setTimeout(() => {
-          // Trigger the fade-in
           svg.style.opacity = '1';
-          
-          // Initialize all other animations and interactions
           initializeAnimations(svg);
-        }, 100); // 100ms delay is usually enough
+        }, 100);
       })
       .catch(error => {
         console.error('Failed to fetch and load SVG:', error);
@@ -134,15 +130,15 @@
       });
 
     function initializeAnimations(svg) {
-      console.log("Initializing animations...");
-      
       const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
       const glowFilter = document.createElementNS('http://www.w3.org/2000/svg','filter');
       glowFilter.setAttribute('id','innerGlow');
+      
+      // ### ИЗМЕНЕНИЕ ЗДЕСЬ: делаем эффект свечения ярче и заметнее для теста ###
       glowFilter.innerHTML = `
-        <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+        <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
         <feComposite in="SourceGraphic" in2="blur" operator="out" result="cutout"/>
-        <feFlood flood-color="rgba(167, 243, 208, 0.7)" result="glow-color"/>
+        <feFlood flood-color="rgba(250, 204, 21, 1)" result="glow-color"/> 
         <feComposite in="glow-color" in2="cutout" operator="in" result="glow-effect"/>
         <feMerge>
             <feMergeNode in="glow-effect"/>
@@ -156,9 +152,8 @@
           console.error("Failed to find all SVG segments. Check IDs. Found:", segments.map(s => s.id));
           return;
       }
-      console.log("All segments found successfully.");
 
-      const initialHighlightDelay = 2500; // Delay after fade-in starts
+      const initialHighlightDelay = 2500;
       const highlightDuration = 150;
       const stepDelay = 200;
       segments.forEach((seg, i) => {
@@ -197,7 +192,6 @@
         });
         seg.addEventListener('click', () => window.location.href = targetURL);
       });
-      console.log("Event listeners attached.");
     }
   });
   </script>
