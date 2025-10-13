@@ -10,10 +10,10 @@
   </script>
 
   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-    <meta name="description" content="WILL Relational Geometry - model on fundamental theoretical physics developed by Anton Rize. 
+  <meta name="description" content="WILL Relational Geometry - model on fundamental theoretical physics developed by Anton Rize. 
         It builds on principles of rationalism, ontological minimalism and epistemic purity.
         WILL theory deriving from first principals Special Relativity, General Relativity, Cosmology and Quantum Mechanics without any postulates or free parameters. 
         No postulates, no free parameters, no metric.
@@ -49,16 +49,19 @@
       position: absolute;
       z-index: 10;
       max-width: 280px;
-      background: rgba(0,0,0,0.85);
+      background: rgba(17, 24, 39, 0.85); /* bg-gray-900 */
+      backdrop-filter: blur(4px);
       padding: 10px 14px;
+      border: 1px solid rgba(55, 65, 81, 0.5); /* border-gray-700 */
       border-radius: 8px;
       color: #fff;
       font-size: 14px;
       line-height: 1.5;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.15s ease;
+      transition: opacity 0.2s ease-in-out;
       text-align: left;
+      white-space: pre-line; /* Allows \n to create new lines */
     }
   </style>
 </head>
@@ -66,22 +69,22 @@
 <body class="antialiased">
   {% include header.html %}
 
-  <main class="min-h-screen flex flex-col items-center justify-center relative">
+  <main class="min-h-screen flex flex-col items-center justify-center relative p-4">
     <object id="ouroboros-svg"
-            data="{{ '/assets/OuroborosCLEAN.svg' | relative_url }}"
+            data="{{ site.baseurl }}/assets/OuroborosCLEAN.svg"
             type="image/svg+xml"
             class="w-[80vw] max-w-[700px] h-auto opacity-0 transition-opacity duration-[2500ms]"
-            aria-label="Ouroboros Symbol">
+            aria-label="Theoretical Ouroboros">
     </object>
 
     <div id="ob-tooltip"></div>
 
     <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
-      <a href="{{ '/relativistic-foundations/' | relative_url }}" class="hover:text-white">Relativistic Foundations</a>
-      <a href="{{ '/results/' | relative_url }}" class="hover:text-white">Results</a>
-      <a href="{{ '/predictions/' | relative_url }}" class="hover:text-white">Predictions</a>
-      <a href="{{ '/WILL-AI/' | relative_url }}" class="hover:text-white">WILL-AI</a>
-      <a href="{{ '/about/' | relative_url }}" class="hover:text-white">About</a>
+       <a href="{{ site.baseurl }}/relativistic-foundations/" class="hover:text-white transition-colors">Relativistic Foundations</a>
+       <a href="{{ site.baseurl }}/results/" class="hover:text-white transition-colors">Results</a>
+       <a href="{{ site.baseurl }}/predictions/" class="hover:text-white transition-colors">Predictions</a>
+       <a href="{{ site.baseurl }}/WILL-AI/" class="hover:text-white transition-colors">WILL AI</a>
+       <a href="{{ site.baseurl }}/about/" class="hover:text-white transition-colors">About</a>
     </nav>
   </main>
 
@@ -89,96 +92,110 @@
 
   <script>
   (function () {
-    const targetURL = '{{ "/relativistic-foundations/" | relative_url }}';
-    const tooltip = document.getElementById('ob-tooltip');
     const obj = document.getElementById('ouroboros-svg');
-    const SEGMENTS = ['path34','path38','path42','path46','path50'];
+    const tooltip = document.getElementById('ob-tooltip');
+    
+    // Точные ID, которые вы предоставили
+    const SEGMENT_IDS = [
+        'path34', 
+        'path38',
+        'path42',
+        'path46',
+        'path50'
+    ];
 
-    const TIPS = {
-      path34: 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “structure” and “dynamics”.',
-      path38: 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
-      path42: 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and protentional (κ) components.',
-      path46: 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
-      path50: 'Unified Field Equation\nRₛ / r = ρ / ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
+    // Текст для подсказок, сопоставленный с точными ID
+    const TOOLTIP_TEXT = {
+      'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “geometry” and “dynamics”.',
+      'path38': 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
+      'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (k) components.',
+      'path46': 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
+      'path50': 'Unified Field Equation\nRₛ/r = ρ/ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
     };
 
+    const targetURL = '{{ site.baseurl }}/relativistic-foundations/';
+
     obj.addEventListener('load', () => {
-      const svg = obj.contentDocument && obj.contentDocument.querySelector('svg');
+      const svgDoc = obj.contentDocument;
+      if (!svgDoc) return;
+
+      const svg = svgDoc.querySelector('svg');
       if (!svg) return;
 
-      // Fade-in entire symbol
-      obj.classList.remove('opacity-0');
-      obj.classList.add('opacity-100');
-
-      // Define glow filter
-      const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
-      const glow = document.createElementNS('http://www.w3.org/2000/svg','filter');
-      glow.setAttribute('id','innerGlow');
-      glow.innerHTML = `
-        <feMorphology operator="erode" radius="1" in="SourceAlpha" result="thin"/>
-        <feGaussianBlur in="thin" stdDeviation="3" result="blur"/>
-        <feColorMatrix in="blur" type="matrix"
-          values="1 1 1 0 0
-                  1 1 1 0 0
-                  1 1 1 0 0
-                  0 0 0 0.9 0" result="glow"/>
+      // 1. Создание фильтра для эффекта свечения
+      const defs = svg.querySelector('defs') || svg.insertBefore(svgDoc.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
+      const glowFilter = svgDoc.createElementNS('http://www.w3.org/2000/svg','filter');
+      glowFilter.setAttribute('id','innerGlow');
+      glowFilter.innerHTML = `
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+        <feComposite in="SourceGraphic" in2="blur" operator="out" result="cutout"/>
+        <feFlood flood-color="rgba(167, 243, 208, 0.7)" result="glow-color"/>
+        <feComposite in="glow-color" in2="cutout" operator="in" result="glow-effect"/>
         <feMerge>
-          <feMergeNode in="glow"/>
-          <feMergeNode in="SourceGraphic"/>
+            <feMergeNode in="glow-effect"/>
+            <feMergeNode in="SourceGraphic"/>
         </feMerge>`;
-      defs.appendChild(glow);
+      defs.appendChild(glowFilter);
+      
+      const segments = SEGMENT_IDS.map(id => svgDoc.getElementById(id)).filter(Boolean);
+      
+      if (segments.length !== SEGMENT_IDS.length) {
+          console.error("Не удалось найти все SVG сегменты. Проверьте правильность ID.");
+          return;
+      }
 
-      const segments = SEGMENTS.map(id => svg.getElementById(id)).filter(Boolean);
+      // 2. Анимация: Плавное появление (Fade-in)
+      obj.style.opacity = '1';
 
-      // Sweep light animation (clockwise)
-      const fadeDelay = 2500;
-      const flashDur = 120;
-      const step = 200;
+      // 3. Анимация: Последовательная подсветка по кругу
+      const initialHighlightDelay = 2500;
+      const highlightDuration = 150;
+      const stepDelay = 200;
       segments.forEach((seg, i) => {
         setTimeout(() => {
           seg.style.filter = 'url(#innerGlow)';
-          setTimeout(() => seg.style.filter = 'none', flashDur);
-        }, fadeDelay + i * step);
+          setTimeout(() => { seg.style.filter = 'none'; }, highlightDuration);
+        }, initialHighlightDelay + i * stepDelay);
       });
 
-      // Breathing animation
+      // 4. Анимация: "Дыхание"
+      const breathingDelay = initialHighlightDelay + segments.length * stepDelay;
       setTimeout(() => {
-        segments.forEach((seg, i) => {
-          seg.animate(
-            [
-              { filter: 'none', opacity: 1 },
-              { filter: 'url(#innerGlow)', opacity: 1 },
-              { filter: 'none', opacity: 1 }
-            ],
-            {
-              duration: 7000,
+        segments.forEach((seg) => {
+          seg.animate([
+              { filter: 'none' },
+              { filter: 'url(#innerGlow)' },
+              { filter: 'none' }
+            ], {
+              duration: 5000,
               iterations: Infinity,
               easing: 'ease-in-out',
-              delay: i * 500
-            }
-          );
+              delay: Math.random() * 2000 // Небольшая случайная задержка для асинхронности
+            });
         });
-      }, fadeDelay + SEGMENTS.length * step + 150);
-
-      // Hover + tooltip
+      }, breathingDelay);
+      
+      // 5. Интерактивность: Наведение, подсказка и клик
       segments.forEach(seg => {
         seg.style.cursor = 'pointer';
-        seg.style.transition = 'filter 150ms ease';
-        seg.addEventListener('mouseenter', e => {
+        seg.style.transition = 'filter 300ms ease';
+
+        seg.addEventListener('mouseenter', (e) => {
           seg.style.filter = 'url(#innerGlow)';
-          tooltip.textContent = TIPS[seg.id] || '';
+          tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Информация не найдена.';
           tooltip.style.opacity = '1';
-          tooltip.style.left = (e.clientX + 40) + 'px';
-          tooltip.style.top  = (e.clientY - 40) + 'px';
         });
-        seg.addEventListener('mousemove', e => {
-          tooltip.style.left = (e.clientX + 40) + 'px';
-          tooltip.style.top  = (e.clientY - 40) + 'px';
+
+        seg.addEventListener('mousemove', (e) => {
+          tooltip.style.left = (e.clientX + 20) + 'px';
+          tooltip.style.top  = (e.clientY - tooltip.offsetHeight - 10) + 'px';
         });
+
         seg.addEventListener('mouseleave', () => {
           seg.style.filter = 'none';
           tooltip.style.opacity = '0';
         });
+
         seg.addEventListener('click', () => window.location.href = targetURL);
       });
     });
