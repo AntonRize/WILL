@@ -8,9 +8,31 @@
     gtag('js', new Date());
     gtag('config', 'G-M4YFFSYJGF');
   </script>
+
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+
+    <meta name="description" content="WILL Relational Geometry - model on fundamental theoretical physics developed by Anton Rize. 
+        It builds on principles of rationalism, ontological minimalism and epistemic purity.
+        WILL theory deriving from first principals Special Relativity, General Relativity, Cosmology and Quantum Mechanics without any postulates or free parameters. 
+        No postulates, no free parameters, no metric.
+       With it's extreme methodological constraints offering solutions for long standing problems:
+        - Black holes singularity's solution
+        - Local energy density in GR  solution
+        - Quantum Gravity solution
+        - Quantization of spacetime solution
+        - Problem of Time solution
+        - Cosmological constant solution
+        - Dark Energy solution
+        - Dark matter solution
+        - Galactic rotation curves solution
+        - Equation of state w=-1 solution
+        - Measurement problem solution
+        - Wave function collapse solution
+        - Decoherence problem solution
+        - Black Hole information loss solution
+        - and many more...">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,9 +79,9 @@
     <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
       <a href="{{ '/relativistic-foundations/' | relative_url }}" class="hover:text-white">Relativistic Foundations</a>
       <a href="{{ '/results/' | relative_url }}" class="hover:text-white">Results</a>
-      <a href="{{ '/cosmology/' | relative_url }}" class="hover:text-white">Cosmology</a>
       <a href="{{ '/predictions/' | relative_url }}" class="hover:text-white">Predictions</a>
-      <a href="{{ '/calculator/' | relative_url }}" class="hover:text-white">Calculator</a>
+      <a href="{{ '/WILL-AI/' | relative_url }}" class="hover:text-white">WILL-AI</a>
+      <a href="{{ '/about/' | relative_url }}" class="hover:text-white">About</a>
     </nav>
   </main>
 
@@ -73,7 +95,7 @@
     const SEGMENTS = ['path34','path38','path42','path46','path50'];
 
     const TIPS = {
-      path34: 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “geometry” and “dynamics”.',
+      path34: 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “structure” and “dynamics”.',
       path38: 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
       path42: 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and protentional (κ) components.',
       path46: 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
