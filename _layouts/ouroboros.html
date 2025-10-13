@@ -136,7 +136,7 @@
       
       // ### ИЗМЕНЕНИЕ ЗДЕСЬ: делаем эффект свечения ярче и заметнее для теста ###
       glowFilter.innerHTML = `
-        <feGaussianBlur in="SourceAlpha" stdDeviation="600" result="blur"/>
+        <feGaussianBlur in="SourceAlpha" stdDeviation="60000" result="blur"/>
         <feComposite in="SourceGraphic" in2="blur" operator="out" result="cutout"/>
         <feFlood flood-color="rgba(250, 204, 21, 1)" result="glow-color"/> 
         <feComposite in="glow-color" in2="cutout" operator="in" result="glow-effect"/>
