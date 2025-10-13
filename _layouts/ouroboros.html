@@ -36,7 +36,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -63,19 +63,22 @@
       text-align: left;
       white-space: pre-line; /* Allows \n to create new lines */
     }
+    /* Стили для SVG, чтобы он был кликабельным и анимировался */
+    #ouroboros-container svg {
+        width: 80vw;
+        max-width: 800px;
+        height: auto;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+    }
   </style>
 </head>
 
 <body class="antialiased">
   {% include header.html %}
 
-  <main class="min-h-screen flex flex-col items-center justify-center relative p-4">
-    <object id="ouroboros-svg"
-            data="{{ site.baseurl }}/assets/OuroborosCLEAN.svg"
-            type="image/svg+xml"
-            class="w-[80vw] max-w-[700px] h-auto opacity-0 transition-opacity duration-[2500ms]"
-            aria-label="Theoretical Ouroboros">
-    </object>
+  <main class="flex flex-col items-center relative p-4 py-20">
+    <div id="ouroboros-container"></div>
 
     <div id="ob-tooltip"></div>
 
@@ -91,40 +94,54 @@
   {% include footer.html %}
 
   <script>
-  (function () {
-    const obj = document.getElementById('ouroboros-svg');
+  // ИЗМЕНЕНИЕ: Весь скрипт теперь запускается после загрузки DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('ouroboros-container');
     const tooltip = document.getElementById('ob-tooltip');
+    const svgUrl = '{{ site.baseurl }}/assets/OuroborosCLEAN.svg';
     
-    // Точные ID, которые вы предоставили
-    const SEGMENT_IDS = [
-        'path34', 
-        'path38',
-        'path42',
-        'path46',
-        'path50'
-    ];
-
-    // Текст для подсказок, сопоставленный с точными ID
+    const SEGMENT_IDS = ['path34', 'path38', 'path42', 'path46', 'path50'];
     const TOOLTIP_TEXT = {
-      'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “structure” and “dynamics”.',
+      'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “geometry” and “dynamics”.',
       'path38': 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
-      'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (κ) components.',
+      'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (k) components.',
       'path46': 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
       'path50': 'Unified Field Equation\nRₛ/r = ρ/ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
     };
-
     const targetURL = '{{ site.baseurl }}/relativistic-foundations/';
 
-    obj.addEventListener('load', () => {
-      const svgDoc = obj.contentDocument;
-      if (!svgDoc) return;
+    // Шаг 1: Загружаем SVG как текст
+    fetch(svgUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(svgText => {
+        // Шаг 2: Вставляем SVG прямо в контейнер
+        container.innerHTML = svgText;
+        const svg = container.querySelector('svg');
+        if (!svg) {
+            console.error("SVG element not found after injection.");
+            return;
+        }
+        
+        // Показываем SVG с fade-in эффектом
+        setTimeout(() => { svg.style.opacity = '1'; }, 100);
 
-      const svg = svgDoc.querySelector('svg');
-      if (!svg) return;
+        // Шаг 3: Теперь, когда SVG в документе, запускаем всю анимацию
+        initializeAnimations(svg);
+      })
+      .catch(error => {
+        console.error('Failed to fetch and load SVG:', error);
+        container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
+      });
 
+    function initializeAnimations(svg) {
       // 1. Создание фильтра для эффекта свечения
-      const defs = svg.querySelector('defs') || svg.insertBefore(svgDoc.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
-      const glowFilter = svgDoc.createElementNS('http://www.w3.org/2000/svg','filter');
+      const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
+      const glowFilter = document.createElementNS('http://www.w3.org/2000/svg','filter');
       glowFilter.setAttribute('id','innerGlow');
       glowFilter.innerHTML = `
         <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
@@ -137,18 +154,15 @@
         </feMerge>`;
       defs.appendChild(glowFilter);
       
-      const segments = SEGMENT_IDS.map(id => svgDoc.getElementById(id)).filter(Boolean);
+      const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
       
       if (segments.length !== SEGMENT_IDS.length) {
-          console.error("Не удалось найти все SVG сегменты. Проверьте правильность ID.");
+          console.error("Failed to find all SVG segments after injection. Check IDs. Found:", segments.map(s => s.id));
           return;
       }
-
-      // 2. Анимация: Плавное появление (Fade-in)
-      obj.style.opacity = '1';
-
-      // 3. Анимация: Последовательная подсветка по кругу
-      const initialHighlightDelay = 2500;
+      
+      // 2. Анимация: Последовательная подсветка
+      const initialHighlightDelay = 1500; // Уменьшено, т.к. fade-in уже идет
       const highlightDuration = 150;
       const stepDelay = 200;
       segments.forEach((seg, i) => {
@@ -158,7 +172,7 @@
         }, initialHighlightDelay + i * stepDelay);
       });
 
-      // 4. Анимация: "Дыхание"
+      // 3. Анимация: "Дыхание"
       const breathingDelay = initialHighlightDelay + segments.length * stepDelay;
       setTimeout(() => {
         segments.forEach((seg) => {
@@ -170,12 +184,12 @@
               duration: 5000,
               iterations: Infinity,
               easing: 'ease-in-out',
-              delay: Math.random() * 2000 // Небольшая случайная задержка для асинхронности
+              delay: Math.random() * 2000 
             });
         });
       }, breathingDelay);
       
-      // 5. Интерактивность: Наведение, подсказка и клик
+      // 4. Интерактивность: Наведение, подсказка и клик
       segments.forEach(seg => {
         seg.style.cursor = 'pointer';
         seg.style.transition = 'filter 300ms ease';
@@ -198,8 +212,8 @@
 
         seg.addEventListener('click', () => window.location.href = targetURL);
       });
-    });
-  })();
+    }
+  });
   </script>
 </body>
 </html>
