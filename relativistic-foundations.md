@@ -174,7 +174,7 @@ For questions and curiosity:
 
 ---
 
-<div class="mb-12">
+<div id="1W" class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/4_False-Separation-as-Ontological-Blind-Spot.png" alt="The False Separation Between Structure and Dynamics" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
@@ -197,7 +197,7 @@ For questions and curiosity:
 
 ---
 
-<div class="mb-12">
+<div id="2W" class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/6_Key-Constraints-on-the-Relational-Structure.png" alt="Key Constraints from the Unifying Principle: Closure, Conservation, Isotropy" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
@@ -244,7 +244,7 @@ For questions and curiosity:
 
 ---
 
-<div class="mb-20">
+<div id="3W" class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/8_Kinetic-Energy-b-projection-on-S.png" alt="Diagram of the Beta projection on the S¹ unit circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
     <details class="video-dropdown-container mt-6">  
@@ -535,7 +535,7 @@ For questions and curiosity:
 
 --- 
 
-<div class="mb-20">
+<div id="4W" class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/12_Topological-Ratio-k-b-2.png" alt="The topological ratio of S² to S¹ resulting in k²/β² = 2" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
@@ -785,7 +785,7 @@ Here's a simple analogy:
 
 ---
 
-<div class="mb-20">
+<div id="5W" class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/16_Unified-Field-Equation.png" alt="The Unified Field Equation" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
 
 
