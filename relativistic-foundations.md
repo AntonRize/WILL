@@ -1003,6 +1003,28 @@ Here's a simple analogy:
     </div>
 </div>
 
+<div id="will-hint"
+     style="position:fixed;bottom:25px;left:50%;transform:translateX(-50%);
+            background:rgba(31,41,55,0.85);color:#eee;padding:10px 20px;
+            border-radius:10px;font-size:0.95rem;opacity:0.9;
+            transition:opacity 0.6s ease;z-index:1000;">
+    💡 <em>Select any text to ask WILL AI for an explanation.</em>
+</div>
+
+<script>
+// when WILL AI chat opens, remove the hint once
+const hint = document.getElementById('will-hint');
+const observer = new MutationObserver(() => {
+  const aiWindow = document.querySelector('.fixed.inset-0.bg-black'); // wrapper of WILL AI modal
+  if (aiWindow) {
+    hint.style.opacity = '0';
+    setTimeout(() => hint.remove(), 600);
+    observer.disconnect();
+  }
+});
+observer.observe(document.body, { childList: true, subtree: true });
+</script>
+
 
 <div id="tutor-root"></div>
 
