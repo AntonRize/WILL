@@ -147,7 +147,7 @@ You MUST format your entire response using Markdown. Separate all paragraphs wit
         return React.createElement('div', { className: "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" },
             React.createElement('div', { className: "w-full max-w-2xl h-[70vh] bg-slate-800 rounded-lg shadow-2xl flex flex-col p-4" },
                 React.createElement('div', { className: "flex justify-between items-center mb-3" },
-                    React.createElement('h2', { className: "text-lg font-bold text-white" }, "Contextual Tutor"),
+                    React.createElement('h2', { className: "text-lg font-bold text-white" }, "WILL AI"),
                     React.createElement('button', { onClick: () => setIsOpen(false), className: "text-gray-400 hover:text-white text-2xl" }, "×")
                 ),
                 React.createElement('div', { className: "flex-1 overflow-y-auto space-y-4 pr-2" },
