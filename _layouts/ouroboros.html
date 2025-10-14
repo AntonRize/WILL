@@ -150,68 +150,10 @@
         container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
       });
 
-    function initializeAnimations(svg) {
-      const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
-      const glowFilter = document.createElementNS('http://www.w3.org/2000/svg','filter');
-      glowFilter.setAttribute('id','innerGlow');
-      
-      // Using the most compatible filter for glow effect
-      glowFilter.innerHTML = `<feDropShadow dx="0" dy="0" stdDeviation="4.5" flood-color="rgba(167, 243, 208, 0.7)" />`;
-      defs.appendChild(glowFilter);
-      
-      const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
-      
-      if (segments.length !== SEGMENT_IDS.length) {
-          console.error("Failed to find all SVG segments. Check IDs.");
-          return;
-      }
-
-      const initialHighlightDelay = 4000;
-      const highlightDuration = 300;
-      const stepDelay = 400;
-      segments.forEach((seg, i) => {
-        setTimeout(() => {
-          seg.style.filter = 'url(#innerGlow)';
-          setTimeout(() => { seg.style.filter = 'none'; }, highlightDuration);
-        }, initialHighlightDelay + i * stepDelay);
+    .catch(error => {
+        console.error('Failed to fetch and load SVG:', error);
+        container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
       });
-
-      const breathingDelay = initialHighlightDelay + segments.length * stepDelay;
-      setTimeout(() => {
-        segments.forEach((seg) => {
-          seg.animate([
-              { filter: 'none' }, { filter: 'url(#innerGlow)' }, { filter: 'none' }
-            ], {
-              duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 
-            });
-        });
-      }, breathingDelay);
-      
-      segments.forEach(seg => {
-        seg.style.cursor = 'pointer';
-        seg.style.transition = 'filter 300ms ease';
-        seg.addEventListener('mouseenter', () => {
-          seg.style.filter = 'url(#innerGlow)';
-          tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Info not found.';
-          tooltip.style.opacity = '1';
-        });
-        seg.addEventListener('mousemove', (e) => {
-          tooltip.style.left = (e.clientX + 20) + 'px';
-          tooltip.style.top  = (e.clientY - tooltip.offsetHeight - 10) + 'px';
-        });
-        seg.addEventListener('mouseleave', () => {
-          seg.style.filter = 'none';
-          tooltip.style.opacity = '0';
-        });
-        seg.addEventListener('click', () => {
-          const url = SEGMENT_URLS[seg.id];
-          if (url) {
-            window.location.href = url;
-          }
-        });
-      });
-    }
-  });
   </script>
 
 </body>
