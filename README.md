@@ -1,8 +1,8 @@
 
-  ![Theoretical-Ouroboros-min](https://github.com/user-attachments/assets/71774e6b-f394-4e8b-8d9c-29e08a8e7138)
+  ![Theoretical-Ouroboros-min](https://github.com/AntonRize/WILL/blob/main/images/SLIDES-tinyPNG/17_Theoretical-Ouroboros.png)
 
 
-<h1 align="center">WILL Geometry: A Unified Physics Framework</h1>
+<h1 align="center">WILL Relational Geometry: A Unified Physics Framework</h1>
 
 <p align="center">
   <a href="https://doi.org/10.5281/zenodo.17115270">
@@ -25,7 +25,7 @@ If you use this work, please cite via DOI: [10.5281/zenodo.17115270](https://doi
 
 ## About The Project
 
-"WILL Geometry" is a comprehensive theoretical physics model that builds on principles of relationalism, epistemic hygiene and makes no ontological commitments. 
+"WILL Relational Geometry" is a comprehensive theoretical physics model that builds on principles of relationalism, epistemic hygiene and makes no ontological commitments. 
 
 ## Nothing is assumed. Everything is derived.
 
@@ -35,7 +35,7 @@ All physical quantities, including space, time, mass, and energy, must emerge di
 
 ### Solving the Galactic Rotation Problem
 
-This framework provides a novel solution to the galactic rotation problem using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE = 20.3 km/s) without invoking dark matter and without free parameters.
+This framework provides a novel solution to the galactic rotation problem using only the observed baryonic matter. Testing on the SPARC dataset (175 galaxies) shows a strong fit (RMSE ≈ 20 km/s) without invoking dark matter and without free parameters.
 
 **[Test it yourself with the interactive rotation curve calculator](https://antonrize.github.io/WILL/calculator/)**
 
@@ -45,13 +45,13 @@ The entire standard cosmological model is replaced by an algebraic system that r
 
 **[Explore the model with the interactive cosmology calculator](https://antonrize.github.io/WILL/2-input-cosmology.html)**
 
-*Results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single hypothesis:*
+*Results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single Principle:*
 
-## Fundamental Hypothesis
+## Foundational Principle
 
 $$\boxed{SPACETIME \equiv ENERGY}$$
  
-From this single hypothesis, without free parameters, we derive:
+From this single principle, without free parameters, we derive:
 
 ### Part I: Relativistic Foundations
 <details>
@@ -213,9 +213,10 @@ The entire complex machinery of differential geometry and tensor calculus used i
 
 ## Getting Started
 
+* **[Relativistic Foundations](https://antonrize.github.io/WILL/relativistic-foundations/)**: A good place to start your journey in to WILL Relational Geometry.
 * **[Ask WILL AI](https://antonrize.github.io/WILL/assistant/)**: Ask anything about the WILL Theory or its documents.
-* **[See Key Results](https://antonrize.github.io/WILL/results/)**: Get more details on the main findings.
-* **[Download Documents](https://antonrize.github.io/WILL/parts/)**: Access the core research papers.
+* **[Testable Predictions](https://antonrize.github.io/WILL/predictions/)**: Open colab notebooks and interactive labs for testing models predictions.
+* **[Results and Documents](https://antonrize.github.io/WILL/parts/)**: Access the core research papers.
 
 ## Contact
 
