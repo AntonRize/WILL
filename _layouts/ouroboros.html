@@ -32,7 +32,8 @@
         - Wave function collapse solution
         - Decoherence problem solution
         - Black Hole information loss solution
-        - and many more...">
+        - and many more..."
+    >
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,6 +46,12 @@
       background-color: #111827;
       color: #E5E7EB;
     }
+    main {
+  /* Initial state for the fade-in effect */
+  opacity: 0;
+  /* Fade-in duration is set to 3.0s */
+  transition: opacity 3.0s ease-in;
+}
     #ob-tooltip {
       position: absolute;
       z-index: 10;
@@ -63,50 +70,55 @@
       text-align: left;
       white-space: pre-line;
     }
-    #ouroboros-container svg {
-        width: 80vw;
-        max-width: 800px;
-        height: auto;
-        opacity: 0;
-        transition: opacity 3.5s ease-in-out;
-    }
+ 
   </style>
 </head>
 
 <body class="antialiased">
   {% include header.html %}
 
-  <main class="flex flex-col items-center relative p-4 py-20">
+  <main class="flex flex-col items-center relative p-4 py-10 sm:py-20">
     <div id="ouroboros-container"></div>
     <div id="ob-tooltip"></div>
-    <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
-       <a href="{{ site.baseurl }}/relativistic-foundations/" class="hover:text-white transition-colors">Relativistic Foundations</a>
-       <a href="{{ site.baseurl }}/results/" class="hover:text-white transition-colors">Results</a>
-       <a href="{{ site.baseurl }}/predictions/" class="hover:text-white transition-colors">Predictions</a>
-       <a href="{{ site.baseurl }}/WILL-AI/" class="hover:text-white transition-colors">WILL AI</a>
-       <a href="{{ site.baseurl }}/about/" class="hover:text-white transition-colors">About</a>
+    
+    <nav class="mt-16 w-full max-w-4xl px-4 flex flex-wrap justify-center items-center gap-x-5 gap-y-2 text-sm text-gray-500">
+        <a href="{{ site.baseurl }}/relativistic-foundations/" class="hover:text-white transition-colors duration-300">Relativistic Foundations</a>
+        <span class="text-gray-700 select-none">&bull;</span>
+        <a href="{{ site.baseurl }}/assistant/" class="hover:text-white transition-colors duration-300">Ask WILL AI</a>
+        <span class="text-gray-700 select-none">&bull;</span>
+        <a href="{{ site.baseurl }}/predictions/" class="hover:text-white transition-colors duration-300">Testable Predictions</a>
+        <span class="text-gray-700 select-none">&bull;</span>
+        <a href="{{ site.baseurl }}/parts/" class="hover:text-white transition-colors duration-300">Results & Documents</a>
     </nav>
+    
   </main>
 
   {% include footer.html %}
 
   <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const mainElement = document.querySelector('main');
     const container = document.getElementById('ouroboros-container');
     const tooltip = document.getElementById('ob-tooltip');
+    
+    // Trigger the fade-in effect for the main content
+    setTimeout(() => {
+        mainElement.style.opacity = 1;
+    }, 100);
+
     const svgUrl = '{{ site.baseurl }}/assets/OuroborosCLEAN.svg';
     
-    const SEGMENT_IDS = ['path34', 'path38', 'path42', 'path46', 'path50'];
+    // These constants must be declared before they are used in the initializeAnimations function.
+    const SEGMENT_IDS = ['path50', 'path34', 'path38', 'path42', 'path46']; // Re-ordered to start from top-left
     
     const TOOLTIP_TEXT = {
       'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “structure” and “dynamics”.',
-      'path38': 'Circle and Sphere\nA closed, isotropic systems with no external reference frame.',
+      'path38': 'Circle and Sphere - Minimal relational carriers.\nA closed, isotropic systems with no external reference frame.',
       'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (κ) components.',
       'path46': 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution.',
       'path50': 'Unified Field Equation\nRₛ/r = ρ/ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
     };
 
-    // Updated URLs with your new anchors
     const SEGMENT_URLS = {
       'path34': '{{ site.baseurl }}/relativistic-foundations/#1W',
       'path38': '{{ site.baseurl }}/relativistic-foundations/#2W',
@@ -128,69 +140,91 @@
           return;
         }
         
-        setTimeout(() => {
-          svg.style.opacity = '1';
-          initializeAnimations(svg);
-        }, 100);
+        // The opacity of the SVG itself is controlled by a separate style rule,
+        // but we'll ensure it's visible after injection.
+        svg.style.opacity = 1;
+        initializeAnimations(svg);
       })
       .catch(error => {
         console.error('Failed to fetch and load SVG:', error);
         container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
       });
-
+    
     function initializeAnimations(svg) {
-      const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg','defs'), svg.firstChild);
-      const glowFilter = document.createElementNS('http://www.w3.org/2000/svg','filter');
-      glowFilter.setAttribute('id','innerGlow');
-      
-      // Using the most compatible filter for glow effect
-      glowFilter.innerHTML = `<feDropShadow dx="0" dy="0" stdDeviation="4.5" flood-color="rgba(167, 243, 208, 0.7)" />`;
-      defs.appendChild(glowFilter);
-      
       const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
       
       if (segments.length !== SEGMENT_IDS.length) {
-          console.error("Failed to find all SVG segments. Check IDs.");
+          console.error("Failed to find all SVG segments. Check IDs:", SEGMENT_IDS);
           return;
       }
 
-      const initialHighlightDelay = 4000;
-      const highlightDuration = 300;
-      const stepDelay = 400;
-      segments.forEach((seg, i) => {
-        setTimeout(() => {
-          seg.style.filter = 'url(#innerGlow)';
-          setTimeout(() => { seg.style.filter = 'none'; }, highlightDuration);
-        }, initialHighlightDelay + i * stepDelay);
+      const originalFills = new Map();
+      segments.forEach(seg => {
+        // We get the computed style to find the actual color, as 'fill' attribute might be 'none'.
+        const computedStyle = window.getComputedStyle(seg);
+        originalFills.set(seg, computedStyle.fill || '#ffffff');
       });
-
-      const breathingDelay = initialHighlightDelay + segments.length * stepDelay;
-      setTimeout(() => {
-        segments.forEach((seg) => {
-          seg.animate([
-              { filter: 'none' }, { filter: 'url(#innerGlow)' }, { filter: 'none' }
-            ], {
-              duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 
-            });
-        });
-      }, breathingDelay);
       
+      const breathingGlow = 'drop-shadow(0 0 5px rgba(167, 243, 208, 0.7))';
+      const hoverFill = '#a7f3d0';
+
+      // --- "Running Light" Animation ---
+      const runningLightStartDelay = 3000; // Start after the slower 3.0s fade-in
+      const highlightDuration = 200;
+      const stepDelay = 80;
+      const onePulseDuration = segments.length * stepDelay;
+      const pauseBetweenPulses = 100;
+
+      function runSinglePulse(startDelay) {
+        segments.forEach((seg, i) => {
+            setTimeout(() => {
+                const originalFill = originalFills.get(seg);
+                seg.setAttribute('fill', hoverFill);
+                seg.style.filter = breathingGlow;
+                setTimeout(() => {
+                    seg.setAttribute('fill', originalFill);
+                    seg.style.filter = 'none';
+                }, highlightDuration);
+            }, startDelay + i * stepDelay);
+        });
+      }
+
+      // Run the pulse twice
+      runSinglePulse(runningLightStartDelay);
+      runSinglePulse(runningLightStartDelay + onePulseDuration + pauseBetweenPulses);
+
+      // --- Breathing Glow Animation ---
+      const breathingStartDelay = runningLightStartDelay + (2 * onePulseDuration) + pauseBetweenPulses;
+      setTimeout(() => {
+        segments.forEach(seg => {
+          seg.animate(
+            [{ filter: 'none' }, { filter: breathingGlow }, { filter: 'none' }], 
+            { duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 }
+          );
+        });
+      }, breathingStartDelay);
+      
+      // --- Hover, Tooltip, and Click Events ---
       segments.forEach(seg => {
         seg.style.cursor = 'pointer';
-        seg.style.transition = 'filter 300ms ease';
+        seg.style.transition = 'fill 300ms ease-in-out';
+
         seg.addEventListener('mouseenter', () => {
-          seg.style.filter = 'url(#innerGlow)';
+          seg.setAttribute('fill', hoverFill);
           tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Info not found.';
           tooltip.style.opacity = '1';
         });
+
         seg.addEventListener('mousemove', (e) => {
           tooltip.style.left = (e.clientX + 20) + 'px';
           tooltip.style.top  = (e.clientY - tooltip.offsetHeight - 10) + 'px';
         });
+
         seg.addEventListener('mouseleave', () => {
-          seg.style.filter = 'none';
+          seg.setAttribute('fill', originalFills.get(seg));
           tooltip.style.opacity = '0';
         });
+
         seg.addEventListener('click', () => {
           const url = SEGMENT_URLS[seg.id];
           if (url) {
