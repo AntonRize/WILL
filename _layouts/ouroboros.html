@@ -13,31 +13,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-  <meta name="description" content="WILL Relational Geometry - model on fundamental theoretical physics developed by Anton Rize. 
-        It builds on principles of rationalism, ontological minimalism and epistemic purity.
-        WILL theory deriving from first principals Special Relativity, General Relativity, Cosmology and Quantum Mechanics without any postulates or free parameters. 
-        No postulates, no free parameters, no metric.
-       With it's extreme methodological constraints offering solutions for long standing problems:
-        - Black holes singularity's solution
-        - Local energy density in GR  solution
-        - Quantum Gravity solution
-        - Quantization of spacetime solution
-        - Problem of Time solution
-        - Cosmological constant solution
-        - Dark Energy solution
-        - Dark matter solution
-        - Galactic rotation curves solution
-        - Equation of state w=-1 solution
-        - Measurement problem solution
-        - Wave function collapse solution
-        - Decoherence problem solution
-        - Black Hole information loss solution
-        - and many more..."
-    >
+  <meta name="description" content="WILL Relational Geometry - model on fundamental theoretical physics developed by Anton Rize.">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -47,11 +27,9 @@
       color: #E5E7EB;
     }
     main {
-  /* Initial state for the fade-in effect */
-  opacity: 0;
-  /* Fade-in duration is set to 3.0s */
-  transition: opacity 3.0s ease-in;
-}
+      opacity: 0;
+      transition: opacity 3.0s ease-in;
+    }
     #ob-tooltip {
       position: absolute;
       z-index: 10;
@@ -70,18 +48,20 @@
       text-align: left;
       white-space: pre-line;
     }
- 
+    /* Static sizing for the SVG is no longer needed here */
   </style>
 </head>
 
 <body class="antialiased">
   {% include header.html %}
 
-  <main class="flex flex-col items-center relative p-4 py-10 sm:py-20">
-    <div id="ouroboros-container"></div>
+  <main class="flex flex-col items-center relative px-6 sm:px-8 py-10 sm:py-20">
+    
+    <div id="ouroboros-container" class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+        </div>
     <div id="ob-tooltip"></div>
     
-    <nav class="mt-16 w-full max-w-4xl px-4 flex flex-wrap justify-center items-center gap-x-5 gap-y-2 text-sm text-gray-500">
+    <nav class="mt-12 sm:mt-16 w-full max-w-4xl px-4 flex flex-wrap justify-center items-center gap-x-3 sm:gap-x-5 gap-y-2 text-xs sm:text-sm text-gray-500">
         <a href="{{ site.baseurl }}/relativistic-foundations/" class="hover:text-white transition-colors duration-300">Relativistic Foundations</a>
         <span class="text-gray-700 select-none">&bull;</span>
         <a href="{{ site.baseurl }}/assistant/" class="hover:text-white transition-colors duration-300">Ask WILL AI</a>
@@ -96,144 +76,133 @@
   {% include footer.html %}
 
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const mainElement = document.querySelector('main');
-    const container = document.getElementById('ouroboros-container');
-    const tooltip = document.getElementById('ob-tooltip');
-    
-    // Trigger the fade-in effect for the main content
-    setTimeout(() => {
-        mainElement.style.opacity = 1;
-    }, 100);
-
-    const svgUrl = '{{ site.baseurl }}/assets/OuroborosCLEAN.svg';
-    
-    // These constants must be declared before they are used in the initializeAnimations function.
-    const SEGMENT_IDS = ['path50', 'path34', 'path38', 'path42', 'path46']; // Re-ordered to start from top-left
-    
-    const TOOLTIP_TEXT = {
-      'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “structure” and “dynamics”.',
-      'path38': 'Circle and Sphere - Minimal relational carriers.\nA closed, isotropic systems with no external reference frame.',
-      'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (κ) components.',
-      'path46': 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution in closed systems.',
-      'path50': 'Unified Field Equation\nRₛ/r = ρ/ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
-    };
-
-    const SEGMENT_URLS = {
-      'path34': '{{ site.baseurl }}/relativistic-foundations/#1W',
-      'path38': '{{ site.baseurl }}/relativistic-foundations/#2W',
-      'path42': '{{ site.baseurl }}/relativistic-foundations/#3W',
-      'path46': '{{ site.baseurl }}/relativistic-foundations/#4W',
-      'path50': '{{ site.baseurl }}/relativistic-foundations/#5W'
-    };
-
-    fetch(svgUrl)
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-        return response.text();
-      })
-      .then(svgText => {
-        container.innerHTML = svgText;
-        const svg = container.querySelector('svg');
-        if (!svg) {
-          console.error("Critical Error: SVG element not found after injection.");
-          return;
-        }
-        
-        // The opacity of the SVG itself is controlled by a separate style rule,
-        // but we'll ensure it's visible after injection.
-        svg.style.opacity = 1;
-        initializeAnimations(svg);
-      })
-      .catch(error => {
-        console.error('Failed to fetch and load SVG:', error);
-        container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
-      });
-    
-    function initializeAnimations(svg) {
-      const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
+    document.addEventListener('DOMContentLoaded', () => {
+      const mainElement = document.querySelector('main');
+      const container = document.getElementById('ouroboros-container');
+      const tooltip = document.getElementById('ob-tooltip');
       
-      if (segments.length !== SEGMENT_IDS.length) {
-          console.error("Failed to find all SVG segments. Check IDs:", SEGMENT_IDS);
-          return;
-      }
-
-      const originalFills = new Map();
-      segments.forEach(seg => {
-        // We get the computed style to find the actual color, as 'fill' attribute might be 'none'.
-        const computedStyle = window.getComputedStyle(seg);
-        originalFills.set(seg, computedStyle.fill || '#ffffff');
-      });
-      
-      const breathingGlow = 'drop-shadow(0 0 5px rgba(167, 243, 208, 0.7))';
-      const hoverFill = '#a7f3d0';
-
-      // --- "Running Light" Animation ---
-      const runningLightStartDelay = 3000; // Start after the slower 3.0s fade-in
-      const highlightDuration = 200;
-      const stepDelay = 80;
-      const onePulseDuration = segments.length * stepDelay;
-      const pauseBetweenPulses = 100;
-
-      function runSinglePulse(startDelay) {
-        segments.forEach((seg, i) => {
-            setTimeout(() => {
-                const originalFill = originalFills.get(seg);
-                seg.setAttribute('fill', hoverFill);
-                seg.style.filter = breathingGlow;
-                setTimeout(() => {
-                    seg.setAttribute('fill', originalFill);
-                    seg.style.filter = 'none';
-                }, highlightDuration);
-            }, startDelay + i * stepDelay);
-        });
-      }
-
-      // Run the pulse twice
-      runSinglePulse(runningLightStartDelay);
-      runSinglePulse(runningLightStartDelay + onePulseDuration + pauseBetweenPulses);
-
-      // --- Breathing Glow Animation ---
-      const breathingStartDelay = runningLightStartDelay + (2 * onePulseDuration) + pauseBetweenPulses;
       setTimeout(() => {
-        segments.forEach(seg => {
-          seg.animate(
-            [{ filter: 'none' }, { filter: breathingGlow }, { filter: 'none' }], 
-            { duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 }
-          );
-        });
-      }, breathingStartDelay);
+          mainElement.style.opacity = 1;
+      }, 100);
+
+      const svgUrl = '{{ site.baseurl }}/assets/OuroborosCLEAN.svg';
       
-      // --- Hover, Tooltip, and Click Events ---
-      segments.forEach(seg => {
-        seg.style.cursor = 'pointer';
-        seg.style.transition = 'fill 300ms ease-in-out';
+      const SEGMENT_IDS = ['path50', 'path34', 'path38', 'path42', 'path46'];
+      
+      const TOOLTIP_TEXT = {
+        'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “structure” and “dynamics”.',
+        'path38': 'Circle and Sphere - Minimal relational carriers.\nA closed, isotropic systems with no external reference frame.',
+        'path42': 'Universal Rate of Change\nThe speed of light (c) is distributed between kinetic (β) and potential (κ) components.',
+        'path46': 'Topological Ratio κ²/β² = 2\nThe universal “budget” principle dictating the distribution in closed systems.',
+        'path50': 'Unified Field Equation\nRₛ/r = ρ/ρₘₐₓ\nSPACETIME RATIO = ENERGY RATIO\nLinking back to the Unifying Principle.'
+      };
 
-        seg.addEventListener('mouseenter', () => {
-          seg.setAttribute('fill', hoverFill);
-          tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Info not found.';
-          tooltip.style.opacity = '1';
-        });
+      const SEGMENT_URLS = {
+        'path34': '{{ site.baseurl }}/relativistic-foundations/#1W',
+        'path38': '{{ site.baseurl }}/relativistic-foundations/#2W',
+        'path42': '{{ site.baseurl }}/relativistic-foundations/#3W',
+        'path46': '{{ site.baseurl }}/relativistic-foundations/#4W',
+        'path50': '{{ site.baseurl }}/relativistic-foundations/#5W'
+      };
 
-        seg.addEventListener('mousemove', (e) => {
-          tooltip.style.left = (e.clientX + 20) + 'px';
-          tooltip.style.top  = (e.clientY - tooltip.offsetHeight - 10) + 'px';
-        });
-
-        seg.addEventListener('mouseleave', () => {
-          seg.setAttribute('fill', originalFills.get(seg));
-          tooltip.style.opacity = '0';
-        });
-
-        seg.addEventListener('click', () => {
-          const url = SEGMENT_URLS[seg.id];
-          if (url) {
-            window.location.href = url;
+      fetch(svgUrl)
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+          return response.text();
+        })
+        .then(svgText => {
+          container.innerHTML = svgText;
+          const svg = container.querySelector('svg');
+          if (!svg) {
+            console.error("Critical Error: SVG element not found after injection.");
+            return;
           }
+          initializeAnimations(svg);
+        })
+        .catch(error => {
+          console.error('Failed to fetch and load SVG:', error);
+          container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
         });
-      });
-    }
-  });
+      
+      function initializeAnimations(svg) {
+        const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
+        
+        if (segments.length !== SEGMENT_IDS.length) {
+            console.error("Failed to find all SVG segments. Check IDs:", SEGMENT_IDS);
+            return;
+        }
+
+        const originalFills = new Map();
+        segments.forEach(seg => {
+          const computedStyle = window.getComputedStyle(seg);
+          originalFills.set(seg, computedStyle.fill || '#ffffff');
+        });
+        
+        const breathingGlow = 'drop-shadow(0 0 5px rgba(167, 243, 208, 0.7))';
+        const hoverFill = '#a7f3d0';
+
+        const runningLightStartDelay = 3000;
+        const highlightDuration = 200;
+        const stepDelay = 80;
+        const onePulseDuration = segments.length * stepDelay;
+        const pauseBetweenPulses = 100;
+
+        function runSinglePulse(startDelay) {
+          segments.forEach((seg, i) => {
+              setTimeout(() => {
+                  const originalFill = originalFills.get(seg);
+                  seg.setAttribute('fill', hoverFill);
+                  seg.style.filter = breathingGlow;
+                  setTimeout(() => {
+                      seg.setAttribute('fill', originalFill);
+                      seg.style.filter = 'none';
+                  }, highlightDuration);
+              }, startDelay + i * stepDelay);
+          });
+        }
+
+        runSinglePulse(runningLightStartDelay);
+        runSinglePulse(runningLightStartDelay + onePulseDuration + pauseBetweenPulses);
+
+        const breathingStartDelay = runningLightStartDelay + (2 * onePulseDuration) + pauseBetweenPulses;
+        setTimeout(() => {
+          segments.forEach(seg => {
+            seg.animate(
+              [{ filter: 'none' }, { filter: breathingGlow }, { filter: 'none' }], 
+              { duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 }
+            );
+          });
+        }, breathingStartDelay);
+        
+        segments.forEach(seg => {
+          seg.style.cursor = 'pointer';
+          seg.style.transition = 'fill 300ms ease-in-out';
+
+          seg.addEventListener('mouseenter', () => {
+            seg.setAttribute('fill', hoverFill);
+            tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Info not found.';
+            tooltip.style.opacity = '1';
+          });
+
+          seg.addEventListener('mousemove', (e) => {
+            tooltip.style.left = (e.clientX + 20) + 'px';
+            tooltip.style.top  = (e.clientY - tooltip.offsetHeight - 10) + 'px';
+          });
+
+          seg.addEventListener('mouseleave', () => {
+            seg.setAttribute('fill', originalFills.get(seg));
+            tooltip.style.opacity = '0';
+          });
+
+          seg.addEventListener('click', () => {
+            const url = SEGMENT_URLS[seg.id];
+            if (url) {
+              window.location.href = url;
+            }
+          });
+        });
+      }
+    });
   </script>
 </body>
 </html>
