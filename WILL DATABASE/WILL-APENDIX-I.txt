@@ -53,9 +53,21 @@
 
 \section{Correspondence with General Relativity}
 
+\begin{quote}
+To facilitate comparison with standard General Relativity,
+we recast the relational parameters $(\kappa,\beta)$ in metric form.
+Under the identification
+\(
+\kappa^2 = 2GM/(rc^2)
+\),
+the WILL RG reproduces the Schwarzschild line element
+and the corresponding Einstein field equations in algebraic form.
+
+\end{quote}
+
 \subsection{Equivalence with Schwarzschild Solution}
 \begin{theorem}[Equivalence with Schwarzschild Solution]
-The WILL Geometry formalism reproduces the Schwarzschild metric in the appropriate limit.
+The WILL RG formalism reproduces the Schwarzschild metric in the appropriate limit.
 \end{theorem}
 \begin{proof}
 The Schwarzschild metric in General Relativity is given by:
@@ -92,7 +104,7 @@ This demonstrates that the WILL Geometry parameters exactly reproduce the Schwar
 \subsection{Equivalence with Einstein Field Equations}
 
 \begin{theorem}[Equivalence with Einstein Field Equations]
-The geometric field equation of WILL Geometry is equivalent to the corresponding component of Einstein's field equations for a static, spherically symmetric mass distribution.
+The geometric field equation of WILL RG is equivalent to the corresponding component of Einstein's field equations for a static, spherically symmetric mass distribution.
 \end{theorem}
 
 \begin{proof}
@@ -170,129 +182,106 @@ which is itself the direct expression of the foundational principle:
 
 This demonstrates that the apparent complexity of the Einstein field equations arises from representational choices, not physical necessity. The underlying reality is a simple, self-consistent relational identity.
 \textbf{Complex Mathematics is the Consequence of Bad Philosophy.}  
-The exact equivalence between the two formulations - under the physically motivated definition $\kappa^2(r) = 2Gm(r)/(rc^2)$ - completes the proof.
+The exact equivalence between the two formulations - under the geometrically motivated definition $\kappa^2(r) = 2Gm(r)/(rc^2)$ - completes the proof.
 \end{proof}
+
+\begin{corollary}[Back–translation]
+Given the Schwarzschild metric in standard form, the substitutions
+\(
+\kappa^2 = 2GM/(rc^2), \ \kappa_X^2 = 1-\kappa^2
+\)
+map every tensorial component of \(g_{\mu\nu}\) onto algebraic
+relations among \(\kappa,\rho,r\) in RG.
+Thus GR is a differential realization of the same algebraic closure.
+\end{corollary}
 
 \section{Empirical Validation}
 
 
 \subsection{Geometric Prediction of Photon Sphere and ISCO}
 
-\begin{theorem}[Critical Radii Emergence]
-In the WILL Geometry framework, the critical orbital radii of the photon sphere from $\theta_1 = \theta_2$ and   $Q^2=\kappa^2+\beta^2=1$  projection; and innermost stable circular orbit (ISCO) from $Q^2=\kappa^2{+}\beta^2{=}\frac{1}{2} $. This orbits emerge naturally as the geometric equilibrium. With logical chain: $\ Q^2= \kappa^2{+}\beta^2{=}1 \Rightarrow r_{PS}=\frac{R_s}{\kappa^2} \in\{1.5R_s\} \Rightarrow \kappa^2=2\beta^2,\   \Rightarrow  1/2,\  \Rightarrow r_{ISCO}=\frac{R_s}{\kappa^2} \in\{3R_s\}$
-\end{theorem}
+The critical orbital radii in WILL Relational Geometry are not simply solved for, but emerge as direct consequences of  geometric symmetries within the system's projection budget, \(Q=\sqrt{\beta^2+\kappa^2}\).
+
+\subsubsection{Photon Sphere from Geometric Equilibrium (\(\theta_1 = \theta_2\))}
+
+The Photon Sphere is generated from the principle of perfect equilibrium between the kinematic and potential projection angles. This occurs when they become equal, a condition corresponding to the ``magic angle''.
+
 \begin{proof}
-A notable geometric equilibrium occurs at the critical angle 
+We begin with the symmetry condition for this state:
 \begin{equation}
-    \theta_1 = \theta_2= 54.7356103172^{\circ} \text{ (balance point for photon sphere and ISCO)}
+    \theta_1 = \theta_2 
 \end{equation}
-or approximately $\theta_1 = \theta_2 \approx 0.9553\,\text{radians}$.
-
-\begin{tikzpicture}
-\draw[thick] (0,0) circle(1);
-\draw[-, thick] (0,0.816) -- (0.577,0.816) node[midway, above] {$\kappa_X$};
-\draw[->, thick] (0,0) -- (0.577,0.816) node[below, right] {$E$};
-\draw[->, thick] (0,0) -- (0,0.816) node[midway, left] {$\kappa$};
-\draw[->, thick] (0,0) -- (0.577,0) node[midway, below] {$\beta$};;
-\draw[->, thick] (0.577,0) -- (0.577,0.816) node[midway, right] {$\beta_Y$};
-\end{tikzpicture}
-
-This equilibrium yields the fundamental relation:
+From the definitions \(\beta = \cos\theta_1\) and \(\kappa_X = \cos\theta_2\), this directly implies \(\beta = \kappa_X\). We unpack the definition of \(\kappa_X = \sqrt{1 - \kappa^2}\):
+\begin{align*}
+    \beta &= \sqrt{1 - \kappa^2} \\
+    \beta^2 &= 1 - \kappa^2 \\
+    \implies \kappa^2 + \beta^2 &= 1 \quad (\text{which is the condition } Q^2=1)
+\end{align*}
+We now solve this by applying the system's closure condition , \(\kappa^2 = 2\beta^2\):
+\begin{align*}
+    (2\beta^2) + \beta^2 &= 1 \\
+    3\beta^2 &= 1 \implies \beta^2 = \frac{1}{3}
+\end{align*}
+From this, we find the corresponding \(\kappa^2\):
+\begin{equation*}
+    \kappa^2 = 2\beta^2 = \frac{2}{3}
+\end{equation*}
+Solving for angles will give us:
 \begin{equation}
-\kappa^2 + \beta^2 = 1,
+    \theta_1 = \theta_2 =  54.7356103172^{\circ}  \quad \text{(''magic angle'')}
+  
 \end{equation}
-These critical radii emerge spontaneously from the geometry, suggesting inherent spacetime structure without additional assumptions.
-
-\subsubsection{Mathematical Derivation of Critical Points}
-
-Key critical points include:
-When:
-\begin{itemize}
-    \item \(\kappa = \sqrt{\frac{2}{3}} \approx 0.816\) and \(\beta = \sqrt{\frac{1}{3}} \approx 0.577\), corresponding to:
-    \[
-    r = \frac{R_s}{\kappa^2} =\frac{3}{2}R_s = 1.5R_s \quad \text{(radius of the photon sphere)}.
-    \]
-    When:
-    \item      \( \kappa=\sqrt{\frac{1}{3}}\approx 0.577, \quad \text{and} \quad  \beta = \sqrt{\frac{1}{6}} \approx 0.408\), leading to orbital distance:
-    \[
-    r = \frac{R_s}{2\beta^2} = \frac{R_s}{2 \cdot \frac{1}{6}} = 3R_s \quad \text{(radius of the innermost stable circular orbit, ISCO)}.
-    \]
-\end{itemize}
-
-At the critical point where \(\beta = \frac{1}{\sqrt{3}}\) and \(\kappa = \sqrt{\frac{2}{3}}\), the following relationships hold:
-\begin{align}
-\theta_1 &= \theta_2 \\
-\beta &= \kappa_X \\
-\kappa &= \beta_Y \\
-\cos(\theta_{2}-\theta_{1}) &= 0 \\
- Q &=\sqrt{\kappa^2 + \beta^2}=1 \\
-Q_t &= \sqrt{1-Q^2} =\sqrt{1-3\beta^2} = 0 \quad \text{(Instability threshold)}
-\end{align}
-
-\textbf{Photon Sphere:}
-\begin{align}
-    r &= \frac{R_s}{\kappa^2} = \tfrac{3}{2}R_s \\
-    \kappa &= \sqrt{\tfrac{2}{3}} \approx 0.816, 
-    \quad \beta = \tfrac{1}{\sqrt{3}} \approx 0.577
-\end{align}
-
-Instability threshold $\theta_1 = \theta_2 = 54.7356^\circ$:
-\begin{align}
-    Q^2 &= \kappa^2 + \beta^2 = 1 \\
-    \beta &= \kappa_X = \sqrt{\tfrac{1}{3}} \\
-    \kappa &= \beta_Y = \sqrt{\tfrac{2}{3}} \\
-    Q_t &= \sqrt{1 - 3\beta^2} = 0
-\end{align}
-
-\textbf{ISCO} (Innermost Stable Circular Orbit):
-\begin{align}
-    r &= \frac{R_s}{\kappa^2} = 3R_s \\
-    \kappa &= \tfrac{1}{\sqrt{3}} \approx 0.577, 
-    \quad \beta = \tfrac{1}{\sqrt{6}} \approx 0.408
-\end{align}
-\begin{align}
-    Q^2 &= \kappa^2 + \beta^2 = \tfrac{1}{2} \\
-    2\beta &= \kappa_X = \sqrt{2}\,\kappa = \sqrt{\tfrac{2}{3}} \\
-    Q_t &= \sqrt{1 - 3\beta^2} = \tfrac{1}{\sqrt{2}}
-\end{align}
-\subsection{Pattern and Symmetry}
-
-\begin{itemize}
-    \item Photon sphere: $(\kappa, \beta) = \big(\sqrt{\tfrac{2}{3}}, \sqrt{\tfrac{1}{3}}\big)$, with $Q^2 = 1$.
-    \item ISCO: $(\kappa, \beta) = \big(\sqrt{\tfrac{1}{3}}, \sqrt{\tfrac{1}{6}}\big)$, with $Q^2 = \tfrac{1}{2}$.
-    \item Both are built from simple rational fractions of unity: $1/3, 2/3, 1/6, 1/2$.
-    \item ISCO’s $\beta^2 = 1/6$ is exactly half of the photon sphere’s $\beta^2 = 1/3$.
-    \item Complements appear naturally, e.g. $\beta_Y^2 = 1 - \beta^2 = 5/6$.
-\end{itemize}
-
-\subsection*{Critical Radii from the $Q$--Invariant}
-
-The combined projection parameter
-\[
-Q^{2} \;=\; \kappa^{2} + \beta^{2}, 
-\qquad Q_{t} \;=\; \sqrt{\,1 - Q^{2}\,},
-\]
-measures the total causal budget of energy transformations.  
-Critical orbital radii correspond to special conditions of $Q$ and $Q_{t}$:
- \textbf{  Photon Sphere ($r = 1.5R_{s}$).}
-    At this radius the causal budget is fully exhausted:
-\[
-    Q = 1, \qquad Q_{t} = 0,
-    \]
-    leaving no timelike separation. Only null (photon) orbits are permitted.
-Thus, both the photon sphere and ISCO emerge directly as critical solutions of the same invariant structure $(Q,Q_t)$, without additional assumptions.
-
-
-\begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=Interpretive Note]
-While the radii \(1.5R_s\) (photon sphere) and \(3R_s\) (ISCO) are known from classical General Relativity, their spontaneous emergence from angle equality \(\theta_1 = \theta_2\) in our geometric framework is not imposed but arises from internal energy projection symmetries. This correspondence reinforces the internal consistency and explanatory power of WILL Geometry.
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Projectional Principle]
-\[
-\textit{Geometry defines causality before mass, and curvature before gravity.}
-\]
-\end{tcolorbox}
+   (the same numerical value as the so-called magic angle, now reinterpreted as the geometric balance defining the photon sphere.) 
+   
+Finally, we derive the physical radius from the definition \(r = R_s / \kappa^2\):
+\begin{equation}
+    r_{ps} = \frac{R_s}{2/3} = \frac{3}{2}R_s = 1.5 R_s
+\end{equation}
+Thus, the symmetry of angle equality inevitably generates the radius of the photon sphere.
 \end{proof}
+
+\subsubsection{ISCO from Budgetary Equilibrium (\(Q = Q_t\))}
+
+The Innermost Stable Circular Orbit (ISCO) is generated from the principle of perfect equilibrium between the total projection budget \((Q=\sqrt{\beta^2+\kappa^2})\) and its orthogonal complement (\(Q_t=\sqrt{1 -Q^2}\)). This represents a state of marginal stability.
+
+\begin{proof}
+We begin with the symmetry condition for this state:
+\begin{equation}
+    Q = Q_t
+\end{equation}
+By squaring both sides and using the definition \(Q_t^2 = 1 - Q^2\), we find the value of the total budget \(Q^2\):
+\begin{align*}
+    Q^2 &= Q_t^2 \\
+    Q^2 &= 1 - Q^2 \\
+    2Q^2 &= 1 \implies Q^2 = \frac{1}{2}
+\end{align*}
+We now have a new condition \(\kappa^2 + \beta^2 = 1/2\). by applying the closure condition, \(\kappa^2 = 2\beta^2\):
+\begin{align*}
+    (2\beta^2) + \beta^2 &= \frac{1}{2} \\
+    3\beta^2 &= \frac{1}{2} \implies \beta^2 = \frac{1}{6}
+\end{align*}
+From this, we find the corresponding \(\kappa^2\):
+\begin{equation*}
+    \kappa^2 = 2\beta^2 = \frac{2}{6} = \frac{1}{3}
+\end{equation*}
+Finally, we derive the physical radius from \(r = R_s / \kappa^2\):
+\begin{equation}
+    r_{isco} = \frac{R_s}{1/3} = 3 R_s
+\end{equation}
+Thus, the symmetry of budgetary equilibrium inevitably generates the radius of the ISCO.
+\end{proof}
+
+\begin{quote}
+\textbf{Interpretive Note}
+While the radii \(1.5R_s\) and \(3R_s\) are known from General Relativity, their emergence here from two distinct and fundamental geometric symmetries (\(\theta_1=\theta_2\) and \(Q=Q_t\)) is not imposed but arises from the internal consistency of the WILL framework. This reinforces the explanatory power of Relational Geometry.
+\end{quote}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Geometry before locality]
+\[
+\textit{Relational Geometry defines causality before mass, and curvature before gravity.}
+\]
+\end{tcolorbox}
+
 
 \subsection{Empirical Check: Circular Earth Orbits (SR$\times$GR Factorization and $L/H$ Collapse)}
 
@@ -513,7 +502,7 @@ L_{GPS} &= \beta_{YGPS} \left(\frac{GM_{Earth}}{\beta_{GPS}^2 c^2}\right)^2
 
 \end{align*}
 
-The explicit $W_{ILL}=ET^2 / ML^2=1$ - invariant for the GPS–Earth system, including both GR and SR effects, is:  $$W_{ILLGPS}=\frac{E_{GPS} \cdot T_{GPS}}{M_{GPS} \cdot L_{GPS}} =  1$$
+The explicit $W_{ILL}=ET / ML=1$ - invariant for the GPS–Earth system, including both GR and SR effects, is:  $$W_{ILLGPS}=\frac{E_{GPS} \cdot T_{GPS}}{M_{GPS} \cdot L_{GPS}} =  1$$
 
 All physical quantities cancel identically, leaving $ WILL=1$, which is satisfied by geometric closure.
 
@@ -927,21 +916,21 @@ This section serves as a convenient reference for the core equations and relatio
 \subsection{Fundamental Parameters}
 
 \begin{align}
-   \textbf{Kinematic projection} \quad  \beta &=  \frac{v}{c} = \sqrt{\frac{R_s}{2r_{d}}} = \sqrt{\frac{Gm_0}{r_{d}c^2}} = \cos\left(\theta_1\right), \quad \text{(Velocity Like)} \\
- \textbf{Potential projection} \quad  \kappa &= \frac{v_e}{c} = \sqrt{\frac{R_s}{r_{d}}} = \sqrt{\frac{2Gm_0}{r_{d}c^2}} = \sqrt{\frac{\rho}{\rho_{max}}}= \sin\left(\theta_2\right),\quad \text{(Escape Velocity Like)}
+   \textbf{Kinematic projection} \quad  \beta &=  \frac{v}{c} = \sqrt{\frac{R_s}{2r}} = \sqrt{\frac{Gm_0}{rc^2}} = \cos\left(\theta_1\right), \quad \text{(Velocity Like)} \\
+ \textbf{Potential projection} \quad  \kappa &= \frac{v_e}{c} = \sqrt{\frac{R_s}{r}} = \sqrt{\frac{2Gm_0}{rc^2}} = \sqrt{\frac{\rho}{\rho_{max}}}= \sin\left(\theta_2\right),\quad \text{(Escape Velocity Like)}
 \end{align}
 
 \subsection{The squared forms}
 
 \begin{align}
-    \beta^2 &= \frac{R_s}{2r_{d}}, \\
-    \kappa^2 &= \frac{R_s}{r_{d}}.
+    \beta^2 &= \frac{R_s}{2r}, \\
+    \kappa^2 &= \frac{R_s}{r}.
 \end{align}
 \begin{equation}
- \beta^2=\frac{m_0}{r_{d}} \cdot \frac{l_P}{m_P} 
+ \beta^2=\frac{m_0}{r} \cdot \frac{l_P}{m_P} 
 \end{equation}
 \begin{equation}
-\kappa^2 = \frac{8\pi G}{c^2} r_{d}^2 \rho(r).
+\kappa^2 = \frac{8\pi G}{c^2} r^2 \rho(r).
 \end{equation}
 \[
 \kappa^{2}(r)=\dfrac{2G m(r)}{c^{2} r}
@@ -951,7 +940,7 @@ This section serves as a convenient reference for the core equations and relatio
 \]
 \[
 \boxed{
-\kappa^2=\frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max} }
+\kappa^2=\frac{R_s}{r} = \frac{\rho}{\rho_{max} }
 }
 \]
 
@@ -960,27 +949,27 @@ This section serves as a convenient reference for the core equations and relatio
 \begin{align}
     \kappa^2 &= 2\beta^2 \quad \text{(Fundamental projection ratio)} \\
     \frac{\kappa}{\beta} &= \sqrt{2} \\
-    \kappa^2 + \beta^2 &= 3\beta^2 = \frac{3}{2}\kappa^2 = \frac{3R_s}{2r_{d}} \\
-    \frac{r_{d}}{R_s} &= \frac{1}{\kappa^2} = \frac{1}{2\beta^2}
+    \kappa^2 + \beta^2 &= 3\beta^2 = \frac{3}{2}\kappa^2 = \frac{3R_s}{2r} \\
+    \frac{r}{R_s} &= \frac{1}{\kappa^2} = \frac{1}{2\beta^2}
 \end{align}
 
 \subsection{Mass, Energy and Distance}
 
 \begin{align}
-    m_0 &= \frac{\kappa^2 c^2 r_{d}}{2G} = \frac{R_s c^2}{2G} \quad \text{(mass of the system or object)}\\
+    m_0 &= \frac{\kappa^2 c^2 r}{2G} = \frac{R_s c^2}{2G} \quad \text{(mass of the system or object)}\\
     R_s &=\frac{2Gm_0}{c^2} \quad \text{(Schwarzschild radius. Radius from the center of mass where event horizon is forming)} \\
-    r_{d} &= \frac{R_s}{\kappa^2} = \frac{2Gm_0}{\kappa^2 c^2}  \quad \text{(radial distance)}\\
-    t_{d} &= \frac{r_{d}}{c}  \quad \text{(temporal distance)}\\
-    R_s &= \frac{2Gm_0}{c^2}=\kappa^2 r_{d} \quad \text{(critical radial distance)} \\
-   \beta^2 &=  \frac{m_0}{r_{d}} \cdot \frac{l_P}{m_P} \quad \text{(Universal mass-to-distance ratio)}
+    r &= \frac{R_s}{\kappa^2} = \frac{2Gm_0}{\kappa^2 c^2}  \quad \text{(radial distance)}\\
+    t &= \frac{r}{c}  \quad \text{(temporal distance)}\\
+    R_s &= \frac{2Gm_0}{c^2}=\kappa^2 r \quad \text{(critical radial distance)} \\
+   \beta^2 &=  \frac{m_0}{r} \cdot \frac{l_P}{m_P} \quad \text{(Universal mass-to-distance ratio)}
 \end{align}
 
 \subsection{Energy Density and Pressure}
 
 \begin{align}
-    \rho &= \frac{\kappa^2 c^2}{8\pi G r_{d}^2} = \kappa^2 \cdot \rho_{max} \\
-    \rho_{max} &= \frac{c^2}{8\pi G r_{d}^2} \quad \text{(Critical energy density where $\kappa=1$ event horizon)} \\
-    P(r_{d}) &= - \frac{c^2}{8\pi G} \cdot \frac{1}{r_{d}} \cdot \frac{d\kappa^2}{dr_{d}} \quad \text{(Pressure)}
+    \rho &= \frac{\kappa^2 c^2}{8\pi G r^2} = \kappa^2 \cdot \rho_{max} \\
+    \rho_{max} &= \frac{c^2}{8\pi G r^2} \quad \text{(Critical energy density where $\kappa=1$ event horizon)} \\
+    P(r) &= - \frac{c^2}{8\pi G} \cdot \frac{1}{r} \cdot \frac{d\kappa^2}{dr} \quad \text{(Pressure)}
 \end{align}
 
 \subsection{Contraction and Dilation Factors}
@@ -999,7 +988,7 @@ This section serves as a convenient reference for the core equations and relatio
 \end{align}
 \begin{align}
     Q &=\sqrt{\kappa^2 + \beta^2}  \\
-    Q^{2}&= 3\beta^2 = \frac{3}{2}\kappa^2 = \frac{3R_s}{2r_{d}} \\
+    Q^{2}&= 3\beta^2 = \frac{3}{2}\kappa^2 = \frac{3R_s}{2r} \\
     Q_t &= \sqrt{1-Q^2} = \sqrt{1-\kappa^2-\beta^2} = \sqrt{1-3\beta^2} = \sqrt{1-\frac{3}{2}\kappa^2} \\
     Q_r &= \frac{1}{Q_t}
 \end{align}
@@ -1016,7 +1005,7 @@ This section serves as a convenient reference for the core equations and relatio
 \subsection{Unified Field Equation}
 
 \begin{align}
-    \frac{R_s}{r_{d}} &= \frac{\rho}{\rho_{max}} = \kappa^2
+    \frac{R_s}{r} &= \frac{\rho}{\rho_{max}} = \kappa^2
 \end{align}
 \begin{align}
 \text{For any spherically symmetric density $\rho(r)$:}
@@ -1057,61 +1046,32 @@ W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{\frac{1}{\kappa_{X}} E_0 \kapp
     \text{ISCO:} \quad r &= \frac{R_s}{\kappa^2}=3R_s \quad \text{where} \quad \kappa = \frac{1}{\sqrt{3}} \approx 0.577, \quad \beta = \frac{1}{\sqrt{6}} \approx 0.408
 \end{align}
 
-Instability threshold - \textbf{photon sphere} at the critical point where $\theta_1 = \theta_2 = 54.7356103172^{\circ}$:
+Instability threshold - \textbf{photon sphere} at the critical point where $\theta_1 = \theta_2 = 54.7356103172^{\circ}$ ("magic angle"):
 
 \begin{align}
   Q^2 &=\kappa^2 + \beta^2 = 1 \\
     \beta &= \kappa_X = \sqrt{1/3} \\
     \kappa &= \beta_Y = \sqrt{2/3}\\
     Q_t &= \sqrt{1-3\beta^2} = 0 \quad  \\
+     r &= \frac{R_s}{\kappa^2} = \tfrac{3}{2}R_s 
 \end{align}
+
 
  Last stable orbit - \textbf{ISCO}:
 \begin{align}
     Q^2 &=\kappa^2+\beta^2=\frac{1}{2} \\
    2 \beta &= \kappa_X = \sqrt{2} \cdot\kappa = \sqrt{2/3} \\
+    \kappa &=  \sqrt{1/3} \\
     Q_t &= \sqrt{1-3\beta^2} = \frac{1}{\sqrt{2}} \quad  \\
-\end{align}
-
-
-
-\subsection{Special Points}
-
-\textbf{Photon Sphere:}
-\begin{align}
-    r &= \frac{R_s}{\kappa^2} = \tfrac{3}{2}R_s \\
-    \kappa &= \sqrt{\tfrac{2}{3}} \approx 0.816, 
-    \quad \beta = \tfrac{1}{\sqrt{3}} \approx 0.577
-\end{align}
-
-Instability threshold --- photon sphere at the critical point where 
-$\theta_1 = \theta_2 = 54.7356^\circ$:
-\begin{align}
-    Q^2 &= \kappa^2 + \beta^2 = 1 \\
-    \beta &= \kappa_X = \sqrt{\tfrac{1}{3}} \\
-    \kappa &= \beta_Y = \sqrt{\tfrac{2}{3}} \\
-    Q_t &= \sqrt{1 - 3\beta^2} = 0
-\end{align}
-
-ISCO (Innermost Stable Circular Orbit):
-\begin{align}
-    r &= \frac{R_s}{\kappa^2} = 3R_s \\
-    \kappa &= \tfrac{1}{\sqrt{3}} \approx 0.577, 
-    \quad \beta = \tfrac{1}{\sqrt{6}} \approx 0.408
-\end{align}
-
-Last stable orbit --- ISCO:
-\begin{align}
-    Q^2 &= \kappa^2 + \beta^2 = \tfrac{1}{2} \\
-    2\beta &= \kappa_X = \sqrt{2}\,\kappa = \sqrt{\tfrac{2}{3}} \\
-    Q_t &= \sqrt{1 - 3\beta^2} = \tfrac{1}{\sqrt{2}}
+       r &= \frac{R_s}{\kappa^2} = 3R_s \\
+       Q &= Q_t
 \end{align}
 
 \subsection{Pattern and Symmetry}
 
 \begin{itemize}
-    \item Photon sphere: $(\kappa, \beta) = \big(\sqrt{\tfrac{2}{3}}, \sqrt{\tfrac{1}{3}}\big)$, with $Q^2 = 1$.
-    \item ISCO: $(\kappa, \beta) = \big(\sqrt{\tfrac{1}{3}}, \sqrt{\tfrac{1}{6}}\big)$, with $Q^2 = \tfrac{1}{2}$.
+    \item Photon sphere: $(\kappa, \beta) = \big(\sqrt{\tfrac{2}{3}}, \sqrt{\tfrac{1}{3}}\big)$, with $Q^2 = 1$,  $Q_t=0$.
+    \item ISCO: $(\kappa, \beta) = \big(\sqrt{\tfrac{1}{3}}, \sqrt{\tfrac{1}{6}}\big)$, with $Q^2 = \tfrac{1}{2}$,   $Q=Q_t$.
     \item Both are built from simple rational fractions of unity: $1/3, 2/3, 1/6, 1/2$.
     \item ISCO’s $\beta^2 = 1/6$ is exactly half of the photon sphere’s $\beta^2 = 1/3$.
     \item Complements appear naturally, e.g. $\beta_Y^2 = 1 - \beta^2 = 5/6$.

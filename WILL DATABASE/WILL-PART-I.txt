@@ -22,6 +22,7 @@
 \usepackage{enumitem}
 
 
+
 % --- TikZ ---
 \usepackage{tikz}
 \usetikzlibrary{shapes, positioning, arrows.meta, calc}
@@ -801,18 +802,31 @@ Composing the two independent stretches gives
 The inertial and gravitational projections share the same operational scale,
 \[
 \tilde p = E_{\rm loc}\,\beta, \qquad 
-\tilde p_g = E_{\rm loc}\,\kappa,
+\tilde p_g = E_{\rm loc}\,\kappa,  \quad (c = 1).
 \]
 both governed by the identical stretch factor
 \[
-m_{\rm eff}=\frac{E_0}{\beta_Y\,\kappa_X}.
+m_{\rm eff}=\frac{E_0}{\beta_Y\,\kappa_X} \quad (c = 1).
 \]
 Hence
 \[
 \boxed{\, m_g \;\equiv\; m_i \,=\, m_{\rm eff}\,},
 \]
+\begin{corollary}[Mass Invariance under Relational Scaling]
+\label{cor:massinvariance}
+Since mass denotes the invariant rest measure corresponding to the complete internal state of equilibrium 
+($\beta_Y=\kappa_X=1$), it does not participate in relational scaling. 
+The parameters $\beta_Y$ and $\kappa_X$ rescale only the external manifestations 
+(energy, momentum, and temporal or spatial rates), 
+while the invariant core $E_0$ remains unchanged. 
+Therefore the equality of inertial and gravitational mass,
+\[
+\boxed{\,m_g \equiv m_i \equiv m = E_0/c^2,\,}
+\]
+is not a dynamical statement but the definition of the invariant rest condition itself.
+\end{corollary}
 
-Thus, in WILL relational geometry the equality $m_g \equiv m_i$ 
+Thus, in RG the equality $m_g \equiv m_i$ 
 is not assumed but forced by structure. 
 
 \begin{remark}[On Eötvös-type precision]
@@ -1151,6 +1165,7 @@ There is only one valid configuration at any moment:
 the one where all projectional constraints are satisfied.  
 Everything else is not forbidden — it is physically meaningless.
 \end{tcolorbox}
+
 
 \subsection{ Metric is physically meaningless}
 In classical frameworks, geometry is parameterized by a metric $g_{\mu\nu}$, assumed to exist independently of the system’s energetic configuration.
@@ -1642,10 +1657,10 @@ We have shown that this single foundational Principle, through pure geometric re
 
 \begin{figure}[h!]
 \centering
- \includegraphics[width=0.9\textwidth]{img/Theoretical-Ouroboros-min.jpg}
+ \includegraphics[width=0.9\textwidth]{IMAGES/1_WILL-Relational-Geometry}
 The foundational  Principle \(\text{SPACETIME} \equiv \text{ENERGY}\) closes into the unified field equation
 \[
-\frac{R_s}{r} = \frac{\rho}{\rho_{\max}},
+\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{\max}},
 \]
 \end{figure}
 
@@ -1672,37 +1687,108 @@ WILL Relational Geometry resolves the singularity problem not by regularizing di
 
 This projectional approach provides a clean, intrinsic termination to gravitational collapse, replacing singular endpoints with structured, maximally curved boundaries.
 
+\begin{itemize}
+\item \textbf{Surface–scaled closure (vs.\ volume filling).} 
+Mass follows the algebraic closure $m_0=4\pi r^3\rho$ with $\rho=\kappa^2 c^2/(8\pi G r^2)$; the $4\pi$ is the spherical projection measure, not a Newtonian volume average.
+\item \textbf{Natural bounds.}
+The constraint for non rotating systems $\kappa^2\le 1$ enforces $\rho\le\rho_{\max}$ and $|P|\le |P_{\max}|=c^4/(8\pi G r^2)$, avoiding singularities without extra hypotheses.
+\end{itemize}
 
-\section{\textbf{Algebraic Closure and Structural Causality}}
 
-Physical dynamics emerges from a set of algebraically closed invariants. Each parameter participates in a self-consistent configuration of relational constraints. Changing any one parameter necessitates a coordinated shift in all others to maintain validity. The following set of relations expresses this minimal algebraic closure:
-
-The following set of relations expresses the minimal algebraic closure of the WILL structure:
+\begin{tcolorbox}[colback=gray!4, colframe=black!70!black, title=Summary]
+The WILL framework postulates no external laws or assumptions.
+All physical structure emerges from the single relational equivalence:
 
 \[
-\begin{cases}
-\kappa^2 = 2 \beta^2 \\
-R_s = \dfrac{2G m_0}{c^2} \\
-r = \frac{R_s}{\kappa^2}  \\
-\rho = \dfrac{\kappa^2 c^2}{8\pi Gr^2} \\
- \rho_{max} = \frac{c^2}{8\pi G r^2} \\
- t = \frac{r}{c} \\
-m_0 = 4\pi r^3 \cdot \rho
-\end{cases}
+\boxed{\text{SPACETIME} \equiv \text{ENERGY}}
 \]
 
-These are not definitions.  
-They are mutual constraints --- an algebraic simultaneity.  
+From this, by enforcing geometric self-consistency, one necessarily arrives at
+the Unified Geometric Field Equation:
+
+\[
+\boxed{\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{\max}}.}
+\]
+
+This is not an external law but an intrinsic closure relation: 
+geometry and energy are two mutually defining projections of a single entity.
+It represents the completion of the theoretical Ouroboros --- 
+where the principle generates its own mathematical expression and 
+the expression in turn validates the principle.
+\end{tcolorbox}
+
+\section{\textbf{Algebraic Closure and Structural Dynamics}}
+
+Physical dynamics in WILL Relational Geometry (RG) emerges not from
+temporal evolution equations but from a set of algebraically closed invariants.
+Each parameter participates in a self–consistent configuration of relational constraints.
 Changing any one parameter necessitates a coordinated shift in all others to maintain validity.
 
-\subsection*{Causal Closure without Circularity}
+\begin{definition}[Algebraic Closure of the WILL Structure]
+The minimal algebraic closure of the RG system is expressed by the set:
+\[
+\begin{cases}
+\kappa^2 = 2 \beta^2, \\[4pt]
+R_s = \dfrac{2G m_0}{c^2}, \\[4pt]
+r = \dfrac{R_s}{\kappa^2}, \\[4pt]
+\rho = \dfrac{\kappa^2 c^2}{8\pi G r^2}, \\[4pt]
+\rho_{\max} = \dfrac{c^2}{8\pi G r^2}, \\[4pt]
+t = \dfrac{r}{c}, \\[4pt]
+m_0 = 4\pi r^3 \rho.
+\end{cases}
+\]
+These relations are not independent definitions but mutual constraints.
+Each variable acquires meaning only within the self-consistent closure of the entire system.
+\end{definition}
 
-The structure of RG is causally closed but not circular.  
-Each parameter is either independently observable or computable from a minimal input pair  
-consisting of one dynamic projection (such as $\kappa$ or $\beta$) and one scale quantity (such as $r$, $M$, or $\rho$).
 
-The system avoids circularity by ensuring that no parameter both defines and is defined by the same input.  
-Instead, values propagate through multiple valid entry points and dependencies rooted in physically measurable quantities.  
+\begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=No differential equations are required:]
+ \textbf{Dynamics unfolds as a consequence of relational energy transformations.}
+\end{tcolorbox}
+
+
+\begin{lemma}[Causal Closure without Circularity]
+Every observable quantity in RG can be determined from a minimal input pair
+composed of one dynamic projection (e.g.\ $\kappa$ or $\beta$) and one scale parameter
+(e.g.\ $r$, $M$, or $\rho$).  
+No parameter both defines and is defined by the same input.
+Thus, the system avoids circularity while remaining causally closed.
+\end{lemma}
+
+\begin{theorem}[Structural Dynamics]
+Within the closed algebraic configuration
+\((\kappa,\beta,\rho,r,t)\),
+any local variation of one parameter entails a coherent transformation of all others,
+such that the algebraic closure is preserved:
+\[
+\delta\Phi(\kappa,\beta,\rho,r,t)=0,
+\qquad
+\Phi \text{ representing the constraint manifold.}
+\]
+Therefore, dynamics is the propagation of constraint consistency rather than temporal evolution.
+\end{theorem}
+
+\begin{corollary}[Emergent Time]
+Since every admissible configuration is defined by its energy–geometry relations,
+the parameter conventionally called “time’’ is nothing more than an ordered index of transitions
+between self-consistent configurations:
+\[
+\boxed{\text{Time} \equiv \text{Change in }(\kappa, \beta, \rho, r,\ldots)}.
+\]
+Thus, causality in RG is structural, not temporal; 
+it refers to coherence of relations rather than to sequences of events.
+\end{corollary}
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=Interpretation]
+\textbf{Dynamics without Differentials:}  
+In RG, no differential equations of motion are required.  
+Physical change is expressed through algebraic redistribution of geometric and energetic quantities.  
+Time is emergent, coherence is enforced, and the universe evolves 
+as a continuous sequence of balanced configurations.
+\[
+\boxed{\text{SPACETIME} \equiv \text{ENERGY}}
+\]
+\end{tcolorbox}
 
 
 \begin{center}
@@ -1761,55 +1847,19 @@ not the unfolding of arbitrary functions over time.
 Consider a black hole accreting mass from a surrounding disk to illustrate the model's intrinsic dynamics. Let the initial mass be $m_0 = 10 , M_\odot$, with a Schwarzschild radius $R_s = \frac{2 G m_0}{c^2} \approx 2.95 \times 10^4 , \text{m}$. Suppose $\kappa = 0.1$, so $r = \frac{R_s}{\kappa^2} = \frac{2.95 \times 10^4}{0.01} = 2.95 \times 10^6 , \text{m}$, and the associated time scale is $t = \frac{r}{c} \approx 9.83 \times 10^{-3} , \text{s}$.
 
 As the black hole accretes mass, increasing to $m_1 = 10.1 , M_\odot$, the Schwarzschild radius becomes $R_s \approx 2.98 \times 10^4 , \text{m}$. Assuming $\kappa$ remains constant for simplicity, $r = \frac{2.98 \times 10^4}{0.01} = 2.98 \times 10^6 , \text{m}$, and $t \approx 9.93 \times 10^{-3} , \text{s}$. This increase in $t$ reflects the system's evolution, driven solely by the changing geometry.
-\begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=No differential equations are required:]
- \textbf{Dynamics unfolds as a consequence of relational energy transformations.}
-\end{tcolorbox}
 
-\subsection{General Principle of Dynamics}
-
-The overarching principle in WILL Relational Geometry is that any physical change—be it mass accretion, gravitational collapse, or expansion—manifests as a transformation in the geometric structure. The parameters \(\beta\), \(\kappa\), and \(r\) adjust self-consistently, ensuring that the system's evolution is fully described within the model. This approach eliminates the need for differential equations of motion or external initial conditions, as the geometry at any given "moment" is determined by the current energy configuration.
-
-Thus, the temporal sequence we observe is simply the ordered unfolding of geometric transitions:
-
+\begin{tcolorbox}[colback=gray!4,colframe=black!80!black,title=Summary]
+In Relational Geometry, causality is not temporal but structural.
+Each variable $(\kappa, \beta, \rho, r, t)$ participates in an algebraically closed configuration 
+that defines a self-consistent physical state. 
+Any local variation of one variable entails a coherent transformation of all others, 
+preserving the closure of the system. 
+Hence, \emph{dynamics} is the propagation of constraint consistency, 
+and \emph{time} is the ordered index of these transformations.
 \[
-\boxed{
-\text{Time} \equiv \text{Change in } (\kappa, \beta, \rho, r...)
-}
-\]
-\begin{tcolorbox}[colback=gray!5,colframe=black!75!black,title=Summary=\bfseries]
-Relational Geometry generates reality through \\
-geometric transformation of the energy landscape,\\
-where \textit{“time”} is simply the name we give to the sequence of such transitions.\\
-There is no external timeline — only evolving transformations.
- \end{tcolorbox}
- 
-\subsection{Conclusion}
-
-In conclusion, dynamics in RG emerges naturally from the redistribution of energy within the system's geometric framework. Time arises as a consequence of these geometric changes, providing a unified description of spacetime and energy transformations. This intrinsic approach simplifies the treatment of dynamical processes and offers a novel perspective on the nature of physical systems.
-\[
-\boxed{\text{SPACETIME} \equiv \text{ENERGY}}
-\]
-All the derived relations for local energy density, pressure, enclosed mass, and horizon formation are purely logical and mathematical consequences of this unique guiding principle. In this sense, the RG framework achieves absolute epistemological cleanliness: it does not introduce any hidden assumptions or coordinate structures. The entire gravitational and relativistic sector (as reconstructed within the RG model, from the single foundational Principle without any external assumptions or coordinate backgrounds ) — including precise predictions about the onset of horizon formation, radial pressure gradients, and the resolution of classical singularity issues—is reconstructed from this single idea.
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Meaning]
-\[
-\textbf{Energy is not “inside” space — it defines space through projection.}
+\boxed{\text{Time} \equiv \text{Change in }(\kappa, \beta, \rho, r, ...)}
 \]
 \end{tcolorbox}
-
-
-\begin{itemize}
-\item \textbf{Surface–scaled closure (vs.\ volume filling).} 
-Mass follows the algebraic closure $m_0=4\pi r^3\rho$ with $\rho=\kappa^2 c^2/(8\pi G r^2)$; the $4\pi$ is the spherical projection measure, not a Newtonian volume average.
-
-\item \textbf{Algebraic core (vs.\ differential ansatz).}
-The core invariants are algebraic and coordinate-free. Differential relations appear only as auxiliary scaffolding (e.g.\ to express curvature gradients as $P=-\rho c^2$), not as fundamental inputs.
-
-\item \textbf{Natural bounds.}
-The constraint for non rotating systems $\kappa^2\le 1$ enforces $\rho\le\rho_{\max}$ and $|P|\le |P_{\max}|=c^4/(8\pi G r^2)$, avoiding singularities without extra hypotheses.
-\end{itemize}
-
 
 \section*{Ontological Shift: From Descriptive to Generative Physics}
 \label{Generative Physics}
@@ -1842,7 +1892,7 @@ they are \emph{generated} as inevitable consequences of relational geometry:
 \noindent
 In this sense, the ontological role of physical law is transformed.  
 Physics ceases to be a catalog of empirical descriptions, and becomes the logical unfolding of a single relational structure.  
-WILL does not merely model observed phenomena --- it demonstrates why no other phenomena are possible.
+WILL identifies the necessary conditions under which all observed phenomena arise. 
 
 \begin{table}[h!]
 \centering
@@ -2203,7 +2253,7 @@ Cosmological absolute scale (Supernovae fit) & Hubble-like expansion, $\Lambda$C
 
 
 \subsection{Asymmetric Generality}
-The correspondence between these frameworks is fundamentally asymmetric. General Relativity, with its reliance on a pre-supposed metric tensor and the formalism of differential geometry, can be viewed as a specific, parameter-heavy instance of the RG's principles. One can derive GR by adding these additional structures to RG's minimalist foundation. Therefore, the choice between them is not one of preference, but of logical generality and parsimony, with RG being presented as the more fundamental underlying structure.
+The correspondence between these frameworks is fundamentally asymmetric. General Relativity, with its reliance on a pre-supposed metric tensor and the formalism of differential geometry, can be viewed as a specific, parameter-heavy instance of the RG's principles. One can derive GR by adding these additional structures to RG's minimalist foundation. Therefore, the choice between them is not one of preference, but of logical generality and parsimony, where RG provides the logical foundation upon which GR can be consistently constructed. 
 
 
 \section{Conclusion}
