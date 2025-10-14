@@ -1003,7 +1003,7 @@ Here's a simple analogy:
     </div>
 </div>
 
-/* tutor */
+
 <div id="tutor-root"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
