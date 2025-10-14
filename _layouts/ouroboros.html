@@ -78,15 +78,23 @@
   {% include header.html %}
 
   <main class="flex flex-col items-center relative p-4 py-20">
-    <div id="ouroboros-container"></div>
-    <div id="ob-tooltip"></div>
-    <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-400">
-       <a href="{{ site.baseurl }}/relativistic-foundations/" class="hover:text-white transition-colors">Relativistic Foundations</a>
-       <a href="{{ site.baseurl }}/results/" class="hover:text-white transition-colors">Results</a>
-       <a href="{{ site.baseurl }}/predictions/" class="hover:text-white transition-colors">Predictions</a>
-       <a href="{{ site.baseurl }}/WILL-AI/" class="hover:text-white transition-colors">WILL AI</a>
-       <a href="{{ site.baseurl }}/about/" class="hover:text-white transition-colors">About</a>
-    </nav>
+     <div style="margin: 40px 0; padding: 20px; background-color: #1f2937; border-radius: 10px; text-align: left;">
+    <h3 style="font-size: 1.5em; color: #e5e7eb; text-align: center; margin-bottom: 25px;">🚀 Getting Started</h3>
+    <ul style="list-style-type: none; padding-left: 0; line-height: 2;">
+        <li style="margin-bottom: 15px;">
+            <strong><a href="{{ site.baseurl }}/relativistic-foundations/" style="color: #93c5fd; text-decoration: none;">Relativistic Foundations</a></strong>: A good place to start your journey in to WILL Relational Geometry.
+        </li>
+        <li style="margin-bottom: 15px;">
+            <strong><a href="{{ site.baseurl }}/assistant/" style="color: #93c5fd; text-decoration: none;">Ask WILL AI</a></strong>: Ask anything about the WILL Theory or its documents.
+        </li>
+        <li style="margin-bottom: 15px;">
+            <strong><a href="{{ site.baseurl }}/predictions/" style="color: #93c5fd; text-decoration: none;">Testable Predictions</a></strong>: Open colab notebooks and interactive labs for testing models predictions.
+        </li>
+        <li>
+            <strong><a href="{{ site.baseurl }}/parts/" style="color: #93c5fd; text-decoration: none;">Results and Documents</a></strong>: Access the core research papers.
+        </li>
+    </ul>
+</div>
   </main>
 
   {% include footer.html %}
@@ -202,22 +210,6 @@
     }
   });
   </script>
-  <div style="margin: 40px 0; padding: 20px; background-color: #1f2937; border-radius: 10px; text-align: left;">
-    <h3 style="font-size: 1.5em; color: #e5e7eb; text-align: center; margin-bottom: 25px;">🚀 Getting Started</h3>
-    <ul style="list-style-type: none; padding-left: 0; line-height: 2;">
-        <li style="margin-bottom: 15px;">
-            <strong><a href="{{ site.baseurl }}/relativistic-foundations/" style="color: #93c5fd; text-decoration: none;">Relativistic Foundations</a></strong>: A good place to start your journey in to WILL Relational Geometry.
-        </li>
-        <li style="margin-bottom: 15px;">
-            <strong><a href="{{ site.baseurl }}/assistant/" style="color: #93c5fd; text-decoration: none;">Ask WILL AI</a></strong>: Ask anything about the WILL Theory or its documents.
-        </li>
-        <li style="margin-bottom: 15px;">
-            <strong><a href="{{ site.baseurl }}/predictions/" style="color: #93c5fd; text-decoration: none;">Testable Predictions</a></strong>: Open colab notebooks and interactive labs for testing models predictions.
-        </li>
-        <li>
-            <strong><a href="{{ site.baseurl }}/parts/" style="color: #93c5fd; text-decoration: none;">Results and Documents</a></strong>: Access the core research papers.
-        </li>
-    </ul>
-</div>
+
 </body>
 </html>
