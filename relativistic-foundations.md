@@ -1002,3 +1002,12 @@ Here's a simple analogy:
         <a href="{{ site.baseurl }}/help/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Help This Research</a>
     </div>
 </div>
+
+
+<div id="tutor-root"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="{{ site.baseurl }}/assets/tutor.js"></script>
