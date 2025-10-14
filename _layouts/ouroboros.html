@@ -102,14 +102,14 @@
 
   {% include footer.html %}
 
-  <script>
+ <script>
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('ouroboros-container');
     const tooltip = document.getElementById('ob-tooltip');
     const svgUrl = '{{ site.baseurl }}/assets/OuroborosCLEAN.svg';
-    
+
     const SEGMENT_IDS = ['path34', 'path38', 'path42', 'path46', 'path50'];
-    
+
     const TOOLTIP_TEXT = {
       'path34': 'SPACETIME ≡ ENERGY\nUnifying Principle removing unjustified separation between “structure” and “dynamics”.',
       'path38': 'Circle and Sphere - Minimal relational carriers.\nA closed, isotropic systems with no external reference frame.',
@@ -150,11 +150,100 @@
         container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
       });
 
-    .catch(error => {
-        console.error('Failed to fetch and load SVG:', error);
-        container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
+    function initializeAnimations(svg) {
+      const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS('http://www.w3.org/2000/svg', 'defs'), svg.firstChild);
+      const glowFilter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+      glowFilter.setAttribute('id', 'innerGlow');
+      glowFilter.innerHTML = `<feDropShadow dx="0" dy="0" stdDeviation="4.5" flood-color="rgba(167, 243, 208, 0.7)" />`;
+      defs.appendChild(glowFilter);
+
+      const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
+
+      if (segments.length !== SEGMENT_IDS.length) {
+          console.error("Failed to find all SVG segments. Check IDs.");
+          return;
+      }
+
+      // A Map to store the animation objects for later control
+      const breathingAnimations = new Map();
+
+      // 1. Initial highlight animation (using style.filter)
+      const initialHighlightDelay = 4000;
+      const highlightDuration = 300;
+      const stepDelay = 400;
+      segments.forEach((seg, i) => {
+          setTimeout(() => {
+              seg.style.filter = 'url(#innerGlow)';
+              setTimeout(() => {
+                  seg.style.filter = 'none';
+              }, highlightDuration);
+          }, initialHighlightDelay + i * stepDelay);
       });
-  </script>
+
+      // 2. Create the breathing animation and store its objects
+      const breathingDelay = initialHighlightDelay + segments.length * stepDelay;
+      setTimeout(() => {
+          segments.forEach((seg) => {
+              const animation = seg.animate(
+                  [
+                      { filter: 'none' },
+                      { filter: 'url(#innerGlow)' },
+                      { filter: 'none' }
+                  ], {
+                      duration: 5000,
+                      iterations: Infinity,
+                      easing: 'ease-in-out',
+                      delay: Math.random() * 2000
+                  }
+              );
+              // Store the animation object for later control
+              breathingAnimations.set(seg, animation);
+          });
+      }, breathingDelay);
+
+      // 3. Control the animation on mouse hover
+      segments.forEach(seg => {
+          seg.style.cursor = 'pointer';
+          seg.style.transition = 'filter 300ms ease';
+
+          seg.addEventListener('mouseenter', () => {
+              // Pause the breathing animation
+              const animation = breathingAnimations.get(seg);
+              if (animation) {
+                  animation.pause();
+              }
+              // Apply the hover highlight
+              seg.style.filter = 'url(#innerGlow)';
+              tooltip.textContent = TOOLTIP_TEXT[seg.id] || 'Info not found.';
+              tooltip.style.opacity = '1';
+          });
+
+          seg.addEventListener('mousemove', (e) => {
+              tooltip.style.left = (e.clientX + 20) + 'px';
+              tooltip.style.top = (e.clientY - tooltip.offsetHeight - 10) + 'px';
+          });
+
+          seg.addEventListener('mouseleave', () => {
+              // Remove the highlight
+              seg.style.filter = 'none';
+              tooltip.style.opacity = '0';
+              // Resume the breathing animation
+              const animation = breathingAnimations.get(seg);
+              if (animation) {
+                  animation.play();
+              }
+          });
+
+          seg.addEventListener('click', () => {
+              const url = SEGMENT_URLS[seg.id];
+              if (url) {
+                  window.location.href = url;
+              }
+          });
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
