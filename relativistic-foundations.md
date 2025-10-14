@@ -97,6 +97,9 @@ title: "Relativistic Foundations"
  
 
 # WILL Part I: Relational Geometry
+<p class="text-center text-gray-400 italic mt-2 mb-8">
+    *Interactive page — highlight any text to ask WILL AI for an explanation.*
+</p>
 
 ---
 
