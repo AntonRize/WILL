@@ -76,15 +76,16 @@
     
   </main>
 
-  {{ content }} {% include footer.html %}
+  {{ content }} 
+  
+  {% include footer.html %}
 
- <script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       const mainElement = document.querySelector('main');
       const container = document.getElementById('ouroboros-container');
       const tooltip = document.getElementById('ob-tooltip');
       
-      // Trigger the fade-in effect for the main content
       setTimeout(() => {
           mainElement.style.opacity = 1;
       }, 100);
@@ -128,7 +129,8 @@
           container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
         });
       
-      function initializeAnimations(svg) {
+      // MODIFIED: This function is now async to handle animation sequence correctly.
+      async function initializeAnimations(svg) {
         const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
         
         if (segments.length !== SEGMENT_IDS.length) {
@@ -145,62 +147,46 @@
         const breathingGlow = 'drop-shadow(0 0 5px rgba(167, 243, 208, 0.7))';
         const hoverFill = '#a7f3d0';
 
-        // --- Animation Sequence ---
+        // --- Animation Sequence Settings ---
+        const runningLightStartDelay = 3000;
+        const highlightDuration = 300;
+        const stepDelay = 100;
+        const pauseBetweenPulses = 150;
 
-        // 1. "Running Light" Animation
-        const runningLightStartDelay = 3000; // Starts after the 3.0s fade-in
-        const highlightDuration = 200;
-        const stepDelay = 80;
-        const onePulseDuration = segments.length * stepDelay;
-        const pauseBetweenPulses = 100;
-
-      // This is the new version of the function
-function runSinglePulse(startDelay) {
-  segments.forEach((seg, i) => {
-    setTimeout(() => {
-      // We are now using .animate() for the pulse as well.
-      // This is a short, one-time animation that turns on and then turns off.
-      seg.animate(
-        [
-          // Keyframes for the pulse animation
-          { filter: breathingGlow, fill: hoverFill }, // Turn on
-          { filter: 'none', fill: originalFills.get(seg) }  // Turn off
-        ],
-        {
-          // Animation options
-          duration: highlightDuration + 200, // A bit longer to make the flash visible
-          easing: 'ease-in-out'
-        }
-      );
-    }, startDelay + i * stepDelay);
-  });
-}
-
-        // Run the pulse twice
-        runSinglePulse(runningLightStartDelay);
-        runSinglePulse(runningLightStartDelay + onePulseDuration + pauseBetweenPulses);
-
-        // 2. Breathing Animation (THIS IS THE NEW PART)
-        // It starts after both light pulses are complete.
-        const breathingStartDelay = runningLightStartDelay + (2 * onePulseDuration) + pauseBetweenPulses;
-        setTimeout(() => {
-          segments.forEach(seg => {
-            seg.animate(
+        // This function runs a single pulse and returns a Promise
+        function runSinglePulse() {
+          const animations = segments.map((seg, i) => {
+            return seg.animate(
               [
-                { filter: 'none' },
-                { filter: breathingGlow },
-                { filter: 'none' }
-              ], 
-              { 
-                duration: 5000, // 5-second cycle for a slow breath
-                iterations: Infinity, 
-                easing: 'ease-in-out',
+                { filter: 'none', fill: originalFills.get(seg) },
+                { filter: breathingGlow, fill: hoverFill, offset: 0.5 },
+                { filter: 'none', fill: originalFills.get(seg) }
+              ],
+              {
+                duration: highlightDuration,
+                delay: i * stepDelay,
+                easing: 'ease-in-out'
               }
             );
           });
-        }, breathingStartDelay);
+          return Promise.all(animations.map(anim => anim.finished));
+        }
+
+        // --- New, reliable animation sequence ---
+        await new Promise(resolve => setTimeout(resolve, runningLightStartDelay));
+        await runSinglePulse();
+        await new Promise(resolve => setTimeout(resolve, pauseBetweenPulses));
+        await runSinglePulse();
+
+        // This will only start after both pulses are 100% complete
+        segments.forEach(seg => {
+          seg.animate(
+            [{ filter: 'none' }, { filter: breathingGlow }, { filter: 'none' }],
+            { duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 }
+          );
+        });
         
-        // 3. Hover/Click Event Handlers
+        // --- Event Handlers (no changes) ---
         segments.forEach(seg => {
           seg.style.cursor = 'pointer';
           seg.style.transition = 'fill 300ms ease-in-out';
@@ -230,6 +216,6 @@ function runSinglePulse(startDelay) {
         });
       }
     });
-</script>
+  </script>
 </body>
 </html>
