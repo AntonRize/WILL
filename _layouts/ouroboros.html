@@ -78,12 +78,13 @@
 
   {{ content }} {% include footer.html %}
 
-  <script>
+ <script>
     document.addEventListener('DOMContentLoaded', () => {
       const mainElement = document.querySelector('main');
       const container = document.getElementById('ouroboros-container');
       const tooltip = document.getElementById('ob-tooltip');
       
+      // Trigger the fade-in effect for the main content
       setTimeout(() => {
           mainElement.style.opacity = 1;
       }, 100);
@@ -144,7 +145,10 @@
         const breathingGlow = 'drop-shadow(0 0 5px rgba(167, 243, 208, 0.7))';
         const hoverFill = '#a7f3d0';
 
-        const runningLightStartDelay = 3000;
+        // --- Animation Sequence ---
+
+        // 1. "Running Light" Animation
+        const runningLightStartDelay = 3000; // Starts after the 3.0s fade-in
         const highlightDuration = 200;
         const stepDelay = 80;
         const onePulseDuration = segments.length * stepDelay;
@@ -164,19 +168,32 @@
           });
         }
 
+        // Run the pulse twice
         runSinglePulse(runningLightStartDelay);
         runSinglePulse(runningLightStartDelay + onePulseDuration + pauseBetweenPulses);
 
+        // 2. Breathing Animation (THIS IS THE NEW PART)
+        // It starts after both light pulses are complete.
         const breathingStartDelay = runningLightStartDelay + (2 * onePulseDuration) + pauseBetweenPulses;
         setTimeout(() => {
           segments.forEach(seg => {
             seg.animate(
-              [{ filter: 'none' }, { filter: breathingGlow }, { filter: 'none' }], 
-              { duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 }
+              [
+                { filter: 'none' },
+                { filter: breathingGlow },
+                { filter: 'none' }
+              ], 
+              { 
+                duration: 5000, // 5-second cycle for a slow breath
+                iterations: Infinity, 
+                easing: 'ease-in-out',
+                delay: Math.random() * 2000 // Random delay for a more organic feel
+              }
             );
           });
         }, breathingStartDelay);
         
+        // 3. Hover/Click Event Handlers
         segments.forEach(seg => {
           seg.style.cursor = 'pointer';
           seg.style.transition = 'fill 300ms ease-in-out';
@@ -206,6 +223,6 @@
         });
       }
     });
-  </script>
+</script>
 </body>
 </html>
