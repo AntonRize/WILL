@@ -154,19 +154,16 @@
         const onePulseDuration = segments.length * stepDelay;
         const pauseBetweenPulses = 100;
 
-        function runSinglePulse(startDelay) {
-          segments.forEach((seg, i) => {
-              setTimeout(() => {
-                  const originalFill = originalFills.get(seg);
-                  seg.setAttribute('fill', hoverFill);
-                  seg.style.filter = breathingGlow;
-                  setTimeout(() => {
-                      seg.setAttribute('fill', originalFill);
-                      seg.style.filter = 'none';
-                  }, highlightDuration);
-              }, startDelay + i * stepDelay);
-          });
-        }
+       function runSinglePulse(startDelay) {
+  segments.forEach((seg, i) => {
+      setTimeout(() => {
+          // Теперь эта функция только включает свет.
+          // Анимация "дыхания" сама его выключит, когда начнется.
+          seg.setAttribute('fill', hoverFill);
+          seg.style.filter = breathingGlow;
+      }, startDelay + i * stepDelay);
+  });
+}
 
         // Run the pulse twice
         runSinglePulse(runningLightStartDelay);
