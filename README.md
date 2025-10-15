@@ -43,7 +43,7 @@ This framework provides a novel solution to the galactic rotation problem using 
 
 The entire standard cosmological model is replaced by an algebraic system that requires only one input parameter to set the scale (e.g., $H_0$). All other quantities, including the cosmic energy budget ($\Omega_{\Lambda} \approx 2/3$), are predictions of the model, with NO adjustable parameters.
 
-**[Explore the model with the interactive cosmology calculator](https://antonrize.github.io/WILL/2-input-cosmology.html)**
+**[Explore the model with the interactive cosmology calculator](https://antonrize.github.io/WILL/cosmology.html)**
 
 *Results above are not an isolated trick, but a natural consequence of a more fundamental framework derived from a single Principle:*
 
