@@ -48,8 +48,6 @@
       text-align: left;
       white-space: pre-line;
     }
-    /* --- NEW RULE ADDED --- */
-    /* This forces the SVG to fill its responsive container */
     #ouroboros-container svg {
       width: 100%;
       height: auto;
@@ -78,7 +76,7 @@
     
   </main>
 
-  {% include footer.html %}
+  {{ content }} {% include footer.html %}
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
