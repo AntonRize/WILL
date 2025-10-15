@@ -48,7 +48,12 @@
       text-align: left;
       white-space: pre-line;
     }
-    /* Static sizing for the SVG is no longer needed here */
+    /* --- NEW RULE ADDED --- */
+    /* This forces the SVG to fill its responsive container */
+    #ouroboros-container svg {
+      width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 
