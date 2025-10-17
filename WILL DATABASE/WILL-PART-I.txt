@@ -41,7 +41,7 @@
 
 % --- Metadata ---
 \title{WILL Part I: Relational Geometry}
-\author{Anton Rize \\ egeometricity@gmail.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115271}{doi.org/10.5281/zenodo.17115271}}}
+\author{Anton Rize \\ egeometricity@gmail.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115271}}}
 
 
 
@@ -145,7 +145,7 @@ Here we enforce \textbf{epistemic hygiene}: a refusal to import unjustified assu
 \textbf{Principle:} \emph{All physical quantities must be defined purely by their relations.} 
 Any introduction of absolute properties or external frames risks reintroducing metaphysical artifacts and contradicts the foundational insight of relativity.
 
-\section{False Separation: Ontological Blind Spot In Modern Physics}
+\section{Ontological Blind Spot In Modern Physics}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Removing the Hidden Assumption]
 Any attempt to treat \emph{``spacetime structure''} as separate from \emph{``dynamics''} smuggles in a background container that is not justified by the phenomena. This violates epistemic hygiene: it introduces an ontological artifact without necessity. Eliminating this separation compels the identification of structure and dynamics as two aspects of a single entity.
@@ -154,10 +154,7 @@ Any attempt to treat \emph{``spacetime structure''} as separate from \emph{``dyn
 The standard formulation of General Relativity often relies on the concept of an asymptotically flat spacetime, introducing an implicit external reference frame beyond the physical systems under study. 
 While some modern approaches (e.g., shape dynamics) seek greater relationality, we proceed from strict epistemic minimalism, disallowing all background structures, even hidden or asymptotic ones. 
 
-\section{False Separation: the Ontological Blind-Spot of Modern Physics}
-
-
-\subsection*{Historical Pattern: breakthroughs delete, not add}
+\subsection{Historical Pattern: breakthroughs delete, not add}
 \begin{itemize}
   \item \textbf{Copernicus} eliminated the Earth/cosmos separation.
   \item \textbf{Newton} eliminated the terrestrial/celestial law separation.
@@ -168,7 +165,7 @@ Each step widened the relational circle and reduced the number of
 unexplained absolutes.  The spacetime--energy split is the only
 survivor of this pruning sequence.
 
-\subsection*{The contemporary split: an unpaid ontological bill}
+\subsection{The contemporary split: an unpaid ontological bill}
 All present-day theories (SR, GR, QFT, ΛCDM, Standard Model) are
 built with a \emph{bi-variable} syntax:
 \[
@@ -181,7 +178,7 @@ because the resulting Lagrangians are empirically adequate
 \emph{inside} the split.  The split is therefore \emph{not} an
 empirical discovery but an unpaid ontological debt.
 
-\subsection*{Empirical bankruptcy of the separation}
+\subsection{Empirical bankruptcy of the separation}
 \begin{itemize}
   \item \textbf{Local energy conservation} verified only \emph{after} the
         metric is declared fixed; no experiment varies the \emph{volume} of
@@ -199,7 +196,7 @@ In short, every ``test'' is an \emph{internal consistency check} of
 a formalism that already presupposes two substances.  None constitute
 \emph{positive evidence} for the split.
 
-\subsection*{Consequence}
+\subsection{Consequence}
 Until an experiment varies the amount of space while holding
 everything else fixed, the spacetime--energy separation remains an
 \emph{un-evidenced metaphysical postulate}---the last geocentric
@@ -782,102 +779,95 @@ These describe the combined effects of relativity and gravity.
 Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate “effects” but dual aspects of one energy-transformation constraint revealing their unified origin.}
 \end{tcolorbox}
 
-\subsection{Equivalence Principle as Derived Identity}
+\section{Equivalence Principle as Derived Identity}
 
-In General Relativity the Einstein Equivalence Principle is introduced as an 
-independent postulate: $m_g \equiv m_i$.  
-Within WILL, no such axiom is required:
+\begin{lemma}[Unified Relational Scaling]
+\label{lem:unifiedscaling}
+Within the relational framework of WILL, both kinematic ($S^1$) and gravitational ($S^2$)
+transformations act as independent projections of the same invariant energy $E_0$. 
+Each projection rescales the observable quantities by its respective geometric factor:
+\[
+E = \frac{E_0}{\beta_Y}, \qquad 
+E_g = \frac{E_0}{\kappa_X}.
+\]
+\end{lemma}
 
-On the kinematic circle the vertical leg equals $\beta_Y=\sin\theta_1$; keeping the
-same invariant $E_0$ on that leg forces a stretch $E/E_0=1/\beta_Y$.
-On the gravitational circle the horizontal leg equals $\kappa_X=\cos\theta_2$;
-keeping the same invariant $E_0$ on that leg forces a stretch $E_g/E_0=1/\kappa_X$.
-Composing the two independent stretches gives
-\[
-\boxed{\;E_{\rm loc}=\frac{E_0}{\beta_Y}\times\frac{1}{\kappa_X}
-=\frac{E_0}{\beta_Y\,\kappa_X}\;}
-=\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}.
-\]
+\begin{proof}
+On the kinematic circle $S^1$, the invariant vertical projection corresponds to $\beta_Y=\sin\theta_1$.
+Preserving the same invariant leg $E_0$ forces the stretch $E/E_0 = 1/\beta_Y$.  
+On the gravitational circle $S^2$, the invariant horizontal projection is $\kappa_X=\cos\theta_2$, 
+forcing $E_g/E_0 = 1/\kappa_X$. 
+These transformations are independent and commute, 
+each preserving the closure identity of its respective circle.
+\end{proof}
 
-The inertial and gravitational projections share the same operational scale,
+\begin{theorem}[Equivalence of Inertial and Gravitational Response]
+\label{thm:equivalence}
+Composing the independent relational stretches of Lemma~\ref{lem:unifiedscaling} yields the total local energy scale
 \[
-\tilde p = E_{\rm loc}\,\beta, \qquad 
-\tilde p_g = E_{\rm loc}\,\kappa,  \quad (c = 1).
+E_{\mathrm{loc}} = \frac{E_0}{\beta_Y\,\kappa_X}
+= \frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}.
 \]
-both governed by the identical stretch factor
+The corresponding inertial and gravitational projections share a single operational factor,
 \[
-m_{\rm eff}=\frac{E_0}{\beta_Y\,\kappa_X} \quad (c = 1).
+\tilde p = E_{\mathrm{loc}}\beta, 
+\qquad 
+\tilde p_g = E_{\mathrm{loc}}\kappa,
 \]
-Hence
+both governed by the same effective mass
 \[
-\boxed{\, m_g \;\equiv\; m_i \,=\, m_{\rm eff}\,},
+m_{\mathrm{eff}} = \frac{E_0}{\beta_Y\,\kappa_X}.
 \]
+Therefore,
+\[
+\boxed{\,m_g \equiv m_i \equiv m_{\mathrm{eff}}\,},
+\]
+and the Einstein equivalence principle follows as a necessary structural identity of WILL.
+\end{theorem}
+
 \begin{corollary}[Mass Invariance under Relational Scaling]
 \label{cor:massinvariance}
-Since mass denotes the invariant rest measure corresponding to the complete internal state of equilibrium 
-($\beta_Y=\kappa_X=1$), it does not participate in relational scaling. 
-The parameters $\beta_Y$ and $\kappa_X$ rescale only the external manifestations 
-(energy, momentum, and temporal or spatial rates), 
-while the invariant core $E_0$ remains unchanged. 
-Therefore the equality of inertial and gravitational mass,
+The invariant core $E_0$ denotes the complete internal equilibrium state 
+($\beta_Y=\kappa_X=1$). 
+Relational factors $\beta_Y$ and $\kappa_X$ rescale only external manifestations 
+(energy, momentum, and rates), while $E_0$ remains unchanged. 
+Hence,
 \[
-\boxed{\,m_g \equiv m_i \equiv m = E_0/c^2,\,}
+\boxed{\,m_g \equiv m_i \equiv m = E_0/c^2\,},
 \]
-is not a dynamical statement but the definition of the invariant rest condition itself.
+is not a dynamical statement but the definition of rest invariance itself.
 \end{corollary}
 
-Thus, in RG the equality $m_g \equiv m_i$ 
-is not assumed but forced by structure. 
-
-\begin{remark}[On Eötvös-type precision]
-In GR, the equality $m_g=m_i$ is imposed, while distinct relativistic factors 
-later rescale energy and time. In WILL, there is no independent $m$ at all: 
-the only invariant is $E_0$, and the effective response is the universal 
-stretch factor $1/(\beta_Y\kappa_X)$. Since this factor depends solely on 
-geometry and not on the composition of the test body, 
-the universality of free fall (Eötvös experiments) follows identically. 
-What GR postulates, WILL reproduces as structural necessity.
+\begin{remark}[Composition-Independence]
+Decomposing the invariant rest energy into internal channels,
+\[
+E_0=\sum_{a} E_0^{(a)},
+\]
+each term couples identically through the same geometric stretch:
+\[
+E_{\mathrm{loc}}=\sum_a \frac{E_0^{(a)}}{\beta_Y\,\kappa_X}.
+\]
+Since all channels scale by the same factor $1/(\beta_Y\kappa_X)$,
+ratios between channels cancel in all observables.  
+Therefore, composition-independence of motion (Eötvös universality) follows identically, 
+without requiring a postulate $m_g=m_i$.
 \end{remark}
 
-\subsection*{Composition-Independence, and Quantum Interface}
-
-\paragraph{Composition-Independence (Eötvös-type).}
-Let the rest invariant decompose into internal channels
+\begin{remark}[Quantum Interface]
+The relational phase increment inherits the same scaling:
 \[
-E_0=\sum_{a} E_0^{(a)}\quad\text{(rest mass, binding, EM, nuclear, vacuum bookkeeping, etc.)}.
+\Delta\phi \propto E_{\mathrm{loc}}\,\Delta\lambda,
 \]
-WILL couples \emph{only} through the universal geometric stretch:
-\[
-E_{\rm loc}=\frac{1}{\beta_Y\,\kappa_X}\sum_a E_0^{(a)} \;=\; \sum_a \frac{E_0^{(a)}}{\beta_Y\,\kappa_X}.
-\]
-Hence each channel is multiplied by the \emph{same} factor $1/(\beta_Y\kappa_X)$, and any ratio of channel weights cancels in observables governed by the common scale. 
-Therefore the operational response is composition–independent \emph{by construction}, matching the universality tested in Eötvös-type experiments, without a separate postulate $m_g=m_i$.
-
-\paragraph{Quantum Interface (phase bookkeeping).}
-In WILL the phase increment is purely relational and inherits the same scale:
-\[
-\Delta\phi \;\propto\; E_{\rm loc}\,\Delta\lambda
-\qquad(\text{no absolute time; }\Delta\lambda\text{ is the internal ordering parameter}).
-\]
-Thus
-\[
-p=\nabla_\xi \phi \;\propto\; E_{\rm loc}\,\beta, 
-\qquad 
-p_g=\nabla_\chi \phi \;\propto\; E_{\rm loc}\,\kappa,
-\]
-so matter-wave phases and redshifts share the \emph{identical} stretch $1/(\beta_Y\kappa_X)$ across all internal channels, again yielding composition–independent interferometric outcomes.
-
-\paragraph{Contrast with GR.}
-GR recovers universality by \emph{geodesic motion in a metric} after positing $m_g\equiv m_i$.
-WILL has no independent mass primitive and no external background: the same projection identity that generates 
-\[
-E=\frac{E_0}{\beta_Y},\quad E_g=\frac{E_0}{\kappa_X}
-\]
-forces the unified operational scale $E_{\rm loc}$; hence the equality of inertial and gravitational responses is an \emph{algebraic identity} of relational geometry, not an axiom. 
-GR’s geodesics are a \emph{representation}; WILL’s equivalence is a \emph{consequence}.
+where $\Delta\lambda$ is the internal ordering parameter. 
+Thus both kinematic and gravitational phase shifts share the same stretch 
+$1/(\beta_Y\kappa_X)$, 
+yielding composition-independent matter-wave interference patterns.
+\end{remark}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
-\textbf{What GR posits as a postulate, WILL delivers as an unavoidable consequence of Relational Geometry.}
+\textbf{In WILL, the equivalence of inertial and gravitational mass is not assumed but 
+follows necessarily from the compositional closure of relational geometry. 
+What General Relativity posits as a postulate, WILL reveals as a corollary.}
 \end{tcolorbox}
 
 \section{Unification of Projections: The Geometric Exchange Rate}
@@ -888,68 +878,105 @@ Having established that directional (kinematic) and omnidirectional (gravitation
 
 The Principle of a unified relational resource (Energy) requires a self-consistent "exchange rate" between its different modes of expression. This rate is not an arbitrary parameter but is dictated by the intrinsic geometry of the relations themselves:
 
-\paragraph{1. The Ratio of Relational Degrees of Freedom.}
-Distinction between the two relational modes is their dimensionality. An omnidirectional spherical relation ($\kappa^2$ on $S^2$) requires two degrees of freedom (2D) to specify a direction from its centre, while a directional circular relation ($\beta^2$ and $S^1$) requires only one (1D). The intrinsic ratio between these modes of resource distribution is therefore:
+\begin{lemma}[Dimensional Ratio of Relational Modes]
+\label{lem:dofratio}
+Directional (kinematic) and omnidirectional (gravitational) modes of WILL are carried by $S^1$ and $S^2$, requiring one and two degrees of freedom respectively.  
+The intrinsic ratio of their relational dimensionalities is therefore
 \[
-\frac{\text{Omnidirectional Degrees of Freedom}}{\text{Directional Degrees of Freedom}} = \frac{2\text{D}}{1\text{D}} = 2
+\frac{\text{deg}(S^2)}{\text{deg}(S^1)} = \frac{2}{1} = 2,
 \]
-This intuitive ratio finds its formal mathematical realization in the topology of the unique geometric carriers, expressed as the ratio of their total solid angles:
+formally realized as the ratio of their total solid angles:
 \[
-\frac{\text{Total Closure of } S^2}{\text{Total Closure of } S^1} = \frac{4\pi}{2\pi} = 2
+\frac{\Omega(S^2)}{\Omega(S^1)} = \frac{4\pi}{2\pi} = 2.
 \]
+\end{lemma}
 
-\paragraph{2. The Quadratic Nature of Energetic Realization.}
-To translate this dimensionless geometric ratio into a physical law, we must recognise that energy is fundamentally quadratic in nature. The energetic significance of a state is proportional not to the amplitude of a projection ($\beta$, $\kappa$), but to its \textbf{square} ($\beta^2$, $\kappa^2$). This principle is ubiquitous, reflected in kinetic energy ($E_k \propto v^2$) and in the Pythagorean (sum-of-squares) structure of the relational manifolds themselves.
+\begin{theorem}[Energetic Closure Condition]
+\label{thm:closure}
+Since energy is quadratic in its relational amplitudes, the unique quadratic balance between
+directional ($S^1$) and omnidirectional ($S^2$) resource distributions compatible with closure is
+\[
+\boxed{\kappa^2 = 2\beta^2.}
+\]
+\end{theorem}
 
-\begin{definition}[Closure defect]
-\(\delta \equiv \kappa^2-2\beta^2\). A subsystem is \emph{energetically closed}
-iff \(\langle \delta \rangle_{cycle}=0\). For circular orbits, \(\delta\equiv 0\).
+\begin{proof}
+The relational resource of WILL is conserved under redistribution between its kinematic and gravitational
+modes. Given the dimensional ratio of Lemma~\ref{lem:dofratio}, an omnidirectional transformation consumes twice the relational degrees of freedom of a directional one.  
+The energetic significance of a state is proportional not to the amplitude of a projection ($\beta$, $\kappa$), but to its \textbf{square} ($\beta^2$, $\kappa^2$). This principle is ubiquitous, reflected in the Pythagorean (sum-of-squares) structure of the relational manifolds themselves. There for the corresponding energetic relation is quadratic: $\kappa^2 = 2\beta^2$.
+\end{proof}
+
+\begin{definition}[Closure Defect]
+\(\delta \equiv \kappa^2 - 2\beta^2.\)
+A subsystem is \emph{energetically closed} iff \(\langle\delta\rangle_{\text{cycle}}=0.\)
+For circular orbits, \(\delta \equiv 0.\)
 \end{definition}
-\begin{proposition}[Energetic closure criterion]
-In closed (momentary or periodic) regimes, the unique quadratic balance compatible
-with directional ($S^1$) vs omnidirectional ($S^2$) resource splitting is
-\(\boxed{\kappa^2=2\beta^2}\).
-\end{proposition}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=The Principle as a Diagnostic Invariant]
-The relation $\boxed{\kappa^2 = 2\beta^2}$ holds if the system is energetically closed momentarily (circular orbits) or periodically (elliptical orbits).  In open systems It can be used for determining the magnitude of energy flow through an unaccounted-for channels. When all the channels is included in the balance, the closure is restored and the equality holds again (see section "Numerical Validations" subsection "Earth--Moon").
+\begin{corollary}[Energetic Closure Criterion]
+\label{cor:closurecriterion}
+Closed systems (momentary or periodic) satisfy $\kappa^2 = 2\beta^2$ identically.  
+Open systems display $\delta \neq 0$, the magnitude of which quantifies the energy flow through unaccounted channels.  
+When all channels are included, closure is restored.
+\end{corollary}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Diagnostic Invariant:]
+\textbf{The condition $\kappa^2 = 2\beta^2$ defines energetic closure.  
+In closed systems (circular or periodic), it holds exactly;  
+in open systems, its deviation $\delta$ measures interaction with external channels.}
 \end{tcolorbox}
 
-\paragraph{Conclusion: The Unification Equation.}
-Therefore, the exchange rate between the energetic significance of the gravitational and kinematic modes must equal the fundamental ratio of their relational dimensions. This leads to equation:
+\begin{remark}[Physical Interpretation]
+The exchange rate between the kinematic and gravitational projections corresponds to the ratio of their relational dimensions.  
+This purely geometric constant (\(2\)) replaces the empirical proportionalities of classical dynamics.
+It is the relational analogue of the \textbf{virial theorem}:  
+the kinetic and potential aspects of WILL maintain closure through the invariant ratio
 \[
-\frac{\kappa^2}{\beta^2} = 2 \quad \Longrightarrow \quad \boxed{\kappa^2 = 2\beta^2}
+\boxed{\kappa^2 = 2\beta^2.}
 \]
-This relation is not merely a proportionality but the precise criterion for the \textbf{energetic closure} of a system. It serves as the direct geometric embodiment of the virial theorem within the RG framework, linking the potential and kinetic aspects of a closed system through a fundamental constant derived from pure geometry.
+\end{remark}
 
-\subsection*{Illustrative Examples}
-
-To clarify the meaning of this closure condition, consider two contrasting cases:
-
+\paragraph{Illustrative Examples.}
 \begin{itemize}
-    \item \textbf{Circular Orbit (Closed Subsystem).}  
-    For a test body in a perfectly circular orbit around a central mass, the condition $\kappa^2 = 2\beta^2$ is exactly fulfilled. The orbital system can be treated as energetically closed: all of the conserved resource is accounted for between the kinetic projection along the orbit and the gravitational projection toward the center. No external channels are needed, and the equality signals full closure.
-
-    \item \textbf{Radiating Binary (Open Subsystem).}  
-    In contrast, for a highly elliptical binary system of compact objects (such as neutron stars. (full calculation in section: Empirical Validation; subsection: Orbital Decay: Binary Pulsar)), the orbital energy is accompanied by gravitational-wave emission. If one considers only the orbital mechanics, the periodic  (elliptical orbit)  relation $\kappa^2 = 2\beta^2$ will be violated revealing the magnitude of energy flow through an unaccounted-for channels. When all the channels is included in the balance, the closure is restored and the equality holds again.
+\item \textbf{Circular Orbit (Closed).}  
+A body in circular orbit exactly satisfies $\kappa^2=2\beta^2$.  
+The entire conserved resource is partitioned between kinetic and gravitational projections; no external channel exists.
+\item \textbf{Radiating Binary (Open).}  
+An elliptical compact binary violates $\kappa^2=2\beta^2$ when only orbital degrees of freedom are counted,  
+the closure defect $\delta$ quantifying energy lost to gravitational radiation.  
+Including all channels restores closure.
 \end{itemize}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
 \begin{enumerate}
-    \item The foundational Principle defines the universe as a closed, conservative, symmetric relational structure $\text{SPACETIME} \equiv \text{ENERGY}$.
-    \item The relational geometry dictates that the \textit{only} closed, maximally symmetric arenas for these relations are \(S^1\) and \(S^2\), respectively.
-    \item Therefore, the projection parameters $\beta=\cos\theta_1$ and  $\kappa=\sin\theta_2$ are \textit{forced} to live on these \textbf{relational} manifolds.
-    \item The exchange rate between these modes is dictated by the ratio of their relational degrees of freedom (2D/1D), a principle formally realized in the topology of the manifolds as the ratio of their total solid angles ($4\pi/2\pi = 2$).
+\item WILL defines the universe as a closed relational structure, $\text{SPACETIME} \equiv \text{ENERGY}$.
+\item The simplest maximally symmetric carriers of these relations are \(S^1\) and \(S^2\).
+\item The parameters $\beta=\cos\theta_1$ and $\kappa=\sin\theta_2$ are thus constrained to these manifolds.
+\item The geometric exchange rate between these modes equals the ratio of their relational dimensionalities: \(2\).
 \end{enumerate}
 \end{tcolorbox}
 
-\paragraph{Physical Implication: The Geometric Origin of Physical Law.}
-This unification of projections reveals that the relationship between gravitational potential and kinetic energy is not an incidental feature of dynamics, but a direct consequence of the underlying relational geometry. Classical physics, in its successful predictions, unknowingly traces this deeper law. The identity \textbf{SPACETIME $\equiv$ ENERGY} is thus explicitly resolved as a precise geometric equivalence:
+\begin{remark}[Geometric Origin of Physical Law]
+The relation between kinetic and potential energy is not an empirical coincidence 
+but a geometric necessity of relational closure.  
+Classical mechanics merely approximates this deeper invariant.  
+Explicitly,
 \[
-\boxed{\text{Geometric Distribution (}\kappa^{2}\text{)} \;\equiv\; \text{Kinetic Distribution (}\beta^{2}\text{)}\;\times\;2}
+\boxed{\text{Geometric Distribution }(\kappa^2)
+\;\equiv\;
+2\times\text{Kinetic Distribution }(\beta^2).}
 \]
+\end{remark}
 
 \section{Energy–Symmetry Law}\label{sec:energy-symmetry}
+
+\begin{quote}
+    
+In the unified relational structure (WILL), every transformation is bidirectional: 
+each change observed by $A$ corresponds to an equal and opposite change observed by $B$. 
+This reciprocity is the algebraic form of causal continuity, 
+and its geometric expression is the Energy–Symmetry Law.
+
+\end{quote}
 
 \subsection{Causal Continuity and Energy Symmetry}
 \begin{theorem}[Energy Symmetry]
@@ -1059,7 +1086,7 @@ For a transfer between two different closed orbits (A and B), the simplification
 In this case, applying the closure condition to both the initial and final orbits causes the potential projection terms ($\kappa^2$) to cancel out completely. The entire energy balance of the transfer is expressed purely as the difference between the squares of the initial and final kinetic projections. This demonstrates a deep symmetry in the energetic structure of stable orbital systems.
 
 
-\subsection{Single–Axis Energy Transfer and the Nature of Light}
+\subsection{Single–Axis Energy Transfer and the Nature of Light} \label{sec:nature of light}
 \begin{theorem}[Single–Axis Transformation Principle]
 For light, the kinematic projection reaches its full extent:
 \[
@@ -1111,112 +1138,85 @@ The factor of two that appears in gravitational deflection and frequency shift i
 \end{tcolorbox}
 
 
-\section{\textbf{Beyond Differential Formalism: Structural Dynamics}}
+\section{Beyond Differential Formalism: Structural Dynamics}
 
-\subsection{\textbf{Intrinsic Dynamics via Energy Redistribution}}
-The system is not described by differential equations of motion evolving \textit{in} time. Instead, its transformation is dictated by a closed structure of algebraic relations that enforce a perpetually balanced configuration. What we perceive as "dynamics" is this ordered succession of balanced states.
+\subsection{Intrinsic Dynamics via Energy Redistribution}
 
-\subsection{\textbf{Time as an Emergent Property}}
-In this framework, time is not a fundamental entity but a derived concept tied to changes in the system's geometry. Similar to time dilation, time intervals here are defined by the transformations of geometric parameters like  and . A natural time scale arises from the geometry as . This intrinsic time scale encapsulates the system's dynamics without invoking an independent time variable. 
+In Relational Geometry (RG), dynamics is not the evolution of quantities \textit{in} time, but the continuous re-balancing of a closed network of algebraic relations.  
+What appears as "motion" or "change" is the ordered succession of states satisfying all projectional constraints.
 
 \begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=Summary]
- \textbf{Time does not drive change — instead, change defines time.}
+\textbf{Time does not drive change — change defines time.}
 \end{tcolorbox}
 
 \subsection{Why There Are No Equations of Motion}
 
-In classical and relativistic physics, dynamics is formulated through differential equations.  
-These express how physical quantities evolve continuously through time, typically governed by:
-
+Classical physics describes systems through differential evolution:
+\[
+\delta S = 0, \qquad S = \int L\,dt,
+\]
+assuming an independent temporal parameter and a variational freedom over possible trajectories.  
+In RG, none of these assumptions hold:
 \begin{itemize}
-    \item A temporal parameter $t$,
-    \item A Lagrangian function $L$,
-    \item A variational principle: $\delta S = 0$, where $S = \int L\,dt$,
-    \item Euler–Lagrange equations that yield the system’s path.
+\item There is no continuum of possible paths.
+\item There is no freedom to vary.
+\item The system itself defines temporal order.
 \end{itemize}
 
-This framework assumes:
+Each observable is locked into a closed web of relational equations.  
+A valid state is one—and only one—where all constraints are simultaneously satisfied.
 
-\begin{enumerate}
-    \item A continuum of possible configurations,
-    \item That Nature selects one by minimizing action,
-    \item That time flows independently of the system.
-\end{enumerate}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=One valid configuration]
+There is only one physically meaningful configuration at any moment:  
+the one where all relational projections close exactly.  
+Everything else is not forbidden—it simply does not exist.
+\end{tcolorbox}
 
-\subsection*{Why This Framework Does Not Apply to Relational Geometry}
+\subsection{Why the Metric Is Physically Meaningless}
 
-RG begins from a fundamentally different premise.
-\begin{itemize}
-    \item There is no "space" of possible paths.
-    \item There is no "freedom to vary."
-    \item The system does not evolve through time --- it \textbf{defines time} through its structure.
-\end{itemize}
+The metric tensor \(g_{\mu\nu}\) presupposes an external backdrop on which events are placed.  
+In RG there is no such background: distance and duration are nothing but relational measures between energy states.  
+The relations \((\beta,\kappa)\) already encode all observable structure.  
+Introducing a metric would merely restate these relations redundantly in coordinate form.
 
-In RG:
-\begin{itemize}
-    \item Each observable is locked in a network of algebraic relations.
-    \item Any change in one parameter \textit{necessitates} coherent changes in the others.
-    \item   Self-consistency enforces projectional  \textbf{balance}.
-
-\end{itemize}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= One valid configuration]
-There is only one valid configuration at any moment:  
-the one where all projectional constraints are satisfied.  
-Everything else is not forbidden — it is physically meaningless.
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+In RG there is no metric, no Lagrangian, no equations of motion.  
+There is only a closed algebraic structure of energetic relations.  
+Its self-consistency defines both geometry and causality.
 \end{tcolorbox}
 
 
-\subsection{ Metric is physically meaningless}
-In classical frameworks, geometry is parameterized by a metric $g_{\mu\nu}$, assumed to exist independently of the system’s energetic configuration.
- In Relational Geometry, such an entity has no physical meaning: there is no background to be measured, and nothing external to define distance.
- The relations between $\beta$ and $\kappa$ already determine all observable structure.
- Introducing a metric tensor would only restate these relations in redundant coordinates.
- Therefore, RG contains no metric — because it never existed. 
- 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= Summary]
-In RG, there is no equation of motion.  
-There is no Lagrangian.  
-There is no variational calculus.  
-There is no metric
-There is only a closed structure of geometric and energetic relationships,  
-and the sequence of valid configurations is what we call \textit{dynamics}.
-\end{tcolorbox}
+\section{$W_{\text{ILL}}$ — Unity of Relational Structure}
+\label{sec:willinvariant}
 
+From the geometric closure of WILL we derive the universal invariant connecting mass, energy, time, and length.  
+Each is a projection of the same relational whole:
 
-\section{$W_{\text{ill}}$ = Unity}
-
-From the geometric closure of RG framework, we derive a universal dimensionless invariant:
-
-$W_{ILL}$ parameters of mass energy time and length:
 \begin{align}
-
-M &= \frac{ \beta^2}{\beta_{Y}} c^2 \frac{r}{G} \\
-
-E &=\frac{\kappa^2}{\kappa_{X}} \frac{ c^4 r}{2G} \\
-
-T &= \kappa_{X} \left(\frac{2Gm_0}{\kappa^2 c^3}\right)^2 \\
-
-L &= \beta_{Y} \left(\frac{Gm_0}{\beta^2 c^2}\right)^2
-
+M &= \frac{\beta^2}{\beta_Y}\,c^2\,\frac{r}{G}, \\[4pt]
+E &= \frac{\kappa^2}{\kappa_X}\,\frac{c^4 r}{2G}, \\[4pt]
+T &= \kappa_X\left(\frac{2Gm_0}{\kappa^2 c^3}\right)^2, \\[4pt]
+L &= \beta_Y\left(\frac{Gm_0}{\beta^2 c^2}\right)^2.
 \end{align}
 
-The explicit - invariant for any energetically closed system, including both GR and SR effects, is:  $$W_{ILL}=\frac{E \cdot T}{M \cdot L} =\frac{\frac{1}{\kappa_{X}} E_0 \cdot \kappa_{X} t^2}{\frac{1}{\beta_{Y}}  m_0 \cdot \beta_{Y} r^2} =   1$$
-
-All physical quantities cancel identically, leaving $ WILL=1$, which is satisfied by geometric closure.
-
-
-This invariant holds universally for all values of $m_0$, $G$, $c$, and $\kappa$. Unlike dimensional analysis, this identity emerges from the projectional interdependence of energy-mass $(E,M)$ and spacetime metrics $(T,L)$ within the unified structure.
-
+Combining these projections yields the universal dimensionless invariant:
 \[
-\boxed{\text{The invariant } W_{\text{ILL}} = 1 \text{ expresses geometric unity through energetic projection}}
+\boxed{
+W_{\text{ILL}}
+= \frac{E \, T}{M \, L}
+= \frac{\frac{E_0}{\kappa_X}\,\kappa_X t^2}{\frac{m_0}{\beta_Y}\,\beta_Y r^2}
+= 1.
+}
 \]
 
-\subsection{The Name "WILL"}
-The name WILL reflects both the harmonious unity of the equation and a subtle irony towards the anthropic principle, which often intertwines human existence with the causality of the universe. The equation stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
+All dimensional constants and parameters cancel identically.
+This equality is not a result of unit choice, but the manifestation of structural closure:
+\[
+\boxed{\textbf{WILL} = 1.}
+\]
 
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=WILL]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=WILL Invariant]
 \[
 \boxed{
 \textbf{It is not the unit of something—it is the unity of everything.}
@@ -1224,6 +1224,33 @@ The name WILL reflects both the harmonious unity of the equation and a subtle ir
 \]
 \end{tcolorbox}
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=WILL Invariant]
+\textbf{WILL} expresses the identity of geometry and energy:
+\[
+\frac{E t^2}{m r^2} = 1.
+\]
+It is not the unit of something — it is the unity of everything.
+\end{tcolorbox}
+
+\subsection{Interpretive Note: The Name "WILL"}
+
+The term \textbf{WILL} stands for \textbf{SPACE–TIME–ENERGY}.  
+It is both a formal shorthand and a philosophical statement:  
+the universe is not a stage where energy acts through time upon space,  
+but a single self-balancing structure whose internal distinctions generate all phenomena.  
+The name also serves as a gentle irony toward anthropic thinking:  
+the cosmos does not possess “will” — yet through WILL, it manifests all that is.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\[
+\boxed{
+\textbf{WILL} \;\equiv\;
+\frac{E t^2}{m r^2} = 1
+\quad\Longleftrightarrow\quad
+\text{Geometry = Energy = Causality.}
+}
+\]
+\end{tcolorbox}
 
 
 \section{Classical Keplerian Energy as a WILL--Minkowski Projection}
@@ -1417,10 +1444,15 @@ Here the symbol $\hat{=}$ denotes not an ontological identity,
 but a pragmatic dictionary entry for translation into legacy notation.  
 \end{quotation}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
-\textbf{Complex Mathematics is the Consequence of Bad Philosophy.}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Final Remark]
+The historical escalation of mathematical complexity in physics 
+did not reveal deeper reality — it compensated for a philosophical mistake.
+Once the ontological symmetry is restored, 
+Nature’s laws reduce to algebraic self-consistency.  
+\[
+\boxed{\text{Complex mathematics is the consequence of bad philosophy.}}
+\]
 \end{tcolorbox}
-
 
 \section{Derivation of Density, Mass, and Pressure}
 
@@ -1841,6 +1873,15 @@ The result is a structure where \textbf{causality is internal}, \textbf{coherenc
 and \textbf{dynamics is simply the shifting of balanced configurations} ---  
 not the unfolding of arbitrary functions over time.
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Closure]
+The entire relational structure can be read as a self-consistent equation of existence:
+\[
+\boxed{\text{SPACETIME} \equiv \text{ENERGY} \;\Longleftrightarrow\; W_{\text{ILL}} = 1.}
+\]
+Geometry, density, motion, and causality are not separate domains but 
+inter-translations within one algebraic identity.
+The universe is not governed by differential laws — it \emph{is} their solution.
+\end{tcolorbox}
 
 \subsection{Numerical Example: Accretion onto a Black Hole}
 
@@ -1986,9 +2027,18 @@ while GR requires additional ontological structures
 (metric geometry, equivalence principle, Einstein equations) that are 
 not necessary for the consistency of RG.
 \end{corollary}
+\usepackage{tikz}
+\usepackage{tikz}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usetikzlibrary{positioning}
+
+\begin{figure}[h!]
+\centering
+\resizebox{0.98\textwidth}{!}{ % масштабируем при необходимости
 \begin{tikzpicture}[
-    node distance=1.3cm,
-    box/.style={rectangle, rounded corners, draw=black, thick, align=center, minimum width=3cm, minimum height=1cm},
+    node distance=1.2cm and 1.1cm,
+    box/.style={rectangle, rounded corners, draw=black, thick, align=center, minimum width=2.4cm, minimum height=1cm, inner sep=6pt},
     every node/.style={font=\sffamily}
 ]
 
@@ -1997,9 +2047,9 @@ not necessary for the consistency of RG.
 
 % GR axioms stacked above
 \node[box, fill=green!15, above=of w1] (a2) {A2: Diffeomorphism Invariance};
-\node[box, fill=green!15, left=of a2, xshift=-0.5cm] (a1) {A1: Lorentzian Manifold};
-\node[box, fill=green!15, right=of a2, xshift=0.5cm] (a3) {A3: Equivalence Principle};
-\node[box, fill=green!15, above=of a2, yshift=1cm] (a4) {A4: Einstein Field Equations};
+\node[box, fill=green!15, left=of a2] (a1) {A1: Lorentzian Manifold};
+\node[box, fill=green!15, right=of a2] (a3) {A3: Equivalence Principle};
+\node[box, fill=green!15, above=of a2, yshift=0.8cm] (a4) {A4: Einstein Field Equations};
 
 % Arrows
 \draw[dashed, thick] (w1) -- (a2);
@@ -2013,17 +2063,21 @@ not necessary for the consistency of RG.
 \node[below=0.3cm of w1] (labelRG) {\textbf{RG}};
 \node[above=0.3cm of a4] (labelGR) {\textbf{GR}};
 
-
-\node[box, fill=yellow!20, below=2.3cm of labelRG, text width=12.2cm, align=left] (concl) {%
+% Conclusion box
+\node[box, fill=yellow!20, below=2.2cm of labelRG, text width=11.5cm, align=left] (concl) {%
 \textbf{Conclusion (Axiomatic Inclusion and Asymmetric Falsifiability).} \\
 \emph{RG} rests on the single relational Principle (W1). Core GR assumes additional structures (A1--A4). Hence:
-\begin{itemize}
+\begin{itemize}[leftmargin=1.5em]
   \item If \textbf{W1} is empirically falsified, GR's core (A2--A3) is undermined; thus GR is falsified.
   \item If any of \textbf{A1--A3} is falsified, GR collapses, while \textbf{W1} (and thus RG) may still hold.
 \end{itemize}
 Therefore, there are scenarios where GR fails and RG survives, but none where RG fails while GR survives.
-}; \\
+};
+
 \end{tikzpicture}
+}
+\caption{Axiomatic Structure: RG vs GR}
+\end{figure}
 
 
 \begin{tcolorbox}[colback=gray!4,colframe=black!70!black,title=\textbf{Status of General Relativity within RG}]
@@ -2112,7 +2166,7 @@ High; built from observable and intrinsic relations \\
 
 12 & Observational Fit & 
 Confirmed (with dark matter/energy assumptions) & 
-Consistent; explains phenomena without "dark entities"  (Details in WILL PART 2) \\
+Consistent; explains phenomena without "dark entities"  (Details in WILL PART II) \\
 \bottomrule
 \end{tabularx}
 
@@ -2129,9 +2183,9 @@ Consistent; explains phenomena without "dark entities"  (Details in WILL PART 2)
 \hline
 \textbf{Phenomenon} & \textbf{Radius $r$} & \(\beta^2\)& \(\kappa^2\)&\(Q^2\)& \textbf{Comment} \\
 \hline
-\textbf{ISCO (innermost stable orbit)}& $r=3R_s$ & $\tfrac{1}{6}$& $\tfrac{1}{3}$&$\tfrac{1}{2}$& Marginal stability of timelike orbits\\
+\textbf{ISCO (innermost stable orbit)}& $r=3R_s$ & $\tfrac{1}{6}$& $\tfrac{1}{3}$&$\tfrac{1}{2}$& Marginal stability of timelike orbits $Q = Q_t$ \\
 \hline
-\textbf{Photon sphere}& $r=\tfrac{3}{2}R_s$ & $\tfrac{1}{3}$& $\tfrac{2}{3}$&1& Null circular orbits, $Q=1$, $Q_t=0$\\
+\textbf{Photon sphere}& $r=\tfrac{3}{2}R_s$ & $\tfrac{1}{3}$& $\tfrac{2}{3}$&1& Null circular orbits, \(\theta_1=\theta_2\) $Q=1$, $Q_t=0$\\
 \hline
 \textbf{Static horizon (Schwarzschild)} & $r=R_s$ & $\tfrac{1}{2}$& $1$&$\tfrac{3}{2}$& Purely gravitational closure, $\kappa^2=2\beta^2$ \\
 \hline
@@ -2169,28 +2223,29 @@ All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as special
 
 \end{tikzpicture}
 
+
 \begin{table}[h!]
 \centering
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|p{4cm}|p{6cm}|p{6cm}|}
 \hline
-\textbf{Phenomenon} & \textbf{Standard GR Result} & \textbf{Projectional Geometry (\(\beta,\kappa\))} \\
+\textbf{Phenomenon} & \textbf{Standard (GR) Result} & \textbf{Relational Geometry (RG)} \\
 \hline
 \textbf{GPS time shift / gravitational redshift} &
 Frequency shift = combination of kinetic (SR) and gravitational (GR) effects. &
-Single symmetric law:
-\(\tau=\beta_Y\cdot\kappa_X\),
-\(E_{\text{loc}}=\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}\)\(= \frac{E_{\text{loc}}}{\tau} \)
-verified directly with GPS satellites.
+Single symmetric law: 
+\(\tau=\beta_Y\cdot\kappa_X\), 
+\(E_{\text{loc}}=\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}\)\(= \frac{E_{\text{loc}}}{\tau} \) 
+verified directly with GPS satellites. \\
 \hline
-\textbf{Photon sphere, ISCO, horizons} \&
-Derived by solving geodesic equations in Schwarzschild metric. \&
-Critical radii emerge from simple projectional relations
-(\(\kappa^2=2\beta^2\), \(Q^2=\kappa^2+\beta^2=1\), \(Q^2=\kappa^2+\beta^2=\frac{1}{2}\)).\\
+\textbf{Photon sphere, ISCO, horizons} &
+Derived by solving geodesic equations in Schwarzschild metric. &
+Critical radii emerge from simple symmetry's 
+(Photon sphere: \(\theta_1=\theta_2\), ISCO: \(Q = Q_t\)).\\
 \hline
 \textbf{Mercury’s perihelion precession} &
 Complex expansion of Einstein field equations. &
-Exact same number obtained from projection geometry with \(\beta,\kappa\). \\
+Exact same number obtained from Relational Geometry with \(\Delta_{\phi}=\frac{2\pi Q_{Merc}^{2}}{\left(1-e_{Merc}^{2}\right)}\). \\
 \hline
 \textbf{Binary pulsar orbital decay} &
 Explained via quadrupole radiation formula; requires asymptotic Bondi mass. &
@@ -2198,11 +2253,11 @@ Emerges from balance of projection invariants without asymptotic constructs. \\
 \hline
 \textbf{Cosmological redshift} &
 Photon “loses energy” as universe expands. &
-Energy conserved; redshift = redistribution of projection parameters.  (Details in WILL PART 2)\\
+Energy conserved; redshift = redistribution of projection parameters.  (Details in WILL PART II)\\
 \hline
 \textbf{Cosmological constant \(\Lambda\)} &
 Added by hand to fit data (“dark energy”). &
-Arises naturally as \(\Lambda = \kappa^2/r^2\). No extra entities required. (Details in WILL PART 2)\\
+Arises naturally as \(\Lambda = \kappa^2/r^2\). No extra entities required. (Details in WILL PART II)\\
 \hline
 \textbf{Singularities} &
 Predicted in black holes and big bang (\(\rho \to \infty\)). &
@@ -2214,10 +2269,10 @@ Directly measurable via \(\kappa\), e.g. from light deflection angle. \\
 \hline
 \textbf{Unification with QM and SR} &
 No natural unification in GR framework. &
-Same projectional law applies from microscopic (QM) to cosmic (GR, COSMO) scales.  (Details in WILL PART 3)\\
+Same projectional law applies from microscopic $\alpha = \beta_1$ (QM) to cosmic $\kappa^2=\Omega_{\Lambda}$ (GR, COSMO) scales.  (Details in WILL PART II and III)\\
 \hline
 \end{tabular}
-\caption{Classical GR results vs. Projectional Geometry outcomes. Known effects are recovered by simpler symmetric laws, while new predictions eliminate singularities and explain cosmology without dark energy.}
+\caption{Classical GR results vs. WILL RG outcomes. Known effects are recovered by simpler symmetric laws, while new predictions eliminate singularities and explain cosmology without dark entities.}
 \end{table}
 
 
@@ -2225,35 +2280,63 @@ Same projectional law applies from microscopic (QM) to cosmic (GR, COSMO) scales
 \centering
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{6pt}
-\begin{tabular}{|l|l|l|l|}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|l|l|}
 \hline
-\textbf{Phenomenon} & \textbf{Empirical Benchmark} & \textbf{WILL Prediction} & \textbf{Status} \\
+\textbf{Phenomenon} & \textbf{Empirical Benchmark} & \textbf{WILL Prediction} \\
 \hline
-GPS satellite time dilation (SR + GR) & 38.52 $\mu$s/day (observed) & 38.52 $\mu$s/day & Match \\
+GPS satellite time dilation (SR + GR) & 38.52 $\mu$s/day (observed) & 38.52 $\mu$s/day \\
 \hline
-Mercury perihelion precession & 43''/century (observed) & 43''/century & Match \\
+Mercury perihelion precession & 43''/century (observed) & 43''/century \\
 \hline
-Solar light deflection & 1.75 arcsec (observed) & 1.75 arcsec & Match \\
+Solar light deflection & 1.75 arcsec (observed) & 1.75 arcsec \\
 \hline
-Schwarzschild photon sphere & $r = 1.5 R_s$ (GR prediction) & $r = 1.5 R_s$ & Match \\
+Schwarzschild photon sphere & $r = 1.5 R_s$ (GR prediction) & $r = 1.5 R_s$ \\
 \hline
-Schwarzschild ISCO & $r = 3 R_s$ (GR prediction) & $r = 3 R_s$ & Match \\
+Schwarzschild ISCO & $r = 3 R_s$ (GR prediction) & $r = 3 R_s$ \\
 \hline
-Hulse--Taylor pulsar period decay & $\Delta P \approx -2.42 \times 10^{-12}$ s/s (observed) & $\Delta P \approx -2.40 \times 10^{-12}$ s/s & Match (0.1\% precision) \\
+Hulse--Taylor pulsar period decay & $\Delta P \approx -2.42 \times 10^{-12}$ s/s (observed) & $\Delta P \approx -2.40 \times 10^{-12}$ s/s \\
 \hline
-Earth--Moon tidal power (LLR recession) & 0.120 TW orbital power (measured) & 0.120 TW & Match \\
+Earth--Moon tidal power (LLR recession) & 0.120 TW orbital power (measured) & 0.120 TW \\
 \hline
-Galaxy rotation curves (Milky Way example) & Flat curves beyond $\sim$10 kpc & Flat curves from projection law & Qualitative agreement \\
+Galaxy rotation curves (Milky Way example) & Flat curves beyond $\sim$10 kpc & Flat curves from projection law \\
 \hline
-Cosmological absolute scale (Supernovae fit) & Hubble-like expansion, $\Lambda$CDM fits & Emergent absolute scale from $\kappa,\beta$ closure & Qualitative agreement \\
+Cosmological absolute scale (Supernovae fit) & Hubble-like expansion, $\Lambda$CDM fits & Emergent absolute scale from $\kappa,\beta$ closure \\
 \hline
 \end{tabular}
-\caption{Empirical validation of WILL Relational Geometry across classical relativistic tests, orbital dynamics, astrophysical observations, and cosmology. See details in "Appendix 1"}
+}
+\caption{Empirical validation of WILL Relational Geometry across classical relativistic tests, orbital dynamics, astrophysical observations, and cosmology. See details in "Appendix I"}
 \end{table}
 
 
 \subsection{Asymmetric Generality}
 The correspondence between these frameworks is fundamentally asymmetric. General Relativity, with its reliance on a pre-supposed metric tensor and the formalism of differential geometry, can be viewed as a specific, parameter-heavy instance of the RG's principles. One can derive GR by adding these additional structures to RG's minimalist foundation. Therefore, the choice between them is not one of preference, but of logical generality and parsimony, where RG provides the logical foundation upon which GR can be consistently constructed. 
+
+\subsection{Epistemological Role of General Relativity}
+
+General Relativity occupies a unique historical position.  
+It is the first theory to recognize geometry as the carrier of energy, yet it stops one step short of full equivalence.  
+By treating the metric $g_{\mu\nu}$ as an independent entity that \emph{responds} to energy--momentum, GR still separates cause and effect.  
+In WILL Relational Geometry this distinction dissolves: geometry \emph{is} energy, not its consequence.  
+
+Thus, GR should be seen as the transitional language between the descriptive physics of the nineteenth century and the generative physics of the twenty-first.  
+It already encodes the relational structure implicitly, but expresses it through redundant coordinates and differential machinery.  
+RG reveals the algebraic heart of GR stripped of these redundancies:
+\[
+\boxed{G_{\mu\nu} \;\Leftrightarrow\; \kappa^{2}}, \qquad 
+\boxed{T_{\mu\nu} \;\Leftrightarrow\; \rho}.
+\]
+The celebrated field equations of Einstein then reduce to the unified geometric identity
+\[
+\boxed{\kappa^{2} = \frac{\rho}{\rho_{\max}} = \frac{R_{s}}{r}},
+\]
+which is the simplest, most symmetric realization of the same principle that GR only encodes indirectly.
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Historical Function of GR]
+General Relativity is not wrong — it is \emph{prematurely general}.  
+It describes through differentials what WILL generates through relations.  
+It built the bridge; WILL walks across it.
+\end{tcolorbox}
 
 
 \section{Conclusion}
@@ -2317,5 +2400,3 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
  
 
 \end{document}
-
-

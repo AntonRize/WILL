@@ -51,7 +51,10 @@
 \begin{document}
 
 
-\section{Correspondence with General Relativity}
+\section{Appendix I}
+
+
+\subsection{Correspondence with General Relativity}
 
 \begin{quote}
 To facilitate comparison with standard General Relativity,
@@ -195,17 +198,17 @@ relations among \(\kappa,\rho,r\) in RG.
 Thus GR is a differential realization of the same algebraic closure.
 \end{corollary}
 
-\section{Empirical Validation}
+\subsection{Empirical Validation}
 
 
-\subsection{Geometric Prediction of Photon Sphere and ISCO}
+\subsubsection{Geometric Prediction of Photon Sphere and ISCO}
 
 The critical orbital radii in WILL Relational Geometry are not simply solved for, but emerge as direct consequences of  geometric symmetries within the system's projection budget, \(Q=\sqrt{\beta^2+\kappa^2}\).
 
 \subsubsection{Photon Sphere from Geometric Equilibrium (\(\theta_1 = \theta_2\))}
-
+\begin{theorem}
 The Photon Sphere is generated from the principle of perfect equilibrium between the kinematic and potential projection angles. This occurs when they become equal, a condition corresponding to the ``magic angle''.
-
+\end{theorem}
 \begin{proof}
 We begin with the symmetry condition for this state:
 \begin{equation}
@@ -241,8 +244,10 @@ Thus, the symmetry of angle equality inevitably generates the radius of the phot
 \end{proof}
 
 \subsubsection{ISCO from Budgetary Equilibrium (\(Q = Q_t\))}
-
+\begin{theorem}
+    
 The Innermost Stable Circular Orbit (ISCO) is generated from the principle of perfect equilibrium between the total projection budget \((Q=\sqrt{\beta^2+\kappa^2})\) and its orthogonal complement (\(Q_t=\sqrt{1 -Q^2}\)). This represents a state of marginal stability.
+\end{theorem}
 
 \begin{proof}
 We begin with the symmetry condition for this state:
@@ -406,23 +411,49 @@ approximation. WILL restores the underlying two-point relational clarity.
 \end{tcolorbox}
 \end{proof}
 
-\subsection{The Nature of Light (Gravitational Lensing)}
-\begin{theorem}
-Let's tests the predictions for massless particles. The deflection of light by the Sun was a landmark confirmation of GR, which predicted a bending angle twice that expected from a Newtonian theory. Our prediction for the deflection angle \(\alpha\) is:
+\subsection{Relational Self-Reference of Light (Gravitational Lensing)}
+
+
+\begin{theorem}[Single–Axis Transformation Principle]
+For light, the kinematic projection reaches its full extent:
+\[
+\boxed{\beta = 1 \;\Rightarrow\; \beta_Y = 0.}
+\]
+
 \begin{equation}
     \alpha = 2\kappa^2 = \frac{4Gm_0}{bc^2}
 \end{equation}
+This means that all transformation of the relational energy occurs along a \textbf{single orthogonal axis}.
+The complementary branch of the bidirectional energy exchange is absent, and the total resource of transformation is entirely expressed on one geometric component.
 \end{theorem}
+
 \begin{proof}
-The crucial factor of 2 is not an ad-hoc addition but a profound consequence of the model's structure. As established by the Energy-Symmetry Law, any interaction between massive bodies involves two reciprocal frames of reference, and the energy budget is partitioned equally between them (hence the factor of `1/2` in energy terms).
+For massive systems, the Energy–Symmetry Law distributes the total energy exchange evenly between two orthogonal projections:
+\[
+U/E_0 = -\tfrac{1}{2}\kappa^2, \qquad
+K/E_0 = +\tfrac{1}{2}\beta^2.
+\]
+The symmetry of exchange arises because both branches --- $(\kappa, \kappa_X)$ and $(\beta, \beta_Y)$ --- coexist and compensate each other.
+Each side carries one half of the total transformation resource, ensuring
+\[
+\Delta E_{A \to B} + \Delta E_{B \to A} = 0.
+\]
 
-Light, however, is unique. It travels at a speed, \(c\), that is absolute for all observers. There is no valid reciprocal frame of reference "at rest" on a photon. Because there is no second frame to act as a counterbalance, the interaction is not partitioned. The photon experiences the \textbf{full, unpartitioned} geometric budget of the interaction, which is exactly double the partitioned, energetic budget experienced by a massive particle. The factor of 2 is thus a direct signature of the absolute and non-reciprocal nature of light's frame of reference. 
+For light, however, $\beta = 1$ implies $\beta_Y = 0$.
+The complementary projection disappears; there is no dual observer-frame available for symmetric partition.
+As a result, the transformation cannot be divided between two orthogonal branches.
+The full relational resource of the interaction is realized on a single projection.
 
-\subsection*{Light Deflection in WILL (metric-free)}
-For massive probes the effective potential per unit mass is 
-$\Phi_{\rm mass}=\tfrac12\kappa^2 c^2$ by Energy Symmetry. 
-Photons have no reciprocal frame; hence $\Phi_\gamma=\kappa^2 c^2$.
-In the small-angle/impulse regime
+Therefore, the specific energy potential for light is not halved but complete:
+\[
+\boxed{\Phi_\gamma = \kappa^2 c^2,}
+\]
+while for a massive body the potential remains partitioned,
+\[
+\Phi_{\text{mass}} = \tfrac{1}{2}\kappa^2 c^2.
+\]
+This explains why light experiences a total geometric effect exactly twice that of a massive particle in the same field, without introducing any auxiliary approximations.
+
 \[
 \alpha = -\frac{1}{v^2}\int_{-\infty}^{\infty}\partial_\perp \Phi\,dz,
 \]
@@ -435,7 +466,23 @@ and for light ($v=c$) with $\kappa^2(r)=2GM/(c^2 r)$ where $r=b$ one finds
 Thus the GR value is recovered without invoking metric or geodesics.
 \end{proof}
 
-\subsection{Energy Symmetry Validation: GPS Satellite and Earth}
+
+\begin{quote}
+    \textbf{Interpretive Note}
+Light occupies the boundary state where relational reciprocity collapses into self-reference.
+It is not a “massless limit” but a distinct single-axis state of the energy geometry.
+A photon is simultaneously its own counter-frame and its own anti-state.
+The factor of two that appears in gravitational deflection and frequency shift is a direct signature of this one-axis transformation.
+\end{quote}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\textbf{ Light has no rest frame. 
+}The Speed of Light is the boundary beyond which the energy symmetry law breaks down. 
+\textbf{Causality} is not an external rule but a \textbf{built-in feature of Relational Geometry}.
+\end{tcolorbox}
+
+
+\subsection{GPS Satellite and Earth}
 
 \begin{theorem}[Real-World Energy Symmetry]
  WILL prediction matches the empirical time correction required for GPS synchronization  to high precision.
@@ -1036,7 +1083,7 @@ This section serves as a convenient reference for the core equations and relatio
 
 
 \[
-W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{\frac{1}{\kappa_{X}} E_0 \kappa_{X} t^2_{d}}{\frac{1}{\beta_{Y}} m_0\beta_{Y} r^2_{d}} = \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 \\
+W_{ill} = \frac{E \cdot T}{M \cdot L} = \frac{\frac{1}{\kappa_{X}} E_0 \kappa_{X} t^2_{d}}{\frac{1}{\beta_{Y}} m_0\beta_{Y} r^2_{d}} = \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 \\
 \]
 
 \subsection{Special Points}
