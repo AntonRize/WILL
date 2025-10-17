@@ -76,7 +76,9 @@
     
   </main>
 
-  {{ content }} {% include footer.html %}
+  {{ content }} 
+  
+  {% include footer.html %}
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -127,7 +129,8 @@
           container.innerHTML = `<p class="text-red-500">Error: Could not load the Ouroboros SVG.</p>`;
         });
       
-      function initializeAnimations(svg) {
+      // MODIFIED: This function is now async to handle animation sequence correctly.
+      async function initializeAnimations(svg) {
         const segments = SEGMENT_IDS.map(id => svg.querySelector(`#${id}`)).filter(Boolean);
         
         if (segments.length !== SEGMENT_IDS.length) {
@@ -144,39 +147,46 @@
         const breathingGlow = 'drop-shadow(0 0 5px rgba(167, 243, 208, 0.7))';
         const hoverFill = '#a7f3d0';
 
+        // --- Animation Sequence Settings ---
         const runningLightStartDelay = 3000;
-        const highlightDuration = 200;
-        const stepDelay = 80;
-        const onePulseDuration = segments.length * stepDelay;
-        const pauseBetweenPulses = 100;
+        const highlightDuration = 300;
+        const stepDelay = 100;
+        const pauseBetweenPulses = 150;
 
-        function runSinglePulse(startDelay) {
-          segments.forEach((seg, i) => {
-              setTimeout(() => {
-                  const originalFill = originalFills.get(seg);
-                  seg.setAttribute('fill', hoverFill);
-                  seg.style.filter = breathingGlow;
-                  setTimeout(() => {
-                      seg.setAttribute('fill', originalFill);
-                      seg.style.filter = 'none';
-                  }, highlightDuration);
-              }, startDelay + i * stepDelay);
-          });
-        }
-
-        runSinglePulse(runningLightStartDelay);
-        runSinglePulse(runningLightStartDelay + onePulseDuration + pauseBetweenPulses);
-
-        const breathingStartDelay = runningLightStartDelay + (2 * onePulseDuration) + pauseBetweenPulses;
-        setTimeout(() => {
-          segments.forEach(seg => {
-            seg.animate(
-              [{ filter: 'none' }, { filter: breathingGlow }, { filter: 'none' }], 
-              { duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 }
+        // This function runs a single pulse and returns a Promise
+        function runSinglePulse() {
+          const animations = segments.map((seg, i) => {
+            return seg.animate(
+              [
+                { filter: 'none', fill: originalFills.get(seg) },
+                { filter: breathingGlow, fill: hoverFill, offset: 0.5 },
+                { filter: 'none', fill: originalFills.get(seg) }
+              ],
+              {
+                duration: highlightDuration,
+                delay: i * stepDelay,
+                easing: 'ease-in-out'
+              }
             );
           });
-        }, breathingStartDelay);
+          return Promise.all(animations.map(anim => anim.finished));
+        }
+
+        // --- New, reliable animation sequence ---
+        await new Promise(resolve => setTimeout(resolve, runningLightStartDelay));
+        await runSinglePulse();
+        await new Promise(resolve => setTimeout(resolve, pauseBetweenPulses));
+        await runSinglePulse();
+
+        // This will only start after both pulses are 100% complete
+        segments.forEach(seg => {
+          seg.animate(
+            [{ filter: 'none' }, { filter: breathingGlow }, { filter: 'none' }],
+            { duration: 5000, iterations: Infinity, easing: 'ease-in-out', delay: Math.random() * 2000 }
+          );
+        });
         
+        // --- Event Handlers (no changes) ---
         segments.forEach(seg => {
           seg.style.cursor = 'pointer';
           seg.style.transition = 'fill 300ms ease-in-out';
