@@ -446,34 +446,46 @@ Complete research documentation in three parts, covering the theoretical foundat
 
 <div style="margin: 40px 0; text-align: center;">
     <svg width="800" height="500" viewBox="0 0 800 500" style="background: white; border: 1px solid #ddd; border-radius: 10px;">
-        <rect x="325" y="225" width="150" height="50" fill="#f8f9fa" stroke="#343a40" stroke-width="2" rx="5"/>
-        <text x="400" y="255" text-anchor="middle" font-size="16" font-weight="bold">κ² = 2β²</text>
-        
-        <text x="150" y="255" text-anchor="middle" font-size="14">v<SUB>e</SUB> = κc</text>
-        
-        <text x="650" y="255" text-anchor="middle" font-size="14">v = βc</text>
-        
-        <text x="400" y="100" text-anchor="middle" font-size="16" font-weight="bold">M</text>
-        <text x="250" y="130" text-anchor="middle" font-size="14">R<SUB>s</SUB> = 2GM/c²</text>
-        <text x="550" y="130" text-anchor="middle" font-size="14">r = R<SUB>s</SUB>/κ²</text>
-        <text x="680" y="160" text-anchor="middle" font-size="12">t = r/c</text>
-        
-        <text x="250" y="380" text-anchor="middle" font-size="12">ρ<SUB>max</SUB> = c²/(8πGr²)</text>
-        <text x="550" y="380" text-anchor="middle" font-size="12">ρ = κ²·ρ<SUB>max</SUB></text>
-        
-        <line x1="220" y1="250" x2="320" y2="250" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
-        <line x1="580" y1="250" x2="480" y2="250" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
-        <line x1="350" y1="140" x2="350" y2="220" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/> <line x1="520" y1="140" x2="450" y2="220" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/> <line x1="500" y1="360" x2="430" y2="280" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/> <line x1="380" y1="110" x2="280" y2="120" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/> <line x1="420" y1="110" x2="520" y2="120" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/> <line x1="600" y1="140" x2="650" y2="150" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/> <line x1="320" y1="370" x2="480" y2="370" stroke="#666" stroke-width="1" marker-end="url(#arrowhead)"/> <line x1="520" y1="150" x2="300" y2="360" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/> <rect x="180" y="90" width="520" height="90" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="8,4" rx="5"/>
-        <text x="450" y="75" text-anchor="middle" font-size="14" font-weight="bold" fill="#666">Geometric Structure (GR)</text>
-        
-        <rect x="180" y="340" width="440" height="60" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="8,4" rx="5"/>
-        <text x="400" y="430" text-anchor="middle" font-size="14" font-weight="bold" fill="#666">Energy Structure (SR)</text>
-        
         <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
                 <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
             </marker>
+             <marker id="arrowhead-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+            </marker>
         </defs>
+
+        <rect x="325" y="225" width="150" height="50" fill="#f8f9fa" stroke="#343a40" stroke-width="2" rx="5"/>
+        <text x="400" y="255" text-anchor="middle" font-size="16" font-weight="bold">κ² = 2β²</text>
+
+        <text x="150" y="255" text-anchor="middle" font-size="14">v<tspan baseline-shift="sub">e</tspan> = κc</text>
+        <text x="650" y="255" text-anchor="middle" font-size="14">v = βc</text>
+
+        <text x="400" y="80" text-anchor="middle" font-size="16" font-weight="bold">M</text>
+        <text x="250" y="130" text-anchor="middle" font-size="14">R<tspan baseline-shift="sub">s</tspan> = 2GM/c²</text>
+        <text x="550" y="130" text-anchor="middle" font-size="14">r = R<tspan baseline-shift="sub">s</tspan>/κ²</text>
+        <text x="680" y="160" text-anchor="middle" font-size="12">t = r/c</text>
+
+        <text x="550" y="380" text-anchor="middle" font-size="12">ρ<tspan baseline-shift="sub">max</tspan> = c²/(8πGr²)</text>
+        <text x="250" y="380" text-anchor="middle" font-size="12">ρ = κ²·ρ<tspan baseline-shift="sub">max</tspan></text>
+
+        <line x1="380" y1="90" x2="290" y2="120" stroke="#666" stroke-width="1" marker-end="url(#arrowhead-gray)"/>
+        <line x1="300" y1="140" x2="500" y2="140" stroke="#007bff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <line x1="180" y1="240" x2="520" y2="150" stroke="#007bff" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrowhead)"/>
+        <line x1="580" y1="140" x2="650" y2="150" stroke="#666" stroke-width="1" marker-end="url(#arrowhead-gray)"/>
+        <line x1="550" y1="150" x2="550" y2="360" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#arrowhead-gray)"/>
+        <line x1="490" y1="375" x2="310" y2="375" stroke="#666" stroke-width="1" marker-end="url(#arrowhead-gray)"/>
+        <line x1="180" y1="270" x2="250" y2="360" stroke="#007bff" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrowhead)"/>
+
+        <line x1="200" y1="250" x2="320" y2="250" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
+         <line x1="600" y1="250" x2="480" y2="250" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+        <rect x="180" y="60" width="520" height="120" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="8,4" rx="5"/>
+        <text x="440" y="45" text-anchor="middle" font-size="14" font-weight="bold" fill="#666">Geometric Structure (GR)</text>
+
+        <rect x="180" y="340" width="440" height="60" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="8,4" rx="5"/>
+        <text x="400" y="430" text-anchor="middle" font-size="14" font-weight="bold" fill="#666">Energy Structure (SR)</text>
+
     </svg>
 </div>
 
