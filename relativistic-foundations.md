@@ -103,6 +103,21 @@ title: "Relativistic Foundations"
 
 ---
 
+<div style="margin: 40px auto; max-width: 800px; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+  <iframe 
+    width="100%" 
+    height="100%" 
+    src="https://www.youtube.com/embed/Re0h4zF0C4A" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+---
+
 ## What is This Page?
 
 <div class="my-8 text-center max-w-4xl mx-auto">
