@@ -503,14 +503,14 @@ The WILL approach, in contrast, is generative. It begins with a single geometric
 \end{remark}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Methodological Comparison]
-\begin{tabular}{p{0.45\linewidth} | p{0.45\linewidth}}
+\begin{tabular}{|p{0.45\linewidth}  |p{0.45\linewidth}|}\hline
     \textbf{Dirac Equation Approach} & \textbf{WILL Relational Geometry Approach} \\
     \hline
-    \textbf{Starts with} a synthesis of SR and QM postulates. & \textbf{Starts with} a single principle of geometric unity. \\
-    \textbf{Introduces} abstract algebraic objects (spinors, matrices) to construct the wave equation. & \textbf{Derives} geometric quantities ($k'$, $n_{eff}$) from the curvature of phase space. \\
-    \textbf{Solves} a differential equation to find the allowed energy eigenvalues. & \textbf{Solves} for points of stable geometric equilibrium. \\
+    \textbf{Starts with} a synthesis of SR and QM postulates. & \textbf{Starts with} a single principle of geometric unity. \\\hline
+    \textbf{Introduces} abstract algebraic objects (spinors, matrices) to construct the wave equation. & \textbf{Derives} geometric quantities ($k'$, $n_{eff}$) from the curvature of phase space. \\\hline
+    \textbf{Solves} a differential equation to find the allowed energy eigenvalues. & \textbf{Solves} for points of stable geometric equilibrium. \\\hline
     \textbf{Nature:} Descriptive. It successfully models the physical reality. & \textbf{Nature:} Generative. It explains why the reality must have this geometric form.
-\end{tabular}
+\\ \hline\end{tabular}
 \end{tcolorbox}
 
 \begin{corollary}
@@ -527,19 +527,19 @@ The Dirac equation is a successful operator-based representation of the underlyi
 Critical radius& 
 \(\displaystyle R_{s} = \frac{2\,G\,M}{c^{2}}\) 
 & 
-\(\displaystyle R_{e} = \frac{e_{\mathrm{ch}}^{2}}{2\pi\varepsilon_{0}\,m_{e}\,c^{2}}\) \\[1em] \hline
+\(\displaystyle R_q = \frac{e_{\mathrm{ch}}^{2}}{2\pi\varepsilon_{0}\,m_{e}\,c^{2}}\) \\[1em] \hline
 Potential \(\kappa\)& 
 \(\kappa^{2}=\dfrac{R_{s}}{r}=\dfrac{2\,G\,M}{c^{2}\,r}\) 
 & 
-\(\kappa_{q}^{2} = Z_{e}^{2}\,\dfrac{R_{e}}{n^{2}\,r_{b}}\) \\[1em] \hline
+\(\kappa_{q}^{2} = Z_{e}^{2}\,\dfrac{R_q}{n^{2}\,r_{b}}\) \\[1em] \hline
 Orbital radius& 
 \(\displaystyle r = \frac{R_{s}}{\kappa^{2}}\) 
 & 
-\(\displaystyle r_{n} = \frac{Z_{e}\,R_{e}}{\kappa_{q}^{2}} = n^{2}\,\frac{r_{b}}{Z_{e}}\) \\[1em] \hline
+\(\displaystyle r_{n} = \frac{Z_{e}\,R_q}{\kappa_{q}^{2}} = n^{2}\,\frac{r_{b}}{Z_{e}}\) \\[1em] \hline
 Kinetic  \(\beta\)& 
 \(\displaystyle \beta^{2} = \frac{R_{s}}{2\,r} \quad\Longleftrightarrow\quad v = c\,\beta\) 
 & 
-\(\displaystyle \beta_{q}^{2} = Z_{e}^{2}\,\frac{R_{e}}{2\,n^{2}\,r_{b}} \quad\Longleftrightarrow\quad v_{EM} = c\,\beta_{q}\) \\[1em] \hline
+\(\displaystyle \beta_{q}^{2} = Z_{e}^{2}\,\frac{R_q}{2\,n^{2}\,r_{b}} \quad\Longleftrightarrow\quad v_{EM} = c\,\beta_{q}\) \\[1em] \hline
 Orbit Energy& 
 \(\displaystyle E_{\mathrm{GR}} = \frac{m\,c^{2}}{2}\,\beta^{2} = -\,\frac{G\,M\,m}{2\,r}\) 
 & 
@@ -557,11 +557,11 @@ r \;=\; \frac{R_{\bullet}}{\kappa^{2}},
 \quad
 E \;=\; \frac{m\,c^{2}}{2}\,\beta^{2},
 \]
-where \(R_{\bullet}\) is \(R_{s}\) for gravity, \(R_{e}\) for electromagnetism, and \(Q^{2}\) enforces the fundamental projectional balance.  
+where \(R_{\bullet}\) is \(R_{s}\) for gravity, \(R_q\) for electromagnetism, and \(Q^{2}\) enforces the fundamental projectional balance.  
 
 The electromagnetic formulas above are identical in structure if one replaces
 \(
-R_{s}\mapsto R_{e},\;M\mapsto m_{e},\;\kappa^{2}\mapsto \kappa_{q}^{2},\;\beta^{2}\mapsto \beta_{q}^{2}.
+R_{s}\mapsto R_q,\;M\mapsto m_{e},\;\kappa^{2}\mapsto \kappa_{q}^{2},\;\beta^{2}\mapsto \beta_{q}^{2}.
 \)
 Thus the same projection algebra yields both black‐hole orbits and atomic orbits.
 
@@ -575,14 +575,14 @@ r_{\gamma}=\tfrac{3}{2}R_{s},\;r_{\mathrm{ISCO}}=3\,R_{s}.
 \]
 The same equilibrium angle \(\theta\approx54.7356^\circ\) recurs for the gold atom (\(Z_{e}=79,\,n=1\)):
 \[
-\kappa_{q}^{2} \;=\; 79^{2}\,\frac{R_{e}}{r_{b}} \;\approx\;\frac{2}{3},
+\kappa_{q}^{2} \;=\; 79^{2}\,\frac{R_q}{r_{b}} \;\approx\;\frac{2}{3},
 \quad
 \beta_{q}^{2}\;=\;\tfrac{1}{3},
 \]
 which implies
 \[
-r_{\mathrm{Au},\,n=1} = \frac{79\,R_{e}}{\kappa_{q}^{2}} \approx \frac{3}{2}\,R_{e}
-\;\approx\; 1.5\,\times 2\,r_{e}^{\mathrm{classic}},
+r_{\mathrm{Au},\,n=1} = \frac{79\,R_q}{\kappa_{q}^{2}} \approx \frac{3}{2}\,R_q
+\;\approx\; 1.5\,\times 2\,R_q^{\mathrm{classic}},
 \]
 numerically matching the known gold‐atom radius to high precision.  In other words, gold’s ground‐state electron sits at the \emph{“photon‐sphere” radius} of its own electromagnetic projection.  
 
@@ -606,12 +606,12 @@ governs both photon orbits around black holes and the ground‐state radius of A
      R_{\bullet} \;=\; 
        \begin{cases}
           R_{s} = \frac{2GM}{c^{2}} & \text{(gravity)}\\
-          R_{e} = \frac{e_{\mathrm{ch}}^{2}}{2\pi\varepsilon_{0}m_{e}c^{2}} & \text{(atom)}
+          R_q = \frac{e_{\mathrm{ch}}^{2}}{2\pi\varepsilon_{0}m_{e}c^{2}} & \text{(atom)}
        \end{cases}.
   \]
   \item \textbf{Photon Sphere / ISCO as a “Golden” Projection Point.}  The angle \(\theta\approx54.7356^{\circ}\) simultaneously solves \(\kappa^{2}=2/3\) and \(\beta^{2}=1/3\), yielding \(r=1.5\,R_{s}\) (photon sphere) and \(r=3\,R_{s}\) (ISCO).  The \emph{same} equilibrium angle also fixes the hydrogen ground‐state radius when \(Z_{e}=n=1\).
   \item \textbf{Projectional Resonance Across Scales.}  There is no separate “quantum” or “gravitational” geometry—both phenomena arise from the same two‐parameter projection algebra \(\{\kappa,\beta\}\) onto a unit‐circle structure, with \(Q^{2}=\kappa^{2}+\beta^{2}=1\).
-  \item \textbf{Predictive Power Without Free Parameters.}  Once \(R_{s}\) or \(R_{e}\), \(M\) or \(m_{e}\), and an integer \(n\) are specified, the entire orbital spectrum (distance \(\leftrightarrow\) energy) follows algebraically.  No differential equations, no adjustable potentials or Lagrangians, and no asymptotic boundary conditions are needed.
+  \item \textbf{Predictive Power Without Free Parameters.}  Once \(R_{s}\) or \(R_q\), \(M\) or \(m_{e}\), and an integer \(n\) are specified, the entire orbital spectrum (distance \(\leftrightarrow\) energy) follows algebraically.  No differential equations, no adjustable potentials or Lagrangians, and no asymptotic boundary conditions are needed.
 \end{enumerate}
 
 \vspace{1em}
@@ -922,6 +922,134 @@ are all necessary consequences of:
 \end{tcolorbox}
 
 
+\section{Proof of Ontological Collapse: From Discrete WILL Rotations to Quantum Algebra}
+\label{sec:ontological-collapse}
+
+\subsection*{Preliminary Definitions}
+
+Let a relational node be described by the real two-component projection vector
+\[
+\Xi_k \equiv 
+\begin{bmatrix}
+\beta_k \\[2pt]
+\kappa_k
+\end{bmatrix},
+\qquad
+\mathcal{E}_k \equiv K_k + U_k,
+\]
+where $\beta_k$ and $\kappa_k$ represent, respectively, the kinematic and potential components of a single energy resource in WILL relational geometry.  
+Each step $k \to k+1$ denotes one discrete reconciliation within a closed relational system, not a temporal evolution.
+
+\subsection*{Central Hypotheses}
+
+\begin{quote}
+\textbf{H1. (Rotational Reconciliation Hypothesis)}  
+Each discrete reconciliation is represented by a pure orthogonal exchange of energy budgets within the local $(\beta,\kappa)$ plane:
+\[
+\Xi_{k+1} = R(\alpha_k)\,\Xi_k,
+\qquad
+R(\alpha_k)=
+\begin{bmatrix}
+\cos\alpha_k & -\sin\alpha_k \\
+\sin\alpha_k & \ \cos\alpha_k
+\end{bmatrix}.
+\]
+This rule expresses internal energy conservation
+$\beta^2 + \kappa^2 = \text{const}$
+without invoking time as a fundamental variable.
+For small $\alpha_k$, the transformation lies on the unit circle $S^1$;
+for larger $\alpha_k$, it may extend to hyperbolic rotations in the $(\beta,\kappa)$ plane, preserving the quadratic invariant
+$\kappa^2+\beta^2$ or its hyperbolic analogue.
+\end{quote}
+
+\begin{quote}
+\textbf{H2. (Energy–Phase Calibration Hypothesis)}  
+Each local rotation angle is directly proportional to the total energy budget:
+\[
+\boxed{\,\alpha_k = \frac{\mathcal{E}_k}{\eta}\,}.
+\]
+The scaling parameter $\eta$ converts energetic magnitude into phase increment.
+Empirically $\eta=\hbar$, but ontologically it serves only as a unit bridge between the energy domain and the relational phase geometry.
+\end{quote}
+
+\begin{lemma}[Orthogonal Micro-Balance]
+Under (H1), every discrete rotation $R(\alpha_k)$ preserves the quadratic energy norm:
+\[
+\|\Xi_{k+1}\|^2 = \|\Xi_k\|^2,
+\]
+corresponding to local conservation of the total relational energy budget:
+\[
+\Delta K_k + \Delta U_k = 0.
+\]
+Thus, the sequence $\{\Xi_k\}$ forms a closed energy-preserving map on $(\beta,\kappa)$ space, replacing continuous dynamics with algebraic reconciliation.
+\end{lemma}
+
+\begin{proof}
+Since $R(\alpha_k)$ is orthogonal ($R^\top R = \mathbb{I}$),  
+\[
+\|\Xi_{k+1}\|^2 = \Xi_k^\top R(\alpha_k)^\top R(\alpha_k)\,\Xi_k = \|\Xi_k\|^2.
+\]
+Geometrically, an increment of $\beta$ is compensated by an equal decrement of $\kappa$, producing an exact local exchange
+$\Delta K_k = -\Delta U_k$.
+\end{proof}
+
+\begin{theorem}[Stationarity as Quantization without Time]
+If after $N$ discrete reconciliations the node returns to its original configuration,
+\[
+\Xi_{k+N} = \Xi_k,
+\]
+then by (H1) the composition of rotations satisfies
+\[
+R(\alpha)^N = \mathbb{I}.
+\]
+Using (H2), this yields the closure condition
+\[
+\boxed{\,N\,\frac{\mathcal{E}}{\eta} = 2\pi n,\qquad n\in\mathbb{Z}.\,}
+\]
+Hence, the quantized energy levels arise from the geometric requirement of discrete closure rather than from temporal periodicity.
+\end{theorem}
+
+\begin{corollary}[Discrete Spectral Equation as Collapsed Shadow]
+Define the relational bivector field
+\[
+\psi_k \equiv \beta_k + J\,\kappa_k,
+\quad
+J^2 = -1,
+\]
+where $J$ denotes the intrinsic orthogonal exchange operator (not an imaginary quantity, but a symbolic generator of $90^\circ$ rotation).  
+Then (H1) becomes
+\[
+\psi_{k+1} = e^{+J\,\alpha_k}\,\psi_k.
+\]
+For small $\alpha_k \ll 1$,
+\[
+\psi_{k+1} \approx \psi_k + J\,\frac{\mathcal{E}_k}{\eta}\psi_k - \frac{1}{2}\Bigl(\frac{\mathcal{E}_k}{\eta}\Bigr)^2\psi_k.
+\]
+Expanding to second order and summing over neighboring sites along a closed contour of $M$ nodes gives the discrete Laplacian
+\[
+\Delta_{\text{disc}}\psi_j \equiv \psi_{j+1}-2\psi_j+\psi_{j-1}.
+\]
+Identifying the quadratic contribution with kinetic curvature of the phase along the contour,
+\[
+K = \frac{\eta^2}{2m}\sum_j (\Delta\theta_j)^2,
+\]
+the algebraic closure condition takes the spectral form
+\[
+\boxed{
+\Bigl(-\frac{\eta^2}{2m}\,\Delta_{\text{disc}} + V\Bigr)\psi = \mathcal{E}\psi.
+}
+\]
+This equation is mathematically equivalent to the stationary Schrödinger equation but ontologically distinct:
+it encodes discrete relational rotations, not temporal evolution of an isolated point.
+\end{corollary}
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Summary]
+The pair of hypotheses (H1) and (H2) constitute the explicit bridge between the WILL relational geometry and the computational framework of quantum mechanics.  
+The complex wave function $\psi$ is revealed as a collapsed encoding of the real bivector $(\beta,\kappa)$, with the operator $J$ carrying the trace of the lost duality.  
+Quantization emerges from topological closure on the discrete contour, while the Planck constant $\eta$ acts as the calibration between energetic curvature and phase winding.  
+In this view, the Schrödinger equation is not a temporal law but the algebraic shadow of an ontologically closed, two-point relational symmetry.
+\end{tcolorbox}
+
 
 \section{Hypothesis: Energy Symmetry as the Origin of Decoherence}
 
@@ -1009,4 +1137,4 @@ By a rigorous application of the principles of WILL Relational Geometry, we have
 
 The framework requires no classical force analogues, no probabilistic axioms, and no external postulates. Atomic structure is shown to be a direct manifestation of the geometry of energy itself.
 
-\end{document}
+\end{document} 
