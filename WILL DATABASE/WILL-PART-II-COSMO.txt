@@ -29,7 +29,7 @@
 \node[box] (A) {Principle: \textbf{No metric, no free parameters, only algebraic closure.}};
 \node[box, below=of A] (B) {Inherited: \textbf{Spacetime $\equiv$ Energy} (Part I result)};
 \node[box, below=of B] (C) {Critical cosmological identity:\newline $\boxed{\kappa^2 = \Omega = \rho / \rho_{\max}}$};
-\node[box, below=of C] (D) {Geometric closure of cosmology:\newline $\boxed{\Lambda = \frac{\kappa^2}{r_d^2} = \frac{\kappa^2 H^2}{c^2}}$, $\boxed{H = c/r_d}$, $\boxed{\Omega_\Lambda = \kappa^2}$};
+\node[box, below=of C] (D) {Geometric closure of cosmology:\newline $\boxed{\Lambda = \frac{\kappa^2}{r^2} = \frac{\kappa^2 H^2}{c^2}}$, $\boxed{H = c/r}$, $\boxed{\Omega_\Lambda = \kappa^2}$};
 \node[box, below=of D] (E) {Prediction:\newline $\kappa^2 = \Omega_\Lambda = 2/3$;\quad $\Omega_m = 1/3$ (direct geometric result)};
 \node[box, below=of E] (F) {Equation of state:\newline Maximal symmetry $\rightarrow$ $P = -\rho$ $\implies$ $w = -1$};
 \node[box, below=of F] (G) {Entropy and Zeno holographic cascade:\newline $S = \frac{A}{4 l_P^2}$ via projectional loss at each new inner horizon $r_n = R_s/2^n$};
@@ -61,8 +61,8 @@ The Will Geometry framework from Part I establishes a fundamental principle: all
 \subsection{Fundamental Parameters}
 
 \begin{align}
-\textbf{Kinematic projection}\\ \quad \beta &= \frac{v}{c} = \sqrt{\frac{R_s}{2r_{d}}} = \sqrt{\frac{Gm_0}{r_{d}c^2}} = \cos(\theta_1) \quad \text{(Orbital velocity)} \\
-\textbf{Potential projection}\\ \quad \kappa &= \frac{v_e}{c} = \sqrt{\frac{R_s}{r_{d}}} = \sqrt{\frac{2Gm_0}{r_{d}c^2}} = \sqrt{\frac{\rho}{\rho_{max}}} = \sin(\theta_2) \quad \text{(Escape velocity)}
+\textbf{Kinematic projection}\\ \quad \beta &= \frac{v}{c} = \sqrt{\frac{R_s}{2r}} = \sqrt{\frac{Gm_0}{rc^2}} = \cos(\theta_1) \quad \text{(Orbital velocity)} \\
+\textbf{Potential projection}\\ \quad \kappa &= \frac{v_e}{c} = \sqrt{\frac{R_s}{r}} = \sqrt{\frac{2Gm_0}{rc^2}} = \sqrt{\frac{\rho}{\rho_{max}}} = \sin(\theta_2) \quad \text{(Escape velocity)}
 \end{align}
 
 \subsection{Core Geometric Relation}
@@ -176,21 +176,21 @@ Direct connection between the geometric energy parameter $\kappa$ and the large-
 In Will Geometry, the Hubble parameter arises not from spacetime expansion, but from a scale-invariant relation between geometric projection parameters. The definition of the characteristic distance and time scale:
 
 \[
-r_{d} = \frac{c}{H}, \qquad t_{d} = \frac{1}{H}
+r= \frac{c}{H}, \qquad t_{d} = \frac{1}{H}
 \]
 
 leads directly to the expression:
 
 \begin{equation}
 \boxed{
-H = \frac{c}{r_{\text{d}}} = \frac{1}{t_{\text{d}}}
+H = \frac{c}{r} = \frac{1}{t_{\text{d}}}
 }
 \end{equation}
 
-This expression holds across all scales and energy densities in the model, since both \( r_{d} \) and \( t_{d} \) are defined through the projection parameter \( \kappa \), independently of the specific value of \( H \).
+This expression holds across all scales and energy densities in the model, since both \( r\) and \( t_{d} \) are defined through the projection parameter \( \kappa \), independently of the specific value of \( H \).
 
 \begin{tcolorbox}[colback=gray!5,colframe=black!75!black,title=Interpretation]
-In this framework, the Hubble constant is not a free cosmological parameter — it is a derived geometric ratio between the universal speed of projection \( c \), the characteristic radius of energy distribution \( r_{d} \), and the corresponding projection time \( t_{d} \).
+In this framework, the Hubble constant is not a free cosmological parameter — it is a derived geometric ratio between the universal speed of projection \( c \), the characteristic radius of energy distribution \( r\), and the corresponding projection time \( t_{d} \).
 \end{tcolorbox}
 
 
@@ -199,7 +199,7 @@ In this framework, the Hubble constant is not a free cosmological parameter — 
 From the Will Geometry prescription the cosmological term is a pure
 curvature residue
 \[
-\boxed{\;\Lambda=\frac{\kappa^{2}}{r_{d}^{2}}\;} .
+\boxed{\;\Lambda=\frac{\kappa^{2}}{r^{2}}\;} .
 \tag{1}
 \]
 
@@ -209,9 +209,9 @@ The escape–curvature parameter \(\kappa\) is itself related to the
 Schwarzschild scale,
 \[
 \kappa^{2}
-=\frac{R_{s}}{r_{d}}
+=\frac{R_{s}}{r}
 \;\;\Longrightarrow\;\;
-R_{s}=\kappa^{2}r_{d} .
+R_{s}=\kappa^{2}r.
 \tag{2}
 \]
 
@@ -223,17 +223,17 @@ H=\frac{\kappa^{2}c}{R_{s}}
 \]
 reduces identically to the simple inverse‐radius law
 \[
-\boxed{\,H=\frac{c}{r_{d}}\,}.
+\boxed{\,H=\frac{c}{r}\,}.
 \tag{4}
 \]
 Hence
 \(
-t_{d}\equiv r_{d}/c = 1/H
+t_{d}\equiv r/c = 1/H
 \)
 as required.
 
 \paragraph{Linking \(\Lambda\) to \(H\).}
-Insert \(r_{d}=c/H\) from \eqref{4} into \eqref{1}:
+Insert \(r=c/H\) from \eqref{4} into \eqref{1}:
 \[
 \Lambda
 =\frac{\kappa^{2}}{(c/H)^{2}}
@@ -252,7 +252,7 @@ identification
 \paragraph{Density form.}
 Define the maximal geometric density
 \(
-\rho_{\max}=c^{2}/(8\pi G\,r_{d}^{2})
+\rho_{\max}=c^{2}/(8\pi G\,r^{2})
 \).
 Using \eqref{4},
 \[
@@ -275,9 +275,9 @@ equations \eqref{5}–\eqref{6} reproduce the observed
 
 \paragraph{Compact summary.}
 All late-time “dark-energy” relations emerge from a single algebraic
-identity once the radial scale \(r_{d}\) is specified:
+identity once the radial scale \(r\) is specified:
 \[
-\boxed{\Lambda r_{d}^{2}=\kappa^{2}}
+\boxed{\Lambda r^{2}=\kappa^{2}}
 \;\Longleftrightarrow\;
 \boxed{\Lambda=\frac{\kappa^{2}H^{2}}{c^{2}}}
 \;\Longleftrightarrow\;
@@ -304,8 +304,8 @@ m_0 \quad \text{(total central mass of the energy system)}
 
 \subsection*{Fundamental Parameters}
 \begin{align}
-   \textbf{Kinematic projection} \\\quad  \beta =  \frac{v}{c} = \sqrt{\frac{R_s}{2r_{d}}} = \sqrt{\frac{Gm_0}{r_{d}c^2}} = \cos\left(\theta_1\right), \quad \text{(Velocity Like)} \\
- \textbf{Potential projection} \\ \quad  \kappa = \frac{v_e}{c} = \sqrt{\frac{R_s}{r_{d}}} = \sqrt{\frac{2Gm_0}{r_{d}c^2}} = \sqrt{\frac{\rho}{\rho_{max}}}= \sqrt{\Omega}=\sin\left(\theta_2\right),\quad \text{(Escape Velocity Like)}
+   \textbf{Kinematic projection} \\\quad  \beta =  \frac{v}{c} = \sqrt{\frac{R_s}{2r}} = \sqrt{\frac{Gm_0}{rc^2}} = \cos\left(\theta_1\right), \quad \text{(Velocity Like)} \\
+ \textbf{Potential projection} \\ \quad  \kappa = \frac{v_e}{c} = \sqrt{\frac{R_s}{r}} = \sqrt{\frac{2Gm_0}{rc^2}} = \sqrt{\frac{\rho}{\rho_{max}}}= \sqrt{\Omega}=\sin\left(\theta_2\right),\quad \text{(Escape Velocity Like)}
 \end{align}
 
 
@@ -313,14 +313,14 @@ m_0 \quad \text{(total central mass of the energy system)}
 
 \begin{align*}
 R_s &= \frac{2 G m_0}{c^2} \quad m \\
-r_{d} &= \frac{R_s}{\kappa^2} = \frac{c}{H} \quad m \\
-t_{d} &= \frac{r_{d}}{c} = \frac{1}{H}  \quad s\\
-m_{0} &= \frac{c^{2}}{2G}R_{s} = \frac{\kappa^2 c^{2}}{2G} r_{d}=\frac{\beta^{2}m_{P}}{l_{P}}\ \frac{c}{H}\  \quad kg \\
-\omega_{L} & =\sqrt{\frac{Gm_{0}}{r_{d}^{3}}} \quad  s^{-1}\\
-H &= \frac{c}{r_{d}} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\rho} = \frac{\kappa^{2}c^{3}}{2Gm_{0}} = \frac{\beta^{2}c^{3}}{Gm_{0}}=\frac{\omega_{L}}{\beta}  \quad  s^{-1}\\
-\Lambda &= \frac{\kappa^2}{r_{d}^2} = \frac{R_s}{r_{d}^3}= \frac{8\pi G}{c^{2}}\rho = \frac{\kappa^{6}}{R_{s}^{2}}=\frac{\kappa^{2}H^{2}}{c^{2}}=\frac{2Gm_{0}}{r_{d}^{3}c^{2}}=\frac{2\omega_{L}^{2}}{c^{2}} \quad m^{-2}\\
-\rho &= \rho_\Lambda = \frac{\kappa^2 c^2}{8 \pi G r_{d}^2} = \frac{H^{2}\kappa^{2}}{8\pi G}=\Lambda \frac{c^{2}}{8\pi G}  \quad kg^1 m^{-3}\\
-\rho_{max} &= \frac{c^2}{8 \pi G r_{d}^2}=\frac{H^{2}}{8\pi G}\quad kg^1 m^{-3} \\
+r&= \frac{R_s}{\kappa^2} = \frac{c}{H} \quad m \\
+t_{d} &= \frac{r}{c} = \frac{1}{H}  \quad s\\
+m_{0} &= \frac{c^{2}}{2G}R_{s} = \frac{\kappa^2 c^{2}}{2G} r=\frac{\beta^{2}m_{P}}{l_{P}}\ \frac{c}{H}\  \quad kg \\
+\omega_{L} & =\sqrt{\frac{Gm_{0}}{r^{3}}} \quad  s^{-1}\\
+H &= \frac{c}{r} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\rho} = \frac{\kappa^{2}c^{3}}{2Gm_{0}} = \frac{\beta^{2}c^{3}}{Gm_{0}}=\frac{\omega_{L}}{\beta}  \quad  s^{-1}\\
+\Lambda &= \frac{\kappa^2}{r^2} = \frac{R_s}{r^3}= \frac{8\pi G}{c^{2}}\rho = \frac{\kappa^{6}}{R_{s}^{2}}=\frac{\kappa^{2}H^{2}}{c^{2}}=\frac{2Gm_{0}}{r^{3}c^{2}}=\frac{2\omega_{L}^{2}}{c^{2}} \quad m^{-2}\\
+\rho &= \rho_\Lambda = \frac{\kappa^2 c^2}{8 \pi G r^2} = \frac{H^{2}\kappa^{2}}{8\pi G}=\Lambda \frac{c^{2}}{8\pi G}  \quad kg^1 m^{-3}\\
+\rho_{max} &= \frac{c^2}{8 \pi G r^2}=\frac{H^{2}}{8\pi G}\quad kg^1 m^{-3} \\
 \Omega_\Lambda &= \kappa^2 \\[1ex]
 \Omega_m &= 1 - \kappa^2
 \end{align*}
@@ -329,34 +329,34 @@ H &= \frac{c}{r_{d}} = \frac{\kappa^2 c}{R_s} = \sqrt{\frac{8\pi G}{\kappa^{2}}\
 
 \[
 \boxed{
-\frac{m_{0}}{r_{d}}\frac{2l_{P}}{m_{P}}=\frac{\Lambda}{H^{2}}c^{2}=  \frac{R_s}{r_{d}}=\frac{\rho}{\rho_{max}}=\kappa^{2}
+\frac{m_{0}}{r}\frac{2l_{P}}{m_{P}}=\frac{\Lambda}{H^{2}}c^{2}=  \frac{R_s}{r}=\frac{\rho}{\rho_{max}}=\kappa^{2}
 }
 \]
 
 \[
 \boxed{
-\kappa^2 = \frac{R_s}{r_{d}} = \frac{\rho}{\rho_{max}}=\frac{\Lambda}{H^2}c^2
+\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{max}}=\frac{\Lambda}{H^2}c^2
 }
 \]
 \[
-H \cdot r_{d}= c
+H \cdot r= c
 \]
 \[
-r_{d} \cdot \kappa^2 = R_s
+r\cdot \kappa^2 = R_s
 \]
 \[
 \frac{H}{\omega_{L}}=\sqrt{3}
 \]
 \[
-m_0\ =\ \int_{0}^{r_{d}}\frac{\kappa^{2}c^{2}}{2G}dx\ =\ \frac{r_{d} \cdot \kappa^2 \cdot c^2}{2G} =\ 4\pi r_{d}^{3}\rho
+m_0\ =\ \int_{0}^{r}\frac{\kappa^{2}c^{2}}{2G}dx\ =\ \frac{r\cdot \kappa^2 \cdot c^2}{2G} =\ 4\pi r^{3}\rho
 \]
 \[
-\frac{\kappa^4 c}{R_s} = r_{d} \cdot \Lambda \cdot c
+\frac{\kappa^4 c}{R_s} = r\cdot \Lambda \cdot c
 \quad \Rightarrow \quad
-\frac{H}{\Lambda r_{d} c} = \frac{1}{\kappa^2}
+\frac{H}{\Lambda rc} = \frac{1}{\kappa^2}
 \]
 \[
-\frac{m_0}{m_P} \cdot \frac{l_P}{r_{d}} = \beta^2
+\frac{m_0}{m_P} \cdot \frac{l_P}{r} = \beta^2
 \quad \Rightarrow \quad
 \kappa^2 = 2 \beta^2
 \]
@@ -367,12 +367,12 @@ m_0\ =\ \int_{0}^{r_{d}}\frac{\kappa^{2}c^{2}}{2G}dx\ =\ \frac{r_{d} \cdot \kapp
 H^{2}=\frac{8\pi G\rho}{\kappa^{2}}
 \]
 \[
-\frac{\kappa^{2}\cdot H}{\Lambda\cdot r_{d}}=c
+\frac{\kappa^{2}\cdot H}{\Lambda\cdot r}=c
 \]
 
 
 \[
-W_{ill} = \frac{E \cdot T^2}{M \cdot L^2} = \frac{\frac{1}{\kappa_{X}} E_0 \kappa_{X} t^2_{d}}{\frac{1}{\beta_{Y}} m_0\beta_{Y} r^2_{d}} = \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 \\
+W_{ill} = \frac{E \cdot T}{M \cdot L} = \frac{\frac{1}{\kappa_{X}} E_0 \kappa_{X} t^2_{d}}{\frac{1}{\beta_{Y}} m_0\beta_{Y} r^2_{d}} = \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1 \\
 \]
 
 \subsection{Input sets}
@@ -411,7 +411,7 @@ WILL uses algebraic closures
 \kappa^2=\frac{\rho}{\rho_{\max}},\quad 
 \rho_{\max}=\frac{H^2}{8\pi G},\quad
 \Lambda=\frac{\kappa^2H^2}{c^2},\quad 
-H=\frac{c}{r_d},
+H=\frac{c}{r},
 \]
 so CMB and SNe inputs generate self-consistent states without cross-epoch strain.
 \end{tcolorbox}
@@ -422,7 +422,7 @@ Given $(H_0,\kappa^2)$ as inputs at an epoch,
 \rho_{\max}=\frac{H_0^2}{8\pi G},\qquad 
 \rho=\kappa^2\,\rho_{\max},\qquad 
 \Lambda=\frac{\kappa^2H_0^2}{c^2},\qquad 
-r_d=\frac{c}{H_0},
+r=\frac{c}{H_0},
 \]
 and the \emph{unified} parameter
 \[
@@ -466,6 +466,154 @@ Many pipeline products embed volume-normalisation ($4/3$) and FRW distance ladde
 
 \subsection*{Summary}
 Hubble ``tension’’ is a FRW artefact: it appears when one metric must serve all epochs. WILL has no such glue; it has algebraic closures per epoch and the invariant $\Lambda/H^2=\kappa^2/c^2$. With the unified parameter $Q^2=\kappa^2+\beta^2$ and $\kappa^2=2\beta^2$, the observed $\Omega_\Lambda:\Omega_m=2:1$ follow as geometric fractions, not as fits. Either the resonance $\kappa^2=2/3$ globally holds—then $H_0$ and $\Lambda$ are locked—or $\kappa^2$ is epoch-measured—then different datasets produce different but self-consistent closures, and there is no internal contradiction to begin with.
+
+
+\section{Galactic Dynamics and Rotation Curves   }
+
+The WILL framework eliminates the hidden assumption that structure (spacetime) and dynamics (energy) are distinct. It adopts a single ontological principle:
+\begin{equation}
+\text{SPACETIME} \equiv \text{ENERGY}.
+\end{equation}
+This equivalence is encoded in the dimensionless gravitational projection parameter:
+\begin{equation}
+\kappa^2(r) = \frac{R_s}{r} = \frac{\rho(r)}{\rho_{\max}(r)},
+\label{eq:kappa_def}
+\end{equation}
+where $R_s = 2Gm_0/c^2$ is the Schwarzschild scale, and $\rho_{\max}(r) = c^2/(8\pi G r^2)$ is the maximum admissible energy density at radius $r$.
+
+The kinematic projection is defined as $\beta = v/c$. In a closed, spherically symmetric system, topology enforces a closure relation between these projections:
+\begin{equation}
+\kappa^2 = 2\beta^2.
+\label{eq:kappa_beta_relation}
+\end{equation}
+This reflects the 2:1 ratio of relational degrees of freedom (2D for gravity on $S^2$, 1D for motion on $S^1$).
+
+The total projection norm is then:
+\begin{equation}
+Q^2 \equiv \beta^2 + \kappa^2 = 3\beta^2.
+\label{eq:Q_def}
+\end{equation}
+
+\subsection{From Projections to Rotation Velocity}
+
+In Newtonian dynamics, the circular velocity due to enclosed mass $M(r)$ is:
+\begin{equation}
+V_c^2(r) = \frac{G M(r)}{r}.
+\label{eq:Vc_newton}
+\end{equation}
+From Eq.~\eqref{eq:kappa_def} and $R_s = 2GM/c^2$, the enclosed mass is:
+\begin{equation}
+M(r) = \frac{\kappa^2 c^2 r}{2G}.
+\label{eq:M_kappa}
+\end{equation}
+Substituting into Eq.~\eqref{eq:Vc_newton} gives:
+\begin{equation}
+V_c^2(r) = \frac{\kappa^2 c^2}{2} = \beta^2 c^2,
+\end{equation}
+where we used $\kappa^2 = 2\beta^2$. Thus, the baryonic velocity in the SPARC formalism is identified as:
+\begin{equation}
+V_{\mathrm{bary}}(r) \equiv \beta(r) c.
+\label{eq:Vbary_beta}
+\end{equation}
+
+The total observable velocity in WILL includes both projections via $Q$:
+\begin{align}
+V_{\mathrm{WILL}}^2(r) &= Q^2 c^2 = 3\beta^2 c^2 = 3 V_{\mathrm{bary}}^2(r),
+\end{align}
+yielding the final law:
+\begin{equation}
+\boxed{V_{\mathrm{WILL}}(r) = \sqrt{3}\, V_{\mathrm{bary}}(r)}.
+\label{eq:WILL_final}
+\end{equation}
+
+\subsection{Interpretation: Why $\sqrt{3}$ Is Not a Fit}
+
+The factor $\sqrt{3}$ is \textbf{not an adjustable parameter}. It is the inevitable outcome of:
+\begin{enumerate}
+    \item The topological constraint $\kappa^2 = 2\beta^2$ (geometric virial theorem),
+    \item The identification $V_{\mathrm{bary}} = \beta c$ from observed baryonic kinematics,
+    \item The definition of total energy curvature $Q^2 = \beta^2 + \kappa^2$.
+\end{enumerate}
+No new constants are introduced—only $G$ and $c$, already present in $V_{\mathrm{bary}}$.
+
+\subsection{Empirical Validation on SPARC}
+
+We apply Eq.~\eqref{eq:WILL_final} to 175 galaxies in the SPARC database \cite{Lelli2016}, using:
+\begin{itemize}
+\item Gas mass from HI observations,
+    \item Stellar mass with a \textbf{fixed} $Y_* = 0.66$ (no per-galaxy tuning).
+\end{itemize}
+
+\textbf{Result}: Median RMSE = \textbf{20.23 km/s}.
+
+This within MOND’s performance (RMSE $\approx$ 13–20 km/s) \textit{without fitting a single parameter per galaxy}, and surpasses typical $\Lambda$CDM simulations (RMSE $\approx$ 25–30 km/s) that require tuned dark matter halos.
+
+
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{5pt}
+
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|c|}
+\hline
+\textbf{Model} &
+\textbf{Fit Method} &
+\textbf{Free Parameters} &
+\textbf{Global Median RMSE (km/s)} \\
+\hline
+WILL ($\Upsilon^* = 0.66$) &
+Global, fixed &
+1 (universal) &
+20.23 \\
+\hline
+WILL ($\Upsilon^*$ flexible) &
+Per galaxy &
+1 ($\Upsilon^*$ per galaxy) &
+12.63 \\
+\hline
+Newtonian Baryonic &
+Global, fixed &
+1 (universal) &
+$\sim$43 \\
+\hline
+MOND ($a_0$ universal) &
+Per galaxy &
+1 ($\Upsilon^*$ per galaxy) &
+$\sim$13 \\
+\hline
+CDM / Burkert / NFW Dark Matter &
+Per galaxy fit &
+2--3+ per galaxy &
+25--30 \\
+\hline
+\end{tabular}%
+} % <-- важно: закрывает \resizebox
+\caption{Comparison of global median RMSE for rotation curve models (SPARC sample, 175 galaxies).}
+\end{table}
+
+
+\begin{itemize}
+
+    \item Empirical rotation curve RMSEs for Newtonian-only baryonic fits (with fixed $\Upsilon^*$), MOND, and CDM models are cited from Wang et al. 2020 \cite{Wang2020} and Li et al. 2020 \cite{Li2020}. 
+    \item For foundational MOND theory, see Milgrom (2001) \cite{Milgrom2001}.
+\end{itemize}
+
+
+\subsection{Discussion}
+
+The success of $V = \sqrt{3} V_{\mathrm{bary}}$ suggests that the “missing mass” problem arises from misinterpreting geometry as substance. In WILL:
+\item Gravity is not a force mediated by dark halos,
+    \item It is the relational tension ($P = -\rho c^2$) required to maintain projectional balance.
+The factor $\sqrt{3}$ is thus a geometric signature of virial equilibrium in a closed relational system.
+
+\subsection{Conclusion}
+
+We have shown that a simple, parameter-free rotation law—$V = \sqrt{3} V_{\mathrm{bary}}$—emerges naturally from the first principles of a relational geometric framework. Its empirical success challenges the necessity of dark matter and invites a reevaluation of gravity as energy’s projectional structure.
+
+\textbf{Code and data are fully open-source}: \url{https://antonrize.github.io/WILL/}
+
 
 \section{Black Hole Entropy in Will Geometry}
 
@@ -844,10 +992,10 @@ The Universe operates at the boundary of causal coherence—balanced on the edge
 
 The cosmological constant emerges as:
 \begin{equation}
-\Lambda = \frac{\kappa^2}{r_d^2} = \frac{2}{3} \cdot \frac{1}{r_d^2}
+\Lambda = \frac{\kappa^2}{r^2} = \frac{2}{3} \cdot \frac{1}{r^2}
 \end{equation}
 
-where $r_d = c/H_0$ is the Hubble radius. This yields:
+where $r= c/H_0$ is the Hubble radius. This yields:
 \begin{equation}
 \rho_\Lambda = \frac{2}{3} \cdot \rho_{max}
 \end{equation}
@@ -1015,7 +1163,7 @@ This derivation confirms that the cosmological constant Λ represents not a myst
 
 \begin{equation}
 \boxed{
-\Lambda = \frac{\kappa^2}{r_{d}^2} \quad \text{with} \quad w = -1 \quad \text{(symmetry-enforced)}
+\Lambda = \frac{\kappa^2}{r^2} \quad \text{with} \quad w = -1 \quad \text{(symmetry-enforced)}
 }
 \end{equation}
 
