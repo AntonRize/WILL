@@ -23,10 +23,10 @@ If you use this work, please cite via DOI: [10.5281/zenodo.17115270](https://doi
 
 ## About The Project
 
-WILL Relational Geometry is a physics framework deriving spacetime, energy, and mass from a single principle. It reproduces core predictions of GR and QM, provides parameter-free fits to galactic rotation curves, and yields a one-input cosmology. All derivations and datasets are fully transparent and reproducible via interactive tools and open scripts.
+WILL Relational Geometry deriving spacetime, energy, and mass from a single principle. It reproduces core predictions of GR and QM, provides parameter-free fits to galactic rotation curves, and yields a one-input cosmology. All derivations and datasets are fully transparent and reproducible via interactive tools and open scripts.
 This theoretical model builds on principles of relationalism, epistemic hygiene and makes no ontological commitments. 
 
-## Nothing is assumed. Everything is derived.
+### Nothing is assumed. Everything is derived.
 
 All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities. This research, conducted by Anton Rize presents a derivation of a more general and parsimonious alternative to General Relativity, Cosmology, and Quantum Mechanics.
 
@@ -77,7 +77,7 @@ from this single, foundational principle as  inevitable consequences without fre
 <details>
     <summary>4. Prediction of Critical Orbits from Geometric Equilibrium.</summary>
     <div class="details-content">
-        <p><strong>Result:</strong> Critical radii emerge from simple symmetry's (Photon sphere: \(\theta_1=\theta_2\), ISCO: \(Q = Q_t\)).</p>
+        <p><strong>Result:</strong> Critical radii emerge from simple symmetry's (Photon sphere: $\theta_1=\theta_2$, ISCO: $Q = Q_t$).</p>
     </div>
 </details>
 
@@ -91,7 +91,7 @@ from this single, foundational principle as  inevitable consequences without fre
 <details>
     <summary>6. High-Precision Empirical Confirmation.</summary>
     <div class="details-content">
-        <p><strong>Result:</strong> The model has been tested against real-world data. It accurately predicts the relativistic corrections for GPS satellites (matching the observed 38.52 \(\mu\)s/day time shift) and the precession of Mercury's orbit (discrepancy with GR is a mere $2.19 \times 10^{-10}\%$).</p>
+        <p><strong>Result:</strong> The model has been tested against real-world data. It accurately predicts the relativistic corrections for GPS satellites (matching the observed 38.52 $\mu$ s/day time shift) and the precession of Mercury's orbit (discrepancy with GR is a mere $2.19 \times 10^{-10}\%$).</p>
     </div>
 </details>
 
