@@ -60,7 +60,7 @@ This paper, the third in the WILL series, applies the principles of Relational G
 
 \section{Geometric Origin of the de Broglie Relation }
 
-We begin with derivation of the de Broglie Relation witch build on the results of WILL Part I
+We begin with derivation of the de Broglie Relation which build on the results of WILL Part I
 
 \begin{theorem}[Geometric Origin of the de Broglie Relation]
 On the $S^1$ kinematic manifold of WILL RG, let the horizontal (Amplitude) and vertical (Phase) projections be $(\beta,\beta_Y)$ with
@@ -229,32 +229,10 @@ Since \( a_0 = \frac{4\pi \varepsilon_0 \hbar^2}{m_e e^2} \), we have:
 This is the standard expression for the energy levels in the hydrogen atom.
 
 \begin{equation}
-    E_n = -\frac{m_e e^4}{8 (2 \pi\varepsilon_0)^2 n^2 \hbar^2}=13.6056931396.
+    E_n = -\frac{m_e e^4}{8 (2 \pi\varepsilon_0)^2 n^2 \hbar^2}=13.6056931396 \, eV \quad (CODATA; \text{match table}) .
 \end{equation}
 
 
-
-\subsection{Numerical conformation}
-
-\subsection{Physical Foundations}
-\subsection{Fundamental Constants}
-\begin{table}[h]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\ \hline
-Speed of light & $c$ & $2.99792458 \times 10^8$ m/s \\ \hline
-Planck’s constant & $h$ & $6.62607015 \times 10^{-34}$ J·s \\ \hline
-Reduced Planck’s constant & $\hbar = \frac{h}{2\pi}$ & $1.054571817 \times 10^{-34}$ J·s \\ \hline
-Electron mass & $m_e$ & $9.10938356 \times 10^{-31}$ kg \\ \hline
-Elementary charge & $e$ & $1.602176634 \times 10^{-19}$ C \\ \hline
-Vacuum permittivity & $\varepsilon_0$ & $8.854187817 \times 10^{-12}$ F/m \\ \hline
-Rydberg constant & $R_H$ & $1.097373 \times 10^7$ m$^{-1}$ \\ \hline
-Bohr radius & $a_0$ & $5.291772109 \times 10^{-11}$ m \\ \hline
-Ionization energy of hydrogen & $E_1$ & $13.605693$ eV \\ \hline
-\end{tabular}
-\caption{Fundamental physical constants used in this study.}
-\end{table}
 
 \section{Spectral Lines and Rydberg Formula}
 The emitted photon's energy is:
@@ -519,7 +497,7 @@ Thus $\alpha$ ceases to be a 'number about electromagnetism' and becomes a geome
 \end{tcolorbox}
 
 
-\section{The Unified Quantum Number and Total Energy}
+\subsection{The Unified Quantum Number and Total Energy}
 
 A stable state is defined by its complete set of winding numbers. The energy is determined by a unified quantum number that combines the radial and angular components within the curved geometry.
 
@@ -541,7 +519,7 @@ where $k=j+1/2$.
 The formula's structure, $E = E_0 / \sqrt{1+X^2}$, is the required form for a total relativistic energy in a bound system. It is the bound-state analogue of the free-particle relation $E = \sqrt{p^2c^2 + m_0^2c^4}$. Here, the "effective momentum" term is identified as $X = (Z\alpha)/n_{eff}$. This form is not postulated, but is the necessary structure for a consistent relativistic energy. The formula is constructed by inserting the geometrically derived $n_{eff}$ into this fundamental structure.
 \end{proof}
 
-\section{Comparison with the Dirac Equation Approach}
+\subsection{Comparison with the Dirac Equation Approach}
 
 The formula we have derived is numerically identical to the well-known Sommerfeld fine-structure formula, which gives the exact energy levels of the stationary states of the Dirac equation. It is therefore crucial to clarify the profound difference in methodology and ontology.
 
@@ -566,8 +544,150 @@ The WILL approach, in contrast, is generative. It begins with a single geometric
 The Dirac equation is a successful operator-based representation of the underlying relativistic geometry of a quantum state. Our derivation does not replace it, but rather provides its ontological foundation.
 \end{corollary}
 
+\section{The Schrödinger Equation as the Result of Ontological Collapse}
+\label{sec:schrodinger-ontological-collapse}
 
-\subsection{Unified Energy–Geometry Model: Gravity versus Electromagnetism}
+\textit{The Schrödinger equation arises as the algebraic shadow of the second ontological collapse—the fusion of two amplitude–phase manifolds $(\beta,\kappa)$ into a single complex energetic amplitude $\psi$.}
+
+\subsection*{I. Pre–Collapse Structure}
+
+Before collapse, the system is described by two real projections of one conserved energetic resource:
+\[
+E_0 \;\Rightarrow\; (\beta,\kappa),
+\qquad
+\text{with invariant} \quad
+\boxed{\;\kappa^2 = 2\,\beta^2\;}
+\]
+Here $\beta$ denotes the kinematic projection (electromagnetic channel) and $\kappa$ the potential projection (gravitational channel).
+Each belongs to its own relational circle:
+\[
+(\beta_X,\beta_Y)\in S^1,\qquad
+(\kappa_X,\kappa_Y)\in S^1,
+\]
+parameterized as
+\[
+\beta=\beta_X=\cos\theta_1,\qquad
+\kappa=\kappa_Y=\sin\theta_2,
+\]
+linked by the geometric coupling
+\[
+\boxed{\sin^2\theta_2 = 2\cos^2\theta_1}
+\quad\Leftrightarrow\quad
+\boxed{\kappa^2 = 2\beta^2}.
+\]
+
+\begin{lemma}[Dual–Projection Closure]
+A closed relational configuration maintains constant energetic balance between both circles:
+\[
+\delta(\kappa^2 - 2\beta^2) = 0.
+\]
+\end{lemma}
+
+\begin{proof}
+Differentiation gives $2\kappa\,\delta\kappa - 4\beta\,\delta\beta = 0$, 
+expressing compensatory exchange between potential and kinematic projections.
+\end{proof}
+
+\subsection*{II. The Second Ontological Collapse}
+
+\begin{definition}[Collapse of Dual Projections]
+The \textbf{second ontological collapse} identifies the two projection circles under a single complex representation:
+\[
+(\beta,\kappa) \;\longrightarrow\; 
+\psi \;\equiv\; \beta + J\,\kappa,
+\qquad J^2 = -1.
+\]
+The operator $J$ is the generator of orthogonal rotation between the energetic projections.
+\end{definition}
+
+This identification fuses the potential and kinematic amplitudes into one entity, 
+so that their relational rotation becomes a phase factor of $\psi$.
+What was originally a two–point exchange now manifests as a single complex oscillation.
+
+\begin{lemma}[Relational Rotation Rule]
+A minimal closed exchange of energy between $(\beta,\kappa)$
+is represented by a rotation of phase $\alpha$:
+\[
+\psi' = e^{J\alpha}\psi,
+\qquad
+\alpha = \frac{\Delta S}{\hbar},
+\]
+where $\Delta S$ is the incremental action associated with the exchange.
+\end{lemma}
+
+\begin{proof}
+The transformation preserves $|\psi|^2=\beta^2+\kappa^2$;
+the invariant $\kappa^2=2\beta^2$ constrains the rotation ratio.
+The exponential expresses the algebraic form of this relational rotation.
+\end{proof}
+
+\subsection*{III. Discrete Closure and the Spectral Equation}
+
+\begin{theorem}[Quantization from Discrete Closure]
+If after $N$ discrete rotations the system returns to its initial configuration,
+\[
+\psi_{N} = \psi_0,
+\]
+then the accumulated phase satisfies
+\[
+N\,\alpha = 2\pi n,\qquad n\in\mathbb{Z}.
+\]
+With $\alpha=\Delta S/\hbar$, discrete closure enforces quantized action and energy levels.
+\end{theorem}
+
+\begin{proof}
+Closure requires the total rotation to equal an integer multiple of a full circle:
+$N\Delta S = 2\pi n\hbar$.
+The energy eigenvalues follow directly from $\mathcal{E}_n=\frac{\partial S_n}{\partial t}$.
+\end{proof}
+
+\begin{corollary}[Spectral Equation]
+Expanding the discrete rotation to second order in $\alpha\ll1$ gives
+\[
+\psi_{k+1} \approx \psi_k 
++ J\frac{\mathcal{E}}{\hbar}\psi_k
+-\tfrac12\!\left(\frac{\mathcal{E}}{\hbar}\right)^2\psi_k.
+\]
+Summing over neighboring sites along a closed contour produces the discrete Laplacian
+$\Delta_{\text{disc}}\psi_j=\psi_{j+1}-2\psi_j+\psi_{j-1}$,
+leading to
+\[
+\boxed{
+\Bigl(-\frac{\hbar^2}{2m}\,\Delta_{\text{disc}} + V\Bigr)\psi = \mathcal{E}\psi,
+}
+\]
+where $m$ and $V$ are the inertial and potential calibrations defined by 
+$E_0=m c^2$ and $V=\frac{E_0}{2}(\kappa^2-\kappa_\ast^2)$.
+In the continuum limit $\Delta_{\text{disc}}\!\to\nabla^2$, 
+the stationary Schrödinger equation emerges.
+
+\end{corollary}
+
+\subsection*{IV. Interpretation}
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Interpretive Summary]
+\begin{itemize}
+\item The Schrödinger equation represents the stationary condition of discrete relational closure.
+\item The complex unit $i$ is the algebraic signature of the fused duality between the $\beta$ and $\kappa$ manifolds.
+\item Quantization follows from finite winding on the relational manifold.
+\end{itemize}
+\[
+\begin{array}{c} \boxed{ 
+\begin{array}{c} 
+\text{Quantum Mechanics arises from the discrete closure} \\
+\text{of a collapsed two–projection geometry.}
+\end{array} 
+} \end{array}
+\]
+\end{tcolorbox}
+
+\begin{quote}
+\textit{Thus, the so–called ``mystery of the quantum'' is a residue of two successive ontological collapses --- one collapsing relational space into position, the other collapsing relational energy into $\psi$.}
+\end{quote}
+
+
+
+\section{Unified Relational Geometry: Gravity versus Electromagnetism}
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
@@ -593,9 +713,7 @@ Orbit Energy&
 \(\displaystyle E_{\mathrm{GR}} = \frac{m\,c^{2}}{2}\,\beta^{2} = -\,\frac{G\,M\,m}{2\,r}\) 
 & 
 \(\displaystyle E_{\mathrm{EM}} = \frac{m_{e}\,c^{2}}{2}\,\beta_{q}^{2} 
-= -\,\frac{m_{e}\,c^{2}\,Z_{e}^{2}\,\alpha^{2}}{2\,n^{2}} 
-= -\,13.605693\,\frac{Z_{e}^{2}}{n^{2}}\;\mathrm{eV}\) \\[1em] \hline
-\end{tabular}
+= -\,\frac{m_{e}\,c^{2}\,Z_{e}^{2}\,\alpha^{2}}{2\,n^{2}}\)\\ \hline\end{tabular}
 \end{center}
 
 Both columns follow the \emph{same algebraic geometry}:
@@ -614,58 +732,10 @@ R_{s}\mapsto R_q,\;M\mapsto m_{e},\;\kappa^{2}\mapsto \kappa_{q}^{2},\;\beta^{2}
 \)
 Thus the same projection algebra yields both black‐hole orbits and atomic orbits.
 
-\subsection{Photon Sphere / ISCO Analog and the Gold Atom}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+These results demonstrate that the WILL RG naturally unites gravitational and atomic physics, revealing a \emph{single geometric origin} for phenomena traditionally treated by separate formalisms.
+\end{tcolorbox}
 
-It is known that in Schwarzschild spacetime the unique projectional equilibrium
-\[
-\kappa^{2}=\tfrac{2}{3},\quad \beta^{2}=\tfrac{1}{3}
-\quad\Longrightarrow\quad
-r_{\gamma}=\tfrac{3}{2}R_{s},\;r_{\mathrm{ISCO}}=3\,R_{s}.
-\]
-The same equilibrium angle \(\theta\approx54.7356^\circ\) recurs for the gold atom (\(Z_{e}=79,\,n=1\)):
-\[
-\kappa_{q}^{2} \;=\; 79^{2}\,\frac{R_q}{r_{b}} \;\approx\;\frac{2}{3},
-\quad
-\beta_{q}^{2}\;=\;\tfrac{1}{3},
-\]
-which implies
-\[
-r_{\mathrm{Au},\,n=1} = \frac{79\,R_q}{\kappa_{q}^{2}} \approx \frac{3}{2}\,R_q
-\;\approx\; 1.5\,\times 2\,R_q^{\mathrm{classic}},
-\]
-numerically matching the known gold‐atom radius to high precision.  In other words, gold’s ground‐state electron sits at the \emph{“photon‐sphere” radius} of its own electromagnetic projection.  
-
-\vspace{0.5em}
-\noindent\textbf{Key Observation:}  
-The \emph{same} geometric equilibrium \(\{\kappa^{2}=2/3,\;\beta^{2}=1/3\}\)
-governs both photon orbits around black holes and the ground‐state radius of Au.  
-This equivalence is formal: both systems share identical projection ratios, not physical curvature. 
-
-\subsection{5. Summary of Key Findings}
-
-\begin{enumerate}
-  \item \textbf{Exact Bohr Energies via Projection Algebra.}  By removing the superfluous \(1/n^{2}\) from the original \(E_{em}\)-ansatz, the WILL framework yields 100 % accurate energy levels:
-  \[
-     \boxed{E_{n} \;=\; \frac{m_{e}\,c^{2}}{2}\,\beta_{q}^{2}(Z_{e},n) 
-       \;=\;13.605693\,\frac{Z_{e}^{2}}{n^{2}}\;\mathrm{eV}}.
-  \]
-  \item \textbf{Unified Radius Formula.}  Both gravity and atomic bound‐state radii follow a single algebraic pattern:
-  \[
-     r \;=\; \frac{R_{\bullet}}{\kappa^{2}},
-     \quad
-     R_{\bullet} \;=\; 
-       \begin{cases}
-          R_{s} = \frac{2GM}{c^{2}} & \text{(gravity)}\\
-          R_q = \frac{e_{\mathrm{ch}}^{2}}{2\pi\varepsilon_{0}m_{e}c^{2}} & \text{(atom)}
-       \end{cases}.
-  \]
-  \item \textbf{Photon Sphere / ISCO as a “Golden” Projection Point.}  The angle \(\theta\approx54.7356^{\circ}\) simultaneously solves \(\kappa^{2}=2/3\) and \(\beta^{2}=1/3\), yielding \(r=1.5\,R_{s}\) (photon sphere) and \(r=3\,R_{s}\) (ISCO).  The \emph{same} equilibrium angle also fixes the hydrogen ground‐state radius when \(Z_{e}=n=1\).
-  \item \textbf{Projectional Resonance Across Scales.}  There is no separate “quantum” or “gravitational” geometry—both phenomena arise from the same two‐parameter projection algebra \(\{\kappa,\beta\}\) onto a unit‐circle structure, with \(Q^{2}=\kappa^{2}+\beta^{2}=1\).
-  \item \textbf{Predictive Power Without Free Parameters.}  Once \(R_{s}\) or \(R_q\), \(M\) or \(m_{e}\), and an integer \(n\) are specified, the entire orbital spectrum (distance \(\leftrightarrow\) energy) follows algebraically.  No differential equations, no adjustable potentials or Lagrangians, and no asymptotic boundary conditions are needed.
-\end{enumerate}
-
-\vspace{1em}
-These results demonstrate that the WILL Geometry framework naturally unites gravitational and atomic physics, revealing a \emph{single geometric origin} for phenomena traditionally treated by separate formalisms.  The “golden” projection angle \(\theta\approx54.74^\circ\)  matches so called "magic angle" emerges as a universal resonance point, governing both photon‐sphere orbits around black holes and ground‐state radii of atoms.  
 
 \section{Why the Electron Does Not Collapse into the Nucleus: Topological and Ontological Resolution}
 
@@ -765,7 +835,7 @@ For small variations, the uncertainties in these projections are:
     \Delta\beta_Y &= |\cos\theta|\, \Delta\theta.
 \end{align}
 
-Their product is therefore:co_speechnotes_plugin_fab_id:1686,615
+Their product is therefore:
 
 \begin{equation}
     \Delta\beta_X\, \Delta\beta_Y = |\sin\theta \cos\theta|\, (\Delta\theta)^2 = \tfrac{1}{2} |\sin 2\theta|\, (\Delta\theta)^2.
@@ -865,7 +935,7 @@ No complex numbers are required. The “amplitude” is simply the \textbf{geome
 
 This reframing eliminates the ontological baggage of infinite-dimensional configuration spaces and restores the path integral to its geometric essence: a catalog of self-consistent phase windings.
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary of Steps 4–6]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
 \begin{itemize}
 \item $\hbar$ emerges from phase granularity, not as a fundamental constant.
     \item Superposition = unresolved winding; collapse = phase locking via energy symmetry.
@@ -1045,7 +1115,7 @@ Therefore, its internal projection must resolve to a definite energetic configur
 
 \end{itemize}
 
-\subsection{Summery:}
+\subsection{Summary:}
 Across all tested regimes, the hypothesis holds:
 \begin{itemize}
     \item \textbf{Coherence exists} when no energetic connection exists between system and environment.
