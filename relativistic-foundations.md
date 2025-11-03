@@ -1016,7 +1016,7 @@ Here's a simple analogy:
     <div class="mt-10 flex justify-center items-center flex-wrap gap-6 md:gap-10">
         <a href="{{ site.baseurl }}/results/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Documents & Results</a>
         <a href="{{ site.baseurl }}/predictions/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Testable Predictions</a>
-        <a href="{{ site.baseurl }}/assistant/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Ask WILL AI</a>
+        <a href="{{ site.baseurl }}/WILL-AI/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Ask WILL AI</a>
         <a href="{{ site.baseurl }}/help/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Help This Research</a>
     </div>
 </div>
