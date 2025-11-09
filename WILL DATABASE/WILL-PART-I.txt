@@ -41,7 +41,7 @@
 
 % --- Metadata ---
 \title{WILL Part I: Relational Geometry}
-\author{Anton Rize \\ egeometricity@gmail.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115271}}}
+\author{Anton Rize \\ egeometricity@gmail.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}}
 
 
 
@@ -57,14 +57,16 @@
     box/.style={rectangle, draw, rounded corners, text width=9.2cm, align=center, minimum height=1.1cm},
     arrow/.style={-Latex, thick}
     ]
-\node[box] (A) {Foundational Principle: \textbf{Spacetime $\equiv$ Energy}};
-\node[box, below=of A] (B) {Geometric Self-Consistency};
-\node[box, below=of B] (C) {Topological Requirement: Only Closed and Maximally Symmetric Structures Allowed};
-\node[box, below=of C] (D) {Relational Circle (SR) and Relational Sphere (GR) as Unique Permitted Geometries};
-\node[box, below=of D] (E) {Result: Projections $\beta$ (kinetic) and $\kappa$ (potential) are Strictly Normalized};
-\node[box, below=of E] (F) {Conservation, Symmetry, Speed Limit, Natural Bounds};
+\node[box] (A) {False Ontological Split: $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
+\quad+\quad
+\underbrace{\text{fields + constants}}_{\text{dynamics}}.$};
+\node[box, below=of A] (B) {Foundational Principle: \textbf{Spacetime $\equiv$ Energy}};
+\node[box, below=of B] (C) {Topological Requirement: Only Closed and Maximally Symmetric Relational Carriers Allowed:};
+\node[box, below=of C] (D) {Relational Carriers:  Circle and Sphere with Projections Closure  ($S^1$ $\Rightarrow$  $\beta^2+\beta_Y^2=1$) and ($S^2$ $\Rightarrow$ $\kappa_X^2+\kappa^2=1$) as Minimal Permitted Topologies};
+\node[box, below=of D] (E) {"Exchange Rate" as Ratio of \textbf{d}egrees \textbf{o}f \textbf{f}reedoms $\mathcal{R} = \frac{\text{d.o.f.}(S^2)}{\text{d.o.f.}(S^1)} = \frac{2}{1} = 2$ $\Rightarrow$ $\boxed{\kappa^2 = 2\beta^2}$  Energetic Closure Condition as Relational Analogue of the \textbf{Virial Theorem}};
+\node[box, below=of E] (F) {Conservation, Energy Symmetry, Speed Limit, Causality, Natural Bounds};
 \node[box, below=of F] (G) {Unified Field Equation: $\kappa^2 = R_s/r = \rho/\rho_{\max}$};
-\node[box, below=of G] (H) {Closure: Field Equation $\Longleftrightarrow$ Fundamental Principle};
+\node[box, below=of G] (H) {Closure: Field Equation $\Longleftrightarrow$ Foundational Principle};
 
 \draw[arrow] (A) -- (B);
 \draw[arrow] (B) -- (C);
@@ -103,6 +105,13 @@ All results are empirically validated (e.g., GPS time shift 38.52~$\mu$s/day, Me
 \tableofcontents
 
 \newpage
+
+\begin{quote}
+\textit{``There is no such thing as an empty space, i.e., a space without field. . . . Space-time does not claim existence on its own, but only as a structural quality of the field.''}
+\end{quote}
+\noindent\textit{--- Albert Einstein, \textbf{Relativity: The Special and the General Theory} (Appendix V: ``Relativity and the Problem of Space''), 1952 edition, Methuen (London), p.~155; based on earlier 1920 additions.}
+
+
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=IMPORTANT:]
 This document must be read \textbf{literally}. 
@@ -332,35 +341,46 @@ If no external background is allowed (Cor.~\ref{cor:coincidence}), then no direc
 A privileged direction requires an extrinsic reference to distinguish it. In a purely relational setting, distinctions must be constructible from relations internal to WILL. If a direction were privileged in the geometry that encodes the conserved resource, such privilege would not be derivable from purely internal comparisons (which are symmetric by construction), and would reintroduce an external orienting structure. Therefore the encoding geometry must be maximally symmetric.  
 \end{proof}
 
-\subsection{Classification of Minimal Relational Transformations}
+\subsection{Derivation of the Relational Carriers}
 
-The lemmas of Closure, Conservation, and Isotropy establish the necessary properties of any geometric carrier of the relational resource. To identify these carriers, we must first classify the simplest possible types of physical relations that can exist in a background-free framework, according to the Principle of Methodological Minimalism (\ref{pr:minimalism}).
+The lemmas of Closure, Conservation, and Isotropy (Lemmas \ref{lem:closure}--\ref{lem:isotropy}) establish the *necessary properties* of any geometric carrier of the relational resource. We must now identify these carriers.
 
-\begin{enumerate}[label=(\alph*)]
-    \item \textbf{Directional (Kinematic) Relation:}
-    The simplest possible non-trivial relation is between two distinct states (A and B). The minimal description of this directed relation requires only a single degree of freedom (the axis connecting A and B). Per Principle~\ref{pr:minimalism}, introducing additional dimensions would be an unjustified complication. For this description to be self-contained (Lemma~\ref{lem:closure}), the 1D geometry must be closed. This uniquely specifies the circle ($S^1$) as the necessary and sufficient carrier for minimal directional relations.
+To do this, we must first reject the \textit{substantivalist} or "God's-eye view" common in physics, which illegitimately postulates an external 3D coordinate system ("State C") from which to describe the interaction between two states ("A" and "B"). Per Principle~\ref{pr:relational} (Relational Origin), such an external frame is an ontological speculation.
 
-    \item \textbf{Omnidirectional (Gravitational) Relation:}
-    The simplest possible isotropic relation is between a central state (A) and the locus of all states equidistant to it. The minimal description for all directions of this relation requires a surface representing all possible orientations from the center. Such a surface has two degrees of freedom (corresponding to the two angles needed to specify a direction). For this description to be closed and maximally symmetric (Lemmas~\ref{lem:closure}, \ref{lem:isotropy}), the geometry must be that of a 2-sphere ($S^2$). It is the necessary and sufficient carrier for minimal omnidirectional relations.
-\end{enumerate}
-
-The Principle of Ontological Minimalism thus restricts the admissible relational geometries to these two minimal classes. The following theorem provides their formal identification.
+In a purely relational framework, only the participants (A and B) exist. All physics must be described *only* from their mutual perspectives. This methodological constraint is not a simplification; it is an ontological necessity.
 
 \begin{theorem}[Minimal Relational Carriers of the Conserved Resource]
 \label{thm:carriers}
-The only closed, maximally symmetric manifolds that can serve as minimal carriers of the conserved relational resource are:
+The only relational manifolds satisfying the derived constraints of Closure, Conservation, and maximal Symmetry (Lemmas \ref{lem:closure}--\ref{lem:isotropy}) are:
     \begin{enumerate}[label=(\alph*)]
-        \item \(S^1\) for \emph{directional} (one-degree-of-freedom) relational transformation;
-        \item \(S^2\) for \emph{omnidirectional} (central, all-directions-equivalent) relational transformation.
+        \item \(S^1\) for \emph{directional} (Kinematic) relational transformation;
+        \item \(S^2\) for \emph{omnidirectional} (Gravitational) relational transformation.
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-By Lemma~\ref{lem:isotropy}, we require closed, maximally symmetric manifolds. 
+The proof proceeds by classifying the minimal types of relations and applying the derived Lemmas:
 
-(a) In one relational degree of freedom, the classification of connected closed $1$-manifolds yields \(S^1\) as the unique (up to diffeomorphism) option. Its isometry group acts transitively with isotropy at each point, providing maximal symmetry.
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Directional (Kinematic) Relation:}
+    This is the simplest non-trivial relation: a transformation from State A to State B.
+    Per the Principle of Relational Origin, this interaction can only be described from the frame of A or B.
+    From the perspective of B, any complex 3D motion of A (including transverse motion) is operationally perceived only as a change in the rate of approach or recession.
+    Thus, the fundamental, operational description of a two-state transformation is necessarily \textbf{one-dimensional (1D)}.
+    
+    Applying the Lemmas: By Lemma~\ref{lem:closure} this 1D geometry must be \textbf{closed}. By Lemma~\ref{lem:isotropy} it must be \textbf{maximally symmetric}.
+    The classification of connected, closed, 1-manifolds yields \(S^1\) as the \textbf{unique} (up to diffeomorphism) carrier satisfying these constraints.
 
-(b) For omnidirectional relational transformation from a distinguished center, the encoding manifold must be a closed, simply connected, constant positive curvature $2$-manifold with full isotropy at every point. By the uniformization/classification of constant-curvature surfaces, the maximally symmetric representative is \(S^2\). Quotients of \(S^2\) by nontrivial finite groups introduce global identifications that spoil global isotropy; these are excluded by Lemma~\ref{lem:isotropy}. Hence \(S^2\) is uniquely selected.  
+    \item \textbf{Omnidirectional (Gravitational) Relation:}
+    This is the other minimal relation type: a central state (A) relating to the l\textbf{ocus} of all equidistant states (e.g., an orbit).
+    This describes a "center-to-orbit" relationship. By Lemma~\_ref{lem:isotropy} (Isotropy), the conserved WILL resource must be distributed uniformly across all possible orientations from this center.
+    The minimal manifold required to describe all possible orientations from a center is a\textbf{ two-dimensional (2D) }surface.
+    
+    Applying the Lemmas: By Lemma~\ref{lem:closure}, this 2D surface must be \textbf{closed}. By Lemma~\ref{lem:isotropy}, it must be \textbf{maximally symmetric} (isotropic from the center).
+    By the classification of constant-curvature surfaces, the unique closed, simply connected, maximally symmetric 2-manifold is the \textbf{2-sphere ($S^2$).}
+\end{enumerate}
+
+The Principle of Ontological Minimalism (\ref{pr:minimalism}), combined with the derived constraints, thus uniquely and necessarily selects \(S^1\) and \(S^2\) as the minimal relational carriers.
 \end{proof}
 
 \begin{corollary}[Uniqueness]
@@ -781,6 +801,56 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa)
 Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate “effects” but dual aspects of one energy-transformation constraint revealing their unified origin.}
 \end{tcolorbox}
 
+\section{Operational Independence and the Role of Constants}
+
+A common objection from conventional frameworks (such as GR) is that any model using the Schwarzschild radius ($R_s$) must be fundamentally dependent on the Newtonian constants $G$ and $m_0$ (mass) This implies that $G$ and $m_0$ are hidden \emph{inputs} or \emph{postulates}.
+
+We will now prove that this is incorrect. In RG, $G$ and $m_0$ are not \emph{inputs} to the theory; they are \emph{outputs} derived from calibration. The parameter $\kappa$ is operationally measurable \emph{without prior knowledge} of $G$ or $m_0$.
+
+\begin{theorem}[Operational Measurability of $\kappa$]
+The relational potential $\kappa$ is a direct, empirical measurable (a pure dimensionless number) that is operationally independent of $G$ and $m_0$.
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item \textbf{The Observable:} The most direct observable of a gravitational field is gravitational time dilation, $\kappa_X$ (or its equivalent, gravitational redshift, $z$). This $\kappa_X$ is an empirically measurable, pure dimensionless number (e.g., by comparing clock frequencies at two different potentials).
+    
+    \item \textbf{The RG Definition:} From Theorem~\ref{thm:equivalence}, the total local time dilation for a stationary observer ($\beta=0 \Rightarrow \beta_Y=1$) is defined by relational geometry as:
+    \[
+    \tau = \beta_Y \kappa_X = \kappa_X
+    \]
+    
+    \item \textbf{The Geometric Constraint:} The $S^2$ carrier (Theorem~\ref{thm:carriers}) enforces a non-negotiable quadratic closure (a Pythagorean identity) on its projections:
+    \[
+    \kappa_X^2 + \kappa^2 = 1
+    \]
+    
+    \item \textbf{The Algebraic Consequence:} By substituting (2) into (3), we find the direct relationship between the \emph{observable} ($\tau$) and the \emph{parameter} ($\kappa$):
+    \[
+    \tau^2 + \kappa^2 = 1 \quad \Longrightarrow \quad \boxed{\kappa = \sqrt{1 - \tau^2}}
+    \]
+    
+    \item \textbf{Conclusion:} An observer can empirically \textbf{measure} the pure number $\tau$ and \textbf{algebraically find} the pure number $\kappa$. This entire operation requires \textbf{zero knowledge} of $G$, $c$, or $m_0$. This proves that $\kappa$ is a operationally accessible quantity.
+\end{enumerate}
+\end{proof}
+
+\begin{remark}[The Role of $G$ as a "Translation Constant"]
+The objection from conventional physics arises from a categorical error: it mistakes a \emph{calibration tool} for an \emph{axiom}.
+
+The formulas $R_s = 2Gm_0/c^2$ and $\kappa^2 = R_s/r$ are not \emph{postulates} of RG. They form a "translation bridge" constructed \textbf{after} the theory is established.
+
+The correct, relational procedure is:
+\begin{enumerate}
+    \item We \textbf{measure} the dimensionless $\kappa$ (via redshift, as shown above).
+    \item We \textbf{measure} the relational scale $r$ (e.g., via parallax, radar, etc.).
+    \item We \textbf{calculate} the system's geometric scale: $R_s = \kappa^2 r$.
+    \item \emph{Finally}, if we wish to translate this scale $R_s$ into the historical, "cultural" unit of the \textbf{kilogram} ($m_0$), we use the *converter* $G$:
+    \[
+    m_0 \equiv \frac{R_s c^2}{2G}
+    \]
+\end{enumerate}
+Thus, $G$ is not a "hidden input" to the theory; it is a "legacy converter" used to map our geometry back to Newtonian "cultural heritage" units.
+\end{remark}
 
 
 \section{Equivalence Principle as Derived Identity}
@@ -880,25 +950,12 @@ Having established that directional (kinematic) and omnidirectional (gravitation
 
 \subsection{Derivation of the Energetic Closure Condition}
 
-The Principle of a unified relational resource (Energy) requires a self-consistent "exchange rate" between its different modes of expression. This rate is not an arbitrary parameter but is dictated by the intrinsic geometry of the relations themselves:
-
-\begin{lemma}[Dimensional Ratio of Relational Modes]
-\label{lem:dofratio}
-Directional (kinematic) and omnidirectional (gravitational) modes of WILL are carried by $S^1$ and $S^2$, requiring one and two degrees of freedom respectively.  
-The intrinsic ratio of their relational dimensionalities is therefore
-\[
-\frac{\text{deg}(S^2)}{\text{deg}(S^1)} = \frac{2}{1} = 2,
-\]
-formally realized as the ratio of their total solid angles:
-\[
-\frac{\Omega(S^2)}{\Omega(S^1)} = \frac{4\pi}{2\pi} = 2.
-\]
-\end{lemma}
-
+The Principle of a unified relational resource (Energy) requires a self-consistent "exchange rate" between its different modes of expression. The closed system must partition its total transformation resource into all available modes. If we have a 2D carrier and a 1D carrier, the resource budget must be \textit{shared} in proportion to their capacity to host transformations. The simplest symmetric partition is linear in the number of independent directions. but is dictated by the intrinsic geometry of the relations themselves:
 
 \begin{remark}[From slice to whole $S^2$]
 Although we parametrise a single meridional great circle $(\kappa_X,\kappa)$ for algebraic convenience, the energetic quantity $\kappa^2$ in Theorem~\ref{thm:closure} refers to the \emph{total} $S^2$ budget, not to the single slice. The factor of $2$ precisely accounts for reconstructing the full sphere from one great circle.
 \end{remark}
+
 
 \begin{theorem}[Energetic Closure Condition]
 \label{thm:closure}
@@ -909,10 +966,24 @@ directional ($S^1$) and omnidirectional ($S^2$) resource distributions compatibl
 \]
 \end{theorem}
 
+
 \begin{proof}
-The relational resource of WILL is conserved under redistribution between its kinematic and gravitational
-modes. Given the dimensional ratio of Lemma~\ref{lem:dofratio}, an omnidirectional transformation consumes twice the relational degrees of freedom of a directional one.  
-The energetic significance of a state is proportional not to the amplitude of a projection ($\beta$, $\kappa$), but to its \textbf{square} ($\beta^2$, $\kappa^2$). This principle is ubiquitous, reflected in the Pythagorean (sum-of-squares) structure of the relational manifolds themselves. There for the corresponding energetic relation is quadratic: $\kappa^2 = 2\beta^2$.
+The relational resource (Energy) must be conserved and interchangeable between its two fundamental carriers, $S^1$ and $S^2$. We must therefore establish the "exchange rate" between them.
+
+At this foundational (pre-geometric) level, we have established (Theorem~\ref{thm:carriers}) that these carriers are topologically distinct, possessing 1 and 2 degrees of freedom, respectively.
+
+Crucially, as per the Principle of Ontological Minimalism (\ref{pr:minimalism}), \textbf{this ratio of dimensionalities (2:1) is the only distinguishable property} between the carriers from which a non-arbitrary exchange rate ($\mathcal{R}$) can be derived. To postulate any other rate would be an ad-hoc, unjustifiable assumption.
+Therefore, the only logical and non-arbitrary exchange rate is:
+\[
+\mathcal{R} = \frac{\text{d.o.f.}(S^2)}{\text{d.o.f.}(S^1)} = \frac{2}{1} = 2.
+\]
+Furthermore, we have established that the only conserved, invariant "currency" for these carriers is their \textbf{quadratic} form ($\beta^2, \kappa^2$), as this is the only form that satisfies their intrinsic closure identity (e.g., $\beta^2+\beta_Y^2=1$).
+
+To find the Energetic Closure Condition, we simply equate the two "currencies" using this necessary "exchange rate." This dictates that the omnidirectional (2D) budget must be balanced by twice the directional (1D) budget:
+\[
+\boxed{\kappa^2 = \mathcal{R} \cdot \beta^2 \quad \Longrightarrow \quad \kappa^2 = 2\beta^2.}
+\]
+This shows that the exchange rate factor 2 is deductive necessity from the topological ratio of the minimal carriers.
 \end{proof}
 
 \begin{definition}[Closure Defect]
