@@ -104,7 +104,7 @@ Complete research documentation in three parts, covering the theoretical foundat
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
         <strong>Topics:</strong> Geometric principle, SR derivation, GR equivalence, unified field equations
     </p>
-   <a href="https://github.com/AntonRize/WILL/raw/main/documents/WILL_PART_I_SR_GR.pdf" download class="text-cyan-400 hover:text-cyan-300">Download Part I PDF</a>
+   <a href="/documents/WILL_PART_I_SR_GR.pdf" download class="text-cyan-400 hover:text-cyan-300">Download Part I PDF</a>
 </div>
 
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #8e44ad;">
