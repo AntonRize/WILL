@@ -2126,8 +2126,8 @@ Everything else is not forbidden - it simply does not exist.
 \subsection{Why the Metric Is Physically Meaningless}
 
 The metric tensor \(g_{\mu\nu}\) presupposes an external backdrop on which events are placed.  
-In RG there is no such background: distance and duration are nothing but relational measures between energy states.  
-The relations \((\beta,\kappa)\) already encode all observable structure.  
+In RG there is no such background: distance and duration are relational measures between energy states.  
+The relations \((\beta,\kappa)\) already encode all the observable structures.  
 Introducing a metric would merely restate these relations redundantly in coordinate form.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
@@ -2137,49 +2137,51 @@ Its self-consistency defines both geometry and causality.
 \end{tcolorbox}
 
 
-
 \section{Derivation of Density, Mass, and Pressure}
 
-\subsection{Geometric Foundation}
-From the projective analysis established in the previous sections, the fundamental invariant is
+\subsection{Derivation of Density}
+
+\paragraph{Translating RG (2D) to Conventional Density (3D).}
+In RG $\kappa^2$ is the 2D parameter defined in the relational manifold $S^2$ . In conventional physics, the source term is volumetric density $\rho$, a 3D concept defined by the "cultural artifact" (a Newtonian "cannonball" model) of mass-per-volume .
+
+To bridge our 2D theory with 3D empirical data, we must create a "translation interface". We do this by explicitly adopting the conventional (Newtonian) definition of density, $\rho \propto m_0/r^3$, as our "translation target".
+
+From the projective analysis established in the previous sections:
 \[
 \kappa^2 = \frac{R_s}{r},
 \]
 where $\kappa$ emerges from the energy projection on the area of unit sphere $S^2$, and $R_s = 2Gm_0/c^2$ links to the mass scale factor $m_0 = E_0/c^2$.
 
-\subsection{Derivation of Energy Density}
+This leads to mass definition:
+\[
+m_0 = \frac{\kappa^2 c^2 r}{2G}
+\]
+To translate this into a volumetric density, we first adopt the conventional 3D (volumetric) proxy, $r^3$. This is not a postulate of RG, but the first step in applying the legacy (3D) definition of density:
+\[
+\frac{m_0}{r^3} = \frac{\kappa^2 c^2}{2G r^2}
+\]
+This expression, however, is incomplete. Our $\kappa^2$ "lives" on the 2D surface $S^2$ (which corresponds to $4\pi$), while the $r^3$ proxy implicitly assumes a 3D volume. To correctly normalize the 2D parameter $\kappa^2$ against the 3D volume, we must apply the geometric normalization factor of the $S^2$ carrier, which is $1/4\pi$.
 
-\paragraph{From Mass Scale to Volumetric Potential.}
-Starting from the geometric relation,
+This normalization is the necessary geometric step to interface the 2D relational carrier ($S^2$) with the 3D legacy definition of density:
 \[
-m_0 = \frac{\kappa^2 c^2 r}{2G},
-\]
-we associate $m_0$ with a volumetric proxy $r^3$, obtaining a raw volumetric potential,
-\[
-\frac{m_0}{r^3} = \frac{\kappa^2 c^2}{2G r^2}.
-\]
-
-\paragraph{Applying the Geometric Distribution Principle.}
-Because the potential projection $\kappa$ is distributed over S2  -  a 2D spherical manifold, the volumetric expression must be normalized over the unit-sphere area $4\pi$. This yields the physical energy density,
-\[
-\rho = \frac{1}{4\pi}\left(\frac{\kappa^2 c^2}{2G r^2}\right) 
-.
+\rho = \frac{1}{4\pi}\left( \frac{\kappa^2 c^2}{2G r^2} \right)
 \]
 \[
-\rho = \frac{\kappa^2c^2}{8\pi G r^2}.
+\rho = \frac{\kappa^2c^2}{8\pi G r^2}
 \]
-$$\text{Local Energy Density} \equiv \text{Relational Projection}$$
+$$\text{Local Density} \equiv \text{Relational Projection}$$
 
 \paragraph{Maximal Density.}
-At $\kappa^2 = R_s/r = 1$, the horizon condition is reached, corresponding to the maximal observable energy density at radius $r=R_s$:
+At $\kappa^2 = 1$ (the horizon condition (for non rotating systems), $r=R_s$), this density reaches its natural bound, $\rho_{\max}$, which is derived purely from geometry:
 \[
-\rho_{\max} = \frac{c^2}{8\pi G r^2}.
+\rho_{\max} = \frac{c^2}{8\pi G r^2}
 \]
 \paragraph{Normalized Relation.}
-Thus the fundamental identification is
+Thus, our "translation" reveals an identity: the geometric projection $\kappa^2$ is simply the ratio of density to the maximal density:
 \[
-\boxed{\;\kappa^2 = \frac{\rho}{\rho_{\max}} \;\;\Rightarrow\;\; \kappa^2 \equiv \Omega\;}.
+\boxed{\;\kappa^2 = \frac{\rho}{\rho_{\max}} \;\;\Rightarrow\;\; \kappa^2 \equiv \Omega\;}
 \]
+
 
 \subsection{Self-Consistency Requirement}
 
