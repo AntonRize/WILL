@@ -1,4 +1,4 @@
-![Theoretical-Ouroboros-min](https://raw.githubusercontent.com/AntonRize/WILL/main/images/SLIDES-tinyPNG/17_Theoretical-Ouroboros.png)
+![Theoretical-Ouroboros-min](https://raw.githubusercontent.com/AntonRize/WILL/main/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.png)
 
 <h1 align="center">WILL Relational Geometry</h1>
 
