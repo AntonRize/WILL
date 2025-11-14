@@ -1,4 +1,4 @@
-![Theoretical-Ouroboros-min](https://raw.githubusercontent.com/AntonRize/WILL/main/images/SLIDES-tinyPNG/17_Theoretical-Ouroboros.png)
+![Theoretical-Ouroboros-min](https://raw.githubusercontent.com/AntonRize/WILL/main/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.png)
 
 <h1 align="center">WILL Relational Geometry</h1>
 
@@ -23,12 +23,13 @@ If you use this work, please cite via DOI: [10.5281/zenodo.17115270](https://doi
 
 ## About The Project
 
-WILL Relational Geometry deriving spacetime, energy, and mass from a single principle. It reproduces core predictions of GR and QM, provides parameter-free fits to galactic rotation curves, and yields a one-input cosmology. All derivations and datasets are fully transparent and reproducible via interactive tools and open scripts.
-This theoretical model builds on principles of relationalism, epistemic hygiene and makes no ontological commitments. 
+WILL Relational Geometry (RG) is build on principles of relationalism, epistemic hygiene and ontological minimalism. It applies extreme methodological constraints and establishes a foundational framework where spacetime is not a background arena but an emergent property of energy transformations. 
 
-### Nothing is assumed. Everything is derived.
+#### Nothing is assumed. Everything is derived.
 
-All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities. This research, conducted by Anton Rize presents a derivation of a more general and parsimonious alternative to General Relativity, Cosmology, and Quantum Mechanics.
+All physical quantities, including space, time, mass, and energy, must emerge directly from relational geometry and causal structure, eliminating the need for arbitrary constants or abstract entities. 
+
+It reproduces core predictions of GR and QM, provides parameter-free fits to galactic rotation curves, and yields a one-input cosmology. All derivations and datasets are fully transparent and reproducible via interactive tools and open scripts.
 
 ## Key Results
 
