@@ -4,6 +4,8 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{hyperref} 
+\usepackage[warn]{textcomp}
 
 % --- Page geometry ---
 \usepackage{geometry}
@@ -45,45 +47,18 @@
 
 
 
-\date{September 2025}
+\date{October 2025}
 
 
 \begin{document}
 
 \maketitle
-\begin{center}
-\begin{tikzpicture}[
-    node distance=1.5cm,
-    box/.style={rectangle, draw, rounded corners, text width=9.2cm, align=center, minimum height=1.1cm},
-    arrow/.style={-Latex, thick}
-    ]
-\node[box] (A) {False Ontological Split: $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
-\quad+\quad
-\underbrace{\text{fields + constants}}_{\text{dynamics}}.$};
-\node[box, below=of A] (B) {Ontological Principle: \textbf{Spacetime $\equiv$ Energy}};
-\node[box, below=of B] (C) {Topological Requirement: Only Closed and Maximally Symmetric Relational Carriers Allowed:};
-\node[box, below=of C] (D) {Relational Carriers:  Circle and Sphere with Projections Closure  ($S^1$ $\Rightarrow$  $\beta^2+\beta_Y^2=1$) and ($S^2$ $\Rightarrow$ $\kappa_X^2+\kappa^2=1$) as Minimal Permitted Topologies};
-\node[box, below=of D] (E) {"Exchange Rate" as Ratio of \textbf{d}egrees \textbf{o}f \textbf{f}reedoms $\mathcal{R} = \frac{\text{d.o.f.}(S^2)}{\text{d.o.f.}(S^1)} = \frac{2}{1} = 2$ $\Rightarrow$ $\boxed{\kappa^2 = 2\beta^2}$  Energetic Closure Condition as Relational Analogue of the \textbf{Virial Theorem}};
-\node[box, below=of E] (F) {Conservation, Energy Symmetry, Speed Limit, Causality, Natural Bounds};
-\node[box, below=of F] (G) {Unified Field Equation: $\kappa^2 = R_s/r = \rho/\rho_{\max}$};
-\node[box, below=of G] (H) {Closure: Field Equation $\Longleftrightarrow$ Ontological Principle};
-
-\draw[arrow] (A) -- (B);
-\draw[arrow] (B) -- (C);
-\draw[arrow] (C) -- (D);
-\draw[arrow] (D) -- (E);
-\draw[arrow] (E) -- (F);
-\draw[arrow] (F) -- (G);
-\draw[arrow] (G) -- (H);
-\end{tikzpicture}
-\end{center}
 
 
-\newpage
 \begin{abstract}
 This paper, the first in the \textit{WILL} series, applies extreme methodological constraints in constructing a theory and establishes \textit{Relational Geometry (RG)}: a foundational framework where spacetime is not a background arena but an emergent property of energy transformations. 
 
-From a single principle, \textbf{SPACETIME $\equiv$ ENERGY}, it aims to derive the complete geometric structure of physics across physical domains. This equivalence is not postulated but derived by removing the hidden ontological assumption, implicit in modern physics, that structure (spacetime) and dynamics (energy) are separate phenomena. 
+From a single ontological principle, \textbf{SPACETIME $\equiv$ ENERGY}, it aims to derive the complete geometric structure of physics across physical domains. This equivalence is not postulated but derived by removing the hidden ontological assumption, implicit in modern physics, that structure (spacetime) and dynamics (energy) are separate phenomena. 
 
 This shift establishes an ontological transition from \textit{descriptive} to \textit{generative} physics: instead of introducing laws to model observations, it derives them as necessary consequences of RG itself - turning physics from a catalogue of phenomena into the logical unfolding of a single principle. 
 
@@ -100,9 +75,47 @@ All results are empirically validated (e.g., GPS time shift 38.52~$\mu$s/day, Me
 \end{itemize}
 \end{abstract}
 
-
+\newpage
 
 \tableofcontents
+
+\newpage
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    box/.style={rectangle, draw, rounded corners, text width=9.2cm, align=center, minimum height=1.1cm},
+    arrow/.style={-Latex, thick}
+    ]
+
+    \node[box] (Z) { \textbf{Guiding Principles}
+    \quad \quad
+    \boxed{\text{\textbf{\textbf{\textbf{Relational, Epistemic and Ontological Minimalism}}}}}};
+\node[box,  below=of Z] (A) {False Ontological Split: $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
+\quad+\quad
+\underbrace{\text{fields + constants}}_{\text{dynamics}}.$};
+\node[box, below=of A] (B) {Ontological Principle: \textbf{Spacetime $\equiv$ Energy}};
+\node[box, below=of B] (C) {Topological Requirement: Only Closed and Maximally Symmetric Relational Carriers Allowed:};
+\node[box, below=of C] (D) {Relational Carriers:  Circle and Sphere with Projections Closure  ($S^1$ $\Rightarrow$  $\beta^2+\beta_Y^2=1$) and ($S^2$ $\Rightarrow$ $\kappa_X^2+\kappa^2=1$) as Minimal Permitted Topologies};
+\node[box, below=of D] (E) {"Exchange Rate" as Ratio of \textbf{d}egrees \textbf{o}f \textbf{f}reedoms $\mathcal{R} = \frac{\text{d.o.f.}(S^2)}{\text{d.o.f.}(S^1)} = \frac{2}{1} = 2$ $\Rightarrow$ $\boxed{\kappa^2 = 2\beta^2}$  Energetic Closure Condition as Relational Analogue of the \textbf{Virial Theorem}};
+\node[box, below=of E] (F) {Conservation, Energy Symmetry, Speed Limit, Causality, Natural Bounds};
+\node[box, below=of F] (G) {Unified Field Equation: $\kappa^2 = R_s/r = \rho/\rho_{\max}$};
+\node[box, below=of G] (H) {Closure: \quad \quad
+ 
+Field Equation $\Longleftrightarrow$ Ontological Principle};
+
+\draw[arrow] (Z) -- (A);
+\draw[arrow] (A) -- (B);
+\draw[arrow] (B) -- (C);
+\draw[arrow] (C) -- (D);
+\draw[arrow] (D) -- (E);
+\draw[arrow] (E) -- (F);
+\draw[arrow] (F) -- (G);
+\draw[arrow] (G) -- (H);
+\end{tikzpicture}
+\end{center}
+
+
 
 \newpage
 
@@ -987,15 +1000,15 @@ This shows that the exchange rate factor 2 is deductive necessity from the topol
 \end{proof}
 
 \begin{definition}[Closure Defect]
-\(\delta \equiv \kappa^2 - 2\beta^2.\)
-A subsystem is \emph{energetically closed} iff \(\langle\delta\rangle_{\text{cycle}}=0.\)
-For circular orbits, \(\delta \equiv 0.\)
+\(\delta \equiv \frac{\kappa^2 }{ 2\beta^2} \)
+A subsystem is \emph{energetically closed} if \(\langle\delta\rangle_{\text{cycle}}=1.\)
+For circular orbits, \(\delta \equiv 1.\)
 \end{definition}
 
 \begin{corollary}[Energetic Closure Criterion]
 \label{cor:closurecriterion}
 Closed systems (momentary or periodic) satisfy $\kappa^2 = 2\beta^2$ identically.  
-Open systems display $\delta \neq 0$, the magnitude of which quantifies the energy flow through unaccounted channels.  
+Open systems display $\delta \neq 1$, the magnitude of which quantifies the energy flow through unaccounted channels.  
 When all channels are included, closure is restored.
 \end{corollary}
 
@@ -1348,7 +1361,7 @@ one defines the Hamiltonian via the Legendre transformation $H = p_r \dot r + p_
 H = T+U = \tfrac{1}{2} m\left(\dot r^2 + r^2 \dot\phi^2\right) + \frac{GMm}{r}.
 \end{equation}
 
-\subsection{Interpretation}
+\subsubsection{Interpretation}
 
 In terms of the collapsed WILL projections ($\beta^2 = v^2/c^2$ and $\kappa^2 = 2GM/(rc^2)$, both strictly positive), the match to standard mechanics becomes explicit:
 \begin{align}
@@ -1393,7 +1406,8 @@ They are computational \emph{shadows}, useful for legacy calculations but physic
 Here the symbol $\hat{=}$ denotes not an ontological identity, 
 but a pragmatic dictionary entry for translation into legacy notation.  
 \end{quotation}
-\subsubsection{Third Ontological Collapse: Derivation of Newton's Third Law}
+
+\subsection{Third Ontological Collapse: Derivation of Newton's Third Law}
 
 We now demonstrate that Newton's Third Law, like the Lagrangian and Hamiltonian,
 is not a fundamental principle but another "degenerate shadow" of the WILL framework.
@@ -1493,456 +1507,457 @@ Nature’s laws reduce to algebraic self-consistency.
 \]
 \end{tcolorbox}
 
+\section{Relational Orbital Mechanics Without Mass or $G$}
 
-\smallskip
-\section{Relational Displacement as $Q$ Parameter}
-
-
-\begin{tikzpicture}[scale=3]
-
-% observer frame at (0,0)
-\coordinate (O) at (0,0);
-
-% displaced frame center (Q)
-\coordinate (Q) at (0.6,0.2); % arbitrary nonzero direction
-
-% base circles
-\draw[thick] (O) circle (1);
-\draw[dashed,thick] (Q) circle (1);
-
-% radial vectors
-\draw[->,thick] (O) -- (0.85,0) node[below]{$\beta$};
-\draw[->,thick] (O) -- (0,0.85) node[left]{$\kappa$};
-
-% Q-vector
-\draw[->,thick] (O) -- (Q) node[midway,above right]{$Q$};
-
-% dots for centers
-\fill (O) circle (0.015);
-\fill (Q) circle (0.015);
-
-\end{tikzpicture}
-
-
-Each observer places itself at the relational origin $(\beta,\kappa)=(0,0)$.
-
-When I (as an observer) look at another system, I measure its relational projections $(\beta,\kappa)$ in my own frame. The scalar
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Thesis]
+\textbf{Orbital dynamics requires no mass, no $G$, no metric, and no spacetime geometry.}
+All observable orbital structure follows from two directly measurable frequency
+projections:
 \[
-\boxed{Q^2=\beta^2+\kappa^2}
+\kappa \quad\text{(gravitational projection from redshift)}, 
+\qquad
+\beta \quad\text{(kinematic projection from Doppler)}.
 \]
-is the radius at which that other system’s centre appears in my relational plane.
+Everything else is algebra.
+\end{tcolorbox}
 
-If the other system now looks back at me, it again puts \emph{itself} at $(0,0)$ and applies the \emph{same} rule. It measures my $(\beta,\kappa)$ and again obtains
+\subsection{Operational Inputs}
+
+A physical observer can measure exactly three quantities at a known radius $r$:
+
+\begin{enumerate}
+    \item[(1)] \textbf{Gravitational redshift factor}
+    \[
+        \kappa_X := \frac{\nu_{\mathrm{obs}}}{\nu_{\mathrm{emit}}}
+    \]
+    yielding the gravitational projection
+    \[
+        \boxed{\kappa^2 = 1 - \kappa_X^2 }.
+    \]
+
+    \item[(2)] \textbf{Kinematic Doppler projection}
+    \[
+        \beta = \frac{v}{c},
+    \]
+    obtained from frequency drift or phase tracking.
+
+    \item[(3)] \textbf{Radius $r$}
+    determined astrometrically (parallax, orbit fitting, interferometry).
+\end{enumerate}
+
+No mass or gravitational constant is ever used.
+
+\subsection{Constructing the Schwarzschild Scale Without Mass}
+
+In RG, the gravitational projection obeys the identity
 \[
-\boxed{Q^2=\beta^2+\kappa^2}
+\boxed{\kappa^2(r)=\frac{R_s}{r}},
 \]
+which is purely algebraic and metric-free.
 
-This expression represents the total deviation of the object from the observer’s relational origin $(\beta,\kappa)=(0,0)$.
-Geometrically, the observer is always located at the centre of its own relational circle $S^{1}$ (or sphere $S^{2}$), and any external object appears as a point $(\beta,\kappa)$ on that plane.  
-The scalar $Q$ therefore measures the \emph{radius of relational displacement} between two systems. 
+Thus the effective Schwarzschild scale is obtained directly from measurement:
+\begin{equation}
+\boxed{
+    R_s = \kappa^2 r
+}
+\label{eq:Rs-direct}
+\end{equation}
+with \emph{no reference to mass or $G$}.
+$R_s$ is an operational constant defined entirely from observed frequency ratios.
 
-\begin{remark}[Closure-specific simplification]
-Under energetic closure $\kappa^{2}=2\beta^{2}$ (circular/periodic systems),
-this norm reduces to $Q^{2}=3\beta^{2}$. 
-In general (open) configurations where energy is not conserved
-the definition $Q^{2}=\beta^{2}+\kappa^{2}$ must be used without substitution.
-\end{remark}
+\subsection{Closure Factor: The Origin of Orbital Asymmetry}
 
-\subsection{Interpretation}
-\begin{quote}  
-\begin{itemize}
-    \item Each observer occupies the centre of its own relational circle $(\beta,\kappa)=(0,0)$.
-\end{itemize}
-\begin{itemize}
-    \item Every external system appears as a displaced circle whose centre lies at a distance $Q$ from the observer’s centre.
-\end{itemize}
-\begin{itemize}
-    \item The scalar $Q$ therefore quantifies the geometric separation of causal domains.
-\end{itemize}
-\end{quote}
+The relational parameter governing the entire orbit is
+\begin{equation}
+\boxed{
+    \delta := \frac{\kappa}{\sqrt{2}\,\beta}
+}
+\qquad (0 < \delta \le 1).
+\label{eq:closure-factor}
+\end{equation}
 
+\paragraph{Interpretation.}
 \begin{itemize}
-  \item When $Q=0$, the object and observer share identical kinematic and potential states: they are indistinguishable within the same relational frame. Their relational carriers are perfectly aligned. 
-  \item For $0 < Q < 1$, their relational carriers intersect; causal communication and energy exchange are possible.
-  \item At $Q=1$,  This marks the \textbf{causal boundary} --- the limit beyond which no projection of one system can be mapped onto the other.
-  \item For $Q>1$, the carriers centres no longer overlap, meaning the systems are \textbf{causally disconnected}.  No energy transfer or observation is possible.
+    \item $\delta = 1$ --- perfect closure of energy projections: circular orbit.
+    \item $\delta < 1$ --- closure deficit: two turning points appear (elliptic orbit).
 \end{itemize}
+
+No spatial geometry is assumed; $\delta$ is a purely relational quantity comparing
+gravitational and kinematic projections.
+
+\subsection{Turning-Point Structure Is Projectional, Not Geometric}
+
+Turning points arise because for $\delta < 1$ the radial and tangential modes
+cannot simultaneously satisfy closure. At the apsides, the radial mode collapses
+and the tangential projection saturates. This gives the relational angular
+projection invariant
+\begin{equation}
+\boxed{
+h = r\beta = \text{const at turning points}.
+}
+\label{eq:h-invariant}
+\end{equation}
+
+This statement uses only $S^2$ rephasing symmetry of the gravitational channel,
+not a metric.
+
+\subsection{Apsidal Radii From $\delta$ Alone}
+
+Using $\kappa^2=2\beta^2\delta^2$ and defining operational radius $r$ at which $(\kappa,\beta)$ were measured:
 
 \[
-\begin{array}{c} \boxed{ 
-\begin{array}{c} 
-\text{$Q$ acts as the \emph{scale of relational separation}, not a distance in space,} \\
-\text{but a measure of the loss of geometric coherence between two observers.} \\ 
-\end{array} 
-} \end{array}
+r= \frac{R_s}{\kappa^2},
 \]
-\smallskip
-\section{Principle of Relational Reciprocity}
+the turning radii follow directly:
+\begin{equation}
+\boxed{
+    r_{p,a}
+    =
+    r\,
+    \frac{
+        \delta\left(\delta \mp \sqrt{1-\delta^{2}}\right)
+    }{
+        2\delta^{2}-1
+    }}.
+\label{eq:rpa}
+\end{equation}
 
-\subsection{Self–Centering Reciprocity}
+No dynamical equations are solved; this is purely algebraic closure.
 
-Every observer performs \emph{self–centering}: it always places itself at
+\subsection{Relational Eccentricity}
+
+Geometric eccentricity is a \emph{derived} quantity:
+\begin{equation}
+\boxed{
+e(\delta)
+=
+\frac{\sqrt{1-\delta^{2}}}{\delta}
+}
+\qquad (0\le e <1),
+\label{eq:e-delta}
+\end{equation}
+and the apsidal ratio follows immediately:
+\begin{equation}
+\boxed{
+\frac{r_p}{r_a}
+=
+\frac{1-e}{1+e}
+=
+\frac{\delta-\sqrt{1-\delta^{2}}}{\delta+\sqrt{1-\delta^{2}}}.
+}
+\label{eq:rpra}
+\end{equation}
+
+All geometric orbital structure is encoded by a single relational number
+$\delta$.
+
+\subsection{Operational Reconstruction Algorithm}
+
+Given measured $(r,\kappa_X,\beta)$:
+
+\begin{enumerate}
+    \item Compute inputs.
+
+    \item Compute the effective Schwarzschild scale
+    \[
+        R_s = \kappa^2 r.
+    \]
+
+    \item Compute the closure factor
+    \[
+        \delta = \frac{\kappa}{\sqrt{2}\beta}.
+    \]
+
+    \item Compute the eccentricity
+    \[
+        e = \frac{\sqrt{1-\delta^{2}}}{\delta}.
+    \]
+
+    \item Obtain both turning radii via 
+    \[
+    r_{p,a}
+    =
+    r\,
+    \frac{
+        \delta\left(\delta \mp \sqrt{1-\delta^{2}}\right)
+    }{
+        2\delta^{2}-1
+    }
+    \]
+\end{enumerate}
+
+Everything is reconstructed from directly observable frequency ratios. No mass,
+no $G$, no force law, and no metric are invoked anywhere.
+
+\subsection{Example: Mercury (Massless Reconstruction)}
+
+Observational inputs at perihelion:
+\[
+r = 4.600\times10^{10}\,\mathrm{m},\qquad
+\beta = 1.967\times10^{-4},\qquad
+\kappa_X = \sqrt{1-\tfrac{R_s}{r}}.
+\]
+
+From the observed redshift we obtain
+\[
+\kappa^2=\frac{R_s}{r},\qquad
+R_s=\kappa^2 r.
+\]
+
+Using Eq.~\eqref{eq:rpa} one obtains
+\[
+e\simeq 0.2053,\qquad
+r_a\simeq 6.976\times10^{10}\,\mathrm{m},
+\]
+matching astronomical ephemerides with no reference to mass or metric.
+
+\section{Relational Displacement as the $Q$ Parameter}
+
+\input{tikz/tikz_Qdiagram}
+
+Each observer places itself at the relational origin
 \[
 (\beta,\kappa)=(0,0).
 \]
 
-When I observe another system, I assign to it $(\beta,\kappa)$ and therefore a displacement
-\[
-\boxed{Q^2=\beta^2+\kappa^2}
-\]
-
-But when that system observes \emph{me}, it again self–centers and obtains the \emph{same} form. It assigns to \emph{me} some $(\beta,\kappa)$ and computes again
-\[
-\boxed{Q^2=\beta^2+\kappa^2}
-\]
-
-\subsection*{Meaning}
-
-Reciprocity is therefore not a vector symmetry. It is a symmetry of the
-\emph{self–centering operation}: both observers apply the same rule. They
-each put themselves at $(0,0)$ and measure the other as a point on their
-own relational plane.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
-\[
-\boxed{\text{Relational reciprocity} \;=\; \text{the invariance of the norm under self–centering}.}
-\]
-Self–centering replaces the notion of “shared coordinate space”. There is
-no common arena: only mutual displacement magnitudes computed in each
-observer’s own relational origin.
-\end{tcolorbox}
-
-\smallskip
-\section{Relational Orbital Mechanics}\label{sec:relational-orbital-mechanics}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Thesis]
-\textbf{No metric, no differential equations, no coordinate grids.} Orbital relations are obtained purely from algebraic closure of the WILL projections. The orbital turning points (perihelion/aphelion) are solved by invariants of the relational budget without resolving any trajectory equation.
-\end{tcolorbox}
-
-\subsection{Setup and Notation}
-We work in the closed relational geometry. The potential projection on the omnidirectional carrier ($S^2$) and the kinematic projection on ($S^1$) are denoted by ($\kappa$) and ($\beta$), respectively. For a central energy system of effective Schwarzschild scale ($R_s$), the unified field identity reads
+When an observer looks at another system, it measures its relational projections
+$(\beta,\kappa)$ in its own frame. The scalar
 \begin{equation}
-\boxed{\kappa^2(r)=\frac{R_s}{r}}
-\label{eq:kappaRsOverR}
+\boxed{
+Q^2=\beta^2+\kappa^2
+}
+\label{eq:Q-definition}
 \end{equation}
-All quantities are dimensionless except for the radial scale (r). We consider a bound planar orbit with a turning point (perihelion) at radius ($r_p$) and kinematic projection ($\beta_p\equiv \beta(r_p)$). The aphelion radius is denoted by ($r_a$).
+is the radius at which that other system’s effective centre appears in the
+observer’s relational plane.
 
-\subsection{Relational Invariants}
+If the other system now looks back, it again self--centres at $(0,0)$ and applies
+the same rule. It measures the observer’s $(\beta,\kappa)$ and again obtains
+\[
+Q^2=\beta^2+\kappa^2.
+\]
 
-\begin{lemma}[Energy Projection Invariant]\label{lem:energy-invariant}
-In a time-independent, central relational configuration, the combination
-\begin{equation}
-\boxed{W\equiv\beta^2-\kappa^2=\text{const along the orbit}}
-\label{eq:energyInvariant}
-\end{equation}
-\end{lemma}
-\begin{remark}
-In the collapsed (per-event) energy budgets, ($\tfrac{H}{E_0}=\tfrac12(\beta^2-\kappa^2)$). Constancy of (H) for a central, stationary source enforces \eqref{eq:energyInvariant}. No metric or differential equation is required.
+Thus $Q$ is the \emph{norm} of relational displacement, not a spatial distance.
+Geometrically, the observer is always at the centre of its own $S^{1}$ (or
+$S^{2}$) carrier, and any external system is a point $(\beta,\kappa)$ on that
+plane. The scalar $Q$ measures the total deviation from the observer’s relational
+origin.
+
+\begin{remark}[Closure-specific simplification]
+Under energetic closure $\kappa^{2}=2\beta^{2}$ (circular/periodic systems),
+the norm reduces to $Q^{2}=3\beta^{2}$. 
+
+In general (open or elliptic) configurations, the full definition $Q^{2}=\beta^{2}+\kappa^{2}$ must be used.
 \end{remark}
 
+\subsection{Principle of Relational Reciprocity}
 
-\begin{definition}[Relational Energy Invariant in Strong Field]
-\label{def:W-strong}
-The kinematic projection must be compared at the same budget scale as the gravitational channel. Since the available phase fraction on $S^2$ equals $\kappa_X=\sqrt{1-\kappa^2}$, the effective kinematic contribution is $\beta_{\mathrm{eff}}^2:=\beta^2/\kappa_X^2$. The invariant reads
+\paragraph{Self--centering reciprocity.}
+Every observer performs self--centering:
 \[
-\boxed{\;\mathcal W\;=\; \frac{\beta^2}{\kappa_X^2}\;-\;\kappa^2\;=\;\mathrm{const}\;,}
-\qquad \kappa_X^2=1-\kappa^2.
+(\beta,\kappa)=(0,0).
 \]
-In the weak-field limit $\kappa\ll 1$ this reduces to $\mathcal W=\beta^2-\kappa^2$.
-\end{definition}
-
-\begin{lemma}[Turning-Point Angular Projection]\label{lem:turning-point}
-At apsides (perihelion and aphelion), the relational angular momentum is conserved and the kinematic projection is purely tangential. Consequently,
-\begin{equation}
-\boxed{\ h\equiv r\beta=\text{const at turning points}\ }\quad\Longrightarrow\quad r_p\beta_p=r_a\beta_a
-\label{eq:rbetaConst}
-\end{equation}
-\end{lemma}
-\begin{proof}[Relational proof]
-Central symmetry implies invariance under azimuthal rephasing on ($S^2$), yielding a conserved conjugate (the angular momentum projection). At a turning point, the radial rate vanishes (no change of (r) to first order), so the kinematic projection coincides with the tangential mode, and the product ($r\beta$) is invariant between the two apsides. This uses only relational symmetry, not a spatial metric.
-\end{proof}
-
-\subsection{Aphelion from Perihelion Data: Purely Algebraic Derivation}
-
-\begin{theorem}[Aphelion Radius from ($R_s$, $r_p$, $\beta_p$)]\label{thm:ra-solution}
-Given the Sun's Schwarzschild scale ($R_s$), Mercury's perihelion radius ($r_p$), and the kinematic projection at perihelion ($\beta_p$), the aphelion radius ($r_a$) is the positive root of the quadratic
-\begin{equation}
-\bigl(\beta_p^2-\tfrac{R_s}{r_p}\bigr)r_a{^2} + R_sr_a - \beta_p^2 r_p{^2}=0
-\label{eq:quadratic-ra}
-\end{equation}
-Equivalently,
-\begin{equation}
-\boxed{\displaystyle r_a=\frac{-R_s - \sqrt{R_s^2+4 \beta_p^2r_p^2\Bigl(\beta_p^2-\tfrac{R_s}{r_p}\Bigr)}}{2\left(\beta_p^{2}-\tfrac{R_s}{r_p}\right)} }
-\label{eq:ra-closed}
-\end{equation}
-\end{theorem}
-\begin{proof}
-At perihelion and aphelion, apply the invariants \eqref{eq:energyInvariant} and \eqref{eq:rbetaConst}, together with \eqref{eq:kappaRsOverR}:
-\begin{equation}
-\beta_a=\beta_p\frac{r_p}{r_a},\qquad \beta_a^2-\frac{R_s}{r_a}=\beta_p^2-\frac{R_s}{r_p}.
-\end{equation}
-Eliminate ($\beta_a$):
-\begin{equation}
-\beta_p^2\frac{r_p^2}{r_a^2}-\frac{R_s}{r_a}=\beta_p^2-\frac{R_s}{r_p}.
-\end{equation}
-Multiply by ($r_a^2$) and rearrange to obtain \eqref{eq:quadratic-ra}. Solving the quadratic yields \eqref{eq:ra-closed}. The physically relevant branch is the positive ($r_a>r_p$) solution.
-\end{proof}
-
-\begin{corollary}[Back-root equals perihelion]
-The complementary root of \eqref{eq:quadratic-ra} equals ($r_p$). Hence the quadratic encodes both apsides as conjugate solutions of a single algebraic closure.
-\end{corollary}
-\begin{proof}
-By Vi`ete’s relations, the product of roots equals ($-\beta_p^2 r_p^2/(\beta_p^2- R_s/r_p)$). Substituting ($r_a$) from \eqref{eq:ra-closed} shows the second root reduces to ($r_p$). (Alternatively, enforce the symmetry ($p\leftrightarrow a$) in \eqref{eq:energyInvariant}--\eqref{eq:rbetaConst}.)
-\end{proof}
-
-\begin{remark}[Relation to classical vis-viva]
-If one reintroduces a metric and identifies ($\beta=v/c$), then with ($\kappa^2=R_s/r=2GM/(rc^2)$) the invariant ($\beta^2-\kappa^2=\text{const}$) reduces to the standard vis-viva relation which we derived as \eqref{lem:dofratio}. Our derivation, however, neither assumes a metric nor solves differential equations; it is entirely algebraic in ($\beta,\kappa$).
-\end{remark}
-
-\subsection{Integrity Map}
-\begin{itemize}
-\item $\kappa^2 = R_s/r$ — \textbf{\checkmark\ Verified} (Part~I unified field identity)
-\item Energy projection invariant: $\beta^2 - \kappa^2 = \mathrm{const}$ — \textbf{\checkmark\ Verified} (collapsed budgets with stationary source)
-\item Turning-point angular projection: $r\beta = \mathrm{const}$ — \textbf{\textcolor{red}{Derived}} from central symmetry at apsides
-\end{itemize}
-
-\subsection{Example: Mercury Aphelion from Perihelion Data}
-\paragraph{Inputs.}
-$R_s = 2953.33938207~\mathrm{m}$, \quad $r_p = 4.600\times10^{10}~\mathrm{m}$, \quad $\beta_p = 1.967\times10^{-4}$.
-
-\paragraph{Computation.} Insert into~\eqref{eq:ra-closed}:
-\begin{align}
-r_a &= \frac{-R_s-\sqrt{R_s^{2}+4\beta_{p}^{2}r_{p}^{2}\bigl(\beta_{p}^{2}-\tfrac{R_{s}}{r_{p}}\bigr)}}{2\left(\beta_{p}^{2}-\tfrac{R_{s}}{r_{p}}\right)} \\
-&\approx 6.9762118617\times10^{10}~\mathrm{m}.
-\end{align}
-
-\paragraph{Consistency checks.}
-Semi-major axis and eccentricity:
-\begin{equation}
-a=\tfrac12(r_p+r_a)\approx 5.7881\times10^{10}~\mathrm{m},\qquad
-e=\frac{r_a-r_p}{r_a+r_p}\approx 0.20527,
-\end{equation}
-which agree with observed ephemerides for Mercury to the quoted precision.
-
-
-\begin{lemma}[Strong-field invariant reproduces the same aphelion root]
-\label{lem:strong-turning}
-At the apsides the tangentiality condition and angular-momentum constancy give $h=r\beta$ and hence
-$\beta_a=\beta_p\,\frac{r_p}{r_a}$. Equating the strong-field invariant at perihelion and aphelion,
+When I observe another system, I assign to it $(\beta,\kappa)$ and therefore a
+displacement
 \[
-\frac{\beta_p^2}{1-\frac{R_s}{r_p}}-\frac{R_s}{r_p}
-\;=\;
-\frac{\beta_a^2}{1-\frac{R_s}{r_a}}-\frac{R_s}{r_a},
+Q^2=\beta^2+\kappa^2.
 \]
-and substituting $\beta_a=\beta_p\,\frac{r_p}{r_a}$, one algebraically reduces (by clearing denominators and
-rearranging) to the quadratic
+When that system observes me, it again self--centres and obtains the same form.
+It assigns to me some $(\beta,\kappa)$ and again computes $Q^2=\beta^2+\kappa^2$.
+
+Reciprocity is therefore not a vector symmetry in a shared space. It is a
+symmetry of the \emph{self--centering operation}: each observer applies the same
+rule and only the norm of displacement is invariant.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
 \[
-\boxed{\;\bigl(\beta_p^2-\tfrac{R_s}{r_p}\bigr)\,r_a^{2} + R_s\,r_a - \beta_p^2\,r_p^{2}=0\;},
+\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
 \]
-whose positive root is
-\[
-\boxed{\displaystyle
-r_a=\frac{-R_s-\sqrt{R_s^{2}+4\beta_{p}^{2}r_{p}^{2}\Bigl(\beta_{p}^{2}-\tfrac{R_{s}}{r_{p}}\Bigr)}}{2\left(\beta_{p}^{2}-\tfrac{R_{s}}{r_{p}}\right)} }.
-\]
-\end{lemma}
-
-\begin{proof}[Algebra in one line of structure]
-Write $A_p:=1-\frac{R_s}{r_p}=\frac{r_p-R_s}{r_p}$ and $A_a:=1-\frac{R_s}{r_a}=\frac{r_a-R_s}{r_a}$.
-Then
-\[
-\frac{\beta_p^2}{A_p}-\frac{\beta_p^2 r_p^2}{r_a^2 A_a}=\frac{R_s}{r_p}-\frac{R_s}{r_a}.
-\]
-Multiplying by $(r_p-R_s)\,r_a\,(r_a-R_s)$ and simplifying yields exactly
-$\;(\beta_p^2-\frac{R_s}{r_p})r_a^2+R_s r_a-\beta_p^2 r_p^2=0$.
-\end{proof}
-
-\begin{corollary}[Numerical consistency]
-For the Mercury inputs $R_s\simeq 2953.339\,\mathrm{m}$, $r_p=4.600\!\times\!10^{10}\,\mathrm{m}$, $\beta_p=1.967\!\times\!10^{-4}$,
-the strong-field invariant gives the same aphelion
-$r_a \approx 6.9762118617\times 10^{10}\,\mathrm{m}$ as the weak-field form.
-\end{corollary}
-
-\begin{proposition}[First-order precession from the strong-field invariant]
-\label{prop:precession}
-Expanding the strong-field invariant to first order in $\kappa^2=R_s/r$,
-\[
-\frac{\beta^2}{1-\kappa^2}-\kappa^2
-\;=\;
-\beta^2+\beta^2\kappa^2-\kappa^2+O(\kappa^4),
-\]
-and using the apsidal relations with $h=r\beta$ over a Keplerian ellipse
-$r(\varphi)=\frac{a(1-e^2)}{1+e\cos\varphi}$, the secular closure condition on the algebraic budget
-yields the standard advance per orbit
-\[
-\boxed{\;\Delta\varphi
-= \frac{3\pi R_s}{a(1-e^{2})}
-= \frac{2\pi Q_{\mathrm{orbit}}^{2}}{1-e^{2}},\qquad
-Q_{\mathrm{orbit}}^{2}:= \beta^2(a)+\kappa^2(a)=\frac{3R_s}{2a}\;}
-\]
-without introducing a metric or integrating a trajectory equation.
-\end{proposition}
-\begin{remark}[Interpretation]
-(1) Lemma~\ref{lem:strong-turning} shows that the ``strong--field'' normalization $\beta^{2}/\kappa_{X}^{2}$
-is merely an alternative packaging of the same apsidal closure; the same quadratic follows \emph{identically}.
-
-(2) In the \emph{weak--field} regime $\kappa\ll 1$, the invariant reduces to $\mathcal W=\beta^{2}-\kappa^{2}$, so agreement with GR predictions is inevitable.
-
-(3) The \emph{first--order} precession matches the classical value; the source of agreement is the same $1/r$ closure at apsides, not the metric.
-\end{remark}
-
-\subsection{Algebraic Proof of the Precession Identity}
-
-\begin{proof}
-Our objective is to demonstrate that the WILL Relational Geometry expression for orbital precession (from Proposition~\ref{prop:precession}) is algebraically identical to the standard General Relativity result, using only the algebraic invariants defined within our framework.
-
-\textbf{1. Target Identity:}
-We must prove that the WILL formulation:
-\begin{equation}
-\Delta\varphi = \frac{2\pi Q_{\mathrm{orbit}}^{2}}{1-e^{2}}
-\end{equation}
-is identical to the standard GR formulation:
-\begin{equation}
-\Delta\varphi = \frac{3\pi R_s}{a(1-e^{2})}
-\end{equation}
-This requires proving the central algebraic identity: $\boxed{Q_{\mathrm{orbit}}^{2} = \frac{3R_s}{2a}}$.
-
-\textbf{2. Definitions of Invariants:}
-From our framework, we rely on three algebraic definitions:
-\begin{enumerate}
-    \item The relational norm at the semi-major axis: $Q_{\mathrm{orbit}}^{2} \equiv \beta^2(a) + \kappa^2(a)$.
-    \item The unified field identity (Eq.~\ref{eq:kappaRsOverR}): $\kappa^2(r) = R_s/r$.
-    \item The Energy Projection Invariant (Lemma~\ref{lem:energy-invariant}), which defines the orbital energy algebraically from the semi-major axis $a$: $W \equiv \beta^2(r) - \kappa^2(r) = -\frac{R_s}{2a}$.
-\end{enumerate}
-
-\textbf{3. Derivation of $Q_{\mathrm{orbit}}^{2}$:}
-We derive the components of $Q_{\mathrm{orbit}}^{2}$ by evaluating the invariants at $r=a$.
-
-\textit{Step 3a: Potential Term $\kappa^2(a)$}
-From definition (2), we directly evaluate at $r=a$:
-\begin{equation}
-\kappa^2(a) = \frac{R_s}{a}
-\end{equation}
-
-\textit{Step 3b: Kinematic Term $\beta^2(a)$}
-From definition (3), we first isolate $\beta^2(r)$:
-\begin{equation}
-\beta^2(r) = W + \kappa^2(r) = -\frac{R_s}{2a} + \frac{R_s}{r}
-\end{equation}
-Now, we evaluate this expression at $r=a$:
-\begin{equation}
-\beta^2(a) = -\frac{R_s}{2a} + \frac{R_s}{a} = \frac{R_s}{2a}
-\end{equation}
-
-\textit{Step 3c: Total Relational Norm $Q_{\mathrm{orbit}}^{2}$}
-We sum the results from (3a) and (3b):
-\begin{equation}
-Q_{\mathrm{orbit}}^{2} = \beta^2(a) + \kappa^2(a) = \left(\frac{R_s}{2a}\right) + \left(\frac{R_s}{a}\right)
-\end{equation}
-\begin{equation}
-\boxed{Q_{\mathrm{orbit}}^{2} = \frac{3R_s}{2a}}
-\end{equation}
-
-\textbf{4. Conclusion of Proof:}
-We substitute this proven algebraic identity (Eq.~9) back into the WILL precession formula (Eq.~1):
-\begin{equation}
-\Delta\varphi = \frac{2\pi Q_{\mathrm{orbit}}^{2}}{1-e^{2}} = \frac{2\pi \left( \frac{3R_s}{2a} \right)}{1-e^{2}}
-\end{equation}
-The factor of $2$ cancels, yielding:
-\begin{equation}
-\Delta\varphi = \frac{3\pi R_s}{a(1-e^{2})}
-\end{equation}
-This is identical to the standard result (Eq.~2). The precession of the orbit is thus shown to be an inevitable algebraic consequence of the system's relational invariants, without solving any differential equations of motion.
-\end{proof}
-
-
-
-\subsection{Structure Map: how the same two apsides generate both invariants}
-
-\begin{tcolorbox}[colback=gray!3,colframe=black!60!black,title=Structure Map]
-\[
-\boxed{\kappa^2=\frac{R_s}{r}},\qquad \boxed{W=\beta^{2}-\kappa^{2}=\text{const}}
-\]
-
-\[
-\Downarrow \;\; \text{apply at two apsides} \;\; \Downarrow
-\]
-
-\[
-\text{Quadratic in } r \;\Rightarrow\; \{r_p,r_a\}
-\]
-
-\[
-\Downarrow \;\; \text{same two radii} \;\; \Downarrow
-\]
-
-\[
-a=\frac{r_p+r_a}{2},\qquad 
-e=\frac{r_a-r_p}{r_a+r_p}
-\]
-
-\[
-\Downarrow \;\; \text{encode same geometry in norm} \;\; \Downarrow
-\]
-
-\[
-Q^{2}=\beta^{2}+\kappa^{2} \;\Longrightarrow\; 
-Q^{2}=\frac{3R_s}{2a} \quad (\kappa\ll 1)
-\]
-
-\[
-\Downarrow \;\; \text{same denominator} \;\; \Downarrow
-\]
-
-\[
-\boxed{\Delta\varphi=\frac{2\pi Q^{2}}{1-e^{2}}
-=\frac{3\pi R_s}{a(1-e^{2})}}
-\]
-
+There is no common background arena. There are only mutual displacement
+magnitudes $Q$ computed in each observer’s own relational origin.
 \end{tcolorbox}
 
+\section{Orbital Precession as Relational Displacement Q}
 
+For an elliptic orbit we choose the semi--major axis $a$ as the reference scale.
+At that scale we define the orbital displacement norm
+\begin{equation}
+\boxed{
+Q_{\mathrm{orbit}}^{2}
+\;\equiv\;
+\beta^{2}(a)+\kappa^{2}(a)
+}
+\label{eq:Qorbit-def}
+\end{equation}
+where $\beta(a)$ and $\kappa(a)$ are the kinematic and gravitational projections
+evaluated at $r=a$.
 
-\smallskip
+Using the apsidal--closure analysis of the relational invariant, the net angular mismatch per orbit can be written solely in terms of
+$Q_{\mathrm{orbit}}$ and the eccentricity $e$:
+\begin{equation}
+\boxed{
+\Delta\varphi
+= \frac{2\pi\,Q_{\mathrm{orbit}}^{2}}{1-e^{2}}
+}
+\label{eq:precession-Q}
+\end{equation}
+where $e$ is the relational eccentricity obtained from the closure factor
+$\delta$ via $e (\delta)=\frac{\sqrt{1-\delta^{2}}}{\delta}$
+No mass, no $G$, and no metric enter this expression.
 
+\subsection{Link to the Schwarzschild Scale Without Mass}
 
-\begin{tcolorbox}[colback=gray!4,colframe=black!70!black,title=Summary]
-Hence, the \emph{metric} becomes a descriptive overlay, not the generator of dynamics:
+At $r=a$ the unified identity and the closure condition give
 \[
-\boxed{\text{Spacetime is not the stage for energy, but its relational projection.}}
+\kappa^{2}(a)=\frac{R_s}{a},\qquad
+\kappa^{2}(a)=2\beta^{2}(a).
 \]
-\end{tcolorbox}
-
-\subsection{Relational Interpretation of Orbit}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Interpretation:]
-\textbf{An orbit is not a trajectory in space.}\\[3pt]
-\textit{An orbit is a closed two–state cycle of relational budgets.}
-\end{tcolorbox}
-
-In WILL the object does not ``move through'' a pre–existing spatial stage.
-There is no background continuum which is traced by a worldline.
-
-All that ever exists is a sequence of relational states $(\beta,\kappa)$
-subject to two algebraic closure conditions:
+Hence
 \[
-\beta^2-\kappa^2 = \mathrm{const}, \qquad r\beta = \mathrm{const} \quad\text{(at turning points)}.
+\beta^{2}(a)=\frac{R_s}{2a},
+\qquad
+Q_{\mathrm{orbit}}^{2}
+=
+\beta^{2}(a)+\kappa^{2}(a)
+=
+\frac{R_s}{2a}+\frac{R_s}{a}
+=
+\frac{3R_s}{2a}.
 \]
-
-The two apsides $\{r_p,r_a\}$ exhaust all available relational content.
-Their conjugacy is \emph{the} orbit.
-There is nothing left to ``describe between them'' because “between’’
-is a spatialised fiction that does not belong to relational ontology.
-
-\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Consequence:]
+Substituting this into $\Delta\varphi
+= \frac{2\pi\,Q_{\mathrm{orbit}}^{2}}{1-e^{2}}$ yields
+\begin{equation}
+\boxed{
+\Delta\varphi
+=
+\frac{3\pi R_s}{a(1-e^{2})}
+}
+\label{eq:precession-Rs}
+\end{equation}
+with $R_s$ defined operationally by the redshift measurement:
 \[
-\boxed{\textbf{Orbit} = \textbf{Two conjugate closure states of a single relational cycle}.}
+R_s = \kappa^2 r,\qquad \kappa^2 = 1-\kappa_X^2.
 \]
-\end{tcolorbox}
 
-The classical picture (a continuous path winding in a metric manifold) is a legacy approximation.
-It arises only after the ontological collapse of the two–point closure into a single-point
-geodesic formalism. In WILL the orbit \emph{is} the discrete algebraic closure itself.
+Thus the standard first--order precession law is recovered \emph{without ever
+introducing mass or $G$} or any background "stage". The entire effect is encoded in the relational
+displacement norm $Q_{\mathrm{orbit}}$ and the eccentricity $e(\delta)$.
 
+\subsection{Massless apsidal precession: S2 as a relational test}
+
+For a bound orbit in a $1/r$ carrier, the kinematic projection along the orbit can be written purely in terms of the semi-major projection level $\kappa^{2}(a)$:
+\[
+\beta^{2}(r)
+=
+\frac{\kappa^{2}(a)}{2}\Bigl(\frac{2a}{r}-1\Bigr),
+\qquad
+\kappa^{2}(r)=\frac{R_s}{r},
+\qquad
+\kappa^{2}(a)=\frac{R_s}{a}.
+\]
+No mass or $G$ are used; only the dimensionless potential projection $\kappa^{2}(a)$ appears.
+
+At periapsis $r_p=a(1-e)$ one obtains
+\[
+\beta_p^{2}
+=
+\frac{\kappa^{2}(a)}{2}\left(\frac{2}{1-e}-1\right)
+=
+\kappa^{2}(a)\left(\frac{1}{1-e}-\frac12\right).
+\]
+Solving for the semi-major projection level gives the purely observable expression
+\[
+\boxed{
+\kappa^{2}(a)
+=
+\frac{\beta_p^{2}}
+{\displaystyle \frac{1}{1-e}-\frac12}
+}
+\]
+This expresses $\kappa^{2}(a)$ entirely in terms of the two dimensionless observables: orbital eccentricity $e$ and the periapsis kinematic projection $\beta_p=v_p/c$.
+
+On the semi-major scale $r=a$, the relation above reduces to
+\[
+\beta^{2}(a)=\frac{\kappa^{2}(a)}{2}.
+\]
+
+For a closed (non-decaying) orbit the relational closure condition enforces, in a cycle-average sense,
+\[
+\langle\kappa^{2}\rangle_{\rm cycle}=2\,\langle\beta^{2}\rangle_{\rm cycle},
+\]
+so that the orbit-level displacement norm becomes
+\[
+\boxed{
+Q_{\mathrm{orbit}}^{2}
+=
+\beta^{2}(a)+\kappa^{2}(a)
+=
+\frac{3}{2}\,\kappa^{2}(a)
+}
+\]
+
+The apsidal precession per orbit is then given by the purely relational law
+\[
+\boxed{
+\Delta\varphi
+=
+\frac{2\pi\,Q_{\mathrm{orbit}}^{2}}{1-e^{2}}
+=
+\frac{3\pi\,\kappa^{2}(a)}{1-e^{2}}
+}
+\]
+The pair $\bigl(e,\beta_p\bigr)$ therefore uniquely fixes the apsidal precession without reference to mass, $G$, or any dimensional scale.
+
+\subsubsection*{S2 around Sgr~A$^{\!*}$}
+
+For the S2 star observers find
+\[
+e \simeq 0.88466,
+\qquad
+v_p \simeq 7.7\times 10^{3}\,\mathrm{km/s}
+\;\Rightarrow\;
+\beta_p \simeq 0.02568,
+\qquad
+\beta_p^{2} \simeq 6.60\times 10^{-4}.
+\]
+
+From the expression for $\kappa^{2}(a)$ one computes
+\[
+1-e \simeq 0.11534,
+\qquad
+\frac{1}{1-e}-\frac12 \simeq 8.167,
+\]
+\[
+\kappa^{2}(a)
+=
+\frac{6.60\times 10^{-4}}{8.167}
+\simeq
+8.07\times 10^{-5}.
+\]
+
+The resulting orbit-level displacement norm is
+\[
+Q_{\mathrm{orbit}}^{2}
+=
+\frac{3}{2}\,\kappa^{2}(a)
+\simeq
+1.21\times 10^{-4}.
+\]
+
+The predicted apsidal advance is
+\[
+\Delta\varphi
+=
+\frac{2\pi \times 1.21\times 10^{-4}}{1-0.88466^{2}}
+\simeq
+3.50\times 10^{-3}\ \mathrm{rad}
+\simeq
+0.2006^{\circ}
+\simeq
+12.0\ \mathrm{arcmin}.
+\]
+
+This matches the observed Schwarzschild precession of S2 within measurement uncertainty, with no use of mass, $G$, or metric structure: the result follows entirely from the dimensionless pair $(e,\beta_p)$ and the relational closure encoded in $\kappa^{2}(a)$.
 
 \section{Rotational Systems (Kerr Without Metric)}
 
@@ -2059,6 +2074,7 @@ This equality is not a result of unit choice, but the manifestation of structura
 \[
 \boxed{\textbf{WILL} = 1.}
 \]
+
 
 \subsection{Interpretive Note: The Name "WILL"}
 
@@ -2370,10 +2386,6 @@ the expression in turn validates the principle.
 In Relational Geometry (RG), dynamics is not the evolution of quantities \textit{in} time, but the continuous re-balancing of a closed network of algebraic relations.  
 What appears as "motion" or "change" is the ordered succession of states satisfying all projectional constraints.
 
-\begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=Summary]
-\textbf{Time does not drive change — change defines time.}
-\end{tcolorbox}
-
 \subsection{Why There Are No Equations of Motion}
 
 Classical physics describes systems through differential evolution:
@@ -2571,6 +2583,51 @@ temporal order.
 This establishes the stated equivalence.
 \end{proof}
 
+\begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=Summary]
+\textbf{Time does not drive change — change defines time.}
+\end{tcolorbox}
+
+\section{The Ontological Status of the Null-Interval}
+
+We must distinguish between the fundamental relational state of the universe and the perceived state generated by a massive (temporal) observer.
+
+\begin{definition}[The Fundamental Null-Interval]
+The state $\beta_Y = 0$ (the relational state of light) is defined by the absence of any internal sequence or structure. For this state, the interval between any two causally-connected events (e.g., emission and absorption) is identically zero. This is the \textbf{fundamental null-interval}.
+\end{definition}
+
+\begin{definition}[The Temporal Projection]
+The state $\beta_Y > 0$ (the massive state) is defined by the \emph{possession} of an internal sequence mechanism. This state cannot exist \emph{at} the null-interval; it must generate a non-zero interval to accommodate its own structure.
+\end{definition}
+
+\begin{theorem}[Time as a Projection of the Null-Interval]
+Duration, extension, and causality (the perceived universe) are not fundamental properties. They are the necessary \emph{projections} of the fundamental null-interval, generated by the existence of massive ($\beta_Y > 0$) observers.
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item The fundamental relational structure of reality is the null-interval ($\beta_Y = 0$).
+    \item The massive observer ($\beta_Y > 0$) exists.
+    \item By definition, the massive observer's state is incompatible with the null-interval.
+    \item Therefore, the existence of the massive observer \emph{is} the act of projecting the null-interval into an observable, ordered sequence ($\Delta t > 0$, $\Delta x > 0$).
+\end{enumerate}
+\end{proof}
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Ontological Consequence]
+\[
+\boxed{
+\text{The Universe} \;\equiv\; \text{The Null-Interval (\textit{The Point})}
+}
+\]
+\[
+\boxed{
+\text{Time/Causality} \;\equiv\; \text{The Projection (\textit{The Stretching})}
+}
+\]
+We do not experience the fundamental "point-like" reality. We experience our own $\beta_Y$-driven projection \emph{of} that reality as a temporal sequence.
+\end{tcolorbox}
+
+
+
 \begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Emergent Time and Allowed Free WILL]
 \[
 \boxed{
@@ -2585,6 +2642,105 @@ Mass (defined at $\beta_Y=1$) guarantees $\beta_Y>0$ in its neighbourhood, and t
 guarantees the existence of temporal order.
 Boundary states with $\beta_Y=0$ are the timeless edges of the relational structure.
 \end{tcolorbox}
+
+\section{Relation to General Relativity: Why the Null-Interval is Fundamental}
+
+Although RG contains no metric and no spacetime manifold,
+the structure of General Relativity (GR) still appears as a \emph{projection}
+of the relational constraints seen by a massive observer ($\beta_Y > 0$).
+This section clarifies the connection.
+
+\subsection{Why GR Describes the Null-Interval as $ds^2 = 0$}
+
+In GR the spacetime interval is defined as
+\[
+ds^2 = g_{\mu\nu} dx^\mu dx^\nu,
+\]
+and the state of light corresponds to $ds^2=0$.
+This matches the RG condition $\beta_Y = 0$, because:
+\begin{itemize}
+    \item the null-interval contains no internal temporal progression,
+    \item it cannot accumulate proper time,
+    \item it connects emission and absorption without extension.
+\end{itemize}
+
+Thus the GR statement $ds^2=0$ is simply a coordinate rendering of the
+RG statement $\beta_Y = 0$.
+Both express the same ontological fact:
+\[
+\textbf{light has no internal sequence and no temporal depth.}
+\]
+
+GR encodes this through vanishing proper interval;  
+RG encodes it through vanishing phase component.
+
+\subsection{Why the Null-Interval is Fundamental (Not a Special Case)}
+
+In GR, $ds^2=0$ is traditionally viewed as a limiting or special case.  
+In RG it becomes the \emph{primary state}:
+\[
+\beta_Y = 0 \quad \Longrightarrow \quad \text{complete simultaneity}.
+\]
+
+This state is fundamental for three reasons:
+
+\begin{enumerate}
+    \item It is the only relational configuration requiring no internal structure.
+    \item It is the only state compatible with exact collapse of temporal ordering.
+    \item All massive states ($\beta_Y>0$) can be obtained by deviation from it.
+\end{enumerate}
+
+Thus the null-interval is the ``ground geometry'' of RG:
+\[
+\textbf{All relational structure emerges as deviations from the point-like state.}
+\]
+
+GR hides this by embedding everything into a 4-dimensional manifold, but  
+the null-interval remains the universal baseline to which all other intervals
+are compared.
+
+\subsection{Why Spacetime is a Massive-Observer Projection}
+
+For $\beta_Y = 0$ (null state), there is:
+\[
+\Delta t = 0, \qquad \Delta x = 0,
+\]
+no sequence, no extension, and therefore no spacetime.
+
+A massive observer ($\beta_Y > 0$), however, possesses an internal
+phase component and therefore cannot inhabit the null-interval.
+It must \emph{project} differences between configurations.
+This projection produces:
+\[
+\Delta t > 0, \qquad \Delta x > 0.
+\]
+
+In other words:
+\begin{itemize}
+    \item The observer’s $\beta_Y$ \textbf{creates} temporal depth.
+    \item The observer’s $\beta_X$ \textbf{creates} spatial extension.
+\end{itemize}
+
+Spacetime is therefore not a container or a stage; it is the structured
+appearance generated by a state with $\beta_Y>0$.
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Interpretation]
+\[
+\boxed{
+\text{GR sees } ds^2=0 \text{ because the fundamental relational state is } \beta_Y=0.
+}
+\]
+\[
+\boxed{
+\text{Spacetime} = \text{Structured projection of a massive observer},\quad \beta_Y>0.
+}
+\]
+
+What we call ``the universe'' is the $\beta_Y$--generated unfolding of the
+null-interval. The metric is simply how this projection is encoded when one
+assumes a manifold.
+\end{tcolorbox}
+
 
 \section*{Ontological Shift: From Descriptive to Generative Physics}
 \label{Generative Physics}
