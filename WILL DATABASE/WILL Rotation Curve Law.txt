@@ -1,10 +1,53 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage{amsmath,amssymb,geometry,graphicx,booktabs}
-\usepackage[font=small,labelfont=bf]{caption}
-\geometry{margin=1in}
+\documentclass[12pt, a4paper]{article}
+
+% --- Encoding and language ---
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% --- Page geometry ---
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% --- Math and fonts ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}      % For proof environment
+
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}    
+\usepackage{enumitem}
+
+
+
+% --- TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{shapes, positioning, arrows.meta, calc}
+
+% --- tcolorbox for styled theorems ---
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{principle}[theorem]{Principle}
+
+% --- Metadata ---
 \title{WILL: Relational Geometry of Galactic Dynamics}
-\author{Anton Rize}
-\date{July 2025}
+
+
+\author{Anton Rize \\ egeometricity@gmail.com }
+
+
+\date{September 2025}
+
 
 \begin{document}
 
@@ -13,7 +56,7 @@
 \begin{abstract}
 We derive, from first principles of the WILL geometric framework, a parameter-free galactic rotation law:
 \[
-V_{\mathrm{QWILL}}(r) = \sqrt{3}\, V_{\mathrm{bary}}(r).
+V_{\mathrm{WILL}}(r) = \sqrt{3}\, V_{\mathrm{bary}}(r).
 \]
 This result emerges not from empirical fitting, but from the relational closure of energy projections in a background-free universe. When applied to the SPARC dataset (175 galaxies), it yields a median RMSE of \textbf{20.23 km/s} with \textbf{no free parameters} and a \textbf{universal stellar mass-to-light ratio} ($Y_* = 0.66$). The factor $\sqrt{3}$ is a direct consequence of the geometric identity $\kappa^2 = 2\beta^2$, which enforces energetic balance between gravitational and kinetic degrees of freedom.
 \end{abstract}
@@ -68,12 +111,12 @@ V_{\mathrm{bary}}(r) \equiv \beta(r) c.
 
 The total observable velocity in WILL includes both projections via $Q$:
 \begin{align}
-V_{\mathrm{QWILL}}^2(r) &= Q^2 c^2 = 3\beta^2 c^2 = 3 V_{\mathrm{bary}}^2(r),
+V_{\mathrm{WILL}}^2(r) &= Q^2 c^2 = 3\beta^2 c^2 = 3 V_{\mathrm{bary}}^2(r),
 \end{align}
 yielding the final law:
 \begin{equation}
-\boxed{V_{\mathrm{QWILL}}(r) = \sqrt{3}\, V_{\mathrm{bary}}(r)}.
-\label{eq:QWILL_final}
+\boxed{V_{\mathrm{WILL}}(r) = \sqrt{3}\, V_{\mathrm{bary}}(r)}.
+\label{eq:WILL_final}
 \end{equation}
 
 \section{Interpretation: Why $\sqrt{3}$ Is Not a Fit}
@@ -88,7 +131,7 @@ No new constants are introduced—only $G$ and $c$, already present in $V_{\math
 
 \section{Empirical Validation on SPARC}
 
-We apply Eq.~\eqref{eq:QWILL_final} to 175 galaxies in the SPARC database \cite{Lelli2016}, using:
+We apply Eq.~\eqref{eq:WILL_final} to 175 galaxies in the SPARC database \cite{Lelli2016}, using:
 \begin{itemize}
 \item Gas mass from HI observations,
     \item Stellar mass with a \textbf{fixed} $Y_* = 0.66$ (no per-galaxy tuning).
@@ -99,21 +142,51 @@ We apply Eq.~\eqref{eq:QWILL_final} to 175 galaxies in the SPARC database \cite{
 This within MOND’s performance (RMSE $\approx$ 13–20 km/s) \textit{without fitting a single parameter per galaxy}, and surpasses typical $\Lambda$CDM simulations (RMSE $\approx$ 25–30 km/s) that require tuned dark matter halos.
 
 
+
 \begin{table}[h!]
 \centering
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{5pt}
+
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|c|}
 \hline
-\textbf{Model} & \textbf{Fit Method} & \textbf{Free Parameters} & \textbf{Global Median RMSE (km/s)} \\
+\textbf{Model} &
+\textbf{Fit Method} &
+\textbf{Free Parameters} &
+\textbf{Global Median RMSE (km/s)} \\
 \hline
-WILL ($\Upsilon^* = 0.66$)& global, fixed & 1 (universal) & 20.23 \\
- WILL ($\Upsilon^* = \text{flexible}$)& per galaxy& 1 ($\Upsilon^*$ per galaxy)&12.63\\
-Newtonian Baryonic & global, fixed & 1 (universal) & $\sim$43 \\
-MOND ($a_0$ universal) & per galaxy & 1 ($\Upsilon^*$ per galaxy) & $\sim$13 \\
-CDM/Burkert/NFW Dark Matter & per galaxy fit & 2/3+ per galaxy & 25--30 \\
+WILL ($\Upsilon^* = 0.66$) &
+Global, fixed &
+1 (universal) &
+20.23 \\
 \hline
-\end{tabular}
+WILL ($\Upsilon^*$ flexible) &
+Per galaxy &
+1 ($\Upsilon^*$ per galaxy) &
+12.63 \\
+\hline
+Newtonian Baryonic &
+Global, fixed &
+1 (universal) &
+$\sim$43 \\
+\hline
+MOND ($a_0$ universal) &
+Per galaxy &
+1 ($\Upsilon^*$ per galaxy) &
+$\sim$13 \\
+\hline
+CDM / Burkert / NFW Dark Matter &
+Per galaxy fit &
+2--3+ per galaxy &
+25--30 \\
+\hline
+\end{tabular}%
+} % <--\resizebox
 \caption{Comparison of global median RMSE for rotation curve models (SPARC sample, 175 galaxies).}
 \end{table}
+
+
 \begin{itemize}
 
     \item Empirical rotation curve RMSEs for Newtonian-only baryonic fits (with fixed $\Upsilon^*$), MOND, and CDM models are cited from Wang et al. 2020 \cite{Wang2020} and Li et al. 2020 \cite{Li2020}. 
