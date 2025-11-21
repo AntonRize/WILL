@@ -7,6 +7,7 @@
 \usepackage{hyperref} 
 \usepackage[warn]{textcomp}
 
+
 % --- Page geometry ---
 \usepackage{geometry}
 \geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
@@ -24,6 +25,45 @@
 \usepackage{enumitem}
 
 
+% --- START OF FOOTER SECTION ---
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+
+
+
+% Activate the fancy page style
+\pagestyle{fancy}
+
+% Clear default headers and footers
+\fancyhf{} 
+
+% Remove the horizontal line in the header (optional, keeps it clean)
+\renewcommand{\headrulewidth}{0pt}
+
+% Remove the horizontal line in the footer (optional, set to 0.4pt if you want a line)
+\renewcommand{\footrulewidth}{0pt} 
+
+% Left Footer: Website Link (Small text)
+\lfoot{\scriptsize \href{https://antonrize.github.io/WILL/}{antonrize.github.io/WILL}}
+
+% Center Footer: Page Number
+\cfoot{\scriptsize \thepage}
+
+% Right Footer: Zenodo DOI (Small text)
+\rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
+
+% --- HANDLING THE FIRST PAGE (TITLE PAGE) ---
+% By default, \maketitle resets the style to 'plain'. 
+% This code redefines 'plain' to match your custom footer so it appears on page 1 too.
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \lfoot{\scriptsize \href{https://antonrize.github.io/WILL/}{antonrize.github.io/WILL}}
+  \cfoot{\scriptsize \thepage}
+  \rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
+}
+% --- END OF FOOTER SECTION ---
 
 % --- TikZ ---
 \usepackage{tikz}
@@ -2101,6 +2141,66 @@ This negative surface pressure represents the ultimate tension limit of spacetim
 
 Pressure in WILL is the intrinsic surface tension of energy-geometry, saturating at $P_{\max}=-c^4/(8\pi G r^2)$.
 
+
+\section{Unified Geometric Field Equation}
+
+\subsection{The Theoretical Ouroboros}
+From the energy-geometry equivalence, the complete description of gravitational phenomena reduces to a single algebraic relation linking the geometric scale to the energy density ratio:
+
+\[
+\boxed{
+\kappa^2 = \frac{\rho_{\text{field}}}{\rho_{\text{max}}}
+}
+\label{eq:unified_identity}
+\]
+
+This identity defines the \textbf{local energy state of the geometry itself}.
+Here $\rho_{\text{max}} = c^2/(8\pi G r^2)$ is the saturation density limit, and $\rho_{\text{field}}$ is the effective energy density of the relational curvature.
+
+\subsection{Field Equation and Matter Sources}
+
+For a static, spherically symmetric configuration containing matter with density $\rho_{\text{matter}}(r)$, the relationship is governed by the differential accumulation of the potential:
+
+\begin{equation}
+\boxed{
+\frac{d}{dr}\!\left(r\,\kappa^{2}\right) = \frac{8\pi G}{c^{2}}\, r^{2}\rho_{\text{matter}}(r)
+}
+\label{eq:will_field_diff}
+\end{equation}
+
+This expression reproduces the $tt$-component of the Einstein field equations.
+
+\paragraph{The Vacuum Solution ($\rho_{\text{matter}} = 0$).}
+In the vacuum region outside a central mass, the source density vanishes ($\rho_{\text{matter}} = 0$). The field equation implies conservation of the projection budget:
+\[
+\frac{d}{dr}(r\kappa^2) = 0 \quad \Longrightarrow \quad r\kappa^2 = \text{const} = R_s.
+\]
+Thus, we recover the fundamental potential law of WILL:
+\[
+\boxed{\kappa^2 = \frac{R_s}{r}.}
+\]
+
+\begin{tcolorbox}[colback=gray!4, colframe=black!70!black, title=Resolution of Roles]
+\textbf{1. The Identity} $\kappa^2 = \rho/\rho_{\text{max}}$ describes the state of the \textit{field} geometry. \\
+\textbf{2. The Equation} $(r\kappa^2)' \sim \rho_{\text{matter}}$ describes how \textit{matter} generates that geometry. \\
+In vacuum, the generator is zero, but the field persists as the algebraic structure $\kappa^2 = R_s/r$.
+\end{tcolorbox}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \section{Unified Geometric Field Equation}
 
 \subsection{The Theoretical Ouroboros}
@@ -2800,12 +2900,13 @@ Same projectional law applies from microscopic $\alpha = \beta_1$ (QM) to cosmic
 \end{table}
 
 
+
 \begin{table}[h!]
+
 \centering
-\renewcommand{\arraystretch}{1.2}
-\setlength{\tabcolsep}{6pt}
-\resizebox{\textwidth}{!}{
-\begin{tabular}{|l|l|l|}
+\renewcommand{\arraystretch}{1.3}
+
+\begin{tabular}{|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{6cm}|>{\centering\arraybackslash}p{6cm}|}
 \hline
 \textbf{Phenomenon} & \textbf{Empirical Benchmark} & \textbf{WILL Prediction} \\
 \hline
@@ -2821,14 +2922,15 @@ Schwarzschild ISCO & $r = 3 R_s$ (GR prediction) & $r = 3 R_s$ \\
 \hline
 Hulse--Taylor pulsar period decay & $\Delta P \approx -2.42 \times 10^{-12}$ s/s (observed) & $\Delta P \approx -2.40 \times 10^{-12}$ s/s \\
 \hline
-Earth--Moon tidal power (LLR recession) & 0.120 TW orbital power (measured) & 0.120 TW \\
+Earth--Moon tidal power (LLR recession) & 0.120 TW orbital power (measured) & 0.120 TW orbital power
+ (predicted)\\
 \hline
 Galactic rotation curves & "Dark Matter" speculations.& RMSE=20.23 km/s from projection law for 175 SPARC Galaxies with 0 free parameters (Details in WILL PART II).\\
 \hline
 Cosmological absolute scale (Supernovae fit) & Hubble-like expansion, $\Lambda$CDM fits & Emergent from any  one scale input only (Details in WILL PART II).\\
 \hline
 \end{tabular}
-}
+
 \caption{Empirical validation of WILL Relational Geometry across classical relativistic tests, orbital dynamics, astrophysical observations, and cosmology. See details in "Appendix I"}
 \end{table}
 
@@ -2898,29 +3000,27 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
 
 \subsection{References:}
 
-\begin{itemize}
-    \item Schwarzschild, K. (1916). \textit{Sitzungsberichte der Kniglich Preussischen Akademie der Wissenschaften}.
-    \item Tolman, R.C. (1939). \textit{Phys. Rev.} \textbf{55}, 364.
+\begin{thebibliography}{99}
 
- Oppenheimer, J.R., Volkoff, G.M. (1939). \textit{Phys. Rev.} \textbf{55}, 374.
-    \item Dyson, F.W.; Eddington, A.S.; Davidson, C. (1920). \textit{Phil. Trans. R. Soc. A} \textbf{220}, 291-333.
+\bibitem{Schwarzschild1916} Schwarzschild, K. (1916). \textit{Sitzungsberichte der Königlich Preussischen Akademie der Wissenschaften}.
 
- Lebach, D.E. et al. (1995). \textit{Phys. Rev. Lett.} \textbf{75}, 1439.
+\bibitem{Tolman1939} Tolman, R.C. (1939). \textit{Phys. Rev.} \textbf{55}, 364; Oppenheimer, J.R., Volkoff, G.M. (1939). \textit{Phys. Rev.} \textbf{55}, 374.
 
- Lambert, S.B., Le Poncin-Lafitte, C. (2009). \textit{A\&A} \textbf{499}, 331.
-    \item Ashby, N. (2003). \textit{Living Rev. Relativity} \textbf{6}:1; 
-    \item Will, C.M. (2014). \textit{Living Rev. Relativity} \textbf{17}:4.
-    \item Williams, J.G.; Turyshev, S.G.; Boggs, D.H. (2006/2014/2016). LLR analyses (\textit{Adv. Space Res.} \textbf{37}, 67-71; JPL).
+\bibitem{Dyson1920} Dyson, F.W., Eddington, A.S., Davidson, C. (1920). \textit{Phil. Trans. R. Soc. A} \textbf{220}, 291-333.
 
- Dickey, J.O. et al. (1994). \textit{Science} \textbf{265}, 482.
+\bibitem{Lebach1995} Lebach, D.E. et al. (1995). \textit{Phys. Rev. Lett.} \textbf{75}, 1439.
 
- Egbert, G.D.; Ray, R.D. (2000). \textit{Nature} \textbf{405}, 775-778.
-    \item Weisberg, J.M.; Huang, Y. (2016). \textit{ApJ} \textbf{829}, 55.
+\bibitem{Ashby2003} Ashby, N. (2003). \textit{Living Rev. Relativity} \textbf{6}:1.
 
- Kramer, M. et al. (2021). \textit{Phys. Rev. X} \textbf{11}, 041050.
-    \item Bardeen, J.M., Press, W.H., Teukolsky, S.A. (1972). \textit{ApJ} \textbf{178}, 347.
-    \item Misner, Thorne, Wheeler (1973). \textit{Gravitation}.
-\end{itemize}
+\bibitem{Will2014} Will, C.M. (2014). \textit{Living Rev. Relativity} \textbf{17}:4.
+
+\bibitem{LLR} Williams, J.G., Turyshev, S.G., Boggs, D.H. (2006). \textit{Adv. Space Res.} \textbf{37}, 67-71.
+
+\bibitem{Kramer2021} Kramer, M. et al. (2021). \textit{Phys. Rev. X} \textbf{11}, 041050.
+
+\bibitem{Misner1973} Misner, Thorne, Wheeler (1973). \textit{Gravitation}.
+
+\end{thebibliography}
  
 
 \end{document}

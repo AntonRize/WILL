@@ -1,15 +1,79 @@
-\documentclass[a4paper,onecolumn]{article}
+\documentclass[12pt, a4paper]{article}
+
+% --- Encoding and language ---
+\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage[warn]{textcomp}
+
+
+% --- Page geometry ---
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% --- Math and fonts ---
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage[most]{tcolorbox}
-\usepackage{geometry}
-\geometry{
-    left=15mm, right=15mm, top=20mm, bottom=20mm
+\usepackage{amsthm}      % For proof environment
+
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}    
+\usepackage{enumitem}
+
+% --- START OF FOOTER SECTION ---
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+
+% Activate the fancy page style
+\pagestyle{fancy}
+
+% Clear default headers and footers
+\fancyhf{} 
+
+% Remove the horizontal line in the header (optional)
+\renewcommand{\headrulewidth}{0pt}
+
+% Remove the horizontal line in the footer (optional)
+\renewcommand{\footrulewidth}{0pt} 
+
+% Left Footer: Website Link
+\lfoot{\scriptsize \href{https://antonrize.github.io/WILL/}{antonrize.github.io/WILL}}
+
+% Center Footer: Page Number
+\cfoot{\scriptsize \thepage}
+
+% Right Footer: Zenodo
+\rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
+
+% --- HANDLING THE FIRST PAGE (TITLE PAGE) ---
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \lfoot{\scriptsize \href{https://antonrize.github.io/WILL/}{antonrize.github.io/WILL}}
+  \cfoot{\scriptsize \thepage}
+  \rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
 }
+% --- END OF FOOTER SECTION ---
+
+% --- TikZ ---
 \usepackage{tikz}
 \usetikzlibrary{shapes, positioning, arrows.meta, calc}
+
+% --- tcolorbox for styled theorems ---
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{principle}[theorem]{Principle}
 
 \title{WILL: Relational Geometry\\ PART II - Cosmology}
 \author{Anton Rize \\ egeometricity@gmail.com}
@@ -17,7 +81,7 @@
 
 \begin{document}
 \maketitle
-\thispagestyle{empty}
+
 
 \vspace{0.6cm}
 \begin{center}
@@ -90,7 +154,7 @@ The algebraic relationships remain identical across all scales.
 In conventional cosmology, the Friedmann equations describe the evolution of the universe by solving differential equations involving the scale factor \(a(t)\), energy densities, curvature \(k\), and a time-dependent metric.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key Insight]
-\textbf{In Will Geometry, no metric is required.}
+\textbf{In Will Relational Geometry, no metric is required.}
 All cosmological quantities follow directly from a single scale parameter and geometric energy projection parameter: \( \kappa \).
 \end{tcolorbox}
 
@@ -101,41 +165,41 @@ No metric signatures.
 
 \begin{equation}
 \boxed{
-\text{Cosmology emerges from geometry of energy projection — not from geometry of space.}
+\text{Cosmology emerges from geometry of energy projections - not from geometry of space.}
 }
 \end{equation}
 
 
-\subsection{Deriving the Cosmological Relation $\kappa^2 = \Omega$}
+\subsection{The Unified Cosmological Parameter $Q$ }
 
-In this section, we derive the relationship between the geometric energy parameter $\kappa$ and the ratio of the actual energy density of the Universe $\rho$ to the critical density $\rho_{max}$. This leads to the expression $\kappa^2 = \Omega$, where $\Omega$ is the dimensionless density parameter commonly used in cosmology.
+In this section, we derive the relationship between the total projection parameter $Q$ and the ratio of the total energy density of the Universe $\rho_{total}$ to the critical density $\rho_{max}$. This leads to the expression $Q^2 = \Omega$, where $\Omega$ is the dimensionless density parameter commonly used in cosmology.
 
-We begin by considering the general formula for $\kappa$, derived from energy geometry:
+We begin by considering the general formula for $Q$, derived from part I:
 
 \begin{equation}
-\kappa = \sqrt{\frac{2 G M_U}{r_H c^2}}
+Q = \sqrt{\frac{2 G M_U}{r_H c^2}}
 \end{equation}
 
-Here, $M_U$ is the total mass-energy content within the observable Universe, and $r_H$ is the Hubble radius, defined as:
+Here, $M_U$ is the total mass-energy content including both its kinetic and potential parts within the observable Universe, and $r_H$ is the Hubble radius, defined as:
 
 \begin{equation}
 r_H = \frac{c}{H_0}
 \end{equation}
 
-To express $M_U$ in terms of the average energy density $\rho_0$, we use the standard formula for the mass within a sphere of radius $r_H$:
+To express $M_U$ in terms of the average energy density $\rho_0$, we use formula for the mass/energy within radius $r_H$ derived in part I:
 
 \begin{equation}
-M_U = 4 \pi r_H^3 \rho
+M_U = 4 \pi r_H^3 \rho_{total}
 \end{equation}
 
-Substituting into the expression for $\kappa$ gives:
+Substituting into the expression for $Q$ gives:
 
 \begin{align}
-\kappa &= \sqrt{\frac{2 G}{r_H c^2} \cdot \left( 4 \pi r_H^3 \rho \right)} \\
-&= \sqrt{\frac{8 \pi G}{ c^2} \cdot r_H^2 \cdot \rho}
+Q &= \sqrt{\frac{2 G}{r_H c^2} \cdot \left( 4 \pi r_H^3 \rho_{total} \right)} \\
+&= \sqrt{\frac{8 \pi G}{ c^2} \cdot r_H^2 \cdot \rho_{total}}
 \end{align}
 
-We now insert the definition of the critical density $\rho_c$:
+We now insert the definition of the maximal observable density $\rho_{max}$:
 
 \begin{equation}
 \rho_{max} = \frac{H_0^2}{8 \pi G}
@@ -146,29 +210,47 @@ We also recall that $r_H = \frac{c}{H_0}$, so $r_H^2 = \frac{c^2}{H_0^2}$.
 Substituting into the previous expression:
 
 \begin{align}
-\kappa &= \sqrt{ \frac{8 \pi G}{ c^2} \cdot \frac{c^2}{H_0^2} \cdot \rho } 
-= \sqrt{ \frac{8 \pi G}{ H_0^2} \cdot \rho }
+Q &= \sqrt{ \frac{8 \pi G}{ c^2} \cdot \frac{c^2}{H_0^2} \cdot \rho_{total} } 
+= \sqrt{ \frac{8 \pi G}{ H_0^2} \cdot \rho_{total} }
 \end{align}
 
 Now we invert and substitute the expression for $\rho_{max}$:
 
 \begin{align}
-\kappa &= \sqrt{ \frac{\rho}{\rho_{max}} } \,
-\Rightarrow \quad \kappa^2 = \frac{\rho}{\rho_{max}}
+Q &= \sqrt{ \frac{\rho_{total}}{\rho_{max}} } \,
+\Rightarrow \quad Q^2 = \frac{\rho_{total}}{\rho_{max}}
 \end{align}
 
-Finally, recalling that the ratio $\rho / \rho_{max}$ is by definition the cosmological density parameter $\Omega$, we obtain:
+Finally, recalling that the ratio $\rho_{total} / \rho_{max}$ is by definition the cosmological density parameter $\Omega$, we obtain:
 
 \begin{equation}
-\boxed{ \kappa^2 = \Omega }
+\boxed{ Q^2 = \Omega }
 \end{equation}
 
+\paragraph{Decomposition into Matter and Vacuum.}
+Since the Universe is a closed system, the internal geometric closure law $\kappa^2 = 2\beta^2$ derived in Part I mandates the distribution of this total density into its physical components:
+
+\begin{itemize}
+    \item \textbf{Vacuum Energy ($\Omega_\Lambda$):} Corresponds to the potential projection $\kappa^2$.
+    \[
+    \Omega_\Lambda = \kappa^2 = \frac{2}{3} Q^2 \approx 0.67
+    \]
+    \item \textbf{Matter Energy ($\Omega_m$):} Corresponds to the kinematic projection $\beta^2$.
+    \[
+    \Omega_m = \beta^2 = \frac{1}{3} Q^2 \approx 0.33
+    \]
+\end{itemize}
+
+Assuming the critical condition $Q^2 = 1$ (saturation of the projection budget), this leads to the exact sum:
+\[
+Q^2 = \kappa^2 + \beta^2 = \frac{2}{3} + \frac{1}{3} = 1
+\]
 \subsubsection{Clarification on Interpretation}
 
-Although $\Omega = \rho / \rho_{\text{max}}$ is traditionally associated with the spatial flatness of the Universe in the standard cosmological model, the relation $\kappa^2 = \rho / \rho_{\text{max}}$ in the Will Geometry framework does not imply flatness in the metric sense. Instead, it quantifies the degree of energy projection relative to the critical geometric configuration. The concept of "flatness" as used in metric-based cosmology has no direct analog in the non-metric structure of Energy Geometry.
+Although $\Omega = \rho_{total} / \rho_{\text{max}}$ is traditionally associated with the spatial flatness of the Universe in the standard cosmological model, the relation $Q^2 = \rho_{total} / \rho_{\text{max}}$ in the Will Geometry framework does not imply flatness in the metric sense. Instead, it quantifies the degree of energy projection relative to the critical geometric configuration. The concept of "flatness" as used in metric-based cosmology has no direct analog in the non-metric structure of WILL RG.
 
 \begin{tcolorbox}[colback=gray!5,colframe=black!75!black,title=This relation establishes=\bfseries]
-Direct connection between the geometric energy parameter $\kappa$ and the large-scale energy content of the Universe.
+Direct connection between the projection energy parameter $Q$ and the large-scale energy content of the Universe.
 \end{tcolorbox}
 
 \subsection{Emergence of the Hubble Parameter from Energy Geometry}
@@ -479,7 +561,7 @@ This equivalence is encoded in the dimensionless gravitational projection parame
 \kappa^2(r) = \frac{R_s}{r} = \frac{\rho(r)}{\rho_{\max}(r)},
 \label{eq:kappa_def}
 \end{equation}
-where $R_s = 2Gm_0/c^2$ is the Schwarzschild scale, and $\rho_{\max}(r) = c^2/(8\pi G r^2)$ is the maximum admissible energy density at radius $r$.
+where $R_s = 2Gm_0/c^2$ is the Schwarzschild scale, and $\rho_{\max}(r) = c^2/(8\pi G r^2)$ is the maximum admissible density at radius $r$.
 
 The kinematic projection is defined as $\beta = v/c$. In a closed, spherically symmetric system, topology enforces a closure relation between these projections:
 \begin{equation}
@@ -532,23 +614,21 @@ The factor $\sqrt{3}$ is \textbf{not an adjustable parameter}. It is the inevita
 \begin{enumerate}
     \item The topological constraint $\kappa^2 = 2\beta^2$ (geometric virial theorem),
     \item The identification $V_{\mathrm{bary}} = \beta c$ from observed baryonic kinematics,
-    \item The definition of total energy curvature $Q^2 = \beta^2 + \kappa^2$.
+    \item The definition of total energy projection $Q^2 = \beta^2 + \kappa^2$.
 \end{enumerate}
-No new constants are introduced—only $G$ and $c$, already present in $V_{\mathrm{bary}}$.
+No new constants are introduced - only $G$ and $c$, already present in $V_{\mathrm{bary}}$.
 
 \subsection{Empirical Validation on SPARC}
 
 We apply Eq.~\eqref{eq:WILL_final} to 175 galaxies in the SPARC database \cite{Lelli2016}, using:
 \begin{itemize}
 \item Gas mass from HI observations,
-    \item Stellar mass with a \textbf{fixed} $Y_* = 0.66$ (no per-galaxy tuning).
+    \item Stellar mass with a \textbf{fixed} $\Upsilon^* = 0.66$ (no per-galaxy tuning).
 \end{itemize}
 
 \textbf{Result}: Median RMSE = \textbf{20.23 km/s}.
 
 This within MOND’s performance (RMSE $\approx$ 13–20 km/s) \textit{without fitting a single parameter per galaxy}, and surpasses typical $\Lambda$CDM simulations (RMSE $\approx$ 25–30 km/s) that require tuned dark matter halos.
-
-
 
 \begin{table}[h!]
 \centering
@@ -589,10 +669,9 @@ Per galaxy fit &
 25--30 \\
 \hline
 \end{tabular}%
-} % <-- важно: закрывает \resizebox
+} % <--\resizebox
 \caption{Comparison of global median RMSE for rotation curve models (SPARC sample, 175 galaxies).}
 \end{table}
-
 
 \begin{itemize}
 
@@ -600,19 +679,47 @@ Per galaxy fit &
     \item For foundational MOND theory, see Milgrom (2001) \cite{Milgrom2001}.
 \end{itemize}
 
-
 \subsection{Discussion}
 
-The success of $V = \sqrt{3} V_{\mathrm{bary}}$ suggests that the “missing mass” problem arises from misinterpreting geometry as substance. In WILL:
-\item Gravity is not a force mediated by dark halos,
-    \item It is the relational tension ($P = -\rho c^2$) required to maintain projectional balance.
-The factor $\sqrt{3}$ is thus a geometric signature of virial equilibrium in a closed relational system.
+\subsubsection{Hypothesis: Internal vs. External Observation (The ``Carousel'' Effect)}
+
+A fundamental question arises: if the universal rotation law is $V = \sqrt{3} V_{\mathrm{bary}}$, why does the Solar System follow pure Newtonian dynamics ($V = V_{\mathrm{bary}}$)?
+
+The answer lies in the relational nature of observation. We must distinguish between two modes of measurement:
+
+\begin{itemize}
+    \item \textbf{Inter-system Observation (External View):}
+    When we observe a distant galaxy, we are external to its gravitational binding energy. We are not part of its ``system.'' Therefore, we observe the \textbf{total energy budget} required to maintain that galaxy's structure against the vacuum. We see both the kinetic motion ($\beta^2$) and the structural tension ($\kappa^2$) required for closure.
+    \[
+    Q^2_{\mathrm{ext}} = \beta^2 + \kappa^2 = 3\beta^2 \quad \Longrightarrow \quad V = \sqrt{3} V_{\mathrm{bary}}
+    \]
+
+    \item \textbf{Intra-system Observation (Internal View):}
+    When we observe the Solar System or Milky Way, we are embedded within the same gravitational potential well ($\kappa_{\mathrm{local}}$) as the planets or stars. We are, effectively, "riding the same carousel." The background potential $\kappa^2$ is a shared baseline for both the observer (Earth) and the target (Jupiter).
+    \end{itemize}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!70!black, title=Potential Screening Principle]
+\textbf{Local Potential Screening:}
+For an observer embedded within the system, the binding potential $\kappa^2$ acts as a common background frame, not as an observable kinematic difference. The relative measurement cancels out the structural tension, leaving only the kinetic differential:
+\[
+Q^2_{\mathrm{int}} \approx \beta^2 \quad \Longrightarrow \quad V \approx V_{\mathrm{bary}}
+\]
+\end{tcolorbox}
+
+Thus, the factor $\sqrt{3}$ is the signature of a \textbf{holistic} observation of a closed system from the outside (Galactic Scale), while Newtonian dynamics represents the \textbf{differential} observation from the inside (Local Scale).
+
+\subsubsection{Remark}
+\begin{quote}
+The remaining scatter (RMSE 20.23 km/s) is expected due to the assumption of a universal  $\Upsilon^*$ and perfect geometric virial equilibrium. The fact that a parameter-free geometric law performs comparably to tuned Dark Matter models suggests that the $\sqrt{3}$ factor captures the fundamental driver of galactic dynamics, while astrophysical variations account for the residuals.
+
+\end{quote}
 
 \subsection{Conclusion}
 
-We have shown that a simple, parameter-free rotation law—$V = \sqrt{3} V_{\mathrm{bary}}$—emerges naturally from the first principles of a relational geometric framework. Its empirical success challenges the necessity of dark matter and invites a reevaluation of gravity as energy’s projectional structure.
+We have shown that a simple, parameter-free rotation law - $V = \sqrt{3} V_{\mathrm{bary}}$ - emerges naturally from the first principles of a relational geometric framework. Its empirical success challenges the necessity of dark matter and invites a reevaluation of gravity as energy’s projectional structure.
 
-\textbf{Code and data are fully open-source}: \url{https://antonrize.github.io/WILL/}
+\textbf{Code and data are fully open-source at}: \url{https://antonrize.github.io/WILL/}
+
 
 
 \section{Black Hole Entropy in Will Geometry}
@@ -929,11 +1036,11 @@ In Part I, we established the fundamental Energy Symmetry Law:
 \Delta E_{external}=\Delta E_{A \to C} + \Delta E_{C \to A} = 0
 \end{equation}
 
-This law ensures energetic balance between observers through reciprocal energy projections. However, causal disconnection—such as matter falling beyond event horizons - breaks this symmetry.
+This law ensures energetic balance between observers through reciprocal energy projections. However, causal disconnection - such as matter falling beyond event horizons - breaks this symmetry.
 
 \subsection{The Unified Energy Parameter}
 
-The complete energetic structure of any system is captured by the unified parameter:
+The complete projectional structure of any system is captured by the unified parameter:
 \begin{equation}
 Q^2 = \kappa^2 + \beta^2 = 3\beta^2
 \end{equation}
@@ -960,14 +1067,13 @@ When an observer falls beyond a causal horizon:
 
 \subsection{Cosmological Energy Fractions}
 
-From the unified parameter structure, the cosmic energy fractions become:
+From results of part I we consider Universe as closed system therefor it obey the closure law $\kappa^2=2\beta^2$  so  fractions become:
 
 \begin{align}
-\Omega_m &= \frac{\beta^2}{Q^2} = \frac{\beta^2}{3\beta^2} = \frac{1}{3} \\
 \Omega_\Lambda &= \frac{\kappa^2}{Q^2} = \frac{2\beta^2}{3\beta^2} = \frac{2}{3}
 \end{align}
 
-These ratios are **not empirical fits** but geometric necessities arising from the asymmetric loss of projectional frames.
+These ratios are not empirical fits but geometric necessities arising from the asymmetric loss of projectional frames.
 
 \subsection{Geometric Resonance at $\kappa^2 = 2/3$}
 
@@ -978,7 +1084,7 @@ The cosmological prediction $\kappa^2 = 2/3$ corresponds to the critical geometr
 
 This occurs at the photon sphere radius $r = 1.5R_s$, where:
 \begin{equation}
-\theta_1 = \theta_2 \approx 54.74°
+\theta_1 = \theta_2 \approx 54.74° (\text{"magic" angle})
 \end{equation}
 
 At this critical angle, energy projections satisfy:
@@ -1003,7 +1109,7 @@ where $r= c/H_0$ is the Hubble radius. This yields:
 This exactly reproduces the observed cosmological ratio:
 \[
 \boxed{
-\Omega_\Lambda = \frac{2}{3}, \quad \Omega_m = \frac{1}{3}
+\Omega_\Lambda = \frac{2}{3}
 }
 \]
 
@@ -1169,6 +1275,100 @@ This derivation confirms that the cosmological constant Λ represents not a myst
 
 \begin{tcolorbox}[colback=gray!4, colframe=black!80!black, title=Foundational Insight]
 Dark energy is not a substance or field, but the algebraic expression of geometric symmetry in a closed, self-contained universe. The equation of state w = -1 reflects the fundamental requirement that no preferential directions can exist in the fabric of spacetime itself.
+\end{tcolorbox}
+
+\section{Dynamic Interpretation of the Cosmological Term}
+
+\begin{quote}
+\textit{
+The cosmological constant is not a constant of nature, but a measure of relational smoothness.  
+It does not curve space; it measures how evenly relationships remain curved.
+}
+\end{quote}
+
+\subsection*{Classical Motivation}
+
+In Einstein's field equations,
+\[
+G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu},
+\]
+the term $\Lambda$ was introduced to stabilize an ontology that assumed space and energy to be independent entities.  
+When energy and geometry are separated, an additional compensating term becomes mathematically necessary to prevent collapse or divergence.  
+In the relational ontology of WILL RG, however, such separation never occurs; geometry and energy are two aspects of the same relation.  
+Therefore, $\Lambda$ cannot appear as an external constant.  
+
+\subsection{Relational Definition}
+
+Within the WILL RG framework, the quantity corresponding to the cosmological constant emerges directly from the definition of the relational curvature parameter:
+\[
+\boxed{
+\Lambda(r) \;=\; \frac{\kappa^2(r)}{r^2}.
+}
+\]
+Here $\kappa^2(r)$ expresses the local ratio of energy-to-geometry relations between observers.  
+The so-called ``cosmological constant'' is thus not an additive term in the field equations but a differential indicator of how uniform those relations remain across different scales.
+
+\subsection{Equilibrium and Dynamical Regimes}
+
+When the relational configuration is homogeneous,
+\[
+\partial_r \kappa^2 = 0,
+\]
+the system is in relational equilibrium: every observer experiences identical ratios of temporal and spatial calibration.  
+In this case $\Lambda$ takes a constant value,
+\[
+\Lambda = \text{const.},
+\]
+representing a steady, self-consistent geometry.  
+
+When $\kappa^2$ varies with $r$, the structure departs from equilibrium and $\Lambda$ becomes dynamic:
+\[
+\boxed{
+\partial_r \Lambda
+= \frac{\partial_r \kappa^2}{r^2}
+- \frac{2\kappa^2}{r^3}.
+}
+\]
+This variation does not indicate the presence of a new physical field or force; it simply reflects a non-uniform adjustment of relational potentials.  
+The ``expansion of space'' in classical cosmology corresponds, in relational terms, to the differential evolution of $\kappa(r)$ across the network of observers.
+
+\subsection{Relational Dynamics}
+
+In the absence of an external temporal parameter, dynamics in WILL RG refers to the transformation of relational configurations rather than time evolution.  
+Between two states $S_i$ and $S_j$,
+\[
+\Delta \kappa^2 = \kappa_j^2 - \kappa_i^2
+\]
+quantifies the energetic transition of the relational geometry.  
+In the continuous limit,
+\[
+\partial_r \kappa^2
+\]
+acts as the generator of geometric change: a local measure of how the relational structure reorganizes itself.  
+No external spacetime, field, or vacuum energy is required.
+
+\subsection{Summary}
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=Relational View of the Cosmological Term]
+\[
+\begin{aligned}
+\Lambda(r) &= \frac{\kappa^2(r)}{r^2}, \\[1ex]
+\partial_r \Lambda &= \frac{\partial_r \kappa^2}{r^2} - \frac{2\kappa^2}{r^3}.
+\end{aligned}
+\]
+\textbf{Equilibrium:} $\partial_r \kappa^2 = 0$ $\Rightarrow$ $\Lambda = \text{const.}$  
+\quad
+\textbf{Dynamics:} $\partial_r \kappa^2 \neq 0$ $\Rightarrow$ $\Lambda = \Lambda(r)$, evolving with the relational configuration.
+\end{tcolorbox}
+
+In this interpretation, the cosmological term is no longer an external constant appended to the equations of motion.  
+It is a derived, scale-dependent property of relational geometry---a self-consistent measure of its smoothness. 
+
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!40!black,title=Summary]
+\[
+\textbf{Spacetime does not expand; relations reorganize.}
+\]
 \end{tcolorbox}
 
 
