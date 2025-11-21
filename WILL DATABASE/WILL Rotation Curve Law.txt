@@ -54,14 +54,14 @@
 \maketitle
 
 \begin{abstract}
-We derive, from first principles of the WILL geometric framework, a parameter-free galactic rotation law:
+We derive, from first principles of the WILL Relational Geometry (RG) framework, a parameter-free galactic rotation law:
 \[
 V_{\mathrm{WILL}}(r) = \sqrt{3}\, V_{\mathrm{bary}}(r).
 \]
-This result emerges not from empirical fitting, but from the relational closure of energy projections in a background-free universe. When applied to the SPARC dataset (175 galaxies), it yields a median RMSE of \textbf{20.23 km/s} with \textbf{no free parameters} and a \textbf{universal stellar mass-to-light ratio} ($Y_* = 0.66$). The factor $\sqrt{3}$ is a direct consequence of the geometric identity $\kappa^2 = 2\beta^2$, which enforces energetic balance between gravitational and kinetic degrees of freedom.
+This result emerges not from empirical fitting, but from the relational closure of energy projections in a background-free universe. When applied to the SPARC dataset (175 galaxies), it yields a median RMSE of \textbf{20.23 km/s} with \textbf{no free parameters} and a \textbf{universal stellar mass-to-light ratio} ($Y_* = 0.66$). The factor $\sqrt{3}$ is a direct consequence of the closure condition $\kappa^2 = 2\beta^2$, which enforces energetic balance between gravitational and kinetic degrees of freedom derived from first principles in WILL Part I: Relational Geometry.
 \end{abstract}
 
-\section{Foundational Relations of WILL Geometry}
+\section{Foundational Relations of WILL RG}
 
 The WILL framework eliminates the hidden assumption that structure (spacetime) and dynamics (energy) are distinct. It adopts a single ontological principle:
 \begin{equation}
@@ -72,7 +72,7 @@ This equivalence is encoded in the dimensionless gravitational projection parame
 \kappa^2(r) = \frac{R_s}{r} = \frac{\rho(r)}{\rho_{\max}(r)},
 \label{eq:kappa_def}
 \end{equation}
-where $R_s = 2Gm_0/c^2$ is the Schwarzschild scale, and $\rho_{\max}(r) = c^2/(8\pi G r^2)$ is the maximum admissible energy density at radius $r$.
+where $R_s = 2Gm_0/c^2$ is the Schwarzschild scale, and $\rho_{\max}(r) = c^2/(8\pi G r^2)$ is the maximum admissible density at radius $r$.
 
 The kinematic projection is defined as $\beta = v/c$. In a closed, spherically symmetric system, topology enforces a closure relation between these projections:
 \begin{equation}
@@ -125,23 +125,21 @@ The factor $\sqrt{3}$ is \textbf{not an adjustable parameter}. It is the inevita
 \begin{enumerate}
     \item The topological constraint $\kappa^2 = 2\beta^2$ (geometric virial theorem),
     \item The identification $V_{\mathrm{bary}} = \beta c$ from observed baryonic kinematics,
-    \item The definition of total energy curvature $Q^2 = \beta^2 + \kappa^2$.
+    \item The definition of total energy projection $Q^2 = \beta^2 + \kappa^2$.
 \end{enumerate}
-No new constants are introduced—only $G$ and $c$, already present in $V_{\mathrm{bary}}$.
+No new constants are introduced - only $G$ and $c$, already present in $V_{\mathrm{bary}}$.
 
 \section{Empirical Validation on SPARC}
 
 We apply Eq.~\eqref{eq:WILL_final} to 175 galaxies in the SPARC database \cite{Lelli2016}, using:
 \begin{itemize}
 \item Gas mass from HI observations,
-    \item Stellar mass with a \textbf{fixed} $Y_* = 0.66$ (no per-galaxy tuning).
+    \item Stellar mass with a \textbf{fixed} $\Upsilon^* = 0.66$ (no per-galaxy tuning).
 \end{itemize}
 
 \textbf{Result}: Median RMSE = \textbf{20.23 km/s}.
 
 This within MOND’s performance (RMSE $\approx$ 13–20 km/s) \textit{without fitting a single parameter per galaxy}, and surpasses typical $\Lambda$CDM simulations (RMSE $\approx$ 25–30 km/s) that require tuned dark matter halos.
-
-
 
 \begin{table}[h!]
 \centering
@@ -186,28 +184,52 @@ Per galaxy fit &
 \caption{Comparison of global median RMSE for rotation curve models (SPARC sample, 175 galaxies).}
 \end{table}
 
-
 \begin{itemize}
 
     \item Empirical rotation curve RMSEs for Newtonian-only baryonic fits (with fixed $\Upsilon^*$), MOND, and CDM models are cited from Wang et al. 2020 \cite{Wang2020} and Li et al. 2020 \cite{Li2020}. 
     \item For foundational MOND theory, see Milgrom (2001) \cite{Milgrom2001}.
 \end{itemize}
 
-
-
-
 \section{Discussion}
 
-The success of $V = \sqrt{3} V_{\mathrm{bary}}$ suggests that the “missing mass” problem arises from misinterpreting geometry as substance. In WILL:
-\item Gravity is not a force mediated by dark halos,
-    \item It is the relational tension ($P = -\rho c^2$) required to maintain projectional balance.
-The factor $\sqrt{3}$ is thus a geometric signature of virial equilibrium in a closed relational system.
+\subsection{Hypothesis: Internal vs. External Observation (The ``Carousel'' Effect)}
+
+A fundamental question arises: if the universal rotation law is $V = \sqrt{3} V_{\mathrm{bary}}$, why does the Solar System follow pure Newtonian dynamics ($V = V_{\mathrm{bary}}$)?
+
+The answer lies in the relational nature of observation. We must distinguish between two modes of measurement:
+
+\begin{itemize}
+    \item \textbf{Inter-system Observation (External View):}
+    When we observe a distant galaxy, we are external to its gravitational binding energy. We are not part of its ``system.'' Therefore, we observe the \textbf{total energy budget} required to maintain that galaxy's structure against the vacuum. We see both the kinetic motion ($\beta^2$) and the structural tension ($\kappa^2$) required for closure.
+    \[
+    Q^2_{\mathrm{ext}} = \beta^2 + \kappa^2 = 3\beta^2 \quad \Longrightarrow \quad V = \sqrt{3} V_{\mathrm{bary}}
+    \]
+
+    \item \textbf{Intra-system Observation (Internal View):}
+    When we observe the Solar System or Milky Way, we are embedded within the same gravitational potential well ($\kappa_{\mathrm{local}}$) as the planets or stars. We are, effectively, "riding the same carousel." The background potential $\kappa^2$ is a shared baseline for both the observer (Earth) and the target (Jupiter).
+    \end{itemize}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!70!black, title=Potential Screening Principle]
+\textbf{Local Potential Screening:}
+For an observer embedded within the system, the binding potential $\kappa^2$ acts as a common background frame, not as an observable kinematic difference. The relative measurement cancels out the structural tension, leaving only the kinetic differential:
+\[
+Q^2_{\mathrm{int}} \approx \beta^2 \quad \Longrightarrow \quad V \approx V_{\mathrm{bary}}
+\]
+\end{tcolorbox}
+
+Thus, the factor $\sqrt{3}$ is the signature of a \textbf{holistic} observation of a closed system from the outside (Galactic Scale), while Newtonian dynamics represents the \textbf{differential} observation from the inside (Local Scale).
+
+\subsection{Remark}
+\begin{quote}
+The remaining scatter (RMSE 20.23 km/s) is expected due to the assumption of a universal  $\Upsilon^*$ and perfect geometric virial equilibrium. The fact that a parameter-free geometric law performs comparably to tuned Dark Matter models suggests that the $\sqrt{3}$ factor captures the fundamental driver of galactic dynamics, while astrophysical variations account for the residuals.
+
+\end{quote}
 
 \section{Conclusion}
 
-We have shown that a simple, parameter-free rotation law—$V = \sqrt{3} V_{\mathrm{bary}}$—emerges naturally from the first principles of a relational geometric framework. Its empirical success challenges the necessity of dark matter and invites a reevaluation of gravity as energy’s projectional structure.
+We have shown that a simple, parameter-free rotation law - $V = \sqrt{3} V_{\mathrm{bary}}$ - emerges naturally from the first principles of a relational geometric framework. Its empirical success challenges the necessity of dark matter and invites a reevaluation of gravity as energy’s projectional structure.
 
-\textbf{Code and data are fully open-source}: \url{https://antonrize.github.io/WILL/}
+\textbf{Code and data are fully open-source at}: \url{https://antonrize.github.io/WILL/}
 
 \begin{thebibliography}{9}
 \bibitem{Lelli2016} Lelli, F., McGaugh, S. S., \& Schombert, J. M. (2016). SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation Curves. \textit{The Astronomical Journal}, 152(6), 157.
