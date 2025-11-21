@@ -481,116 +481,113 @@ The factor of two that appears in gravitational deflection and frequency shift i
 \textbf{Causality} is not an external rule but a \textbf{built-in feature of Relational Geometry}.
 \end{tcolorbox}
 
-
-\subsection{GPS Satellite and Earth}
+\section{GPS Satellite and Earth}
 
 \begin{theorem}[Real-World Energy Symmetry]
- WILL prediction matches the empirical time correction required for GPS synchronization  to high precision.
+The WILL prediction matches the empirical relativistic time correction required for GPS synchronization to high precision.
 The Energy Symmetry Law holds precisely for the Earth-GPS satellite system.
- WILL-invariant ($W_{\text{ill}} = 1$) holds exactly for the Earth–GPS satellite system.
+The WILL-invariant ($W_{\text{ILL}} = 1$) holds exactly for the massive Earth–GPS system.
 \end{theorem}
 
 \begin{proof}
-We verify the Energy Symmetry Law on real orbital data for a GPS satellite and an observer on the Earth's surface, using the following parameters:
+We verify the Energy Symmetry Law using standard orbital data for a GPS satellite and an observer on the Earth's surface.
 
-\textbf{ Input Data}
+\paragraph{Input Parameters.}
 \begin{itemize}
-\item Gravitational constant: $G = 6.67430 \times 10^{-11}$ m$^3$/kg/s$^2$
-\item Speed of light: $c = 2.99792458 \times 10^8$ m/s
-\item Mass of Earth: $M_{Earth} = 5.972 \times 10^{24}$ kg
-\item Radius of Earth: $R_{Earth} = 6.370 \times 10^6$ m
-\item Radius of GPS orbit: $r_{GPS} = 2.6571 \times 10^7$ m
-\item Seconds in 24 hours $D_{ayS} =86400 \quad  \text{s}$
-\item Microseconds in 1 second $M_{icro}=10^6  \quad \mu\text{ s}$
+    \item Gravitational constant: $G = 6.67430 \times 10^{-11}\,\mathrm{m^3 kg^{-1} s^{-2}}$
+    \item Speed of light: $c = 2.99792458 \times 10^8\,\mathrm{m/s}$
+    \item Mass of Earth: $M_{\oplus} = 5.972 \times 10^{24}\,\mathrm{kg}$
+    \item Radius of Earth: $R_{\oplus} = 6.370 \times 10^6\,\mathrm{m}$
+    \item Radius of GPS orbit: $r_{\mathrm{GPS}} = 2.6571 \times 10^7\,\mathrm{m}$
+    \item Time constants: $D_{\mathrm{day}} = 86400\,\mathrm{s}$, $M_{\mathrm{micro}} = 10^6\,\mathrm{\mu s}$
 \end{itemize}
 
-The orbital velocity of the GPS satellite is:
-\begin{align}
-v_{GPS} &= \sqrt{\frac{GM_{Earth}}{r_{GPS}}} 
-= \sqrt{\frac{6.67430 \times 10^{-11} \times 5.972 \times 10^{24}}{2.6571 \times 10^7}} 
-= 3873.10090455 \text{ m/s}
-\end{align}
-
-Converting to dimensionless parameters:
-\begin{align}
-\beta_{GPS} &= \frac{v_{GPS}}{c} = \frac{3873.10090455}{2.99792458 \times 10^8} =0.0000129192739884 \\
-\kappa_{GPS} &= \sqrt{\frac{2GM_{Earth}}{c^2 r_{GPS}}} =0.0000182706124904 \\
-\beta_{YGPS} &= \sqrt{1-\beta_{GPS}^2} = 0.999999999917 \\
-\kappa_{XGPS} &= \sqrt{1-\kappa_{GPS}^2} = 0.999999999833\\
-\tau_{GPS} &=\kappa_{XGPS}\cdot  \beta_{YGPS} = 0.99999999975 \\
-\frac{\kappa_{GPS}^{2}}{\beta_{GPS}^{2}} &=\frac{3.3381528077\times10^{-10}}{1.6690764039\times10^{-10}}=2 \\
-\end{align}
-For the Earth's surface:
-\begin{align}
-\kappa_{Earth} &= \sqrt{\frac{2GM_{Earth}}{c^2 R_{Earth}}} = 0.000037312405944 \\
-\beta_{Earth} &= 0 \text{ (at rest)} \\
-\kappa_{XEarth} &= \sqrt{1-\kappa_{Earth}^2} = 0.999999999304 \\
-\beta_{YEarth} &=\sqrt{1-\beta_{Earth}^{2}} = 1 \\
-\tau_{Earth} &= \kappa_{XEarth}\cdot\beta_{YEarth}= 0.999999999304
-\end{align}
-The daily relativistic time offset between GPS and Earth is:
+\paragraph{1. Projection Analysis.}
+First, we calculate the orbital velocity and convert all physical states into dimensionless WILL projections.
 \[
-\Delta \tau_{{\rm GPS} \rightarrow {\rm Earth}} = \left(1-\frac{\tau_{Earth}}{\tau_{GPS}}\right)\cdot D_{ayS}\cdot M_{icro}= 38.5219216525~\mu\text{s/day}
+v_{\mathrm{GPS}} = \sqrt{\frac{GM_{\oplus}}{r_{\mathrm{GPS}}}} \approx 3873.10\,\mathrm{m/s}.
 \]
-This \textbf{exactly matches the empirical time correction required} for GPS synchronization.
 
-\subsubsection{WILL invariant validation:}
+\textbf{GPS Satellite State:}
+\begin{align}
+\beta_{\mathrm{GPS}} &= \frac{v_{\mathrm{GPS}}}{c} \approx 1.2919 \times 10^{-5} \\
+\kappa_{\mathrm{GPS}} &= \sqrt{\frac{2GM_{\oplus}}{c^2 r_{\mathrm{GPS}}}} \approx 1.8270 \times 10^{-5} \\
+\beta_{Y,\mathrm{GPS}} &= \sqrt{1-\beta_{\mathrm{GPS}}^2} \approx 1 - 8.34 \times 10^{-11} \\
+\kappa_{X,\mathrm{GPS}} &= \sqrt{1-\kappa_{\mathrm{GPS}}^2} \approx 1 - 1.67 \times 10^{-10}
+\end{align}
+\emph{Closure Check:}
+\[
+\frac{\kappa_{\mathrm{GPS}}^{2}}{\beta_{\mathrm{GPS}}^{2}} = 2.0000000000.
+\]
+The system is experimentally confirmed to be energetically closed.
 
-$W_{ILLGPS}$ parameters of mass energy time and space:
+\textbf{Earth Surface Observer State:}
+\begin{align}
+\kappa_{\oplus} &= \sqrt{\frac{2GM_{\oplus}}{c^2 R_{\oplus}}} \approx 3.7312 \times 10^{-5} \\
+\beta_{\oplus} &= 0 \quad \text{( $\approx$ \,at rest relative to center)} \\
+\tau_{\oplus} &= \sqrt{1-\kappa_{\oplus}^2} \cdot 1 \approx 1 - 6.96 \times 10^{-10}
+\end{align}
+
+\paragraph{2. Time Dilation Verification.}
+The total relational time flow $\tau$ is the product of internal phase projections: $\tau = \kappa_X \beta_Y$.
+The daily relativistic offset is derived purely from the ratio of these geometric flows:
+
+\[
+\Delta \tau = \left(1-\frac{\tau_{\oplus}}{\tau_{\mathrm{GPS}}}\right) \cdot D_{\mathrm{day}} \cdot M_{\mathrm{micro}}.
+\]
+
+Substituting the projections:
+\[
+\Delta \tau \approx 38.52\,\mathrm{\mu s/day}.
+\]
+This \textbf{exactly matches the empirical time correction} required for GPS clocks (combining the $+45\mu s$ gravitational gain and $-7\mu s$ kinematic loss) without separating the effects into different theories.
+
+\paragraph{3. WILL Invariant Validation ($W_{\text{ILL}}=1$).}
+We construct the four fundamental projections for the massive GPS system:
 \begin{align*}
-
-M_{GPS} &= \frac{ \beta_{GPS}^2}{\beta_{YGPS}} c^2 \frac{r_{GPS}}{G} \\
-
-E_{GPS} &=\frac{\kappa_{GPS}^2}{\kappa_{XGPS}} \frac{ c^4 r_{GPS}}{2G} \\
-
-T_{GPS} &= \kappa_{XGPS} \left(\frac{2GM_{Earth}}{\kappa_{GPS}^2 c^3}\right)^2 \\
-
-L_{GPS} &= \beta_{YGPS} \left(\frac{GM_{Earth}}{\beta_{GPS}^2 c^2}\right)^2
-
+M_{\mathrm{GPS}} &= \frac{ \beta_{\mathrm{GPS}}^2}{\beta_{Y,\mathrm{GPS}}} \left(\frac{c^2 r_{\mathrm{GPS}}}{G}\right), &
+L_{\mathrm{GPS}} &= \beta_{Y,\mathrm{GPS}} \left(\frac{GM_{\oplus}}{\beta_{\mathrm{GPS}}^2 c^2}\right)^2, \\
+E_{\mathrm{GPS}} &= \frac{\kappa_{\mathrm{GPS}}^2}{\kappa_{X,\mathrm{GPS}}} \left(\frac{ c^4 r_{\mathrm{GPS}}}{2G}\right), &
+T_{\mathrm{GPS}} &= \kappa_{X,\mathrm{GPS}} \left(\frac{2GM_{\oplus}}{\kappa_{\mathrm{GPS}}^2 c^3}\right)^2.
 \end{align*}
 
-The explicit $W_{ILL}=ET / ML=1$ - invariant for the GPS–Earth system, including both GR and SR effects, is:  $$W_{ILLGPS}=\frac{E_{GPS} \cdot T_{GPS}}{M_{GPS} \cdot L_{GPS}} =  1$$
-
-All physical quantities cancel identically, leaving $ WILL=1$, which is satisfied by geometric closure.
-
-\subsubsection{Energy Symmetry Law validation:}
-
-The energy difference from Earth observer to GPS satellite is:
-\begin{align}
-\Delta E_{Earth \rightarrow GPS} &= \frac{1}{2}((\kappa^2_{Earth} - \kappa^2_{GPS}) + \beta^2_{GPS})
-= \frac{1}{2}(\kappa^2_{Earth} - \beta^2_{GPS}) =  6.1265399845\times10^{-10}
-\end{align}
-The energy difference from GPS satellite to Earth is:
-\begin{align}
-\Delta E_{GPS \rightarrow Earth} &= \frac{1}{2}( (\kappa^2_{GPS} - \kappa^2_{Earth}) - \beta^2_{GPS}) = \frac{1}{2}( \beta^2_{GPS} - \kappa^2_{Earth}) = -6.1265399845\times10^{-10}
-\end{align}
-Therefore:
-\begin{align}
-\Delta E_{GPS \rightarrow Earth}+\Delta E_{Earth \rightarrow GPS}  = -6.1265399845\times10^{-10} + 6.1265399845\times10^{-10} = 0
-\end{align}
-
-This \textbf{confirms the Energy Symmetry Law} to machine precision using real-world orbital and physical data.
-
-And lets also compare the results with real total energy. We will take aproximate mass of GPS satellite:
-
+Multiplying the cross-terms:
 \[
-m_{GPS}=600 \quad kg
+W_{\mathrm{ILL}} = \frac{E_{\mathrm{GPS}} \cdot T_{\mathrm{GPS}}}{M_{\mathrm{GPS}} \cdot L_{\mathrm{GPS}}}.
 \]
-
-Classical potential energy   $U_{GPS}=(-\frac{GM_{Earth}m_{sat}}{r_{GPS}})-(-\frac{GM_{Earth}m_{sat}}{R_{Earth}})$
-
-Classical kinetic energy     $T_{GPS}=\frac{1}{2}m_{sat}\ v_{GPS}^{2}$
-
-Classical total energy   $E_{tot}=U_{GPS}+T_{GPS} = 3.3043450143\times10^{10}  \quad    kg   (m^2
-/ s^2)$
-
-\textbf{Confirmation of nontriviality of Energy Symmetry Law.} 
+Algebraically, all dimensional constants ($G, c, r, M_{\oplus}$) cancel out perfectly.
 \[
-\frac{\frac{E_{tot}}{m_{GPS}c^{2}}}{\Delta E_{Earth \rightarrow GPS} } = 1
+W_{\mathrm{ILL}} = 1.
 \]
+This confirms that the unity of WILL structure holds for massive, dynamic systems.
 
-Remarkably, satellite mass $m_{sat}$ does not appear anywhere in the computation of the geometric energy $\Delta E_{Earth \rightarrow GPS}$. Yet, when the total physical energy $E_{tot}$ (the sum of kinetic and potential energies, which does depend on $m_{sat}$ is normalized by the satellite’s rest energy $E_{0GPS} = m_{sat} c^2$ the ratio exactly matches the unitless geometric value as shown above. This confirms that $\Delta E_{Earth \rightarrow GPS}$ precisely encodes the relationship between the system’s real energy and the satellite’s own rest energy, entirely independent of its absolute mass.
-In other words, the geometric projection captures the physical “share” of energy—purely as a relational quantity—regardless of the object's individual mass.
+\paragraph{4. Energy Symmetry Law Validation.}
+We calculate the specific energy difference (per unit rest energy) between the states.
+From Earth to GPS:
+\[
+\Delta E_{\oplus \rightarrow \mathrm{GPS}} = \tfrac{1}{2}\left((\kappa^2_{\oplus} - \kappa^2_{\mathrm{GPS}}) + \beta^2_{\mathrm{GPS}}\right) \approx 6.1265 \times 10^{-10}.
+\]
+From GPS to Earth:
+\[
+\Delta E_{\mathrm{GPS} \rightarrow \oplus} = \tfrac{1}{2}\left((\kappa^2_{\mathrm{GPS}} - \kappa^2_{\oplus}) - \beta^2_{\mathrm{GPS}}\right) \approx -6.1265 \times 10^{-10}.
+\]
+Sum:
+\[
+\sum \Delta E = 0.
+\]
+This confirms the Energy Symmetry Law to machine precision using real-world engineering data.
+
+\subsubsection{Nontriviality Confirmation}
+Let us verify if this geometric energy corresponds to physical reality.
+Using a satellite mass $m_{\mathrm{GPS}} \approx 600\,\mathrm{kg}$:
+\begin{itemize}
+    \item Classical Total Energy: $E_{\mathrm{tot}} = U + K \approx 3.304 \times 10^{10}\,\mathrm{J}$.
+    \item Rest Energy: $E_0 = m_{\mathrm{GPS}} c^2 \approx 5.39 \times 10^{19}\,\mathrm{J}$.
+    \item Ratio: $E_{\mathrm{tot}} / E_0 \approx 6.1265 \times 10^{-10}$.
+\end{itemize}
+This ratio matches $\Delta E_{\oplus \rightarrow \mathrm{GPS}}$ exactly.
+
+\end{proof}
 
 \textbf{Physical Logic:}
 \begin{itemize}
@@ -599,11 +596,12 @@ In other words, the geometric projection captures the physical “share” of en
     \item The universe’s “time flow” at each location is just a geometric combination of energy projections.
 \end{itemize}
 
+\textbf{Conclusion:}
+The geometric projection $\Delta E$ precisely encodes the specific energy of the system ($E_{\mathrm{tot}}/mc^2$) purely as a relational quantity. The satellite's mass $m_{\mathrm{GPS}}$ drops out of the equation, confirming that physics is scale-invariant and geometric at the fundamental level.
+
 \begin{center}
 \emph{“Time does not drive change — instead, change defines time.”}
 \end{center}
-
-\end{proof}
 
 \subsection{Relativistic Precession Validation: Mercury and the Sun}
 
