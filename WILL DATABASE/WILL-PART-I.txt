@@ -1548,145 +1548,173 @@ Nature's laws reduce to algebraic self-consistency.
 \]
 \end{tcolorbox}
 
-
-
 \section{Relational Orbital Mechanics Without Mass or $G$}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Thesis]
 \textbf{Orbital dynamics requires no mass, no $G$, no metric, and no spacetime geometry.}
-All observable orbital structure follows from two directly measurable frequency
-projections:
+All observable orbital structure follows from two directly measurable frequency projections:
 \[
-\kappa \,\text{(gravitational projection from redshift)}, 
-\quad
-\beta \, \text{(kinematic projection from Doppler)}.
+\kappa \quad\text{(gravitational projection from redshift)}, 
+\qquad
+\beta \quad\text{(kinematic projection from Doppler)}.
 \]
 Everything else is algebra.
 \end{tcolorbox}
 
-\subsection{Exact Operational Inputs}
+\subsection{Two Operational Pathways}
 
-A physical observer measures exactly three quantities at the orbital periapsis (subscript $p$). We discard weak-field approximations in favor of the exact algebraic relations derived from the $S^2$ closure identity.
+Depending on the available observational data, the framework offers two distinct operational pathways:
 
-\begin{enumerate}
-    \item[(1)] \textbf{Exact Gravitational Projection ($\kappa_p$)}
-    Directly derived from the measured gravitational redshift $z$:
-    \[
-        1+z = \frac{\nu_{\mathrm{emit}}}{\nu_{\mathrm{obs}}} = \frac{1}{\kappa_X}.
-    \]
-    Substituting into the closure identity $\kappa^2 = 1 - \kappa_X^2$:
-    \begin{equation}
-        \boxed{ \kappa_p^2 = \frac{z(2+z)}{(1+z)^2} }
-    \end{equation}
-    This formula is exact for any field strength, from Earth orbit to the Event Horizon.
-
-    \item[(2)] \textbf{Kinematic Doppler Projection ($\beta_p$)}
-    \[
-        \boxed{ \beta_p = \frac{v_{max}}{c} }
-    \]
-    obtained from frequency drift or phase tracking at periapsis.
-
-    \item[(3)] \textbf{Periapsis Radius ($r_p$)}
-    determined astrometrically.
-\end{enumerate}
-
-No mass or gravitational constant is ever used. The physics relies solely on the exact geometry of light frequency ratios.
-
-\subsection{Constructing the Schwarzschild Scale}
-
-The effective Schwarzschild scale is obtained directly from the measurement:
-\begin{equation}
-\boxed{
-    R_s = \kappa_p^2 r_p
-}
-\label{eq:Rs-direct}
-\end{equation}
-$R_s$ is an operational constant defined entirely from observed frequency ratios, independent of mass or $G$.
-
-\subsection{Closure Factor: The Origin of Orbital Asymmetry}
-
-The relational parameter governing the orbital shape is defined at the point of maximum interaction:
-\begin{equation}
-\boxed{
-    \delta_p := \frac{\kappa_p}{\sqrt{2}\,\beta_p}
-}
-\qquad (0 < \delta_p \le 1).
-\label{eq:closure-factor}
-\end{equation}
-
-\paragraph{Interpretation.}
 \begin{itemize}
-    \item $\delta_p = 1$ --- perfect closure of energy projections: circular orbit.
-    \item $\delta_p < 1$ --- closure deficit: two turning points appear (elliptic orbit).
+    \item \textbf{Path 1: Verification (Full Data Available).} 
+    Used when both the central potential (redshift $z$) and the orbital kinematics ($\beta, e$) are measurable independently (e.g., Mercury/Sun). Here, we calculate $\delta_p$ from inputs and compare the predicted eccentricity with observation to validate the theory.
+    
+    \item \textbf{Path 2: Reconstruction (Partial Data Available).}
+    Used for distant systems (e.g., Star S2, Exoplanets) where the central potential is unknown or entangled with Doppler shifts. Here, we use the observed shape ($e$) and velocity ($\beta$) to \textbf{reconstruct} the hidden potential depth $\kappa_p$ via geometric compatibility.
 \end{itemize}
 
-\subsection{Turning-Point Structure and Angular Invariant}
+\subsection{Derivation of Relational Eccentricity}
 
-Turning points arise because for $\delta_p < 1$ the radial and tangential modes
-cannot simultaneously satisfy closure. At the apsides, the radial mode collapses, giving the relational angular projection invariant:
+Geometric eccentricity is not a free parameter but a measure of the energetic deviation from the circular equilibrium state ($\delta=1$).
+
+\begin{theorem}[Geometric Eccentricity]
+For a closed orbital system governed by the projection invariants of WILL Relational Geometry, the orbital eccentricity $e$ is strictly determined by the closure factor at periapsis, $\delta_p$:
 \begin{equation}
-\boxed{
-h = r\beta = \text{const at turning points}.
-}
-\label{eq:h-invariant}
+e = \frac{1}{\delta_p^2} - 1 = \frac{1-\delta_p^2}{\delta_p^2}.
 \end{equation}
-This is the relational equivalent of angular momentum conservation, derived purely from $S^2$ symmetry.
+\end{theorem}
 
-\subsection{Relational Eccentricity and Shape Reconstruction}
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Thesis]
-Geometric eccentricity emerges algebraically from the ratio of projections at periapsis.
-\end{tcolorbox}
+\begin{proof}
+Instead of relying on classical force laws, we derive this relation directly from the conservation of the two fundamental projection invariants of the WILL framework:
+\begin{enumerate}
+    \item \textbf{Energy Projection Invariant:} $W = \beta^2 - \kappa^2 = \text{const}$.
+    \item \textbf{Angular Projection Invariant:} $h = r\beta = \text{const}$ (at turning points).
+\end{enumerate}
 
-\paragraph{Derivation.}
-For any bound system governed by the omnidirectional projection ($\kappa^2 \propto 1/r$), the kinematic projection at periapsis is related to the potential projection by the geometric identity $2\beta_p^2 = \kappa_p^2(1+e)$. This is the relational form of the vis-viva equation \ref{thm:closure}.
+Consider the two turning points of a closed orbit: periapsis ($p$) and apoapsis ($a$).
+By operational definition of the shape parameter e for any orbit exhibiting two turning points (r\_min, r\_max), we have r\_max = r\_min (1+e)/(1-e):
+\begin{equation}
+r_a = r_p \left(\frac{1+e}{1-e}\right).
+\end{equation}
 
-Substituting this into the definition of the closure factor ($\delta_p^2 = \kappa_p^2 / 2\beta_p^2$):
+\paragraph{Step 1: Relational Mapping.}
+Using the angular invariant $h$ and the field definition $\kappa^2 \propto 1/r$, we express the apoapsis projections in terms of the periapsis values:
+\begin{align}
+\beta_a &= \beta_p \left(\frac{r_p}{r_a}\right) = \beta_p \left(\frac{1-e}{1+e}\right), \\
+\kappa_a^2 &= \kappa_p^2 \left(\frac{r_p}{r_a}\right) = \kappa_p^2 \left(\frac{1-e}{1+e}\right).
+\end{align}
+
+\paragraph{Step 2: Energy Balance.}
+Substituting these into the energy invariant conservation condition $W_p = W_a$:
+\[
+\beta_p^2 - \kappa_p^2 = \beta_a^2 - \kappa_a^2.
+\]
+\[
+\beta_p^2 - \kappa_p^2 = \left[ \beta_p \left(\frac{1-e}{1+e}\right) \right]^2 - \kappa_p^2 \left(\frac{1-e}{1+e}\right).
+\]
+
+Rearranging to group kinematic terms on the left and potential terms on the right:
+\[
+\beta_p^2 \left[ 1 - \left(\frac{1-e}{1+e}\right)^2 \right] = \kappa_p^2 \left[ 1 - \frac{1-e}{1+e} \right].
+\]
+
+\paragraph{Step 3: Algebraic Reduction.}
+Expanding the terms in brackets:
+\begin{align*}
+\text{LHS bracket:} & \quad 1 - \frac{(1-e)^2}{(1+e)^2} = \frac{(1+e)^2 - (1-e)^2}{(1+e)^2} = \frac{4e}{(1+e)^2}. \\
+\text{RHS bracket:} & \quad 1 - \frac{1-e}{1+e} = \frac{(1+e)-(1-e)}{1+e} = \frac{2e}{1+e}.
+\end{align*}
+Substituting back into the balance equation:
+\[
+\beta_p^2 \left( \frac{4e}{(1+e)^2} \right) = \kappa_p^2 \left( \frac{2e}{1+e} \right).
+\]
+Solving for $\beta_p^2$ yields the geometric identity for bound orbits:
+\begin{equation}
+2\beta_p^2 = \kappa_p^2 (1+e).
+\label{eq:proj-balance}
+\end{equation}
+
+\paragraph{Step 4: Connection to Closure.}
+Recall the definition of the closure factor at periapsis:
+\[
+\delta_p^2 = \frac{\kappa_p^2}{2\beta_p^2}.
+\]
+Substituting Eq.\eqref{eq:proj-balance} into this definition:
 \[
 \delta_p^2 = \frac{\kappa_p^2}{\kappa_p^2(1+e)} = \frac{1}{1+e}.
 \]
-Solving this identity for $e$, we obtain the exact relation:
-
+Solving for $e$, we obtain the stated result:
 \begin{equation}
 \boxed{
-e = \frac{1}{\delta_p^2} - 1 = \frac{1-\delta_p^2}{\delta_p^2}
+e = \frac{1}{\delta_p^2} - 1
 }
-\qquad (0\le e <1).
-\label{eq:e-delta}
 \end{equation}
+\end{proof}
 
-This demonstrates that eccentricity is strictly a measure of the energetic deviation from the closure equilibrium ($\delta=1$).
+\begin{remark}
+This result confirms that eccentricity is strictly a measure of the energetic deviation from the circular equilibrium state ($\delta=1$), derived entirely from the conservation of relational projections without invoking mass or Newtonian forces.
+\end{remark}
+\subsection{Path 1: Verification on Mercury (Pure Optical Inputs)}
 
-Once $e$ is derived, the aphelion radius $r_a$ follows algebraically:
-\begin{equation}
-\boxed{
-    r_a = r_p \left( \frac{1+e}{1-e} \right) = r_p \left( \frac{1}{2\delta_p^2 - 1} \right)
-}
-\label{eq:turning-radii}
-\end{equation}
+We validate the theory using Mercury, utilizing only direct optical measurements (Doppler and Redshift). We implicitly assume \textbf{zero knowledge} of the Sun's mass, the gravitational constant $G$, or the Schwarzschild radius derived from them.
 
-\subsection{Example 1: Reconstruction of Mercury's Orbit}
-
-\paragraph{Inputs at perihelion:}
+\paragraph{1. Input: Kinematic Projection ($\beta_p$).}
+Radar telemetry directly measures the orbital velocity at perihelion ($v_p \approx 58.98$ km/s). The kinematic projection is simply this velocity normalized by the speed of light:
 \[
-r_p = 4.600\times10^{10}\,\mathrm{m},\qquad
-\beta_p = 1.967\times10^{-4},\qquad
-\kappa_p^2 = \frac{R_s}{r_p} \approx 6.41\times 10^{-8}.
+\beta_p = \frac{v_p}{c} \approx 1.967 \times 10^{-4}.
 \]
 
-\paragraph{Closure and Shape:}
-Calculating the closure factor:
+\paragraph{2. Input: Potential Projection ($\kappa_p$).}
+Instead of deriving potential from mass, we derive it from the \textbf{measured gravitational redshift }of the Sun's photosphere, $z_{\text{surface}} \approx 2.12 \times 10^{-6}$.
+
+Using the $S^2$ relational carrier geometric omnidirectional scaling law of the potential projection ($\kappa^2 \propto 1/r$), we relate the known potential at the solar physical radius ($r_{\text{surface}}$) to the potential at Mercury's perihelion radius ($r_p$):
 \[
-\delta_p = \frac{\kappa_p}{\sqrt{2}\beta_p} \approx 0.9108.
+\kappa^2(r_p) = \kappa^2(r_{\text{surface}}) \cdot \left( \frac{r_{\text{surface}}}{r_p} \right).
 \]
-Reconstructing eccentricity via Eq.~\eqref{eq:e-delta}:
+Using the exact redshift relation $\kappa^2(r_{\text{surface}}) = 1 - (1+z_{\text{surface}})^{-2} \approx 2z_{\text{surface}}$:
 \[
-e = \frac{1}{(0.9108)^2} - 1 \simeq 0.2056.
+\kappa_p^2 \approx 2 z_{\text{surface}} \left( \frac{r_{\text{surface}}}{r_p} \right).
 \]
-Reconstructing aphelion via Eq.~\eqref{eq:turning-radii}:
+Using the observed geometric ratio of radii $r_{\text{surface}}/r_p \approx 0.01513$:
 \[
-r_a = 4.600\times10^{10} \left( \frac{1}{2(0.9108)^2 - 1} \right) \simeq 6.976\times10^{10}\,\mathrm{m}.
+\kappa_p^2 \approx 2(2.12 \times 10^{-6})(0.01513) \approx 6.415 \times 10^{-8}.
 \]
-This matches astronomical ephemerides precisely.
+\[
+\kappa_p = \sqrt{6.415 \times 10^{-8}} \approx 2.533 \times 10^{-4}.
+\]
+
+\paragraph{3. Calculate Closure Factor ($\delta_p$).}
+With both projections determined purely from light measurements:
+\[
+\delta_p = \frac{\kappa_p}{\sqrt{2}\beta_p} = \frac{2.533 \times 10^{-4}}{1.414 \times 1.967 \times 10^{-4}} \approx 0.9108.
+\]
+
+\paragraph{4. Predict Eccentricity ($e$).}
+The orbital shape is strictly enforced by the closure defect:
+\[
+e_{\text{pred}} = \frac{1}{\delta_p^2} - 1 = \frac{1}{(0.9108)^2} - 1 \simeq 0.2056.
+\]
+
+\textbf{Conclusion:} The predicted eccentricity matches the observed value ($e \approx 0.2056$) exactly. 
+This demonstrates that the orbital geometry is fully determined by the ratio of the central redshift to the orbital Doppler shift, with no reference to mass or $G$.
+
+\subsection{Path 2: Reconstruction of Potentials (Star S2)}
+
+For the star S2 orbiting Sgr A*, we assume the closure law holds and use \textbf{Path 2} to find the hidden potential of the Black Hole.
+
+\paragraph{1. Inputs (Observed Geometry):}
+\[
+e_{\text{obs}} \approx 0.8846, \qquad \beta_p \approx 0.0255 \,(7650\,\text{km/s}).
+\]
+
+\paragraph{2. Reconstruct Potential $\kappa_p$:}
+From Eq.\ref{eq:proj-balance}, we invert the logic to find what $\kappa_p$ \textbf{must} be to sustain this orbit:
+\[
+\kappa_p = \beta_p \sqrt{2(1+e)} = 0.0255 \times \sqrt{2(1.8846)} \approx 0.0495.
+\]
+\textbf{(Note: This allows us to calculate the Black Hole's mass/scale $R_s = \kappa_p^2 r_p$ without ever measuring it directly).}
+
+This reconstructed $\kappa_p$ is then used to predict the precession in the next section.
 
 \section{Relational Displacement and Orbital Precession}
 
@@ -1768,8 +1796,6 @@ There is no common background arena. There are only mutual displacement
 magnitudes $Q$ computed in each observer's own relational origin.
 \end{tcolorbox}
 
-
-
 \subsection{The Universal Precession Law: Derivation via $Q_a$}
 
 For an elliptic orbit, the net angular mismatch (precession) is derived from the displacement norm $Q$ measured at the system's characteristic scale. We select the semi-major axis $a$ as this reference scale, defining the norm $Q_a$.
@@ -1827,7 +1853,7 @@ This corresponds exactly to the observed \textbf{43 arcseconds per century}. The
 
 \subsection{Verification B: Strong Field Test (Star S2)}
 
-For distant stars like S2 (orbiting Sgr A*), we \textbf{reconstruct} the potential depth $\kappa_p$ purely from the visible orbital shape ($e$) and velocity ($\beta_p$), using the relation derived from Eq.~\eqref{eq:e-delta}:
+For distant stars like S2 (orbiting Sgr A*), we \textbf{reconstruct} the potential depth $\kappa_p$ purely from the visible orbital shape ($e$) and velocity ($\beta_p$), using the relation derived from Eq.\eqref{eq:proj-balance}:
 \[
 \kappa_p = \beta_p \sqrt{\frac{2}{1+e}}.
 \]
@@ -1855,6 +1881,85 @@ e \simeq 0.8846, \qquad \beta_p \simeq 0.0255 \,(7650 \text{ km/s}).
 \end{itemize}
 The result lies well within observational uncertainty.
 
+\subsection{Case 3: Blind Prediction for S4716 (In Silico Experiment)}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Blind Prediction Protocol]
+This section documents a specific numerical prediction made in November 2025, prior to the observational confirmation of the relativistic precession for the star S4716. The prediction relies exclusively on instantaneous kinematic inputs from the discovery paper (Peißker et al., 2022) and the geometric closure laws of WILL. It assumes no knowledge of the central mass, the gravitational constant $G$, or the full orbital period.
+\end{tcolorbox}
+
+\subsubsection{Input Data}
+We utilize the observational data for the S-star S4716, which exhibits the shortest known orbital period around Sgr A*.
+
+\begin{itemize}
+    \item \textbf{Object:} S4716
+    \item \textbf{Source:} Peißker et al., \textit{The Astrophysical Journal} 933:5, 2022.
+    \item \textbf{Status:} Orbital elements partially constrained; relativistic precession not yet empirically quantified.
+    \item \textbf{Next Periapsis Passage:} $\approx$ Mid-2026.
+\end{itemize}
+
+\textbf{Operational Inputs (at periapsis):}
+\begin{align}
+    v_p &\approx 8000 \text{ km/s} \quad (\text{Peißker et al., 2022}) \\
+    e &\approx 0.756 \quad (\text{Peißker et al., 2022})
+\end{align}
+
+\subsubsection{Geometric Reconstruction}
+We apply \textbf{Path 2 (Reconstruction)} to derive the orbital parameters purely from light interactions (Doppler $\to$ Geometry $\to$ Potential).
+
+\paragraph{1. Kinematic Projection ($\beta_p$).}
+\[
+\beta_p = \frac{v_p}{c} = \frac{8000}{299792.458} \approx 0.026685.
+\]
+
+\paragraph{2. Potential Reconstruction ($\kappa_p$).}
+Using the closure condition for bound orbits ($2\beta^2 = \kappa^2(1+e)$), we reconstruct the hidden potential depth required to sustain this specific geometric shape at this specific velocity:
+\[
+\kappa_p = \beta_p \sqrt{\frac{2}{1+e}} = 0.026685 \sqrt{\frac{2}{1.756}} \approx 0.02848.
+\]
+
+\paragraph{3. Precession Prediction.}
+We apply the Universal Precession Law (Eq. \ref{eq:light-ratio-law}):
+\[
+\Delta\varphi = \frac{3\pi}{2} \frac{\kappa_p^4}{\beta_p^2}
+\]
+Substituting the reconstructed values:
+\begin{align}
+\Delta\varphi &= \frac{3\pi}{2} \frac{(0.02848)^4}{(0.026685)^2} \\
+&\approx 4.712 \times 9.236 \times 10^{-4} \\
+&\approx 0.00435 \text{ rad/orbit}.
+\end{align}
+
+Converting to arcminutes:
+\[
+\Delta\varphi_{\text{arcmin}} = 0.00435 \times \frac{180}{\pi} \times 60 \approx 14.96.
+\]
+
+\begin{theorem}[S4716 Prediction]
+WILL Relational Geometry predicts that the Schwarzschild precession for star S4716 is:
+\[
+\boxed{\Delta\varphi \approx 15 \text{ arcmin per orbit}}
+\]
+\end{theorem}
+
+\subsubsection{Falsification Criteria and Implications}
+
+This value serves as a strict falsification test for the WILL framework. We await observational confirmation from the GRAVITY/VLT collaboration following the 2026 periapsis passage.
+
+\textbf{Implications of Confirmation:}
+If the observed value matches this prediction, it validates the core premise of this work: that the algebraic structure of Relational Geometry is \textbf{scale invariant}. It would demonstrate that the same geometric closure condition ($\kappa^2 = 2\beta^2$) successfully describes:
+
+\begin{enumerate}
+    \item \textbf{Quantum Systems:} The Hydrogen atom ground state ($\beta_1 = \alpha$) and energy levels (Details in WILL Part III).
+    \item \textbf{Solar System:} Mercury's precession ($43''$/century) and Earth's GPS calibration.
+    \item \textbf{Strong Gravity:} S-star orbits (S2, S4716) and Black Hole horizons ($\kappa=1$).
+    \item \textbf{Galactic Dynamics:} SPARC dataset (175 galaxies), it yields a median RMSE of \textbf{20.23 km/s} with \textbf{no free parameters} and a \textbf{universal stellar mass-to-light ratio} ($Y_* = 0.66$) without Dark Matter (Details in WILL Part II).
+    \item \textbf{Cosmology:} The global energy density of the Universe without Dark Energy (Details in WILL Part II).
+\end{enumerate}
+
+Thus, S4716 is not merely a test of orbital mechanics, but a critical test of the unification of physics under a single, mass-free, geometric principle.
+\[
+\boxed{\textbf{No differential equations. No metric. Pure algebra of light red vs. blue ratio.}} 
+\]
 \subsubsection{Unique Predictive Power}
 Unlike General Relativity, which requires mass M extracted from decades of monitoring. WILL reconstructs $\kappa_p$ instantly from ($e, \beta_p$) providing a \textbf{Snapshot Prediction}. 
 It asserts that precession is determined entirely by the instantaneous kinematic state ($\beta_p$) and the orbital shape ($e$) at periapsis.
@@ -1870,7 +1975,6 @@ Orbital phenomena therefore require no spacetime curvature and no dynamical
 field equations; they arise entirely from algebraic relations among 
 observable frequency projections.
 \end{tcolorbox}
-
 
 \section{Rotational Systems (Kerr Without Metric)}
 
@@ -1950,8 +2054,6 @@ For \(\beta \leq 1\), a naked singularity does not emerge, aligning with the cos
 For extreme rotation (\(\beta = 1\)), we find \(\kappa = \sqrt{2} > 1\), which reflects the displacement of the event horizon and the geometric properties of rotating black holes. This suggests that values of \(\kappa > 1\) are inherently connected to the physics of rotation in spacetime.
 
 This connection suggests that the rotation of a black hole can be understood through geometric parameters analogous to orbital mechanics. Physically, it indicates that the rotational properties of the black hole, encapsulated in \(a_*\), mirror the orbital velocity parameter \(\beta\), providing a unified description of spacetime dynamics.
-
-\textbf{Philosophically}, this reinforces the notion that gravitational phenomena, including rotation, are manifestations of the underlying geometry of the universe. The absence of additional "material" parameters underscores the elegance of general relativity, where the curvature of spacetime alone dictates the behavior of massive rotating objects. This geometric interpretation bridges the gap between the abstract mathematics of the Kerr metric and the intuitive physics of orbital motion, offering a deeper insight into the nature of spacetime.
 
 \subsection*{Physical Interpretation}
 
@@ -2185,20 +2287,6 @@ Thus, we recover the fundamental potential law of WILL:
 \textbf{2. The Equation} $(r\kappa^2)' \sim \rho_{\text{matter}}$ describes how \textit{matter} generates that geometry. \\
 In vacuum, the generator is zero, but the field persists as the algebraic structure $\kappa^2 = R_s/r$.
 \end{tcolorbox}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 \section{Unified Geometric Field Equation}
@@ -3019,6 +3107,8 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
 \bibitem{Kramer2021} Kramer, M. et al. (2021). \textit{Phys. Rev. X} \textbf{11}, 041050.
 
 \bibitem{Misner1973} Misner, Thorne, Wheeler (1973). \textit{Gravitation}.
+
+\bibitemCitation{Florian Peißker2020} \textit{et al} 2022 \textit{ApJ} 933 49 DOI 10.3847/1538-4357/ac752f 
 
 \end{thebibliography}
  
