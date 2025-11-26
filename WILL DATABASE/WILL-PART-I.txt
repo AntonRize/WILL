@@ -756,8 +756,38 @@ projections of the same relational circle, expressed through complementary
 trigonometric forms.
 \end{tcolorbox}
 
+\section{The Amplitude-Phase Duality}
 
-\subsection{Geometric composition of SR and GR factors}
+The orthogonal decomposition of the relational carriers $S^1$ and $S^2$ reveals a functional duality. Every physical state is a superposition of two projections:
+
+\begin{itemize}
+    \item \textbf{The Amplitude Projection (Interaction):}
+    Denoted by $\beta$ (kinematic) and $\kappa$ (gravitational).
+    This component measures the \textit{extent of external relation}. It manifests as momentum or potential intensity. Physically, it represents the system's "displacement" from the relational origin.
+    \[
+    \text{Amplitude} \to \text{External Power (Kinetic/Potential)}
+    \]
+
+    \item \textbf{The Phase Projection (Existence):}
+    Denoted by $\beta_Y$ and $\kappa_X$.
+    This component measures the \textit{rate of internal evolution}. It governs the intrinsic scale of proper time and proper length. A Phase of 1 represents maximal internal flow (rest/vacuum), while a Phase of 0 represents the cessation of internal causality (light-speed/horizon).
+    \[
+    \text{Phase} \to \text{Internal Order (Time/Structure)}
+    \]
+\end{itemize}
+
+\begin{theorem}[Universal Conservation of Relation]
+For both kinematic ($S^1$) and gravitational ($S^2$) modes, the sum of the squared Amplitude and squared Phase is invariant:
+\begin{equation}
+\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1
+\end{equation}
+\end{theorem}
+
+\begin{remark}
+This identifies Relativistic Time Dilation not as a mysterious "slowing down" of clocks, but as a strict geometric \textbf{phase rotation}. As a system invests more of its existence into external Amplitude ($\beta$ or $\kappa$), it necessarily withdraws from its internal Phase ($\beta_Y$ or $\kappa_X$), reducing the rate of its proper time evolution.
+\end{remark}
+
+\section{Geometric composition of SR and GR factors}
 
 On the unit kinematic circle ($S^1$) we parametrize
 \[
@@ -1370,7 +1400,7 @@ mass.
 
 Instead of a relational energy, we define the \emph{clean relational Lagrangian} $L_{\text{rel}}$, which represents the kinetic budget at point $B$ relative to the potential budget at point $A$:
 \begin{equation}
-L_{\text{rel}} = T(B) - U(A) = \tfrac{1}{2} m\left(\dot r_B^2 + r_B^2 \dot\phi^2\right) - \frac{GMm}{r_A}.
+L_{\text{rel}} = T(B) + U(A) = \tfrac{1}{2} m\left(\dot r_B^2 + r_B^2 \dot\phi^2\right) + \frac{GMm}{r_A}.
 \end{equation}
 In dimensionless form, using the rest energy $E_0 = mc^2$, this is:
 \begin{equation}
@@ -1713,6 +1743,14 @@ From Eq.\ref{eq:proj-balance}, we invert the logic to find what $\kappa_p$ \text
 \kappa_p = \beta_p \sqrt{2(1+e)} = 0.0255 \times \sqrt{2(1.8846)} \approx 0.0495.
 \]
 \textbf{(Note: This allows us to calculate the Black Hole's mass/scale $R_s = \kappa_p^2 r_p$ without ever measuring it directly).}
+
+\begin{remark}[On the Nature of Mass]
+While $\kappa$ is the primary dimensionless observable (representing gravitational redshift), the classical concept of ``Mass'' ($M$) appears in this framework strictly as a secondary derived quantity. By inverting the definition of the Schwarzschild scale $R_s = \kappa^2 r = \frac{2GM}{c^2}$, we obtain:
+\begin{equation}
+M = \frac{c^2 r}{2G} \kappa^2
+\end{equation}
+This demonstrates that physical mass is merely a dimensioned proxy for the geometric curvature intensity $\kappa^2$, scaled by the historical constants $G$ and $c$. In this framework, geometry is fundamental; mass is an artifact of the chosen unit system.
+\end{remark}
 
 This reconstructed $\kappa_p$ is then used to predict the precession in the next section.
 
@@ -2064,59 +2102,6 @@ This connection suggests that the rotation of a black hole can be understood thr
 \end{itemize}
 
 
-\section{$W_{\text{ILL}}$ - Unity of Relational Structure}
-\label{sec:willinvariant}
-
-From the geometric closure of WILL we derive the universal invariant connecting mass, energy, time, and length.  
-Each is a projection of the same relational whole:
-$M = \frac{\beta^2}{\beta_Y}\,\,\frac{c^2r}{G}, \quad
-E = \frac{\kappa^2}{\kappa_X}\,\frac{c^4 r}{2G}, \quad
-T = \kappa_X\left(\frac{2Gm_0}{\kappa^2 c^3}\right)^2, \quad
-L = \beta_Y\left(\frac{Gm_0}{\beta^2 c^2}\right)^2.$
-
-Combining these projections yields the universal dimensionless invariant:
-\[
-\boxed{
-W_{\text{ILL}}
-= \frac{E \, T}{M \, L}
-= \frac{\frac{E_0}{\kappa_X}\,\kappa_X t^2}{\frac{m_0}{\beta_Y}\,\beta_Y r^2}
-= 1.
-}
-\]
-
-All dimensional constants and parameters cancel identically.
-This equality is not a result of unit choice, but the manifestation of structural closure:
-\[
-\boxed{\textbf{WILL} = 1.}
-\]
-
-
-\subsection{Interpretive Note: The Name "WILL"}
-
-The term \textbf{WILL} stands for \textbf{SPACE-TIME-ENERGY}.  
-It is both a formal shorthand and a philosophical statement:  
-the universe is not a stage where energy acts through time upon space,  
-but a single self-balancing structure whose internal distinctions generate all phenomena.  
-The name also serves as a gentle irony toward anthropic thinking:  
-the cosmos does not possess "will" - yet through WILL, it manifests all that is.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
-\[
-\boxed{
-\textbf{WILL} \;\equiv\;
-\frac{E T}{ML} = 1
-\quad\Longleftrightarrow\quad
-\text{Geometry = Energy = Causality.}
-} 
-\]
-\[
-\boxed{
-\textbf{It is not the unit of something - it is the unity of everything.}
-}
-\]
-\end{tcolorbox}
- 
-
 \section{Derivation of Density, Mass, and Pressure}
 
 \subsection{Derivation of Density}
@@ -2246,12 +2231,12 @@ Pressure in WILL is the intrinsic surface tension of energy-geometry, saturating
 
 \section{Unified Geometric Field Equation}
 
-\subsection{The Theoretical Ouroboros}
+
 From the energy-geometry equivalence, the complete description of gravitational phenomena reduces to a single algebraic relation linking the geometric scale to the energy density ratio:
 
 \[
 \boxed{
-\kappa^2 = \frac{\rho_{\text{field}}}{\rho_{\text{max}}}
+\kappa^2 = \frac{R_s}{r} = \frac{\rho_{\text{field}}}{\rho_{\text{max}}}
 }
 \label{eq:unified_identity}
 \]
@@ -2277,7 +2262,7 @@ In the vacuum region outside a central mass, the source density vanishes ($\rho_
 \[
 \frac{d}{dr}(r\kappa^2) = 0 \quad \Longrightarrow \quad r\kappa^2 = \text{const} = R_s.
 \]
-Thus, we recover the fundamental potential law of WILL:
+Thus, we recover the potential law of WILL RG:
 \[
 \boxed{\kappa^2 = \frac{R_s}{r}.}
 \]
@@ -2289,35 +2274,7 @@ In vacuum, the generator is zero, but the field persists as the algebraic struct
 \end{tcolorbox}
 
 
-\section{Unified Geometric Field Equation}
-
-\subsection{The Theoretical Ouroboros}
-From the energy-geometry equivalence, the complete description of gravitational phenomena reduces to a single algebraic relation:
-
-\[
-\boxed{
-\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{max}}
-}
-\label{eq:unified_field}
-\]
-                                        \textbf{The ratio of geometric scales equals the ratio of energy densities.}\\
-
-This is the unified geometric field equation of WILL Relational Geometry. It expresses the complete equivalence:
-\[
-\text{SPACETIME GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}
-\]
-We have shown that this single Ontological Principle, through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with a single foundational  Principle \(\text{SPACETIME} \equiv \text{ENERGY}\), from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and spacetime, proving the self-consistency of the initial idea.
-
-\begin{quote}
-Theoretical Ouroboros
-
-The RG framework exhibits perfect logical closure: the fundamental Principle about the nature of spacetime and energy is proven as the inevitable consequence of geometric consistency.
-
-\end{quote}
-
-  From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework - the "Theoretical Ouroboros". But regardless of  aesthetic beauty of this result let's remain sceptical.
-
-\subsection{No Singularities, No Hidden Regions}
+\section{No Singularities, No Hidden Regions}
 
 This framework introduces no interior singularities, no coordinate patches hidden behind horizons, and no ambiguous initial conditions. The geometric field equation:
 
@@ -2338,8 +2295,37 @@ The constraint for non rotating systems $\kappa^2\le 1$ enforces $\rho\le\rho_{\
 \end{itemize}
 
 
+\section{Theoretical Ouroboros}
+
+
+\begin{tcolorbox}[colback=gray!4, colframe=black!70!black, title=Closure]
+
+
+Ontological principle is proven as the inevitable consequence of geometric consistency.
+Field Equation $\Longleftrightarrow$ Ontological Principle
+
+\end{tcolorbox}
+
+We have shown that this single Ontological Principle  (\ref{pr:unifying}), through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with \(\text{SPACETIME} \equiv \text{ENERGY}\), from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and spacetime, proving the self-consistency of the initial idea.
+
+\[
+\boxed{
+\text{SPACETIME} \equiv \text{ENERGY}.
+}
+\]
+                                        \textbf{The ratio of geometric scales equals the ratio of energy densities.}\\
+\[
+\boxed{
+\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{max}}
+}
+\label{eq:unified_field}
+\]
+\[
+\text{SPACETIME GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}
+\]
+
 \begin{tcolorbox}[colback=gray!4, colframe=black!70!black, title=Summary]
-The WILL framework postulates no external laws or assumptions.
+
 All physical structure emerges from the single relational equivalence:
 
 \[
@@ -2359,6 +2345,13 @@ It represents the completion of the theoretical Ouroboros ---
 where the principle generates its own mathematical expression and 
 the expression in turn validates the principle.
 \end{tcolorbox}
+
+\begin{quote}
+      From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework - the "Theoretical Ouroboros". But regardless of  esthetic beauty of this result, let us remain skeptical.
+
+\end{quote}
+
+
 
 \section{Local Cosmological Term $\Lambda$ in RG}
 
@@ -2518,6 +2511,60 @@ This factorization suggests a profound geometric origin for 3D space:
 
 This hints that the dimensionality of observable space is not arbitrary but is a structural consequence of distributing the $S^2$ energy budget into a volume.
 
+
+\section{$W_{\text{ILL}}$ - Unity of Relational Structure}
+\label{sec:willinvariant}
+
+From the geometric closure of WILL we derive the universal invariant connecting mass, energy, time, and length.  
+Each is a projection of the same relational whole:
+$M = \frac{\beta^2}{\beta_Y}\,\,\frac{c^2r}{G}, \quad
+E = \frac{\kappa^2}{\kappa_X}\,\frac{c^4 r}{2G}, \quad
+T = \kappa_X\left(\frac{2Gm_0}{\kappa^2 c^3}\right)^2, \quad
+L = \beta_Y\left(\frac{Gm_0}{\beta^2 c^2}\right)^2.$
+
+Combining these projections yields the universal dimensionless invariant:
+\[
+\boxed{
+W_{\text{ILL}}
+= \frac{E \, T}{M \, L}
+= \frac{\frac{E_0}{\kappa_X}\,\kappa_X t^2}{\frac{m_0}{\beta_Y}\,\beta_Y r^2}
+= 1.
+}
+\]
+
+All dimensional constants and parameters cancel identically.
+This equality is not a result of unit choice, but the manifestation of structural closure:
+\[
+\boxed{\textbf{WILL} = 1.}
+\]
+
+
+\subsection{Interpretive Note: The Name "WILL"}
+
+The term \textbf{WILL} stands for \textbf{SPACE-TIME-ENERGY}.  
+It is both a formal shorthand and a philosophical statement:  
+the universe is not a stage where energy acts through time upon space,  
+but a single self-balancing structure whose internal distinctions generate all phenomena.  
+The name also serves as a gentle irony toward anthropic thinking:  
+the cosmos does not possess "will" - yet through WILL, it manifests all that is.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\[
+\boxed{
+\textbf{WILL} \;\equiv\;
+\frac{E T}{ML} = 1
+\quad\Longleftrightarrow\quad
+\text{Geometry = Energy = Causality.}
+} 
+\]
+\[
+\boxed{
+\textbf{It is not the unit of something - it is the unity of everything.}
+}
+\]
+\end{tcolorbox}
+ 
+
 \section{Beyond Differential Formalism: The Structure of Reality}
 
 \subsection{Intrinsic Dynamics via Energy Redistribution}
@@ -2616,7 +2663,7 @@ We do not experience the fundamental "point-like" reality. We experience our own
 \end{center}
 
 
-\section*{Ontological Shift: From Descriptive to Generative Physics}
+\section{Ontological Shift: From Descriptive to Generative Physics}
 \label{Generative Physics}
 In conventional physics the methodology follows a descriptive paradigm:
 \begin{enumerate}
