@@ -55,7 +55,7 @@ Geometric eccentricity is not0 a free parameter but a measure of the energetic d
 
 **Theorem: Geometric Eccentricity**
 
-For a closed orbital system governed by projection invariants, the orbital eccentricity \\(e\\) is strictly determined by the closure factor at periapsis, \\(\delta_p\\):
+For a closed orbital system governed by projection invariants, the orbital eccentricity \\(e\\) is strictly determined by the closure factor at periapsis, \\(\delta_p=\frac{\kappa_p}{\beta_p \sqrt2}\\):
 
 \\[ e = \frac{1}{\delta_p^2} - 1 \\]
 
@@ -63,7 +63,7 @@ For a closed orbital system governed by projection invariants, the orbital eccen
 
 **Proof Strategy:**
 Instead of force laws, we use the conservation of the two projection invariants:
-1.  **Energy Projection:** \\(W = \beta^2 - \kappa^2 = \text{const}\\)
+1.  **Energy Projection:** \\(W = 0.5(\kappa^2-\beta^2) = \text{const}\\)
 2.  **Angular Projection:** \\(h = r\beta = \text{const}\\) (at turning points)
 
 Solving the energy balance between periapsis and apoapsis yields the identity for bound orbits:
