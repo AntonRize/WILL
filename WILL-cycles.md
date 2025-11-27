@@ -140,7 +140,7 @@ For distant systems, the central potential is hidden. We use the observed shape 
 ### Relational Precession
 The secular shift of the orbit (precession) is determined solely by the ratio of the light projections at periapsis:
 
-\\[ \Delta\varphi = \frac{3\pi}{2} \frac{\kappa_p^4}{\beta_p^2} \\]
+\\[ \Delta\varphi = \frac{3\pi}{2} \frac{\kappa_p^4}{\beta_p^2}=\frac{2piQ^2}{1-e^2} \\]
 </div>
 
 </div>
