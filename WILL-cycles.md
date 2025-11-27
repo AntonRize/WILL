@@ -49,7 +49,7 @@ Derived directly from the **Doppler shift**. It represents the normalized orbita
 
 ## Derivation of Relational Eccentricity
 
-Geometric eccentricity is not a free parameter but a measure of the energetic deviation from the circular equilibrium state (\\(\delta=1\\)).
+Geometric eccentricity is not0 a free parameter but a measure of the energetic deviation from the circular equilibrium state (\\(\delta=1\\)).
 
 <div class="border border-gray-700 bg-gray-900 p-6 rounded shadow-lg my-6" markdown="1">
 
@@ -62,11 +62,11 @@ For a closed orbital system governed by projection invariants, the orbital eccen
 </div>
 
 **Proof Strategy:**
-Instead of force laws, we use the conservation of the two fundamental projection invariants:
+Instead of force laws, we use the conservation of the two projection invariants:
 1.  **Energy Projection:** \\(W = \beta^2 - \kappa^2 = \text{const}\\)
 2.  **Angular Projection:** \\(h = r\beta = \text{const}\\) (at turning points)
 
-Solving the energy balance between periapsis and apoapsis yields the fundamental identity for bound orbits:
+Solving the energy balance between periapsis and apoapsis yields the identity for bound orbits:
 
 \\[ 2\beta_p^2 = \kappa_p^2 (1+e) \\]
 
