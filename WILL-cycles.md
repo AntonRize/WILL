@@ -4,135 +4,136 @@ title: Relational Orbital Mechanics
 permalink: /cycles/
 ---
 
-<div class="max-w-4xl mx-auto px-4 py-12 space-y-12 text-gray-300 font-sans leading-relaxed">
+<div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-300 font-sans leading-relaxed" markdown="1">
 
-    <div class="space-y-6">
-        <h1 class="text-3xl md:text-5xl font-bold text-white tracking-tight border-b border-gray-800 pb-6">
-            Gravity Without Mass or \(G\)
-        </h1>
-        
-        <p class="text-lg text-gray-300">
-            In classical physics, we are conditioned to think: <em class="text-gray-500">"Mass curves spacetime, and this curvature tells matter how to move."</em> 
-            But what is Mass? We never measure it directly. We only observe how light and matter interact.
-        </p>
+# Relational Orbital Mechanics
 
-        <p class="text-lg text-gray-300">
-            <strong>WILL Relational Geometry</strong> proposes a paradigm shift. Instead of introducing invisible entities (Mass, Dark Matter, \(G\)), we describe orbits strictly through what is <strong>observable</strong>.
-        </p>
-        
-        <blockquote class="border-l-4 border-blue-500 pl-6 py-4 my-8 bg-blue-900/10 italic text-xl text-gray-100">
-            "Orbital dynamics requires no mass, no metric, and no curved spacetime. 
-            Everything follows from the algebraic balance of two light projections."
-        </blockquote>
-    </div>
+<div class="bg-gray-900/50 border-l-4 border-gray-500 p-6 rounded-r-lg mb-10" markdown="1">
 
-    <div class="grid md:grid-cols-2 gap-8 py-4">
-        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 hover:border-blue-500/30 transition-colors">
-            <h3 class="text-xl font-bold text-blue-400 mb-3 flex items-center gap-2">
-                <span class="text-xs font-mono bg-blue-900/50 px-2 py-1 rounded text-blue-200">PROJECTION 1</span> 
-                Potential (\(\kappa\))
-            </h3>
-            <p class="text-sm text-gray-400 mb-4 font-bold uppercase tracking-wider">The Gravitational Projection</p>
-            <p class="text-sm">
-                A measure of how "stretched" light is when escaping the system (Gravitational Redshift \(z\)).
-            </p>
-            <div class="mt-4 p-3 bg-black rounded font-mono text-sm text-center text-blue-300 border border-gray-800">
-                \(\kappa \approx \sqrt{2z}\)
-            </div>
-            <p class="text-xs text-gray-500 mt-3 italic">Instead of saying "There is mass," we say "Light struggles to escape."</p>
-        </div>
+### Thesis
 
-        <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-800 hover:border-red-500/30 transition-colors">
-            <h3 class="text-xl font-bold text-red-400 mb-3 flex items-center gap-2">
-                <span class="text-xs font-mono bg-red-900/50 px-2 py-1 rounded text-red-200">PROJECTION 2</span> 
-                Kinematics (\(\beta\))
-            </h3>
-            <p class="text-sm text-gray-400 mb-4 font-bold uppercase tracking-wider">The Kinematic Projection</p>
-            <p class="text-sm">
-                A measure of how fast the object moves relative to the speed of light (Doppler Shift).
-            </p>
-            <div class="mt-4 p-3 bg-black rounded font-mono text-sm text-center text-red-300 border border-gray-800">
-                \(\beta = v / c\)
-            </div>
-            <p class="text-xs text-gray-500 mt-3 italic">The only velocity that matters is the ratio to \(c\).</p>
-        </div>
-    </div>
+*Orbital dynamics requires no mass, no \(G\), no metric, and no spacetime geometry.*
 
-    <div class="space-y-6">
-        <h3 class="text-2xl font-bold text-white">Two Operational Pathways</h3>
-        <p class="text-gray-400">
-            In the simulator below, you will use two fundamental methods to validate the theory. This is not "curve fitting" — it is a strict geometric derivation.
-        </p>
-
-        <div class="space-y-4">
-            <details class="group bg-gray-900 rounded-lg border border-gray-800 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-800 transition-colors select-none">
-                    <span class="font-bold text-blue-300">Path 1: Verification (e.g., Mercury)</span>
-                    <span class="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-5 border-t border-gray-800 text-sm space-y-4 bg-black/20">
-                    <p>
-                        <strong>The Challenge:</strong> We know the Sun's redshift (\(z\)) and Mercury's velocity (\(\beta\)). Can we predict the exact shape of the orbit without knowing the Sun's mass?
-                    </p>
-                    <p>
-                        <strong>The Solution:</strong> The theory asserts that orbital eccentricity (\(e\)) is strictly determined by the "closure defect" (\(\delta\)) between potential and velocity:
-                    </p>
-                    <div class="py-2 text-center text-gray-300 font-mono bg-gray-950 rounded border border-gray-800">
-                        \( e = \frac{1}{\delta^2} - 1, \quad \text{where} \quad \delta = \frac{\kappa}{\beta\sqrt{2}} \)
-                    </div>
-                    <p class="text-gray-400 italic">
-                        Input the Sun's observed \(z\), and the equation yields Mercury's eccentricity (\(e \approx 0.2056\)) exactly.
-                    </p>
-                </div>
-            </details>
-
-            <details class="group bg-gray-900 rounded-lg border border-gray-800 overflow-hidden">
-                <summary class="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-800 transition-colors select-none">
-                    <span class="font-bold text-purple-300">Path 2: Reconstruction (e.g., Black Hole S2)</span>
-                    <span class="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-5 border-t border-gray-800 text-sm space-y-4 bg-black/20">
-                    <p>
-                        <strong>The Challenge:</strong> We see a star (S2) orbiting empty space. We know its shape (\(e\)) and velocity (\(\beta\)). What lies inside?
-                    </p>
-                    <p>
-                        <strong>The Solution:</strong> We "reverse-engineer" the system. Using the orbital geometry, we reconstruct the hidden potential \(\kappa\):
-                    </p>
-                    <div class="py-2 text-center text-gray-300 font-mono bg-gray-950 rounded border border-gray-800">
-                        \( \kappa = \beta \sqrt{2(1+e)} \)
-                    </div>
-                    <p class="text-gray-400 italic">
-                        This allows us to "weigh" the Black Hole and predict the relativistic precession using only light and geometry.
-                    </p>
-                </div>
-            </details>
-        </div>
-    </div>
-
-    <div class="bg-gradient-to-r from-gray-900 to-gray-800 border-l-4 border-green-500 p-6 rounded-r-lg my-8 shadow-lg">
-        <h4 class="text-lg font-bold text-green-400 mb-2 uppercase tracking-widest">The Truth Indicator: \(W_{ILL} = 1\)</h4>
-        <p class="text-sm mb-4 text-gray-300">
-            In the interactive engine below, keep an eye on the <strong>WILL Invariant</strong>. 
-            This is the mathematical proof that Space, Time, Energy, and Mass are not separate entities, but projections of a single resource.
-        </p>
-        <div class="font-mono text-xs text-green-300 bg-black/40 p-3 rounded inline-block border border-green-900/30">
-            \( \frac{E \cdot T}{M \cdot L} \equiv 1 \)
-        </div>
-        <p class="text-xs mt-3 text-gray-400">
-            If the theory is correct, this value must remain exactly <strong>1.000</strong> regardless of how extreme the orbital parameters become.
-        </p>
-    </div>
-
-    <div class="text-center pt-8 pb-4">
-        <p class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-2">Interactive Laboratory</p>
-        <h3 class="text-2xl font-bold text-white">The Orbital Engine</h3>
-        <p class="text-gray-400 mt-2 max-w-2xl mx-auto text-sm">
-            Use the controls on the left to toggle between Verification and Reconstruction modes.
-        </p>
-    </div>
+All observable orbital structure follows strictly from two directly measurable frequency projections:
+* **\(\kappa\)** (gravitational projection from redshift)
+* **\(\beta\)** (kinematic projection from Doppler)
 
 </div>
 
-<div class="w-full max-w-[1400px] mx-auto pb-20 px-2">
-    {% include interactive/orbital_engine.html %}
+<div class="grid md:grid-cols-2 gap-8 mb-16" markdown="1">
+
+<div class="bg-black/40 border border-gray-800 p-6 rounded-lg" markdown="1">
+
+### <span class="text-red-400">\(\kappa\): Gravitational Projection</span>
+
+Derived directly from the **gravitational redshift** (\(z\)). It represents the potential projection depth at a given radial point.
+
+* **Input:** Redshift \(z\)
+* **Relation:** \(\kappa^2 \approx 2z\) (for weak fields)
+* **Exact:** \(\kappa^2 = 1 - (1+z)^{-2}\)
+
+</div>
+
+<div class="bg-black/40 border border-gray-800 p-6 rounded-lg" markdown="1">
+
+### <span class="text-blue-400">\(\beta\): Kinematic Projection</span>
+
+Derived directly from the **Doppler shift**. It represents the normalized orbital velocity.
+
+* **Input:** Velocity \(v\)
+* **Relation:** \(\beta = v / c\)
+* **Invariant:** \(\beta_Y = \sqrt{1-\beta^2}\)
+
+</div>
+</div>
+
+## Derivation of Relational Eccentricity
+
+Geometric eccentricity is not a free parameter but a measure of the energetic deviation from the circular equilibrium state (\(\delta=1\)).
+
+<div class="border border-gray-700 bg-gray-900 p-6 rounded shadow-lg my-6" markdown="1">
+
+**Theorem: Geometric Eccentricity**
+
+For a closed orbital system governed by projection invariants, the orbital eccentricity \(e\) is strictly determined by the closure factor at periapsis, \(\delta_p\):
+
+\[ e = \frac{1}{\delta_p^2} - 1 \]
+
+</div>
+
+**Proof Strategy:**
+Instead of force laws, we use the conservation of the two fundamental projection invariants:
+1.  **Energy Projection:** \(W = \beta^2 - \kappa^2 = \text{const}\)
+2.  **Angular Projection:** \(h = r\beta = \text{const}\) (at turning points)
+
+Solving the energy balance between periapsis and apoapsis yields the fundamental identity for bound orbits:
+
+\[ 2\beta_p^2 = \kappa_p^2 (1+e) \]
+
+---
+
+## Two Operational Pathways
+
+Depending on the available observational data, the framework offers two distinct modes of calculation.
+
+<div class="grid md:grid-cols-2 gap-8 mt-6" markdown="1">
+
+<div markdown="1">
+#### <span class="border-l-2 border-blue-500 pl-3">Path 1: Verification (e.g., Mercury)</span>
+
+Used when both the central potential (redshift \(z\)) and the orbital kinematics (\(\beta\)) are measurable independently. We calculate \(\delta_p\) from inputs and compare the predicted eccentricity with observation.
+
+<div class="bg-gray-900 p-4 rounded text-xs font-mono mt-2" markdown="1">
+* <span class="text-blue-400">Input:</span> \( z_{sun}, v_{merc} \)
+* <span class="text-green-400">Process:</span> Calculate \(\delta_p\)
+* <span class="text-yellow-400">Output:</span> \( e_{pred} \approx 0.2056 \)
+</div>
+</div>
+
+<div markdown="1">
+#### <span class="border-l-2 border-red-500 pl-3">Path 2: Reconstruction (e.g., S2 Star)</span>
+
+Used for distant systems where the central potential is unknown. We use the observed shape (\(e\)) and velocity (\(\beta\)) to **reconstruct** the hidden potential depth \(\kappa_p\).
+
+<div class="bg-gray-900 p-4 rounded text-xs font-mono mt-2" markdown="1">
+* <span class="text-blue-400">Input:</span> \( e_{obs}, v_{peri} \)
+* <span class="text-green-400">Process:</span> Invert closure relation
+* <span class="text-red-400">Output:</span> \( \kappa_p \) (Black Hole Depth)
+</div>
+</div>
+</div>
+
+<br>
+
+<div class="grid md:grid-cols-2 gap-8 mb-12" markdown="1">
+
+<div markdown="1">
+### Universal Precession Law
+
+The secular evolution of an orbit is determined solely by the ratio of the gravitational redshift to the Doppler shift at the point of closest approach.
+
+\[ \Delta\varphi = \frac{3\pi}{2} \frac{\kappa_p^4}{\beta_p^2} \]
+
+*No differential equations. Pure algebra of light ratios.*
+</div>
+
+<div markdown="1">
+### The WILL Invariant
+
+For any energy-closed system, the ratio of Energy-Time to Mass-Length projections is unity.
+
+\[ W_{ILL} = \frac{E \cdot T}{M \cdot L} \equiv 1 \]
+
+*Validates that geometry and energy are strictly conserved.*
+</div>
+
+</div>
+
+</div>
+
+<div class="w-full max-w-7xl mx-auto pb-20 px-4">
+    <div class="border-t border-gray-800 pt-8">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6 text-center">Interactive Calculation Engine</p>
+        {% include interactive/orbital_engine.html %}
+    </div>
 </div>
