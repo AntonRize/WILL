@@ -397,15 +397,40 @@ A privileged direction requires an extrinsic reference to distinguish it. In a p
 
 \subsection{Derivation of the Relational Carriers}
 
-The lemmas of Closure, Conservation, and Isotropy (Lemmas \ref{lem:closure}--\ref{lem:isotropy}) establish the *necessary properties* of any geometric carrier of the relational resource. We must now identify these carriers.
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Relational Carrier Conventions:]
+All references to ``carriers'' in the following section are to be read in the strict relational sense:
+
+\begin{itemize}
+    \item \textbf{Degree of freedom (DOF):} 
+    A carrier with $n$ DOF is an $n$-dimensional relational manifold used to encode the conserved transformation resource.
+
+    \item \textbf{Direction:} 
+    A direction is an \emph{oriented} relational ray. Opposite rays are physically distinct and are \emph{not} identified. Any construction that merges opposite directions (e.g.\ antipodal identification) fails the relational requirement.
+
+    \item \textbf{Closed carrier:} 
+    ``Closed'' means compact and without boundary: the transformation resource is finite and cannot leak into an external reservoir.
+
+    \item \textbf{No background:} 
+    No external embedding space or privileged frame is allowed. All geometric structure must be reconstructible from relations between participants only.
+
+    \item \textbf{Maximal symmetry:} 
+    The carrier is homogeneous and isotropic with respect to oriented directions: no point and no direction is \emph{a priori} privileged.
+
+    \item \textbf{Minimal relational carrier:} 
+    A carrier is ``minimal'' if it is connected, simply connected, closed, maximally symmetric, and uses exactly the required DOF to encode the resource. Under these constraints the classification theorems force
+    $S^{1}$ (for 1DOF) and $S^{2}$ (for 2DOF) as the unique admissible carriers.
+\end{itemize}
+\end{tcolorbox}
+
+The lemmas of Closure, Conservation, and Isotropy (Lemmas \ref{lem:closure}--\ref{lem:isotropy}) establish the \textbf{necessary properties} of any geometric carrier of the relational resource (energy). We must now identify these carriers.
 
 To do this, we must first reject the \textit{substantivalist} or "God's-eye view" common in physics, which illegitimately postulates an external 3D coordinate system ("State C") from which to describe the interaction between two states ("A" and "B"). Per Principle~\ref{pr:relational} (Relational Origin), such an external frame is an ontological speculation.
 
-In a purely relational framework, only the participants (A and B) exist. All physics must be described *only* from their mutual perspectives. This methodological constraint is not a simplification; it is an ontological necessity.
+In a purely relational framework, only the participants (A and B) exist. All physics must be described \textbf{only} from mutual perspectives. This methodological constraint is not a simplification; it is an ontological necessity.
 
-\begin{theorem}[Minimal Relational Carriers of the Conserved Resource]
+\begin{theorem}[Minimal Relational Carriers of the Conserved Energy Resource]
 \label{thm:carriers}
-The only relational manifolds satisfying the derived constraints of Closure, Conservation, and maximal Symmetry (Lemmas \ref{lem:closure}--\ref{lem:isotropy}) are:
+The minimal relational manifolds satisfying the derived constraints of Closure, Conservation, and maximal Symmetry (Lemmas \ref{lem:closure}--\ref{lem:isotropy}) are:
     \begin{enumerate}[label=(\alph*)]
         \item \(S^1\) for \emph{directional} (Kinematic) relational transformation;
         \item \(S^2\) for \emph{omnidirectional} (Gravitational) relational transformation.
@@ -417,21 +442,22 @@ The proof proceeds by classifying the minimal types of relations and applying th
 
 \begin{enumerate}[label=(\alph*)]
     \item \textbf{Directional (Kinematic) Relation:}
-    This is the simplest non-trivial relation: a transformation from State A to State B.
-    Per the Principle of Relational Origin, this interaction can only be described from the frame of A or B.
-    From the perspective of B, any complex 3D motion of A (including transverse motion) is operationally perceived only as a change in the rate of approach or recession.
-    Thus, the fundamental, operational description of a two-state transformation is necessarily \textbf{one-dimensional (1D)}.
+    This is the simplest non-trivial 1 degree of freedom (1DOF) relation: transformation from State A to State B. 
+
+Per the Principle of Relational Origin, this interaction can only be described from the frame of A or B.
+    From the perspective of B, any complex 3D motion of A (including transverse motion) is operationally perceived, within 1DOF relation, only as a change in the rate of approach or recession.
+    Thus, the fundamental, operational description of a 1DOF two-state transformation is necessarily \textbf{one-dimensional (1D)}.
     
     Applying the Lemmas: By Lemma~\ref{lem:closure} this 1D geometry must be \textbf{closed}. By Lemma~\ref{lem:isotropy} it must be \textbf{maximally symmetric}.
-    The classification of connected, closed, 1-manifolds yields \(S^1\) as the \textbf{unique} (up to diffeomorphism) carrier satisfying these constraints.
+    The classification of connected, closed, 1-manifolds yields \(S^1\) (circle) as the \textbf{unique} (up to diffeomorphism) carrier satisfying these constraints.
 
     \item \textbf{Omnidirectional (Gravitational) Relation:}
-    This is the other minimal relation type: a central state (A) relating to the l\textbf{ocus} of all equidistant states (e.g., an orbit).
+    This is the other minimal relation 2 degree of freedom (2DOF) type: a central state (A) relating to the l\textbf{ocus} of all equidistant states (e.g., an orbit).
     This describes a "center-to-orbit" relationship. By Lemma~\_ref{lem:isotropy} (Isotropy), the conserved WILL resource must be distributed uniformly across all possible orientations from this center.
     The minimal manifold required to describe all possible orientations from a center is a\textbf{ two-dimensional (2D) }surface.
     
     Applying the Lemmas: By Lemma~\ref{lem:closure}, this 2D surface must be \textbf{closed}. By Lemma~\ref{lem:isotropy}, it must be \textbf{maximally symmetric} (isotropic from the center).
-    By the classification of constant-curvature surfaces, the unique closed, simply connected, maximally symmetric 2-manifold is the \textbf{2-sphere ($S^2$).}
+    By the classification of constant-curvature surfaces, the unique closed, simply connected, maximally symmetric 2-manifold is the \textbf{2-sphere ($S^2$) (surface area of the sphere).}
 \end{enumerate}
 
 The Principle of Ontological Minimalism (\ref{pr:minimalism}), combined with the derived constraints, thus uniquely and necessarily selects \(S^1\) and \(S^2\) as the minimal relational carriers.
@@ -760,21 +786,25 @@ trigonometric forms.
 
 The orthogonal decomposition of the relational carriers $S^1$ and $S^2$ reveals a functional duality. Every physical state is a superposition of two projections:
 
+
 \begin{itemize}
     \item \textbf{The Amplitude Projection (Interaction):}
-    Denoted by $\beta$ (kinematic) and $\kappa$ (gravitational).
-    This component measures the \textit{extent of external relation}. It manifests as momentum or potential intensity. Physically, it represents the system's "displacement" from the relational origin.
-    \[
-    \text{Amplitude} \to \text{External Power (Kinetic/Potential)}
-    \]
+\end{itemize}
+Denoted by $\beta$ (kinematic) and $\kappa$ (gravitational).
+This component measures the \textit{extent of external relation}. It manifests as momentum or potential intensity. Physically, it represents the system's relational "displacement" from the \textbf{Observer's relational Origin} (the rest frame).
+\[
+\text{Amplitude} \to \text{External Power (Kinetic/Potential)}
+\]
 
-    \item \textbf{The Phase Projection (Existence):}
-    Denoted by $\beta_Y$ and $\kappa_X$.
-    This component measures the \textit{rate of internal evolution}. It governs the intrinsic scale of proper time and proper length. A Phase of 1 represents maximal internal flow (rest/vacuum), while a Phase of 0 represents the cessation of internal causality (light-speed/horizon).
+   \begin{itemize}
+       \item \textbf{ The Phase Projection (Existence):}
+   \end{itemize}
+Denoted by $\beta_Y$ and $\kappa_X$.
+This component measures the \textit{rate of internal evolution}. It governs the intrinsic scale of proper time and proper length. A Phase of 1 represents maximal internal flow (rest/vacuum), while a Phase of 0 represents the cessation of internal causality (light-speed/horizon).
     \[
     \text{Phase} \to \text{Internal Order (Time/Structure)}
     \]
-\end{itemize}
+
 
 \begin{theorem}[Universal Conservation of Relation]
 For both kinematic ($S^1$) and gravitational ($S^2$) modes, the sum of the squared Amplitude and squared Phase is invariant:
@@ -786,6 +816,7 @@ For both kinematic ($S^1$) and gravitational ($S^2$) modes, the sum of the squar
 \begin{remark}
 This identifies Relativistic Time Dilation not as a mysterious "slowing down" of clocks, but as a strict geometric \textbf{phase rotation}. As a system invests more of its existence into external Amplitude ($\beta$ or $\kappa$), it necessarily withdraws from its internal Phase ($\beta_Y$ or $\kappa_X$), reducing the rate of its proper time evolution.
 \end{remark}
+
 
 \section{Geometric composition of SR and GR factors}
 
@@ -2512,31 +2543,80 @@ This factorization suggests a profound geometric origin for 3D space:
 This hints that the dimensionality of observable space is not arbitrary but is a structural consequence of distributing the $S^2$ energy budget into a volume.
 
 
-\section{$W_{\text{ILL}}$ - Unity of Relational Structure}
+\section{$W_{\text{ILL}}$: Unity of Relational Structure}
 \label{sec:willinvariant}
 
-From the geometric closure of WILL we derive the universal invariant connecting mass, energy, time, and length.  
-Each is a projection of the same relational whole:
-$M = \frac{\beta^2}{\beta_Y}\,\,\frac{c^2r}{G}, \quad
-E = \frac{\kappa^2}{\kappa_X}\,\frac{c^4 r}{2G}, \quad
-T = \kappa_X\left(\frac{2Gm_0}{\kappa^2 c^3}\right)^2, \quad
-L = \beta_Y\left(\frac{Gm_0}{\beta^2 c^2}\right)^2.$
+The ontological principle
+\[
+\text{SPACETIME} \equiv \text{ENERGY}
+\]
+states that there is only one closed relational resource - WILL. What we call space, time and matter are different projections of the same structure. For any energy-closed system observed from a relational origin, this resource appears through four operational projections: 
 
-Combining these projections yields the universal dimensionless invariant:
+These quantities are defined as correlated projections of the same underlying WILL structure. In the dimensionful form we write:
+\[
+M = \frac{\beta^{2}}{\beta_{Y}} \,\frac{c^{2} a}{G}, \qquad
+E = \frac{\kappa^{2}}{\kappa_{X}} \,\frac{c^{4} a}{2G}, \qquad
+T = \kappa_{X} \left( \frac{2 G m_{0}}{\kappa^{2} c^{3}} \right)^{2}, \qquad
+L = \beta_{Y} \left( \frac{G m_{0}}{\beta^{2} c^{2}} \right)^{2},
+\]
+where $(\beta,\beta_{Y})$ and $(\kappa,\kappa_{X})$ are the kinematic and gravitational projections on the carriers $S^{1}$ and $S^{2}$, $m_{0}$ is the rest mass, $E_{0} = m_{0} c^{2}$ is the rest energy, and $a$ is the relational scale of the system as semi-major axis (average length per cycle within this system).
+
+The closure conditions of the carriers,
+\[
+\beta^{2} + \beta_{Y}^{2} = 1, \qquad
+\kappa_{X}^{2} + \kappa^{2} = 1,
+\]
+together with the energetic exchange condition
+\[
+\kappa^{2} = 2 \beta^{2},
+\]
+fix a unique dimensionless combination of these four projections. Combining $E$, $T$, $M$, and $L$ we obtain
+\[
+W_{\text{ILL}}
+\equiv
+\frac{E T}{M L}
+=
+\frac{\dfrac{E_{0}}{\kappa_{X}} \,\kappa_{X} t^{2}}
+     {\dfrac{m_{0}}{\beta_{Y}} \,\beta_{Y} a^{2}}
+=
+\frac{E_{0} t^{2}}{m_{0} a^{2}}.
+\]
+By the relations that tie temporal and  $t=a/c$ and spacial $a=R_s/\kappa^2$ scales this ratio is identically equal to unity for any closed system:
+\[
+\boxed{
+W_{\text{ILL}} = \frac{E T}{M L} = 1.
+}
+\]
+All dimensionful constants cancel automatically; the value is fixed by the geometry of the carriers, not by a choice of units.
+
+The same invariant can be written in a phase–normalized form, using local projections
+\[
+E_{o} = \frac{E_{0}}{\kappa_{X o}}, \qquad
+M_{o} = \frac{m_{0}}{\beta_{Y o}}, \qquad
+T_{o} = \kappa_{X o} t_{o}^{2}, \qquad
+L_{o} = \beta_{Y o} r_{o}^{2},
+\]
+Equivalently, for any state $(\beta_{o},\kappa_{o})$, any scale $r_{o}$ and any phase along the orbit. Then
 \[
 \boxed{
 W_{\text{ILL}}
-= \frac{E \, T}{M \, L}
-= \frac{\frac{E_0}{\kappa_X}\,\kappa_X t^2}{\frac{m_0}{\beta_Y}\,\beta_Y r^2}
-= 1.
+=
+\frac{E_{o} T_{o}}{M_{o} L_{o}}
+= 1
+\quad \text{for ALL ENERGY'S, ALL SCALES and ALL PHASES.}
 }
 \]
-
-All dimensional constants and parameters cancel identically.
-This equality is not a result of unit choice, but the manifestation of structural closure:
 \[
-\boxed{\textbf{WILL} = 1.}
+\frac{E_{o}}{M_{o}} = \frac{L_{o}}{T_{o}},
 \]
+so the energy sector and the spacetime sector are not independent. Every change of the relational state rescales $(E_{o},M_{o})$ and $(T_{o},L_{o})$ coherently so that this equality is always preserved. The familiar practice of treating energy–mass and space–time as separate blocks is therefore an ontological approximation: in WILL they are locked by a single relational constraint.
+\[
+\text{Geometry}  \equiv \text{Energy}  \equiv \text{Causality}  \equiv WILL,
+\]
+\[
+\boxed{W_{ILL}= 1.}
+\]
+in the precise sense that one and the same conserved relational resource appears as mass, energy, time and length, but always in a way that keeps their ratio fixed.
 
 
 \subsection{Interpretive Note: The Name "WILL"}
@@ -2546,7 +2626,7 @@ It is both a formal shorthand and a philosophical statement:
 the universe is not a stage where energy acts through time upon space,  
 but a single self-balancing structure whose internal distinctions generate all phenomena.  
 The name also serves as a gentle irony toward anthropic thinking:  
-the cosmos does not possess "will" - yet through WILL, it manifests all that is.
+the Cosmos does not possess "will" - yet through WILL, it manifests All that Is.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
 \[
@@ -2559,7 +2639,10 @@ the cosmos does not possess "will" - yet through WILL, it manifests all that is.
 \]
 \[
 \boxed{
-\textbf{It is not the unit of something - it is the unity of everything.}
+\begin{array}{c}
+\textbf{WILL is not the unit of something - but the Unity of Everything } \\[6pt]
+\textbf{transforming within closed relational whole}\\[6pt]
+\end{array}
 }
 \]
 \end{tcolorbox}
