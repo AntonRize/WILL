@@ -334,6 +334,11 @@ emergent descriptors of relational energy.
 Principle~\ref{pr:unifying} is foundational but testable: it is subject to (i) geometric audit (internal logical consequences) and (ii) empirical audit (agreement with empirical data).
 \end{remark}
 
+\begin{definition}[WILL]
+\label{def:will}
+\emph{$ \textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY} $} is the technical term we use for unified relational structure determined by \ref{pr:unifying} . All physically meaningful quantities are relational features of WILL; no external container is permitted.
+\end{definition}
+
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
 \textbf{This Principle does not add, it subtracts: it removes the hidden assumption.  Structure and dynamics are two aspects of a single entity that we call - WILL.}
 \end{tcolorbox}
@@ -346,7 +351,11 @@ Crucially, this quantity is never observed directly, but only through \textit{di
 Moreover, this quantity provides continuity of causality. If it changes in one part of the system, a complementary change must occur elsewhere, ensuring the unbroken chain of transitions. Thus it is the bookkeeping of causality itself.
 From these empirical and relational facts the definition follows unavoidably:
 \end{quote}
+
+
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Energy :]
+\begin{definition}[Energy]
+\label{def:energy}
 \[
 \begin{array}{c} \boxed{ 
 \begin{array}{c} 
@@ -357,16 +366,13 @@ From these empirical and relational facts the definition follows unavoidably:
 \end{array} 
 } \end{array}
 \]
+\end{definition}
 \end{tcolorbox}
+
 
 \section{Deriving the WILL Structure}
 
 Having established our  Principle ~\ref{pr:unifying} by removing the illicit separation of structure and dynamics, we now proceed to derive its necessary geometric and physical consequences. We will demonstrate that this single principle is sufficient to enforce the closure, conservation, and isotropy of the relational structure, leading to a unique set of geometric carriers for energy.
-
-\begin{definition}[WILL]
-\label{def:will}
-\emph{$ \textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY} $} is the technical term we use for unified relational structure determined by \ref{pr:unifying} . All physically meaningful quantities are relational features of WILL; no external container is permitted.
-\end{definition}
 
 \begin{lemma}[Closure]
 \label{lem:closure}
@@ -818,6 +824,128 @@ This identifies Relativistic Time Dilation not as a mysterious "slowing down" of
 \end{remark}
 
 
+\section{\textbf{Energy as a Relation - What $\kappa$ and $\beta$ Actually Mean}}
+
+\textbf{Energy (\ref{def:energy}) is the measure of differences between states.}
+
+\textbf{In relational framework:}
+\begin{itemize}
+    \item Physical parameters like energy, speed, and gravitational potential don’t belong to objects.
+    \item Instead, they represent how we, as observers, measure differences from our own point of view.
+\end{itemize}
+
+In this view, your perspective is always the reference frame. You are always at the point of origin (0,0) on your ($\beta$,$\kappa$) plane. 
+
+\textbf{Everything else is described by how it differs from your state:}
+\begin{itemize}
+    \item $\beta$ is the measure of how much of the universal “speed of change” you see as motion through space, relative to yourself.
+    \item $\kappa$  is the measure of how deeply an object sits in a gravitational field, as seen from your position. It’s your personal “ruler” for gravitational depth.
+\end{itemize}
+
+\textbf{Think of $\kappa$ and $\beta$ as your own relational measuring tools:}
+\begin{itemize}
+    \item $\beta$ is how far along your “motion ruler” you project another object’s state.
+    \item$\kappa$ is how deep into your “gravity well” you see another object’s state.
+\end{itemize}
+
+\textbf{Thus relational understanding emerges naturally:}
+\begin{itemize}
+    \item Energy is the capacity to move between states.
+    \item Saying “the object’s energy” always implicitly means “the object’s energy as measured from your perspective.”
+\end{itemize}
+
+\textbf{Here’s a simple analogy:}
+\begin{quote}
+Imagine standing on a train platform. A train passes by rapidly: to you, it has significant kinetic energy. But if you jump onto the train, it instantly becomes stationary relative to you. Its kinetic energy is now zero — because your frame of reference shifted. The energy didn’t vanish; your perspective changed.
+\end{quote}
+
+ \begin{tcolorbox}[colback=gray!5, colframe=black!60!black, title=Summary:]
+\begin{itemize}
+    \item The projections $\kappa$ and $\beta$ are your personal, relational measurements of energy difference.
+    \item All physics boils down to describing how things differ in relation to you.
+\end{itemize}
+ \end{tcolorbox}
+
+\section{Relational Displacement $Q$}
+\label{sec:DisQ}
+\begin{center}
+\begin{tikzpicture}[scale=3]
+% observer frame at (0,0)
+\coordinate (O) at (0,0);
+% displaced frame center (Q)
+\coordinate (Q) at (0.6,0.2); 
+% base circles
+\draw[thick] (O) circle (1);
+\draw[dashed,thick] (Q) circle (1);
+% radial vectors
+\draw[->,thick] (O) -- (0.85,0) node[below]{$\beta$};
+\draw[->,thick] (O) -- (0,0.85) node[left]{$\kappa$};
+% Q-vector
+\draw[->,thick] (O) -- (Q) node[midway,above right]{$Q$};
+% dots for centers
+\fill (O) circle (0.015);
+\fill (Q) circle (0.015);
+\end{tikzpicture}
+\end{center}
+
+When an observer observes another system, they assign to it a relational displacement norm $Q$:
+\begin{equation}
+\boxed{
+Q^2=\beta^2+\kappa^2
+}
+\label{eq:Q-definition}
+\end{equation}
+Relational reciprocity is the invariance of this norm under the self-centering operation of each observer.
+
+Each observer places itself at the relational origin
+\[
+(\beta,\kappa)=(0,0).
+\]
+If the other system now looks back, it again self--centres at $(0,0)$ and applies
+the same rule. It measures the observer's $(\beta,\kappa)$ and again obtains
+\[
+Q^2=\beta^2+\kappa^2.
+\]
+Thus $Q$ is the \emph{norm} of relational displacement, not a spatial distance.
+Geometrically, the observer is always at the centre of its own $S^{1}$ (or
+$S^{2}$) carrier, and any external system is a point $(\beta,\kappa)$ on that
+plane. The scalar $Q$ measures the total deviation from the observer's relational
+origin.
+
+\begin{remark}[Closure-specific simplification]
+Under energetic closure (\ref{thm:closure}) $\kappa^{2}=2\beta^{2}$ (circular/periodic systems),
+the norm reduces to $Q^{2}=3\beta^{2}$. 
+
+In general (open or elliptic) configurations, the full definition $Q^{2}=\beta^{2}+\kappa^{2}$ must be used.
+\end{remark}
+
+\subsection{Principle of Relational Reciprocity}
+
+\paragraph{Self--centering reciprocity.}
+Every observer performs self--centering:
+\[
+(\beta,\kappa)=(0,0).
+\]
+When I observe another system, I assign to it $(\beta,\kappa)$ and therefore a
+displacement
+\[
+Q^2=\beta^2+\kappa^2.
+\]
+When that system observes me, it again self--centres and obtains the same form.
+It assigns to me some $(\beta,\kappa)$ and again computes $Q^2=\beta^2+\kappa^2$.
+
+Reciprocity is therefore not a vector symmetry in a shared space. It is a
+symmetry of the \emph{self--centering operation}: each observer applies the same
+rule and only the norm of displacement is invariant.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\[
+\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
+\]
+There is no common background arena. There are only mutual displacement
+magnitudes $Q$ computed in each observer's own relational origin.
+\end{tcolorbox}
+
 \section{Geometric composition of SR and GR factors}
 
 On the unit kinematic circle ($S^1$) we parametrize
@@ -858,7 +986,7 @@ and therefore \(E_g^2=p_g^2+E_0^2\).
 \node at (-0.14,0.6) {$\beta_Y$};
 \draw (0.25,0) arc (0:36.87:0.25);
 \node at (0.33,0.12) {$\theta_1$};
-\node at (0,-1.45) {\small $E=E_0/\beta_Y,\quad p=E_0\,\beta/\beta_Y=E_0\cot\theta_1$};
+\node at (0,-1.55) {\small \shortstack{$E=E_0/\beta_Y$ \\ $p=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
 
 % Right circle: gravity
 \begin{scope}[xshift=3.2cm]
@@ -873,7 +1001,7 @@ and therefore \(E_g^2=p_g^2+E_0^2\).
 \node at (-0.14,0.8) {$\kappa$};
 \draw (0.25,0) arc (0:53.13:0.25);
 \node at (0.33,0.12) {$\theta_2$};
-\node at (0,-1.45) {\small $E_g=E_0/\kappa_X,\quad p_g=E_0\,\kappa/\kappa_X=E_0\tan\theta_2$};
+\node at (0,-1.55) {\small \shortstack{$E_g=E_0/\kappa_X$ \\ $p_g=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
 \end{scope}
 
 % composition arrow
@@ -1133,10 +1261,12 @@ the kinetic and potential aspects of WILL maintain closure through the invariant
 \paragraph{Illustrative Examples.}
 \begin{itemize}
 \item \textbf{Circular Orbit (Closed).}  
-A body in circular orbit exactly satisfies $\kappa^2=2\beta^2$.  
-The entire conserved resource is partitioned between kinetic and gravitational projections; no external channel exists.
+A body at any orbital phase exactly satisfies $\kappa^2=2\beta^2$.  
+The entire conserved resource is partitioned between kinetic and gravitational projections; no internal "breathing" and no external channel exists.
+\item \textbf{Elliptical Orbit (Closed).} 
+A body satisfies $<\kappa^2>=2<\beta^2>$ exactly as an average per orbital cycle due to internal "breathing" of elliptical systems. Though this internal "breathing" is restricted by the Energy-Symmetry Law (\ref{sec:energy-symmetry})  so the difference $W=\frac{1}{2}(\kappa^2-\beta^2)=\frac{E}{E_{0}}$=constant at any orbital phase. No external channel exists.
 \item \textbf{Radiating Binary (Open).}  
-An elliptical compact binary violates $\kappa^2=2\beta^2$ when only orbital degrees of freedom are counted,  
+An elliptical compact binary violates  $<\kappa^2>=2<\beta^2>$ when only orbital degrees of freedom are counted, 
 the closure defect $\delta$ quantifying energy lost to gravitational radiation.  
 Including all channels restores closure.
 \end{itemize}
@@ -1615,9 +1745,9 @@ Nature's laws reduce to algebraic self-consistency.
 \textbf{Orbital dynamics requires no mass, no $G$, no metric, and no spacetime geometry.}
 All observable orbital structure follows from two directly measurable frequency projections:
 \[
-\kappa \quad\text{(gravitational projection from redshift)}, 
-\qquad
-\beta \quad\text{(kinematic projection from Doppler)}.
+\kappa \,\text{(gravitational projection from redshift)}, 
+\quad
+\beta \,\text{(kinematic projection from Doppler)}.
 \]
 Everything else is algebra.
 \end{tcolorbox}
@@ -1633,7 +1763,6 @@ Depending on the available observational data, the framework offers two distinct
     \item \textbf{Path 2: Reconstruction (Partial Data Available).}
     Used for distant systems (e.g., Star S2, Exoplanets) where the central potential is unknown or entangled with Doppler shifts. Here, we use the observed shape ($e$) and velocity ($\beta$) to \textbf{reconstruct} the hidden potential depth $\kappa_p$ via geometric compatibility.
 \end{itemize}
-
 \subsection{Derivation of Relational Eccentricity}
 
 Geometric eccentricity is not a free parameter but a measure of the energetic deviation from the circular equilibrium state ($\delta=1$).
@@ -1648,48 +1777,54 @@ e = \frac{1}{\delta_p^2} - 1 = \frac{1-\delta_p^2}{\delta_p^2}.
 \begin{proof}
 Instead of relying on classical force laws, we derive this relation directly from the conservation of the two fundamental projection invariants of the WILL framework:
 \begin{enumerate}
-    \item \textbf{Energy Projection Invariant:} $W = \beta^2 - \kappa^2 = \text{const}$.
+    \item \textbf{Energy Projection Invariant (Binding Energy):} $W =  \frac{1}{2}(\kappa^2-\beta^2)  =\frac{E}{E_o} =\text{const}$.
     \item \textbf{Angular Projection Invariant:} $h = r\beta = \text{const}$ (at turning points).
 \end{enumerate}
 
 Consider the two turning points of a closed orbit: periapsis ($p$) and apoapsis ($a$).
-By operational definition of the shape parameter e for any orbit exhibiting two turning points (r\_min, r\_max), we have r\_max = r\_min (1+e)/(1-e):
+By operational definition of the shape parameter $e$, the relation between radii is determined by the geometric range:
 \begin{equation}
 r_a = r_p \left(\frac{1+e}{1-e}\right).
 \end{equation}
 
 \paragraph{Step 1: Relational Mapping.}
-Using the angular invariant $h$ and the field definition $\kappa^2 \propto 1/r$, we express the apoapsis projections in terms of the periapsis values:
+Using the angular invariant $h$ (implying $\beta \propto 1/r$) and the field definition $\kappa^2 \propto 1/r$, we express the apoapsis projections in terms of the periapsis values:
 \begin{align}
-\beta_a &= \beta_p \left(\frac{r_p}{r_a}\right) = \beta_p \left(\frac{1-e}{1+e}\right), \\
+\beta_a^2 &= \left[\beta_p \left(\frac{r_p}{r_a}\right)\right]^2 = \beta_p^2 \left(\frac{1-e}{1+e}\right)^2, \\
 \kappa_a^2 &= \kappa_p^2 \left(\frac{r_p}{r_a}\right) = \kappa_p^2 \left(\frac{1-e}{1+e}\right).
 \end{align}
+\textit{Note: Kinematic projection scales quadratically with the radius ratio, while potential projection scales linearly.}
 
 \paragraph{Step 2: Energy Balance.}
 Substituting these into the energy invariant conservation condition $W_p = W_a$:
 \[
-\beta_p^2 - \kappa_p^2 = \beta_a^2 - \kappa_a^2.
+\frac{1}{2}(\kappa_p^2-\beta_p^2)  = \frac{1}{2}(\kappa_a^2-\beta_a^2).
 \]
+Canceling the factor $\frac{1}{2}$ and substituting the mappings from Step 1:
 \[
-\beta_p^2 - \kappa_p^2 = \left[ \beta_p \left(\frac{1-e}{1+e}\right) \right]^2 - \kappa_p^2 \left(\frac{1-e}{1+e}\right).
+\kappa_p^2 - \beta_p^2 = \kappa_p^2 \left(\frac{1-e}{1+e}\right) - \beta_p^2 \left(\frac{1-e}{1+e}\right)^2.
 \]
 
-Rearranging to group kinematic terms on the left and potential terms on the right:
+Rearranging to group potential terms ($\kappa$) on the left and kinematic terms ($\beta$) on the right:
 \[
-\beta_p^2 \left[ 1 - \left(\frac{1-e}{1+e}\right)^2 \right] = \kappa_p^2 \left[ 1 - \frac{1-e}{1+e} \right].
+\kappa_p^2 \left[ 1 - \frac{1-e}{1+e} \right] = \beta_p^2 \left[ 1 - \left(\frac{1-e}{1+e}\right)^2 \right].
 \]
 
 \paragraph{Step 3: Algebraic Reduction.}
 Expanding the terms in brackets:
 \begin{align*}
-\text{LHS bracket:} & \quad 1 - \frac{(1-e)^2}{(1+e)^2} = \frac{(1+e)^2 - (1-e)^2}{(1+e)^2} = \frac{4e}{(1+e)^2}. \\
-\text{RHS bracket:} & \quad 1 - \frac{1-e}{1+e} = \frac{(1+e)-(1-e)}{1+e} = \frac{2e}{1+e}.
+\text{LHS bracket ($\kappa$ term):} & \quad 1 - \frac{1-e}{1+e} = \frac{(1+e)-(1-e)}{1+e} = \frac{2e}{1+e}. \\
+\text{RHS bracket ($\beta$ term):} & \quad 1 - \frac{(1-e)^2}{(1+e)^2} = \frac{(1+e)^2 - (1-e)^2}{(1+e)^2} = \frac{4e}{(1+e)^2}.
 \end{align*}
 Substituting back into the balance equation:
 \[
-\beta_p^2 \left( \frac{4e}{(1+e)^2} \right) = \kappa_p^2 \left( \frac{2e}{1+e} \right).
+\kappa_p^2 \left( \frac{2e}{1+e} \right) = \beta_p^2 \left( \frac{4e}{(1+e)^2} \right).
 \]
-Solving for $\beta_p^2$ yields the geometric identity for bound orbits:
+Dividing both sides by $2e$ and multiplying by $(1+e)^2$:
+\[
+\kappa_p^2 (1+e) = 2\beta_p^2.
+\]
+This yields the fundamental geometric identity for bound orbits:
 \begin{equation}
 2\beta_p^2 = \kappa_p^2 (1+e).
 \label{eq:proj-balance}
@@ -1713,8 +1848,9 @@ e = \frac{1}{\delta_p^2} - 1
 \end{proof}
 
 \begin{remark}
-This result confirms that eccentricity is strictly a measure of the energetic deviation from the circular equilibrium state ($\delta=1$), derived entirely from the conservation of relational projections without invoking mass or Newtonian forces.
+This result confirms that eccentricity is strictly a measure of the energetic deviation from the circular equilibrium state ($\delta =1$), derived entirely from the conservation of relational projections without invoking mass or Newtonian forces. 
 \end{remark}
+
 \subsection{Path 1: Verification on Mercury (Pure Optical Inputs)}
 
 We validate the theory using Mercury, utilizing only direct optical measurements (Doppler and Redshift). We implicitly assume \textbf{zero knowledge} of the Sun's mass, the gravitational constant $G$, or the Schwarzschild radius derived from them.
@@ -1785,89 +1921,9 @@ This demonstrates that physical mass is merely a dimensioned proxy for the geome
 
 This reconstructed $\kappa_p$ is then used to predict the precession in the next section.
 
-\section{Relational Displacement and Orbital Precession}
-
-\begin{center}
-\begin{tikzpicture}[scale=3]
-% observer frame at (0,0)
-\coordinate (O) at (0,0);
-% displaced frame center (Q)
-\coordinate (Q) at (0.6,0.2); 
-% base circles
-\draw[thick] (O) circle (1);
-\draw[dashed,thick] (Q) circle (1);
-% radial vectors
-\draw[->,thick] (O) -- (0.85,0) node[below]{$\beta$};
-\draw[->,thick] (O) -- (0,0.85) node[left]{$\kappa$};
-% Q-vector
-\draw[->,thick] (O) -- (Q) node[midway,above right]{$Q$};
-% dots for centers
-\fill (O) circle (0.015);
-\fill (Q) circle (0.015);
-\end{tikzpicture}
-\end{center}
-
-When an observer observes another system, they assign to it a relational displacement norm $Q$:
-\begin{equation}
-\boxed{
-Q^2=\beta^2+\kappa^2
-}
-\label{eq:Q-definition}
-\end{equation}
-Relational reciprocity is the invariance of this norm under the self-centering operation of each observer.
-
-Each observer places itself at the relational origin
-\[
-(\beta,\kappa)=(0,0).
-\]
-If the other system now looks back, it again self--centres at $(0,0)$ and applies
-the same rule. It measures the observer's $(\beta,\kappa)$ and again obtains
-\[
-Q^2=\beta^2+\kappa^2.
-\]
-Thus $Q$ is the \emph{norm} of relational displacement, not a spatial distance.
-Geometrically, the observer is always at the centre of its own $S^{1}$ (or
-$S^{2}$) carrier, and any external system is a point $(\beta,\kappa)$ on that
-plane. The scalar $Q$ measures the total deviation from the observer's relational
-origin.
-
-\begin{remark}[Closure-specific simplification]
-Under energetic closure $\kappa^{2}=2\beta^{2}$ (circular/periodic systems),
-the norm reduces to $Q^{2}=3\beta^{2}$. 
-
-In general (open or elliptic) configurations, the full definition $Q^{2}=\beta^{2}+\kappa^{2}$ must be used.
-\end{remark}
-
-\subsection{Principle of Relational Reciprocity}
-
-\paragraph{Self--centering reciprocity.}
-Every observer performs self--centering:
-\[
-(\beta,\kappa)=(0,0).
-\]
-When I observe another system, I assign to it $(\beta,\kappa)$ and therefore a
-displacement
-\[
-Q^2=\beta^2+\kappa^2.
-\]
-When that system observes me, it again self--centres and obtains the same form.
-It assigns to me some $(\beta,\kappa)$ and again computes $Q^2=\beta^2+\kappa^2$.
-
-Reciprocity is therefore not a vector symmetry in a shared space. It is a
-symmetry of the \emph{self--centering operation}: each observer applies the same
-rule and only the norm of displacement is invariant.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
-\[
-\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
-\]
-There is no common background arena. There are only mutual displacement
-magnitudes $Q$ computed in each observer's own relational origin.
-\end{tcolorbox}
-
 \subsection{The Universal Precession Law: Derivation via $Q_a$}
 
-For an elliptic orbit, the net angular mismatch (precession) is derived from the displacement norm $Q$ measured at the system's characteristic scale. We select the semi-major axis $a$ as this reference scale, defining the norm $Q_a$.
+For an elliptic orbit, the net angular mismatch (precession) is derived from the displacement norm $Q_a$ (\ref{sec:DisQ}) measured at the system's characteristic scale. We select the semi-major axis $a$ as this reference scale, defining the norm $Q_a$.
 
 At the scale $r=a$, the closure condition ($\kappa^2=2\beta^2$) implies the specific distribution of the invariant Schwarzschild scale $R_s$:
 \[
