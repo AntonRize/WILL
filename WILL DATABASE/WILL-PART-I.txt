@@ -4,7 +4,6 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{hyperref} 
 \usepackage[warn]{textcomp}
 
 
@@ -23,12 +22,13 @@
 \usepackage{booktabs}
 \usepackage{tabularx}    
 \usepackage{enumitem}
-
+\usepackage{tikz}
 
 % --- START OF FOOTER SECTION ---
 \usepackage{fancyhdr}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
-
+\usepackage{hyperref}
+\usepackage{natbib}
 
 
 % Activate the fancy page style
@@ -2009,7 +2009,7 @@ The result lies well within observational uncertainty.
 \subsection{Case 3: Blind Prediction for S4716 (In Silico Experiment)}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Blind Prediction Protocol]
-This section documents a specific numerical prediction made in November 2025, prior to the observational confirmation of the relativistic precession for the star S4716. The prediction relies exclusively on instantaneous kinematic inputs from the discovery paper (Peißker et al., 2022) and the geometric closure laws of WILL. It assumes no knowledge of the central mass, the gravitational constant $G$, or the full orbital period.
+This section documents a specific numerical prediction made in November 2025, prior to the observational confirmation of the relativistic precession for the star S4716. The prediction relies exclusively on instantaneous kinematic inputs from the discovery paper (Peißker et al., 2022) and the geometric closure laws of WILL RG. It assumes no knowledge of the central mass, the gravitational constant $G$, or the full orbital period.
 \end{tcolorbox}
 
 \subsubsection{Input Data}
@@ -2058,14 +2058,18 @@ Converting to arcminutes:
 \[
 \Delta\varphi_{\text{arcmin}} = 0.00435 \times \frac{180}{\pi} \times 60 \approx 14.96.
 \]
-
 \begin{theorem}[S4716 Prediction]
-WILL Relational Geometry predicts that the Schwarzschild precession for star S4716 is:
+WILL Relational Geometry predicts that the orbital precession of S4716 is:
 \[
 \boxed{\Delta\varphi \approx 15 \text{ arcmin per orbit}}
 \]
+given the observational inputs:
+\begin{align}
+    v_p &\approx 8000 \text{ km/s} \quad (\text{Peißker et al., 2022}) \\
+    e &\approx 0.756 \quad (\text{Peißker et al., 2022})
+\end{align}
+The uncertainty in this prediction is dominated by the precision of the input parameters.
 \end{theorem}
-
 \subsubsection{Falsification Criteria and Implications}
 
 This value serves as a strict falsification test for the WILL framework. We await observational confirmation from the GRAVITY/VLT collaboration following the 2026 periapsis passage.
@@ -2083,21 +2087,20 @@ If the observed value matches this prediction, it validates the core premise of 
 
 Thus, S4716 is not merely a test of orbital mechanics, but a critical test of the unification of physics under a single, mass-free, geometric principle.
 \[
-\boxed{\textbf{No differential equations. No metric. Pure algebra of light red vs. blue ratio.}} 
+\boxed{\textbf{No differential equations. No metric. Pure algebra of light red vs. blue ratio.}}
 \]
 \subsubsection{Unique Predictive Power}
-Unlike General Relativity, which requires mass M extracted from decades of monitoring. WILL reconstructs $\kappa_p$ instantly from ($e, \beta_p$) providing a \textbf{Snapshot Prediction}. 
-It asserts that precession is determined entirely by the instantaneous kinematic state ($\beta_p$) and the orbital shape ($e$) at periapsis.
+While mathematically equivalent to a reduced GR formula, WILL RG provides a first-principles derivation from a single unifying principal (\ref{pr:unifying}) rather than gravitational physics. RG naturally yields this relationship as a consequence of relational closure theorem (\ref{thm:closure}) that also unify quantum, atomic (see WILL Part III), and cosmological (see WILL Part II) phenomena. 
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Interpretation]
-This section demonstrates that the full structure of orbital dynamics --- including 
-turning points, eccentricity, radial asymmetry, and periapsis precession --- can be 
-reconstructed exactly from the two directly observable projection parameters 
-$\kappa$ and $\beta$, without introducing mass, $G$, metrics, manifolds, or 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+This section demonstrates that the full structure of orbital dynamics - including
+turning points, eccentricity, radial asymmetry, and periapsis precession - can be
+reconstructed exactly from the two directly observable projection parameters
+$\kappa$ and $\beta$, without introducing mass, $G$, metrics, manifolds, or
 any additional geometric assumptions.
 
-Orbital phenomena therefore require no spacetime curvature and no dynamical 
-field equations; they arise entirely from algebraic relations among 
+Orbital phenomena therefore require no spacetime curvature and no dynamical
+field equations; they arise entirely from algebraic relations among
 observable frequency projections.
 \end{tcolorbox}
 
@@ -2927,10 +2930,9 @@ while GR requires additional ontological structures
 (metric geometry, equivalence principle, Einstein equations) that are 
 not necessary for the consistency of RG.
 \end{corollary}
-\usepackage{tikz}
-\usepackage{tikz}
-\usepackage{tikz}
-\usepackage{enumitem}
+
+
+
 \usetikzlibrary{positioning}
 
 \begin{figure}[h!]
@@ -3294,7 +3296,7 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
 
 \bibitem{Misner1973} Misner, Thorne, Wheeler (1973). \textit{Gravitation}.
 
-\bibitemCitation{Florian Peißker2020} \textit{et al} 2022 \textit{ApJ} 933 49 DOI 10.3847/1538-4357/ac752f 
+\bibitem{Florian Peißker2020} \textit{et al} 2022 \textit{ApJ} 933 49 DOI 10.3847/1538-4357/ac752f 
 
 \end{thebibliography}
  
