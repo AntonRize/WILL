@@ -83,7 +83,7 @@
 
 % --- Metadata ---
 \title{WILL Part I: Relational Geometry}
-\author{Anton Rize \\ egeometricity@gmail.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}}
+\author{Anton Rize \\ egeometricity@gmail.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}} 
 
 
 
@@ -94,24 +94,23 @@
 
 \maketitle
 
-
 \begin{abstract}
-This paper, the first in the \textit{WILL} series, applies extreme methodological constraints in constructing a theory and establishes \textit{Relational Geometry (RG)}: a foundational framework where spacetime is not a background arena but an emergent property of energy transformations. 
+This paper, the first in the \textit{WILL} series, applies extreme methodological constraints in constructing a theory and establishes \textit{Relational Geometry (RG)}: a foundational framework where spacetime is not a background arena but an emergent property of relational energy transformations. 
 
-From a single ontological principle, \textbf{SPACETIME $\equiv$ ENERGY}, it aims to derive the complete geometric structure of physics across physical domains. This equivalence is not postulated but derived by removing the hidden ontological assumption, implicit in modern physics, that structure (spacetime) and dynamics (energy) are separate phenomena. 
+From a single ontological principle, \textbf{SPACETIME $\equiv$ ENERGY} (\ref{pr:unifying}), it aims to derive the complete geometric structure of physics across physical domains. This equivalence is not postulated but derived by removing the hidden ontological assumption, implicit in modern physics, that structure (spacetime) and dynamics (energy) are separate phenomena. 
 
-This shift establishes an ontological transition from \textit{descriptive} to \textit{generative} physics: instead of introducing laws to model observations, it derives them as necessary consequences of RG itself - turning physics from a catalogue of phenomena into the logical unfolding of a single principle. 
+This shift establishes an ontological transition from \textit{descriptive} to \textit{generative} physics: instead of introducing laws to model observations, it derives them as necessary consequences of RG itself - turning physics from a catalogue of phenomena into the logical unfolding of a single principle (\ref{Generative Physics}). 
 
-The result is a singularity-free, ontologically clean formalism that reproduces the core equations of Special Relativity (SR) and General Relativity (GR) as geometric projections on closed relational manifolds $S^1$ (directional) and $S^2$ (omnidirectional). Without metrics, tensors, or free parameters, it reproduces Lorentz factors, the energy-momentum relation, Schwarzschild and Kerr solutions, and Einstein field equations via the dimensionless projections $\beta$ (kinematic) and $\kappa$ (potential). All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as simple fractions of $(\kappa,\beta)$ from the single closure law $\kappa^2=2\beta^2$ (geometrically derived, virial-like).  
-All results are empirically validated (e.g., GPS time shift 38.52~$\mu$s/day, Mercury precession to $10^{-10}$\%, and others listed in Appendix~I).
+The result is a singularity-free (\ref{sec:No Singularities}), ontologically clean formalism that reproduces the core equations of Special Relativity (SR) and General Relativity (GR) as geometric projections on closed relational manifolds $S^1$ (directional) and $S^2$ (omnidirectional). Without metrics, tensors, or free parameters, it reproduces Lorentz factors, the energy-momentum relation, Schwarzschild and Kerr solutions, and Einstein field equations via the dimensionless projections $\beta$ (kinematic) and $\kappa$ (potential). All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as simple fractions of $(\kappa,\beta)$ from the single closure law $\kappa^2=2\beta^2$ (geometrically derived, virial-like \ref{thm:closure}).  
+All results are empirically validated (e.g., GPS time shift 38.52~$\mu$s/day, Mercury precession to $10^{-10}$\%, and others listed in (Appendix I).
 
 \textit{WILL Part~I} offers solutions to several long-standing problems, including:
 \begin{itemize}
-    \item Resolution of GR singularities (via naturally bounded $\rho_{\max}$),
-    \item Derivation of the equality of gravitational and inertial masses (from the common channel of rest-invariant scaling),
-    \item Removal of local energy ambiguity $\rho=\frac{\kappa^{2}c^{2}}{8\pi G r^{2}}$,
+    \item Resolution of GR singularities (via naturally bounded $\rho_{\max}$), \ref{sec:No Singularities}
+    \item Derivation of the equality of gravitational and inertial masses (from the common channel of rest-invariant scaling) \ref{thm:equivalence}, 
+    \item Removal of local energy ambiguity $\rho=\frac{\kappa^{2}c^{2}}{8\pi G r^{2}}$  \ref{density},
     \item Revelation of a clear relational symmetry between kinematic and potential projections,
-    \item Establishment of a computationally simpler and ontologically consistent foundation for subsequent papers on cosmology (Part~II) and quantum mechanics (Part~III).
+    \item Establishment of a computationally simpler and ontologically consistent foundation for subsequent papers on cosmology (Part~II) and quantum mechanics (Part~III) \ref{thm:asymmetry}.
 \end{itemize}
 \end{abstract}
 
@@ -459,7 +458,7 @@ Per the Principle of Relational Origin, this interaction can only be described f
 
     \item \textbf{Omnidirectional (Gravitational) Relation:}
     This is the other minimal relation 2 degree of freedom (2DOF) type: a central state (A) relating to the l\textbf{ocus} of all equidistant states (e.g., an orbit).
-    This describes a "center-to-orbit" relationship. By Lemma~\_ref{lem:isotropy} (Isotropy), the conserved WILL resource must be distributed uniformly across all possible orientations from this center.
+    This describes a "center-to-orbit" relationship. By Lemma \ref{lem:isotropy} (Isotropy), the conserved WILL resource must be distributed uniformly across all possible orientations from this center.
     The minimal manifold required to describe all possible orientations from a center is a\textbf{ two-dimensional (2D) }surface.
     
     Applying the Lemmas: By Lemma~\ref{lem:closure}, this 2D surface must be \textbf{closed}. By Lemma~\ref{lem:isotropy}, it must be \textbf{maximally symmetric} (isotropic from the center).
@@ -1012,7 +1011,7 @@ and therefore \(E_g^2=p_g^2+E_0^2\).
 
 
 \subsection{Clear Relational Symmetry Between Kinematic and Potential Projections }
-
+\label{projections symmetry}
 Now we can clearly see the underling symmetry between relativistic and gravitational factors that can be expressed in unified algebraic and trigonometric forms, as shown in Table 1.
 
 \begin{table}[h]
@@ -2009,8 +2008,78 @@ The result lies well within observational uncertainty.
 \subsection{Case 3: Blind Prediction for S4716 (In Silico Experiment)}
 
 \begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Blind Prediction Protocol]
-This section documents a specific numerical prediction made in November 2025, prior to the observational confirmation of the relativistic precession for the star S4716. The prediction relies exclusively on instantaneous kinematic inputs from the discovery paper (Peißker et al., 2022) and the geometric closure laws of WILL RG. It assumes no knowledge of the central mass, the gravitational constant $G$, or the full orbital period.
+This section documents a specific numerical prediction made in November 2025, prior to the observational confirmation of the relativistic precession for the star S4716. 
+By de-projecting the raw line-of-sight velocity from 2009 SINFONI data, we reconstruct the relativistic state vector and predict a precession of \textbf{14.80 arcmin/orbit}. The fact that this result, usually requiring the full machinery of General Relativity, can be derived via algebraic closure suggests that strong-field gravity may be fully described by the algebra of optical observables.
 \end{tcolorbox}
+
+\subsubsection{Operational Derivation from Observation}
+
+To derive the orbital precession of S4716 without relying on the mass of Sgr A* or the Schwarzschild metric, we utilize a scale-invariant reconstruction based on the geometric shape of the orbit ($e$) and the kinetic intensity ($\beta$) derived from optical observables.
+
+\subsubsection{Geometric De-projection of Velocity}
+The observational input is the Line-of-Sight (LOS) velocity measured by SINFONI in 2009 ($v_{LOS} \approx 1690$ km/s) \cite{Peissker2022}. Since the orbit is highly inclined ($i \approx 161^{\circ}$), we de-project this value to find the total velocity $v_{total}$.
+
+The geometric projection factor $\mathcal{P}$ at true anomaly $o$ is:
+\begin{equation}
+    \mathcal{P}(o) = \left| \sin(i) \frac{\cos(\omega + o) + e\cos(\omega)}{\sqrt{1 + e^2 + 2e\cos(o)}} \right|.
+\end{equation}
+Using the orbital parameters for S4716 ($e=0.756$, $i=161.13^{\circ}$, $\omega=2.25^{\circ}$) and the calculated phase for 2009 ($o \approx 1.122$ rad), we find $\mathcal{P} \approx 0.25$. The total velocity is:
+\begin{equation}
+    v_{total} = \frac{v_{LOS}}{\mathcal{P}} \approx \frac{1690}{0.25} \approx 6760 \text{ km/s}.
+\end{equation}
+This yields the scale-invariant intensity parameter at phase $o$:
+\begin{equation}
+    \beta_o = \frac{v_{total}}{c} \approx 0.02255.
+\end{equation}
+
+\subsubsection{Propagation to Periapsis}
+We propagate this state to periapsis using the geometric invariants of WILL.
+
+\textbf{1. Closure Factor at Observation:}
+\begin{equation}
+    \delta_o = \sqrt{\frac{1+e\cos(o)}{1+e^{2}+2e\cos(o)}}=0.383173140983.
+\end{equation}
+
+\textbf{2. Potential Projection:}
+From the closure definition, the potential depth $\kappa_o$ at that phase is:
+\begin{equation}
+    \kappa_o = \beta_o \cdot \delta_o \cdot \sqrt{2}=0.0246222202716.
+\end{equation}
+
+\textbf{3. The Energy Invariant ($W$):}
+The orbital energy invariant $W$ is constant throughout the trajectory:
+\begin{equation}
+    W = \frac{1}{2}\left(\kappa_o^{2}-\beta_o^{2}\right)=0.0000488996795431.
+\end{equation}
+
+\textbf{4. Solution at Periapsis:}
+At periapsis ($o=0$), the closure factor simplifies to $\delta_p = (1+e)^{-1/2}$. Solving for the periapsis velocity $\beta_p$ via invariance of $W$:
+\begin{equation}
+    \beta_p = \sqrt{\frac{W}{\delta_p^2 - 0.5}}=0.0265298837499.
+\end{equation}
+This yields $\beta_p \approx 0.0265$ ($v_p \approx 7956$ km/s), derived independent of mass models.
+
+\subsubsection{Prediction}
+With the derived periapsis intensity $\beta_p $ and the corresponding potential $\kappa_{p}=\beta_{p}\sqrt{\frac{2}{1+e}}=0.0283131434297$ we apply the Precession Law (Eq.~\ref{eq:precession_law}):
+
+\begin{equation}
+    \Delta \varphi = \frac{3\pi}{2} \frac{\kappa_p^4}{\beta_p^2} \approx \frac{3\pi}{2} (9.13 \times 10^{-4}).
+\end{equation}
+
+\begin{equation}
+    \boxed{\Delta \varphi \approx 14.7909706972 \approx  14.80 \text{ arcmin/orbit}.}
+\end{equation}
+
+\subsubsection{Discussion}
+The result derived here ($\Delta \varphi \approx 14.80'$) matches the expectations of the Schwarzschild metric to high precision. However, the path to this result is physically distinct.
+
+In standard GR, the Virial Theorem ($2K+U=0$) describes the time-averaged state of the system but does not, by itself, yield the prograde precession. To obtain the $6\pi GM/c^2 a(1-e^2)$ shift, one must solve the geodesic equations in a curved manifold.
+
+In contrast, the WILL RG treats the factor $\kappa^2 = 2\beta^2$ as a topological constraint on the total energy projections of the closed energy system that includes all channels. The projection ratio \textbf{oscillates throughout} the elliptical orbit as defined by  \(\delta \equiv \frac{\kappa^2 }{ 2\beta^2} \) yet the system remains consistent due to the total energy invariant    $W=\frac{1}{2}(\kappa^2-\beta^2)=$ constant at any orbital phase. 
+
+The fact that a purely algebraic operation on the scalar projections \textbf{recovers} the exact 'curved space' precession implies that the non-linearity attributed to spacetime curvature can be fully accounted for by the non-linearity of the projection geometry ($S^1$ and $S^2$).
+
+Furthermore, this method eliminates the "Inverse Problem." We did not need to fit a mass $M$ to the orbit to predict its future. We simply propagated the optical state vector $(\beta_o, \delta_o)$ forward in time using geometric invariance. This represents a significant reduction in ontological complexity.
 
 \subsubsection{Input Data}
 We utilize the observational data for the S-star S4716, which exhibits the shortest known orbital period around Sgr A*.
@@ -2072,7 +2141,7 @@ The uncertainty in this prediction is dominated by the precision of the input pa
 \end{theorem}
 \subsubsection{Falsification Criteria and Implications}
 
-This value serves as a strict falsification test for the WILL framework. We await observational confirmation from the GRAVITY/VLT collaboration following the 2026 periapsis passage.
+This value serves as a strict falsification test for the WILL RG framework. We await observational confirmation from the GRAVITY/VLT collaboration following the 2026 periapsis passage.
 
 \textbf{Implications of Confirmation:}
 If the observed value matches this prediction, it validates the core premise of this work: that the algebraic structure of Relational Geometry is \textbf{scale invariant}. It would demonstrate that the same geometric closure condition ($\kappa^2 = 2\beta^2$) successfully describes:
@@ -2194,7 +2263,7 @@ This connection suggests that the rotation of a black hole can be understood thr
 
 \section{Derivation of Density, Mass, and Pressure}
 
-\subsection{Derivation of Density}
+\subsection{Derivation of Density}  \label{density}
 
 \paragraph{Translating RG (2D) to Conventional Density (3D).}
 In RG $\kappa^2$ is the 2D parameter defined in the relational manifold $S^2$ . In conventional physics, the source term is volumetric density $\rho$, a 3D concept defined by the "cultural artifact" (a Newtonian "cannonball" model) of mass-per-volume .
@@ -2365,7 +2434,7 @@ In vacuum, the generator is zero, but the field persists as the algebraic struct
 
 
 \section{No Singularities, No Hidden Regions}
-
+\label{sec:No Singularities}
 This framework introduces no interior singularities, no coordinate patches hidden behind horizons, and no ambiguous initial conditions. The geometric field equation:
 
 \[
@@ -3124,6 +3193,7 @@ All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as special
 \end{tikzpicture}
 
 
+\lable{GRvsRG}
 \begin{table}[h!]
 \centering
 \renewcommand{\arraystretch}{1.3}
