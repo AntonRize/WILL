@@ -3,6 +3,520 @@ layout: default
 title: "Galactic Dynamics Calculator"
 ---
 
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    /* Scoped styles for the explorer to avoid conflicts */
+    .galaxy-explorer-wrapper { font-family: 'Inter', sans-serif; color: #e5e7eb; position: relative; overflow: hidden; border-bottom: 1px solid #374151; padding-bottom: 4rem; }
+    .galaxy-explorer-wrapper h1, .galaxy-explorer-wrapper h2, .galaxy-explorer-wrapper h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .galaxy-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .galaxy-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3); }
+    
+    /* Custom Scrollbar hiding */
+    .hide-scroll::-webkit-scrollbar { display: none; }
+    .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Animated Background for this section */
+    .star-bg {
+        background-image: radial-gradient(white 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px);
+        background-size: 50px 50px, 20px 20px;
+        background-position: 0 0, 25px 25px;
+        opacity: 0.1;
+        pointer-events: none;
+    }
+</style>
+
+<div class="galaxy-explorer-wrapper bg-[#050505] w-full">
+    <div class="absolute inset-0 star-bg z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-slate-950 to-[#0a0f1c] pointer-events-none z-0"></div>
+
+    <div class="relative z-10 container mx-auto px-4 py-8 max-w-7xl">
+        
+        <header class="mb-12 text-center relative pt-8">
+            <div class="inline-block p-1 px-3 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-300 text-xs font-semibold tracking-wider mb-4 uppercase">
+                Interactive Astronomy Guide
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-blue-400 mb-6 tracking-tight">
+                The Galaxy Zoo
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+                An interactive infographic exploring the <span class="text-white font-medium">de Vaucouleurs extension</span> of the Hubble Sequence. 
+                Explore the physical evolution from orderly <span class="text-yellow-200">Lenticulars</span> to chaotic <span class="text-blue-300">Irregulars</span>.
+            </p>
+        </header>
+
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <div class="flex items-center gap-2 bg-slate-900/50 p-1 rounded-lg border border-slate-800 backdrop-blur-sm">
+                <button class="filter-btn px-4 py-2 rounded-md text-sm font-medium bg-blue-600 text-white shadow-lg transition-all" id="btn-all" onclick="setFilter('all')">All Types</button>
+                <button class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-all" id="btn-spiral" onclick="setFilter('spiral')">Spirals</button>
+                <button class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-all" id="btn-magellanic" onclick="setFilter('magellanic')">Magellanic & Dwarfs</button>
+            </div>
+            <div class="text-slate-400 text-sm flex items-center gap-2">
+                <span class="material-symbols-outlined text-yellow-500 text-lg">info</span>
+                <span>Click cards to view details • Use scale to compare</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="galaxy-grid">
+            </div>
+
+        <div class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/90 border border-blue-500/30 backdrop-blur-md text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-6 z-40 transform translate-y-[150%] transition-transform duration-300 w-[90%] max-w-2xl" id="compare-bar">
+            <div class="flex-1">
+                <p class="text-xs text-blue-300 uppercase tracking-wider font-bold mb-1">Comparison Mode</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-slate-400 italic" id="compare-slot-1">Select first galaxy...</span>
+                    <span class="text-slate-600">vs</span>
+                    <span class="text-sm text-slate-400 italic" id="compare-slot-2">Select second galaxy...</span>
+                </div>
+            </div>
+            <div id="compare-actions" class="flex items-center gap-2"></div>
+            <button class="p-2 hover:bg-slate-800 rounded-full text-slate-400 hover:text-white transition-colors" onclick="clearComparison()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <div aria-labelledby="modal-title" aria-modal="true" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300" id="detail-modal" role="dialog" style="font-family: 'Inter', sans-serif;">
+            <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+            
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-2xl bg-[#0f1219] border border-slate-800 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-4xl max-h-[90vh] overflow-y-auto hide-scroll">
+                    
+                    <div class="absolute right-4 top-4 z-10">
+                        <button class="rounded-full bg-black/50 p-2 text-slate-400 hover:text-white hover:bg-white/10 transition-colors focus:outline-none" onclick="closeModal()" type="button">
+                            <span class="sr-only">Close</span>
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+
+                    <div id="modal-view-detail" class="flex flex-col md:flex-row h-full">
+                        <div class="w-full md:w-5/12 relative h-64 md:h-auto overflow-hidden bg-black shrink-0">
+                            <img alt="Galaxy Visualization" class="w-full h-full object-cover opacity-90" id="modal-image" src="">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1219] via-transparent to-transparent md:bg-gradient-to-r"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <span class="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase tracking-widest shadow-lg" id="modal-type-badge"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-7/12 p-8 md:p-10">
+                            <h3 class="text-3xl md:text-4xl font-display font-bold text-white mb-2" id="modal-title"></h3>
+                            <p class="text-blue-300 text-lg mb-6 font-light" id="modal-subtitle"></p>
+                            <p class="text-slate-300 leading-relaxed mb-8 text-sm md:text-base border-l-2 border-blue-500/50 pl-4" id="modal-desc"></p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-8">
+                                <div id="stat-container-bulge"></div>
+                                <div id="stat-container-gas"></div>
+                                <div id="stat-container-arms"></div>
+                                <div id="stat-container-sfr"></div>
+                            </div>
+
+                            <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-yellow-400 mt-0.5">lightbulb</span>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-white mb-1">Key Characteristic</h4>
+                                        <p class="text-xs text-slate-400" id="modal-fact"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="modal-view-compare" class="hidden w-full p-8">
+                        <h3 class="text-3xl font-display font-bold text-white mb-8 text-center">Comparative Analysis</h3>
+                        <div class="grid grid-cols-3 gap-4 items-center mb-10">
+                            <div class="text-center">
+                                <img id="comp-img-1" src="" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                                <h4 id="comp-title-1" class="text-xl font-bold text-white"></h4>
+                            </div>
+                            <div class="text-center">
+                                <span class="material-symbols-outlined text-4xl text-slate-600">compare_arrows</span>
+                            </div>
+                            <div class="text-center">
+                                <img id="comp-img-2" src="" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-2 border-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.5)]">
+                                <h4 id="comp-title-2" class="text-xl font-bold text-white"></h4>
+                            </div>
+                        </div>
+                        <div class="space-y-8 max-w-2xl mx-auto" id="comparison-bars-container"></div>
+                        <div class="mt-10 text-center">
+                            <button onclick="closeModal()" class="px-6 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-full transition-colors">Close Analysis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- DATA ---
+    // Images replaced with stable Wikimedia/NASA URLs
+    const galaxies = [
+        {
+            id: 'S0',
+            name: 'Lenticular',
+            group: 'spiral',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/NGC_2768_HST.jpg/800px-NGC_2768_HST.jpg', // NGC 2768
+            subtitle: 'The Armless Bridge',
+            desc: 'Intermediate between ellipticals and spirals. S0 galaxies have a central bulge and a disk but lack visible spiral arms. They have used up most of their interstellar gas and dust, resulting in very little new star formation.',
+            stats: { bulge: 90, gas: 10, arms: 0, sfr: 5 },
+            fact: 'Often called "arm-less spirals". They are composed mostly of old, red stars.',
+            labels: { bulge: 'Dominant', gas: 'Very Low', arms: 'None', sfr: 'Passive' }
+        },
+        {
+            id: 'Sa',
+            name: 'Early Spiral',
+            group: 'spiral',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/M104_ngc4594_sombrero_galaxy_hi-res.jpg/800px-M104_ngc4594_sombrero_galaxy_hi-res.jpg', // Sombrero M104
+            subtitle: 'The Tight Winder',
+            desc: 'Sa galaxies feature a large, bright central bulge that dominates the structure. The spiral arms are smooth, tightly wound, and often difficult to distinguish from the disk.',
+            stats: { bulge: 80, gas: 20, arms: 20, sfr: 20 },
+            fact: 'The Sombrero Galaxy (M104) is a classic example of an Sa/Sab type.',
+            labels: { bulge: 'Large', gas: 'Low', arms: 'Very Tight', sfr: 'Low' }
+        },
+        {
+            id: 'Sab',
+            name: 'Intermediate Early Spiral',
+            group: 'spiral',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/M81_hst_big.jpg/800px-M81_hst_big.jpg', // M81 (Bode's) often cited as Sa-Sb
+            subtitle: 'The Transition',
+            desc: 'A transitional morphotype between Sa and Sb. The bulge is still prominent but less overwhelming than in Sa, and the arms begin to show more definition.',
+            stats: { bulge: 70, gas: 30, arms: 35, sfr: 30 },
+            fact: 'Shows a mix of old stellar populations in the core and some young stars in the arms.',
+            labels: { bulge: 'Prominent', gas: 'Low-Med', arms: 'Tight', sfr: 'Low-Med' }
+        },
+        {
+            id: 'Sb',
+            name: 'Intermediate Spiral',
+            group: 'spiral',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/M31_TP_sc_2015.jpg/800px-M31_TP_sc_2015.jpg', // Andromeda
+            subtitle: 'The Classic Spiral',
+            desc: 'The textbook galaxy shape. Sb galaxies have a moderate-sized central bulge and well-defined spiral arms that are neither very tight nor very loose.',
+            stats: { bulge: 50, gas: 45, arms: 50, sfr: 45 },
+            fact: 'Andromeda (M31) is the most famous example of an Sb galaxy.',
+            labels: { bulge: 'Moderate', gas: 'Medium', arms: 'Distinct', sfr: 'Medium' }
+        },
+        {
+            id: 'Sbc',
+            name: 'Intermediate Late Spiral',
+            group: 'spiral',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/NGC_1300_Hubble_WikiSky.jpg/800px-NGC_1300_Hubble_WikiSky.jpg', // NGC 1300 (Barred Sbc)
+            subtitle: 'The Milky Way Cousin',
+            desc: 'Between Sb and Sc. The bulge is smaller, and the arms are knottier and more open. Star formation becomes quite evident in the arms.',
+            stats: { bulge: 40, gas: 55, arms: 65, sfr: 55 },
+            fact: 'The Milky Way is likely a barred version of this type (SBbc).',
+            labels: { bulge: 'Smaller', gas: 'Medium', arms: 'Open', sfr: 'Active' }
+        },
+        {
+            id: 'Sc',
+            name: 'Late Spiral',
+            group: 'spiral',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/M74_by_HST.jpg/800px-M74_by_HST.jpg', // M74
+            subtitle: 'The Open Flower',
+            desc: 'Sc galaxies have small bulges and loosely wound, open arms. The arms are often clumpy, containing many star-forming nebulae and blue star clusters.',
+            stats: { bulge: 25, gas: 65, arms: 80, sfr: 70 },
+            fact: 'M33 (The Triangulum Galaxy) is a nearby example of an Sc type.',
+            labels: { bulge: 'Small', gas: 'High', arms: 'Loose', sfr: 'High' }
+        },
+        {
+            id: 'Scd',
+            name: 'Diffuse Spiral',
+            group: 'spiral',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/M101_hires_STScI-PRC2006-10a.jpg/800px-M101_hires_STScI-PRC2006-10a.jpg', // M101 Pinwheel (Sc/Scd)
+            subtitle: 'The Fragmenting Disk',
+            desc: 'The bulge becomes tiny. The spiral structure is very loose and patchy, transitioning towards a structure dominated purely by the disk.',
+            stats: { bulge: 15, gas: 75, arms: 85, sfr: 75 },
+            fact: 'Often shows "flocculent" (fluffy/patchy) spiral structure rather than grand design arms.',
+            labels: { bulge: 'Tiny', gas: 'High', arms: 'Very Loose', sfr: 'Very High' }
+        },
+        {
+            id: 'Sd',
+            name: 'Very Late Spiral',
+            group: 'spiral',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/NGC_7793.jpg/800px-NGC_7793.jpg', // NGC 7793
+            subtitle: 'The Broken Spiral',
+            desc: 'Sd galaxies have a faint, virtually non-existent bulge. The spiral arms are fragmented, diffuse, and made up of individual stellar clusters rather than continuous lanes.',
+            stats: { bulge: 5, gas: 80, arms: 90, sfr: 70 },
+            fact: 'Strictly defined in the de Vaucouleurs system as having almost no bulge.',
+            labels: { bulge: 'Negligible', gas: 'Very High', arms: 'Fragmented', sfr: 'High' }
+        },
+        {
+            id: 'Sdm',
+            name: 'Magellanic Spiral',
+            group: 'magellanic',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/NGC_4236_GALEX.jpg/800px-NGC_4236_GALEX.jpg', // NGC 4236
+            subtitle: 'The Asymmetric One',
+            desc: 'A specific type of "Magellanic" spiral. Often characterized by a single, asymmetric spiral arm and an offset bar/nucleus. It lacks a true central bulge.',
+            stats: { bulge: 0, gas: 85, arms: 95, sfr: 65 },
+            fact: 'Named after the Large Magellanic Cloud (which is SBm, a barred cousin).',
+            labels: { bulge: 'None', gas: 'Rich', arms: 'Single/Chaos', sfr: 'Variable' }
+        },
+        {
+            id: 'Sm',
+            name: 'Magellanic Irregular',
+            group: 'magellanic',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Large_Magellanic_Cloud_mosaic_-_ESA_-_Hubble.jpg/800px-Large_Magellanic_Cloud_mosaic_-_ESA_-_Hubble.jpg', // LMC
+            subtitle: 'The Chaotic Transition',
+            desc: 'The bridge between spirals and true irregulars. Sm galaxies have no bulge and very little regular structure, though a bar or trace of a disk may be visible.',
+            stats: { bulge: 0, gas: 90, arms: 10, sfr: 60 },
+            fact: 'Dominated by young blue stars and HII regions (glowing gas).',
+            labels: { bulge: 'None', gas: 'Very Rich', arms: 'None', sfr: 'Patchy' }
+        },
+        {
+            id: 'Im',
+            name: 'Magellanic Irregular',
+            group: 'magellanic',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Small_Magellanic_Cloud_%28Digitized_Sky_Survey_2%29.jpg/800px-Small_Magellanic_Cloud_%28Digitized_Sky_Survey_2%29.jpg', // SMC
+            subtitle: 'The Unstructured',
+            desc: 'Highly irregular shape with no bulge and no spiral structure. They are rich in gas and young stars, appearing chaotic and clumpy.',
+            stats: { bulge: 0, gas: 95, arms: 0, sfr: 65 },
+            fact: 'The Small Magellanic Cloud is a classic Im galaxy.',
+            labels: { bulge: 'None', gas: 'Extreme', arms: 'None', sfr: 'High' }
+        },
+        {
+            id: 'BCD',
+            name: 'Blue Compact Dwarf',
+            group: 'magellanic',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/I_Zwicky_18_HST.jpg/600px-I_Zwicky_18_HST.jpg', // I Zwicky 18
+            subtitle: 'The Starburst Engine',
+            desc: 'Small, compact galaxies undergoing intense bursts of star formation. They appear very blue due to massive, hot young stars and have low heavy-element content (metallicity).',
+            stats: { bulge: 10, gas: 80, arms: 0, sfr: 100 },
+            fact: 'They resemble the primordial galaxies from the early universe.',
+            labels: { bulge: 'Compact', gas: 'Rich', arms: 'None', sfr: 'Starburst' }
+        }
+    ];
+
+    let selectedForCompare = [];
+
+    // --- INIT ---
+    function initGalaxyExplorer() {
+        renderGrid(galaxies);
+        // Prepare Modal Stat Containers (empty initially)
+    }
+
+    // --- GRID RENDERING ---
+    function renderGrid(data) {
+        const container = document.getElementById('galaxy-grid');
+        if(!container) return;
+        container.innerHTML = '';
+        
+        data.forEach((galaxy) => {
+            const card = document.createElement('div');
+            card.className = 'galaxy-card group relative bg-[#0f1219] rounded-2xl overflow-hidden border border-slate-800/50 cursor-pointer flex flex-col h-full select-none';
+            card.onclick = () => openDetailModal(galaxy.id);
+
+            card.innerHTML = `
+                <div class="relative h-48 overflow-hidden">
+                    <img src="${galaxy.image}" alt="${galaxy.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0f1219] to-transparent opacity-80"></div>
+                    <div class="absolute bottom-3 left-4">
+                        <span class="text-xs font-mono text-blue-400 mb-1 block">Type</span>
+                        <h2 class="text-2xl font-display font-bold text-white tracking-wide">${galaxy.id}</h2>
+                    </div>
+                    <button onclick="toggleCompare(event, '${galaxy.id}')" class="absolute top-3 right-3 p-2 bg-black/40 backdrop-blur-md rounded-full border border-white/10 text-white/50 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all z-20" title="Add to Compare">
+                        <span class="material-symbols-outlined text-lg">balance</span>
+                    </button>
+                </div>
+                
+                <div class="p-5 flex-grow flex flex-col">
+                    <h3 class="text-lg font-medium text-slate-200 mb-2">${galaxy.name}</h3>
+                    <p class="text-sm text-slate-400 line-clamp-2 mb-4 flex-grow">${galaxy.desc}</p>
+                    
+                    <div class="grid grid-cols-2 gap-2 mt-auto">
+                        <div class="bg-slate-900/50 p-2 rounded border border-slate-800">
+                            <span class="text-[10px] text-slate-500 uppercase block">Bulge</span>
+                            <div class="w-full bg-slate-800 h-1 mt-1 rounded-full overflow-hidden">
+                                <div class="bg-yellow-600 h-full" style="width: ${galaxy.stats.bulge}%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900/50 p-2 rounded border border-slate-800">
+                            <span class="text-[10px] text-slate-500 uppercase block">Gas</span>
+                            <div class="w-full bg-slate-800 h-1 mt-1 rounded-full overflow-hidden">
+                                <div class="bg-blue-600 h-full" style="width: ${galaxy.stats.gas}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function setFilter(filter) {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('bg-blue-600', 'text-white', 'shadow-lg');
+            btn.classList.add('text-slate-400');
+        });
+        const activeBtn = document.getElementById(filter === 'all' ? 'btn-all' : 'btn-' + filter);
+        if(activeBtn) {
+            activeBtn.classList.remove('text-slate-400');
+            activeBtn.classList.add('bg-blue-600', 'text-white', 'shadow-lg');
+        }
+
+        if (filter === 'all') renderGrid(galaxies);
+        else renderGrid(galaxies.filter(g => g.group === filter));
+    }
+
+    // --- DETAIL MODAL ---
+    function openDetailModal(id) {
+        const g = galaxies.find(x => x.id === id);
+        if(!g) return;
+
+        const viewDetail = document.getElementById('modal-view-detail');
+        const viewCompare = document.getElementById('modal-view-compare');
+        
+        viewDetail.classList.remove('hidden');
+        viewDetail.classList.add('flex');
+        viewCompare.classList.add('hidden');
+
+        document.getElementById('modal-title').textContent = g.id + ' - ' + g.name;
+        document.getElementById('modal-subtitle').textContent = g.subtitle;
+        document.getElementById('modal-desc').textContent = g.desc;
+        document.getElementById('modal-image').src = g.image;
+        document.getElementById('modal-type-badge').textContent = g.id;
+        document.getElementById('modal-fact').textContent = g.fact;
+
+        // Helper for stats
+        const createStatRow = (key, title, colorClass, val, label) => {
+            return `
+            <div class="flex justify-between mb-1">
+                <span class="text-xs font-semibold text-slate-400 uppercase">${title}</span>
+                <span class="text-xs text-white">${label}</span>
+            </div>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                <div class="${colorClass} h-1.5 rounded-full" style="width: ${val}%"></div>
+            </div>`;
+        };
+
+        document.getElementById('stat-container-bulge').innerHTML = createStatRow('bulge', 'Bulge Dominance', 'bg-yellow-500', g.stats.bulge, g.labels.bulge);
+        document.getElementById('stat-container-gas').innerHTML = createStatRow('gas', 'Gas Content (HI)', 'bg-blue-500', g.stats.gas, g.labels.gas);
+        document.getElementById('stat-container-arms').innerHTML = createStatRow('arms', 'Arm Tightness', 'bg-indigo-400', g.stats.arms, g.labels.arms);
+        document.getElementById('stat-container-sfr').innerHTML = createStatRow('sfr', 'Star Formation', 'bg-red-400', g.stats.sfr, g.labels.sfr);
+
+        showModal();
+    }
+
+    // --- COMPARISON LOGIC ---
+    function toggleCompare(e, id) {
+        e.stopPropagation();
+        const index = selectedForCompare.indexOf(id);
+        if (index > -1) {
+            selectedForCompare.splice(index, 1);
+        } else {
+            if (selectedForCompare.length >= 2) selectedForCompare.shift();
+            selectedForCompare.push(id);
+        }
+        updateCompareUI();
+    }
+
+    function updateCompareUI() {
+        const bar = document.getElementById('compare-bar');
+        const slot1 = document.getElementById('compare-slot-1');
+        const slot2 = document.getElementById('compare-slot-2');
+        const actions = document.getElementById('compare-actions');
+
+        if (selectedForCompare.length > 0) {
+            bar.classList.remove('translate-y-[150%]');
+            const g1 = galaxies.find(g => g.id === selectedForCompare[0]);
+            slot1.textContent = g1.id;
+            slot1.className = "text-xl font-bold text-white";
+
+            if (selectedForCompare.length > 1) {
+                const g2 = galaxies.find(g => g.id === selectedForCompare[1]);
+                slot2.textContent = g2.id;
+                slot2.className = "text-xl font-bold text-white";
+                
+                actions.innerHTML = `
+                    <button onclick="launchComparison()" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-lg shadow-lg transition-all flex items-center gap-1 animate-pulse">
+                        <span>Analyze</span>
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                `;
+            } else {
+                slot2.textContent = "Select second...";
+                slot2.className = "text-sm text-slate-400 italic";
+                actions.innerHTML = '';
+            }
+        } else {
+            bar.classList.add('translate-y-[150%]');
+        }
+    }
+
+    function clearComparison() {
+        selectedForCompare = [];
+        updateCompareUI();
+    }
+
+    function launchComparison() {
+        if (selectedForCompare.length < 2) return;
+        const g1 = galaxies.find(x => x.id === selectedForCompare[0]);
+        const g2 = galaxies.find(x => x.id === selectedForCompare[1]);
+
+        const viewDetail = document.getElementById('modal-view-detail');
+        const viewCompare = document.getElementById('modal-view-compare');
+
+        viewDetail.classList.add('hidden');
+        viewDetail.classList.remove('flex');
+        viewCompare.classList.remove('hidden');
+
+        document.getElementById('comp-img-1').src = g1.image;
+        document.getElementById('comp-title-1').textContent = g1.id;
+        document.getElementById('comp-img-2').src = g2.image;
+        document.getElementById('comp-title-2').textContent = g2.id;
+
+        const container = document.getElementById('comparison-bars-container');
+        container.innerHTML = `
+            ${renderCompareRow('Bulge Size', g1.stats.bulge, g2.stats.bulge, 'bg-yellow-500')}
+            ${renderCompareRow('Gas Content', g1.stats.gas, g2.stats.gas, 'bg-blue-500')}
+            ${renderCompareRow('Arm Structure', g1.stats.arms, g2.stats.arms, 'bg-indigo-400')}
+            ${renderCompareRow('Star Formation', g1.stats.sfr, g2.stats.sfr, 'bg-red-500')}
+        `;
+
+        showModal();
+    }
+
+    function renderCompareRow(label, v1, v2, colorClass) {
+        return `
+            <div>
+                <div class="flex justify-between text-xs text-slate-400 mb-1 px-1">
+                    <span class="font-mono">${v1}%</span>
+                    <span class="uppercase font-semibold text-white tracking-widest">${label}</span>
+                    <span class="font-mono">${v2}%</span>
+                </div>
+                <div class="flex h-3 bg-slate-800 rounded-full overflow-hidden relative border border-slate-700">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-500 z-10 opacity-30"></div>
+                    <div class="w-1/2 flex justify-end">
+                        <div class="${colorClass} h-full rounded-l-md opacity-80" style="width: ${v1}%"></div>
+                    </div>
+                    <div class="w-1/2 flex justify-start">
+                        <div class="${colorClass} h-full rounded-r-md" style="width: ${v2}%"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function showModal() {
+        const modal = document.getElementById('detail-modal');
+        modal.classList.remove('hidden');
+        // Small timeout to allow transition
+        setTimeout(() => modal.classList.remove('opacity-0'), 10);
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('detail-modal');
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    // Initialize the Explorer
+    document.addEventListener("DOMContentLoaded", ()=>{
+        initGalaxyExplorer();
+    });
+</script>
+
 <div class="markdown-content py-8">
   <h1 class="text-4xl font-extrabold tracking-tight">Galactic Dynamics Calculator</h1>
 
