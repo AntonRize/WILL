@@ -10,7 +10,7 @@ title: "Galactic Dynamics Calculator"
   <h1 class="text-4xl font-extrabold tracking-tight">Galactic Dynamics Calculator</h1>
 
   <p class="mt-4 text-lg text-gray-400">
-    <b>Update (Q √3 law):</b> After extensive testing, the integral-based model collapses to a remarkably simple law connecting the relational displacement vector Q² = β² + κ² to the galactic dynamics and does not require to speculate any dark entity's.:
+    <b>Update (Q √3 law):</b> After extensive testing, the integral-based model collapses to a remarkably simple law connecting the relational displacement vector Q² = β² + κ² to the galactic dynamics and does not require to speculate any dark entity's:
 
     <span class="font-mono">V<sub>Q</sub>(r) = √3 · V<sub>bary</sub>(r)</span>.
 
