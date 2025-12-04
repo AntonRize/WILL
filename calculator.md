@@ -3,46 +3,36 @@ layout: default
 title: "Galactic Dynamics Calculator"
 ---
 
-{% include _interactive/galaxy_zoo.html %}
+{% include interactive/galaxy_zoo.html %}
 
 
 <div class="markdown-content py-8">
   <h1 class="text-4xl font-extrabold tracking-tight">Galactic Dynamics Calculator</h1>
 
   <p class="mt-4 text-lg text-gray-400">
-    <b>Update (Q √3 law):</b> After extensive testing, the integral-based model collapses to a remarkably simple law connecting the relational displacement vector Q² = β² + κ² to the galactic dynamics and does not require to speculate any dark entity's:
-
+    <b>Update (Q √3 law):</b> After extensive testing, the integral-based model collapses to a remarkably simple law
+    connecting the relational displacement vector Q² = β² + κ² to the galactic dynamics and does not require to speculate any dark entity's:
     <span class="font-mono">V<sub>Q</sub>(r) = √3 · V<sub>bary</sub>(r)</span>.
-
     Rotation curves are computed with a single control — the stellar mass-to-light ratio <span class="font-mono">Υ*</span>.
-
     <span class="block mt-2">All plots and metrics on this page use the <b>SPARC</b> database.</span>
-
     <span class="block mt-2">The detailed "WILL Relational Galactic Dynamics" paper is in development.</span>
-
   </p>
 
 
 
   <div class="rounded-xl p-4 mt-4 border border-gray-700 bg-gray-800/40">
-
     <p class="text-gray-200 font-semibold">In short</p>
-
-    <p class="text-gray-200"><em>“What we interpreted as "Dark Matter" is a potential contribution to dynamics of the Galactic system.”</em> This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</sub> and for energy-closed systems it simplifies to V<sub>Q</sub> = √3 · V<sub>bary</sub></span>.</p>
-
-
+    <p class="text-gray-200"><em>“What we interpreted as "Dark Matter" is a potential contribution to dynamics of the Galactic system.”</em> 
+This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</sub> and for energy-closed systems it simplifies to V<sub>Q</sub> = √3 · V<sub>bary</sub></span>.</p>
 
   </div>
 
 
 
   <div class="mt-6 text-gray-300 leading-relaxed" id="howto">
-
     <h3 class="text-xl font-bold mb-2">What this page is & how to use it</h3>
-
     <ul class="list-disc pl-6 space-y-1">
-
-      <li><b>Data:</b> rotation curves from the <b>SPARC</b> catalog (radius <span class="font-mono">Rad</span>, observed speed
+    <li><b>Data:</b> rotation curves from the <b>SPARC</b> catalog (radius <span class="font-mono">Rad</span>, observed speed
  <span class="font-mono">Vobs</span>, baryonic components <span class="font-mono">Vgas</span>, 
 <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>).</li>
 
