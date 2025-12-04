@@ -146,14 +146,14 @@
 </div>
 
 <script>
-    // Strict Wikimedia Thumbnail URLs (Tested)
+    // --- DATA ---
+    // LOCAL IMAGES from assets/images/galaxies/
     const galaxies = [
         {
             id: 'S0',
             name: 'Lenticular',
             group: 'spiral',
-            // NGC 5866 - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/NGC_5866_hst.jpg/640px-NGC_5866_hst.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/S0.jpg',
             subtitle: 'The Armless Bridge',
             desc: 'Intermediate between ellipticals and spirals. S0 galaxies have a central bulge and a disk but lack visible spiral arms.',
             stats: { bulge: 90, gas: 10, arms: 0, sfr: 5 },
@@ -164,8 +164,7 @@
             id: 'Sa',
             name: 'Early Spiral',
             group: 'spiral',
-            // Sombrero - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/M104_ngc4594_sombrero_galaxy_hi-res.jpg/640px-M104_ngc4594_sombrero_galaxy_hi-res.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Sa.jpg',
             subtitle: 'The Tight Winder',
             desc: 'Sa galaxies feature a large, bright central bulge that dominates the structure. The spiral arms are smooth and tightly wound.',
             stats: { bulge: 80, gas: 20, arms: 20, sfr: 20 },
@@ -176,8 +175,7 @@
             id: 'Sab',
             name: 'Intermediate Early',
             group: 'spiral',
-            // M81 - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/M81_hst_big.jpg/640px-M81_hst_big.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Sab.jpg',
             subtitle: 'The Transition',
             desc: 'A transitional morphotype. The bulge is still prominent but less overwhelming than in Sa, and arms show definition.',
             stats: { bulge: 70, gas: 30, arms: 35, sfr: 30 },
@@ -188,8 +186,7 @@
             id: 'Sb',
             name: 'Intermediate Spiral',
             group: 'spiral',
-            // Andromeda - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/M31_TP_sc_2015.jpg/640px-M31_TP_sc_2015.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Sb.jpg',
             subtitle: 'The Classic Spiral',
             desc: 'The textbook galaxy shape. Sb galaxies have a moderate-sized central bulge and well-defined spiral arms.',
             stats: { bulge: 50, gas: 45, arms: 50, sfr: 45 },
@@ -200,8 +197,7 @@
             id: 'Sbc',
             name: 'Intermediate Late',
             group: 'spiral',
-            // NGC 1300 - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/NGC_1300_Hubble_WikiSky.jpg/640px-NGC_1300_Hubble_WikiSky.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Sbc.jpg',
             subtitle: 'The Milky Way Cousin',
             desc: 'Between Sb and Sc. The bulge is smaller, and the arms are knottier and more open.',
             stats: { bulge: 40, gas: 55, arms: 65, sfr: 55 },
@@ -212,8 +208,7 @@
             id: 'Sc',
             name: 'Late Spiral',
             group: 'spiral',
-            // M74 - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/M74_by_HST.jpg/640px-M74_by_HST.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Sc.jpg',
             subtitle: 'The Open Flower',
             desc: 'Sc galaxies have small bulges and loosely wound, open arms containing many star-forming nebulae.',
             stats: { bulge: 25, gas: 65, arms: 80, sfr: 70 },
@@ -224,8 +219,7 @@
             id: 'Scd',
             name: 'Diffuse Spiral',
             group: 'spiral',
-            // M101 - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/M101_hires_STScI-PRC2006-10a.jpg/640px-M101_hires_STScI-PRC2006-10a.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Scd.jpg',
             subtitle: 'The Fragmenting Disk',
             desc: 'The bulge becomes tiny. The spiral structure is very loose and patchy, transitioning towards a disk-only structure.',
             stats: { bulge: 15, gas: 75, arms: 85, sfr: 75 },
@@ -236,8 +230,7 @@
             id: 'Sd',
             name: 'Very Late Spiral',
             group: 'spiral',
-            // NGC 7793 - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/NGC_7793.jpg/640px-NGC_7793.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Sd.jpg',
             subtitle: 'The Broken Spiral',
             desc: 'Sd galaxies have a faint, virtually non-existent bulge. The spiral arms are fragmented and diffuse.',
             stats: { bulge: 5, gas: 80, arms: 90, sfr: 70 },
@@ -248,8 +241,7 @@
             id: 'Sdm',
             name: 'Magellanic Spiral',
             group: 'magellanic',
-            // NGC 4236 - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/NGC_4236_GALEX.jpg/640px-NGC_4236_GALEX.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Sdm.jpg',
             subtitle: 'The Asymmetric One',
             desc: 'Characterized by a single, asymmetric spiral arm and an offset bar/nucleus. No true central bulge.',
             stats: { bulge: 0, gas: 85, arms: 95, sfr: 65 },
@@ -260,8 +252,7 @@
             id: 'Sm',
             name: 'Magellanic Irregular',
             group: 'magellanic',
-            // LMC - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Large_Magellanic_Cloud_mosaic_-_ESA_-_Hubble.jpg/640px-Large_Magellanic_Cloud_mosaic_-_ESA_-_Hubble.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Sm.jpg',
             subtitle: 'The Chaotic Transition',
             desc: 'The bridge between spirals and true irregulars. No bulge and very little regular structure.',
             stats: { bulge: 0, gas: 90, arms: 10, sfr: 60 },
@@ -272,8 +263,7 @@
             id: 'Im',
             name: 'Magellanic Irregular',
             group: 'magellanic',
-            // SMC - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Small_Magellanic_Cloud_%28Digitized_Sky_Survey_2%29.jpg/640px-Small_Magellanic_Cloud_%28Digitized_Sky_Survey_2%29.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/Im.jpg',
             subtitle: 'The Unstructured',
             desc: 'Highly irregular shape with no bulge and no spiral structure. Rich in gas and young stars.',
             stats: { bulge: 0, gas: 95, arms: 0, sfr: 65 },
@@ -284,8 +274,7 @@
             id: 'BCD',
             name: 'Blue Compact Dwarf',
             group: 'magellanic',
-            // I Zwicky 18 - Using the 640px thumbnail
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/I_Zwicky_18_HST.jpg/640px-I_Zwicky_18_HST.jpg',
+            image: '{{ site.baseurl }}/assets/images/galaxies/BCD.jpg',
             subtitle: 'The Starburst Engine',
             desc: 'Small, compact galaxies undergoing intense bursts of star formation. They appear very blue.',
             stats: { bulge: 10, gas: 80, arms: 0, sfr: 100 },
