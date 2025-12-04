@@ -18,7 +18,7 @@ title: "Galactic Dynamics Calculator"
 
   <div class="rounded-xl p-4 mt-4 border border-gray-700 bg-gray-800/40">
     <p class="text-gray-200 font-semibold">In short</p>
-    <p class="text-gray-200"><em>“What we interpreted as "Dark Matter" is a potential contribution to dynamics of the Galactic system.”</em> In WILL Q this is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</sub> and for energy-closed systems it simplifies to >V<sub>Q</sub> = √3 · V<sub>bary</sub></span>.</p>
+    <p class="text-gray-200"><em>“What we interpreted as "Dark Matter" is a potential contribution to dynamics of the Galactic system.”</em> This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</sub> and for energy-closed systems it simplifies to V<sub>Q</sub> = √3 · V<sub>bary</sub></span>.</p>
 
   </div>
 
