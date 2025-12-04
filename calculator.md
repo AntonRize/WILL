@@ -3,7 +3,7 @@ layout: default
 title: "Galactic Dynamics Calculator"
 ---
 
-{% include interactive/galaxy_zoo.html %}
+{% include _interactive/galaxy_zoo.html %}
 
 
 <div class="markdown-content py-8">
