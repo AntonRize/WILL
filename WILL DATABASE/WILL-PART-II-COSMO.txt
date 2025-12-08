@@ -679,9 +679,9 @@ Per galaxy fit &
     \item For foundational MOND theory, see Milgrom (2001) \cite{Milgrom2001}.
 \end{itemize}
 
-\subsection{Discussion}
+\section{Discussion}
 
-\subsubsection{Hypothesis: Internal vs. External Observation (The ``Carousel'' Effect)}
+\subsection{Hypothesis: Internal vs. External Observation (The ``Carousel'' Effect)}
 
 A fundamental question arises: if the universal rotation law is $V = \sqrt{3} V_{\mathrm{bary}}$, why does the Solar System follow pure Newtonian dynamics ($V = V_{\mathrm{bary}}$)?
 
@@ -708,18 +708,64 @@ Q^2_{\mathrm{int}} \approx \beta^2 \quad \Longrightarrow \quad V \approx V_{\mat
 
 Thus, the factor $\sqrt{3}$ is the signature of a \textbf{holistic} observation of a closed system from the outside (Galactic Scale), while Newtonian dynamics represents the \textbf{differential} observation from the inside (Local Scale).
 
-\subsubsection{Remark}
+\section{Vector Analysis of Observation Modes}
+
+To resolve the apparent discrepancy between galactic dynamics (where $V \approx \sqrt{3} V_{\text{bary}}$) and local solar system dynamics (where $V \approx V_{\text{bary}}$), we must treat the relational displacement $Q$ strictly as a vector quantity in the $(\beta, \kappa)$ plane.
+
+\subsection{Definition of Relational Vector}
+Any physical state is characterized by a relational displacement vector $\mathbf{Q}$ relative to the observer's origin:
+\begin{equation}
+\mathbf{Q} = \begin{pmatrix} \beta \\ \kappa \end{pmatrix}
+\end{equation}
+The magnitude of this vector determines the total observable energy budget (and thus the effective orbital velocity):
+\begin{equation}
+V_{\text{obs}}^2 = c^2 |\mathbf{Q}|^2 = c^2 (\beta^2 + \kappa^2)
+\end{equation}
+
+\subsection{Case 1: Inter-system Observation (External View)}
+Consider an observer located far outside the target system (e.g., measuring a distant galaxy). The observer resides in the asymptotic vacuum relative to the target's potential well.
+\begin{itemize}
+    \item \textbf{Observer State:} The observer defines the relational zero: $\mathbf{Q}_{\text{obs}} = (0, 0)$.
+    \item \textbf{Target State:} The target system (galaxy) exhibits both kinematic motion and structural potential binding: $\mathbf{Q}_{\text{sys}} = (\beta, \kappa)$.
+\end{itemize}
+The measured displacement is the absolute vector:
+\begin{equation}
+\mathbf{Q}_{\text{ext}} = \mathbf{Q}_{\text{sys}} - \mathbf{Q}_{\text{obs}} = \begin{pmatrix} \beta \\ \kappa \end{pmatrix} - \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \begin{pmatrix} \beta \\ \kappa \end{pmatrix}
+\end{equation}
+Applying the closure condition for stable systems ($\kappa^2 = 2\beta^2$):
+\begin{equation}
+|\mathbf{Q}_{\text{ext}}|^2 = \beta^2 + 2\beta^2 = 3\beta^2 \quad \Longrightarrow \quad V_{\text{ext}} = \sqrt{3} V_{\text{bary}}
+\end{equation}
+This explains the "Dark Matter" effect as the observation of the full vector magnitude, including the orthogonal potential component $\kappa$.
+
+\subsection{Case 2: Intra-system Observation (Internal View)}
+Consider an observer embedded within the same system as the target (e.g., Earth observing Jupiter). Both the observer and the target share the same background gravitational potential scale defined by the central mass (Sun/Galaxy).
+\begin{itemize}
+    \item \textbf{Common Potential:} $\kappa_{\text{background}} \approx \text{const}$ locally.
+    \item \textbf{Observer State:} $\mathbf{Q}_{\text{obs}} = (\beta_{\text{obs}}, \kappa_{\text{background}})$.
+    \item \textbf{Target State:} $\mathbf{Q}_{\text{target}} = (\beta_{\text{target}}, \kappa_{\text{background}})$.
+\end{itemize}
+The observable is the \textit{relative} displacement vector between the two bodies:
+\begin{equation}
+\mathbf{Q}_{\text{int}} = \mathbf{Q}_{\text{target}} - \mathbf{Q}_{\text{obs}} = \begin{pmatrix} \beta_{\text{target}} - \beta_{\text{obs}} \\ \kappa_{\text{background}} - \kappa_{\text{background}} \end{pmatrix} = \begin{pmatrix} \Delta\beta \\ 0 \end{pmatrix}
+\end{equation}
+The common structural potential component $\kappa$ subtracts out. The observer perceives only the differential kinetic projection:
+\begin{equation}
+|\mathbf{Q}_{\text{int}}|^2 = (\Delta\beta)^2 \quad \Longrightarrow \quad V_{\text{int}} \approx V_{\text{bary}}
+\end{equation}
+Thus, internal observation naturally recovers Newtonian dynamics without requiring screening mechanisms or adjustable parameters. The "Dark" component ($\kappa$) exists but is geometrically invisible to an internal observer, just as voltage difference is zero between two points at the same high potential.
+
+\subsection{Remark}
 \begin{quote}
 The remaining scatter (RMSE 20.23 km/s) is expected due to the assumption of a universal  $\Upsilon^*$ and perfect geometric virial equilibrium. The fact that a parameter-free geometric law performs comparably to tuned Dark Matter models suggests that the $\sqrt{3}$ factor captures the fundamental driver of galactic dynamics, while astrophysical variations account for the residuals.
 
 \end{quote}
 
-\subsection{Conclusion}
+\section{Conclusion}
 
 We have shown that a simple, parameter-free rotation law - $V = \sqrt{3} V_{\mathrm{bary}}$ - emerges naturally from the first principles of a relational geometric framework. Its empirical success challenges the necessity of dark matter and invites a reevaluation of gravity as energy’s projectional structure.
 
 \textbf{Code and data are fully open-source at}: \url{https://antonrize.github.io/WILL/}
-
 
 
 \section{Black Hole Entropy in Will Geometry}
