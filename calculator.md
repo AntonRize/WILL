@@ -5,21 +5,35 @@ title: "Galactic Dynamics Calculator"
 
 {% include interactive/galaxy_zoo.html %}
 
-# Galactic Dynamics Calculator
+<div class="markdown-content py-8">
+  <h1 class="text-4xl font-extrabold tracking-tight">Galactic Dynamics Calculator</h1>
 
-**Update (Geometric Screening):** The model calculates dynamics using the galaxy's intrinsic geometry.
+  <p class="mt-4 text-lg text-gray-400">
+    <b>Update (Geometric Screening):</b> The model calculates dynamics using the galaxy's intrinsic geometry.
+    <br>
+    $$V_{WILL}(r) = V_{bary}(r) \cdot \sqrt{1 + 2 \exp(-3 R_{disk}/r)}$$
+  </p>
+  
+  <p class="mt-2 text-gray-400">
+    The vacuum effect is screened by the high baryonic density within the disk scale length ($R_{disk}$). As the radius exceeds the effective disk edge ($r > 3R_{disk}$), the screening fades, and the vacuum energy ($\sqrt{3}$ factor) emerges naturally.
+  </p>
 
-$$V_{WILL}(r) = V_{bary}(r) \cdot \sqrt{1 + 2 \exp(-R_{disk}/r)}$$
+  <div class="rounded-xl p-4 mt-4 border border-gray-700 bg-gray-800/40">
+    <p class="text-gray-200 font-semibold">In short</p>
+    <p class="text-gray-200"><em>“Dark Matter is the weight of the vacuum structure itself.”</em> 
+    Dynamics are determined by the ratio of local baryonic density to the structural capacity of the vacuum.</p>
+  </div>
 
-The vacuum effect is screened by the high baryonic density within the disk scale length ($R_{disk}$). As the radius exceeds the disk scale ($r > R_{disk}$), the screening fades, and the vacuum energy ($\sqrt{3}$ factor) emerges naturally.
+  <div class="mt-6 text-gray-300 leading-relaxed" id="howto">
+    <h3 class="text-xl font-bold mb-2">How to use</h3>
+    <ul class="list-disc pl-6 space-y-1">
+    <li><b>Data:</b> rotation curves from the <b>SPARC</b> catalog.</li>
+    <li><b>Physics:</b> Geometric screening based on disk scale ($R_{disk}$). No free parameters.</li>
+    <li><b>Controls:</b> Pick a galaxy; adjust $\Upsilon_*$ with the slider. Left plot: Observed vs WILL Prediction. Right plot: gas/disk/bulge contributions.</li>
+    <li><b>Quality:</b> Per-galaxy RMSE is shown below. The button builds the RMSE distribution by type.</li>
+    </ul>
+  </div>
 
-### In short
-“Dark Matter is the weight of the vacuum structure itself.” Dynamics are determined by the ratio of local baryonic density to the structural capacity of the vacuum.
+  {% include interactive/galactic_dynamics.html %}
 
-### How to use
-* **Data:** rotation curves from the **SPARC** catalog.
-* **Physics:** Geometric screening based on disk scale ($R_{disk}$).
-* **Controls:** Pick a galaxy; adjust $\Upsilon_*$ with the slider. Left plot: Observed vs WILL Prediction. Right plot: gas/disk/bulge contributions.
-* **Quality:** Per-galaxy RMSE is shown below. The button builds the RMSE distribution by type and shows the median for the selected groups.
-
-{% include interactive/galactic_dynamics.html %}
+</div>
