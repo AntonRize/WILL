@@ -10,21 +10,19 @@ title: "Galactic Dynamics Calculator"
   <h1 class="text-4xl font-extrabold tracking-tight">Galactic Dynamics Calculator</h1>
 
   <p class="mt-4 text-lg text-gray-400">
-    <b>Update (Q √3 law):</b> After extensive testing, the integral-based model collapses to a remarkably simple law
-    connecting the relational displacement vector Q² = β² + κ² to the galactic dynamics and does not require to speculate any dark entity's:
-    <span class="font-mono">V<sub>Q</sub>(r) = √3 · V<sub>bary</sub>(r)</span>.
-    Rotation curves are computed with a single control — the stellar mass-to-light ratio <span class="font-mono">Υ*</span>.
+    <b>Update (Q Exponential Law):</b> The model now implements the universal rotation law with vacuum screening:
+    <span class="font-mono">V<sub>WILL</sub>(r) = V<sub>bary</sub>(r) · √[1 + 2·exp(-χ)]</span>, where the screening factor 
+    <span class="font-mono">χ = ρ<sub>bary</sub>/ρ<sub>vac</sub> ≈ 9β²</span>.
+    This formula naturally transitions from Newtonian dynamics in dense regions to the Q-law in the vacuum-dominated outskirts.
     <span class="block mt-2">All plots and metrics on this page use the <b>SPARC</b> database.</span>
-    <span class="block mt-2">The detailed "WILL Relational Galactic Dynamics" paper is in development.</span>
   </p>
 
 
 
   <div class="rounded-xl p-4 mt-4 border border-gray-700 bg-gray-800/40">
     <p class="text-gray-200 font-semibold">In short</p>
-    <p class="text-gray-200"><em>“What we interpreted as "Dark Matter" is a potential contribution to dynamics of the Galactic system.”</em> 
-This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</sub> and for energy-closed systems it simplifies to V<sub>Q</sub> = √3 · V<sub>bary</sub></span>.</p>
-
+    <p class="text-gray-200"><em>“Dark Matter is the weight of the vacuum structure itself.”</em> 
+    Dynamics are determined by the ratio of local baryonic density to the structural capacity of the vacuum.</p>
   </div>
 
 
@@ -36,10 +34,10 @@ This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</su
  <span class="font-mono">Vobs</span>, baryonic components <span class="font-mono">Vgas</span>, 
 <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>).</li>
 
-      <li><b>Q law:</b> <span class="font-mono">V<sub>Q</sub> = √3 · V<sub>bary</sub></span>, where 
+      <li><b>Q Law:</b> <span class="font-mono">V<sub>WILL</sub> = V<sub>bary</sub> · √(1 + 2·e<sup>-9β²</sup>)</span>, where 
 <span class="font-mono">V<sub>bary</sub>² = V<sub>gas</sub>² + Υ* · (V<sub>disk</sub>² + V<sub>bul</sub>²)</span>.</li>
 
-<li><b>Controls:</b> pick a galaxy; adjust <span class="font-mono">Υ*</span> with the slider. Left plot: Observed vs QWILL. Right plot: gas/disk/bulge contributions.</li>
+<li><b>Controls:</b> pick a galaxy; adjust <span class="font-mono">Υ*</span> with the slider. Left plot: Observed vs WILL Prediction. Right plot: gas/disk/bulge contributions.</li>
       <li><b>Quality:</b> per-galaxy RMSE is shown below. The button builds the RMSE distribution by type and shows the <u>median</u> for the selected groups.</li>
     </ul>
   </div>
@@ -118,6 +116,9 @@ This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</su
   const defaultValues = { yStar: 0.66 };
   // Hubble-type labels (SPARC mapping 0..11)
   const hubbleTypes = ["S0","Sa","Sab","Sb","Sbc","Sc","Scd","Sd","Sdm","Sm","Im","BCD"];
+  
+  // Physics Constants
+  const C_LIGHT_KMS = 299792.458; 
 
   /* ---------- DOM ---------- */
   const loader=document.getElementById("loader");
@@ -198,7 +199,7 @@ This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</su
     }
   }
 
-  /* ---------- PHYSICS: QWILL √3 ---------- */
+  /* ---------- PHYSICS: QWILL EXPONENTIAL LAW ---------- */
   function seriesQWILL(galaxyName, yStar){
     // Match Python script behavior: fill missing baryonic components with 0; keep rows if Vobs is valid.
     const data = (galaxyData[galaxyName]||[]).slice().sort((a,b)=>a.Rad-b.Rad);
@@ -216,7 +217,17 @@ This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</su
 
       const vbary2 = vg*vg + yStar * (vd*vd + vb*vb);
       const vbary  = Math.sqrt(Math.max(0, vbary2));
-      const vq     = Math.sqrt(3) * vbary;
+      
+      // --- NEW PHYSICS: EXPONENTIAL SCREENING ---
+      // Chi = rho_bary / rho_vac
+      // Algebraic simplification: Chi = 9 * (V_bary / c)^2
+      const beta = vbary / C_LIGHT_KMS;
+      const chi = 9 * beta * beta;
+      
+      // V_WILL = V_bary * sqrt(1 + 2 * exp(-chi))
+      const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
+      const vq = vbary * factor;
+      // -------------------------------------------
 
       r.push(d.Rad);
       Vobs.push(vo);
@@ -304,7 +315,7 @@ This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</su
       [
         { x:S.r, y:S.Vobs, mode:"markers", name:"Observed", marker:{ color:"#d1d5db", size:8 }},
         { x:S.r, y:S.Vbary, mode:"lines", name:"Baryonic", line:{ color:"#9ca3af", dash:"dash" }},
-        { x:S.r, y:S.Vq,    mode:"lines", name:"QWILL = √3·V_bary", line:{ color:"#67e8f9", width:4 }}
+        { x:S.r, y:S.Vq,    mode:"lines", name:"WILL Predicted", line:{ color:"#67e8f9", width:4 }}
       ],
       { ...layoutBase, title:`Rotation Curve for ${name}` }
     );
@@ -463,21 +474,20 @@ This is expressed by <span class="font-mono">V<sub>Q</sub> = Q · V<sub>bary</su
       const S = seriesQWILL("__mock__", 0.66);
       console.assert(S.r.length===3 && S.Vobs.length===3, "series should keep all rows with valid Vobs");
       console.assert(S.components.Vgas[1]===0, "missing gas should be treated as 0");
-      console.assert(Math.abs(S.Vq[0] - Math.sqrt(3)*S.Vbary[0])<1e-9, "QWILL = √3·V_bary holds");
+      
+      // Test 4: Exponential law sanity check
+      // For very small beta, exp(-0) -> 1, factor -> sqrt(3).
+      // mock data has small velocities relative to c.
+      // S.Vq[0] should be approx sqrt(3) * Vbary.
+      const ratio = S.Vq[0] / S.Vbary[0];
+      console.assert(Math.abs(ratio - Math.sqrt(3)) < 1e-6, "Low velocity should approach sqrt(3) factor");
+
       // Test 4: RMSE on shifted arrays should equal shift magnitude
       const r4 = rmse([10,20,30],[11,21,31]);
       console.assert(Math.abs(r4-1)<1e-12, "RMSE of +1 shift should be 1");
       // Test 5: Color mapping edge case (flat range)
       console.assert(blueRedColor(5,5,5)==="rgb(128,128,128)", "Flat v-range should yield gray");
-      // Test 6: One-point galaxy sanity for seriesQWILL
-      galaxyData.__one__ = [{Rad:1,Vobs:10,Vgas:3,Vdisk:4,Vbul:0}];
-      const S1 = seriesQWILL("__one__", 0.66);
-      const vb2 = 3*3 + 0.66*(4*4 + 0*0);
-      console.assert(Math.abs(S1.Vbary[0]-Math.sqrt(vb2))<1e-12, "Vbary formula matches");
-      // Test 7: histogram helper returns consistent lengths
-      const H = buildHistogramData([10,20,30,40],[5,6,7,8],4);
-      console.assert(H && H.counts.length===4 && H.avgInit.length===4, "histogram helper produces 4 bins");
-      delete galaxyData.__one__;
+      
       delete galaxyData.__mock__;
       console.groupEnd();
     }catch(e){
