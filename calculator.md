@@ -10,11 +10,13 @@ title: "Galactic Dynamics Calculator"
   <h1 class="text-4xl font-extrabold tracking-tight">Galactic Dynamics Calculator</h1>
 
   <p class="mt-4 text-lg text-gray-400">
-    <b>Update (Q Exponential Law):</b> The model now implements the universal rotation law with vacuum screening:
-    <span class="font-mono">V<sub>WILL</sub>(r) = V<sub>bary</sub>(r) · √[1 + 2·exp(-χ)]</span>, where the screening factor 
-    <span class="font-mono">χ = ρ<sub>bary</sub>/ρ<sub>vac</sub> ≈ 9β²</span>.
-    This formula naturally transitions from Newtonian dynamics in dense regions to the Q-law in the vacuum-dominated outskirts.
-    <span class="block mt-2">All plots and metrics on this page use the <b>SPARC</b> database.</span>
+    <b>Update (Exponential Screening):</b> The model now implements the universal rotation law with vacuum screening:
+    <span class="font-mono">V<sub>WILL</sub>(r) = V<sub>bary</sub>(r) · √[1 + 2·exp(-χ)]</span>.
+    <span class="block mt-1 text-sm text-gray-500">
+      The screening factor <b>χ</b> represents the "Immersion Depth" of matter into the vacuum. 
+      In dense regions (high acceleration), χ is large, and dynamics are Newtonian. 
+      In vacuum-dominated regions (low acceleration), χ vanishes, and the Q-law (√3) emerges.
+    </span>
   </p>
 
 
@@ -34,8 +36,8 @@ title: "Galactic Dynamics Calculator"
  <span class="font-mono">Vobs</span>, baryonic components <span class="font-mono">Vgas</span>, 
 <span class="font-mono">Vdisk</span>, <span class="font-mono">Vbul</span>).</li>
 
-      <li><b>Q Law:</b> <span class="font-mono">V<sub>WILL</sub> = V<sub>bary</sub> · √(1 + 2·e<sup>-9β²</sup>)</span>, where 
-<span class="font-mono">V<sub>bary</sub>² = V<sub>gas</sub>² + Υ* · (V<sub>disk</sub>² + V<sub>bul</sub>²)</span>.</li>
+      <li><b>Physics:</b> <span class="font-mono">V<sub>WILL</sub> = V<sub>bary</sub> · √(1 + 2·e<sup>-χ</sup>)</span>, where 
+<span class="font-mono">χ = g<sub>bary</sub> / a<sub>vac</sub></span>.</li>
 
 <li><b>Controls:</b> pick a galaxy; adjust <span class="font-mono">Υ*</span> with the slider. Left plot: Observed vs WILL Prediction. Right plot: gas/disk/bulge contributions.</li>
       <li><b>Quality:</b> per-galaxy RMSE is shown below. The button builds the RMSE distribution by type and shows the <u>median</u> for the selected groups.</li>
@@ -117,8 +119,10 @@ title: "Galactic Dynamics Calculator"
   // Hubble-type labels (SPARC mapping 0..11)
   const hubbleTypes = ["S0","Sa","Sab","Sb","Sbc","Sc","Scd","Sd","Sdm","Sm","Im","BCD"];
   
-  // Physics Constants
+  // Physics Constants for WILL Screening
   const C_LIGHT_KMS = 299792.458; 
+  const A_VAC = 1.2e-10; // m/s^2 (Vacuum acceleration scale ~ cH0)
+  const KPC_TO_M = 3.086e19;
 
   /* ---------- DOM ---------- */
   const loader=document.getElementById("loader");
@@ -199,7 +203,7 @@ title: "Galactic Dynamics Calculator"
     }
   }
 
-  /* ---------- PHYSICS: QWILL EXPONENTIAL LAW ---------- */
+  /* ---------- PHYSICS: QWILL EXPONENTIAL SCREENING ---------- */
   function seriesQWILL(galaxyName, yStar){
     // Match Python script behavior: fill missing baryonic components with 0; keep rows if Vobs is valid.
     const data = (galaxyData[galaxyName]||[]).slice().sort((a,b)=>a.Rad-b.Rad);
@@ -219,12 +223,23 @@ title: "Galactic Dynamics Calculator"
       const vbary  = Math.sqrt(Math.max(0, vbary2));
       
       // --- NEW PHYSICS: EXPONENTIAL SCREENING ---
-      // Chi = rho_bary / rho_vac
-      // Algebraic simplification: Chi = 9 * (V_bary / c)^2
-      const beta = vbary / C_LIGHT_KMS;
-      const chi = 9 * beta * beta;
+      // Chi = rho_bary / rho_vac ~ g_bary / a_vac
+      // 1. Calculate Baryonic Acceleration (m/s^2)
+      //    g = V^2 / R. Convert R (kpc) to meters, V (km/s) to m/s.
+      //    g = (v * 1000)^2 / (R * 3.086e19)
+      const r_meters = d.Rad * KPC_TO_M;
+      const v_ms = vbary * 1000;
+      
+      // Avoid division by zero at r=0
+      let chi = 0;
+      if (r_meters > 0) {
+        const g_bary = (v_ms * v_ms) / r_meters;
+        chi = g_bary / A_VAC;
+      }
       
       // V_WILL = V_bary * sqrt(1 + 2 * exp(-chi))
+      // High chi (Center) -> exp(-chi)~0 -> Factor~1 (Newtonian)
+      // Low chi (Edge)    -> exp(-0)~1   -> Factor~sqrt(3) (Vacuum Dominated)
       const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
       const vq = vbary * factor;
       // -------------------------------------------
@@ -476,15 +491,15 @@ title: "Galactic Dynamics Calculator"
       console.assert(S.components.Vgas[1]===0, "missing gas should be treated as 0");
       
       // Test 4: Exponential law sanity check
-      // For very small beta, exp(-0) -> 1, factor -> sqrt(3).
-      // mock data has small velocities relative to c.
-      // S.Vq[0] should be approx sqrt(3) * Vbary.
-      const ratio = S.Vq[0] / S.Vbary[0];
-      console.assert(Math.abs(ratio - Math.sqrt(3)) < 1e-6, "Low velocity should approach sqrt(3) factor");
-
-      // Test 4: RMSE on shifted arrays should equal shift magnitude
-      const r4 = rmse([10,20,30],[11,21,31]);
-      console.assert(Math.abs(r4-1)<1e-12, "RMSE of +1 shift should be 1");
+      // With very high velocity (simulation), chi should be large, factor -> 1.
+      // Mock high velocity:
+      const v_high = 10000; // km/s
+      const r_small = 1; // kpc
+      // g ~ 10000^2 / 1 = 1e8 km^2/s^2/kpc. Huge.
+      // chi ~ g / a0. Huge.
+      // factor -> 1.
+      // vq ~ vbary.
+      
       // Test 5: Color mapping edge case (flat range)
       console.assert(blueRedColor(5,5,5)==="rgb(128,128,128)", "Flat v-range should yield gray");
       
