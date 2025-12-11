@@ -12,6 +12,7 @@ title: "Galactic Dynamics Calculator"
     <b>Update (Geometric Screening):</b> The model calculates dynamics using the galaxy's intrinsic geometry.
     <br>
     $$V_{WILL}(r) = V_{bary}(r) \cdot \sqrt{1 + 2 \exp(-3 R_{disk}/r)}$$
+    $$V_{bary}^2 = V_{gas}^2 + Υ* \cdot (V_{disk}^2 + V_{bul}^2)$$
   </p>
   
   <p class="mt-2 text-gray-400">
@@ -20,8 +21,8 @@ title: "Galactic Dynamics Calculator"
 
   <div class="rounded-xl p-4 mt-4 border border-gray-700 bg-gray-800/40">
     <p class="text-gray-200 font-semibold">In short</p>
-    <p class="text-gray-200"><em>“Dark Matter is the weight of the vacuum structure itself.”</em> 
-    Dynamics are determined by the ratio of local baryonic density to the structural capacity of the vacuum.</p>
+    <p class="text-gray-200"><em>“Dark Matter is the weight of the WILL structure itself.”</em> 
+    Dynamics are determined by the closure condition of the space-time-energy itself. Detailed "WILL Galactic Dynamics" paper is in development.</p>
   </div>
 
   <div class="mt-6 text-gray-300 leading-relaxed" id="howto">
