@@ -59,7 +59,7 @@
 </style>
 
 <script>
-{ // <--- BLOCK SCOPE START (Prevents conflicts with Galaxy Zoo)
+{ // Block Scope to prevent variable collisions with other scripts
   
   /* CONFIG & GLOBALS */
   const RAW_BASE = "https://raw.githubusercontent.com/AntonRize/WILL/main/SPARC%20DATA/";
@@ -72,7 +72,19 @@
   const defaultValues = { yStar: 0.66 };
   const hubbleTypes = ["S0","Sa","Sab","Sb","Sbc","Sc","Scd","Sd","Sdm","Sm","Im","BCD"];
 
-  /* DOM Elements (Prefixed IDs to avoid collision) */
+  // --- PHYSICS CONSTANTS ---
+  const C_LIGHT_KMS = 299792.458; // c in km/s
+  const H0 = 73.0; // Hubble Constant (km/s/Mpc) - Global epoch parameter
+  const MPC_TO_M = 3.086e22; // Mpc to meters conversion
+  
+  // Calculate Vacuum Acceleration Scale from Cosmology (Not MOND fit)
+  // a_vac = c * H0 / 2pi
+  // Convert H0 to SI (1/s): 73 km/s/Mpc -> 73000 / 3.086e22
+  const H0_SI = (H0 * 1000) / MPC_TO_M;
+  const C_SI = C_LIGHT_KMS * 1000;
+  const A_VAC_SI = (C_SI * H0_SI) / (2 * Math.PI); // ~ 1.1e-10 m/s^2
+
+  /* DOM Elements */
   const loader = document.getElementById("gd-loader");
   const bodyEl = document.getElementById("gd-calculator-body");
   const galaxySelect = document.getElementById("gd-galaxy-select");
@@ -93,7 +105,7 @@
       const t1Text=await t1Res.text();
       const t2Text=await t2Res.text();
 
-      // Parse Table 1 (Metadata including R_disk)
+      // Parse Table 1
       const typeSet = new Set();
       t1Text.trim().split("\n").forEach(line=>{
         if(line.startsWith("#")) return;
@@ -101,12 +113,9 @@
         const rest=line.substring(11).trim().split(/\s+/);
         if(rest.length<18) return;
         
-        // R_disk is column 10
-        const rDisk = +rest[10]; 
-        
         galaxyMeta[name]={
           Name:name,
-          Rdisk: rDisk, // Observed Parameter
+          Rdisk: +rest[10], 
           Dist:+rest[1], 
           L36:+rest[6],
           TypeRaw:rest[0]
@@ -144,15 +153,12 @@
     }
   }
 
-  /* PHYSICS: GEOMETRIC SCREENING (WILL, in terms of β and η) */
+  /* PHYSICS CORE */
   function seriesQWILL(galaxyName, yStar){
     const data = (galaxyData[galaxyName]||[]).slice().sort((a,b)=>a.Rad-b.Rad);
-    const meta = galaxyMeta[galaxyName];
-
-    // Observed disk scale length R_disk (kpc)
-    const R_disk = meta ? meta.Rdisk : 1.0;
-
-    const c = 299792.458; // km/s
+    
+    // KPC to Meters conversion for acceleration calc
+    const KPC_M = 3.086e19;
 
     const r = [], Vobs = [], Vbary = [], Vq = [];
     const Vgas_comp = [], Vdisk_scaled = [], Vbulge_scaled = [];
@@ -165,46 +171,43 @@
       const vd = d.Vdisk > 0 ? d.Vdisk : 0;
       const vb = d.Vbul > 0 ? d.Vbul : 0;
 
-      // --- 1. Raw observables → dimensionless inputs ---
-      const beta_obs = vo / c;                           // β = V_obs / c
-      const eta = (R_disk > 0) ? d.Rad / R_disk : 0.0;   // η = r / R_disk
-
-      // --- 2. Baryonic velocity (kept as in SPARC decomposition) ---
+      // 1. Baryonic Velocity (Matter Component)
+      // V_bar contains the full mass info (Gas + Stars * M/L)
       const vbary2 = vg*vg + yStar * (vd*vd + vb*vb);
       const vbary  = Math.sqrt(Math.max(0, vbary2));
-
-      // --- 3. Geometric screening in η-space ---
-      // chi = 3 R_disk / r  ⇔  chi = 3 / η   (for η > 0)
-      const chi = (eta > 0) ? 3.0 / (eta + 1e-3) : 1e6;  // strong screening at η→0
-      const factor = Math.sqrt(1 + 2 * Math.exp(-chi));  // V_WILL = V_bary * √(1 + 2 e^{-χ})
-
+      
+      // 2. Screening Factor (Energy Density Ratio)
+      // chi = rho_bary / rho_vac ~ g_bary / a_vac
+      // a_vac is derived from H0 (Global Geometry), not fitted.
+      
+      let chi = 0;
+      if (d.Rad > 0) {
+        // g_bar = V^2 / R (m/s^2)
+        const g_bar = (vbary * 1000)**2 / (d.Rad * KPC_M);
+        chi = g_bar / A_VAC_SI;
+      } else {
+        chi = 1e6; // Infinite screening at center
+      }
+      
+      // 3. Universal Interpolation
+      // Center (High chi): exp(-chi) -> 0 => V = V_bary
+      // Edge (Low chi): exp(-chi) -> 1 => V = sqrt(3) * V_bary
+      const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
       const vq = vbary * factor;
 
       r.push(d.Rad);
       Vobs.push(vo);
       Vbary.push(vbary);
       Vq.push(vq);
-
+      
       Vgas_comp.push(vg);
       Vdisk_scaled.push(Math.sqrt(yStar) * vd);
       Vbulge_scaled.push(Math.sqrt(yStar) * vb);
     }
-
-    return {
-      r,
-      Vobs,
-      Vbary,
-      Vq,
-      components: {
-        Vgas: Vgas_comp,
-        Vdisk_scaled,
-        Vbulge_scaled
-      }
-    };
+    return { r, Vobs, Vbary, Vq, components: { Vgas: Vgas_comp, Vdisk_scaled, Vbulge_scaled } };
   }
 
-
-  /* HELPER FUNCTIONS */
+  /* UTILS */
   function rmse(obs, pred){
     let s=0, k=0;
     for(let i=0;i<Math.min(obs.length,pred.length);i++){
@@ -292,7 +295,7 @@
      galaxyInfoDiv.innerHTML = `
        <p><strong>Type:</strong> ${hubbleLabel}</p>
        <p><strong>Distance:</strong> ${meta.Dist} Mpc</p>
-       <p><strong>R_disk:</strong> ${meta.Rdisk} kpc (Scale Length)</p>
+       <p><strong>R_disk:</strong> ${meta.Rdisk} kpc</p>
        <p><strong>Luminosity:</strong> ${meta.L36} G L&#9737;</p>
      `;
   }
