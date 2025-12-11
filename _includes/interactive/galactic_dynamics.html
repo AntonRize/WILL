@@ -203,7 +203,7 @@
         if(line.startsWith("#")) return;
         const p=line.trim().split(/\s+/);
         if(p.length<8) return;
-        // p[4] is Vobs_err
+        
         const row={ 
           Name:p[0], Dist:+p[1], Rad:+p[2], 
           Vobs:+p[3], Verr:+p[4], 
@@ -260,9 +260,17 @@
       const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
       const vq = vbary * factor;
 
+      // 4. ERROR HANDLING (SMART FALLBACK)
+      // If error is missing (NaN) or zero, assume reasonable physical floor.
+      // Default: Max of (5 km/s) OR (5% of observed velocity).
+      let sigma = d.Verr;
+      if (!Number.isFinite(sigma) || sigma <= 0.1) {
+         sigma = Math.max(5.0, Math.abs(vo) * 0.05);
+      }
+
       r.push(d.Rad);
       Vobs.push(vo);
-      Verr.push(d.Verr > 0 ? d.Verr : 1.0); // Safe floor for errors
+      Verr.push(sigma); 
       Vbary.push(vbary);
       Vq.push(vq);
       
@@ -273,11 +281,10 @@
     return { r, Vobs, Verr, Vbary, Vq, components: { Vgas: Vgas_comp, Vdisk_scaled, Vbulge_scaled } };
   }
 
-  /* OPTIMIZATION LOGIC (Minimizes RMSE) */
+  /* OPTIMIZATION LOGIC */
   function optimizeYStar(galaxyName) {
     let bestY = 0.66;
     let minErr = Infinity;
-    // Minimize RMSE (could optimize for Chi2, but RMSE is standard fit target)
     for(let y = 0.05; y <= 2.5; y += 0.1) {
       const S = seriesQWILL(galaxyName, y);
       const err = calculateRMSE(S.Vobs, S.Vq);
@@ -306,12 +313,10 @@
     let s=0, k=0;
     for(let i=0;i<Math.min(obs.length,pred.length);i++){
       if(Number.isFinite(obs[i]) && Number.isFinite(pred[i]) && Number.isFinite(err[i])){ 
-        const sigma = err[i] > 0 ? err[i] : 1.0; // avoid div by zero
-        s += ((obs[i]-pred[i]) / sigma)**2; 
+        s += ((obs[i]-pred[i]) / err[i])**2; 
         k++; 
       }
     }
-    // DOF = N - freeParams
     const dof = k - freeParams;
     return dof > 0 ? s/dof : NaN;
   }
@@ -323,11 +328,6 @@
     const g = 130 + (68-130)*t;
     const b = 246 + (68-246)*t;
     return `rgb(${Math.round(r)},${Math.round(g)},${Math.round(b)})`;
-  }
-
-  function updateOverallMedianInline(){
-    const el = document.getElementById("gd-overall-median-inline");
-    el.innerHTML = `<span class="opacity-70">Click "Analyze Distribution" to calculate global stats</span>`;
   }
 
   function updateAll(){
@@ -353,7 +353,6 @@
 
     const S = seriesQWILL(name, yStar);
     const R = calculateRMSE(S.Vobs, S.Vq);
-    // free params: 1 if auto, 0 if fixed
     const k_param = isAuto ? 1 : 0; 
     const Chi = calculateReducedChi2(S.Vobs, S.Vq, S.Verr, k_param);
 
@@ -403,13 +402,11 @@
      `;
   }
 
-  /* HISTOGRAM HELPERS */
   function buildHistogramData(values, vInitValues, bins){
     const N = values.length; if(!N) return null;
     const B = bins || 20;
     
-    // Filter out huge outliers for histogram scaling
-    // For Chi2, values can explode if fit is bad. Cap at sensible visualization limit.
+    // Filter large outliers for cleaner histogram
     const safeValues = values.filter(v => Number.isFinite(v) && v < 200); 
     
     const minVal = Math.min(...safeValues);
@@ -420,7 +417,7 @@
     const sumInit = new Array(B).fill(0);
     
     for(let i=0;i<N;i++){
-      if (!Number.isFinite(values[i]) || values[i] > 200) continue; // skip outliers
+      if (!Number.isFinite(values[i]) || values[i] > 200) continue; 
       let idx = Math.floor((values[i]-minVal)/binWidth);
       if(idx>=B) idx = B-1; if(idx<0) idx=0;
       counts[idx] += 1;
@@ -444,10 +441,8 @@
       
       const isAuto = autofitCheck.checked;
       const yStarFixed = +ystarSlider.value;
-      
-      // Check which metric to analyze
       const metricRadio = document.querySelector('input[name="analysis-metric"]:checked');
-      const mode = metricRadio ? metricRadio.value : 'rmse'; // 'rmse' or 'chi2'
+      const mode = metricRadio ? metricRadio.value : 'rmse'; 
 
       const metricValues=[];
       const vInitValues=[];
