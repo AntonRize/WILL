@@ -260,13 +260,11 @@
       const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
       const vq = vbary * factor;
 
-      // 4. ERROR HANDLING (SMART FALLBACK)
-      // If error is missing (NaN) or zero, assume reasonable physical floor.
-      // Default: Max of (5 km/s) OR (5% of observed velocity).
-      let sigma = d.Verr;
-      if (!Number.isFinite(sigma) || sigma <= 0.1) {
-         sigma = Math.max(5.0, Math.abs(vo) * 0.05);
-      }
+      // 4. ERROR HANDLING (SMART ASTROPHYSICAL FLOOR)
+      // FIX: Use MAX of (Observed Error, 5 km/s Floor, 5% Relative Error).
+      // This prevents tiny instrumental errors from exploding Chi2.
+      let obsErr = (Number.isFinite(d.Verr) && d.Verr > 0) ? d.Verr : 0;
+      let sigma = Math.max(obsErr, 5.0, Math.abs(vo) * 0.05);
 
       r.push(d.Rad);
       Vobs.push(vo);
