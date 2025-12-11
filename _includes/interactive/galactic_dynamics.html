@@ -3,7 +3,7 @@
 <div id="gd-type-filter" class="bg-gray-800/50 p-4 rounded-lg mb-4">
   <h4 class="text-lg font-bold text-gray-200 mb-2">Filter by Hubble Type:</h4>
   <div id="gd-type-checkboxes" class="flex flex-wrap gap-4 text-gray-300"></div>
-  <button id="gd-analyze-types-btn" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">Analyze RMSE by Type</button>
+  <button id="gd-analyze-types-btn" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 transition">Analyze RMSE by Type</button>
 </div>
 
 <div id="gd-type-plot" class="bg-gray-800/50 p-4 rounded-lg mb-4" style="display:none">
@@ -22,10 +22,18 @@
       </div>
 
       <div class="control-group">
-        <label for="gd-ystar-slider">Stellar M/L Ratio (Υ*):
-          <span id="gd-ystar-value" class="param-display">0.66</span>
-        </label>
-        <input type="range" id="gd-ystar-slider" class="form-range" min="0.00" max="2.00" step="0.01" value="0.66" />
+        <div class="flex justify-between items-center mb-2">
+          <label for="gd-ystar-slider" class="mb-0">Stellar M/L Ratio (Υ*): 
+            <span id="gd-ystar-value" class="param-display">0.66</span>
+          </label>
+          
+          <label class="flex items-center space-x-2 cursor-pointer bg-gray-700 px-3 py-1 rounded border border-gray-600 hover:bg-gray-600">
+            <input type="checkbox" id="gd-autofit-check" class="form-checkbox text-blue-500 rounded">
+            <span class="text-sm font-bold text-blue-300">Auto-fit (Best RMSE)</span>
+          </label>
+        </div>
+        
+        <input type="range" id="gd-ystar-slider" class="form-range" min="0.05" max="3.00" step="0.01" value="0.66" />
       </div>
     </div>
 
@@ -45,21 +53,79 @@
 <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
 
 <style>
-  .calculator-container{background-color:rgba(31,41,55,.5);border-radius:15px;padding:30px 40px;margin:20px auto;box-shadow:0 10px 40px rgba(0,0,0,.3);border:1px solid #374151;max-width:1000px}
-  .controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-bottom:20px}
-  .control-group{display:flex;flex-direction:column}
-  .control-group label{margin-bottom:10px;font-weight:600;color:#d1d5db}
-  .form-control,.form-range{width:100%;padding:10px;border-radius:5px;border:1px solid #4b5563;background-color:#374151;color:#d1d5db;box-sizing:border-box}
-  .param-display{font-weight:700;color:#67e8f9}
-  #gd-results{text-align:center;font-size:1.25em;font-weight:700;margin:20px 0 25px;color:#d1d5db;padding:15px;background:#374151;border-radius:8px}
-  #gd-warning{text-align:center;color:#f87171;font-weight:700;margin-top:10px}
-  .plot-wrapper{display:flex;flex-wrap:wrap;gap:20px;margin-top:25px;padding-top:25px;border-top:1px solid #4b5563;justify-content:center}
-  .plot-box{flex:1 1 45%;min-width:350px;max-width:600px;height:500px;border-radius:8px;background:#1f2937;position:relative}
-  #gd-loader{text-align:center;font-size:1.5em;padding:50px;color:#9ca3af}
+  /* Fixed Width Issue: Increased max-width and ensured 100% width */
+  .calculator-container {
+    background-color: rgba(31,41,55,0.5);
+    border-radius: 15px;
+    padding: 30px 40px;
+    margin: 20px auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    border: 1px solid #374151;
+    width: 100%;
+    max-width: 1400px; /* Made wider */
+  }
+  
+  .controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .control-group { display: flex; flex-direction: column; }
+  .control-group label { font-weight: 600; color: #d1d5db; }
+  
+  .form-control, .form-range {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #4b5563;
+    background-color: #374151;
+    color: #d1d5db;
+    box-sizing: border-box;
+  }
+  
+  .param-display { font-weight: 700; color: #67e8f9; }
+  
+  #gd-results {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 700;
+    margin: 20px 0 25px;
+    color: #d1d5db;
+    padding: 15px;
+    background: #374151;
+    border-radius: 8px;
+    border: 1px solid #4b5563;
+  }
+  
+  #gd-warning { text-align: center; color: #f87171; font-weight: 700; margin-top: 10px; }
+  
+  .plot-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #4b5563;
+    justify-content: center;
+  }
+  
+  /* Make plots fill the wider container */
+  .plot-box {
+    flex: 1 1 48%;
+    min-width: 400px;
+    height: 550px;
+    border-radius: 8px;
+    background: #1f2937;
+    position: relative;
+  }
+  
+  #gd-loader { text-align: center; font-size: 1.5em; padding: 50px; color: #9ca3af; }
 </style>
 
 <script>
-{ // Block Scope to prevent variable collisions with other scripts
+{ // Block Scope start
   
   /* CONFIG & GLOBALS */
   const RAW_BASE = "https://raw.githubusercontent.com/AntonRize/WILL/main/SPARC%20DATA/";
@@ -72,17 +138,16 @@
   const defaultValues = { yStar: 0.66 };
   const hubbleTypes = ["S0","Sa","Sab","Sb","Sbc","Sc","Scd","Sd","Sdm","Sm","Im","BCD"];
 
-  // --- PHYSICS CONSTANTS ---
-  const C_LIGHT_KMS = 299792.458; // c in km/s
-  const H0 = 73.0; // Hubble Constant (km/s/Mpc) - Global epoch parameter
-  const MPC_TO_M = 3.086e22; // Mpc to meters conversion
-  
-  // Calculate Vacuum Acceleration Scale from Cosmology (Not MOND fit)
+  // --- PHYSICS CONSTANTS (Derived from H0) ---
+  const C_LIGHT_KMS = 299792.458; 
+  const H0 = 73.2; // Hubble Constant (SH0ES 2024 best fit)
+  const MPC_TO_M = 3.086e22; 
+  const KPC_TO_M = 3.086e19; 
+
   // a_vac = c * H0 / 2pi
-  // Convert H0 to SI (1/s): 73 km/s/Mpc -> 73000 / 3.086e22
   const H0_SI = (H0 * 1000) / MPC_TO_M;
   const C_SI = C_LIGHT_KMS * 1000;
-  const A_VAC_SI = (C_SI * H0_SI) / (2 * Math.PI); // ~ 1.1e-10 m/s^2
+  const A_VAC_SI = (C_SI * H0_SI) / (2 * Math.PI); 
 
   /* DOM Elements */
   const loader = document.getElementById("gd-loader");
@@ -90,6 +155,7 @@
   const galaxySelect = document.getElementById("gd-galaxy-select");
   const ystarSlider = document.getElementById("gd-ystar-slider");
   const ystarValueSpan = document.getElementById("gd-ystar-value");
+  const autofitCheck = document.getElementById("gd-autofit-check");
   const resultsDiv = document.getElementById("gd-results");
   const plotDiv = document.getElementById("gd-plot-div");
   const plotDivComponents = document.getElementById("gd-plot-div-components");
@@ -153,13 +219,9 @@
     }
   }
 
-  /* PHYSICS CORE */
+  /* PHYSICS CORE: ACCELERATION SCREENING */
   function seriesQWILL(galaxyName, yStar){
     const data = (galaxyData[galaxyName]||[]).slice().sort((a,b)=>a.Rad-b.Rad);
-    
-    // KPC to Meters conversion for acceleration calc
-    const KPC_M = 3.086e19;
-
     const r = [], Vobs = [], Vbary = [], Vq = [];
     const Vgas_comp = [], Vdisk_scaled = [], Vbulge_scaled = [];
 
@@ -172,26 +234,20 @@
       const vb = d.Vbul > 0 ? d.Vbul : 0;
 
       // 1. Baryonic Velocity (Matter Component)
-      // V_bar contains the full mass info (Gas + Stars * M/L)
       const vbary2 = vg*vg + yStar * (vd*vd + vb*vb);
       const vbary  = Math.sqrt(Math.max(0, vbary2));
       
-      // 2. Screening Factor (Energy Density Ratio)
-      // chi = rho_bary / rho_vac ~ g_bary / a_vac
-      // a_vac is derived from H0 (Global Geometry), not fitted.
-      
+      // 2. Screening Factor (Physics based)
+      // chi = g_bary / a_vac
       let chi = 0;
       if (d.Rad > 0) {
-        // g_bar = V^2 / R (m/s^2)
-        const g_bar = (vbary * 1000)**2 / (d.Rad * KPC_M);
+        const g_bar = (vbary * 1000)**2 / (d.Rad * KPC_TO_M);
         chi = g_bar / A_VAC_SI;
       } else {
-        chi = 1e6; // Infinite screening at center
+        chi = 1e6; 
       }
       
       // 3. Universal Interpolation
-      // Center (High chi): exp(-chi) -> 0 => V = V_bary
-      // Edge (Low chi): exp(-chi) -> 1 => V = sqrt(3) * V_bary
       const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
       const vq = vbary * factor;
 
@@ -205,6 +261,28 @@
       Vbulge_scaled.push(Math.sqrt(yStar) * vb);
     }
     return { r, Vobs, Vbary, Vq, components: { Vgas: Vgas_comp, Vdisk_scaled, Vbulge_scaled } };
+  }
+
+  /* OPTIMIZATION LOGIC */
+  function optimizeYStar(galaxyName) {
+    let bestY = 0.66;
+    let minRMSE = Infinity;
+    
+    // Coarse search
+    for(let y = 0.05; y <= 2.5; y += 0.1) {
+      const S = seriesQWILL(galaxyName, y);
+      const err = rmse(S.Vobs, S.Vq);
+      if(Number.isFinite(err) && err < minRMSE) { minRMSE = err; bestY = y; }
+    }
+    // Fine search
+    let start = Math.max(0.01, bestY - 0.1);
+    let end = bestY + 0.1;
+    for(let y = start; y <= end; y += 0.01) {
+      const S = seriesQWILL(galaxyName, y);
+      const err = rmse(S.Vobs, S.Vq);
+      if(Number.isFinite(err) && err < minRMSE) { minRMSE = err; bestY = y; }
+    }
+    return bestY;
   }
 
   /* UTILS */
@@ -225,10 +303,12 @@
     return `rgb(${Math.round(r)},${Math.round(g)},${Math.round(b)})`;
   }
 
-  function computeOverallMedianRMSE(yStar){
+  function computeOverallMedianRMSE(yStarFixed, isAuto){
     const values=[];
     for(const name in galaxyData){
-      const S=seriesQWILL(name,yStar);
+      // If auto is on, calculate optimal Y for this galaxy
+      const yVal = isAuto ? optimizeYStar(name) : yStarFixed;
+      const S = seriesQWILL(name, yVal);
       if(S.Vobs.length===S.Vq.length && S.Vobs.length>0) values.push(rmse(S.Vobs,S.Vq));
     }
     if(!values.length) return NaN;
@@ -238,25 +318,50 @@
   }
 
   function updateOverallMedianInline(){
-    const yStar=(+ystarSlider.value || defaultValues.yStar);
-    const med=computeOverallMedianRMSE(yStar);
-    const el=document.getElementById("gd-overall-median-inline");
-    if(Number.isFinite(med)){
-      el.innerHTML = `Overall <b>Median RMSE</b> (all types, Υ*=${yStar.toFixed(2)}): <b>${med.toFixed(2)} km/s</b>`;
-    } else {
-      el.textContent = "";
-    }
+    const isAuto = autofitCheck.checked;
+    const yStar = +ystarSlider.value;
+    // Note: Calculating median for 175 galaxies with optimization might take a second.
+    // We will display a placeholder if needed, but modern JS is fast enough for 175 items.
+    
+    // To avoid UI freezing on every slider move, we might only show this when requested, 
+    // or just calculate it. For now, let's keep it live but maybe optimized.
+    // Actually, let's just show the current single galaxy status in the main view,
+    // and only do the heavy global calc when "Analyze" is clicked or page loads.
+    // For inline text:
+    const el = document.getElementById("gd-overall-median-inline");
+    el.innerHTML = `<span class="opacity-70">Click "Analyze RMSE" to see global stats</span>`;
   }
 
   function updateAll(){
-    const name=galaxySelect.value; if(!name) return;
-    const yStar = (+ystarSlider.value || defaultValues.yStar);
-    ystarValueSpan.textContent = yStar.toFixed(2);
+    const name = galaxySelect.value; if(!name) return;
+    const isAuto = autofitCheck.checked;
+    
+    // Slider state logic
+    if (isAuto) {
+      ystarSlider.disabled = true;
+      ystarSlider.classList.add("opacity-50", "cursor-not-allowed");
+    } else {
+      ystarSlider.disabled = false;
+      ystarSlider.classList.remove("opacity-50", "cursor-not-allowed");
+    }
 
-    const S = seriesQWILL(name,yStar);
-    const R = rmse(S.Vobs,S.Vq);
-    resultsDiv.textContent = `RMSE: ${isFinite(R)?R.toFixed(2):"—"} km/s`;
-    updateOverallMedianInline();
+    // Determine Y* to use
+    let yStar = 0.66;
+    if (isAuto) {
+      yStar = optimizeYStar(name);
+      // Update display text but not the slider handle to avoid confusion jumping
+      ystarValueSpan.textContent = yStar.toFixed(2) + " (Auto)";
+    } else {
+      yStar = +ystarSlider.value;
+      ystarValueSpan.textContent = yStar.toFixed(2);
+    }
+
+    const S = seriesQWILL(name, yStar);
+    const R = rmse(S.Vobs, S.Vq);
+    resultsDiv.innerHTML = `RMSE: <span class="text-white">${isFinite(R)?R.toFixed(2):"—"}</span> km/s <span class="text-sm opacity-60 ml-4">(Υ* = ${yStar.toFixed(2)})</span>`;
+    
+    // Removed the heavy global calculation from here to prevent lag
+    // updateOverallMedianInline(); 
 
     const ymax = Math.max(1, ...S.Vobs, ...S.Vq);
     const layoutBase = {
@@ -322,44 +427,63 @@
   }
 
   function analyzeSelectedTypes(){
-    const selected = Array.from(document.querySelectorAll("#gd-type-checkboxes input:checked")).map(cb=>cb.value);
-    if(!selected.length){ alert("Select at least one galaxy type first."); return; }
-    const yStar=+ystarSlider.value || defaultValues.yStar;
-    const rmseValues=[];
-    const vInitValues=[];
-    for(const name in galaxyData){
-      const meta=galaxyMeta[name]; if(!meta) continue;
-      if(!selected.includes(meta.TypeLabel)) continue;
-      const S=seriesQWILL(name,yStar);
-      if(S.Vobs.length===S.Vq.length && S.Vobs.length>0){
-        rmseValues.push(rmse(S.Vobs,S.Vq));
-        vInitValues.push(S.Vobs[0]);
+    const btn = document.getElementById("gd-analyze-types-btn");
+    btn.textContent = "Calculating...";
+    btn.disabled = true;
+
+    // Use setTimeout to allow UI to render "Calculating"
+    setTimeout(() => {
+      const selected = Array.from(document.querySelectorAll("#gd-type-checkboxes input:checked")).map(cb=>cb.value);
+      if(!selected.length){ alert("Select at least one galaxy type first."); btn.textContent="Analyze RMSE by Type"; btn.disabled=false; return; }
+      
+      const isAuto = autofitCheck.checked;
+      const yStarFixed = +ystarSlider.value;
+      const rmseValues=[];
+      const vInitValues=[];
+      
+      for(const name in galaxyData){
+        const meta=galaxyMeta[name]; if(!meta) continue;
+        if(!selected.includes(meta.TypeLabel)) continue;
+        
+        // Key Logic: use optimized Y if auto is checked, else slider
+        const yVal = isAuto ? optimizeYStar(name) : yStarFixed;
+        
+        const S=seriesQWILL(name, yVal);
+        if(S.Vobs.length===S.Vq.length && S.Vobs.length>0){
+          rmseValues.push(rmse(S.Vobs,S.Vq));
+          vInitValues.push(S.Vobs[0]);
+        }
       }
-    }
-    if(!rmseValues.length){ alert("No galaxies matched."); return; }
-    
-    const N = rmseValues.length;
-    const sorted = rmseValues.slice().sort((a,b)=>a-b);
-    const mid = Math.floor(N/2);
-    const median = (N%2===0) ? (sorted[mid-1]+sorted[mid])/2 : sorted[mid];
+      
+      if(!rmseValues.length){ alert("No galaxies matched."); btn.textContent="Analyze RMSE by Type"; btn.disabled=false; return; }
+      
+      const N = rmseValues.length;
+      const sorted = rmseValues.slice().sort((a,b)=>a-b);
+      const mid = Math.floor(N/2);
+      const median = (N%2===0) ? (sorted[mid-1]+sorted[mid])/2 : sorted[mid];
 
-    document.getElementById("gd-overall-median").innerHTML = `Types: <b>${selected.join(", ")}</b> — N = ${N} — <b>Median RMSE = ${median.toFixed(2)} km/s</b>`;
+      const modeText = isAuto ? "(Auto-fitted Υ*)" : `(Fixed Υ*=${yStarFixed.toFixed(2)})`;
+      document.getElementById("gd-overall-median").innerHTML = `Types: <b>${selected.join(", ")}</b> — N = ${N} — <b>Median RMSE = ${median.toFixed(2)} km/s</b> <span class="text-blue-300 text-sm ml-2">${modeText}</span>`;
 
-    const H = buildHistogramData(rmseValues, vInitValues, 20);
-    const colors = H.avgInit.map(v => blueRedColor(v, H.minInit, H.maxInit));
-    const trace = {
-      type: "bar", x: H.binCenters, y: H.counts,
-      marker: { color: colors, line: { color: "#111827", width: 1 } },
-      width: H.binWidth*0.95
-    };
-    const layoutHist = {
-      xaxis:{ title:"RMSE (km/s)", color:"#d1d5db" },
-      yaxis:{ title:"Count", color:"#d1d5db" },
-      paper_bgcolor:"transparent", plot_bgcolor:"#1f2937", font:{ color:"#d1d5db" },
-      margin:{ l:40,r:20,t:20,b:40 }
-    };
-    Plotly.newPlot("gd-rmse-histogram", [trace], layoutHist);
-    document.getElementById("gd-type-plot").style.display="block";
+      const H = buildHistogramData(rmseValues, vInitValues, 20);
+      const colors = H.avgInit.map(v => blueRedColor(v, H.minInit, H.maxInit));
+      const trace = {
+        type: "bar", x: H.binCenters, y: H.counts,
+        marker: { color: colors, line: { color: "#111827", width: 1 } },
+        width: H.binWidth*0.95
+      };
+      const layoutHist = {
+        xaxis:{ title:"RMSE (km/s)", color:"#d1d5db" },
+        yaxis:{ title:"Count", color:"#d1d5db" },
+        paper_bgcolor:"transparent", plot_bgcolor:"#1f2937", font:{ color:"#d1d5db" },
+        margin:{ l:40,r:20,t:20,b:40 }
+      };
+      Plotly.newPlot("gd-rmse-histogram", [trace], layoutHist);
+      document.getElementById("gd-type-plot").style.display="block";
+      
+      btn.textContent = "Analyze RMSE by Type";
+      btn.disabled = false;
+    }, 50);
   }
 
   function initGalaxyTypeCheckboxes(){
@@ -381,6 +505,7 @@
     document.getElementById("gd-analyze-types-btn").addEventListener("click", analyzeSelectedTypes);
     document.getElementById("gd-galaxy-select").addEventListener("change", ()=>{ updateGalaxyInfo(); updateAll(); });
     document.getElementById("gd-ystar-slider").addEventListener("input", ()=>{ updateAll(); });
+    document.getElementById("gd-autofit-check").addEventListener("change", ()=>{ updateAll(); });
   });
 
 } // <--- BLOCK SCOPE END
