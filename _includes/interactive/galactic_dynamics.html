@@ -147,46 +147,96 @@
   /* PHYSICS: GEOMETRIC SCREENING (NO FREE PARAMETERS) */
   function seriesQWILL(galaxyName, yStar){
     const data = (galaxyData[galaxyName]||[]).slice().sort((a,b)=>a.Rad-b.Rad);
-    const meta = galaxyMeta[galaxyName];
-    // R_disk is observed. 
-    const R_disk = meta ? meta.Rdisk : 1.0; 
 
     const r = [], Vobs = [], Vbary = [], Vq = [];
     const Vgas_comp = [], Vdisk_scaled = [], Vbulge_scaled = [];
 
-    for(const d of data){
-      const vo = (Number.isFinite(d.Vobs) && d.Vobs >= 0) ? d.Vobs : NaN;
+    // --- CONSTANTS ---
+    const G = 4.302e-6;   // kpc * (km/s)^2 / Msun   (standard astro G)
+    const c = 299792.458; // km/s
+
+    // WILL vacuum density:
+    // rho_L(r) = c^2 / (12π G r^2)
+    function rhoLambda(rr){
+      return (c*c) / (12 * Math.PI * G * rr * rr);
+    }
+
+    // Convert SPARC velocities -> implied baryonic density ρ_b(r)
+    // using: V_bary^2 = GM_b(r)/r → dM/dr = 4π r^2 ρ
+    // So: ρ_b(r) = (1/(4πG r^2)) d/dr[ r V_b^2 ]
+    // Numerical finite difference.
+    function rhoBary(i){
+      if(i<=0 || i>=data.length-1) return 0;
+
+      const r1 = data[i-1].Rad;
+      const r2 = data[i+1].Rad;
+
+      const d1 = data[i-1];
+      const d2 = data[i+1];
+
+      const vb1 = Math.sqrt(Math.max(0, d1.Vgas*d1.Vgas + yStar*(d1.Vdisk*d1.Vdisk + d1.Vbul*d1.Vbul)));
+      const vb2 = Math.sqrt(Math.max(0, d2.Vgas*d2.Vgas + yStar*(d2.Vdisk*d2.Vdisk + d2.Vbul*d2.Vbul)));
+
+      const f1 = r1 * vb1*vb1;
+      const f2 = r2 * vb2*vb2;
+
+      const dfdr = (f2 - f1) / (r2 - r1); 
+      return dfdr / (4 * Math.PI * G * data[i].Rad * data[i].Rad);
+    }
+
+    // Integrate total density: ρ_tot = ρ_b + ρ_L / (1 + ρ_b/ρ_L)
+    // V^2(r) = (4πG/r) ∫ ρ_tot(r') r'^2 dr'
+    function integrateVelocity(index){
+      const rr = data[index].Rad;
+      if(rr<=0) return 0;
+
+      let sum = 0;
+      for(let j=1;j<=index;j++){
+        const rp = data[j].Rad;
+        const dr = data[j].Rad - data[j-1].Rad;
+
+        const rho_b = rhoBary(j);
+        const rho_L = rhoLambda(rp);
+        const rho_v = rho_L / (1 + rho_b/rho_L);
+
+        const rho_tot = rho_b + rho_v;
+
+        sum += rho_tot * rp*rp * dr;
+      }
+
+      const v2 = (4 * Math.PI * G / rr) * sum;
+      return v2>0 ? Math.sqrt(v2) : 0;
+    }
+
+    // --- LOOP ---
+    for(let i=0;i<data.length;i++){
+      const d = data[i];
+      const vo = d.Vobs;
       if(!Number.isFinite(vo)) continue;
 
       const vg = d.Vgas > 0 ? d.Vgas : 0;
       const vd = d.Vdisk > 0 ? d.Vdisk : 0;
       const vb = d.Vbul > 0 ? d.Vbul : 0;
 
-      // 1. Baryonic Velocity
-      const vbary2 = vg*vg + yStar * (vd*vd + vb*vb);
+      const vbary2 = vg*vg + yStar*(vd*vd + vb*vb);
       const vbary  = Math.sqrt(Math.max(0, vbary2));
-      
-      // 2. Screening Factor (Geometric)
-      // Transition happens at 3 * R_disk (approx 95% mass containment radius)
-      // Inner (r << 3*R_disk): High screening -> Factor 1
-      // Outer (r >> 3*R_disk): Low screening  -> Factor sqrt(3)
-      const chi = (3 * R_disk) / (d.Rad + 0.001); 
-      
-      // Universal Law:
-      const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
-      const vq = vbary * factor;
+
+      const vq = integrateVelocity(i);
 
       r.push(d.Rad);
       Vobs.push(vo);
       Vbary.push(vbary);
       Vq.push(vq);
-      
+
       Vgas_comp.push(vg);
-      Vdisk_scaled.push(Math.sqrt(yStar) * vd);
-      Vbulge_scaled.push(Math.sqrt(yStar) * vb);
+      Vdisk_scaled.push(Math.sqrt(yStar)*vd);
+      Vbulge_scaled.push(Math.sqrt(yStar)*vb);
     }
-    return { r, Vobs, Vbary, Vq, components: { Vgas: Vgas_comp, Vdisk_scaled, Vbulge_scaled } };
+
+    return { r, Vobs, Vbary, Vq,
+             components:{ Vgas:Vgas_comp, Vdisk_scaled, Vbulge_scaled } };
   }
+
 
   /* HELPER FUNCTIONS */
   function rmse(obs, pred){
