@@ -257,7 +257,7 @@
       }
       
       // 3. Prediction
-      const factor = Math.sqrt(1 + Math.exp(-chi));
+      const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
       const vq = vbary * factor;
 
       // 4. ERROR HANDLING (SMART ASTROPHYSICAL FLOOR)
