@@ -386,6 +386,12 @@ Principle~\ref{pr:unifying} is foundational but testable: it is subject to (i) g
 
 \section{Deriving the WILL Structure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/6_Key-Constraints-on-the-Relational-Structure.png}
+\end{figure}
+
+
 Having established our  Principle ~\ref{pr:unifying} by removing the illicit separation of structure and dynamics, we now proceed to derive its necessary geometric and physical consequences. We will demonstrate that this single principle is sufficient to enforce the closure, conservation, and isotropy of the relational structure, leading to a unique set of geometric carriers for energy.
 
 \begin{lemma}[Closure]
@@ -601,6 +607,10 @@ the responsibility of interpretation lies with the reader:
 take the words as written, not as filtered through prior formalisms.
 \end{tcolorbox}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/8_Kinetic-Energy-b-projection-on-S.png}
+\end{figure}
 
 Since $S^{1}$ encodes one-dimensional displacement, the total energy $E$ of the system 
 must project consistently onto both axes:
@@ -664,6 +674,12 @@ Mass is therefore not independent, but the rest-energy invariant itself.
 \end{tcolorbox}
 
 \subsection{Energy--Momentum Relation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/9_Energy-Momentum-Identity-on-S.png}
+\end{figure}
+
 
 \begin{proposition}[Horizontal Projection as Momentum]
 \label{prop:momentum}
@@ -740,6 +756,11 @@ $\beta_Y = \sqrt{1-(v/c)^2}=\sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) = \sin(
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=IMPORTANT:]
 \textbf{Throughout this work, $S^1$ and $S^2$ are not to be interpreted as spacetime geometries but purely as relational manifolds encoding energy conservation. Any reading otherwise is a misinterpretation.}
 \end{tcolorbox}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/10_Potential-Energy-k-projection-on-S.png}
+\end{figure}
 
 Analogous to $S^1$ the relational geometry of the sphere, $S^2$, provides orthogonal projections,  for two aspects of omnidirectional transformation. We define them as follows:
 
@@ -893,25 +914,13 @@ Imagine standing on a train platform. A train passes by rapidly: to you, it has 
 
 \section{Relational Displacement $Q$}
 \label{sec:DisQ}
-\begin{center}
-\begin{tikzpicture}[scale=3]
-% observer frame at (0,0)
-\coordinate (O) at (0,0);
-% displaced frame center (Q)
-\coordinate (Q) at (0.6,0.2); 
-% base circles
-\draw[thick] (O) circle (1);
-\draw[dashed,thick] (Q) circle (1);
-% radial vectors
-\draw[->,thick] (O) -- (0.85,0) node[below]{$\beta$};
-\draw[->,thick] (O) -- (0,0.85) node[left]{$\kappa$};
-% Q-vector
-\draw[->,thick] (O) -- (Q) node[midway,above right]{$Q$};
-% dots for centers
-\fill (O) circle (0.015);
-\fill (Q) circle (0.015);
-\end{tikzpicture}
-\end{center}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/13_Total-Projection-as-Vector-on-b-k-plane.png}
+\end{figure}
+
+
 
 When an observer observes another system, they assign to it a relational displacement norm $Q$:
 \begin{equation}
@@ -945,6 +954,28 @@ In general (open or elliptic) configurations, the full definition $Q^{2}=\beta^{
 \end{remark}
 
 \subsection{Principle of Relational Reciprocity}
+
+
+\begin{center}
+\begin{tikzpicture}[scale=3]
+% observer frame at (0,0)
+\coordinate (O) at (0,0);
+% displaced frame center (Q)
+\coordinate (Q) at (0.6,0.2); 
+% base circles
+\draw[thick] (O) circle (1);
+\draw[dashed,thick] (Q) circle (1);
+% radial vectors
+\draw[->,thick] (O) -- (0.85,0) node[below]{$\beta$};
+\draw[->,thick] (O) -- (0,0.85) node[left]{$\kappa$};
+% Q-vector
+\draw[->,thick] (O) -- (Q) node[midway,above right]{$Q$};
+% dots for centers
+\fill (O) circle (0.015);
+\fill (Q) circle (0.015);
+\end{tikzpicture}
+\end{center}
+
 
 \paragraph{Self--centering reciprocity.}
 Every observer performs self--centering:
@@ -1216,6 +1247,11 @@ What General Relativity posits as a postulate, WILL reveals as a corollary.}
 
 Having established that directional (kinematic) and omnidirectional (gravitational) relations are carried by the unique manifolds $S^1$ and $S^2$ respectively, we now derive the relationship that unifies them.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/12_Topological-Ratio-k-b-2.png}
+\end{figure}
+
 \subsection{Derivation of the Energetic Closure Condition}
 
 The Principle of a unified relational resource (Energy) requires a self-consistent "exchange rate" between its different modes of expression. The closed system must partition its total transformation resource into all available modes. If we have a 2D carrier and a 1D carrier, the resource budget must be \textit{shared} in proportion to their capacity to host transformations. The simplest symmetric partition is linear in the number of independent directions. but is dictated by the intrinsic geometry of the relations themselves:
@@ -1239,12 +1275,8 @@ directional ($S^1$) and omnidirectional ($S^2$) resource distributions compatibl
 The relational resource (Energy) must be conserved and interchangeable between its two fundamental carriers, $S^1$ and $S^2$. We must therefore establish the "exchange rate" between them.
 
 At this foundational (pre-geometric) level, we have established (Theorem~\ref{thm:carriers}) that these carriers are topologically distinct, possessing 1 and 2 degrees of freedom, respectively.
-
-Crucially, as per the Principle of Ontological Minimalism (\ref{pr:minimalism}), \textbf{this ratio of dimensionalities (2:1) is the only distinguishable property} between the carriers from which a non-arbitrary exchange rate ($\mathcal{R}$) can be derived. To postulate any other rate would be an ad-hoc, unjustifiable assumption.
-Therefore, the only logical and non-arbitrary exchange rate is:
-\[
-\mathcal{R} = \frac{\text{d.o.f.}(S^2)}{\text{d.o.f.}(S^1)} = \frac{2}{1} = 2.
-\]
+Crucially, since the relational resource is unitary and invariant, and its measure is quadratic (via projections $\beta^2, \kappa^2$), the scaling of the total capacity is determined strictly by the count of independent geometric dimensions. This is not a distribution of parts, but a scaling of the measure itself:
+$$ \mathcal{R} = \frac{\text{d.o.f.}(S^2)}{\text{d.o.f.}(S^1)} = \frac{2}{1} = 2. $$
 Furthermore, we have established that the only conserved, invariant "currency" for these carriers is their \textbf{quadratic} form ($\beta^2, \kappa^2$), as this is the only form that satisfies their intrinsic closure identity (e.g., $\beta^2+\beta_Y^2=1$).
 
 To find the Energetic Closure Condition, we simply equate the two "currencies" using this necessary "exchange rate." This dictates that the omnidirectional (2D) budget must be balanced by twice the directional (1D) budget:
@@ -1339,6 +1371,11 @@ This reciprocity is the algebraic form of causal continuity,
 and its geometric expression is the Energy-Symmetry Law.
 
 \end{quote}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/14_Energy-Symmetry-Law.png}
+\end{figure}
+
 
 \subsection{Causal Continuity and Energy Symmetry}
 \begin{theorem}[Energy Symmetry]
@@ -1410,9 +1447,11 @@ In this case, applying the closure condition to both the initial and final orbit
 
 \subsection{Physical Meaning of the Factor $\frac{1}{2}$}
 
-The factor $\frac{1}{2}$ does not originate from classical mechanics but from the fundamental quadratic nature of the energy budgets in RG.
+The factor $\frac{1}{2}$ originate from the quadratic nature of the energy budgets in RG.
+The energetic significance of a state is proportional to the \textbf{square} of its geometric projection. This is 
+the unavoidable consequence of relational carriers closure condition ($\text{amplitude}^2+\text{phase}^2 = 1$). By using only amplitudes ($\beta^2$ and $\kappa^2$)  we operating with half's relational budgets of $S^1$ and $S^2$ carriers.
 
-The energetic significance of a state is proportional to the \textbf{square} of its geometric projection. This is analogous to how kinetic energy is proportional to velocity squared ($v^2$) or how the energy in a wave is proportional to its amplitude squared ($A^2$). The individual energy budgets are defined as:
+The individual energy budgets are:
 \begin{itemize}
     \item \textbf{Specific Potential Energy Budget:} $U/E_0 \propto -\frac{1}{2}\kappa^2$
     \item \textbf{Specific Kinetic Energy Budget:} $K/E_0 = \frac{1}{2}\beta^2$

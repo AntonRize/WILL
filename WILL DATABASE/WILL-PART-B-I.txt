@@ -343,8 +343,18 @@ This reconstructed $\kappa_p$ is then used to predict the precession in the next
 
 \subsection{The Universal Precession Law: Derivation via $Q_a$}
 
-For an elliptic orbit, the net angular mismatch (precession) is derived from the displacement norm $Q_a$ (\ref{sec:DisQ}) measured at the system's characteristic scale. We select the semi-major axis $a$ as this reference scale, defining the norm $Q_a$.
 
+\paragraph{Derivation of the Phase Shift.}
+The precession is intrinsic to the relational displacement. Since $Q_a$ represents the norm of deviation from the Euclidean background, the system accumulates a phase mismatch over every closed cycle. The total angular shift is simply the full orbital phase ($2\pi$) scaled by the quadratic intensity of this displacement ($Q_a^2$), normalized by the elliptical geometry factor ($1-e^2$):
+\[
+\Delta\varphi = \underbrace{2\pi}_{\text{Cycle}} \cdot \underbrace{Q_a^2}_{\text{Intensity}} \cdot \underbrace{\frac{1}{1-e^2}}_{\text{Shape Factor}} = \frac{2\pi\,Q_a^{2}}{1-e^{2}}.
+\]
+This yields the general precession law strictly from geometric accumulation:
+\begin{equation}
+\Delta\varphi = \frac{2\pi\,Q_a^{2}}{1-e^{2}}.
+\end{equation}
+Substituting $Q_a^2$, we recover the standard form purely algebraically:
+We select the semi-major axis $a$ as this reference scale, defining the norm $Q_a$.
 At the scale $r=a$, the closure condition ($\kappa^2=2\beta^2$) implies the specific distribution of the invariant Schwarzschild scale $R_s$:
 \[
 \kappa^2(a) = \frac{R_s}{a}, \qquad \beta^2(a) = \frac{R_s}{2a}.
@@ -353,21 +363,14 @@ Substituting these into the definition of the displacement norm $Q^2 = \beta^2 +
 \begin{equation}
 Q_a^2 = \frac{R_s}{2a} + \frac{R_s}{a} = \frac{3R_s}{2a}.
 \end{equation}
-
-The general geometric precession formula is:
-\begin{equation}
-\Delta\varphi = \frac{2\pi\,Q_a^{2}}{1-e^{2}}.
-\end{equation}
-Substituting $Q_a^2$, we recover the standard form purely algebraically:
 \[
 \Delta\varphi = \frac{2\pi}{1-e^2} \left( \frac{3R_s}{2a} \right) = \frac{3\pi R_s}{a(1-e^2)}.
 \]
-
 \subsubsection{Transformation to Periapsis Observables}
 To eliminate the abstract parameters $R_s, a, e$ in favor of direct observables, we map this expression to the periapsis ($p$), where interaction is maximal.
 Using the identities $R_s = \kappa_p^2 r_p$ and $a(1-e^2) = r_p(1+e)$, and the closure relation $(1+e) = 1/\delta_p^2 = 2\beta_p^2/\kappa_p^2$, we arrive at the ultimate operational reduction.
 
-The secular evolution of an orbit is determined solely by the \textbf{ratio of the gravitational redshift to the Doppler shift} at the point of closest approach:
+The secular evolution of an orbit is determined solely by the \textbf{ratio of the gravitational redshift to the Doppler shift} (red vs. blue) at the point of closest approach:
 \label{eq:precession_law}
 \begin{equation}
 \boxed{
@@ -820,6 +823,11 @@ Ontological principle is proven as the inevitable consequence of geometric consi
 Field Equation $\Longleftrightarrow$ Ontological Principle
 
 \end{tcolorbox}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/17_Theoretical-Ouroboros.png}
+\end{figure}
 
 We have shown that this single Ontological Principle  (\ref{pr:unifying}), through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with \(\text{SPACETIME} \equiv \text{ENERGY}\), from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and spacetime, proving the self-consistency of the initial idea.
 
@@ -1497,7 +1505,7 @@ gravitational lensing, perihelion precession, photon spheres, ISCO, horizons ---
 emerge in Relation Geometry as direct consequences of the single closure relation 
 $\kappa^2 = 2\beta^2$. 
 
-Thus, GR is not a rival but a \textbf{specialized, parameter-heavy realization} of 
+Thus, GR is a \textbf{specialized, parameter-heavy realization} of 
 RG's more general principle. In logical terms: 
 \begin{itemize}
     \item Relational Geometry can stand without GR, but GR cannot stand without the relational Principle (W1). 
@@ -1556,7 +1564,7 @@ Explicitly defined: \( \rho_{\text{max}} = \frac{c^2}{8\pi G r^2} \) \\
 
 8 & Concept of Time & 
 Coordinate-based, embedded in \( g_{00} \); system-dependent & 
-Physical: \( \beta \) as projection of energy onto temporal axis \\
+Physical: Temporal order exists if and only if the Phase Component satisfies $ > 0$ \\
 \addlinespace
 
 9 & Dynamics & 
@@ -1576,7 +1584,7 @@ High; built from observable and intrinsic relations \\
 
 12 & Observational Fit & 
 Confirmed (with dark matter/energy assumptions) & 
-Consistent; explains phenomena without "dark entities"  (Details in WILL PART II) \\
+Consistent; explains phenomena without "dark entities" \(\Lambda = 2/3r^2\)  (Details in WILL PART II) \\
 \bottomrule
 \end{tabularx}
 
@@ -1705,12 +1713,13 @@ Schwarzschild photon sphere & $r = 1.5 R_s$ (GR prediction) & $r = 1.5 R_s$ \\
 \hline
 Schwarzschild ISCO & $r = 3 R_s$ (GR prediction) & $r = 3 R_s$ \\
 \hline
-Hulse--Taylor pulsar period decay & $\Delta P \approx -2.42 \times 10^{-12}$ s/s (observed) & $\Delta P \approx -2.40 \times 10^{-12}$ s/s \\
+Hulse--Taylor pulsar period decay & $\Delta P \approx -2.42 \times 10^{-12}$ s/s (observed) & $\Delta P \approx -2.42 \times 10^{-12}$ s/s
+ (predicted)\\
 \hline
 Earth--Moon tidal power (LLR recession) & 0.120 TW orbital power (measured) & 0.120 TW orbital power
  (predicted)\\
 \hline
-Galactic rotation curves & "Dark Matter" speculations.& RMSE=20.23 km/s from projection law for 175 SPARC Galaxies with 0 free parameters (Details in WILL PART II).\\
+Galactic rotation curves & "Dark Matter" speculations.& RMSE=17.92 km/s for 175 SPARC Galaxies with 0 free parameters (Details in WILL PART II).\\
 \hline
 Cosmological absolute scale (Supernovae fit) & Hubble-like expansion, $\Lambda$CDM fits & Emergent from any  one scale input only (Details in WILL PART II).\\
 \hline
