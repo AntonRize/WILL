@@ -1,115 +1,157 @@
-<div id="gd-overall-median-inline" class="mt-4 text-cyan-200 font-semibold"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WILL Galactic Dynamics Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <style>
+        /* Custom scrollbar for better look in dark mode */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1f2937; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+        .form-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #3b82f6; border-radius: 50%; cursor: pointer; }
+        .form-range::-moz-range-thumb { width: 16px; height: 16px; background: #3b82f6; border-radius: 50%; cursor: pointer; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans p-4 md:p-8">
 
-<div id="gd-type-filter" class="bg-gray-800/50 p-6 rounded-lg mb-6 border border-gray-700 shadow-lg">
-  <div class="flex flex-wrap justify-between items-end gap-6">
-    <div class="flex-1">
-      <h4 class="text-lg font-bold text-gray-200 mb-3 flex items-center">
-        <svg class="w-5 h-5 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
-        Filter by Hubble Type
-      </h4>
-      <div id="gd-type-checkboxes" class="flex flex-wrap gap-3 text-gray-300"></div>
-    </div>
+<div class="max-w-7xl mx-auto">
     
-    <div class="bg-gray-900/60 p-4 rounded-lg border border-gray-600">
-      <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Analysis Metric</span>
-      <div class="flex space-x-4">
-        <label class="flex items-center cursor-pointer group">
-          <input type="radio" name="analysis-metric" value="rmse" checked class="form-radio text-blue-500 bg-gray-700 border-gray-500 focus:ring-blue-500">
-          <span class="ml-2 text-gray-200 group-hover:text-white transition">RMSE</span>
-        </label>
-        <label class="flex items-center cursor-pointer group">
-          <input type="radio" name="analysis-metric" value="chi2" class="form-radio text-purple-500 bg-gray-700 border-gray-500 focus:ring-purple-500">
-          <span class="ml-2 text-gray-200 group-hover:text-white transition">Reduced χ²</span>
-        </label>
-      </div>
-    </div>
-  </div>
-  
-  <button id="gd-analyze-types-btn" class="mt-6 px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow-md transition-all transform hover:scale-105 w-full md:w-auto flex items-center justify-center">
-    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-    Analyze Distribution
-  </button>
-</div>
+    <header class="mb-8 border-b border-gray-700 pb-4">
+        <h1 class="text-3xl font-bold text-white mb-2">WILL Relational Geometry <span class="text-blue-400">| Galactic Dynamics</span></h1>
+        <p class="text-gray-400 text-sm">Validating Vacuum Relational Acceleration against SPARC Database</p>
+    </header>
 
-<div id="gd-type-plot" class="bg-gray-800/50 p-4 rounded-lg mb-6 border border-gray-700" style="display:none">
-  <div id="gd-overall-median" class="text-gray-200 font-semibold mb-3 text-lg border-b border-gray-700 pb-2"></div>
-  <div id="gd-rmse-histogram"></div>
-</div>
-
-<div class="calculator-container bg-gray-800/50 p-6 rounded-lg border border-gray-700 shadow-xl">
-  <div id="gd-loader" class="text-center text-blue-300 animate-pulse font-bold text-xl py-10">Loading SPARC Database...</div>
-
-  <div id="gd-calculator-body" style="display:none">
-    
-    <div class="controls-grid grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
-      <div class="control-group">
-        <label for="gd-galaxy-select" class="block text-gray-300 font-bold mb-2">Select Galaxy:</label>
-        <select id="gd-galaxy-select" class="form-control w-full bg-gray-700 text-white border border-gray-600 rounded p-2 focus:ring-2 focus:ring-blue-500"></select>
+    <div id="gd-type-filter" class="bg-gray-800/60 p-6 rounded-xl mb-8 border border-gray-700 shadow-lg backdrop-blur-sm">
+      <div class="flex flex-wrap justify-between items-end gap-6">
         
-        <div id="gd-galaxy-info" class="mt-4 bg-gray-900/50 p-4 rounded border border-gray-600 text-sm text-gray-300 grid grid-cols-2 gap-y-2"></div>
-      </div>
-
-      <div class="control-group bg-gray-900/40 p-5 rounded-lg border border-gray-600 relative overflow-hidden">
-        <div class="absolute top-0 right-0 p-2 opacity-10">
-          <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM4 10a6 6 0 1112 0 6 6 0 01-12 0z"/></svg>
+        <div class="flex-1 min-w-[300px]">
+          <h4 class="text-sm font-bold text-blue-300 uppercase tracking-wider mb-3 flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+            Filter by Morphology (Hubble Type)
+          </h4>
+          <div id="gd-type-checkboxes" class="flex flex-wrap gap-2 text-gray-300"></div>
         </div>
         
-        <div class="flex justify-between items-center mb-6 border-b border-gray-600 pb-3 relative z-10">
-          <span class="text-gray-100 font-bold text-lg">Mass-to-Light (Υ)</span>
-          <label class="flex items-center space-x-2 cursor-pointer bg-gray-700 px-3 py-1.5 rounded-full border border-gray-500 hover:bg-gray-600 transition shadow-sm">
-            <input type="checkbox" id="gd-autofit-check" class="form-checkbox text-blue-500 rounded focus:ring-0">
-            <span class="text-sm font-bold text-blue-300">Auto-fit</span>
-          </label>
-        </div>
-
-        <div class="relative z-10 space-y-5">
-          <div>
-            <div class="flex justify-between text-sm mb-1 font-medium">
-              <label for="gd-ydisk-slider" class="text-blue-200">Disk (Υ<sub>disk</sub>)</label>
-              <span id="gd-ydisk-value" class="text-cyan-400 font-mono">0.50</span>
-            </div>
-            <input type="range" id="gd-ydisk-slider" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500" min="0.05" max="3.00" step="0.01" value="0.50" />
-          </div>
-
-          <div>
-            <div class="flex justify-between text-sm mb-1 font-medium">
-              <label for="gd-ybulge-slider" class="text-yellow-200">Bulge (Υ<sub>bulge</sub>)</label>
-              <span id="gd-ybulge-value" class="text-cyan-400 font-mono">0.70</span>
-            </div>
-            <input type="range" id="gd-ybulge-slider" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-yellow-500" min="0.05" max="3.00" step="0.01" value="0.70" />
+        <div class="bg-gray-900/80 p-4 rounded-lg border border-gray-600">
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-2">Error Metric</span>
+          <div class="flex space-x-4">
+            <label class="flex items-center cursor-pointer group">
+              <input type="radio" name="analysis-metric" value="rmse" checked class="form-radio text-blue-500 bg-gray-800 border-gray-600 focus:ring-blue-500">
+              <span class="ml-2 text-gray-300 group-hover:text-white transition text-sm">RMSE (km/s)</span>
+            </label>
+            <label class="flex items-center cursor-pointer group">
+              <input type="radio" name="analysis-metric" value="chi2" class="form-radio text-purple-500 bg-gray-800 border-gray-600 focus:ring-purple-500">
+              <span class="ml-2 text-gray-300 group-hover:text-white transition text-sm">Reduced χ²</span>
+            </label>
           </div>
         </div>
       </div>
+      
+      <button id="gd-analyze-types-btn" class="mt-6 w-full py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-lg shadow-lg transition-all transform active:scale-95 flex items-center justify-center">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        Run Batch Analysis
+      </button>
+
+      <div id="gd-type-plot" class="mt-6 bg-gray-900/50 p-4 rounded-lg border border-gray-700 hidden">
+        <div id="gd-overall-median" class="text-white font-mono text-sm mb-2 border-b border-gray-700 pb-2"></div>
+        <div id="gd-rmse-histogram" class="w-full h-64"></div>
+      </div>
     </div>
 
-    <div id="gd-results" class="grid grid-cols-2 gap-6 mb-8">
-      <div class="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-lg p-4 text-center shadow-lg relative overflow-hidden group hover:border-blue-500 transition">
-        <div class="absolute top-0 right-0 w-16 h-16 bg-white opacity-5 rounded-full -mr-8 -mt-8"></div>
-        <div class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">RMSE</div>
-        <div class="text-4xl font-black text-white tracking-tight group-hover:text-blue-400 transition" id="res-rmse">--</div>
-        <div class="text-xs text-gray-500 mt-1 font-mono">km/s</div>
+    <div class="calculator-container bg-gray-800/60 p-6 rounded-xl border border-gray-700 shadow-xl backdrop-blur-sm relative">
+      
+      <div id="gd-loader" class="absolute inset-0 flex items-center justify-center bg-gray-900/90 z-50 rounded-xl">
+        <div class="text-blue-400 animate-pulse font-bold text-xl flex flex-col items-center">
+            <svg class="animate-spin h-8 w-8 mb-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+            Loading SPARC Database...
+        </div>
       </div>
-      <div class="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-lg p-4 text-center shadow-lg relative overflow-hidden group hover:border-purple-500 transition">
-        <div class="absolute top-0 right-0 w-16 h-16 bg-white opacity-5 rounded-full -mr-8 -mt-8"></div>
-        <div class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Reduced χ²</div>
-        <div class="text-4xl font-black text-purple-300 tracking-tight group-hover:text-purple-200 transition" id="res-chi">--</div>
-        <div class="text-xs text-gray-500 mt-1 font-mono">Target ~ 1.0</div>
+
+      <div id="gd-calculator-body" class="hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+            
+          <div class="lg:col-span-4 space-y-6">
+            <div>
+                <label for="gd-galaxy-select" class="block text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">Select Target Galaxy</label>
+                <div class="relative">
+                    <select id="gd-galaxy-select" class="block w-full bg-gray-900 text-white border border-gray-600 rounded-lg py-3 px-4 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none"></select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="gd-galaxy-info" class="bg-gray-900/80 p-5 rounded-lg border border-gray-700 space-y-3 font-mono text-sm">
+                </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-gray-700/30 border border-gray-600 rounded-lg p-4 text-center">
+                    <div class="text-gray-500 text-xs font-bold uppercase mb-1">RMSE</div>
+                    <div class="text-3xl font-black text-white" id="res-rmse">--</div>
+                    <div class="text-xs text-gray-500">km/s</div>
+                </div>
+                <div class="bg-gray-700/30 border border-gray-600 rounded-lg p-4 text-center">
+                    <div class="text-gray-500 text-xs font-bold uppercase mb-1">Reduced χ²</div>
+                    <div class="text-3xl font-black text-purple-300" id="res-chi">--</div>
+                    <div class="text-xs text-gray-500">Target ~ 1.0</div>
+                </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 bg-gray-900/40 p-6 rounded-xl border border-gray-600 relative overflow-hidden">
+             <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
+
+             <div class="flex justify-between items-center mb-8 border-b border-gray-700 pb-4 relative z-10">
+                <div>
+                    <h3 class="text-xl font-bold text-white">Stellar Mass-to-Light Ratios ($\Upsilon_*$)</h3>
+                    <p class="text-xs text-gray-400">Control the baryonic mass contribution</p>
+                </div>
+                <label class="flex items-center space-x-3 cursor-pointer bg-gray-800 px-4 py-2 rounded-full border border-gray-600 hover:border-blue-500 transition group">
+                  <input type="checkbox" id="gd-autofit-check" class="form-checkbox text-blue-500 rounded bg-gray-900 border-gray-600 focus:ring-0">
+                  <span class="text-sm font-bold text-blue-300 group-hover:text-blue-200">Auto-Optimization</span>
+                </label>
+             </div>
+
+             <div class="space-y-8 relative z-10">
+                <div>
+                  <div class="flex justify-between text-sm mb-2">
+                    <label class="text-blue-300 font-bold flex items-center">
+                        <span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span> Disk Component ($\Upsilon_{disk}$)
+                    </label>
+                    <span id="gd-ydisk-value" class="font-mono text-white bg-gray-800 px-2 py-0.5 rounded border border-gray-700">0.50</span>
+                  </div>
+                  <input type="range" id="gd-ydisk-slider" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 hover:accent-blue-400" min="0.05" max="3.00" step="0.01" value="0.50" />
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-sm mb-2">
+                    <label class="text-yellow-300 font-bold flex items-center">
+                        <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span> Bulge Component ($\Upsilon_{bulge}$)
+                    </label>
+                    <span id="gd-ybulge-value" class="font-mono text-white bg-gray-800 px-2 py-0.5 rounded border border-gray-700">0.70</span>
+                  </div>
+                  <input type="range" id="gd-ybulge-slider" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-yellow-500 hover:accent-yellow-400" min="0.05" max="3.00" step="0.01" value="0.70" />
+                </div>
+             </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+          <div class="bg-gray-900 rounded-xl border border-gray-700 p-1 shadow-inner h-[450px]">
+            <div id="gd-plot-div" class="w-full h-full"></div>
+          </div>
+          <div class="bg-gray-900 rounded-xl border border-gray-700 p-1 shadow-inner h-[450px]">
+            <div id="gd-plot-div-components" class="w-full h-full"></div>
+          </div>
+        </div>
+
       </div>
     </div>
-    
-    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
-      <div class="bg-gray-900 rounded-lg border border-gray-700 p-2 shadow-inner h-[500px]">
-        <div id="gd-plot-div" class="w-full h-full"></div>
-      </div>
-      <div class="bg-gray-900 rounded-lg border border-gray-700 p-2 shadow-inner h-[500px]">
-        <div id="gd-plot-div-components" class="w-full h-full"></div>
-      </div>
-    </div>
-  </div>
 </div>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
 
 <script>
 { // Scope isolation
@@ -155,7 +197,7 @@
   /* --- DATA LOADING --- */
   async function loadData(){
     try{
-      if(!window.Plotly) throw new Error("Plotly failed to load.");
+      if(!window.Plotly) throw new Error("Plotly library not loaded.");
       const [t1Res,t2Res]=await Promise.all([fetch(URL_TABLE1),fetch(URL_TABLE2)]);
       if(!t1Res.ok||!t2Res.ok) throw new Error("Failed to fetch SPARC tables.");
 
@@ -206,7 +248,7 @@
       });
       
       initGalaxyTypeCheckboxes();
-      loader.style.display="none"; bodyEl.style.display="block";
+      loader.style.display="none"; bodyEl.style.display="block"; // Show UI
       
       // Initial State
       galaxySelect.selectedIndex=0;
@@ -214,7 +256,7 @@
       updateAll();
       
     }catch(err){
-      loader.textContent = "Error: " + err.message;
+      loader.innerHTML = `<span class="text-red-400">Error: ${err.message}</span>`;
       console.error(err);
     }
   }
@@ -233,17 +275,19 @@
       const vd = d.Vdisk > 0 ? d.Vdisk : 0;
       const vb = d.Vbul > 0 ? d.Vbul : 0;
 
-      // 1. Baryonic Velocity (Separate Disks & Bulge M/L)
+      // 1. Baryonic Velocity (Weighted Sum)
+      // V_bary = sqrt( Vgas^2 + Y_disk*Vdisk^2 + Y_bulge*Vbulge^2 )
       const vbary2 = vg*vg + yDisk * (vd*vd) + yBulge * (vb*vb);
       const vbary  = Math.sqrt(Math.max(0, vbary2));
       
       // 2. WILL Vacuum Screening
       let chi = 0;
       if (d.Rad > 0) {
+        // g_bar = V^2 / r.  Convert km/s -> m/s, kpc -> m
         const g_bar = (vbary * 1000)**2 / (d.Rad * KPC_TO_M);
         chi = g_bar / A_VAC_SI;
       } else {
-        chi = 1e6; // Infinite acceleration at center -> Newtonian
+        chi = 1e6; // Infinite acceleration -> Newton
       }
       
       // 3. WILL Prediction
@@ -273,10 +317,12 @@
     let bestBulge = 0.7;
     let minErr = Infinity;
 
+    // Helper: Optimize one param while holding other fixed
     const scan = (isDiskScanning) => {
       let localBest = isDiskScanning ? bestDisk : bestBulge;
       let localMin = minErr;
       
+      // Coarse scan
       for(let val = 0.05; val <= 2.5; val += 0.1) {
         const d = isDiskScanning ? val : bestDisk;
         const b = isDiskScanning ? bestBulge : val;
@@ -284,7 +330,7 @@
         const err = calculateRMSE(S.Vobs, S.Vq);
         if(isFinite(err) && err < localMin) { localMin = err; localBest = val; }
       }
-      // Fine tune
+      // Fine scan
       let start = Math.max(0.01, localBest - 0.1);
       let end = localBest + 0.1;
       for(let val = start; val <= end; val += 0.01) {
@@ -297,17 +343,15 @@
       return { val: localBest, err: localMin };
     };
 
-    // Pass 1: Disk
+    // Iterative optimization
     let res = scan(true); bestDisk = res.val; minErr = res.err;
-    // Pass 2: Bulge
     res = scan(false); bestBulge = res.val; minErr = res.err;
-    // Pass 3: Disk Refine
     res = scan(true); bestDisk = res.val; minErr = res.err;
 
     return { yDisk: bestDisk, yBulge: bestBulge };
   }
 
-  /* --- METRICS & UTILS --- */
+  /* --- METRICS UTILS --- */
   function calculateRMSE(obs, pred){
     let s=0, k=0;
     for(let i=0;i<Math.min(obs.length,pred.length);i++){
@@ -333,6 +377,7 @@
     const name = galaxySelect.value; if(!name) return;
     const isAuto = autofitCheck.checked;
     
+    // UI State for sliders
     if (isAuto) {
       yDiskSlider.disabled = true; yBulgeSlider.disabled = true;
       yDiskSlider.parentElement.parentElement.classList.add("opacity-50", "pointer-events-none");
@@ -355,7 +400,10 @@
       yBulgeDisplay.textContent = yBulge.toFixed(2);
     }
 
+    // Run Calculation
     const S = seriesQWILL(name, yDisk, yBulge);
+    
+    // Update Metrics
     const R = calculateRMSE(S.Vobs, S.Vq);
     const k_param = isAuto ? 2 : 0; 
     const Chi = calculateReducedChi2(S.Vobs, S.Vq, S.Verr, k_param);
@@ -369,46 +417,56 @@
   function drawPlots(name, S){
     if(!window.Plotly) return;
     const ymax = Math.max(1, ...S.Vobs, ...S.Vq);
+    
+    // Common layout style
     const layoutBase = {
-      xaxis:{ title:"r (kpc)", color:"#9ca3af", gridcolor:"#374151" },
+      xaxis:{ title:"Radius (kpc)", color:"#9ca3af", gridcolor:"#374151" },
       yaxis:{ title:"Velocity (km/s)", color:"#9ca3af", gridcolor:"#374151", range:[0, ymax*1.1] },
       legend:{ orientation:"h", y:1.1, bgcolor:"transparent", font:{color:"#d1d5db"} },
       margin:{ l:50, r:20, b:40, t:50 },
       paper_bgcolor:"transparent", plot_bgcolor:"transparent", font:{ color:"#d1d5db" }
     };
 
+    // Plot 1: Main RC
     Plotly.react(plotDiv, [
       { x:S.r, y:S.Vobs, error_y:{ type:'data', array:S.Verr, visible:true, color:'#6b7280' }, mode:"markers", name:"Observed", marker:{ color:"#d1d5db", size:6 }},
-      { x:S.r, y:S.Vbary, mode:"lines", name:"Baryonic (Newton)", line:{ color:"#9ca3af", dash:"dash" }},
-      { x:S.r, y:S.Vq, mode:"lines", name:"WILL Predicted", line:{ color:"#67e8f9", width:3 }}
+      { x:S.r, y:S.Vbary, mode:"lines", name:"Newtonian (Baryonic Only)", line:{ color:"#9ca3af", dash:"dash" }},
+      { x:S.r, y:S.Vq, mode:"lines", name:"WILL Prediction", line:{ color:"#67e8f9", width:3 }}
     ], { ...layoutBase, title:`Rotation Curve: ${name}` });
 
+    // Plot 2: Components
     Plotly.react(plotDivComponents, [
-      { x:S.r, y:S.Vobs, mode:"markers", name:"Observed", marker:{ color:"#6b7280", size:5, symbol:"circle-open" }},
-      { x:S.r, y:S.components.Vgas, mode:"lines", name:"Gas", line:{ color:"#10b981" }},
-      { x:S.r, y:S.components.Vdisk_scaled, mode:"lines", name:"Disk", line:{ color:"#3b82f6" }},
-      { x:S.r, y:S.components.Vbulge_scaled, mode:"lines", name:"Bulge", line:{ color:"#f59e0b" }}
-    ], { ...layoutBase, title:`Components Breakdown` });
+      { x:S.r, y:S.Vobs, mode:"markers", name:"Observed", marker:{ color:"#4b5563", size:4, symbol:"circle-open" }},
+      { x:S.r, y:S.components.Vgas, mode:"lines", name:"Gas", line:{ color:"#10b981", width:1.5 }},
+      { x:S.r, y:S.components.Vdisk_scaled, mode:"lines", name:"Disk (Scaled)", line:{ color:"#3b82f6", width:1.5 }},
+      { x:S.r, y:S.components.Vbulge_scaled, mode:"lines", name:"Bulge (Scaled)", line:{ color:"#f59e0b", width:1.5 }}
+    ], { ...layoutBase, title:`Mass Components Decomposition` });
   }
 
   function updateGalaxyInfo(){
      const meta=galaxyMeta[galaxySelect.value]; if(!meta) return;
      galaxyInfoDiv.innerHTML = `
-       <div><span class="text-gray-500">Type:</span> <span class="font-bold text-white">${meta.TypeLabel}</span></div>
-       <div><span class="text-gray-500">Dist:</span> <span class="font-bold text-white">${meta.Dist} Mpc</span></div>
-       <div><span class="text-gray-500">Lum:</span> <span class="font-bold text-white">${meta.L36} G L&#9737;</span></div>
-       <div><span class="text-gray-500">R_disk:</span> <span class="font-bold text-white">${meta.Rdisk} kpc</span></div>
+       <div class="flex justify-between border-b border-gray-700 pb-1"><span>Morphology:</span> <span class="text-white font-bold">${meta.TypeLabel}</span></div>
+       <div class="flex justify-between border-b border-gray-700 pb-1"><span>Distance:</span> <span class="text-white font-bold">${meta.Dist} Mpc</span></div>
+       <div class="flex justify-between border-b border-gray-700 pb-1"><span>Luminosity:</span> <span class="text-white font-bold">${meta.L36} G L&#9737;</span></div>
+       <div class="flex justify-between"><span>Disk Scale:</span> <span class="text-white font-bold">${meta.Rdisk} kpc</span></div>
      `;
   }
 
-  /* --- GROUP ANALYSIS (Optimized & Linked) --- */
+  /* --- GROUP ANALYSIS --- */
   function analyzeSelectedTypes(){
     const btn = document.getElementById("gd-analyze-types-btn");
-    btn.textContent = "Calculating..."; btn.disabled = true;
+    btn.innerHTML = `<svg class="animate-spin h-5 w-5 mr-3 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...`;
+    btn.disabled = true;
 
+    // Use timeout to allow UI refresh
     setTimeout(() => {
       const selected = Array.from(document.querySelectorAll("#gd-type-checkboxes input:checked")).map(cb=>cb.value);
-      if(!selected.length){ alert("Select types."); btn.textContent="Analyze Distribution"; btn.disabled=false; return; }
+      
+      if(!selected.length){ 
+        alert("Please select at least one galaxy type."); 
+        btn.textContent="Run Batch Analysis"; btn.disabled=false; return; 
+      }
       
       const isAuto = autofitCheck.checked;
       const fixedDisk = +yDiskSlider.value;
@@ -424,6 +482,7 @@
         
         let yD = fixedDisk, yB = fixedBulge;
         if(isAuto){
+          // Perform optimization for EVERY galaxy if auto is checked
           const best = optimizeTwoParams(name);
           yD = best.yDisk; yB = best.yBulge;
         }
@@ -434,12 +493,12 @@
             ? calculateRMSE(S.Vobs, S.Vq)
             : calculateReducedChi2(S.Vobs, S.Vq, S.Verr, isAuto?2:0);
           
-          if(Number.isFinite(val) && val < 500) metricValues.push(val);
+          if(Number.isFinite(val) && val < 500) metricValues.push(val); // Filter outliers
         }
       }
       
       plotHistogram(metricValues, mode, isAuto, fixedDisk, fixedBulge);
-      btn.textContent = "Analyze Distribution"; btn.disabled = false;
+      btn.textContent = "Run Batch Analysis"; btn.disabled = false;
     }, 50);
   }
 
@@ -449,13 +508,14 @@
     const median = sorted[Math.floor(sorted.length/2)];
     const label = mode==='rmse'?"RMSE":"Reduced χ²";
     const modeTxt = isAuto ? "(Auto-fitted Υ)" : `(Fixed: D=${fd}, B=${fb})`;
+    const unit = mode==='rmse' ? "km/s" : "";
 
     document.getElementById("gd-overall-median").innerHTML = 
-      `Metric: <span class="text-blue-400">${label}</span> — N=${values.length} — <span class="text-green-400">Median: ${median.toFixed(2)}</span> <span class="text-gray-500 text-sm ml-2">${modeTxt}</span>`;
+      `Result: <span class="text-blue-400 font-bold">${label}</span> | Sample N=${values.length} | <span class="text-green-400 font-bold text-lg">Median: ${median.toFixed(2)} ${unit}</span> <span class="text-gray-500 text-xs ml-2">${modeTxt}</span>`;
 
-    // Concise Binning Logic (Replaces buildHistogramData)
-    const maxVal = Math.min(Math.max(...values), mode==='rmse'?100:20);
-    const binCount = 25;
+    // Binning
+    const maxVal = Math.min(Math.max(...values), mode==='rmse'?80:10); // Cap visualization
+    const binCount = 30;
     const binSize = maxVal/binCount;
     const x = [], y = new Array(binCount).fill(0);
     
@@ -468,13 +528,15 @@
 
     const trace = { type: "bar", x: x, y: y, marker: { color: "#67e8f9", line: {color:"#1f2937", width:1} } };
     const layout = {
-      xaxis:{ title: label, color:"#9ca3af" },
-      yaxis:{ title: "Count", color:"#9ca3af" },
+      xaxis:{ title: `${label} ${unit}`, color:"#9ca3af", gridcolor:"#374151" },
+      yaxis:{ title: "Count", color:"#9ca3af", gridcolor:"#374151" },
       paper_bgcolor:"transparent", plot_bgcolor:"transparent", font:{ color:"#d1d5db" },
-      margin:{ l:40,r:20,t:20,b:40 }
+      margin:{ l:40,r:20,t:20,b:40 },
+      bargap: 0.1
     };
+    
+    document.getElementById("gd-type-plot").classList.remove("hidden");
     Plotly.newPlot("gd-rmse-histogram", [trace], layout);
-    document.getElementById("gd-type-plot").style.display="block";
   }
 
   function initGalaxyTypeCheckboxes(){
@@ -483,13 +545,13 @@
     distinctTypes.forEach(labelName=>{
       const id = `type_${labelName.replace(/[^a-zA-Z0-9_-]/g,'_')}`;
       const wrap=document.createElement("label");
-      wrap.className="flex items-center space-x-2 cursor-pointer bg-gray-700/50 px-3 py-1 rounded border border-gray-600 hover:bg-gray-600 transition";
-      wrap.innerHTML = `<input id="${id}" type="checkbox" value="${labelName}" checked class="form-checkbox text-blue-500 rounded bg-gray-800 border-gray-500" /> <span class="text-sm font-medium">${labelName}</span>`;
+      wrap.className="flex items-center space-x-2 cursor-pointer bg-gray-700 px-3 py-1.5 rounded-full border border-gray-600 hover:bg-gray-600 hover:border-blue-400 transition select-none";
+      wrap.innerHTML = `<input id="${id}" type="checkbox" value="${labelName}" checked class="form-checkbox text-blue-500 rounded bg-gray-800 border-gray-500 focus:ring-offset-gray-900" /> <span class="text-xs font-bold">${labelName}</span>`;
       container.appendChild(wrap);
     });
   }
 
-  /* INIT */
+  /* INIT LISTENERS */
   document.addEventListener("DOMContentLoaded", ()=>{
     loadData();
     document.getElementById("gd-analyze-types-btn").addEventListener("click", analyzeSelectedTypes);
@@ -501,3 +563,5 @@
 
 } // End Scope
 </script>
+</body>
+</html>
