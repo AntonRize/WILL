@@ -218,11 +218,11 @@ The complete structure of the hydrogen atom is now constrained by a closed syste
 \begin{lemma}[The Geometric System of Equations]
 The stable states of the hydrogen atom are the solutions to the following system:
 \begin{enumerate}
-    \item \textbf{Topological Closure:} $\beta_n^2 \approx \frac{n^2\hbar^2}{m_e^2 c^2 r_n^2}$
-    \item \textbf{Scale Principle:} $\kappa_n^2 = \frac{R_q}{r_n}$
-    \item \textbf{Geometric Closure:} $\kappa_n^2 = 2\beta_n^2$
+    \item \textbf{Topological Closure:} $\beta_q^2 \approx \frac{n^2\hbar^2}{m_e^2 c^2 r_n^2}$
+    \item \textbf{Scale Principle:} $\kappa_q^2 = \frac{R_q}{r_n}$
+    \item \textbf{Geometric Closure:} $\kappa_q^2 = 2\beta_q^2$
 \end{enumerate}
-The non-relativistic approximation for $\beta_n$ is used, consistent with the low energy scale of the hydrogen atom.
+The non-relativistic approximation for $\beta_q$ is used, consistent with the low energy scale of the hydrogen atom.
 \end{lemma}
 
 \begin{theorem}[Derivation of Quantized Atomic Radii]
@@ -230,9 +230,9 @@ The allowed orbital radii $r_n$ are derived solely from the simultaneous solutio
 \[ r_n = \frac{4\pi\varepsilon_0 n^2 \hbar^2}{m_e e^2} \]
 \end{theorem}
 \begin{proof}
-We begin by substituting the expression for $\beta_n^2$ from (1) into the geometric closure condition (3):
-\[ \kappa_n^2 = 2 \left( \frac{n^2\hbar^2}{m_e^2 c^2 r_n^2} \right) \]
-Next, we equate this with the expression for $\kappa_n^2$ from the scale principle (2):
+We begin by substituting the expression for $\beta_q^2$ from (1) into the geometric closure condition (3):
+\[ \kappa_q^2 = 2 \left( \frac{n^2\hbar^2}{m_e^2 c^2 r_n^2} \right) \]
+Next, we equate this with the expression for $\kappa_q^2$ from the scale principle (2):
 \[ \frac{R_q}{r_n} = \frac{2n^2\hbar^2}{m_e^2 c^2 r_n^2} \]
 We solve for $r_n$. Canceling one factor of $r_n$ from both sides gives:
 \[ r_n = \frac{2n^2\hbar^2}{m_e^2 c^2 R_q} \]
@@ -395,23 +395,39 @@ Nature & Probabilistic & Geometric \\
 \subsection{Implications}
 Our geometric approach suggests that the photoelectric effect is not inherently probabilistic but emerges from standing wave interactions. 
 
-
 \section{The Geometric Origin of the Fine Structure Constant}
 
-We now arrive at the central result of this paper. With the atomic length scale $a_0$ derived from pure geometry, we can calculate the electron's relational projections and uncover the identity of a fundamental constant of nature.
+We now arrive at the one of the central results of this paper. With the atomic length scale $a_0$ derived strictly from the intersection of geometric limits, we can calculate the electron's relational projections and uncover the identity of a fundamental constant of nature.
+
+\begin{remark}[Consistency of Geometry]
+It is crucial to note that we continue to use the exact same RG principles established in WILL Parts I and II:
+\begin{itemize}
+    \item \textbf{Kinematic Carrier ($S^1$):} Enforces closure via $\beta^{2} + \beta_Y ^{2} = 1 $.
+    \item \textbf{Potential Carrier ($S^2$):} Enforces closure via $\kappa_X^{2} + \kappa^{2} = 1 $.
+\end{itemize}
+We strictly reject any ad-hoc introduction of hyperbolic or open geometries. Both cosmological and atomic systems are governed by the same compact, circular invariants.
+\end{remark}
 
 \begin{theorem}[The Fine Structure Constant as the Ground-State Kinetic Projection]
 The fine structure constant, $\alpha$, is identical to the kinetic projection, $\beta_1$, of the electron in the ground state of the hydrogen atom.
 \[
-\boxed{\alpha = \beta_1}
+\boxed{\alpha \equiv \beta_1}
 \]
 \end{theorem}
+
 \begin{proof}
-We use our geometric system to find the value of $\beta_1$. From the geometric closure condition, $\beta_1^2 = \kappa_1^2/2$. From the scale principle, $\kappa_1^2 = R_q/r_1 = R_q/a_0$. Therefore:
+We use the established geometric system to find the value of $\beta_1$.
+\begin{enumerate}
+    \item From the \textbf{Geometric Closure Condition} (Theorem \ref{thm:closure}), the balance between carriers dictates:
+    \[ \beta_1^2 = \frac{1}{2}\kappa_1^2 \]
+    \item From the \textbf{Scale Principle} (Principle \ref{pr:scale}), the potential projection is the ratio of the critical scale to the orbital radius:
+    \[ \kappa_1^2 = \frac{R_q}{a_0} \]
+\end{enumerate}
+Combining these yields the projection equation:
 \[ \beta_1^2 = \frac{1}{2} \frac{R_q}{a_0} \]
-Substituting the expressions for $R_q$ and $a_0$:
+Substituting the derived expressions for the electromagnetic critical radius $R_q$ and the Bohr radius $a_0$:
 \[ \beta_1^2 = \frac{1}{2} \left( \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} \right) \left( \frac{m_e e^2}{4\pi\varepsilon_0 \hbar^2} \right) \]
-The terms simplify to:
+Simplifying the terms:
 \[ \beta_1^2 = \frac{e^4}{(4\pi\varepsilon_0)^2 \hbar^2 c^2} = \left( \frac{e^2}{4\pi\varepsilon_0 \hbar c} \right)^2 \]
 We recognize the term in parentheses as the standard definition of the fine structure constant, $\alpha$.
 \[ \beta_1^2 = \alpha^2 \implies \beta_1 = \alpha \]
@@ -419,7 +435,7 @@ The theorem is proven.
 \end{proof}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Remark: A Derived Constant]
-The fine structure constant has historically been regarded as a fundamental, dimensionless constant of nature whose value ($\approx 1/137$) is determined only by experiment. This derivation reveals its true identity: it is a \textbf{derived ratio of geometric projections}, fixed by the self-consistency requirements of the electron's relational geometry.
+The fine structure constant has historically been regarded as an empirical, fundamental parameter ($\approx 1/137$). This derivation might hight light its true ontological identity: as a \textbf{derived ratio of geometric projections}, fixed by the self-consistency requirements of the electron's relational geometry in the ground state.
 \end{tcolorbox}
 
 \section{Emergence of Quantized Energy Levels}
@@ -430,141 +446,143 @@ The final piece of the atomic puzzle, the energy spectrum, now follows as a dire
 The energy levels of the hydrogen atom are given by:
 \[ E_n = -\frac{\alpha^2 m_e c^2}{2n^2} \]
 \end{theorem}
+
 \begin{proof}
-The total energy $E_n$ of a stable bound state is given by the virial theorem, which in our framework is a consequence of the geometric closure condition $\kappa_n^2=2\beta_n^2$. The theorem states $E_n = -K_n$. The kinetic energy budget is defined as $K_n = \frac{1}{2} m_e c^2 \beta_n^2$. Therefore:
-\[ E_n = -\frac{1}{2} m_e c^2 \beta_n^2 \]
-From the result $\beta_1 = \alpha$ and the quantization condition $p_n \propto 1/r_n \propto 1/n^2$, it follows that $p_n \propto 1/n$ and thus $\beta_n = \beta_1 / n = \alpha / n$. Substituting this into the energy expression gives the final result.
+The total energy $E_n$ of a stable bound state is given by the virial relation, which in our framework is a consequence of the geometric closure condition $\kappa_q^2=2\beta_q^2$. This implies $E_n = -K_n$, where the kinetic energy budget is $K_n = \frac{1}{2} m_e c^2 \beta_q^2$. Thus:
+\[ E_n = -\frac{1}{2} m_e c^2 \beta_q^2 \]
+For the ground state, we established $\beta_1 = \alpha$.
+The quantization condition implies that the momentum scales inversely with the principal winding number: $p_n \propto 1/n$. Since $\beta_q \propto p_n$, the kinetic projection scales as:
+\[ \beta_q = \frac{\beta_1}{n} = \frac{\alpha}{n} \]
+Substituting this into the energy expression yields the final result:
+\[ E_n = -\frac{1}{2} m_e c^2 \left(\frac{\alpha}{n}\right)^2 = -\frac{\alpha^2 m_e c^2}{2n^2} \]
 \end{proof}
 
 \section{The Unified State as a Geometric Equilibrium}
 
-Our previous investigations revealed that non-relativistic models and simple relativistic corrections fail to describe the fine structure of high-Z atoms. This failure proved that a perturbative approach is insufficient. The complete atomic state is not a simple sum of parts, but a single, unified geometric object.
+Our previous investigations revealed that non-relativistic models and simple relativistic corrections fail to describe the fine structure of high-Z atoms. This failure proves that a perturbative approach is insufficient. The complete atomic state is not a simple sum of parts, but a single, unified geometric object.
 
 \begin{principle}[The Quantum State as Geometric Equilibrium]
-A stationary quantum state does not evolve in time. It is a point of stable geometric equilibrium in the composite phase space (relational space) describing the system. Its observable properties, including energy, are determined by the coordinates of this equilibrium point.
+A stationary quantum state does not evolve in time. It is a point of stable geometric equilibrium in the composite phase space describing the system. Its observable properties, including energy, are determined strictly by the coordinates of this equilibrium point on the relational carriers.
 \end{principle}
 
-Our task is to define the geometry of this phase space and find the location of its stable points.
+\textbf{RG Method:}
+Standard approaches often invoke hyperbolic geometry (boosts) to describe relativistic effects. However, in WILL, the system is closed. Therefore, the geometry of the phase space determining the "fine structure" must remain consistent with the \textbf{circular invariants} of $S^1$ and $S^2$. We seek a solution where the interaction term acts as a geometric projection within a closed Pythagorean system, not as a hyperbolic deformation.
 
-\section{The Hyperbolic Geometry of Angular Phase Space}
 
-The fine structure splitting arises from the interaction between the primary (orbital) and orthogonal (spin) modes. The strength of this interaction is quantified by the coupling parameter $Z\alpha$. In the weak-field limit ($Z\alpha \to 0$), the phase space of the angular quantum numbers can be treated as "flat," and the quantum numbers $l$ and $j$ behave as simple integers or half-integers.
+\section{The Relational Geometry of Angular Phase Space}
 
-\begin{proposition}[Interaction-Induced Curvature]
-The kinetic interaction, quantified by the projection $Z\alpha$, induces a curvature in the phase space of the angular quantum numbers. Consequently, the flat-space integer quantum numbers must be replaced by real-valued geometric projections.
+The fine structure splitting arises from the interaction between the primary (orbital) and orthogonal (spin) modes. The strength of this interaction is quantified by the coupling parameter $\beta_q=Z\alpha/n$. In the weak-field limit ($Z\alpha \to 0$), the angular quantum numbers can be treated as "flat," meaning they are not affected by the relativistic phase shift. However, in the strong-field regime, the geometry deforms.
+
+\begin{proposition}[Interaction-Induced Phase Shift]
+The kinetic interaction, quantified by the projection $\beta_q$, induces a phase shift in the angular quantum numbers via the Closure Constraint ($\beta_q^2+\beta_{Yq}^2=1$). Consequently, the integer quantum numbers must be corrected to account for this geometric contraction.
 \end{proposition}
 
-\begin{theorem}[The Hyperbolic Geometry of Phase Space]
-The fundamental geometry of all relativistic projections in the WILL framework is hyperbolic (Minkowski-like), governed by the relation $C^2 - A^2 = B^2$. This same geometry must apply to the curved angular phase space.
+\begin{theorem}[The Pythagorean Partition of Phase Space]
+The geometry of all relational projections must obey the constraint of their respective relational carrier ($S^1$). Unlike standard relativity which often invokes hyperbolic geometry for kinematics, WILL Relational Geometry imposes \textbf{circular closure}. The total topological capacity of a state is distributed between its interaction component and its structural component according to the Pythagorean invariant $C^2 = A^2 + B^2$.
 \end{theorem}
+
 \begin{proof}
-This is a direct application of the universal structure of our framework. The relationship between total energy, momentum, and rest mass ($m^2=E^2-p^2$) and the definition of the phase component ($\beta_Y^2 = 1-\beta^2$) are both expressions of a fundamental hyperbolic geometry. To introduce a different geometry for the angular phase space would be an ad-hoc postulate. Methodological purity demands that we apply the same established geometry.
+This is a direct application of the universal structure of Relational Geometry established in "WILL RG Part I". Since the carrier $S^1$ is compact and closed, any projection $\beta$ implies a complementary projection $\beta_Y$ such that their squares sum to unity.
+When applied to angular momentum, the total integer capacity ($k$) acts as the invariant radius (hypotenuse). The interaction strength ($Z\alpha$) acts as one projection (cathetus). Therefore, the remaining structural component must form the second cathetus of a right triangle in phase space.
 \end{proof}
 
 This theorem allows us to define the true, relativistic angular number.
 
 \begin{definition}[Relativistic Angular Number]
-In the curved phase space, the integer angular number $k=j+1/2$ represents the "total" or "time-like" component. The interaction coupling $Z\alpha$ represents the "kinetic" or "space-like" component. The resulting invariant, or "rest" component, is the \textbf{relativistic angular number}, $k'$.
+In the closed phase space:
+\begin{itemize}
+    \item The integer angular number $k=j+1/2$ represents the \textbf{Hypotenuse} (Total topological capacity).
+    \item The interaction coupling $Z\alpha$ represents the \textbf{Interaction Projection} (The portion of capacity consumed by the field).
+    \item The resulting invariant $k'$ represents the \textbf{Structural Projection} (The effective angular momentum).
+\end{itemize}
 \end{definition}
 
 \begin{corollary}[Derivation of $k'$]
-From the hyperbolic geometry of the phase space, the relativistic angular number $k'$ is given by:
-\[ (k')^2 = k^2 - (Z\alpha)^2 \]
-\[ \boxed{k' = \sqrt{(j+1/2)^2 - (Z\alpha)^2}} \]
+From the Pythagorean geometry of the phase space ($Hypotenuse^2 = SideA^2 + SideB^2$), the relativistic angular number $k'$ is derived as:
+\[ k^2 = (Z\alpha)^2 + (k')^2 \]
+Solving for the structural component:
+\[ \boxed{k' = \sqrt{k^2 - (Z\alpha)^2}} \]
 \end{corollary}
 
 
 \subsection{Quantized Relational Geometry}
 
-To maintain full structural symmetry between the classical and quantum domains,
-we extend the relational invariants $(\kappa_X, \beta_Y)$ into their quantized counterparts
-$(\kappa_{qX}, \beta_{qY})$.
+To maintain full structural symmetry between the classical and quantum domains, we extend the relational invariants $(\kappa, \beta)$ into their quantized counterparts $(\kappa_{q}, \beta_{q})$.
 
 \paragraph{Definition.}
 The quantized projections obey the same closure relations as their classical analogues:
 \[
 \boxed{
-\kappa_{qX}^2 = \frac{R_q}{r_n}
+\kappa_{q}^2 = \frac{R_q}{r_n}
 \qquad\text{and}\qquad
-\kappa_{qX}^2 = 2\,\beta_{qY}^2
+\kappa_{q}^2 = 2\beta_{q}^2
 }
 \]
 where:
 \begin{itemize}
-    \item $R_q$ is the \textbf{critical quantum radius}, the electromagnetic or interaction-specific scale
-    (e.g.\ $R_q$ for the electron),
-    \item $r_n$ is the quantized orbital radius corresponding to the principal winding number $n$,
-    \item $\beta_{qY}$ represents the kinetic projection associated with the internal phase rotation of the quantum state.
+    \item $R_q$ is the \textbf{critical quantum radius}, the electromagnetic scale.
+    \item $r_n$ is the quantized orbital radius corresponding to the principal winding number $n$.
+    \item $\beta_{q}$ represents the kinetic projection of the quantum state.
 \end{itemize}
-
-\paragraph{Interpretation.}
-This notation preserves the geometric duality:
-\[
-\text{Potential projection: } \kappa_{qX}, 
-\qquad
-\text{Kinetic projection: } \beta_{qY},
-\]
-and guarantees that quantization enters the theory purely as a discrete set of
-\textit{geometrically closed configurations}, not as a probabilistic postulate.
 
 \begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Relational Consistency]
 \textbf{The same relational law applies at all scales:}\\[2mm]
 \[
 \boxed{\kappa^2 = 2\beta^2}
 \quad\longrightarrow\quad
-\boxed{\kappa_{qX}^2 = 2\beta_{qY}^2}
+\boxed{\kappa_{q}^2 = 2\beta_{q}^2}
 \]
-Quantization is the discretization of geometric closure,
-not the introduction of a separate quantum postulate.
-Thus $\alpha$ ceases to be a 'number about electromagnetism' and becomes a geometric ratio defining the phase structure of all closed energy systems. 
+Quantization is the discretization of geometric closure, not the introduction of a separate quantum postulate. Thus $\alpha$ ceases to be a 'number about electromagnetism' and becomes a geometric ratio defining the phase structure of all closed energy systems.
 \end{tcolorbox}
 
 
 \subsection{The Unified Quantum Number and Total Energy}
 
-A stable state is defined by its complete set of winding numbers. The energy is determined by a unified quantum number that combines the radial and angular components within the curved geometry.
+A stable state is defined by its complete set of winding numbers. The energy is determined by a unified quantum number that combines the radial and angular components within the "curved" geometry.
 
 \begin{definition}[Unified Quantum Number]
-The unified quantum number, $n_{eff}$, which holistically describes the geometric state, is the sum of the integer radial quantum number, $n_r$, and the relativistic angular number, $k'$.
+The unified quantum number, $n_{eff}$, which holistically describes the geometric state, is the linear sum of the radial segment and the projected angular segment:
 \[ n_{eff} = n_r + k' \]
 Given that $n_r = n-k$ (where $n$ is the principal quantum number), this becomes:
 \[ n_{eff} = (n - k) + \sqrt{k^2 - (Z\alpha)^2} \]
 \end{definition}
 
-The total energy is a fundamental projection based on this single, unified quantum number. The structure of this projection must be consistent with the relativistic energy-momentum relation.
+The total energy is a fundamental projection based on this single, unified quantum number.
 
 \begin{theorem}[The Unified Relativistic Energy Formula]
-The total relativistic energy of an electron in a hydrogen-like atom is a projection of its rest energy, $m_e c^2$, determined by the unified quantum number $n_{eff}$ and the coupling strength $Z\alpha$. The formula is:
-\[ \boxed{E_{n,j} = \frac{m_e c^2}{\sqrt{1 + \frac{(Z\alpha)^2}{n_{eff}^2}}} = \frac{m_e c^2}{\sqrt{1 + \frac{(Z\alpha)^2}{\left( (n - k) + \sqrt{k^2 - (Z\alpha)^2} \right)^2}}}} \]
-where $k=j+1/2$.
+The total relativistic energy of an electron is a projection of its rest energy, $m_e c^2$, determined by the ratio of the interaction strength to the total effective geometry. The formula is:
+\[ \boxed{E_{n,j} = \frac{m_e c^2}{\sqrt{1 + \left(\frac{Z\alpha}{n_{eff}}\right)^2}}} \]
 \end{theorem}
+
 \begin{proof}
-The formula's structure, $E = E_0 / \sqrt{1+X^2}$, is the required form for a total relativistic energy in a bound system. It is the bound-state analogue of the free-particle relation $E = \sqrt{p^2c^2 + m_0^2c^4}$. Here, the "effective momentum" term is identified as $X = (Z\alpha)/n_{eff}$. This form is not postulated, but is the necessary structure for a consistent relativistic energy. The formula is constructed by inserting the geometrically derived $n_{eff}$ into this fundamental structure.
+This form arises directly from the projection on $S^1$. If we construct a phase triangle where the "Interaction" is $Z\alpha$ and the "Structure" is $n_{eff}$, the kinetic angle $\theta$ is defined by $\tan\theta = \frac{Z\alpha}{n_{eff}}$.
+The total energy corresponds to the cosine projection of the rest energy (the "time-like" component on $S^1$):
+\[ E = E_0 \cos\theta = E_0 \frac{1}{\sqrt{1+\tan^2\theta}} = \frac{E_0}{\sqrt{1 + \left(\frac{Z\alpha}{n_{eff}}\right)^2}} \]
+Substituting the expanded form of $n_{eff}$ yields the exact Sommerfeld-Dirac fine structure formula.
 \end{proof}
 
 \subsection{Comparison with the Dirac Equation Approach}
 
-The formula we have derived is numerically identical to the well-known Sommerfeld fine-structure formula, which gives the exact energy levels of the stationary states of the Dirac equation. It is therefore crucial to clarify the profound difference in methodology and ontology.
+The formula we have derived is numerically identical to the well-known Sommerfeld fine-structure formula, which gives the exact energy levels of the stationary states of the Dirac equation. It is therefore crucial to clarify the profound difference in methodology.
 
 \begin{remark}[On the Divergence of Methods]
-To arrive at this result, the Dirac approach begins by postulating a relativistic wave equation, synthesizing the separate axioms of special relativity and quantum mechanics through the introduction of abstract algebraic objects (spinors and gamma matrices). It is a masterpiece of descriptive synthesis.
-
-The WILL approach, in contrast, is generative. It begins with a single geometric principle ($\text{SPACETIME} \equiv \text{ENERGY}$) and derives the energy formula as a necessary consequence of stable, self-consistent geometry. Every component of our formula has a direct geometric interpretation.
+To arrive at this result, the Dirac approach begins by postulating a relativistic wave equation, synthesizing SR and QM through abstract algebraic objects (spinors and gamma matrices).
+The WILL approach, in contrast, is generative. It begins with a single geometric principle ($\text{SPACETIME} \equiv \text{ENERGY}$) and derives the energy formula as a necessary consequence of \textbf{Circular Geometric Closure}.
 \end{remark}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Methodological Comparison]
-\begin{tabular}{|p{0.45\linewidth}  |p{0.45\linewidth}|}\hline
+\begin{tabular}{|p{0.45\linewidth} |p{0.45\linewidth}|}\hline
     \textbf{Dirac Equation Approach} & \textbf{WILL Relational Geometry Approach} \\
     \hline
-    \textbf{Starts with} a synthesis of SR and QM postulates. & \textbf{Starts with} a single principle of geometric unity. \\\hline
-    \textbf{Introduces} abstract algebraic objects (spinors, matrices) to construct the wave equation. & \textbf{Derives} geometric quantities ($k'$, $n_{eff}$) from the curvature of phase space. \\\hline
-    \textbf{Solves} a differential equation to find the allowed energy eigenvalues. & \textbf{Solves} for points of stable geometric equilibrium. \\\hline
-    \textbf{Nature:} Descriptive. It successfully models the physical reality. & \textbf{Nature:} Generative. It explains why the reality must have this geometric form.
+    \textbf{Starts with} synthesis of SR and QM postulates. & \textbf{Starts with} a single principle of geometric unity. \\\hline
+    \textbf{Introduces} abstract spinors and matrices. & \textbf{Derives} quantities from Pythagorean phase projections. \\\hline
+    \textbf{Solves} differential equations for eigenvalues. & \textbf{Solves} for closed geometric triangles. \\\hline
+    \textbf{Nature:} Descriptive. Models reality via operators. & \textbf{Nature:} Generative. Derives reality from necessity.
 \\ \hline\end{tabular}
 \end{tcolorbox}
 
 \begin{corollary}
-The Dirac equation is a successful operator-based representation of the underlying relativistic geometry of a quantum state. Our derivation does not replace it, but rather provides its ontological foundation.
+The Dirac equation is a successful operator-based representation of the underlying relativistic geometry of a quantum state. Our derivation does not replace it, but rather hints at it ontological foundation.
 \end{corollary}
 
 \section{The Schrödinger Equation as the Result of Ontological Collapse}
@@ -1043,7 +1061,7 @@ On any closed manifold encoding a physical observable, the product of uncertaint
 \Delta A\, \Delta B \;\geq\; |G(A,B)| \left(\frac{2\pi}{n}\right)^{\!2}
 }
 \]
-where $G(A,B)$ is the geometric coupling (e.g., $\tfrac{1}{2}|\sin 2\theta|$ for $S^1$), and $n$ is the winding number of the closed projection.
+where $G(A,B)$ is the geometric coupling (e.g., $\tfrac{1}{2}|\sin 2$\theta$|$ for $S^1$), and $n$ is the winding number of the closed projection.
 \end{definition}
 
 This principle explains:
