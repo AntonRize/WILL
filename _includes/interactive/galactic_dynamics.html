@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +5,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
     <style>
-        /* Custom scrollbar for better look in dark mode */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1f2937; }
         ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
@@ -35,28 +33,33 @@
           <div id="gd-type-checkboxes" class="flex flex-wrap gap-2 text-gray-300"></div>
         </div>
         
-        <div class="bg-gray-900/80 p-4 rounded-lg border border-gray-600">
-          <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-2">Error Metric</span>
-          <div class="flex space-x-4">
-            <label class="flex items-center cursor-pointer group">
-              <input type="radio" name="analysis-metric" value="rmse" checked class="form-radio text-blue-500 bg-gray-800 border-gray-600 focus:ring-blue-500">
-              <span class="ml-2 text-gray-300 group-hover:text-white transition text-sm">RMSE (km/s)</span>
-            </label>
-            <label class="flex items-center cursor-pointer group">
-              <input type="radio" name="analysis-metric" value="chi2" class="form-radio text-purple-500 bg-gray-800 border-gray-600 focus:ring-purple-500">
-              <span class="ml-2 text-gray-300 group-hover:text-white transition text-sm">Reduced χ²</span>
-            </label>
+        <div class="bg-gray-900/80 p-4 rounded-lg border border-gray-600 min-w-[250px]">
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-2">Batch Analysis Mode</span>
+          <p class="text-xs text-gray-400 mb-2">Calculates both metrics simultaneously.</p>
+          <div class="text-xs text-blue-300 italic">
+            Standard Reduced χ² (χ²_ν) is used for statistical comparison with MOND literature.
           </div>
         </div>
       </div>
       
       <button id="gd-analyze-types-btn" class="mt-6 w-full py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-lg shadow-lg transition-all transform active:scale-95 flex items-center justify-center">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-        Run Batch Analysis
+        Run Full Batch Analysis
       </button>
 
       <div id="gd-type-plot" class="mt-6 bg-gray-900/50 p-4 rounded-lg border border-gray-700 hidden">
-        <div id="gd-overall-median" class="text-white font-mono text-sm mb-2 border-b border-gray-700 pb-2"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 border-b border-gray-700 pb-4">
+            <div class="text-center">
+                <div class="text-gray-400 text-xs uppercase font-bold">Median RMSE</div>
+                <div id="gd-median-rmse" class="text-3xl font-bold text-white">--</div>
+                <div class="text-xs text-gray-500">km/s (Absolute Accuracy)</div>
+            </div>
+            <div class="text-center">
+                <div class="text-gray-400 text-xs uppercase font-bold">Median Reduced χ²</div>
+                <div id="gd-median-chi" class="text-3xl font-bold text-purple-400">--</div>
+                <div class="text-xs text-gray-500">Stat. Fit (Target ~1.0)</div>
+            </div>
+        </div>
         <div id="gd-rmse-histogram" class="w-full h-64"></div>
       </div>
     </div>
@@ -167,7 +170,7 @@
   const hubbleTypes = ["S0","Sa","Sab","Sb","Sbc","Sc","Scd","Sd","Sdm","Sm","Im","BCD"];
 
   // --- PHYSICS CONSTANTS (WILL RG) ---
-  const H0 = 65.5; // Geometric Prediction (Omega_L = 2/3)
+  const H0 = 65.5; // Geometric Prediction
   const MPC_TO_M = 3.086e22; 
   const KPC_TO_M = 3.086e19; 
   const H0_SI = (H0 * 1000) / MPC_TO_M;
@@ -175,7 +178,6 @@
   const C_SI = C_LIGHT_KMS * 1000;
   
   // Effective Threshold: a_eff = Omega_L * a_Mach = (2/3) * (cH0/2pi) = cH0 / 3pi
-  // This implements the PI * Q^2 topology in the exponent.
   const A_VAC_SI = (C_SI * H0_SI) / (3 * Math.PI); 
 
   /* DOM Elements */
@@ -278,21 +280,17 @@
       const vd = d.Vdisk > 0 ? d.Vdisk : 0;
       const vb = d.Vbul > 0 ? d.Vbul : 0;
 
-      // 1. Baryonic Velocity (Weighted Sum)
-      // V_bary = sqrt( Vgas^2 + Y_disk*Vdisk^2 + Y_bulge*Vbulge^2 )
+      // 1. Baryonic Velocity
       const vbary2 = vg*vg + yDisk * (vd*vd) + yBulge * (vb*vb);
       const vbary  = Math.sqrt(Math.max(0, vbary2));
       
-      // 2. WILL Vacuum Screening
+      // 2. WILL Vacuum Screening (PI * Q^2 topology)
       let chi = 0;
       if (d.Rad > 0) {
-        // g_bar = V^2 / r.  Convert km/s -> m/s, kpc -> m
         const g_bar = (vbary * 1000)**2 / (d.Rad * KPC_TO_M);
-        
-        // This chi is now (3 * PI * beta^2 * RH) / r
         chi = g_bar / A_VAC_SI; 
       } else {
-        chi = 1e6; // Infinite acceleration -> Newton
+        chi = 1e6;
       }
       
       // 3. WILL Prediction
@@ -301,7 +299,8 @@
 
       // 4. Error Handling
       let obsErr = (Number.isFinite(d.Verr) && d.Verr > 0) ? d.Verr : 0;
-      let sigma = Math.max(obsErr, 5.0, Math.abs(vo) * 0.05);
+      // SPARC errors can be very small; ensure minimal floor for physics stability
+      let sigma = Math.max(obsErr, 1.0); 
 
       r.push(d.Rad);
       Vobs.push(vo);
@@ -316,7 +315,7 @@
     return { r, Vobs, Verr, Vbary, Vq, components: { Vgas: Vgas_comp, Vdisk_scaled, Vbulge_scaled } };
   }
 
-  /* --- 2-PARAMETER OPTIMIZATION (Coordinate Descent) --- */
+  /* --- 2-PARAMETER OPTIMIZATION --- */
   function optimizeTwoParams(galaxyName) {
     let bestDisk = 0.5;
     let bestBulge = 0.7;
@@ -366,9 +365,11 @@
   }
 
   function calculateReducedChi2(obs, pred, err, freeParams){
+    // Standard Reduced Chi-Squared Formula
+    // Chi2_nu = Sum( ((Obs - Pred) / Err)^2 ) / (N - p)
     let s=0, k=0;
     for(let i=0;i<Math.min(obs.length,pred.length);i++){
-      if(Number.isFinite(obs[i]) && Number.isFinite(pred[i]) && Number.isFinite(err[i])){ 
+      if(Number.isFinite(obs[i]) && Number.isFinite(pred[i]) && Number.isFinite(err[i]) && err[i] > 0){ 
         s += ((obs[i]-pred[i]) / err[i])**2; 
         k++; 
       }
@@ -382,7 +383,7 @@
     const name = galaxySelect.value; if(!name) return;
     const isAuto = autofitCheck.checked;
     
-    // UI State for sliders
+    // UI State
     if (isAuto) {
       yDiskSlider.disabled = true; yBulgeSlider.disabled = true;
       yDiskSlider.parentElement.parentElement.classList.add("opacity-50", "pointer-events-none");
@@ -423,7 +424,6 @@
     if(!window.Plotly) return;
     const ymax = Math.max(1, ...S.Vobs, ...S.Vq);
     
-    // Common layout style
     const layoutBase = {
       xaxis:{ title:"Radius (kpc)", color:"#9ca3af", gridcolor:"#374151" },
       yaxis:{ title:"Velocity (km/s)", color:"#9ca3af", gridcolor:"#374151", range:[0, ymax*1.1] },
@@ -432,19 +432,17 @@
       paper_bgcolor:"transparent", plot_bgcolor:"transparent", font:{ color:"#d1d5db" }
     };
 
-    // Plot 1: Main RC
     Plotly.react(plotDiv, [
       { x:S.r, y:S.Vobs, error_y:{ type:'data', array:S.Verr, visible:true, color:'#6b7280' }, mode:"markers", name:"Observed", marker:{ color:"#d1d5db", size:6 }},
-      { x:S.r, y:S.Vbary, mode:"lines", name:"Newtonian (Baryonic Only)", line:{ color:"#9ca3af", dash:"dash" }},
+      { x:S.r, y:S.Vbary, mode:"lines", name:"Newtonian", line:{ color:"#9ca3af", dash:"dash" }},
       { x:S.r, y:S.Vq, mode:"lines", name:"WILL Prediction", line:{ color:"#67e8f9", width:3 }}
     ], { ...layoutBase, title:`Rotation Curve: ${name}` });
 
-    // Plot 2: Components
     Plotly.react(plotDivComponents, [
       { x:S.r, y:S.Vobs, mode:"markers", name:"Observed", marker:{ color:"#4b5563", size:4, symbol:"circle-open" }},
       { x:S.r, y:S.components.Vgas, mode:"lines", name:"Gas", line:{ color:"#10b981", width:1.5 }},
-      { x:S.r, y:S.components.Vdisk_scaled, mode:"lines", name:"Disk (Scaled)", line:{ color:"#3b82f6", width:1.5 }},
-      { x:S.r, y:S.components.Vbulge_scaled, mode:"lines", name:"Bulge (Scaled)", line:{ color:"#f59e0b", width:1.5 }}
+      { x:S.r, y:S.components.Vdisk_scaled, mode:"lines", name:"Disk", line:{ color:"#3b82f6", width:1.5 }},
+      { x:S.r, y:S.components.Vbulge_scaled, mode:"lines", name:"Bulge", line:{ color:"#f59e0b", width:1.5 }}
     ], { ...layoutBase, title:`Mass Components Decomposition` });
   }
 
@@ -464,22 +462,20 @@
     btn.innerHTML = `<svg class="animate-spin h-5 w-5 mr-3 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...`;
     btn.disabled = true;
 
-    // Use timeout to allow UI refresh
     setTimeout(() => {
       const selected = Array.from(document.querySelectorAll("#gd-type-checkboxes input:checked")).map(cb=>cb.value);
       
       if(!selected.length){ 
         alert("Please select at least one galaxy type."); 
-        btn.textContent="Run Batch Analysis"; btn.disabled=false; return; 
+        btn.textContent="Run Full Batch Analysis"; btn.disabled=false; return; 
       }
       
       const isAuto = autofitCheck.checked;
       const fixedDisk = +yDiskSlider.value;
       const fixedBulge = +yBulgeSlider.value;
-      const metricRadio = document.querySelector('input[name="analysis-metric"]:checked');
-      const mode = metricRadio ? metricRadio.value : 'rmse'; 
 
-      const metricValues=[];
+      const rmseValues = [];
+      const chiValues = [];
       
       for(const name in galaxyData){
         const meta=galaxyMeta[name]; if(!meta) continue;
@@ -487,40 +483,44 @@
         
         let yD = fixedDisk, yB = fixedBulge;
         if(isAuto){
-          // Perform optimization for EVERY galaxy if auto is checked
           const best = optimizeTwoParams(name);
           yD = best.yDisk; yB = best.yBulge;
         }
         
         const S = seriesQWILL(name, yD, yB);
         if(S.Vobs.length > 0){
-          let val = (mode==='rmse') 
-            ? calculateRMSE(S.Vobs, S.Vq)
-            : calculateReducedChi2(S.Vobs, S.Vq, S.Verr, isAuto?2:0);
+          // Calculate BOTH metrics
+          const valRMSE = calculateRMSE(S.Vobs, S.Vq);
+          const valChi = calculateReducedChi2(S.Vobs, S.Vq, S.Verr, isAuto?2:0);
           
-          if(Number.isFinite(val) && val < 500) metricValues.push(val); // Filter outliers
+          if(Number.isFinite(valRMSE) && valRMSE < 500) rmseValues.push(valRMSE);
+          if(Number.isFinite(valChi) && valChi < 500) chiValues.push(valChi);
         }
       }
       
-      plotHistogram(metricValues, mode, isAuto, fixedDisk, fixedBulge);
-      btn.textContent = "Run Batch Analysis"; btn.disabled = false;
+      // Calculate Medians
+      const sortedRMSE = rmseValues.sort((a,b)=>a-b);
+      const medianRMSE = sortedRMSE.length ? sortedRMSE[Math.floor(sortedRMSE.length/2)] : 0;
+
+      const sortedChi = chiValues.sort((a,b)=>a-b);
+      const medianChi = sortedChi.length ? sortedChi[Math.floor(sortedChi.length/2)] : 0;
+      
+      // Update UI Display
+      document.getElementById("gd-median-rmse").textContent = medianRMSE.toFixed(2);
+      document.getElementById("gd-median-chi").textContent = medianChi.toFixed(2);
+
+      // Plot Histogram (Standardizing on Chi2 for distribution visualization as it's the main scientific metric)
+      plotHistogram(chiValues, isAuto, fixedDisk, fixedBulge);
+      
+      document.getElementById("gd-type-plot").classList.remove("hidden");
+      btn.textContent = "Run Full Batch Analysis"; btn.disabled = false;
     }, 50);
   }
 
-  function plotHistogram(values, mode, isAuto, fd, fb){
+  function plotHistogram(values, isAuto, fd, fb){
     if(!values.length) return;
-    const sorted = values.slice().sort((a,b)=>a-b);
-    const median = sorted[Math.floor(sorted.length/2)];
-    const label = mode==='rmse'?"RMSE":"Reduced χ²";
-    const modeTxt = isAuto ? "(Auto-fitted Υ)" : `(Fixed: D=${fd}, B=${fb})`;
-    const unit = mode==='rmse' ? "km/s" : "";
-
-    document.getElementById("gd-overall-median").innerHTML = 
-      `Result: <span class="text-blue-400 font-bold">${label}</span> | Sample N=${values.length} | <span class="text-green-400 font-bold text-lg">Median: ${median.toFixed(2)} ${unit}</span> <span class="text-gray-500 text-xs ml-2">${modeTxt}</span>`;
-
-    // Binning
-    const maxVal = Math.min(Math.max(...values), mode==='rmse'?80:10); // Cap visualization
-    const binCount = 30;
+    const maxVal = 10; // Focus visual range on scientifically relevant Chi2
+    const binCount = 40;
     const binSize = maxVal/binCount;
     const x = [], y = new Array(binCount).fill(0);
     
@@ -531,16 +531,16 @@
       if(idx >=0) y[idx]++;
     });
 
-    const trace = { type: "bar", x: x, y: y, marker: { color: "#67e8f9", line: {color:"#1f2937", width:1} } };
+    const trace = { type: "bar", x: x, y: y, marker: { color: "#a78bfa", line: {color:"#1f2937", width:1} } };
     const layout = {
-      xaxis:{ title: `${label} ${unit}`, color:"#9ca3af", gridcolor:"#374151" },
+      title: "Reduced χ² Distribution",
+      xaxis:{ title: "Reduced χ²", color:"#9ca3af", gridcolor:"#374151", range:[0, 10] },
       yaxis:{ title: "Count", color:"#9ca3af", gridcolor:"#374151" },
       paper_bgcolor:"transparent", plot_bgcolor:"transparent", font:{ color:"#d1d5db" },
-      margin:{ l:40,r:20,t:20,b:40 },
+      margin:{ l:40,r:20,t:40,b:40 },
       bargap: 0.1
     };
     
-    document.getElementById("gd-type-plot").classList.remove("hidden");
     Plotly.newPlot("gd-rmse-histogram", [trace], layout);
   }
 
@@ -556,7 +556,6 @@
     });
   }
 
-  /* INIT LISTENERS */
   document.addEventListener("DOMContentLoaded", ()=>{
     loadData();
     document.getElementById("gd-analyze-types-btn").addEventListener("click", analyzeSelectedTypes);
