@@ -166,14 +166,17 @@
   let distinctTypes = [];
   const hubbleTypes = ["S0","Sa","Sab","Sb","Sbc","Sc","Scd","Sd","Sdm","Sm","Im","BCD"];
 
-  // PHYSICS CONSTANTS
-  const H0 = 65.5; 
+  // --- PHYSICS CONSTANTS (WILL RG) ---
+  const H0 = 65.5; // Geometric Prediction (Omega_L = 2/3)
   const MPC_TO_M = 3.086e22; 
   const KPC_TO_M = 3.086e19; 
   const H0_SI = (H0 * 1000) / MPC_TO_M;
   const C_LIGHT_KMS = 299792.458; 
   const C_SI = C_LIGHT_KMS * 1000;
-  const A_VAC_SI = (C_SI * H0_SI) / (2 * Math.PI); 
+  
+  // Effective Threshold: a_eff = Omega_L * a_Mach = (2/3) * (cH0/2pi) = cH0 / 3pi
+  // This implements the PI * Q^2 topology in the exponent.
+  const A_VAC_SI = (C_SI * H0_SI) / (3 * Math.PI); 
 
   /* DOM Elements */
   const loader = document.getElementById("gd-loader");
@@ -285,7 +288,9 @@
       if (d.Rad > 0) {
         // g_bar = V^2 / r.  Convert km/s -> m/s, kpc -> m
         const g_bar = (vbary * 1000)**2 / (d.Rad * KPC_TO_M);
-        chi = g_bar / A_VAC_SI;
+        
+        // This chi is now (3 * PI * beta^2 * RH) / r
+        chi = g_bar / A_VAC_SI; 
       } else {
         chi = 1e6; // Infinite acceleration -> Newton
       }
