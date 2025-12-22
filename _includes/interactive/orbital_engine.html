@@ -1,529 +1,383 @@
-<div id="will-engine-container" class="relative w-full h-[85vh] bg-black text-gray-300 font-mono text-xs overflow-hidden flex flex-col border border-gray-800 rounded-lg shadow-2xl">
+<div class="flex flex-col md:flex-row h-[85vh] bg-[#050505] text-gray-300 font-sans text-xs select-none">
 
-    <div class="bg-gray-950 p-3 border-b border-gray-800 flex justify-between items-center shrink-0 z-20">
-        <div class="flex items-center gap-3">
-            <div class="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
-            <h1 class="text-sm sm:text-lg font-bold tracking-widest text-gray-100">
-                WILL <span class="text-blue-500 font-light">Relational Geometry</span>
-            </h1>
-        </div>
-        <div class="flex items-center gap-4">
-             <div class="hidden sm:block text-[10px] text-gray-500 uppercase tracking-widest">
-                \( \text{SPACETIME} \equiv \text{ENERGY} \)
-            </div>
-            <div class="flex bg-gray-900 rounded p-1 border border-gray-800">
-                <button id="btn-mode-verify" class="px-3 py-1 rounded text-[10px] font-bold transition-all bg-blue-900/30 text-blue-400 border border-blue-800">
-                    PATH 1: VERIFY
-                </button>
-                <button id="btn-mode-reconstruct" class="px-3 py-1 rounded text-[10px] font-bold transition-all text-gray-500 hover:text-gray-300">
-                    PATH 2: RECONSTRUCT
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="flex flex-1 overflow-hidden relative flex-col md:flex-row">
+    <div class="w-full md:w-80 bg-gray-900/80 backdrop-blur border-r border-gray-800 flex flex-col z-10 shrink-0">
         
-        <div class="w-full md:w-80 bg-gray-900/90 backdrop-blur border-r border-gray-800 p-5 overflow-y-auto z-10 flex flex-col gap-6 order-2 md:order-1 h-1/3 md:h-auto">
-            
-            <div id="controls-area" class="space-y-6">
-                </div>
-
-            <div class="space-y-1">
-                <div class="flex justify-between text-[9px] text-gray-500 uppercase">
-                    <span>Closure Stability (\(\delta\))</span>
-                    <span id="val-delta" class="font-mono text-gray-300">0.910</span>
-                </div>
-                <div class="w-full h-1 bg-gray-800 rounded-full overflow-hidden">
-                     <div id="bar-delta" class="h-full bg-green-500 transition-all duration-300" style="width: 90%"></div>
-                </div>
-            </div>
-
-             <div class="mt-auto border-t border-gray-800 pt-4 space-y-3">
-                <div class="flex justify-between text-[10px] text-gray-500 uppercase font-bold">
-                    <span>Phase \(\theta\)</span>
-                    <span id="val-phase" class="text-blue-300">0.00 rad</span>
-                </div>
-                <input type="range" id="input-phase" min="0" max="6.283" step="0.01" value="0" class="w-full h-1 bg-gray-700 rounded appearance-none accent-blue-500">
-                
-                <button id="btn-play" class="w-full py-2 rounded flex justify-center items-center gap-2 font-bold transition-all text-[10px] uppercase tracking-wider bg-blue-900/30 text-blue-400 border border-blue-900 hover:bg-blue-900/50">
-                    START SIMULATION
-                </button>
-            </div>
+        <div class="p-4 border-b border-gray-800 bg-gray-950">
+            <h2 class="text-sm font-bold text-white tracking-widest uppercase flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                WILL Relational Engine
+            </h2>
+            <div class="text-[10px] text-gray-500 mt-1">Dragging Phase Space \( (\beta, \kappa) \)</div>
         </div>
 
-        <div class="flex-1 bg-[#050505] relative flex items-center justify-center overflow-hidden cursor-crosshair order-1 md:order-2 h-2/3 md:h-auto" id="canvas-container">
-            <canvas id="orbit-canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+        <div class="p-4 space-y-6 overflow-y-auto flex-1">
             
-            <div class="absolute top-4 left-4 pointer-events-none">
-                 <div class="bg-gray-900/80 backdrop-blur border border-gray-700 p-3 rounded shadow-xl">
-                    <div class="flex gap-4 font-mono text-xs">
-                        <div class="text-blue-400 flex flex-col">
-                            <span class="text-[9px] text-gray-500 uppercase">Potential \(\kappa\)</span>
-                            <span id="hud-kappa">0.000</span>
+            <div>
+                <div class="text-[9px] uppercase tracking-wider text-gray-500 font-bold mb-2">Input State (Periapsis)</div>
+                <div class="space-y-1 font-mono">
+                    <div class="flex justify-between">
+                        <span class="text-blue-400">Kinetic \(\beta_p\)</span>
+                        <span id="val-beta" class="text-white">0.000</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-red-400">Potential \(\kappa_p\)</span>
+                        <span id="val-kappa" class="text-white">0.000</span>
+                    </div>
+                    <div class="flex justify-between border-t border-gray-800 mt-1 pt-1">
+                        <span class="text-purple-400 font-bold">Vector \(Q_p\)</span>
+                        <span id="val-q" class="text-white font-bold">0.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="text-[9px] uppercase tracking-wider text-gray-500 font-bold mb-2">Geometric Output</div>
+                <div class="space-y-2 font-mono">
+                    <div class="bg-gray-950 p-2 rounded border border-gray-800">
+                        <div class="flex justify-between text-[10px] text-gray-400">
+                            <span>Closure (\(\delta\))</span>
+                            <span id="val-delta">1.00</span>
                         </div>
-                        <div class="w-px bg-gray-700"></div>
-                        <div class="text-red-400 flex flex-col">
-                            <span class="text-[9px] text-gray-500 uppercase">Kinematics \(\beta\)</span>
-                            <span id="hud-beta">0.000</span>
+                        <div class="w-full h-1 bg-gray-800 rounded-full mt-1 overflow-hidden">
+                            <div id="bar-delta" class="h-full bg-green-500 w-full transition-all duration-75"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Eccentricity \(e\)</span>
+                        <span id="val-e" class="text-white text-lg font-bold">0.00</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Precession \(\Delta\varphi\)</span>
+                        <div class="text-right">
+                            <span id="val-prec" class="text-yellow-500 font-bold block">0.00</span>
+                            <span class="text-[9px] text-gray-600">rad/orbit</span>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div id="zone-badge" class="py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-green-900/30 text-green-400 border border-green-900 transition-colors">
+                Stable Orbit
+            </div>
+
         </div>
 
-        <div class="w-full md:w-72 bg-gray-900/90 backdrop-blur border-l border-gray-800 p-5 overflow-y-auto z-10 flex flex-col gap-4 order-3 hidden md:flex">
-            <div class="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-2">Fundamental Invariants</div>
-
-            <div class="bg-gray-950 border border-green-900/30 p-4 rounded relative overflow-hidden group">
-                <div class="absolute left-0 top-0 bottom-0 w-1 bg-green-500 shadow-[0_0_10px_#22c55e]"></div>
-                <div class="flex justify-between items-center mb-1">
-                    <span class="text-xs text-gray-400 font-bold">WILL Invariant</span>
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                </div>
-                <div id="val-invariant" class="text-3xl font-bold text-green-400 font-mono tracking-tighter">1.00000</div>
-                <div class="text-[9px] text-gray-500 mt-2 font-mono border-t border-gray-800 pt-2">
-                    \( \frac{E \cdot T}{M \cdot L} \equiv 1 \)
-                </div>
+        <div class="p-4 border-t border-gray-800 bg-gray-950 space-y-2">
+            <div class="text-[9px] uppercase tracking-wider text-gray-500 mb-1">Presets</div>
+            <div class="grid grid-cols-2 gap-2">
+                <button onclick="setPreset('mercury')" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded text-[10px] transition-colors">Mercury</button>
+                <button onclick="setPreset('s2')" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded text-[10px] transition-colors">Star S2</button>
+                <button onclick="setPreset('circle')" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded text-[10px] transition-colors">Circle (\(\delta=1\))</button>
+                <button onclick="setPreset('critical')" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded text-[10px] transition-colors">Critical (\(e \to 1\))</button>
             </div>
+        </div>
+    </div>
 
-            <div class="bg-gray-950 border border-gray-800 p-3 rounded">
-                <div class="text-[10px] text-gray-500 uppercase mb-1">Relativistic Precession</div>
-                <div id="val-precession" class="text-yellow-500 text-lg font-mono font-bold">0.00</div>
-                <div class="text-[9px] text-gray-600 mb-2">arcsec/cy or arcmin/orbit</div>
-                <div class="text-[9px] text-gray-400 border-t border-gray-800 pt-2 mt-2">
-                    Predicted purely from light ratios.
-                </div>
+    <div class="flex-1 relative bg-black cursor-crosshair overflow-hidden" id="sim-container">
+        <canvas id="mainCanvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+        
+        <div class="absolute bottom-4 right-4 bg-black/60 backdrop-blur p-3 rounded border border-gray-800 text-[10px] space-y-2 pointer-events-none">
+            <div class="flex items-center gap-2">
+                <span class="w-3 h-0.5 bg-green-500/50 border-t border-dashed border-green-400"></span>
+                <span>Circle Line (\(\kappa = \beta\sqrt{2}\))</span>
             </div>
-
-            <div class="bg-gray-950 border border-gray-800 p-3 rounded">
-                <div class="text-[10px] text-gray-500 uppercase mb-2">Orbital Energy Map</div>
-                <div class="flex justify-between items-baseline mb-1">
-                    <span class="text-[10px] text-gray-400">Total (\(W\))</span>
-                    <span id="val-energy-w" class="font-mono text-blue-300 text-xs">0.00</span>
-                </div>
-                <div class="flex justify-between items-baseline">
-                    <span class="text-[10px] text-gray-400">Displacement (\(Q\))</span>
-                    <span id="val-q" class="font-mono text-purple-300 text-xs">0.00</span>
-                </div>
+            <div class="flex items-center gap-2">
+                <span class="w-3 h-0.5 bg-red-500/50 border-t border-dashed border-red-400"></span>
+                <span>Escape Line (\(\kappa = \beta\))</span>
             </div>
-            
-            <div class="mt-auto text-[9px] text-gray-600 italic">
-                * All values derived directly from geometric closure. No arbitrary constants used.
+            <div class="flex items-center gap-2">
+                <span class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[6px] border-b-gray-400"></span>
+                <span>Drag \(Q_p\) (Input State)</span>
             </div>
         </div>
     </div>
 </div>
 
-<script type="module">
-/**
- * WILL Relational Geometry Engine
- * Strict adherence to: Nothing is assumed. Everything is derived.
- */
+<script>
+    const canvas = document.getElementById('mainCanvas');
+    const ctx = canvas.getContext('2d');
+    const container = document.getElementById('sim-container');
 
-// --- Constants ---
-const C = 299792.458; 
-
-// --- State ---
-const state = {
-    mode: 'verify', // 'verify' (Path 1) or 'reconstruct' (Path 2)
-    isPlaying: false,
-    t: 0, // animation time
+    // --- State ---
+    // The User controls point Qp (beta_p, kappa_p) directly.
+    let beta_p = 0.4;
+    let kappa_p = 0.4 * Math.sqrt(2); // Start at perfect circle
     
-    // Core Parameters
-    beta_p: 1.6e-4,     // Kinematic projection at periapsis
-    kappa_p: 2.533e-4,  // Potential projection at periapsis
-    e: 0.2056,          // Geometric eccentricity
-    
-    // Derived for UI
-    redshift_z: 0,
-    precession: 0,
-    invariant: 1.0
-};
+    let isDragging = false;
+    let width, height, scale, cx, cy;
+    let phase = 0; // Animation phase
 
-// --- Presets ---
-const PRESETS = {
-    mercury: { mode: 'verify', z: 2.12e-6, beta: 1.967e-4, name: "Mercury (Verification)" },
-    s2: { mode: 'reconstruct', e: 0.8846, beta: 0.0255, name: "Star S2 (Reconstruction)" },
-    s4716: { mode: 'reconstruct', e: 0.756, beta: 0.0266, name: "S4716 (Prediction)" },
-    gps: { mode: 'verify', z: 5.27e-10, beta: 1.29e-5, name: "GPS Satellite" } // Approximation
-};
-
-// --- DOM Elements ---
-const dom = {
-    canvas: document.getElementById('orbit-canvas'),
-    controls: document.getElementById('controls-area'),
-    hudKappa: document.getElementById('hud-kappa'),
-    hudBeta: document.getElementById('hud-beta'),
-    valInvariant: document.getElementById('val-invariant'),
-    valPrecession: document.getElementById('val-precession'),
-    valDelta: document.getElementById('val-delta'),
-    barDelta: document.getElementById('bar-delta'),
-    inputPhase: document.getElementById('input-phase'),
-    valPhase: document.getElementById('val-phase'),
-    btnPlay: document.getElementById('btn-play'),
-    btnModeVerify: document.getElementById('btn-mode-verify'),
-    btnModeRec: document.getElementById('btn-mode-reconstruct')
-};
-
-const ctx = dom.canvas.getContext('2d');
-
-// --- Core Physics Engine ---
-
-function updatePhysics() {
-    // 1. Calculate Dependent Variables based on Mode
-    if (state.mode === 'verify') {
-        // Path 1: Inputs are Light (z) and Motion (beta) -> Output is Shape (e)
-        // kappa ≈ sqrt(2z) for small z
-        state.kappa_p = Math.sqrt(2 * state.redshift_z);
-        
-        // Calculate Closure Factor delta
+    // --- Physics Engine ---
+    function getPhysics() {
+        // 1. Fundamental Ratio (Closure Factor)
         // delta = kappa / (beta * sqrt(2))
-        const delta = state.kappa_p / (state.beta_p * Math.sqrt(2));
-        
-        // Predict Eccentricity
+        // Protect against zero div
+        const denom = (beta_p * Math.SQRT2);
+        const delta = denom > 0.0001 ? kappa_p / denom : 0;
+
+        // 2. Eccentricity
         // e = 1/delta^2 - 1
-        state.e = (1 / (delta * delta)) - 1;
+        let e = (delta > 0) ? (1 / (delta * delta)) - 1 : 999;
         
-        // Safety clamp
-        if (state.e < 0) state.e = 0;
-        if (state.e > 0.99) state.e = 0.99;
+        // 3. Zone Logic
+        let mode = 'stable'; // stable, inverted, unbound
+        let e_real = e;
 
-    } else {
-        // Path 2: Inputs are Shape (e) and Motion (beta) -> Output is Depth (kappa)
-        // Calculate Closure Factor from Shape
-        const delta = 1 / Math.sqrt(1 + state.e);
+        // Check boundaries based on y=x and y=sqrt(2)x
+        const diagCircle = beta_p * Math.SQRT2;
+        const diagEscape = beta_p;
+
+        if (kappa_p < diagEscape) {
+            mode = 'unbound';
+            e_real = Math.abs(e); // Just for calc
+        } else if (kappa_p > diagCircle) {
+            mode = 'inverted'; // Apoapsis dominant
+            e_real = Math.abs(e); // Flip shape
+        }
+
+        // 4. Precession (Geometric)
+        // dPhi = 1.5 * PI * (kappa^4 / beta^2)
+        const prec = (3 * Math.PI / 2) * (Math.pow(kappa_p, 4) / Math.pow(beta_p, 2));
+
+        // 5. Orbit Visualization Params
+        // We define a visual scale 'a' so the orbit fits on screen.
+        // r = a(1-e^2) / (1 + e cos theta)
+        const a_vis = 1.5; // Visual units
+
+        return { delta, e, e_real, mode, prec, a_vis };
+    }
+
+    // --- Interaction ---
+    function resize() {
+        const rect = container.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        canvas.width = width;
+        canvas.height = height;
         
-        // Reconstruct Potential
-        // kappa = delta * beta * sqrt(2)
-        state.kappa_p = delta * state.beta_p * Math.sqrt(2);
+        cx = width / 2;
+        cy = height / 2;
+        scale = Math.min(width, height) / 4; // Zoom level
+    }
+    window.addEventListener('resize', resize);
+    
+    function getMouse(e) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: (e.clientX - rect.left - cx) / scale,
+            y: -(e.clientY - rect.top - cy) / scale // Flip Y
+        };
+    }
+
+    canvas.addEventListener('mousedown', e => {
+        const m = getMouse(e);
+        // Hit test radius 0.2
+        const dx = m.x - beta_p;
+        const dy = m.y - kappa_p;
+        if (dx*dx + dy*dy < 0.04) isDragging = true;
+    });
+
+    window.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        const m = getMouse(e);
+        // Clamp to positive quadrant for simplicity
+        beta_p = Math.max(0.01, m.x);
+        kappa_p = Math.max(0.01, m.y);
+    });
+
+    window.addEventListener('mouseup', () => isDragging = false);
+
+    // --- Drawing ---
+    function draw() {
+        // Clear
+        ctx.fillStyle = '#050505';
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.scale(1, -1); // Cartesian coords
+
+        // 1. Grid
+        ctx.strokeStyle = '#111';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        for(let i=-10; i<=10; i++) {
+            ctx.moveTo(i*scale, -10*scale); ctx.lineTo(i*scale, 10*scale);
+            ctx.moveTo(-10*scale, i*scale); ctx.lineTo(10*scale, i*scale);
+        }
+        ctx.stroke();
+
+        // 2. Critical Lines
+        // Green Circle Line (y = x * sqrt(2))
+        ctx.strokeStyle = '#064e3b'; // Dark green
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath(); 
+        ctx.moveTo(0,0); 
+        ctx.lineTo(3*scale, 3*Math.SQRT2*scale); 
+        ctx.stroke();
+
+        // Red Escape Line (y = x)
+        ctx.strokeStyle = '#450a0a'; // Dark red
+        ctx.beginPath(); 
+        ctx.moveTo(0,0); 
+        ctx.lineTo(4*scale, 4*scale); 
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // 3. Unit Circle (The Observer's Horizon)
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(0, 0, 1*scale, 0, 2*Math.PI);
+        ctx.stroke();
+
+        // --- Get Physics State ---
+        const phys = getPhysics();
+
+        // 4. Draw Orbit (The Result)
+        // We draw the orbit centered on the observer (0,0) is one focus?
+        // In WILL, observer is at (0,0). The object moves around.
+        // Polar eq: r = p / (1 + e cos theta).
+        // p = a(1-e^2). 
+        // For visual stability, let's lock periapsis distance r_p.
+        // r_p visual = something constant? No, let's fix Semi-Major axis visually
+        // to prevent it exploding off screen.
         
-        // Back-calculate redshift for display
-        state.redshift_z = (state.kappa_p * state.kappa_p) / 2;
-    }
-
-    // 2. Universal Precession Law
-    // dPhi = (3*pi/2) * (kappa^4 / beta^2)
-    const prec_rad = (3 * Math.PI / 2) * (Math.pow(state.kappa_p, 4) / Math.pow(state.beta_p, 2));
-    
-    // Convert to readable units based on scale
-    if (state.beta_p < 0.001) {
-        // Solar system scale: arcsec per century (Mercury approx)
-        state.precession_text = (prec_rad * (180/Math.PI) * 3600 * 415).toFixed(2) + '" / cy'; 
-    } else {
-        // Strong field: arcmin per orbit
-        state.precession_text = (prec_rad * (180/Math.PI) * 60).toFixed(2) + "' / orbit";
-    }
-
-    // 3. WILL Invariant Check
-    // Using the closure identity: (kappa^2 / 2*beta^2) * (1+e) = 1
-    // We add a tiny random noise 1e-9 to simulate "measurement" reality for the effect
-    const check = (Math.pow(state.kappa_p, 2) / (2 * Math.pow(state.beta_p, 2))) * (1 + state.e);
-    state.invariant = check;
-}
-
-// --- Rendering & UI ---
-
-function renderControls() {
-    dom.controls.innerHTML = ''; // Clear
-
-    if (state.mode === 'verify') {
-        // Input: Redshift (z)
-        createLogSlider('Gravitational Redshift (z)', state.redshift_z, 1e-8, 1e-1, (val) => {
-            state.redshift_z = val;
-            updatePhysics();
-            updateDashboard();
-        }, 'text-green-400', 'green');
-
-        // Input: Velocity (beta)
-        createLogSlider('Orbital Velocity (β)', state.beta_p, 1e-5, 1e-1, (val) => {
-            state.beta_p = val;
-            updatePhysics();
-            updateDashboard();
-        }, 'text-red-400', 'red');
-
-        // Info box
-        const info = document.createElement('div');
-        info.className = 'text-[9px] text-gray-500 italic mt-2';
-        info.innerHTML = "Result: Eccentricity (e) is predicted from light ratios.";
-        dom.controls.appendChild(info);
-
-    } else {
-        // Input: Eccentricity (e)
-        createLinearSlider('Orbital Shape (e)', state.e, 0, 0.99, (val) => {
-            state.e = val;
-            updatePhysics();
-            updateDashboard();
-        }, 'text-purple-400', 'purple');
-
-        // Input: Velocity (beta)
-        createLogSlider('Periapsis Velocity (β)', state.beta_p, 1e-5, 0.5, (val) => {
-            state.beta_p = val;
-            updatePhysics();
-            updateDashboard();
-        }, 'text-red-400', 'red');
-
-        // Info box
-        const info = document.createElement('div');
-        info.className = 'text-[9px] text-gray-500 italic mt-2';
-        info.innerHTML = "Result: Potential depth (κ) is reconstructed from geometry.";
-        dom.controls.appendChild(info);
-    }
-}
-
-function createLogSlider(label, val, min, max, callback, colorClass, accentColor) {
-    const container = document.createElement('div');
-    container.className = 'space-y-1';
-    
-    const header = document.createElement('div');
-    header.className = 'flex justify-between text-[10px]';
-    header.innerHTML = `<label class="${colorClass}">${label}</label><span class="font-mono text-gray-400">${val.toExponential(3)}</span>`;
-    
-    const input = document.createElement('input');
-    input.type = 'range';
-    input.min = Math.log10(min);
-    input.max = Math.log10(max);
-    input.step = 0.01;
-    input.value = Math.log10(val);
-    input.className = `w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-${accentColor}-500`;
-    input.oninput = (e) => callback(Math.pow(10, parseFloat(e.target.value)));
-
-    container.appendChild(header);
-    container.appendChild(input);
-    dom.controls.appendChild(container);
-}
-
-function createLinearSlider(label, val, min, max, callback, colorClass, accentColor) {
-    const container = document.createElement('div');
-    container.className = 'space-y-1';
-    
-    const header = document.createElement('div');
-    header.className = 'flex justify-between text-[10px]';
-    header.innerHTML = `<label class="${colorClass}">${label}</label><span class="font-mono text-gray-400">${val.toFixed(4)}</span>`;
-    
-    const input = document.createElement('input');
-    input.type = 'range';
-    input.min = min;
-    input.max = max;
-    input.step = 0.001;
-    input.value = val;
-    input.className = `w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-${accentColor}-500`;
-    input.oninput = (e) => callback(parseFloat(e.target.value));
-
-    container.appendChild(header);
-    container.appendChild(input);
-    dom.controls.appendChild(container);
-}
-
-function updateDashboard() {
-    if(dom.valInvariant) dom.valInvariant.innerText = state.invariant.toFixed(5);
-    if(dom.valPrecession) dom.valPrecession.innerText = state.precession_text;
-    
-    const delta = 1 / Math.sqrt(1 + state.e);
-    if(dom.valDelta) dom.valDelta.innerText = delta.toFixed(4);
-    
-    // Visual bar color
-    if(dom.barDelta) {
-        const stability = delta; 
-        dom.barDelta.style.width = `${(stability/1.0)*100}%`;
-        dom.barDelta.className = `h-full transition-all duration-300 ${stability < 0.71 ? 'bg-red-500' : 'bg-green-500'}`;
-    }
-
-    // Update energy display (W)
-    const W = 0.5 * (Math.pow(state.kappa_p, 2) - Math.pow(state.beta_p, 2));
-    const elW = document.getElementById('val-energy-w');
-    if(elW) elW.innerText = W.toExponential(2);
-}
-
-// --- Animation Loop ---
-
-let animationFrame;
-
-function draw() {
-    if(!dom.canvas) return;
-
-    const { width, height } = dom.canvas.getBoundingClientRect();
-    // Set internal resolution matches display
-    dom.canvas.width = width;
-    dom.canvas.height = height;
-
-    const cx = width / 2;
-    const cy = height / 2;
-    const scale = Math.min(width, height) / 3; // base scale
-
-    // Physics at current phase
-    const o = parseFloat(dom.inputPhase.value);
-    
-    // Coordinates
-    const r_norm = (1 + state.e) / (1 + state.e * Math.cos(o));
-    const x = r_norm * Math.cos(o);
-    const y = -r_norm * Math.sin(o); // Canvas Y is inverted
-
-    // Visual scaling
-    const r_apo = (1 + state.e) / (1 - state.e);
-    // Dynamic zoom based on eccentricity to keep orbit in view
-    const viewScale = scale / (state.e > 0.6 ? r_apo * 0.55 : 1.5); 
-    
-    // Clear
-    ctx.clearRect(0,0,width,height);
-
-    // Draw Orbit Path
-    ctx.beginPath();
-    ctx.strokeStyle = '#1e293b';
-    ctx.lineWidth = 2;
-    for (let i = 0; i <= 360; i++) {
-        const rad = (i * Math.PI) / 180;
-        const r_path = (1 + state.e) / (1 + state.e * Math.cos(rad));
-        const px = cx + (r_path * Math.cos(rad)) * viewScale; 
-        const py = cy - (r_path * Math.sin(rad)) * viewScale;
-        if (i===0) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
-    }
-    ctx.stroke();
-
-    // Draw Focus (Star/BH)
-    const grad = ctx.createRadialGradient(cx, cy, 2, cx, cy, 10);
-    grad.addColorStop(0, '#4b5563');
-    grad.addColorStop(1, '#000000');
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.arc(cx, cy, 8, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Draw Planet
-    const planetX = cx + x * viewScale;
-    const planetY = cy + y * viewScale;
-
-    // Calculate instantaneous vectors for display
-    const kappa_o = state.kappa_p * Math.sqrt((1 + state.e * Math.cos(o)) / (1 + state.e));
-    const W = Math.pow(state.beta_p, 2) - Math.pow(state.kappa_p, 2);
-    const beta_o = Math.sqrt(Math.abs(W + Math.pow(kappa_o, 2)));
-
-    // Update HUD values
-    dom.hudKappa.innerText = kappa_o.toExponential(3);
-    dom.hudBeta.innerText = beta_o.toExponential(3);
-
-    // Update Q value
-    const Q = Math.sqrt(Math.pow(kappa_o, 2) + Math.pow(beta_o, 2));
-    const elQ = document.getElementById('val-q');
-    if(elQ) elQ.innerText = Q.toExponential(3);
-
-    // Draw Vectors
-    // Q vector (Displacement) - Purple
-    ctx.beginPath();
-    ctx.strokeStyle = '#a855f7'; // Purple
-    ctx.lineWidth = 1;
-    ctx.setLineDash([2, 2]);
-    ctx.moveTo(cx, cy); 
-    ctx.lineTo(planetX, planetY);
-    ctx.stroke();
-    ctx.setLineDash([]);
-
-    // Planet Body
-    ctx.fillStyle = '#fff';
-    ctx.beginPath();
-    ctx.arc(planetX, planetY, 5, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Beta Vector (Velocity) - Red (Tangent)
-    const alpha = Math.atan2(state.e * Math.sin(o), 1 + state.e * Math.cos(o));
-    const flightPathAngle = o + Math.PI/2 - alpha; 
-    
-    const vLen = (beta_o / state.beta_p) * 40; 
-    const vx = Math.cos(flightPathAngle) * vLen;
-    const vy = -Math.sin(flightPathAngle) * vLen;
-
-    ctx.beginPath();
-    ctx.strokeStyle = '#f87171'; // Red
-    ctx.lineWidth = 3;
-    ctx.moveTo(planetX, planetY);
-    ctx.lineTo(planetX + vx, planetY + vy);
-    ctx.stroke();
-
-    // Kappa Vector (Potential) - Blue (Radial inward)
-    const kLen = (kappa_o / state.kappa_p) * 40;
-    const kx = Math.cos(o + Math.PI) * kLen; // Inward
-    const ky = -Math.sin(o + Math.PI) * kLen;
-
-    ctx.beginPath();
-    ctx.strokeStyle = '#60a5fa'; // Blue
-    ctx.lineWidth = 3;
-    ctx.moveTo(planetX, planetY);
-    ctx.lineTo(planetX + kx, planetY + ky);
-    ctx.stroke();
-    
-    if (state.isPlaying) {
-        // Animation step
-        // Kepler's 2nd law (equal areas) implies dO/dt ~ (1 + e cos O)^2
-        const speed = 0.05 * (Math.pow(1 + state.e * Math.cos(o), 2) / Math.pow(1+state.e, 2)); 
-        let nextO = o + speed;
-        if (nextO > 2 * Math.PI) nextO -= 2 * Math.PI;
-        dom.inputPhase.value = nextO;
-        dom.valPhase.innerText = nextO.toFixed(2) + ' rad';
-        animationFrame = requestAnimationFrame(draw);
-    }
-}
-
-// --- Initialization ---
-
-function init() {
-    if(!dom.canvas) return; // Guard if elements missing
-
-    // Mode Switching
-    dom.btnModeVerify.onclick = () => {
-        state.mode = 'verify';
-        state.redshift_z = PRESETS.mercury.z;
-        state.beta_p = PRESETS.mercury.beta;
+        ctx.beginPath();
+        if (phys.mode === 'unbound') {
+            ctx.strokeStyle = '#ef4444'; // Red orbit
+        } else if (phys.mode === 'inverted') {
+            ctx.strokeStyle = '#3b82f6'; // Blue orbit (flipped)
+        } else {
+            ctx.strokeStyle = '#22c55e'; // Green orbit (stable)
+        }
         
-        dom.btnModeVerify.className = "px-3 py-1 rounded text-[10px] font-bold transition-all bg-blue-900/30 text-blue-400 border border-blue-800";
-        dom.btnModeRec.className = "px-3 py-1 rounded text-[10px] font-bold transition-all text-gray-500 hover:text-gray-300";
+        ctx.lineWidth = 2;
         
-        updatePhysics();
-        renderControls();
-        updateDashboard();
+        // Draw ellipse
+        // Let's use parametric drawing
+        // r(theta) = r_p * (1+e) / (1 + e cos theta)
+        // Visually, let's keep r_p somewhat constant relative to input Q
+        // so bigger Q = bigger orbit.
+        const r_p_vis = Math.sqrt(beta_p*beta_p + kappa_p*kappa_p) * scale; 
+        
+        // Handling the "Flip":
+        // If inverted, r_p is actually Apoapsis.
+        // e is negative in the raw formula, which handles the flip automatically!
+        // r = p / (1 + e_raw * cos theta)
+        
+        const p_param = r_p_vis * (1 + phys.e); 
+
+        for (let th = 0; th <= 360; th+=2) {
+            const rad = th * Math.PI / 180;
+            const r = p_param / (1 + phys.e * Math.cos(rad));
+            
+            // Limit drawing for unbound
+            if (r < 0 || r > 10*scale) continue;
+
+            const ox = r * Math.cos(rad);
+            const oy = r * Math.sin(rad);
+            
+            if (th===0) ctx.moveTo(ox, oy);
+            else ctx.lineTo(ox, oy);
+        }
+        ctx.stroke();
+
+        // 5. Draw The Object (Animation)
+        const r_anim = p_param / (1 + phys.e * Math.cos(phase));
+        const objX = r_anim * Math.cos(phase);
+        const objY = r_anim * Math.sin(phase);
+
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        ctx.arc(objX, objY, 4, 0, 2*Math.PI);
+        ctx.fill();
+        
+        // 6. Draw Vector Qp (The Control Handle)
+        const qx = beta_p * scale;
+        const qy = kappa_p * scale;
+
+        // Components
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'rgba(59, 130, 246, 0.5)'; // Blue beta
+        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(qx, 0); ctx.stroke();
+
+        ctx.strokeStyle = 'rgba(239, 68, 68, 0.5)'; // Red kappa
+        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(0, qy); ctx.stroke();
+
+        // Q Vector
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#a855f7'; // Purple
+        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(qx, qy); ctx.stroke();
+
+        // The Triangle Handle
+        ctx.fillStyle = isDragging ? '#fff' : '#9ca3af';
+        ctx.beginPath();
+        ctx.moveTo(qx, qy + 8);
+        ctx.lineTo(qx + 7, qy - 6);
+        ctx.lineTo(qx - 7, qy - 6);
+        ctx.fill();
+
+        ctx.restore();
+
+        // --- Update UI Text ---
+        document.getElementById('val-beta').innerText = beta_p.toFixed(3);
+        document.getElementById('val-kappa').innerText = kappa_p.toFixed(3);
+        document.getElementById('val-q').innerText = Math.sqrt(beta_p**2 + kappa_p**2).toFixed(3);
+        
+        document.getElementById('val-delta').innerText = phys.delta.toFixed(3);
+        document.getElementById('val-e').innerText = phys.e.toFixed(3);
+        document.getElementById('val-prec').innerText = phys.prec.toExponential(2);
+        
+        const badge = document.getElementById('zone-badge');
+        const bar = document.getElementById('bar-delta');
+        
+        if (phys.mode === 'unbound') {
+            badge.innerText = "UNBOUND (ESCAPE)";
+            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-red-900/30 text-red-400 border border-red-900";
+            bar.className = "h-full bg-red-500 w-full";
+        } else if (phys.mode === 'inverted') {
+            badge.innerText = "INVERTED (APOAPSIS)";
+            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-blue-900/30 text-blue-400 border border-blue-900";
+            bar.className = "h-full bg-blue-500 w-full";
+        } else {
+            badge.innerText = "STABLE ORBIT";
+            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-green-900/30 text-green-400 border border-green-900";
+            bar.className = "h-full bg-green-500 w-full";
+        }
+    }
+
+    // --- Animation Loop ---
+    function loop() {
+        // Orbital speed modulation (Kepler 2nd law approx)
+        // speed ~ (1 + e cos theta)^2
+        const phys = getPhysics();
+        let speed = 0.02 * Math.pow(1 + phys.e * Math.cos(phase), 2) / Math.pow(1 + Math.abs(phys.e), 2);
+        // Clamp speed for unbound visualization
+        if (speed < 0.001) speed = 0.001; 
+        
+        phase += speed;
         draw();
-    };
+        requestAnimationFrame(loop);
+    }
 
-    dom.btnModeRec.onclick = () => {
-        state.mode = 'reconstruct';
-        state.e = PRESETS.s2.e;
-        state.beta_p = PRESETS.s2.beta;
+    // --- Presets ---
+    window.setPreset = function(name) {
+        if (name === 'mercury') {
+            beta_p = 0.4; kappa_p = 0.52; // Exaggerated for visibility
+        } else if (name === 's2') {
+            beta_p = 0.2; kappa_p = 0.2 * Math.sqrt(2); // High gravity
+        } else if (name === 'circle') {
+            beta_p = 0.5; kappa_p = 0.5 * Math.SQRT2;
+        } else if (name === 'critical') {
+            beta_p = 0.5; kappa_p = 0.51; // Near escape
+        }
+    }
 
-        dom.btnModeRec.className = "px-3 py-1 rounded text-[10px] font-bold transition-all bg-blue-900/30 text-blue-400 border border-blue-800";
-        dom.btnModeVerify.className = "px-3 py-1 rounded text-[10px] font-bold transition-all text-gray-500 hover:text-gray-300";
-
-        updatePhysics();
-        renderControls();
-        updateDashboard();
-        draw();
-    };
-
-    dom.inputPhase.oninput = () => {
-        state.isPlaying = false;
-        dom.valPhase.innerText = parseFloat(dom.inputPhase.value).toFixed(2) + ' rad';
-        dom.btnPlay.innerText = "START SIMULATION";
-        draw();
-    };
-
-    dom.btnPlay.onclick = () => {
-        state.isPlaying = !state.isPlaying;
-        dom.btnPlay.innerText = state.isPlaying ? "STOP SIMULATION" : "START SIMULATION";
-        if (state.isPlaying) draw();
-    };
-
-    // First load
-    state.redshift_z = PRESETS.mercury.z;
-    state.beta_p = PRESETS.mercury.beta;
-    updatePhysics();
-    renderControls();
-    updateDashboard();
-    draw();
-    
-    // Handle Resize
-    window.addEventListener('resize', draw);
-}
-
-// Start
-init();
+    // Start
+    resize();
+    loop();
 
 </script>
