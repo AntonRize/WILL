@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,10 +35,19 @@
         </div>
         
         <div class="bg-gray-900/80 p-4 rounded-lg border border-gray-600 min-w-[250px]">
-          <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-2">Batch Analysis Mode</span>
-          <p class="text-xs text-gray-400 mb-2">Calculates both metrics simultaneously.</p>
-          <div class="text-xs text-blue-300 italic">
-            Standard Reduced χ² (χ²_ν) is used for statistical comparison with MOND literature.
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-2">Histogram Visualization</span>
+          <div class="flex flex-col space-y-2">
+            <label class="flex items-center cursor-pointer group">
+              <input type="radio" name="hist-metric" value="rmse" class="form-radio text-blue-500 bg-gray-800 border-gray-600 focus:ring-blue-500">
+              <span class="ml-2 text-gray-300 group-hover:text-white transition text-sm">Distribution of RMSE</span>
+            </label>
+            <label class="flex items-center cursor-pointer group">
+              <input type="radio" name="hist-metric" value="chi2" checked class="form-radio text-purple-500 bg-gray-800 border-gray-600 focus:ring-purple-500">
+              <span class="ml-2 text-gray-300 group-hover:text-white transition text-sm">Distribution of Reduced χ²</span>
+            </label>
+          </div>
+          <div class="mt-2 text-[10px] text-gray-500 border-t border-gray-700 pt-2">
+            *Includes physics floor: Max(σ, 5km/s, 5% v)
           </div>
         </div>
       </div>
@@ -57,7 +67,7 @@
             <div class="text-center">
                 <div class="text-gray-400 text-xs uppercase font-bold">Median Reduced χ²</div>
                 <div id="gd-median-chi" class="text-3xl font-bold text-purple-400">--</div>
-                <div class="text-xs text-gray-500">Stat. Fit (Target ~1.0)</div>
+                <div class="text-xs text-gray-500">Physics Floor Applied</div>
             </div>
         </div>
         <div id="gd-rmse-histogram" class="w-full h-64"></div>
@@ -297,10 +307,12 @@
       const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
       const vq = vbary * factor;
 
-      // 4. Error Handling
+      // 4. Error Handling: Physics Floor Implementation
       let obsErr = (Number.isFinite(d.Verr) && d.Verr > 0) ? d.Verr : 0;
-      // SPARC errors can be very small; ensure minimal floor for physics stability
-      let sigma = Math.max(obsErr, 1.0); 
+      
+      // APPLYING THE FLOOR: Max of (Observed Error, 5 km/s, 5% of Velocity)
+      // This prevents "Category Error" when comparing fundamental law vs turbulent reality.
+      let sigma = Math.max(obsErr, 5.0, Math.abs(vo) * 0.05);
 
       r.push(d.Rad);
       Vobs.push(vo);
@@ -474,6 +486,10 @@
       const fixedDisk = +yDiskSlider.value;
       const fixedBulge = +yBulgeSlider.value;
 
+      // Determine which histogram to show based on radio selection
+      const histMetricRadio = document.querySelector('input[name="hist-metric"]:checked');
+      const histMode = histMetricRadio ? histMetricRadio.value : 'chi2'; // Default to chi2
+
       const rmseValues = [];
       const chiValues = [];
       
@@ -505,22 +521,36 @@
       const sortedChi = chiValues.sort((a,b)=>a-b);
       const medianChi = sortedChi.length ? sortedChi[Math.floor(sortedChi.length/2)] : 0;
       
-      // Update UI Display
+      // Update UI Display (Shows both medians)
       document.getElementById("gd-median-rmse").textContent = medianRMSE.toFixed(2);
       document.getElementById("gd-median-chi").textContent = medianChi.toFixed(2);
 
-      // Plot Histogram (Standardizing on Chi2 for distribution visualization as it's the main scientific metric)
-      plotHistogram(chiValues, isAuto, fixedDisk, fixedBulge);
+      // Select data and labels for histogram
+      let plotValues, plotLabel, xRangeMax, barColor;
+      
+      if(histMode === 'rmse') {
+         plotValues = rmseValues;
+         plotLabel = "RMSE (km/s)";
+         xRangeMax = 50;
+         barColor = "#67e8f9"; // Cyan
+      } else {
+         plotValues = chiValues;
+         plotLabel = "Reduced χ²";
+         xRangeMax = 10;
+         barColor = "#a78bfa"; // Purple
+      }
+
+      plotHistogram(plotValues, plotLabel, xRangeMax, barColor);
       
       document.getElementById("gd-type-plot").classList.remove("hidden");
       btn.textContent = "Run Full Batch Analysis"; btn.disabled = false;
     }, 50);
   }
 
-  function plotHistogram(values, isAuto, fd, fb){
+  function plotHistogram(values, label, maxRange, color){
     if(!values.length) return;
-    const maxVal = 10; // Focus visual range on scientifically relevant Chi2
     const binCount = 40;
+    const maxVal = Math.min(Math.max(...values), maxRange); 
     const binSize = maxVal/binCount;
     const x = [], y = new Array(binCount).fill(0);
     
@@ -531,10 +561,10 @@
       if(idx >=0) y[idx]++;
     });
 
-    const trace = { type: "bar", x: x, y: y, marker: { color: "#a78bfa", line: {color:"#1f2937", width:1} } };
+    const trace = { type: "bar", x: x, y: y, marker: { color: color, line: {color:"#1f2937", width:1} } };
     const layout = {
-      title: "Reduced χ² Distribution",
-      xaxis:{ title: "Reduced χ²", color:"#9ca3af", gridcolor:"#374151", range:[0, 10] },
+      title: `${label} Distribution`,
+      xaxis:{ title: label, color:"#9ca3af", gridcolor:"#374151" },
       yaxis:{ title: "Count", color:"#9ca3af", gridcolor:"#374151" },
       paper_bgcolor:"transparent", plot_bgcolor:"transparent", font:{ color:"#d1d5db" },
       margin:{ l:40,r:20,t:40,b:40 },
