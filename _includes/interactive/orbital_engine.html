@@ -107,7 +107,7 @@
     let phase = 0;
     
     // Visualization State
-    let observedArc = null; // {start, end, points[]}
+    let observedArc = null;
 
     // --- PHYSICS KERNEL ---
     function updatePhysics() {
@@ -127,7 +127,7 @@
         updateUI();
     }
 
-    // --- SOLVER 3: TRIANGULATION (3 Points) ---
+    // --- SOLVER: TRIANGULATION (Robust) ---
     function solveTriangulation() {
         observedArc = null;
         const v1 = parseFloat(document.getElementById('v1').value);
@@ -139,181 +139,141 @@
         if(!v1 || !v2 || !v3) return;
 
         document.getElementById('loader-tri').classList.remove('hidden');
+        document.getElementById('tri-result').classList.add('hidden');
         
+        // Use setTimeout to allow UI to render the loader before heavy calc
         setTimeout(() => {
-            // Algorithm:
-            // 1. Scan Eccentricity e from 0 to 0.99
-            // 2. For each e, find Mass required to fit Interval 1 (v1->v2)
-            // 3. For each e, find Mass required to fit Interval 2 (v2->v3)
-            // 4. The 'e' where Mass1 == Mass2 is the solution.
-            
-            const results = scanIntersection(v1, v2, v3, dt1, dt2);
-            
-            document.getElementById('loader-tri').classList.add('hidden');
-            document.getElementById('tri-result').classList.remove('hidden');
-            
-            if(results.best) {
-                const sol = results.best;
+            try {
+                const results = scanIntersection(v1, v2, v3, dt1, dt2);
                 
-                // Set Global State
-                beta_p = sol.v_p / c; 
-                kappa_p = beta_p * Math.SQRT2 / Math.sqrt(1 + sol.e);
-                
-                // Output
-                const M_sun = sol.M / 1.989e30;
-                let m_fmt = M_sun < 0.01 ? M_sun.toExponential(2) : M_sun.toFixed(2);
-                
-                document.getElementById('out-mass').innerText = m_fmt;
-                document.getElementById('out-e').innerText = sol.e.toFixed(4);
-                document.getElementById('out-period').innerText = (sol.T / 86400).toFixed(1) + " d";
-                document.getElementById('out-err').innerText = (sol.err * 100).toFixed(2);
-                
-                // Visualization
-                observedArc = { start: sol.o1, end: sol.o3 };
-                
-                updatePhysics();
-            } else {
-                alert("Solution divergence. Data points may be inconsistent (e.g., v2 is not between v1 and v3 geometrically, or noise is too high).");
+                if(results.best) {
+                    const sol = results.best;
+                    
+                    // Set Global State
+                    beta_p = sol.v_p / c; 
+                    kappa_p = beta_p * Math.SQRT2 / Math.sqrt(1 + sol.e);
+                    
+                    // Output
+                    const M_sun = sol.M / 1.989e30;
+                    let m_fmt = M_sun < 0.01 ? M_sun.toExponential(2) : M_sun.toFixed(2);
+                    
+                    document.getElementById('out-mass').innerText = m_fmt;
+                    document.getElementById('out-e').innerText = sol.e.toFixed(4);
+                    document.getElementById('out-period').innerText = (sol.T / 86400).toFixed(1) + " d";
+                    document.getElementById('out-err').innerText = (sol.err * 100).toFixed(2);
+                    
+                    // Visualization
+                    observedArc = { start: sol.o1, end: sol.o3 };
+                    
+                    updatePhysics();
+                    document.getElementById('tri-result').classList.remove('hidden');
+                } else {
+                    alert("No solution found. Check if velocities are consistent with a single orbit.");
+                }
+            } catch (e) {
+                console.error(e);
+                alert("Calculation Error: " + e.message);
+            } finally {
+                document.getElementById('loader-tri').classList.add('hidden');
             }
-        }, 50);
+        }, 100);
     }
 
     function scanIntersection(v1, v2, v3, dt1, dt2) {
         let bestError = Infinity;
         let bestSol = null;
         
-        // Coarse scan then fine? Just coarse for demo (step 0.01)
+        // Step 1: Scan Eccentricity
+        // We scan e from 0.01 to 0.99. 
         for(let e = 0.01; e < 0.99; e += 0.01) {
             
-            // Interval 1 fit
-            const fit1 = fitInterval(e, v1, v2, dt1);
-            if(!fit1) continue;
-            
-            // Interval 2 fit
-            // Must verify phase consistency. 
-            // If v1>v2, phase is increasing (0 -> pi).
-            // o2 from fit1 must match o_start for fit2.
-            // But fitInterval finds optimal Mass. 
-            // We just check if Mass matches.
-            // And we must ensure v2 in fit2 corresponds to same phase as v2 in fit1?
-            // Actually, for a fixed e, relative phases are fixed by velocity ratios.
-            // Ratio R1 = v1/v2. Ratio R2 = v2/v3.
-            
-            // Let's deduce phases first.
-            // Assume v_max = V_scale * (1+e)/(sqrt(1-e^2)).
-            // v(o) = V_scale * (1+e cos o) / sqrt(1-e^2).
-            // Ratio v1/v2 = (1+e cos o1)/(1+e cos o2).
-            
-            // We need to place o1, o2, o3.
-            // Assume monotonic segment (e.g. falling from peri).
-            // o1 determined by assumption? No, only relative differences matter?
-            // Wait, Mass depends on absolute derivative.
-            
-            // Let's assume v1 is the anchor.
-            // But we don't know where v1 is.
-            // This is the tricky part. 
-            // Actually, with 3 velocities, we have R1 and R2.
-            // (1+e cos o1)/(1+e cos o2) = v1/v2
-            // (1+e cos o2)/(1+e cos o3) = v2/v3
-            // We have 3 phases, 2 equations. Degree of freedom: shift o1.
-            // But we have constraints: o2 = o1 + d_o1, o3 = o2 + d_o2.
-            // And Time(o1,o2) = dt1 * S. Time(o2,o3) = dt2 * S.
-            // S (Scale) must be same.
-            
-            // This suggests for a fixed e, we must scan o1.
-            // Iterate o1 from 0 to PI.
-            // Calculate o2 from v1/v2.
-            // Calculate o3 from v2/v3.
-            // Calculate Time1_dim and Time2_dim (dimensionless).
-            // Calculate implied Scale1 = dt1 / Time1_dim.
-            // Calculate implied Scale2 = dt2 / Time2_dim.
-            // Error = abs(Scale1 - Scale2).
-            // Find o1 that minimizes scale error.
-            // That gives the best Mass for this 'e'.
-            
-            // Then, is that 'e' the global best?
-            // No, any e might find a matching scale phase.
-            // Wait.
-            // If we match scales, do we match absolute values?
-            // Scale defines GM. 
-            // v = sqrt(GM/a) * shape.
-            // We matched velocity Ratios.
-            // Now we match Time Ratios.
-            // Does this fix e?
-            // Yes. The "Time-Ratio vs Velocity-Ratio" curve depends on e.
-            
-            // SIMPLIFIED ALGORITHM for Demo:
-            // 1. Scan e.
-            // 2. Scan o1.
-            // 3. Derive o2, o3 from V ratios.
-            // 4. Calc Ratio of Times (dt_dim_1 / dt_dim_2).
-            // 5. Compare with Real Ratio (dt1 / dt2).
-            // 6. Minimize difference.
-            
-            // This finds the correct (e, o1).
-            // Then we calc Mass from that solution.
-            
-            const ratioV1 = v1/v2;
-            const ratioV2 = v2/v3;
-            const targetTimeRatio = dt1/dt2;
-            
-            for(let o1 = 0; o1 < 3.0; o1 += 0.1) {
-                // Solve o2
-                // (1+e cos o1)/(1+e cos o2) = R1 => 1+e cos o2 = (1+e cos o1)/R1
-                const term2 = (1 + e * Math.cos(o1)) / ratioV1;
+            // Step 2: Scan Phase o1 (From -PI to PI to catch all orbital parts)
+            // -PI to 0 = Accelerating (Inbound)
+            // 0 to PI = Decelerating (Outbound)
+            for(let o1 = -3.1; o1 < 3.1; o1 += 0.1) {
+                
+                // Solve o2 from Velocity Ratio v1/v2
+                // (1 + e cos o1) / (1 + e cos o2) = v1/v2
+                const ratio1 = v1 / v2;
+                const term2 = (1 + e * Math.cos(o1)) / ratio1;
                 const cos_o2 = (term2 - 1) / e;
-                if(Math.abs(cos_o2) > 1) continue;
-                const o2 = Math.acos(cos_o2);
                 
-                // Solve o3
-                const term3 = (1 + e * Math.cos(o2)) / ratioV2;
-                const cos_o3 = (term3 - 1) / e;
-                if(Math.abs(cos_o3) > 1) continue;
-                const o3 = Math.acos(cos_o3);
+                if(Math.abs(cos_o2) > 1) continue; // Impossible geometry for this e
                 
-                // Ensure order (monotonic fall)
-                // If v1 > v2, o1 < o2. If v2 > v3, o2 < o3.
-                // acos always returns 0..pi.
-                // Assuming v decreasing.
-                
-                // Calc Dimensionless Times
-                const dT1_dim = calcKeplerTime(e, o1, o2);
-                const dT2_dim = calcKeplerTime(e, o2, o3);
-                
-                const timeRatio = dT1_dim / dT2_dim;
-                const err = Math.abs(timeRatio - targetTimeRatio) / targetTimeRatio;
-                
-                if(err < 0.05 && err < bestError) {
-                    bestError = err;
+                // Branch check: acos gives positive angle (0..PI). 
+                // But o2 could be negative. We check both branches.
+                const o2_candidates = [Math.acos(cos_o2), -Math.acos(cos_o2)];
+
+                for(let o2 of o2_candidates) {
                     
-                    // Reconstruct Mass
-                    // n = dM_dim / dt
-                    // a = v / (n * geom)
-                    const n = dT1_dim / dt1; // rad/sec approx
-                    const V_geo = (1 + e * Math.cos(o1)) / Math.sqrt(1-e*e);
-                    const v1_m = v1 * 1000;
-                    const a = v1_m / (n * V_geo);
-                    const GM = n*n * a*a*a;
-                    const Mass = GM / 6.6743e-11;
+                    // Solve o3 from Velocity Ratio v2/v3
+                    const ratio2 = v2 / v3;
+                    const term3 = (1 + e * Math.cos(o2)) / ratio2;
+                    const cos_o3 = (term3 - 1) / e;
                     
-                    // Calc Periapsis Velocity for display
-                    const v_p = n * a * Math.sqrt((1+e)/(1-e)) / 1000;
+                    if(Math.abs(cos_o3) > 1) continue;
                     
-                    bestSol = { e: e, M: Mass, T: 2*Math.PI/n, v_p: v_p, err: err, o1: o1, o3: o3 };
+                    const o3_candidates = [Math.acos(cos_o3), -Math.acos(cos_o3)];
+                    
+                    for(let o3 of o3_candidates) {
+                        // We now have a candidate triplet (o1, o2, o3)
+                        // Check logical consistency: Time must move forward.
+                        // We compute Mean Anomalies M1, M2, M3
+                        
+                        const M1 = getMeanAnomaly(e, o1);
+                        const M2 = getMeanAnomaly(e, o2);
+                        const M3 = getMeanAnomaly(e, o3);
+                        
+                        // Handle wrap-around (e.g. passing periapsis 2PI)
+                        // dM must be positive.
+                        let dM1 = M2 - M1;
+                        if(dM1 < 0) dM1 += 2*Math.PI; // Wrap
+                        
+                        let dM2 = M3 - M2;
+                        if(dM2 < 0) dM2 += 2*Math.PI;
+                        
+                        // Avoid huge jumps (e.g. wrong branch picking 350 degrees orbit)
+                        // Assume observations are within one orbit < 2PI
+                        if(dM1 > 6 || dM2 > 6) continue; 
+
+                        // CORE CHECK: The Time Ratio must match
+                        // (dM1 / dM2) should equal (dt1 / dt2)
+                        const dimRatio = dM1 / dM2;
+                        const realRatio = dt1 / dt2;
+                        
+                        const err = Math.abs(dimRatio - realRatio) / realRatio;
+                        
+                        if(err < 0.05 && err < bestError) {
+                            bestError = err;
+                            
+                            // Calculate Physical Scale from Segment 1
+                            const n = dM1 / dt1; // rad/sec
+                            // v = n*a / sqrt(1-e^2) * (1+e cos o)
+                            // a = v * sqrt(1-e^2) / (n * (1+e cos o))
+                            
+                            const V_geo = (1 + e * Math.cos(o1)) / Math.sqrt(1-e*e);
+                            const v1_m = v1 * 1000;
+                            const a = v1_m / (n * V_geo);
+                            const GM = n*n * a*a*a;
+                            const Mass = GM / 6.6743e-11;
+                            
+                            // v_p (Periapsis V) for UI
+                            const v_p = n * a * Math.sqrt((1+e)/(1-e)) / 1000;
+                            
+                            bestSol = { e, M: Mass, T: 2*Math.PI/n, v_p, err, o1, o3 };
+                        }
+                    }
                 }
             }
         }
         return { best: bestSol };
     }
     
-    function calcKeplerTime(e, o_start, o_end) {
+    function getMeanAnomaly(e, o) {
+        // E = 2 atan( sqrt((1-e)/(1+e)) * tan(o/2) )
+        const E = 2 * Math.atan(Math.sqrt((1-e)/(1+e)) * Math.tan(o/2));
         // M = E - e sin E
-        // tan(E/2) = sqrt((1-e)/(1+e)) tan(o/2)
-        const E1 = 2 * Math.atan(Math.sqrt((1-e)/(1+e)) * Math.tan(o_start/2));
-        const E2 = 2 * Math.atan(Math.sqrt((1-e)/(1+e)) * Math.tan(o_end/2));
-        const M1 = E1 - e * Math.sin(E1);
-        const M2 = E2 - e * Math.sin(E2);
-        return Math.abs(M2 - M1);
+        return E - e * Math.sin(E);
     }
 
     // --- UI HELPERS ---
@@ -395,7 +355,11 @@
         if(observedArc && phys.status === 'stable') {
             ctx.strokeStyle = 'white'; ctx.lineWidth = 4; ctx.beginPath();
             const start = observedArc.start; const end = observedArc.end;
-            for(let th=start; th<=end; th+=0.05) {
+            // Handle wrap-around drawing for arc
+            let drawEnd = end;
+            if(end < start) drawEnd += 2*Math.PI;
+            
+            for(let th=start; th<=drawEnd; th+=0.05) {
                 const r = p_param / (1 + phys.e_real*Math.cos(th));
                 const x = r*Math.cos(th); const y = r*Math.sin(th);
                 if(th===start) ctx.moveTo(x,y); else ctx.lineTo(x,y);
