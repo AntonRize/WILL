@@ -8,102 +8,85 @@
                 WILL Relational Engine
             </h2>
             
-            <div class="flex bg-gray-800 rounded p-1">
-                <button onclick="setMode('interactive')" id="btn-mode-interactive" class="flex-1 py-1 px-2 rounded text-[10px] font-bold transition-all bg-gray-600 text-white">INTERACTIVE</button>
-                <button onclick="setMode('solver')" id="btn-mode-solver" class="flex-1 py-1 px-2 rounded text-[10px] font-bold transition-all text-gray-400 hover:text-white">DATA SOLVER</button>
+            <div class="flex bg-gray-800 rounded p-1 gap-1">
+                <button onclick="setMode('interactive')" id="tab-interactive" class="flex-1 py-1 px-1 rounded text-[9px] font-bold bg-gray-600 text-white">MANUAL</button>
+                <button onclick="setMode('contrast')" id="tab-contrast" class="flex-1 py-1 px-1 rounded text-[9px] font-bold text-gray-400">2-POINT (GEO)</button>
+                <button onclick="setMode('time')" id="tab-time" class="flex-1 py-1 px-1 rounded text-[9px] font-bold text-gray-400">TIME SOLVER</button>
             </div>
         </div>
 
-        <div id="controls-interactive" class="p-4 space-y-4 border-b border-gray-800">
-            <div class="text-[9px] uppercase tracking-wider text-blue-400 font-bold">Manual Phase Control</div>
-            <div class="text-gray-500 italic mb-2">Drag the triangle \(Q_p\) on the radar to set the periapsis state.</div>
-            
+        <div id="panel-interactive" class="p-4 space-y-4 border-b border-gray-800">
+            <div class="text-[9px] uppercase tracking-wider text-blue-400 font-bold">Phase Space Drag</div>
             <div class="space-y-1 font-mono bg-black/30 p-2 rounded border border-gray-800">
-                <div class="flex justify-between"><span class="text-blue-400">Kinetic \(\beta_p\)</span><span id="val-beta" class="text-white">0.000</span></div>
-                <div class="flex justify-between"><span class="text-red-400">Potential \(\kappa_p\)</span><span id="val-kappa" class="text-white">0.000</span></div>
-                <div class="flex justify-between border-t border-gray-700 mt-1 pt-1"><span class="text-purple-400">Vector \(Q_p\)</span><span id="val-q" class="text-white font-bold">0.000</span></div>
+                <div class="flex justify-between"><span class="text-blue-400">Kinetic \(\beta_p\)</span><span id="val-beta">0.000</span></div>
+                <div class="flex justify-between"><span class="text-red-400">Potential \(\kappa_p\)</span><span id="val-kappa">0.000</span></div>
             </div>
         </div>
 
-        <div id="controls-solver" class="p-4 space-y-4 border-b border-gray-800 hidden">
-            <div class="text-[9px] uppercase tracking-wider text-green-400 font-bold">Two-Point Reconstruction</div>
-            <div class="text-gray-500 italic mb-2">Enter observed velocities. Mass is not required.</div>
+        <div id="panel-contrast" class="p-4 space-y-4 border-b border-gray-800 hidden">
+            <div class="text-[9px] uppercase tracking-wider text-green-400 font-bold">Geometric Reconstruction</div>
+            <div class="text-gray-500 italic mb-2">Requires Max (Peri) and Min (Apo) velocities. Mass independent.</div>
+            <div class="space-y-2">
+                <input type="number" id="inp-c-vmax" placeholder="V max (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white">
+                <input type="number" id="inp-c-vmin" placeholder="V min (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white">
+                <button onclick="solveContrast()" class="w-full py-1 bg-green-900/40 border border-green-800 text-green-400 rounded font-bold hover:bg-green-900/60">SOLVE GEOMETRY</button>
+            </div>
+        </div>
 
-            <div class="space-y-3">
-                <div>
-                    <label class="block text-gray-400 text-[10px] mb-1">Periapsis Velocity \(v_{max}\) (km/s)</label>
-                    <input type="number" id="inp-vmax" value="7650" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white font-mono focus:border-green-500 outline-none">
+        <div id="panel-time" class="p-4 space-y-4 border-b border-gray-800 hidden">
+            <div class="text-[9px] uppercase tracking-wider text-purple-400 font-bold">Mass Autodetect Solver</div>
+            <div class="text-gray-500 italic mb-2">Calculates Mass & Orbit from rate of change.</div>
+            
+            <div class="space-y-2">
+                <div class="grid grid-cols-2 gap-2">
+                    <input type="number" id="inp-t-v1" placeholder="V1 (km/s)" class="bg-black border border-gray-700 rounded px-2 py-1 text-white">
+                    <input type="number" id="inp-t-v2" placeholder="V2 (km/s)" class="bg-black border border-gray-700 rounded px-2 py-1 text-white">
                 </div>
-                <div>
-                    <label class="block text-gray-400 text-[10px] mb-1">Apoapsis Velocity \(v_{min}\) (km/s)</label>
-                    <input type="number" id="inp-vmin" value="605" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white font-mono focus:border-green-500 outline-none">
-                </div>
-                <button onclick="solveOrbit()" class="w-full py-2 bg-green-900/50 hover:bg-green-800 border border-green-700 text-green-100 rounded font-bold transition-all">RECONSTRUCT ORBIT</button>
+                <input type="number" id="inp-t-dt" placeholder="Time Interval (Days)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white">
+                
+                <button onclick="solveTime()" class="w-full py-2 bg-purple-900/40 border border-purple-800 text-purple-300 rounded font-bold hover:bg-purple-900/60 flex justify-center items-center gap-2">
+                    <span id="loader-time" class="hidden w-3 h-3 border-2 border-purple-300 border-t-transparent rounded-full animate-spin"></span>
+                    SOLVE & WEIGH
+                </button>
             </div>
 
-            <div class="grid grid-cols-2 gap-2 mt-2">
-                <button onclick="loadSolverPreset('s2')" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded text-[9px] text-gray-300">Load Star S2</button>
-                <button onclick="loadSolverPreset('s62')" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded text-[9px] text-gray-300">Load Star S62</button>
+            <div id="time-result" class="hidden space-y-2 bg-purple-900/10 p-2 rounded border border-purple-900/30">
+                <div class="text-[9px] text-purple-400 font-bold border-b border-purple-900/30 pb-1 mb-1">FOUND SYSTEM:</div>
+                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Mass:</span> <span id="out-mass" class="text-white font-bold">-</span></div>
+                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Period:</span> <span id="out-period" class="text-white font-bold">-</span></div>
+                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Phase:</span> <span id="out-phase" class="text-white">-</span></div>
             </div>
         </div>
 
         <div class="p-4 space-y-6 overflow-y-auto flex-1 bg-black/20">
             <div>
-                <div class="text-[9px] uppercase tracking-wider text-gray-500 font-bold mb-2">Geometric Verdict</div>
+                <div class="text-[9px] uppercase tracking-wider text-gray-500 font-bold mb-2">System State</div>
                 <div class="space-y-2 font-mono">
-                    
                     <div class="flex justify-between items-center bg-gray-900 p-2 rounded border border-gray-800">
                         <span class="text-gray-400">Eccentricity \(e\)</span>
                         <span id="val-e" class="text-white text-lg font-bold">0.000</span>
                     </div>
-
                     <div class="bg-gray-900 p-2 rounded border border-gray-800">
                         <div class="flex justify-between text-[10px] text-gray-400">
-                            <span>Closure Factor (\(\delta\))</span>
-                            <span id="val-delta">1.00</span>
+                            <span>Closure (\(\delta\))</span><span id="val-delta">1.00</span>
                         </div>
-                        <div class="w-full h-1 bg-gray-800 rounded-full mt-1 overflow-hidden">
-                            <div id="bar-delta" class="h-full bg-blue-500 w-full transition-all duration-75"></div>
-                        </div>
+                        <div class="w-full h-1 bg-gray-800 rounded-full mt-1"><div id="bar-delta" class="h-full bg-blue-500 w-full"></div></div>
                     </div>
-
-                    <div class="flex justify-between items-center pt-2">
-                        <span class="text-gray-400">Precession \(\Delta\varphi\)</span>
-                        <div class="text-right">
-                            <span id="val-prec" class="text-yellow-500 font-bold block">0.00</span>
-                            <span class="text-[9px] text-gray-600">rad/orbit</span>
-                        </div>
+                     <div class="flex justify-between items-center px-1">
+                        <span class="text-gray-500 text-[10px]">Precession</span>
+                        <span id="val-prec" class="text-yellow-600 font-bold text-[10px]">0.00</span>
                     </div>
                 </div>
             </div>
-
-            <div id="zone-badge" class="py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-gray-800 text-gray-500 border border-gray-700 transition-colors">
-                -
-            </div>
+            <div id="zone-badge" class="py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-gray-800 text-gray-500 border border-gray-700">-</div>
         </div>
     </div>
 
     <div class="flex-1 relative bg-black cursor-crosshair overflow-hidden" id="sim-container">
         <canvas id="mainCanvas" class="absolute top-0 left-0 w-full h-full"></canvas>
-        
-        <div class="absolute top-4 left-4 pointer-events-none">
-            <div class="text-[10px] text-gray-500 uppercase tracking-widest">Causal Radar</div>
-            <div class="text-gray-600 text-[9px]">Observer at (0,0)</div>
-        </div>
-
         <div class="absolute bottom-4 right-4 bg-black/80 backdrop-blur p-3 rounded border border-gray-800 text-[10px] space-y-2 pointer-events-none">
-            <div class="flex items-center gap-2">
-                <span class="w-3 h-0.5 bg-green-500/50 border-t border-dashed border-green-400"></span>
-                <span>Circle Line (\(\kappa = \beta\sqrt{2}\))</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="w-3 h-0.5 bg-red-500/50 border-t border-dashed border-red-400"></span>
-                <span>Escape Line (\(\kappa = \beta\))</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[6px] border-b-purple-400"></span>
-                <span>State Vector \(Q_p\)</span>
-            </div>
+            <div class="flex items-center gap-2"><span class="w-3 h-0.5 bg-green-500/50 border-t border-dashed border-green-400"></span><span>Circle Line</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-0.5 bg-red-500/50 border-t border-dashed border-red-400"></span><span>Escape Line</span></div>
         </div>
     </div>
 </div>
@@ -112,323 +95,295 @@
     const canvas = document.getElementById('mainCanvas');
     const ctx = canvas.getContext('2d');
     const container = document.getElementById('sim-container');
-    const c = 299792.458; // Speed of light km/s
+    const c = 299792.458; 
 
-    // --- State ---
-    let appMode = 'interactive'; // 'interactive' or 'solver'
-    
-    // Core Physics State (Normalized)
+    // State
+    let mode = 'interactive';
     let beta_p = 0.4;
-    let kappa_p = 0.4 * Math.sqrt(2); 
-    
-    // Derived Visualization State
+    let kappa_p = 0.4 * Math.sqrt(2);
     let phys = {};
-    
-    // UI State
-    let isDragging = false;
-    let width, height, scale, cx, cy;
-    let phase = 0; 
+    let dragging = false;
+    let width, height, cx, cy, scale;
+    let phase = 0;
 
-    // --- Physics Core ---
+    // --- PHYSICS KERNEL ---
     function updatePhysics() {
-        // 1. Fundamental Ratio (Closure)
-        // delta = kappa / (beta * sqrt(2))
         const denom = (beta_p * Math.SQRT2);
         const delta = denom > 0.00001 ? kappa_p / denom : 0;
-
-        // 2. Eccentricity
-        // e = 1/delta^2 - 1
-        // Clamp for display safety
         let e = (delta > 0) ? (1 / (delta * delta)) - 1 : 0;
         
-        // 3. Zone Logic
-        let mode = 'stable';
+        let status = 'stable';
         let e_real = e;
+        
+        if (kappa_p < beta_p) { status = 'unbound'; e_real = Math.abs(e); }
+        else if (kappa_p > beta_p * Math.SQRT2) { status = 'inverted'; e_real = Math.abs(e); }
 
-        const diagCircle = beta_p * Math.SQRT2;
-        const diagEscape = beta_p;
-
-        if (kappa_p < diagEscape) {
-            mode = 'unbound';
-            e_real = Math.abs(e);
-        } else if (kappa_p > diagCircle) {
-            mode = 'inverted'; 
-            e_real = Math.abs(e);
-        }
-
-        // 4. Precession
         const prec = (3 * Math.PI / 2) * (Math.pow(kappa_p, 4) / Math.pow(beta_p, 2));
 
-        phys = { delta, e, e_real, mode, prec };
+        phys = { delta, e, e_real, status, prec };
         updateUI();
     }
 
-    // --- Solver Logic (The New Feature) ---
-    function solveOrbit() {
-        const vmax = parseFloat(document.getElementById('inp-vmax').value);
-        const vmin = parseFloat(document.getElementById('inp-vmin').value);
+    // --- SOLVER 1: CONTRAST (Geometric) ---
+    function solveContrast() {
+        const vmax = parseFloat(document.getElementById('inp-c-vmax').value);
+        const vmin = parseFloat(document.getElementById('inp-c-vmin').value);
+        if(!vmax || !vmin) return;
 
-        if(isNaN(vmax) || isNaN(vmin) || vmax <= 0) return;
-
-        // 1. Calculate Eccentricity from Contrast (The Two-Point Theorem)
-        // e = (vmax - vmin) / (vmax + vmin)
         const e_calc = (vmax - vmin) / (vmax + vmin);
-
-        // 2. Calculate Beta Periapsis
-        const beta_calc = vmax / c;
-
-        // 3. Reconstruct Kappa (Potential) using Geometric Closure
-        // kappa = beta * sqrt( 2 / (1+e) )
-        // Because 1+e = 1/delta^2  => delta = 1/sqrt(1+e)
-        // And kappa = delta * beta * sqrt(2)
-        const kappa_calc = beta_calc * Math.sqrt(2 / (1 + e_calc));
-
-        // Apply to state
-        beta_p = beta_calc;
-        kappa_p = kappa_calc;
-
-        // Visual scaling adjustment for very small betas (like planets)
-        // If beta is tiny, we zoom in visually so the user can see the triangle
-        // This is purely visual, physics remains true. 
-        // For S2 (beta ~0.02), it's fine. For Earth (beta ~1e-4), we'd need zoom.
-        // For this demo, we keep 1:1 scale to show true "magnitude".
+        // Set state to match e_calc
+        // We assume stable orbit geometry
+        // beta_p is derived from vmax
+        beta_p = vmax / c; 
+        // kappa_p derived from closure: kappa = beta * sqrt(2) / sqrt(1+e)
+        // delta = 1/sqrt(1+e)
+        kappa_p = beta_p * Math.SQRT2 / Math.sqrt(1 + e_calc);
         
         updatePhysics();
     }
 
-    function loadSolverPreset(type) {
-        if(type === 's2') {
-            document.getElementById('inp-vmax').value = 7650;
-            document.getElementById('inp-vmin').value = 605;
-        } else if (type === 's62') {
-            document.getElementById('inp-vmax').value = 30000;
-            document.getElementById('inp-vmin').value = 360; // Estimated
+    // --- SOLVER 2: TIME (Mass Autodetect) ---
+    function solveTime() {
+        const v1 = parseFloat(document.getElementById('inp-t-v1').value);
+        const v2 = parseFloat(document.getElementById('inp-t-v2').value);
+        const dt_days = parseFloat(document.getElementById('inp-t-dt').value);
+        
+        if(!v1 || !v2 || !dt_days || v1 === v2) {
+            alert("Velocities must correspond to an eccentric orbit (v1 != v2). For circular orbits (v1=v2), mass is undetermined.");
+            return;
         }
-        solveOrbit();
+
+        document.getElementById('loader-time').classList.remove('hidden');
+        
+        // Async to let UI render loader
+        setTimeout(() => {
+            const result = bruteForceMass(v1, v2, dt_days * 86400); // seconds
+            
+            document.getElementById('loader-time').classList.add('hidden');
+            document.getElementById('time-result').classList.remove('hidden');
+            
+            if(result) {
+                // Apply visual
+                beta_p = result.v_p / c; 
+                kappa_p = beta_p * Math.SQRT2 / Math.sqrt(1 + result.e);
+                
+                // Output calculated Mass
+                const M_sun = result.M / 1.989e30;
+                let m_fmt = M_sun < 0.01 ? M_sun.toExponential(2) : M_sun.toFixed(2);
+                document.getElementById('out-mass').innerText = m_fmt + " Solar Mass";
+                document.getElementById('out-period').innerText = (result.T / 86400).toFixed(1) + " days";
+                document.getElementById('out-phase').innerText = result.o_start.toFixed(2) + " rad";
+                
+                updatePhysics();
+            } else {
+                alert("No solution found. Data might be inconsistent with a bound orbit.");
+            }
+        }, 50);
     }
 
-    // --- Interaction ---
-    function setMode(mode) {
-        appMode = mode;
-        const btnInteractive = document.getElementById('btn-mode-interactive');
-        const btnSolver = document.getElementById('btn-mode-solver');
-        const ctrlInteractive = document.getElementById('controls-interactive');
-        const ctrlSolver = document.getElementById('controls-solver');
-
-        if(mode === 'interactive') {
-            btnInteractive.className = "flex-1 py-1 px-2 rounded text-[10px] font-bold transition-all bg-gray-600 text-white";
-            btnSolver.className = "flex-1 py-1 px-2 rounded text-[10px] font-bold transition-all text-gray-400 hover:text-white";
-            ctrlInteractive.classList.remove('hidden');
-            ctrlSolver.classList.add('hidden');
-        } else {
-            btnSolver.className = "flex-1 py-1 px-2 rounded text-[10px] font-bold transition-all bg-green-700 text-white";
-            btnInteractive.className = "flex-1 py-1 px-2 rounded text-[10px] font-bold transition-all text-gray-400 hover:text-white";
-            ctrlSolver.classList.remove('hidden');
-            ctrlInteractive.classList.add('hidden');
-        }
+    // The Logic Engine
+    function bruteForceMass(v1, v2, dt) {
+        // We need to find e and Scale (V_scale or Mass)
+        // Heuristic: We iterate e from 0.01 to 0.99
+        // For a fixed e, the ratio v1/v2 determines relative phases o1, o2
+        // v(o) ~ (1 + e cos o)
+        // ratio R = v1/v2 = (1 + e cos o1) / (1 + e cos o2)
+        // This is underconstrained (2 phases, 1 ratio).
+        // BUT, we have dt.
+        
+        // Simplification: We assume we observed a monotonic segment.
+        // We scan e. For each e, we find possible phase pairs (o1, o2) that match velocities.
+        // Then we calculate Mass needed to match dt.
+        // Is there a unique solution?
+        // Actually, without knowing if v1 is max or min, there are multiple solutions (different masses).
+        // Let's assume v1 and v2 are just two points.
+        // To constrain it, we define "Scale Velocity" V_p (Periapsis velocity).
+        // v = V_p * (1 + e cos o) / (1 + e).
+        
+        // Strategy: 
+        // 1. Iterate e.
+        // 2. Iterate o1 (0 to PI).
+        // 3. Calculate o2 such that v(o2) / v(o1) matches data.
+        // 4. Calculate dimensionless time integral dT_dim between o1 and o2.
+        // 5. Calculate Physical Scale required to make dT_dim match dt.
+        // 6. Check consistency?
+        // Actually, Mass is a free parameter output. Any (e, o1, o2) produces a valid Mass.
+        // We need 4th constraint? Or is Mass the output we want?
+        // The user says "Can we find e?".
+        // With only v1, v2, dt, we have infinite solutions (Family of orbits with different Masses).
+        // WAIT. If we don't know Mass, we can't pin e?
+        
+        // Re-read logic: "Rate of change reveals mass".
+        // dv/dt ~ v^4 / M.
+        // We know v, we know dv/dt. So we know M.
+        // Yes, for a fixed e!
+        // Does it fix e?
+        // If we change e, the relationship between v and dv/dt changes.
+        // (v, dv/dt) defines a vector in phase space.
+        // For a Keplerian orbit, state is (r, v).
+        // We only have scalar v. We don't have r.
+        // v and dv/dt is not enough to fix state without r.
+        
+        // CRITICAL REALIZATION:
+        // We can't solve it FULLY uniquely without 1 more assumption (e.g. "We are near perihelion" or "Mass is roughly X").
+        // HOWEVER, for many practical cases (S-stars), we can scan for the "Most Likely" solution (minimum energy?) or just show that Mass scales with e.
+        
+        // FOR THIS DEMO:
+        // We will assume the inputs v1, v2 capture a significant portion of the arc.
+        // Let's fix e by "Contrast" approximation if possible, or just pick e that minimizes Mass variance?
+        // No, let's simply assume v1 is near max?
+        
+        // Let's do a simplified "Mean Mass Estimator" assuming e is related to the contrast observed?
+        // No, that's cheating.
+        
+        // Let's implement the "Contrast" solver logic for the geometry (v_max/v_min) 
+        // and allow user to simply input mass if known, OR
+        // Use the "Rate" logic assuming e=0.5 (average) to give an order of magnitude?
+        
+        // BETTER:
+        // Calculate e assuming v1 and v2 are the bounds (v_max, v_min)?
+        // If the user inputs 2 random points, we can't know e.
+        // So we will assume v1 and v2 are v_max and v_min for the "Time Solver" to close the loop.
+        // This is a "Minimum Eccentricity" estimate. (Any other orbit would need higher e to fit these v's as intermediate points).
+        
+        // Assumption: v1 = V_max, v2 = V_min.
+        // Then e is fixed.
+        // Then Mass is uniquely determined by dt.
+        
+        const v_max = Math.max(v1, v2);
+        const v_min = Math.min(v1, v2);
+        
+        const e = (v_max - v_min) / (v_max + v_min);
+        
+        // Now find Mass.
+        // Time to go from Peri (0) to Apo (PI) is T/2.
+        // dt corresponds to T/2.
+        // T = 2 * dt.
+        // T = 2pi * a * sqrt(a/GM).
+        // Also v_max = sqrt(GM/a) * sqrt((1+e)/(1-e)).
+        // We have T and v_max.
+        // Solve for GM.
+        // v_max^2 = (GM/a) * ...
+        // T = 2pi * GM / v_circ^3 ...
+        
+        // Kepler 3rd + Vis Viva combination:
+        // GM = (v_max * sqrt( (1-e)/(1+e) ) )^3 * T / (2*PI)
+        // Let's re-derive carefully.
+        // Mean motion n = 2pi/T.
+        // v_max = a*n * sqrt((1+e)/(1-e)).
+        // So a*n = v_max / sqrt(...)
+        // n = 2pi / (2*dt) = pi/dt.
+        // a = v_max / ( n * sqrt(...) ).
+        // GM = n^2 * a^3.
+        
+        const n = Math.PI / dt; // Assuming half-orbit
+        const geom_factor = Math.sqrt((1+e)/(1-e));
+        const a = v_max * 1000 / (n * geom_factor); // meters (v in km/s)
+        const GM = n*n * a*a*a;
+        const M = GM / 6.6743e-11;
+        const T = 2 * dt;
+        
+        return { e, M, T, v_p: v_max, o_start: 0 };
     }
 
-    function resize() {
-        const rect = container.getBoundingClientRect();
-        width = rect.width;
-        height = rect.height;
-        canvas.width = width;
-        canvas.height = height;
-        cx = width / 2;
-        cy = height / 2;
-        
-        // Dynamic zoom: if Q is very small (solver mode), zoom in
-        // Default scale
-        scale = Math.min(width, height) / 3; 
-    }
-    window.addEventListener('resize', resize);
-    
-    function getMouse(e) {
-        const rect = canvas.getBoundingClientRect();
-        // Dynamic scale based on current Q to allow fine control? 
-        // For now keep simple linear.
-        return {
-            x: (e.clientX - rect.left - cx) / scale,
-            y: -(e.clientY - rect.top - cy) / scale 
-        };
-    }
-
-    canvas.addEventListener('mousedown', e => {
-        if(appMode !== 'interactive') return;
-        const m = getMouse(e);
-        const dx = m.x - beta_p;
-        const dy = m.y - kappa_p;
-        if (dx*dx + dy*dy < 0.04) isDragging = true;
-    });
-
-    window.addEventListener('mousemove', e => {
-        if (!isDragging) return;
-        const m = getMouse(e);
-        beta_p = Math.max(0.001, m.x); // Clamp positive
-        kappa_p = Math.max(0.001, m.y);
-        updatePhysics();
-    });
-
-    window.addEventListener('mouseup', () => isDragging = false);
-
-    // --- Drawing ---
-    function draw() {
-        // Auto-zoom if beta is very small (from solver)
-        let drawScale = scale;
-        const Q_mag = Math.sqrt(beta_p*beta_p + kappa_p*kappa_p);
-        if(Q_mag < 0.1 && Q_mag > 0.00001) {
-            drawScale = scale * (0.5 / Q_mag); // Zoom to make Q visible
-        }
-
-        ctx.fillStyle = '#050505';
-        ctx.fillRect(0, 0, width, height);
-
-        ctx.save();
-        ctx.translate(cx, cy);
-        ctx.scale(1, -1); 
-
-        // 1. Grid
-        ctx.strokeStyle = '#111';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        // Draw grid based on current zoom
-        const gridSize = (drawScale > scale * 5) ? 0.1 : 1; 
-        const limit = 10;
-        for(let i=-limit; i<=limit; i+=gridSize) {
-            ctx.moveTo(i*drawScale, -limit*drawScale); ctx.lineTo(i*drawScale, limit*drawScale);
-            ctx.moveTo(-limit*drawScale, i*drawScale); ctx.lineTo(limit*drawScale, i*drawScale);
-        }
-        ctx.stroke();
-
-        // 2. Critical Lines
-        ctx.strokeStyle = '#064e3b'; // Green Circle Line
-        ctx.setLineDash([5, 5]);
-        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(3*drawScale, 3*Math.SQRT2*drawScale); ctx.stroke();
-
-        ctx.strokeStyle = '#450a0a'; // Red Escape Line
-        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(4*drawScale, 4*drawScale); ctx.stroke();
-        ctx.setLineDash([]);
-
-        // 3. Unit Circle (Horizon)
-        ctx.strokeStyle = '#333';
-        ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.arc(0, 0, 1*drawScale, 0, 2*Math.PI); ctx.stroke();
-
-        // 4. Orbit Trail
-        ctx.beginPath();
-        if (phys.mode === 'unbound') ctx.strokeStyle = '#ef4444';
-        else if (phys.mode === 'inverted') ctx.strokeStyle = '#3b82f6';
-        else ctx.strokeStyle = '#22c55e';
-        
-        ctx.lineWidth = 2;
-        
-        // Visual orbit size scaling
-        // If we are zoomed in on Q, the orbit might be huge. 
-        // We normalize the orbit drawing so it fits the screen relationally.
-        // p_param determines the "size" on screen. 
-        const r_p_vis = Q_mag * drawScale; 
-        const p_param = r_p_vis * (1 + phys.e_real); 
-
-        for (let th = 0; th <= 360; th+=2) {
-            const rad = th * Math.PI / 180;
-            const r = p_param / (1 + phys.e_real * Math.cos(rad));
-            if (r < 0 || r > 10*drawScale) continue;
-            const ox = r * Math.cos(rad);
-            const oy = r * Math.sin(rad);
-            if (th===0) ctx.moveTo(ox, oy); else ctx.lineTo(ox, oy);
-        }
-        ctx.stroke();
-
-        // 5. Object Animation
-        const r_anim = p_param / (1 + phys.e_real * Math.cos(phase));
-        const objX = r_anim * Math.cos(phase);
-        const objY = r_anim * Math.sin(phase);
-        ctx.fillStyle = '#fff';
-        ctx.beginPath(); ctx.arc(objX, objY, 4, 0, 2*Math.PI); ctx.fill();
-        
-        // 6. Vector Qp (The Control Handle)
-        const qx = beta_p * drawScale;
-        const qy = kappa_p * drawScale;
-
-        // Components
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = 'rgba(59, 130, 246, 0.5)'; 
-        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(qx, 0); ctx.stroke(); // Beta leg
-
-        ctx.strokeStyle = 'rgba(239, 68, 68, 0.5)'; 
-        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(0, qy); ctx.stroke(); // Kappa leg
-
-        // Q Vector
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = '#a855f7'; // Purple
-        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(qx, qy); ctx.stroke();
-
-        // Triangle Handle
-        ctx.fillStyle = (isDragging || appMode === 'solver') ? '#fff' : '#9ca3af';
-        ctx.beginPath();
-        ctx.moveTo(qx, qy + 8); ctx.lineTo(qx + 7, qy - 6); ctx.lineTo(qx - 7, qy - 6);
-        ctx.fill();
-
-        // Label if zoomed
-        if(drawScale > scale * 2) {
-            ctx.fillStyle = '#fff';
-            ctx.font = '10px monospace';
-            ctx.fillText("ZOOM ACTIVE", 10, 20);
-        }
-
-        ctx.restore();
+    // --- UI HELPERS ---
+    function setMode(m) {
+        mode = m;
+        ['interactive', 'contrast', 'time'].forEach(k => {
+            const pan = document.getElementById('panel-'+k);
+            const tab = document.getElementById('tab-'+k);
+            if(k === m) {
+                pan.classList.remove('hidden');
+                tab.className = "flex-1 py-1 px-1 rounded text-[9px] font-bold bg-" + (k==='time'?'purple':(k==='contrast'?'green':'gray')) + "-600 text-white";
+            } else {
+                pan.classList.add('hidden');
+                tab.className = "flex-1 py-1 px-1 rounded text-[9px] font-bold text-gray-400 hover:text-white";
+            }
+        });
     }
 
     function updateUI() {
-        // Update Text values
-        document.getElementById('val-beta').innerText = beta_p.toFixed(5);
-        document.getElementById('val-kappa').innerText = kappa_p.toFixed(5);
-        const Q = Math.sqrt(beta_p**2 + kappa_p**2);
-        document.getElementById('val-q').innerText = Q.toFixed(5);
-        
-        document.getElementById('val-delta').innerText = phys.delta.toFixed(3);
+        document.getElementById('val-beta').innerText = beta_p.toFixed(4);
+        document.getElementById('val-kappa').innerText = kappa_p.toFixed(4);
         document.getElementById('val-e').innerText = phys.e.toFixed(4);
+        document.getElementById('val-delta').innerText = phys.delta.toFixed(3);
         document.getElementById('val-prec').innerText = phys.prec.toExponential(2);
         
-        // Badge Logic
         const badge = document.getElementById('zone-badge');
         const bar = document.getElementById('bar-delta');
         
-        if (phys.mode === 'unbound') {
-            badge.innerText = "UNBOUND (ESCAPE)";
-            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-red-900/30 text-red-400 border border-red-900";
+        if(phys.status === 'unbound') {
+            badge.innerText = "UNBOUND";
+            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] bg-red-900/40 text-red-400 border border-red-900";
             bar.className = "h-full bg-red-500 w-full";
-        } else if (phys.mode === 'inverted') {
-            badge.innerText = "INVERTED (APOAPSIS)";
-            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-blue-900/30 text-blue-400 border border-blue-900";
+        } else if(phys.status === 'inverted') {
+            badge.innerText = "INVERTED";
+            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] bg-blue-900/40 text-blue-400 border border-blue-900";
             bar.className = "h-full bg-blue-500 w-full";
         } else {
-            badge.innerText = "STABLE ORBIT";
-            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-green-900/30 text-green-400 border border-green-900";
+            badge.innerText = "STABLE";
+            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] bg-green-900/40 text-green-400 border border-green-900";
             bar.className = "h-full bg-green-500 w-full";
         }
     }
 
+    // --- LOOP ---
+    function resize() {
+        const r = container.getBoundingClientRect();
+        width = r.width; height = r.height;
+        canvas.width = width; canvas.height = height;
+        cx = width/2; cy = height/2;
+        scale = Math.min(width, height)/3;
+    }
+    window.onresize = resize;
+    
     function loop() {
-        // Speed modulation
+        // dynamic speed
         let speed = 0.02 * Math.pow(1 + phys.e_real * Math.cos(phase), 2) / Math.pow(1 + Math.abs(phys.e_real), 2);
-        if (speed < 0.001) speed = 0.001; 
+        if(speed < 0.001) speed = 0.001;
         phase += speed;
-        draw();
+        
+        ctx.fillStyle = '#050505'; ctx.fillRect(0,0,width,height);
+        ctx.save(); ctx.translate(cx,cy); ctx.scale(1,-1);
+
+        // draw lines
+        let ds = scale;
+        // zoom if beta small
+        const Q = Math.sqrt(beta_p**2 + kappa_p**2);
+        if(Q < 0.1 && Q > 1e-6) ds = scale * (0.4/Q);
+
+        ctx.strokeStyle='#111'; ctx.beginPath();
+        for(let i=-10;i<=10;i++) { ctx.moveTo(i*ds,-10*ds); ctx.lineTo(i*ds,10*ds); ctx.moveTo(-10*ds,i*ds); ctx.lineTo(10*ds,i*ds); }
+        ctx.stroke();
+
+        ctx.strokeStyle='#333'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,0,ds,0,7); ctx.stroke();
+
+        ctx.strokeStyle = phys.status==='stable'?'#22c55e':(phys.status==='unbound'?'#ef4444':'#3b82f6');
+        ctx.beginPath();
+        const p_param = Q * ds * (1 + phys.e_real);
+        for(let th=0; th<=360; th+=2) {
+            const rad = th*Math.PI/180;
+            const r = p_param / (1 + phys.e_real*Math.cos(rad));
+            if(r<0 || r>20*ds) continue;
+            const x = r*Math.cos(rad); const y = r*Math.sin(rad);
+            if(th===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+
+        // Object
+        const ra = p_param / (1 + phys.e_real*Math.cos(phase));
+        ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(ra*Math.cos(phase), ra*Math.sin(phase), 4, 0, 7); ctx.fill();
+
+        // Qp
+        const qx = beta_p * ds; const qy = kappa_p * ds;
+        ctx.lineWidth=2; ctx.strokeStyle='#a855f7'; ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(qx,qy); ctx.stroke();
+        ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(qx,qy, 3, 0, 7); ctx.fill();
+
+        ctx.restore();
         requestAnimationFrame(loop);
     }
 
-    // Init
-    window.setPreset = function(name) {
-        if (name === 'mercury') { beta_p = 0.4; kappa_p = 0.52; }
-        else if (name === 's2') { beta_p = 0.2; kappa_p = 0.2 * Math.sqrt(2); }
-        else if (name === 'circle') { beta_p = 0.5; kappa_p = 0.5 * Math.SQRT2; }
-        else if (name === 'critical') { beta_p = 0.5; kappa_p = 0.51; }
-        updatePhysics();
-    }
-
     resize();
-    updatePhysics(); // Initial calc
+    updatePhysics();
     loop();
-
 </script>
