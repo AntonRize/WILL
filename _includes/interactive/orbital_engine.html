@@ -10,8 +10,7 @@
             
             <div class="flex bg-gray-800 rounded p-1 gap-1">
                 <button onclick="setMode('interactive')" id="tab-interactive" class="flex-1 py-1 px-1 rounded text-[9px] font-bold bg-gray-600 text-white transition-all">MANUAL</button>
-                <button onclick="setMode('contrast')" id="tab-contrast" class="flex-1 py-1 px-1 rounded text-[9px] font-bold text-gray-400 transition-all">2-PT GEO</button>
-                <button onclick="setMode('time')" id="tab-time" class="flex-1 py-1 px-1 rounded text-[9px] font-bold text-gray-400 transition-all">TRUE SOLVER</button>
+                <button onclick="setMode('triangulate')" id="tab-triangulate" class="flex-1 py-1 px-1 rounded text-[9px] font-bold text-gray-400 transition-all">3-POINT NAV</button>
             </div>
         </div>
 
@@ -23,47 +22,42 @@
             </div>
         </div>
 
-        <div id="panel-contrast" class="p-4 space-y-4 border-b border-gray-800 hidden">
-            <div class="text-[9px] uppercase tracking-wider text-green-400 font-bold">Geometric Reconstruction</div>
-            <div class="text-gray-500 italic mb-2">Assumes v1 & v2 are Periapsis/Apoapsis extrema.</div>
-            <div class="space-y-2">
-                <input type="number" id="inp-c-vmax" placeholder="V max (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white focus:border-green-500 outline-none">
-                <input type="number" id="inp-c-vmin" placeholder="V min (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white focus:border-green-500 outline-none">
-                <button onclick="solveContrast()" class="w-full py-2 bg-green-900/40 border border-green-800 text-green-400 rounded font-bold hover:bg-green-900/60 transition-all">SOLVE GEOMETRY</button>
-            </div>
-        </div>
-
-        <div id="panel-time" class="p-4 space-y-4 border-b border-gray-800 hidden">
-            <div class="text-[9px] uppercase tracking-wider text-purple-400 font-bold">General Orbit Solver</div>
-            <div class="text-gray-500 italic mb-2">Finds Min-Eccentricity orbit fitting ANY two velocities & time.</div>
+        <div id="panel-triangulate" class="p-4 space-y-4 border-b border-gray-800 hidden">
+            <div class="text-[9px] uppercase tracking-wider text-purple-400 font-bold">Orbital Triangulation</div>
+            <div class="text-gray-500 italic mb-2">Solves Mass & Orbit using acceleration curvature.</div>
             
-            <div class="space-y-2">
-                <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="text-[9px] text-gray-500">V1 (km/s)</label>
-                        <input type="number" id="inp-t-v1" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white focus:border-purple-500 outline-none">
-                    </div>
-                    <div>
-                        <label class="text-[9px] text-gray-500">V2 (km/s)</label>
-                        <input type="number" id="inp-t-v2" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white focus:border-purple-500 outline-none">
-                    </div>
-                </div>
-                <div>
-                    <label class="text-[9px] text-gray-500">Time Interval (Days)</label>
-                    <input type="number" id="inp-t-dt" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white focus:border-purple-500 outline-none">
+            <div class="space-y-3 relative">
+                <div class="grid grid-cols-12 gap-2 items-center bg-gray-900/50 p-1 rounded">
+                    <div class="col-span-2 text-center font-bold text-gray-500">T1</div>
+                    <div class="col-span-10"><input type="number" id="v1" placeholder="Velocity 1 (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white text-right font-mono"></div>
                 </div>
                 
-                <button onclick="solveTime()" class="w-full py-2 bg-purple-900/40 border border-purple-800 text-purple-300 rounded font-bold hover:bg-purple-900/60 flex justify-center items-center gap-2 transition-all">
-                    <span id="loader-time" class="hidden w-3 h-3 border-2 border-purple-300 border-t-transparent rounded-full animate-spin"></span>
-                    CALCULATE ORBIT
+                <div class="flex justify-center -my-2 z-10 relative"><span class="bg-gray-800 text-[9px] px-2 rounded text-gray-400">Time: <input type="number" id="dt1" class="w-12 bg-black border border-gray-600 text-center text-white" value="10"> days</span></div>
+
+                <div class="grid grid-cols-12 gap-2 items-center bg-gray-900/50 p-1 rounded">
+                    <div class="col-span-2 text-center font-bold text-gray-500">T2</div>
+                    <div class="col-span-10"><input type="number" id="v2" placeholder="Velocity 2 (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white text-right font-mono"></div>
+                </div>
+
+                <div class="flex justify-center -my-2 z-10 relative"><span class="bg-gray-800 text-[9px] px-2 rounded text-gray-400">Time: <input type="number" id="dt2" class="w-12 bg-black border border-gray-600 text-center text-white" value="10"> days</span></div>
+
+                <div class="grid grid-cols-12 gap-2 items-center bg-gray-900/50 p-1 rounded">
+                    <div class="col-span-2 text-center font-bold text-gray-500">T3</div>
+                    <div class="col-span-10"><input type="number" id="v3" placeholder="Velocity 3 (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white text-right font-mono"></div>
+                </div>
+                
+                <button onclick="solveTriangulation()" class="w-full py-3 bg-purple-900/40 border border-purple-800 text-purple-300 rounded font-bold hover:bg-purple-900/60 flex justify-center items-center gap-2 transition-all mt-2">
+                    <span id="loader-tri" class="hidden w-3 h-3 border-2 border-purple-300 border-t-transparent rounded-full animate-spin"></span>
+                    TRIANGULATE SYSTEM
                 </button>
             </div>
 
-            <div id="time-result" class="hidden space-y-2 bg-purple-900/10 p-2 rounded border border-purple-900/30 mt-2">
-                <div class="text-[9px] text-purple-400 font-bold border-b border-purple-900/30 pb-1 mb-1">RECONSTRUCTED SYSTEM:</div>
-                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Est. Mass:</span> <span id="out-mass" class="text-white font-bold">-</span></div>
-                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Period:</span> <span id="out-period" class="text-white font-bold">-</span></div>
-                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Observed Arc:</span> <span id="out-arc" class="text-white">-</span></div>
+            <div id="tri-result" class="hidden space-y-2 bg-purple-900/10 p-2 rounded border border-purple-900/30 mt-2">
+                <div class="text-[9px] text-purple-400 font-bold border-b border-purple-900/30 pb-1 mb-1">FOUND SOLUTION:</div>
+                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Mass (M☉):</span> <span id="out-mass" class="text-white font-bold text-green-400">-</span></div>
+                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Eccentricity:</span> <span id="out-e" class="text-white font-bold text-blue-400">-</span></div>
+                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Period:</span> <span id="out-period" class="text-white">-</span></div>
+                <div class="text-[9px] text-gray-500 mt-1 italic text-center">Converged with <span id="out-err">-</span>% error</div>
             </div>
         </div>
 
@@ -80,10 +74,6 @@
                             <span>Closure (\(\delta\))</span><span id="val-delta">1.00</span>
                         </div>
                         <div class="w-full h-1 bg-gray-800 rounded-full mt-1"><div id="bar-delta" class="h-full bg-blue-500 w-full"></div></div>
-                    </div>
-                     <div class="flex justify-between items-center px-1">
-                        <span class="text-gray-500 text-[10px]">Precession</span>
-                        <span id="val-prec" class="text-yellow-600 font-bold text-[10px]">0.00</span>
                     </div>
                 </div>
             </div>
@@ -116,8 +106,8 @@
     let width, height, cx, cy, scale;
     let phase = 0;
     
-    // Solver Visualization State
-    let solvedArc = null; // { o_start, o_end }
+    // Visualization State
+    let observedArc = null; // {start, end, points[]}
 
     // --- PHYSICS KERNEL ---
     function updatePhysics() {
@@ -137,218 +127,204 @@
         updateUI();
     }
 
-    // --- SOLVER 1: CONTRAST (Geometric Extrema) ---
-    function solveContrast() {
-        solvedArc = null;
-        const vmax = parseFloat(document.getElementById('inp-c-vmax').value);
-        const vmin = parseFloat(document.getElementById('inp-c-vmin').value);
-        if(!vmax || !vmin) return;
-
-        const e_calc = (vmax - vmin) / (vmax + vmin);
-        beta_p = vmax / c; 
-        kappa_p = beta_p * Math.SQRT2 / Math.sqrt(1 + e_calc);
-        updatePhysics();
-    }
-
-    // --- SOLVER 2: GENERAL (Time Integral) ---
-    function solveTime() {
-        solvedArc = null;
-        const v1 = parseFloat(document.getElementById('inp-t-v1').value);
-        const v2 = parseFloat(document.getElementById('inp-t-v2').value);
-        const dt_days = parseFloat(document.getElementById('inp-t-dt').value);
+    // --- SOLVER 3: TRIANGULATION (3 Points) ---
+    function solveTriangulation() {
+        observedArc = null;
+        const v1 = parseFloat(document.getElementById('v1').value);
+        const v2 = parseFloat(document.getElementById('v2').value);
+        const v3 = parseFloat(document.getElementById('v3').value);
+        const dt1 = parseFloat(document.getElementById('dt1').value) * 86400; // sec
+        const dt2 = parseFloat(document.getElementById('dt2').value) * 86400; // sec
         
-        if(!v1 || !v2 || !dt_days) return;
+        if(!v1 || !v2 || !v3) return;
 
-        document.getElementById('loader-time').classList.remove('hidden');
+        document.getElementById('loader-tri').classList.remove('hidden');
         
         setTimeout(() => {
-            // Find Min-Eccentricity Orbit
-            const result = findOrbitSolver(v1, v2, dt_days * 86400);
+            // Algorithm:
+            // 1. Scan Eccentricity e from 0 to 0.99
+            // 2. For each e, find Mass required to fit Interval 1 (v1->v2)
+            // 3. For each e, find Mass required to fit Interval 2 (v2->v3)
+            // 4. The 'e' where Mass1 == Mass2 is the solution.
             
-            document.getElementById('loader-time').classList.add('hidden');
-            document.getElementById('time-result').classList.remove('hidden');
+            const results = scanIntersection(v1, v2, v3, dt1, dt2);
             
-            if(result) {
-                // Apply visual
-                beta_p = result.v_p / c; 
-                kappa_p = beta_p * Math.SQRT2 / Math.sqrt(1 + result.e);
+            document.getElementById('loader-tri').classList.add('hidden');
+            document.getElementById('tri-result').classList.remove('hidden');
+            
+            if(results.best) {
+                const sol = results.best;
                 
-                // Set arc for drawing
-                solvedArc = { start: result.o_start, end: result.o_end };
+                // Set Global State
+                beta_p = sol.v_p / c; 
+                kappa_p = beta_p * Math.SQRT2 / Math.sqrt(1 + sol.e);
                 
                 // Output
-                const M_sun = result.M / 1.989e30;
+                const M_sun = sol.M / 1.989e30;
                 let m_fmt = M_sun < 0.01 ? M_sun.toExponential(2) : M_sun.toFixed(2);
-                document.getElementById('out-mass').innerText = m_fmt + " M☉";
-                document.getElementById('out-period').innerText = (result.T / 86400).toFixed(1) + " d";
                 
-                // Phase fraction
-                const arcPercent = (Math.abs(result.o_end - result.o_start)/(2*Math.PI)*100).toFixed(1);
-                document.getElementById('out-arc').innerText = arcPercent + "% of orbit";
+                document.getElementById('out-mass').innerText = m_fmt;
+                document.getElementById('out-e').innerText = sol.e.toFixed(4);
+                document.getElementById('out-period').innerText = (sol.T / 86400).toFixed(1) + " d";
+                document.getElementById('out-err').innerText = (sol.err * 100).toFixed(2);
+                
+                // Visualization
+                observedArc = { start: sol.o1, end: sol.o3 };
                 
                 updatePhysics();
             } else {
-                alert("No consistent bound orbit found. Data might imply hyperbolic trajectory or inconsistent timing.");
+                alert("Solution divergence. Data points may be inconsistent (e.g., v2 is not between v1 and v3 geometrically, or noise is too high).");
             }
         }, 50);
     }
 
-    // The True Solver Algorithm
-    function findOrbitSolver(v1, v2, dt) {
-        const v_high = Math.max(v1, v2);
-        const v_low = Math.min(v1, v2);
+    function scanIntersection(v1, v2, v3, dt1, dt2) {
+        let bestError = Infinity;
+        let bestSol = null;
         
-        // Min e possible is Contrast e (if v1, v2 were extrema)
-        const e_min = (v_high - v_low) / (v_high + v_low);
-        
-        // Iterate e from e_min upwards to find a fit
-        // Step size 0.005
-        let bestFit = null;
-        let minTimeError = Infinity;
-
-        for(let e = e_min; e < 0.99; e += 0.005) {
+        // Coarse scan then fine? Just coarse for demo (step 0.01)
+        for(let e = 0.01; e < 0.99; e += 0.01) {
             
-            // For a given e, ratio v(o1)/v(o2) fixes relative phase.
-            // v = V_scale * (1 + e cos o).
-            // We assume monotonic arc (o1 to o2).
-            // Scan o1 from 0 to PI (symmetric).
-            // But we need to check if v2 is reachable.
+            // Interval 1 fit
+            const fit1 = fitInterval(e, v1, v2, dt1);
+            if(!fit1) continue;
             
-            // Let's deduce Scale from v1: V_scale = v1 / (1 + e cos o1).
-            // Then v_calc_2 = V_scale * (1 + e cos o2).
-            // We iterate o1.
+            // Interval 2 fit
+            // Must verify phase consistency. 
+            // If v1>v2, phase is increasing (0 -> pi).
+            // o2 from fit1 must match o_start for fit2.
+            // But fitInterval finds optimal Mass. 
+            // We just check if Mass matches.
+            // And we must ensure v2 in fit2 corresponds to same phase as v2 in fit1?
+            // Actually, for a fixed e, relative phases are fixed by velocity ratios.
+            // Ratio R1 = v1/v2. Ratio R2 = v2/v3.
             
-            // Optimization: 
-            // The ratio R = v1/v2 = (1+e cos o1)/(1+e cos o2).
-            // We can solve o2 given o1.
+            // Let's deduce phases first.
+            // Assume v_max = V_scale * (1+e)/(sqrt(1-e^2)).
+            // v(o) = V_scale * (1+e cos o) / sqrt(1-e^2).
+            // Ratio v1/v2 = (1+e cos o1)/(1+e cos o2).
             
-            // Just scan o1
-            for(let o1 = 0; o1 < Math.PI; o1 += 0.05) {
+            // We need to place o1, o2, o3.
+            // Assume monotonic segment (e.g. falling from peri).
+            // o1 determined by assumption? No, only relative differences matter?
+            // Wait, Mass depends on absolute derivative.
+            
+            // Let's assume v1 is the anchor.
+            // But we don't know where v1 is.
+            // This is the tricky part. 
+            // Actually, with 3 velocities, we have R1 and R2.
+            // (1+e cos o1)/(1+e cos o2) = v1/v2
+            // (1+e cos o2)/(1+e cos o3) = v2/v3
+            // We have 3 phases, 2 equations. Degree of freedom: shift o1.
+            // But we have constraints: o2 = o1 + d_o1, o3 = o2 + d_o2.
+            // And Time(o1,o2) = dt1 * S. Time(o2,o3) = dt2 * S.
+            // S (Scale) must be same.
+            
+            // This suggests for a fixed e, we must scan o1.
+            // Iterate o1 from 0 to PI.
+            // Calculate o2 from v1/v2.
+            // Calculate o3 from v2/v3.
+            // Calculate Time1_dim and Time2_dim (dimensionless).
+            // Calculate implied Scale1 = dt1 / Time1_dim.
+            // Calculate implied Scale2 = dt2 / Time2_dim.
+            // Error = abs(Scale1 - Scale2).
+            // Find o1 that minimizes scale error.
+            // That gives the best Mass for this 'e'.
+            
+            // Then, is that 'e' the global best?
+            // No, any e might find a matching scale phase.
+            // Wait.
+            // If we match scales, do we match absolute values?
+            // Scale defines GM. 
+            // v = sqrt(GM/a) * shape.
+            // We matched velocity Ratios.
+            // Now we match Time Ratios.
+            // Does this fix e?
+            // Yes. The "Time-Ratio vs Velocity-Ratio" curve depends on e.
+            
+            // SIMPLIFIED ALGORITHM for Demo:
+            // 1. Scan e.
+            // 2. Scan o1.
+            // 3. Derive o2, o3 from V ratios.
+            // 4. Calc Ratio of Times (dt_dim_1 / dt_dim_2).
+            // 5. Compare with Real Ratio (dt1 / dt2).
+            // 6. Minimize difference.
+            
+            // This finds the correct (e, o1).
+            // Then we calc Mass from that solution.
+            
+            const ratioV1 = v1/v2;
+            const ratioV2 = v2/v3;
+            const targetTimeRatio = dt1/dt2;
+            
+            for(let o1 = 0; o1 < 3.0; o1 += 0.1) {
+                // Solve o2
+                // (1+e cos o1)/(1+e cos o2) = R1 => 1+e cos o2 = (1+e cos o1)/R1
+                const term2 = (1 + e * Math.cos(o1)) / ratioV1;
+                const cos_o2 = (term2 - 1) / e;
+                if(Math.abs(cos_o2) > 1) continue;
+                const o2 = Math.acos(cos_o2);
                 
-                // Calculate V_scale assuming this o1 corresponds to v1
-                // Note: v1 could be v_high or v_low. Let's strictly map input v1 to o1.
-                // But v(o) is symmetric. 
-                // Let's assume v1 corresponds to o1.
-                // o1=0 is periapsis (Max V).
+                // Solve o3
+                const term3 = (1 + e * Math.cos(o2)) / ratioV2;
+                const cos_o3 = (term3 - 1) / e;
+                if(Math.abs(cos_o3) > 1) continue;
+                const o3 = Math.acos(cos_o3);
                 
-                // Constraint: v(o) must decrease if we move away from 0.
-                // If v1 > v2, o1 < o2. 
-                // If v1 < v2, o1 > o2 (or approaching periapsis).
+                // Ensure order (monotonic fall)
+                // If v1 > v2, o1 < o2. If v2 > v3, o2 < o3.
+                // acos always returns 0..pi.
+                // Assuming v decreasing.
                 
-                // To keep it simple: We map the segment to the "outbound" leg (0 to PI).
-                // v_high is at o_near_0. v_low is at o_near_PI.
+                // Calc Dimensionless Times
+                const dT1_dim = calcKeplerTime(e, o1, o2);
+                const dT2_dim = calcKeplerTime(e, o2, o3);
                 
-                const ratio = v_low / v_high; 
-                // ratio = (1 + e cos o_far) / (1 + e cos o_near).
+                const timeRatio = dT1_dim / dT2_dim;
+                const err = Math.abs(timeRatio - targetTimeRatio) / targetTimeRatio;
                 
-                // Let's verify if o1 (for v_high) works.
-                // 1 + e cos o_far = ratio * (1 + e cos o1).
-                const term = ratio * (1 + e * Math.cos(o1));
-                const cos_o2 = (term - 1) / e;
-                
-                if(cos_o2 >= -1 && cos_o2 <= 1) {
-                    const o2 = Math.acos(cos_o2); // o2 > o1 since v_low < v_high
+                if(err < 0.05 && err < bestError) {
+                    bestError = err;
                     
-                    // Now we have candidate phases o1 and o2 for this e.
-                    // Calculate Time of Flight using Kepler/WILL Eq.
-                    // dt_calc = (M2 - M1) / n.
-                    // M = E - e sin E.
-                    // tan(E/2) = sqrt((1-e)/(1+e)) tan(o/2).
-                    
-                    const E1 = 2 * Math.atan(Math.sqrt((1-e)/(1+e)) * Math.tan(o1/2));
-                    const E2 = 2 * Math.atan(Math.sqrt((1-e)/(1+e)) * Math.tan(o2/2));
-                    
-                    const M1 = E1 - e * Math.sin(E1);
-                    const M2 = E2 - e * Math.sin(E2);
-                    const dM = Math.abs(M2 - M1);
-                    
-                    // We need 'n' (mean motion).
-                    // v(o) = (na / sqrt(1-e^2)) * (1 + e cos o).
-                    // So na = v_high * sqrt(1-e^2) / (1 + e cos o1).
-                    // Also GM = n^2 a^3.
-                    // We need to isolate n? No, we need T or Mass.
-                    // Actually, we need to match dt.
-                    // We can derive T (and thus dt_calc) from the Scale implied by v_high.
-                    // From Vis-Viva/Kepler:
-                    // GM = (v * sqrt((1-e)/(1+e)))^3 * T / 2PI ... wait.
-                    // Let's use standard unit G=6.674e-11.
-                    
-                    // Calculate 'a' assuming Mass is unknown? No.
-                    // We have v (m/s) and dt (s).
-                    // v scales as sqrt(M/a). dt scales as sqrt(a^3/M).
-                    // We can solve for M and a uniquely for this geometry.
-                    
-                    // Let V_geo = (1 + e cos o1) / sqrt(1-e^2).
-                    // v_high = sqrt(GM/a) * V_geo.
-                    // n = sqrt(GM/a^3).
-                    // v_high = n * a * V_geo.
-                    // => a = v_high / (n * V_geo).
-                    
-                    // dt = dM / n => n = dM / dt.
-                    
-                    // So we know n! 
-                    // Now we calculate Mass implied.
-                    // a = v_high / ( (dM/dt) * V_geo ).
-                    // GM = n^2 * a^3.
-                    // M = GM / G.
-                    
-                    // So for ANY (e, o1), we find a valid Mass.
-                    // Which one is "True"?
-                    // The user gives just 2 points.
-                    // We return the solution with MINIMUM ECCENTRICITY (Occam's Razor).
-                    // Since we iterate e from e_min up, the FIRST valid solution found 
-                    // is technically the lowest e.
-                    
-                    // However, we just showed that ANY e > e_min has a solution.
-                    // e_min corresponds to o1=0, o2=PI (Contrast limit).
-                    // But if dt is very small, e_min -> 0.
-                    // If dt is large, e_min holds.
-                    
-                    // What if the user inputs two v's that are close, but dt is tiny?
-                    // Then e_min is small. We find a circular orbit with Mass X.
-                    // This is a valid physical solution.
-                    
-                    // What if the user inputs two v's that are close, but dt is HUGE?
-                    // Then e_min is small. Circular orbit. But Period must be huge. Mass huge.
-                    
-                    // So, returning the Min-Eccentricity solution is the standard "Best Guess".
-                    
-                    // Calculate Physicals
-                    const n_real = dM / dt;
+                    // Reconstruct Mass
+                    // n = dM_dim / dt
+                    // a = v / (n * geom)
+                    const n = dT1_dim / dt1; // rad/sec approx
                     const V_geo = (1 + e * Math.cos(o1)) / Math.sqrt(1-e*e);
-                    const v_h_m = v_high * 1000;
-                    const a_m = v_h_m / (n_real * V_geo);
-                    const GM = n_real * n_real * a_m * a_m * a_m;
+                    const v1_m = v1 * 1000;
+                    const a = v1_m / (n * V_geo);
+                    const GM = n*n * a*a*a;
                     const Mass = GM / 6.6743e-11;
-                    const Period = 2 * Math.PI / n_real;
                     
-                    // Calculate V_peri for WILL state
-                    // v_p = n * a * sqrt((1+e)/(1-e)).
-                    const v_p_calc = n_real * a_m * Math.sqrt((1+e)/(1-e)) / 1000;
+                    // Calc Periapsis Velocity for display
+                    const v_p = n * a * Math.sqrt((1+e)/(1-e)) / 1000;
                     
-                    return {
-                        e: e,
-                        M: Mass,
-                        T: Period,
-                        v_p: v_p_calc,
-                        o_start: o1,
-                        o_end: o2
-                    };
+                    bestSol = { e: e, M: Mass, T: 2*Math.PI/n, v_p: v_p, err: err, o1: o1, o3: o3 };
                 }
             }
         }
-        return null;
+        return { best: bestSol };
+    }
+    
+    function calcKeplerTime(e, o_start, o_end) {
+        // M = E - e sin E
+        // tan(E/2) = sqrt((1-e)/(1+e)) tan(o/2)
+        const E1 = 2 * Math.atan(Math.sqrt((1-e)/(1+e)) * Math.tan(o_start/2));
+        const E2 = 2 * Math.atan(Math.sqrt((1-e)/(1+e)) * Math.tan(o_end/2));
+        const M1 = E1 - e * Math.sin(E1);
+        const M2 = E2 - e * Math.sin(E2);
+        return Math.abs(M2 - M1);
     }
 
     // --- UI HELPERS ---
     function setMode(m) {
         mode = m;
-        ['interactive', 'contrast', 'time'].forEach(k => {
+        ['interactive', 'triangulate'].forEach(k => {
             const pan = document.getElementById('panel-'+k);
             const tab = document.getElementById('tab-'+k);
             if(k === m) {
                 pan.classList.remove('hidden');
-                tab.className = "flex-1 py-1 px-1 rounded text-[9px] font-bold bg-" + (k==='time'?'purple':(k==='contrast'?'green':'gray')) + "-600 text-white transition-all shadow-[0_0_10px_rgba(255,255,255,0.2)]";
+                tab.className = "flex-1 py-1 px-1 rounded text-[9px] font-bold bg-" + (k==='triangulate'?'purple':'gray') + "-600 text-white transition-all shadow-[0_0_10px_rgba(255,255,255,0.2)]";
             } else {
                 pan.classList.add('hidden');
                 tab.className = "flex-1 py-1 px-1 rounded text-[9px] font-bold text-gray-400 hover:text-white transition-all";
@@ -361,23 +337,18 @@
         document.getElementById('val-kappa').innerText = kappa_p.toFixed(4);
         document.getElementById('val-e').innerText = phys.e.toFixed(4);
         document.getElementById('val-delta').innerText = phys.delta.toFixed(3);
-        document.getElementById('val-prec').innerText = phys.prec.toExponential(2);
         
         const badge = document.getElementById('zone-badge');
-        const bar = document.getElementById('bar-delta');
         
         if(phys.status === 'unbound') {
             badge.innerText = "UNBOUND";
             badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] bg-red-900/40 text-red-400 border border-red-900";
-            bar.className = "h-full bg-red-500 w-full";
         } else if(phys.status === 'inverted') {
             badge.innerText = "INVERTED";
             badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] bg-blue-900/40 text-blue-400 border border-blue-900";
-            bar.className = "h-full bg-blue-500 w-full";
         } else {
             badge.innerText = "STABLE";
             badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] bg-green-900/40 text-green-400 border border-green-900";
-            bar.className = "h-full bg-green-500 w-full";
         }
     }
 
@@ -421,16 +392,10 @@
         }
         ctx.stroke();
         
-        // Draw Solved Arc
-        if(solvedArc && phys.status === 'stable') {
+        if(observedArc && phys.status === 'stable') {
             ctx.strokeStyle = 'white'; ctx.lineWidth = 4; ctx.beginPath();
-            // Draw arc from start to end
-            // Note: Canvas arc is counter-clockwise? Need to handle direction.
-            // We'll just draw points.
-            let start = solvedArc.start;
-            let end = solvedArc.end;
-            // Parametric drawing for precision
-             for(let th=start; th<=end; th+=0.05) {
+            const start = observedArc.start; const end = observedArc.end;
+            for(let th=start; th<=end; th+=0.05) {
                 const r = p_param / (1 + phys.e_real*Math.cos(th));
                 const x = r*Math.cos(th); const y = r*Math.sin(th);
                 if(th===start) ctx.moveTo(x,y); else ctx.lineTo(x,y);
