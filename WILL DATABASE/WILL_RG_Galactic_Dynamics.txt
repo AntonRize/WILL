@@ -1,0 +1,352 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- Encoding and language ---
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% --- Page geometry ---
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% --- Math and fonts ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+
+% --- tcolorbox ---
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+% --- Theorems definitions ---
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{principle}[theorem]{Principle}
+
+% --- Metadata ---
+\title{\textbf{WILL: Relational Geometry of Galactic Dynamics} \\
+ \textit{Derivation of the Baryonic Tully-Fisher Relation and Vacuum Resonance from First Principles}}
+\author{Anton Rize \\  egeometricity@gmail.com}
+\date{December 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We present a derivation of galactic rotation curves that eliminates the need for Dark Matter. Within the WILL Relational Geometry (RG) framework, we demonstrate that the "Dark Matter" phenomenon is not due to hidden mass, but is the manifestation of the total relational energy projection budget of the vacuum ($Q^2$), which becomes observable only when local baryonic acceleration falls below a cosmic threshold.
+We derive a dimensionless, scale-invariant Vacuum Relational Acceleration law containing \textbf{zero free parameters} regarding the dark sector.
+$$\beta_Q = \beta_{bary} \sqrt{1+2\exp\left(-3\pi \beta_{bary}^2\frac{R_H}{r}\right)}$$
+Crucially, we identify the transition point as a resonance between the local center of mass and the Global Cosmic Horizon. We analytically derive the Baryonic Tully-Fisher Relation ($V^4 \propto M$) and confirm the "Dark Energy" factor $\Omega_\Lambda = 2/3$ as a structural constant governing galactic dynamics.
+Validating against 175 galaxies (SPARC database), we tested two regimes:
+\begin{itemize}
+    \item \textbf{Strict Geometric Mode (Fixed $\Upsilon_*$):} Median RMSE of \textbf{18.61 km/s} with zero nuisance parameters.
+    \item \textbf{Standard Astrophysical Mode (Fitted $\Upsilon_*$):} Median RMSE of \textbf{9.06 km/s} when allowing for standard stellar population uncertainty.
+\end{itemize}
+Furthermore, a specific "Half-Life" test of the vacuum transition predicts the critical acceleration $g_{trans} = \ln(2)a_{Mach}$, which matches observational data with \textbf{0.56\% precision}.
+\end{abstract}
+
+\section{Introduction: The Geometric Nature of Dynamics}
+
+In WILL RG (Part I), we established the equivalence principle $\text{SPACETIME} \equiv \text{ENERGY}$. For any closed system, the total relational displacement $Q^2$ is partitioned between kinematic ($\beta^2=(v/c)^2$) and potential ($\kappa^2=R_s/r$) projection degrees of freedom. The closure condition for stable systems, $\kappa^2 = 2\beta^2$ (Closure Theorem, WILL RG Part I), implies that the total relational energy displacement budget is:
+\begin{equation}
+Q^2 = \beta^2 + \kappa^2 = 3\beta^2.
+\end{equation}
+This suggests that the "true" relational energy content of a system corresponds to three times its apparent kinetic projection. The discrepancy between local Newtonian observations ($Q^2 \approx \beta^2$) and galactic dynamics ($Q^2 \approx 3\beta^2$) is resolved without "Dark Matter" speculations by the mechanism of \textbf{Vacuum Relational Acceleration}.
+
+\subsection{The Vacuum Threshold ($a_{Mach}$)}
+We identify the critical acceleration threshold as \textbf{Mach Acceleration} ($a_{Mach}$), representing the minimal inertial coupling between local mass and the Tone ($\frac{H_0}{2\pi}$) of the cosmic horizon. We treat the Universe as a resonant cavity with radius $R_H = c/H_0$.
+
+The interaction threshold is determined by two factors:
+\begin{enumerate}
+    \item \textbf{Geometry:} The minimal standing wave condition along the horizon circumference ($2\pi R_H$), yielding an acceleration scale $c^2 / 2\pi R_H$.
+    \item \textbf{Density:} The structural density of the vacuum $\Omega_\Lambda = 2/3$ (representing the potential fraction $\kappa^2/Q^2$).
+\end{enumerate}
+Combining these, we define the single critical \textbf{Mach Acceleration}:
+\begin{equation}
+\boxed{a_{Mach} \equiv \Omega_\Lambda \frac{c^2}{2\pi R_H} = \frac{2}{3} \frac{c H_0}{2\pi} = \frac{c H_0}{3\pi}}
+\end{equation}
+Here, we adopt the Hubble parameter predicted by the WILL geometric constraint ($H_0 \approx 65.5$ km/s/Mpc). 
+$$a_{Mach} \approx 6.75 \times 10^{-11} \, \text{m/s}^2 $$
+This is the only parameter governing the transition.
+
+\subsection{The Wave-Penetration Law}
+We model the interaction between the global Horizon Standing Wave (Tone) and the local potential well. Deep inside the galaxy ($g_{bary} \gg a_{Mach}$), the high local curvature acts as a barrier to the global Tone.
+In wave mechanics, the amplitude of a standing wave penetrating a potential barrier decays exponentially (evanescent wave solution).
+We define the coupling argument $\Gamma$ as the barrier height relative to the Tone energy:
+\begin{equation}
+\Gamma = \frac{g_{bary}}{a_{Mach}} = \frac{\beta_{bary}^2 c^2 / r}{c H_0 / 3\pi} = 3\pi \beta_{bary}^2 \frac{R_H}{r}
+\end{equation}
+The fraction of the global potential $\kappa^2$ that penetrates the local barrier is given by the exponential decay:
+\begin{equation}
+\text{Coupling} \propto \exp(-\Gamma)
+\end{equation}
+The total observable velocity squared $V_Q^2$ is the sum of the baryonic kinetic term and the revealed fraction of the vacuum potential $\kappa^2$:
+\begin{equation}
+V_Q^2 = V_{bary}^2 + \exp(-\Gamma) \cdot \kappa^2 c^2
+\end{equation}
+Substituting the closure condition $\kappa^2 c^2 = 2 V_{bary}^2$:
+\begin{equation}
+V_Q^2 = V_{bary}^2 + 2 V_{bary}^2 \exp(-\Gamma) = V_{bary}^2 \left(1 + 2\exp\left[-3\pi \beta_{bary}^2 \frac{R_H}{r}\right]\right)
+\end{equation}
+Taking the square root yields the final rotation law:
+\begin{equation}
+\boxed{
+\beta_Q = \beta_{bary} \sqrt{1 + 2\exp\left(-\pi Q^2 \frac{R_H}{r}\right)}
+}
+\end{equation}
+This derivation shows that the exponential term is the necessary consequence of a global wave penetrating a local potential barrier.
+
+\section{Unified Geometric Dynamics}
+
+\subsection{The Topological Identity}
+We rely on the geometric relation derived in Part I: $\kappa^2 = 2\beta^2$. Deviations from this ideal closure define the energetic stability of the system.
+
+\begin{definition}[Closure Factor]
+The quality of geometric closure is quantified by the parameter $\delta$:
+\begin{equation}
+\delta \equiv \frac{\kappa}{\beta \sqrt{2}}
+\end{equation}
+A subsystem is \emph{energetically closed} if the cycle-averaged value $\langle\delta\rangle_{\text{cycle}}=1$.
+For ideal circular orbits, $\delta \equiv 1$.
+\end{definition}
+
+In the context of galactic dynamics, the vacuum contribution is governed by the vacuum closure factor $\delta_{vac}$. Its magnitude is determined by the wave-penetration depth:
+\begin{equation}
+\delta_{vac}^2 = \exp(-\Gamma)
+\end{equation}
+where $\Gamma = g_{bary}/a_{Mach} = 3\pi \beta_{bary}^2 R_H/r$ is the coupling argument. This identifies the observed velocity boost as the direct signature of the vacuum closure quality $\delta_{vac}$.
+
+\subsection{The Two Regimes of Existence}
+The dynamics of any self-contained system are determined by its \textbf{Center of Energy Closure}. The geometric stability is governed by the energy-eccentricity $e_c$, which relates to the closure factor as:
+\begin{equation}
+e_c = \frac{1}{\delta^2} - 1
+\end{equation}
+We identify two distinct relational regimes based on the hierarchy of scales:
+
+\begin{enumerate}
+    \item \textbf{The Local Regime (Newtonian):} Deep within the potential well ($g \gg a_{Mach}$), the local closure factor dominates ($\delta_{loc} \to 1 \implies e_{loc} \to 0$). The energy system closes topologically onto its own center ($R_s$), effectively decoupling from the horizon.
+    
+    \item \textbf{The Global Regime (Horizon Resonance):} At the outskirts ($g \ll a_{Mach}$), the local curvature intensity fades. As the local closure fails ($\delta_{loc} \to 1/\sqrt{2}$), the local eccentricity approaches the parabolic limit ($e_{loc} \to 1$). To avoid structural dissolution (unbinding), the system \textbf{locks onto the Global Cosmic Horizon ($R_H$)}, synchronizing with the Tone - global vacuum standing wave.
+\end{enumerate}
+
+\subsection{The Frequency Resonance Condition}
+The coupling argument can be rewritten in terms of frequencies to reveal the synchronization mechanism. Let $\omega = V/r$ be the angular velocity of the orbiting body.
+
+The transition to the global regime occurs when the local relativistic rotation frequency $\beta \cdot \omega$ matches the fundamental Tone of the Cosmic Horizon. Using the derived Mach acceleration $a_{Mach} = c H_0 / 3\pi$, we obtain the \textbf{Universal Resonance Condition}:
+\begin{equation}
+\boxed{\beta \cdot \omega = \frac{H_0}{3\pi}}
+\end{equation}
+This equation governs the stability of galactic structures: the flat rotation curves represent the physical locking of the galaxy's rotational frequency to the fundamental harmonic of the Cosmic Horizon.
+
+\section{The Ontological Origin of the Tully-Fisher Law}
+
+\subsection{The Failure of the Local Paradigm}
+
+\begin{quote}
+Celestial bodies are resonant excitations \textit{of} the SPACE-TIME-ENERGY unity.
+\end{quote}
+
+\subsection{Derivation of the Law from Resonance Geometry}
+To determine the precise scaling coefficient, we evaluate the velocity at the characteristic 
+\textbf{Transition Radius} ($r_t$), defined where the baryonic acceleration exactly matches the vacuum resonance threshold ($g_{bary} = a_{Mach}$).
+
+The coupling argument is defined as $\Gamma \equiv g_{bary}/a_{Mach}$.
+We identify the vacuum contribution as the natural geometric decay $e^{-\Gamma}$.
+At the threshold radius $r_t$, we have by definition $\Gamma=1$, and thus the decay term is $e^{-1}$.
+
+\begin{enumerate}
+    \item \textbf{The Newtonian Base:} At $r_t$, the Newtonian velocity component $V_N$ is constrained by the mass and the threshold acceleration:
+    \[
+    V_N^2 = g_{bary} r_t = a_{Mach} r_t \implies V_N^4 = G M_b a_{Mach}.
+    \]
+    
+    \item \textbf{The Vacuum Boost:} Applying the WILL resonance law at the phase transition point ($\Gamma=1$):
+    \[
+    V_{t}^2 = V_N^2 (1 + 2e^{- \Gamma}) = V_N^2 \left(1 + \frac{2}{e}\right).
+    \]
+    
+    \item \textbf{The BTFR Coefficient:} Squaring the velocity to obtain the Tully-Fisher scaling ($V^4 \propto M$):
+    \[
+    V_{t}^4 = V_N^4 \left(1 + \frac{2}{e}\right)^2 = G M_b (a_{Mach}) \underbrace{\left(1 + \frac{2}{e}\right)^2}_{\approx 3.01}.
+    \]
+\end{enumerate}
+
+Thus, we derive the Baryonic Tully-Fisher Relation with a coefficient predicted purely from geometric constants:
+
+\begin{equation}
+V_{flat}^4 \approx V_{t}^4 = \underbrace{ G a_{Mach} \left(1 +\frac{2}{e}\right)^2}_{\text{Theoretical BTF Coefficient}} \cdot M_b
+\end{equation}
+
+This derivation demonstrates that the "Dark Matter" scaling relation is the direct algebraic consequence of the vacuum resonance condition at the phase transition boundary.
+
+\section{Empirical Verification}
+
+\subsection{Performance on SPARC Database}
+
+We validated Eq.~\eqref{eq:dimensionless_law} against 175 galaxies from the SPARC database using the predicted Hubble parameter from the vacuum energy ratio ($H_0 = 65.5$ km/s/Mpc).
+
+\subsection{Performance Metrics}
+To avoid turbulence, warps, and non-circular motions we apply a systematic Error Floor: $\sigma_{used} = \max(\sigma_{obs}, \ 5.0 \text{ km/s}, \ 0.05 \cdot |V_{obs}|)$. This only affects the sensitivity of $\chi^{2}$, and does not affect RMSE values.
+
+We tested two methodologies to ensure robustness:
+
+\begin{itemize}
+    \item \textbf{Method 1 (Zero Free Parameters):} With a fixed global mass-to-light ratio ($\Upsilon_* = 0.5/0.7$), we achieve a median RMSE of \textbf{18.61 km/s}  and median reduced $\chi^2 = 6.16$.
+    \item \textbf{Method 2 (Fitted $\Upsilon_*$):} Allowing $\Upsilon_*$ to vary physically per galaxy ($0.05 \le \Upsilon_* \le 2.6$), we achieve a median RMSE of \textbf{9.06 km/s} and median reduced $\chi^2 = 1.64$.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\begin{tcolorbox}[colback=white, colframe=blue!75!black, title=Performance Summary]
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{Free Params} & \textbf{$\Upsilon_*$ Handling} & \textbf{RMSE (km/s)} & \textbf{$\chi^2_{red}$} \\
+\midrule
+WILL (Global) & \textbf{0} & Fixed & 18.61& 6.16\\
+WILL (Fitted) & 1 ($\Upsilon_*$) & Fitted & \textbf{9.06}& \textbf{1.64}\\
+MOND (Fixed $a_0$) & 0 & Fixed & N/A & 4.22 \\
+$\Lambda$CDM (NFW) & 3 & Priors & $\sim$25-30 & >3 \\
+\bottomrule
+\end{tabular}
+\end{tcolorbox}
+\caption{WILL RG achieves superior predictive power with minimal complexity, outperforming standard Dark Matter halos.}
+\end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{img/RMSE_9.06_Xi_1.64.png}
+    \caption{RMSE distribution for SPARC galaxies showing the precision of the geometric model.}
+ \end{figure}
+
+\begin{tcolorbox}[colback=white, colframe=red!75!black, title=Geometric Perspective on the Hubble Tension]
+The WILL framework predicts a structural vacuum energy density of $\Omega_\Lambda = 2/3$. When calibrated against the Planck 2018 cosmological background, this geometric constraint implies a Hubble parameter of $H_{0} \approx 65.5$ km/s/Mpc.
+We observe that this predicted value minimizes the residuals in galactic rotation curves compared to local SH0ES measurements ($H_0 \approx 73$). Furthermore, specifically in the \textbf{Half-Life Vacuum Transition Test} (Section 4.3), this value yields an agreement of \textbf{0.56\%} between the theoretical and observed transition acceleration.
+These results suggest that galactic dynamics are more tightly coupled to the global horizon scale determined by $\Omega_\Lambda = 2/3$ than to local expansion rates.
+\end{tcolorbox}
+
+\subsection{The "Half-Life" Test and Dark Energy Link}
+We performed a critical test to identify the exact acceleration $g_{trans}$ where the system undergoes a \textbf{Vacuum Phase Shift}.
+We define this shift at the "Half-Life" point of the screening function ($e^{-\Gamma} = 1/2$), where the vacuum boost reaches the characteristic topological value of $\sqrt{2} \approx 1.41$. This marks the energetic boundary where the vacuum contribution equals the baryonic contribution.
+
+Theoretical prediction in WILL requires correcting the vacuum efficiency by the structural density factor $\Omega_\Lambda = 2/3$. Since we have already incorporated this factor into our effective Mach acceleration ($a_{Mach} = cH_0/3\pi$), the theoretical transition acceleration is simply:
+\begin{equation}
+g_{theory} = \ln(2) \cdot a_{Mach} = \ln(2) \frac{cH_0}{3\pi} \approx 4.68 \times 10^{-11} \, \text{m/s}^2
+\end{equation}
+Analyzing the SPARC data, the observed crossover point is:
+\begin{equation}
+g_{obs} \approx 4.706 \times 10^{-11} \, \text{m/s}^2
+\end{equation}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{img/DMisDE_phase_shift.png}
+    \caption{The Half-Life Test.  X axis = Baryonic acceleration $g_{bary}=V_{bary}^2/r$. Y axis = Boost factor $V_{obs}/V_{bary}$. The observed transition (blue) crosses the phase threshold (red) exactly at the predicted Mach acceleration (green).}
+ \end{figure}
+
+\begin{tcolorbox}[colback=green!10, colframe=green!50!black, title=Verification Result]
+The agreement is within \textbf{0.56\%}. This confirms that Galactic Dynamics (Dark Matter) and Vacuum Density (Dark Energy) are coupled by the geometric factor $\Omega_\Lambda = 2/3$.
+\end{tcolorbox}
+
+\subsection{The Universal Horizon Test}
+
+To rigorously test the validity of the vacuum resonance radius ($r_{lim} = \pi Q^2 R_H$), we performed a "Universal Horizon Test" across the entire SPARC database (175 galaxies). We defined a dimensionless \textbf{Horizon Saturation Parameter} $\eta$:
+\begin{equation}
+\eta = \frac{r_{obs}}{3\pi \beta_{bary}^2 R_H}
+\end{equation}
+Our theory predicts that for $\eta < 1$, the galaxy resides within its own causal closure. At $\eta = 1$, the system crosses the vacuum horizon. Specifically, at this crossing point, the boost factor must assume the specific geometric value of $\sqrt{1+2/e} \approx 1.317$.
+
+We also performed a \textbf{Negative Control Test} by removing the topological factor $3\pi$ from the equation.
+
+
+\begin{figure}[H]    \centering
+    \includegraphics[width=1\linewidth]{img/Boost_crossing.png}
+   \caption{The Universal Horizon Test. The signal emerges clearly only with the correct topological factor $3\pi$ (blue line), while the linear model (control) fails.} \end{figure}
+
+\begin{tcolorbox}[colback=white, colframe=blue!75!black, title=Universal Horizon Test Results (175 Galaxies)]
+\begin{itemize}
+    \item \textbf{Target Boost (Theory):} $1.317$
+    \item \textbf{Observed Boost (With $3\pi$):} $\mathbf{1.346}$ (Discrepancy: $2.2\%$)
+    \item \textbf{Observed Boost (No Topological $3\pi$ Closure) :} $\mathbf{0.996}$ (Discrepancy: $24.4\%$)
+\end{itemize}
+\end{tcolorbox}
+
+The control test yields a boost of $\approx 1.0$, indicating purely Newtonian dynamics. This confirms that the transition occurs strictly at the \textbf{circumferential resonance radius} defined by the total energy $Q^2$, validating the wave-nature of the vacuum interaction.
+
+\section{Discussion: The Unified Scale Invariance}
+
+The condition for galactic stability derived here mirrors the quantization condition for the atom derived in Part III.
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{System} & \textbf{Microcosm (Atom)} & \textbf{Macrocosm (Galaxy)} \\
+\hline
+\textbf{Closure Condition} & Standing Wave & Horizon Resonance \\\hline
+\textbf{Geometric Equation} & $2\pi r_n = n \lambda_e$ & $r_{limit} = \pi Q^2 R_H$ \\\hline
+\textbf{Topological Limit} & Planck Constant ($h$) & Hubble Horizon ($R_H$) \\
+\hline
+\end{tabular}
+\end{center}
+\small\textit{Note: In the microcosm comparison, $n$ denotes the principal quantum number and $\lambda_e$ is the electron Compton wavelength. These standard quantum mechanical terms are included solely to illustrate the scale-invariant geometric analogy.}
+\vspace{1em}
+
+Just as the electron must satisfy the standing wave condition to exist as a bound state within the atom, the galaxy must satisfy the frequency resonance condition to exist as a bound state within the Universe. The "Dark Matter" phenomenon is the observational signature of this scale-invariant geometric closure.
+
+
+\textbf{Code and data are fully open-source at}: \url{https://antonrize.github.io/WILL/}
+
+\begin{thebibliography}{9}
+\bibitem{Lelli2016} Lelli, F., McGaugh, S. S., \& Schombert, J. M. (2016). SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation Curves. \textit{The Astronomical Journal}, 152(6), 157.
+
+
+% CDM/Burkert/NFW RMSE for SPARC
+@article{Li2020,
+  author = {Li, Pengfei and Lelli, Federico and McGaugh, Stacy S. and Schombert, James M.},
+  title = {A Comprehensive Catalog of Dark Matter Halo Models for SPARC Galaxies},
+  journal = {The Astrophysical Journal Supplement Series},
+  volume = {247},
+  number = {1},
+  pages = {31},
+  year = {2020},
+  doi = {\href{https://ui.adsabs.harvard.edu/link_gateway/2020ApJS..247...31L/doi:10.3847/1538-4365/ab700e}{10.3847/1538-4365/ab700e}},
+  url = {https://ui.adsabs.harvard.edu/abs/2020ApJS..247...31L/abstract}
+}
+
+
+
+% MOND RMSE for SPARC (per-galaxy Υ*, a₀ universal)
+@article{Wang2020,
+  author = {Wang, De-Chang and Xu, Feng and Luo, Xin},
+  title = {Comparison of Modeling SPARC spiral galaxies' rotation curves with different dark matter and MOND models},
+  journal = {arXiv preprint arXiv:2008.04795},
+  year = {2020},
+  url = {https://arxiv.org/abs/2008.04795}
+}
+
+
+% Foundational MOND theory review
+@article{Milgrom2001,
+  author = {Milgrom, Mordehai},
+  title = {MOND - A Pedagogical Review},
+  year = {2001},
+  journal = {NED Level 5 Review},
+  url = {https://ned.ipac.caltech.edu/level5/Sept01/Milgrom/Milgrom2_2.html}
+}
+
+
+\end{thebibliography}
+
+
+
+\end{document}

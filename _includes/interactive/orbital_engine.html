@@ -1,385 +1,367 @@
-<div class="flex flex-col md:flex-row h-[90vh] bg-[#050505] text-gray-300 font-sans text-xs select-none shadow-2xl border border-gray-900 rounded-lg overflow-hidden">
-
-    <div class="w-full md:w-96 bg-gray-900/90 backdrop-blur border-r border-gray-800 flex flex-col z-10 shrink-0 relative">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WILL Anchor Solver v9.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .glass-panel { background: rgba(20, 20, 25, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .input-group label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 4px; }
+        .input-field { background: #0a0a0a; border: 1px solid #333; color: #fff; font-family: 'Courier New', monospace; width: 100%; padding: 6px; font-size: 0.9rem; border-radius: 4px; outline: none; transition: border-color 0.2s; }
+        .input-field:focus { border-color: #a855f7; }
+        .stat-value { font-family: 'Courier New', monospace; font-weight: bold; }
+        canvas { border-radius: 8px; border: 1px solid #333; }
         
-        <div class="p-4 border-b border-gray-800 bg-black">
-            <h2 class="text-sm font-bold text-white tracking-widest uppercase flex items-center gap-2 mb-3">
-                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                WILL Relational Engine
-            </h2>
-            
-            <div class="flex bg-gray-800 rounded p-1 gap-1">
-                <button onclick="setMode('interactive')" id="tab-interactive" class="flex-1 py-1 px-1 rounded text-[9px] font-bold bg-gray-600 text-white transition-all">MANUAL</button>
-                <button onclick="setMode('triangulate')" id="tab-triangulate" class="flex-1 py-1 px-1 rounded text-[9px] font-bold text-gray-400 transition-all">3-POINT NAV</button>
-            </div>
-        </div>
+        /* Range Slider Styling */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 12px; width: 12px; border-radius: 50%; background: #a855f7; cursor: pointer; margin-top: -5px; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 2px; background: #333; }
+    </style>
+</head>
+<body class="flex flex-col h-screen">
 
-        <div id="panel-interactive" class="p-4 space-y-4 border-b border-gray-800">
-            <div class="text-[9px] uppercase tracking-wider text-blue-400 font-bold">Phase Space Drag</div>
-            <div class="space-y-1 font-mono bg-black/30 p-2 rounded border border-gray-800">
-                <div class="flex justify-between"><span class="text-blue-400">Kinetic \(\beta_p\)</span><span id="val-beta">0.000</span></div>
-                <div class="flex justify-between"><span class="text-red-400">Potential \(\kappa_p\)</span><span id="val-kappa">0.000</span></div>
-            </div>
+    <header class="h-12 border-b border-gray-800 bg-black/50 flex items-center px-6 justify-between shrink-0">
+        <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-purple-600 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+            <h1 class="font-bold tracking-widest text-sm text-gray-200">WILL <span class="text-purple-500">ANCHOR SOLVER</span></h1>
         </div>
+        <div class="text-[10px] text-gray-500 font-mono">RG METRIC VERIFIED</div>
+    </header>
 
-        <div id="panel-triangulate" class="p-4 space-y-4 border-b border-gray-800 hidden">
-            <div class="text-[9px] uppercase tracking-wider text-purple-400 font-bold">Orbital Triangulation</div>
-            <div class="text-gray-500 italic mb-2">Solves Mass & Orbit using acceleration curvature.</div>
+    <div class="flex flex-1 overflow-hidden">
+        
+        <div class="w-96 glass-panel border-r-0 flex flex-col overflow-y-auto shrink-0 z-10">
             
-            <div class="space-y-3 relative">
-                <div class="grid grid-cols-12 gap-2 items-center bg-gray-900/50 p-1 rounded">
-                    <div class="col-span-2 text-center font-bold text-gray-500">T1</div>
-                    <div class="col-span-10"><input type="number" id="v1" placeholder="Velocity 1 (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white text-right font-mono"></div>
+            <div class="p-5 border-b border-gray-800">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xs font-bold text-purple-400 uppercase tracking-wider">Primary Anchor (Pericenter)</h2>
+                    <span class="text-[9px] bg-purple-900/30 text-purple-300 px-1.5 py-0.5 rounded border border-purple-800">REQUIRED</span>
                 </div>
                 
-                <div class="flex justify-center -my-2 z-10 relative"><span class="bg-gray-800 text-[9px] px-2 rounded text-gray-400">Time: <input type="number" id="dt1" class="w-12 bg-black border border-gray-600 text-center text-white" value="10"> days</span></div>
-
-                <div class="grid grid-cols-12 gap-2 items-center bg-gray-900/50 p-1 rounded">
-                    <div class="col-span-2 text-center font-bold text-gray-500">T2</div>
-                    <div class="col-span-10"><input type="number" id="v2" placeholder="Velocity 2 (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white text-right font-mono"></div>
-                </div>
-
-                <div class="flex justify-center -my-2 z-10 relative"><span class="bg-gray-800 text-[9px] px-2 rounded text-gray-400">Time: <input type="number" id="dt2" class="w-12 bg-black border border-gray-600 text-center text-white" value="10"> days</span></div>
-
-                <div class="grid grid-cols-12 gap-2 items-center bg-gray-900/50 p-1 rounded">
-                    <div class="col-span-2 text-center font-bold text-gray-500">T3</div>
-                    <div class="col-span-10"><input type="number" id="v3" placeholder="Velocity 3 (km/s)" class="w-full bg-black border border-gray-700 rounded px-2 py-1 text-white text-right font-mono"></div>
-                </div>
-                
-                <button onclick="solveTriangulation()" class="w-full py-3 bg-purple-900/40 border border-purple-800 text-purple-300 rounded font-bold hover:bg-purple-900/60 flex justify-center items-center gap-2 transition-all mt-2">
-                    <span id="loader-tri" class="hidden w-3 h-3 border-2 border-purple-300 border-t-transparent rounded-full animate-spin"></span>
-                    TRIANGULATE SYSTEM
-                </button>
-            </div>
-
-            <div id="tri-result" class="hidden space-y-2 bg-purple-900/10 p-2 rounded border border-purple-900/30 mt-2">
-                <div class="text-[9px] text-purple-400 font-bold border-b border-purple-900/30 pb-1 mb-1">FOUND SOLUTION:</div>
-                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Mass (M☉):</span> <span id="out-mass" class="text-white font-bold text-green-400">-</span></div>
-                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Eccentricity:</span> <span id="out-e" class="text-white font-bold text-blue-400">-</span></div>
-                <div class="flex justify-between font-mono text-[10px]"><span class="text-gray-400">Period:</span> <span id="out-period" class="text-white">-</span></div>
-                <div class="text-[9px] text-gray-500 mt-1 italic text-center">Converged with <span id="out-err">-</span>% error</div>
-            </div>
-        </div>
-
-        <div class="p-4 space-y-6 overflow-y-auto flex-1 bg-black/20">
-            <div>
-                <div class="text-[9px] uppercase tracking-wider text-gray-500 font-bold mb-2">System State</div>
-                <div class="space-y-2 font-mono">
-                    <div class="flex justify-between items-center bg-gray-900 p-2 rounded border border-gray-800">
-                        <span class="text-gray-400">Eccentricity \(e\)</span>
-                        <span id="val-e" class="text-white text-lg font-bold">0.000</span>
-                    </div>
-                    <div class="bg-gray-900 p-2 rounded border border-gray-800">
-                        <div class="flex justify-between text-[10px] text-gray-400">
-                            <span>Closure (\(\delta\))</span><span id="val-delta">1.00</span>
+                <div class="space-y-4">
+                    <div class="input-group">
+                        <label>Total Spectral Shift \(Q_p\) (\(\sqrt{\kappa^2+\beta^2}\))</label>
+                        <div class="flex items-center gap-2">
+                            <input type="range" min="0.001" max="0.999" step="0.001" value="0.05" oninput="syncInput('q_p', this.value); solve();">
+                            <input type="number" id="q_p" class="input-field w-20 text-right" value="0.05" step="0.0001" oninput="solve()">
                         </div>
-                        <div class="w-full h-1 bg-gray-800 rounded-full mt-1"><div id="bar-delta" class="h-full bg-blue-500 w-full"></div></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Eccentricity \(e_c\)</label>
+                        <div class="flex items-center gap-2">
+                            <input type="range" min="0.01" max="0.99" step="0.01" value="0.8" oninput="syncInput('e_c', this.value); solve();">
+                            <input type="number" id="e_c" class="input-field w-20 text-right" value="0.8" step="0.01" oninput="solve()">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Pericenter Radius \(r_p\) (meters)</label>
+                        <input type="number" id="r_p" class="input-field" value="1.8e13" step="1e10" oninput="solve()">
+                        <div class="text-[9px] text-gray-500 mt-1 text-right" id="rp_au">-</div>
                     </div>
                 </div>
             </div>
-            <div id="zone-badge" class="py-2 px-3 rounded text-center font-bold text-[10px] uppercase bg-gray-800 text-gray-500 border border-gray-700">-</div>
-        </div>
-    </div>
 
-    <div class="flex-1 relative bg-black cursor-crosshair overflow-hidden" id="sim-container">
-        <canvas id="mainCanvas" class="absolute top-0 left-0 w-full h-full"></canvas>
-        <div class="absolute bottom-4 right-4 bg-black/80 backdrop-blur p-3 rounded border border-gray-800 text-[10px] space-y-2 pointer-events-none">
-            <div class="flex items-center gap-2"><span class="w-3 h-0.5 bg-green-500/50 border-t border-dashed border-green-400"></span><span>Circle Line</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-0.5 bg-red-500/50 border-t border-dashed border-red-400"></span><span>Escape Line</span></div>
-             <div class="flex items-center gap-2"><span class="w-3 h-0.5 bg-white border-t border-white"></span><span>Observed Arc</span></div>
+            <div class="p-5 border-b border-gray-800 bg-black/20">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xs font-bold text-blue-400 uppercase tracking-wider">Validation (Apocenter)</h2>
+                    <span class="text-[9px] text-gray-600 border border-gray-800 px-1.5 py-0.5 rounded">OPTIONAL</span>
+                </div>
+                
+                <div class="space-y-4 opacity-75 hover:opacity-100 transition-opacity">
+                    <div class="input-group">
+                        <label>Apocenter Shift \(Q_a\)</label>
+                        <input type="number" id="q_a" class="input-field" placeholder="Optional..." step="0.0001" oninput="solve()">
+                    </div>
+                     <div class="input-group">
+                        <label>Apocenter Radius \(r_a\) (meters)</label>
+                        <input type="number" id="r_a" class="input-field" placeholder="Auto-calculated if empty..." step="1e10" oninput="solve()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-5 mt-auto bg-gradient-to-t from-purple-900/10 to-transparent">
+                <div class="text-[10px] text-gray-500 mb-2 font-bold">DERIVED MASS (WILL METHOD)</div>
+                <div class="flex items-baseline gap-2">
+                    <span id="res_mass" class="text-3xl font-bold text-white tracking-tighter">-</span>
+                    <span class="text-sm text-gray-400">\(M_{\odot}\)</span>
+                </div>
+                <div class="h-px bg-gray-800 my-3"></div>
+                <div class="grid grid-cols-2 gap-4 text-[10px]">
+                    <div>
+                        <span class="text-gray-500 block">Schwarzschild \(R_s\)</span>
+                        <span id="res_rs" class="text-purple-300 font-mono">-</span>
+                    </div>
+                    <div>
+                        <span class="text-gray-500 block">Separation \(\kappa_p\)</span>
+                        <span id="res_kappa" class="text-green-300 font-mono">-</span>
+                    </div>
+                </div>
+                
+                <div id="consistency_box" class="hidden mt-4 p-2 rounded border text-[10px] flex justify-between items-center">
+                    <span class="font-bold">CONSISTENCY CHECK:</span>
+                    <span id="consistency_val" class="font-mono">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-1 bg-black relative flex flex-col">
+            <canvas id="orbitCanvas" class="w-full h-full object-cover"></canvas>
+            
+            <div class="absolute top-4 right-4 text-right pointer-events-none">
+                <div class="glass-panel p-3 rounded inline-block text-left">
+                    <div class="text-[9px] text-gray-500 uppercase mb-1">Vector Decomposition</div>
+                    <div class="flex items-center gap-2 text-xs font-mono mb-1">
+                        <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                        <span class="text-gray-300">\(Q\) Total</span>
+                        <span id="val_q" class="ml-auto font-bold text-white">0.000</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-mono mb-1">
+                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                        <span class="text-gray-300">\(\kappa\) Grav</span>
+                        <span id="val_k" class="ml-auto text-green-400">0.000</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-mono">
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                        <span class="text-gray-300">\(\beta\) Kin</span>
+                        <span id="val_b" class="ml-auto text-blue-400">0.000</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
 <script>
-    const canvas = document.getElementById('mainCanvas');
-    const ctx = canvas.getContext('2d');
-    const container = document.getElementById('sim-container');
-    const c = 299792.458; 
+    // --- PHYSICS CONSTANTS ---
+    const G = 6.67430e-11;
+    const c = 299792458.0; 
+    const M_sun_kg = 1.98847e30;
+    const AU = 1.496e11;
 
-    // State
-    let mode = 'interactive';
-    let beta_p = 0.4;
-    let kappa_p = 0.4 * Math.sqrt(2);
-    let phys = {};
-    let dragging = false;
-    let width, height, cx, cy, scale;
-    let phase = 0;
-    
-    // Visualization State
-    let observedArc = null;
+    // --- DOM ELEMENTS ---
+    const cvs = document.getElementById('orbitCanvas');
+    const ctx = cvs.getContext('2d');
 
-    // --- PHYSICS KERNEL ---
-    function updatePhysics() {
-        const denom = (beta_p * Math.SQRT2);
-        const delta = denom > 0.00001 ? kappa_p / denom : 0;
-        let e = (delta > 0) ? (1 / (delta * delta)) - 1 : 0;
-        
-        let status = 'stable';
-        let e_real = e;
-        
-        if (kappa_p < beta_p) { status = 'unbound'; e_real = Math.abs(e); }
-        else if (kappa_p > beta_p * Math.SQRT2) { status = 'inverted'; e_real = Math.abs(e); }
+    // --- STATE ---
+    let state = {
+        Qp: 0, ec: 0, rp: 0,
+        kp: 0, bp: 0,
+        Rs: 0, Mass: 0,
+        Qa: 0, ra: 0
+    };
 
-        const prec = (3 * Math.PI / 2) * (Math.pow(kappa_p, 4) / Math.pow(beta_p, 2));
-
-        phys = { delta, e, e_real, status, prec };
-        updateUI();
+    function syncInput(id, val) {
+        document.getElementById(id).value = val;
     }
 
-    // --- SOLVER: TRIANGULATION (Robust) ---
-    function solveTriangulation() {
-        observedArc = null;
-        const v1 = parseFloat(document.getElementById('v1').value);
-        const v2 = parseFloat(document.getElementById('v2').value);
-        const v3 = parseFloat(document.getElementById('v3').value);
-        const dt1 = parseFloat(document.getElementById('dt1').value) * 86400; // sec
-        const dt2 = parseFloat(document.getElementById('dt2').value) * 86400; // sec
+    function solve() {
+        // 1. Get Inputs
+        const Qp = parseFloat(document.getElementById('q_p').value);
+        const ec = parseFloat(document.getElementById('e_c').value);
+        const rp = parseFloat(document.getElementById('r_p').value);
         
-        if(!v1 || !v2 || !v3) return;
+        let Qa = parseFloat(document.getElementById('q_a').value);
+        let ra_in = parseFloat(document.getElementById('r_a').value);
 
-        document.getElementById('loader-tri').classList.remove('hidden');
-        document.getElementById('tri-result').classList.add('hidden');
+        if(isNaN(Qp) || isNaN(ec) || isNaN(rp)) return;
+
+        // 2. WILL SEPARATION PROTOCOL (PERICENTER)
+        // Formula: kappa_p = Q_p * sqrt( 2 / (3 + e) )
+        // Because beta_p^2 = kappa_p^2 * (1+e)/2
+        // And Q^2 = k^2 + b^2
+        const separation_factor = Math.sqrt(2 / (3 + ec));
+        const kp = Qp * separation_factor;
+        const bp = Math.sqrt(Qp*Qp - kp*kp);
+
+        // 3. PHYSICAL SCALING
+        // Rs = kp^2 * rp
+        const Rs = (kp * kp) * rp;
         
-        // Use setTimeout to allow UI to render the loader before heavy calc
-        setTimeout(() => {
-            try {
-                const results = scanIntersection(v1, v2, v3, dt1, dt2);
-                
-                if(results.best) {
-                    const sol = results.best;
-                    
-                    // Set Global State
-                    beta_p = sol.v_p / c; 
-                    kappa_p = beta_p * Math.SQRT2 / Math.sqrt(1 + sol.e);
-                    
-                    // Output
-                    const M_sun = sol.M / 1.989e30;
-                    let m_fmt = M_sun < 0.01 ? M_sun.toExponential(2) : M_sun.toFixed(2);
-                    
-                    document.getElementById('out-mass').innerText = m_fmt;
-                    document.getElementById('out-e').innerText = sol.e.toFixed(4);
-                    document.getElementById('out-period').innerText = (sol.T / 86400).toFixed(1) + " d";
-                    document.getElementById('out-err').innerText = (sol.err * 100).toFixed(2);
-                    
-                    // Visualization
-                    observedArc = { start: sol.o1, end: sol.o3 };
-                    
-                    updatePhysics();
-                    document.getElementById('tri-result').classList.remove('hidden');
-                } else {
-                    alert("No solution found. Check if velocities are consistent with a single orbit.");
-                }
-            } catch (e) {
-                console.error(e);
-                alert("Calculation Error: " + e.message);
-            } finally {
-                document.getElementById('loader-tri').classList.add('hidden');
-            }
-        }, 100);
-    }
+        // Mass = (Rs * c^2) / 2G
+        const Mass_kg = (Rs * c * c) / (2 * G);
+        const Mass_solar = Mass_kg / M_sun_kg;
 
-    function scanIntersection(v1, v2, v3, dt1, dt2) {
-        let bestError = Infinity;
-        let bestSol = null;
+        // 4. APOCENTER CHECK (Optional)
+        // If ra is not provided, calculate geometric ra
+        const ra_geo = rp * (1 + ec) / (1 - ec);
         
-        // Step 1: Scan Eccentricity
-        // We scan e from 0.01 to 0.99. 
-        for(let e = 0.01; e < 0.99; e += 0.01) {
-            
-            // Step 2: Scan Phase o1 (From -PI to PI to catch all orbital parts)
-            // -PI to 0 = Accelerating (Inbound)
-            // 0 to PI = Decelerating (Outbound)
-            for(let o1 = -3.1; o1 < 3.1; o1 += 0.1) {
-                
-                // Solve o2 from Velocity Ratio v1/v2
-                // (1 + e cos o1) / (1 + e cos o2) = v1/v2
-                const ratio1 = v1 / v2;
-                const term2 = (1 + e * Math.cos(o1)) / ratio1;
-                const cos_o2 = (term2 - 1) / e;
-                
-                if(Math.abs(cos_o2) > 1) continue; // Impossible geometry for this e
-                
-                // Branch check: acos gives positive angle (0..PI). 
-                // But o2 could be negative. We check both branches.
-                const o2_candidates = [Math.acos(cos_o2), -Math.acos(cos_o2)];
+        let consistency = null;
+        let mass_apo = null;
 
-                for(let o2 of o2_candidates) {
-                    
-                    // Solve o3 from Velocity Ratio v2/v3
-                    const ratio2 = v2 / v3;
-                    const term3 = (1 + e * Math.cos(o2)) / ratio2;
-                    const cos_o3 = (term3 - 1) / e;
-                    
-                    if(Math.abs(cos_o3) > 1) continue;
-                    
-                    const o3_candidates = [Math.acos(cos_o3), -Math.acos(cos_o3)];
-                    
-                    for(let o3 of o3_candidates) {
-                        // We now have a candidate triplet (o1, o2, o3)
-                        // Check logical consistency: Time must move forward.
-                        // We compute Mean Anomalies M1, M2, M3
-                        
-                        const M1 = getMeanAnomaly(e, o1);
-                        const M2 = getMeanAnomaly(e, o2);
-                        const M3 = getMeanAnomaly(e, o3);
-                        
-                        // Handle wrap-around (e.g. passing periapsis 2PI)
-                        // dM must be positive.
-                        let dM1 = M2 - M1;
-                        if(dM1 < 0) dM1 += 2*Math.PI; // Wrap
-                        
-                        let dM2 = M3 - M2;
-                        if(dM2 < 0) dM2 += 2*Math.PI;
-                        
-                        // Avoid huge jumps (e.g. wrong branch picking 350 degrees orbit)
-                        // Assume observations are within one orbit < 2PI
-                        if(dM1 > 6 || dM2 > 6) continue; 
+        if (!isNaN(Qa)) {
+             // Separation at Apocenter
+             // Formula: kappa_a = Q_a * sqrt( 2 / (3 - e) )
+             // Wait, let's derive: beta_a^2 = kappa_a^2 * (1-e)/2
+             // Q_a^2 = k_a^2 * (1 + (1-e)/2) = k_a^2 * (3-e)/2
+             const sep_factor_a = Math.sqrt(2 / (3 - ec));
+             const ka = Qa * sep_factor_a;
+             
+             // Check radius logic
+             const ra_use = isNaN(ra_in) ? ra_geo : ra_in;
+             
+             const Rs_apo = (ka * ka) * ra_use;
+             mass_apo = (Rs_apo * c * c) / (2 * G);
+             const mass_apo_solar = mass_apo / M_sun_kg;
 
-                        // CORE CHECK: The Time Ratio must match
-                        // (dM1 / dM2) should equal (dt1 / dt2)
-                        const dimRatio = dM1 / dM2;
-                        const realRatio = dt1 / dt2;
-                        
-                        const err = Math.abs(dimRatio - realRatio) / realRatio;
-                        
-                        if(err < 0.05 && err < bestError) {
-                            bestError = err;
-                            
-                            // Calculate Physical Scale from Segment 1
-                            const n = dM1 / dt1; // rad/sec
-                            // v = n*a / sqrt(1-e^2) * (1+e cos o)
-                            // a = v * sqrt(1-e^2) / (n * (1+e cos o))
-                            
-                            const V_geo = (1 + e * Math.cos(o1)) / Math.sqrt(1-e*e);
-                            const v1_m = v1 * 1000;
-                            const a = v1_m / (n * V_geo);
-                            const GM = n*n * a*a*a;
-                            const Mass = GM / 6.6743e-11;
-                            
-                            // v_p (Periapsis V) for UI
-                            const v_p = n * a * Math.sqrt((1+e)/(1-e)) / 1000;
-                            
-                            bestSol = { e, M: Mass, T: 2*Math.PI/n, v_p, err, o1, o3 };
-                        }
-                    }
-                }
-            }
+             const diff = Math.abs(Mass_solar - mass_apo_solar);
+             const avg = (Mass_solar + mass_apo_solar) / 2;
+             const pct = (diff / avg) * 100;
+             
+             consistency = { pct, m1: Mass_solar, m2: mass_apo_solar };
         }
-        return { best: bestSol };
-    }
-    
-    function getMeanAnomaly(e, o) {
-        // E = 2 atan( sqrt((1-e)/(1+e)) * tan(o/2) )
-        const E = 2 * Math.atan(Math.sqrt((1-e)/(1+e)) * Math.tan(o/2));
-        // M = E - e sin E
-        return E - e * Math.sin(E);
-    }
 
-    // --- UI HELPERS ---
-    function setMode(m) {
-        mode = m;
-        ['interactive', 'triangulate'].forEach(k => {
-            const pan = document.getElementById('panel-'+k);
-            const tab = document.getElementById('tab-'+k);
-            if(k === m) {
-                pan.classList.remove('hidden');
-                tab.className = "flex-1 py-1 px-1 rounded text-[9px] font-bold bg-" + (k==='triangulate'?'purple':'gray') + "-600 text-white transition-all shadow-[0_0_10px_rgba(255,255,255,0.2)]";
-            } else {
-                pan.classList.add('hidden');
-                tab.className = "flex-1 py-1 px-1 rounded text-[9px] font-bold text-gray-400 hover:text-white transition-all";
-            }
-        });
+        // 5. UPDATE STATE
+        state = { Qp, ec, rp, kp, bp, Rs, Mass: Mass_solar, Qa, ra: ra_geo, consistency };
+
+        updateUI();
+        draw();
     }
 
     function updateUI() {
-        document.getElementById('val-beta').innerText = beta_p.toFixed(4);
-        document.getElementById('val-kappa').innerText = kappa_p.toFixed(4);
-        document.getElementById('val-e').innerText = phys.e.toFixed(4);
-        document.getElementById('val-delta').innerText = phys.delta.toFixed(3);
-        
-        const badge = document.getElementById('zone-badge');
-        
-        if(phys.status === 'unbound') {
-            badge.innerText = "UNBOUND";
-            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] bg-red-900/40 text-red-400 border border-red-900";
-        } else if(phys.status === 'inverted') {
-            badge.innerText = "INVERTED";
-            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] bg-blue-900/40 text-blue-400 border border-blue-900";
+        // RP in AU
+        const rp_au = state.rp / AU;
+        document.getElementById('rp_au').innerText = rp_au < 0.1 ? (state.rp/1000).toExponential(2) + " km" : rp_au.toFixed(2) + " AU";
+
+        // Mass
+        const mElem = document.getElementById('res_mass');
+        if(state.Mass > 1e6) {
+            mElem.innerText = (state.Mass / 1e6).toFixed(2) + " M";
         } else {
-            badge.innerText = "STABLE";
-            badge.className = "py-2 px-3 rounded text-center font-bold text-[10px] bg-green-900/40 text-green-400 border border-green-900";
+            mElem.innerText = state.Mass.toLocaleString(undefined, {maximumFractionDigits:0});
         }
-    }
 
-    // --- LOOP ---
-    function resize() {
-        const r = container.getBoundingClientRect();
-        width = r.width; height = r.height;
-        canvas.width = width; canvas.height = height;
-        cx = width/2; cy = height/2;
-        scale = Math.min(width, height)/3;
-    }
-    window.onresize = resize;
-    
-    function loop() {
-        let speed = 0.02 * Math.pow(1 + phys.e_real * Math.cos(phase), 2) / Math.pow(1 + Math.abs(phys.e_real), 2);
-        if(speed < 0.001) speed = 0.001;
-        phase += speed;
+        // Rs
+        document.getElementById('res_rs').innerText = (state.Rs / 1000).toFixed(1) + " km";
         
-        ctx.fillStyle = '#050505'; ctx.fillRect(0,0,width,height);
-        ctx.save(); ctx.translate(cx,cy); ctx.scale(1,-1);
+        // Kappa
+        document.getElementById('res_kappa').innerText = state.kp.toFixed(6);
 
-        let ds = scale;
-        const Q = Math.sqrt(beta_p**2 + kappa_p**2);
-        if(Q < 0.1 && Q > 1e-6) ds = scale * (0.4/Q);
+        // Visualizer Values
+        document.getElementById('val_q').innerText = state.Qp.toFixed(4);
+        document.getElementById('val_k').innerText = state.kp.toFixed(4);
+        document.getElementById('val_b').innerText = state.bp.toFixed(4);
 
-        ctx.strokeStyle='#111'; ctx.beginPath();
-        for(let i=-10;i<=10;i++) { ctx.moveTo(i*ds,-10*ds); ctx.lineTo(i*ds,10*ds); ctx.moveTo(-10*ds,i*ds); ctx.lineTo(10*ds,i*ds); }
-        ctx.stroke();
-
-        ctx.strokeStyle='#333'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,0,ds,0,7); ctx.stroke();
-
-        ctx.strokeStyle = phys.status==='stable'?'#22c55e':(phys.status==='unbound'?'#ef4444':'#3b82f6');
-        ctx.beginPath();
-        const p_param = Q * ds * (1 + phys.e_real);
-        for(let th=0; th<=360; th+=2) {
-            const rad = th*Math.PI/180;
-            const r = p_param / (1 + phys.e_real*Math.cos(rad));
-            if(r<0 || r>20*ds) continue;
-            const x = r*Math.cos(rad); const y = r*Math.sin(rad);
-            if(th===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-        }
-        ctx.stroke();
-        
-        if(observedArc && phys.status === 'stable') {
-            ctx.strokeStyle = 'white'; ctx.lineWidth = 4; ctx.beginPath();
-            const start = observedArc.start; const end = observedArc.end;
-            // Handle wrap-around drawing for arc
-            let drawEnd = end;
-            if(end < start) drawEnd += 2*Math.PI;
-            
-            for(let th=start; th<=drawEnd; th+=0.05) {
-                const r = p_param / (1 + phys.e_real*Math.cos(th));
-                const x = r*Math.cos(th); const y = r*Math.sin(th);
-                if(th===start) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        // Consistency
+        const cBox = document.getElementById('consistency_box');
+        const cVal = document.getElementById('consistency_val');
+        if(state.consistency) {
+            cBox.classList.remove('hidden');
+            const pct = state.consistency.pct;
+            cVal.innerText = pct.toFixed(2) + "% DIFF";
+            if(pct < 2) {
+                cBox.className = "mt-4 p-2 rounded border text-[10px] flex justify-between items-center bg-green-900/20 border-green-800 text-green-400";
+            } else if (pct < 10) {
+                cBox.className = "mt-4 p-2 rounded border text-[10px] flex justify-between items-center bg-yellow-900/20 border-yellow-800 text-yellow-400";
+            } else {
+                cBox.className = "mt-4 p-2 rounded border text-[10px] flex justify-between items-center bg-red-900/20 border-red-800 text-red-400";
             }
-            ctx.stroke();
-            ctx.lineWidth=2;
+        } else {
+            cBox.classList.add('hidden');
         }
-
-        const ra = p_param / (1 + phys.e_real*Math.cos(phase));
-        ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(ra*Math.cos(phase), ra*Math.sin(phase), 4, 0, 7); ctx.fill();
-
-        const qx = beta_p * ds; const qy = kappa_p * ds;
-        ctx.lineWidth=2; ctx.strokeStyle='#a855f7'; ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(qx,qy); ctx.stroke();
-        ctx.fillStyle=(mode==='interactive')?'#fff':'#9ca3af'; ctx.beginPath(); ctx.arc(qx,qy, 3, 0, 7); ctx.fill();
-
-        ctx.restore();
-        requestAnimationFrame(loop);
     }
 
+    // --- RENDER LOOP ---
+    function resize() {
+        cvs.width = cvs.parentElement.clientWidth;
+        cvs.height = cvs.parentElement.clientHeight;
+        draw();
+    }
+    window.addEventListener('resize', resize);
+
+    function draw() {
+        const w = cvs.width;
+        const h = cvs.height;
+        const cx = w/2;
+        const cy = h/2;
+
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0,0,w,h);
+
+        // Grid
+        ctx.strokeStyle = "#111";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        for(let i=0; i<w; i+=40) { ctx.moveTo(i,0); ctx.lineTo(i,h); }
+        for(let i=0; i<h; i+=40) { ctx.moveTo(0,i); ctx.lineTo(w,i); }
+        ctx.stroke();
+
+        if(state.Mass === 0) return;
+
+        // Auto Scale
+        // We want to fit the orbit 2*a roughly into 80% of width
+        const a = state.rp / (1 - state.ec);
+        // Scale factor: pixels per meter
+        const scale = (Math.min(w,h) * 0.4) / a; 
+
+        // Draw Central Body (Black Hole)
+        // Rs is usually too small to see, so we draw a symbol
+        ctx.fillStyle = "#fff";
+        ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill();
+        ctx.strokeStyle = "rgba(168, 85, 247, 0.5)";
+        ctx.beginPath(); ctx.arc(cx, cy, 6, 0, Math.PI*2); ctx.stroke();
+
+        // Draw Orbit
+        ctx.strokeStyle = "#444";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        
+        // Ellipse parameters
+        // Center of ellipse is offset from focus (0,0) by c_linear = a * e
+        const c_linear = a * state.ec;
+        const b = a * Math.sqrt(1 - state.ec*state.ec);
+        
+        // Drawing step
+        for(let theta = 0; theta <= Math.PI*2; theta += 0.05) {
+            // Polar equation from focus
+            const r = (a * (1 - state.ec*state.ec)) / (1 + state.ec * Math.cos(theta));
+            const x = cx + r * Math.cos(theta) * scale;
+            const y = cy + r * Math.sin(theta) * scale; // Canvas Y is down, but simple orbit doesn't matter
+            if(theta===0) ctx.moveTo(x,y);
+            else ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+
+        // Draw Pericenter Vector Triangle
+        // Pericenter is at theta = 0 (Right side in standard polar)
+        const px = cx + state.rp * scale;
+        const py = cy;
+
+        // Vector Visualization (Magnified)
+        const vScale = 100; // Arbitrary length for UI
+        const kLen = state.kp * 2000; // Visual scaling
+        const bLen = state.bp * 2000;
+
+        // Draw Point
+        ctx.fillStyle = "#a855f7";
+        ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI*2); ctx.fill();
+
+        // Draw Triangle (local ortho frame concept)
+        // Base (Radial/Potential) - Green
+        ctx.strokeStyle = "#22c55e"; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - kLen, py); ctx.stroke(); // Inward
+        
+        // Height (Tangential/Kinetic) - Blue
+        ctx.strokeStyle = "#3b82f6";
+        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py - bLen); ctx.stroke();
+
+        // Hypotenuse (Total Q) - Red
+        ctx.strokeStyle = "#ef4444"; ctx.setLineDash([2,2]);
+        ctx.beginPath(); ctx.moveTo(px - kLen, py); ctx.lineTo(px, py - bLen); ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Labels
+        ctx.fillStyle = "#fff"; ctx.font = "10px monospace";
+        ctx.fillText("PERICENTER", px + 10, py);
+    }
+
+    // Init
     resize();
-    updatePhysics();
-    loop();
+    solve();
+
 </script>
+</body>
+</html>
