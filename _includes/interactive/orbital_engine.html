@@ -1,354 +1,326 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WILL Orbital Engine Widget</title>
+import React, { useState, useEffect, useRef } from 'react';
+
+// --- CONSTANTS ---
+const G = 6.67430e-11;
+const M_SUN = 1.989e30; // kg
+const C = 299792458; // m/s
+
+const RomEngine = () => {
+  // --- INPUTS ---
+  // kappa: Relational Shift (frequency ratio)
+  // beta: Velocity / c
+  // rp_phys: Physical periapsis radius in meters
+  const [kappa, setKappa] = useState(1.414);
+  const [beta, setBeta] = useState(0.25);
+  const [rpPhys, setRpPhys] = useState(1.5e11); // meters
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  // --- PHYSICS KERNEL ---
+  const calculatePhysics = () => {
+    // 1. Calculate Eccentricity (e)
+    // PLACEHOLDER: Using a simple relationship for demo. 
+    // In real R.O.M., replace this with your exact algebraic derivation: e = f(kappa, beta)
+    // For now: let's say e depends on the ratio of Kinetic/Potential proxy.
+    let e = (beta * 2) - 0.2; 
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    // Handle Negative Eccentricity (User Requirement)
+    const isInverted = e < 0;
+    const abs_e = Math.abs(e);
 
-    <style>
-        /* BASE STYLES */
-        body { 
-            background-color: transparent; /* Transparent so it blends with your site bg */
-            color: #E5E5E5; 
-            font-family: 'Inter', sans-serif;
-            /* УБРАЛИ overflow: hidden и height: 100vh */
-        }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        
-        /* SLIDERS */
-        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none; height: 14px; width: 14px; border-radius: 50%;
-            background: #7C3AED; cursor: pointer; margin-top: -5px;
-            box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
-        }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%; height: 4px; background: #333; border-radius: 2px;
-        }
+    // 2. Physical derived values (SI Units)
+    // Mass derived from Vis-Viva equation at periapsis: v = sqrt(GM(1+e)/rp)
+    // v = beta * c
+    // M = (v^2 * rp) / (G * (1 + e))
+    const v = beta * C;
+    const mass_kg = (v * v * rpPhys) / (G * (1 + abs_e));
 
-        /* INPUTS */
-        .input-field {
-            background: #111; border: 1px solid #333; color: #fff;
-            font-family: 'JetBrains Mono', monospace; transition: border-color 0.2s;
-        }
-        .input-field:focus { border-color: #7C3AED; outline: none; }
-        
-        /* CONTAINER */
-        .engine-container {
-            background-color: #050505;
-            border: 1px solid #1F1F23;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-            max-width: 1000px;
-            margin: 0 auto; /* Center horizontally */
-        }
-    </style>
-</head>
-<body class="p-4">
+    // Apoapsis (Physical)
+    const raPhys = abs_e < 1 ? rpPhys * ((1 + abs_e) / (1 - abs_e)) : Infinity;
 
-    <div class="engine-container">
+    // Relational Q (Hypotenuse)
+    const Q = Math.sqrt(kappa**2 + beta**2);
 
-        <div class="bg-[#0A0A0A] border-b border-[#1F1F23] p-5">
-            
-            <div class="flex items-center justify-between mb-5">
-                <div class="flex items-center gap-3">
-                    <div class="w-1.5 h-5 bg-purple-600 shadow-[0_0_10px_purple]"></div>
-                    <h1 class="font-bold tracking-widest text-sm text-gray-100 uppercase">WILL <span class="text-purple-500">ENGINE v12</span></h1>
-                </div>
-                <div class="text-[10px] text-gray-500 font-mono bg-[#111] px-2 py-1 rounded border border-[#222]">SNAPSHOT MODE</div>
-            </div>
+    return { 
+      e, // raw e (can be negative)
+      abs_e,
+      isInverted, 
+      mass_kg, 
+      rpPhys, 
+      raPhys, 
+      Q 
+    };
+  };
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <div class="space-y-2">
-                    <div class="flex justify-between items-end">
-                        <label class="text-[10px] text-red-400 font-bold uppercase tracking-wider">Relational Shift \(z_{Qp}\)</label>
-                        <span class="text-[10px] text-gray-500 font-mono">Input</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <input type="range" min="0.0001" max="0.1" step="0.0001" id="slider_z" oninput="updateFromSlider('z', this.value)">
-                        <input type="number" id="in_z" class="input-field w-20 text-xs p-1.5 rounded text-right" value="0.041" step="0.0001" oninput="updateFromInput('z', this.value)">
-                    </div>
-                    <div class="text-[9px] text-gray-600 text-right font-mono">Generates Amplitude \(Q_p\)</div>
-                </div>
+  const physics = calculatePhysics();
 
-                <div class="space-y-2">
-                    <div class="flex justify-between items-end">
-                        <label class="text-[10px] text-blue-400 font-bold uppercase tracking-wider">Velocity \(\beta_p\) (v/c)</label>
-                        <span class="text-[10px] text-gray-500 font-mono">Input</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <input type="range" min="0.0001" max="0.3" step="0.0001" id="slider_b" oninput="updateFromSlider('b', this.value)">
-                        <input type="number" id="in_b" class="input-field w-20 text-xs p-1.5 rounded text-right" value="0.2" step="0.0001" oninput="updateFromInput('b', this.value)">
-                    </div>
-                     <div class="text-[9px] text-gray-600 text-right font-mono" id="beta_warning">Must be < \(Q_p\)</div>
-                </div>
+  // --- VISUALIZATION KERNEL (Normalized a=1) ---
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-                <div class="space-y-2">
-                    <div class="flex justify-between items-end">
-                        <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Pericenter Radius \(r_p\)</label>
-                        <span id="disp_au" class="text-[9px] text-purple-400 font-mono">-- AU</span>
-                    </div>
-                    <input type="number" id="in_r" class="input-field w-full text-xs p-2 rounded" value="2.5e13" step="1e10" oninput="solve()">
-                </div>
+    const width = canvas.width;
+    const height = canvas.height;
+    
+    // Reset Canvas
+    ctx.clearRect(0, 0, width, height);
+    
+    // Center of Screen
+    const cx = width / 2;
+    const cy = height / 2;
 
-            </div>
-        </div>
+    // --- DRAWING CONFIG ---
+    // Scale Unit: How many pixels is "a" (semi-major axis)?
+    // We dynamically adjust this so the orbit always fits nicely.
+    let UNIT_SCALE = 120; // Base pixels for a=1
 
-        <div class="relative bg-black h-[350px] w-full border-b border-[#1F1F23]">
-            <div class="absolute inset-0 opacity-20 pointer-events-none" 
-                 style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 40px 40px;">
-            </div>
-            
-            <canvas id="orbitCanvas" class="w-full h-full relative z-10 block"></canvas>
+    // For Hyperbolas (e > 1), a=1 logic makes the visual huge, so we scale down slightly
+    if (physics.abs_e >= 1) UNIT_SCALE = 80;
 
-            <div class="absolute top-3 right-3 bg-black/80 backdrop-blur border border-gray-800 p-3 rounded shadow-xl z-20">
-                <div class="text-[9px] text-gray-500 uppercase tracking-widest mb-2 border-b border-gray-800 pb-1">Vector Decomposition</div>
-                <div class="space-y-1.5">
-                    <div class="flex justify-between gap-4 text-[10px] font-mono">
-                        <span class="text-red-500">● \(Q_{p}\) (Total)</span>
-                        <span id="vec_q" class="text-white">--</span>
-                    </div>
-                    <div class="flex justify-between gap-4 text-[10px] font-mono">
-                        <span class="text-green-500">● \(\kappa_{p}\) (Pot)</span>
-                        <span id="vec_k" class="text-green-400">--</span>
-                    </div>
-                    <div class="flex justify-between gap-4 text-[10px] font-mono">
-                        <span class="text-blue-500">● \(\beta_{p}\) (Kin)</span>
-                        <span id="vec_b" class="text-blue-400">--</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    // --- ORBIT PATH GENERATION ---
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = physics.isInverted ? '#FF4444' : '#00F0FF'; // Red if inverted, Cyan normal
 
-        <div class="bg-[#080808] p-5">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
-                
-                <div class="md:col-span-1 border-r border-gray-800 pr-4">
-                    <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Derived Mass</div>
-                    <div class="flex items-baseline gap-2">
-                        <span id="res_mass" class="text-2xl font-bold text-white font-mono tracking-tighter">--</span>
-                        <span class="text-[10px] text-gray-400">\(M_{\odot}\)</span>
-                    </div>
-                </div>
-
-                <div class="md:col-span-1 border-r border-gray-800 pr-4">
-                    <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Calculated Shape</div>
-                    <div class="flex justify-between items-baseline">
-                        <span class="text-[10px] text-gray-400">Eccentricity \(e_c\)</span>
-                        <span id="res_ec" class="text-lg font-mono text-purple-400 font-bold">--</span>
-                    </div>
-                    <div class="text-[8px] text-gray-600 mt-1 font-mono">\(e_c = 2(\beta/\kappa)^2 - 1\)</div>
-                </div>
-
-                <div class="md:col-span-1 border-r border-gray-800 pr-4">
-                    <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Event Horizon</div>
-                    <div class="flex justify-between items-baseline">
-                        <span class="text-[10px] text-gray-400">Radius \(R_s\)</span>
-                        <span id="res_rs" class="text-sm font-mono text-gray-300">--</span>
-                    </div>
-                </div>
-
-                <div class="md:col-span-1 text-right pt-2">
-                    <div id="status_msg" class="text-[10px] font-mono text-green-500 bg-green-900/10 px-2 py-1 inline-block rounded border border-green-900/30">SYSTEM NOMINAL</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-<script>
-    // --- CONSTANTS ---
-    const G = 6.67430e-11;
-    const c = 299792458.0; 
-    const M_sun_kg = 1.98847e30;
-    const AU = 1.496e11;
-
-    // --- CANVAS SETUP ---
-    const cvs = document.getElementById('orbitCanvas');
-    const ctx = cvs.getContext('2d');
-
-    // --- STATE ---
-    let state = { z: 0.041, b: 0.2, rp: 2.5e13, Q: 0, k: 0, ec: 0, M: 0 };
-
-    // --- INPUT HANDLING ---
-    function updateFromSlider(type, val) {
-        document.getElementById('in_'+type).value = val;
-        solve();
-    }
-    function updateFromInput(type, val) {
-        document.getElementById('slider_'+type).value = val;
-        solve();
+    // Resolution
+    const steps = 400; 
+    
+    // Angle Limits
+    // If e < 1: 0 to 2*PI
+    // If e >= 1: Limited by asymptote arccos(-1/e)
+    let startLimit = 0;
+    let endLimit = 2 * Math.PI;
+    
+    if (physics.abs_e >= 1) {
+        // Asymptote angle
+        const limit = Math.acos(-1 / physics.abs_e);
+        // We draw slightly less than the limit to avoid infinity
+        const buffer = 0.2; 
+        startLimit = -limit + buffer;
+        endLimit = limit - buffer;
     }
 
-    // --- SOLVER ---
-    function solve() {
-        let z = parseFloat(document.getElementById('in_z').value);
-        let b = parseFloat(document.getElementById('in_b').value);
-        let rp = parseFloat(document.getElementById('in_r').value);
+    let isFirst = true;
 
-        if (isNaN(z) || isNaN(b) || isNaN(rp)) return;
+    for (let i = 0; i <= steps; i++) {
+        // Normalize step to angle range
+        const t = i / steps;
+        const theta = startLimit + (endLimit - startLimit) * t;
 
-        // 1. Calculate Total Q from Redshift
-        // 1 + z = 1/Qt  -> Qt = 1/(1+z)
-        // Q = sqrt(1 - Qt^2)
-        const Qt = 1 / (1 + z);
-        const Q_sq = 1 - (Qt*Qt);
-        const Q = Math.sqrt(Math.max(0, Q_sq));
+        // --- THE FORMULA (a=1 Normalization) ---
+        // r_norm = (1 - e^2) / (1 + e * cos(theta))
+        // Note: For e>1, (1-e^2) is negative, but r should be positive for the branch around focus.
+        // We use Math.abs(1-e^2) to visualize the primary branch consistently.
+        const numerator = Math.abs(1 - physics.abs_e**2);
+        const r_norm = numerator / (1 + physics.abs_e * Math.cos(theta));
 
-        // 2. Validate Beta
-        // Beta (Kinetic) cannot exceed Q (Total). If it does, math breaks.
-        const slider_b = document.getElementById('slider_b');
-        slider_b.max = Q.toFixed(4); 
+        // Convert to Pixels
+        const r_pix = r_norm * UNIT_SCALE;
+
+        // Polar -> Cartesian
+        // We apply the rotation for "delta" or time later, for now static orbit
+        let x = r_pix * Math.cos(theta);
+        let y = r_pix * Math.sin(theta);
+
+        // --- OFFSET LOGIC ---
+        // For ellipse, focus is not at center (0,0) relative to "a".
+        // Distance from Center to Focus = c = a * e.
+        // If we want Focus at Canvas Center (cx, cy):
+        // We calculate relative to Focus naturally with polar coords above.
+        // So (0,0) in polar IS the focus. No offset needed if we center the focus.
         
-        const status = document.getElementById('status_msg');
-        
-        if (b >= Q) {
-            status.innerText = "ERROR: β > Q (IMPOSSIBLE)";
-            status.className = "text-[10px] font-mono text-red-500 bg-red-900/10 px-2 py-1 inline-block rounded border border-red-900/30";
-            // Clamp calculation
-            b = Q * 0.99;
+        // --- INVERSION (Negative Eccentricity) ---
+        // If inverted, we flip the drawing geometry
+        if (physics.isInverted) {
+             x = -x;
+             y = -y;
+        }
+
+        // Draw
+        if (isFirst) {
+            ctx.moveTo(cx + x, cy - y); // Invert Y for canvas coords
+            isFirst = false;
         } else {
-            status.innerText = "SYSTEM NOMINAL";
-            status.className = "text-[10px] font-mono text-green-500 bg-green-900/10 px-2 py-1 inline-block rounded border border-green-900/30";
+            ctx.lineTo(cx + x, cy - y);
         }
-
-        // 3. Separation (Pythagoras)
-        // kappa^2 = Q^2 - beta^2
-        const k_sq = (Q*Q) - (b*b);
-        const k = Math.sqrt(Math.max(0, k_sq));
-
-        // 4. Calculate Eccentricity
-        // ec = (2 * beta^2 / kappa^2) - 1
-        let ec = 0;
-        if(k > 0) {
-            ec = (2 * (b*b) / (k*k)) - 1;
-        }
-
-        // 5. Calculate Mass
-        // Rs = k^2 * rp
-        const Rs = (k*k) * rp;
-        const Mass_kg = (Rs * c * c) / (2 * G);
-        const Mass_solar = Mass_kg / M_sun_kg;
-
-        // Update State
-        state = { z, b, rp, Q, k, ec, M: Mass_solar, Rs };
-        
-        updateUI();
-        draw();
     }
+    ctx.stroke();
 
-    function updateUI() {
-        // Radius Display
-        const au = state.rp / AU;
-        document.getElementById('disp_au').innerText = au < 0.1 ? (state.rp/1000).toExponential(2)+" km" : au.toFixed(2) + " AU";
+    // --- DRAW FOCUS (The Star/Singularity) ---
+    ctx.beginPath();
+    ctx.fillStyle = '#FFFFFF';
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = '#FFFFFF';
+    ctx.arc(cx, cy, 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0; // Reset
 
-        // Mass
-        const mElem = document.getElementById('res_mass');
-        if(state.M > 1e9) mElem.innerText = (state.M/1e9).toFixed(2) + " B";
-        else if(state.M > 1e6) mElem.innerText = (state.M/1e6).toFixed(2) + " M";
-        else mElem.innerText = state.M.toLocaleString(undefined, {maximumFractionDigits:0});
+    // --- DRAW TRIANGLE (Q, Beta, Kappa) ---
+    // As requested: Q as hypotenuse between Kappa and Beta
+    // Location: Fixed in bottom right or attached to periapsis?
+    // Let's attach it to the Pericenter for "Relational" feel, or fixed UI. 
+    // Fixed UI is cleaner for "Dashboard".
 
-        // Other values
-        document.getElementById('res_ec').innerText = state.ec.toFixed(3);
-        document.getElementById('res_rs').innerText = (state.Rs/1000).toExponential(2) + " km";
+    const tx = width - 80;
+    const ty = height - 80;
+    const tScale = 60; // Scale for the triangle vector display
 
-        // Vectors
-        document.getElementById('vec_q').innerText = state.Q.toFixed(5);
-        document.getElementById('vec_k').innerText = state.k.toFixed(5);
-        document.getElementById('vec_b').innerText = state.b.toFixed(5);
-    }
+    // Vectors
+    const k_vec = kappa * tScale * 0.5; // Scaled down to fit
+    const b_vec = beta * tScale * 2.0;  // Scaled up to be visible
 
-    // --- VISUALIZATION ---
-    function resize() {
-        const parent = cvs.parentElement;
-        if(parent) {
-            cvs.width = parent.clientWidth;
-            cvs.height = parent.clientHeight;
-        }
-        draw();
-    }
-    window.addEventListener('resize', resize);
+    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+    ctx.lineWidth = 1;
 
-    function draw() {
-        const w = cvs.width;
-        const h = cvs.height;
-        const cx = w/2;
-        const cy = h/2;
+    // Draw Beta (Horizontal)
+    ctx.beginPath();
+    ctx.moveTo(tx, ty);
+    ctx.lineTo(tx + b_vec, ty);
+    ctx.stroke();
 
-        ctx.fillStyle = "#000"; ctx.fillRect(0,0,w,h);
+    // Draw Kappa (Vertical)
+    ctx.beginPath();
+    ctx.moveTo(tx, ty);
+    ctx.lineTo(tx, ty - k_vec);
+    ctx.stroke();
 
-        // Black Hole
-        ctx.shadowBlur = 15; ctx.shadowColor = "white"; ctx.fillStyle = "#fff";
-        ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
+    // Draw Q (Hypotenuse)
+    ctx.strokeStyle = '#FF0055';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(tx + b_vec, ty);
+    ctx.lineTo(tx, ty - k_vec);
+    ctx.stroke();
 
-        if(state.M <= 0) return;
+    // Labels
+    ctx.fillStyle = '#888';
+    ctx.font = '10px monospace';
+    ctx.fillText('β', tx + b_vec/2, ty + 12);
+    ctx.fillText('κ', tx - 12, ty - k_vec/2);
+    ctx.fillStyle = '#FF0055';
+    ctx.fillText('Q', tx + b_vec/2 + 5, ty - k_vec/2 - 5);
 
-        // Auto-Scale Orbit
-        // We draw based on calculated Eccentricity
-        let draw_ec = state.ec;
-        if(draw_ec < 0) draw_ec = 0;
+  }, [physics]); 
+
+  return (
+    <div style={{ 
+      background: '#000', 
+      color: '#ddd', 
+      fontFamily: "'Courier New', monospace", 
+      padding: '20px', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      gap: '10px',
+      maxWidth: '900px',
+      border: '1px solid #333'
+    }}>
+      
+      {/* HEADER */}
+      <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', borderBottom:'2px solid #333', paddingBottom:'10px'}}>
+        <div style={{fontSize: '24px', fontWeight: 'bold', color: '#fff'}}>
+          R.O.M. <span style={{fontSize:'12px', color:'#666', fontWeight:'normal'}}>RELATIONAL ORBITAL MECHANICS</span>
+        </div>
+        <div style={{fontSize: '12px', color: physics.e >= 1 ? '#FF8800' : '#00F0FF'}}>
+            {physics.abs_e >= 1 ? 'OPEN TRAJECTORY' : 'CLOSED ORBIT'}
+        </div>
+      </div>
+
+      {/* GRID LAYOUT */}
+      <div style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '20px', marginTop: '10px' }}>
         
-        // Handle Open Orbits visually
-        let isOpen = false;
-        if(draw_ec >= 1) {
-            isOpen = true;
-            draw_ec = 0.95; // Visual clamp
-        }
+        {/* LEFT COLUMN: CONTROLS & DATA */}
+        <div style={{display:'flex', flexDirection:'column', gap:'15px'}}>
+            
+            {/* INPUTS */}
+            <div style={{background: '#0a0a0a', padding: '10px', border: '1px solid #222'}}>
+                <div style={{fontSize:'10px', color:'#666', marginBottom:'5px'}}>RELATIONAL PARAMETERS</div>
+                
+                <label style={{display:'block', fontSize:'12px', color:'#ccc'}}>Shift (κ)</label>
+                <input 
+                    type="range" min="0.1" max="3.0" step="0.01" 
+                    value={kappa} onChange={e => setKappa(parseFloat(e.target.value))}
+                    style={{width:'100%', accentColor:'#FF0055'}}
+                />
+                <div style={{textAlign:'right', color:'#FF0055', fontSize:'12px'}}>{kappa.toFixed(3)}</div>
 
-        const a = state.rp / (1 - draw_ec);
-        const scale = (Math.min(w,h) * 0.35) / a;
-        
-        const c_lin = a * draw_ec;
-        const b_axis = a * Math.sqrt(1 - draw_ec*draw_ec);
-        const center_x = cx - c_lin * scale;
+                <label style={{display:'block', fontSize:'12px', color:'#ccc', marginTop:'10px'}}>Velocity (β)</label>
+                <input 
+                    type="range" min="0.01" max="0.99" step="0.01" 
+                    value={beta} onChange={e => setBeta(parseFloat(e.target.value))}
+                    style={{width:'100%', accentColor:'#00F0FF'}}
+                />
+                <div style={{textAlign:'right', color:'#00F0FF', fontSize:'12px'}}>{beta.toFixed(3)}</div>
+            </div>
 
-        // Draw Orbit
-        ctx.strokeStyle = isOpen ? "#555" : "#333"; 
-        ctx.lineWidth = 1.5;
-        if(isOpen) ctx.setLineDash([5,5]);
-        
-        ctx.beginPath();
-        ctx.ellipse(center_x, cy, a*scale, b_axis*scale, 0, 0, 2*Math.PI);
-        ctx.stroke();
-        ctx.setLineDash([]);
+            {/* PHYSICAL INPUT */}
+            <div style={{background: '#0a0a0a', padding: '10px', border: '1px solid #222'}}>
+                 <div style={{fontSize:'10px', color:'#666', marginBottom:'5px'}}>PHYSICAL SCALE</div>
+                 <label style={{display:'block', fontSize:'12px', color:'#ccc'}}>Periapsis (m)</label>
+                 <input 
+                    type="number" 
+                    value={rpPhys} 
+                    onChange={e => setRpPhys(parseFloat(e.target.value))}
+                    style={{
+                        width:'100%', background:'#000', border:'1px solid #444', 
+                        color:'#fff', padding:'4px', fontFamily:'monospace'
+                    }}
+                 />
+            </div>
 
-        // Draw Pericenter Point & Vectors
-        const px = cx + state.rp * scale;
-        const py = cy;
+            {/* CALCULATED DATA */}
+            <div style={{background: '#111', padding: '10px', borderLeft: '2px solid #fff'}}>
+                <div style={{fontSize:'10px', color:'#888'}}>CALCULATED MASS</div>
+                <div style={{fontSize:'14px', color:'#fff', marginTop:'2px'}}>
+                    {physics.mass_kg.toExponential(3)} <span style={{color:'#666'}}>kg</span>
+                </div>
+                <div style={{fontSize:'12px', color:'#FFD700', marginTop:'2px'}}>
+                    ≈ {(physics.mass_kg / M_SUN).toFixed(3)} M☉
+                </div>
+            </div>
 
-        ctx.fillStyle = "#A855F7"; ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI*2); ctx.fill();
+             <div style={{background: '#111', padding: '10px', borderLeft: `2px solid ${physics.isInverted ? '#FF4444' : '#00F0FF'}`}}>
+                <div style={{fontSize:'10px', color:'#888'}}>GEOMETRY</div>
+                <div style={{display:'flex', justifyContent:'space-between', fontSize:'12px'}}>
+                    <span>Eccentricity:</span>
+                    <span style={{color:'#fff'}}>{physics.e.toFixed(3)}</span>
+                </div>
+                 <div style={{display:'flex', justifyContent:'space-between', fontSize:'12px', marginTop:'4px'}}>
+                    <span>Norm. Q:</span>
+                    <span style={{color:'#fff'}}>{physics.Q.toFixed(3)}</span>
+                </div>
+            </div>
 
-        // Vector Scale (normalized visually)
-        const vSc = 80 / state.Q; 
-        const len_k = state.k * vSc;
-        const len_b = state.b * vSc;
+        </div>
 
-        // Kappa (Green, Inward)
-        ctx.strokeStyle = "#10B981"; ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - len_k, py); ctx.stroke();
+        {/* RIGHT COLUMN: CANVAS */}
+        <div style={{position:'relative', background:'#050505', border:'1px solid #222', height:'450px'}}>
+            <canvas 
+                ref={canvasRef} 
+                width={600} 
+                height={450}
+                style={{width:'100%', height:'100%', display:'block'}}
+            />
+            
+            {/* Overlay Grid Lines (Visual Flair) */}
+            <div style={{
+                position:'absolute', top:'50%', left:0, right:0, height:'1px', 
+                background:'rgba(255,255,255,0.05)', pointerEvents:'none'
+            }} />
+            <div style={{
+                position:'absolute', left:'50%', top:0, bottom:0, width:'1px', 
+                background:'rgba(255,255,255,0.05)', pointerEvents:'none'
+            }} />
+            
+            <div style={{position:'absolute', bottom: 10, left: 10, fontSize:'10px', color:'#444'}}>
+                VISUALIZATION NORMALIZED (a=1)
+            </div>
+        </div>
 
-        // Beta (Blue, Tangent)
-        ctx.strokeStyle = "#3B82F6";
-        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py - len_b); ctx.stroke();
+      </div>
+    </div>
+  );
+};
 
-        // Q (Red, Hypotenuse)
-        ctx.strokeStyle = "#EF4444"; ctx.setLineDash([4,4]);
-        ctx.beginPath(); ctx.moveTo(px - len_k, py); ctx.lineTo(px, py - len_b); ctx.stroke(); ctx.setLineDash([]);
-        
-        // Text
-        ctx.fillStyle = "#888"; ctx.font = "10px Inter"; ctx.fillText(isOpen ? "HYPERBOLIC?" : "PERICENTER", px+8, py+3);
-    }
-
-    // Init
-    setTimeout(() => { resize(); solve(); }, 100);
-
-</script>
-</body>
-</html>
+export default RomEngine;
