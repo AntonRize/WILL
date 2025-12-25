@@ -1,48 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WILL Orbital Engine v10.0</title>
-    
+    <title>WILL Orbital Engine</title>
+    <meta name="description" content="WILL Relational Geometry - fundamental theoretical physics calculator.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-        :root {
-            --color-bg: #050505;
-            --color-panel: #0F0F12;
-            --color-border: #1F1F23;
-            --color-accent: #7C3AED; /* Purple */
-            --color-text-main: #E5E5E5;
-            --color-text-dim: #6B7280;
-            
-            /* Vector Colors */
-            --vec-q: #EF4444; /* Red */
-            --vec-k: #10B981; /* Green */
-            --vec-b: #3B82F6; /* Blue */
+        /* Базовые настройки, чтобы соответствовать твоему сайту */
+        body {
+            background-color: #050505; /* Очень темный фон, почти черный */
+            color: #E5E5E5;
+            font-family: 'Inter', sans-serif;
+            /* УБРАЛ overflow: hidden, теперь скролл работает! */
         }
 
-        body { 
-            background-color: var(--color-bg); 
-            color: var(--color-text-main); 
-            font-family: 'Inter', sans-serif; 
-            overflow: hidden; /* Prevent scroll on iframe */
-        }
-
+        /* Класс для цифр */
         .font-mono { font-family: 'JetBrains Mono', monospace; }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--color-bg); }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
-
-        /* Range Slider Styling */
+        /* Стилизация ползунков */
         input[type=range] {
             -webkit-appearance: none; 
             width: 100%; 
@@ -50,468 +36,347 @@
         }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            height: 14px; width: 14px;
+            height: 16px; width: 16px;
             border-radius: 50%;
-            background: var(--color-accent);
+            background: #7C3AED; /* Purple-600 */
             cursor: pointer;
             margin-top: -6px;
             box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
         }
         input[type=range]::-webkit-slider-runnable-track {
-            width: 100%; height: 2px; background: var(--color-border);
+            width: 100%; height: 4px; background: #333; border-radius: 2px;
         }
 
-        /* Glass Panel */
-        .glass-panel {
-            background: rgba(15, 15, 18, 0.85);
-            backdrop-filter: blur(12px);
-            border-right: 1px solid var(--color-border);
-        }
-
-        /* Input Field */
+        /* Поля ввода */
         .input-field {
-            background: #000;
-            border: 1px solid var(--color-border);
+            background: #0F0F10;
+            border: 1px solid #333;
             color: #fff;
             font-family: 'JetBrains Mono', monospace;
-            transition: all 0.2s;
+            transition: border-color 0.2s;
         }
         .input-field:focus {
-            border-color: var(--color-accent);
+            border-color: #7C3AED;
             outline: none;
         }
     </style>
 </head>
-<body class="flex flex-col h-screen w-full">
+<body class="min-h-screen flex flex-col">
 
-    <header class="h-14 border-b border-[#1F1F23] bg-[#0A0A0A] flex items-center px-6 justify-between shrink-0 z-20">
-        <div class="flex items-center gap-3">
+    <header class="border-b border-gray-800 bg-[#0A0A0A] py-4 px-6">
+        <div class="max-w-7xl mx-auto flex items-center gap-3">
             <div class="w-2 h-8 bg-purple-600 rounded-sm shadow-[0_0_15px_rgba(124,58,237,0.6)]"></div>
             <div>
-                <h1 class="font-bold tracking-[0.2em] text-sm text-gray-100 uppercase">WILL <span class="text-purple-500">Orbital Engine</span></h1>
-                <div class="text-[10px] text-gray-500 font-mono tracking-wide">RELATIONAL MECHANICS KERNEL</div>
-            </div>
-        </div>
-        
-        <div class="flex gap-4 text-[10px] font-mono text-gray-500">
-            <div class="flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                <span>METRIC: VERIFIED</span>
-            </div>
-            <div class="flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                <span>MODE: PERICENTER ANCHOR</span>
+                <h1 class="font-bold tracking-wider text-lg text-gray-100 uppercase">WILL <span class="text-purple-500">Orbital Engine</span></h1>
+                <div class="text-xs text-gray-500 font-mono">RELATIONAL MECHANICS KERNEL v10</div>
             </div>
         </div>
     </header>
 
-    <div class="flex flex-1 overflow-hidden relative">
-        
-        <div class="w-[420px] glass-panel flex flex-col overflow-y-auto shrink-0 z-10 custom-scrollbar">
+    <main class="flex-grow p-4 md:p-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            <div class="p-6 border-b border-[#1F1F23]">
-                <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-xs font-bold text-purple-400 uppercase tracking-widest flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        Primary Anchor (Pericenter)
-                    </h2>
-                </div>
-
-                <div class="mb-6 group">
-                    <div class="flex justify-between items-end mb-2">
-                        <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
-                            Relational Shift \(z_{Qp}\)
-                        </label>
-                        <span class="text-[9px] text-gray-600 font-mono">\(1+z_{Qp} = 1/Q_{tp}\)</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="relative flex-1 h-6 flex items-center">
-                            <input type="range" min="0.0001" max="0.1" step="0.0001" value="0.0007" class="absolute z-10" id="slider_z" oninput="syncInput('in_z', this.value); solve();">
-                        </div>
-                        <input type="number" id="in_z" class="input-field w-24 p-2 text-right text-xs rounded" value="0.00067" step="0.00001" oninput="syncInput('slider_z', this.value); solve();">
-                    </div>
-                    <div class="text-[9px] text-gray-600 mt-1">Input the <i>pre-processed</i> relativistic redshift (grav + transverse).</div>
-                </div>
-
-                <div class="mb-6">
-                    <div class="flex justify-between items-end mb-2">
-                        <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Eccentricity \(e_c\)</label>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="relative flex-1 h-6 flex items-center">
-                            <input type="range" min="0.01" max="0.999" step="0.001" value="0.884" class="absolute z-10" id="slider_e" oninput="syncInput('in_e', this.value); solve();">
-                        </div>
-                        <input type="number" id="in_e" class="input-field w-24 p-2 text-right text-xs rounded" value="0.884" step="0.001" oninput="syncInput('slider_e', this.value); solve();">
-                    </div>
-                </div>
-
-                <div class="mb-2">
-                    <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider block mb-2">Pericenter Radius \(r_p\) (meters)</label>
-                    <input type="number" id="in_r" class="input-field w-full p-2 text-xs rounded" value="1.95e13" step="1e10" oninput="solve()">
-                    <div class="flex justify-end mt-1">
-                        <span id="disp_au" class="text-[9px] text-purple-400 font-mono">120.5 AU</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-6 border-b border-[#1F1F23] bg-gradient-to-b from-transparent to-[#0A0A0A]">
-                <div class="flex items-center justify-between mb-4 cursor-pointer" onclick="toggleApo()">
-                    <h2 class="text-xs font-bold text-gray-500 hover:text-blue-400 transition-colors uppercase tracking-widest flex items-center gap-2">
-                        <span id="apo_icon">▸</span> Validation (Apocenter)
-                    </h2>
-                    <span class="text-[9px] border border-gray-700 text-gray-600 px-1.5 rounded">OPTIONAL</span>
-                </div>
+            <div class="lg:col-span-4 space-y-6">
                 
-                <div id="apo_panel" class="hidden space-y-4 pl-4 border-l border-gray-800">
-                    <div>
-                        <label class="text-[10px] text-gray-500 uppercase block mb-1">Apocenter Shift \(z_{Qa}\)</label>
-                        <input type="number" id="in_za" class="input-field w-full p-2 text-xs rounded text-gray-400" placeholder="e.g. 0.0001" step="0.00001" oninput="solve()">
+                <div class="bg-[#0F0F10] border border-gray-800 rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-sm font-bold text-purple-400 uppercase tracking-widest">
+                            Primary Anchor (Pericenter)
+                        </h2>
                     </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between items-end mb-2">
+                            <label class="text-xs text-gray-400 font-bold uppercase">
+                                Relational Shift \(z_{Qp}\)
+                            </label>
+                            <span class="text-[10px] text-gray-600 font-mono">\(1+z_{Qp} = 1/Q_{tp}\)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <input type="range" min="0.0001" max="0.1" step="0.0001" value="0.0007" class="flex-1" id="slider_z" oninput="syncInput('in_z', this.value); solve();">
+                            <input type="number" id="in_z" class="input-field w-24 p-2 text-right text-sm rounded" value="0.00067" step="0.00001" oninput="syncInput('slider_z', this.value); solve();">
+                        </div>
+                        <div class="text-[10px] text-gray-500 mt-2">
+                            Enter the <strong>pre-processed</strong> relativistic redshift (grav + transverse only).
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="text-xs text-gray-400 font-bold uppercase block mb-2">Eccentricity \(e_c\)</label>
+                        <div class="flex items-center gap-3">
+                            <input type="range" min="0.01" max="0.999" step="0.001" value="0.884" class="flex-1" id="slider_e" oninput="syncInput('in_e', this.value); solve();">
+                            <input type="number" id="in_e" class="input-field w-24 p-2 text-right text-sm rounded" value="0.884" step="0.001" oninput="syncInput('slider_e', this.value); solve();">
+                        </div>
+                    </div>
+
                     <div>
-                        <label class="text-[10px] text-gray-500 uppercase block mb-1">Apocenter Radius \(r_a\) (m)</label>
-                        <input type="number" id="in_ra" class="input-field w-full p-2 text-xs rounded text-gray-400" placeholder="Auto-calculated if empty..." oninput="solve()">
+                        <label class="text-xs text-gray-400 font-bold uppercase block mb-2">Pericenter Radius \(r_p\) (meters)</label>
+                        <input type="number" id="in_r" class="input-field w-full p-2 text-sm rounded" value="1.95e13" step="1e10" oninput="solve()">
+                        <div class="text-right mt-1">
+                            <span id="disp_au" class="text-[10px] text-purple-400 font-mono">-- AU</span>
+                        </div>
                     </div>
                 </div>
+
+                <div class="bg-[#0A0A0A] border border-gray-800 rounded-lg p-6">
+                    <div class="text-[10px] text-gray-500 font-bold tracking-widest mb-2">DERIVED MASS (WILL METHOD)</div>
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <span id="res_mass" class="text-4xl font-bold text-white font-mono tracking-tighter">--</span>
+                        <span class="text-sm text-gray-400 font-light">\(M_{\odot}\)</span>
+                    </div>
+
+                    <div class="space-y-2 text-xs font-mono border-t border-gray-800 pt-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Schwarzschild \(R_s\)</span>
+                            <span id="res_rs" class="text-purple-300">--</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Total Shift \(Q_p\)</span>
+                            <span id="res_Q" class="text-red-400">--</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Separation \(\kappa_p\)</span>
+                            <span id="res_k" class="text-green-400">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#0F0F10] border border-gray-800 rounded-lg p-6 opacity-75 hover:opacity-100 transition-opacity">
+                    <div class="flex items-center justify-between mb-4 cursor-pointer" onclick="toggleApo()">
+                        <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest">
+                            Validation Check (Optional)
+                        </h2>
+                        <span class="text-xs text-gray-500" id="apo_arrow">▼</span>
+                    </div>
+                    
+                    <div id="apo_panel" class="hidden space-y-4 pt-2 border-t border-gray-800">
+                        <div>
+                            <label class="text-[10px] text-gray-500 uppercase block mb-1">Apocenter Shift \(z_{Qa}\)</label>
+                            <input type="number" id="in_za" class="input-field w-full p-2 text-xs rounded text-gray-400" placeholder="e.g. 0.0001" step="0.00001" oninput="solve()">
+                        </div>
+                        
+                        <div id="consistency_box" class="hidden p-3 rounded border border-dashed text-xs flex justify-between items-center font-mono">
+                            <span class="font-bold opacity-70">CHECK:</span>
+                            <span id="consistency_val" class="font-bold">--</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="mt-auto p-6 bg-[#080808]">
-                <div class="text-[9px] text-gray-500 font-bold tracking-widest mb-2">DERIVED CENTRAL MASS</div>
-                <div class="flex items-baseline gap-2 mb-4">
-                    <span id="res_mass" class="text-4xl font-bold text-white font-mono tracking-tighter shadow-purple-glow">4.30 M</span>
-                    <span class="text-sm text-gray-400 font-light">\(M_{\odot}\)</span>
+            <div class="lg:col-span-8 flex flex-col h-[500px] lg:h-auto bg-black rounded-lg border border-gray-800 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-20 pointer-events-none" 
+                     style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 40px 40px;">
                 </div>
 
-                <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-[10px] font-mono border-t border-gray-800 pt-3">
-                    <div class="flex justify-between">
-                        <span class="text-gray-500">Schwarzschild \(R_s\)</span>
-                        <span id="res_rs" class="text-purple-300">--</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-500">Total Shift \(Q_p\)</span>
-                        <span id="res_Q" class="text-red-400">--</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-500">Separation \(\kappa_p\)</span>
-                        <span id="res_k" class="text-green-400">--</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-500">Kinetic \(\beta_p\)</span>
-                        <span id="res_b" class="text-blue-400">--</span>
-                    </div>
-                </div>
+                <canvas id="orbitCanvas" class="w-full h-full relative z-0"></canvas>
                 
-                <div id="consistency_box" class="hidden mt-3 p-2 rounded border border-dashed text-[10px] flex justify-between items-center font-mono">
-                    <span class="font-bold opacity-70">VALIDATION CHECK:</span>
-                    <span id="consistency_val" class="font-bold">--</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex-1 bg-black relative flex flex-col items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 opacity-20 pointer-events-none" 
-                 style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 40px 40px;">
-            </div>
-
-            <canvas id="orbitCanvas" class="relative z-0 w-full h-full"></canvas>
-            
-            <div class="absolute top-6 right-6 pointer-events-none z-10">
-                <div class="glass-panel p-4 rounded-md border border-[#333] shadow-2xl">
-                    <div class="text-[9px] text-gray-500 uppercase tracking-widest mb-3 border-b border-gray-800 pb-1">Vector Decomposition</div>
-                    
-                    <div class="flex items-center gap-3 text-xs font-mono mb-2">
-                        <span class="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_red]"></span>
-                        <span class="text-gray-300 w-12">\(Q_{p}\)</span>
-                        <span id="val_q_vec" class="text-white font-bold">--</span>
-                    </div>
-                    
-                    <div class="flex items-center gap-3 text-xs font-mono mb-2">
-                        <span class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_lime]"></span>
-                        <span class="text-gray-300 w-12">\(\kappa\)</span>
-                        <span id="val_k_vec" class="text-green-400">--</span>
-                    </div>
-                    
-                    <div class="flex items-center gap-3 text-xs font-mono">
-                        <span class="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_blue]"></span>
-                        <span class="text-gray-300 w-12">\(\beta\)</span>
-                        <span id="val_b_vec" class="text-blue-400">--</span>
-                    </div>
-
-                    <div class="mt-3 pt-2 border-t border-gray-800 text-[9px] text-gray-600 font-mono text-right">
-                        \(Q_{tp} = 1/(1+z_{Qp})\)
+                <div class="absolute top-4 right-4 z-10">
+                    <div class="bg-black/80 backdrop-blur-md border border-gray-700 p-4 rounded shadow-xl">
+                        <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-2 border-b border-gray-700 pb-1">Vector Decomposition</div>
+                        
+                        <div class="grid grid-cols-[10px_40px_1fr] gap-2 text-xs font-mono items-center mb-1">
+                            <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                            <span class="text-gray-400">\(Q_p\)</span>
+                            <span id="val_q_vec" class="text-white text-right">--</span>
+                        </div>
+                        <div class="grid grid-cols-[10px_40px_1fr] gap-2 text-xs font-mono items-center mb-1">
+                            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            <span class="text-gray-400">\(\kappa\)</span>
+                            <span id="val_k_vec" class="text-green-400 text-right">--</span>
+                        </div>
+                        <div class="grid grid-cols-[10px_40px_1fr] gap-2 text-xs font-mono items-center">
+                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                            <span class="text-gray-400">\(\beta\)</span>
+                            <span id="val_b_vec" class="text-blue-400 text-right">--</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
+    </main>
 
-<script>
-    // --- PHYSICS CONSTANTS ---
-    const G = 6.67430e-11;
-    const c = 299792458.0; 
-    const M_sun_kg = 1.98847e30;
-    const AU = 1.496e11;
+    <script>
+        // --- CONSTANTS ---
+        const G = 6.67430e-11;
+        const c = 299792458.0; 
+        const M_sun_kg = 1.98847e30;
+        const AU = 1.496e11;
 
-    // --- DOM ELEMENTS ---
-    const cvs = document.getElementById('orbitCanvas');
-    const ctx = cvs.getContext('2d');
+        // --- SETUP CANVAS ---
+        const cvs = document.getElementById('orbitCanvas');
+        const ctx = cvs.getContext('2d');
 
-    // --- STATE ---
-    let state = {
-        z: 0, ec: 0, rp: 0,
-        Q: 0, Qt: 0, // Q = Amplitude, Qt = Phase
-        k: 0, b: 0,
-        Rs: 0, Mass: 0,
-        za: null, ra: null
-    };
+        // --- STATE ---
+        let state = { z: 0, ec: 0, rp: 0, Q: 0, k: 0, b: 0, Rs: 0, Mass: 0, za: null, consistency: null };
 
-    function syncInput(id, val) {
-        document.getElementById(id).value = val;
-    }
-
-    function toggleApo() {
-        const p = document.getElementById('apo_panel');
-        const i = document.getElementById('apo_icon');
-        if(p.classList.contains('hidden')) {
-            p.classList.remove('hidden');
-            i.innerText = "▾";
-        } else {
-            p.classList.add('hidden');
-            i.innerText = "▸";
-        }
-    }
-
-    function solve() {
-        // 1. Get Inputs
-        const z = parseFloat(document.getElementById('in_z').value);
-        const ec = parseFloat(document.getElementById('in_e').value);
-        const rp = parseFloat(document.getElementById('in_r').value);
-        
-        let za_val = document.getElementById('in_za').value;
-        let za = (za_val === "") ? NaN : parseFloat(za_val);
-
-        let ra_val = document.getElementById('in_ra').value;
-        let ra_in = (ra_val === "") ? NaN : parseFloat(ra_val);
-
-        if(isNaN(z) || isNaN(ec) || isNaN(rp)) return;
-
-        // 2. WILL CORE LOGIC
-        // Ontological Link: 1 + z = 1 / Qt
-        // So Qt (Phase) = 1 / (1 + z)
-        const Qt = 1 / (1 + z);
-        
-        // Orthogonal Complement: Q (Amplitude) = sqrt(1 - Qt^2)
-        // Check: Q^2 = 1 - 1/(1+z)^2. Matches DeepSeek/User logic.
-        const Q_sq = 1 - (Qt * Qt);
-        const Q = Math.sqrt(Q_sq);
-
-        // Separation Protocol (Pericenter)
-        // kappa_p = Q * sqrt( 2 / (3 + e) )
-        const separation_factor = Math.sqrt(2 / (3 + ec));
-        const kp = Q * separation_factor;
-        
-        // Beta (Pythagoras)
-        const bp = Math.sqrt(Math.abs(Q*Q - kp*kp));
-
-        // 3. PHYSICAL SCALING
-        // Rs = kp^2 * rp
-        const Rs = (kp * kp) * rp;
-        
-        // Mass
-        const Mass_kg = (Rs * c * c) / (2 * G);
-        const Mass_solar = Mass_kg / M_sun_kg;
-
-        // 4. APOCENTER CHECK (Optional)
-        const ra_geo = rp * (1 + ec) / (1 - ec);
-        let consistency = null;
-        let mass_apo_solar = 0;
-
-        if (!isNaN(za)) {
-             // Separation at Apocenter
-             // kappa_a = Q_a * sqrt( 2 / (3 - e) )
-             const Qt_a = 1 / (1 + za);
-             const Q_a = Math.sqrt(1 - Qt_a*Qt_a);
-
-             const sep_factor_a = Math.sqrt(2 / (3 - ec));
-             const ka = Q_a * sep_factor_a;
-             
-             // Check radius logic
-             const ra_use = isNaN(ra_in) ? ra_geo : ra_in;
-             
-             const Rs_apo = (ka * ka) * ra_use;
-             const mass_apo = (Rs_apo * c * c) / (2 * G);
-             mass_apo_solar = mass_apo / M_sun_kg;
-
-             const diff = Math.abs(Mass_solar - mass_apo_solar);
-             const avg = (Mass_solar + mass_apo_solar) / 2;
-             const pct = (diff / avg) * 100;
-             
-             consistency = { pct, m1: Mass_solar, m2: mass_apo_solar };
+        function syncInput(id, val) {
+            document.getElementById(id).value = val;
         }
 
-        // 5. UPDATE STATE
-        state = { 
-            z, ec, rp, 
-            Q, Qt, k: kp, b: bp, 
-            Rs, Mass: Mass_solar, 
-            za, ra: isNaN(ra_in) ? ra_geo : ra_in, 
-            consistency 
-        };
-
-        updateUI();
-        draw();
-    }
-
-    function updateUI() {
-        // RP Display
-        const rp_au = state.rp / AU;
-        document.getElementById('disp_au').innerText = rp_au < 0.1 ? (state.rp/1000).toExponential(2) + " km" : rp_au.toFixed(2) + " AU";
-
-        // Mass Display formatting
-        const mElem = document.getElementById('res_mass');
-        if(state.Mass > 1e9) {
-            mElem.innerText = (state.Mass / 1e9).toFixed(3) + " B";
-        } else if(state.Mass > 1e6) {
-            mElem.innerText = (state.Mass / 1e6).toFixed(3) + " M";
-        } else {
-            mElem.innerText = state.Mass.toLocaleString(undefined, {maximumFractionDigits:0});
-        }
-
-        // Details
-        document.getElementById('res_rs').innerText = (state.Rs / 1000).toFixed(1) + " km";
-        document.getElementById('res_Q').innerText = state.Q.toFixed(6);
-        document.getElementById('res_k').innerText = state.k.toFixed(6);
-        document.getElementById('res_b').innerText = state.b.toFixed(6);
-
-        // Visualizer Values
-        document.getElementById('val_q_vec').innerText = state.Q.toFixed(5);
-        document.getElementById('val_k_vec').innerText = state.k.toFixed(5);
-        document.getElementById('val_b_vec').innerText = state.b.toFixed(5);
-
-        // Consistency Box
-        const cBox = document.getElementById('consistency_box');
-        const cVal = document.getElementById('consistency_val');
-        
-        if(state.consistency) {
-            cBox.classList.remove('hidden');
-            const pct = state.consistency.pct;
-            cVal.innerText = pct.toFixed(2) + "% DIFF";
-            
-            // Remove old classes
-            cBox.className = "mt-3 p-2 rounded border border-dashed text-[10px] flex justify-between items-center font-mono";
-            
-            if(pct < 2) {
-                cBox.classList.add('bg-green-900/20', 'border-green-800', 'text-green-400');
-                cVal.innerText = "MATCH (" + pct.toFixed(2) + "%)";
-            } else if (pct < 10) {
-                cBox.classList.add('bg-yellow-900/20', 'border-yellow-800', 'text-yellow-400');
+        function toggleApo() {
+            const p = document.getElementById('apo_panel');
+            const arrow = document.getElementById('apo_arrow');
+            if(p.classList.contains('hidden')) {
+                p.classList.remove('hidden');
+                arrow.innerText = "▲";
             } else {
-                cBox.classList.add('bg-red-900/20', 'border-red-800', 'text-red-400');
+                p.classList.add('hidden');
+                arrow.innerText = "▼";
             }
-        } else {
-            cBox.classList.add('hidden');
         }
-    }
 
-    // --- RENDER LOOP ---
-    function resize() {
-        const parent = cvs.parentElement;
-        cvs.width = parent.clientWidth;
-        cvs.height = parent.clientHeight;
-        draw();
-    }
-    window.addEventListener('resize', resize);
+        function solve() {
+            // 1. Inputs
+            const z = parseFloat(document.getElementById('in_z').value);
+            const ec = parseFloat(document.getElementById('in_e').value);
+            const rp = parseFloat(document.getElementById('in_r').value);
+            let za_val = document.getElementById('in_za').value;
+            let za = (za_val === "") ? NaN : parseFloat(za_val);
 
-    function draw() {
-        const w = cvs.width;
-        const h = cvs.height;
-        const cx = w/2;
-        const cy = h/2;
+            if(isNaN(z) || isNaN(ec) || isNaN(rp)) return;
 
-        ctx.clearRect(0,0,w,h);
+            // 2. WILL LOGIC (Pericenter)
+            // Phase Qt = 1 / (1 + z)
+            // Amplitude Q = sqrt(1 - Qt^2)
+            const Qt = 1 / (1 + z);
+            const Q_sq = 1 - (Qt * Qt);
+            const Q = Math.sqrt(Math.max(0, Q_sq));
 
-        // Draw Central Body (Black Hole)
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = "white";
-        ctx.fillStyle = "#fff";
-        ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill();
-        ctx.shadowBlur = 0;
+            // Separation: kappa = Q * sqrt( 2 / (3 + e) )
+            const separation_factor = Math.sqrt(2 / (3 + ec));
+            const kp = Q * separation_factor;
+            
+            // Beta (Pythagoras)
+            const bp = Math.sqrt(Math.max(0, Q*Q - kp*kp));
 
-        if(state.Mass === 0) return;
+            // 3. Scaling
+            const Rs = (kp * kp) * rp;
+            const Mass_kg = (Rs * c * c) / (2 * G);
+            const Mass_solar = Mass_kg / M_sun_kg;
 
-        // Scale Logic
-        // Fit orbit (2a) into 70% of screen min dimension
-        const a = state.rp / (1 - state.ec);
-        const scale = (Math.min(w,h) * 0.35) / a; 
+            // 4. Apocenter Check
+            let consistency = null;
+            if (!isNaN(za)) {
+                // Separation at Apo: kappa = Q * sqrt( 2 / (3 - e) )
+                const Qt_a = 1 / (1 + za);
+                const Q_a = Math.sqrt(Math.max(0, 1 - Qt_a*Qt_a));
+                const sep_a = Math.sqrt(2 / (3 - ec));
+                const ka = Q_a * sep_a;
+                
+                // Radius Geo
+                const ra_geo = rp * (1 + ec) / (1 - ec);
+                const Rs_apo = (ka * ka) * ra_geo;
+                const m_apo = (Rs_apo * c * c) / (2 * G) / M_sun_kg;
+                
+                const diff = Math.abs(Mass_solar - m_apo);
+                const avg = (Mass_solar + m_apo) / 2;
+                const pct = (diff / avg) * 100;
+                consistency = { pct };
+            }
 
-        // Draw Orbit Path
-        ctx.strokeStyle = "#333";
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        
-        // Ellipse Drawing
-        // Center of ellipse is offset from focus (cx,cy) by linear eccentricity c_lin = a*e
-        // In this drawing, Pericenter is to the Right (0 rad)
-        // Focus is at (cx, cy). Center is at (cx - c_lin, cy)
-        const c_lin = a * state.ec; 
-        const center_x = cx - c_lin * scale;
-        
-        const b_axis = a * Math.sqrt(1 - state.ec*state.ec);
-        
-        ctx.ellipse(center_x, cy, a*scale, b_axis*scale, 0, 0, 2*Math.PI);
-        ctx.stroke();
+            state = { z, ec, rp, Q, k: kp, b: bp, Rs, Mass: Mass_solar, consistency };
+            updateUI();
+            draw();
+        }
 
-        // --- DRAW VECTOR TRIANGLE AT PERICENTER ---
-        // Pericenter pos (relative to focus) is at x = rp, y = 0
-        const px = cx + state.rp * scale;
-        const py = cy;
+        function updateUI() {
+            // AU Display
+            const rp_au = state.rp / AU;
+            document.getElementById('disp_au').innerText = rp_au < 0.1 ? (state.rp/1000).toExponential(2) + " km" : rp_au.toFixed(2) + " AU";
 
-        // Draw Pericenter Dot
-        ctx.fillStyle = "#A855F7";
-        ctx.shadowColor = "#A855F7"; ctx.shadowBlur = 10;
-        ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI*2); ctx.fill();
-        ctx.shadowBlur = 0;
+            // Mass
+            const mElem = document.getElementById('res_mass');
+            if(state.Mass > 1e9) mElem.innerText = (state.Mass / 1e9).toFixed(3) + " B";
+            else if(state.Mass > 1e6) mElem.innerText = (state.Mass / 1e6).toFixed(3) + " M";
+            else mElem.innerText = state.Mass.toLocaleString(undefined, {maximumFractionDigits:0});
 
-        // Vector Visualization Scaling
-        // We want the vectors to be visible regardless of zoom. Fixed pixel length for Q approx 60-80px
-        const vecScale = 100 / state.Q; 
-        
-        const len_k = state.k * vecScale;
-        const len_b = state.b * vecScale;
-        
-        // 1. Kappa (Gravity) - Inward towards focus (Green)
-        ctx.strokeStyle = "#10B981"; ctx.lineWidth = 2;
-        ctx.beginPath(); 
-        ctx.moveTo(px, py); 
-        ctx.lineTo(px - len_k, py); 
-        ctx.stroke();
-        
-        // 2. Beta (Kinetic) - Tangential/Perpendicular (Blue)
-        ctx.strokeStyle = "#3B82F6";
-        ctx.beginPath(); 
-        ctx.moveTo(px, py); 
-        ctx.lineTo(px, py - len_b); 
-        ctx.stroke();
+            // Details
+            document.getElementById('res_rs').innerText = (state.Rs / 1000).toFixed(1) + " km";
+            document.getElementById('res_Q').innerText = state.Q.toFixed(6);
+            document.getElementById('res_k').innerText = state.k.toFixed(6);
+            document.getElementById('val_q_vec').innerText = state.Q.toFixed(5);
+            document.getElementById('val_k_vec').innerText = state.k.toFixed(5);
+            document.getElementById('val_b_vec').innerText = state.b.toFixed(5);
 
-        // 3. Q (Total) - Hypotenuse (Red Dashed)
-        ctx.strokeStyle = "#EF4444"; ctx.setLineDash([3,3]);
-        ctx.beginPath(); 
-        ctx.moveTo(px - len_k, py); 
-        ctx.lineTo(px, py - len_b); 
-        ctx.stroke();
-        ctx.setLineDash([]);
+            // Consistency
+            const cBox = document.getElementById('consistency_box');
+            if(state.consistency) {
+                cBox.classList.remove('hidden');
+                const pct = state.consistency.pct;
+                document.getElementById('consistency_val').innerText = pct.toFixed(2) + "% DIFF";
+                cBox.className = pct < 2 
+                    ? "p-3 rounded border text-xs flex justify-between items-center font-mono bg-green-900/20 border-green-800 text-green-400"
+                    : "p-3 rounded border text-xs flex justify-between items-center font-mono bg-red-900/20 border-red-800 text-red-400";
+            } else {
+                cBox.classList.add('hidden');
+            }
+        }
 
-        // Labels on Canvas
-        ctx.font = "10px Inter"; ctx.fillStyle = "#666";
-        ctx.fillText("PERICENTER", px + 8, py + 3);
-        
-        ctx.fillStyle = "#10B981"; ctx.fillText("κ", px - len_k/2, py + 10);
-        ctx.fillStyle = "#3B82F6"; ctx.fillText("β", px + 5, py - len_b/2);
-    }
+        function resize() {
+            // Make canvas fit its parent container exactly
+            cvs.width = cvs.parentElement.clientWidth;
+            cvs.height = cvs.parentElement.clientHeight;
+            draw();
+        }
+        window.addEventListener('resize', resize);
 
-    // Init
-    setTimeout(resize, 100); // delay to ensure container size
-    solve();
+        function draw() {
+            const w = cvs.width;
+            const h = cvs.height;
+            const cx = w/2;
+            const cy = h/2;
 
-</script>
+            ctx.clearRect(0,0,w,h);
+
+            // Black Hole
+            ctx.shadowBlur = 15; ctx.shadowColor = "white"; ctx.fillStyle = "#fff";
+            ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
+
+            if(state.Mass === 0) return;
+
+            // Scale to fit 70%
+            const a = state.rp / (1 - state.ec);
+            const scale = (Math.min(w,h) * 0.35) / a; 
+            const c_lin = a * state.ec; 
+            const center_x = cx - c_lin * scale;
+            const b_axis = a * Math.sqrt(1 - state.ec*state.ec);
+
+            // Orbit
+            ctx.strokeStyle = "#444"; ctx.lineWidth = 1.5;
+            ctx.beginPath(); ctx.ellipse(center_x, cy, a*scale, b_axis*scale, 0, 0, 2*Math.PI); ctx.stroke();
+
+            // Pericenter Point
+            const px = cx + state.rp * scale;
+            const py = cy;
+            ctx.fillStyle = "#A855F7"; ctx.shadowColor = "#A855F7"; ctx.shadowBlur = 10;
+            ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
+
+            // Vectors
+            const vecScale = 80 / state.Q; // Normalize length
+            const len_k = state.k * vecScale;
+            const len_b = state.b * vecScale;
+
+            // K (Green, Inward)
+            ctx.strokeStyle = "#10B981"; ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - len_k, py); ctx.stroke();
+
+            // B (Blue, Tangent)
+            ctx.strokeStyle = "#3B82F6";
+            ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py - len_b); ctx.stroke();
+
+            // Q (Red, Hypotenuse)
+            ctx.strokeStyle = "#EF4444"; ctx.setLineDash([4,4]);
+            ctx.beginPath(); ctx.moveTo(px - len_k, py); ctx.lineTo(px, py - len_b); ctx.stroke(); ctx.setLineDash([]);
+
+            // Labels
+            ctx.fillStyle = "#fff"; ctx.font = "10px Inter"; 
+            ctx.fillText("P", px+6, py+4);
+        }
+
+        setTimeout(() => { resize(); solve(); }, 100);
+
+    </script>
 </body>
 </html>
