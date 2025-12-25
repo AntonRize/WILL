@@ -267,7 +267,7 @@ From these empirical and relational facts the definition follows unavoidably:
 
 The standard formulation of General Relativity often relies on the concept of a pre-existing, container-like spacetime that then gets “filled” with fields and matter. This is in direct tension with the Relational Principle \ref{pr:relational}.  
 
-The standard derivation of the Einstein field equations begins with the Einstein-Hilbert action, which is built upon the metric as the fundamental variable. This metric is defined on a smooth manifold that is assumed to exist \textit{a priori}. This manifold, even without a metric, carries topological and differential structure—an absolute scaffold. This is an ontological extra. It violates Principle \ref{pr:minimalism}  (Ontological Minimalism) because it introduces an entity (the manifold) that is not derived from relational observations. 
+The standard derivation of the Einstein field equations begins with the Einstein-Hilbert action, which is built upon the metric as the fundamental variable. This metric is defined on a smooth manifold that is assumed to exist \textit{a priori}. This manifold, even without a metric, carries topological and differential structure - an absolute scaffold. This is an ontological extra. It violates Principle \ref{pr:minimalism}  (Ontological Minimalism) because it introduces an entity (the manifold) that is not derived from relational observations. 
 
 In the standard formulation, the stress-energy tensor is derived from the variation of the matter Lagrangian with respect to the metric. This assumes that energy is a property of matter fields that can be localized in spacetime. However, this localization is frame-dependent (via the equivalence principle) and leads to well-known problems such as the non-uniqueness of the gravitational energy-momentum pseudotensor. This is a direct violation of the Relational Origin principle \ref{pr:relational}: energy is treated as an absolute property of matter rather than a relational measure. 
 
@@ -414,11 +414,12 @@ By Lemma~\ref{lem:closure}, no external fluxes exist. Any change in one part of 
 
 \begin{lemma}[Isotropy from Background--Free Relationality]
 \label{lem:isotropy}
-If no external background is allowed (Cor.~\ref{cor:coincidence}), then no direction can be \emph{a priori} privileged. Thus the admissible relational geometry of WILL must be maximally symmetric (isotropic and homogeneous) at the level at which it encodes the conserved resource.
+ If no external background is allowed (Cor.~\ref{cor:coincidence}), then no direction can be \emph{a priori} privileged. 
+ Thus the admissible relational geometry of WILL must be maximally symmetric (isotropic and homogeneous) at the level at which it encodes the conserved resource.
 \end{lemma}
 
 \begin{proof}
-A privileged direction requires an extrinsic reference to distinguish it. In a purely relational setting, distinctions must be constructible from relations internal to WILL. If a direction were privileged in the geometry that encodes the conserved resource, such privilege would not be derivable from purely internal comparisons (which are symmetric by construction), and would reintroduce an external orienting structure. Therefore the encoding geometry must be maximally symmetric.  
+Any alleged privilege that cannot be constructed from relations among participants is unobservable (pure gauge). Therefore the carrier used to encode the conserved WILL resource must have no intrinsic privileged direction or point. Therefore the encoding geometry must be maximally symmetric.  
 \end{proof}
 
 \subsection{Derivation of the Relational Carriers}
@@ -443,7 +444,7 @@ All references to ``carriers'' in the following section are to be read in the st
     The carrier is homogeneous and isotropic with respect to oriented directions: no point and no direction is \emph{a priori} privileged.
 
     \item \textbf{Minimal relational carrier:} 
-    A carrier is ``minimal'' if it is connected, simply connected, closed, maximally symmetric, and uses exactly the required DOF to encode the resource. Under these constraints the classification theorems force
+    A carrier is ``minimal'' if it is closed, maximally symmetric, and uses exactly the required DOF to encode the resource. Under these constraints the classification theorems force
     $S^{1}$ (for 1DOF) and $S^{2}$ (for 2DOF) as the unique admissible carriers.
 \end{itemize}
 \end{tcolorbox}
@@ -566,9 +567,9 @@ The orthogonal components of transformation $(\beta_X,\beta_Y)$ are bound by the
 \beta_X^2 + \beta_Y^2 = 1.
 \]
 \end{theorem}
-
 \begin{proof}
-Since $S^1$ is closed, every point on the circle is constrained by the Pythagorean identity of its projections. Thus no state can exceed or fall short of the finite relational "budget." This closure enforces conservation across all processes. 
+By definition of the relational carrier $S^1$, $(\beta_X,\beta_Y)$ satisfy $\beta_X^2+\beta_Y^2=1$,
+which encodes the finite relational budget.
 \end{proof}
 
 The manifestation of any system is distributed between its internal (Phase) and relational (Amplitude) aspects. This single geometric constraint gives rise to the core phenomena of modern physics:
@@ -619,34 +620,41 @@ E_{X} = E \beta_{X},
 \qquad 
 E_{Y} = E \beta_{Y}.
 \]
+\subsection{The Geometric Nature of Mass}
+
+To derive the energy transformation, we must first explicitly identify the physical meaning of the orthogonal projections.
+
+\begin{definition}[Phase Energy as Rest Invariant]
+\label{def:phase_energy}
+The vertical projection $E_Y = E \beta_Y$ represents the energy invested in the system's internal existence (its "Phase" or proper time evolution).
+For a stable object, the internal structural energy required to maintain its existence is an intrinsic invariant, independent of the observer's relative motion.
+Therefore:
+\[
+\boxed{E_{Y} \equiv E_0}
+\]
+where $E_0$ is the energy measured in the frame where the system is at rest ($\beta=0, \beta_Y=1$).
+\end{definition}
 
 \begin{theorem}[Invariant Projection of Rest Energy]
 \label{thm:restenergy}
-For any state $(\beta_X,\beta_Y)$ on the relational circle, the vertical projection of the total energy is invariant:
+For any state $(\beta,\beta_Y)$ on the relational circle $S^1$, the total energy $E$ must scale such that its vertical projection remains constant and equal to the rest energy $E_0$.
 \[
 E \beta_Y = E_0.
 \]
 \end{theorem}
 
 \begin{proof}
-When $\beta_X=0$, closure enforces $\beta_Y=1$, yielding $E=E_0$. 
-Since closure applies for all $\theta_1$, the vertical projection $E\beta_Y$ 
-remains equal to this rest value in every state.
-\end{proof}
-
-\begin{corollary}[Total Energy Relation]
-\label{cor:totalE}
-From Theorem~\ref{thm:restenergy} it follows that
+Let the total energy $E$ be distributed on the relational carrier $S^1$ with projections $\beta$ (kinematic) and $\beta_Y$ (internal).
 \[
-E = \frac{E_0}{\beta_Y} 
-= \frac{E_0}{\sqrt{\,1-\beta_X^2\,}}.
+E_Y = E \cdot \beta_Y
 \]
-\end{corollary}
-
-\begin{remark}[Lorentz Factor]
-The historical Lorentz factor $\gamma$ is the reciprocal of $\beta_Y$. 
-No additional structure is introduced: all content is already present in $E\beta_Y=E_0$.
-\end{remark}
+By Definition~\ref{def:phase_energy}, the vertical component $E_Y$ corresponds to the invariant internal structure of the system ($E_0$). If $E_Y$ were to vary with $\beta$, the object would physically gain or lose internal structure (mass) purely due to a change in the observer's frame, violating the principle of object permanence.
+Thus, geometric consistency requires the vertical leg to be fixed:
+\[
+E \beta_Y = E_0 \quad \Longrightarrow \quad E = \frac{E_0}{\beta_Y}.
+\]
+The "hypotenuse" (Total Energy $E$) is therefore not a fixed-length vector that rotates (which would reduce $E_Y$), but a scalable relational magnitude that grows to preserve the invariant vertical leg $E_0$ against the closure constraint $\beta_Y = \sqrt{1-\beta^2}$.
+\end{proof}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
 \textbf{The historical Lorentz factor $\gamma$ is the reciprocal of $\beta_Y$.  $\gamma =  1/\beta_Y$}
@@ -902,7 +910,7 @@ In this view, your perspective is always the reference frame. You are always at 
 
 \textbf{Here’s a simple analogy:}
 \begin{quote}
-Imagine standing on a train platform. A train passes by rapidly: to you, it has significant kinetic energy. But if you jump onto the train, it instantly becomes stationary relative to you. Its kinetic energy is now zero — because your frame of reference shifted. The energy didn’t vanish; your perspective changed.
+Imagine standing on a train platform. A train passes by rapidly: to you, it has significant kinetic energy. But if you jump onto the train, it instantly becomes stationary relative to you. Its kinetic energy is now zero  -  because your frame of reference shifted. The energy didn’t vanish; your perspective changed.
 \end{quote}
 
  \begin{tcolorbox}[colback=gray!5, colframe=black!60!black, title=Summary:]
@@ -1069,7 +1077,7 @@ and therefore \(E_g^2=p_g^2+E_0^2\).
 
 \subsection{Clear Relational Symmetry Between Kinematic and Potential Projections }
 \label{projections symmetry}
-Now we can clearly see the underling symmetry between relativistic and gravitational factors that can be expressed in unified algebraic and trigonometric forms, as shown in Table 1.
+Now we can clearly see the underlying symmetry  between relativistic and gravitational factors that can be expressed in unified algebraic and trigonometric forms, as shown in Table 1.
 
 \begin{table}[h]
 \centering
@@ -1107,7 +1115,7 @@ A common objection from conventional frameworks (such as GR) is that any model u
 We will now prove that this is incorrect. In RG, $G$ and $m_0$ are not \emph{inputs} to the theory; they are \emph{outputs} derived from calibration. The parameter $\kappa$ is operationally measurable \emph{without prior knowledge} of $G$ or $m_0$.
 
 \begin{theorem}[Operational Measurability of $\kappa$]
-The relational potential $\kappa$ is a direct, empirical measurable (a pure dimensionless number) that is operationally independent of $G$ and $m_0$.
+The relational potential $\kappa$ is a direct,  empirically measurable (a pure dimensionless number) that is operationally independent of $G$ and $m_0$.
 \end{theorem}
 
 \begin{proof}
@@ -1222,7 +1230,7 @@ E_{\mathrm{loc}}=\sum_a \frac{E_0^{(a)}}{\tau}.
 \]
 Since all channels scale by the same factor $1/\tau=1/(\beta_Y\kappa_X)$,
 ratios between channels cancel in all observables.  
-Therefore, composition-independence of motion (Etvs universality) follows identically, 
+Therefore, composition-independence of motion (Eotvos universality)  universality) follows identically, 
 without requiring a postulate $m_g=m_i$.
 \end{remark}
 
@@ -1286,8 +1294,8 @@ To find the Energetic Closure Condition, we simply equate the two "currencies" u
 This shows that the exchange rate factor 2 is deductive necessity from the topological ratio of the minimal carriers.
 \end{proof}
 
-\begin{definition}[Closure Defect]
-\(\delta \equiv \frac{\kappa^2 }{ 2\beta^2} \)
+\begin{definition}[Closure Factor]
+\(\delta \equiv \frac{\kappa }{\beta \sqrt{2}} \)
 A subsystem is \emph{energetically closed} if \(\langle\delta\rangle_{\text{cycle}}=1.\)
 For circular orbits, \(\delta \equiv 1.\)
 \end{definition}
@@ -1299,11 +1307,25 @@ Open systems display $\delta \neq 1$, the magnitude of which quantifies the ener
 When all channels are included, closure is restored.
 \end{corollary}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Diagnostic Invariant:]
-\textbf{The condition $\kappa^2 = 2\beta^2$ defines energetic closure.  
-In closed systems (circular or periodic), it holds exactly;  
-in open systems, its deviation $\delta$ measures interaction with external channels.}
-\end{tcolorbox}
+\begin{remark}[The Physical Intuition of Factor 2: The "Floor" Analogy]
+
+Why is the potential projection exactly twice the kinetic projection ($\kappa^2 = 2\beta^2$)?
+Consider an observer standing at rest on a surface.
+In classical mechanics, this is a zero-work state. In WILL Relational Geometry, "rest" is a state of maximal tension - a dynamic equilibrium of two active energy channels:
+
+\begin{itemize}
+    \item \textbf{The Relational Demand ($\beta_{\downarrow}^2$):} The energy gradient of the field creates a \textit{Kinetic Demand} - a requirement for the observer to change state (accelerate). This is the "cost of the field" trying to manifest as motion.
+    \item \textbf{The Structural Response ($\beta_{\uparrow}^2$):} To maintain a fixed relational distance (stasis), the atomic structure of the surface must generate an equivalent \textit{Kinetic Response} (electromagnetic resistance) to cancel the change of state.
+\end{itemize}
+
+Since the system is closed and stationary, the "Demand" must exactly equal the "Response": $\beta_{\downarrow}^2 = \beta_{\uparrow}^2 = \beta^2$.
+However, the total \textbf{Potential Budget} ($\kappa^2$) required to sustain this specific state of existence must fund \textit{both} the demand and the response.
+\[
+\boxed{\kappa^2 = \beta_{\downarrow}^2 + \beta_{\uparrow}^2 = 2\beta^2}
+\]
+The factor of 2 is the geometric accounting of stasis: one share for the field's intent to move you, and one share for the structure's work to stop you. Potential is simply "stopped kinetics".
+\end{remark}
+
 
 \begin{remark}[Physical Interpretation]
 The exchange rate between the kinematic and gravitational projections corresponds to the ratio of their relational dimensions.  
@@ -1701,6 +1723,12 @@ Both are ontologically ``dirty''  approximations. The clean relational law,
 involving distinct points $A$ and $B$, is collapsed into a local, 
 one-point description. This shows that  Hamiltonian and  Lagrangian are just needlessly overcomplicated approximations that  lose in ontological integrity.
 
+\begin{remark}[Mathematical Status: Groupoid vs. Group]
+From a category-theoretic perspective, the relational transitions $\Delta E_{A \to B}$ form a \textbf{Groupoid} structure, where operations are defined only between specific connected states.
+Standard field theories (Hamiltonian/Lagrangian) rely on the collapse of this structure into a \textbf{Group} acting on a global manifold (Quotienting).
+Thus, WILL operates at (Groupoid) level before the degeneration into global fields occurs.
+\end{remark}
+
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key Message]
 The Lagrangian and Hamiltonian are not fundamental principles. They are 
 degenerate shadows of a deeper relational Energy Symmetry law. Classical mechanics, 
@@ -1723,7 +1751,7 @@ For readers accustomed to standard frameworks, the following translation rules m
 2. \emph{Canonical mechanics (Lagrangian/Hamiltonian):}  
 Quantities such as $p_i=\partial L/\partial \dot q^i$ do not belong to the ontology of RG.  
 They arise only after collapsing the two-point relational law into a one-point formalism.  
-They are computational \emph{shadows}, useful for legacy calculations but physically redundant.  
+They are computational \emph{shadows}, used only for legacy calculations and physically redundant.  
 
 Here the symbol $\hat{=}$ denotes not an ontological identity, 
 but a pragmatic dictionary entry for translation into legacy notation.  
