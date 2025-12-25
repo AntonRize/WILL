@@ -3,162 +3,165 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WILL Orbital Engine v11</title>
+    <title>WILL Orbital Engine Widget</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-        :root {
-            --bg-dark: #050505;
-            --panel-bg: #0A0A0A;
-            --border-col: #1F1F23;
-            --accent: #7C3AED;
+        /* BASE STYLES */
+        body { 
+            background-color: transparent; /* Transparent so it blends with your site bg */
+            color: #E5E5E5; 
+            font-family: 'Inter', sans-serif;
+            /* УБРАЛИ overflow: hidden и height: 100vh */
         }
-        body { background-color: var(--bg-dark); color: #E5E5E5; font-family: 'Inter', sans-serif; overflow: hidden; height: 100vh; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         
         /* SLIDERS */
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none; height: 14px; width: 14px; border-radius: 50%;
-            background: var(--accent); cursor: pointer; margin-top: -5px;
+            background: #7C3AED; cursor: pointer; margin-top: -5px;
             box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
         }
         input[type=range]::-webkit-slider-runnable-track {
             width: 100%; height: 4px; background: #333; border-radius: 2px;
         }
 
-        /* INPUT FIELDS */
+        /* INPUTS */
         .input-field {
             background: #111; border: 1px solid #333; color: #fff;
-            font-family: 'JetBrains Mono', monospace; transition: all 0.2s;
+            font-family: 'JetBrains Mono', monospace; transition: border-color 0.2s;
         }
-        .input-field:focus { border-color: var(--accent); outline: none; }
+        .input-field:focus { border-color: #7C3AED; outline: none; }
         
-        /* GRID LAYOUT HELPERS */
-        .grid-dashboard {
-            display: grid;
-            grid-template-rows: auto 1fr auto; /* Header, Canvas, Footer */
-            height: 100%;
+        /* CONTAINER */
+        .engine-container {
+            background-color: #050505;
+            border: 1px solid #1F1F23;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            max-width: 1000px;
+            margin: 0 auto; /* Center horizontally */
         }
     </style>
 </head>
-<body>
+<body class="p-4">
 
-<div class="grid-dashboard">
+    <div class="engine-container">
 
-    <header class="bg-[#0A0A0A] border-b border-[#1F1F23] p-4 z-20 shadow-lg">
-        <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-                <div class="w-1.5 h-6 bg-purple-600 shadow-[0_0_10px_purple]"></div>
-                <h1 class="font-bold tracking-widest text-sm text-gray-100 uppercase">WILL <span class="text-purple-500">ENGINE v11</span></h1>
-            </div>
-            <div class="text-[10px] text-gray-500 font-mono">SNAPSHOT MODE: ACTIVE</div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[#0A0A0A] border-b border-[#1F1F23] p-5">
             
-            <div class="bg-[#111] p-3 rounded border border-gray-800 relative group">
-                <div class="flex justify-between items-center mb-2">
-                    <label class="text-[10px] text-red-400 font-bold uppercase tracking-wider">Relational Shift \(z_{Qp}\)</label>
-                    <span class="text-[9px] text-gray-600 font-mono">\(Q_p\) Generator</span>
+            <div class="flex items-center justify-between mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-5 bg-purple-600 shadow-[0_0_10px_purple]"></div>
+                    <h1 class="font-bold tracking-widest text-sm text-gray-100 uppercase">WILL <span class="text-purple-500">ENGINE v12</span></h1>
                 </div>
-                <div class="flex items-center gap-2">
-                    <input type="range" min="0.0001" max="0.1" step="0.0001" id="slider_z" oninput="updateFromSlider('z', this.value)">
-                    <input type="number" id="in_z" class="input-field w-20 text-xs p-1 rounded text-right" value="0.041" step="0.0001" oninput="updateFromInput('z', this.value)">
-                </div>
-                <div class="absolute -bottom-3 left-0 w-full text-center">
-                    <span id="val_Q_disp" class="text-[9px] text-red-500 font-mono bg-[#0A0A0A] px-1 border border-gray-800 rounded">Q = 0.000</span>
-                </div>
+                <div class="text-[10px] text-gray-500 font-mono bg-[#111] px-2 py-1 rounded border border-[#222]">SNAPSHOT MODE</div>
             </div>
 
-            <div class="bg-[#111] p-3 rounded border border-gray-800 relative group">
-                <div class="flex justify-between items-center mb-2">
-                    <label class="text-[10px] text-blue-400 font-bold uppercase tracking-wider">Velocity \(\beta_p\) (v/c)</label>
-                    <span class="text-[9px] text-gray-600 font-mono">Input</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="space-y-2">
+                    <div class="flex justify-between items-end">
+                        <label class="text-[10px] text-red-400 font-bold uppercase tracking-wider">Relational Shift \(z_{Qp}\)</label>
+                        <span class="text-[10px] text-gray-500 font-mono">Input</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="range" min="0.0001" max="0.1" step="0.0001" id="slider_z" oninput="updateFromSlider('z', this.value)">
+                        <input type="number" id="in_z" class="input-field w-20 text-xs p-1.5 rounded text-right" value="0.041" step="0.0001" oninput="updateFromInput('z', this.value)">
+                    </div>
+                    <div class="text-[9px] text-gray-600 text-right font-mono">Generates Amplitude \(Q_p\)</div>
                 </div>
-                <div class="flex items-center gap-2">
-                    <input type="range" min="0.0001" max="0.3" step="0.0001" id="slider_b" oninput="updateFromSlider('b', this.value)">
-                    <input type="number" id="in_b" class="input-field w-20 text-xs p-1 rounded text-right" value="0.2" step="0.0001" oninput="updateFromInput('b', this.value)">
-                </div>
-            </div>
 
-            <div class="bg-[#111] p-3 rounded border border-gray-800">
-                <div class="flex justify-between items-center mb-2">
-                    <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Pericenter Radius \(r_p\)</label>
-                    <span id="disp_au" class="text-[9px] text-purple-400 font-mono">-- AU</span>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-end">
+                        <label class="text-[10px] text-blue-400 font-bold uppercase tracking-wider">Velocity \(\beta_p\) (v/c)</label>
+                        <span class="text-[10px] text-gray-500 font-mono">Input</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="range" min="0.0001" max="0.3" step="0.0001" id="slider_b" oninput="updateFromSlider('b', this.value)">
+                        <input type="number" id="in_b" class="input-field w-20 text-xs p-1.5 rounded text-right" value="0.2" step="0.0001" oninput="updateFromInput('b', this.value)">
+                    </div>
+                     <div class="text-[9px] text-gray-600 text-right font-mono" id="beta_warning">Must be < \(Q_p\)</div>
                 </div>
-                <input type="number" id="in_r" class="input-field w-full text-xs p-1.5 rounded" value="2.5e13" step="1e10" oninput="solve()">
-            </div>
 
-        </div>
-    </header>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-end">
+                        <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Pericenter Radius \(r_p\)</label>
+                        <span id="disp_au" class="text-[9px] text-purple-400 font-mono">-- AU</span>
+                    </div>
+                    <input type="number" id="in_r" class="input-field w-full text-xs p-2 rounded" value="2.5e13" step="1e10" oninput="solve()">
+                </div>
 
-    <div class="relative bg-black flex-1 overflow-hidden">
-        <div class="absolute inset-0 opacity-20 pointer-events-none" 
-             style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 50px 50px;">
-        </div>
-        
-        <canvas id="orbitCanvas" class="w-full h-full relative z-10"></canvas>
-
-        <div class="absolute top-4 right-4 bg-black/80 backdrop-blur border border-gray-800 p-3 rounded shadow-xl z-20">
-            <div class="text-[9px] text-gray-500 uppercase tracking-widest mb-2 border-b border-gray-800 pb-1">Vector Decomposition</div>
-            <div class="space-y-1">
-                <div class="flex items-center justify-between gap-4 text-xs font-mono">
-                    <span class="text-red-500">● \(Q_{p}\) (Ampl)</span>
-                    <span id="vec_q" class="text-white">--</span>
-                </div>
-                <div class="flex items-center justify-between gap-4 text-xs font-mono">
-                    <span class="text-green-500">● \(\kappa_{p}\) (Pot)</span>
-                    <span id="vec_k" class="text-white">--</span>
-                </div>
-                <div class="flex items-center justify-between gap-4 text-xs font-mono">
-                    <span class="text-blue-500">● \(\beta_{p}\) (Kin)</span>
-                    <span id="vec_b" class="text-white">--</span>
-                </div>
             </div>
         </div>
+
+        <div class="relative bg-black h-[350px] w-full border-b border-[#1F1F23]">
+            <div class="absolute inset-0 opacity-20 pointer-events-none" 
+                 style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 40px 40px;">
+            </div>
+            
+            <canvas id="orbitCanvas" class="w-full h-full relative z-10 block"></canvas>
+
+            <div class="absolute top-3 right-3 bg-black/80 backdrop-blur border border-gray-800 p-3 rounded shadow-xl z-20">
+                <div class="text-[9px] text-gray-500 uppercase tracking-widest mb-2 border-b border-gray-800 pb-1">Vector Decomposition</div>
+                <div class="space-y-1.5">
+                    <div class="flex justify-between gap-4 text-[10px] font-mono">
+                        <span class="text-red-500">● \(Q_{p}\) (Total)</span>
+                        <span id="vec_q" class="text-white">--</span>
+                    </div>
+                    <div class="flex justify-between gap-4 text-[10px] font-mono">
+                        <span class="text-green-500">● \(\kappa_{p}\) (Pot)</span>
+                        <span id="vec_k" class="text-green-400">--</span>
+                    </div>
+                    <div class="flex justify-between gap-4 text-[10px] font-mono">
+                        <span class="text-blue-500">● \(\beta_{p}\) (Kin)</span>
+                        <span id="vec_b" class="text-blue-400">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-[#080808] p-5">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
+                
+                <div class="md:col-span-1 border-r border-gray-800 pr-4">
+                    <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Derived Mass</div>
+                    <div class="flex items-baseline gap-2">
+                        <span id="res_mass" class="text-2xl font-bold text-white font-mono tracking-tighter">--</span>
+                        <span class="text-[10px] text-gray-400">\(M_{\odot}\)</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1 border-r border-gray-800 pr-4">
+                    <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Calculated Shape</div>
+                    <div class="flex justify-between items-baseline">
+                        <span class="text-[10px] text-gray-400">Eccentricity \(e_c\)</span>
+                        <span id="res_ec" class="text-lg font-mono text-purple-400 font-bold">--</span>
+                    </div>
+                    <div class="text-[8px] text-gray-600 mt-1 font-mono">\(e_c = 2(\beta/\kappa)^2 - 1\)</div>
+                </div>
+
+                <div class="md:col-span-1 border-r border-gray-800 pr-4">
+                    <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Event Horizon</div>
+                    <div class="flex justify-between items-baseline">
+                        <span class="text-[10px] text-gray-400">Radius \(R_s\)</span>
+                        <span id="res_rs" class="text-sm font-mono text-gray-300">--</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1 text-right pt-2">
+                    <div id="status_msg" class="text-[10px] font-mono text-green-500 bg-green-900/10 px-2 py-1 inline-block rounded border border-green-900/30">SYSTEM NOMINAL</div>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <footer class="bg-[#080808] border-t border-[#1F1F23] p-4 z-20">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
-            
-            <div class="md:col-span-1 border-r border-gray-800 pr-4">
-                <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Derived Mass</div>
-                <div class="flex items-baseline gap-2">
-                    <span id="res_mass" class="text-3xl font-bold text-white font-mono tracking-tighter">--</span>
-                    <span class="text-xs text-gray-400">\(M_{\odot}\)</span>
-                </div>
-            </div>
-
-            <div class="md:col-span-1 border-r border-gray-800 pr-4">
-                <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Calculated Shape</div>
-                <div class="flex items-center justify-between">
-                    <span class="text-xs text-gray-400">Eccentricity \(e_c\)</span>
-                    <span id="res_ec" class="text-xl font-mono text-purple-400 font-bold">--</span>
-                </div>
-                <div class="text-[9px] text-gray-600 mt-1 font-mono">\(e_c = 2(\beta/\kappa)^2 - 1\)</div>
-            </div>
-
-            <div class="md:col-span-1">
-                <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Event Horizon</div>
-                <div class="flex items-center justify-between">
-                    <span class="text-xs text-gray-400">Radius \(R_s\)</span>
-                    <span id="res_rs" class="text-lg font-mono text-gray-200">--</span>
-                </div>
-            </div>
-
-             <div class="md:col-span-1 text-right">
-                <div id="status_msg" class="text-xs font-mono text-green-500">SYSTEM NOMINAL</div>
-             </div>
-
-        </div>
-    </footer>
-
-</div>
 
 <script>
     // --- CONSTANTS ---
@@ -167,14 +170,14 @@
     const M_sun_kg = 1.98847e30;
     const AU = 1.496e11;
 
-    // --- CANVAS ---
+    // --- CANVAS SETUP ---
     const cvs = document.getElementById('orbitCanvas');
     const ctx = cvs.getContext('2d');
 
     // --- STATE ---
     let state = { z: 0.041, b: 0.2, rp: 2.5e13, Q: 0, k: 0, ec: 0, M: 0 };
 
-    // --- INPUT HANDLERS ---
+    // --- INPUT HANDLING ---
     function updateFromSlider(type, val) {
         document.getElementById('in_'+type).value = val;
         solve();
@@ -184,39 +187,36 @@
         solve();
     }
 
-    // --- MAIN SOLVER ---
+    // --- SOLVER ---
     function solve() {
-        // 1. Fetch Inputs
         let z = parseFloat(document.getElementById('in_z').value);
         let b = parseFloat(document.getElementById('in_b').value);
         let rp = parseFloat(document.getElementById('in_r').value);
 
         if (isNaN(z) || isNaN(b) || isNaN(rp)) return;
 
-        // 2. Ontological Q Calculation
+        // 1. Calculate Total Q from Redshift
         // 1 + z = 1/Qt  -> Qt = 1/(1+z)
         // Q = sqrt(1 - Qt^2)
         const Qt = 1 / (1 + z);
         const Q_sq = 1 - (Qt*Qt);
         const Q = Math.sqrt(Math.max(0, Q_sq));
 
-        // Update Q Display
-        document.getElementById('val_Q_disp').innerText = "Q = " + Q.toFixed(5);
-        
-        // Dynamic Constraint: Beta cannot be > Q (Kinetic > Total)
-        // If Beta is too high, cap it or show warning
+        // 2. Validate Beta
+        // Beta (Kinetic) cannot exceed Q (Total). If it does, math breaks.
         const slider_b = document.getElementById('slider_b');
-        slider_b.max = Q.toFixed(4); // Update slider max
+        slider_b.max = Q.toFixed(4); 
         
-        const msg = document.getElementById('status_msg');
-        if(b >= Q) {
-            msg.innerText = "CRITICAL: β > Q (Physically Impossible)";
-            msg.className = "text-xs font-mono text-red-500 blink";
-            // Clamp calculation to avoid NaN
-            b = Q * 0.999; 
+        const status = document.getElementById('status_msg');
+        
+        if (b >= Q) {
+            status.innerText = "ERROR: β > Q (IMPOSSIBLE)";
+            status.className = "text-[10px] font-mono text-red-500 bg-red-900/10 px-2 py-1 inline-block rounded border border-red-900/30";
+            // Clamp calculation
+            b = Q * 0.99;
         } else {
-            msg.innerText = "SYSTEM NOMINAL";
-            msg.className = "text-xs font-mono text-green-500";
+            status.innerText = "SYSTEM NOMINAL";
+            status.className = "text-[10px] font-mono text-green-500 bg-green-900/10 px-2 py-1 inline-block rounded border border-green-900/30";
         }
 
         // 3. Separation (Pythagoras)
@@ -224,7 +224,7 @@
         const k_sq = (Q*Q) - (b*b);
         const k = Math.sqrt(Math.max(0, k_sq));
 
-        // 4. Calculate Eccentricity (User Formula)
+        // 4. Calculate Eccentricity
         // ec = (2 * beta^2 / kappa^2) - 1
         let ec = 0;
         if(k > 0) {
@@ -237,7 +237,7 @@
         const Mass_kg = (Rs * c * c) / (2 * G);
         const Mass_solar = Mass_kg / M_sun_kg;
 
-        // Save State
+        // Update State
         state = { z, b, rp, Q, k, ec, M: Mass_solar, Rs };
         
         updateUI();
@@ -245,16 +245,17 @@
     }
 
     function updateUI() {
-        // Radius AU
+        // Radius Display
         const au = state.rp / AU;
         document.getElementById('disp_au').innerText = au < 0.1 ? (state.rp/1000).toExponential(2)+" km" : au.toFixed(2) + " AU";
 
-        // Results
+        // Mass
         const mElem = document.getElementById('res_mass');
         if(state.M > 1e9) mElem.innerText = (state.M/1e9).toFixed(2) + " B";
         else if(state.M > 1e6) mElem.innerText = (state.M/1e6).toFixed(2) + " M";
         else mElem.innerText = state.M.toLocaleString(undefined, {maximumFractionDigits:0});
 
+        // Other values
         document.getElementById('res_ec').innerText = state.ec.toFixed(3);
         document.getElementById('res_rs').innerText = (state.Rs/1000).toExponential(2) + " km";
 
@@ -266,8 +267,11 @@
 
     // --- VISUALIZATION ---
     function resize() {
-        cvs.width = cvs.parentElement.clientWidth;
-        cvs.height = cvs.parentElement.clientHeight;
+        const parent = cvs.parentElement;
+        if(parent) {
+            cvs.width = parent.clientWidth;
+            cvs.height = parent.clientHeight;
+        }
         draw();
     }
     window.addEventListener('resize', resize);
@@ -281,18 +285,22 @@
         ctx.fillStyle = "#000"; ctx.fillRect(0,0,w,h);
 
         // Black Hole
-        ctx.shadowBlur = 20; ctx.shadowColor = "white"; ctx.fillStyle = "#fff";
+        ctx.shadowBlur = 15; ctx.shadowColor = "white"; ctx.fillStyle = "#fff";
         ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
 
         if(state.M <= 0) return;
 
-        // Auto-Scale
-        // We need to fit the ellipse based on calculated Eccentricity
-        // rp = a(1-e) -> a = rp / (1-e)
-        // If e >= 1 (Hyperbola/Parabola), we need special handling or just clamp drawing
+        // Auto-Scale Orbit
+        // We draw based on calculated Eccentricity
         let draw_ec = state.ec;
-        if(draw_ec >= 1) draw_ec = 0.99; // Visual clamp for canvas only
         if(draw_ec < 0) draw_ec = 0;
+        
+        // Handle Open Orbits visually
+        let isOpen = false;
+        if(draw_ec >= 1) {
+            isOpen = true;
+            draw_ec = 0.95; // Visual clamp
+        }
 
         const a = state.rp / (1 - draw_ec);
         const scale = (Math.min(w,h) * 0.35) / a;
@@ -302,25 +310,23 @@
         const center_x = cx - c_lin * scale;
 
         // Draw Orbit
-        ctx.strokeStyle = "#333"; ctx.lineWidth = 1.5;
+        ctx.strokeStyle = isOpen ? "#555" : "#333"; 
+        ctx.lineWidth = 1.5;
+        if(isOpen) ctx.setLineDash([5,5]);
+        
         ctx.beginPath();
-        if(state.ec >= 1) {
-            // Draw open curve hint
-            ctx.moveTo(cx, cy); ctx.lineTo(w, 0); ctx.stroke(); // Placeholder for unbound
-        } else {
-            ctx.ellipse(center_x, cy, a*scale, b_axis*scale, 0, 0, 2*Math.PI);
-            ctx.stroke();
-        }
+        ctx.ellipse(center_x, cy, a*scale, b_axis*scale, 0, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.setLineDash([]);
 
-        // Draw Vectors (Pericenter at Right)
+        // Draw Pericenter Point & Vectors
         const px = cx + state.rp * scale;
         const py = cy;
 
-        // Point
         ctx.fillStyle = "#A855F7"; ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI*2); ctx.fill();
 
-        // Vectors
-        const vSc = 80 / state.Q; // Normalize visual length
+        // Vector Scale (normalized visually)
+        const vSc = 80 / state.Q; 
         const len_k = state.k * vSc;
         const len_b = state.b * vSc;
 
@@ -337,7 +343,7 @@
         ctx.beginPath(); ctx.moveTo(px - len_k, py); ctx.lineTo(px, py - len_b); ctx.stroke(); ctx.setLineDash([]);
         
         // Text
-        ctx.fillStyle = "#666"; ctx.font = "10px Inter"; ctx.fillText("PERICENTER", px+8, py+3);
+        ctx.fillStyle = "#888"; ctx.font = "10px Inter"; ctx.fillText(isOpen ? "HYPERBOLIC?" : "PERICENTER", px+8, py+3);
     }
 
     // Init
