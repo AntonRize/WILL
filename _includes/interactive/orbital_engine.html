@@ -1,382 +1,348 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WILL Orbital Engine</title>
-    <meta name="description" content="WILL Relational Geometry - fundamental theoretical physics calculator.">
-
+    <title>WILL Orbital Engine v11</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-        /* Базовые настройки, чтобы соответствовать твоему сайту */
-        body {
-            background-color: #050505; /* Очень темный фон, почти черный */
-            color: #E5E5E5;
-            font-family: 'Inter', sans-serif;
-            /* УБРАЛ overflow: hidden, теперь скролл работает! */
+        :root {
+            --bg-dark: #050505;
+            --panel-bg: #0A0A0A;
+            --border-col: #1F1F23;
+            --accent: #7C3AED;
         }
-
-        /* Класс для цифр */
+        body { background-color: var(--bg-dark); color: #E5E5E5; font-family: 'Inter', sans-serif; overflow: hidden; height: 100vh; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
-
-        /* Стилизация ползунков */
-        input[type=range] {
-            -webkit-appearance: none; 
-            width: 100%; 
-            background: transparent;
-        }
+        
+        /* SLIDERS */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 16px; width: 16px;
-            border-radius: 50%;
-            background: #7C3AED; /* Purple-600 */
-            cursor: pointer;
-            margin-top: -6px;
+            -webkit-appearance: none; height: 14px; width: 14px; border-radius: 50%;
+            background: var(--accent); cursor: pointer; margin-top: -5px;
             box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
         }
         input[type=range]::-webkit-slider-runnable-track {
             width: 100%; height: 4px; background: #333; border-radius: 2px;
         }
 
-        /* Поля ввода */
+        /* INPUT FIELDS */
         .input-field {
-            background: #0F0F10;
-            border: 1px solid #333;
-            color: #fff;
-            font-family: 'JetBrains Mono', monospace;
-            transition: border-color 0.2s;
+            background: #111; border: 1px solid #333; color: #fff;
+            font-family: 'JetBrains Mono', monospace; transition: all 0.2s;
         }
-        .input-field:focus {
-            border-color: #7C3AED;
-            outline: none;
+        .input-field:focus { border-color: var(--accent); outline: none; }
+        
+        /* GRID LAYOUT HELPERS */
+        .grid-dashboard {
+            display: grid;
+            grid-template-rows: auto 1fr auto; /* Header, Canvas, Footer */
+            height: 100%;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
 
-    <header class="border-b border-gray-800 bg-[#0A0A0A] py-4 px-6">
-        <div class="max-w-7xl mx-auto flex items-center gap-3">
-            <div class="w-2 h-8 bg-purple-600 rounded-sm shadow-[0_0_15px_rgba(124,58,237,0.6)]"></div>
-            <div>
-                <h1 class="font-bold tracking-wider text-lg text-gray-100 uppercase">WILL <span class="text-purple-500">Orbital Engine</span></h1>
-                <div class="text-xs text-gray-500 font-mono">RELATIONAL MECHANICS KERNEL v10</div>
+<div class="grid-dashboard">
+
+    <header class="bg-[#0A0A0A] border-b border-[#1F1F23] p-4 z-20 shadow-lg">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+                <div class="w-1.5 h-6 bg-purple-600 shadow-[0_0_10px_purple]"></div>
+                <h1 class="font-bold tracking-widest text-sm text-gray-100 uppercase">WILL <span class="text-purple-500">ENGINE v11</span></h1>
             </div>
+            <div class="text-[10px] text-gray-500 font-mono">SNAPSHOT MODE: ACTIVE</div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-[#111] p-3 rounded border border-gray-800 relative group">
+                <div class="flex justify-between items-center mb-2">
+                    <label class="text-[10px] text-red-400 font-bold uppercase tracking-wider">Relational Shift \(z_{Qp}\)</label>
+                    <span class="text-[9px] text-gray-600 font-mono">\(Q_p\) Generator</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <input type="range" min="0.0001" max="0.1" step="0.0001" id="slider_z" oninput="updateFromSlider('z', this.value)">
+                    <input type="number" id="in_z" class="input-field w-20 text-xs p-1 rounded text-right" value="0.041" step="0.0001" oninput="updateFromInput('z', this.value)">
+                </div>
+                <div class="absolute -bottom-3 left-0 w-full text-center">
+                    <span id="val_Q_disp" class="text-[9px] text-red-500 font-mono bg-[#0A0A0A] px-1 border border-gray-800 rounded">Q = 0.000</span>
+                </div>
+            </div>
+
+            <div class="bg-[#111] p-3 rounded border border-gray-800 relative group">
+                <div class="flex justify-between items-center mb-2">
+                    <label class="text-[10px] text-blue-400 font-bold uppercase tracking-wider">Velocity \(\beta_p\) (v/c)</label>
+                    <span class="text-[9px] text-gray-600 font-mono">Input</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <input type="range" min="0.0001" max="0.3" step="0.0001" id="slider_b" oninput="updateFromSlider('b', this.value)">
+                    <input type="number" id="in_b" class="input-field w-20 text-xs p-1 rounded text-right" value="0.2" step="0.0001" oninput="updateFromInput('b', this.value)">
+                </div>
+            </div>
+
+            <div class="bg-[#111] p-3 rounded border border-gray-800">
+                <div class="flex justify-between items-center mb-2">
+                    <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Pericenter Radius \(r_p\)</label>
+                    <span id="disp_au" class="text-[9px] text-purple-400 font-mono">-- AU</span>
+                </div>
+                <input type="number" id="in_r" class="input-field w-full text-xs p-1.5 rounded" value="2.5e13" step="1e10" oninput="solve()">
+            </div>
+
         </div>
     </header>
 
-    <main class="flex-grow p-4 md:p-8">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div class="relative bg-black flex-1 overflow-hidden">
+        <div class="absolute inset-0 opacity-20 pointer-events-none" 
+             style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 50px 50px;">
+        </div>
+        
+        <canvas id="orbitCanvas" class="w-full h-full relative z-10"></canvas>
+
+        <div class="absolute top-4 right-4 bg-black/80 backdrop-blur border border-gray-800 p-3 rounded shadow-xl z-20">
+            <div class="text-[9px] text-gray-500 uppercase tracking-widest mb-2 border-b border-gray-800 pb-1">Vector Decomposition</div>
+            <div class="space-y-1">
+                <div class="flex items-center justify-between gap-4 text-xs font-mono">
+                    <span class="text-red-500">● \(Q_{p}\) (Ampl)</span>
+                    <span id="vec_q" class="text-white">--</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 text-xs font-mono">
+                    <span class="text-green-500">● \(\kappa_{p}\) (Pot)</span>
+                    <span id="vec_k" class="text-white">--</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 text-xs font-mono">
+                    <span class="text-blue-500">● \(\beta_{p}\) (Kin)</span>
+                    <span id="vec_b" class="text-white">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#080808] border-t border-[#1F1F23] p-4 z-20">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
             
-            <div class="lg:col-span-4 space-y-6">
-                
-                <div class="bg-[#0F0F10] border border-gray-800 rounded-lg p-6">
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-sm font-bold text-purple-400 uppercase tracking-widest">
-                            Primary Anchor (Pericenter)
-                        </h2>
-                    </div>
-
-                    <div class="mb-6">
-                        <div class="flex justify-between items-end mb-2">
-                            <label class="text-xs text-gray-400 font-bold uppercase">
-                                Relational Shift \(z_{Qp}\)
-                            </label>
-                            <span class="text-[10px] text-gray-600 font-mono">\(1+z_{Qp} = 1/Q_{tp}\)</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <input type="range" min="0.0001" max="0.1" step="0.0001" value="0.0007" class="flex-1" id="slider_z" oninput="syncInput('in_z', this.value); solve();">
-                            <input type="number" id="in_z" class="input-field w-24 p-2 text-right text-sm rounded" value="0.00067" step="0.00001" oninput="syncInput('slider_z', this.value); solve();">
-                        </div>
-                        <div class="text-[10px] text-gray-500 mt-2">
-                            Enter the <strong>pre-processed</strong> relativistic redshift (grav + transverse only).
-                        </div>
-                    </div>
-
-                    <div class="mb-6">
-                        <label class="text-xs text-gray-400 font-bold uppercase block mb-2">Eccentricity \(e_c\)</label>
-                        <div class="flex items-center gap-3">
-                            <input type="range" min="0.01" max="0.999" step="0.001" value="0.884" class="flex-1" id="slider_e" oninput="syncInput('in_e', this.value); solve();">
-                            <input type="number" id="in_e" class="input-field w-24 p-2 text-right text-sm rounded" value="0.884" step="0.001" oninput="syncInput('slider_e', this.value); solve();">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="text-xs text-gray-400 font-bold uppercase block mb-2">Pericenter Radius \(r_p\) (meters)</label>
-                        <input type="number" id="in_r" class="input-field w-full p-2 text-sm rounded" value="1.95e13" step="1e10" oninput="solve()">
-                        <div class="text-right mt-1">
-                            <span id="disp_au" class="text-[10px] text-purple-400 font-mono">-- AU</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-[#0A0A0A] border border-gray-800 rounded-lg p-6">
-                    <div class="text-[10px] text-gray-500 font-bold tracking-widest mb-2">DERIVED MASS (WILL METHOD)</div>
-                    <div class="flex items-baseline gap-2 mb-4">
-                        <span id="res_mass" class="text-4xl font-bold text-white font-mono tracking-tighter">--</span>
-                        <span class="text-sm text-gray-400 font-light">\(M_{\odot}\)</span>
-                    </div>
-
-                    <div class="space-y-2 text-xs font-mono border-t border-gray-800 pt-3">
-                        <div class="flex justify-between">
-                            <span class="text-gray-500">Schwarzschild \(R_s\)</span>
-                            <span id="res_rs" class="text-purple-300">--</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-500">Total Shift \(Q_p\)</span>
-                            <span id="res_Q" class="text-red-400">--</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-500">Separation \(\kappa_p\)</span>
-                            <span id="res_k" class="text-green-400">--</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-[#0F0F10] border border-gray-800 rounded-lg p-6 opacity-75 hover:opacity-100 transition-opacity">
-                    <div class="flex items-center justify-between mb-4 cursor-pointer" onclick="toggleApo()">
-                        <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest">
-                            Validation Check (Optional)
-                        </h2>
-                        <span class="text-xs text-gray-500" id="apo_arrow">▼</span>
-                    </div>
-                    
-                    <div id="apo_panel" class="hidden space-y-4 pt-2 border-t border-gray-800">
-                        <div>
-                            <label class="text-[10px] text-gray-500 uppercase block mb-1">Apocenter Shift \(z_{Qa}\)</label>
-                            <input type="number" id="in_za" class="input-field w-full p-2 text-xs rounded text-gray-400" placeholder="e.g. 0.0001" step="0.00001" oninput="solve()">
-                        </div>
-                        
-                        <div id="consistency_box" class="hidden p-3 rounded border border-dashed text-xs flex justify-between items-center font-mono">
-                            <span class="font-bold opacity-70">CHECK:</span>
-                            <span id="consistency_val" class="font-bold">--</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="lg:col-span-8 flex flex-col h-[500px] lg:h-auto bg-black rounded-lg border border-gray-800 relative overflow-hidden">
-                <div class="absolute inset-0 opacity-20 pointer-events-none" 
-                     style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 40px 40px;">
-                </div>
-
-                <canvas id="orbitCanvas" class="w-full h-full relative z-0"></canvas>
-                
-                <div class="absolute top-4 right-4 z-10">
-                    <div class="bg-black/80 backdrop-blur-md border border-gray-700 p-4 rounded shadow-xl">
-                        <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-2 border-b border-gray-700 pb-1">Vector Decomposition</div>
-                        
-                        <div class="grid grid-cols-[10px_40px_1fr] gap-2 text-xs font-mono items-center mb-1">
-                            <span class="w-2 h-2 rounded-full bg-red-500"></span>
-                            <span class="text-gray-400">\(Q_p\)</span>
-                            <span id="val_q_vec" class="text-white text-right">--</span>
-                        </div>
-                        <div class="grid grid-cols-[10px_40px_1fr] gap-2 text-xs font-mono items-center mb-1">
-                            <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                            <span class="text-gray-400">\(\kappa\)</span>
-                            <span id="val_k_vec" class="text-green-400 text-right">--</span>
-                        </div>
-                        <div class="grid grid-cols-[10px_40px_1fr] gap-2 text-xs font-mono items-center">
-                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-                            <span class="text-gray-400">\(\beta\)</span>
-                            <span id="val_b_vec" class="text-blue-400 text-right">--</span>
-                        </div>
-                    </div>
+            <div class="md:col-span-1 border-r border-gray-800 pr-4">
+                <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Derived Mass</div>
+                <div class="flex items-baseline gap-2">
+                    <span id="res_mass" class="text-3xl font-bold text-white font-mono tracking-tighter">--</span>
+                    <span class="text-xs text-gray-400">\(M_{\odot}\)</span>
                 </div>
             </div>
+
+            <div class="md:col-span-1 border-r border-gray-800 pr-4">
+                <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Calculated Shape</div>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-gray-400">Eccentricity \(e_c\)</span>
+                    <span id="res_ec" class="text-xl font-mono text-purple-400 font-bold">--</span>
+                </div>
+                <div class="text-[9px] text-gray-600 mt-1 font-mono">\(e_c = 2(\beta/\kappa)^2 - 1\)</div>
+            </div>
+
+            <div class="md:col-span-1">
+                <div class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">Event Horizon</div>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-gray-400">Radius \(R_s\)</span>
+                    <span id="res_rs" class="text-lg font-mono text-gray-200">--</span>
+                </div>
+            </div>
+
+             <div class="md:col-span-1 text-right">
+                <div id="status_msg" class="text-xs font-mono text-green-500">SYSTEM NOMINAL</div>
+             </div>
 
         </div>
-    </main>
+    </footer>
 
-    <script>
-        // --- CONSTANTS ---
-        const G = 6.67430e-11;
-        const c = 299792458.0; 
-        const M_sun_kg = 1.98847e30;
-        const AU = 1.496e11;
+</div>
 
-        // --- SETUP CANVAS ---
-        const cvs = document.getElementById('orbitCanvas');
-        const ctx = cvs.getContext('2d');
+<script>
+    // --- CONSTANTS ---
+    const G = 6.67430e-11;
+    const c = 299792458.0; 
+    const M_sun_kg = 1.98847e30;
+    const AU = 1.496e11;
 
-        // --- STATE ---
-        let state = { z: 0, ec: 0, rp: 0, Q: 0, k: 0, b: 0, Rs: 0, Mass: 0, za: null, consistency: null };
+    // --- CANVAS ---
+    const cvs = document.getElementById('orbitCanvas');
+    const ctx = cvs.getContext('2d');
 
-        function syncInput(id, val) {
-            document.getElementById(id).value = val;
+    // --- STATE ---
+    let state = { z: 0.041, b: 0.2, rp: 2.5e13, Q: 0, k: 0, ec: 0, M: 0 };
+
+    // --- INPUT HANDLERS ---
+    function updateFromSlider(type, val) {
+        document.getElementById('in_'+type).value = val;
+        solve();
+    }
+    function updateFromInput(type, val) {
+        document.getElementById('slider_'+type).value = val;
+        solve();
+    }
+
+    // --- MAIN SOLVER ---
+    function solve() {
+        // 1. Fetch Inputs
+        let z = parseFloat(document.getElementById('in_z').value);
+        let b = parseFloat(document.getElementById('in_b').value);
+        let rp = parseFloat(document.getElementById('in_r').value);
+
+        if (isNaN(z) || isNaN(b) || isNaN(rp)) return;
+
+        // 2. Ontological Q Calculation
+        // 1 + z = 1/Qt  -> Qt = 1/(1+z)
+        // Q = sqrt(1 - Qt^2)
+        const Qt = 1 / (1 + z);
+        const Q_sq = 1 - (Qt*Qt);
+        const Q = Math.sqrt(Math.max(0, Q_sq));
+
+        // Update Q Display
+        document.getElementById('val_Q_disp').innerText = "Q = " + Q.toFixed(5);
+        
+        // Dynamic Constraint: Beta cannot be > Q (Kinetic > Total)
+        // If Beta is too high, cap it or show warning
+        const slider_b = document.getElementById('slider_b');
+        slider_b.max = Q.toFixed(4); // Update slider max
+        
+        const msg = document.getElementById('status_msg');
+        if(b >= Q) {
+            msg.innerText = "CRITICAL: β > Q (Physically Impossible)";
+            msg.className = "text-xs font-mono text-red-500 blink";
+            // Clamp calculation to avoid NaN
+            b = Q * 0.999; 
+        } else {
+            msg.innerText = "SYSTEM NOMINAL";
+            msg.className = "text-xs font-mono text-green-500";
         }
 
-        function toggleApo() {
-            const p = document.getElementById('apo_panel');
-            const arrow = document.getElementById('apo_arrow');
-            if(p.classList.contains('hidden')) {
-                p.classList.remove('hidden');
-                arrow.innerText = "▲";
-            } else {
-                p.classList.add('hidden');
-                arrow.innerText = "▼";
-            }
+        // 3. Separation (Pythagoras)
+        // kappa^2 = Q^2 - beta^2
+        const k_sq = (Q*Q) - (b*b);
+        const k = Math.sqrt(Math.max(0, k_sq));
+
+        // 4. Calculate Eccentricity (User Formula)
+        // ec = (2 * beta^2 / kappa^2) - 1
+        let ec = 0;
+        if(k > 0) {
+            ec = (2 * (b*b) / (k*k)) - 1;
         }
 
-        function solve() {
-            // 1. Inputs
-            const z = parseFloat(document.getElementById('in_z').value);
-            const ec = parseFloat(document.getElementById('in_e').value);
-            const rp = parseFloat(document.getElementById('in_r').value);
-            let za_val = document.getElementById('in_za').value;
-            let za = (za_val === "") ? NaN : parseFloat(za_val);
+        // 5. Calculate Mass
+        // Rs = k^2 * rp
+        const Rs = (k*k) * rp;
+        const Mass_kg = (Rs * c * c) / (2 * G);
+        const Mass_solar = Mass_kg / M_sun_kg;
 
-            if(isNaN(z) || isNaN(ec) || isNaN(rp)) return;
+        // Save State
+        state = { z, b, rp, Q, k, ec, M: Mass_solar, Rs };
+        
+        updateUI();
+        draw();
+    }
 
-            // 2. WILL LOGIC (Pericenter)
-            // Phase Qt = 1 / (1 + z)
-            // Amplitude Q = sqrt(1 - Qt^2)
-            const Qt = 1 / (1 + z);
-            const Q_sq = 1 - (Qt * Qt);
-            const Q = Math.sqrt(Math.max(0, Q_sq));
+    function updateUI() {
+        // Radius AU
+        const au = state.rp / AU;
+        document.getElementById('disp_au').innerText = au < 0.1 ? (state.rp/1000).toExponential(2)+" km" : au.toFixed(2) + " AU";
 
-            // Separation: kappa = Q * sqrt( 2 / (3 + e) )
-            const separation_factor = Math.sqrt(2 / (3 + ec));
-            const kp = Q * separation_factor;
-            
-            // Beta (Pythagoras)
-            const bp = Math.sqrt(Math.max(0, Q*Q - kp*kp));
+        // Results
+        const mElem = document.getElementById('res_mass');
+        if(state.M > 1e9) mElem.innerText = (state.M/1e9).toFixed(2) + " B";
+        else if(state.M > 1e6) mElem.innerText = (state.M/1e6).toFixed(2) + " M";
+        else mElem.innerText = state.M.toLocaleString(undefined, {maximumFractionDigits:0});
 
-            // 3. Scaling
-            const Rs = (kp * kp) * rp;
-            const Mass_kg = (Rs * c * c) / (2 * G);
-            const Mass_solar = Mass_kg / M_sun_kg;
+        document.getElementById('res_ec').innerText = state.ec.toFixed(3);
+        document.getElementById('res_rs').innerText = (state.Rs/1000).toExponential(2) + " km";
 
-            // 4. Apocenter Check
-            let consistency = null;
-            if (!isNaN(za)) {
-                // Separation at Apo: kappa = Q * sqrt( 2 / (3 - e) )
-                const Qt_a = 1 / (1 + za);
-                const Q_a = Math.sqrt(Math.max(0, 1 - Qt_a*Qt_a));
-                const sep_a = Math.sqrt(2 / (3 - ec));
-                const ka = Q_a * sep_a;
-                
-                // Radius Geo
-                const ra_geo = rp * (1 + ec) / (1 - ec);
-                const Rs_apo = (ka * ka) * ra_geo;
-                const m_apo = (Rs_apo * c * c) / (2 * G) / M_sun_kg;
-                
-                const diff = Math.abs(Mass_solar - m_apo);
-                const avg = (Mass_solar + m_apo) / 2;
-                const pct = (diff / avg) * 100;
-                consistency = { pct };
-            }
+        // Vectors
+        document.getElementById('vec_q').innerText = state.Q.toFixed(5);
+        document.getElementById('vec_k').innerText = state.k.toFixed(5);
+        document.getElementById('vec_b').innerText = state.b.toFixed(5);
+    }
 
-            state = { z, ec, rp, Q, k: kp, b: bp, Rs, Mass: Mass_solar, consistency };
-            updateUI();
-            draw();
+    // --- VISUALIZATION ---
+    function resize() {
+        cvs.width = cvs.parentElement.clientWidth;
+        cvs.height = cvs.parentElement.clientHeight;
+        draw();
+    }
+    window.addEventListener('resize', resize);
+
+    function draw() {
+        const w = cvs.width;
+        const h = cvs.height;
+        const cx = w/2;
+        const cy = h/2;
+
+        ctx.fillStyle = "#000"; ctx.fillRect(0,0,w,h);
+
+        // Black Hole
+        ctx.shadowBlur = 20; ctx.shadowColor = "white"; ctx.fillStyle = "#fff";
+        ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
+
+        if(state.M <= 0) return;
+
+        // Auto-Scale
+        // We need to fit the ellipse based on calculated Eccentricity
+        // rp = a(1-e) -> a = rp / (1-e)
+        // If e >= 1 (Hyperbola/Parabola), we need special handling or just clamp drawing
+        let draw_ec = state.ec;
+        if(draw_ec >= 1) draw_ec = 0.99; // Visual clamp for canvas only
+        if(draw_ec < 0) draw_ec = 0;
+
+        const a = state.rp / (1 - draw_ec);
+        const scale = (Math.min(w,h) * 0.35) / a;
+        
+        const c_lin = a * draw_ec;
+        const b_axis = a * Math.sqrt(1 - draw_ec*draw_ec);
+        const center_x = cx - c_lin * scale;
+
+        // Draw Orbit
+        ctx.strokeStyle = "#333"; ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        if(state.ec >= 1) {
+            // Draw open curve hint
+            ctx.moveTo(cx, cy); ctx.lineTo(w, 0); ctx.stroke(); // Placeholder for unbound
+        } else {
+            ctx.ellipse(center_x, cy, a*scale, b_axis*scale, 0, 0, 2*Math.PI);
+            ctx.stroke();
         }
 
-        function updateUI() {
-            // AU Display
-            const rp_au = state.rp / AU;
-            document.getElementById('disp_au').innerText = rp_au < 0.1 ? (state.rp/1000).toExponential(2) + " km" : rp_au.toFixed(2) + " AU";
+        // Draw Vectors (Pericenter at Right)
+        const px = cx + state.rp * scale;
+        const py = cy;
 
-            // Mass
-            const mElem = document.getElementById('res_mass');
-            if(state.Mass > 1e9) mElem.innerText = (state.Mass / 1e9).toFixed(3) + " B";
-            else if(state.Mass > 1e6) mElem.innerText = (state.Mass / 1e6).toFixed(3) + " M";
-            else mElem.innerText = state.Mass.toLocaleString(undefined, {maximumFractionDigits:0});
+        // Point
+        ctx.fillStyle = "#A855F7"; ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI*2); ctx.fill();
 
-            // Details
-            document.getElementById('res_rs').innerText = (state.Rs / 1000).toFixed(1) + " km";
-            document.getElementById('res_Q').innerText = state.Q.toFixed(6);
-            document.getElementById('res_k').innerText = state.k.toFixed(6);
-            document.getElementById('val_q_vec').innerText = state.Q.toFixed(5);
-            document.getElementById('val_k_vec').innerText = state.k.toFixed(5);
-            document.getElementById('val_b_vec').innerText = state.b.toFixed(5);
+        // Vectors
+        const vSc = 80 / state.Q; // Normalize visual length
+        const len_k = state.k * vSc;
+        const len_b = state.b * vSc;
 
-            // Consistency
-            const cBox = document.getElementById('consistency_box');
-            if(state.consistency) {
-                cBox.classList.remove('hidden');
-                const pct = state.consistency.pct;
-                document.getElementById('consistency_val').innerText = pct.toFixed(2) + "% DIFF";
-                cBox.className = pct < 2 
-                    ? "p-3 rounded border text-xs flex justify-between items-center font-mono bg-green-900/20 border-green-800 text-green-400"
-                    : "p-3 rounded border text-xs flex justify-between items-center font-mono bg-red-900/20 border-red-800 text-red-400";
-            } else {
-                cBox.classList.add('hidden');
-            }
-        }
+        // Kappa (Green, Inward)
+        ctx.strokeStyle = "#10B981"; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - len_k, py); ctx.stroke();
 
-        function resize() {
-            // Make canvas fit its parent container exactly
-            cvs.width = cvs.parentElement.clientWidth;
-            cvs.height = cvs.parentElement.clientHeight;
-            draw();
-        }
-        window.addEventListener('resize', resize);
+        // Beta (Blue, Tangent)
+        ctx.strokeStyle = "#3B82F6";
+        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py - len_b); ctx.stroke();
 
-        function draw() {
-            const w = cvs.width;
-            const h = cvs.height;
-            const cx = w/2;
-            const cy = h/2;
+        // Q (Red, Hypotenuse)
+        ctx.strokeStyle = "#EF4444"; ctx.setLineDash([4,4]);
+        ctx.beginPath(); ctx.moveTo(px - len_k, py); ctx.lineTo(px, py - len_b); ctx.stroke(); ctx.setLineDash([]);
+        
+        // Text
+        ctx.fillStyle = "#666"; ctx.font = "10px Inter"; ctx.fillText("PERICENTER", px+8, py+3);
+    }
 
-            ctx.clearRect(0,0,w,h);
+    // Init
+    setTimeout(() => { resize(); solve(); }, 100);
 
-            // Black Hole
-            ctx.shadowBlur = 15; ctx.shadowColor = "white"; ctx.fillStyle = "#fff";
-            ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
-
-            if(state.Mass === 0) return;
-
-            // Scale to fit 70%
-            const a = state.rp / (1 - state.ec);
-            const scale = (Math.min(w,h) * 0.35) / a; 
-            const c_lin = a * state.ec; 
-            const center_x = cx - c_lin * scale;
-            const b_axis = a * Math.sqrt(1 - state.ec*state.ec);
-
-            // Orbit
-            ctx.strokeStyle = "#444"; ctx.lineWidth = 1.5;
-            ctx.beginPath(); ctx.ellipse(center_x, cy, a*scale, b_axis*scale, 0, 0, 2*Math.PI); ctx.stroke();
-
-            // Pericenter Point
-            const px = cx + state.rp * scale;
-            const py = cy;
-            ctx.fillStyle = "#A855F7"; ctx.shadowColor = "#A855F7"; ctx.shadowBlur = 10;
-            ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
-
-            // Vectors
-            const vecScale = 80 / state.Q; // Normalize length
-            const len_k = state.k * vecScale;
-            const len_b = state.b * vecScale;
-
-            // K (Green, Inward)
-            ctx.strokeStyle = "#10B981"; ctx.lineWidth = 2;
-            ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - len_k, py); ctx.stroke();
-
-            // B (Blue, Tangent)
-            ctx.strokeStyle = "#3B82F6";
-            ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py - len_b); ctx.stroke();
-
-            // Q (Red, Hypotenuse)
-            ctx.strokeStyle = "#EF4444"; ctx.setLineDash([4,4]);
-            ctx.beginPath(); ctx.moveTo(px - len_k, py); ctx.lineTo(px, py - len_b); ctx.stroke(); ctx.setLineDash([]);
-
-            // Labels
-            ctx.fillStyle = "#fff"; ctx.font = "10px Inter"; 
-            ctx.fillText("P", px+6, py+4);
-        }
-
-        setTimeout(() => { resize(); solve(); }, 100);
-
-    </script>
+</script>
 </body>
 </html>
