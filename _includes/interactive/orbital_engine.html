@@ -1,326 +1,275 @@
-import React, { useState, useEffect, useRef } from 'react';
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-// --- CONSTANTS ---
-const G = 6.67430e-11;
-const M_SUN = 1.989e30; // kg
-const C = 299792458; // m/s
+<div id="rom-engine-root" style="width: 100%; min-height: 500px; display: flex; justify-content: center; align-items: center; background: #000;">
+    <div style="color: #666;">Initializing R.O.M. Kernel...</div>
+</div>
 
-const RomEngine = () => {
-  // --- INPUTS ---
-  // kappa: Relational Shift (frequency ratio)
-  // beta: Velocity / c
-  // rp_phys: Physical periapsis radius in meters
-  const [kappa, setKappa] = useState(1.414);
-  const [beta, setBeta] = useState(0.25);
-  const [rpPhys, setRpPhys] = useState(1.5e11); // meters
+<script type="text/babel">
+    // --- HOOKS ---
+    const { useState, useEffect, useRef } = React;
 
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+    // --- CONSTANTS ---
+    const G = 6.67430e-11;
+    const M_SUN = 1.989e30; 
+    const C = 299792458; 
 
-  // --- PHYSICS KERNEL ---
-  const calculatePhysics = () => {
-    // 1. Calculate Eccentricity (e)
-    // PLACEHOLDER: Using a simple relationship for demo. 
-    // In real R.O.M., replace this with your exact algebraic derivation: e = f(kappa, beta)
-    // For now: let's say e depends on the ratio of Kinetic/Potential proxy.
-    let e = (beta * 2) - 0.2; 
-    
-    // Handle Negative Eccentricity (User Requirement)
-    const isInverted = e < 0;
-    const abs_e = Math.abs(e);
+    // --- MAIN COMPONENT ---
+    const RomEngine = () => {
+        // --- INPUTS ---
+        // Defaults set to Golden Ratio (Circle)
+        const [kappa, setKappa] = useState(1.414); // sqrt(2) approx
+        const [beta, setBeta] = useState(1.000);   // Normalized beta
+        const [velocityC, setVelocityC] = useState(0.01); // Real v/c for physical scale
+        const [rpPhys, setRpPhys] = useState(1.5e11); // 1 AU approx
 
-    // 2. Physical derived values (SI Units)
-    // Mass derived from Vis-Viva equation at periapsis: v = sqrt(GM(1+e)/rp)
-    // v = beta * c
-    // M = (v^2 * rp) / (G * (1 + e))
-    const v = beta * C;
-    const mass_kg = (v * v * rpPhys) / (G * (1 + abs_e));
+        const canvasRef = useRef(null);
 
-    // Apoapsis (Physical)
-    const raPhys = abs_e < 1 ? rpPhys * ((1 + abs_e) / (1 - abs_e)) : Infinity;
-
-    // Relational Q (Hypotenuse)
-    const Q = Math.sqrt(kappa**2 + beta**2);
-
-    return { 
-      e, // raw e (can be negative)
-      abs_e,
-      isInverted, 
-      mass_kg, 
-      rpPhys, 
-      raPhys, 
-      Q 
-    };
-  };
-
-  const physics = calculatePhysics();
-
-  // --- VISUALIZATION KERNEL (Normalized a=1) ---
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const width = canvas.width;
-    const height = canvas.height;
-    
-    // Reset Canvas
-    ctx.clearRect(0, 0, width, height);
-    
-    // Center of Screen
-    const cx = width / 2;
-    const cy = height / 2;
-
-    // --- DRAWING CONFIG ---
-    // Scale Unit: How many pixels is "a" (semi-major axis)?
-    // We dynamically adjust this so the orbit always fits nicely.
-    let UNIT_SCALE = 120; // Base pixels for a=1
-
-    // For Hyperbolas (e > 1), a=1 logic makes the visual huge, so we scale down slightly
-    if (physics.abs_e >= 1) UNIT_SCALE = 80;
-
-    // --- ORBIT PATH GENERATION ---
-    ctx.beginPath();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = physics.isInverted ? '#FF4444' : '#00F0FF'; // Red if inverted, Cyan normal
-
-    // Resolution
-    const steps = 400; 
-    
-    // Angle Limits
-    // If e < 1: 0 to 2*PI
-    // If e >= 1: Limited by asymptote arccos(-1/e)
-    let startLimit = 0;
-    let endLimit = 2 * Math.PI;
-    
-    if (physics.abs_e >= 1) {
-        // Asymptote angle
-        const limit = Math.acos(-1 / physics.abs_e);
-        // We draw slightly less than the limit to avoid infinity
-        const buffer = 0.2; 
-        startLimit = -limit + buffer;
-        endLimit = limit - buffer;
-    }
-
-    let isFirst = true;
-
-    for (let i = 0; i <= steps; i++) {
-        // Normalize step to angle range
-        const t = i / steps;
-        const theta = startLimit + (endLimit - startLimit) * t;
-
-        // --- THE FORMULA (a=1 Normalization) ---
-        // r_norm = (1 - e^2) / (1 + e * cos(theta))
-        // Note: For e>1, (1-e^2) is negative, but r should be positive for the branch around focus.
-        // We use Math.abs(1-e^2) to visualize the primary branch consistently.
-        const numerator = Math.abs(1 - physics.abs_e**2);
-        const r_norm = numerator / (1 + physics.abs_e * Math.cos(theta));
-
-        // Convert to Pixels
-        const r_pix = r_norm * UNIT_SCALE;
-
-        // Polar -> Cartesian
-        // We apply the rotation for "delta" or time later, for now static orbit
-        let x = r_pix * Math.cos(theta);
-        let y = r_pix * Math.sin(theta);
-
-        // --- OFFSET LOGIC ---
-        // For ellipse, focus is not at center (0,0) relative to "a".
-        // Distance from Center to Focus = c = a * e.
-        // If we want Focus at Canvas Center (cx, cy):
-        // We calculate relative to Focus naturally with polar coords above.
-        // So (0,0) in polar IS the focus. No offset needed if we center the focus.
-        
-        // --- INVERSION (Negative Eccentricity) ---
-        // If inverted, we flip the drawing geometry
-        if (physics.isInverted) {
-             x = -x;
-             y = -y;
-        }
-
-        // Draw
-        if (isFirst) {
-            ctx.moveTo(cx + x, cy - y); // Invert Y for canvas coords
-            isFirst = false;
-        } else {
-            ctx.lineTo(cx + x, cy - y);
-        }
-    }
-    ctx.stroke();
-
-    // --- DRAW FOCUS (The Star/Singularity) ---
-    ctx.beginPath();
-    ctx.fillStyle = '#FFFFFF';
-    ctx.shadowBlur = 10;
-    ctx.shadowColor = '#FFFFFF';
-    ctx.arc(cx, cy, 4, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.shadowBlur = 0; // Reset
-
-    // --- DRAW TRIANGLE (Q, Beta, Kappa) ---
-    // As requested: Q as hypotenuse between Kappa and Beta
-    // Location: Fixed in bottom right or attached to periapsis?
-    // Let's attach it to the Pericenter for "Relational" feel, or fixed UI. 
-    // Fixed UI is cleaner for "Dashboard".
-
-    const tx = width - 80;
-    const ty = height - 80;
-    const tScale = 60; // Scale for the triangle vector display
-
-    // Vectors
-    const k_vec = kappa * tScale * 0.5; // Scaled down to fit
-    const b_vec = beta * tScale * 2.0;  // Scaled up to be visible
-
-    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
-    ctx.lineWidth = 1;
-
-    // Draw Beta (Horizontal)
-    ctx.beginPath();
-    ctx.moveTo(tx, ty);
-    ctx.lineTo(tx + b_vec, ty);
-    ctx.stroke();
-
-    // Draw Kappa (Vertical)
-    ctx.beginPath();
-    ctx.moveTo(tx, ty);
-    ctx.lineTo(tx, ty - k_vec);
-    ctx.stroke();
-
-    // Draw Q (Hypotenuse)
-    ctx.strokeStyle = '#FF0055';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(tx + b_vec, ty);
-    ctx.lineTo(tx, ty - k_vec);
-    ctx.stroke();
-
-    // Labels
-    ctx.fillStyle = '#888';
-    ctx.font = '10px monospace';
-    ctx.fillText('β', tx + b_vec/2, ty + 12);
-    ctx.fillText('κ', tx - 12, ty - k_vec/2);
-    ctx.fillStyle = '#FF0055';
-    ctx.fillText('Q', tx + b_vec/2 + 5, ty - k_vec/2 - 5);
-
-  }, [physics]); 
-
-  return (
-    <div style={{ 
-      background: '#000', 
-      color: '#ddd', 
-      fontFamily: "'Courier New', monospace", 
-      padding: '20px', 
-      display: 'flex', 
-      flexDirection: 'column', 
-      gap: '10px',
-      maxWidth: '900px',
-      border: '1px solid #333'
-    }}>
-      
-      {/* HEADER */}
-      <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', borderBottom:'2px solid #333', paddingBottom:'10px'}}>
-        <div style={{fontSize: '24px', fontWeight: 'bold', color: '#fff'}}>
-          R.O.M. <span style={{fontSize:'12px', color:'#666', fontWeight:'normal'}}>RELATIONAL ORBITAL MECHANICS</span>
-        </div>
-        <div style={{fontSize: '12px', color: physics.e >= 1 ? '#FF8800' : '#00F0FF'}}>
-            {physics.abs_e >= 1 ? 'OPEN TRAJECTORY' : 'CLOSED ORBIT'}
-        </div>
-      </div>
-
-      {/* GRID LAYOUT */}
-      <div style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '20px', marginTop: '10px' }}>
-        
-        {/* LEFT COLUMN: CONTROLS & DATA */}
-        <div style={{display:'flex', flexDirection:'column', gap:'15px'}}>
+        // --- PHYSICS KERNEL ---
+        const calculatePhysics = () => {
+            // 1. Derivation of shape based on WILL Relations
+            // Relation: Circle when kappa = beta * sqrt(2)
+            // Escape when kappa = beta
             
-            {/* INPUTS */}
-            <div style={{background: '#0a0a0a', padding: '10px', border: '1px solid #222'}}>
-                <div style={{fontSize:'10px', color:'#666', marginBottom:'5px'}}>RELATIONAL PARAMETERS</div>
+            const ratio = kappa / beta; 
+            
+            // Approximation formula fitting the logic:
+            // If ratio = 1.414 (sqrt2) -> e should be 0.
+            // If ratio = 1.0 -> e should be 1.
+            let e_val = Math.abs( (2 / (ratio * ratio)) - 1 );
+            
+            // Snap to 0 for circle
+            if (e_val < 0.001) e_val = 0;
+
+            const isOpen = e_val >= 1.0;
+            const isInverted = ratio < 1.0; // "Below" the escape horizon
+
+            // 2. Physical derived values
+            // Mass derived from Vis-Viva at periapsis: v = sqrt(GM(1+e)/rp)
+            // M = (v^2 * rp) / (G * (1 + e))
+            const v = velocityC * C;
+            const mass_kg = (v * v * rpPhys) / (G * (1 + e_val));
+            
+            // Q Vector (Magnitude)
+            const Q = Math.sqrt(kappa**2 + beta**2);
+
+            return { e: e_val, isOpen, isInverted, mass_kg, Q };
+        };
+
+        const physics = calculatePhysics();
+
+        // --- VISUALIZATION KERNEL (Normalized a=1) ---
+        useEffect(() => {
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            // High DPI fix
+            const dpr = window.devicePixelRatio || 1;
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+            
+            const width = rect.width;
+            const height = rect.height;
+            const cx = width / 2;
+            const cy = height / 2;
+
+            // Clear
+            ctx.fillStyle = '#050505';
+            ctx.fillRect(0,0, width, height);
+            
+            // Grid
+            ctx.strokeStyle = '#111';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(cx, 0); ctx.lineTo(cx, height);
+            ctx.moveTo(0, cy); ctx.lineTo(width, cy);
+            ctx.stroke();
+
+            // --- DRAWING CONFIG ---
+            // "Hard Normalization": a = 1.
+            // We map a=1 to a fixed pixel size.
+            let PIXELS_per_A = Math.min(width, height) * 0.25;
+            
+            if (physics.isOpen) PIXELS_per_A *= 0.6;
+
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            
+            // Color Logic
+            if (physics.isOpen) ctx.strokeStyle = '#FF4444'; // Red (Escape)
+            else if (physics.e < 0.05) ctx.strokeStyle = '#00FF88'; // Green (Circle)
+            else ctx.strokeStyle = '#00F0FF'; // Cyan (Orbit)
+
+            // Geometry Generation
+            const steps = 500;
+            let startTheta = 0;
+            let endTheta = 2 * Math.PI;
+
+            // Hyperbola limits
+            if (physics.isOpen) {
+                const limit = Math.acos(-1 / physics.e);
+                startTheta = -limit + 0.1;
+                endTheta = limit - 0.1;
+            }
+
+            let firstPoint = true;
+
+            for (let i = 0; i <= steps; i++) {
+                const t = i / steps;
+                const theta = startTheta + (endTheta - startTheta) * t;
+
+                // POLAR EQUATION (a=1)
+                // r = |1 - e^2| / (1 + e cos(theta))
+                const numerator = Math.abs(1 - physics.e**2);
+                const r_norm = numerator / (1 + physics.e * Math.cos(theta));
                 
-                <label style={{display:'block', fontSize:'12px', color:'#ccc'}}>Shift (κ)</label>
-                <input 
-                    type="range" min="0.1" max="3.0" step="0.01" 
-                    value={kappa} onChange={e => setKappa(parseFloat(e.target.value))}
-                    style={{width:'100%', accentColor:'#FF0055'}}
-                />
-                <div style={{textAlign:'right', color:'#FF0055', fontSize:'12px'}}>{kappa.toFixed(3)}</div>
+                const r_pix = r_norm * PIXELS_per_A;
 
-                <label style={{display:'block', fontSize:'12px', color:'#ccc', marginTop:'10px'}}>Velocity (β)</label>
-                <input 
-                    type="range" min="0.01" max="0.99" step="0.01" 
-                    value={beta} onChange={e => setBeta(parseFloat(e.target.value))}
-                    style={{width:'100%', accentColor:'#00F0FF'}}
-                />
-                <div style={{textAlign:'right', color:'#00F0FF', fontSize:'12px'}}>{beta.toFixed(3)}</div>
-            </div>
+                let x = r_pix * Math.cos(theta);
+                let y = r_pix * Math.sin(theta);
 
-            {/* PHYSICAL INPUT */}
-            <div style={{background: '#0a0a0a', padding: '10px', border: '1px solid #222'}}>
-                 <div style={{fontSize:'10px', color:'#666', marginBottom:'5px'}}>PHYSICAL SCALE</div>
-                 <label style={{display:'block', fontSize:'12px', color:'#ccc'}}>Periapsis (m)</label>
-                 <input 
-                    type="number" 
-                    value={rpPhys} 
-                    onChange={e => setRpPhys(parseFloat(e.target.value))}
-                    style={{
-                        width:'100%', background:'#000', border:'1px solid #444', 
-                        color:'#fff', padding:'4px', fontFamily:'monospace'
-                    }}
-                 />
-            </div>
+                // Inversion logic
+                if (physics.isInverted) { x = -x; y = -y; }
 
-            {/* CALCULATED DATA */}
-            <div style={{background: '#111', padding: '10px', borderLeft: '2px solid #fff'}}>
-                <div style={{fontSize:'10px', color:'#888'}}>CALCULATED MASS</div>
-                <div style={{fontSize:'14px', color:'#fff', marginTop:'2px'}}>
-                    {physics.mass_kg.toExponential(3)} <span style={{color:'#666'}}>kg</span>
-                </div>
-                <div style={{fontSize:'12px', color:'#FFD700', marginTop:'2px'}}>
-                    ≈ {(physics.mass_kg / M_SUN).toFixed(3)} M☉
-                </div>
-            </div>
+                if (firstPoint) {
+                    ctx.moveTo(cx + x, cy - y);
+                    firstPoint = false;
+                } else {
+                    ctx.lineTo(cx + x, cy - y);
+                }
+            }
+            ctx.stroke();
 
-             <div style={{background: '#111', padding: '10px', borderLeft: `2px solid ${physics.isInverted ? '#FF4444' : '#00F0FF'}`}}>
-                <div style={{fontSize:'10px', color:'#888'}}>GEOMETRY</div>
-                <div style={{display:'flex', justifyContent:'space-between', fontSize:'12px'}}>
-                    <span>Eccentricity:</span>
-                    <span style={{color:'#fff'}}>{physics.e.toFixed(3)}</span>
-                </div>
-                 <div style={{display:'flex', justifyContent:'space-between', fontSize:'12px', marginTop:'4px'}}>
-                    <span>Norm. Q:</span>
-                    <span style={{color:'#fff'}}>{physics.Q.toFixed(3)}</span>
-                </div>
-            </div>
+            // Draw Focus (Singularity)
+            ctx.beginPath();
+            ctx.fillStyle = '#FFF';
+            ctx.arc(cx, cy, 3, 0, Math.PI*2);
+            ctx.fill();
 
-        </div>
-
-        {/* RIGHT COLUMN: CANVAS */}
-        <div style={{position:'relative', background:'#050505', border:'1px solid #222', height:'450px'}}>
-            <canvas 
-                ref={canvasRef} 
-                width={600} 
-                height={450}
-                style={{width:'100%', height:'100%', display:'block'}}
-            />
+            // Draw "Triangle" visualization (Bottom Right)
+            const tx = width - 60;
+            const ty = height - 60;
+            const scaleT = 40;
             
-            {/* Overlay Grid Lines (Visual Flair) */}
-            <div style={{
-                position:'absolute', top:'50%', left:0, right:0, height:'1px', 
-                background:'rgba(255,255,255,0.05)', pointerEvents:'none'
-            }} />
-            <div style={{
-                position:'absolute', left:'50%', top:0, bottom:0, width:'1px', 
-                background:'rgba(255,255,255,0.05)', pointerEvents:'none'
-            }} />
+            // Beta Leg (Horizontal)
+            ctx.strokeStyle = '#666'; ctx.beginPath();
+            ctx.moveTo(tx, ty); ctx.lineTo(tx + beta*scaleT, ty); ctx.stroke();
             
-            <div style={{position:'absolute', bottom: 10, left: 10, fontSize:'10px', color:'#444'}}>
-                VISUALIZATION NORMALIZED (a=1)
+            // Kappa Leg (Vertical)
+            ctx.strokeStyle = '#666'; ctx.beginPath();
+            ctx.moveTo(tx, ty); ctx.lineTo(tx, ty - kappa*scaleT); ctx.stroke();
+            
+            // Q (Hypotenuse)
+            ctx.strokeStyle = '#FF0055'; ctx.beginPath();
+            ctx.moveTo(tx + beta*scaleT, ty); ctx.lineTo(tx, ty - kappa*scaleT); ctx.stroke();
+
+        }, [kappa, beta, physics]);
+
+        return (
+            <div style={{ fontFamily: 'monospace', background: '#000', border: '1px solid #333', padding: '20px', borderRadius: '8px' }}>
+                
+                {/* HEADER */}
+                <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginBottom:'20px', borderBottom:'1px solid #333', paddingBottom:'10px'}}>
+                    <div>
+                        <h2 style={{margin:0, color:'#fff', fontSize:'20px'}}>R.O.M. <span style={{color:'#FF0055'}}>ENGINE</span></h2>
+                        <div style={{fontSize:'10px', color:'#666'}}>RELATIONAL ORBITAL MECHANICS</div>
+                    </div>
+                    <div style={{textAlign:'right'}}>
+                        <div style={{fontSize:'12px', color: physics.isOpen ? '#FF4444' : '#00F0FF'}}>
+                            {physics.isOpen ? 'UNBOUND / ESCAPE' : 'STABLE CYCLIC'}
+                        </div>
+                        <div style={{fontSize:'10px', color:'#888'}}>
+                            e = {physics.e.toFixed(4)}
+                        </div>
+                    </div>
+                </div>
+
+                {/* GRID */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '20px' }}>
+                    
+                    {/* CONTROLS */}
+                    <div style={{display:'flex', flexDirection:'column', gap:'20px'}}>
+                        
+                        {/* INPUT BLOCK 1: SHAPE */}
+                        <div style={{background:'#0a0a0a', padding:'15px', borderRadius:'4px', border:'1px solid #222'}}>
+                            <div style={{color:'#888', fontSize:'10px', marginBottom:'10px', textTransform:'uppercase'}}>Shape Determinants</div>
+                            
+                            <label style={{display:'flex', justifyContent:'space-between', color:'#ccc', fontSize:'12px'}}>
+                                <span>Grav. Potential (κ)</span>
+                                <span style={{color:'#FF0055'}}>{kappa.toFixed(3)}</span>
+                            </label>
+                            <input 
+                                type="range" min="0.5" max="3.0" step="0.01"
+                                value={kappa} onChange={(e) => setKappa(parseFloat(e.target.value))}
+                                style={{width:'100%', marginBottom:'10px'}}
+                            />
+
+                            <label style={{display:'flex', justifyContent:'space-between', color:'#ccc', fontSize:'12px'}}>
+                                <span>Ref. Velocity (β)</span>
+                                <span style={{color:'#00F0FF'}}>{beta.toFixed(3)}</span>
+                            </label>
+                            <input 
+                                type="range" min="0.5" max="3.0" step="0.01"
+                                value={beta} onChange={(e) => setBeta(parseFloat(e.target.value))}
+                                style={{width:'100%'}}
+                            />
+                            
+                            <div style={{marginTop:'10px', fontSize:'10px', color:'#555', fontStyle:'italic'}}>
+                                κ = β√2 creates Circles.
+                            </div>
+                        </div>
+
+                        {/* INPUT BLOCK 2: SCALE */}
+                        <div style={{background:'#0a0a0a', padding:'15px', borderRadius:'4px', border:'1px solid #222'}}>
+                            <div style={{color:'#888', fontSize:'10px', marginBottom:'10px', textTransform:'uppercase'}}>Physical Scale</div>
+                            
+                            <label style={{display:'flex', justifyContent:'space-between', color:'#ccc', fontSize:'12px'}}>
+                                <span>Velocity v/c</span>
+                                <span>{velocityC.toFixed(4)}</span>
+                            </label>
+                            <input 
+                                type="range" min="0.0001" max="0.1" step="0.0001"
+                                value={velocityC} onChange={(e) => setVelocityC(parseFloat(e.target.value))}
+                                style={{width:'100%', marginBottom:'10px'}}
+                            />
+
+                            <label style={{display:'block', color:'#ccc', fontSize:'12px', marginBottom:'5px'}}>Periapsis Radius (m)</label>
+                            <input 
+                                type="number" 
+                                value={rpPhys} onChange={(e) => setRpPhys(parseFloat(e.target.value))}
+                                style={{width:'100%', background:'#111', border:'1px solid #333', color:'#fff', padding:'4px'}}
+                            />
+                        </div>
+
+                        {/* OUTPUTS */}
+                        <div style={{borderLeft:'2px solid #fff', paddingLeft:'10px'}}>
+                            <div style={{fontSize:'10px', color:'#666'}}>DERIVED MASS</div>
+                            <div style={{fontSize:'16px', color:'#fff'}}>{physics.mass_kg.toExponential(3)} kg</div>
+                            <div style={{fontSize:'12px', color:'#FFD700'}}>≈ {(physics.mass_kg / M_SUN).toFixed(2)} M☉</div>
+                        </div>
+
+                    </div>
+
+                    {/* CANVAS AREA */}
+                    <div style={{position:'relative', border:'1px solid #222', borderRadius:'4px', overflow:'hidden', height:'400px'}}>
+                        <canvas ref={canvasRef} style={{width:'100%', height:'100%', display:'block'}} />
+                        
+                        <div style={{position:'absolute', bottom:10, left:10, fontSize:'10px', color:'#444'}}>
+                            NORMALIZED VIEW (a=1)
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
+        );
+    };
 
-      </div>
-    </div>
-  );
-};
-
-export default RomEngine;
+    // --- MOUNTING ---
+    const rootElement = document.getElementById('rom-engine-root');
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(<RomEngine />);
+</script>
