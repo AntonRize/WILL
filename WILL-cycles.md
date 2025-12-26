@@ -55,7 +55,7 @@ Below is the **WILL Relational Engine**. It visualizes the "Phase Space" of real
 </div>
 
 <div class="w-full max-w-7xl mx-auto pb-20 px-4">
-    <div class="border border-gray-800 rounded-xl overflow-hidden shadow-2xl bg-black">
+    <div class="w-full bg-black/50 rounded-xl">
         {% include interactive/orbital_engine.html %}
     </div>
 </div>
