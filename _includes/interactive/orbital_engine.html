@@ -3,9 +3,10 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <div id="rom-engine-root" style="width: 100%; min-height: 500px; display: flex; justify-content: center; align-items: center; background: #000;">
-    <div style="color: #666;">Initializing R.O.M. Kernel...</div>
+    <div style="color: #666; font-family: monospace;">Initializing R.O.M. Kernel...</div>
 </div>
 
+{% raw %}
 <script type="text/babel">
     // --- HOOKS ---
     const { useState, useEffect, useRef } = React;
@@ -18,7 +19,7 @@
     // --- MAIN COMPONENT ---
     const RomEngine = () => {
         // --- INPUTS ---
-        // Defaults set to Golden Ratio (Circle)
+        // Defaults set to Circular Balance (kappa = beta * sqrt(2))
         const [kappa, setKappa] = useState(1.414); // sqrt(2) approx
         const [beta, setBeta] = useState(1.000);   // Normalized beta
         const [velocityC, setVelocityC] = useState(0.01); // Real v/c for physical scale
@@ -43,7 +44,9 @@
             if (e_val < 0.001) e_val = 0;
 
             const isOpen = e_val >= 1.0;
-            const isInverted = ratio < 1.0; // "Below" the escape horizon
+            // "Inversion" logic: if kappa < beta (below escape horizon logic in some contexts)
+            // or if we simply want to visualize the flip when potential is weak.
+            const isInverted = ratio < 1.0; 
 
             // 2. Physical derived values
             // Mass derived from Vis-Viva at periapsis: v = sqrt(GM(1+e)/rp)
@@ -81,7 +84,7 @@
             ctx.fillStyle = '#050505';
             ctx.fillRect(0,0, width, height);
             
-            // Grid
+            // Grid Lines
             ctx.strokeStyle = '#111';
             ctx.lineWidth = 1;
             ctx.beginPath();
@@ -94,7 +97,7 @@
             // We map a=1 to a fixed pixel size.
             let PIXELS_per_A = Math.min(width, height) * 0.25;
             
-            if (physics.isOpen) PIXELS_per_A *= 0.6;
+            if (physics.isOpen) PIXELS_per_A *= 0.6; // Zoom out for hyperbolas
 
             ctx.beginPath();
             ctx.lineWidth = 2;
@@ -111,6 +114,7 @@
 
             // Hyperbola limits
             if (physics.isOpen) {
+                // acos(-1/e) is the asymptote
                 const limit = Math.acos(-1 / physics.e);
                 startTheta = -limit + 0.1;
                 endTheta = limit - 0.1;
@@ -132,7 +136,7 @@
                 let x = r_pix * Math.cos(theta);
                 let y = r_pix * Math.sin(theta);
 
-                // Inversion logic
+                // Inversion logic (Visual flip for negative states)
                 if (physics.isInverted) { x = -x; y = -y; }
 
                 if (firstPoint) {
@@ -166,6 +170,11 @@
             // Q (Hypotenuse)
             ctx.strokeStyle = '#FF0055'; ctx.beginPath();
             ctx.moveTo(tx + beta*scaleT, ty); ctx.lineTo(tx, ty - kappa*scaleT); ctx.stroke();
+            
+            // Labels
+            ctx.fillStyle = '#888'; ctx.font = '10px monospace';
+            ctx.fillText('β', tx + beta*scaleT/2, ty + 12);
+            ctx.fillText('κ', tx - 10, ty - kappa*scaleT/2);
 
         }, [kappa, beta, physics]);
 
@@ -189,7 +198,7 @@
                 </div>
 
                 {/* GRID */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '20px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
                     
                     {/* CONTROLS */}
                     <div style={{display:'flex', flexDirection:'column', gap:'20px'}}>
@@ -255,7 +264,7 @@
                     </div>
 
                     {/* CANVAS AREA */}
-                    <div style={{position:'relative', border:'1px solid #222', borderRadius:'4px', overflow:'hidden', height:'400px'}}>
+                    <div style={{position:'relative', border:'1px solid #222', borderRadius:'4px', overflow:'hidden', height:'400px', minWidth: '300px'}}>
                         <canvas ref={canvasRef} style={{width:'100%', height:'100%', display:'block'}} />
                         
                         <div style={{position:'absolute', bottom:10, left:10, fontSize:'10px', color:'#444'}}>
@@ -273,3 +282,4 @@
     const root = ReactDOM.createRoot(rootElement);
     root.render(<RomEngine />);
 </script>
+{% endraw %}
