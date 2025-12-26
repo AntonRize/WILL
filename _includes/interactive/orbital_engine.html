@@ -2,8 +2,8 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<div id="rom-engine-root" style="width: 100%; display: flex; justify-content: center; background: #000; min-height: 550px;">
-    <div style="color: #444; font-family: monospace; align-self: center;">Loading R.O.M. Kernel...</div>
+<div id="rom-engine-root" style="width: 100%; display: flex; justify-content: center; background: #000; min-height: 600px;">
+    <div style="color: #444; font-family: monospace; align-self: center;">Loading R.O.M. Kernel v2.1...</div>
 </div>
 
 {% raw %}
@@ -16,93 +16,70 @@
     const C = 299792458; 
 
     const RomEngine = () => {
-        // --- INPUTS ---
-        // 1. z_Qp: Observed Total Redshift at Periapsis
+        // --- INPUTS (State) ---
         const [zInput, setZInput] = useState(0.5); 
-        
-        // 2. beta_p: Transverse Velocity (v/c)
-        // We initialize it to a value that creates a stable orbit with the default z
         const [betaInput, setBetaInput] = useState(0.4);
-
-        // 3. r_p: Periapsis Radius (meters) - Logarithmic slider for better UX usually, but linear here for precision
         const [rpInput, setRpInput] = useState(1.5e11); // ~1 AU
 
         const canvasRef = useRef(null);
 
         // --- PHYSICS KERNEL ---
         const physics = useMemo(() => {
-            // STEP 1: Calculate Total Relational Shift (Q) from z_Qp
-            // Formula: Q_p = sqrt( 1 - 1/(1+z)^2 )
+            // 1. Q_p (Total Relational Shift)
             const one_plus_z = 1 + zInput;
             const Q_p = Math.sqrt(1 - (1 / (one_plus_z * one_plus_z)));
 
-            // constraint: Beta cannot differ wildly from Q in a closed system, 
-            // but strictly mathematically beta must be <= Q for kappa to be real.
+            // Validity Check: Beta_p cannot exceed Q_p physically in this geometry
             let validState = true;
-            if (betaInput >= Q_p) validState = false;
+            if (betaInput > Q_p) validState = false;
 
-            // STEP 2: Calculate Kappa (Gravitational Potential)
-            // Formula: kappa = sqrt(Q^2 - beta^2)
+            // 2. Kappa_p (Potential)
             let kappa_p = 0;
             if (validState) {
-                kappa_p = Math.sqrt(Q_p**2 - betaInput**2);
+                // kappa = sqrt(Q^2 - beta^2)
+                kappa_p = Math.sqrt(Math.max(0, Q_p**2 - betaInput**2));
             }
 
-            // STEP 3: Calculate Eccentricity (Shape)
-            // Based on the "Golden Ratio" logic: Circle when kappa^2 = 2*beta^2
+            // 3. Eccentricity (e)
+            // Golden Ratio Logic: Circle when kappa = beta * sqrt(2)
             // e = | (2*beta^2 / kappa^2) - 1 |
             let e = 0;
             let isOpen = false;
 
-            if (validState && kappa_p > 0) {
+            if (validState && kappa_p > 0.0001) {
                 const ratio = (2 * betaInput**2) / (kappa_p**2);
                 e = Math.abs(ratio - 1);
                 
-                // If kinetic energy is too high defined by kappa=beta horizon
-                if (kappa_p <= betaInput) isOpen = true; 
-                // Correction: In WILL, Escape Horizon is usually kappa = beta.
-                // Our formula for e handles this naturally (diverges or = 1).
+                // Escape condition usually at e >= 1
+                if (e >= 1.0) isOpen = true;
             } else {
-                e = 1.0; // Fallback for invalid state
+                // If invalid or kappa is 0 (pure kinetic), it's a line/escape
+                e = 1.0; 
                 isOpen = true;
             }
 
-            // STEP 4: Calculate Mass (Scale)
+            // 4. Mass (M)
             // Rs = kappa^2 * rp
             // M = (Rs * c^2) / (2G)
             const Rs = (kappa_p**2) * rpInput;
             const M = (Rs * C**2) / (2 * G);
 
-            // Auxiliary: Phase Q_tp
-            // Q_tp = sqrt(1 - Q^2)
-            const Q_tp = Math.sqrt(1 - Q_p**2);
-
-            return { 
-                z: zInput,
-                beta: betaInput,
-                r_p: rpInput,
-                Q_p, 
-                kappa_p, 
-                e, 
-                M, 
-                validState,
-                Q_tp,
-                isOpen
-            };
+            return { z: zInput, beta: betaInput, r_p: rpInput, Q_p, kappa_p, e, M, validState, isOpen };
         }, [zInput, betaInput, rpInput]);
 
-        // --- VISUALIZATION LOOP (a=1 Normalized) ---
+        // --- VISUALIZATION LOOP ---
         useEffect(() => {
             const canvas = canvasRef.current;
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
             
-            // High DPI setup
+            // DPI Fix
             const dpr = window.devicePixelRatio || 1;
             const rect = canvas.getBoundingClientRect();
             canvas.width = rect.width * dpr;
             canvas.height = rect.height * dpr;
             ctx.scale(dpr, dpr);
+            
             const w = rect.width;
             const h = rect.height;
             const cx = w / 2;
@@ -112,201 +89,196 @@
             ctx.fillStyle = '#050505';
             ctx.fillRect(0, 0, w, h);
 
-            // Draw Grid
-            ctx.strokeStyle = '#111';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(cx, 0); ctx.lineTo(cx, h);
-            ctx.moveTo(0, cy); ctx.lineTo(w, cy);
-            ctx.stroke();
+            // Grid
+            ctx.strokeStyle = '#111'; ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
 
+            // Error State
             if (!physics.validState) {
-                ctx.fillStyle = '#FF4444';
-                ctx.textAlign = 'center';
-                ctx.fillText("IMPOSSIBLE STATE: β > Q", cx, cy - 20);
+                ctx.fillStyle = '#FF4444'; ctx.textAlign = 'center'; ctx.font = '12px monospace';
+                ctx.fillText(`INVALID STATE: β_p (${physics.beta.toFixed(3)}) > Q_p (${physics.Q_p.toFixed(3)})`, cx, cy - 20);
                 return;
             }
 
-            // --- ORBIT DRAWING ---
-            // Scale: Normalization a=1 fits in 30% of screen
-            let scale = Math.min(w, h) * 0.3;
-            if (physics.e > 0.9) scale *= 0.5; // Zoom out for high eccentricity
+            // --- ORBIT DRAWING (a=1 Normalized) ---
+            let scale = Math.min(w, h) * 0.35;
+            if (physics.e > 0.9) scale *= 0.6; // Zoom out for large orbits
 
             ctx.beginPath();
             ctx.lineWidth = 2;
             
-            // Color Coding based on stability
-            if (physics.e < 0.05) ctx.strokeStyle = '#00FF88'; // Circle
-            else if (physics.e >= 1) ctx.strokeStyle = '#FF4444'; // Escape
+            if (physics.e < 0.02) ctx.strokeStyle = '#00FF88'; // Circle
+            else if (physics.isOpen) ctx.strokeStyle = '#FF4444'; // Escape
             else ctx.strokeStyle = '#00F0FF'; // Ellipse
 
-            const steps = 300;
-            // Angle limit for open orbits
+            const steps = 400;
             let limit = Math.PI;
-            if (physics.e >= 1) {
-                limit = Math.acos(-1 / physics.e) - 0.1; 
-            }
+            if (physics.isOpen) limit = Math.acos(-1 / physics.e) - 0.15; // Asymptote limit
 
             let first = true;
             for (let i = 0; i <= steps; i++) {
-                const t = (i / steps) * 2 * limit - limit; // Range -limit to +limit
-                
-                // Polar equation a=1: r = (1-e^2) / (1 + e*cos(t))
-                // Use abs(1-e^2) for hyperbola visual continuity
+                const t = (i / steps) * 2 * limit - limit;
+                // Polar: r = |1-e^2| / (1 + e*cos(t))
                 const p_norm = Math.abs(1 - physics.e**2); 
                 const r = p_norm / (1 + physics.e * Math.cos(t));
-                
                 const r_px = r * scale;
+                
                 const x = r_px * Math.cos(t);
                 const y = r_px * Math.sin(t);
 
                 if (first) { ctx.moveTo(cx + x, cy - y); first = false; }
                 else { ctx.lineTo(cx + x, cy - y); }
             }
-            if (physics.e < 1) ctx.closePath();
             ctx.stroke();
 
-            // Focus (Center)
-            ctx.fillStyle = '#FFF';
-            ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill();
+            // Focus
+            ctx.fillStyle = '#FFF'; ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2); ctx.fill();
 
-            // --- TRIANGLE VISUALIZATION (Q Components) ---
-            // Draw in bottom right corner
-            const tx = w - 80;
-            const ty = h - 50;
-            const tScale = 80; // pixels
+            // --- TRIANGLE VISUALIZATION (Bottom Right) ---
+            // Only draw if valid
+            if (physics.validState && physics.kappa_p > 0) {
+                const tx = w - 60;
+                const ty = h - 50;
+                const tScale = 100; // Bigger triangle
 
-            // Components
-            const b_px = physics.beta * tScale;
-            const k_px = physics.kappa_p * tScale;
+                const b_len = physics.beta * tScale;
+                const k_len = physics.kappa_p * tScale;
 
-            // Draw Beta (Horizontal)
-            ctx.strokeStyle = '#00F0FF'; ctx.beginPath();
-            ctx.moveTo(tx, ty); ctx.lineTo(tx + b_px, ty); ctx.stroke();
-            
-            // Draw Kappa (Vertical)
-            ctx.strokeStyle = '#FF0055'; ctx.beginPath();
-            ctx.moveTo(tx, ty); ctx.lineTo(tx, ty - k_px); ctx.stroke();
-            
-            // Draw Q (Hypotenuse)
-            ctx.strokeStyle = '#FFF'; ctx.setLineDash([2,2]); ctx.beginPath();
-            ctx.moveTo(tx + b_px, ty); ctx.lineTo(tx, ty - k_px); ctx.stroke();
-            ctx.setLineDash([]);
+                ctx.lineWidth = 2;
 
-            // Labels
-            ctx.fillStyle = '#888'; ctx.font = '10px monospace';
-            ctx.textAlign = 'center';
-            ctx.fillText('β', tx + b_px/2, ty + 12);
-            ctx.fillText('κ', tx - 10, ty - k_px/2);
-            ctx.fillStyle = '#FFF';
-            ctx.fillText('Q', tx + b_px/2, ty - k_px/2 - 5);
+                // 1. Beta Leg (Horizontal)
+                ctx.strokeStyle = '#00F0FF'; 
+                ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx + b_len, ty); ctx.stroke();
 
+                // 2. Kappa Leg (Vertical)
+                ctx.strokeStyle = '#FF0055'; 
+                ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx, ty - k_len); ctx.stroke();
+
+                // 3. Q Hypotenuse
+                ctx.strokeStyle = '#FFF'; ctx.setLineDash([4, 4]);
+                ctx.beginPath(); ctx.moveTo(tx + b_len, ty); ctx.lineTo(tx, ty - k_len); ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Labels
+                ctx.fillStyle = '#ccc'; ctx.font = '11px monospace'; ctx.textAlign = 'center';
+                ctx.fillText('β_p', tx + b_len/2, ty + 15);
+                ctx.fillText('κ_p', tx - 15, ty - k_len/2);
+                ctx.fillStyle = '#FFF';
+                ctx.fillText('Q_p', tx + b_len/2 + 5, ty - k_len/2 - 5);
+            }
 
         }, [physics]);
 
+        // Styles
+        const labelStyle = { color: '#888', fontSize: '10px', textTransform: 'uppercase', marginBottom: '4px' };
+        const valStyle = { color: '#FFF', fontFamily: 'monospace', fontSize: '14px' };
+        const inputRowStyle = { display: 'flex', flexDirection: 'column', gap: '5px', flex: 1, minWidth: '200px' };
+        const numInputStyle = { background: '#111', border: '1px solid #333', color: '#fff', padding: '4px', width: '70px', textAlign: 'right', fontSize: '12px' };
+
         return (
             <div style={{ 
-                fontFamily: 'monospace', 
+                fontFamily: "'Courier New', monospace", 
                 background: '#0a0a0a', 
                 border: '1px solid #333', 
-                padding: '20px', 
                 borderRadius: '8px',
-                color: '#ddd'
+                display: 'flex',
+                flexDirection: 'column',
+                height: '600px', // Fixed height for consistency
+                overflow: 'hidden'
             }}>
-                {/* HEADER */}
-                <div style={{display:'flex', justifyContent:'space-between', borderBottom:'1px solid #333', paddingBottom:'10px', marginBottom:'20px'}}>
+                
+                {/* --- TOP: OUTPUTS --- */}
+                <div style={{ 
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
+                    padding: '15px 20px', background: '#000', borderBottom: '1px solid #222' 
+                }}>
+                    {/* Mass Output */}
                     <div>
-                        <div style={{color:'#FF0055', fontWeight:'bold', fontSize:'18px'}}>R.O.M. <span style={{color:'#fff'}}>KERNEL</span></div>
-                        <div style={{fontSize:'10px', color:'#666'}}>RELATIONAL ORBITAL MECHANICS</div>
-                    </div>
-                    <div style={{textAlign:'right'}}>
-                        <div style={{fontSize:'12px', color: physics.e >= 1 ? '#FF4444' : '#00FF88'}}>
-                            {physics.e >= 1 ? 'OPEN TRAJECTORY' : 'CLOSED SYSTEM'}
+                        <div style={labelStyle}>Derived Mass (M)</div>
+                        <div style={{color: '#FFD700', fontSize: '16px', fontWeight: 'bold'}}>
+                            {(physics.M / M_SUN).toFixed(2)} M☉
                         </div>
-                        <div style={{fontSize:'10px'}}>e = {physics.e.toFixed(4)}</div>
+                        <div style={{fontSize: '10px', color: '#444'}}>
+                            {physics.M.toExponential(2)} kg
+                        </div>
+                    </div>
+
+                    {/* Stability Status */}
+                    <div style={{textAlign: 'right'}}>
+                        <div style={labelStyle}>Trajectory</div>
+                        <div style={{color: physics.isOpen ? '#FF4444' : '#00FF88', fontSize: '14px'}}>
+                            {physics.isOpen ? 'OPEN / ESCAPE' : 'CLOSED ORBIT'}
+                        </div>
+                        <div style={{fontSize: '11px', color: '#666'}}>e = {physics.e.toFixed(4)}</div>
                     </div>
                 </div>
 
-                {/* MAIN GRID */}
-                <div style={{display: 'grid', gridTemplateColumns: '300px 1fr', gap: '20px'}}>
-                    
-                    {/* LEFT: INPUTS & DATA */}
-                    <div style={{display:'flex', flexDirection:'column', gap:'15px'}}>
-                        
-                        {/* INPUT GROUP: RELATIONAL */}
-                        <div style={{background:'#000', border:'1px solid #222', padding:'15px'}}>
-                            <div style={{fontSize:'10px', color:'#888', marginBottom:'10px', borderBottom:'1px solid #222', paddingBottom:'5px'}}>
-                                OBSERVATIONAL INPUTS
-                            </div>
+                {/* --- MIDDLE: VISUALIZATION --- */}
+                <div style={{ flex: 1, position: 'relative', background: '#050505' }}>
+                    <canvas ref={canvasRef} style={{width: '100%', height: '100%', display: 'block'}} />
+                    <div style={{position: 'absolute', bottom: 10, left: 10, fontSize: '9px', color: '#333'}}>
+                        R.O.M. KERNEL v2.1 | NORMALIZED VIEW
+                    </div>
+                </div>
 
-                            {/* Z_QP INPUT */}
-                            <label style={{display:'flex', justifyContent:'space-between', fontSize:'12px', color:'#ccc'}}>
-                                <span>Shift (z_Qp)</span>
-                                <span style={{color:'#fff'}}>{zInput.toFixed(4)}</span>
-                            </label>
+                {/* --- BOTTOM: INPUTS --- */}
+                <div style={{ 
+                    padding: '20px', background: '#080808', borderTop: '1px solid #222',
+                    display: 'flex', flexWrap: 'wrap', gap: '30px', alignItems: 'flex-end'
+                }}>
+                    
+                    {/* INPUT 1: z_Qp */}
+                    <div style={inputRowStyle}>
+                        <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                            <span style={labelStyle}>Shift (z_Qp)</span>
+                            <span style={{color: '#FF0055', fontSize:'12px'}}>{physics.z.toFixed(4)}</span>
+                        </div>
+                        <div style={{display: 'flex', gap: '10px', alignItems: 'center'}}>
                             <input 
                                 type="range" min="0.01" max="2.0" step="0.01"
                                 value={zInput} onChange={e => setZInput(parseFloat(e.target.value))}
-                                style={{width:'100%', marginBottom:'15px', accentColor:'#fff'}}
+                                style={{flex: 1, accentColor: '#FF0055'}}
                             />
-
-                            {/* BETA INPUT */}
-                            <label style={{display:'flex', justifyContent:'space-between', fontSize:'12px', color:'#ccc'}}>
-                                <span>Velocity (β)</span>
-                                <span style={{color:'#00F0FF'}}>{betaInput.toFixed(4)}</span>
-                            </label>
                             <input 
-                                type="range" min="0.01" max={physics.Q_p ? physics.Q_p : 1} step="0.01"
-                                value={betaInput} onChange={e => setBetaInput(parseFloat(e.target.value))}
-                                style={{width:'100%', accentColor:'#00F0FF'}}
-                            />
-                            <div style={{fontSize:'9px', color:'#444', marginTop:'2px'}}>
-                                Max β determined by Q (Total Shift)
-                            </div>
-                        </div>
-
-                        {/* INPUT GROUP: PHYSICAL */}
-                        <div style={{background:'#000', border:'1px solid #222', padding:'15px'}}>
-                            <div style={{fontSize:'10px', color:'#888', marginBottom:'10px', borderBottom:'1px solid #222', paddingBottom:'5px'}}>
-                                PHYSICAL SCALE
-                            </div>
-                            <label style={{fontSize:'12px', color:'#ccc'}}>Periapsis r_p (m)</label>
-                            <input 
-                                type="number" 
-                                value={rpInput} onChange={e => setRpInput(parseFloat(e.target.value))}
-                                style={{
-                                    width:'100%', background:'#111', border:'1px solid #333', 
-                                    color:'#fff', padding:'5px', marginTop:'5px', fontFamily:'monospace'
-                                }}
+                                type="number" step="0.01" min="0"
+                                value={zInput} onChange={e => setZInput(parseFloat(e.target.value))}
+                                style={numInputStyle}
                             />
                         </div>
-
-                        {/* RESULTS */}
-                        <div style={{background:'#111', borderLeft:'3px solid #FF0055', padding:'10px'}}>
-                            <div style={{fontSize:'10px', color:'#aaa'}}>CALCULATED MASS</div>
-                            <div style={{fontSize:'16px', color:'#fff', fontWeight:'bold'}}>
-                                {physics.M.toExponential(3)} kg
-                            </div>
-                            <div style={{fontSize:'12px', color:'#FFD700'}}>
-                                ≈ {(physics.M / M_SUN).toFixed(2)} M☉
-                            </div>
-                        </div>
-
-                        {/* INTERNALS */}
-                        <div style={{fontSize:'10px', color:'#555', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'5px'}}>
-                            <div>Q (Total): <span style={{color:'#fff'}}>{physics.Q_p.toFixed(3)}</span></div>
-                            <div>κ (Pot): <span style={{color:'#FF0055'}}>{physics.kappa_p.toFixed(3)}</span></div>
-                            <div>Q_tp (Phase): {physics.Q_tp.toFixed(3)}</div>
-                        </div>
-
                     </div>
 
-                    {/* RIGHT: CANVAS */}
-                    <div style={{position:'relative', background:'#000', border:'1px solid #222', height:'400px'}}>
-                        <canvas ref={canvasRef} style={{width:'100%', height:'100%', display:'block'}} />
-                        <div style={{position:'absolute', bottom:10, left:10, fontSize:'9px', color:'#444'}}>
-                            VISUALIZATION: NORMALIZED (a=1)
+                    {/* INPUT 2: Beta_p */}
+                    <div style={inputRowStyle}>
+                        <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                            <span style={labelStyle}>Velocity (β_p)</span>
+                            <span style={{color: '#00F0FF', fontSize:'12px'}}>{physics.beta.toFixed(4)}</span>
                         </div>
+                        <div style={{display: 'flex', gap: '10px', alignItems: 'center'}}>
+                            <input 
+                                type="range" min="0.001" max={physics.Q_p || 1} step="0.001"
+                                value={betaInput} onChange={e => setBetaInput(parseFloat(e.target.value))}
+                                style={{flex: 1, accentColor: '#00F0FF'}}
+                            />
+                            <input 
+                                type="number" step="0.001" min="0"
+                                value={betaInput} onChange={e => setBetaInput(parseFloat(e.target.value))}
+                                style={numInputStyle}
+                            />
+                        </div>
+                        <div style={{fontSize: '9px', color: '#444'}}>
+                            Max Limit: Q_p ({physics.Q_p.toFixed(3)})
+                        </div>
+                    </div>
+
+                    {/* INPUT 3: r_p (Physical) */}
+                    <div style={inputRowStyle}>
+                        <span style={labelStyle}>Periapsis r_p (m)</span>
+                        <input 
+                            type="number" 
+                            value={rpInput} onChange={e => setRpInput(parseFloat(e.target.value))}
+                            style={{...numInputStyle, width: '100%', textAlign: 'left', padding: '8px'}}
+                        />
                     </div>
 
                 </div>
