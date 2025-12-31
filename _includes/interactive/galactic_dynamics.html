@@ -274,8 +274,7 @@
       console.error(err);
     }
   }
-
-  /* --- PHYSICS CORE: WILL FORMULA --- */
+/* --- PHYSICS CORE: WILL FORMULA --- */
   function seriesQWILL(galaxyName, yDisk, yBulge){
     const data = (galaxyData[galaxyName]||[]).slice().sort((a,b)=>a.Rad-b.Rad);
     const r = [], Vobs = [], Verr = [], Vbary = [], Vq = [];
@@ -290,27 +289,40 @@
       const vb = d.Vbul > 0 ? d.Vbul : 0;
 
       // 1. Baryonic Velocity
+      // vbary2 is in (km/s)^2
       const vbary2 = vg*vg + yDisk * (vd*vd) + yBulge * (vb*vb);
       const vbary  = Math.sqrt(Math.max(0, vbary2));
       
-      // 2. WILL Vacuum Screening (PI * Q^2 topology)
-      let chi = 0;
-      if (d.Rad > 0) {
-        const g_bar = (vbary * 1000)**2 / (d.Rad * KPC_TO_M);
-        chi = g_bar / A_VAC_SI; 
+      // 2. WILL Resonance Interference (NEW FORMULA)
+      // Logic: V_total^2 = V_bary^2 + sqrt( V_bary^2 * a_Mach * r )
+      let vq = 0;
+      
+      if (d.Rad > 0 && vbary2 > 0) {
+        // Convert inputs to SI units (meters, seconds) for correct geometric mean
+        const r_si = d.Rad * KPC_TO_M;          // meters
+        const v_bary_sq_si = vbary2 * 1e6;      // (m/s)^2
+        
+        // Global Work Term (Potential of the Tone)
+        const work_global = A_VAC_SI * r_si;    // (m/s)^2
+        
+        // The Interference Term (Geometric Mean of Local and Global energies)
+        const v_vac_sq_si = Math.sqrt(v_bary_sq_si * work_global);
+        
+        // Total Relational Energy
+        const v_total_sq_si = v_bary_sq_si + v_vac_sq_si;
+        
+        // Convert back to km/s
+        vq = Math.sqrt(v_total_sq_si) / 1000;
+        
       } else {
-        chi = 1e6;
+        // No interference at r=0 or if baryonic mass is zero
+        vq = vbary;
       }
       
-      // 3. WILL Prediction
-      const factor = Math.sqrt(1 + 2 * Math.exp(-chi));
-      const vq = vbary * factor;
-
       // 4. Error Handling: Physics Floor Implementation
       let obsErr = (Number.isFinite(d.Verr) && d.Verr > 0) ? d.Verr : 0;
       
       // APPLYING THE FLOOR: Max of (Observed Error, 5 km/s, 5% of Velocity)
-      // This prevents "Category Error" when comparing fundamental law vs turbulent reality.
       let sigma = Math.max(obsErr, 5.0, Math.abs(vo) * 0.05);
 
       r.push(d.Rad);
