@@ -648,7 +648,7 @@ Let the total energy $E$ be distributed on the relational carrier $S^1$ with pro
 \[
 E_Y = E \cdot \beta_Y
 \]
-By Definition~\ref{def:phase_energy}, the vertical component $E_Y$ corresponds to the invariant internal structure of the system ($E_0$). If $E_Y$ were to vary with $\beta$, the object would physically gain or lose internal structure (mass) purely due to a change in the observer's frame, violating the principle of object permanence.
+By Definition~\ref{def:phase_energy}, the vertical component $E_Y$ corresponds to the invariant internal structure of the system ($E_0$) as in relation to self frame $\beta=0 \Rightarrow \beta_Y=1$ \textbf{always}. If  $E_Y$ were to vary with $\beta$, the object would physically gain or lose internal structure (mass) purely due to a change in the observer's frame, violating the principle of object permanence.
 Thus, geometric consistency requires the vertical leg to be fixed:
 \[
 E \beta_Y = E_0 \quad \Longrightarrow \quad E = \frac{E_0}{\beta_Y}.
@@ -963,27 +963,49 @@ In general (open or elliptic) configurations, the full definition $Q^{2}=\beta^{
 
 \subsection{Principle of Relational Reciprocity}
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=3, >=Latex]
+    % --- Definitions ---
+    \def\R{1.0} % Unit Radius (The Horizon)
+    \coordinate (O) at (0,0);       % Observer Center
+    \coordinate (Obj) at (0.65, 0.45); % Object Center (Q vector end)
+    
+    % Projections of the Object center
+    \coordinate (Bx) at (0.65, 0);
+    \coordinate (Ky) at (0, 0.45);
 
-\begin{center}
-\begin{tikzpicture}[scale=3]
-% observer frame at (0,0)
-\coordinate (O) at (0,0);
-% displaced frame center (Q)
-\coordinate (Q) at (0.6,0.2); 
-% base circles
-\draw[thick] (O) circle (1);
-\draw[dashed,thick] (Q) circle (1);
-% radial vectors
-\draw[->,thick] (O) -- (0.85,0) node[below]{$\beta$};
-\draw[->,thick] (O) -- (0,0.85) node[left]{$\kappa$};
-% Q-vector
-\draw[->,thick] (O) -- (Q) node[midway,above right]{$Q$};
-% dots for centers
-\fill (O) circle (0.015);
-\fill (Q) circle (0.015);
+    % --- Axes ---
+    % Drawing axes slightly longer than radius to show context
+    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
+    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Gravitational)};
+
+    % --- Observer Frame (Blue) ---
+    % The "horizon" of the observer
+    \draw[blue, thick] (O) circle (\R);
+    \fill[blue] (O) circle (0.02) node[below left] {Obs $(0,0)$};
+
+    % --- Object Frame (Red) ---
+    % The "horizon" of the object, centered at Q
+    \draw[red, thick, dashed] (Obj) circle (\R);
+    \fill[red] (Obj) circle (0.02) node[above right] {Obj $(0 , 0)$};
+
+    % --- Vector Q ---
+    \draw[->, line width=1.5pt, black] (O) -- (Obj) node[midway, above left] {$Q$};
+
+    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
+    \draw[dotted, thick] (Obj) -- (Bx) node[below] {$\beta$};
+    \draw[dotted, thick] (Obj) -- (Ky) node[left] {$\kappa$};
+
+    % --- Annotations ---
+    % Optional: Show the Causal Lock condition physically
+    \node[blue, font=\small] at (-0.5, -0.8) {Observer's Horizon};
+    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
+
 \end{tikzpicture}
-\end{center}
-
+\caption{\textbf{Relational Self-Centering.} The displacement $Q$ is defined by the orthogonal projections $\beta$ and $\kappa$. Interaction is causal only when the center of the Object lies within the Observer's horizon ($Q < 1$), ensuring mutual coverage.}
+\label{fig:relational_displacement}
+\end{figure}
 
 \paragraph{Self--centering reciprocity.}
 Every observer performs self--centering:
@@ -1253,7 +1275,7 @@ What General Relativity posits as a postulate, WILL reveals as a corollary.}
 
 \section{Unification of Projections: The Geometric Exchange Rate}
 
-Having established that directional (kinematic) and omnidirectional (gravitational) relations are carried by the unique manifolds $S^1$ and $S^2$ respectively, we now derive the relationship that unifies them.
+Having established that directional (kinematic) and omnidirectional (gravitational) relations are carried by the $S^1$ and $S^2$ respectively, we now derive the relationship that unifies them.
 
 \begin{figure}
     \centering
@@ -1262,7 +1284,7 @@ Having established that directional (kinematic) and omnidirectional (gravitation
 
 \subsection{Derivation of the Energetic Closure Condition}
 
-The Principle of a unified relational resource (Energy) requires a self-consistent "exchange rate" between its different modes of expression. The closed system must partition its total transformation resource into all available modes. If we have a 2D carrier and a 1D carrier, the resource budget must be \textit{shared} in proportion to their capacity to host transformations. The simplest symmetric partition is linear in the number of independent directions. but is dictated by the intrinsic geometry of the relations themselves:
+The Principle of a unified relational resource (Energy) requires a self-consistent "exchange rate" between its different modes of expression. The closed system must partition its total transformation resource into all available modes. If we have a 2D carrier and a 1D carrier, the resource budget must be \textit{shared} in proportion to their transformational degrees of freedom (D.O.F.). The partition is dictated by the intrinsic geometry of the relations themselves:
 
 \begin{remark}[From slice to whole $S^2$]
 Although we parametrise a single meridional great circle $(\kappa_X,\kappa)$ for algebraic convenience, the energetic quantity $\kappa^2$ in Theorem~\ref{thm:closure} refers to the \emph{total} $S^2$ budget, not to the single slice. The factor of $2$ precisely accounts for reconstructing the full sphere from one great circle.
@@ -1271,8 +1293,8 @@ Although we parametrise a single meridional great circle $(\kappa_X,\kappa)$ for
 
 \begin{theorem}[Energetic Closure Condition]
 \label{thm:closure}
-Since energy is quadratic in its relational amplitudes, the unique quadratic balance between
-directional ($S^1$) and omnidirectional ($S^2$) resource distributions compatible with closure is
+Since energy closure for relational caries is quadratic
+(\textbf{amplitude squared} ($\beta, \kappa)^2$\textbf{ +} \textbf{phase squared} ($\beta_Y, \kappa_X)^2=  1$) in its relational projections, the unique quadratic balance between directional ($S^1$) and omnidirectional ($S^2$) resource distributions compatible with closure is
 \[
 \boxed{\kappa^2 = 2\beta^2.}
 \]
@@ -1284,7 +1306,7 @@ The relational resource (Energy) must be conserved and interchangeable between i
 
 At this foundational (pre-geometric) level, we have established (Theorem~\ref{thm:carriers}) that these carriers are topologically distinct, possessing 1 and 2 degrees of freedom, respectively.
 Crucially, since the relational resource is unitary and invariant, and its measure is quadratic (via projections $\beta^2, \kappa^2$), the scaling of the total capacity is determined strictly by the count of independent geometric dimensions. This is not a distribution of parts, but a scaling of the measure itself:
-$$ \mathcal{R} = \frac{\text{d.o.f.}(S^2)}{\text{d.o.f.}(S^1)} = \frac{2}{1} = 2. $$
+$$ \mathcal{R} = \frac{\text{D.O.F.}(S^2)}{\text{D.O.F.}(S^1)} = \frac{2}{1} = 2. $$
 Furthermore, we have established that the only conserved, invariant "currency" for these carriers is their \textbf{quadratic} form ($\beta^2, \kappa^2$), as this is the only form that satisfies their intrinsic closure identity (e.g., $\beta^2+\beta_Y^2=1$).
 
 To find the Energetic Closure Condition, we simply equate the two "currencies" using this necessary "exchange rate." This dictates that the omnidirectional (2D) budget must be balanced by twice the directional (1D) budget:

@@ -245,7 +245,7 @@ Dividing both sides by $2e$ and multiplying by $(1+e)^2$:
 \[
 \kappa_p^2 (1+e) = 2\beta_p^2.
 \]
-This yields the fundamental geometric identity for bound orbits:
+This yields geometric identity for bound orbits:
 \begin{equation}
 2\beta_p^2 = \kappa_p^2 (1+e).
 \label{eq:proj-balance}
@@ -271,6 +271,11 @@ e = \frac{1}{\delta_p^2} - 1
 \begin{remark}
 This result confirms that eccentricity is strictly a measure of the energetic deviation from the circular equilibrium state ($\delta =1$), derived entirely from the conservation of relational projections without invoking mass or Newtonian forces. 
 \end{remark}
+\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=SUMMARY]
+$$e \equiv \frac{1}{\delta_p^2} - 1$$
+$$\text{ECCENTRICITY} \equiv \text{CLOSURE DEFECT}$$
+$$\text{SPACETIME} \equiv \text{ENERGY}$$
+\end{tcolorbox}
 
 \subsection{Path 1: Verification on Mercury (Pure Optical Inputs)}
 
@@ -927,9 +932,9 @@ Multiplying by $r^2$ yields Eq.~\eqref{eq:will_field}.
 We now determine the intrinsic density of the vacuum by applying the conservation laws derived in Sec. 4 to the Universe as a whole.
 
 \begin{theorem}[Vacuum Energy Partition]
-In a globally closed relational system in equilibrium, the effective vacuum energy density $\rho_{\Lambda}$ is geometrically constrained to exactly two-thirds of the saturation limit $\rho_{\max}$.
+In a globally closed relational system in equilibrium, the effective vacuum energy density $\rho_{\Lambda}$ is geometrically constrained to exactly two-thirds ($\Omega_{pot}=2/3$) of the saturation limit $\rho_{\max}$.
 \[
-\rho_{\Lambda}(r) = \frac{2}{3}\rho_{\max}(r).
+\rho_{\Lambda}(r) =\Omega_{pot} \rho_{\max}(r)=\frac{2}{3}\rho_{\max}(r).
 \]
 \end{theorem}
 
@@ -949,17 +954,17 @@ According to the Energetic Closure Theorem, a stable, closed system must satisfy
 \]
 
 3. \textbf{The Structural Share.}
-To find the fraction of the total resource allocated strictly to the structural (potential) sector, we substitute the closure condition into the total budget equation:
+To find the fraction of the total resource allocated strictly to the structural (potential) sector ($\Omega_{pot}$), we substitute the closure condition into the total budget equation:
 \[
-\frac{\kappa^2}{Q^2} = \frac{\kappa^2}{\kappa^2 + \beta^2} = \frac{2\beta^2}{2\beta^2 + \beta^2} = \frac{2}{3}.
+\Omega_{pot}=\frac{\kappa^2}{Q^2} = \frac{\kappa^2}{\kappa^2 + \beta^2} = \frac{2\beta^2}{2\beta^2 + \beta^2} = \frac{2}{3}.
 \]
 
 4. \textbf{Density Mapping.}
-Since the local energy density $\rho$ is linearly proportional to the squared projection $\kappa^2$ (via the Unified Field Equation), the density of the vacuum $\rho_{\Lambda}$ must represent the same $2/3$ proportion of the maximal density $\rho_{\max}$.
+Since the local energy density $\rho$ is linearly proportional to the squared projection $\kappa^2$ (via the Unified Field Equation), the density of the vacuum $\rho_{\Lambda}$ must represent the same $\Omega_{pot}=2/3$ proportion of the maximal density $\rho_{\max}$.
 
 Thus,
 \[
-\rho_{\Lambda}(r) = \frac{2}{3}\rho_{\max}(r) = \frac{2}{3}\frac{c^2}{8\pi G r^2}= \frac{c^2}{12\pi G r^2}.
+\rho_{\Lambda}(r) = \Omega_{pot}\rho_{\max}(r) = \frac{2}{3}\frac{c^2}{8\pi G r^2}= \frac{c^2}{12\pi G r^2}.
 \]
 \end{proof}
 
@@ -1007,13 +1012,13 @@ T^{(\mathrm{vac})}_{\mu\nu} \;\hat{=}\; -\,\rho_{\Lambda}(r)\,c^{2}\, g_{\mu\nu}
 
 Substituting this into the Einstein equations yields an effective, radially dependent cosmological term:
 \begin{equation}
-\Lambda(r) = \frac{8\pi G}{c^4} (\rho_{\Lambda} c^2) = \frac{8\pi G}{c^2} \left( \frac{2}{3} \frac{c^2}{8\pi G r^2} \right) = \frac{2}{3r^2}.
+\Lambda(r) = \frac{8\pi G}{c^4} (\rho_{\Lambda} c^2) = \frac{8\pi G}{c^2} \left(  \frac{\Omega_{pot}c^2}{8\pi G r^2} \right) =\frac{\Omega_{pot}}{r^2}= \frac{2}{3r^2}.
 \end{equation}
 
 \begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Summary]
 In RG, the cosmological constant is not an arbitrary parameter but an emergent property of geometric normalization:
 \[
-\boxed{\Lambda(r) = \dfrac{2}{3r^{2}}.}
+\boxed{\Lambda(r) = \dfrac{\Omega_{pot}}{r^{2}}=\dfrac{2}{3r^{2}}.}
 \]
 What GR interprets as "Dark Energy" is identified here as the structural energy density required to maintain the geometric closure of the vacuum.
 \end{tcolorbox}

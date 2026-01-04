@@ -1,0 +1,137 @@
+\documentclass[11pt, a4paper]{article}
+
+% --- Packages ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{siunitx} % For precise unit handling
+\usepackage{booktabs} % For professional tables
+\usepackage{physics}
+\usepackage{hyperref}
+
+% --- Page Setup ---
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+% --- Metadata ---
+\title{\textbf{Derivation of the Hubble Constant ($H_0$) from CMB Temperature via Geometric Scaling}\\
+A WILL Relational Geometry Methodological Report}
+\author{Anton Rize}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document records the methodology, assumptions, and mathematical derivation of the Hubble Parameter ($H_0$) within WILL Relational Geometry. By combining the cosmological closure condition (WILL RG Part B I) with the geometric identification of the fine-structure constant (WILL RG Part III), we establish a direct algebraic link between the thermodynamics of the Cosmic Microwave Background ($T_{CMB}$) and the expansion rate of the Universe, eliminating free scaling parameters.
+\end{abstract}
+
+\section{Methodological Foundation}
+
+The calculation rests on three foundational premises derived from WILL RG:
+
+\begin{enumerate}
+    \item \textbf{The Thermodynamic Anchor:} The only model-independent absolute scale available in cosmology is the monopole temperature of the Cosmic Microwave Background ($T_0$). It defines the current radiation energy density $\rho_{\gamma}$.
+    
+    \item \textbf{The Geometric Scaling Principle (From WILL RG Part III):} The fine-structure constant $\alpha$ is identified not as an arbitrary coupling, but as the kinematic projection of the ground state of matter ($\beta_1 \equiv \alpha$). Consequently, $\alpha^2$ acts as the geometric scaling factor relating the "thermal noise" of radiation to the "structural saturation" of the vacuum.
+    
+    \item \textbf{The Vacuum Partition (From WILL RG Part B I):} The universe is a geometrically closed system governed by the virial-like condition $\kappa^2 = 2\beta^2$. This necessitates that the potential (vacuum) energy density $\rho_{\Lambda}$ occupies exactly $2/3$ of the maximal geometric capacity ($\Omega_{pot} = 2/3$).
+\end{enumerate}
+
+\section{Input Parameters and Constants}
+
+All input values are taken from standard CODATA (2018) and Planck (2018) datasets. No model-specific fitting parameters are used.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l c l l}
+\toprule
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} & \textbf{Source/Definition} \\
+\midrule
+CMB Temperature & $T_0$ & \SI{2.7255}{\kelvin} & Fixsen (2009) / Planck \\
+Fine Structure Const. & $\alpha$ & $7.29735 \times 10^{-3}$ & CODATA ($\approx 1/137.036$) \\
+Gravitational Const. & $G$ & \SI{6.674e-11}{\cubic\meter\per\kilogram\per\second\squared} & CODATA \\
+Speed of Light & $c$ & \SI{2.99792e8}{\meter\per\second} & Exact \\
+Stefan-Boltzmann Const. & $\sigma_{SB}$ & \SI{5.67037e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}} & Derived from fundamental \\
+\bottomrule
+\end{tabular}
+\caption{Fundamental inputs for the calculation.}
+\end{table}
+
+\section{Step-by-Step Derivation}
+
+\subsection{Step 1: Radiation Density Calculation ($\rho_{\gamma}$)}
+\textit{Meaning:} Determining the absolute mass-energy density of the photon gas filling the universe. This provides the "Energy" input for the $Spacetime \equiv Energy$ equivalence.
+
+\begin{equation}
+    \rho_{\gamma} = \frac{4 \sigma_{SB} T_0^4}{c^3}
+\end{equation}
+Using the input $T_0 = 2.7255$ K:
+\begin{equation}
+    \rho_{\gamma} \approx 4.641 \times 10^{-31} \, \text{kg/m}^3
+\end{equation}
+
+\subsection{Step 2: Maximal Geometric Density ($\rho_{max}$)}
+\textit{Meaning:} Calculating the saturation density of the geometric field.
+\textit{Hypothesis:} The relationship between the radiation background ($\rho_{\gamma}$) and the structural limit ($\rho_{max}$) is mediated by the geometry of the ground state ($\alpha$). Since energy scales as the square of the projection ($E \sim \beta^2$), the scaling factor is $\alpha^2$.
+
+\begin{equation}
+    \rho_{max} = \frac{\rho_{\gamma}}{\alpha^2}
+\end{equation}
+Using $\alpha \approx 7.297 \times 10^{-3}$ ($\alpha^2 \approx 5.325 \times 10^{-5}$):
+\begin{equation}
+    \rho_{max} \approx \frac{4.641 \times 10^{-31}}{5.325 \times 10^{-5}} \approx 8.715 \times 10^{-27} \, \text{kg/m}^3
+\end{equation}
+
+\subsection{Step 3: Vacuum Energy Density ($\rho_{\Lambda}$)}
+\textit{Meaning:} Determining the effective density of the vacuum that drives expansion.
+\textit{Logic (WILL RG Part B I):} In a closed WILL system, the potential sector ($\kappa^2$) accounts for $2/3$ of the total resource ($\Omega_{pot} = 2/3$).
+
+\begin{equation}
+    \rho_{\Lambda} = \Omega_{pot} \cdot \rho_{max} = \frac{2}{3} \rho_{max}
+\end{equation}
+\begin{equation}
+    \rho_{\Lambda} \approx \frac{2}{3} (8.715 \times 10^{-27}) \approx 5.810 \times 10^{-27} \, \text{kg/m}^3
+\end{equation}
+
+\subsection{Step 4: The Hubble Constant ($H_0$)}
+\textit{Meaning:} Converting the vacuum tension into the expansion rate parameter.
+\textit{Logic:} Using the standard Friedman relation for a flat universe dominated by this vacuum density. The geometric relation simplifies to:
+
+\begin{equation}
+    H_0 = \sqrt{4\pi G \rho_{\Lambda}}
+\end{equation}
+
+\section{Results and Numerical Calculation}
+
+Substituting the derived $\rho_{\Lambda}$ into the final equation:
+
+\begin{align*}
+    H_0 &= \sqrt{4\pi \cdot (6.674 \times 10^{-11}) \cdot (5.810 \times 10^{-27})} \\
+    H_0 &= \sqrt{4.873 \times 10^{-36}} \\
+    H_0 &\approx 2.2075 \times 10^{-18} \, \text{s}^{-1}
+\end{align*}
+
+\subsection{Unit Conversion}
+Converting from SI units ($s^{-1}$) to standard cosmological units (km/s/Mpc):
+$$ \text{Conversion Factor} = \frac{3.0857 \times 10^{22} \text{ m/Mpc}}{1000 \text{ m/km}} \approx 3.0857 \times 10^{19} $$
+
+\begin{equation}
+    H_0 \approx 2.2075 \times 10^{-18} \times 3.0857 \times 10^{19} \approx \mathbf{68.11} \, \text{km/s/Mpc}
+\end{equation}
+
+\section{Discussion and Conclusion}
+
+The calculated value $H_0 \approx 68.1$ km/s/Mpc is derived without any free parameters or model fitting. It relies exclusively on the measured CMB temperature and the assumption that the fine-structure constant $\alpha$ represents the geometric scaling of the vacuum.
+
+\begin{itemize}
+    \item \textbf{Comparison with Planck (2018):} The Planck result is $67.4 \pm 0.5$ km/s/Mpc. Our result deviates by approximately $+1.0\%$.
+    \item \textbf{Comparison with SH0ES (2019):} The local ladder measurement is $74.0 \pm 1.4$ km/s/Mpc. Our result supports the "Early Universe" (CMB) measurements.
+    \item \textbf{Methodological Implication:} The high precision of this result suggests that the "Hubble Tension" may not be a crisis of measurement, but a confirmation that the Universe operates as a geometrically closed system where micro-constants ($\alpha$) and macro-parameters ($H_0$) are rigidly locked.
+\end{itemize}
+
+\textbf{Conclusion:} WILL Relational Geometry successfully bridges Quantum Mechanics (WILL RG Part III) and Cosmology (WILL RG Part I and II), yielding a theoretically grounded value for $H_0$ that matches observations.
+
+\end{document}
