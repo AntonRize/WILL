@@ -1,0 +1,162 @@
+<script>
+/**
+ * WILL Relational Geometry Engine (v1.0)
+ * -----------------------------------------------------------
+ * Core logic for calculating Effective Nuclear Charge (Z_eff)
+ * based on Geometric Phase Space principles (WILL RG).
+ *
+ * Scope: s-block and p-block elements (Periods 2-4)
+ */
+
+function calculateWILL(Z, electronConfig) {
+
+    // --- 1. CONSTANTS (The Axioms) ---
+    const WILL_CONSTANTS = {
+        // Orthogonal Projection Tax: 1 - cos(45deg)
+        DELTA_Z: 1 - 1 / Math.sqrt(2),
+
+        // Volumetric Factor: sqrt(1.5)
+        GAMMA_3D: Math.sqrt(1.5)
+    };
+
+    // Derived Constant: Max screening of a closed pair
+    WILL_CONSTANTS.SIGMA_PAIR = 2 - WILL_CONSTANTS.DELTA_Z;
+
+
+    // --- 2. GEOMETRIC HELPER FUNCTIONS ---
+
+    /**
+     * Calculates the eccentricity of an orbit.
+     * Formula: e = sqrt(1 - (k/n)^2)
+     */
+    function getEccentricity(n, type) {
+        // ROM Azimuthal mapping: s=1, p=2
+        const k = (type === 's') ? 1 : 2;
+        // Safety check to prevent NaN if n < k (physically impossible but good for code safety)
+        if (k > n) return 0; 
+        return Math.sqrt(1 - Math.pow(k / n, 2));
+    }
+
+    /**
+     * Calculates the Topology Tax for the active p-shell.
+     * Logic:
+     * - Base: Linear chain connections (N-1).
+     * - Volume: Electrons 4, 5, 6 create volumetric tension.
+     */
+    function getTopologyTax(p_count) {
+        if (p_count <= 0) return 0;
+        
+        // Base Linear Links
+        const baseLinks = p_count - 1; 
+
+        // Volumetric Expansion (Applies to 4th, 5th, 6th electron)
+        // Max 2 links can be volumetric in a p-shell
+        const volumetricLinks = Math.min(2, Math.max(0, p_count - 3));
+        const volCost = WILL_CONSTANTS.GAMMA_3D - 1;
+
+        // Total Tax Units * Delta_Z
+        const totalUnits = baseLinks + (volumetricLinks * volCost);
+        return totalUnits * WILL_CONSTANTS.DELTA_Z;
+    }
+
+
+    // --- 3. PARSE CONFIGURATION ---
+
+    // Find Valence Shell (Max N)
+    let maxN = 0;
+    electronConfig.forEach(orbital => {
+        if (orbital.n > maxN) maxN = orbital.n;
+    });
+
+    let coreElectrons = 0;
+    let coreSubshells = 0;
+    let valenceS = 0;
+    let valenceP = 0;
+    
+    // Sort electrons into Core (passive) and Valence (active)
+    electronConfig.forEach(orbital => {
+        if (orbital.n < maxN) {
+            // Core
+            coreElectrons += orbital.count;
+            // Each filled subshell in core counts as a manifold
+            // We approximate this by counting the entry itself
+            coreSubshells++; 
+        } else {
+            // Active Shell
+            if (orbital.type === 's') valenceS += orbital.count;
+            if (orbital.type === 'p') valenceP += orbital.count;
+        }
+    });
+
+
+    // --- 4. CALCULATION PIPELINE ---
+
+    // A. Core Screening
+    // The core is not a perfect shield; it has geometric gaps.
+    const screenCore = coreElectrons - (coreSubshells * WILL_CONSTANTS.DELTA_Z);
+
+    // B. Leakage Screening (s-electron interaction)
+    // The s-pair screens the p-neighbors, but this screening degrades 
+    // based on the eccentricity of the s-orbit.
+    let screenLeakage = 0;
+    let s_eccentricity = 0;
+
+    if (valenceS === 2 && valenceP > 0) {
+        // 1. Get shape of the s-needle
+        s_eccentricity = getEccentricity(maxN, 's');
+        
+        // 2. Degradation Power Law
+        // First 2 p-electrons are fully screened. 
+        // 3rd and 4th see "holes" in the screen.
+        const degradationPower = Math.max(0, valenceP - 2);
+        
+        // 3. Calculate Leakage
+        screenLeakage = WILL_CONSTANTS.SIGMA_PAIR * Math.pow(s_eccentricity, degradationPower);
+    } else if (valenceS === 2 && valenceP === 0) {
+        // Special case: s-block full pair (Mg, Be)
+        // Self-screening factor for the pair itself
+        screenLeakage = WILL_CONSTANTS.SIGMA_PAIR; 
+    } else if (valenceS === 1 && valenceP === 0) {
+        // Special case: s-block single (Li, Na)
+        screenLeakage = 0;
+    }
+
+    // C. Topology Tax
+    // Energy cost for p-electrons organizing into geometry
+    const taxTopology = getTopologyTax(valenceP);
+
+
+    // --- 5. FINAL RESULT ---
+
+    // Z_eff = Z - (Shielding) - (Geometry Costs)
+    const zEff = Z - screenCore - screenLeakage - taxTopology;
+
+
+    // --- 6. OUTPUT GENERATION ---
+
+    return {
+        effectiveCharge: parseFloat(zEff.toFixed(4)),
+        
+        screeningBreakdown: {
+            total: parseFloat((screenCore + screenLeakage).toFixed(4)),
+            core: parseFloat(screenCore.toFixed(4)),
+            leakage: parseFloat(screenLeakage.toFixed(4))
+        },
+        
+        geometry: {
+            n: maxN,
+            s_eccentricity: parseFloat(s_eccentricity.toFixed(5)),
+            p_topology_tax: parseFloat(taxTopology.toFixed(4)),
+            valence_p_count: valenceP
+        },
+        
+        details: `Analysis for Z=${Z} (Shell n=${maxN}):\n` +
+                 `--------------------------------\n` +
+                 `1. Core Screening: ${coreElectrons}e - (${coreSubshells} manifolds * Δz) = ${screenCore.toFixed(3)}\n` +
+                 `2. s-Leakage: Shape(ε=${s_eccentricity.toFixed(3)}) ^ Power(${Math.max(0, valenceP - 2)}) = ${screenLeakage.toFixed(3)}\n` +
+                 `3. Topology Tax: ${valenceP} p-electrons (${valenceP > 3 ? 'Volumetric' : 'Linear'}) = ${taxTopology.toFixed(3)}\n` +
+                 `--------------------------------\n` +
+                 `Formula: ${Z} - ${screenCore.toFixed(3)} - ${screenLeakage.toFixed(3)} - ${taxTopology.toFixed(3)}`
+    };
+}
+</script>

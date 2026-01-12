@@ -1,0 +1,237 @@
+
+	1. Input data: any parameter could serve as an input. The system is closed. For this example we using: κ (potential at semi-major axis a) and δ (closure factor at perihelion, determining the shape).
+	2. Eccentricity: Calculated directly from δ.
+	3. Perihelion: Calculated through geometric scaling from a to r_p.
+	4. Phase: Calculated through energy conservation (invariant W).
+
+if you change δ, you will see how the orbit shape (e_c) changes, the values at perihelion (κ_p, β_p) change, but the average scale κ (anchored to a) remains a stable anchor of the system.
+
+desmos:
+
+m_{0}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}=2\rho\frac{4\cdot\pi\cdot a^{3}}{3}+\rho\frac{4\cdot\pi\cdot a^{3}}{3}= input mass parameter, 
+
+o= input orbital phase
+
+\delta=\frac{\kappa_{p}}{\beta_{p}\sqrt{2}}=\frac{1}{\sqrt{1+e_{c}}} input closure factor (determines eccentricity, usualy messuerd at r_p)
+
+\delta_{apo}=\frac{1}{\sqrt{1-e_{c}}}  closure factor at appocenter
+
+e_{c}=\frac{1}{\delta^{2}}-1 input Eccentricity derived from closure
+
+e_{cY}=\sqrt{1-e_{c}^{2}}    Eccentricity's orthoganal value
+
+e_X = \frac{1+e_c}{1-e_c}  Shape factor
+
+R_{s}=\kappa^{2}a=\frac{2Gm_{0}}{c^{2}} Schwarzschild Radius (System Scale)
+
+\kappa=\sqrt{\frac{R_{s}}{a}}=\sqrt{\kappa_{p}^{2}\cdot\left(1-e_{c}\right)} Global Potential Projection (at semi-major axis)
+
+a=\frac{R_{s}}{\kappa^{2}}=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e_{c}^{2}}}{\sqrt{1+e_{c}^{2}+2e_{c}\cos o}} Semi-major axis
+
+\beta=\frac{\kappa}{\sqrt{2}}=\beta_{p}\cdot\sqrt{\frac{1-e_{c}}{1+e_{c}}}=\sqrt{\frac{\beta_{p}^{2}}{\frac{1+e_{c}}{1-e_{c}}}} Global Kinetic Projection (Virial equivalent)
+
+----- CONSTANTS (Fixed for the orbit) -----
+
+r_{p}=a\left(1-e_{c}\right) Radius at perihelion
+
+\kappa_{p}=\kappa\sqrt{\frac{1}{1-e_{c}}}=Q_{p}\cdot\sqrt{\frac{2}{3+e_{c}}} input Potential at perihelion (Correct scaling)
+
+\beta_{p}=\frac{V_{p}}{c}=\frac{\kappa_{p}}{\delta\sqrt{2}}=\sqrt{\kappa_{p}^{2}\cdot\frac{1+e_{c}}{2}} input Kinetic at perihelion (From definition of delta or from Dopler)
+
+W=\frac{1}{2}\left(\kappa_{p}^{2}-\beta_{p}^{2}\right) Energy Invariant (binding energy constant for entire orbit)
+
+\Delta\phi_{WILL}=\frac{3\pi}{2}\frac{\kappa_{p}^{4}}{\beta_{p}^{2}} Precession per orbit (Calculated at Perihelion)
+
+h_{W}=a \cdot \beta c \cdot e_{cY} - angular momentum
+
+\omega=\frac{\beta\cdot c}{a} - angular freq
+
+T=\frac{2\pi}{\omega} - orbital period
+
+Q_{p}=\sqrt{\kappa_{p}^{2}+\beta_{p}^{2}}
+
+\omega_{theta}\left(\theta\right)=\frac{\beta\cdot c}{a}\cdot\frac{\left(1+e_{c}\cdot\cos\left(\theta\right)\right)^{2}}{\left(1-e_{c}^{2}\right)^{\frac{3}{2}}} angular freq for time integration
+
+\Delta_{t1}=\int_{0}^{o}\frac{1}{\omega_{theta}\left(\theta\right)}d\theta time duration of given phase interval 
+
+\beta_{a}=\sqrt{\beta_{p}^{2}\cdot e_{XA}^{2}}=\beta\cdot\sqrt{e_{XA}}
+
+\kappa_{a}=\sqrt{2\cdot W+\beta_{a}^{2}}
+
+----- PHASE VARIABLES (Depend on o) -----
+
+r=r_o=a\frac{1-e_{c}^{2}}{1+e_{c}\cos\left(o\right)}=\frac{R_s}{\kappa_o^2} Radial distance at phase o
+
+\kappa_{o}=\sqrt{\frac{R_{s}}{r}}=\kappa_{p}\sqrt{\frac{1+e_{c}\cos\left(o\right)}{1+e_{c}}} Local potential at phase o
+
+\beta_{o}=\sqrt{\kappa_{o}^{2}-2W} Local kinetic (Derived from Energy Invariant)
+
+\delta_{o}=\sqrt{\frac{1+e_{c}\cdot\cos\left(o\right)}{1+e_{c}^{2}+2\cdot e_{c}\cdot\cos\left(o\right)}}=\frac{\kappa_{o}}{\beta_{o}\sqrt{2}} Local closure factor at phase o
+
+Q_{o}=\sqrt{\kappa_{o}^{2}+\beta_{o}^{2}} Local displacement vector at phase o
+
+\omega_o=a\beta c\frac{e_{cY}}{r_{o}^{2}}=\frac{\beta c}{a}\frac{e_{cY}}{\eta_{o}^{2}}=\frac{\beta c}{a}\frac{(1+e_{c}\cos(o))^{2}}{(1-e_{c}^{2})^{3/2}} - angular speed
+
+\eta_{o}=\frac{r}{a}                        phase scale amplitude
+
+t_o= \frac{r}{c}                          temporal scale of the system (on a given phase)    
+
+----- RELATIONAL GEOMETRY (WILL) -----
+
+\theta_{1}=\arccos(\beta)          non physical. distribution angle on S^1
+
+\theta_{2}=\arcsin(\kappa)         non physical. distribution angle on S^2
+
+\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2} \quad \text{(Relativistic phase factor)}
+
+\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2} \quad \text{(Gravitational phase factor)}
+
+\beta_{Yo} =  \sqrt{1 - \beta_o{^2}}  -  (Relativistic phase factor)  at phase o
+
+\kappa_{Xo} = \sqrt{1 - \kappa_o{^2}} - (Gravitational phase factor)  at phase o
+
+\tau_{W}=\kappa_{X}\beta_{Y}                      relational  spacetime factor
+
+\tau_{Wo}=\kappa_{Xo}\beta_{Yo}                    phase spacetime factor
+
+Q=\sqrt{\kappa^{2}+\beta^{2}}                       relational displacement vector
+
+\Delta_{Q}=Q_{o}^{2}-Q^{2}                        phase relational displacement amplitude
+
+O_{o}=\arccos(1-\delta^{-2})=\arccos(-e_c)         the balance point in rad                     
+
+t = \frac{a}{c}                         temporal scale of the system (as a phase period)                                
+
+z=\frac{1}{\kappa_{X}}-1           redshift
+
+z_o=\frac{1}{\kappa_{Xo}}-1   redshift at phase o
+
+----- Additional Parameters (RG) -----
+
+F_{l}=\kappa_{X}^{2}    energy flux
+
+H=\frac{\kappa^{2}\cdot c}{R_{s}}=\frac{c}{a}=\frac{1}{t}    frequancy, scale dependant Hubble like parameter       
+
+\rho = \frac{\kappa^2 c^2}{8\pi G a^2} = \kappa^2 \cdot \rho_{max}    \text{(Vacuum density} 
+
+\rho_{max} = \frac{c^2}{8\pi G a^2} \quad \text{(Critical density where $\kappa=1$ event horizon)} 
+
+\Lambda=\frac{2}{3a^2}                              "Dark Energy" as scale dependant relational tension
+
+\Lambda_{rho}=\frac{c^{2}}{12\pi Ga^{2}}=\frac{\rho}{Q^2}      "Dark Energy" density
+
+\frac{\rho}{\Lambda_{rho}}=Q^2        physical meaning behind the relational displacement vector Q
+
+P(a) = - \frac{c^2}{8\pi G} \cdot \frac{1}{a} \cdot \frac{d\kappa^2}{da} \quad \text{(Pressure)}
+
+\frac{R_s}{a} = \frac{\rho}{\rho_{max}} = \kappa^2  Geometric field equation
+
+\frac{m_{P}}{m_{0}}\ \frac{2l_{P}}{a}=\kappa^2   Planck scale connection
+
+
+W_{ILL} = \frac{E \cdot T}{M \cdot L} = \frac{\frac{1}{\kappa_{X}} E_0 \kappa_{X} t^2_{d}}{\frac{1}{\beta_{Y}} m_0\beta_{Y} a^2_{d}} = \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1      
+                                                                            WILL invariant. Not a unit of something, but Unity of Everything 
+                                                                                    (can be written through phase parameters as well)
+
+
+
+
+
+
+
+ "DARK MATTER" ELIMINATOR
+
+
+
+
+
+Galactic rotation curves:
+
+\beta_{Q}=\sqrt{\beta^{2}+\sqrt{\frac{\beta^{2}a}{3\pi R_{H}}}}
+
+V_{bary}=\sqrt{V_{gas}^{2}+Y_{disk}V_{disk}^{2}+Y_{bulge}V_{bulge}^{2}}
+
+Y_{disk}=0.5
+
+Y_{bulge}=0.7
+
+\frac{V_{bary}}{c}=\beta
+
+\frac{c}{H_{0}}=R_{H}
+
+
+
+
+
+
+
+
+\section{Model Definition}
+
+\subsection{Velocity Prediction}
+
+The predicted circular velocity is given by:
+
+\begin{equation}
+V_{Q} = \sqrt{v_{\text{bar}}^2 + \sqrt{v_{\text{bar}}^2 \cdot a_{\text{Mach}} \cdot r}}
+\end{equation}
+
+where $v_{\text{bar}}$ is the baryonic circular velocity and $r$ is the radial distance.
+
+\subsection{Characteristic Acceleration Scale}
+
+The Mach-scale acceleration is defined as:
+
+\begin{equation}
+a_{\text{Mach}} = \frac{c H_0}{3\pi}
+\end{equation}
+
+where the Hubble parameter $H_0$ is derived from the cosmological energy density:
+
+\begin{equation}
+H_0 = \sqrt{4\pi G \rho_{\Lambda}}
+\end{equation}
+
+\subsection{Energy Density Hierarchy}
+
+The vacuum energy density is related to the maximum energy density through a potential fraction:
+
+\begin{equation}
+\rho_{\Lambda} = \Omega_{\text{pot}} \cdot \rho_{\text{max}} = \frac{2}{3} \rho_{\text{max}}
+\end{equation}
+
+The maximum energy density is scaled from the CMB photon energy density:
+
+\begin{equation}
+\rho_{\text{max}} = \frac{\rho_{\gamma}}{\alpha^2}
+\end{equation}
+
+where the CMB energy density is:
+
+\begin{equation}
+\rho_{\gamma} = \frac{4 \sigma_{\text{SB}} T_0^4}{c^3}
+\end{equation}
+
+\subsection{Fundamental Constants}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l c l l}
+\toprule
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} & \textbf{Source/Definition} \\
+\midrule
+CMB Temperature & $T_0$ & \SI{2.7255}{\kelvin} & Fixsen (2009) / Planck \\
+Fine Structure Const. & $\alpha$ & $7.29735 \times 10^{-3}$ & CODATA ($\approx 1/137.036$) \\
+Gravitational Const. & $G$ & \SI{6.674e-11}{\cubic\meter\per\kilogram\per\second\squared} & CODATA \\
+Speed of Light & $c$ & \SI{2.99792e8}{\meter\per\second} & Exact \\
+Stefan-Boltzmann Const. & $\sigma_{\text{SB}}$ & \SI{5.67037e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}} & Derived from fundamental \\
+\bottomrule
+\end{tabular}
+\caption{Fundamental inputs for the calculation. All parameter values are fixed from independent measurements and no fitting is performed.}
+\label{tab:fundamental_constants}
+\end{table}
+
+
+
+
