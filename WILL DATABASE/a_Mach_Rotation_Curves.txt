@@ -1,9 +1,50 @@
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+
+% --- tcolorbox ---
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+% --- Theorems definitions ---
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{principle}[theorem]{Principle}
+
+% --- Metadata ---
+\title{\textbf{WILL Relational Geometry} \\
+ \textit{Galactic Dynamics and Global Resonance}}
+\author{Anton Rize \\  egeometricity@gmail.com}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+We present a derivation of galactic dynamics that eliminates the need for Dark Matter. Within the WILL Relational Geometry (RG) framework, we demonstrate that the "Dark Matter" phenomenon is the manifestation of a \textbf{Resonance Interference} effect between the local potential and the Global Cosmic Horizon.
+We derive a parameter-free Projection Law, where the Horizon contribution emerges as the geometric mean of the local inertial scale and the global causal scale:
+$$\beta_{obs}^2 = \beta_{loc}^2 + \sqrt{\frac{\Phi_H}{6\pi}}$$
+Here, $\Phi_H$ is the ratio of the local operational scale to the Hubble Horizon. This formulation analytically yields the exact Tully-Fisher scaling ($V^4 \propto M$) and ensures asymptotic flatness of rotation curves.
+
+Validating against 175 galaxies (SPARC database), we tested the model in two rigorous regimes:
+\begin{itemize}
+    \item \textbf{Strict Geometric Mode (Fixed $\Upsilon_*$):} Median RMSE of \textbf{12.64 km/s} with \textbf{zero free parameters}. This demonstrates that the universal law holds even without tuning mass-to-light ratios.
+    \item \textbf{Standard Astrophysical Mode (Fitted $\Upsilon_*$):} Median RMSE of \textbf{7.44 km/s} and reduced $\chi^2 = 1.38$, achieving precision superior to $\Lambda$CDM halos while using only a single global constant.
+\end{itemize}
+These results suggest that galactic dynamics are not governed by hidden local mass, but are resonant excitations of the global spacetime geometry.
+\end{abstract}
 
 \section{Methodological Framework}
 
 \subsection{Introduction: Relational State and Energetic Closure}
 
-In WILL RG (Part I), we derive the ontological equivalence principle
+In WILL RG (Part I), we derive the ontological unification principle
 $\text{SPACETIME} \equiv \text{ENERGY}$ as the consequence of removing the
 separation between structure and dynamics. For any closed system, the total
 relational shift $Q^2$ is represented on the projection plane spanned by the
@@ -391,20 +432,42 @@ WILL RG ($1/3\pi$) & \textbf{7.00} & \textbf{$+0.53$} \\
 \end{figure}
 
 
-\subsection{Discussion and Interpretation}
+\subsection{Standard Protocol on SPARC Database}
 
-The comparison yields three structurally significant results:
+\subsection{Performance Metrics}
+To avoid turbulence, warps, and non-circular motions we apply a systematic Error Floor: $\sigma_{used} = \max(\sigma_{obs}, \ 5.0 \text{ km/s}, \ 0.05 \cdot |V_{obs}|)$. This only affects the sensitivity of $\chi^{2}$, and does not affect RMSE values.
 
-\begin{enumerate}
-    \item \textbf{Inefficacy of Statistical Dark Matter:} The LCDM model, when constrained by the global stellar-to-halo mass relation (Abundance Matching) rather than individual fitting, fails to reproduce rotation curves, exhibiting a systematic bias ($+27.7$ km/s) comparable to the Newtonian baseline. This indicates that Dark Matter halos require galaxy-specific fine-tuning to match observations.
+We tested two methodologies to ensure robustness:
 
-    \item \textbf{Systematic Overprediction in Modified Gravity:} Both standard MOND ($a_0 \approx 1.2 \times 10^{-10}$) and Verlinde's Emergent Gravity ($a_0 \approx 1.1 \times 10^{-10}$) exhibit a negative bias, systematically overpredicting rotation velocities. This is most pronounced in gas-dominated systems, where both models overestimate velocities by $>5$ km/s.
+\begin{itemize}
+    \item \textbf{Method 1 (Zero Free Parameters):} With a fixed global mass-to-light ratio ($\Upsilon_* = 0.5/0.7$), we achieve a median RMSE of \textbf{12.64 km/s}  and median reduced $\chi^2 = 3.48$.
+    \item \textbf{Method 2 (Fitted $\Upsilon_*$):} Allowing $\Upsilon_*$ to vary physically per galaxy ($0.05 \le \Upsilon_* \le 2.6$), we achieve a median RMSE of \textbf{7.44 km/s} and median reduced $\chi^2 = 1.38$.
+\end{itemize}
 
-    \item \textbf{Geometric Precision of the $3\pi$ Resonance:} WILL RG using an acceleration scale derived purely from thermodynamic constants ($a_{\rm Mach} \approx 0.70 \times 10^{-10}$), eliminates the systematic bias found in other models. In the high-precision gas-dominated regime, the bias is negligible ($+0.53$ km/s).
-\end{enumerate}
+\begin{figure}[H]
+\centering
+\begin{tcolorbox}[colback=white, colframe=blue!75!black, title=Performance Summary]
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Model} & \textbf{Free Params} & \textbf{$\Upsilon_*$ Handling} & \textbf{RMSE (km/s)} & \textbf{$\chi^2_{red}$} \\
+\hline
+WILL (Global) & \textbf{0} & Fixed & 12.64& 3.48\\\hline
+WILL (Fitted) & $\Upsilon_*$& Fitted & \textbf{7.44}& \textbf{1.38}\\\hline
+\end{tabular}
+\end{tcolorbox}
+\caption{WILL RG achieves superior or equivalent predictive power with minimal complexity, outperforming standard Dark Matter halos.}
+\end{figure}
 
-These results suggest that the "missing mass" phenomenon is governed by a specific geometric coupling constant ($1/3\pi$) derived from the Horizon resonant structure, rather than by the entropic statistical average ($1/6$) or empirically fitted parameters. Unlike MOND, which fits $a_0$ to minimize residuals, WILL RG predicts the residuals of MOND ($a_0^{WILL} < a_0^{MOND}$) and corrects them solely from first principles derived from the CMB temperature.
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{img/Mach_RMSE_7.44.png}
+    \caption{RMSE distribution for SPARC galaxies showing the precision of the geometric model.}
+ \end{figure}
 
+\begin{tcolorbox}[colback=white, colframe=red!75!black, title=Geometric Perspective on the Hubble Tension]
+RG predicts a structural Horizon energy density of $\Omega_{p o t} = \Omega_{\Lambda} = 2 / 3$. When calibrated against the Planck 2018 cosmological background, this geometric constraint implies a Hubble parameter of $H_{0} \approx 68.1$ km/s/Mpc.
+We observe that this predicted value minimizes the residuals in galactic rotation curves compared to local SH0ES measurements ($H_0 \approx 73$). These results suggest that galactic dynamics are more tightly coupled to the global horizon scale determined by $\Omega_{pot}=\Omega_\Lambda = 2/3$ than to local expansion rates.
+\end{tcolorbox} 
 
 
 \subsection{The Universal Radial Acceleration Relation (RAR)}
@@ -531,9 +594,87 @@ V^2 = \frac{GM_{\text{obs}}}{r} = \frac{GM(1 + r/R_{\text{bubble}})}{r} \xrighta
 This resolves the historical puzzle: flat rotation curves are not evidence of dark matter, but rather the signature of linear relational scaling in the vacuum-dominated regime ($r > R_{\text{bubble}}$).
 
 
-\section{Discussion: The Unified Scale Invariance}
+\subsection{The Stability Test: Why Galaxies Don't Fly Apart}
 
-The condition for galactic stability derived here mirrors the quantization condition for the atom derived in Part III.
+Having established that WILL reproduces rotation curves and universal scaling relations, we now address the fundamental question of \emph{dynamical stability}. In standard Newtonian gravity without dark matter, the high observed orbital velocities imply a catastrophic failure of gravitational binding—stars would be on unbound hyperbolic trajectories, and galactic disks would rapidly disintegrate.
+
+\subsubsection{Orbital Eccentricity as a Diagnostic Tool}
+
+We quantify stability through the \textbf{effective orbital eccentricity} $e_c$, derived from the energy balance condition. For a test particle in a central potential, the relationship between its actual velocity $v_{obs}$ and the circular velocity $v_{circ}$ required by the gravitational potential defines the closure parameter $\delta$:
+
+\begin{equation}
+\delta = \frac{v_{circ}}{v_{obs}}
+\end{equation}
+
+The corresponding orbital eccentricity follows from celestial mechanics:
+\begin{equation}
+e_c = \frac{1}{\delta^2} - 1
+\end{equation}
+
+\begin{itemize}
+    \item $e_c = 0$: Perfectly circular, stable orbit ($\delta = 1$)
+    \item $0 < e_c < 0.5$: Mildly elliptical, still bound orbits
+    \item $e_c > 0.5$: Highly elliptical or hyperbolic, unstable orbits
+\end{itemize}
+
+We compute $e_c$ for every data point in the SPARC catalog under two hypotheses:
+
+\begin{enumerate}
+    \item \textbf{Newtonian gravity:} $v_{circ}$ derived from baryonic mass only ($\delta_N = v_{bar}/v_{obs}$)
+    \item \textbf{WILL interference:} $v_{circ}$ from the interference law ($\delta_W = v_{will}/v_{obs}$)
+\end{enumerate}
+
+\subsubsection{Results: From Chaos to Order}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{img/ECCENTRICITY_TEST.png}
+    \caption{
+    \textbf{The Stability Test: Galactic Orbits in Newtonian vs. WILL Gravity.} 
+    Gray histogram: Newtonian prediction (baryons only). The mean eccentricity $\langle e \rangle = 2.16$ indicates predominantly unbound orbits, with 78\% of stars on unstable trajectories ($e > 0.5$). Cyan histogram: WILL prediction including horizon interference. The distribution collapses to $\langle e \rangle = 0.02$, with only 9\% of orbits unstable. The vertical dashed line marks $e=0$ (perfect circularity). WILL transforms what would be a disintegrating galaxy into a stable, bound system without invoking dark matter.
+    }
+    \label{fig:stability}
+\end{figure}
+
+The results are striking:
+\begin{itemize}
+    \item \textbf{Newtonian gravity:} Mean eccentricity $\langle e \rangle = 2.16$, with 78\% of orbits unstable ($e > 0.5$)
+    \item \textbf{WILL interference:} Mean eccentricity $\langle e \rangle = 0.02$, with only 9\% unstable orbits
+\end{itemize}
+
+\subsubsection{Physical Interpretation: Stability as an Emergent Property}
+
+This test provides more than just another metric of fit—it addresses the \emph{necessity} of galactic stability. In the Newtonian paradigm without dark matter, galaxies as we observe them could not exist: their stars would be on escaping trajectories, and disks would dissolve within a few rotation periods.
+
+WILL resolves this by identifying the "excess" velocity not as a sign of missing mass, but as a \textbf{requirement for global energetic closure}. The Machian acceleration term $a_{Mach}$ emerges not as a fitted parameter but as the precise adjustment needed to satisfy the closure condition $\kappa^2 = 2\beta^2$ in an expanding universe.
+
+The near-zero eccentricities predicted by WILL ($\langle e \rangle = 0.02$) indicate that galactic orbits are not merely "bound" but are remarkably circular—exactly as observed in real disk galaxies. This precision suggests that the Tully-Fisher relation and flat rotation curves are not accidents but necessary consequences of a universe where local dynamics are coupled to the global horizon.
+
+\subsubsection{Connection to the Hubble Tension}
+
+The stability condition depends critically on the value of $H_0$ through $a_{Mach} = cH_0/(3\pi)$. We find that the specific value $H_0 \approx 68.1$ km/s/Mpc—derived from CMB thermodynamics and the geometric constraint $\Omega_\Lambda = 2/3$—minimizes not only rotation curve residuals but also orbital eccentricities. This provides independent evidence that galactic dynamics are coupled to the global expansion rate, and that the "Hubble tension" may reflect a mismatch between local expansion measurements and the horizon scale that governs gravitational stability.
+
+\begin{tcolorbox}[colback=green!5, colframe=green!40!black, title=Conclusion: Stability as a First Principle]
+The stability test demonstrates that WILL does not merely fit rotation curves better - it \emph{predicts} the very existence of stable galaxies. While $\Lambda$CDM achieves stability through ad-hoc dark matter halos and MOND through an empirically tuned acceleration scale, WILL \emph{derives} stability from first principles: the geometric closure condition $Q^2 = 3\beta^2$ enforced by horizon resonance. This transforms the "missing mass" problem from a puzzle to be solved by new particles into a signature of spacetime's relational structure.
+\end{tcolorbox}
+
+\section{Discussion and Interpretation}
+
+The comparison yields three structurally significant results:
+
+\begin{enumerate}
+    \item \textbf{Inefficacy of Statistical Dark Matter:} The LCDM model, when constrained by the global stellar-to-halo mass relation (Abundance Matching) rather than individual fitting, fails to reproduce rotation curves, exhibiting a systematic bias ($+27.7$ km/s) comparable to the Newtonian baseline. This indicates that Dark Matter halos require galaxy-specific fine-tuning to match observations.
+
+    \item \textbf{Systematic Overprediction in Modified Gravity:} Both standard MOND ($a_0 \approx 1.2 \times 10^{-10}$) and Verlinde's Emergent Gravity ($a_0 \approx 1.1 \times 10^{-10}$) exhibit a negative bias, systematically overpredicting rotation velocities. This is most pronounced in gas-dominated systems, where both models overestimate velocities by $>5$ km/s.
+
+    \item \textbf{Geometric Precision of the $3\pi$ Resonance:} WILL RG using an acceleration scale derived purely from thermodynamic constants ($a_{\rm Mach} \approx 0.70 \times 10^{-10}$), eliminates the systematic bias found in other models. In the high-precision gas-dominated regime, the bias is negligible ($+0.53$ km/s).
+\end{enumerate}
+
+These results suggest that the "missing mass" phenomenon is governed by a specific geometric coupling constant ($1/3\pi$) derived from the Horizon resonant structure, rather than by the entropic statistical average ($1/6$) or empirically fitted parameters. Unlike MOND, which fits $a_0$ to minimize residuals, WILL RG predicts the residuals of MOND ($a_0^{WILL} < a_0^{MOND}$) and corrects them solely from first principles derived from the CMB temperature.
+
+\subsection{The Unified Scale Invariance}
+
+The condition for galactic stability derived here mirrors the quantization condition for the atom derived in WILL RG Part III.
 \begin{center}
 \begin{tabular}{|l|c|c|}
 \hline
@@ -550,7 +691,49 @@ The condition for galactic stability derived here mirrors the quantization condi
 
 Just as the electron must satisfy the standing wave condition to exist as a bound state within the atom, the galaxy must satisfy the frequency resonance condition to exist as a bound state within the Universe. The "Dark Matter" phenomenon is the observational signature of this scale-invariant geometric closure.
 
-
 \textbf{Code and data are fully open-source at}: \url{https://antonrize.github.io/WILL/}
 
+\begin{thebibliography}{9}
+\bibitem{Lelli2016} Lelli, F., McGaugh, S. S., \& Schombert, J. M. (2016). SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation Curves. \textit{The Astronomical Journal}, 152(6), 157.
 
+
+% CDM/Burkert/NFW RMSE for SPARC
+@article{Li2020,
+  author = {Li, Pengfei and Lelli, Federico and McGaugh, Stacy S. and Schombert, James M.},
+  title = {A Comprehensive Catalog of Dark Matter Halo Models for SPARC Galaxies},
+  journal = {The Astrophysical Journal Supplement Series},
+  volume = {247},
+  number = {1},
+  pages = {31},
+  year = {2020},
+  doi = {\href{https://ui.adsabs.harvard.edu/link_gateway/2020ApJS..247...31L/doi:10.3847/1538-4365/ab700e}{10.3847/1538-4365/ab700e}},
+  url = {https://ui.adsabs.harvard.edu/abs/2020ApJS..247...31L/abstract}
+}
+
+
+
+% MOND RMSE for SPARC (per-galaxy Υ*, a₀ universal)
+@article{Wang2020,
+  author = {Wang, De-Chang and Xu, Feng and Luo, Xin},
+  title = {Comparison of Modeling SPARC spiral galaxies' rotation curves with different dark matter and MOND models},
+  journal = {arXiv preprint arXiv:2008.04795},
+  year = {2020},
+  url = {https://arxiv.org/abs/2008.04795}
+}
+
+
+% Foundational MOND theory review
+@article{Milgrom2001,
+  author = {Milgrom, Mordehai},
+  title = {MOND - A Pedagogical Review},
+  year = {2001},
+  journal = {NED Level 5 Review},
+  url = {https://ned.ipac.caltech.edu/level5/Sept01/Milgrom/Milgrom2_2.html}
+}
+
+
+\end{thebibliography}
+
+
+
+\end{document}
