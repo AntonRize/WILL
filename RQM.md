@@ -30,91 +30,95 @@ We model the electron not as a point particle, but as a relational vector (a "ne
 
 Use the tool below to explore the first 36 elements. Click on an element to see how **WILL RG** calculates its effective nuclear charge ($Z_{eff}$) using only geometric principles.
 
-<div class="app-container bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow-2xl mt-8 mb-12 flex flex-col md:flex-row" style="min-height: 600px;">
+<div class="app-container bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow-2xl mt-8 mb-12 flex flex-col md:flex-row" style="min-height: 650px;">
     
-    <div class="flex-1 p-6 bg-slate-900/50 overflow-y-auto custom-scrollbar border-r border-slate-800">
-        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Select Element</h3>
+    <div class="w-full md:w-[60%] p-6 bg-slate-900/50 overflow-y-auto custom-scrollbar border-r border-slate-800 flex flex-col gap-6">
         
-        <div class="periodic-grid w-full max-w-4xl mx-auto" id="periodic-table">
+        <div>
+            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Select Element</h3>
+            <div class="periodic-grid w-full mx-auto" id="periodic-table">
+                </div>
+            <div class="mt-4 flex gap-4 text-[10px] text-slate-500 font-mono uppercase tracking-wider">
+                <div class="flex items-center gap-2"><div class="w-2 h-2 bg-slate-800 border-b-2 border-red-400"></div> s-block</div>
+                <div class="flex items-center gap-2"><div class="w-2 h-2 bg-slate-800 border-b-2 border-yellow-400"></div> p-block</div>
+                <div class="flex items-center gap-2"><div class="w-2 h-2 bg-slate-800 border-b-2 border-sky-400"></div> d-block</div>
             </div>
-        
-        <div class="mt-6 flex gap-4 text-xs text-slate-500 font-mono">
-            <div class="flex items-center gap-2"><div class="w-3 h-3 bg-slate-800 border-b-2 border-red-400"></div> s-block</div>
-            <div class="flex items-center gap-2"><div class="w-3 h-3 bg-slate-800 border-b-2 border-yellow-400"></div> p-block</div>
-            <div class="flex items-center gap-2"><div class="w-3 h-3 bg-slate-800 border-b-2 border-sky-400"></div> d-block</div>
         </div>
+
+        <div id="will-analysis-panel" class="hidden flex-1 bg-slate-800/40 rounded-xl border border-sky-900/30 p-5 relative overflow-hidden group transition-all hover:border-sky-500/30">
+            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <span class="material-symbols-outlined text-8xl text-sky-500">architecture</span>
+            </div>
+
+            <h3 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                <span class="w-1 h-4 bg-sky-500 rounded-full"></span>
+                WILL Geometric Analysis
+            </h3>
+            
+            <div class="flex flex-row gap-8 items-end mb-6 relative z-10">
+                <div>
+                    <span class="text-[10px] text-slate-400 uppercase font-bold block mb-1">Effective Charge ($Z_{eff}$)</span>
+                    <div class="text-6xl font-bold text-white tracking-tighter leading-none" id="will-zeff">0.00</div>
+                </div>
+                <div class="pb-2">
+                    <span class="text-[10px] text-slate-500 block mb-1">Total Screening</span>
+                    <span class="text-2xl font-mono text-emerald-400" id="will-screening">0.00</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 text-xs relative z-10 mb-4">
+                <div class="bg-slate-900/60 p-3 rounded border border-white/5">
+                    <span class="text-slate-500 block text-[10px] mb-1">Geometry Shape</span>
+                    <span class="text-sky-100 font-mono text-sm" id="will-geometry">Linear</span>
+                </div>
+                <div class="bg-slate-900/60 p-3 rounded border border-white/5">
+                    <span class="text-slate-500 block text-[10px] mb-1">Topology Tax</span>
+                    <span class="text-sky-100 font-mono text-sm" id="will-tax">0.00</span>
+                </div>
+            </div>
+
+            <details class="relative z-10 text-[11px] text-slate-400 cursor-pointer bg-black/20 rounded border border-white/5">
+                <summary class="p-2 hover:text-sky-400 transition-colors font-bold select-none flex justify-between items-center">
+                    <span>Calculation Log</span>
+                    <span class="material-symbols-outlined text-[14px]">expand_more</span>
+                </summary>
+                <div class="px-3 pb-3 pt-0 font-mono whitespace-pre-wrap leading-relaxed text-slate-300 border-t border-white/5 mt-2 pt-2" id="will-details">...</div>
+            </details>
+        </div>
+
+        <div id="will-not-supported" class="hidden flex-1 flex flex-col items-center justify-center p-6 border border-dashed border-slate-700 rounded-xl opacity-50">
+                <span class="material-symbols-outlined text-4xl text-slate-600 mb-2">science_off</span>
+                <span class="text-sm text-slate-400 font-mono block" id="will-error-msg">Block not supported</span>
+        </div>
+
     </div>
 
-    <div class="w-full md:w-[400px] bg-slate-900 flex flex-col overflow-y-auto custom-scrollbar relative">
+    <div class="w-full md:w-[40%] bg-slate-950 flex flex-col relative">
         
-        <div class="p-6 border-b border-slate-800 bg-slate-800/20">
-            <div class="flex justify-between items-start mb-2">
+        <div class="p-8 pb-4 z-10">
+            <div class="flex justify-between items-start mb-1">
                 <div>
-                    <h1 class="text-4xl font-bold text-white tracking-tighter" id="detail-symbol">B</h1>
-                    <h2 class="text-lg text-sky-400 font-medium" id="detail-name">Boron</h2>
+                    <h1 class="text-6xl font-bold text-white tracking-tighter" id="detail-symbol">B</h1>
                 </div>
                 <div class="text-right">
-                    <div class="text-2xl text-slate-600 font-mono font-bold" id="detail-z">5</div>
-                    <div class="text-xs font-bold px-2 py-1 bg-slate-800 rounded text-slate-400 mt-1 inline-block" id="detail-cat">METALLOID</div>
+                    <div class="text-3xl text-slate-700 font-mono font-bold" id="detail-z">5</div>
+                    <div class="text-[10px] font-bold px-2 py-0.5 bg-slate-900 border border-slate-800 rounded text-slate-500 mt-2 inline-block" id="detail-cat">METALLOID</div>
                 </div>
             </div>
+            <h2 class="text-2xl text-sky-500 font-medium" id="detail-name">Boron</h2>
             
-            <div class="mt-3 p-3 bg-slate-800 rounded border border-slate-700">
-                <label class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1 block">Configuration</label>
-                <div class="font-mono text-sm text-white flex flex-wrap gap-1 leading-relaxed" id="config-display">
-                    </div>
-            </div>
+            <div class="mt-6 font-mono text-lg text-slate-300 flex flex-wrap gap-2 items-center" id="config-display">
+                </div>
         </div>
 
-        <div id="will-analysis-panel" class="hidden flex-1 p-6 flex flex-col gap-4">
-            
-            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-5 rounded-xl border border-sky-900/50 shadow-lg relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                     <span class="material-symbols-outlined text-6xl text-sky-500">architecture</span>
-                </div>
-                
-                <h3 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-4 relative z-10">
-                    WILL Geometric Analysis
-                </h3>
-                
-                <div class="flex justify-between items-end mb-4 relative z-10">
-                    <div>
-                        <span class="text-[10px] text-slate-400 uppercase font-bold block mb-1">Effective Charge ($Z_{eff}$)</span>
-                        <div class="text-5xl font-bold text-white tracking-tighter" id="will-zeff">0.00</div>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-[10px] text-slate-500 block mb-1">Total Screening</span>
-                        <span class="text-xl font-mono text-emerald-400" id="will-screening">0.00</span>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-2 text-xs relative z-10">
-                    <div class="bg-black/20 p-2 rounded border border-white/5">
-                        <span class="text-slate-500 block text-[10px]">Geometry</span>
-                        <span class="text-sky-100 font-mono" id="will-geometry">Linear</span>
-                    </div>
-                    <div class="bg-black/20 p-2 rounded border border-white/5">
-                        <span class="text-slate-500 block text-[10px]">Topology Tax</span>
-                        <span class="text-sky-100 font-mono" id="will-tax">0.00</span>
-                    </div>
-                </div>
-            </div>
-
-            <details class="text-[11px] text-slate-400 cursor-pointer bg-slate-800/50 rounded border border-slate-800">
-                <summary class="p-3 hover:text-sky-400 transition-colors font-bold select-none">View Calculation Log</summary>
-                <div class="px-3 pb-3 pt-0 font-mono whitespace-pre-wrap leading-relaxed text-slate-300 border-t border-slate-700/50 mt-2" id="will-details">...</div>
-            </details>
-
-            <div class="relative mt-auto h-48 w-full bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-center overflow-hidden">
-                <canvas class="absolute inset-0 w-full h-full object-contain opacity-60" id="atom-canvas" width="400" height="200"></canvas>
-                <div class="absolute bottom-2 right-2 text-[9px] text-slate-600 font-mono">2D Projection</div>
-            </div>
-
-        </div>
-
-        <div id="will-not-supported" class="hidden flex-1 flex flex-col items-center justify-center p-8 text-center opacity-50">
-             <span class="material-symbols-outlined text-4xl text-slate-600 mb-2">block</span>
-             <span class="text-sm text-slate-400 font-mono block" id="will-error-msg">Block not supported</span>
+        <div class="flex-1 relative w-full min-h-[300px] overflow-hidden">
+             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-50"></div>
+             
+             <canvas class="absolute inset-0 w-full h-full" id="atom-canvas"></canvas>
+             
+             <div class="absolute bottom-4 left-0 w-full text-center">
+                 <span class="text-[9px] text-slate-700 font-mono uppercase tracking-widest">2D Orbital Projection</span>
+             </div>
         </div>
 
     </div>
@@ -209,8 +213,7 @@ Use the tool below to explore the first 36 elements. Click on an element to see 
             const lOrder = {s:0, p:1, d:2, f:3};
             return lOrder[a.type] - lOrder[b.type];
         });
-        // Simplistic display, removed clickable interaction for cleaner UI
-        return sorted.map(c => `<span class="text-slate-300">${c.n}${c.type}<sup class="text-sky-400">${c.count}</sup></span>`).join(' ');
+        return sorted.map(c => `<span class="text-slate-400">${c.n}${c.type}<sup class="text-sky-400">${c.count}</sup></span>`).join('  ');
     }
     
     // --- Application State ---
@@ -263,8 +266,8 @@ Use the tool below to explore the first 36 elements. Click on an element to see 
                 document.getElementById('will-screening').innerText = results.screeningBreakdown.total.toFixed(2);
                 
                 let geomInfo = `n=${results.geometry.n}`;
-                if(results.geometry.s_eccentricity > 0) geomInfo += ` (ε=${results.geometry.s_eccentricity})`;
-                else geomInfo += ` (Sphere)`;
+                if(results.geometry.s_eccentricity > 0) geomInfo += ` (Needle ε=${results.geometry.s_eccentricity})`;
+                else geomInfo += ` (Spherical)`;
                 document.getElementById('will-geometry').innerText = geomInfo;
 
                 document.getElementById('will-tax').innerText = results.geometry.p_topology_tax.toFixed(3);
@@ -302,10 +305,13 @@ Use the tool below to explore the first 36 elements. Click on an element to see 
         const canvas = document.getElementById('atom-canvas');
         if (!canvas) { requestAnimationFrame(animateAtom); return; }
         const ctx = canvas.getContext('2d');
-        if (canvas.width !== canvas.clientWidth) {
+        
+        // Responsive Canvas Resizing
+        if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
             canvas.width = canvas.clientWidth;
             canvas.height = canvas.clientHeight;
         }
+        
         const w = canvas.width;
         const h = canvas.height;
         const center = { x: w/2, y: h/2 };
@@ -316,20 +322,24 @@ Use the tool below to explore the first 36 elements. Click on an element to see 
         ctx.beginPath();
         ctx.arc(center.x, center.y, 4, 0, Math.PI * 2);
         ctx.fillStyle = '#fff';
+        ctx.shadowBlur = 10; ctx.shadowColor = '#fff';
         ctx.fill();
+        ctx.shadowBlur = 0;
 
         const count = atomData.subshells.length;
-        // Adjusted scaling for compact view (h-48)
-        const maxRadius = (Math.min(w,h)/2) - 10;
-        const minRadius = 15;
+        // Calculate max radius based on smallest dimension to fit
+        const maxRadius = (Math.min(w,h)/2) - 20;
+        const minRadius = 20;
         const step = (maxRadius - minRadius) / Math.max(count - 1, 1);
 
         atomData.subshells.forEach((sub, i) => {
             const radius = count === 1 ? minRadius : minRadius + (i * step);
+            
+            // Draw Orbit (Elliptical look for style)
             ctx.beginPath();
-            // Elongated orbits (visual style) to fit rectangular canvas better
-            ctx.ellipse(center.x, center.y, radius * 1.2, radius * 0.9, 0, 0, Math.PI * 2);
-            ctx.strokeStyle = sub.isValence ? sub.color : adjustColorOpacity(sub.color, 0.2);
+            // X radius is full, Y radius is slightly squashed for 3D effect
+            ctx.ellipse(center.x, center.y, radius, radius * 0.8, 0, 0, Math.PI * 2);
+            ctx.strokeStyle = sub.isValence ? sub.color : adjustColorOpacity(sub.color, 0.15);
             ctx.lineWidth = sub.isValence ? 1.5 : 0.5;
             ctx.stroke();
 
@@ -338,13 +348,16 @@ Use the tool below to explore the first 36 elements. Click on an element to see 
             const angleStep = (Math.PI * 2) / sub.count;
             for(let e=0; e<sub.count; e++) {
                 const angle = (time * speed) + (e * angleStep) + (i * 0.5);
-                // Parametric ellipse
-                const ex = center.x + (radius * 1.2) * Math.cos(angle);
-                const ey = center.y + (radius * 0.9) * Math.sin(angle);
+                const ex = center.x + radius * Math.cos(angle);
+                const ey = center.y + (radius * 0.8) * Math.sin(angle);
                 
-                ctx.beginPath(); ctx.arc(ex, ey, 2, 0, Math.PI * 2);
+                ctx.beginPath(); ctx.arc(ex, ey, 2.5, 0, Math.PI * 2);
                 ctx.fillStyle = sub.isValence ? '#fff' : sub.color;
                 ctx.fill();
+                
+                if(sub.isValence) {
+                    ctx.shadowBlur = 4; ctx.shadowColor = sub.color; ctx.fill(); ctx.shadowBlur = 0;
+                }
             }
         });
         requestAnimationFrame(animateAtom);
@@ -373,6 +386,7 @@ Use the tool below to explore the first 36 elements. Click on an element to see 
             const pos = layoutMap[el.z];
             const cell = document.createElement('div');
             cell.id = `cell-${el.z}`;
+            // Added 'group' class for hover effects
             cell.className = `col-start-${pos.c} row-start-${pos.r} w-full aspect-[4/5] border border-slate-700 bg-slate-800/50 hover:bg-slate-700 cursor-pointer relative p-1 flex flex-col items-center justify-between transition-all select-none group`;
             
             let borderColor = '#64748b';
@@ -382,9 +396,10 @@ Use the tool below to explore the first 36 elements. Click on an element to see 
             
             cell.style.gridColumn = pos.c; 
             cell.style.gridRow = pos.r; 
-            cell.style.borderBottom = `3px solid ${borderColor}`;
+            cell.style.borderBottom = `2px solid ${borderColor}`;
             
-            cell.innerHTML = `<span class="text-[0.6rem] self-start text-slate-500 group-hover:text-white">${el.z}</span><span class="text-md font-bold text-slate-200">${el.symbol}</span>`;
+            // Symbol is now more prominent
+            cell.innerHTML = `<span class="text-[0.55rem] self-start text-slate-500 group-hover:text-white transition-colors">${el.z}</span><span class="text-xs font-bold text-slate-200 group-hover:text-white group-hover:scale-110 transition-transform">${el.symbol}</span>`;
             cell.onclick = () => selectElement(el.z);
             grid.appendChild(cell);
         });
@@ -406,12 +421,13 @@ Use the tool below to explore the first 36 elements. Click on an element to see 
         gap: 2px;
     }
     
+    /* Highlight Style */
     .selected-element { 
-        border-color: #38bdf8; 
+        border-color: #38bdf8 !important; 
         box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); 
-        background-color: rgb(30 41 59);
+        background-color: rgb(30 41 59) !important;
         z-index: 10; 
-        transform: scale(1.1); 
+        transform: scale(1.15); 
     }
     
     .custom-scrollbar::-webkit-scrollbar { width: 4px; }
