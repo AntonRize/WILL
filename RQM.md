@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "R.Q.M."
+title: "Relational Quantum Mechanics"
 ---
 
 {% include interactive/RQM_engine.html %}
