@@ -8,15 +8,15 @@ if you change δ, you will see how the orbit shape (e_c) changes, the values at 
 
 desmos:
 
-m_{0}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}=2\rho\frac{4\cdot\pi\cdot a^{3}}{3}+\rho\frac{4\cdot\pi\cdot a^{3}}{3}= input mass parameter, 
+m_{0}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}=2\rho\frac{4\cdot\pi\cdot a^{3}}{3}+\rho\frac{4\cdot\pi\cdot a^{3}}{3}=  mass parameter, 
 
-o= input orbital phase
+o=  orbital phase
 
-\delta=\frac{\kappa_{p}}{\beta_{p}\sqrt{2}}=\frac{1}{\sqrt{1+e_{c}}} input closure factor (determines eccentricity, usualy messuerd at r_p)
+\delta=\frac{\kappa_{p}}{\beta_{p}\sqrt{2}}=\frac{1}{\sqrt{1+e_{c}}}  closure factor (determines eccentricity, usualy messuerd at r_p)
 
 \delta_{apo}=\frac{1}{\sqrt{1-e_{c}}}  closure factor at appocenter
 
-e_{c}=\frac{1}{\delta^{2}}-1 input Eccentricity derived from closure
+e_{c}=\frac{1}{\delta^{2}}-1  Eccentricity derived from closure
 
 e_{cY}=\sqrt{1-e_{c}^{2}}    Eccentricity's orthoganal value
 
@@ -34,9 +34,9 @@ a=\frac{R_{s}}{\kappa^{2}}=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e_{c}^{2}
 
 r_{p}=a\left(1-e_{c}\right) Radius at perihelion
 
-\kappa_{p}=\kappa\sqrt{\frac{1}{1-e_{c}}}=Q_{p}\cdot\sqrt{\frac{2}{3+e_{c}}} input Potential at perihelion (Correct scaling)
+\kappa_{p}=\kappa\sqrt{\frac{1}{1-e_{c}}}=Q_{p}\cdot\sqrt{\frac{2}{3+e_{c}}}  Potential at perihelion (Correct scaling)
 
-\beta_{p}=\frac{V_{p}}{c}=\frac{\kappa_{p}}{\delta\sqrt{2}}=\sqrt{\kappa_{p}^{2}\cdot\frac{1+e_{c}}{2}} input Kinetic at perihelion (From definition of delta or from Dopler)
+\beta_{p}=\frac{V_{p}}{c}=\frac{\kappa_{p}}{\delta\sqrt{2}}=\sqrt{\kappa_{p}^{2}\cdot\frac{1+e_{c}}{2}}  Kinetic at perihelion (From definition of delta or from Dopler)
 
 W=\frac{1}{2}\left(\kappa_{p}^{2}-\beta_{p}^{2}\right) Energy Invariant (binding energy constant for entire orbit)
 
@@ -232,6 +232,40 @@ Stefan-Boltzmann Const. & $\sigma_{\text{SB}}$ & \SI{5.67037e-8}{\watt\per\meter
 \label{tab:fundamental_constants}
 \end{table}
 
+
+
+
+
+COSMO
+
+
+T_{CMB}=2.72548
+
+\sigma_{SB}=5.670374419\times10^{-8}
+
+\Lambda=\frac{\Omega_{pot}}{a^{2}}=3.6177838994\times10^{-53}
+
+a_{Mach}=\frac{c\cdot H_{0}}{3\cdot\pi}=7.0248526448\times10^{-11}
+
+M_{U}=\frac{c^{3}}{G\cdot H_{0}}=1.8279686442\times10^{53}
+
+R_{s}=\frac{2\cdot G\cdot m_{0}}{c^{2}}=2.7149576237\times10^{26}
+
+\rho_{ph}=\frac{4\cdot\sigma_{SB}\cdot T_{CMB}^{4}}{c^{3}}=4.6449561343\times10^{-31}
+
+\rho_{max}=\frac{\rho_{ph}}{3\alpha^{2}}=2.9075668133\times10^{-27}
+
+H_{0}=\sqrt{8\cdot\pi\cdot G\cdot\rho_{max}}=2.2084503668\times10^{-18}
+
+\rho=\frac{\kappa^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot a^{2}}=5.8151336266\times10^{-27}
+
+\rho_{Q}=\frac{Q^{2}\cdot c^{2}}{4\cdot\pi\cdot G\cdot a^{2}}=1.744540088\times10^{-26}
+
+rho_{\Lambda}=\frac{c^{2}}{12\cdot\pi\cdot G\cdot a^{2}}=1.9383778755\times10^{-27}
+
+P\left(a\right)=-\frac{c^{2}}{8\cdot\pi\cdot G}\cdot\frac{1}{a}\cdot\frac{d\cdot\kappa^{2}}{d\cdot a}
+
+Я по поводу давления не уверен я вообще ни разу не использовал это значение. Я знаю что возможно оно   может быть просто отрицательным значением одной из плотностей.
 
 
 
