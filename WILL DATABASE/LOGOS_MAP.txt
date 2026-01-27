@@ -1,18 +1,11 @@
 \documentclass[tikz,border=10pt]{standalone}
 \usepackage{tikz}
+\usepackage{amsmath} 
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
 
+
+
 \begin{document}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -48,7 +41,7 @@
     \node[fail_node, left=of hygiene] (import_assumptions) {Importing external\\backgrounds/constants};
     
     % Connections
-    \draw[arrow] (method_decision) -- (hygiene) node[label_t] {T (Derive everything)};
+   \draw[arrow] (method_decision) -- (hygiene) node[label_t] {T (Generative)};
     \draw[arrow] (method_decision) -| (import_assumptions) node[label_f, yshift=1cm] {F (Descriptive)};
 
     % --- NODE 3: ONTOLOGICAL MINIMALISM ---
@@ -468,13 +461,194 @@
     \node[final_node, below=of split, yshift=-3.5cm] (conclusion) {
         GENERAL CONSEQUENCE:\\[0.5em]
         "Mathematical complexity is the symptom\\of philosophical negligence."\\[0.5em]
-        % ИСПРАВЛЕНИЕ НИЖЕ: Используем {\normalfont ...} вместо \textnormal{...}
+      
         {\normalfont Once ontological symmetry is restored,\\Nature's laws reduce to algebraic self-consistency.}
 
     % Arrows to conclusion
     \draw[arrow] (bad_list) -- (conclusion);
-    \draw[arrow] (good_list) -- (conclusion);}
+    \draw[arrow] (good_list) -- (conclusion);
 
 \end{tikzpicture}
+
+
+%\section{STAGE VII}
+
+
+\begin{tikzpicture}[
+    node distance=1.3cm and 2.5cm,
+    % Styles definition
+    base/.style = {draw, thick, align=center, font=\sffamily\small},
+    axiom/.style = {base, rectangle, rounded corners, fill=blue!10, minimum width=4cm, minimum height=1cm},
+    decision/.style = {base, diamond, aspect=2, fill=yellow!10, minimum width=3.5cm, inner sep=2pt},
+    will_node/.style = {base, rectangle, fill=green!10, minimum width=4cm, minimum height=1cm},
+    fail_node/.style = {base, rectangle, dashed, fill=red!5, text=gray, minimum width=4cm},
+    arrow/.style = {-Latex, thick},
+    label_t/.style = {midway, right, font=\bfseries\scriptsize, text=green!60!black, xshift=2pt},
+    label_f/.style = {midway, left, font=\bfseries\scriptsize, text=red!60!black, xshift=-2pt}
+]
+
+    % --- INPUT FROM PREVIOUS STAGE ---
+    \node[axiom, fill=green!20] (stage6_out) {\textbf{INPUT FROM STAGE VI}\\Energy Symmetry Law Established\\($\Delta E_{A \to B} + \Delta E_{B \to A} = 0$)};
+
+    % --- NODE 20: DEFINING ORBITAL MECHANICS ---
+    \node[decision, below=of stage6_out] (mech_dec) {Define Orbital Mechanics};
+    \draw[arrow] (stage6_out) -- (mech_dec);
+
+    % Branch F: Newtonian/GR Dynamics
+    \node[fail_node, left=of mech_dec] (force_dyn) {Input: Mass ($M$) \& Constant ($G$)\\Mechanism: Forces or Metric Curvature\\Method: Differential Equations};
+    \draw[arrow] (mech_dec) -- (force_dyn) node[label_f] {F};
+    \node[below=0.2cm of force_dyn, text=red!60!black, font=\scriptsize, align=center] {Violates Operationality.\\$M$ and $G$ are not direct observables.\\(Sec 16)};
+
+    % Branch T: R.O.M.
+    \node[will_node, below=of mech_dec] (rom_def) {\textbf{Relational Orbital Mechanics (R.O.M.)}\\Inputs: Direct Optical Projections\\1. $\beta$ (Doppler Shift)\\2. $\kappa$ (Gravitational Redshift)};
+    \draw[arrow] (mech_dec) -- (rom_def) node[label_t] {T};
+
+    % --- NODE 21: ECCENTRICITY ---
+    \node[will_node, below=of rom_def] (eccentricity) {\textbf{Theorem 16.2: Geometric Eccentricity}\\Eccentricity is the measure of "Closure Defect" ($\delta$):\\$\boxed{e = \frac{1}{\delta_p^2} - 1}$\\\textit{"Eccentricity $\equiv$ Energy Deviation"}};
+    \draw[arrow] (rom_def) -- (eccentricity);
+
+    % --- NODE 22: PRECESSION (RED VS BLUE) ---
+    \node[decision, below=of eccentricity] (precession_dec) {Derive Precession ($\Delta\varphi$)};
+    \draw[arrow] (eccentricity) -- (precession_dec);
+
+    % Branch F: Geodesic Equation
+    \node[fail_node, left=of precession_dec] (geodesics) {Solve Geodesic Equation\\$\frac{d^2x^\mu}{d\tau^2} + \Gamma^\mu_{\nu\lambda}\dots = 0$};
+    \draw[arrow] (precession_dec) -- (geodesics) node[label_f] {F};
+    \node[below=0.2cm of geodesics, text=red!60!black, font=\scriptsize, align=center] {High Mathematical Inflation.\\Requires Metric Tensor.};
+
+    % Branch T: Algebraic Light Ratio
+    \node[will_node, below=of precession_dec] (red_blue) {\textbf{Sec 16.5: Universal Precession Law}\\Pure Algebra of "Red vs Blue"\\$\boxed{\Delta\varphi = \frac{3\pi}{2} \frac{\kappa_p^4}{\beta_p^2}}$\\Ratio of Potential (Red) to Kinetic (Blue)};
+    \draw[arrow] (precession_dec) -- (red_blue) node[label_t] {T};
+
+    % --- OUTCOME OF STAGE VII ---
+    \node[axiom, fill=green!20, below=of red_blue, yshift=-0.5cm] (stage7_done) {\textbf{STAGE VII COMPLETE}\\"Mass" is obsolete.\\Gravity is solved via Algebra of Light.\\Predictions verified (Mercury, S2, S4716)};
+    \draw[arrow] (red_blue) -- (stage7_done) node[label_t] {T};
+
+\end{tikzpicture}
+
+%\section{STAGE VIII}
+
+\begin{tikzpicture}[
+    node distance=1.3cm and 2.5cm,
+    % Styles definition (Copied exactly from your existing code)
+    base/.style = {draw, thick, align=center, font=\sffamily\small},
+    axiom/.style = {base, rectangle, rounded corners, fill=blue!10, minimum width=4cm, minimum height=1cm},
+    decision/.style = {base, diamond, aspect=2, fill=yellow!10, minimum width=3.5cm, inner sep=2pt},
+    will_node/.style = {base, rectangle, fill=green!10, minimum width=4cm, minimum height=1cm},
+    fail_node/.style = {base, rectangle, dashed, fill=red!5, text=gray, minimum width=4cm},
+    arrow/.style = {-Latex, thick},
+    label_t/.style = {midway, right, font=\bfseries\scriptsize, text=green!60!black, xshift=2pt},
+    label_f/.style = {midway, left, font=\bfseries\scriptsize, text=red!60!black, xshift=-2pt}
+]
+
+    % --- INPUT FROM STAGE VII ---
+    \node[axiom, fill=green!20] (stage7_out) {\textbf{INPUT FROM STAGE VII}\\Dynamics is Geometric.\\Pure Algebra of Projections ($\kappa, \beta$)};
+
+    % --- NODE 23: THE INTERFACE PROBLEM ---
+    \node[decision, below=of stage7_out] (interface_dec) {Define "Matter" Density ($\rho$)\\Connect 2D Geometry to 3D Data};
+    \draw[arrow] (stage7_out) -- (interface_dec);
+
+    % Branch F: The Cannonball Principle
+    \node[fail_node, left=of interface_dec] (cannonball) {\textbf{"The Cannonball Principle"}\\Assumption: Mass is "stuff" filling\\a 3D volume uniformly.\\$\rho = M / V$};
+    \draw[arrow] (interface_dec) -- (cannonball) node[label_f] {F};
+    \node[below=0.2cm of cannonball, text=red!60!black, font=\scriptsize, align=center] {Violates Minimalism.\\Assumes a priori 3D container.\\"Cultural Artifact" of Newton.};
+
+    % Branch T: Geometric Translation
+    \node[will_node, below=of interface_dec] (translation) {\textbf{Sec 17.1: The Translation Interface}\\No new assumptions.\\Translate 2D Surface Data ($S^2$) to 3D Proxy.\\Normalization by sphere area ($4\pi$):\\$\rho = \frac{1}{4\pi} \left( \frac{\kappa^2 c^2}{2G r^2} \right)$};
+    \draw[arrow] (interface_dec) -- (translation) node[label_t] {T};
+
+    % --- NODE 24: THE DENSITY IDENTITY ---
+    \node[will_node, below=of translation] (density_id) {\textbf{The Density Identity}\\Local Density $\equiv$ Relational Projection\\$\boxed{\rho = \frac{\kappa^2 c^2}{8\pi G r^2}}$\\$\boxed{\kappa^2 = \frac{\rho}{\rho_{\max}}}$};
+    \draw[arrow] (translation) -- (density_id);
+
+    % --- NODE 25: PRESSURE AS CONSEQUENCE ---
+    \node[will_node, below=of density_id] (pressure) {\textbf{Sec 17.3: Intrinsic Pressure}\\If Density is Geometry ($\kappa^2$),\\then Pressure is Geometric Tension.\\$\boxed{P = -\rho c^2}$\\(Analogue to Surface Tension)};
+    \draw[arrow] (density_id) -- (pressure);
+
+    % --- OUTCOME OF STAGE VIII ---
+    \node[axiom, fill=green!20, below=of pressure, yshift=-0.5cm] (stage8_done) {\textbf{STAGE VIII COMPLETE}\\Matter is not "stuff" in a box.\\Matter is the intensity of\\relational curvature.};
+    \draw[arrow] (pressure) -- (stage8_done) node[label_t] {T};
+
+\end{tikzpicture}
+
+%\section{STAGE IX}
+
+\begin{tikzpicture}[
+    node distance=1.3cm and 2.5cm,
+    % Styles definition
+    base/.style = {draw, thick, align=center, font=\sffamily\small},
+    axiom/.style = {base, rectangle, rounded corners, fill=blue!10, minimum width=4cm, minimum height=1cm},
+    decision/.style = {base, diamond, aspect=2, fill=yellow!10, minimum width=3.5cm, inner sep=2pt},
+    will_node/.style = {base, rectangle, fill=green!10, minimum width=4cm, minimum height=1cm},
+    fail_node/.style = {base, rectangle, dashed, fill=red!5, text=gray, minimum width=4cm},
+    arrow/.style = {-Latex, thick},
+    label_t/.style = {midway, right, font=\bfseries\scriptsize, text=green!60!black, xshift=2pt},
+    label_f/.style = {midway, left, font=\bfseries\scriptsize, text=red!60!black, xshift=-2pt}
+]
+
+    % --- INPUT FROM STAGE VIII ---
+    \node[axiom, fill=green!20] (stage8_out) {\textbf{INPUT FROM STAGE VIII}\\Density Identity Established:\\$\kappa^2 = \rho/\rho_{\max}$};
+
+    % --- NODE 26: THE FIELD EQUATION ---
+    \node[will_node, below=of stage8_out] (field_eq) {\textbf{Sec 18: Unified Geometric Field Equation}\\Combine Geometry ($R_s/r$) and Density Ratio:\\$\boxed{\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{\max}}}$\\Geometry $\equiv$ Energy State};
+    \draw[arrow] (stage8_out) -- (field_eq);
+
+    % --- NODE 27: LIMITING BEHAVIOR ---
+    \node[decision, below=of field_eq] (limit_dec) {Determine Behavior at Limits\\(High Energy/Small Radius)};
+    \draw[arrow] (field_eq) -- (limit_dec);
+
+    % Branch F: Singularities
+    \node[fail_node, left=of limit_dec] (singularity) {\textbf{Mathematical Singularity}\\$r \to 0 \implies \rho \to \infty$\\Breakdown of Theory};
+    \draw[arrow] (limit_dec) -- (singularity) node[label_f] {F};
+    \node[below=0.2cm of singularity, text=red!60!black, font=\scriptsize, align=center] {Artifact of coordinate systems.\\"Bad Philosophy" result.};
+
+    % Branch T: Saturation
+    \node[will_node, below=of limit_dec] (saturation) {\textbf{Sec 19: Natural Bounds}\\Geometry is closed ($S^2$).\\$\kappa^2 \le 1$ (Horizon Limit) $\implies \rho \le \rho_{\max}$\\$\rho_{\max} = \frac{c^2}{8\pi G r^2}$\\No Singularities, only Saturation};
+    \draw[arrow] (limit_dec) -- (saturation) node[label_t] {T};
+
+    % --- OUTCOME OF STAGE IX ---
+    \node[axiom, fill=green!20, below=of saturation, yshift=-0.5cm] (stage9_done) {\textbf{STAGE IX COMPLETE}\\Field is finite and self-limiting.\\Black Holes are non-singular\\saturated energy states.};
+    \draw[arrow] (saturation) -- (stage9_done) node[label_t] {T};
+
+\end{tikzpicture}
+
+%\section{STAGE X}
+
+\begin{tikzpicture}[
+    node distance=1.3cm and 2.5cm,
+    % Styles definition
+    base/.style = {draw, thick, align=center, font=\sffamily\small},
+    axiom/.style = {base, rectangle, rounded corners, fill=blue!10, minimum width=4cm, minimum height=1cm},
+    will_node/.style = {base, rectangle, fill=green!10, minimum width=4cm, minimum height=1cm},
+    % New style for the final node
+    final_node/.style = {base, circle, draw=blue, line width=2pt, fill=white, inner sep=2pt, minimum width=3.5cm, font=\sffamily\bfseries\small},
+    arrow/.style = {-Latex, thick},
+    label_t/.style = {midway, right, font=\bfseries\scriptsize, text=green!60!black, xshift=2pt}
+]
+
+    % --- INPUT FROM STAGE IX ---
+    \node[axiom, fill=green!20] (stage9_out) {\textbf{INPUT FROM STAGE IX}\\Field is Consistent \& Bounded};
+
+    % --- NODE 28: THE UNITY CHECK ---
+    \node[will_node, below=of stage9_out] (unity_check) {\textbf{Sec 21: $W_{ILL}$ Invariant}\\Check consistency of all sectors:\\Energy ($E$), Time ($T$), Mass ($M$), Length ($L$)\\$\boxed{W_{ILL} = \frac{ET}{ML} = 1}$\\Unity of Relational Structure};
+    \draw[arrow] (stage9_out) -- (unity_check);
+
+    % --- NODE 29: THE OUROBOROS ---
+    \node[will_node, below=of unity_check] (ouroboros) {\textbf{Sec 20: Theoretical Ouroboros}\\The Principle ($\text{Spacetime} \equiv \text{Energy}$)\\generated the Field Equation.\\The Field Equation validates the Principle.\\Logical loop is closed.};
+    \draw[arrow] (unity_check) -- (ouroboros);
+
+    % --- FINAL NODE ---
+    \node[final_node, below=of ouroboros, yshift=-0.5cm] (logos_complete) {LOGOS MAP\\COMPLETE\\$\text{Spacetime} \equiv \text{Energy}$};
+    \draw[arrow] (ouroboros) -- (logos_complete);
+
+    % --- LOOP BACK TO START (Visualizing Consistency) ---
+    % Drawing a curved arrow to symbolize the return to Axiom 0
+    \draw[->, dashed, thick, blue] (logos_complete) to[out=180,in=180, looseness=0.5] node[midway, left, font=\bfseries\scriptsize, align=right] {Validates\\Axiom 0} ($(stage9_out.north west)!0.5!(stage9_out.south west) + (-2, 2)$); 
+
+\end{tikzpicture}
+
+
+
+
 
 \end{document}

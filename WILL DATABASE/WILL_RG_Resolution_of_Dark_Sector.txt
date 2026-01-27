@@ -4,7 +4,9 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{natbib} 
+\usepackage[warn]{textcomp}
+\usepackage{float}
+
 % --- Page geometry ---
 \usepackage{geometry}
 \geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
@@ -12,40 +14,76 @@
 % --- Math and fonts ---
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{mathrsfs}
+\usepackage{amsthm}      % For proof environment
 
 % --- Figures and tables ---
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{booktabs}
-\usepackage{tabularx}
+\usepackage{tabularx}    
 \usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{float}
-\usepackage{booktabs}
-\usepackage{siunitx}
-\sisetup{
-  scientific-notation = true,
-  retain-zero-exponent = true,
-  exponent-product = \times,
-  output-product = \times
-}
 
-% --- tcolorbox ---
+
+% --- START OF FOOTER SECTION ---
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+\usepackage{natbib}
+
+
+% Activate the fancy page style
+\pagestyle{fancy}
+
+% Clear default headers and footers
+\fancyhf{} 
+
+% Remove the horizontal line in the header (optional, keeps it clean)
+\renewcommand{\headrulewidth}{0pt}
+
+% Remove the horizontal line in the footer (optional, set to 0.4pt if you want a line)
+\renewcommand{\footrulewidth}{0pt} 
+
+% Left Footer: Website Link (Small text)
+\lfoot{\scriptsize \href{https://antonrize.github.io/WILL/}{antonrize.github.io/WILL}}
+
+% Center Footer: Page Number
+\cfoot{\scriptsize \thepage}
+
+% Right Footer: Zenodo DOI (Small text)
+\rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
+
+% --- HANDLING THE FIRST PAGE (TITLE PAGE) ---
+% By default, \maketitle resets the style to 'plain'. 
+% This code redefines 'plain' to match your custom footer so it appears on page 1 too.
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \lfoot{\scriptsize \href{https://antonrize.github.io/WILL/}{antonrize.github.io/WILL}}
+  \cfoot{\scriptsize \thepage}
+  \rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
+}
+% --- END OF FOOTER SECTION ---
+
+% --- TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{shapes, positioning, arrows.meta, calc}
+
+% --- tcolorbox for styled theorems ---
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{theorems, breakable, skins}
 
-% --- Theorems definitions ---
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}[theorem]{Definition}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
 \newtheorem{principle}[theorem]{Principle}
 
 % --- Metadata ---
 \title{\textbf{WILL Relational Geometry} \\
- \textit{Galactic Dynamics and Global Resonance}}
-\author{Anton Rize \\  egeometricity@gmail.com}
+ \textit{Resolution of the Cosmological Dark Sector }}
+\author{Anton Rize \\  freewillrg@gmail.com}
 \date{January 2026}
 
 \begin{document}
@@ -53,14 +91,23 @@
 \maketitle
 
 \begin{abstract}
-In this work, we apply the principles of WILL Relational Geometry (RG) to the domain of cosmology and galactic dynamics. By strictly enforcing geometric closure conditions with \textbf{zero free parameters}, we establish a sequential chain of derivations from first principles to observational evidence.
+In this work, we apply the principles of WILL Relational Geometry (RG) to the domain of cosmology and galactic dynamics. By strictly enforcing geometric closure conditions with \textbf{zero free parameters}, we establish a sequential unbroken chain of derivations from first principles to observational evidence.
 
-First, we derive the Hubble parameter ($H_0 \approx 68.15$ km/s/Mpc) solely from the CMB temperature and the fine-structure constant ($\alpha$).
-Second, utilizing this derived horizon scale, we reconstruct the CMB acoustic spectrum as the resonant harmonics of an $S^2$ topology loaded by $\approx 4.2\%$ baryons, naturally resolving the "Low Quadrupole" anomaly via vacuum stiffness.
-Third, we translate the global horizon into a local acceleration scale ($a_{\kappa} = cH_0/3\pi$), which we apply to the SPARC database (175 galaxies). This rigid geometric prescription predicts rotation curves, the Radial Acceleration Relation (RAR), and the linear scaling of Phantom Inertia with higher precision than MOND, without galaxy-specific fitting.
-Finally, we extend this framework to the gravitational lensing of "dark" potentials and the dynamics of Wide Binary stars, where the theory correctly predicts the kinetic resonance scale ($a_{\beta} = cH_0/6\pi$) matching recent Gaia DR3 observations.
+ \begin{enumerate}
+     \item \textbf{Hubble parameter: }we derive ($H_0 \approx 68.15$ km/s/Mpc) solely from the CMB temperature and the fine-structure constant ($\alpha$) providing the direct bridge between scales and landing within 1\% of Planck 2018 mission measurement ($H_0 \approx 67.4$ km/s/Mpc).
 
-These results demonstrate that a single geometric framework, devoid of hidden mass or energy sectors, universally predicts empirical data across 20 orders of magnitude, suggesting that local dynamics are holographically coupled to the Global Cosmic Horizon.
+     \item \textbf{Distant Supernova Flux Levels:}  using this $H_0$ value along with kinetic and potential geometric weights we ab initio predicted and compare the curve with \textbf{Pantheon+} dataset - deviations remains below 0.015 mag across the entire redshift range.
+
+     \item  \textbf{CMB Acoustic Spectrum:}  utilizing same derived horizon scale, we reconstruct the CMB acoustic spectrum as the resonant harmonics of an $S^2$ topology loaded by $\approx 4.2\%$ baryons, naturally resolving the "Low Quadrupole" anomaly via vacuum stiffness.
+
+     \item \textbf{Galactic Rotation Curves:} we translate the global horizon into a local acceleration scale ($a_{\kappa} = cH_0/3\pi$), which we apply to the SPARC database (175 galaxies). This rigid geometric prescription predicts rotation curves, the Radial Acceleration Relation (RAR), and the linear scaling of Phantom Inertia with equal or higher precision than MOND phenomenology, without any fitting.
+
+     \item \textbf{Dark Lensing:}  we extend this framework to the gravitational lensing of "dark" potentials showing that the same Phantom Inertia responsible for galactic dynamics, also stands behind the "dark lensing" phenomena.
+
+     \item \textbf{Wide Binary Stars:} applied to this dynamic systems the theory correctly predicts the kinetic resonance scale ($a_{\beta} = cH_0/6\pi$) matching recent Gaia DR3 within observational uncertainties. 
+ \end{enumerate}
+
+These results demonstrate that a single geometric ontology, devoid of hidden mass or energy sectors, universally predicts empirical data across 20 orders of magnitude. This strongly suggests that the paradigm of "Dark" phenomenology is becoming obsolete, superseded by a transparent \textbf{Relational Geometric Ontology}
 \end{abstract}
 
 \section{Methodological Framework}
@@ -192,7 +239,7 @@ Under the closure condition (\ref{eq:closure}), this norm simplifies to $Q^2 = 3
 \section{The Necessity of Global Resonance}
 
 Having established that the relational carriers of WILL are topologically
-closed (WIL Part I: Lemma Closure), we now derive the consequences of closure
+closed (WILL Part I: Lemma Closure), we now derive the consequences of closure
 for persistent dynamics. Consequently, since $\text{SPACETIME} \equiv \text{ENERGY}$, any spatial separation is defined intrinsically by relational energy differentials.
 
 \begin{lemma}[Inevitability of Self-Interaction]
@@ -229,25 +276,28 @@ Our methodology strictly precludes the acceptance of empirically fitted values (
 
 $$\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$$
 
-\section{Prerequisite: The Geometric Identity of $\alpha$}
 
-This work builds upon the microscopic foundations established in WILL RG Part III. There, we demonstrate that atomic structure is governed by the same scale-invariant projective geometry as galactic systems, defined by three rigid conservation principles:
 
-\begin{enumerate}
-    \item \textbf{Kinematic Projection:} $\beta^2 = v^2/c^2$, representing the motion component of the relational budget.
-    \item \textbf{Potential Projection:} $\kappa^2 = R_{critical}/r$, where $R_{critical}$ is the energetic saturation radius where the bound energy corresponds to half of the object's rest energy ($E_{bound}=\frac{1}{2}E_0$).
-    \item \textbf{Geometric Closure Condition:} $\kappa^2 = 2\beta^2$, representing the structural stability condition.
-\end{enumerate}
+\subsection*{Prerequisite: The Geometric Identity of $\alpha$ (Summary of Part III)}
 
-Applying these constraints to the Hydrogen ground state identifies the fine-structure constant $\alpha$ as the unique kinematic projection required for geometric closure ($\beta_{ground} \equiv \alpha$).
+In WILL RG Part III, atomic stability is derived not from force equilibrium, but from the \textbf{Geometric Closure Condition} between the potential ($S^2$) and kinetic ($S^1$) carriers: $\kappa^2 = 2\beta^2$.
 
-Crucially, this establishes $\alpha$ as the fundamental scaling factor defining the ratio between the \textbf{base relational state of electromagnetic binding} and the \textbf{critical relational limit} associated with the Causal Horizon ($R_H$). We now utilize this geometric link to derive the macroscopic scale of the Universe.
+We defined the \textbf{Electromagnetic Critical Radius} ($R_q$) as the scale of energetic saturation ($U = E_{rest}/2$), and the \textbf{Bohr Radius} ($a_0$) as the scale of topological phase closure ($n=1$).
+The Fine Structure Constant $\alpha$ is rigorously identified as the unique \textbf{Kinematic Projection} ($\beta_1$) required to bridge these two scales:
+
+\begin{equation}
+\alpha \equiv \beta_1 = \sqrt{\frac{1}{2} \frac{R_q}{a_0}}
+\end{equation}
+
+Thus, $\alpha$ is the scaling factor defining the ratio between the \textbf{critical limit of the field} and the \textbf{stable state of matter}. This rigid geometric scaling ($\beta \leftrightarrow \kappa$) allows us to use $\alpha$ to map the macroscopic saturation density $\rho_{max}$ in the following section.
+
+
 
 \section{Deriving $H_0$ from CMB Temperature and $\alpha$}
 
 The most robust, model-independent absolute scale available in cosmology is the monopole temperature of the Cosmic Microwave Background ($T_0$). It defines the current radiation energy density $\rho_{\gamma}$.
 
-As derived in WILL RG Part III, the fine-structure constant $\alpha$ acts as the kinematic projection of the ground state ($\beta_1 \equiv \alpha$), connecting micro- and macro-closure. This fixes the RG scaling ratio between the radiation density $\rho_{\gamma}$ and the geometric saturation density $\rho_{max}$.
+As derived in WILL RG Part III, the fine-structure constant $\alpha$ acts as the kinematic projection of the ground state ($\beta_1 \equiv \alpha$), connecting micro- and macro-closure. This fixes the RG scaling ratio between the radiation density $\rho_{\gamma}$ and the geometric saturation density $\rho_{max}$ (derived in WILL Part I as density at  $ r=R_s  \Longrightarrow \kappa^2=1$).
 
 \section{Input Parameters and Constants}
 
@@ -292,7 +342,7 @@ Using the input $T_0 = 2.7255$ K:
 \textit{Objective:} Calculate the saturation density of the geometric field.
 
 \textit{Logic:} 
-In WILL Relational Geometry, the cosmological horizon is not a dynamical surface but the relational limit of observation itself. Since the dimensionless projections  $(\beta,\kappa)$ encode the relative state difference between an observer and an object, projecting this difference onto the global horizon necessarily corresponds to the maximal admissible relational separation. By definition of closure, this implies saturation of all relational channels, yielding  $\beta^2=1$, $\kappa^2=2$ and therefore $Q^2=3\beta^2$. No additional assumptions are involved. 
+In WILL Relational Geometry, the cosmological horizon is the relational limit of observation itself. Since the dimensionless projections  $(\beta,\kappa)$ encode the relative state difference between an observer and an object, projecting this difference onto the global horizon necessarily corresponds to the maximal admissible relational separation. By definition of closure, this implies saturation of all relational channels, yielding  $\beta^2=1$, $\kappa^2=2$ and therefore $Q^2=3\beta^2$. No additional assumptions are involved. 
 Therefore, the saturation density is determined by the condition:
 \begin{equation}
 \rho_{\gamma} = Q^{2} \alpha^{2} \rho_{max}
@@ -307,6 +357,8 @@ Using $\alpha \approx 7.297 \times 10^{-3}$ (so $\alpha^2 \approx 5.325 \times 1
 \begin{equation}
     \rho_{max} \approx \frac{4.641 \times 10^{-31}}{3 \cdot 5.325 \times 10^{-5}} \approx 2.907 \times 10^{-27} \, \text{kg/m}^3
 \end{equation}
+
+\textit{Note on Relativistic Backgrounds:} Standard cosmology includes a neutrino energy density contribution ($\rho_{\nu}$). However, in WILL RG, the geometric horizon is defined strictly by the electromagnetic coupling limit ($\alpha$). Since neutrinos are electrically neutral and do not couple to the charge structure defining $\alpha$, they do not contribute to the electromagnetic saturation density $\rho_{max}$.
 
 \subsection{Step 3: The Hubble Parameter ($H_0$)}
 \textit{Objective:} Convert the saturation density into the frequency parameter.
@@ -393,6 +445,79 @@ Substituting the derived saturation density:
 
 This value is the necessary geometric density of a phase-closed vacuum state derived solely from $T_{CMB}$ and $\alpha$. We now use this stiffness to calculate the acoustic response of the CMB.
 
+
+\section{Geometric Expansion Law: Distant Supernova Flux Levels Test}
+
+Having derived the Hubble parameter ($H_0 \approx 68.15$ km/s/Mpc) exclusively from microphysical constants ($\alpha, T_0$), we rigorously test the resulting cosmological metric against the expansion history of the late Universe using Type Ia Supernovae.
+
+WILL Relational Geometry establishes a generative approach where the cosmological density parameters are not free variables, but fixed projection ratios dictated by the topology of the closed carrier.
+
+\subsection{Geometric Partitioning of the Energy Budget}
+
+The total relational budget $Q^2$ of a closed system is conserved and partitioned between two orthogonal carriers. The Closure Condition ($\kappa^2 = 2\beta^2$), established in the methodological framework, governs this partition.
+
+Consequently, the Cosmological Density Parameters ($\Omega$) are defined as the normalized weights of these projections relative to the total budget $Q^2$:
+
+\begin{itemize}
+    \item \textbf{Matter Density ($\Omega_m$):} Corresponds to the Kinetic Projection ($S^1$).
+    \begin{equation}
+    \Omega_m \equiv \Omega_{kin} = \frac{\beta^2}{Q^2} = \frac{\beta^2}{3\beta^2} = \frac{1}{3}
+    \end{equation}
+    \item \textbf{Dark Energy ($\Omega_{\Lambda}$):} Corresponds to the Structural Projection ($S^2$).
+    \begin{equation}
+    \Omega_{\Lambda} \equiv \Omega_{pot} = \frac{\kappa^2}{Q^2} = \frac{\kappa^2}{1.5\kappa^2} = \frac{2}{3}
+    \end{equation}
+\end{itemize}
+
+\textbf{Prediction:} The observed cosmic energy density is a direct manifestation of the $S^2$ topology, which imposes a strict $2:1$ ratio between Structural Tension ($\Omega_{\Lambda}$) and Kinetic Mass ($\Omega_m$).
+
+\subsection{The Hubble Diagram Test}
+
+We test this geometric prediction against the \textbf{Pantheon+} dataset (Scolnic et al., 2022). Crucially, this analysis is \textbf{not a fit} to determine $H_0$ from the supernovae, which would suffer from degeneracy with absolute magnitude ($M$). Instead, we strictly use the $H_0$ value derived from microphysics as an \textit{external input} to test the validity of the geometric expansion law ($\Omega_{\Lambda} = 2/3$). The theoretical luminosity distance $d_L(z)$ is calculated using the derived constants ($H_0 = 68.15$, $\Omega_m \approx 0.333$, $\Omega_{\Lambda} \approx 0.667$) with zero free parameters.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/WILL_COSMO_r(z).png}
+    \caption{\textbf{Ab Initio Prediction of Cosmic Expansion.} The red solid line represents the WILL RG prediction derived purely from microphysics ($T_{CMB}, \alpha$) and geometric partitioning ($\Omega=1/3, 2/3$). The WILL prediction is consistent with the binned Pantheon+ means (no z-dependent fitting) 
+    \label{fig:hubble_diagram}
+\end{figure}
+
+\subsection{Residual Analysis}
+
+The theoretical distance modulus $\mu_{WILL}(z)$ tracks the observed means $\mu_{obs}(z)$ within the statistical error margins of the survey. The table below presents the precise residuals.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{12pt}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Redshift ($z$)} & \textbf{Prediction ($\mu_{WILL}$)} & \textbf{Observed ($\mu_{obs}$)} & \textbf{Residual (mag)} \\
+\hline
+0.1 & 38.37 & 38.37 & -0.002 \\
+\hline
+0.3 & 41.00 & 40.99 & +0.008 \\
+\hline
+0.5 & 42.29 & 42.29 & +0.005 \\
+\hline
+0.7 & 43.17 & 43.17 & +0.003 \\
+\hline
+1.0 & 44.12 & 44.11 & +0.007 \\
+\hline
+1.5 & 45.19 & 45.18 & +0.014 \\
+\hline
+\end{tabular}
+\caption{\textbf{Precision of the Geometric Metric.} The deviation between strict WILL prediction and Pantheon+ observations remains below 0.015 mag across the entire redshift range.}
+\label{tab:residuals}
+\end{table}
+
+
+\subsection{Conclusion: The Geometric Nature of Dark Energy}
+
+The observed expansion history is consistent with a closed system in which $\Omega_{\Lambda}=2/3$. This is consistent with interpreting the inferred ``dark energy'' effects as the \textbf{Structural Projection} weight of the vacuum geometry, without any redshift-dependent fitting. The Universe maintains the structural integrity of its global horizon through this requisite tension.
+
+
+
 \section{Geometric Origin of the CMB Acoustic Spectrum}
 
 Having established the value of the Hubble parameter $H_0$ from the fundamental constants $\alpha$ and $T_{CMB}$, we now apply the WILL Relational Geometry framework to the analysis of the Cosmic Microwave Background (CMB) acoustic peaks.
@@ -440,8 +565,7 @@ We utilize the values derived in the previous section:
 \end{itemize}
 
 \paragraph{2. The Pure Vacuum State.}
-Based on the $S^2$ geometry and the Horizon scale $R_H$ derived from $\alpha$, the fundamental vacuum mode (unloaded) is calculated to be at multipole $\ell_{vac} \approx 227.5$. The first acoustic peak fixes the absolute mass loading; the higher peaks then test the predicted harmonic structure.
-This implies a frequency shift ratio relative to the observed peak ($\ell_{obs} = 220.6$):
+Based on the $S^2$ geometry and the Horizon scale $R_H$ derived from $\alpha$, the fundamental vacuum mode (unloaded) is calculated to be at multipole $\ell_{vac} \approx 227.5$. The first acoustic peak allows us to \textit{calculate} the required baryon density, which yields a value consistent with Big Bang Nucleosynthesis expectations; the higher peaks then test the predicted harmonic structure. This implies a frequency shift ratio relative to the observed peak ($\ell_{obs} = 220.6$):
 \[
 K = \frac{\ell_{obs}}{\ell_{vac}} = \frac{220.6}{227.5} \approx 0.9697
 \]
@@ -538,7 +662,7 @@ Substituting into the suppression equation for $\ell=2$:
 
 The WILL RG framework predicts a theoretical "Inertial Corridor" for the quadrupole power.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{img/CMB_l_2.png}
     \caption{\textbf{Resolution of the Low Quadrupole Anomaly.} 
@@ -602,39 +726,29 @@ This frequency establishes the minimal energy floor for any interaction in the c
 a_{Mach} = f_0 c = \frac{H_0 c}{2\pi} \approx 1.05 \times 10^{-10} \, \mathrm{m/s^2}.
 \end{equation}
 
-
 \subsection{Bifurcation of Resonance: Structural vs. Kinetic}
 
-In WILL RG, the interaction with the global Horizon is not a force field but a resonant coupling to the total relational budget $Q^2$. The magnitude of this coupling depends on the topological nature of the bound system.
-
-Recall the Closure Condition established in WILL Part I:
+In RG, dynamics is governed by closed algebraic structure of \textbf{Relational Orbital Mechanics (R.O.M.)}, established in Part I. Recall the total relational shift established in WILL Part I:
 \begin{equation}
 Q^2 = \kappa^2 + \beta^2 = 3\beta^2 = \frac{3}{2}\kappa^2
 \end{equation}
-This budget is partitioned into two orthogonal projections:
-\begin{itemize}
-    \item \textbf{Structural Projection (Potential $S^2$):} Weight $\Omega_{pot} = \frac{\kappa^2}{Q^2} = \frac{2}{3}$.
-    \item \textbf{Kinetic Projection (Motion $S^1$):} Weight $\Omega_{kin} = \frac{\beta^2}{Q^2} = \frac{1}{3}$.
-\end{itemize}
-
-\paragraph{The Geometric Selection Rule.}
 \begin{enumerate}
-    \item \textbf{Galaxies (Macro-Scale):} These are continuous fluid-dynamical structures (gas/stars) maintained by their potential well. Their existence is defined by \textit{Structure}. Thus, they couple to the Horizon via the dominant potential channel:
-    \begin{equation}
+    \item \textbf{Galaxies} are physically realised as continuous potential fields (fluids/structure). Their relational state is a smooth function $\kappa(\vec{x})$ on the $S^2$ carrier. Hence, they couple to the horizon via the \textbf{Structural Channel} with weight $\Omega_{p o t} = \frac{\kappa^{2}}{Q^{2}} = \frac{2}{3}$.
+\begin{equation}
     a_{\kappa} = \Omega_{pot} \cdot a_{Mach} = \frac{2}{3} \frac{cH_0}{2\pi} = \frac{cH_0}{3\pi} \approx 0.70 \times 10^{-10} \, \mathrm{m/s^2}
     \end{equation}
-      
-    \item \textbf{Binary Stars (Local Scale):} These are discrete point masses. They do not form a continuous medium. Their existence as a system is defined solely by their \textit{Orbital Motion}. Thus, they couple to the Horizon via the kinetic channel:
+    \item \textbf{Binaries} are discrete orbital systems (point masses). Their relational state is a periodic function $\beta(\theta)$ (where $\theta$ is the orbital phase) on the $S^1$ carrier. Hence, they couple via the \textbf{Kinetic Channel} with weight $\Omega_{k i n} = \frac{\beta^{2}}{Q^{2}} = \frac{1}{3}$.
     \begin{equation}
     a_{\beta} = \Omega_{kin} \cdot a_{Mach} = \frac{1}{3} \frac{cH_0}{2\pi} = \frac{cH_0}{6\pi} \approx 0.35 \times 10^{-10} \, \mathrm{m/s^2}
     \end{equation}
 \end{enumerate}
 
-The functional form remains the same because it follows from the same geometric-mean interference law; only the coupling weight $\Omega$ differs by topology. This derivation yields a specific, falsifiable prediction: the Machian kinematic acceleration scale for binary stars ($a_{\beta}$) must be exactly \textbf{half} the potential acceleration ($    a_{\kappa} $) of galaxies. 
+This assignment is strictly enforced by the algebraic closure condition $\kappa^2 = 2\beta^2$. The continuity of the potential field selects the $S^2$ carrier for galaxies, while the discrete orbital nature selects $S^1$ for binaries.
 
-
+Consequently, the resulting acceleration scales $a_\kappa = cH_0/3\pi$ and $a_\beta = cH_0/6\pi$ are \textbf{topological invariants} of the theory. This bifurcation rigorously explains why MOND’s single universal parameter $a_0$ fails for wide binaries (which require the kinetic scale) while WILL RG accurately matches both regimes.
 
 \subsection{The Interference of Frequencies}
+
 Consider a star orbiting at radius $r$. Its dynamic state is a superposition of two frequency modes:
 
 \begin{enumerate}
@@ -643,6 +757,7 @@ Consider a star orbiting at radius $r$. Its dynamic state is a superposition of 
     \[ E_{glob} \propto a_{Mach} r \]
 \end{enumerate}
 \subsection{Constructive Interference}
+
 Since the star and the horizon are coupled parts of the same closed geometry, their amplitudes interfere. The total kinetic energy state $v_{obs}^2$ includes a \textbf{Constructive Interference Term} (Geometric Mean).
 Since the RG projections encode quadratic energy budgets, the interference of two coupled modes contributes as the geometric mean of their respective energy amplitudes:
 \begin{equation}
@@ -651,6 +766,7 @@ v_{obs}^2 = \underbrace{v_{N}^2}_{\text{Local Self-Energy}} + \underbrace{\sqrt{
 where $a_{\kappa} = \Omega_{pot} a_{Mach}$ reflects the structural coupling of the galaxy ($\Omega_{pot}=2/3$).
 
 \subsection{Conclusion}
+
 This equation derives the flat rotation curves of galaxies without invoking Dark Matter. The "extra" velocity is simply the physical manifestation of constructive interference between the local orbital frequency and the Universe's fundamental tone. The rotation curve remains flat because the system cannot decay below the energy floor supported by the global resonance.
 
 \section{Empirical Verification: Galactic Dynamics}
@@ -678,12 +794,12 @@ V_b^2(r) = V_{\rm gas}^2(r)
 + \Upsilon_{\rm disk} V_{\rm disk}^2(r)
 + \Upsilon_{\rm bulge} V_{\rm bulge}^2(r).
 \end{equation}
-We adopt fixed mass-to-light ratios consistent with population synthesis expectations for the 3.6 $\mu$m band (Lelli et al., 2016):
+\textbf{Fixed Mass-to-Light Ratios:} Unlike standard dark matter analyses that often treat $\Upsilon_*$ as a nuisance parameter to be fitted per galaxy, we enforce a strict global Stellar Population Synthesis expectations for the 3.6 $\mu$m band (Lelli et al., 2016): 
 \[
 \Upsilon_{\rm disk} = 0.5, \qquad
 \Upsilon_{\rm bulge} = 0.7.
 \]
-These values are applied uniformly to all galaxies and are strictly fixed.
+applied uniformly across the entire sample. This eliminates "per-galaxy tuning" completely.
 
 \subsection{Dynamical Prescriptions Evaluated}
 
@@ -780,22 +896,35 @@ To isolate physical validity from stellar mass-to-light ratio uncertainties, we 
 \caption{Performance metrics on Gas-Dominated galaxies ($GasFrac > 0.5$).}
 \begin{tabular}{|l|c|c|c|}
 \hline
-\textbf{Model} & \textbf{MedAE} [km/s] & \textbf{Bias} [km/s]  &$$F_{10}$$\\\hline
+\textbf{Model} & \textbf{MedAE} [km/s] & \textbf{Bias} [km/s]  & $F_{10}$\\\hline
  LCDM (AM)& 7.42&-3.91&0.65\\\hline
 
 MOND (Standard) & 7.70 & $-5.12$  &0.70\\\hline
 Verlinde ($1/6$) & 8.04 & $-5.90$  &0.71\\\hline
-WILL RG ($1/3\pi$) & \textbf{7.00} & \textbf{$+0.53$}  & 0.66\\
+WILL RG ($1/3\pi$) & \textbf{7.00} & \textbf{+0.53}& 0.66\\
 \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[h]
+
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{img/rar_gas_binned_final.png}
-    \caption{Grey points represent raw data; black squares denote binned means with standard error of the mean (SEM). The \textbf{Newtonian} prediction (dashed black) fails completely. \textbf{Standard MOND} ($a_0=1.2\times 10^{-10}$, blue) and \textbf{Verlinde's Emergent Gravity} ($a_0 \approx 1.1\times10^{-10}$, green) systematically overpredict the observed acceleration in the low-acceleration regime ($g_{bar} < 10^{-11}$), lying outside the SEM error bars. \textbf{WILL Relational Geometry} (red), utilizing a theoretically derived acceleration scale $a_{\kappa} = cH_0 /3\pi \approx 0.7\times10^{-10}$, passes directly through the binned means, exhibiting negligible systematic bias.}
+    \caption{Grey points represent raw data; black squares denote binned means with standard error of the mean (SEM). \textbf{Standard MOND} ($a_0=1.2\times 10^{-10}$, blue) and \textbf{Verlinde's Emergent Gravity} ($a_0 \approx 1.1\times10^{-10}$, green) systematically overpredict the observed acceleration in the low-acceleration regime ($g_{bar} < 10^{-11}$), lying outside the SEM error bars. \textbf{WILL Relational Geometry} (red), utilizing a theoretically derived acceleration scale $a_{\kappa} = cH_0 /3\pi \approx 0.7\times10^{-10}$,  exhibiting negligible systematic bias (\textbf{+0.53} km/s).}
     \label{fig:RAR_Gas}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
+ 
 \section{The Universal Radial Acceleration Relation (RAR)}
 
 We subjected the WILL framework to the rigorous Radial Acceleration Relation (RAR) test using the full SPARC database (175 galaxies, $>3000$ data points). Unlike standard Dark Matter models, which treat the halo as a free component with arbitrary fitting parameters for each galaxy, WILL RG predicts a rigid, universal functional relationship between the baryonic acceleration $g_{bar}$ and the observed acceleration $g_{obs}$.
@@ -823,14 +952,20 @@ The statistical analysis of the residuals (logarithmic deviation) yields:
     \item \textbf{Mean Offset:} $0.007$ dex (approx. $1.5\%$).
 \end{itemize}
 
-\textbf{Conclusion:} The theory matches observations with zero systematic bias and a scatter consistent with observational uncertainties. This confirms that the "mass discrepancy" attributed to Dark Matter is, in reality, a deterministic geometric interference effect governed by the Universal Horizon scale ($H_0$).
+\textbf{Conclusion:} The theory matches observations with near zero systematic bias and a scatter consistent with observational uncertainties. This  strongly suggests that the interference effect governed by the Universal Horizon scale ($H_0$) can fully explain and accurately predict the observation phenomena that usually attributed to Dark Matter.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{img/RAR_test.png}
-    \caption{The Universal Radial Acceleration Relation (RAR) for 175 SPARC galaxies. The heatmap shows the density of $>3000$ individual data points. The cyan line represents the WILL Resonance Interference prediction ($g_{obs} = g_{bar} + \sqrt{g_{bar}a_{\kappa}}$) using the $H_0$ value derived from CMB thermodynamics. The remarkable agreement ($\text{RMSE} \approx 0.065$ dex) without free parameters confirms that galactic dynamics are regulated by the global horizon.}
+    \caption{Radial Acceleration Relation (RAR) for 175 SPARC galaxies. The green dots shows the density of $>3000$ individual data points. The cyan line represents the WILL Resonance Interference prediction ($g_{obs} = g_{bar} + \sqrt{g_{bar}a_{\kappa}}$) using the $H_0$ value derived from CMB thermodynamics. The remarkable agreement ($\text{RMSE} \approx 0.065$ dex) without free parameters strongly suggests that galactic dynamics are regulated by the global horizon.}
     \label{fig:rar}
 \end{figure}
+
+
+
+
+
+
 
 \section{Local Verification: The Solar System Test}
 
@@ -940,14 +1075,13 @@ We test this identity against the SPARC database \citep{Lelli2016}, comprising 1
 
 Figure~\ref{fig:bullseye} presents the results of the analysis.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{img/Baryonic_Escape_Threshold.png} 
     \caption{\textbf{The Universal Escape Threshold.} The plot shows the normalized rotation velocity ($Y = V_{obs} / V_{esc}^{bary}$) versus normalized radius ($X = r/R_{trans}$) for 161 galaxies ($N=3007$ points). 
     \textbf{Green points:} Raw data.
     \textbf{Black points:} Binned means with standard errors.
     \textbf{Cyan Line:} Hard Fixed WILL RG prediction.
-    \textbf{Gray Dashed Line:} The Newtonian limit ($V_{obs}=V_{bar}$), rejected by the data.
     \textbf{Orange Dotted Line:} Naive WILL RG without $1.5\pi$ factor.
     The red crosshair marks the Equivalence Point $(1,1)$.}
     \label{fig:bullseye}
@@ -969,6 +1103,9 @@ The precise intersection confirms the geometric link between the\textbf{ thermod
 \end{enumerate}
 
 
+
+
+
 \section{Gravitational Lensing}
 
 \subsection{Limits of Validity: The Weak Lensing Problem}
@@ -988,7 +1125,7 @@ A fully consistent weak-lensing treatment in RG requires a dedicated forward-mod
 In WILL Relational Geometry, gravity is not a distinct force field but a manifestation of the global energy density ($Spacetime \equiv Energy$). The total relational shift $Q^2$, which determines the inertial behaviour of baryons (manifesting as "Phantom Mass" in rotation curves), defines the effective refractive density of the vacuum state.
 
 We posit no additional geometric structures or hidden mass components. The hypothesis is strict: the vacuum density that boosts stellar velocities must simultaneously act as the refractive medium for photons. Therefore, the dynamical mass inferred from stellar kinematics ($\sigma_{star}$) must be identical to the lensing mass ($\sigma_{lens}$).
-
+ 
 \subsubsection{Proof of Concept: SDSSJ0946+1006}
 
 To validate this unification, we examine the benchmark system SDSSJ0946+1006 from the SLACS survey. This system allows us to compare the "Phantom Mass" effect on matter against its effect on light directly.
@@ -1034,17 +1171,19 @@ We test this Kinetic Resonance prediction ($a_{\beta} = cH_0/6\pi$) against the 
 \begin{equation}
 \gamma_{WILL} = 1 + \sqrt{\frac{a_{\beta}}{g_N}} = 1 + \sqrt{\frac{cH_0}{6\pi g_N}}
 \end{equation}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\linewidth]{img/Wide_binary_Chae_2023.png}
 \caption{\textbf{The Kinetic Resonance Test.} The plot compares the gravity boost factor as a function of Newtonian acceleration.
-\textbf{Black points:} Gaia DR3 observations (Chae, 2023).
 \textbf{Blue dashed line:} Standard MOND prediction ($a_0 = 1.2 \times 10^{-10} \, \mathrm{m/s^2}$), which systematically overestimates the anomaly.
 \textbf{Red solid line:} WILL RG Kinetic Resonance prediction 
-($a_{\beta} = cH_0/6\pi \approx 0.35 \times 10^{-10} \, \mathrm{m/s^2}$).
-The WILL prediction, derived without parameter fitting from the CMB temperature, passes precisely through the observational data points, matches the reported trend of Wide Binary observations.}
+($a_{\beta} = cH_0/6\pi \approx 0.35 \times 10^{-10} \, \mathrm{m/s^2}$)
+passes precisely through the observational data points, matches the reported trend of Wide Binary observations without any parameter fitting.}
 \label{fig:wide_binaries}
 \end{figure}
+
+
+
 
 \paragraph{Numerical Comparison (Deep Regime).}
 At the characteristic low-acceleration point $g_N = 10^{-9.8} \, \mathrm{m/s^2}$:
@@ -1100,7 +1239,7 @@ Therefore, the Galaxy is the gravitational realization of the Bohr orbit, scaled
 
 We have demonstrated that the "Dark Matter" phenomenon is the observational signature of scale-invariant geometric closure. By replacing the dark sector with the rigid geometry of the Global Horizon, we achieve a unification of Baryonic physics across 20 orders of magnitude.
 
-Just as the electron must satisfy the standing wave condition to exist as a bound state within the atom, the galaxy must satisfy the frequency resonance condition to exist as a bound state within the Universe. The precision of these predictions, achieved without free parameters, suggests that the era of "Dark" phenomenology is nearing its end, giving way to a new era of \textbf{Relational Geometric Ontology}.
+Just as the electron must satisfy the standing wave condition to exist as a bound state within the atom, the galaxy must satisfy the frequency resonance condition to exist as a bound state within the Universe. The precision of these predictions, achieved without any free parameters, strongly suggests that the paradigm of "Dark" phenomenology is becoming obsolete, superseded by a transparent \textbf{Relational Geometric Ontology.}
 
 \textbf{Code and data are fully open-source at}: \url{https://antonrize.github.io/WILL/}
 
