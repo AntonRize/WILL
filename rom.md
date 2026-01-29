@@ -99,77 +99,53 @@ where $\delta = \kappa_p/(\beta_p\sqrt{2})$ measures how "closed" the energy cyc
 
 ### Global System Parameters
 
-$$R_s = \kappa^2 a = \frac{2Gm_0}{c^2}$$
+$$R_s = \kappa^2 a = \frac{2Gm_0}{c^2}$$ *(Schwarzschild radius - system scale)* | $$\kappa = \sqrt{\frac{R_s}{a}} = \sqrt{4W}$$ *(global potential projection)*
 
-$$\kappa = \sqrt{\frac{R_s}{a}} = \sqrt{4W}$$
+$$\beta = \sqrt{2W} = \frac{\kappa}{\sqrt{2}}$$ *(global kinetic projection - virial equivalent)* | $$a = \frac{R_s}{4W}$$ *(semi-major axis)*
 
-$$\beta = \sqrt{2W} = \frac{\kappa}{\sqrt{2}}$$
-
-$$a = \frac{R_s}{4W}$$
-
-$$\delta = \frac{1}{\sqrt{1+e_c}}$$
+$$\delta = \frac{\kappa_p}{\beta_p\sqrt{2}} = \frac{1}{\sqrt{1+e_c}}$$ *(closure factor at $r_p$)* | $$Q = \sqrt{\kappa^2 + \beta^2}$$ *(relational displacement)*
 
 ### Eccentricity Relations
 
-$$e_c = \frac{2\beta_p^2}{\kappa_p^2} - 1 = 1 - \frac{2\beta_a^2}{\kappa_a^2}$$
-
-$$e_{cY} = \sqrt{1-e_c^2}$$
-
-$$e_X = \frac{1+e_c}{1-e_c}$$
+$$e_c = \frac{2\beta_p^2}{\kappa_p^2} - 1 = 1 - \frac{2\beta_a^2}{\kappa_a^2}$$ *(eccentricity from closure)* | $$e_{cY} = \sqrt{1-e_c^2}$$ *(orthogonal value)* | $$e_X = \frac{1+e_c}{1-e_c}$$ *(shape factor)*
 
 ### Perihelion State
 
-$$r_p = a(1-e_c)$$
+$$r_p = a(1-e_c)$$ *(radius at perihelion)* | $$\kappa_p = \kappa\sqrt{\frac{1}{1-e_c}}$$ *(potential at perihelion)*
 
-$$\kappa_p = \kappa\sqrt{\frac{1}{1-e_c}}$$
-
-$$\beta_p = \sqrt{\kappa_p^2 \cdot \frac{1+e_c}{2}}$$
-
-$$Q_p = \sqrt{\kappa_p^2 + \beta_p^2}$$
+$$\beta_p = \sqrt{\kappa_p^2 \cdot \frac{1+e_c}{2}}$$ *(kinetic at perihelion)* | $$Q_p = \sqrt{\kappa_p^2 + \beta_p^2}$$ *(displacement at perihelion)*
 
 ### Aphelion State
 
-$$r_a = a(1+e_c)$$
+$$r_a = a(1+e_c)$$ *(radius at aphelion)* | $$\kappa_a = \sqrt{2W + \beta_a^2}$$ *(potential at aphelion)*
 
-$$\kappa_a = \sqrt{2W + \beta_a^2}$$
-
-$$\beta_a = \beta\sqrt{e_X}$$
-
-$$\delta_{\text{apo}} = \frac{1}{\sqrt{1-e_c}}$$
+$$\beta_a = \beta\sqrt{e_X}$$ *(kinetic at aphelion)* | $$\delta_{\text{apo}} = \frac{1}{\sqrt{1-e_c}}$$ *(closure factor at aphelion)*
 
 ### Phase-Dependent Quantities
 
 At any orbital phase $o$:
 
-$$r_o = a\frac{1-e_c^2}{1+e_c\cos o}$$
+$$r_o = a\frac{1-e_c^2}{1+e_c\cos o}$$ *(radial distance)* | $$\eta_o = \frac{r_o}{a}$$ *(phase scale amplitude)*
 
-$$\kappa_o = \kappa_p\sqrt{\frac{1+e_c\cos o}{1+e_c}}$$
+$$\kappa_o = \kappa_p\sqrt{\frac{1+e_c\cos o}{1+e_c}}$$ *(local potential)* | $$\beta_o = \sqrt{\kappa_o^2 - 2W}$$ *(local kinetic)*
 
-$$\beta_o = \sqrt{\kappa_o^2 - 2W}$$
-
-$$Q_o = \sqrt{\kappa_o^2 + \beta_o^2}$$
-
-$$\delta_o = \frac{\kappa_o}{\beta_o\sqrt{2}}$$
+$$Q_o = \sqrt{\kappa_o^2 + \beta_o^2}$$ *(local displacement)* | $$\delta_o = \frac{\kappa_o}{\beta_o\sqrt{2}}$$ *(local closure factor)*
 
 ### Orbital Characteristics
 
-$$\omega = \frac{\beta c}{a}$$
+$$\omega = \frac{\beta c}{a}$$ *(angular frequency)* | $$T = \frac{2\pi}{\omega}$$ *(orbital period)* | $$h_W = a \beta c e_{cY}$$ *(angular momentum)*
 
-$$T = \frac{2\pi}{\omega}$$
+$$\Delta\phi_{\text{WILL}} = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2}$$ *(precession per orbit at perihelion)*
 
-$$h_W = a \beta c e_{cY}$$
+$$\omega_o = \frac{\beta c}{a}\frac{(1+e_c\cos o)^2}{(1-e_c^2)^{3/2}}$$ *(angular speed at phase $o$)*
 
-$$\Delta\phi_{\text{WILL}} = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2}$$
+### Relational Geometry (WILL Framework)
 
-### Relational Geometry
+$$\theta_1 = \arccos(\beta)$$ *(distribution angle on $S^1$)* | $$\theta_2 = \arcsin(\kappa)$$ *(distribution angle on $S^2$)*
 
-$$\theta_1 = \arccos(\beta)$$
+$$\beta_Y = \sqrt{1-\beta^2}$$ *(relativistic phase factor)* | $$\kappa_X = \sqrt{1-\kappa^2}$$ *(gravitational phase factor)*
 
-$$\theta_2 = \arcsin(\kappa)$$
-
-$$\tau_W = \sqrt{(1-\kappa^2)(1-\beta^2)}$$
-
-$$z = \frac{1}{\sqrt{1-\kappa^2}} - 1$$
+$$\tau_W = \kappa_X \beta_Y$$ *(relational spacetime factor)* | $$z = \frac{1}{\kappa_X} - 1$$ *(redshift)*
 
 ---
 
@@ -190,7 +166,7 @@ $$z = \frac{1}{\sqrt{1-\kappa^2}} - 1$$
 4. System closes: $W = \kappa^2/4 - \beta^2/2$
 
 **Two Velocity-Position Pairs** $(v_1, r_1, v_2, r_2)$:
-- This is the **killer feature** of ROM
+- This is one of ROM's **most powerful features**
 - Algebraic closure from just two measurements
 - Orders of magnitude faster than traditional orbit determination
 

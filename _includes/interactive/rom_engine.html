@@ -1,474 +1,278 @@
 <!-- ROM Interactive Engine -->
-<div id="rom-interactive-root" class="w-full min-h-screen bg-slate-900 p-4">
-  <div class="text-center text-gray-300 py-8">Loading ROM Engine...</div>
-</div>
+<div id="rom-root"></div>
 
-<script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/recharts@2.5.0/dist/Recharts.js"></script>
-<script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
-<script type="text/babel">
-(() => {
-const { useState, useEffect, useRef } = React;
-const { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = Recharts;
-
-function ROMInteractive() {
-  const G = 6.67430e-11;
-  const c = 299792458;
+<script>
+(function() {
+  const { useState, useEffect, useRef } = React;
+  const { createRoot } = ReactDOM;
+  const e = React.createElement;
   
-  const [inputMode, setInputMode] = useState('kappa-beta');
-  const [inputs, setInputs] = useState({
-    kappa_p: 0.1, beta_p: 0.05, e_c: 0.5, W: 0.005, kappa: 0.0866,
-    m0: 1.989e30, r_p: 5.79e10, r_a: 6.98e10, a: 5.79e10, T: 7.6e6,
-    beta_o1: 0.0001, t_o1: 0.000193, beta_o2: 0.00008, t_o2: 0.000233,
-  });
-  
-  const [romState, setRomState] = useState(null);
-  const [phase, setPhase] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [speed, setSpeed] = useState(1);
-  const [showPrecession, setShowPrecession] = useState(true);
-  const [orbitCount, setOrbitCount] = useState(0);
-  const canvasRef = useRef(null);
-  
-  const buildROMState = (kappa, beta, W, e_c, kappa_p, beta_p, a_input = null, R_s_input = null) => {
-    const delta = kappa_p / (beta_p * Math.sqrt(2));
-    const e_cY = Math.sqrt(1 - e_c ** 2);
-    const e_X = (1 + e_c) / (1 - e_c);
-    const a = a_input || 1.0;
-    const R_s = R_s_input || (kappa ** 2 * a);
-    const r_p = a * (1 - e_c);
-    const r_a = a * (1 + e_c);
-    const beta_a = beta * Math.sqrt(e_X);
-    const kappa_a = Math.sqrt(2 * W + beta_a ** 2);
-    const delta_apo = 1 / Math.sqrt(1 - e_c);
-    const omega = beta * c / a;
-    const T = 2 * Math.PI / omega;
-    const h_W = a * beta * c * e_cY;
-    const Q_p = Math.sqrt(kappa_p ** 2 + beta_p ** 2);
-    const Q = Math.sqrt(kappa ** 2 + beta ** 2);
-    const Delta_phi_WILL = (3 * Math.PI / 2) * (kappa_p ** 4 / beta_p ** 2);
-    const theta_1 = Math.acos(beta);
-    const theta_2 = Math.asin(kappa);
-    const beta_Y = Math.sqrt(1 - beta ** 2);
-    const kappa_X = Math.sqrt(1 - kappa ** 2);
-    const tau_W = kappa_X * beta_Y;
+  function ROMEngine() {
+    const G = 6.67430e-11, c = 299792458;
+    const [kappa_p, setKappaP] = useState(0.1);
+    const [beta_p, setBetaP] = useState(0.05);
+    const [phase, setPhase] = useState(0);
+    const [animating, setAnimating] = useState(false);
+    const [speed, setSpeed] = useState(1);
+    const [showPrec, setShowPrec] = useState(true);
+    const [orbitN, setOrbitN] = useState(0);
+    const canvasRef = useRef(null);
     
-    return { kappa, beta, W, e_c, e_cY, e_X, delta, a, R_s, r_p, r_a,
-             kappa_p, beta_p, Q_p, kappa_a, beta_a, delta_apo,
-             omega, T, h_W, Delta_phi_WILL, theta_1, theta_2,
-             beta_Y, kappa_X, tau_W, Q };
-  };
-  
-  const solveFromKappaBeta = (kappa_p, beta_p) => {
     const W = 0.5 * (kappa_p ** 2 - beta_p ** 2);
     const kappa = Math.sqrt(4 * W);
     const beta = Math.sqrt(2 * W);
     const e_c = (2 * beta_p ** 2 / kappa_p ** 2) - 1;
-    return buildROMState(kappa, beta, W, e_c, kappa_p, beta_p);
-  };
-  
-  const solveFromWEc = (W, e_c) => {
-    const kappa = Math.sqrt(4 * W);
-    const beta = Math.sqrt(2 * W);
-    const kappa_p = kappa * Math.sqrt(1 / (1 - e_c));
-    const beta_p = Math.sqrt(kappa_p ** 2 * (1 + e_c) / 2);
-    return buildROMState(kappa, beta, W, e_c, kappa_p, beta_p);
-  };
-  
-  const solveFromKappaEc = (kappa, e_c) => {
-    const kappa_p = kappa * Math.sqrt(1 / (1 - e_c));
-    const beta_p = Math.sqrt(kappa_p ** 2 * (1 + e_c) / 2);
-    const W = 0.5 * (kappa_p ** 2 - beta_p ** 2);
-    const beta = Math.sqrt(2 * W);
-    return buildROMState(kappa, beta, W, e_c, kappa_p, beta_p);
-  };
-  
-  const solveFromApsides = (m0, r_p, r_a) => {
-    const a = (r_p + r_a) / 2;
-    const e_c = (r_a - r_p) / (r_a + r_p);
-    const R_s = 2 * G * m0 / (c ** 2);
-    const kappa = Math.sqrt(R_s / a);
-    const kappa_p = kappa * Math.sqrt(1 / (1 - e_c));
-    const beta_p = Math.sqrt(kappa_p ** 2 * (1 + e_c) / 2);
-    const W = 0.5 * (kappa_p ** 2 - beta_p ** 2);
-    const beta = Math.sqrt(2 * W);
-    return buildROMState(kappa, beta, W, e_c, kappa_p, beta_p, a, R_s);
-  };
-  
-  const solveFromMassPeriod = (m0, a, T) => {
-    const R_s = 2 * G * m0 / (c ** 2);
-    const kappa = Math.sqrt(R_s / a);
-    const omega = 2 * Math.PI / T;
-    const beta = omega * a / c;
-    const W = kappa ** 2 / 4;
-    const kappa_p = Math.sqrt(2 * W + beta ** 2);
-    const e_c = 1 - kappa ** 2 / (2 * W + beta ** 2);
-    const beta_p = Math.sqrt(kappa_p ** 2 * (1 + e_c) / 2);
-    return buildROMState(kappa, beta, W, e_c, kappa_p, beta_p, a, R_s);
-  };
-  
-  const solveFromTwoPoints = (beta_o1, t_o1, beta_o2, t_o2) => {
-    const r_o1 = c * t_o1;
-    const r_o2 = c * t_o2;
-    const R_s = (beta_o1 ** 2 - beta_o2 ** 2) * r_o1 * r_o2 / (r_o2 - r_o1);
-    const W = 0.5 * (R_s / r_o1 - beta_o1 ** 2);
-    const kappa = Math.sqrt(4 * W);
-    const beta = Math.sqrt(2 * W);
-    const a = R_s / (4 * W);
-    const e_c = 0.3;
-    const kappa_p = kappa * Math.sqrt(1 / (1 - e_c));
-    const beta_p = Math.sqrt(kappa_p ** 2 * (1 + e_c) / 2);
-    return buildROMState(kappa, beta, W, e_c, kappa_p, beta_p, a, R_s);
-  };
-  
-  const calculatePhaseState = (state, o) => {
-    const { kappa_p, a, e_c, e_cY, W } = state;
-    const r_o = a * (1 - e_c ** 2) / (1 + e_c * Math.cos(o));
-    const eta_o = r_o / a;
-    const kappa_o = kappa_p * Math.sqrt((1 + e_c * Math.cos(o)) / (1 + e_c));
-    const beta_o = Math.sqrt(Math.max(0, kappa_o ** 2 - 2 * W));
-    const delta_o = Math.sqrt((1 + e_c * Math.cos(o)) / (1 + e_c ** 2 + 2 * e_c * Math.cos(o)));
-    const Q_o = Math.sqrt(kappa_o ** 2 + beta_o ** 2);
-    return { o, r_o, eta_o, kappa_o, beta_o, delta_o, Q_o };
-  };
-  
-  useEffect(() => {
-    try {
-      let state;
-      switch(inputMode) {
-        case 'kappa-beta': state = solveFromKappaBeta(inputs.kappa_p, inputs.beta_p); break;
-        case 'W-ec': state = solveFromWEc(inputs.W, inputs.e_c); break;
-        case 'kappa-ec': state = solveFromKappaEc(inputs.kappa, inputs.e_c); break;
-        case 'apsides': state = solveFromApsides(inputs.m0, inputs.r_p, inputs.r_a); break;
-        case 'mass-period': state = solveFromMassPeriod(inputs.m0, inputs.a, inputs.T); break;
-        case 'two-point': state = solveFromTwoPoints(inputs.beta_o1, inputs.t_o1, inputs.beta_o2, inputs.t_o2); break;
-        default: state = solveFromKappaBeta(0.1, 0.05);
-      }
-      setRomState(state);
-    } catch (error) {
-      console.error('Calculation error:', error);
-    }
-  }, [inputMode, inputs]);
-  
-  useEffect(() => {
-    if (!isAnimating || !romState) return;
-    const animate = () => {
-      setPhase(prev => {
-        let newPhase = prev + 0.02 * speed;
-        if (newPhase >= 2 * Math.PI) {
-          newPhase = newPhase % (2 * Math.PI);
-          setOrbitCount(c => c + 1);
-        }
-        return newPhase;
-      });
+    const delta = kappa_p / (beta_p * Math.sqrt(2));
+    const e_cY = Math.sqrt(1 - e_c ** 2);
+    const a = 1.0;
+    const R_s = kappa ** 2 * a;
+    const r_p = a * (1 - e_c);
+    const r_a = a * (1 + e_c);
+    const omega = beta * c / a;
+    const T = 2 * Math.PI / omega;
+    const Delta_phi = (3 * Math.PI / 2) * (kappa_p ** 4 / beta_p ** 2);
+    
+    const calcPhase = (o) => {
+      const r_o = a * (1 - e_c ** 2) / (1 + e_c * Math.cos(o));
+      const eta = r_o / a;
+      const kappa_o = kappa_p * Math.sqrt((1 + e_c * Math.cos(o)) / (1 + e_c));
+      const beta_o = Math.sqrt(Math.max(0, kappa_o ** 2 - 2 * W));
+      return { eta, kappa_o, beta_o };
     };
-    const interval = setInterval(animate, 16);
-    return () => clearInterval(interval);
-  }, [isAnimating, speed, romState]);
-  
-  useEffect(() => {
-    if (!canvasRef.current || !romState) return;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
-    const centerX = width / 2;
-    const centerY = height / 2;
     
-    ctx.fillStyle = '#0f172a';
-    ctx.fillRect(0, 0, width, height);
+    useEffect(() => {
+      if (!animating) return;
+      const timer = setInterval(() => {
+        setPhase(p => {
+          let np = p + 0.02 * speed;
+          if (np >= 2 * Math.PI) {
+            np = np % (2 * Math.PI);
+            setOrbitN(n => n + 1);
+          }
+          return np;
+        });
+      }, 16);
+      return () => clearInterval(timer);
+    }, [animating, speed]);
     
-    const scale = Math.min(width, height) * 0.35;
-    const orbitsToShow = showPrecession ? orbitCount + 1 : 1;
-    
-    for (let orbit = 0; orbit < Math.min(orbitsToShow, 10); orbit++) {
-      const precessionAngle = orbit * romState.Delta_phi_WILL;
-      ctx.beginPath();
-      ctx.strokeStyle = orbit === orbitCount ? '#60a5fa' : `rgba(96, 165, 250, ${0.3 - orbit * 0.03})`;
-      ctx.lineWidth = orbit === orbitCount ? 2 : 1;
+    useEffect(() => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const w = 600, h = 600, cx = w/2, cy = h/2;
       
-      for (let angle = 0; angle <= 2 * Math.PI; angle += 0.01) {
-        const phaseState = calculatePhaseState(romState, angle);
-        const r = phaseState.eta_o * scale;
-        const totalAngle = angle + precessionAngle;
-        const x = centerX + r * Math.cos(totalAngle);
-        const y = centerY + r * Math.sin(totalAngle);
-        if (angle === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-    }
-    
-    const currentState = calculatePhaseState(romState, phase);
-    const r_current = currentState.eta_o * scale;
-    const totalAngle = phase + (showPrecession ? orbitCount * romState.Delta_phi_WILL : 0);
-    
-    ctx.beginPath();
-    ctx.arc(centerX + r_current * Math.cos(totalAngle), centerY + r_current * Math.sin(totalAngle), 5, 0, 2 * Math.PI);
-    ctx.fillStyle = '#ef4444';
-    ctx.fill();
-    
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, 8, 0, 2 * Math.PI);
-    ctx.fillStyle = '#fbbf24';
-    ctx.fill();
-    
-    const perihelionAngle = showPrecession ? orbitCount * romState.Delta_phi_WILL : 0;
-    const r_p_scaled = romState.r_p / romState.a * scale;
-    ctx.beginPath();
-    ctx.arc(centerX + r_p_scaled * Math.cos(perihelionAngle), centerY + r_p_scaled * Math.sin(perihelionAngle), 3, 0, 2 * Math.PI);
-    ctx.fillStyle = '#10b981';
-    ctx.fill();
-    
-    const aphelionAngle = perihelionAngle + Math.PI;
-    const r_a_scaled = romState.r_a / romState.a * scale;
-    ctx.beginPath();
-    ctx.arc(centerX + r_a_scaled * Math.cos(aphelionAngle), centerY + r_a_scaled * Math.sin(aphelionAngle), 3, 0, 2 * Math.PI);
-    ctx.fillStyle = '#8b5cf6';
-    ctx.fill();
-  }, [romState, phase, orbitCount, showPrecession]);
-  
-  const generatePhasePlotData = () => {
-    if (!romState) return [];
-    const data = [];
-    for (let angle = 0; angle <= 2 * Math.PI; angle += 0.1) {
-      const state = calculatePhaseState(romState, angle);
-      data.push({ phase: angle, kappa: state.kappa_o, beta: state.beta_o, Q: state.Q_o, eta: state.eta_o });
-    }
-    return data;
-  };
-  
-  if (!romState) return <div className="p-4 text-white">Initializing...</div>;
-  
-  const currentPhaseState = calculatePhaseState(romState, phase);
-  const phasePlotData = generatePhasePlotData();
-  
-  return (
-    <div className="w-full bg-slate-900 p-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-slate-800 rounded-xl shadow-2xl p-6 mb-6 border-t-4 border-blue-500">
-          <h1 className="text-3xl font-bold text-white mb-2">ROM Interactive Engine</h1>
-          <p className="text-gray-300">Complete algebraic orbital system - explore all parameter configurations</p>
-        </div>
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, w, h);
+      
+      const scale = 200;
+      const orbits = showPrec ? orbitN + 1 : 1;
+      
+      for (let orb = 0; orb < Math.min(orbits, 10); orb++) {
+        const prec = orb * Delta_phi;
+        ctx.beginPath();
+        ctx.strokeStyle = orb === orbitN ? '#60a5fa' : `rgba(96,165,250,${0.3-orb*0.03})`;
+        ctx.lineWidth = orb === orbitN ? 2 : 1;
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="lg:col-span-1 space-y-4">
-            <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-              <h2 className="text-lg font-semibold mb-3 text-white">⚙️ Input Parameters</h2>
-              
-              <select
-                value={inputMode}
-                onChange={(e) => setInputMode(e.target.value)}
-                className="w-full px-3 py-2 mb-4 border border-slate-600 rounded-lg bg-slate-700 text-white"
-              >
-                <optgroup label="Pure Phase">
-                  <option value="kappa-beta">(κₚ, βₚ) Perihelion</option>
-                  <option value="W-ec">(W, eᴄ) Energy & Ecc</option>
-                  <option value="kappa-ec">(κ, eᴄ) Global & Ecc</option>
-                </optgroup>
-                <optgroup label="Astrophysical">
-                  <option value="apsides">(m₀, rₚ, rₐ) Mass & Apsides</option>
-                  <option value="mass-period">(m₀, a, T) Mass, Axis, Period</option>
-                </optgroup>
-                <optgroup label="Two-Point Method">
-                  <option value="two-point">(β₁, t₁, β₂, t₂) Dual Measurement</option>
-                </optgroup>
-              </select>
-              
-              <div className="space-y-3 text-sm">
-                {inputMode === 'kappa-beta' && (
-                  <>
-                    <div>
-                      <label className="block text-gray-300 mb-1">κₚ: {inputs.kappa_p.toFixed(3)}</label>
-                      <input type="range" min="0.001" max="1" step="0.001" value={inputs.kappa_p}
-                        onChange={(e) => setInputs({...inputs, kappa_p: parseFloat(e.target.value)})}
-                        className="w-full accent-blue-500" />
-                    </div>
-                    <div>
-                      <label className="block text-gray-300 mb-1">βₚ: {inputs.beta_p.toFixed(3)}</label>
-                      <input type="range" min="0.001" max="0.99" step="0.001" value={inputs.beta_p}
-                        onChange={(e) => setInputs({...inputs, beta_p: parseFloat(e.target.value)})}
-                        className="w-full accent-blue-500" />
-                    </div>
-                  </>
-                )}
-                
-                {inputMode === 'W-ec' && (
-                  <>
-                    <div>
-                      <label className="block text-gray-300 mb-1">W: {inputs.W.toFixed(4)}</label>
-                      <input type="range" min="0.0001" max="0.1" step="0.0001" value={inputs.W}
-                        onChange={(e) => setInputs({...inputs, W: parseFloat(e.target.value)})}
-                        className="w-full accent-blue-500" />
-                    </div>
-                    <div>
-                      <label className="block text-gray-300 mb-1">eᴄ: {inputs.e_c.toFixed(2)}</label>
-                      <input type="range" min="0" max="0.99" step="0.01" value={inputs.e_c}
-                        onChange={(e) => setInputs({...inputs, e_c: parseFloat(e.target.value)})}
-                        className="w-full accent-blue-500" />
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
+        for (let ang = 0; ang <= 2*Math.PI; ang += 0.02) {
+          const ps = calcPhase(ang);
+          const r = ps.eta * scale;
+          const tot = ang + prec;
+          const x = cx + r * Math.cos(tot);
+          const y = cy + r * Math.sin(tot);
+          if (ang === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+      
+      const cur = calcPhase(phase);
+      const totAng = phase + (showPrec ? orbitN * Delta_phi : 0);
+      
+      ctx.beginPath();
+      ctx.arc(cx + cur.eta*scale*Math.cos(totAng), cy + cur.eta*scale*Math.sin(totAng), 5, 0, 2*Math.PI);
+      ctx.fillStyle = '#ef4444';
+      ctx.fill();
+      
+      ctx.beginPath();
+      ctx.arc(cx, cy, 8, 0, 2*Math.PI);
+      ctx.fillStyle = '#fbbf24';
+      ctx.fill();
+      
+      const pAng = showPrec ? orbitN * Delta_phi : 0;
+      ctx.beginPath();
+      ctx.arc(cx + (r_p/a)*scale*Math.cos(pAng), cy + (r_p/a)*scale*Math.sin(pAng), 3, 0, 2*Math.PI);
+      ctx.fillStyle = '#10b981';
+      ctx.fill();
+      
+      ctx.beginPath();
+      ctx.arc(cx + (r_a/a)*scale*Math.cos(pAng+Math.PI), cy + (r_a/a)*scale*Math.sin(pAng+Math.PI), 3, 0, 2*Math.PI);
+      ctx.fillStyle = '#8b5cf6';
+      ctx.fill();
+    }, [kappa_p, beta_p, phase, orbitN, showPrec]);
+    
+    const cur = calcPhase(phase);
+    
+    return e('div', { className: 'w-full bg-slate-900 p-4' },
+      e('div', { className: 'max-w-7xl mx-auto' },
+        e('div', { className: 'bg-slate-800 rounded-xl p-6 mb-6 border-t-4 border-blue-500' },
+          e('h1', { className: 'text-3xl font-bold text-white mb-2' }, 'ROM Interactive Engine'),
+          e('p', { className: 'text-gray-300' }, 'Algebraic orbital system - scale invariant')
+        ),
+        
+        e('div', { className: 'grid grid-cols-1 lg:grid-cols-3 gap-4' },
+          e('div', { className: 'space-y-4' },
+            e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
+              e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '⚙️ Input Parameters'),
+              e('div', { className: 'space-y-3' },
+                e('div', null,
+                  e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'κₚ: ' + kappa_p.toFixed(3)),
+                  e('input', {
+                    type: 'range', min: 0.001, max: 1, step: 0.001, value: kappa_p,
+                    onChange: ev => setKappaP(parseFloat(ev.target.value)),
+                    className: 'w-full accent-blue-500'
+                  })
+                ),
+                e('div', null,
+                  e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'βₚ: ' + beta_p.toFixed(3)),
+                  e('input', {
+                    type: 'range', min: 0.001, max: 0.99, step: 0.001, value: beta_p,
+                    onChange: ev => setBetaP(parseFloat(ev.target.value)),
+                    className: 'w-full accent-blue-500'
+                  })
+                )
+              )
+            ),
             
-            <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-              <h2 className="text-lg font-semibold mb-3 text-white">🎬 Animation</h2>
-              <button
-                onClick={() => setIsAnimating(!isAnimating)}
-                className={`w-full px-4 py-2 rounded-lg font-medium mb-2 ${
-                  isAnimating ? 'bg-red-600' : 'bg-green-600'
-                }`}
-              >
-                {isAnimating ? '⏸ Pause' : '▶ Play'}
-              </button>
-              
-              <div className="mb-2">
-                <label className="block text-gray-300 text-sm mb-1">Speed: {speed.toFixed(1)}x</label>
-                <input type="range" min="0.1" max="5" step="0.1" value={speed}
-                  onChange={(e) => setSpeed(parseFloat(e.target.value))}
-                  className="w-full accent-blue-500" />
-              </div>
-              
-              <div className="flex items-center p-2 bg-slate-700/50 rounded mb-2">
-                <input type="checkbox" id="prec" checked={showPrecession}
-                  onChange={(e) => setShowPrecession(e.target.checked)}
-                  className="mr-2 accent-blue-500" />
-                <label htmlFor="prec" className="text-sm text-gray-300">
-                  Precession (Orbit #{orbitCount})
-                </label>
-              </div>
-              
-              <button
-                onClick={() => { setPhase(0); setOrbitCount(0); }}
-                className="w-full px-4 py-2 bg-slate-700 rounded-lg text-gray-200"
-              >
-                🔄 Reset
-              </button>
-            </div>
+            e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
+              e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '🎬 Animation'),
+              e('button', {
+                onClick: () => setAnimating(!animating),
+                className: 'w-full px-4 py-2 rounded-lg font-medium mb-2 ' + (animating ? 'bg-red-600' : 'bg-green-600')
+              }, animating ? '⏸ Pause' : '▶ Play'),
+              e('div', { className: 'mb-2' },
+                e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'Speed: ' + speed.toFixed(1) + 'x'),
+                e('input', {
+                  type: 'range', min: 0.1, max: 5, step: 0.1, value: speed,
+                  onChange: ev => setSpeed(parseFloat(ev.target.value)),
+                  className: 'w-full accent-blue-500'
+                })
+              ),
+              e('div', { className: 'flex items-center p-2 bg-slate-700/50 rounded mb-2' },
+                e('input', {
+                  type: 'checkbox', checked: showPrec,
+                  onChange: ev => setShowPrec(ev.target.checked),
+                  className: 'mr-2 accent-blue-500'
+                }),
+                e('label', { className: 'text-sm text-gray-300' }, 'Precession (Orbit #' + orbitN + ')')
+              ),
+              e('button', {
+                onClick: () => { setPhase(0); setOrbitN(0); },
+                className: 'w-full px-4 py-2 bg-slate-700 rounded-lg text-gray-200'
+              }, '🔄 Reset')
+            ),
             
-            <div className="bg-slate-800 rounded-lg shadow-xl p-4 border-l-4 border-blue-500">
-              <h3 className="text-white font-semibold mb-2">Current Phase</h3>
-              <div className="text-sm space-y-1">
-                <div className="flex justify-between p-1 bg-slate-700/50 rounded">
-                  <span className="text-gray-400">η:</span>
-                  <span className="text-blue-400 font-mono">{currentPhaseState.eta_o.toFixed(4)}</span>
-                </div>
-                <div className="flex justify-between p-1 bg-slate-700/50 rounded">
-                  <span className="text-gray-400">κ₀:</span>
-                  <span className="text-blue-400 font-mono">{currentPhaseState.kappa_o.toFixed(4)}</span>
-                </div>
-                <div className="flex justify-between p-1 bg-slate-700/50 rounded">
-                  <span className="text-gray-400">β₀:</span>
-                  <span className="text-red-400 font-mono">{currentPhaseState.beta_o.toFixed(4)}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+            e('div', { className: 'bg-slate-800 rounded-lg p-4 border-l-4 border-blue-500' },
+              e('h3', { className: 'text-white font-semibold mb-2' }, 'Current Phase'),
+              e('div', { className: 'text-sm space-y-1' },
+                e('div', { className: 'flex justify-between p-1 bg-slate-700/50 rounded' },
+                  e('span', { className: 'text-gray-400' }, 'η:'),
+                  e('span', { className: 'text-blue-400 font-mono' }, cur.eta.toFixed(4))
+                ),
+                e('div', { className: 'flex justify-between p-1 bg-slate-700/50 rounded' },
+                  e('span', { className: 'text-gray-400' }, 'κ₀:'),
+                  e('span', { className: 'text-blue-400 font-mono' }, cur.kappa_o.toFixed(4))
+                ),
+                e('div', { className: 'flex justify-between p-1 bg-slate-700/50 rounded' },
+                  e('span', { className: 'text-gray-400' }, 'β₀:'),
+                  e('span', { className: 'text-red-400 font-mono' }, cur.beta_o.toFixed(4))
+                )
+              )
+            )
+          ),
           
-          <div className="lg:col-span-2 space-y-4">
-            <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-              <h2 className="text-lg font-semibold mb-3 text-white">🌀 Normalized Orbit</h2>
-              <canvas ref={canvasRef} width={600} height={600}
-                className="w-full border-2 border-slate-600 rounded-lg" />
-              <div className="mt-2 text-sm text-gray-300 flex justify-around">
-                <span>🟡 Central</span>
-                <span>🟢 Perihelion</span>
-                <span>🟣 Aphelion</span>
-                <span>🔴 Current</span>
-              </div>
-            </div>
+          e('div', { className: 'lg:col-span-2 space-y-4' },
+            e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
+              e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '🌀 Normalized Orbit'),
+              e('canvas', { ref: canvasRef, width: 600, height: 600, className: 'w-full border-2 border-slate-600 rounded-lg' }),
+              e('div', { className: 'mt-2 text-sm text-gray-300 flex justify-around' },
+                e('span', null, '🟡 Central'),
+                e('span', null, '🟢 Perihelion'),
+                e('span', null, '🟣 Aphelion'),
+                e('span', null, '🔴 Current')
+              )
+            ),
             
-            <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-              <h2 className="text-lg font-semibold mb-3 text-white">📊 Phase Parameters</h2>
-              <ResponsiveContainer width="100%" height={200}>
-                <LineChart data={phasePlotData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
-                  <XAxis dataKey="phase" stroke="#94a3b8" />
-                  <YAxis stroke="#94a3b8" />
-                  <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #475569' }} />
-                  <Legend />
-                  <Line type="monotone" dataKey="kappa" stroke="#60a5fa" name="κ₀" dot={false} />
-                  <Line type="monotone" dataKey="beta" stroke="#f87171" name="β₀" dot={false} />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-            
-            <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-              <h2 className="text-white font-semibold mb-3">📐 ROM State</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-                <div>
-                  <h4 className="text-gray-300 font-semibold mb-1">Global</h4>
-                  <div className="space-y-1">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">κ:</span>
-                      <span className="text-gray-200 font-mono">{romState.kappa.toFixed(4)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">β:</span>
-                      <span className="text-gray-200 font-mono">{romState.beta.toFixed(4)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">W:</span>
-                      <span className="text-gray-200 font-mono">{romState.W.toFixed(4)}</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="text-gray-300 font-semibold mb-1">Eccentricity</h4>
-                  <div className="space-y-1">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">eᴄ:</span>
-                      <span className="text-gray-200 font-mono">{romState.e_c.toFixed(4)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">δ:</span>
-                      <span className="text-gray-200 font-mono">{romState.delta.toFixed(4)}</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="text-green-400 font-semibold mb-1">Perihelion</h4>
-                  <div className="space-y-1">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">κₚ:</span>
-                      <span className="text-gray-200 font-mono">{romState.kappa_p.toFixed(4)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">βₚ:</span>
-                      <span className="text-gray-200 font-mono">{romState.beta_p.toFixed(4)}</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="text-purple-400 font-semibold mb-1">Aphelion</h4>
-                  <div className="space-y-1">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">κₐ:</span>
-                      <span className="text-gray-200 font-mono">{romState.kappa_a.toFixed(4)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">βₐ:</span>
-                      <span className="text-gray-200 font-mono">{romState.beta_a.toFixed(4)}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-if (document.getElementById('rom-interactive-root')) {
-  ReactDOM.render(<ROMInteractive />, document.getElementById('rom-interactive-root'));
-}
+            e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
+              e('h2', { className: 'text-white font-semibold mb-3' }, '📐 ROM State'),
+              e('div', { className: 'grid grid-cols-2 md:grid-cols-4 gap-4 text-xs' },
+                e('div', null,
+                  e('h4', { className: 'text-gray-300 font-semibold mb-1' }, 'Global'),
+                  e('div', { className: 'space-y-1' },
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'κ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, kappa.toFixed(4))
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'β:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, beta.toFixed(4))
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'W:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, W.toFixed(4))
+                    )
+                  )
+                ),
+                e('div', null,
+                  e('h4', { className: 'text-gray-300 font-semibold mb-1' }, 'Eccentricity'),
+                  e('div', { className: 'space-y-1' },
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'eᴄ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, e_c.toFixed(4))
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'δ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, delta.toFixed(4))
+                    )
+                  )
+                ),
+                e('div', null,
+                  e('h4', { className: 'text-green-400 font-semibold mb-1' }, 'Perihelion'),
+                  e('div', { className: 'space-y-1' },
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'κₚ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, kappa_p.toFixed(4))
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'βₚ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, beta_p.toFixed(4))
+                    )
+                  )
+                ),
+                e('div', null,
+                  e('h4', { className: 'text-gray-300 font-semibold mb-1' }, 'Orbit'),
+                  e('div', { className: 'space-y-1' },
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'T:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, T.toFixed(2))
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'Δφ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, (Delta_phi*180/Math.PI).toFixed(4) + '°')
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    );
+  }
+  
+  const root = createRoot(document.getElementById('rom-root'));
+  root.render(e(ROMEngine));
 })();
 </script>
