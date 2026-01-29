@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Relational Orbital Mechanics
-permalink: /rom/
+permalink: /ROM/
 ---
 
 <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-300 font-sans leading-relaxed" markdown="1">
