@@ -11,7 +11,7 @@ permalink: /rom/
 ## A Closed Algebraic System for Scale-Invariant Orbital Analysis
 
 <div class="bg-gray-900/50 border-l-4 border-blue-500 p-6 rounded-r-lg mb-10 text-lg" markdown="1">
-**The Paradigm Shift:**
+**A Different Approach:**
 
 ROM does not describe how a body moves under forces. It **classifies the algebraically allowed relational states** of a bound two-body system.
 
@@ -20,7 +20,7 @@ The entire orbital configuration is determined by **two independent parameters**
 
 ---
 
-## Why ROM is Revolutionary
+## Key Advantages of ROM
 
 ### 1. Algebraic Closure vs. Differential Equations
 
@@ -36,7 +36,7 @@ The entire orbital configuration is determined by **two independent parameters**
 - Scale-invariant: same equations for atoms and galaxies
 - **Orders of magnitude more efficient** for orbital determination
 
-### 2. The Two-Point Measurement Power
+### 2. The Two-Point Measurement Method
 
 One of ROM's most powerful features: measure velocity ($\beta$) and position ($r = ct$) at just **two points** on an orbit, and the entire system closes algebraically:
 
@@ -51,7 +51,7 @@ From these two measurements, you get:
 - Precession rate
 - Period
 
-**This is operationally revolutionary** - standard methods require multiple orbit observations and iterative fitting.
+**This offers significant operational advantages** - standard methods require multiple orbit observations and iterative fitting.
 
 ---
 
@@ -275,7 +275,7 @@ Use the interactive tool below to explore the complete ROM system. Choose any in
 
 ---
 
-## Key Advantages Summary
+## Comparison with Standard Methods
 
 | Feature | Standard Orbital Mechanics | ROM |
 |---------|---------------------------|-----|

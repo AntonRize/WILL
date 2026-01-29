@@ -1,41 +1,27 @@
-<!-- ROM Interactive Engine - Self-contained React Component -->
-<div id="rom-interactive-root"></div>
+<!-- ROM Interactive Engine -->
+<div id="rom-interactive-root" class="w-full min-h-screen bg-slate-900 p-4">
+  <div class="text-center text-gray-300 py-8">Loading ROM Engine...</div>
+</div>
 
-<!-- Load React, ReactDOM, and Recharts from CDN -->
-<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/recharts@2.5.0/dist/Recharts.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-<!-- Include Tailwind CSS if not already in parent -->
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
 
 <script type="text/babel">
+(() => {
 const { useState, useEffect, useRef } = React;
 const { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = Recharts;
 
-const ROMInteractive = () => {
-  // Physical constants
+function ROMInteractive() {
   const G = 6.67430e-11;
   const c = 299792458;
   
   const [inputMode, setInputMode] = useState('kappa-beta');
-  
   const [inputs, setInputs] = useState({
-    kappa_p: 0.1,
-    beta_p: 0.05,
-    e_c: 0.5,
-    W: 0.005,
-    kappa: 0.0866,
-    m0: 1.989e30,
-    r_p: 5.79e10,
-    r_a: 6.98e10,
-    a: 5.79e10,
-    T: 7.6e6,
-    beta_o1: 0.0001,
-    t_o1: 0.000193,
-    beta_o2: 0.00008,
-    t_o2: 0.000233,
+    kappa_p: 0.1, beta_p: 0.05, e_c: 0.5, W: 0.005, kappa: 0.0866,
+    m0: 1.989e30, r_p: 5.79e10, r_a: 6.98e10, a: 5.79e10, T: 7.6e6,
+    beta_o1: 0.0001, t_o1: 0.000193, beta_o2: 0.00008, t_o2: 0.000233,
   });
   
   const [romState, setRomState] = useState(null);
@@ -44,8 +30,36 @@ const ROMInteractive = () => {
   const [speed, setSpeed] = useState(1);
   const [showPrecession, setShowPrecession] = useState(true);
   const [orbitCount, setOrbitCount] = useState(0);
-  
   const canvasRef = useRef(null);
+  
+  const buildROMState = (kappa, beta, W, e_c, kappa_p, beta_p, a_input = null, R_s_input = null) => {
+    const delta = kappa_p / (beta_p * Math.sqrt(2));
+    const e_cY = Math.sqrt(1 - e_c ** 2);
+    const e_X = (1 + e_c) / (1 - e_c);
+    const a = a_input || 1.0;
+    const R_s = R_s_input || (kappa ** 2 * a);
+    const r_p = a * (1 - e_c);
+    const r_a = a * (1 + e_c);
+    const beta_a = beta * Math.sqrt(e_X);
+    const kappa_a = Math.sqrt(2 * W + beta_a ** 2);
+    const delta_apo = 1 / Math.sqrt(1 - e_c);
+    const omega = beta * c / a;
+    const T = 2 * Math.PI / omega;
+    const h_W = a * beta * c * e_cY;
+    const Q_p = Math.sqrt(kappa_p ** 2 + beta_p ** 2);
+    const Q = Math.sqrt(kappa ** 2 + beta ** 2);
+    const Delta_phi_WILL = (3 * Math.PI / 2) * (kappa_p ** 4 / beta_p ** 2);
+    const theta_1 = Math.acos(beta);
+    const theta_2 = Math.asin(kappa);
+    const beta_Y = Math.sqrt(1 - beta ** 2);
+    const kappa_X = Math.sqrt(1 - kappa ** 2);
+    const tau_W = kappa_X * beta_Y;
+    
+    return { kappa, beta, W, e_c, e_cY, e_X, delta, a, R_s, r_p, r_a,
+             kappa_p, beta_p, Q_p, kappa_a, beta_a, delta_apo,
+             omega, T, h_W, Delta_phi_WILL, theta_1, theta_2,
+             beta_Y, kappa_X, tau_W, Q };
+  };
   
   const solveFromKappaBeta = (kappa_p, beta_p) => {
     const W = 0.5 * (kappa_p ** 2 - beta_p ** 2);
@@ -75,8 +89,7 @@ const ROMInteractive = () => {
     const a = (r_p + r_a) / 2;
     const e_c = (r_a - r_p) / (r_a + r_p);
     const R_s = 2 * G * m0 / (c ** 2);
-    const kappa_sq = R_s / a;
-    const kappa = Math.sqrt(kappa_sq);
+    const kappa = Math.sqrt(R_s / a);
     const kappa_p = kappa * Math.sqrt(1 / (1 - e_c));
     const beta_p = Math.sqrt(kappa_p ** 2 * (1 + e_c) / 2);
     const W = 0.5 * (kappa_p ** 2 - beta_p ** 2);
@@ -86,14 +99,12 @@ const ROMInteractive = () => {
   
   const solveFromMassPeriod = (m0, a, T) => {
     const R_s = 2 * G * m0 / (c ** 2);
-    const kappa_sq = R_s / a;
-    const kappa = Math.sqrt(kappa_sq);
+    const kappa = Math.sqrt(R_s / a);
     const omega = 2 * Math.PI / T;
     const beta = omega * a / c;
     const W = kappa ** 2 / 4;
-    const kappa_p_sq = 2 * W + beta ** 2;
-    const kappa_p = Math.sqrt(kappa_p_sq);
-    const e_c = 1 - kappa ** 2 / kappa_p_sq;
+    const kappa_p = Math.sqrt(2 * W + beta ** 2);
+    const e_c = 1 - kappa ** 2 / (2 * W + beta ** 2);
     const beta_p = Math.sqrt(kappa_p ** 2 * (1 + e_c) / 2);
     return buildROMState(kappa, beta, W, e_c, kappa_p, beta_p, a, R_s);
   };
@@ -106,47 +117,10 @@ const ROMInteractive = () => {
     const kappa = Math.sqrt(4 * W);
     const beta = Math.sqrt(2 * W);
     const a = R_s / (4 * W);
-    const e_c = 1 - kappa ** 2 * (1 - 0) / (R_s / (a * (1 - 0)));
+    const e_c = 0.3;
     const kappa_p = kappa * Math.sqrt(1 / (1 - e_c));
     const beta_p = Math.sqrt(kappa_p ** 2 * (1 + e_c) / 2);
     return buildROMState(kappa, beta, W, e_c, kappa_p, beta_p, a, R_s);
-  };
-  
-  const buildROMState = (kappa, beta, W, e_c, kappa_p, beta_p, a_input = null, R_s_input = null) => {
-    const delta = kappa_p / (beta_p * Math.sqrt(2));
-    const e_cY = Math.sqrt(1 - e_c ** 2);
-    const e_X = (1 + e_c) / (1 - e_c);
-    const a = a_input || 1.0;
-    const R_s = R_s_input || (kappa ** 2 * a);
-    const r_p = a * (1 - e_c);
-    const r_a = a * (1 + e_c);
-    const beta_a = beta * Math.sqrt(e_X);
-    const kappa_a = Math.sqrt(2 * W + beta_a ** 2);
-    const delta_apo = 1 / Math.sqrt(1 - e_c);
-    const omega = beta * c / a;
-    const T = 2 * Math.PI / omega;
-    const h_W = a * beta * c * e_cY;
-    const Q_p = Math.sqrt(kappa_p ** 2 + beta_p ** 2);
-    const Q = Math.sqrt(kappa ** 2 + beta ** 2);
-    const Delta_phi_WILL = (3 * Math.PI / 2) * (kappa_p ** 4 / beta_p ** 2);
-    const theta_1 = Math.acos(beta);
-    const theta_2 = Math.asin(kappa);
-    const beta_Y = Math.sqrt(1 - beta ** 2);
-    const kappa_X = Math.sqrt(1 - kappa ** 2);
-    const tau_W = kappa_X * beta_Y;
-    const balance_point = Math.acos(-e_c);
-    
-    return {
-      kappa, beta, W, e_c, e_cY, e_X, delta,
-      a, R_s, r_p, r_a,
-      kappa_p, beta_p, Q_p,
-      kappa_a, beta_a, delta_apo,
-      omega, T, h_W,
-      Delta_phi_WILL,
-      theta_1, theta_2,
-      beta_Y, kappa_X, tau_W,
-      Q, balance_point,
-    };
   };
   
   const calculatePhaseState = (state, o) => {
@@ -154,16 +128,10 @@ const ROMInteractive = () => {
     const r_o = a * (1 - e_c ** 2) / (1 + e_c * Math.cos(o));
     const eta_o = r_o / a;
     const kappa_o = kappa_p * Math.sqrt((1 + e_c * Math.cos(o)) / (1 + e_c));
-    const beta_o = Math.sqrt(kappa_o ** 2 - 2 * W);
+    const beta_o = Math.sqrt(Math.max(0, kappa_o ** 2 - 2 * W));
     const delta_o = Math.sqrt((1 + e_c * Math.cos(o)) / (1 + e_c ** 2 + 2 * e_c * Math.cos(o)));
     const Q_o = Math.sqrt(kappa_o ** 2 + beta_o ** 2);
-    const omega_o = (a * beta_o * c * e_cY) / (r_o ** 2);
-    const beta_Yo = Math.sqrt(1 - beta_o ** 2);
-    const kappa_Xo = Math.sqrt(1 - kappa_o ** 2);
-    const tau_Wo = kappa_Xo * beta_Yo;
-    const z_o = 1 / kappa_Xo - 1;
-    
-    return { o, r_o, eta_o, kappa_o, beta_o, delta_o, Q_o, omega_o, beta_Yo, kappa_Xo, tau_Wo, z_o };
+    return { o, r_o, eta_o, kappa_o, beta_o, delta_o, Q_o };
   };
   
   useEffect(() => {
@@ -187,11 +155,11 @@ const ROMInteractive = () => {
   useEffect(() => {
     if (!isAnimating || !romState) return;
     const animate = () => {
-      setPhase(prevPhase => {
-        let newPhase = prevPhase + 0.02 * speed;
+      setPhase(prev => {
+        let newPhase = prev + 0.02 * speed;
         if (newPhase >= 2 * Math.PI) {
           newPhase = newPhase % (2 * Math.PI);
-          setOrbitCount(prev => prev + 1);
+          setOrbitCount(c => c + 1);
         }
         return newPhase;
       });
@@ -236,11 +204,9 @@ const ROMInteractive = () => {
     const currentState = calculatePhaseState(romState, phase);
     const r_current = currentState.eta_o * scale;
     const totalAngle = phase + (showPrecession ? orbitCount * romState.Delta_phi_WILL : 0);
-    const x_current = centerX + r_current * Math.cos(totalAngle);
-    const y_current = centerY + r_current * Math.sin(totalAngle);
     
     ctx.beginPath();
-    ctx.arc(x_current, y_current, 5, 0, 2 * Math.PI);
+    ctx.arc(centerX + r_current * Math.cos(totalAngle), centerY + r_current * Math.sin(totalAngle), 5, 0, 2 * Math.PI);
     ctx.fillStyle = '#ef4444';
     ctx.fill();
     
@@ -251,21 +217,15 @@ const ROMInteractive = () => {
     
     const perihelionAngle = showPrecession ? orbitCount * romState.Delta_phi_WILL : 0;
     const r_p_scaled = romState.r_p / romState.a * scale;
-    const x_p = centerX + r_p_scaled * Math.cos(perihelionAngle);
-    const y_p = centerY + r_p_scaled * Math.sin(perihelionAngle);
-    
     ctx.beginPath();
-    ctx.arc(x_p, y_p, 3, 0, 2 * Math.PI);
+    ctx.arc(centerX + r_p_scaled * Math.cos(perihelionAngle), centerY + r_p_scaled * Math.sin(perihelionAngle), 3, 0, 2 * Math.PI);
     ctx.fillStyle = '#10b981';
     ctx.fill();
     
     const aphelionAngle = perihelionAngle + Math.PI;
     const r_a_scaled = romState.r_a / romState.a * scale;
-    const x_a = centerX + r_a_scaled * Math.cos(aphelionAngle);
-    const y_a = centerY + r_a_scaled * Math.sin(aphelionAngle);
-    
     ctx.beginPath();
-    ctx.arc(x_a, y_a, 3, 0, 2 * Math.PI);
+    ctx.arc(centerX + r_a_scaled * Math.cos(aphelionAngle), centerY + r_a_scaled * Math.sin(aphelionAngle), 3, 0, 2 * Math.PI);
     ctx.fillStyle = '#8b5cf6';
     ctx.fill();
   }, [romState, phase, orbitCount, showPrecession]);
@@ -275,384 +235,134 @@ const ROMInteractive = () => {
     const data = [];
     for (let angle = 0; angle <= 2 * Math.PI; angle += 0.1) {
       const state = calculatePhaseState(romState, angle);
-      data.push({
-        phase: angle,
-        kappa: state.kappa_o,
-        beta: state.beta_o,
-        Q: state.Q_o,
-        eta: state.eta_o,
-      });
+      data.push({ phase: angle, kappa: state.kappa_o, beta: state.beta_o, Q: state.Q_o, eta: state.eta_o });
     }
     return data;
   };
   
-  const renderInputFields = () => {
-    const inputClass = "w-24 px-3 py-2 border border-slate-600 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white";
-    const inputClassWide = "w-32 px-3 py-2 border border-slate-600 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white text-sm";
-    const labelClass = "block text-sm font-medium mb-1 text-gray-300";
-    
-    switch(inputMode) {
-      case 'kappa-beta':
-        return (
-          <>
-            <div>
-              <label className={labelClass}>κₚ (Potential at Perihelion)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.001" min="0.001" max="1" value={inputs.kappa_p}
-                  onChange={(e) => setInputs({...inputs, kappa_p: parseFloat(e.target.value)})} className={inputClass} />
-                <input type="range" min="0.001" max="1" step="0.001" value={inputs.kappa_p}
-                  onChange={(e) => setInputs({...inputs, kappa_p: parseFloat(e.target.value)})} className="flex-1 accent-blue-500" />
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>βₚ (Kinetic at Perihelion)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.001" min="0.001" max="0.99" value={inputs.beta_p}
-                  onChange={(e) => setInputs({...inputs, beta_p: parseFloat(e.target.value)})} className={inputClass} />
-                <input type="range" min="0.001" max="0.99" step="0.001" value={inputs.beta_p}
-                  onChange={(e) => setInputs({...inputs, beta_p: parseFloat(e.target.value)})} className="flex-1 accent-blue-500" />
-              </div>
-            </div>
-          </>
-        );
-      
-      case 'W-ec':
-        return (
-          <>
-            <div>
-              <label className={labelClass}>W (Binding Energy)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.0001" min="0.0001" max="0.1" value={inputs.W}
-                  onChange={(e) => setInputs({...inputs, W: parseFloat(e.target.value)})} className={inputClass} />
-                <input type="range" min="0.0001" max="0.1" step="0.0001" value={inputs.W}
-                  onChange={(e) => setInputs({...inputs, W: parseFloat(e.target.value)})} className="flex-1 accent-blue-500" />
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>eᴄ (Eccentricity)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.01" min="0" max="0.99" value={inputs.e_c}
-                  onChange={(e) => setInputs({...inputs, e_c: parseFloat(e.target.value)})} className={inputClass} />
-                <input type="range" min="0" max="0.99" step="0.01" value={inputs.e_c}
-                  onChange={(e) => setInputs({...inputs, e_c: parseFloat(e.target.value)})} className="flex-1 accent-blue-500" />
-              </div>
-            </div>
-          </>
-        );
-      
-      case 'kappa-ec':
-        return (
-          <>
-            <div>
-              <label className={labelClass}>κ (Global Potential)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.001" min="0.001" max="1" value={inputs.kappa}
-                  onChange={(e) => setInputs({...inputs, kappa: parseFloat(e.target.value)})} className={inputClass} />
-                <input type="range" min="0.001" max="1" step="0.001" value={inputs.kappa}
-                  onChange={(e) => setInputs({...inputs, kappa: parseFloat(e.target.value)})} className="flex-1 accent-blue-500" />
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>eᴄ (Eccentricity)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.01" min="0" max="0.99" value={inputs.e_c}
-                  onChange={(e) => setInputs({...inputs, e_c: parseFloat(e.target.value)})} className={inputClass} />
-                <input type="range" min="0" max="0.99" step="0.01" value={inputs.e_c}
-                  onChange={(e) => setInputs({...inputs, e_c: parseFloat(e.target.value)})} className="flex-1 accent-blue-500" />
-              </div>
-            </div>
-          </>
-        );
-      
-      case 'apsides':
-        return (
-          <>
-            <div>
-              <label className={labelClass}>m₀ (Mass, kg)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="1e28" min="1e20" max="1e32" value={inputs.m0}
-                  onChange={(e) => setInputs({...inputs, m0: parseFloat(e.target.value)})} className={inputClassWide} />
-                <div className="flex-1">
-                  <input type="range" min="20" max="32" step="0.1" value={Math.log10(inputs.m0)}
-                    onChange={(e) => setInputs({...inputs, m0: Math.pow(10, parseFloat(e.target.value))})} className="w-full accent-blue-500" />
-                  <div className="text-xs text-gray-400 text-center">10^{Math.log10(inputs.m0).toFixed(1)}</div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>rₚ (Perihelion, m)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="1e9" min="1e6" max="1e12" value={inputs.r_p}
-                  onChange={(e) => setInputs({...inputs, r_p: parseFloat(e.target.value)})} className={inputClassWide} />
-                <div className="flex-1">
-                  <input type="range" min="6" max="12" step="0.1" value={Math.log10(inputs.r_p)}
-                    onChange={(e) => setInputs({...inputs, r_p: Math.pow(10, parseFloat(e.target.value))})} className="w-full accent-blue-500" />
-                  <div className="text-xs text-gray-400 text-center">10^{Math.log10(inputs.r_p).toFixed(1)}</div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>rₐ (Aphelion, m)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="1e9" min="1e6" max="1e12" value={inputs.r_a}
-                  onChange={(e) => setInputs({...inputs, r_a: parseFloat(e.target.value)})} className={inputClassWide} />
-                <div className="flex-1">
-                  <input type="range" min="6" max="12" step="0.1" value={Math.log10(inputs.r_a)}
-                    onChange={(e) => setInputs({...inputs, r_a: Math.pow(10, parseFloat(e.target.value))})} className="w-full accent-blue-500" />
-                  <div className="text-xs text-gray-400 text-center">10^{Math.log10(inputs.r_a).toFixed(1)}</div>
-                </div>
-              </div>
-            </div>
-          </>
-        );
-      
-      case 'mass-period':
-        return (
-          <>
-            <div>
-              <label className={labelClass}>m₀ (Mass, kg)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="1e28" min="1e20" max="1e32" value={inputs.m0}
-                  onChange={(e) => setInputs({...inputs, m0: parseFloat(e.target.value)})} className={inputClassWide} />
-                <div className="flex-1">
-                  <input type="range" min="20" max="32" step="0.1" value={Math.log10(inputs.m0)}
-                    onChange={(e) => setInputs({...inputs, m0: Math.pow(10, parseFloat(e.target.value))})} className="w-full accent-blue-500" />
-                  <div className="text-xs text-gray-400 text-center">10^{Math.log10(inputs.m0).toFixed(1)}</div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>a (Semi-major axis, m)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="1e9" min="1e6" max="1e12" value={inputs.a}
-                  onChange={(e) => setInputs({...inputs, a: parseFloat(e.target.value)})} className={inputClassWide} />
-                <div className="flex-1">
-                  <input type="range" min="6" max="12" step="0.1" value={Math.log10(inputs.a)}
-                    onChange={(e) => setInputs({...inputs, a: Math.pow(10, parseFloat(e.target.value))})} className="w-full accent-blue-500" />
-                  <div className="text-xs text-gray-400 text-center">10^{Math.log10(inputs.a).toFixed(1)}</div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>T (Period, s)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="1e5" min="1e3" max="1e9" value={inputs.T}
-                  onChange={(e) => setInputs({...inputs, T: parseFloat(e.target.value)})} className={inputClassWide} />
-                <div className="flex-1">
-                  <input type="range" min="3" max="9" step="0.1" value={Math.log10(inputs.T)}
-                    onChange={(e) => setInputs({...inputs, T: Math.pow(10, parseFloat(e.target.value))})} className="w-full accent-blue-500" />
-                  <div className="text-xs text-gray-400 text-center">10^{Math.log10(inputs.T).toFixed(1)}</div>
-                </div>
-              </div>
-            </div>
-          </>
-        );
-      
-      case 'two-point':
-        return (
-          <>
-            <div className="col-span-2 bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-l-4 border-green-500 rounded-r p-4 mb-2">
-              <p className="text-sm text-green-200 font-semibold flex items-center">
-                <span className="text-2xl mr-2">🎯</span>
-                Most Powerful Method: Complete system from 2 velocity-position pairs!
-              </p>
-              <p className="text-xs text-green-300 mt-1">
-                This algebraic closure is orders of magnitude more efficient than standard methods
-              </p>
-            </div>
-            <div>
-              <label className={labelClass}>β₀₁ (Velocity 1, v/c)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.00001" min="0.00001" max="0.999" value={inputs.beta_o1}
-                  onChange={(e) => setInputs({...inputs, beta_o1: parseFloat(e.target.value)})} className="w-28 px-3 py-2 border border-slate-600 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent bg-slate-700 text-white text-sm" />
-                <input type="range" min="0.00001" max="0.999" step="0.00001" value={inputs.beta_o1}
-                  onChange={(e) => setInputs({...inputs, beta_o1: parseFloat(e.target.value)})} className="flex-1 accent-green-500" />
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>t₀₁ (Time 1, s)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.000001" min="0.000001" max="1" value={inputs.t_o1}
-                  onChange={(e) => setInputs({...inputs, t_o1: parseFloat(e.target.value)})} className="w-28 px-3 py-2 border border-slate-600 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent bg-slate-700 text-white text-sm" />
-                <div className="flex-1">
-                  <input type="range" min="-6" max="0" step="0.01" value={Math.log10(inputs.t_o1)}
-                    onChange={(e) => setInputs({...inputs, t_o1: Math.pow(10, parseFloat(e.target.value))})} className="w-full accent-green-500" />
-                  <div className="text-xs text-gray-400 text-center">10^{Math.log10(inputs.t_o1).toFixed(2)}</div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>β₀₂ (Velocity 2, v/c)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.00001" min="0.00001" max="0.999" value={inputs.beta_o2}
-                  onChange={(e) => setInputs({...inputs, beta_o2: parseFloat(e.target.value)})} className="w-28 px-3 py-2 border border-slate-600 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent bg-slate-700 text-white text-sm" />
-                <input type="range" min="0.00001" max="0.999" step="0.00001" value={inputs.beta_o2}
-                  onChange={(e) => setInputs({...inputs, beta_o2: parseFloat(e.target.value)})} className="flex-1 accent-green-500" />
-              </div>
-            </div>
-            <div>
-              <label className={labelClass}>t₀₂ (Time 2, s)</label>
-              <div className="flex gap-2 items-center">
-                <input type="number" step="0.000001" min="0.000001" max="1" value={inputs.t_o2}
-                  onChange={(e) => setInputs({...inputs, t_o2: parseFloat(e.target.value)})} className="w-28 px-3 py-2 border border-slate-600 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent bg-slate-700 text-white text-sm" />
-                <div className="flex-1">
-                  <input type="range" min="-6" max="0" step="0.01" value={Math.log10(inputs.t_o2)}
-                    onChange={(e) => setInputs({...inputs, t_o2: Math.pow(10, parseFloat(e.target.value))})} className="w-full accent-green-500" />
-                  <div className="text-xs text-gray-400 text-center">10^{Math.log10(inputs.t_o2).toFixed(2)}</div>
-                </div>
-              </div>
-            </div>
-          </>
-        );
-      
-      default:
-        return null;
-    }
-  };
-  
-  if (!romState) return <div className="p-4 text-white">Loading...</div>;
+  if (!romState) return <div className="p-4 text-white">Initializing...</div>;
   
   const currentPhaseState = calculatePhaseState(romState, phase);
   const phasePlotData = generatePhasePlotData();
   
   return (
-    <div className="w-full min-h-screen bg-slate-900 p-4">
+    <div className="w-full bg-slate-900 p-4">
       <div className="max-w-7xl mx-auto">
         <div className="bg-slate-800 rounded-xl shadow-2xl p-6 mb-6 border-t-4 border-blue-500">
-          <h1 className="text-4xl font-bold text-white mb-2">
-            Relational Orbital Mechanics (ROM)
-          </h1>
-          <p className="text-gray-300 text-lg">
-            Interactive visualization of algebraically closed orbital system - scale invariant from atoms to galaxies
-          </p>
-          <div className="mt-3 flex gap-3 text-sm flex-wrap">
-            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full font-medium border border-blue-500/30">
-              ⚛️ Quantum Scale
-            </span>
-            <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full font-medium border border-purple-500/30">
-              🌍 Planetary Scale
-            </span>
-            <span className="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full font-medium border border-pink-500/30">
-              🌌 Galactic Scale
-            </span>
-          </div>
+          <h1 className="text-3xl font-bold text-white mb-2">ROM Interactive Engine</h1>
+          <p className="text-gray-300">Complete algebraic orbital system - explore all parameter configurations</p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-1 space-y-4">
             <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-              <h2 className="text-lg font-semibold mb-3 text-white flex items-center">
-                <span className="text-2xl mr-2">⚙️</span>
-                Input Parameters
-              </h2>
+              <h2 className="text-lg font-semibold mb-3 text-white">⚙️ Input Parameters</h2>
               
-              <div className="mb-4">
-                <label className="block text-sm font-medium mb-2 text-gray-300">Parameter Set</label>
-                <select
-                  value={inputMode}
-                  onChange={(e) => setInputMode(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white"
-                >
-                  <optgroup label="📐 Pure Phase Parameters">
-                    <option value="kappa-beta">(κₚ, βₚ) - Perihelion State</option>
-                    <option value="W-ec">(W, eᴄ) - Energy & Eccentricity</option>
-                    <option value="kappa-ec">(κ, eᴄ) - Global Potential & Ecc</option>
-                  </optgroup>
-                  <optgroup label="🔭 Astrophysical Observables">
-                    <option value="apsides">(m₀, rₚ, rₐ) - Mass & Apsides</option>
-                    <option value="mass-period">(m₀, a, T) - Mass, Axis, Period</option>
-                  </optgroup>
-                  <optgroup label="🎯 Two-Point Method (Most Powerful)">
-                    <option value="two-point">(β₀₁, t₀₁, β₀₂, t₀₂) - Dual Measurement</option>
-                  </optgroup>
-                </select>
-              </div>
+              <select
+                value={inputMode}
+                onChange={(e) => setInputMode(e.target.value)}
+                className="w-full px-3 py-2 mb-4 border border-slate-600 rounded-lg bg-slate-700 text-white"
+              >
+                <optgroup label="Pure Phase">
+                  <option value="kappa-beta">(κₚ, βₚ) Perihelion</option>
+                  <option value="W-ec">(W, eᴄ) Energy & Ecc</option>
+                  <option value="kappa-ec">(κ, eᴄ) Global & Ecc</option>
+                </optgroup>
+                <optgroup label="Astrophysical">
+                  <option value="apsides">(m₀, rₚ, rₐ) Mass & Apsides</option>
+                  <option value="mass-period">(m₀, a, T) Mass, Axis, Period</option>
+                </optgroup>
+                <optgroup label="Two-Point Method">
+                  <option value="two-point">(β₁, t₁, β₂, t₂) Dual Measurement</option>
+                </optgroup>
+              </select>
               
-              <div className="grid grid-cols-1 gap-3">
-                {renderInputFields()}
+              <div className="space-y-3 text-sm">
+                {inputMode === 'kappa-beta' && (
+                  <>
+                    <div>
+                      <label className="block text-gray-300 mb-1">κₚ: {inputs.kappa_p.toFixed(3)}</label>
+                      <input type="range" min="0.001" max="1" step="0.001" value={inputs.kappa_p}
+                        onChange={(e) => setInputs({...inputs, kappa_p: parseFloat(e.target.value)})}
+                        className="w-full accent-blue-500" />
+                    </div>
+                    <div>
+                      <label className="block text-gray-300 mb-1">βₚ: {inputs.beta_p.toFixed(3)}</label>
+                      <input type="range" min="0.001" max="0.99" step="0.001" value={inputs.beta_p}
+                        onChange={(e) => setInputs({...inputs, beta_p: parseFloat(e.target.value)})}
+                        className="w-full accent-blue-500" />
+                    </div>
+                  </>
+                )}
+                
+                {inputMode === 'W-ec' && (
+                  <>
+                    <div>
+                      <label className="block text-gray-300 mb-1">W: {inputs.W.toFixed(4)}</label>
+                      <input type="range" min="0.0001" max="0.1" step="0.0001" value={inputs.W}
+                        onChange={(e) => setInputs({...inputs, W: parseFloat(e.target.value)})}
+                        className="w-full accent-blue-500" />
+                    </div>
+                    <div>
+                      <label className="block text-gray-300 mb-1">eᴄ: {inputs.e_c.toFixed(2)}</label>
+                      <input type="range" min="0" max="0.99" step="0.01" value={inputs.e_c}
+                        onChange={(e) => setInputs({...inputs, e_c: parseFloat(e.target.value)})}
+                        className="w-full accent-blue-500" />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
             
             <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-              <h2 className="text-lg font-semibold mb-3 text-white flex items-center">
-                <span className="text-2xl mr-2">🎬</span>
-                Animation
-              </h2>
+              <h2 className="text-lg font-semibold mb-3 text-white">🎬 Animation</h2>
+              <button
+                onClick={() => setIsAnimating(!isAnimating)}
+                className={`w-full px-4 py-2 rounded-lg font-medium mb-2 ${
+                  isAnimating ? 'bg-red-600' : 'bg-green-600'
+                }`}
+              >
+                {isAnimating ? '⏸ Pause' : '▶ Play'}
+              </button>
               
-              <div className="space-y-3">
-                <button
-                  onClick={() => setIsAnimating(!isAnimating)}
-                  className={`w-full px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-sm ${
-                    isAnimating 
-                      ? 'bg-red-600 hover:bg-red-700 text-white'
-                      : 'bg-green-600 hover:bg-green-700 text-white'
-                  }`}
-                >
-                  {isAnimating ? '⏸ Pause' : '▶ Play'}
-                </button>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">
-                    Speed: {speed.toFixed(1)}x
-                  </label>
-                  <input
-                    type="range"
-                    min="0.1"
-                    max="5"
-                    step="0.1"
-                    value={speed}
-                    onChange={(e) => setSpeed(parseFloat(e.target.value))}
-                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
-                  />
-                </div>
-                
-                <div className="flex items-center p-2 bg-slate-700/50 rounded-lg border border-slate-600">
-                  <input
-                    type="checkbox"
-                    id="precession"
-                    checked={showPrecession}
-                    onChange={(e) => setShowPrecession(e.target.checked)}
-                    className="mr-2 w-4 h-4 text-blue-600 rounded focus:ring-blue-500 accent-blue-500"
-                  />
-                  <label htmlFor="precession" className="text-sm text-gray-300">
-                    Show Precession (Orbit #{orbitCount})
-                  </label>
-                </div>
-                
-                <button
-                  onClick={() => {
-                    setPhase(0);
-                    setOrbitCount(0);
-                  }}
-                  className="w-full px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors duration-200 font-medium text-gray-200 border border-slate-600"
-                >
-                  🔄 Reset
-                </button>
+              <div className="mb-2">
+                <label className="block text-gray-300 text-sm mb-1">Speed: {speed.toFixed(1)}x</label>
+                <input type="range" min="0.1" max="5" step="0.1" value={speed}
+                  onChange={(e) => setSpeed(parseFloat(e.target.value))}
+                  className="w-full accent-blue-500" />
               </div>
+              
+              <div className="flex items-center p-2 bg-slate-700/50 rounded mb-2">
+                <input type="checkbox" id="prec" checked={showPrecession}
+                  onChange={(e) => setShowPrecession(e.target.checked)}
+                  className="mr-2 accent-blue-500" />
+                <label htmlFor="prec" className="text-sm text-gray-300">
+                  Precession (Orbit #{orbitCount})
+                </label>
+              </div>
+              
+              <button
+                onClick={() => { setPhase(0); setOrbitCount(0); }}
+                className="w-full px-4 py-2 bg-slate-700 rounded-lg text-gray-200"
+              >
+                🔄 Reset
+              </button>
             </div>
             
             <div className="bg-slate-800 rounded-lg shadow-xl p-4 border-l-4 border-blue-500">
-              <h2 className="text-lg font-semibold mb-3 text-white">Current Phase (o = {phase.toFixed(3)} rad)</h2>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between items-center p-2 bg-slate-700/50 rounded border border-slate-600">
-                  <span className="text-gray-300">η (r/a):</span>
-                  <span className="font-mono font-semibold text-blue-400">{currentPhaseState.eta_o.toFixed(4)}</span>
+              <h3 className="text-white font-semibold mb-2">Current Phase</h3>
+              <div className="text-sm space-y-1">
+                <div className="flex justify-between p-1 bg-slate-700/50 rounded">
+                  <span className="text-gray-400">η:</span>
+                  <span className="text-blue-400 font-mono">{currentPhaseState.eta_o.toFixed(4)}</span>
                 </div>
-                <div className="flex justify-between items-center p-2 bg-slate-700/50 rounded border border-slate-600">
-                  <span className="text-gray-300">κ₀:</span>
-                  <span className="font-mono font-semibold text-blue-400">{currentPhaseState.kappa_o.toFixed(4)}</span>
+                <div className="flex justify-between p-1 bg-slate-700/50 rounded">
+                  <span className="text-gray-400">κ₀:</span>
+                  <span className="text-blue-400 font-mono">{currentPhaseState.kappa_o.toFixed(4)}</span>
                 </div>
-                <div className="flex justify-between items-center p-2 bg-slate-700/50 rounded border border-slate-600">
-                  <span className="text-gray-300">β₀:</span>
-                  <span className="font-mono font-semibold text-red-400">{currentPhaseState.beta_o.toFixed(4)}</span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-slate-700/50 rounded border border-slate-600">
-                  <span className="text-gray-300">Q₀:</span>
-                  <span className="font-mono font-semibold text-purple-400">{currentPhaseState.Q_o.toFixed(4)}</span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-slate-700/50 rounded border border-slate-600">
-                  <span className="text-gray-300">δ₀:</span>
-                  <span className="font-mono font-semibold text-gray-200">{currentPhaseState.delta_o.toFixed(4)}</span>
+                <div className="flex justify-between p-1 bg-slate-700/50 rounded">
+                  <span className="text-gray-400">β₀:</span>
+                  <span className="text-red-400 font-mono">{currentPhaseState.beta_o.toFixed(4)}</span>
                 </div>
               </div>
             </div>
@@ -660,192 +370,93 @@ const ROMInteractive = () => {
           
           <div className="lg:col-span-2 space-y-4">
             <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-              <h2 className="text-lg font-semibold mb-3 text-white flex items-center">
-                <span className="text-2xl mr-2">🌀</span>
-                Normalized Orbit (Scale Invariant)
-              </h2>
-              <canvas
-                ref={canvasRef}
-                width={600}
-                height={600}
-                className="w-full border-2 border-slate-600 rounded-lg shadow-lg bg-slate-900"
-              />
-              <div className="mt-2 text-sm text-gray-300 flex justify-around flex-wrap gap-2">
-                <div className="flex items-center">
-                  <div className="w-3 h-3 rounded-full bg-yellow-400 mr-2"></div>
-                  Central Body
-                </div>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-                  Perihelion
-                </div>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 rounded-full bg-purple-500 mr-2"></div>
-                  Aphelion
-                </div>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-                  Current Position
-                </div>
+              <h2 className="text-lg font-semibold mb-3 text-white">🌀 Normalized Orbit</h2>
+              <canvas ref={canvasRef} width={600} height={600}
+                className="w-full border-2 border-slate-600 rounded-lg" />
+              <div className="mt-2 text-sm text-gray-300 flex justify-around">
+                <span>🟡 Central</span>
+                <span>🟢 Perihelion</span>
+                <span>🟣 Aphelion</span>
+                <span>🔴 Current</span>
               </div>
             </div>
             
             <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-              <h2 className="text-lg font-semibold mb-3 text-white flex items-center">
-                <span className="text-2xl mr-2">📊</span>
-                Phase-Dependent Parameters
-              </h2>
-              
+              <h2 className="text-lg font-semibold mb-3 text-white">📊 Phase Parameters</h2>
               <ResponsiveContainer width="100%" height={200}>
                 <LineChart data={phasePlotData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
-                  <XAxis 
-                    dataKey="phase" 
-                    label={{ value: 'Phase (radians)', position: 'insideBottom', offset: -5, fill: '#94a3b8' }}
-                    tickFormatter={(v) => v.toFixed(1)}
-                    stroke="#94a3b8"
-                  />
-                  <YAxis label={{ value: 'κ, β', angle: -90, position: 'insideLeft', fill: '#94a3b8' }} stroke="#94a3b8" />
-                  <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #475569', color: '#e2e8f0' }} />
-                  <Legend wrapperStyle={{ color: '#e2e8f0' }} />
-                  <Line type="monotone" dataKey="kappa" stroke="#60a5fa" name="κ₀" dot={false} strokeWidth={2} />
-                  <Line type="monotone" dataKey="beta" stroke="#f87171" name="β₀" dot={false} strokeWidth={2} />
-                </LineChart>
-              </ResponsiveContainer>
-              
-              <ResponsiveContainer width="100%" height={200} className="mt-4">
-                <LineChart data={phasePlotData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
-                  <XAxis 
-                    dataKey="phase"
-                    label={{ value: 'Phase (radians)', position: 'insideBottom', offset: -5, fill: '#94a3b8' }}
-                    tickFormatter={(v) => v.toFixed(1)}
-                    stroke="#94a3b8"
-                  />
-                  <YAxis label={{ value: 'η, Q', angle: -90, position: 'insideLeft', fill: '#94a3b8' }} stroke="#94a3b8" />
-                  <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #475569', color: '#e2e8f0' }} />
-                  <Legend wrapperStyle={{ color: '#e2e8f0' }} />
-                  <Line type="monotone" dataKey="eta" stroke="#10b981" name="η (r/a)" dot={false} strokeWidth={2} />
-                  <Line type="monotone" dataKey="Q" stroke="#a78bfa" name="Q₀" dot={false} strokeWidth={2} />
+                  <XAxis dataKey="phase" stroke="#94a3b8" />
+                  <YAxis stroke="#94a3b8" />
+                  <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #475569' }} />
+                  <Legend />
+                  <Line type="monotone" dataKey="kappa" stroke="#60a5fa" name="κ₀" dot={false} />
+                  <Line type="monotone" dataKey="beta" stroke="#f87171" name="β₀" dot={false} />
                 </LineChart>
               </ResponsiveContainer>
             </div>
-          </div>
-        </div>
-        
-        <div className="mt-4 bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
-          <h2 className="text-lg font-semibold mb-3 text-white flex items-center">
-            <span className="text-2xl mr-2">📐</span>
-            Complete ROM State (Algebraically Closed)
-          </h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
-            <div>
-              <h3 className="font-semibold text-gray-200 mb-2">Global Parameters</h3>
-              <div className="space-y-1">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">κ:</span>
-                  <span className="font-mono text-gray-200">{romState.kappa.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">β:</span>
-                  <span className="font-mono text-gray-200">{romState.beta.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">W:</span>
-                  <span className="font-mono text-gray-200">{romState.W.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Q:</span>
-                  <span className="font-mono text-gray-200">{romState.Q.toFixed(6)}</span>
-                </div>
-              </div>
-            </div>
             
-            <div>
-              <h3 className="font-semibold text-gray-200 mb-2">Eccentricity</h3>
-              <div className="space-y-1">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">eᴄ:</span>
-                  <span className="font-mono text-gray-200">{romState.e_c.toFixed(6)}</span>
+            <div className="bg-slate-800 rounded-lg shadow-xl p-4 border border-slate-700">
+              <h2 className="text-white font-semibold mb-3">📐 ROM State</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+                <div>
+                  <h4 className="text-gray-300 font-semibold mb-1">Global</h4>
+                  <div className="space-y-1">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">κ:</span>
+                      <span className="text-gray-200 font-mono">{romState.kappa.toFixed(4)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">β:</span>
+                      <span className="text-gray-200 font-mono">{romState.beta.toFixed(4)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">W:</span>
+                      <span className="text-gray-200 font-mono">{romState.W.toFixed(4)}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">eᴄʸ:</span>
-                  <span className="font-mono text-gray-200">{romState.e_cY.toFixed(6)}</span>
+                
+                <div>
+                  <h4 className="text-gray-300 font-semibold mb-1">Eccentricity</h4>
+                  <div className="space-y-1">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">eᴄ:</span>
+                      <span className="text-gray-200 font-mono">{romState.e_c.toFixed(4)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">δ:</span>
+                      <span className="text-gray-200 font-mono">{romState.delta.toFixed(4)}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">eˣ:</span>
-                  <span className="font-mono text-gray-200">{romState.e_X.toFixed(6)}</span>
+                
+                <div>
+                  <h4 className="text-green-400 font-semibold mb-1">Perihelion</h4>
+                  <div className="space-y-1">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">κₚ:</span>
+                      <span className="text-gray-200 font-mono">{romState.kappa_p.toFixed(4)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">βₚ:</span>
+                      <span className="text-gray-200 font-mono">{romState.beta_p.toFixed(4)}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">δ:</span>
-                  <span className="font-mono text-gray-200">{romState.delta.toFixed(6)}</span>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-green-400 mb-2">Perihelion</h3>
-              <div className="space-y-1">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">κₚ:</span>
-                  <span className="font-mono text-gray-200">{romState.kappa_p.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">βₚ:</span>
-                  <span className="font-mono text-gray-200">{romState.beta_p.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Qₚ:</span>
-                  <span className="font-mono text-gray-200">{romState.Q_p.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">rₚ/a:</span>
-                  <span className="font-mono text-gray-200">{(romState.r_p / romState.a).toFixed(6)}</span>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-purple-400 mb-2">Aphelion</h3>
-              <div className="space-y-1">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">κₐ:</span>
-                  <span className="font-mono text-gray-200">{romState.kappa_a.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">βₐ:</span>
-                  <span className="font-mono text-gray-200">{romState.beta_a.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">δₐ:</span>
-                  <span className="font-mono text-gray-200">{romState.delta_apo.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">rₐ/a:</span>
-                  <span className="font-mono text-gray-200">{(romState.r_a / romState.a).toFixed(6)}</span>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-gray-200 mb-2">Relational Geometry</h3>
-              <div className="space-y-1">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">θ₁:</span>
-                  <span className="font-mono text-gray-200">{romState.theta_1.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">θ₂:</span>
-                  <span className="font-mono text-gray-200">{romState.theta_2.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">τᵂ:</span>
-                  <span className="font-mono text-gray-200">{romState.tau_W.toFixed(6)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Δφ/orbit:</span>
-                  <span className="font-mono text-gray-200">{(romState.Delta_phi_WILL * 180 / Math.PI).toFixed(4)}°</span>
+                
+                <div>
+                  <h4 className="text-purple-400 font-semibold mb-1">Aphelion</h4>
+                  <div className="space-y-1">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">κₐ:</span>
+                      <span className="text-gray-200 font-mono">{romState.kappa_a.toFixed(4)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">βₐ:</span>
+                      <span className="text-gray-200 font-mono">{romState.beta_a.toFixed(4)}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -854,7 +465,10 @@ const ROMInteractive = () => {
       </div>
     </div>
   );
-};
+}
 
-ReactDOM.render(<ROMInteractive />, document.getElementById('rom-interactive-root'));
+if (document.getElementById('rom-interactive-root')) {
+  ReactDOM.render(<ROMInteractive />, document.getElementById('rom-interactive-root'));
+}
+})();
 </script>
