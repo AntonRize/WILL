@@ -3032,108 +3032,99 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
 \]}
 \end{tcolorbox}
 
+
 \section{Closed Algebraic System of Relational Orbital Mechanics (R.O.M.)}
 R.O.M. does not describe how a body moves under forces; it classifies the algebraically allowed relational states of a bound two-body system.
 
-\subsubsection*{Global System Parameters}
+$\boxed{\kappa^2 = 1-\frac{1}{(1+z)^2}}$  ($z=$ gravitational redshift)
+$\boxed{\beta^2=1-\frac{1}{(1+z_{D})^{2}}}$  ($z_D=$ transverse Doppler shift)
+$\boxed{
+R_s=\frac{\,r_1 r_2}{r_2-r_1}\left(\frac{1}{(1+z_{D2})^2}-\frac{1}{(1+z_{D1})^2}\right)
+}$
 
-\begin{align}
-R_{s} &= \kappa^{2}a = \frac{2Gm_{0}}{c^{2}} && \text{(Schwarzschild radius - system scale)} \\
-\kappa &= \sqrt{\frac{R_{s}}{a}} = \sqrt{\kappa_{p}^{2}(1-e_{c})} =\sqrt{4W}
-&& \text{(global potential projection at semi-major axis)} \\
-a &= \frac{R_{s}}{\kappa^{2}} =\frac{R_{s}}{4W} = \frac{\beta_{o}c}{\omega} \cdot \frac{\sqrt{1-e_{c}^{2}}}{\sqrt{1+e_{c}^{2}+2e_{c}\cos o}}
-&& \text{(semi-major axis)} \\
-\beta &= \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e_{c}}{1+e_{c}}} = \sqrt{\frac{\beta_{p}^{2}(1-e_c)}{1+e_{c}}}=\sqrt{2W} 
-&& \text{(global kinetic projection - virial equivalent)}
-\end{align}
-\begin{align}
-m_{0} &= \frac{\kappa^{2}c^{2}a}{2G} = 4\pi\rho a^{3} = 2\rho\frac{4\pi a^{3}}{3} + \rho\frac{4\pi a^{3}}{3} 
-&& \text{(mass parameter)} \\
-o &= \text{orbital phase in radians} \\
-\delta &= \frac{\kappa_{p}}{\beta_{p}\sqrt{2}} = \frac{1}{\sqrt{1+e_{c}}} 
-&& \text{(closure factor,  measured at } r_p\text{)}
-\end{align}
+
+\subsubsection*{Global System Parameters}
+$R_{s} = \kappa^{2}a = \frac{2Gm_{0}}{c^{2}}=\frac{( \beta_{1}^{2} - \beta_{2}^{2} ) ct_{1} ct_{2}}{ct_{2} - ct_{1}}$ (Schwarzschild radius - system scale)
+$\kappa = \sqrt{\frac{R_{s}}{a}} = \sqrt{\kappa_{p}^{2}(1-e_{c})} =\sqrt{4W}$ (global potential projection at semi-major axis)
+$a = \frac{R_{s}}{\kappa^{2}} =\frac{R_{s}}{4W} = \frac{\beta_{o}c}{\omega} \cdot \frac{\sqrt{1-e_{c}^{2}}}{\sqrt{1+e_{c}^{2}+2e_{c}\cos (o)}}$ (semi-major axis)
+$\beta = \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e_{c}}{1+e_{c}}} = \sqrt{2W} =\sqrt{\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot\left(1+\left(\frac{1}{\delta_{o}\left(o\right)}-1\right)\right)}=\sqrt{1-\frac{1}{(1+z_{D})^{2}}}=\beta_{o}\frac{\sqrt{1-e_{c}^{2}}}{\sqrt{1+e_{c}^{2}+2\cdot e_{c}\cdot\cos\left(o\right)}}$ (global kinetic projection - under closure condition)
+$m_{0} = \frac{\kappa^{2}c^{2}a}{2G} = 4\pi\rho a^{3} = 2\rho\frac{4\pi a^{3}}{3} + \rho\frac{4\pi a^{3}}{3}$ (mass parameter)
+$o = \text{orbital phase in radians}$
+$\delta = \frac{\kappa_{p}^2}{2\beta_{p}^2 }= \frac{1}{1+e_{c}}$ (closure factor, measured at $r_p$)
 
 \subsubsection*{Eccentricity Relations}
-
-\begin{align}
-e_{c} &= \frac{1}{\delta^{2}} - 1 = 1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}} = \frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1&& \text{(eccentricity derived from closure)} \\
-e_{cY} &= \sqrt{1-e_{c}^{2}} && \text{(eccentricity's orthogonal value)} \\
-e_X &= \frac{1+e_c}{1-e_c} && \text{(shape factor)}
-\end{align}
+$e_{c} = \frac{1}{\delta} - 1 = 1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}} = \frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1$ (eccentricity derived from closure)
+$e_{cY} = \sqrt{1-e_{c}^{2}}$ (eccentricity's orthogonal value)
+$e_X = \frac{1+e_c}{1-e_c}$ (shape factor)
 
 \subsubsection*{Constants (Fixed for the Orbit)}
+$r_{p} = a(1-e_{c})$ (radius at perihelion)
+$\kappa_{p} = \kappa\sqrt{\frac{1}{1-e_{c}}} = Q_{p}\sqrt{\frac{2}{3+e_{c}}}$ (potential at perihelion)
+$\beta_{p} = \frac{V_{p}}{c} = \frac{\kappa_{p}}{\delta\sqrt{2}} = \sqrt{\kappa_{p}^{2}\cdot\frac{1+e_{c}}{2}}$ (kinetic at perihelion)
+$W =\frac{\beta^2}{2} =\frac{1}{2}(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{1}{4}\kappa_{p}^{2}\ \left(1-e_{c}\right)=\frac{1}{2}\left(\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot\left(1+\left(\frac{1}{\delta_{o}\left(o\right)}-1\right)\right)\right)$ (energy invariant - binding energy)
+$\Delta\phi_{\text{WILL}} = \frac{3\pi}{2}\frac{\kappa_{p}^{4}}{\beta_{p}^{2}} =\frac{2\pi Q^{2}}{1-e_{c}^{2}}$ (precession per orbit at perihelion)
+$h_{W} = a \cdot \beta c \cdot e_{cY}$ (angular momentum)
+$\omega = \frac{\beta c}{a}$ (angular frequency)
+$T = \frac{2\pi}{\omega}$ (orbital period)
+$Q_{p} = \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}}$ (displacement at perihelion)
 
-\begin{align}
-r_{p} &= a(1-e_{c}) && \text{(radius at perihelion)} \\
-\kappa_{p} &= \kappa\sqrt{\frac{1}{1-e_{c}}} = Q_{p}\sqrt{\frac{2}{3+e_{c}}} 
-&& \text{(potential at perihelion)} \\
-\beta_{p} &= \frac{V_{p}}{c} = \frac{\kappa_{p}}{\delta\sqrt{2}} = \sqrt{\kappa_{p}^{2}\cdot\frac{1+e_{c}}{2}} 
-&& \text{(kinetic at perihelion)} \\
-W &= \frac{1}{2}(\kappa_{p}^{2}-\beta_{p}^{2})=\frac{1}{4}\kappa_{p}^{2}\ \left(1-e_{c}\right)
-&& \text{(energy invariant - binding energy)} \\
-\Delta\phi_{\text{WILL}} &= \frac{3\pi}{2}\frac{\kappa_{p}^{4}}{\beta_{p}^{2}} 
-&& \text{(precession per orbit at perihelion)} \\
-h_{W} &= a \cdot \beta c \cdot e_{cY} && \text{(angular momentum)} \\
-\omega &= \frac{\beta c}{a} && \text{(angular frequency)} \\
-T &= \frac{2\pi}{\omega} && \text{(orbital period)} \\
-Q_{p} &= \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}} && \text{(displacement at perihelion)}
-\end{align}
 \subsubsection*{Time Integration}
-
-\begin{align}
-\omega_{\theta}(\theta) &= \frac{\beta c}{a} \cdot \frac{(1+e_{c}\cos\theta)^{2}}{(1-e_{c}^{2})^{3/2}} 
-&& \text{(angular frequency for time integration)} \\
-\Delta_{t1} &= \int_{0}^{o}\frac{1}{\omega_{\theta}(\theta)}\,d\theta 
-&& \text{(time duration of given phase interval)}
-\end{align}
+$\omega_{\theta}(\theta) = \frac{\beta c}{a} \cdot \frac{(1+e_{c}\cos\theta)^{2}}{(1-e_{c}^{2})^{3/2}}$ (angular frequency for time integration)
+$\Delta_{t1} = \int_{0}^{o}\frac{1}{\omega_{\theta}(\theta)}\,d\theta$ (time duration of given phase interval)
 
 \subsubsection*{Apocenter Relations}
-
-\begin{align}
-\beta_{a} &= \sqrt{\beta_{p}^{2} e_{XA}^{2}} = \beta\sqrt{e_{XA}} && \text{(kinetic projection at apocenter)} \\
-\kappa_{a} &= \sqrt{2W+\beta_{a}^{2}} && \text{(potential projection at apocenter)} \\
-\delta_{\text{apo}} &= \frac{1}{\sqrt{1-e_{c}}} && \text{(closure factor at apocenter)} \\
-
-\end{align}
+$\beta_{a} = \sqrt{\beta_{p}^{2} e_{X}^{2}} = \beta\sqrt{e_{X}}$ (kinetic projection at apocenter)
+$\kappa_{a} = \sqrt{2W+\beta_{a}^{2}}$ (potential projection at apocenter)
+$\delta_{\text{a}} = \frac{1}{1-e_{c}}=\frac{\kappa_{a}^{2}}{2\beta_{a}^{2}}$ (closure factor at apocenter)
 
 \subsubsection*{Phase Variables (Depend on $o$)}
-
-\begin{align}
-r = r_o &= a\frac{1-e_{c}^{2}}{1+e_{c}\cos o} = \frac{R_s}{\kappa_o^2} 
-&& \text{(radial distance at phase } o\text{)} \\
-\kappa_{o} &= \sqrt{\frac{R_{s}}{r}} = \kappa_{p}\sqrt{\frac{1+e_{c}\cos o}{1+e_{c}}} 
-&& \text{(local potential at phase } o\text{)} \\
-\beta_{o} &= \sqrt{\kappa_{o}^{2}-2W} 
-&& \text{(local kinetic from energy invariant)} \\
-\delta_{o} &= \sqrt{\frac{1+e_{c}\cos o}{1+e_{c}^{2}+2e_{c}\cos o}} = \frac{\kappa_{o}}{\beta_{o}\sqrt{2}} 
-&& \text{(local closure factor at phase } o\text{)} \\
-Q_{o} &= \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}} 
-&& \text{(local displacement vector at phase } o\text{)} \\
-\omega_o &= a\beta c\frac{e_{cY}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e_{c}\cos o)^{2}}{(1-e_{c}^{2})^{3/2}} 
-&& \text{(angular speed)} \\
-\eta_{o} &= \frac{r}{a} && \text{(phase scale amplitude)} \\
-t_o &= \frac{r}{c} && \text{(temporal scale at phase } o\text{)}
-\end{align}
+$r = r_o = a\frac{1-e_{c}^{2}}{1+e_{c}\cos o} = \frac{R_s}{\kappa_o^2}$ (radial distance at phase $o$)
+$\kappa_{o} = \sqrt{\frac{R_{s}}{r}} = \kappa_{p}\sqrt{\frac{1+e_{c}\cos o}{1+e_{c}}}$ (local potential at phase $o$)
+$\beta_{o} = \sqrt{\kappa_{o}^{2}-2W}$ (local kinetic from energy invariant)
+$\delta_{o} = \frac{1+e_{c}\cos o}{1+e_{c}^{2}+2e_{c}\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $o$)
+$Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local displacement vector at phase $o$)
+$\omega_o = a\beta c\frac{e_{cY}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e_{c}\cos o)^{2}}{(1-e_{c}^{2})^{3/2}}$ (angular speed)
+$\eta_{o} = \frac{r}{a}$ (phase scale amplitude)
+$t_o = \frac{r}{c}$ (temporal scale at phase $o$)
 
 \subsubsection*{Relational Geometry (WILL)}
+$\theta_{1} = \arccos(\beta)$ (distribution angle on $S^1$, non-physical)
+$\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical)
+$\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (relativistic phase factor)
+$\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}$ (gravitational phase factor)
+$\beta_{Yo} = \sqrt{1 - \beta_o^{2}}$ (relativistic phase factor at phase $o$)
+$\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}$ (gravitational phase factor at phase $o$)
+$\tau_{W} = \kappa_{X}\beta_{Y}$ (relational spacetime factor)
+$\tau_{Wo} = \kappa_{Xo}\beta_{Yo}$ (phase spacetime factor)
+$Q = \sqrt{\kappa^{2}+\beta^{2}}$ (relational displacement vector)
+$\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational displacement amplitude)
+$O_{o} = \arccos(1-\delta^{-1}) = \arccos(-e_c)=\arccos\left(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1\right)$ (orbital balance point where $\kappa_o^2=2\beta_o^2$ is true)
+$t = \frac{a}{c}$ (temporal scale as phase period)
+$z = \frac{1}{\kappa_{X}}-1$ (redshift)
+$z_o = \frac{1}{\kappa_{Xo}}-1$ (redshift at phase $o$)
+$z_{D}=\frac{1}{\beta_{Y}}-1$  (transverse Doppler shift)
+$z_{Do}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$)
 
-\begin{align}
-\theta_{1} &= \arccos(\beta) && \text{(distribution angle on } S^1\text{, non-physical)} \\
-\theta_{2} &= \arcsin(\kappa) && \text{(distribution angle on } S^2\text{, non-physical)} \\
-\beta_{Y} &= \sin(\theta_1) = \sqrt{1 - \beta^2} && \text{(relativistic phase factor)} \\
-\kappa_{X} &= \cos(\theta_2) = \sqrt{1 - \kappa^2} && \text{(gravitational phase factor)} \\
-\beta_{Yo} &= \sqrt{1 - \beta_o^{2}} && \text{(relativistic phase factor at phase } o\text{)} \\
-\kappa_{Xo} &= \sqrt{1 - \kappa_o^{2}} && \text{(gravitational phase factor at phase } o\text{)} \\
-\tau_{W} &= \kappa_{X}\beta_{Y} && \text{(relational spacetime factor)} \\
-\tau_{Wo} &= \kappa_{Xo}\beta_{Yo} && \text{(phase spacetime factor)} \\
-Q &= \sqrt{\kappa^{2}+\beta^{2}} && \text{(relational displacement vector)} \\
-\Delta_{Q} &= Q_{o}^{2}-Q^{2} && \text{(phase relational displacement amplitude)} \\
-O_{o} &= \arccos(1-\delta^{-2}) = \arccos(-e_c) && \text{(balance point in radians)} \\
-t &= \frac{a}{c} && \text{(temporal scale as phase period)} \\
-z &= \frac{1}{\kappa_{X}}-1 && \text{(redshift)} \\
-z_o &= \frac{1}{\kappa_{Xo}}-1 && \text{(redshift at phase } o\text{)}
-\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
