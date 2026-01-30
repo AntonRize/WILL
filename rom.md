@@ -24,6 +24,18 @@ Everything else is **pure algebra**.
 
 ---
 
+</div>
+
+<div class="w-full max-w-7xl mx-auto pb-20 px-4">
+    <div class="w-full bg-black/50 rounded-xl p-4">
+        {% include interactive/rom_engine.html %}
+    </div>
+</div>
+
+<div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-300 font-sans leading-relaxed" markdown="1">
+
+---
+
 ## Key Advantages of ROM
 
 ### 1. Pure Optical Input
@@ -307,16 +319,6 @@ The interactive engine supports 6 different input modes:
 3. **Try extreme values** - the system remains algebraically closed
 4. **Compare scales** - change only 'a' to see scale invariance
 5. **Use two-point mode** for orbit determination practice
-
-</div>
-
-<div class="w-full max-w-7xl mx-auto pb-20 px-4">
-    <div class="w-full bg-black/50 rounded-xl p-4">
-        {% include interactive/rom_engine.html %}
-    </div>
-</div>
-
-<div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-300 font-sans leading-relaxed" markdown="1">
 
 ---
 
