@@ -1,4 +1,4 @@
-<!-- ROM Interactive Engine -->
+<!-- ROM Complete Calculation Engine -->
 <div id="rom-root"></div>
 
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -13,15 +13,28 @@
   const G = 6.67430e-11, c = 299792458;
   
   function ROMEngine() {
-    const [mode, setMode] = useState('kappa-beta');
+    const [mode, setMode] = useState('redshift-single');
+    
+    // All possible inputs for all modes
     const [inputs, setInputs] = useState({
-      kappa_p: 0.1, beta_p: 0.05, 
-      W: 0.005, e_c: 0.5,
-      kappa: 0.0866,
-      m0: 1.989e30, r_p: 4.6e10, r_a: 6.98e10,
-      a: 5.79e10, T: 7.6e6,
-      beta_o1: 0.0001, t_o1: 0.000193, beta_o2: 0.00008, t_o2: 0.000233
+      // Redshift single point
+      z: 2.12e-6, z_D: 1.967e-4, r_single: 4.6e10,
+      // Two-point redshift
+      z_D1: 1.967e-4, r_1: 4.6e10, z_D2: 1.5e-4, r_2: 6.98e10,
+      // Perihelion state
+      kappa_p: 0.1, beta_p: 0.05, r_p_kappa: 4.6e10,
+      // Energy + eccentricity
+      W: 0.005, e_c_W: 0.2, a_W: 5.79e10,
+      // Global + eccentricity  
+      kappa: 0.0866, e_c_kappa: 0.2, a_kappa: 5.79e10,
+      // Apsides + velocity
+      r_p_apside: 4.6e10, r_a_apside: 6.98e10, v_p: 58980,
+      // Traditional (for reference)
+      m0_trad: 1.989e30, r_p_trad: 4.6e10, r_a_trad: 6.98e10,
+      // Period-based
+      m0_period: 1.989e30, a_period: 5.79e10, T: 7.6e6
     });
+    
     const [phase, setPhase] = useState(0);
     const [anim, setAnim] = useState(false);
     const [speed, setSpeed] = useState(1);
@@ -29,72 +42,156 @@
     const [orb, setOrb] = useState(0);
     const canvasRef = useRef(null);
     
-    // Solve ROM state based on input mode
     const solveROM = () => {
-      let kappa_p, beta_p, W, kappa, beta, e_c, a, R_s;
+      let kappa_p, beta_p, W, kappa, beta, e_c, a, R_s, m0_derived;
+      let derivation_note = "";
       
-      if (mode === 'kappa-beta') {
+      if (mode === 'redshift-single') {
+        const z = inputs.z;
+        const z_D = inputs.z_D;
+        const r = inputs.r_single;
+        
+        // From redshift to projections
+        kappa = Math.sqrt(1 - 1/(1+z)**2);
+        beta = Math.sqrt(1 - 1/(1+z_D)**2);
+        
+        // Calculate R_s from κ²r
+        R_s = kappa**2 * r;
+        m0_derived = R_s * c**2 / (2*G);
+        
+        // Derive orbital parameters
+        W = 0.5 * (kappa**2 - beta**2);
+        e_c = (2*beta**2/kappa**2) - 1;
+        a = R_s / (kappa**2);
+        kappa_p = kappa * Math.sqrt(1/(1-e_c));
+        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
+        
+        derivation_note = "M = R_s×c²/(2G) where R_s = κ²×r";
+      }
+      else if (mode === 'two-point') {
+        const z_D1 = inputs.z_D1;
+        const z_D2 = inputs.z_D2;
+        const r1 = inputs.r_1;
+        const r2 = inputs.r_2;
+        
+        // From Doppler shifts to β
+        const beta_1_sq = 1 - 1/(1+z_D1)**2;
+        const beta_2_sq = 1 - 1/(1+z_D2)**2;
+        
+        // Two-point formula
+        R_s = (r1 * r2) / (r2 - r1) * (beta_1_sq - beta_2_sq);
+        m0_derived = R_s * c**2 / (2*G);
+        
+        // Derive system parameters
+        const beta_1 = Math.sqrt(beta_1_sq);
+        W = 0.5 * (R_s/r1 - beta_1_sq);
+        kappa = Math.sqrt(4*W);
+        beta = Math.sqrt(2*W);
+        a = R_s / (kappa**2);
+        e_c = 0.3; // Initial guess for iteration
+        kappa_p = kappa * Math.sqrt(1/(1-e_c));
+        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
+        
+        derivation_note = "R_s = (r₁r₂)/(r₂-r₁) × (β₁²-β₂²)";
+      }
+      else if (mode === 'perihelion') {
         kappa_p = inputs.kappa_p;
         beta_p = inputs.beta_p;
+        const r_p = inputs.r_p_kappa;
+        
+        // Direct from perihelion
+        R_s = kappa_p**2 * r_p;
+        m0_derived = R_s * c**2 / (2*G);
+        
         W = 0.5 * (kappa_p**2 - beta_p**2);
-        kappa = Math.sqrt(4 * W);
-        beta = Math.sqrt(2 * W);
+        kappa = Math.sqrt(4*W);
+        beta = Math.sqrt(2*W);
         e_c = (2*beta_p**2/kappa_p**2) - 1;
-        a = 1.0;
-        R_s = kappa**2 * a;
+        a = r_p / (1 - e_c);
+        
+        derivation_note = "M = (κₚ²×rₚ×c²)/(2G)";
       }
-      else if (mode === 'W-ec') {
+      else if (mode === 'energy-ecc') {
         W = inputs.W;
-        e_c = inputs.e_c;
-        kappa = Math.sqrt(4 * W);
-        beta = Math.sqrt(2 * W);
+        e_c = inputs.e_c_W;
+        a = inputs.a_W;
+        
+        kappa = Math.sqrt(4*W);
+        beta = Math.sqrt(2*W);
+        R_s = kappa**2 * a;
+        m0_derived = R_s * c**2 / (2*G);
+        
         kappa_p = kappa * Math.sqrt(1/(1-e_c));
         beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
-        a = 1.0;
-        R_s = kappa**2 * a;
+        
+        derivation_note = "M = (4W×a×c²)/(2G)";
       }
-      else if (mode === 'kappa-ec') {
+      else if (mode === 'global-ecc') {
         kappa = inputs.kappa;
-        e_c = inputs.e_c;
-        kappa_p = kappa * Math.sqrt(1/(1-e_c));
-        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
-        W = 0.5 * (kappa_p**2 - beta_p**2);
-        beta = Math.sqrt(2 * W);
-        a = 1.0;
+        e_c = inputs.e_c_kappa;
+        a = inputs.a_kappa;
+        
         R_s = kappa**2 * a;
+        m0_derived = R_s * c**2 / (2*G);
+        
+        W = kappa**2 / 4;
+        beta = Math.sqrt(2*W);
+        kappa_p = kappa * Math.sqrt(1/(1-e_c));
+        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
+        
+        derivation_note = "M = (κ²×a×c²)/(2G)";
       }
-      else if (mode === 'apsides') {
-        a = (inputs.r_p + inputs.r_a) / 2;
-        e_c = (inputs.r_a - inputs.r_p) / (inputs.r_a + inputs.r_p);
-        R_s = 2 * G * inputs.m0 / (c**2);
+      else if (mode === 'apsides-velocity') {
+        const r_p = inputs.r_p_apside;
+        const r_a = inputs.r_a_apside;
+        const v_p = inputs.v_p;
+        
+        a = (r_p + r_a) / 2;
+        e_c = (r_a - r_p) / (r_a + r_p);
+        beta_p = v_p / c;
+        
+        // From closure: κₚ² = 2βₚ²/(1+e_c)
+        kappa_p = Math.sqrt(2*beta_p**2 / (1+e_c));
+        R_s = kappa_p**2 * r_p;
+        m0_derived = R_s * c**2 / (2*G);
+        
+        W = 0.5 * (kappa_p**2 - beta_p**2);
+        kappa = Math.sqrt(4*W);
+        beta = Math.sqrt(2*W);
+        
+        derivation_note = "κₚ from closure, then M = (κₚ²×rₚ×c²)/(2G)";
+      }
+      else if (mode === 'traditional') {
+        m0_derived = inputs.m0_trad;
+        const r_p = inputs.r_p_trad;
+        const r_a = inputs.r_a_trad;
+        
+        a = (r_p + r_a) / 2;
+        e_c = (r_a - r_p) / (r_a + r_p);
+        R_s = 2*G*m0_derived / (c**2);
         kappa = Math.sqrt(R_s / a);
         kappa_p = kappa * Math.sqrt(1/(1-e_c));
         beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
         W = 0.5 * (kappa_p**2 - beta_p**2);
-        beta = Math.sqrt(2 * W);
+        beta = Math.sqrt(2*W);
+        
+        derivation_note = "Given M, compute ROM parameters";
       }
-      else if (mode === 'mass-period') {
-        a = inputs.a;
-        R_s = 2 * G * inputs.m0 / (c**2);
+      else if (mode === 'period') {
+        m0_derived = inputs.m0_period;
+        a = inputs.a_period;
+        const T = inputs.T;
+        
+        R_s = 2*G*m0_derived / (c**2);
         kappa = Math.sqrt(R_s / a);
-        const omega = 2 * Math.PI / inputs.T;
+        const omega = 2*Math.PI / T;
         beta = omega * a / c;
-        W = kappa**2/4 - beta**2/2;
+        W = 0.5 * (kappa**2 - beta**2);
         kappa_p = Math.sqrt(2*W + beta**2);
         e_c = 1 - kappa**2/kappa_p**2;
         beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
-      }
-      else if (mode === 'two-point') {
-        const r1 = c * inputs.t_o1;
-        const r2 = c * inputs.t_o2;
-        R_s = (inputs.beta_o1**2 - inputs.beta_o2**2) * r1 * r2 / (r2 - r1);
-        W = 0.5 * (R_s/r1 - inputs.beta_o1**2);
-        kappa = Math.sqrt(4 * W);
-        beta = Math.sqrt(2 * W);
-        a = R_s / (kappa**2);
-        e_c = 0.3;
-        kappa_p = kappa * Math.sqrt(1/(1-e_c));
-        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
+        
+        derivation_note = "Given M and period, compute ROM parameters";
       }
       
       const delta = kappa_p / (beta_p * Math.sqrt(2));
@@ -105,7 +202,7 @@
       const T = 2 * Math.PI / omega;
       const Delta_phi = (3*Math.PI/2) * (kappa_p**4 / beta_p**2);
       
-      return { kappa_p, beta_p, kappa, beta, W, e_c, delta, e_cY, a, R_s, r_p, r_a, omega, T, Delta_phi };
+      return { kappa_p, beta_p, kappa, beta, W, e_c, delta, e_cY, a, R_s, r_p, r_a, omega, T, Delta_phi, m0_derived, derivation_note };
     };
     
     const state = solveROM();
@@ -115,7 +212,8 @@
       const eta = r_o / state.a;
       const kappa_o = state.kappa_p * Math.sqrt((1 + state.e_c*Math.cos(o)) / (1+state.e_c));
       const beta_o = Math.sqrt(Math.max(0, kappa_o**2 - 2*state.W));
-      return { eta, kappa_o, beta_o };
+      const delta_o = kappa_o / (beta_o * Math.sqrt(2));
+      return { eta, kappa_o, beta_o, delta_o };
     };
     
     useEffect(() => {
@@ -135,7 +233,7 @@
     
     useEffect(() => {
       const canvas = canvasRef.current;
-      if (!canvas) return;
+      if (!canvas || !state.a) return;
       const ctx = canvas.getContext('2d');
       const w = 600, h = 600, cx = w/2, cy = h/2;
       
@@ -190,97 +288,169 @@
     
     const cur = calcPhase(phase);
     
+    const inp = (label, key, min, max, step, useLog) => {
+      const val = inputs[key];
+      const displayVal = useLog ? val.toExponential(3) : (step < 0.0001 ? val.toExponential(4) : val.toPrecision(4));
+      
+      return e('div', { className: 'mb-3' },
+        e('div', { className: 'flex justify-between items-center mb-1' },
+          e('label', { className: 'text-gray-300 text-sm font-medium' }, label),
+          e('input', {
+            type: 'number',
+            step: step,
+            value: val,
+            onChange: ev => setInputs({...inputs, [key]: parseFloat(ev.target.value) || 0}),
+            className: 'w-32 px-2 py-1 border border-slate-600 rounded bg-slate-700 text-white text-xs font-mono'
+          })
+        ),
+        e('input', {
+          type: 'range',
+          min: useLog ? Math.log10(min) : min,
+          max: useLog ? Math.log10(max) : max,
+          step: useLog ? 0.01 : (step/10),
+          value: useLog ? Math.log10(val) : val,
+          onChange: ev => {
+            const newVal = useLog ? Math.pow(10, parseFloat(ev.target.value)) : parseFloat(ev.target.value);
+            setInputs({...inputs, [key]: newVal});
+          },
+          className: 'w-full accent-blue-500'
+        })
+      );
+    };
+    
     const renderInputs = () => {
-      if (mode === 'kappa-beta') {
-        return e('div', { className: 'space-y-3' },
-          e('div', null,
-            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'κₚ: ' + inputs.kappa_p.toFixed(3)),
-            e('input', { type: 'range', min: 0.001, max: 1, step: 0.001, value: inputs.kappa_p,
-              onChange: ev => setInputs({...inputs, kappa_p: parseFloat(ev.target.value)}),
-              className: 'w-full accent-blue-500' })
+      if (mode === 'redshift-single') {
+        return e('div', null,
+          e('div', { className: 'mb-4 p-3 bg-purple-900/20 border-l-4 border-purple-400 rounded-r' },
+            e('p', { className: 'text-purple-200 text-xs font-semibold' }, '🔴🔵 PURE OPTICAL METHOD'),
+            e('p', { className: 'text-purple-300 text-xs mt-1' }, 'κ² = 1-1/(1+z)², β² = 1-1/(1+z_D)²')
           ),
-          e('div', null,
-            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'βₚ: ' + inputs.beta_p.toFixed(3)),
-            e('input', { type: 'range', min: 0.001, max: 0.99, step: 0.001, value: inputs.beta_p,
-              onChange: ev => setInputs({...inputs, beta_p: parseFloat(ev.target.value)}),
-              className: 'w-full accent-blue-500' })
-          )
+          inp('z (gravitational redshift)', 'z', 1e-10, 1e-2, 1e-8, true),
+          inp('z_D (transverse Doppler)', 'z_D', 1e-10, 1e-2, 1e-8, true),
+          inp('r (radius, m)', 'r_single', 1e6, 1e12, 1e9, true)
         );
       }
-      else if (mode === 'W-ec') {
-        return e('div', { className: 'space-y-3' },
-          e('div', null,
-            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'W: ' + inputs.W.toFixed(4)),
-            e('input', { type: 'range', min: 0.0001, max: 0.1, step: 0.0001, value: inputs.W,
-              onChange: ev => setInputs({...inputs, W: parseFloat(ev.target.value)}),
-              className: 'w-full accent-blue-500' })
+      else if (mode === 'two-point') {
+        return e('div', null,
+          e('div', { className: 'mb-4 p-3 bg-green-900/20 border-l-4 border-green-400 rounded-r' },
+            e('p', { className: 'text-green-200 text-xs font-semibold' }, '🎯 TWO-POINT FORMULA'),
+            e('p', { className: 'text-green-300 text-xs mt-1' }, 'R_s = (r₁r₂)/(r₂-r₁) × (1/(1+z_D2)² - 1/(1+z_D1)²)')
           ),
-          e('div', null,
-            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'eᴄ: ' + inputs.e_c.toFixed(2)),
-            e('input', { type: 'range', min: 0, max: 0.99, step: 0.01, value: inputs.e_c,
-              onChange: ev => setInputs({...inputs, e_c: parseFloat(ev.target.value)}),
-              className: 'w-full accent-blue-500' })
-          )
+          inp('z_D1 (Doppler shift 1)', 'z_D1', 1e-10, 1e-2, 1e-8, true),
+          inp('r₁ (position 1, m)', 'r_1', 1e6, 1e12, 1e9, true),
+          inp('z_D2 (Doppler shift 2)', 'z_D2', 1e-10, 1e-2, 1e-8, true),
+          inp('r₂ (position 2, m)', 'r_2', 1e6, 1e12, 1e9, true)
         );
       }
-      else if (mode === 'kappa-ec') {
-        return e('div', { className: 'space-y-3' },
-          e('div', null,
-            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'κ: ' + inputs.kappa.toFixed(4)),
-            e('input', { type: 'range', min: 0.001, max: 1, step: 0.001, value: inputs.kappa,
-              onChange: ev => setInputs({...inputs, kappa: parseFloat(ev.target.value)}),
-              className: 'w-full accent-blue-500' })
+      else if (mode === 'perihelion') {
+        return e('div', null,
+          e('div', { className: 'mb-4 p-3 bg-blue-900/20 border-l-4 border-blue-400 rounded-r' },
+            e('p', { className: 'text-blue-200 text-xs font-semibold' }, '📐 PERIHELION STATE'),
+            e('p', { className: 'text-blue-300 text-xs mt-1' }, 'Direct from projections at closest approach')
           ),
-          e('div', null,
-            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'eᴄ: ' + inputs.e_c.toFixed(2)),
-            e('input', { type: 'range', min: 0, max: 0.99, step: 0.01, value: inputs.e_c,
-              onChange: ev => setInputs({...inputs, e_c: parseFloat(ev.target.value)}),
-              className: 'w-full accent-blue-500' })
-          )
+          inp('κₚ (potential projection)', 'kappa_p', 0.001, 1, 0.001),
+          inp('βₚ (kinetic projection)', 'beta_p', 0.001, 0.99, 0.001),
+          inp('rₚ (perihelion radius, m)', 'r_p_kappa', 1e6, 1e12, 1e9, true)
         );
       }
-      else {
-        return e('div', { className: 'text-gray-400 text-sm' }, 'Adjust parameters using selector above');
+      else if (mode === 'energy-ecc') {
+        return e('div', null,
+          e('div', { className: 'mb-4 p-3 bg-cyan-900/20 border-l-4 border-cyan-400 rounded-r' },
+            e('p', { className: 'text-cyan-200 text-xs font-semibold' }, '⚡ ENERGY & SHAPE'),
+            e('p', { className: 'text-cyan-300 text-xs mt-1' }, 'From binding energy and eccentricity')
+          ),
+          inp('W (energy invariant)', 'W', 0.00001, 0.1, 0.00001),
+          inp('e_c (eccentricity)', 'e_c_W', 0, 0.99, 0.01),
+          inp('a (semi-major axis, m)', 'a_W', 1e6, 1e12, 1e9, true)
+        );
+      }
+      else if (mode === 'global-ecc') {
+        return e('div', null,
+          e('div', { className: 'mb-4 p-3 bg-indigo-900/20 border-l-4 border-indigo-400 rounded-r' },
+            e('p', { className: 'text-indigo-200 text-xs font-semibold' }, '🌐 GLOBAL STATE'),
+            e('p', { className: 'text-indigo-300 text-xs mt-1' }, 'Average potential and shape')
+          ),
+          inp('κ (global potential)', 'kappa', 0.001, 1, 0.001),
+          inp('e_c (eccentricity)', 'e_c_kappa', 0, 0.99, 0.01),
+          inp('a (semi-major axis, m)', 'a_kappa', 1e6, 1e12, 1e9, true)
+        );
+      }
+      else if (mode === 'apsides-velocity') {
+        return e('div', null,
+          e('div', { className: 'mb-4 p-3 bg-amber-900/20 border-l-4 border-amber-400 rounded-r' },
+            e('p', { className: 'text-amber-200 text-xs font-semibold' }, '🎯 APSIDES + VELOCITY'),
+            e('p', { className: 'text-amber-300 text-xs mt-1' }, 'Reconstructs κ from closure condition')
+          ),
+          inp('rₚ (perihelion, m)', 'r_p_apside', 1e6, 1e12, 1e9, true),
+          inp('rₐ (aphelion, m)', 'r_a_apside', 1e6, 1e12, 1e9, true),
+          inp('vₚ (perihelion velocity, m/s)', 'v_p', 1e3, 3e8, 1e3, true)
+        );
+      }
+      else if (mode === 'traditional') {
+        return e('div', null,
+          e('div', { className: 'mb-4 p-3 bg-gray-700/20 border-l-4 border-gray-400 rounded-r' },
+            e('p', { className: 'text-gray-200 text-xs font-semibold' }, '📚 TRADITIONAL (for reference)'),
+            e('p', { className: 'text-gray-300 text-xs mt-1' }, 'Converts from classical parameters')
+          ),
+          inp('m₀ (mass, kg)', 'm0_trad', 1e20, 1e32, 1e28, true),
+          inp('rₚ (perihelion, m)', 'r_p_trad', 1e6, 1e12, 1e9, true),
+          inp('rₐ (aphelion, m)', 'r_a_trad', 1e6, 1e12, 1e9, true)
+        );
+      }
+      else if (mode === 'period') {
+        return e('div', null,
+          e('div', { className: 'mb-4 p-3 bg-gray-700/20 border-l-4 border-gray-400 rounded-r' },
+            e('p', { className: 'text-gray-200 text-xs font-semibold' }, '⏱️ PERIOD-BASED'),
+            e('p', { className: 'text-gray-300 text-xs mt-1' }, 'From orbital period observation')
+          ),
+          inp('m₀ (mass, kg)', 'm0_period', 1e20, 1e32, 1e28, true),
+          inp('a (semi-major axis, m)', 'a_period', 1e6, 1e12, 1e9, true),
+          inp('T (period, s)', 'T', 1e3, 1e9, 1e5, true)
+        );
       }
     };
     
     return e('div', { className: 'w-full bg-slate-900 p-4' },
       e('div', { className: 'max-w-7xl mx-auto' },
         e('div', { className: 'bg-slate-800 rounded-xl p-6 mb-6 border-t-4 border-blue-500' },
-          e('h1', { className: 'text-3xl font-bold text-white mb-2' }, 'ROM Interactive Engine'),
-          e('p', { className: 'text-gray-300' }, 'Complete algebraic orbital system - scale invariant from atoms to galaxies')
+          e('h1', { className: 'text-3xl font-bold text-white mb-2' }, 'ROM Calculation Engine'),
+          e('p', { className: 'text-gray-300 text-sm' }, 'Complete algebraic orbital calculator - all parameters from optical measurements')
         ),
         
         e('div', { className: 'grid grid-cols-1 lg:grid-cols-3 gap-4' },
+          // LEFT COLUMN - INPUTS
           e('div', { className: 'space-y-4' },
             e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
               e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '⚙️ Input Mode'),
               e('select', {
                 value: mode,
                 onChange: ev => setMode(ev.target.value),
-                className: 'w-full px-3 py-2 mb-4 border border-slate-600 rounded-lg bg-slate-700 text-white'
+                className: 'w-full px-3 py-2 mb-4 border border-slate-600 rounded-lg bg-slate-700 text-white text-sm'
               },
-                e('optgroup', { label: 'Pure Phase' },
-                  e('option', { value: 'kappa-beta' }, '(κₚ, βₚ) Perihelion'),
-                  e('option', { value: 'W-ec' }, '(W, eᴄ) Energy & Ecc'),
-                  e('option', { value: 'kappa-ec' }, '(κ, eᴄ) Global & Ecc')
+                e('optgroup', { label: '🔴🔵 OPTICAL (Primary)' },
+                  e('option', { value: 'redshift-single' }, '(z, z_D, r) Single Point Redshift'),
+                  e('option', { value: 'two-point' }, '(z_D1, r₁, z_D2, r₂) Two-Point Doppler')
                 ),
-                e('optgroup', { label: 'Astrophysical' },
-                  e('option', { value: 'apsides' }, '(m₀, rₚ, rₐ) Mass & Apsides'),
-                  e('option', { value: 'mass-period' }, '(m₀, a, T) Mass, Axis, Period')
+                e('optgroup', { label: '📐 ROM PARAMETERS' },
+                  e('option', { value: 'perihelion' }, '(κₚ, βₚ, rₚ) Perihelion State'),
+                  e('option', { value: 'energy-ecc' }, '(W, e_c, a) Energy & Eccentricity'),
+                  e('option', { value: 'global-ecc' }, '(κ, e_c, a) Global Potential')
                 ),
-                e('optgroup', { label: 'Two-Point' },
-                  e('option', { value: 'two-point' }, '(β₁, t₁, β₂, t₂) Dual Measurement')
+                e('optgroup', { label: '🔭 ASTROPHYSICAL' },
+                  e('option', { value: 'apsides-velocity' }, '(rₚ, rₐ, vₚ) Apsides + Velocity'),
+                  e('option', { value: 'traditional' }, '(m₀, rₚ, rₐ) Traditional Parameters'),
+                  e('option', { value: 'period' }, '(m₀, a, T) Period-Based')
                 )
               ),
               renderInputs()
             ),
             
+            // ANIMATION CONTROLS
             e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
               e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '🎬 Animation'),
               e('button', {
                 onClick: () => setAnim(!anim),
-                className: 'w-full px-4 py-2 rounded-lg font-medium mb-2 text-white ' + (anim ? 'bg-red-600' : 'bg-green-600')
+                className: 'w-full px-4 py-2 rounded-lg font-medium mb-2 text-white ' + (anim ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700')
               }, anim ? '⏸ Pause' : '▶ Play'),
               e('div', { className: 'mb-2' },
                 e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'Speed: ' + speed.toFixed(1) + 'x'),
@@ -289,104 +459,164 @@
                   className: 'w-full accent-blue-500' })
               ),
               e('div', { className: 'flex items-center p-2 bg-slate-700/50 rounded mb-2' },
-                e('input', { type: 'checkbox', checked: prec,
+                e('input', { type: 'checkbox', id: 'prec-check', checked: prec,
                   onChange: ev => setPrec(ev.target.checked),
                   className: 'mr-2 accent-blue-500' }),
-                e('label', { className: 'text-sm text-gray-300' }, 'Precession (Orbit #' + orb + ')')
+                e('label', { htmlFor: 'prec-check', className: 'text-sm text-gray-300 cursor-pointer' }, 
+                  'Show Precession (Orbit #' + orb + ')')
               ),
               e('button', {
                 onClick: () => { setPhase(0); setOrb(0); },
-                className: 'w-full px-4 py-2 bg-slate-700 rounded-lg text-gray-200'
-              }, '🔄 Reset')
+                className: 'w-full px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-gray-200'
+              }, '🔄 Reset Phase')
             ),
             
+            // CURRENT PHASE STATE
             e('div', { className: 'bg-slate-800 rounded-lg p-4 border-l-4 border-blue-500' },
-              e('h3', { className: 'text-white font-semibold mb-2' }, 'Current Phase'),
+              e('h3', { className: 'text-white font-semibold mb-2' }, 'Current Phase (o = ' + (phase*180/Math.PI).toFixed(1) + '°)'),
               e('div', { className: 'text-sm space-y-1' },
                 e('div', { className: 'flex justify-between p-1 bg-slate-700/50 rounded' },
-                  e('span', { className: 'text-gray-400' }, 'η:'),
-                  e('span', { className: 'text-blue-400 font-mono' }, cur.eta.toFixed(4))
+                  e('span', { className: 'text-gray-400' }, 'η (r/a):'),
+                  e('span', { className: 'text-blue-400 font-mono' }, cur.eta.toFixed(5))
                 ),
                 e('div', { className: 'flex justify-between p-1 bg-slate-700/50 rounded' },
                   e('span', { className: 'text-gray-400' }, 'κ₀:'),
-                  e('span', { className: 'text-blue-400 font-mono' }, cur.kappa_o.toFixed(4))
+                  e('span', { className: 'text-blue-400 font-mono' }, cur.kappa_o.toFixed(5))
                 ),
                 e('div', { className: 'flex justify-between p-1 bg-slate-700/50 rounded' },
                   e('span', { className: 'text-gray-400' }, 'β₀:'),
-                  e('span', { className: 'text-red-400 font-mono' }, cur.beta_o.toFixed(4))
+                  e('span', { className: 'text-red-400 font-mono' }, cur.beta_o.toFixed(5))
+                ),
+                e('div', { className: 'flex justify-between p-1 bg-slate-700/50 rounded' },
+                  e('span', { className: 'text-gray-400' }, 'δ₀:'),
+                  e('span', { className: 'text-purple-400 font-mono' }, cur.delta_o.toFixed(5))
                 )
               )
             )
           ),
           
+          // RIGHT COLUMN - OUTPUTS
           e('div', { className: 'lg:col-span-2 space-y-4' },
+            // VISUALIZATION
             e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
-              e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '🌀 Normalized Orbit'),
-              e('canvas', { ref: canvasRef, width: 600, height: 600, className: 'w-full border-2 border-slate-600 rounded-lg' }),
-              e('div', { className: 'mt-2 text-sm text-gray-300 flex justify-around' },
-                e('span', null, '🟡 Central'),
+              e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '🌀 Orbit Visualization (Normalized)'),
+              e('canvas', { ref: canvasRef, width: 600, height: 600, 
+                className: 'w-full border-2 border-slate-600 rounded-lg bg-slate-950' }),
+              e('div', { className: 'mt-2 text-xs text-gray-400 flex justify-around' },
+                e('span', null, '🟡 Central Body'),
                 e('span', null, '🟢 Perihelion'),
                 e('span', null, '🟣 Aphelion'),
-                e('span', null, '🔴 Current')
+                e('span', null, '🔴 Current Position')
               )
             ),
             
+            // COMPLETE ROM STATE
             e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
-              e('h2', { className: 'text-white font-semibold mb-3' }, '📐 ROM State'),
-              e('div', { className: 'grid grid-cols-2 md:grid-cols-4 gap-4 text-xs' },
+              e('h2', { className: 'text-white font-semibold mb-3' }, '📊 Complete ROM State'),
+              
+              // DERIVED MASS (PROMINENT)
+              e('div', { className: 'mb-4 p-4 bg-gradient-to-r from-yellow-900/30 to-orange-900/30 border-2 border-yellow-500/50 rounded-lg' },
+                e('div', { className: 'flex justify-between items-center' },
+                  e('div', null,
+                    e('p', { className: 'text-yellow-200 text-xs font-semibold' }, 'DERIVED MASS:'),
+                    e('p', { className: 'text-yellow-100 text-lg font-bold font-mono' }, 
+                      state.m0_derived.toExponential(4) + ' kg'
+                    ),
+                    e('p', { className: 'text-yellow-300 text-xs mt-1' }, 
+                      '(' + (state.m0_derived/1.989e30).toFixed(3) + ' M☉)'
+                    )
+                  ),
+                  e('div', { className: 'text-right' },
+                    e('p', { className: 'text-yellow-300 text-xs' }, 'R_s = ' + state.R_s.toExponential(3) + ' m'),
+                    e('p', { className: 'text-yellow-400 text-xs italic' }, state.derivation_note)
+                  )
+                )
+              ),
+              
+              // ROM PARAMETERS GRID
+              e('div', { className: 'grid grid-cols-2 md:grid-cols-5 gap-3 text-xs' },
                 e('div', null,
-                  e('h4', { className: 'text-gray-300 font-semibold mb-1' }, 'Global'),
-                  e('div', { className: 'space-y-1' },
+                  e('h4', { className: 'text-blue-400 font-semibold mb-1 border-b border-blue-500/30 pb-1' }, 'Global'),
+                  e('div', { className: 'space-y-1 mt-2' },
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'κ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, state.kappa.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.kappa.toFixed(6))
                     ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'β:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, state.beta.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.beta.toFixed(6))
                     ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'W:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, state.W.toFixed(6))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.W.toExponential(3))
                     )
                   )
                 ),
                 e('div', null,
-                  e('h4', { className: 'text-gray-300 font-semibold mb-1' }, 'Eccentricity'),
-                  e('div', { className: 'space-y-1' },
-                    e('div', { className: 'flex justify-between' },
-                      e('span', { className: 'text-gray-400' }, 'eᴄ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, state.e_c.toFixed(4))
-                    ),
-                    e('div', { className: 'flex justify-between' },
-                      e('span', { className: 'text-gray-400' }, 'δ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, state.delta.toFixed(4))
-                    )
-                  )
-                ),
-                e('div', null,
-                  e('h4', { className: 'text-green-400 font-semibold mb-1' }, 'Perihelion'),
-                  e('div', { className: 'space-y-1' },
+                  e('h4', { className: 'text-green-400 font-semibold mb-1 border-b border-green-500/30 pb-1' }, 'Perihelion'),
+                  e('div', { className: 'space-y-1 mt-2' },
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'κₚ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, state.kappa_p.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.kappa_p.toFixed(6))
                     ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'βₚ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, state.beta_p.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.beta_p.toFixed(6))
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'rₚ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, state.r_p.toExponential(3) + ' m')
                     )
                   )
                 ),
                 e('div', null,
-                  e('h4', { className: 'text-gray-300 font-semibold mb-1' }, 'Orbit'),
-                  e('div', { className: 'space-y-1' },
+                  e('h4', { className: 'text-purple-400 font-semibold mb-1 border-b border-purple-500/30 pb-1' }, 'Shape'),
+                  e('div', { className: 'space-y-1 mt-2' },
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'e_c:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, state.e_c.toFixed(5))
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'δ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, state.delta.toFixed(5))
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'rₐ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, state.r_a.toExponential(3) + ' m')
+                    )
+                  )
+                ),
+                e('div', null,
+                  e('h4', { className: 'text-cyan-400 font-semibold mb-1 border-b border-cyan-500/30 pb-1' }, 'System Scale'),
+                  e('div', { className: 'space-y-1 mt-2' },
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'a:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, state.a.toExponential(3) + ' m')
+                    ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'T:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, state.T.toFixed(2))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.T.toExponential(3) + ' s')
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'T:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, (state.T/(86400*365.25)).toFixed(2) + ' yr')
+                    )
+                  )
+                ),
+                e('div', null,
+                  e('h4', { className: 'text-orange-400 font-semibold mb-1 border-b border-orange-500/30 pb-1' }, 'Precession'),
+                  e('div', { className: 'space-y-1 mt-2' },
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'Δφ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, (state.Delta_phi).toExponential(3) + ' rad')
                     ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'Δφ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, (state.Delta_phi*180/Math.PI).toFixed(4) + '°')
+                      e('span', { className: 'text-gray-200 font-mono' }, (state.Delta_phi*180/Math.PI).toFixed(5) + '°')
+                    ),
+                    e('div', { className: 'flex justify-between' },
+                      e('span', { className: 'text-gray-400' }, 'Δφ:'),
+                      e('span', { className: 'text-gray-200 font-mono' }, (state.Delta_phi*180/Math.PI*3600).toFixed(3) + '"')
                     )
                   )
                 )
