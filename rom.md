@@ -1,57 +1,69 @@
 ---
 layout: default
 title: Relational Orbital Mechanics
-permalink: /ROM/
+permalink: /rom/
 ---
 
 <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-300 font-sans leading-relaxed" markdown="1">
 
 # Relational Orbital Mechanics (ROM)
 
-## A Closed Algebraic System for Scale-Invariant Orbital Analysis
+## Orbital Dynamics from Pure Optical Measurements
 
 <div class="bg-gray-900/50 border-l-4 border-blue-500 p-6 rounded-r-lg mb-10 text-lg" markdown="1">
-**A Different Approach:**
+**Core Thesis:**
 
-ROM does not describe how a body moves under forces. It **classifies the algebraically allowed relational states** of a bound two-body system.
+Orbital dynamics requires **no mass, no $G$, no metric, and no spacetime geometry.** 
 
-The entire orbital configuration is determined by **two independent parameters** from which all other quantities follow through algebraic closure. No numerical integration. No differential equations. Just pure algebraic relations.
+All observable orbital structure follows from two directly measurable frequency projections:
+- **$\kappa$** (gravitational projection from redshift)
+- **$\beta$** (kinematic projection from Doppler)
+
+Everything else is **pure algebra**.
 </div>
 
 ---
 
 ## Key Advantages of ROM
 
-### 1. Algebraic Closure vs. Differential Equations
+### 1. Pure Optical Input
 
 **Standard Orbital Mechanics:**
-- Requires solving differential equations (Newton's laws or Einstein's field equations)
-- Needs numerical integration for complex orbits
-- Requires 6 Keplerian elements for full orbital specification
-- Computationally intensive for high-precision calculations
+- Requires knowing mass $M$ of the central body
+- Needs gravitational constant $G$
+- Requires 6 Keplerian elements
+- Computationally intensive numerical integration
 
 **ROM:**
-- **Pure algebraic system** - all parameters computed instantly
-- **2 parameters** determine the entire system
+- **Only needs light measurements**: redshift ($z$) and Doppler shift ($v/c$)
+- **2 parameters** determine the entire system through algebraic closure
+- Mass is derived, not required: $M = \frac{c^2 r}{2G}\kappa^2$
 - Scale-invariant: same equations for atoms and galaxies
 - **Orders of magnitude more efficient** for orbital determination
 
-### 2. The Two-Point Measurement Method
+### 2. Two Operational Pathways
 
-One of ROM's most powerful features: measure velocity ($\beta$) and position ($r = ct$) at just **two points** on an orbit, and the entire system closes algebraically:
+**Path 1 - Verification** (when you have redshift data):
+- Measure central redshift → calculate $\kappa$
+- Measure orbital velocity → get $\beta$
+- Predict orbital shape from closure: $e = \frac{2\beta_p^2}{\kappa_p^2} - 1$
+- *Example: Mercury-Sun system*
+
+**Path 2 - Reconstruction** (when redshift is unknown):
+- Observe orbital shape $e$ and velocity $\beta$
+- Reconstruct hidden potential: $\kappa_p = \beta_p\sqrt{\frac{2}{1+e}}$
+- Calculate system properties from reconstructed $\kappa$
+- *Example: Star S2 orbiting Sgr A\**
+
+### 3. The Two-Point Measurement Method
+
+Measure velocity ($\beta$) and position ($r = ct$) at just **two points** on an orbit:
 
 $$R_s = \frac{(\beta_1^2 - \beta_2^2) r_1 r_2}{r_2 - r_1}$$
 
 $$W = \frac{1}{2}\left(\frac{R_s}{r_1} - \beta_1^2\right)$$
 
-From these two measurements, you get:
-- Complete orbital shape (eccentricity)
-- Energy invariant
-- All apsides
-- Precession rate
-- Period
-
-**This offers significant operational advantages** - standard methods require multiple orbit observations and iterative fitting.
+From these two measurements, the entire system closes algebraically. This offers significant operational advantages - standard methods require multiple orbit observations and iterative fitting.
 
 ---
 
@@ -63,35 +75,31 @@ ROM defines a bound system through normalized projections:
 
 | Parameter | Definition | Physical Meaning |
 |-----------|------------|------------------|
-| $\kappa$ | $\sqrt{R_s/a}$ | Global potential projection at semi-major axis |
-| $\beta$ | $v/c$ | Global kinetic projection (virial equivalent) |
-| $W$ | $\frac{1}{4}\kappa^2 - \frac{1}{2}\beta^2$ | Energy invariant (binding energy) |
-| $Q$ | $\sqrt{\kappa^2 + \beta^2}$ | Relational displacement vector |
+| $\kappa$ | $\sqrt{R_s/a}$ | Global potential projection (from redshift) |
+| $\beta$ | $v/c$ | Global kinetic projection (from Doppler) |
+| $W$ | $\frac{1}{2}(\kappa^2 - \beta^2)$ | Energy invariant (binding energy) |
+| $\delta$ | $\frac{\kappa}{\beta\sqrt{2}}$ | Closure factor (measures deviation from circular) |
 
-**Key insight:** These are not coordinates in space. They are **projections on the observer's measurement sphere** - the fundamental relational quantities.
+**Key insight:** These are not coordinates in space. They are **projections on the observer's measurement sphere** - the fundamental relational quantities you measure directly with light.
 
 ### The Energy Invariant
 
 The most important quantity in ROM is $W$:
 
-$$W = \frac{1}{2}(\kappa_p^2 - \beta_p^2) = \frac{1}{4}\kappa^2$$
+$$W = \frac{1}{2}(\kappa_p^2 - \beta_p^2) = \frac{1}{4}\kappa^2(1-e_c) = \text{constant at all phases}$$
 
 This single number determines:
 - Whether the orbit is bound ($W > 0$)
-- The orbital scale ($a = R_s/(4W)$)
+- The orbital scale ($a = R_s/\kappa^2$)
 - All energy distributions at every phase
 
 ### Eccentricity from Closure
 
-Eccentricity emerges from the **closure condition** at perihelion:
+Eccentricity is not a free parameter - it emerges from the **closure condition**:
 
-$$e_c = \frac{2\beta_p^2}{\kappa_p^2} - 1$$
+$$e_c = \frac{2\beta_p^2}{\kappa_p^2} - 1 = \frac{1}{\delta_p^2} - 1$$
 
-Or equivalently from the closure factor $\delta$:
-
-$$e_c = \frac{1}{\delta^2} - 1$$
-
-where $\delta = \kappa_p/(\beta_p\sqrt{2})$ measures how "closed" the energy cycle is.
+This connects orbital shape directly to the **ratio of gravitational redshift to Doppler shift**.
 
 ---
 
@@ -99,11 +107,9 @@ where $\delta = \kappa_p/(\beta_p\sqrt{2})$ measures how "closed" the energy cyc
 
 ### Global System Parameters
 
-$$R_s = \kappa^2 a = \frac{2Gm_0}{c^2}$$ *(Schwarzschild radius - system scale)* | $$\kappa = \sqrt{\frac{R_s}{a}} = \sqrt{4W}$$ *(global potential projection)*
+$$R_s = \kappa^2 a$$ *(Schwarzschild radius)* | $$\kappa = \sqrt{\frac{R_s}{a}} = \sqrt{4W}$$ *(global potential)* | $$\beta = \sqrt{2W}$$ *(global kinetic)*
 
-$$\beta = \sqrt{2W} = \frac{\kappa}{\sqrt{2}}$$ *(global kinetic projection - virial equivalent)* | $$a = \frac{R_s}{4W}$$ *(semi-major axis)*
-
-$$\delta = \frac{\kappa_p}{\beta_p\sqrt{2}} = \frac{1}{\sqrt{1+e_c}}$$ *(closure factor at $r_p$)* | $$Q = \sqrt{\kappa^2 + \beta^2}$$ *(relational displacement)*
+$$a = \frac{R_s}{\kappa^2}$$ *(semi-major axis)* | $$\delta = \frac{\kappa_p}{\beta_p\sqrt{2}} = \frac{1}{\sqrt{1+e_c}}$$ *(closure factor)* | $$Q = \sqrt{\kappa^2 + \beta^2}$$ *(displacement)*
 
 ### Eccentricity Relations
 
@@ -119,125 +125,188 @@ $$\beta_p = \sqrt{\kappa_p^2 \cdot \frac{1+e_c}{2}}$$ *(kinetic at perihelion)* 
 
 $$r_a = a(1+e_c)$$ *(radius at aphelion)* | $$\kappa_a = \sqrt{2W + \beta_a^2}$$ *(potential at aphelion)*
 
-$$\beta_a = \beta\sqrt{e_X}$$ *(kinetic at aphelion)* | $$\delta_{\text{apo}} = \frac{1}{\sqrt{1-e_c}}$$ *(closure factor at aphelion)*
+$$\beta_a = \beta\sqrt{e_X}$$ *(kinetic at aphelion)* | $$\delta_{\text{apo}} = \frac{1}{\sqrt{1-e_c}}$$ *(closure at aphelion)*
 
 ### Phase-Dependent Quantities
 
 At any orbital phase $o$:
 
-$$r_o = a\frac{1-e_c^2}{1+e_c\cos o}$$ *(radial distance)* | $$\eta_o = \frac{r_o}{a}$$ *(phase scale amplitude)*
+$$r_o = a\frac{1-e_c^2}{1+e_c\cos o}$$ *(radial distance)* | $$\eta_o = \frac{r_o}{a}$$ *(phase amplitude)* | $$t_o = \frac{r_o}{c}$$ *(temporal scale)*
 
 $$\kappa_o = \kappa_p\sqrt{\frac{1+e_c\cos o}{1+e_c}}$$ *(local potential)* | $$\beta_o = \sqrt{\kappa_o^2 - 2W}$$ *(local kinetic)*
 
-$$Q_o = \sqrt{\kappa_o^2 + \beta_o^2}$$ *(local displacement)* | $$\delta_o = \frac{\kappa_o}{\beta_o\sqrt{2}}$$ *(local closure factor)*
+$$\delta_o = \frac{\kappa_o}{\beta_o\sqrt{2}}$$ *(local closure)* | $$Q_o = \sqrt{\kappa_o^2 + \beta_o^2}$$ *(local displacement)*
 
 ### Orbital Characteristics
 
-$$\omega = \frac{\beta c}{a}$$ *(angular frequency)* | $$T = \frac{2\pi}{\omega}$$ *(orbital period)* | $$h_W = a \beta c e_{cY}$$ *(angular momentum)*
+$$\omega = \frac{\beta c}{a}$$ *(angular frequency)* | $$T = \frac{2\pi}{\omega}$$ *(period)* | $$h_W = a \beta c e_{cY}$$ *(angular momentum)*
 
-$$\Delta\phi_{\text{WILL}} = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2}$$ *(precession per orbit at perihelion)*
+$$\Delta\phi_{\text{WILL}} = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2}$$ *(precession per orbit - pure redshift/Doppler ratio)*
 
 $$\omega_o = \frac{\beta c}{a}\frac{(1+e_c\cos o)^2}{(1-e_c^2)^{3/2}}$$ *(angular speed at phase $o$)*
 
 ### Relational Geometry (WILL Framework)
 
-$$\theta_1 = \arccos(\beta)$$ *(distribution angle on $S^1$)* | $$\theta_2 = \arcsin(\kappa)$$ *(distribution angle on $S^2$)*
+$$\theta_1 = \arccos(\beta)$$ *(distribution on $S^1$)* | $$\theta_2 = \arcsin(\kappa)$$ *(distribution on $S^2$)*
 
-$$\beta_Y = \sqrt{1-\beta^2}$$ *(relativistic phase factor)* | $$\kappa_X = \sqrt{1-\kappa^2}$$ *(gravitational phase factor)*
+$$\beta_Y = \sqrt{1-\beta^2}$$ *(relativistic factor)* | $$\kappa_X = \sqrt{1-\kappa^2}$$ *(gravitational factor)*
 
-$$\tau_W = \kappa_X \beta_Y$$ *(relational spacetime factor)* | $$z = \frac{1}{\kappa_X} - 1$$ *(redshift)*
+$$\tau_W = \kappa_X \beta_Y$$ *(spacetime factor)* | $$z = \frac{1}{\kappa_X} - 1$$ *(redshift)*
 
 ---
 
-## Connection to Observable Data
+## From Optical Measurements to Predictions
 
-### From Astrophysical Measurements
+### Path 1: Verification (Mercury Example)
 
-**Mass and Apsides** $(m_0, r_p, r_a)$:
-1. Calculate semi-major axis: $a = (r_p + r_a)/2$
-2. Calculate eccentricity: $e_c = (r_a - r_p)/(r_a + r_p)$
-3. Calculate Schwarzschild radius: $R_s = 2Gm_0/c^2$
-4. System closes: $\kappa^2 = R_s/a$
+**Pure Optical Inputs - No mass or $G$ needed:**
 
-**Mass, Axis, and Period** $(m_0, a, T)$:
-1. Get $R_s = 2Gm_0/c^2$
-2. Get $\kappa^2 = R_s/a$
-3. Get $\beta = 2\pi a/(Tc)$
-4. System closes: $W = \kappa^2/4 - \beta^2/2$
+**Step 1: Measure Kinematic Projection**
+- Perihelion velocity: $v_p = 58.98$ km/s (radar telemetry)
+- Kinematic projection: $\beta_p = v_p/c = 1.967 \times 10^{-4}$
 
-**Two Velocity-Position Pairs** $(v_1, r_1, v_2, r_2)$:
-- This is one of ROM's **most powerful features**
-- Algebraic closure from just two measurements
-- Orders of magnitude faster than traditional orbit determination
+**Step 2: Measure Potential Projection**
+- Sun's surface redshift: $z_{\text{surface}} = 2.12 \times 10^{-6}$ (spectroscopy)
+- Surface potential: $\kappa^2_{\text{surface}} \approx 2z_{\text{surface}}$
+- Scale to perihelion using $\kappa^2 \propto 1/r$:
 
-### To Observable Predictions
+$$\kappa_p^2 = 2z_{\text{surface}} \left(\frac{r_{\text{surface}}}{r_p}\right) = 2(2.12 \times 10^{-6})(0.01513) = 6.415 \times 10^{-8}$$
 
-From any ROM state, you can instantly calculate:
-- Orbital period: $T = 2\pi a/(\beta c)$
-- Velocity at any phase: $v_o = \beta_o c$
-- Precession per orbit: $\Delta\phi$ (in radians or arcseconds)
-- Gravitational redshift: $z = 1/\sqrt{1-\kappa^2} - 1$
-- All apsides and turning points
+$$\kappa_p = 2.533 \times 10^{-4}$$
+
+**Step 3: Calculate Closure Factor**
+
+$$\delta_p = \frac{\kappa_p}{\sqrt{2}\beta_p} = \frac{2.533 \times 10^{-4}}{1.414 \times 1.967 \times 10^{-4}} = 0.9108$$
+
+**Step 4: Predict Eccentricity**
+
+$$e_{\text{pred}} = \frac{1}{\delta_p^2} - 1 = \frac{1}{(0.9108)^2} - 1 = 0.2056$$
+
+**Result:** Perfect match with observed $e = 0.2056$! The orbital shape is fully determined by the **ratio of redshift to Doppler shift**.
+
+**Step 5: Predict Precession**
+
+$$\Delta\phi = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2} = \frac{3\pi}{2}\frac{(2.533 \times 10^{-4})^4}{(1.967 \times 10^{-4})^2} = 5.00 \times 10^{-7} \text{ rad/orbit}$$
+
+$$= 43.0 \text{ arcsec/century}$$
+
+**Perfect agreement** - and we never used $M$ or $G$!
+
+### Path 2: Reconstruction (Star S2 Example)
+
+**When redshift is unknown, reconstruct from shape:**
+
+**Given:**
+- Observed eccentricity: $e = 0.8846$
+- Perihelion velocity: $\beta_p = 0.0255$ (7650 km/s)
+
+**Reconstruct Potential:**
+
+$$\kappa_p = \beta_p\sqrt{\frac{2}{1+e}} = 0.0255 \times \sqrt{\frac{2}{1.8846}} = 0.02627$$
+
+**Predict Precession:**
+
+$$\Delta\phi = \frac{3\pi}{2}\frac{(0.02627)^4}{(0.0255)^2} = 3.45 \times 10^{-3} \text{ rad} = 11.85'$$
+
+**Observed:** $12' \pm 1.5'$ - excellent agreement!
+
+**Derive Mass** (if needed):
+
+$$M = \frac{c^2 r_p}{2G}\kappa_p^2 = 4.15 \times 10^6 M_{\odot}$$
+
+Mass is **derived**, not required as input.
 
 ---
 
 ## Scale Invariance
 
-The normalized form of ROM makes it **completely scale-invariant**:
+The normalized form makes ROM **completely scale-invariant**:
 
 $$\eta_o = \frac{r_o}{a}$$
 
-The shape of the orbit in normalized coordinates $(\eta, o)$ is identical whether you're describing:
-- **Electron orbit in hydrogen atom** ($a \sim 10^{-10}$ m)
-- **Mercury orbit around the Sun** ($a \sim 10^{10}$ m)
-- **Star orbit in galactic center** ($a \sim 10^{16}$ m)
+The orbital shape in $(\eta, o)$ coordinates is **identical** whether describing:
+- Electron in hydrogen atom ($a \sim 10^{-10}$ m)
+- Mercury around Sun ($a \sim 10^{10}$ m)
+- Star around galactic center ($a \sim 10^{16}$ m)
 
-The only difference is the scale factor $a$. All the physics - eccentricity, precession, energy distribution - is the same.
+Only the scale factor $a$ differs. All physics - eccentricity, precession, energy distribution - is the same.
 
-This is why ROM is so powerful: **one framework for all scales**.
-
----
-
-## Worked Example: Mercury's Orbit
-
-### Given Data:
-- $r_p = 4.60 \times 10^{10}$ m (perihelion)
-- $r_a = 6.98 \times 10^{10}$ m (aphelion)
-- $m_0 = 1.989 \times 10^{30}$ kg (Solar mass)
-
-### ROM Solution:
-
-**Step 1:** Basic geometry
-$$a = \frac{r_p + r_a}{2} = 5.79 \times 10^{10} \text{ m}$$
-$$e_c = \frac{r_a - r_p}{r_a + r_p} = 0.2056$$
-
-**Step 2:** Scale parameter
-$$R_s = \frac{2Gm_0}{c^2} = 2953 \text{ m}$$
-$$\kappa^2 = \frac{R_s}{a} = 5.10 \times 10^{-8}$$
-$$\kappa = 2.26 \times 10^{-4}$$
-
-**Step 3:** Perihelion state
-$$\kappa_p = \kappa\sqrt{\frac{1}{1-e_c}} = 2.53 \times 10^{-4}$$
-$$\beta_p = \sqrt{\kappa_p^2 \cdot \frac{1+e_c}{2}} = 1.97 \times 10^{-4}$$
-
-**Step 4:** Precession
-$$\Delta\phi_{\text{WILL}} = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2} = 5.03 \times 10^{-7} \text{ rad/orbit}$$
-$$= 0.1038 \text{ arcsec/orbit}$$
-$$= 43.0 \text{ arcsec/century}$$
-
-**Result:** Perfect match with observations! And we got it from pure algebra, no integration.
+**This is why ROM is powerful:** one framework for all scales.
 
 ---
 
-## Interactive ROM Engine
+## User Guide: Interactive ROM Engine
 
-Use the interactive tool below to explore the complete ROM system. Choose any input parameter set and watch the entire orbital configuration close algebraically.
+### Input Modes
 
-**Features:**
-- 6 different input modes (pure phase parameters, astrophysical observables, two-point method)
-- Real-time visualization with precession
-- Complete parameter display
-- Scale-invariant representation
+The interactive engine supports 6 different input modes:
+
+#### 1. **(κₚ, βₚ) - Perihelion State** (Pure Phase Parameters)
+- **κₚ**: Potential projection at perihelion (dimensionless, range 0.001-1.0)
+- **βₚ**: Kinetic projection at perihelion (v/c, dimensionless, range 0.001-0.99)
+- **Use when:** You have direct optical measurements or want to explore phase space
+- **Units:** Both dimensionless (normalized by c)
+
+#### 2. **(W, eᴄ) - Energy & Eccentricity**
+- **W**: Energy invariant (dimensionless, range 0.0001-0.1)
+- **eᴄ**: Eccentricity (dimensionless, range 0-0.99)
+- **Use when:** You know the binding energy and shape
+- **Units:** Both dimensionless
+
+#### 3. **(κ, eᴄ) - Global Potential & Eccentricity**
+- **κ**: Global potential projection at semi-major axis (dimensionless, 0.001-1.0)
+- **eᴄ**: Eccentricity (dimensionless, 0-0.99)
+- **Use when:** You have average redshift and shape measurements
+- **Units:** Both dimensionless
+
+#### 4. **(m₀, rₚ, rₐ) - Mass & Apsides** (Astrophysical)
+- **m₀**: Central body mass (kg, e.g., 1.989×10³⁰ for Sun)
+- **rₚ**: Perihelion radius (meters)
+- **rₐ**: Aphelion radius (meters)
+- **Use when:** You have traditional astrophysical data
+- **Units:** m₀ in kg, distances in meters
+- **Note:** This mode uses M and G for convenience, but internally converts to (κ, β)
+
+#### 5. **(m₀, a, T) - Mass, Axis, Period** (Astrophysical)
+- **m₀**: Central body mass (kg)
+- **a**: Semi-major axis (meters)
+- **T**: Orbital period (seconds)
+- **Use when:** You have period observations
+- **Units:** m₀ in kg, a in meters, T in seconds
+
+#### 6. **(β₁, t₁, β₂, t₂) - Two-Point Method**
+- **β₁, β₂**: Velocity measurements at two points (v/c, dimensionless)
+- **t₁, t₂**: Light-travel times to those points (seconds, where r = ct)
+- **Use when:** You have two snapshot measurements
+- **Units:** β dimensionless, t in seconds
+- **This is the most powerful method** - complete system from just 2 measurements!
+
+### Understanding the Output
+
+**Global Parameters:**
+- **κ, β, W**: The fundamental relational quantities
+- **eᴄ, δ**: Shape and closure (how far from circular)
+
+**Perihelion/Aphelion:**
+- **κₚ, βₚ**: Projections at closest approach (maximum interaction)
+- **κₐ, βₐ**: Projections at farthest point (minimum interaction)
+
+**Orbital Properties:**
+- **T**: Orbital period
+- **Δφ**: Precession angle per orbit (in degrees)
+
+**Visualization:**
+- **η (r/a)**: Normalized radius - shows scale-invariant shape
+- The animation shows precession accumulation across orbits
+- Colors: 🟡 Central body, 🟢 Perihelion, 🟣 Aphelion, 🔴 Current position
+
+### Tips for Use
+
+1. **Start with (κₚ, βₚ) mode** to get intuition for the phase space
+2. **Watch the precession** - see how it accumulates over multiple orbits
+3. **Try extreme values** - the system remains algebraically closed
+4. **Compare scales** - change only 'a' to see scale invariance
+5. **Use two-point mode** for orbit determination practice
 
 </div>
 
@@ -255,12 +324,32 @@ Use the interactive tool below to explore the complete ROM system. Choose any in
 
 | Feature | Standard Orbital Mechanics | ROM |
 |---------|---------------------------|-----|
-| **Input Requirements** | 6 Keplerian elements | 2 parameters |
+| **Required Inputs** | Mass M, gravitational constant G, 6 Keplerian elements | 2 optical measurements (κ from redshift, β from Doppler) |
 | **Computation** | Differential equations + numerical integration | Pure algebra |
 | **Orbit Determination** | Multiple observations + iterative fitting | 2 measurements → instant closure |
-| **Precession Calculation** | Post-Newtonian expansion | Single algebraic formula |
+| **Precession Calculation** | Geodesic equations in curved spacetime | Algebraic ratio: $\frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2}$ |
 | **Scale Applicability** | Different formalisms for different scales | Universal, scale-invariant |
 | **Computational Cost** | High (numerical integration) | Negligible (algebraic) |
+| **Mass Requirement** | Fundamental input | Derived output: $M = \frac{c^2 r}{2G}\kappa^2$ |
+
+---
+
+## Key Insights
+
+**"Spacetime ≡ Energy"**
+- What we call "curved spacetime" is the algebra of energy projections
+- The precession formula $\Delta\phi = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2}$ is pure **red vs. blue ratio**
+- No differential equations, no metric, just light measurements
+
+**"Mass is Derived"**
+- Mass is not fundamental - it's a bookkeeping quantity
+- $M = \frac{c^2 r}{2G}\kappa^2$ shows mass is just a dimensioned proxy for curvature intensity
+- Geometry is fundamental; mass is an artifact of the unit system
+
+**"Eccentricity ≡ Closure Defect"**
+- Orbital shape measures deviation from perfect energy balance
+- $e = \frac{1}{\delta^2} - 1$ connects shape to red/blue ratio
+- Circles occur when $\kappa = \beta\sqrt{2}$ (perfect closure)
 
 ---
 

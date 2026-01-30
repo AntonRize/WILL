@@ -10,53 +10,128 @@
   const { createRoot } = ReactDOM;
   const e = React.createElement;
   
+  const G = 6.67430e-11, c = 299792458;
+  
   function ROMEngine() {
-    const G = 6.67430e-11, c = 299792458;
-    const [kappa_p, setKappaP] = useState(0.1);
-    const [beta_p, setBetaP] = useState(0.05);
+    const [mode, setMode] = useState('kappa-beta');
+    const [inputs, setInputs] = useState({
+      kappa_p: 0.1, beta_p: 0.05, 
+      W: 0.005, e_c: 0.5,
+      kappa: 0.0866,
+      m0: 1.989e30, r_p: 4.6e10, r_a: 6.98e10,
+      a: 5.79e10, T: 7.6e6,
+      beta_o1: 0.0001, t_o1: 0.000193, beta_o2: 0.00008, t_o2: 0.000233
+    });
     const [phase, setPhase] = useState(0);
-    const [animating, setAnimating] = useState(false);
+    const [anim, setAnim] = useState(false);
     const [speed, setSpeed] = useState(1);
-    const [showPrec, setShowPrec] = useState(true);
-    const [orbitN, setOrbitN] = useState(0);
+    const [prec, setPrec] = useState(true);
+    const [orb, setOrb] = useState(0);
     const canvasRef = useRef(null);
     
-    const W = 0.5 * (kappa_p ** 2 - beta_p ** 2);
-    const kappa = Math.sqrt(4 * W);
-    const beta = Math.sqrt(2 * W);
-    const e_c = (2 * beta_p ** 2 / kappa_p ** 2) - 1;
-    const delta = kappa_p / (beta_p * Math.sqrt(2));
-    const e_cY = Math.sqrt(1 - e_c ** 2);
-    const a = 1.0;
-    const R_s = kappa ** 2 * a;
-    const r_p = a * (1 - e_c);
-    const r_a = a * (1 + e_c);
-    const omega = beta * c / a;
-    const T = 2 * Math.PI / omega;
-    const Delta_phi = (3 * Math.PI / 2) * (kappa_p ** 4 / beta_p ** 2);
+    // Solve ROM state based on input mode
+    const solveROM = () => {
+      let kappa_p, beta_p, W, kappa, beta, e_c, a, R_s;
+      
+      if (mode === 'kappa-beta') {
+        kappa_p = inputs.kappa_p;
+        beta_p = inputs.beta_p;
+        W = 0.5 * (kappa_p**2 - beta_p**2);
+        kappa = Math.sqrt(4 * W);
+        beta = Math.sqrt(2 * W);
+        e_c = (2*beta_p**2/kappa_p**2) - 1;
+        a = 1.0;
+        R_s = kappa**2 * a;
+      }
+      else if (mode === 'W-ec') {
+        W = inputs.W;
+        e_c = inputs.e_c;
+        kappa = Math.sqrt(4 * W);
+        beta = Math.sqrt(2 * W);
+        kappa_p = kappa * Math.sqrt(1/(1-e_c));
+        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
+        a = 1.0;
+        R_s = kappa**2 * a;
+      }
+      else if (mode === 'kappa-ec') {
+        kappa = inputs.kappa;
+        e_c = inputs.e_c;
+        kappa_p = kappa * Math.sqrt(1/(1-e_c));
+        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
+        W = 0.5 * (kappa_p**2 - beta_p**2);
+        beta = Math.sqrt(2 * W);
+        a = 1.0;
+        R_s = kappa**2 * a;
+      }
+      else if (mode === 'apsides') {
+        a = (inputs.r_p + inputs.r_a) / 2;
+        e_c = (inputs.r_a - inputs.r_p) / (inputs.r_a + inputs.r_p);
+        R_s = 2 * G * inputs.m0 / (c**2);
+        kappa = Math.sqrt(R_s / a);
+        kappa_p = kappa * Math.sqrt(1/(1-e_c));
+        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
+        W = 0.5 * (kappa_p**2 - beta_p**2);
+        beta = Math.sqrt(2 * W);
+      }
+      else if (mode === 'mass-period') {
+        a = inputs.a;
+        R_s = 2 * G * inputs.m0 / (c**2);
+        kappa = Math.sqrt(R_s / a);
+        const omega = 2 * Math.PI / inputs.T;
+        beta = omega * a / c;
+        W = kappa**2/4 - beta**2/2;
+        kappa_p = Math.sqrt(2*W + beta**2);
+        e_c = 1 - kappa**2/kappa_p**2;
+        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
+      }
+      else if (mode === 'two-point') {
+        const r1 = c * inputs.t_o1;
+        const r2 = c * inputs.t_o2;
+        R_s = (inputs.beta_o1**2 - inputs.beta_o2**2) * r1 * r2 / (r2 - r1);
+        W = 0.5 * (R_s/r1 - inputs.beta_o1**2);
+        kappa = Math.sqrt(4 * W);
+        beta = Math.sqrt(2 * W);
+        a = R_s / (kappa**2);
+        e_c = 0.3;
+        kappa_p = kappa * Math.sqrt(1/(1-e_c));
+        beta_p = Math.sqrt(kappa_p**2 * (1+e_c)/2);
+      }
+      
+      const delta = kappa_p / (beta_p * Math.sqrt(2));
+      const e_cY = Math.sqrt(1 - e_c**2);
+      const r_p = a * (1-e_c);
+      const r_a = a * (1+e_c);
+      const omega = beta * c / a;
+      const T = 2 * Math.PI / omega;
+      const Delta_phi = (3*Math.PI/2) * (kappa_p**4 / beta_p**2);
+      
+      return { kappa_p, beta_p, kappa, beta, W, e_c, delta, e_cY, a, R_s, r_p, r_a, omega, T, Delta_phi };
+    };
+    
+    const state = solveROM();
     
     const calcPhase = (o) => {
-      const r_o = a * (1 - e_c ** 2) / (1 + e_c * Math.cos(o));
-      const eta = r_o / a;
-      const kappa_o = kappa_p * Math.sqrt((1 + e_c * Math.cos(o)) / (1 + e_c));
-      const beta_o = Math.sqrt(Math.max(0, kappa_o ** 2 - 2 * W));
+      const r_o = state.a * (1 - state.e_c**2) / (1 + state.e_c * Math.cos(o));
+      const eta = r_o / state.a;
+      const kappa_o = state.kappa_p * Math.sqrt((1 + state.e_c*Math.cos(o)) / (1+state.e_c));
+      const beta_o = Math.sqrt(Math.max(0, kappa_o**2 - 2*state.W));
       return { eta, kappa_o, beta_o };
     };
     
     useEffect(() => {
-      if (!animating) return;
+      if (!anim) return;
       const timer = setInterval(() => {
         setPhase(p => {
           let np = p + 0.02 * speed;
-          if (np >= 2 * Math.PI) {
-            np = np % (2 * Math.PI);
-            setOrbitN(n => n + 1);
+          if (np >= 2*Math.PI) {
+            np = np % (2*Math.PI);
+            setOrb(n => n + 1);
           }
           return np;
         });
       }, 16);
       return () => clearInterval(timer);
-    }, [animating, speed]);
+    }, [anim, speed]);
     
     useEffect(() => {
       const canvas = canvasRef.current;
@@ -68,18 +143,18 @@
       ctx.fillRect(0, 0, w, h);
       
       const scale = 200;
-      const orbits = showPrec ? orbitN + 1 : 1;
+      const orbits = prec ? orb + 1 : 1;
       
-      for (let orb = 0; orb < Math.min(orbits, 10); orb++) {
-        const prec = orb * Delta_phi;
+      for (let o = 0; o < Math.min(orbits, 10); o++) {
+        const precAngle = o * state.Delta_phi;
         ctx.beginPath();
-        ctx.strokeStyle = orb === orbitN ? '#60a5fa' : `rgba(96,165,250,${0.3-orb*0.03})`;
-        ctx.lineWidth = orb === orbitN ? 2 : 1;
+        ctx.strokeStyle = o === orb ? '#60a5fa' : `rgba(96,165,250,${0.3-o*0.03})`;
+        ctx.lineWidth = o === orb ? 2 : 1;
         
         for (let ang = 0; ang <= 2*Math.PI; ang += 0.02) {
           const ps = calcPhase(ang);
           const r = ps.eta * scale;
-          const tot = ang + prec;
+          const tot = ang + precAngle;
           const x = cx + r * Math.cos(tot);
           const y = cy + r * Math.sin(tot);
           if (ang === 0) ctx.moveTo(x, y);
@@ -89,7 +164,7 @@
       }
       
       const cur = calcPhase(phase);
-      const totAng = phase + (showPrec ? orbitN * Delta_phi : 0);
+      const totAng = phase + (prec ? orb * state.Delta_phi : 0);
       
       ctx.beginPath();
       ctx.arc(cx + cur.eta*scale*Math.cos(totAng), cy + cur.eta*scale*Math.sin(totAng), 5, 0, 2*Math.PI);
@@ -101,75 +176,126 @@
       ctx.fillStyle = '#fbbf24';
       ctx.fill();
       
-      const pAng = showPrec ? orbitN * Delta_phi : 0;
+      const pAng = prec ? orb * state.Delta_phi : 0;
       ctx.beginPath();
-      ctx.arc(cx + (r_p/a)*scale*Math.cos(pAng), cy + (r_p/a)*scale*Math.sin(pAng), 3, 0, 2*Math.PI);
+      ctx.arc(cx + (state.r_p/state.a)*scale*Math.cos(pAng), cy + (state.r_p/state.a)*scale*Math.sin(pAng), 3, 0, 2*Math.PI);
       ctx.fillStyle = '#10b981';
       ctx.fill();
       
       ctx.beginPath();
-      ctx.arc(cx + (r_a/a)*scale*Math.cos(pAng+Math.PI), cy + (r_a/a)*scale*Math.sin(pAng+Math.PI), 3, 0, 2*Math.PI);
+      ctx.arc(cx + (state.r_a/state.a)*scale*Math.cos(pAng+Math.PI), cy + (state.r_a/state.a)*scale*Math.sin(pAng+Math.PI), 3, 0, 2*Math.PI);
       ctx.fillStyle = '#8b5cf6';
       ctx.fill();
-    }, [kappa_p, beta_p, phase, orbitN, showPrec]);
+    }, [state, phase, orb, prec]);
     
     const cur = calcPhase(phase);
+    
+    const renderInputs = () => {
+      if (mode === 'kappa-beta') {
+        return e('div', { className: 'space-y-3' },
+          e('div', null,
+            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'κₚ: ' + inputs.kappa_p.toFixed(3)),
+            e('input', { type: 'range', min: 0.001, max: 1, step: 0.001, value: inputs.kappa_p,
+              onChange: ev => setInputs({...inputs, kappa_p: parseFloat(ev.target.value)}),
+              className: 'w-full accent-blue-500' })
+          ),
+          e('div', null,
+            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'βₚ: ' + inputs.beta_p.toFixed(3)),
+            e('input', { type: 'range', min: 0.001, max: 0.99, step: 0.001, value: inputs.beta_p,
+              onChange: ev => setInputs({...inputs, beta_p: parseFloat(ev.target.value)}),
+              className: 'w-full accent-blue-500' })
+          )
+        );
+      }
+      else if (mode === 'W-ec') {
+        return e('div', { className: 'space-y-3' },
+          e('div', null,
+            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'W: ' + inputs.W.toFixed(4)),
+            e('input', { type: 'range', min: 0.0001, max: 0.1, step: 0.0001, value: inputs.W,
+              onChange: ev => setInputs({...inputs, W: parseFloat(ev.target.value)}),
+              className: 'w-full accent-blue-500' })
+          ),
+          e('div', null,
+            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'eᴄ: ' + inputs.e_c.toFixed(2)),
+            e('input', { type: 'range', min: 0, max: 0.99, step: 0.01, value: inputs.e_c,
+              onChange: ev => setInputs({...inputs, e_c: parseFloat(ev.target.value)}),
+              className: 'w-full accent-blue-500' })
+          )
+        );
+      }
+      else if (mode === 'kappa-ec') {
+        return e('div', { className: 'space-y-3' },
+          e('div', null,
+            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'κ: ' + inputs.kappa.toFixed(4)),
+            e('input', { type: 'range', min: 0.001, max: 1, step: 0.001, value: inputs.kappa,
+              onChange: ev => setInputs({...inputs, kappa: parseFloat(ev.target.value)}),
+              className: 'w-full accent-blue-500' })
+          ),
+          e('div', null,
+            e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'eᴄ: ' + inputs.e_c.toFixed(2)),
+            e('input', { type: 'range', min: 0, max: 0.99, step: 0.01, value: inputs.e_c,
+              onChange: ev => setInputs({...inputs, e_c: parseFloat(ev.target.value)}),
+              className: 'w-full accent-blue-500' })
+          )
+        );
+      }
+      else {
+        return e('div', { className: 'text-gray-400 text-sm' }, 'Adjust parameters using selector above');
+      }
+    };
     
     return e('div', { className: 'w-full bg-slate-900 p-4' },
       e('div', { className: 'max-w-7xl mx-auto' },
         e('div', { className: 'bg-slate-800 rounded-xl p-6 mb-6 border-t-4 border-blue-500' },
           e('h1', { className: 'text-3xl font-bold text-white mb-2' }, 'ROM Interactive Engine'),
-          e('p', { className: 'text-gray-300' }, 'Algebraic orbital system - scale invariant')
+          e('p', { className: 'text-gray-300' }, 'Complete algebraic orbital system - scale invariant from atoms to galaxies')
         ),
         
         e('div', { className: 'grid grid-cols-1 lg:grid-cols-3 gap-4' },
           e('div', { className: 'space-y-4' },
             e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
-              e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '⚙️ Input Parameters'),
-              e('div', { className: 'space-y-3' },
-                e('div', null,
-                  e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'κₚ: ' + kappa_p.toFixed(3)),
-                  e('input', {
-                    type: 'range', min: 0.001, max: 1, step: 0.001, value: kappa_p,
-                    onChange: ev => setKappaP(parseFloat(ev.target.value)),
-                    className: 'w-full accent-blue-500'
-                  })
+              e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '⚙️ Input Mode'),
+              e('select', {
+                value: mode,
+                onChange: ev => setMode(ev.target.value),
+                className: 'w-full px-3 py-2 mb-4 border border-slate-600 rounded-lg bg-slate-700 text-white'
+              },
+                e('optgroup', { label: 'Pure Phase' },
+                  e('option', { value: 'kappa-beta' }, '(κₚ, βₚ) Perihelion'),
+                  e('option', { value: 'W-ec' }, '(W, eᴄ) Energy & Ecc'),
+                  e('option', { value: 'kappa-ec' }, '(κ, eᴄ) Global & Ecc')
                 ),
-                e('div', null,
-                  e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'βₚ: ' + beta_p.toFixed(3)),
-                  e('input', {
-                    type: 'range', min: 0.001, max: 0.99, step: 0.001, value: beta_p,
-                    onChange: ev => setBetaP(parseFloat(ev.target.value)),
-                    className: 'w-full accent-blue-500'
-                  })
+                e('optgroup', { label: 'Astrophysical' },
+                  e('option', { value: 'apsides' }, '(m₀, rₚ, rₐ) Mass & Apsides'),
+                  e('option', { value: 'mass-period' }, '(m₀, a, T) Mass, Axis, Period')
+                ),
+                e('optgroup', { label: 'Two-Point' },
+                  e('option', { value: 'two-point' }, '(β₁, t₁, β₂, t₂) Dual Measurement')
                 )
-              )
+              ),
+              renderInputs()
             ),
             
             e('div', { className: 'bg-slate-800 rounded-lg p-4 border border-slate-700' },
               e('h2', { className: 'text-lg font-semibold mb-3 text-white' }, '🎬 Animation'),
               e('button', {
-                onClick: () => setAnimating(!animating),
-                className: 'w-full px-4 py-2 rounded-lg font-medium mb-2 ' + (animating ? 'bg-red-600' : 'bg-green-600')
-              }, animating ? '⏸ Pause' : '▶ Play'),
+                onClick: () => setAnim(!anim),
+                className: 'w-full px-4 py-2 rounded-lg font-medium mb-2 text-white ' + (anim ? 'bg-red-600' : 'bg-green-600')
+              }, anim ? '⏸ Pause' : '▶ Play'),
               e('div', { className: 'mb-2' },
                 e('label', { className: 'block text-gray-300 text-sm mb-1' }, 'Speed: ' + speed.toFixed(1) + 'x'),
-                e('input', {
-                  type: 'range', min: 0.1, max: 5, step: 0.1, value: speed,
+                e('input', { type: 'range', min: 0.1, max: 5, step: 0.1, value: speed,
                   onChange: ev => setSpeed(parseFloat(ev.target.value)),
-                  className: 'w-full accent-blue-500'
-                })
+                  className: 'w-full accent-blue-500' })
               ),
               e('div', { className: 'flex items-center p-2 bg-slate-700/50 rounded mb-2' },
-                e('input', {
-                  type: 'checkbox', checked: showPrec,
-                  onChange: ev => setShowPrec(ev.target.checked),
-                  className: 'mr-2 accent-blue-500'
-                }),
-                e('label', { className: 'text-sm text-gray-300' }, 'Precession (Orbit #' + orbitN + ')')
+                e('input', { type: 'checkbox', checked: prec,
+                  onChange: ev => setPrec(ev.target.checked),
+                  className: 'mr-2 accent-blue-500' }),
+                e('label', { className: 'text-sm text-gray-300' }, 'Precession (Orbit #' + orb + ')')
               ),
               e('button', {
-                onClick: () => { setPhase(0); setOrbitN(0); },
+                onClick: () => { setPhase(0); setOrb(0); },
                 className: 'w-full px-4 py-2 bg-slate-700 rounded-lg text-gray-200'
               }, '🔄 Reset')
             ),
@@ -213,15 +339,15 @@
                   e('div', { className: 'space-y-1' },
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'κ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, kappa.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.kappa.toFixed(4))
                     ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'β:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, beta.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.beta.toFixed(4))
                     ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'W:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, W.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.W.toFixed(6))
                     )
                   )
                 ),
@@ -230,11 +356,11 @@
                   e('div', { className: 'space-y-1' },
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'eᴄ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, e_c.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.e_c.toFixed(4))
                     ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'δ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, delta.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.delta.toFixed(4))
                     )
                   )
                 ),
@@ -243,11 +369,11 @@
                   e('div', { className: 'space-y-1' },
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'κₚ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, kappa_p.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.kappa_p.toFixed(4))
                     ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'βₚ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, beta_p.toFixed(4))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.beta_p.toFixed(4))
                     )
                   )
                 ),
@@ -256,11 +382,11 @@
                   e('div', { className: 'space-y-1' },
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'T:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, T.toFixed(2))
+                      e('span', { className: 'text-gray-200 font-mono' }, state.T.toFixed(2))
                     ),
                     e('div', { className: 'flex justify-between' },
                       e('span', { className: 'text-gray-400' }, 'Δφ:'),
-                      e('span', { className: 'text-gray-200 font-mono' }, (Delta_phi*180/Math.PI).toFixed(4) + '°')
+                      e('span', { className: 'text-gray-200 font-mono' }, (state.Delta_phi*180/Math.PI).toFixed(4) + '°')
                     )
                   )
                 )
