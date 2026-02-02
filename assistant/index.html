@@ -63,26 +63,26 @@ permalink: /WILL-AI/
 
         // Protect display math ($$...$$) first
         text = text.replace(/\$\$([\s\S]*?)\$\$/g, function(m) {
-            const ph = '\x00MATH' + (idx++) + '\x00';
-            placeholders.push({ph, val: m});
+            var ph = '%%MATH' + (idx++) + '%%';
+            placeholders.push({ph: ph, val: m});
             return ph;
         });
         // Protect inline math ($...$) — avoid matching empty $$
         text = text.replace(/\$([^\$\n]+?)\$/g, function(m) {
-            const ph = '\x00MATH' + (idx++) + '\x00';
-            placeholders.push({ph, val: m});
+            var ph = '%%MATH' + (idx++) + '%%';
+            placeholders.push({ph: ph, val: m});
             return ph;
         });
         // Protect \[...\] display math
         text = text.replace(/\\\[([\s\S]*?)\\\]/g, function(m) {
-            const ph = '\x00MATH' + (idx++) + '\x00';
-            placeholders.push({ph, val: m});
+            var ph = '%%MATH' + (idx++) + '%%';
+            placeholders.push({ph: ph, val: m});
             return ph;
         });
         // Protect \(...\) inline math
         text = text.replace(/\\\(([\s\S]*?)\\\)/g, function(m) {
-            const ph = '\x00MATH' + (idx++) + '\x00';
-            placeholders.push({ph, val: m});
+            var ph = '%%MATH' + (idx++) + '%%';
+            placeholders.push({ph: ph, val: m});
             return ph;
         });
 
