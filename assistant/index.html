@@ -22,15 +22,26 @@ permalink: /WILL-AI/
     .ai-message-bubble p:last-child {
         margin-bottom: 0;
     }
+    /* MathJax display equations inside chat bubbles */
+    .ai-message-bubble mjx-container[jax="CHTML"][display="true"] {
+        display: block;
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-width: 100%;
+        margin: 0.8em 0;
+    }
+    .ai-message-bubble mjx-container {
+        color: inherit !important;
+    }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-    const {useState, useEffect, useRef} = React;
+    const {useState, useEffect, useRef, useCallback} = React;
     const FILES = [
-        'WILL DATABASE/WILL_RG_I.txt',                     
+        'WILL DATABASE/WILL_RG_I.txt',
         'WILL DATABASE/WILL_RG_Resolution_of_Dark_Sector.txt',
         'WILL DATABASE/WILL-PART-III-QM.txt',
     ];
@@ -38,17 +49,73 @@ permalink: /WILL-AI/
     const PROXY = 'https://proxy-flame-seven.vercel.app/api/gemini';
     const LOG_API = 'https://proxy-flame-seven.vercel.app/api/save_log';
     const QUICK = {
-        'beta':  'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
-        'β':     'β (beta) is the kinematic projection v / c. Together with κ it obeys κ² = 2 β².',
-        'kappa': 'κ (kappa) is the gravitational projection vₑ / c. Relation κ² = 2 β².',
-        'κ':     'κ (kappa) is the gravitational projection vₑ / c. Relation κ² = 2 β².'
+        'beta':  'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
+        'β':     'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
+        'kappa': 'κ (kappa) is the gravitational projection $v_e / c$. Relation $\\kappa^2 = 2 \\beta^2$.',
+        'κ':     'κ (kappa) is the gravitational projection $v_e / c$. Relation $\\kappa^2 = 2 \\beta^2$.'
     };
+
+    /* ── LaTeX-safe Markdown rendering ──
+       Protects LaTeX blocks from marked.js mangling, then restores them after. */
+    function renderMarkdownWithLatex(text) {
+        const placeholders = [];
+        let idx = 0;
+
+        // Protect display math ($$...$$) first
+        text = text.replace(/\$\$([\s\S]*?)\$\$/g, function(m) {
+            const ph = '\x00MATH' + (idx++) + '\x00';
+            placeholders.push({ph, val: m});
+            return ph;
+        });
+        // Protect inline math ($...$) — avoid matching empty $$
+        text = text.replace(/\$([^\$\n]+?)\$/g, function(m) {
+            const ph = '\x00MATH' + (idx++) + '\x00';
+            placeholders.push({ph, val: m});
+            return ph;
+        });
+        // Protect \[...\] display math
+        text = text.replace(/\\\[([\s\S]*?)\\\]/g, function(m) {
+            const ph = '\x00MATH' + (idx++) + '\x00';
+            placeholders.push({ph, val: m});
+            return ph;
+        });
+        // Protect \(...\) inline math
+        text = text.replace(/\\\(([\s\S]*?)\\\)/g, function(m) {
+            const ph = '\x00MATH' + (idx++) + '\x00';
+            placeholders.push({ph, val: m});
+            return ph;
+        });
+
+        // Run marked on the now-safe text
+        let html = marked.parse(text);
+
+        // Restore LaTeX blocks
+        for (const {ph, val} of placeholders) {
+            html = html.replace(ph, val);
+        }
+        return html;
+    }
+
+    /* ── Trigger MathJax on dynamically added content ── */
+    function typesetMath() {
+        if (window.MathJax && MathJax.typesetPromise) {
+            // Reset MathJax's internal tracking so it re-processes the page
+            if (MathJax.startup && MathJax.startup.document) {
+                MathJax.startup.document.clear();
+                MathJax.startup.document.updateDocument();
+            }
+            MathJax.typesetPromise().catch(function(err) {
+                console.warn('MathJax typeset error:', err);
+            });
+        }
+    }
+
     function loadKB(){
         const base='https://raw.githubusercontent.com/AntonRize/WILL/main/';
         return Promise.all(FILES.map(p=>fetch(base+p).then(r=>{
             if(!r.ok)throw new Error('KB fetch '+r.status);
             return r.text();
-        }))).then(t=>t.join('\n\n').replace(/\\beta/g,'β (beta)').replace(/\\kappa/g,'κ (kappa)'));
+        }))).then(t=>t.join('\n\n'));
     }
     function askGemini(prompt){
         return fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})})
@@ -62,7 +129,7 @@ permalink: /WILL-AI/
         const [ks,setKs]=useState('loading');
         const welcome={
             id:0,
-            txt:marked.parse("👋 **Hi! I am WILL AI**\n\nAsk me anything about WILL Relational Geometry.\n\n**Disclaimer:** I can make mistakes - always doublechek with WILL original documentation."),
+            txt:renderMarkdownWithLatex("👋 **Hi! I am WILL AI**\n\nAsk me anything about WILL Relational Geometry.\n\n**Disclaimer:** I can make mistakes - always doublechek with WILL original documentation."),
             user:false,
             isWelcome:true,
             raw:"👋 Hi! I am WILL AI Ask me anything about WILL Relational Geometry. Disclaimer: I can make mistakes - always doublechek with WILL original documentation."
@@ -75,9 +142,12 @@ permalink: /WILL-AI/
         const textRef=useRef(null);
 
         useEffect(()=>{loadKB().then(d=>{setKb(d);setKs('ok');}).catch(()=>setKs('error'));},[]);
-        useEffect(()=>{endRef.current?.scrollIntoView({behavior:'smooth'});},[log]);
+        useEffect(()=>{
+            endRef.current?.scrollIntoView({behavior:'smooth'});
+            typesetMath();
+        },[log]);
         const push=(txt,user=false,raw=txt)=>{
-            const content=user?txt:marked.parse(txt);
+            const content=user?txt:renderMarkdownWithLatex(txt);
             const entry={id:Date.now()+Math.random(),txt:content,user,raw};
             logRef.current=[...logRef.current,entry];
             setLog(logRef.current);
@@ -130,6 +200,17 @@ permalink: /WILL-AI/
 You MUST format your entire response using Markdown.
 To ensure readability, you MUST separate all paragraphs, headings, and list items with a double line break (a blank line).
 Never wrap your entire response in a code block.
+
+CRITICAL — EQUATIONS AND MATH:
+You MUST write ALL mathematical equations, formulas, variables, and expressions using LaTeX notation.
+- For inline math use dollar signs: $E = mc^2$
+- For display (block) equations use double dollar signs on their own lines:
+
+$$\\kappa^2 = 2\\beta^2$$
+
+- Always use LaTeX commands for Greek letters: $\\beta$, $\\kappa$, $\\theta$, $\\alpha$, etc.
+- Always use LaTeX for subscripts, superscripts, fractions, and operators: $v_e$, $R_s$, $\\frac{a}{b}$, $\\sqrt{x}$, etc.
+- NEVER write equations as plain text or Unicode. ALWAYS use LaTeX notation.
 </FORMATTING_RULES>
 
 </SYSTEM_INSTRUCTIONS>
