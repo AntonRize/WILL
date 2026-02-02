@@ -126,7 +126,7 @@ Applying extreme methodological constraints it establishes \textit{Relational Ge
 
     \node[box] (Z) { \textbf{Guiding Principles}
     \quad \quad
-    \boxed{\text{\textbf{\textbf{\textbf{Relational, Epistemic and Ontological Minimalism}}}}}};
+    \boxed{\text{\textbf{Relational, Epistemic and Ontological Minimalism}}}};
 \node[box,  below=of Z] (A) {False Ontological Split: $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
 \quad+\quad
 \underbrace{\text{fields + constants}}_{\text{dynamics}}.$};
@@ -136,9 +136,11 @@ Applying extreme methodological constraints it establishes \textit{Relational Ge
 \node[box, below=of D] (E) {"Exchange Rate" as Ratio of \textbf{d}egrees \textbf{o}f \textbf{f}reedoms $\mathcal{R} = \frac{\text{d.o.f.}(S^2)}{\text{d.o.f.}(S^1)} = \frac{2}{1} = 2$ $\Rightarrow$ $\boxed{\kappa^2 = 2\beta^2}$  Energetic Closure Condition as Relational Analogue of the \textbf{Virial Theorem}};
 \node[box, below=of E] (F) {Conservation, Energy Symmetry, Speed Limit, Causality, Natural Bounds};
 \node[box, below=of F] (G) {Unified Field Equation: $\kappa^2 = R_s/r = \rho/\rho_{\max}$};
-\node[box, below=of G] (H) {Closure: \quad \quad
+\node[box, below=of G] (H) {Theoretical Ouroboros: \quad \quad
  
-Field Equation $\Longleftrightarrow$ Ontological Principle};
+Field Equation$\Longleftrightarrow$Ontology Principle\quad \quad
+SPACETIME $\equiv$ ENERGY};
+
 
 \draw[arrow] (Z) -- (A);
 \draw[arrow] (A) -- (B);
@@ -1567,66 +1569,57 @@ This factor-of-2 is the geometric signature of axis count in relational space. N
 This explains the experimentally verified factor of 2 in gravitational lensing and Shapiro delay, traditionally requiring full General Relativity to derive. 
 \end{tcolorbox}
 
-
 \section{Operational Independence and the Role of Constants}
 
-A common objection from conventional frameworks is that any model using the Schwarzschild radius ($R_s$) must depend on the Newtonian constants $G$ and $m_0$ (mass). This implies that $G$ and $m_0$ are hidden \emph{inputs} or \emph{postulates}.
+A frequent objection from conventional frameworks is that any model employing the Schwarzschild radius ($R_s$) must implicitly depend on the Newtonian constants $G$ and $m_0$ (mass) as fundamental inputs. This objection assumes that mass is the primary ontological entity and geometry is a secondary derivative.
 
-We now prove that this is incorrect. In WILL RG, $G$ and $m_0$ are not \emph{inputs} to the theory; they are \emph{outputs} derived from calibration. The parameters $\kappa$ and $\beta$ are operationally measurable \emph{without prior knowledge} of $G$ or $m_0$.  Apart of the straight forward system's geometric scale: $R_s = \kappa^2 r$ calculation, we will show some less intuitive derivations that have operational advantages comparing  to standard methods. 
+We demonstrate that this is incorrect. In the WILL RG framework, $G$ and $m_0$ are not physical inputs but \emph{output calibration tools}. The parameters $\kappa$ and $\beta$ are operationally measurable geometric intensities, and $R_s$ is a system scale derived directly from the phase interactions of light.
 
 \subsection{Operational Measurability of Relational Projections}
 
 \begin{theorem}[Operational Measurability]
 \label{thm:operational}
-The relational projections $\kappa$ and $\beta$ are directly measurable dimensionless quantities, operationally independent of $G$ and $m_0$.
+The relational projections are encoded directly in the combined phase interactions of light (spectroscopy) and are operationally independent of $G$, $c$, or $m_0$.
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Direct Observables.}
-Spectroscopic measurements yield two independent redshifts:
-\begin{itemize}
-    \item Gravitational redshift: $z = \lambda_{\text{obs}}/\lambda_{\text{emit}} - 1$
-    \item Transverse Doppler shift: $z_D$ (from time dilation of spectral lines)
-\end{itemize}
-
-\textbf{Step 2: Connection to Phase Factors.}
-From the $S^2$ and $S^1$ carrier geometry (Theorem~\ref{thm:carriers}), the phase projections are:
-\begin{align}
-\kappa_X &= \sqrt{1-\kappa^2} = \frac{1}{1+z}, \\
-\beta_Y &= \sqrt{1-\beta^2} = \frac{1}{1+z_D}.
-\end{align}
-
-\textbf{Step 3: Algebraic Inversion.}
-Solving for the amplitude projections:
-\begin{align}
-\kappa^2 &= 1 - \frac{1}{(1+z)^2}, \label{eq:kappa_obs} \\
-\beta^2 &= 1 - \frac{1}{(1+z_D)^2}. \label{eq:beta_obs}
-\end{align}
-
-These are \emph{pure numbers} extracted from frequency ratios. No knowledge of $G$, $c$, or $m_0$ is required.
-\end{proof}
-
-\begin{remark}[Combined Observable]
-The product of phase factors defines the relational spacetime factor:
+\textbf{Step 1: The Raw Observable ($\tau_W$).}
+Spectroscopy does not measure "gravitational potential" or "kinematic velocity" as separate isolates; it measures the total accumulated phase difference between the source and the observer. We define the \textbf{Relational Spacetime Factor} $\tau_W$ as the inverse of the total measured redshift product:
 \begin{equation}
-\tau_W \equiv \kappa_X \beta_Y = \frac{1}{(1+z)(1+z_D)} = \frac{1}{Z_{\text{tot}}}.
+\tau_W \equiv \frac{1}{Z_{\text{tot}}} = \frac{1}{(1+z_{\text{obs}})}.
 \label{eq:tau_observable}
 \end{equation}
-This quantity encodes the \emph{total} relativistic correction (gravitational + kinematic) and is directly observable from combined spectroscopy and astrometry.
-\end{remark}
+In the WILL framework, this single observable represents the product of the internal phase projections of the carriers $S^2$ and $S^1$:
+\begin{equation}
+\tau_W = \underbrace{\kappa_X}_{\text{Gravitational Phase}} \cdot \underbrace{\beta_Y}_{\text{Kinematic Phase}} = \sqrt{1-\kappa^2}\sqrt{1-\beta^2}.
+\end{equation}
 
-\subsection{Single-Epoch Mass Determination}
+\textbf{Step 2: Exact Relational Identity.}
+We reject weak-field approximations. The exact relationship between the signal $\tau_W$ and the structural norm $Q$ is given by the algebraic expansion of the phase product:
+\begin{equation}
+\tau_W^2 = (1-\kappa^2)(1-\beta^2) = 1 - (\kappa^2 + \beta^2) + \kappa^2\beta^2.
+\end{equation}
+Substituting $Q^2 = \kappa^2 + \beta^2$, we obtain the rigorous link between the optical observable and the geometric state:
+\begin{equation}
+\tau_W^2 = 1 - Q^2 + \kappa^2\beta^2.
+\end{equation}
+This identity demonstrates that the optical signal contains the complete information about the system's structural state, measurable without prior knowledge of mass.
+\end{proof}
 
-Having established operational access to $\kappa$, $\beta$, and $\tau_W$, we now derive algebraic formulas for $R_s$ using observations from a single orbital epoch (or two arbitrary points), without requiring full period $T$ or assumption of circularity.
+\subsection{Algebraic Determination of System Scale}
 
-\subsubsection{Formula A: Two-Point Method}
+We now derive algebraic formulas for the system scale $R_s$ using three distinct observational methods. These derivations rely strictly on the \textbf{Conservation of the Energy Invariant $W$}, replacing the need for Newtonian force laws.
 
-\begin{theorem}[Two-Point Schwarzschild Radius]
+\subsubsection{Method A: Differential (Two-Point Method)}
+
+This method is suitable when the orbital period is unknown, but the trajectory can be traced geometrically.
+
+\begin{theorem}[Two-Point Schwarzschild Scale]
 \label{thm:two_point}
-Given measurements at two arbitrary orbital phases:
+Given measurements of geometric position ($r$) and kinematic intensity ($\beta$) at two arbitrary points along a trajectory:
 \begin{itemize}
-    \item Radii: $r_1, r_2$ (from astrometry and distance $D$)
-    \item Velocities: $\beta_1, \beta_2$ (from Eq.~\ref{eq:beta_obs})
+    \item Radii: $r_1, r_2$ (from astrometry)
+    \item Intensities: $\beta_1, \beta_2$ (from de-projected spectral line widths or proper motion)
 \end{itemize}
 the Schwarzschild radius is:
 \begin{equation}
@@ -1638,117 +1631,94 @@ R_s = \frac{r_1 r_2}{r_2 - r_1}(\beta_1^2 - \beta_2^2).
 \end{theorem}
 
 \begin{proof}
-From the vis-viva equation (Keplerian energy conservation):
+We invoke the \textbf{Conservation of the Relational Invariant} $W = \frac{1}{2}(\kappa^2 - \beta^2)$.
+This law states that for any closed system, the specific energy difference between the potential and kinematic projections is constant throughout the orbit.
+
+Therefore, at any two points 1 and 2:
 \begin{equation}
-\frac{1}{2}v^2 - \frac{GM}{r} = -\frac{GM}{2a} = \text{const}.
+\frac{1}{2}(\kappa_1^2 - \beta_1^2) = \frac{1}{2}(\kappa_2^2 - \beta_2^2).
 \end{equation}
-At two points along the orbit:
+Rearranging to group the projections:
 \begin{equation}
-\frac{1}{2}v_1^2 - \frac{GM}{r_1} = \frac{1}{2}v_2^2 - \frac{GM}{r_2}.
+\kappa_1^2 - \kappa_2^2 = \beta_1^2 - \beta_2^2.
 \end{equation}
-Rearranging:
+Substituting the field identity $\kappa^2 = R_s/r$:
 \begin{equation}
-\frac{1}{2}(v_1^2 - v_2^2) = GM\left(\frac{1}{r_1} - \frac{1}{r_2}\right).
+\frac{R_s}{r_1} - \frac{R_s}{r_2} = \beta_1^2 - \beta_2^2.
 \end{equation}
-Solving for $GM$:
+Factoring out the scale parameter $R_s$:
 \begin{equation}
-GM = \frac{v_1^2 - v_2^2}{2\left(\frac{r_2-r_1}{r_1 r_2}\right)} = \frac{(v_1^2-v_2^2)r_1 r_2}{2(r_2-r_1)}.
+R_s \left( \frac{r_2 - r_1}{r_1 r_2} \right) = \beta_1^2 - \beta_2^2.
 \end{equation}
-Substituting $R_s = 2GM/c^2$ and $\beta = v/c$:
+Solving for $R_s$:
 \begin{equation}
-R_s = \frac{r_1 r_2}{r_2-r_1}(\beta_1^2 - \beta_2^2).
+R_s = \frac{\beta_1^2 - \beta_2^2}{\frac{r_2-r_1}{r_1 r_2}} = \frac{r_1 r_2}{r_2 - r_1}(\beta_1^2 - \beta_2^2).
 \end{equation}
+This formula extracts the "mass" scale purely from geometric gradients.
 \end{proof}
 
-\begin{remark}[Physical Interpretation]
-This formula expresses $R_s$ as a ratio of:
-\begin{itemize}
-    \item \textbf{Geometric factor}: $r_1 r_2/(r_2-r_1)$ (harmonic mean)
-    \item \textbf{Kinematic difference}: $\beta_1^2 - \beta_2^2$ (change in kinetic projection)
-\end{itemize}
-It requires \emph{no knowledge} of orbital period, eccentricity, or phase.
-\end{remark}
+\subsubsection{Method B: Geometric Resonance (Balance Point Method)}
 
-\subsubsection{Formula B: Balance Point Method}
-
-At the special phase $O_o = \arccos(-e)$ (the "balance point"), the closure condition $\kappa^2 = 2\beta^2$ is satisfied instantaneously. This enables a remarkably simple formula.
+At the specific orbital phase $O_o = \arccos(-e)$, the system passes through its geometric balance point where the instantaneous radius $r$ equals the semi-major axis $a$. At this unique phase, the closure condition $\kappa^2 = 2\beta^2$ is satisfied instantaneously.
 
 \begin{theorem}[Balance Point Formula]
 \label{thm:balance_point}
-Given measurements at the balance point $O_o$:
-\begin{itemize}
-    \item Semi-major axis: $a$ (from orbital geometry)
-    \item Relational spacetime factor: $\tau_W(O_o)$ (from Eq.~\ref{eq:tau_observable})
-\end{itemize}
-the Schwarzschild radius is:
+Given the geometric scale $a$ and the total light signal $\tau_W$ measured at the balance point ($r=a$):
 \begin{equation}
 \boxed{
-R_s = \frac{a}{2}(3 - \sqrt{1 + 8\tau_W^2(O_o)}).
+R_s = \frac{a}{2}\left(3 - \sqrt{1 + 8\tau_W^2(O_o)}\right).
 }
 \label{eq:Rs_balance}
 \end{equation}
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Closure at Balance Point.}
-At $O_o$, the instantaneous state satisfies $\kappa^2 = 2\beta^2$. From the energy invariant $W = \frac{1}{2}(\kappa^2 - \beta^2)$:
+\textbf{Step 1: Spacetime Factor Expansion.}
+At the balance point ($r=a$), the closure condition implies $\kappa^2 = R_s/a$ and $\beta^2 = R_s/2a$.
+The observable $\tau_W$ is:
 \begin{equation}
-W = \frac{1}{2}(2\beta^2 - \beta^2) = \frac{1}{2}\beta^2.
+\tau_W^2 = (1-\kappa^2)(1-\beta^2) = \left(1 - \frac{R_s}{a}\right)\left(1 - \frac{R_s}{2a}\right).
 \end{equation}
 
-\textbf{Step 2: Global Closure Relation.}
-The global closure parameter is $\kappa^2 = R_s/a$, and the energy invariant relates to it via:
+\textbf{Step 2: Exact Geometric Solution.}
+Expanding the product:
 \begin{equation}
-W = \frac{\beta^2}{2} = \frac{\kappa^2}{4} = \frac{R_s}{4a}.
+\tau_W^2 = 1 - \frac{R_s}{2a} - \frac{R_s}{a} + \frac{R_s^2}{2a^2} = 1 - \frac{3R_s}{2a} + \frac{R_s^2}{2a^2}.
 \end{equation}
-
-\textbf{Step 3: Phase Factor Constraint.}
-At the balance point, $r = a$ (this can be shown from the orbit equation). The relational spacetime factor is:
+Multiplying by $2a^2$ to clear denominators and rearranging into standard quadratic form ($Ax^2 + Bx + C = 0$):
 \begin{equation}
-\tau_W^2 = \kappa_X^2 \beta_Y^2 = (1-\kappa^2)(1-\beta^2).
+R_s^2 - 3a R_s + 2a^2(1-\tau_W^2) = 0.
 \end{equation}
-Substituting $\kappa^2 = 2\beta^2$:
+Solving for $R_s$ using the quadratic formula ($x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a_{coef}}$):
 \begin{equation}
-\tau_W^2 = (1-2\beta^2)(1-\beta^2) = 1 - 3\beta^2 + 2\beta^4.
+R_s = \frac{3a \pm \sqrt{(3a)^2 - 4(1)(2a^2(1-\tau_W^2))}}{2}.
 \end{equation}
-For small $\beta$ (typical astrophysical case), $\beta^4 \ll \beta^2$:
+Simplifying the term under the radical:
 \begin{equation}
-\tau_W^2 \approx 1 - 3\beta^2.
+9a^2 - 8a^2(1-\tau_W^2) = 9a^2 - 8a^2 + 8a^2\tau_W^2 = a^2(1 + 8\tau_W^2).
 \end{equation}
-
-\textbf{Step 4: Solving for $R_s$.}
-From $\beta^2 = R_s/(2a)$:
+Thus:
 \begin{equation}
-\tau_W^2 \approx 1 - \frac{3R_s}{2a} \quad \Rightarrow \quad R_s \approx \frac{2a}{3}(1-\tau_W^2).
+R_s = \frac{3a \pm a\sqrt{1 + 8\tau_W^2}}{2} = \frac{a}{2}\left(3 \pm \sqrt{1 + 8\tau_W^2}\right).
 \end{equation}
-The exact solution (keeping $\beta^4$ terms) yields:
-\begin{equation}
-R_s = \frac{a}{2}\left(3 - \sqrt{1+8\tau_W^2}\right). 
-\end{equation}
+For stable orbits, we must select the negative root.
 \end{proof}
 
 \begin{remark}[Light Separation]
 This unit-less factor in brackets is:
 \begin{itemize}
-    \item \textbf{Potential projection at semi-major axis}:  $ \kappa^2=\frac{1}{2}(3 - \sqrt{1 + 8\tau_W^2(O_o)})$
+    \item \textbf{Potential projection at semi-major axis}:  $ \kappa^2=\frac{1}{2}(3 - \sqrt{1 + 8\tau_W^2(O_o)} )$
 \end{itemize}
 A unique way to separate gravitational part from the light signal.
 \end{remark}
 
+\subsubsection{Method C: Instantaneous (Arbitrary Phase Method)}
 
-\subsubsection{Formula C: Arbitrary Phase Method}
-
-The most general formula works for \emph{any} orbital phase, requiring only local measurements.
+Most generally, if the orbital geometry ($a$) is known, the scale $R_s$ can be derived from a \textbf{single epoch} observation at any arbitrary radius $r_o$.
 
 \begin{theorem}[Arbitrary Phase Formula]
 \label{thm:arbitrary_phase}
-Given measurements at arbitrary phase $o$:
-\begin{itemize}
-    \item Semi-major axis: $a$
-    \item Instantaneous radius: $r_o(o)$
-    \item Relational spacetime factor: $\tau_W(o)$
-\end{itemize}
-the Schwarzschild radius is:
+Given the orbital geometry ($a, r_o$) and the single light observable $\tau_{Wo}$:
 \begin{equation}
 \boxed{
 R_s = \frac{r_o}{2(2a-r_o)}\left(4a - r_o - \sqrt{(4a-r_o)^2 - 8a(2a-r_o)(1-\tau_{Wo}^2)}\right).
@@ -1758,70 +1728,75 @@ R_s = \frac{r_o}{2(2a-r_o)}\left(4a - r_o - \sqrt{(4a-r_o)^2 - 8a(2a-r_o)(1-\tau
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Vis-Viva in Relational Form.}
-The vis-viva equation is:
+\textbf{Step 1: Relational Invariant Form.}
+We start with the energy invariant relation $W = \frac{1}{2}(\kappa^2 - \beta^2)$. For a bound orbit, $W = R_s/4a$.
+We express the kinematic intensity $\beta^2$ at arbitrary radius $r$ in terms of the field intensity $\kappa^2$:
 \begin{equation}
-v^2 = GM\left(\frac{2}{r} - \frac{1}{a}\right) = \frac{c^2 R_s}{2}\left(\frac{2}{r}-\frac{1}{a}\right).
+\frac{1}{2}(\kappa^2 - \beta^2) = \frac{R_s}{4a} \quad \Longrightarrow \quad \beta^2 = \kappa^2 - \frac{R_s}{2a}.
 \end{equation}
-In dimensionless form ($\beta^2 = v^2/c^2$):
+Substituting $\kappa^2 = R_s/r$:
 \begin{equation}
-\beta_o^2 = \frac{R_s}{2}\left(\frac{2}{r} - \frac{1}{a}\right) = \frac{R_s}{r} - \frac{R_s}{2a}.
-\end{equation}
-
-\textbf{Step 2: Gravitational Projection.}
-From the field equation (Eq.~\ref{eq:unified_field}):
-\begin{equation}
-\kappa_o^2 = \frac{R_s}{r}.
+\beta^2 = R_s \left( \frac{1}{r} - \frac{1}{2a} \right).
 \end{equation}
 
-\textbf{Step 3: Relational Spacetime Constraint.}
-The observable $\tau_W$ constrains the projections:
+\textbf{Step 2: Constraint via Observables.}
+We substitute the expressions for $\kappa^2$ and $\beta^2$ into the exact observable constraint $\tau_{Wo}^2 = (1-\kappa^2)(1-\beta^2)$:
 \begin{equation}
-\tau_{Wo}^2 = (1-\kappa_o^2)(1-\beta_o^2).
+\tau_{Wo}^2 = \left(1 - \frac{R_s}{r}\right)\left(1 - R_s \left[ \frac{1}{r} - \frac{1}{2a} \right]\right).
 \end{equation}
-Substituting the expressions for $\kappa^2$ and $\beta^2$:
+Let $A = \frac{1}{r}$ and $B = \frac{1}{r} - \frac{1}{2a}$. The equation becomes:
 \begin{equation}
-\tau_{Wo}^2 = \left(1 - \frac{R_s}{r}\right)\left(1 - \frac{R_s}{r} + \frac{R_s}{2a}\right).
+\tau_{Wo}^2 = (1 - A R_s)(1 - B R_s) = 1 - (A+B)R_s + AB R_s^2.
+\end{equation}
+Rearranging into quadratic form:
+\begin{equation}
+(AB) R_s^2 - (A+B) R_s + (1-\tau_{Wo}^2) = 0.
 \end{equation}
 
-\textbf{Step 4: Quadratic in $R_s$.}
-Expanding and rearranging:
+\textbf{Step 3: Coefficient Expansion.}
+We compute the coefficients explicitly:
+\begin{align}
+AB &= \frac{1}{r}\left(\frac{2a-r}{2ar}\right) = \frac{2a-r}{2ar^2} \\
+A+B &= \frac{1}{r} + \frac{2a-r}{2ar} = \frac{2a + 2a - r}{2ar} = \frac{4a-r}{2ar}
+\end{align}
+Multiplying the entire quadratic equation by $2ar^2$ to clear denominators:
 \begin{equation}
-\left(\frac{1}{r^2} - \frac{1}{2ar}\right)R_s^2 - \left(\frac{2}{r} - \frac{1}{2a}\right)R_s + (1-\tau_{Wo}^2) = 0.
+(2a-r) R_s^2 - r(4a-r) R_s + 2ar^2(1-\tau_{Wo}^2) = 0.
 \end{equation}
-Solving via the quadratic formula and simplifying yields Eq.~\ref{eq:Rs_arbitrary}.
+
+\textbf{Step 4: Solution.}
+Solving for $R_s$:
+\begin{equation}
+R_s = \frac{r(4a-r) \pm \sqrt{r^2(4a-r)^2 - 4(2a-r)(2ar^2)(1-\tau_{Wo}^2)}}{2(2a-r)}.
+\end{equation}
+Factoring out $r^2$ from the radical term $\sqrt{r^2 (...)} = r\sqrt{(...)}$:
+\begin{equation}
+R_s = \frac{r}{2(2a-r)} \left( (4a-r) \pm \sqrt{(4a-r)^2 - 8a(2a-r)(1-\tau_{Wo}^2)} \right).
+\end{equation}
+For stable orbits, we select the negative root, yielding the exact algebraic link between the observed light phase and the system's geometric scale.
 \end{proof}
-
-\begin{remark}[Operational Advantage]
-Formula C requires:
-\begin{itemize}
-    \item \textbf{One spectroscopic measurement} ($\tau_W$ from combined redshift)
-    \item \textbf{Geometric data} ($a$ from orbit shape, $r_o$ from astrometry)
-    \item \textbf{No assumption} on eccentricity or orbital phase
-\end{itemize}
-This enables mass determination from a \emph{single observational epoch}, bypassing the need for full-period monitoring.
-\end{remark}
 
 \subsection{The Role of $G$ as Translation Constant}
 
-The objection that $R_s = 2Gm_0/c^2$ makes $G$ and $m_0$ fundamental inputs rests on a categorical error: it mistakes an ontologically questionable \emph{calibration tool} for a fundamental property of reality.
+The presence of $R_s$ in these formulas does not imply a dependency on mass $m_0$ or the constant $G$. The objection that $R_s = 2Gm_0/c^2$ makes $G$ fundamental rests on a categorical error: it mistakes a unit conversion factor for a physical source.
 
 \begin{theorem}[Constants as Converters]
 In WILL RG, $G$ and $m_0$ are derived calibration tools used to translate geometric scales into legacy units.
 \end{theorem}
 
 \begin{proof}
-The correct operational procedure is:
+The operational procedure is strictly geometric:
 \begin{enumerate}
-    \item Measure $\kappa^2$ (dimensionless, from Eq.~\ref{eq:kappa_obs})
-    \item Measure $r$ (geometric, from astrometry + parallax)
-    \item Calculate geometric scale: $R_s = \kappa^2 r$
-    \item \emph{If desired}, translate to "mass" via the converter:
-    \begin{equation}
-    m_0 \equiv \frac{R_s c^2}{2G}.
-    \end{equation}
+    \item \textbf{Measure:} Light phase $\tau_W$ (dimensionless) via spectroscopy.
+    \item \textbf{Measure:} Geometric scale $r$ (meters/AU) via astrometry.
+    \item \textbf{Calculate:} System Scale $R_s = f(r, \tau_W)$ via Theorems 15.2, 15.3, or 15.4.
 \end{enumerate}
-The constant $G$ is not a physical input but a \emph{unit conversion factor} between geometric scale ($R_s$) and the culturally adopted unit of "mass" (kilogram).
+The physical calculation ends here. The system is fully defined.
+If, and only if, one wishes to interface with legacy catalogues, one employs the \textbf{unit converter}:
+\begin{equation}
+m_0 \equiv \frac{R_s c^2}{2G}.
+\end{equation}
+The constant $G$ describes the units we use (kilograms vs. meters), not the physics of the system.
 \end{proof}
 
 \begin{remark}[Historical Artifact]
@@ -1832,9 +1807,9 @@ The kilogram is a human convention. In WILL RG, the fundamental quantity is the 
 
 We have derived three algebraically distinct formulas for $R_s$, each optimized for different observational scenarios:
 \begin{enumerate}
-    \item \textbf{Two-point} (Eq.~\ref{eq:Rs_two_point}): Requires two velocity measurements
-    \item \textbf{Balance point} (Eq.~\ref{eq:Rs_balance}): Simplified form at special phase
-    \item \textbf{Arbitrary phase} (Eq.~\ref{eq:Rs_arbitrary}): Works for any single epoch
+    \item \textbf{Two-point}  Requires two velocity measurements
+    \item \textbf{Balance point}  Simplified form at special phase
+    \item \textbf{Arbitrary phase} Works for any single epoch
 \end{enumerate}
 
 All formulas are:
@@ -1845,6 +1820,7 @@ All formulas are:
 \end{itemize}
 
 The operational input is always $\tau_W = 1/[(1+z)(1+z_D)]$, a dimensionless quantity directly measurable from spectroscopy. This demonstrates that WILL RG formulas are empirically grounded and do not rely on hidden assumptions about gravitational constants.
+
 
 \section{Classical Keplerian Energy and Minkowski Interval as Ontologically Heavy Energy–Symmetry Approximation}
 
@@ -1871,6 +1847,10 @@ the dimensionless total:
 \end{equation}
 
 \subsection{Projection Parameters and Minkowski-like Form}
+
+\begin{remark}
+    Here we explicitly define our projections using classical language to ease understanding for readers not yet familiar with WILL RG. For more explicit comparison and clearer derivations, we adopt standard Newtonian notation and define the projection parameters $\kappa^2$ and $\beta^2$ through their legacy equivalents involving $G$, $M$, and $c$. This is purely a pedagogical choice---the projections themselves remain dimensionless geometric quantities independent of these conventional constants.
+\end{remark}
 
 Define the WILL projection parameters for the surface and the orbit:
 \begin{align}
@@ -2570,8 +2550,6 @@ The secular evolution of an orbit is determined solely by the \textbf{ratio of t
 
 This equation replaces the complex dynamical derivation with a direct comparison of light interactions.
 
-
-
 \[
 \boxed{\textbf{No differential equations. No metric. Pure algebra of light red vs. blue ratio}} 
 \]
@@ -3051,7 +3029,7 @@ T_{o} = \kappa_{X o} t_{o}^{2}, \qquad
 L_{o} = \beta_{Y o} r_{o}^{2},
 \]
 Equivalently, for any state $(\beta_{o},\kappa_{o})$, any scale $r_{o}$ and any phase along the orbit. Then
-\begin{widetext}
+
 \[
 \boxed{
 W_{\text{ILL}}
@@ -3061,7 +3039,7 @@ W_{\text{ILL}}
 \quad \text{for ALL ENERGY'S, ALL SCALES and ALL PHASES.}
 }
 \]
-\end{widetext}
+
 \[
 \frac{E_{o}}{M_{o}} = \frac{L_{o}}{T_{o}},
 \]
