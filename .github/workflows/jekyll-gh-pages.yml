@@ -46,35 +46,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Install jq
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq
-
-      - name: Wait for Pages builds to finish
-        id: wait_pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          REPO="$GITHUB_REPOSITORY"
-          TOKEN="$GITHUB_TOKEN"
-          # timeout after ~5 minutes (30 * 10s)
-          for i in $(seq 1 30); do
-            builds=$(curl -s -H "Authorization: token $TOKEN" \
-              "https://api.github.com/repos/${REPO}/pages/builds")
-            # check for any in-progress statuses (queued or building)
-            in_progress=$(echo "$builds" | jq -r '.[].status' 2>/dev/null | grep -E 'queued|building' || true)
-            if [ -z "$in_progress" ]; then
-              echo "No in-progress Pages builds — continuing"
-              exit 0
-            fi
-            echo "Found in-progress Pages build. Waiting 10s... ($i/30)"
-            sleep 10
-          done
-          echo "Timed out waiting for Pages build to finish"
-          exit 1
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
