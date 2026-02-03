@@ -1,12 +1,11 @@
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
-  // Temporarily open CORS for debugging
+  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight OPTIONS request
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
@@ -24,36 +23,69 @@ export default async function handler(req, res) {
       return;
     }
 
-    const { log } = req.body;
-    const ua = req.headers['user-agent'] || '';
-    const now = new Date();
-    const now_iso = now.toISOString();
+    const { log, sessionId } = req.body;
+    if (!log || !sessionId) {
+      res.status(400).json({ error: 'Missing log or sessionId' });
+      return;
+    }
 
-    const firstUserMessage = log.find(m => m.user && m.raw.trim());
-    const title = firstUserMessage ? firstUserMessage.raw.trim().substring(0, 50) : "Conversation Log";
+    const ua = req.headers['user-agent'] || '';
+
+    // Filter out the welcome message from logs
+    const messages = log.filter(m => !m.isWelcome);
+    if (messages.length === 0) {
+      res.status(200).json({ ok: true, skipped: true });
+      return;
+    }
+
+    const firstUserMessage = messages.find(m => m.user && m.raw && m.raw.trim());
+    const title = firstUserMessage
+      ? firstUserMessage.raw.trim().substring(0, 50)
+      : 'Conversation Log';
 
     const content = [
-        '---',
-        'layout: log',
-        `title: "${title.replace(/"/g, '\\"')}"`,
-        `date: ${now_iso}`,
-        `user_agent: "${ua.replace(/"/g, '\\"')}"`,
-        '---',
-        ''
-    ].concat(log.map(m => `**${m.user ? 'User' : 'Assistant'}:** ${m.raw || ''}`)).join('\n\n');
+      '---',
+      'layout: log',
+      `title: "${title.replace(/"/g, '\\"')}"`,
+      `date: ${sessionId}`,
+      `user_agent: "${ua.replace(/"/g, '\\"')}"`,
+      '---',
+      '',
+    ]
+      .concat(messages.map(m => `**${m.user ? 'User' : 'Assistant'}:** ${m.raw || ''}`))
+      .join('\n\n');
 
-    const path = `assistant/logs/${now_iso.replace(/[:.]/g, '-')}.md`;
-    const resp = await fetch(`https://api.github.com/repos/AntonRize/WILL/contents/${path}`, {
+    const path = `assistant/logs/${sessionId.replace(/[:.]/g, '-')}.md`;
+    const apiUrl = `https://api.github.com/repos/AntonRize/WILL/contents/${path}`;
+    const headers = {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+      'User-Agent': 'will-log-endpoint',
+    };
+
+    // Check if the file already exists to get its SHA (needed for updates)
+    let sha = undefined;
+    const existing = await fetch(apiUrl, { method: 'GET', headers });
+    if (existing.ok) {
+      const data = await existing.json();
+      sha = data.sha;
+    }
+
+    // Create or update the file
+    const body = {
+      message: `chore: update log ${sessionId}`,
+      content: Buffer.from(content).toString('base64'),
+    };
+    if (sha) {
+      body.sha = sha;
+    } else {
+      body.message = `chore: add log ${sessionId}`;
+    }
+
+    const resp = await fetch(apiUrl, {
       method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-        'User-Agent': 'log-endpoint'
-      },
-      body: JSON.stringify({
-        message: `chore: add log ${now_iso}`,
-        content: Buffer.from(content).toString('base64')
-      })
+      headers,
+      body: JSON.stringify(body),
     });
 
     if (!resp.ok) {
