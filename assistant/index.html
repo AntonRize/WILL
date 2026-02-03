@@ -48,6 +48,7 @@ permalink: /WILL-AI/
     const CORE = `β (beta)=v/c  ·  κ (kappa)=vₑ/c  ·  κ²=2β²`;
     const PROXY = 'https://proxy-flame-seven.vercel.app/api/gemini';
     const LOG_API = 'https://proxy-flame-seven.vercel.app/api/save_log';
+    const SESSION_ID = new Date().toISOString();
     const QUICK = {
         'beta':  'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
         'β':     'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
@@ -154,8 +155,27 @@ permalink: /WILL-AI/
         };
 
         function sendLog(){
-            fetch(LOG_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({log:logRef.current.map(m=>({user:m.user,raw:m.raw}))})}).catch(()=>{});
+            const payload = {
+                sessionId: SESSION_ID,
+                log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
+            };
+            fetch(LOG_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
         }
+
+        // Save log when user leaves the page (backup)
+        useEffect(()=>{
+            const onUnload = () => {
+                const msgs = logRef.current.filter(m=>!m.isWelcome);
+                if(msgs.length === 0) return;
+                const payload = {
+                    sessionId: SESSION_ID,
+                    log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
+                };
+                navigator.sendBeacon(LOG_API, new Blob([JSON.stringify(payload)],{type:'application/json'}));
+            };
+            window.addEventListener('beforeunload', onUnload);
+            return ()=> window.removeEventListener('beforeunload', onUnload);
+        },[]);
 
         async function send() {
             const q = inp.trim();
