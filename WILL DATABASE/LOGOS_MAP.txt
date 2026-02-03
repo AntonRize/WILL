@@ -129,84 +129,138 @@
 
 \end{tikzpicture}
 
-%\section{STAGE III}
+% ----------------------------
+% STAGE III (REVISED)
+% ----------------------------
 
 \begin{tikzpicture}[
-    node distance=1.3cm and 2.5cm,
-    % Styles definition
+    node distance=1.3cm and 2.7cm,
     base/.style = {draw, thick, align=center, font=\sffamily\small},
-    axiom/.style = {base, rectangle, rounded corners, fill=blue!10, minimum width=4cm, minimum height=1cm},
-    decision/.style = {base, diamond, aspect=2, fill=yellow!10, minimum width=3.5cm, inner sep=2pt},
-    will_node/.style = {base, rectangle, fill=green!10, minimum width=4cm, minimum height=1cm},
-    process_node/.style = {base, rectangle, rounded corners=2pt, fill=white, draw=gray, dashed, minimum width=3.5cm},
-    fail_node/.style = {base, rectangle, dashed, fill=red!5, text=gray, minimum width=4cm},
+    axiom/.style = {base, rectangle, rounded corners, fill=blue!10, minimum width=4.3cm, minimum height=1cm},
+    decision/.style = {base, diamond, aspect=2, fill=yellow!10, minimum width=3.8cm, inner sep=2pt},
+    will_node/.style = {base, rectangle, fill=green!10, minimum width=4.5cm, minimum height=1cm},
+    process_node/.style = {base, rectangle, rounded corners=2pt, fill=white, draw=gray, dashed, minimum width=4.3cm},
+    fail_node/.style = {base, rectangle, dashed, fill=red!5, text=gray, minimum width=4.5cm},
     arrow/.style = {-Latex, thick},
     label_t/.style = {midway, right, font=\bfseries\scriptsize, text=green!60!black, xshift=2pt},
     label_f/.style = {midway, left, font=\bfseries\scriptsize, text=red!60!black, xshift=-2pt}
 ]
 
     % --- INPUT FROM STAGE II ---
-    \node[axiom, fill=green!20] (stage2_out) {\textbf{INPUT FROM STAGE II}\\Ontology: SPACETIME $\equiv$ ENERGY\\(Unitary Relational Entity)};
+    \node[axiom, fill=green!20] (stage2_out) {%
+        \textbf{INPUT FROM STAGE II}\\
+        Ontology: \textbf{SPACETIME $\equiv$ ENERGY}\\
+        (One Relational Difference $\Delta$)
+    };
 
     % --- NODE 8: NECESSARY CONSTRAINTS ---
-    \node[will_node, below=of stage2_out] (constraints) {\textbf{Derived Constraints}\\1. Closure (No leakage) $\rightarrow$ \textit{Lemma 3.1}\\2. Conservation (Fixed Budget) $\rightarrow$ \textit{Lemma 3.2}\\3. Isotropy (Max Symmetry) $\rightarrow$ \textit{Lemma 3.3}};
+    \node[will_node, below=of stage2_out] (constraints) {%
+        \textbf{Derived Constraints}\\
+        1. Closure (No leakage)\\
+        2. Conservation (Fixed budget)\\
+        3. Isotropy (Max symmetry)
+    };
     \draw[arrow] (stage2_out) -- (constraints);
 
-    % --- NODE 9: CARRIER SELECTION ---
-    \node[decision, below=of constraints] (carrier_dec) {Select Minimal Relational Carriers};
-    \draw[arrow] (constraints) -- (carrier_dec);
-
-    % Branch F
-    \node[fail_node, left=of carrier_dec] (open_space) {Open Manifolds\\(Infinite Flat Space)};
-    \draw[arrow] (carrier_dec) -- (open_space) node[label_f] {F};
-    \node[below=0.2cm of open_space, text=red!60!black, font=\scriptsize, align=center] {Violates Closure};
-
-    % Branch T: Topology Selection
-    \node[process_node, below=of carrier_dec, align=left, text width=6.5cm] (dof_logic) {
-        \textbf{Logical Step (Theorem 3.4 Proof):}\\
-        1. \textbf{Directional Relation} (A$\to$B):\\
-           Requires 1 DOF $\implies$ Unique Constraint 1-Carrier: \textbf{$S^1$}\\
-        2. \textbf{Omnidirectional Relation} (Center$\to$Field):\\
-           Requires 2 DOF $\implies$ Unique Constraint 2-Carrier:: \textbf{$S^2$}
+    % --- NODE 9: BOOKKEEPING DOMAIN (CLOSURE) ---
+    \node[decision, below=of constraints] (domain_dec) {%
+        Choose a \textbf{Closed}\\
+        Bookkeeping Domain?
     };
-    \draw[arrow] (carrier_dec) -- (dof_logic) node[label_t] {T};
+    \draw[arrow] (constraints) -- (domain_dec);
 
-    % --- NODE 10: ORTHOGONAL PROJECTIONS (The correction) ---
-    % Instead of jumping to squares, we define the axis
-    \node[decision, below=of dof_logic] (projection_dec) {Define State on Carriers ($S^1, S^2$)};
-    \draw[arrow] (dof_logic) -- (projection_dec);
+    % Branch F: ill-defined boundary/accounting (NOT "open manifold" per se)
+    \node[fail_node, left=of domain_dec] (ill_defined) {%
+        Ill-defined Domain:\\
+        No boundary / no accounting\\
+        $\Rightarrow$ Leakage undetectable
+    };
+    \draw[arrow] (domain_dec) -- (ill_defined) node[label_f] {F};
+    \node[below=0.2cm of ill_defined, text=red!60!black, font=\scriptsize, align=center] {%
+        Violates Closure (No leakage).\\
+        Problem is \emph{bookkeeping}, not geometry.
+    };
 
-    % Branch F: Substantialism
-    \node[fail_node, left=of projection_dec] (scalar_energy) {Scalar Parameter\\(Energy as Substance)};
-    \draw[arrow] (projection_dec) -- (scalar_energy) node[label_f] {F};
-    \node[below=0.2cm of scalar_energy, text=red!60!black, font=\scriptsize, align=center] {Impossible in relational model.\\State requires Reference vs. Internal};
+    % Branch T: proceed to minimal directional carriers
+    \node[process_node, below=of domain_dec, align=left, text width=7.2cm] (carriers) {%
+        \textbf{Theorem 3.4 (Minimal Direction Carriers):}\\
+        Carriers encode \emph{directions of relations} (not positions).\\[0.3em]
+        1) \textbf{Directional Relation} (A$\to$B):\\
+        \hspace*{0.6em}Requires 1 DOF $\Rightarrow$ Carrier: \textbf{$S^1$}\\
+        2) \textbf{Omnidirectional Relation} (Center$\to$Field):\\
+        \hspace*{0.6em}Requires 2 DOF $\Rightarrow$ Carrier: \textbf{$S^2$}
+    };
+    \draw[arrow] (domain_dec) -- (carriers) node[label_t] {T};
 
-    % Branch T: Duality of Evolution
-    \node[will_node, below=of projection_dec] (duality) {\textbf{Lemma 6.1: Duality of Evolution}\\State $\equiv$ Superposition of Orthogonal Axes:\\1. \textbf{Amplitude} (External Interaction)\\2. \textbf{Phase} (Internal Existence)};
-    \draw[arrow] (projection_dec) -- (duality) node[label_t] {T};
+    % --- NODE 10: DEFINE STATE ON CARRIERS ---
+    \node[decision, below=of carriers] (state_dec) {%
+        Define \textbf{State}\\
+        on Carriers ($S^1, S^2$)?
+    };
+    \draw[arrow] (carriers) -- (state_dec);
 
-    % --- NODE 11: CONSERVATION LAWS ---
-    \node[will_node, below=of duality] (conservation) {\textbf{Thm 6.2 \& 11.1: Orthogonal Conservation}\\Unitary Budget $\implies$ Pythagorean Closure\\[0.5em]
-    \textbf{$S^1$ (Kinematics):} $\beta^2 \text{ (Motion)} + \beta_Y^2 \text{ (SpaceTime)} = 1$\\
-    \textbf{$S^2$ (Gravity):} $\kappa^2 \text{ (Potential)} + \kappa_X^2 \text{ (TimeSpace)} = 1$};
-    \draw[arrow] (duality) -- (conservation);
+    % Branch F: scalar substance
+    \node[fail_node, left=of state_dec] (scalar_substance) {%
+        Scalar Substance:\\
+        ``Energy as stuff''
+    };
+    \draw[arrow] (state_dec) -- (scalar_substance) node[label_f] {F};
+    \node[below=0.2cm of scalar_substance, text=red!60!black, font=\scriptsize, align=center] {%
+        Violates Relational Origin.\\
+        A state needs internal/external reference.
+    };
 
-    % --- NODE 12: THE EXCHANGE RATE ---
-    \node[decision, below=of conservation] (exchange_dec) {Determine Exchange Rate\\between Active Amplitudes ($\kappa^2, \beta^2$)};
-    \draw[arrow] (conservation) -- (exchange_dec);
+    % Branch T: duality (keep amplitude/phase naming)
+    \node[will_node, below=of state_dec] (duality) {%
+        \textbf{Lemma 6.1: Duality of Evolution}\\
+        State $\equiv$ Superposition of Orthogonal Axes:\\
+        1) \textbf{Amplitude} (External interaction)\\
+        2) \textbf{Phase} (Internal existence)
+    };
+    \draw[arrow] (state_dec) -- (duality) node[label_t] {T};
 
-    % Branch T: Topological Ratio
-    \node[will_node, below=of exchange_dec] (closure_law) {\textbf{Theorem 10.2: Energetic Closure}\\
-    $\mathcal{R} = \frac{\text{d.o.f}(S^2)}{\text{d.o.f}(S^1)} = \frac{2}{1} = 2$\\
-    $\boxed{\kappa^2 = 2\beta^2}$};
-    \draw[arrow] (exchange_dec) -- (closure_law) node[label_t] {T};
+    % --- NODE 11: ORTHOGONAL CONSERVATION / PYTHAGOREAN CLOSURE ---
+    \node[will_node, below=of duality] (orth_conserv) {%
+        \textbf{Thm 6.2: Orthogonal Conservation}\\
+        Fixed budget $\Rightarrow$ fixed norm (no double counting)\\[0.4em]
+        \textbf{$S^1$ (Kinematics):} $\beta^2$ (Motion) $+\ \beta_Y^2$ (SpaceTime) $= 1$\\
+        \textbf{$S^2$ (Gravity):} $\kappa^2$ (Potential) $+\ \kappa_X^2$ (TimeSpace) $= 1$
+    };
+    \draw[arrow] (duality) -- (orth_conserv);
+
+    % --- NODE 12: BRIDGE LEMMA (ISOTROPY => EQUAL BUDGET PER DOF) ---
+    \node[will_node, below=of orth_conserv] (equal_dof) {%
+        \textbf{Lemma 10.1: Isotropy $\Rightarrow$ Equal Budget per DOF}\\
+        No preferred direction $\Rightarrow$ no preferred DOF\\
+        $\Rightarrow$ budget assigns equally per independent DOF
+    };
+    \draw[arrow] (orth_conserv) -- (equal_dof);
+
+    % --- NODE 13: EXCHANGE RATE (DERIVED) ---
+    \node[decision, below=of equal_dof] (exchange_dec) {%
+        Derive Exchange Rate\\
+        between Active Amplitudes?
+    };
+    \draw[arrow] (equal_dof) -- (exchange_dec);
+
+    \node[will_node, below=of exchange_dec] (exchange) {%
+        \textbf{Theorem 10.2: Energetic Exchange Rate}\\
+        Equal budget per DOF $\Rightarrow$\\
+        $\displaystyle \mathcal{R}=\frac{\text{DOF}(S^2)}{\text{DOF}(S^1)}=\frac{2}{1}=2$\\[0.3em]
+        \boxed{\kappa^2 = 2\beta^2}
+    };
+    \draw[arrow] (exchange_dec) -- (exchange) node[label_t] {T};
 
     % --- OUTCOME OF STAGE III ---
-    \node[axiom, fill=green!20, below=of closure_law, yshift=-0.5cm] (geometry_ready) {\textbf{STAGE III COMPLETE}\\Geometry Defined:\\Energy flows between Orthogonal Axes\\and between Carriers ($S^1 \leftrightarrow S^2$)};
-    \draw[arrow] (closure_law) -- (geometry_ready) node[label_t] {T};
+    \node[axiom, fill=green!20, below=of exchange, yshift=-0.5cm] (stage3_out) {%
+        \textbf{STAGE III COMPLETE}\\
+        Geometry Established:\\
+        Budget flows between Orthogonal Axes\\
+        and between Direction Carriers ($S^1 \leftrightarrow S^2$)
+    };
+    \draw[arrow] (exchange) -- (stage3_out) node[label_t] {T};
 
 \end{tikzpicture}
-
 
 
 %\section{STAGE IV}
