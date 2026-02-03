@@ -3,11 +3,16 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Atom } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Home', href: 'https://antonrize.github.io/WILL/' },
-  { label: 'Relativistic Foundations', href: 'https://antonrize.github.io/WILL/relativistic-foundations/' },
-  { label: 'Documents', href: 'https://antonrize.github.io/WILL/results/' },
-  { label: 'Predictions', href: 'https://antonrize.github.io/WILL/predictions/' },
-  { label: 'ROM', href: 'https://antonrize.github.io/WILL/ROM/' },
+  { label: 'LOGOS MAP', href: '#', current: true },
+  { label: 'Relativistic Foundations', href: 'https://antonrize.github.io/WILL/relativistic-foundations/', current: false },
+  { label: 'Documents & Results', href: 'https://antonrize.github.io/WILL/results/', current: false },
+  { label: 'Predictions', href: 'https://antonrize.github.io/WILL/predictions/', current: false },
+  { label: 'Relational Orbital Mechanics', href: 'https://antonrize.github.io/WILL/ROM/', current: false },
+  { label: 'Galactic Dynamics', href: 'https://antonrize.github.io/WILL/calculator/', current: false },
+  { label: 'Cosmology', href: 'https://antonrize.github.io/WILL/cosmology.html', current: false },
+  { label: 'WILL AI', href: 'https://antonrize.github.io/WILL/WILL-AI/', current: false },
+  { label: 'About', href: 'https://antonrize.github.io/WILL/about/', current: false },
+  { label: 'Help This Research', href: 'https://antonrize.github.io/WILL/help/', current: false },
 ];
 
 export default function Navigation() {
@@ -28,12 +33,12 @@ export default function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-will-navy/95 backdrop-blur-md border-b border-slate-800' 
-          : 'bg-transparent'
+        isScrolled
+          ? 'bg-gray-900/80 backdrop-blur-sm border-b border-gray-800'
+          : 'bg-gray-900/80 backdrop-blur-sm'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-6 max-w-5xl">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a 
@@ -48,15 +53,23 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm text-slate-300 hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
+              link.current ? (
+                <span
+                  key={link.label}
+                  className="text-sm text-cyan-400 font-medium"
+                >
+                  {link.label}
+                </span>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm text-gray-300 hover:text-cyan-400 transition-colors"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
-            <span className="text-will-blue font-medium text-sm">Logos Map</span>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -78,16 +91,24 @@ export default function Navigation() {
         >
           <nav className="flex flex-col px-4 py-4 space-y-3">
             {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-slate-300 hover:text-white py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
+              link.current ? (
+                <span
+                  key={link.label}
+                  className="text-cyan-400 font-medium py-2 text-center"
+                >
+                  {link.label} (Current)
+                </span>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              )
             ))}
-            <span className="text-will-blue font-medium py-2">Logos Map (Current)</span>
           </nav>
         </motion.div>
       )}

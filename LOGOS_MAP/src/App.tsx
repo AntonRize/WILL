@@ -92,14 +92,71 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 py-8 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="text-slate-500 text-sm">
-            © 2026 Anton Rize. All materials available for scientific use.
-          </p>
-          <p className="text-slate-600 text-xs mt-2">
-            WILL Relational Geometry — Spacetime ≡ Energy
-          </p>
+      <footer className="bg-gray-900 mt-16 border-t border-gray-800">
+        <div className="container mx-auto px-6 py-6 text-center text-gray-500">
+          <div className="mt-6 flex flex-col items-center">
+            {/* Unified card wrapper to blend iframe + CTA */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden max-w-[600px] w-full shadow-lg">
+              {/* Sponsors iframe (tight crop) */}
+              <iframe
+                id="sponsor-frame"
+                src="https://github.com/sponsors/AntonRize/card"
+                title="Support this research on GitHub Sponsors"
+                className="w-full border-0"
+                style={{ height: '100px' }}
+                loading="lazy"
+              />
+
+              {/* CTA as a full-width link */}
+              <a
+                href="https://github.com/sponsors/AntonRize"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-3 text-gray-300 text-sm sm:text-base border-t border-gray-700 hover:bg-gray-700/40 transition"
+              >
+                If you believe fundamental physics should be open, transparent, and built from first principles — you can help make it happen.
+              </a>
+            </div>
+
+            <div className="mt-2 text-xs text-gray-500">
+              Prefer Patreon?{' '}
+              <a
+                href="https://www.patreon.com/c/AntonRize"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-cyan-300 hover:text-cyan-200"
+              >
+                Support on Patreon
+              </a>
+            </div>
+          </div>
+
+          <p className="mt-3">© {new Date().getFullYear()} Anton Rize. All materials available for scientific use.</p>
+
+          <div className="mt-4 text-xs text-gray-500 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+            {/* Right side (desktop): Sources & References */}
+            <div className="order-1 md:order-2 text-center md:text-right">
+              <a
+                href="https://antonrize.github.io/WILL/refs/"
+                className="underline text-cyan-300 hover:text-cyan-200"
+              >
+                Sources &amp; References
+              </a>
+            </div>
+
+            {/* Left side (desktop): Zenodo */}
+            <div className="order-2 md:order-1 text-center md:text-left">
+              Archived release available at{' '}
+              <a
+                href="https://doi.org/10.5281/zenodo.17115270"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-cyan-300 hover:text-cyan-200"
+              >
+                Zenodo (DOI: 10.5281/zenodo.17115270)
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

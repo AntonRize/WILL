@@ -86,54 +86,52 @@ export default function StageV() {
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
           <div className="bg-slate-800/50 border border-slate-600/50 rounded-xl px-6 py-5">
             <p className="text-will-blue font-semibold text-center mb-4">Self-Centering Reciprocity</p>
-            <svg viewBox="-0.5 -0.5 2.0 2.0" className="w-64 h-64 mx-auto">
-              {/* Axes */}
-              <line x1="-0.1" y1="0" x2="1.4" y2="0" stroke="#94a3b8" strokeWidth="0.015" markerEnd="url(#arrowhead-beta)" />
-              <line x1="0" y1="-0.1" x2="0" y2="1.4" stroke="#94a3b8" strokeWidth="0.015" markerEnd="url(#arrowhead-kappa)" />
-              
-              {/* Axis labels */}
-              <text x="1.45" y="0.05" fill="#000" fontSize="0.08" className="fill-slate-300">β (X)</text>
-              <text x="0.05" y="1.45" fill="#000" fontSize="0.08" className="fill-slate-300">κ (Y)</text>
-              
+            <svg viewBox="-1.3 -1.3 3.0 2.8" className="w-72 h-64 mx-auto">
               {/* Arrow markers */}
               <defs>
                 <marker id="arrowhead-beta" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                  <polygon points="0 0, 6 2, 0 4" fill="#94a3b8" />
+                  <polygon points="0 0, 6 2, 0 4" fill="#9ca3af" />
                 </marker>
                 <marker id="arrowhead-kappa" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                  <polygon points="0 0, 6 2, 0 4" fill="#94a3b8" />
+                  <polygon points="0 0, 6 2, 0 4" fill="#9ca3af" />
                 </marker>
-              </defs>
-              
-              {/* Observer A Circle (Blue) - centered at origin */}
-              <circle cx="0" cy="0" r="1" fill="none" stroke="#3b82f6" strokeWidth="0.025" />
-              <circle cx="0" cy="0" r="0.04" fill="#3b82f6" />
-              <text x="-0.15" y="-0.08" fill="#3b82f6" fontSize="0.08" fontWeight="500">Obs A (0,0)</text>
-              
-              {/* Object B Circle (Red Dashed) - offset position */}
-              <circle cx="0.7" cy="0.5" r="1" fill="none" stroke="#ef4444" strokeWidth="0.025" strokeDasharray="0.08,0.05" />
-              <circle cx="0.7" cy="0.5" r="0.04" fill="#ef4444" />
-              <text x="0.75" y="0.45" fill="#ef4444" fontSize="0.08" fontWeight="500">Obj B (0,0)</text>
-              
-              {/* Vector Q */}
-              <line x1="0" y1="0" x2="0.7" y2="0.5" stroke="white" strokeWidth="0.025" markerEnd="url(#arrow-q)" />
-              <defs>
                 <marker id="arrow-q" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
                   <polygon points="0 0, 6 2, 0 4" fill="white" />
                 </marker>
               </defs>
-              <text x="0.3" y="0.35" fill="white" fontSize="0.1" fontWeight="bold">Q</text>
-              
+
+              {/* Axes (Compact) */}
+              <line x1="-0.2" y1="0" x2="1.3" y2="0" stroke="#9ca3af" strokeWidth="0.02" markerEnd="url(#arrowhead-beta)" />
+              <line x1="0" y1="-0.2" x2="0" y2="1.3" stroke="#9ca3af" strokeWidth="0.02" markerEnd="url(#arrowhead-kappa)" />
+
+              {/* Axis labels */}
+              <text x="1.4" y="0.05" fill="#e5e7eb" fontSize="0.12" fontWeight="500">β (X)</text>
+              <text x="0.05" y="1.45" fill="#e5e7eb" fontSize="0.12" fontWeight="500">κ (Y)</text>
+
+              {/* Observer A Circle (Blue) - centered at origin */}
+              <circle cx="0" cy="0" r="1" fill="none" stroke="#3b82f6" strokeWidth="0.035" />
+              <circle cx="0" cy="0" r="0.05" fill="#3b82f6" />
+              <text x="-0.12" y="-0.12" fill="#3b82f6" fontSize="0.12" fontWeight="500">Obs A (0,0)</text>
+
+              {/* Object B Circle (Red Dashed) - offset position */}
+              <circle cx="0.7" cy="0.5" r="1" fill="none" stroke="#ef4444" strokeWidth="0.035" strokeDasharray="0.1,0.06" />
+              <circle cx="0.7" cy="0.5" r="0.05" fill="#ef4444" />
+              <text x="0.78" y="0.42" fill="#ef4444" fontSize="0.12" fontWeight="500">Obj B (0,0)</text>
+
+              {/* Vector Q */}
+              <line x1="0" y1="0" x2="0.65" y2="0.46" stroke="white" strokeWidth="0.035" markerEnd="url(#arrow-q)" />
+              <text x="0.25" y="0.38" fill="white" fontSize="0.16" fontWeight="bold">Q</text>
+
               {/* Projection lines (dotted) */}
-              <line x1="0.7" y1="0.5" x2="0.7" y2="0" stroke="#64748b" strokeWidth="0.015" strokeDasharray="0.03,0.03" />
-              <line x1="0.7" y1="0.5" x2="0" y2="0.5" stroke="#64748b" strokeWidth="0.015" strokeDasharray="0.03,0.03" />
-              
+              <line x1="0.7" y1="0.5" x2="0.7" y2="0" stroke="#64748b" strokeWidth="0.025" strokeDasharray="0.05,0.05" />
+              <line x1="0.7" y1="0.5" x2="0" y2="0.5" stroke="#64748b" strokeWidth="0.025" strokeDasharray="0.05,0.05" />
+
               {/* Projection labels */}
-              <text x="0.7" y="-0.06" fill="#64748b" fontSize="0.07" textAnchor="middle">β</text>
-              <text x="-0.06" y="0.52" fill="#64748b" fontSize="0.07" textAnchor="end">κ</text>
-              
+              <text x="0.7" y="-0.08" fill="#64748b" fontSize="0.12" textAnchor="middle">β</text>
+              <text x="-0.08" y="0.54" fill="#64748b" fontSize="0.12" textAnchor="end">κ</text>
+
               {/* Causality label */}
-              <text x="0.5" y="1.65" fill="#94a3b8" fontSize="0.08" textAnchor="middle">Causal Lock: Q &lt; 1</text>
+              <text x="0" y="-1.1" fill="#94a3b8" fontSize="0.14" textAnchor="middle" fontStyle="italic">Causal Lock: Q &lt; 1</text>
             </svg>
           </div>
         </motion.div>
