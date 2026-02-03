@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -74,7 +72,7 @@ export default async function handler(req, res) {
     // Create or update the file
     const body = {
       message: `chore: update log ${sessionId}`,
-      content: Buffer.from(content).toString('base64'),
+      content: btoa(unescape(encodeURIComponent(content))),
     };
     if (sha) {
       body.sha = sha;
