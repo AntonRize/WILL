@@ -34,8 +34,8 @@ toc: false
 
 
 <!-- Lab 2 -->
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db; margin-bottom: 2rem;">
-  <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">1)Relational Orbital Mechanics Lab — Relational Orbital Mechanics (R.O.M.)</h3>
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #616ec4; margin-bottom: 2rem;">
+  <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">2)Relational Orbital Mechanics Lab — Relational Orbital Mechanics (R.O.M.)</h3>
   <p style="margin-bottom: 1rem; line-height: 1.6;">
       <strong>Headline metric:</strong> All observable orbital structure follows <strong> from directly measurable Light frequency projections </strong> No Mass or G Requaered </p>
   <a href="{{ site.baseurl }}/ROM/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block" style="text-decoration: none; margin-bottom: 1.5rem;">
@@ -52,7 +52,7 @@ toc: false
 
 <!-- Lab 3 -->
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #8e44ad; margin-bottom: 2rem;">
-  <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">2) Cosmology Lab — All cosmology out of one scale and one dynamic input</h3>
+  <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">3) Cosmology Lab — All cosmology out of one scale and one dynamic input</h3>
   <p style="margin-bottom: 1rem; line-height: 1.6;">
       <strong>Headline metric:</strong> \(\Omega_\Lambda = 2/3\), \(\Omega_m = 1/3\) (no free parameters).
   </p>
@@ -71,7 +71,7 @@ toc: false
 
 <!-- Lab 4 -->
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60; margin-bottom: 2rem;">
-  <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 0.5rem;">3) Lab — Relativistic Time Offset (Geometric Projections)</h3>
+  <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 0.5rem;">4) Lab — Relativistic Time Offset (Geometric Projections)</h3>
   <p class="muted" style="color:#a3b1c2; margin-bottom:1rem;">
       Primary calculation: the daily relativistic time offset between a surface observer and an orbiting body. Secondary check: Classical energy consistency. Object-agnostic: applies to any circular orbit.
   </p>

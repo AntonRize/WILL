@@ -498,10 +498,10 @@ Complete research documentation in three parts, covering the theoretical foundat
 ## 🔗 Next Steps
 
 <ul>
-    <li><strong><a href="/WILL/" class="text-cyan-400 hover:text-cyan-300">Main Research Overview</a></strong> - Return to the project homepage.</li>
+    <li><strong><a href="/WILL/WILL-AI/" class="text-cyan-400 hover:text-cyan-300"> WILL-AI </a></strong> - Chat with AI trained on WILL reasearch papers.</li>
     <li><strong><a href="/WILL/predictions/" class="text-cyan-400 hover:text-cyan-300">Testable Predictions</a></strong> - Explore unique forecasts and falsification conditions.</li>
-    <li><strong><a href="/WILL/Galactic_Dynamics/" class="text-cyan-400 hover:text-cyan-300">Interactive Calculators</a></strong> - Test galaxy rotation curves and cosmology yourself.</li>
-    <li><strong><a href="https://github.com/AntonRize/WILL/ROM/" class="text-cyan-400 hover:text-cyan-300">Relational Orbital Mechanics (R.O.M.) Calculator</a></strong> - Test Orbital Mechanics yourself</li>
+    <li><strong><a href="/WILL/Galactic_Dynamics/" class="text-cyan-400 hover:text-cyan-300"> Galactic Dynamics Calculator </a></strong> - Test galaxy rotation curves yourself.</li>
+    <li><strong><a href="/WILL/ROM/" class="text-cyan-400 hover:text-cyan-300"> R.O.M. Calculator </a></strong> - Test Orbital Mechanics yourself</li>
 </ul>
 
 ---

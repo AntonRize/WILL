@@ -48,7 +48,7 @@ Above all, this document serves as a personal record and reflection of a journey
     <p><strong>This work remains an ongoing exploration</strong>, and further developments may reveal deeper connections between geometry, energy, and the fabric of reality.</p>
 </div>
 
-The WILL Geometry framework represents nearly one year of independent theoretical development, resulting in:
+The WILL RG represents nearly 2 years of independent theoretical development, resulting in:
 
 - **105+ pages** of detailed mathematical derivations
 - **Complete derivation** of Special and General Relativity from geometry
@@ -68,9 +68,9 @@ I welcome critique, collaboration, and engagement from physicists, mathematician
 
 ## Contact & Collaboration
 
-- **Email:** [egeometricity@gmail.com](mailto:egeometricity@gmail.com)
+- **Email:** [freewillrg@gmail.com](mailto:freewillrg@gmail.com)
 - **GitHub:** [WILL Geometry Repository](https://github.com/AntonRize/WILL)
-- **Discussions:** [Scientific Forums](/WILL/discussions/)
+- **WILL-AI:** [Trained on WILL Research Documents](/WILL/WILL-AI/)
 ---
 
 ## Acknowledgments
@@ -84,10 +84,20 @@ This work was developed independently, but it builds upon centuries of scientifi
 ---
 
 <div style="text-align: center; font-style: italic; color: #666; padding: 30px 0; border-top: 1px solid #ddd; margin-top: 50px;">
-    <p><strong>Anton Rize</strong></p>
-    <p>"The Universe must be simpler than we imagine it to be"</p>
+   
+    <p>"The Name "WILL"
+
+The term WILL stands for SPACE-TIME-ENERGY.  
+It is both a formal shorthand and a philosophical statement:  
+the universe is not a stage where energy acts through time upon space,  
+but a single self-balancing structure whose internal distinctions generate all phenomena.  
+The name also serves as a gentle irony toward anthropic thinking:  
+the Cosmos does not possess "will" - yet through WILL, it manifests All that Is."</p>
+
+ <p><strong>Anton Rize</strong></p>
+
 </div>
 
 ---
 
-**Navigation:** [Research Documents](/WILL/parts/) | [Key Results](/WILL/results/) | [Join Discussion](/WILL/discussions/)
+**Navigation:** [Research Documents](/WILL/results/) | [Key Predictions](/WILL/predictions/) | [Home Page](/WILL/)

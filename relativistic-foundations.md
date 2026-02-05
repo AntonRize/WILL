@@ -130,7 +130,7 @@ title: "Relativistic Foundations"
 
 For full mathematical derivations:  
 
-[WILL RG Papers](https://antonrize.github.io/WILL/parts/)
+[WILL RG Papers](https://antonrize.github.io/WILL/results/)
 
 For unique testable predictions:
 

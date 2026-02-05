@@ -16,8 +16,9 @@ permalink: /ROM/
 Orbital dynamics requires **no mass, no $G$, no metric, and no spacetime geometry.** 
 
 All observable orbital structure follows from two directly measurable frequency projections:
-- **$\kappa$** (gravitational projection from redshift)
-- **$\beta$** (kinematic projection from Doppler)
+- **$\kappa^2 = 1-\frac{1}{(1+z)^2}}$  ($z=$ gravitational redshift)** 
+- **$\beta^2=1-\frac{1}{(1+z_{D})^{2}}}$  ($z_D=$ transverse Doppler shift)**
+
 
 Everything else is **pure algebra**.
 </div>
@@ -74,7 +75,7 @@ The interactive engine supports 6 different input modes:
 
 **Global Parameters:**
 - **κ, β, W**: The fundamental relational quantities
-- **eᴄ, δ**: Shape and closure (how far from circular)
+- **$e_ᴄ$, $\delta_p$**: Shape and closure (how far from circular)
 
 **Perihelion/Aphelion:**
 - **κₚ, βₚ**: Projections at closest approach (maximum interaction)
@@ -120,8 +121,8 @@ ROM defines a bound system through normalized projections:
 
 | Parameter | Definition | Physical Meaning |
 |-----------|------------|------------------|
-| $\kappa$ | $\sqrt{R_s/a}$ | Global potential projection (from redshift) |
-| $\beta$ | $v/c$ | Global kinetic projection (from Doppler) |
+| $\kappa$ | $\sqrt{R_s/a}$ | Global potential projection $\kappa^2 = 1-\frac{1}{(1+z)^2}}$  ($z=$ gravitational redshift) |
+| $\beta$ | $v/c$ | Global kinetic projection $\beta^2=1-\frac{1}{(1+z_{D})^{2}}}$  ($z_D=$ transverse Doppler shift) |
 | $W$ | $\frac{1}{2}(\kappa^2 - \beta^2)$ | Energy invariant (binding energy) |
 | $\delta$ | $\frac{\kappa}{\beta\sqrt{2}}$ | Closure factor (measures deviation from circular) |
 
@@ -360,12 +361,12 @@ $$\tau_W = \kappa_X \beta_Y$$ *(spacetime factor)* | $$z = \frac{1}{\kappa_X} - 
 ## Further Reading
 
 For the full theoretical derivation and connection to WILL Relational Geometry:
-- [Relativistic Foundations](/relativistic-foundations/)
+- [WILL-AI](/WILL-AI/)
 - [Complete Results & Documents](/results/)
 - [Testable Predictions](/predictions/)
 
 For questions or collaboration:
-- Email: [egeometricity@gmail.com](mailto:freewillrg@gmail.com)
+- Email: [freewillrg@gmail.com](mailto:freewillrg@gmail.com)
 - GitHub: [WILL Repository](https://github.com/AntonRize/WILL)
 
 </div>
