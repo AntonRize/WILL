@@ -16,11 +16,11 @@ Complete research documentation in three parts, covering the theoretical foundat
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db;">
    <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations</h3>
     <p style="margin-bottom: 20px; line-height: 1.6;">
-        From fundamental postulate to Special and General Relativity through pure projection geometry. 
+        From fundamental principle to Special and General Relativity through pure projection geometry. 
         Derives Einstein's equations without assuming spacetime structure.
     </p>
     <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
-        <strong>Topics:</strong> Geometric postulate, SR derivation, GR equivalence, unified field equations
+        <strong>Topics:</strong> Geometric principle, SR derivation, GR equivalence, unified field equations
     </p>
     <a href="/WILL/documents/WILL_PART_I_SR_GR.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
         📄 Download Part I
@@ -63,7 +63,7 @@ Complete research documentation in three parts, covering the theoretical foundat
 
 | Part | Pages | Focus | Status |
 |------|-------|-------|--------|
-| **I: Relativity** | ~40 | SR/GR from geometry | ✅ Complete |
+| **I: Relativity** | ~69 | SR/GR from geometry | ✅ Complete |
 | **II: Cosmology** | ~35 | Dark energy, cosmic parameters | 🔄 In Progress |
 | **III: Quantum** | ~30 | Atomic physics, α = β | 🔄 In Progress |
 
@@ -72,8 +72,8 @@ Complete research documentation in three parts, covering the theoretical foundat
 ## 🔗 Quick Navigation
 
 - **[Results Overview](/WILL/results/)** - Key achievements and logical flowcharts
-- **[Interactive Calculator](/WILL/calculator/)** - Test predictions on galaxy data
-- **[Discussion Forums](/WILL/discussions/)** - Join scientific discussions
+- **[Galactic Dynamics](/WILL/Galactic_Dynamics/)** - Test predictions on galaxy data
+- **[R.O.M.](/WILL/ROM/)** - Test Relational Orbital Mechanics
 - **[Main Research Page](/WILL/)** - Return to overview
 
 ---

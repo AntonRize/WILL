@@ -19,9 +19,9 @@ toc: false
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db; margin-bottom: 2rem;">
   <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">1) Galactic Dynamics Lab — SPARC rotation curves</h3>
   <p style="margin-bottom: 1rem; line-height: 1.6;">
-      <strong>Headline metric:</strong> median RMSE ≈ <strong>20 km/s</strong> over ~175 galaxies.
+      <strong>Headline metric:</strong> median RMSE ≈ <strong>12.64 km/s</strong> over ~175 galaxies.
   </p>
-  <a href="{{ site.baseurl }}/calculator/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block" style="text-decoration: none; margin-bottom: 1.5rem;">
+  <a href="{{ site.baseurl }}/Galactic_Dynamics/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block" style="text-decoration: none; margin-bottom: 1.5rem;">
       Try it: Open the Galactic Dynamics tool
   </a>
   <div class="bg-gray-900/70 border border-amber-500/50 rounded-md p-4" style="margin-top: 1rem;">
@@ -32,7 +32,25 @@ toc: false
   </div>
 </div>
 
+
 <!-- Lab 2 -->
+<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db; margin-bottom: 2rem;">
+  <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">1)Relational Orbital Mechanics Lab — Relational Orbital Mechanics (R.O.M.)</h3>
+  <p style="margin-bottom: 1rem; line-height: 1.6;">
+      <strong>Headline metric:</strong> All observable orbital structure follows <strong> from directly measurable Light frequency projections </strong> No Mass or G Requaered </p>
+  <a href="{{ site.baseurl }}/ROM/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block" style="text-decoration: none; margin-bottom: 1.5rem;">
+      Try it: Open Relational Orbital Mechanics (R.O.M.) tool
+  </a>
+  <div class="bg-gray-900/70 border border-amber-500/50 rounded-md p-4" style="margin-top: 1rem;">
+      <p style="font-weight: bold; color: #f59e0b; margin-bottom: 0.5rem;">Falsification Clause</p>
+      <p style="color: #d1d5db;">
+          If, with accurate input data-selection  <strong> disagreement with observations  > 5% </strong> the prediction is considered falsified.
+      </p>
+  </div>
+</div>
+
+
+<!-- Lab 3 -->
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #8e44ad; margin-bottom: 2rem;">
   <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 1rem;">2) Cosmology Lab — All cosmology out of one scale and one dynamic input</h3>
   <p style="margin-bottom: 1rem; line-height: 1.6;">
@@ -49,7 +67,9 @@ toc: false
   </div>
 </div>
 
-<!-- Lab 3 -->
+
+
+<!-- Lab 4 -->
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60; margin-bottom: 2rem;">
   <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 0.5rem;">3) Lab — Relativistic Time Offset (Geometric Projections)</h3>
   <p class="muted" style="color:#a3b1c2; margin-bottom:1rem;">
@@ -257,8 +277,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   <div class="bg-gray-800/50 p-6 rounded-lg">
       <h4 style="font-size: 1.25em; margin-bottom: 1rem;">A) Galaxy rotation curves</h4>
-      <p style="margin-bottom: 1rem; color: #d1d5db;">Metric: median RMSE ≈ <strong>20.3 km/s</strong></p>
-      <a href="{{ site.baseurl }}/Colab%20Notebooks/QWILL-galaxy-rotation-curves.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a>
+      <p style="margin-bottom: 1rem; color: #d1d5db;">Metric: median RMSE ≈ <strong>12.64 km/s</strong></p>
+      <a href="{{ site.baseurl }}/Colab%20Notebooks/Protocol_Independent_Empirical_Comparison_SPARC.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a>
   </div>
 
   <div class="bg-gray-800/50 p-6 rounded-lg">
@@ -268,9 +288,9 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 
   <div class="bg-gray-800/50 p-6 rounded-lg">
-      <h4 style="font-size: 1.25em; margin-bottom: 1rem;">C) Double Pulsar orbital decay</h4>
-      <p style="margin-bottom: 1rem; color: #d1d5db;">Metric: orbital decay rate (Hulse–Taylor)</p>
-      <a href="{{ site.baseurl }}/Colab%20Notebooks/Double_Pulsar_orbital_decay_rate.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a>
+      <h4 style="font-size: 1.25em; margin-bottom: 1rem;">C) Derivation of Hubble Parameter $H_0$ from CMB temperarure and $ \alpha $ </h4>
+      <p style="margin-bottom: 1rem; color: #d1d5db;">Metric: Planck mission (2018) empirical measurment </p>
+      <a href="{{ site.baseurl }}/Colab%20Notebooks/H_0_from_T_CMB_and_alpha.ipynb" class="text-cyan-400 hover:text-cyan-300">Notebook</a>
   </div>
 
 <div class="bg-gray-800/50 p-6 rounded-lg">

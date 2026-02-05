@@ -1,6 +1,7 @@
 ---
 layout: default
-title: "WILL Galactic Dynamics Calculator"
+title: "Galactic Dynamics"
+permalink: /Galactic_Dynamics/
 ---
 
 {% include interactive/galaxy_zoo.html %}
