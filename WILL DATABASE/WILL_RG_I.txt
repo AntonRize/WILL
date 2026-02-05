@@ -516,7 +516,7 @@ The manifestation of any system is distributed between its internal (Phase) and 
 \label{lem:duality}
 The identification of spacetime with energy and its transformations necessitates two complementary relational measures:
 \begin{enumerate}
-    \item the \textbf{amplitude} of transformation (external displacement), and
+    \item the \textbf{amplitude} of transformation (external shift), and
     \item the \textbf{phase} of transformation (internal order).
 \end{enumerate}
 \end{lemma}
@@ -673,7 +673,7 @@ take the words as written, not as filtered through prior formalisms.
     \includegraphics[width=1\linewidth]{img/8_Kinetic-Energy-b-projection-on-S.png}
 \end{figure}
 
-Since $S^{1}$ encodes one-dimensional displacement, the total energy $E$ of the system 
+Since $S^{1}$ encodes one-dimensional shift, the total energy $E$ of the system 
 must project consistently onto both axes:
 \[
 E_{X} = E \beta, 
@@ -744,14 +744,14 @@ Mass is therefore not independent, but the rest-energy invariant itself.
 
 \begin{proposition}[Horizontal Projection as Momentum]
 \label{prop:momentum}
-On the relational circle, the unique relational measure of displacement from rest is the horizontal projection $E\beta$; hence
+On the relational circle, the unique relational shift measure from rest is the horizontal projection $E\beta$; hence
 \[
 p \equiv E\beta \quad (c=1).
 \]
 \end{proposition}
 
 \begin{proof}
-The rest state is $(\beta,\beta_Y)=(0,1)$. A displacement measure must (i) vanish at rest, (ii) grow monotonically with $|\beta|$, and (iii) flip sign under $\beta\mapsto -\beta$. The only relational candidate satisfying (i)-(iii) is the horizontal projection $E\beta$. Thus the identification is necessary rather than conventional.  
+The rest state is $(\beta,\beta_Y)=(0,1)$. A shift measure must (i) vanish at rest, (ii) grow monotonically with $|\beta|$, and (iii) flip sign under $\beta\mapsto -\beta$. The only relational candidate satisfying (i)-(iii) is the horizontal projection $E\beta$. Thus the identification is necessary rather than conventional.  
 \end{proof}
 
 \begin{corollary}[Energy--Momentum Relation]
@@ -888,118 +888,6 @@ This yields the gravitational energy relation
 Kinematic momentum $p$ and gravitational momentum $p_g$ are thus dual 
 projections of the same relational circle, expressed through complementary 
 trigonometric forms.
-\end{tcolorbox}
-
-\section{Total Relational Shift $Q$}
-\label{sec:DisQ}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{img/13_Total-Projection-as-Vector-on-b-k-plane.png}
-\end{figure}
-
-
-
-When an observer observes another system, they assign to it a Total Relational Shift norm $Q$:
-\begin{equation}
-\boxed{
-Q^2=\beta^2+\kappa^2
-}
-\label{eq:Q-definition}
-\end{equation}
-Relational reciprocity is the invariance of this norm under the self-centering operation of each observer.
-
-Each observer places itself at the relational origin
-\[
-(\beta,\kappa)=(0,0).
-\]
-If the other system now looks back, it again self--centres at $(0,0)$ and applies
-the same rule. It measures the observer's $(\beta,\kappa)$ and again obtains
-\[
-Q^2=\beta^2+\kappa^2.
-\]
-Thus $Q$ is the \emph{norm} of Total Relational Shift, not a spatial distance.
-Geometrically, the observer is always at the centre of its own $S^{1}$ (or
-$S^{2}$) carrier, and any external system is a point $(\beta,\kappa)$ on that
-plane. The scalar $Q$ measures the total deviation from the observer's relational
-origin.
-
-\begin{remark}[Closure-specific simplification]
-Under energetic closure  $\kappa^{2}=2\beta^{2}$ (circular/periodic systems),
-the norm reduces to $Q^{2}=3\beta^{2}$ (proved uniquely in Chapter C, \ref{thm:closure}). 
-
-In general (open or elliptic) configurations, the full definition $Q^{2}=\beta^{2}+\kappa^{2}$ must be used.
-\end{remark}
-
-\subsection{Principle of Relational Reciprocity}
-
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}[scale=3, >=Latex]
-    % --- Definitions ---
-    \def\R{1.0} % Unit Radius (The Horizon)
-    \coordinate (O) at (0,0);       % Observer Center
-    \coordinate (Obj) at (0.65, 0.45); % Object Center (Q vector end)
-    
-    % Projections of the Object center
-    \coordinate (Bx) at (0.65, 0);
-    \coordinate (Ky) at (0, 0.45);
-
-    % --- Axes ---
-    % Drawing axes slightly longer than radius to show context
-    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
-    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Gravitational)};
-
-    % --- Observer Frame (Blue) ---
-    % The "horizon" of the observer
-    \draw[blue, thick] (O) circle (\R);
-    \fill[blue] (O) circle (0.02) node[below left] {Obs $(0,0)$};
-
-    % --- Object Frame (Red) ---
-    % The "horizon" of the object, centered at Q
-    \draw[red, thick, dashed] (Obj) circle (\R);
-    \fill[red] (Obj) circle (0.02) node[above right] {Obj $(0 , 0)$};
-
-    % --- Vector Q ---
-    \draw[->, line width=1.5pt, black] (O) -- (Obj) node[midway, above left] {$Q$};
-
-    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
-    \draw[dotted, thick] (Obj) -- (Bx) node[below] {$\beta$};
-    \draw[dotted, thick] (Obj) -- (Ky) node[left] {$\kappa$};
-
-    % --- Annotations ---
-    % Optional: Show the Causal Lock condition physically
-    \node[blue, font=\small] at (-0.5, -0.8) {Observer's Horizon};
-    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
-
-\end{tikzpicture}
-\caption{\textbf{Relational Self-Centering.} The displacement $Q$ is defined by the orthogonal projections $\beta$ and $\kappa$. Interaction is causal only when the center of the Object lies within the Observer's horizon ($Q < 1$), ensuring mutual coverage.}
-\label{fig:relational_displacement}
-\end{figure}
-
-\paragraph{Self--centering reciprocity.}
-Every observer performs self--centering:
-\[
-(\beta,\kappa)=(0,0).
-\]
-When I observe another system, I assign to it $(\beta,\kappa)$ and therefore a
-displacement
-\[
-Q^2=\beta^2+\kappa^2.
-\]
-When that system observes me, it again self--centres and obtains the same form.
-It assigns to me some $(\beta,\kappa)$ and again computes $Q^2=\beta^2+\kappa^2$.
-
-Reciprocity is therefore not a vector symmetry in a shared space. It is a
-symmetry of the \emph{self--centering operation}: each observer applies the same
-rule and only the norm of displacement is invariant.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
-\[
-\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
-\]
-There is no common background arena. There are only mutual displacement
-magnitudes $Q$ computed in each observer's own relational origin.
 \end{tcolorbox}
 
 \section{Geometric composition of SR and GR factors}
@@ -1150,6 +1038,119 @@ All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as special
 \end{tikzpicture}
 
 
+\section{Total Relational Shift $Q$}
+\label{sec:DisQ}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/13_Total-Projection-as-Vector-on-b-k-plane.png}
+\end{figure}
+
+
+
+When an observer observes another system, they assign to it a Total Relational Shift norm $Q$:
+\begin{equation}
+\boxed{
+Q^2=\beta^2+\kappa^2
+}
+\label{eq:Q-definition}
+\end{equation}
+Relational reciprocity is the invariance of this norm under the self-centering operation of each observer.
+
+Each observer places itself at the relational origin
+\[
+(\beta,\kappa)=(0,0).
+\]
+If the other system now looks back, it again self--centres at $(0,0)$ and applies
+the same rule. It measures the observer's $(\beta,\kappa)$ and again obtains
+\[
+Q^2=\beta^2+\kappa^2.
+\]
+Thus $Q$ is the \emph{norm} of Total Relational Shift, not a spatial distance.
+Geometrically, the observer is always at the centre of its own $S^{1}$ (or
+$S^{2}$) carrier, and any external system is a point $(\beta,\kappa)$ on that
+plane. The scalar $Q$ measures the total deviation from the observer's relational
+origin.
+
+\begin{remark}[Closure-specific simplification]
+Under energetic closure  $\kappa^{2}=2\beta^{2}$ (circular/periodic systems),
+the norm reduces to $Q^{2}=3\beta^{2}$ (proved uniquely in Chapter C, \ref{thm:closure}). 
+
+In general (open or elliptic) configurations, the full definition $Q^{2}=\beta^{2}+\kappa^{2}$ must be used.
+\end{remark}
+
+\subsection{Principle of Relational Reciprocity}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=3, >=Latex]
+    % --- Definitions ---
+    \def\R{1.0} % Unit Radius (The Horizon)
+    \coordinate (O) at (0,0);       % Observer Center
+    \coordinate (Obj) at (0.65, 0.45); % Object Center (Q vector end)
+    
+    % Projections of the Object center
+    \coordinate (Bx) at (0.65, 0);
+    \coordinate (Ky) at (0, 0.45);
+
+    % --- Axes ---
+    % Drawing axes slightly longer than radius to show context
+    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
+    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Gravitational)};
+
+    % --- Observer Frame (Blue) ---
+    % The "horizon" of the observer
+    \draw[blue, thick] (O) circle (\R);
+    \fill[blue] (O) circle (0.02) node[below left] {Obs $(0,0)$};
+
+    % --- Object Frame (Red) ---
+    % The "horizon" of the object, centered at Q
+    \draw[red, thick, dashed] (Obj) circle (\R);
+    \fill[red] (Obj) circle (0.02) node[above right] {Obj $(0 , 0)$};
+
+    % --- Vector Q ---
+    \draw[->, line width=1.5pt, black] (O) -- (Obj) node[midway, above left] {$Q$};
+
+    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
+    \draw[dotted, thick] (Obj) -- (Bx) node[below] {$\beta$};
+    \draw[dotted, thick] (Obj) -- (Ky) node[left] {$\kappa$};
+
+    % --- Annotations ---
+    % Optional: Show the Causal Lock condition physically
+    \node[blue, font=\small] at (-0.5, -0.8) {Observer's Horizon};
+    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
+
+\end{tikzpicture}
+\caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the orthogonal projections $\beta$ and $\kappa$. Interaction is causal only when the center of the Object lies within the Observer's horizon ($Q < 1$), ensuring mutual coverage.}
+\label{fig:relational_shift}
+\end{figure}
+
+\paragraph{Self--centering reciprocity.}
+Every observer performs self--centering:
+\[
+(\beta,\kappa)=(0,0).
+\]
+When I observe another system, I assign to it $(\beta,\kappa)$ and therefore a
+total shift
+\[
+Q^2=\beta^2+\kappa^2.
+\]
+When that system observes me, it again self--centres and obtains the same form.
+It assigns to me some $(\beta,\kappa)$ and again computes $Q^2=\beta^2+\kappa^2$.
+
+Reciprocity is therefore not a vector symmetry in a shared space. It is a
+symmetry of the \emph{self--centering operation}: each observer applies the same
+rule and only the norm of shift is invariant.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\[
+\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
+\]
+There is no common background arena. There are only mutual total shift
+magnitudes $Q$ computed in each observer's own relational origin.
+\end{tcolorbox}
+
+
 \section{Equivalence Principle as Derived Identity}
 
 \begin{lemma}[Unified Relational Scaling]
@@ -1220,7 +1221,7 @@ E_{\mathrm{loc}}=\sum_a \frac{E_0^{(a)}}{\tau}.
 \]
 Since all channels scale by the same factor $1/\tau=1/(\beta_Y\kappa_X)$,
 ratios between channels cancel in all observables.  
-Therefore, composition-independence of motion (Eotvos universality)  universality) follows identically, 
+Therefore, composition-independence of motion (Eotvos universality) follows identically, 
 without requiring a postulate $m_g=m_i$.
 \end{remark}
 
@@ -1371,21 +1372,6 @@ Explicitly,
 2\times\text{Kinetic Distribution }(\beta^2).}
 \]
 \end{remark}
-
-%-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-%_________________________________________________Chapter C____________________________________________________
-%_______________________________________________________________________________________________________________
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=IMPORTANT:]
-This document must be read \textbf{literally}. 
-All terms are defined within the relational framework of WILL Relational Geometry. 
-Any attempt to reinterpret them through conventional notions 
-(\emph{absolute energies, external backgrounds, hidden containers}) 
-will produce distortions and misreadings. 
-Just like responsibility of formulating lies with the author,
-the responsibility of interpretation lies with the reader:
-take the words as written, not as filtered through prior formalisms.
-\end{tcolorbox}
 
 
 \section{Energy-Symmetry Law}\label{sec:energy-symmetry}
@@ -1568,6 +1554,24 @@ This factor-of-2 is the geometric signature of axis count in relational space. N
 
 This explains the experimentally verified factor of 2 in gravitational lensing and Shapiro delay, traditionally requiring full General Relativity to derive. 
 \end{tcolorbox}
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%_________________________________________________Chapter C____________________________________________________
+%_______________________________________________________________________________________________________________
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=IMPORTANT:]
+This document must be read \textbf{literally}. 
+All terms are defined within the relational framework of WILL Relational Geometry. 
+Any attempt to reinterpret them through conventional notions 
+(\emph{absolute energies, external backgrounds, hidden containers}) 
+will produce distortions and misreadings. 
+Just like responsibility of formulating lies with the author,
+the responsibility of interpretation lies with the reader:
+take the words as written, not as filtered through prior formalisms.
+\end{tcolorbox}
+
 
 \section{Operational Independence and the Role of Constants}
 
@@ -2355,7 +2359,7 @@ Geometric eccentricity is not a free parameter but a measure of the energetic de
 \begin{theorem}[Geometric Eccentricity]
 For a closed orbital system governed by the projection invariants of WILL Relational Geometry, the orbital eccentricity $e$ is strictly determined by the closure factor at periapsis, $\delta_p$:
 \begin{equation}
-e = \frac{1}{\delta_p^2} - 1 = \frac{1-\delta_p^2}{\delta_p^2}.
+e = \frac{1}{\delta_p} - 1 = \frac{1-\delta_p}{\delta_p}.
 \end{equation}
 \end{theorem}
 
@@ -2418,16 +2422,16 @@ This yields geometric identity for bound orbits:
 \paragraph{Step 4: Connection to Closure.}
 Recall the definition of the closure factor at periapsis:
 \[
-\delta_p^2 = \frac{\kappa_p^2}{2\beta_p^2}.
+\delta_p = \frac{\kappa_p^2}{2\beta_p^2}.
 \]
 Substituting Eq.\eqref{eq:proj-balance} into this definition:
 \[
-\delta_p^2 = \frac{\kappa_p^2}{\kappa_p^2(1+e)} = \frac{1}{1+e}.
+\delta_p = \frac{\kappa_p^2}{\kappa_p^2(1+e)} = \frac{1}{1+e}.
 \]
 Solving for $e$, we obtain the stated result:
 \[
 \boxed{
-e = \frac{1}{\delta_p^2} - 1=\frac{2\beta_p^2}{\kappa_p^2}-1 = 1-\frac{2\beta_a^2}{\kappa_a^2}}
+e = \frac{1}{\delta_p} - 1=\frac{2\beta_p^2}{\kappa_p^2}-1 = 1-\frac{2\beta_a^2}{\kappa_a^2}}
 \]
 \end{proof}
 
@@ -2435,7 +2439,7 @@ e = \frac{1}{\delta_p^2} - 1=\frac{2\beta_p^2}{\kappa_p^2}-1 = 1-\frac{2\beta_a^
 This result confirms that eccentricity is strictly a measure of the energetic deviation from the circular equilibrium state ($\delta =1$), derived entirely from the conservation of relational projections without invoking mass or Newtonian forces. 
 \end{remark}
 \begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=SUMMARY]
-$$e \equiv  \frac{1}{\delta_p^2} - 1 \equiv\frac{2\beta_p^2}{\kappa_p^2}-1$$
+$$e \equiv  \frac{1}{\delta_p} - 1 \equiv\frac{2\beta_p^2}{\kappa_p^2}-1$$
 $$\text{ECCENTRICITY} \equiv \text{CLOSURE DEFECT}$$
 $$\text{SPACETIME} \equiv \text{ENERGY}$$
 \end{tcolorbox}
@@ -2448,6 +2452,9 @@ We validate the theory using Mercury, utilizing only direct optical measurements
 Radar telemetry directly measures the orbital velocity at perihelion ($v_p \approx 58.98$ km/s). The kinematic projection is simply this velocity normalized by the speed of light:
 \[
 \beta_p = \frac{v_p}{c} \approx 1.967 \times 10^{-4}.
+\]
+\[
+\beta_p ^2 \approx  3.869089\times10^{-8}
 \]
 
 \paragraph{2. Input: Potential Projection ($\kappa_p$).}
@@ -2465,23 +2472,20 @@ Using the observed geometric ratio of radii $r_{\text{surface}}/r_p \approx 0.01
 \[
 \kappa_p^2 \approx 2(2.12 \times 10^{-6})(0.01513) \approx 6.415 \times 10^{-8}.
 \]
-\[
-\kappa_p = \sqrt{6.415 \times 10^{-8}} \approx 2.533 \times 10^{-4}.
-\]
 
-\paragraph{3. Calculate Closure Factor ($\delta_p$).}
+\paragraph{3. Calculate Closure Fac tor ($\delta_p$).}
 With both projections determined purely from light measurements:
 \[
-\delta_p = \frac{\kappa_p}{\sqrt{2}\beta_p} = \frac{2.533 \times 10^{-4}}{1.414 \times 1.967 \times 10^{-4}} \approx 0.9108.
+\delta_p = \frac{\kappa_p^2}{2\beta_p^2} = \frac{6.415\times10^{-8}}{2 \times 3.869089\times10^{-8}} \approx 0.8290065.
 \]
 
 \paragraph{4. Predict Eccentricity ($e$).}
 The orbital shape is strictly enforced by the closure defect:
 \[
-e_{\text{pred}} = \frac{1}{\delta_p^2} - 1 = \frac{1}{(0.9108)^2} - 1 \simeq 0.2056.
+e_{\text{pred}} = \frac{1}{\delta_p} - 1 = \frac{1}{0.8290065} - 1 \simeq 0.20626.
 \]
 
-\textbf{Conclusion:} The predicted eccentricity matches the observed value ($e \approx 0.2056$). 
+\textbf{Conclusion:} The predicted eccentricity matches the observed value ($e \approx 0.20626$). 
 This demonstrates that the orbital geometry is fully determined by the ratio of the central redshift to the orbital Doppler shift, with no reference to mass or $G$.
 
 \subsection{Path 2: Reconstruction of Potentials (Star S2)}
@@ -2537,7 +2541,7 @@ Q_a^2 = \frac{R_s}{2a} + \frac{R_s}{a} = \frac{3R_s}{2a}.
 \]
 \subsubsection{Transformation to Periapsis Observables}
 To eliminate the abstract parameters $R_s, a, e$ in favor of direct observables, we map this expression to the periapsis ($p$), where interaction is maximal.
-Using the identities $R_s = \kappa_p^2 r_p$ and $a(1-e^2) = r_p(1+e)$, and the closure relation $(1+e) = 1/\delta_p^2 = 2\beta_p^2/\kappa_p^2$, we arrive at the ultimate operational reduction.
+Using the identities $R_s = \kappa_p^2 r_p$ and $a(1-e^2) = r_p(1+e)$, and the closure relation $(1+e) = 1/\delta_p = 2\beta_p^2/\kappa_p^2$, we arrive at the ultimate operational reduction.
 
 The secular evolution of an orbit is determined solely by the \textbf{ratio of the gravitational redshift to the Doppler shift} (red vs. blue) at the point of closest approach:
 \label{eq:precession_law}
@@ -2636,13 +2640,13 @@ We propagate this state to periapsis using the geometric invariants of WILL.
 
 \textbf{1. Closure Factor at Observation:}
 \begin{equation}
-    \delta_o = \sqrt{\frac{1+e\cos(o)}{1+e^{2}+2e\cos(o)}}=0.383173140983.
+    \delta_o = \frac{1+e\cos(o)}{1+e^{2}+2e\cos(o)}=0.383173140983.
 \end{equation}
 
 \textbf{2. Potential Projection:}
 From the closure definition, the potential depth $\kappa_o$ at that phase is:
 \begin{equation}
-    \kappa_o = \beta_o \cdot \delta_o \cdot \sqrt{2}=0.0246222202716.
+    \kappa_o = \beta_o \cdot \sqrt{ \delta_o \cdot 2}=0.0246222202716.
 \end{equation}
 
 \textbf{3. The Energy Invariant ($W$):}
@@ -2652,9 +2656,9 @@ The orbital energy invariant $W$ is constant throughout the trajectory:
 \end{equation}
 
 \textbf{4. Solution at Periapsis:}
-At periapsis ($o=0$), the closure factor simplifies to $\delta_p = (1+e)^{-1/2}$. Solving for the periapsis velocity $\beta_p$ via invariance of $W$:
+At periapsis ($o=0$), the closure factor simplifies to $\delta_p = (1+e)^{-1}$. Solving for the periapsis velocity $\beta_p$ via invariance of $W$:
 \begin{equation}
-    \beta_p = \sqrt{\frac{W}{\delta_p^2 - 0.5}}=0.0265298837499.
+    \beta_p = \sqrt{\frac{W}{\delta_p- 0.5}}=0.0265298837499.
 \end{equation}
 This yields $\beta_p \approx 0.0265$ ($v_p \approx 7956$ km/s), derived independent of mass models.
 
@@ -2780,7 +2784,7 @@ Equating the two forms:
 \frac{\alpha r^{n-2}}{8\pi} = \frac{r}{2}.
 \]
 
-Radius independence requires $n=3$, yielding $\alpha=4\pi$. Hence,
+For the mass $m_0$ to remain a constant independent of the measurement scale $r$, the exponent must be $n=3$, yielding $\alpha=4\pi$. Hence,
 \[
 m_0 = 4\pi r^3 \rho,
 \]
@@ -3210,7 +3214,7 @@ Same projectional law applies from microscopic $\alpha = \beta_1$ (QM) to cosmic
 
 By focusing on the projectional nature of energy, we have shown that spacetime itself is merely the manifestation of energy.
 
-From a single Ontological Principle-that spacetime is equivalent to energy-we derived all the mathematical apparatus needed to describe gravitational and relativistic phenomena. This unification, showing that energy, time, space, and mass are merely different projections of the same underlying structure.
+From a single Ontological Principle-that spacetime is equivalent to energy-we derived all the mathematical apparatus needed to describe gravitational and relativistic phenomena. This unification, showing that energy, time and space  are merely different projections of the same underlying structure.
 
 \[
 \boxed{\text{Special and General Relativity emerge from the same geometric principles.}}
@@ -3256,7 +3260,7 @@ $\delta = \frac{\kappa_{p}^2}{2\beta_{p}^2 }= \frac{1}{1+e}$ (closure factor, me
 \subsubsection*{Eccentricity Relations} \\
 $e = \frac{1}{\delta} - 1 = 1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}} = \frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1$ (eccentricity derived from closure) \\
 $e_{Y} = \sqrt{1-e^{2}}$ (eccentricity's orthogonal value) \\
-$e_{X} = \frac{1+e}{1-e}$ (shape factor) \\
+$e_{X} = \frac{1+e}{1-e}=\frac{\delta_{a}}{\delta_{p}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}2\beta_{a}^{2}}$ (shape factor) \\
 
 \subsubsection*{Constants (Fixed for the Orbit)} \\
 $r_{p} = a(1-e)$ (radius at perihelion) \\
@@ -3267,7 +3271,7 @@ $\Delta\phi_{\text{WILL}} = \frac{3\pi}{2}\frac{\kappa_{p}^{4}}{\beta_{p}^{2}} =
 $h_{W} = a \cdot \beta c \cdot e_{Y}$ (angular momentum) \\
 $\omega = \frac{\beta c}{a}$ (angular frequency) \\
 $T = \frac{2\pi}{\omega}$ (orbital period) \\
-$Q_{p} = \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}}$ (displacement at perihelion) \\
+$Q_{p} = \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}}$  (relational shift at perihelion) \\
 
 \subsubsection*{Time Integration} \\
 $\omega_{o}\left(o\right)=\frac{\beta\cdot c}{a}\cdot\frac{\left(1+e\cdot\cos\left(o\right)\right)^{2}}{\left(1-e^{2}\right)^{\frac{3}{2}}}$ (angular frequency for time integration) \\
@@ -3285,9 +3289,9 @@ $\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}$   (gravitational phase factor at phase $
 $\beta_{o} = \sqrt{\kappa_{o}^{2}-2W}$   (local kinetic from energy invariant) \\
 $\beta_{Yo} = \sqrt{1 - \beta_o^{2}}$    (relativistic phase factor at phase $o$) \\
 $\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $o$) \\
-$Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local displacement vector at phase $o$) \\
+$Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift vector at phase $o$) \\
 $\omega_o = a\beta c\frac{e_{Y}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e\cos o)^{2}}{(1-e^{2})^{3/2}}$ (angular speed) \\
-$\eta_{o} = \frac{r}{a}$ (phase scale amplitude) \\
+$\eta_{o} = \frac{r}{a}=2-\frac{1}{\delta_{o}\left(o\right)}$ (phase scale amplitude) \\
 $t_o = \frac{r}{c}$ (temporal scale at phase $o$) \\
 $z_o = \frac{1}{\kappa_{Xo}}-1$ (redshift at phase $o$) \\
 $z_{Do}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
@@ -3299,7 +3303,7 @@ $\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical) \\
 $\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (relativistic phase factor) \\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}$ (gravitational phase factor) \\
 $\tau_{W} = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\ \\
-$\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational displacement amplitude) \\
+$\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational shift amplitude) \\
 $O_{o} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos\left(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1\right)$ (orbital balance point where $\kappa_o^2=2\beta_o^2$ is true) \\
 $t = \frac{a}{c}$ (temporal scale as phase period) \\
 $z = \frac{1}{\kappa_{X}}-1$ (redshift) \\
