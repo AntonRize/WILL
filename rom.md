@@ -16,8 +16,8 @@ permalink: /ROM/
 Orbital dynamics requires **no mass, no $G$, no metric, and no spacetime geometry.** 
 
 All observable orbital structure follows from two directly measurable frequency projections:
-- **$\kappa^2 = 1-\frac{1}{(1+z)^2}}$  ($z=$ gravitational redshift)** 
-- **$\beta^2=1-\frac{1}{(1+z_{D})^{2}}}$  ($z_D=$ transverse Doppler shift)**
+- ** $\kappa^2 = 1-\frac{1}{(1+z)^2}$  ($z=$ gravitational redshift)** 
+- ** $\beta^2=1-\frac{1}{(1+z_{D})^{2}}$  ($z_D=$ transverse Doppler shift)**
 
 
 Everything else is **pure algebra**.
@@ -121,8 +121,8 @@ ROM defines a bound system through normalized projections:
 
 | Parameter | Definition | Physical Meaning |
 |-----------|------------|------------------|
-| $\kappa$ | $\sqrt{R_s/a}$ | Global potential projection $\kappa^2 = 1-\frac{1}{(1+z)^2}}$  ($z=$ gravitational redshift) |
-| $\beta$ | $v/c$ | Global kinetic projection $\beta^2=1-\frac{1}{(1+z_{D})^{2}}}$  ($z_D=$ transverse Doppler shift) |
+| $\kappa$ | $\sqrt{R_s/a}$ | Global potential projection $\kappa^2 = 1-\frac{1}{(1+z)^2}$  ($z=$ gravitational redshift) |
+| $\beta$ | $v/c$ | Global kinetic projection $\beta^2=1-\frac{1}{(1+z_{D})^{2}}$  ($z_D=$ transverse Doppler shift) |
 | $W$ | $\frac{1}{2}(\kappa^2 - \beta^2)$ | Energy invariant (binding energy) |
 | $\delta$ | $\frac{\kappa}{\beta\sqrt{2}}$ | Closure factor (measures deviation from circular) |
 
