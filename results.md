@@ -3,101 +3,332 @@ layout: default
 title: "Documents & Key Results"
 ---
 
-<h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">📚 WILL Relational Geometry Research Documents</h3>
+<style>
+/* ── Documents page styles ── */
+.doc-card {
+  background: rgba(31,41,55,0.5);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  border-left: 4px solid;
+  margin-bottom: 0;
+}
+.doc-card.part1 { border-color: #3498db; }
+.doc-card.part2 { border-color: #8e44ad; }
+.doc-card.part3 { border-color: #27ae60; }
 
-Complete research documentation in three parts, covering the theoretical foundation, cosmological applications, and quantum mechanical framework.
+.doc-card h3 {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  border: none;
+  padding: 0;
+}
 
----
+.doc-card .summary {
+  color: #d1d5db;
+  line-height: 1.7;
+  margin: 0 0 1rem 0;
+}
 
-## 📖 Research Parts
+.doc-card .highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem 0;
+}
+.doc-card .highlights li {
+  color: #d1d5db;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  position: relative;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+.doc-card .highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.doc-card.part1 .highlights li::before { background: #3498db; }
+.doc-card.part2 .highlights li::before { background: #8e44ad; }
+.doc-card.part3 .highlights li::before { background: #27ae60; }
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
+.doc-card .meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
 
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db;">
-   <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚡ Part I: Relativistic Foundations</h3>
-    <p style="margin-bottom: 20px; line-height: 1.6;">
-       relational rediscovery of GR and SR from the SPACETIME $\equiv$ ENERGY  principle, yielding a singularity-free, algebraically simple formalism that matches empirical data without dark components. This principle derived by removing the hidden ontological assumption, implicit in modern physics, that structure (spacetime) and dynamics (energy) are separate phenomena (\ref{lem:false-separation}). 
+.doc-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
 
-Applying extreme methodological constraints it establishes \textit{Relational Geometry (RG)}: a foundational framework where spacetime is an emergent property of relational energy transformations. This shift establishes an ontological transition from \textit{descriptive} to \textit{generative} physics: instead of introducing laws to model observations, it derives them as necessary consequences of RG itself - turning physics from a catalogue of phenomena into the logical unfolding of inevitable geometrical constrains on closed relational carriers $S^1$ (directional) and $S^2$ (omnidirectional).
+.btn-open, .btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  text-decoration: none !important;
+  transition: background-color 0.2s;
+}
 
- Without metrics, tensors, or free parameters, it reproduces Lorentz factors, the energy-momentum relation, Schwarzschild and Einstein field equations via the dimensionless projections $\beta$ (kinematic) and $\kappa$ (potential). All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as simple fractions of $(\kappa,\beta)$ from the single closure law $\kappa^2=2\beta^2$ (topologically derived, virial-like (Theorem: Closure).  All results are empirically validated and listed in (Appendix I).
+.btn-open {
+  color: #fff;
+}
+.btn-download {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #d1d5db;
+}
+.btn-download:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
 
-\textbf{\textit{WILL Part~I} offers solutions to several long-standing problems, including:}
-\begin{itemize}
-    \item Resolution of GR singularities (via naturally bounded $\rho_{\max}=\frac{c^{2}}{8\pi G r^{2}}$), 
-    \item Derivation of the equality of gravitational and inertial masses (from the common channel of rest-invariant scaling) \ref{thm:equivalence}, 
-    \item Removal of local energy ambiguity $\rho=\frac{\kappa^{2}c^{2}}{8\pi G r^{2}}$  
-    \item Revelation of a clear relational symmetry between kinematic and potential projections,
-    \item Developed closed system of equations for Relational Orbital Mechanics (ROM) without G, mass and differential formalism.
-    \item Establishment of a computationally simpler and ontologically consistent foundation for subsequent papers on cosmology (Part~II) and quantum mechanics (Part~III).
-    </p>
-    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
-        <strong>Topics:</strong> Geometric principle, SR derivation, GR equivalence, unified field equations
-    </p>
-    <a href="/WILL/documents/WILL_RG_I.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
-        📄 Download Part I
+.part1 .btn-open { background: #2563eb; }
+.part1 .btn-open:hover { background: #1d4ed8; }
+.part2 .btn-open { background: #7e22ce; }
+.part2 .btn-open:hover { background: #6b21a8; }
+.part3 .btn-open { background: #15803d; }
+.part3 .btn-open:hover { background: #166534; }
+
+.supp-card {
+  background: rgba(31,41,55,0.35);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.supp-card h4 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  border: none;
+  padding: 0;
+}
+.supp-card p {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.supp-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.supp-actions a {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.375rem;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+.supp-link {
+  color: #67e8f9 !important;
+  background: rgba(103,232,249,0.08);
+}
+.supp-link:hover {
+  background: rgba(103,232,249,0.15);
+}
+</style>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<div class="border-b border-gray-700 pb-6 mb-8">
+  <h1 class="text-4xl font-extrabold tracking-tight text-white" style="border:none; margin-top:0;">
+    Research Documents
+  </h1>
+  <p class="mt-3 text-lg text-gray-400 font-light" style="max-width:750px;">
+    The complete WILL Relational Geometry research in three parts.
+    All results derive from the single principle
+    <strong style="color:#e5e7eb;">SPACETIME &equiv; ENERGY</strong>
+    and the closure condition&nbsp;\(\kappa^{2}=2\beta^{2}\),
+    without free parameters.
+  </p>
+</div>
+
+
+<!-- ═══════════════════════ DOCUMENT CARDS ═══════════════════════ -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+
+<!-- ── Part I ── -->
+<div class="doc-card part1">
+  <h3>Part I: Relativistic Foundations</h3>
+  <p class="summary">
+    A relational rediscovery of Special and General Relativity from the
+    SPACETIME&nbsp;&equiv;&nbsp;ENERGY principle. Derives Lorentz factors,
+    energy-momentum relations, Schwarzschild geometry, and Einstein field
+    equations using only two dimensionless projections: \(\beta\)&nbsp;(kinematic)
+    and \(\kappa\)&nbsp;(potential) &mdash; without metrics, tensors, or free
+    parameters.
+  </p>
+  <ul class="highlights">
+    <li>Singularity-free gravity via bounded density
+      \(\rho_{\max}=c^{2}/(8\pi G r^{2})\)</li>
+    <li>Equivalence of inertial and gravitational mass derived, not postulated</li>
+    <li>All GR critical surfaces (photon sphere, ISCO, horizons)
+      emerge as simple \((\kappa,\beta)\) fractions</li>
+    <li>Closed-form Relational Orbital Mechanics without \(G\), mass,
+      or differential formalism</li>
+  </ul>
+  <p class="meta">69 pages &middot; Complete</p>
+  <div class="doc-actions">
+    <a href="/WILL/documents/WILL_RG_I.pdf" target="_blank" class="btn-open">
+      Open PDF
     </a>
-</div>
-
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #8e44ad;">
-    <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">🌌 Part II: Resolution of the Cosmological Dark Sector</h3>
-    <p style="margin-bottom: 20px; line-height: 1.6;">
-        we apply the principles of WILL Relational Geometry (RG) to the domain of cosmology and galactic dynamics. By strictly enforcing geometric closure conditions with zero free parameters, we establish a sequential unbroken chain of derivations from first principles to observational evidence:
-     \item \textbf{Hubble parameter: }we derive ($H_0 \approx 68.15$ km/s/Mpc) solely from the CMB temperature and the fine-structure constant ($\alpha$) providing the direct bridge between scales and landing within 1\% of Planck 2018 mission measurement ($H_0 \approx 67.4$ km/s/Mpc).
-
-     \item \textbf{Distant Supernova Flux Levels:}  using this $H_0$ value along with kinetic and potential geometric weights we compare the curve with \textbf{Pantheon+} dataset - deviations remains below 0.015 mag across the entire redshift range.
-
-     \item  \textbf{CMB Acoustic Spectrum:}  utilizing same derived horizon scale, we reconstruct the CMB acoustic spectrum as the resonant harmonics of an $S^2$ topology loaded by $\approx 4.2\%$ baryons, naturally resolving the "Low Quadrupole" anomaly via vacuum stiffness.
-
-     \item \textbf{Galactic Rotation Curves:} we translate the global horizon into a local acceleration scale ($a_{\kappa} = cH_0/3\pi$), which we apply to the SPARC database (175 galaxies). This rigid geometric prescription predicts rotation curves, the Radial Acceleration Relation (RAR), and the linear scaling of Phantom Inertia with equal or higher precision than MOND phenomenology, without any fitting.
-
-     \item \textbf{Dark Lensing:}  we extend this framework to the gravitational lensing of "dark" potentials showing that the same Phantom Inertia responsible for galactic dynamics, also stands behind the "dark lensing" phenomena.
-
-     \item \textbf{Wide Binary Stars:} applied to this dynamic systems the theory correctly predicts the kinetic resonance scale ($a_{\beta} = cH_0/6\pi$) matching recent Gaia DR3 within observational uncertainties. 
- \end{enumerate}
-
-These results demonstrate that a single geometric ontology, devoid of hidden mass or energy sectors, universally predicts empirical data across 20 orders of magnitude. This strongly suggests that the paradigm of "Dark" phenomenology is becoming obsolete, superseded by a transparent \textbf{Relational Geometric Ontology
-    </p>
-    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
-        <strong>Topics:</strong> Cosmic evolution, Ωₘ = 1/3, ΩΛ = 2/3, w = -1, holographic entropy
-    </p>
-    <a href="/WILL/documents/WILL_RG_II.pdf" target="_blank" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded inline-block">
-        📄 Download Part II
+    <a href="/WILL/documents/WILL_RG_I.pdf" download class="btn-download">
+      Download
     </a>
+  </div>
 </div>
 
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60;">
-    <h3 style="color: #fff; font-size: 2em; margin-bottom: 15px;">⚛️ Part III: Relational Quantum Mechanics</h3>
-    <p style="margin-bottom: 20px; line-height: 1.6;">
-        From the foundational principle \textbf{SPACETIME $\equiv$ ENERGY}, we derive the complete structure of the hydrogen atom. By enforcing geometric and topological closure, we demonstrate that quantization is not a separate postulate but an inevitable consequence of a self-consistent relational system. This framework derives the Bohr radius, the quantized energy levels, and reveals the fine structure constant, $\alpha$, to be  kinetic projection parameter, $\beta$, of the electron in its ground state. The derivation requires no classical force analogues, probabilistic wavefunctions, or differential equations, establishing atomic structure as a direct manifestation of relational geometry.
-    </p>
-    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
-        <strong>Topics:</strong> Geometric quantization, α = β derivation, hydrogen spectra, atomic physics
-    </p>
-    <a href="/WILL/documents/WILL_RG_III.pdf.pdf" target="_blank" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded inline-block">
-        📄 Download Part III
+<!-- ── Part II ── -->
+<div class="doc-card part2">
+  <h3>Part II: Cosmological Dark Sector</h3>
+  <p class="summary">
+    Applies Relational Geometry to cosmology and galactic dynamics.
+    With zero free parameters, builds an unbroken derivation chain from
+    first principles to observational data across 20&nbsp;orders of magnitude,
+    replacing the &ldquo;dark sector&rdquo; paradigm with transparent
+    geometric ontology.
+  </p>
+  <ul class="highlights">
+    <li>Hubble parameter \(H_0\approx 68.15\) km/s/Mpc derived from CMB
+      temperature and \(\alpha\) &mdash; within 1% of Planck&nbsp;2018</li>
+    <li>Supernova flux residuals &lt;&thinsp;0.015&nbsp;mag across full
+      Pantheon+ range</li>
+    <li>CMB acoustic spectrum and low-quadrupole anomaly resolved
+      via \(S^2\) topology</li>
+    <li>Galactic rotation curves for 175 SPARC galaxies without fitting</li>
+    <li>Wide binary anomaly and dark lensing explained geometrically</li>
+  </ul>
+  <p class="meta">41 pages &middot; In progress</p>
+  <div class="doc-actions">
+    <a href="/WILL/documents/WILL_RG_II.pdf" target="_blank" class="btn-open">
+      Open PDF
     </a>
+    <a href="/WILL/documents/WILL_RG_II.pdf" download class="btn-download">
+      Download
+    </a>
+  </div>
+</div>
+
+<!-- ── Part III ── -->
+<div class="doc-card part3">
+  <h3>Part III: Relational Quantum Mechanics</h3>
+  <p class="summary">
+    Derives the complete hydrogen atom structure from geometric and
+    topological closure alone. Quantization emerges as an inevitable
+    consequence of relational self-consistency &mdash; not as a separate
+    postulate. No classical force analogues, probabilistic wavefunctions,
+    or differential equations are used.
+  </p>
+  <ul class="highlights">
+    <li>Bohr radius and quantized energy levels from first principles</li>
+    <li>Fine-structure constant \(\alpha\) identified as
+      the ground-state kinematic projection \(\beta_1\)</li>
+    <li>Sommerfeld&ndash;Dirac fine-structure formula derived geometrically</li>
+    <li>Spin and Pauli exclusion as topological chirality of \(S^1\) winding</li>
+  </ul>
+  <p class="meta">30 pages &middot; In progress</p>
+  <div class="doc-actions">
+    <a href="/WILL/documents/WILL_RG_III.pdf" target="_blank" class="btn-open">
+      Open PDF
+    </a>
+    <a href="/WILL/documents/WILL_RG_III.pdf" download class="btn-download">
+      Download
+    </a>
+  </div>
 </div>
 
 </div>
 
----
 
-## 📊 Document Overview
+<!-- ═══════════════════════ SUPPLEMENTARY ═══════════════════════ -->
+<h2 class="text-2xl font-bold text-white" style="border:none; margin-bottom:1.25rem;">
+  Supplementary Documents
+</h2>
 
-| Part | Pages | Focus | Status |
-|------|-------|-------|--------|
-| **I: Relativity** | ~69 | Relativistic Foundations | ✅ Complete |
-| **II: Cosmology** | ~41 | Resolution of the Cosmological Dark Sector | 🔄 In Progress |
-| **III: Quantum** | ~30 | Relational Quantum Mechanics | 🔄 In Progress |
+<div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 3rem;">
 
----
+  <div class="supp-card">
+    <div>
+      <h4>Appendix I &mdash; Empirical Validation</h4>
+      <p>Complete list of empirical tests and observational comparisons</p>
+    </div>
+    <div class="supp-actions">
+      <a href="/WILL/documents/WILL_RG_APPENDIX_I.pdf" target="_blank" class="supp-link">Open</a>
+      <a href="/WILL/documents/WILL_RG_APPENDIX_I.pdf" download class="supp-link">Download</a>
+    </div>
+  </div>
 
-## 🔗 Quick Navigation
+  <div class="supp-card">
+    <div>
+      <h4>LOGOS MAP</h4>
+      <p>Logical structure and derivation flow of the framework</p>
+    </div>
+    <div class="supp-actions">
+      <a href="/WILL/documents/WILL_RG_LOGOS_MAP.pdf" target="_blank" class="supp-link">Open</a>
+      <a href="/WILL/documents/WILL_RG_LOGOS_MAP.pdf" download class="supp-link">Download</a>
+    </div>
+  </div>
 
-- **[Predictions Overview](/WILL/predictions/)** - Key testable predictions
-- **[Galactic Dynamics](/WILL/Galactic_Dynamics/)** - Test galactic dynamics against SPARC dataset
-- **[Ask WILL-AI](/WILL/WILL-AI/)** - AI trained on WILL RG documents
-- **[Main Research Page](/WILL/)** - Return to overview
+  <div class="supp-card">
+    <div>
+      <h4>Precession of S4716</h4>
+      <p>Orbital precession calculation for the S4716 star</p>
+    </div>
+    <div class="supp-actions">
+      <a href="/WILL/documents/Precession_of_S4716.pdf" target="_blank" class="supp-link">Open</a>
+      <a href="/WILL/documents/Precession_of_S4716.pdf" download class="supp-link">Download</a>
+    </div>
+  </div>
 
----
+</div>
+
+
+<!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<hr style="border-color:#374151; margin:0 0 2rem 0;">
+
+<h2 class="text-2xl font-bold text-white" style="border:none; margin-bottom:1.25rem;">
+  Explore Further
+</h2>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+  <a href="/WILL/predictions/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>Testable Predictions</h4>
+      <p>Quantitative, falsifiable predictions</p>
+    </div>
+  </a>
+  <a href="/WILL/Galactic_Dynamics/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>Galactic Dynamics</h4>
+      <p>SPARC dataset interactive lab</p>
+    </div>
+  </a>
+  <a href="/WILL/assistant/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>WILL AI</h4>
+      <p>AI trained on research documents</p>
+    </div>
+  </a>
+  <a href="/WILL/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>Home</h4>
+      <p>Return to overview</p>
+    </div>
+  </a>
+</div>
