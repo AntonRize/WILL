@@ -2458,31 +2458,31 @@ Radar telemetry directly measures the orbital velocity at perihelion ($v_p \appr
 \]
 
 \paragraph{2. Input: Potential Projection ($\kappa_p$).}
-Instead of deriving potential from mass, we derive it from the \textbf{measured gravitational redshift }of the Sun's photosphere, $z_{\text{surface}} \approx 2.12 \times 10^{-6}$.
+Instead of deriving potential from mass, we derive it from the \textbf{measured gravitational redshift }of the Sun's photosphere, $z_{\text{sun}} \approx 2.12 \times 10^{-6}$.
 
-Using the $S^2$ relational carrier geometric omnidirectional scaling law of the potential projection ($\kappa^2 \propto 1/r$), we relate the known potential at the solar physical radius ($r_{\text{surface}}$) to the potential at Mercury's perihelion radius ($r_p$):
+Using the $S^2$ relational carrier geometric omnidirectional scaling law of the potential projection ($\kappa^2 \propto 1/r$), we relate the known potential at the solar physical radius ($R_{\text{sun}}$) to the potential at Mercury's perihelion radius ($r_p$):
 \[
-\kappa^2(r_p) = \kappa^2(r_{\text{surface}}) \cdot \left( \frac{r_{\text{surface}}}{r_p} \right).
+\kappa^2(r_p) = \kappa^2(R_{\text{sun}}) \cdot \left( \frac{R_{\text{sun}}}{r_p} \right).
 \]
-Using the redshift relation $\kappa^2(r_{\text{surface}}) = 1 - (1+z_{\text{surface}})^{-2} \approx 2z_{\text{surface}}$:
+Using the redshift relation $\kappa^2(R_{\text{sun}}) = 1 - (1+z_{\text{sun}})^{-2} \approx 1-\left(1+2.12\cdot10^{-6}\right)^{-2} \approx 4.23998651684\cdot10^{-6}$:
 \[
-\kappa_p^2 \approx 2 z_{\text{surface}} \left( \frac{r_{\text{surface}}}{r_p} \right).
+\kappa_p^2 \approx \kappa^2(R_{\text{sun}})  \left( \frac{R_{\text{sun}}}{r_p} \right).
 \]
-Using the observed geometric ratio of radii $r_{\text{surface}}/r_p \approx 0.01513$:
+Using the observed geometric ratio of radii $R_{\text{sun}}/r_p \approx 0.0151209589753$:
 \[
-\kappa_p^2 \approx 2(2.12 \times 10^{-6})(0.01513) \approx 6.415 \times 10^{-8}.
+\kappa_p^2 \approx  4.23998651684\cdot10^{-6} \cdot 0.0151209589753 \approx 6.4112662177\times10^{-8}
 \]
 
 \paragraph{3. Calculate Closure Fac tor ($\delta_p$).}
 With both projections determined purely from light measurements:
 \[
-\delta_p = \frac{\kappa_p^2}{2\beta_p^2} = \frac{6.415\times10^{-8}}{2 \times 3.869089\times10^{-8}} \approx 0.8290065.
+\delta_p = \frac{\kappa_p^2}{2\beta_p^2} = \frac{6.4112662177\times10^{-8}}{2 \times 3.8705094361\times10^{-8}} \approx 0.828219944121.
 \]
 
 \paragraph{4. Predict Eccentricity ($e$).}
 The orbital shape is strictly enforced by the closure defect:
 \[
-e_{\text{pred}} = \frac{1}{\delta_p} - 1 = \frac{1}{0.8290065} - 1 \simeq 0.20626.
+e_{\text{pred}} = \frac{1}{\delta_p} - 1 = \frac{1}{0.828219944121} - 1 \simeq 0.207408740997.
 \]
 
 \textbf{Conclusion:} The predicted eccentricity matches the observed value ($e \approx 0.20626$). 
@@ -3214,7 +3214,7 @@ Same projectional law applies from microscopic $\alpha = \beta_1$ (QM) to cosmic
 
 By focusing on the projectional nature of energy, we have shown that spacetime itself is merely the manifestation of energy.
 
-From a single Ontological Principle-that spacetime is equivalent to energy-we derived all the mathematical apparatus needed to describe gravitational and relativistic phenomena. This unification, showing that energy, time and space  are merely different projections of the same underlying structure.
+From a single Ontological Principle-that spacetime is equivalent to energy - we derived all the mathematical apparatus needed to describe gravitational and relativistic phenomena. This unification, showing that energy, time and space  are merely different projections of the same underlying structure.
 
 \[
 \boxed{\text{Special and General Relativity emerge from the same geometric principles.}}
@@ -3274,13 +3274,13 @@ $T = \frac{2\pi}{\omega}$ (orbital period) \\
 $Q_{p} = \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}}$  (relational shift at perihelion) \\
 
 \subsubsection*{Time Integration} \\
-$\omega_{o}\left(o\right)=\frac{\beta\cdot c}{a}\cdot\frac{\left(1+e\cdot\cos\left(o\right)\right)^{2}}{\left(1-e^{2}\right)^{\frac{3}{2}}}$ (angular frequency for time integration) \\
-$\Delta_{t1} = \int_{0}^{o}\frac{1}{\omega_{\theta}(\theta)}\,d\theta$ (time duration of given phase interval) \\
+$\omega_{o}\left(o\right)=\frac{\beta\cdot c}{a}\cdot\frac{\left(1+e\cdot\cos\left(o\right)\right)^{2}}{\left(1-e^{2}\right)^{\frac{3}{2}}}$  (angular frequency for time integration) \\
+$\Delta_{t1} = \int_{0}^{o}\frac{1}{\omega_{\theta}(\theta)}\,d\theta$  (time duration of given phase interval) \\
 
 \subsubsection*{Apocenter Relations} \\
-$\beta_{a} = \sqrt{\beta_{p}^{2} e_{X}^{2}} = \beta\sqrt{e_{X}}$ (kinetic projection at apocenter) \\
-$\kappa_{a} = \sqrt{2W+\beta_{a}^{2}}$ (potential projection at apocenter) \\
-$\delta_{\text{a}} = \frac{1}{1-e}=\frac{\kappa_{a}^{2}}{2\beta_{a}^{2}}$ (closure factor at apocenter) \\
+$\beta_{a} = \sqrt{\beta_{p}^{2} e_{X}^{2}} = \beta\sqrt{e_{X}}$  (kinetic projection at apocenter) \\
+$\kappa_{a} = \sqrt{2W+\beta_{a}^{2}}$  (potential projection at apocenter) \\
+$\delta_{\text{a}} = \frac{1}{1-e}=\frac{\kappa_{a}^{2}}{2\beta_{a}^{2}}$  (closure factor at apocenter) \\
 
 \subsubsection*{Phase Variables (Depend on $o$)} \\
 $r = r_o (o)= a\frac{1-e^{2}}{1+e\cos o} = \frac{R_s}{\kappa_o^2}$ (radial distance at phase $o$) \\
@@ -3291,14 +3291,14 @@ $\beta_{Yo} = \sqrt{1 - \beta_o^{2}}$    (relativistic phase factor at phase $o$
 $\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $o$) \\
 $Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift vector at phase $o$) \\
 $\omega_o = a\beta c\frac{e_{Y}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e\cos o)^{2}}{(1-e^{2})^{3/2}}$ (angular speed) \\
-$\eta_{o} = \frac{r}{a}=2-\frac{1}{\delta_{o}\left(o\right)}$ (phase scale amplitude) \\
+$\eta_{o} = \frac{r}{a}=2-\frac{2\beta_{o}\left(o\right)^{2}}{\kappa_{o}\left(o\right)^{2}}$  (phase scale amplitude) \\
 $t_o = \frac{r}{c}$ (temporal scale at phase $o$) \\
 $z_o = \frac{1}{\kappa_{Xo}}-1$ (redshift at phase $o$) \\
 $z_{Do}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
 $\tau_{Wo}\left(o\right)=\kappa_{Xo}\left(o\right)\cdot\beta_{Yo}\left(o\right)= Z_{tot}(o)^{-1}$ (phase spacetime factor) \\
 
 \subsubsection*{Relational Geometry (WILL)} \\
-$\theta_{1} = \arccos(\beta)$ (distribution angle on $S^1$, non-physical) \\
+$\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical) \\
 $\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical) \\
 $\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (relativistic phase factor) \\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}$ (gravitational phase factor) \\

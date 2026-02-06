@@ -361,9 +361,9 @@ $$\tau_W = \kappa_X \beta_Y$$ *(spacetime factor)* | $$z = \frac{1}{\kappa_X} - 
 ## Further Reading
 
 For the full theoretical derivation and connection to WILL Relational Geometry:
-- [WILL-AI](/WILL-AI/)
-- [Complete Results & Documents](/results/)
-- [Testable Predictions](/predictions/)
+- [WILL-AI](/WILL/WILL-AI/)
+- [Complete Results & Documents](/WILL/results/)
+- [Testable Predictions](/WILL/predictions/)
 
 For questions or collaboration:
 - Email: [freewillrg@gmail.com](mailto:freewillrg@gmail.com)
