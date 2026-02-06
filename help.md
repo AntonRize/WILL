@@ -32,7 +32,7 @@ There is no institutional funding behind this; it is driven by first-principles 
 - A deeper understanding of the universe and our place in it.
 - Preserving the tradition of open, verifiable science.
 - Empowering independent researchers outside institutional constraints.
-- [See current results & predictions]({{ site.baseurl }}/results/)
+- [See current results & predictions]({{ site.baseurl }}/predictions/)
 
 ## Contact
 For collaboration or questions: [freewillrg@gmail.com](mailto:freewillrg@gmail.com)
