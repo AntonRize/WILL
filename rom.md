@@ -124,7 +124,7 @@ ROM defines a bound system through normalized projections:
 | $\kappa$ | $\sqrt{R_s/a}$ | Global potential projection $\kappa^2 = 1-\frac{1}{(1+z)^2}$  ($z=$ gravitational redshift) |
 | $\beta$ | $v/c$ | Global kinetic projection $\beta^2=1-\frac{1}{(1+z_{D})^{2}}$  ($z_D=$ transverse Doppler shift) |
 | $W$ | $\frac{1}{2}(\kappa^2 - \beta^2)$ | Energy invariant (binding energy) |
-| $\delta$ | $\frac{\kappa}{\beta\sqrt{2}}$ | Closure factor (measures deviation from circular) |
+| $\delta$ | $\frac{\kappa^2}{2\beta^2}$ | Closure factor (measures deviation from circular) |
 
 **Key insight:** These are not coordinates in space. They are **projections on the observer's measurement sphere** - the fundamental relational quantities you measure directly with light.
 
@@ -132,7 +132,7 @@ ROM defines a bound system through normalized projections:
 
 The most important quantity in ROM is $W$:
 
-$$W = \frac{1}{2}(\kappa_p^2 - \beta_p^2) = \frac{1}{4}\kappa^2(1-e_c) = \text{constant at all phases}$$
+$$W = \frac{1}{2}(\kappa_p^2 - \beta_p^2) = \frac{1}{4}\kappa_p^2(1-e_c) = \frac{\kappa^2}{4} = \text{constant at all phases}$$
 
 This single number determines:
 - Whether the orbit is bound ($W > 0$)
@@ -143,7 +143,7 @@ This single number determines:
 
 Eccentricity is not a free parameter - it emerges from the **closure condition**:
 
-$$e_c = \frac{2\beta_p^2}{\kappa_p^2} - 1 = \frac{1}{\delta_p^2} - 1$$
+$$e_c = \frac{2\beta_p^2}{\kappa_p^2} - 1 = \frac{1}{\delta_p} - 1$$
 
 This connects orbital shape directly to the **ratio of gravitational redshift to Doppler shift**.
 
@@ -151,40 +151,54 @@ This connects orbital shape directly to the **ratio of gravitational redshift to
 
 ## From Optical Measurements to Predictions
 
-### Path 1: Verification (Mercury Example)
+### Path 1: Verification on Mercury (Pure Optical Inputs)
 
-**Pure Optical Inputs - No mass or $G$ needed:**
+We validate the theory using Mercury, utilizing only direct optical measurements (Doppler and Redshift). We implicitly assume **zero knowledge** of the Sun's mass, the gravitational constant $G$, or the Schwarzschild radius derived from them.
 
-**Step 1: Measure Kinematic Projection**
-- Perihelion velocity: $v_p = 58.98$ km/s (radar telemetry)
-- Kinematic projection: $\beta_p = v_p/c = 1.967 \times 10^{-4}$
+| **Parameter** | **Symbol** | **Value** | **Source** |
+|---|---|---|---|
+| Mercury Velocity (Perihelion) | $v_{p}$ | $58{,}980 \text{ m/s}$ | NASA Eclipse Mercury |
+| Mercury Distance (Perihelion) | $r_{p}$ | $46.0012 \times 10^9 \text{ m}$ | Universe Today Mercury |
+| Solar Radius (Nominal) | $R_{\text{sun}}$ | $6.957 \times 10^8 \text{ m}$ | IAU 2015 Res B3 |
+| Solar Gravitational Redshift | $z_{\text{sun}}$ | $2.1224 \times 10^{-6}$ | IAU 2015 Res B3 |
 
-**Step 2: Measure Potential Projection**
-- Sun's surface redshift: $z_{\text{surface}} = 2.12 \times 10^{-6}$ (spectroscopy)
-- Surface potential: $\kappa^2_{\text{surface}} \approx 2z_{\text{surface}}$
-- Scale to perihelion using $\kappa^2 \propto 1/r$:
+**1. Input: Kinematic Projection ($\beta_p$).**
 
-$$\kappa_p^2 = 2z_{\text{surface}} \left(\frac{r_{\text{surface}}}{r_p}\right) = 2(2.12 \times 10^{-6})(0.01513) = 6.415 \times 10^{-8}$$
+Radar telemetry directly measures the orbital velocity at perihelion ($v_p \approx 58.98$ km/s). The kinematic projection is simply this velocity normalized by the speed of light:
 
-$$\kappa_p = 2.533 \times 10^{-4}$$
+$$\beta_p = \frac{v_p}{c} \approx 1.967 \times 10^{-4}$$
 
-**Step 3: Calculate Closure Factor**
+$$\beta_p^2 \approx 3.8705094361 \times 10^{-8}$$
 
-$$\delta_p = \frac{\kappa_p}{\sqrt{2}\beta_p} = \frac{2.533 \times 10^{-4}}{1.414 \times 1.967 \times 10^{-4}} = 0.9108$$
+**2. Input: Potential Projection ($\kappa_p$).**
 
-**Step 4: Predict Eccentricity**
+Instead of deriving potential from mass, we derive it from the **measured gravitational redshift** of the Sun's photosphere, $z_{\text{sun}} \approx 2.1224 \times 10^{-6}$.
 
-$$e_{\text{pred}} = \frac{1}{\delta_p^2} - 1 = \frac{1}{(0.9108)^2} - 1 = 0.2056$$
+Using the $S^2$ relational carrier geometric omnidirectional scaling law of the potential projection ($\kappa^2 \propto 1/r$), we relate the known potential at the solar physical radius ($R_{\text{sun}}$) to the potential at Mercury's perihelion radius ($r_p$):
 
-**Result:** Perfect match with observed $e = 0.2056$! The orbital shape is fully determined by the **ratio of redshift to Doppler shift**.
+$$\kappa^2(r_p) = \kappa^2(R_{\text{sun}}) \cdot \left( \frac{R_{\text{sun}}}{r_p} \right)$$
 
-**Step 5: Predict Precession**
+Using the redshift relation $\kappa^2(R_{\text{sun}}) = 1 - (1+z_{\text{sun}})^{-2} \approx 1-\left(1+2.1224\cdot10^{-6}\right)^{-2} \approx 4.2447864862\cdot10^{-6}$:
 
-$$\Delta\phi = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2} = \frac{3\pi}{2}\frac{(2.533 \times 10^{-4})^4}{(1.967 \times 10^{-4})^2} = 5.00 \times 10^{-7} \text{ rad/orbit}$$
+$$\kappa_p^2 \approx \kappa^2(R_{\text{sun}}) \left( \frac{R_{\text{sun}}}{r_p} \right)$$
 
-$$= 43.0 \text{ arcsec/century}$$
+Using the observed geometric ratio of radii $R_{\text{sun}}/r_p \approx 0.0151235185169$:
 
-**Perfect agreement** - and we never used $M$ or $G$!
+$$\kappa_p^2 \approx 4.2447864862\cdot10^{-6}\cdot 0.0151235185169 \approx 6.4196107024\times10^{-8}$$
+
+**3. Calculate Closure Factor ($\delta_p$).**
+
+With both projections determined purely from light measurements:
+
+$$\delta_p = \frac{\kappa_p^2}{2\beta_p^2} = \frac{6.4196107024\times10^{-8}}{2 \times 3.8705094361\times10^{-8}} \approx 0.829297901025$$
+
+**4. Predict Eccentricity ($e$).**
+
+The orbital shape is strictly enforced by the closure defect:
+
+$$e_{\text{pred}} = \frac{1}{\delta_p} - 1 = \frac{1}{0.829297901025} - 1 \simeq 0.205839299441$$
+
+**Conclusion:** The predicted eccentricity closely matches (within inputs uncertainty) the observed value ($e \approx 0.2056$). This demonstrates that the orbital geometry is fully determined by the ratio of the central redshift to the orbital Doppler shift, with no reference to mass or $G$.
 
 ### Path 2: Reconstruction (Star S2 Example)
 
@@ -209,6 +223,47 @@ $$\Delta\phi = \frac{3\pi}{2}\frac{(0.02627)^4}{(0.0255)^2} = 3.45 \times 10^{-3
 $$M = \frac{c^2 r_p}{2G}\kappa_p^2 = 4.15 \times 10^6 M_{\odot}$$
 
 Mass is **derived**, not required as input.
+
+### The Universal Precession Law: Derivation via $Q_a$
+
+**Derivation of the Phase Shift.**
+
+The precession is intrinsic to the relational shift. Since $Q_a$ represents the norm of deviation from the Euclidean background, the system accumulates a phase mismatch over every closed cycle. The total angular shift is simply the full orbital phase ($2\pi$) scaled by the quadratic intensity of this shift ($Q_a^2$), normalized by the elliptical geometry factor ($1-e^2$):
+
+$$\Delta\varphi = \underbrace{2\pi}_{\text{Cycle}} \cdot \underbrace{Q_a^2}_{\text{Intensity}} \cdot \underbrace{\frac{1}{1-e^2}}_{\text{Shape Factor}} = \frac{2\pi\,Q_a^{2}}{1-e^{2}}$$
+
+This yields the general precession law strictly from geometric accumulation:
+
+$$\Delta\varphi = \frac{2\pi\,Q_a^{2}}{1-e^{2}}$$
+
+Substituting $Q_a^2$, we recover the standard form purely algebraically:
+
+We select the semi-major axis $a$ as this reference scale, defining the norm $Q_a$.
+At the scale $r=a$, the closure condition ($\kappa^2=2\beta^2$) implies the specific distribution of the invariant Schwarzschild scale $R_s$:
+
+$$\kappa^2(a) = \frac{R_s}{a}, \qquad \beta^2(a) = \frac{R_s}{2a}$$
+
+Substituting these into the definition of the relational shift norm $Q^2 = \beta^2 + \kappa^2$:
+
+$$Q_a^2 = \frac{R_s}{2a} + \frac{R_s}{a} = \frac{3R_s}{2a}$$
+
+$$\Delta\varphi = \frac{2\pi}{1-e^2} \left( \frac{3R_s}{2a} \right) = \frac{3\pi R_s}{a(1-e^2)}$$
+
+#### Transformation to Periapsis Observables
+
+To eliminate the abstract parameters $R_s, a, e$ in favor of direct observables, we map this expression to the periapsis ($p$), where interaction is maximal.
+
+Using the identities $R_s = \kappa_p^2 r_p$ and $a(1-e^2) = r_p(1+e)$, and the closure relation $(1+e) = 1/\delta_p = 2\beta_p^2/\kappa_p^2$, we arrive at the ultimate operational reduction.
+
+The secular evolution of an orbit is determined solely by the **ratio of the gravitational redshift to the Doppler shift** (red vs. blue) at the point of closest approach:
+
+$$\boxed{\Delta\varphi = \frac{3}{2}\pi \frac{\kappa_p^4}{\beta_p^2}}$$
+
+This equation replaces the complex dynamical derivation with a direct comparison of light interactions.
+
+$$\boxed{\textbf{No differential equations. No metric. Pure algebra of light red vs. blue ratio}}$$
+
+This formula reveals that relativistic precession is fundamentally a fourth-order effect in the gravitational projection ($\kappa^4$) moderated by the kinematic projection. The factor $\frac{3}{2}\pi$ is purely geometric, emerging from the $S^1\cdot S^2$ carrier structure.
 
 ---
 
@@ -257,8 +312,8 @@ Only the scale factor $a$ differs. All physics - eccentricity, precession, energ
 
 **"Eccentricity ≡ Closure Defect"**
 - Orbital shape measures deviation from perfect energy balance
-- $e = \frac{1}{\delta^2} - 1$ connects shape to red/blue ratio
-- Circles occur when $\kappa = \beta\sqrt{2}$ (perfect closure)
+- $e = \frac{1}{\delta} - 1$ connects shape to red/blue ratio
+- Circles occur when $\kappa^2 = 2\beta^2$ (perfect closure)
 
 ---
 
@@ -312,7 +367,7 @@ From these two measurements, the entire system closes algebraically. This offers
 
 $$R_s = \kappa^2 a$$ *(Schwarzschild radius)* | $$\kappa = \sqrt{\frac{R_s}{a}} = \sqrt{4W}$$ *(global potential)* | $$\beta = \sqrt{2W}$$ *(global kinetic)*
 
-$$a = \frac{R_s}{\kappa^2}$$ *(semi-major axis)* | $$\delta = \frac{\kappa_p}{\beta_p\sqrt{2}} = \frac{1}{\sqrt{1+e_c}}$$ *(closure factor)* | $$Q = \sqrt{\kappa^2 + \beta^2}$$ *(displacement)*
+$$a = \frac{R_s}{\kappa^2}$$ *(semi-major axis)* | $$\delta_p = \frac{\kappa_p^2}{2\beta_p^2} = \frac{1}{1+e_c}$$ *(closure factor)* | $$Q = \sqrt{\kappa^2 + \beta^2}$$ *(displacement)*
 
 ### Eccentricity Relations
 
@@ -328,7 +383,7 @@ $$\beta_p = \sqrt{\kappa_p^2 \cdot \frac{1+e_c}{2}}$$ *(kinetic at perihelion)* 
 
 $$r_a = a(1+e_c)$$ *(radius at aphelion)* | $$\kappa_a = \sqrt{2W + \beta_a^2}$$ *(potential at aphelion)*
 
-$$\beta_a = \beta\sqrt{e_X}$$ *(kinetic at aphelion)* | $$\delta_{\text{apo}} = \frac{1}{\sqrt{1-e_c}}$$ *(closure at aphelion)*
+$$\beta_a = \frac{\beta}{\sqrt{e_X}}$$ *(kinetic at aphelion)* | $$\delta_{\text{apo}} = \frac{1}{1-e_c}$$ *(closure at aphelion)*
 
 ### Phase-Dependent Quantities
 
@@ -338,7 +393,7 @@ $$r_o = a\frac{1-e_c^2}{1+e_c\cos o}$$ *(radial distance)* | $$\eta_o = \frac{r_
 
 $$\kappa_o = \kappa_p\sqrt{\frac{1+e_c\cos o}{1+e_c}}$$ *(local potential)* | $$\beta_o = \sqrt{\kappa_o^2 - 2W}$$ *(local kinetic)*
 
-$$\delta_o = \frac{\kappa_o}{\beta_o\sqrt{2}}$$ *(local closure)* | $$Q_o = \sqrt{\kappa_o^2 + \beta_o^2}$$ *(local displacement)*
+$$\delta_o = \frac{\kappa_o^2}{2\beta_o^2}$$ *(local closure)* | $$Q_o = \sqrt{\kappa_o^2 + \beta_o^2}$$ *(local displacement)*
 
 ### Orbital Characteristics
 
