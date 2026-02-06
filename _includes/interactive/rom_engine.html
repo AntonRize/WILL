@@ -185,7 +185,7 @@
         derivation_note = "Given M and T, compute ROM parameters";
       }
       
-      const delta = kappa_p / (beta_p * Math.sqrt(2));
+      const delta = kappa_p**2 / (2 * beta_p**2);
       const e_cY = Math.sqrt(Math.abs(1 - e_c**2));
       const r_p = a * (1-e_c);
       const r_a = a * (1+e_c);
@@ -203,7 +203,7 @@
       const eta = r_o / state.a;
       const kappa_o = state.kappa_p * Math.sqrt((1 + state.e_c*Math.cos(o)) / (1+state.e_c));
       const beta_o = Math.sqrt(Math.max(0, kappa_o**2 - 2*state.W));
-      const delta_o = beta_o > 0 ? kappa_o / (beta_o * Math.sqrt(2)) : 0;
+      const delta_o = beta_o > 0 ? kappa_o**2 / (2 * beta_o**2) : 0;
       return { eta, kappa_o, beta_o, delta_o };
     };
     
