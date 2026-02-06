@@ -1,24 +1,19 @@
 ---
-layout: default
+layout: chat
 title: "WILL AI"
 permalink: /WILL-AI/
 ---
 
-<div id="root"></div>
+<div id="root" class="h-full"></div>
 
 <style>
-    body { 
-        margin: 0; 
-        background-color: #111827; /* Dark background for the whole page */
-    }
     textarea::-webkit-scrollbar{
         width:4px
     }
-    /* This rule ensures paragraphs inside the AI response have spacing */
+    /* Paragraph spacing inside AI responses */
     .ai-message-bubble p {
         margin-bottom: 1em;
     }
-    /* Removes margin from the very last paragraph to avoid extra space at the bottom */
     .ai-message-bubble p:last-child {
         margin-bottom: 0;
     }
@@ -130,10 +125,10 @@ permalink: /WILL-AI/
         const [ks,setKs]=useState('loading');
         const welcome={
             id:0,
-            txt:renderMarkdownWithLatex("👋 **Hi! I am WILL AI**\n\nAsk me anything about WILL Relational Geometry.\n\n**Disclaimer:** I can make mistakes - always doublechek with WILL original documentation."),
+            txt:renderMarkdownWithLatex("**Hi! I am WILL AI**\n\nAsk me anything about WILL Relational Geometry.\n\n**Disclaimer:** I can make mistakes - always doublecheck with WILL original documentation."),
             user:false,
             isWelcome:true,
-            raw:"👋 Hi! I am WILL AI Ask me anything about WILL Relational Geometry. Disclaimer: I can make mistakes - always doublechek with WILL original documentation."
+            raw:"Hi! I am WILL AI Ask me anything about WILL Relational Geometry. Disclaimer: I can make mistakes - always doublecheck with WILL original documentation."
         };
         const [log,setLog]=useState([welcome]);
         const logRef=useRef([welcome]);
@@ -198,13 +193,13 @@ permalink: /WILL-AI/
                 sendLog();
                 return;
             }
-            
+
             setBusy(true);
             const lang = isRu(q) ? 'Russian' : 'English';
 
             try {
                 const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
-        
+
                 const formattingInstruction = `
 <SYSTEM_INSTRUCTIONS>
 
@@ -261,55 +256,74 @@ ${q}
                 const errorMessage = String(e.message || '');
 
                 if (errorMessage.includes('overloaded')) {
-                    friendlyError = lang === 'Russian' 
-                        ? 'Сервер AI сейчас перегружен большим количеством запросов. 🚗 Пожалуйста, повторите ваш запрос через минуту.'
-                        : 'The AI server is currently overloaded with requests. 🚗 Please try your request again in a moment.';
+                    friendlyError = lang === 'Russian'
+                        ? 'Сервер AI сейчас перегружен большим количеством запросов. Пожалуйста, повторите ваш запрос через минуту.'
+                        : 'The AI server is currently overloaded with requests. Please try your request again in a moment.';
                 } else if (errorMessage.includes('TIMEOUT')) {
                     friendlyError = lang === 'Russian'
-                        ? 'Ваш запрос очень сложный, и AI потребовалось слишком много времени на размышления. ⏳ Пожалуйста, попробуйте задать тот же вопрос еще раз или немного упростите его.'
-                        : 'Your request is very complex and the AI took too long to think. ⏳ Please try asking the same question again, or try simplifying it a little.';
+                        ? 'Ваш запрос очень сложный, и AI потребовалось слишком много времени на размышления. Пожалуйста, попробуйте задать тот же вопрос еще раз или немного упростите его.'
+                        : 'Your request is very complex and the AI took too long to think. Please try asking the same question again, or try simplifying it a little.';
                 } else {
-                    friendlyError = '⚠️ ' + errorMessage;
+                    friendlyError = errorMessage;
                 }
-                
+
                 push(friendlyError, false, friendlyError);
                 sendLog();
             }
             setBusy(false);
         }
 
-        return React.createElement('div',{className:'flex flex-col h-screen w-full max-w-4xl mx-auto p-4 box-border'},
-            ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 mb-2'},
-                ks==='loading'?'KB loading…':'KB error (check console)'
+        /* ── Render ── */
+        return React.createElement('div',{className:'flex flex-col h-full'},
+
+            /* KB status bar */
+            ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 py-1 flex-shrink-0'},
+                ks==='loading'?'Knowledge base loading…':'KB error (check console)'
             ),
-            React.createElement('div',{className:'flex-1 overflow-y-auto space-y-4 bg-slate-800 p-4 rounded-lg'},
-                log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
-                    m.user?
-                    React.createElement('div',{
-                        className:`max-w-[80%] p-3 rounded-xl bg-cyan-700 text-white`,
-                        style:{whiteSpace:'pre-wrap'}
-                    },m.txt)
-                    :
-                    React.createElement('div',{
-                        className:`ai-message-bubble max-w-[80%] p-3 rounded-xl bg-slate-700 ${m.isWelcome?'border border-yellow-400':''}`,
-                        dangerouslySetInnerHTML:{__html:m.txt}
-                    })
-                )),
-                busy&&React.createElement('div',{className:'text-slate-300'},"Thinking…"),
-                React.createElement('div',{ref:endRef})
+
+            /* Messages area — the ONLY scrollable element */
+            React.createElement('div',{className:'flex-1 min-h-0 overflow-y-auto px-4 md:px-8 lg:px-16 py-4'},
+                React.createElement('div',{className:'max-w-4xl mx-auto space-y-4'},
+                    log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
+                        m.user?
+                        React.createElement('div',{
+                            className:'max-w-[85%] p-3 rounded-2xl bg-cyan-700 text-white',
+                            style:{whiteSpace:'pre-wrap'}
+                        },m.txt)
+                        :
+                        React.createElement('div',{
+                            className:`ai-message-bubble max-w-[85%] p-4 rounded-2xl bg-slate-700/80 text-slate-100 ${m.isWelcome?'border border-cyan-500/40':''}`,
+                            dangerouslySetInnerHTML:{__html:m.txt}
+                        })
+                    )),
+                    busy&&React.createElement('div',{className:'flex justify-start'},
+                        React.createElement('div',{className:'p-4 rounded-2xl bg-slate-700/80 text-slate-300'},
+                            React.createElement('span',{className:'inline-flex gap-1'},
+                                React.createElement('span',{className:'animate-bounce',style:{animationDelay:'0ms'}},'·'),
+                                React.createElement('span',{className:'animate-bounce',style:{animationDelay:'150ms'}},'·'),
+                                React.createElement('span',{className:'animate-bounce',style:{animationDelay:'300ms'}},'·')
+                            )
+                        )
+                    ),
+                    React.createElement('div',{ref:endRef})
+                )
             ),
-            React.createElement('div',{className:'mt-3 flex gap-2'},
-                React.createElement('textarea',{
-                    ref:textRef,
-                    className:'flex-1 resize-none bg-slate-700 text-slate-50 rounded-xl p-3 focus:outline-none',
-                    rows:1,value:inp,placeholder:'Ask about WILL Geometry…',
-                    onInput:e=>{setInp(e.target.value);e.target.style.height='auto';e.target.style.height=e.target.scrollHeight+'px';},
-                    onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
-                }),
-                React.createElement('button',{
-                    className:'px-4 py-2 bg-cyan-600 text-white rounded-xl disabled:opacity-50',
-                    disabled:!inp.trim()||busy,onClick:send
-                },'Send')
+
+            /* Input bar — pinned to the bottom */
+            React.createElement('div',{className:'flex-shrink-0 border-t border-slate-700/50 bg-gray-900/80 backdrop-blur-sm px-4 md:px-8 lg:px-16 py-3'},
+                React.createElement('div',{className:'max-w-4xl mx-auto flex gap-2 items-end'},
+                    React.createElement('textarea',{
+                        ref:textRef,
+                        className:'flex-1 resize-none bg-slate-800 text-slate-50 rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
+                        rows:1,value:inp,placeholder:'Ask about WILL Geometry…',
+                        onInput:e=>{setInp(e.target.value);e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,160)+'px';},
+                        onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
+                    }),
+                    React.createElement('button',{
+                        className:'px-5 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors disabled:opacity-40 disabled:hover:bg-cyan-600',
+                        disabled:!inp.trim()||busy,onClick:send
+                    },'Send')
+                )
             )
         );
     }
