@@ -2447,6 +2447,20 @@ $$\text{SPACETIME} \equiv \text{ENERGY}$$
 \subsection{Path 1: Verification on Mercury (Pure Optical Inputs)}
 
 We validate the theory using Mercury, utilizing only direct optical measurements (Doppler and Redshift). We implicitly assume \textbf{zero knowledge} of the Sun's mass, the gravitational constant $G$, or the Schwarzschild radius derived from them.
+\begin{table}[h!]
+\centering
+\caption{Used Inputs}
+\label{tab:mercury_params}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lccc}
+\hline
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} & \textbf{Source} \\ \hline
+Mercury Velocity (Perihelion) & $v_{p}$& $58,980 \text{ m/s}$ & \cite{NASA_Eclipse_Mercury} \\
+Mercury Distance (Perihelion) & $r_{p}$& $46.0012 \times 10^9 \text{ m}$ & \cite{UniverseToday_Mercury} \\
+Solar Radius (Nominal) & $R_{sun}$& $6.957 \times 10^8 \text{ m}$ & \cite{IAU_2015_ResB3} \\
+Solar Gravitational Redshift & $z_{sun}$& $2.1224 \times 10^{-6}$ & \cite{IAU_2015_ResB3} \\ \hline
+\end{tabular}
+\end{table}
 
 \paragraph{1. Input: Kinematic Projection ($\beta_p$).}
 Radar telemetry directly measures the orbital velocity at perihelion ($v_p \approx 58.98$ km/s). The kinematic projection is simply this velocity normalized by the speed of light:
@@ -2454,38 +2468,38 @@ Radar telemetry directly measures the orbital velocity at perihelion ($v_p \appr
 \beta_p = \frac{v_p}{c} \approx 1.967 \times 10^{-4}.
 \]
 \[
-\beta_p ^2 \approx  3.869089\times10^{-8}
+\beta_p ^2 \approx  3.8705094361\times10^{-8}
 \]
 
 \paragraph{2. Input: Potential Projection ($\kappa_p$).}
-Instead of deriving potential from mass, we derive it from the \textbf{measured gravitational redshift }of the Sun's photosphere, $z_{\text{sun}} \approx 2.12 \times 10^{-6}$.
+Instead of deriving potential from mass, we derive it from the \textbf{measured gravitational redshift }of the Sun's photosphere, $z_{\text{sun}} \approx 2.1224 \times 10^{-6}$.
 
 Using the $S^2$ relational carrier geometric omnidirectional scaling law of the potential projection ($\kappa^2 \propto 1/r$), we relate the known potential at the solar physical radius ($R_{\text{sun}}$) to the potential at Mercury's perihelion radius ($r_p$):
 \[
 \kappa^2(r_p) = \kappa^2(R_{\text{sun}}) \cdot \left( \frac{R_{\text{sun}}}{r_p} \right).
 \]
-Using the redshift relation $\kappa^2(R_{\text{sun}}) = 1 - (1+z_{\text{sun}})^{-2} \approx 1-\left(1+2.12\cdot10^{-6}\right)^{-2} \approx 4.23998651684\cdot10^{-6}$:
+Using the redshift relation $\kappa^2(R_{\text{sun}}) = 1 - (1+z_{\text{sun}})^{-2} \approx 1-\left(1+2.1224\cdot10^{-6}\right)^{-2} \approx 4.2447864862\cdot10^{-6}$:
 \[
 \kappa_p^2 \approx \kappa^2(R_{\text{sun}})  \left( \frac{R_{\text{sun}}}{r_p} \right).
 \]
-Using the observed geometric ratio of radii $R_{\text{sun}}/r_p \approx 0.0151209589753$:
+Using the observed geometric ratio of radii $R_{\text{sun}}/r_p \approx 0.0151235185169$:
 \[
-\kappa_p^2 \approx  4.23998651684\cdot10^{-6} \cdot 0.0151209589753 \approx 6.4112662177\times10^{-8}
+\kappa_p^2 \approx  4.2447864862\cdot10^{-6}\cdot 0.0151235185169 \approx 6.4196107024\times10^{-8}
 \]
 
 \paragraph{3. Calculate Closure Fac tor ($\delta_p$).}
 With both projections determined purely from light measurements:
 \[
-\delta_p = \frac{\kappa_p^2}{2\beta_p^2} = \frac{6.4112662177\times10^{-8}}{2 \times 3.8705094361\times10^{-8}} \approx 0.828219944121.
+\delta_p = \frac{\kappa_p^2}{2\beta_p^2} = \frac{6.4196107024\times10^{-8}}{2 \times 3.8705094361\times10^{-8}} \approx 0.829297901025.
 \]
 
 \paragraph{4. Predict Eccentricity ($e$).}
 The orbital shape is strictly enforced by the closure defect:
 \[
-e_{\text{pred}} = \frac{1}{\delta_p} - 1 = \frac{1}{0.828219944121} - 1 \simeq 0.207408740997.
+e_{\text{pred}} = \frac{1}{\delta_p} - 1 = \frac{1}{0.829297901025} - 1 \simeq 0.205839299441.
 \]
 
-\textbf{Conclusion:} The predicted eccentricity matches the observed value ($e \approx 0.20626$). 
+\textbf{Conclusion:} The predicted  eccentricity closely matches (within inputs uncertainty) the observed value ($e \approx 0.2056$). 
 This demonstrates that the orbital geometry is fully determined by the ratio of the central redshift to the orbital Doppler shift, with no reference to mass or $G$.
 
 \subsection{Path 2: Reconstruction of Potentials (Star S2)}
@@ -3313,6 +3327,8 @@ $z_{D}=\frac{1}{\beta_{Y}}-1$  (transverse Doppler shift) \\
 
 
 \section{References:}
+
+
 
 \begin{thebibliography}{99}
 
