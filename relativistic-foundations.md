@@ -967,18 +967,22 @@ Here's a simple analogy:
         <h3 class="text-2xl font-bold text-white mb-2">Mercury Precession</h3>
         <p>The theory computes the anomalous precession of Mercury’s orbit, matching the observed data with machine-level precision.</p>
         
+
+    <details class="video-dropdown-container mb-6">  
+                  <summary class="will-hero-summary">▶ Show Interactive Graph: Sun–Mercury (Desmos)</summary>  
+                  <div class="geometry-container hero-details">  
+                    <div class="desmos-container">  
+                      <iframe src="https://www.desmos.com/calculator/wimnrykbvy" width="100%" height="500" frameborder="0"></iframe>  
+                    </div>  
+                  </div>  
+                </details>
+
+
         <details class="video-dropdown-container mt-4">
             <summary class="will-hero-summary">▶ Show Full Calculation for Mercury's Precession</summary>
             <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
                 
-                <details class="video-dropdown-container mb-6">  
-                  <summary class="will-hero-summary">▶ Show Interactive Graph: Sun–Mercury (Desmos)</summary>  
-                  <div class="geometry-container hero-details">  
-                    <div class="desmos-container">  
-                      <iframe src="https://www.desmos.com/geometry/fhrsvs1nqs" width="100%" height="500" frameborder="0"></iframe>  
-                    </div>  
-                  </div>  
-                </details>
+            
 
                 <p>The precession is calculated from the combined energy parameter \(Q^2\) and orbital eccentricity \(e\).</p>
                 <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-4 space-y-1 overflow-x-auto">

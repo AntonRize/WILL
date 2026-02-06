@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[warn]{textcomp}
+\usepackage{cite}     % Required for numeric citations like [1]
 
 
 % --- Page geometry ---
@@ -83,7 +84,6 @@
 % --- Metadata ---
 \title{WILL Part I: Relational Geometry}
 \author{Anton Rize \\ freewillrg@gmail.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}} \\
-
 
 
 \date{October 2025}
@@ -2447,20 +2447,23 @@ $$\text{SPACETIME} \equiv \text{ENERGY}$$
 \subsection{Path 1: Verification on Mercury (Pure Optical Inputs)}
 
 We validate the theory using Mercury, utilizing only direct optical measurements (Doppler and Redshift). We implicitly assume \textbf{zero knowledge} of the Sun's mass, the gravitational constant $G$, or the Schwarzschild radius derived from them.
+
 \begin{table}[h!]
 \centering
-\caption{Used Inputs}
+\caption{Used Inputs for Orbital Calculation}
 \label{tab:mercury_params}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{lccc}
+\renewcommand{\arraystretch}{1.3} % Adds slightly more space between rows
+\begin{tabular}{|l|c|c|c|}
 \hline
 \textbf{Parameter} & \textbf{Symbol} & \textbf{Value} & \textbf{Source} \\ \hline
-Mercury Velocity (Perihelion) & $v_{p}$& $58,980 \text{ m/s}$ & \cite{NASA_Eclipse_Mercury} \\
-Mercury Distance (Perihelion) & $r_{p}$& $46.0012 \times 10^9 \text{ m}$ & \cite{UniverseToday_Mercury} \\
-Solar Radius (Nominal) & $R_{sun}$& $6.957 \times 10^8 \text{ m}$ & \cite{IAU_2015_ResB3} \\
-Solar Gravitational Redshift & $z_{sun}$& $2.1224 \times 10^{-6}$ & \cite{IAU_2015_ResB3} \\ \hline
+Mercury Velocity (Perihelion) & $v_{p}$ & $58,980 \text{ m/s}$ & \cite{NASA_Eclipse_Mercury} \\\hline
+Mercury Distance (Perihelion) & $r_{p}$ & $46.0012 \times 10^9 \text{ m}$ & \cite{UniverseToday_Mercury} \\\hline
+Solar Radius (Nominal) & $R_{sun}$ & $6.957 \times 10^8 \text{ m}$ & \cite{IAU_2015_ResB3} \\\hline
+Solar Gravitational Redshift & $z_{sun}$ & $2.1224 \times 10^{-6}$ & \cite{IAU_2015_ResB3} \\ \hline
 \end{tabular}
 \end{table}
+
+
 
 \paragraph{1. Input: Kinematic Projection ($\beta_p$).}
 Radar telemetry directly measures the orbital velocity at perihelion ($v_p \approx 58.98$ km/s). The kinematic projection is simply this velocity normalized by the speed of light:
@@ -3351,6 +3354,12 @@ $z_{D}=\frac{1}{\beta_{Y}}-1$  (transverse Doppler shift) \\
 \bibitem{Misner1973} Misner, Thorne, Wheeler (1973). \textit{Gravitation}.
 
 \bibitem{Florian Peißker2020} \textit{et al} 2022 \textit{ApJ} 933 49 DOI 10.3847/1538-4357/ac752f 
+
+\bibitem{NASA_Eclipse_Mercury} Espenak, F. (2014). Seven Century Catalog of Mercury Transits: 2001 to 2700. \textit{NASA Eclipse Web Site}.
+
+\bibitem{UniverseToday_Mercury} Williams, M. (2016). How Far is Mercury From the Sun? \textit{Universe Today} (citing NASA data).
+
+\bibitem{IAU_2015_ResB3} Mamajek, E.E. et al. (2015). IAU 2015 Resolution B3 on Recommended Nominal Conversion Constants. \textit{arXiv:1510.07674}.
 
 \end{thebibliography}
  
