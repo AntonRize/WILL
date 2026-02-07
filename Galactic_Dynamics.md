@@ -20,7 +20,7 @@ permalink: /Galactic_Dynamics/
     Here is the biggest puzzle in modern astrophysics: <strong>Galaxies spin too fast.</strong>
   </p>
   <p class="text-gray-300 mb-4">
-    According to standard physics (Newton & Einstein), the gravity from visible stars and gas isn't strong enough to hold them together. Stars at the edge should fly off into space. But they don't.
+    According to standard physics (Newton & Einstein), the gravity from visible stars and gas isn't strong enough to hold them together. Stars at the edge should fly off into space. But they don't. [Test Link: Definition of WILL](https://antonrize.github.io/WILL/documents/WILL_RG_I.pdf#nameddest=def:will)
   </p>
   <p class="text-gray-300 mb-6">
     To fix this, scientists invented <b>"Dark Matter"</b>—invisible ghost material that supposedly surrounds every galaxy to add extra gravity. But after 40 years of searching, no one has ever found a single particle of it.
