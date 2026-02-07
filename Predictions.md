@@ -3,6 +3,7 @@ layout: default
 title: "Predictions"
 permalink: /predictions/
 toc: false
+description: "Testable predictions of the WILL Relational Geometry framework — falsifiable experiments in gravitational physics, cosmology, and quantum mechanics."
 ---
 
 <style>
