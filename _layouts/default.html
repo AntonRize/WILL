@@ -178,12 +178,6 @@ MathJax = {
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-            }
-
             const pillarCards = document.querySelectorAll('.pillar-card');
             pillarCards.forEach(card => {
                 card.addEventListener('click', () => {
