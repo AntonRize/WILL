@@ -3,11 +3,7 @@
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a href="{{ "/" | relative_url }}" class="flex items-center gap-2 text-white font-semibold">
-        <svg class="w-6 h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="1"/>
-          <path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/>
-          <path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/>
-        </svg>
+        <span id="nav-logo-icon" class="w-7 h-7 flex-shrink-0 inline-block"></span>
         <span class="hidden sm:inline">{{ site.title }}</span>
         <span class="sm:hidden">WILL RG</span>
       </a>
@@ -81,6 +77,27 @@
           header.classList.remove('border-b', 'border-gray-800');
         }
       });
+
+      // Load Ouroboros SVG as nav icon (fetch+inject — same proven approach as homepage)
+      var navIcon = document.getElementById('nav-logo-icon');
+      if (navIcon) {
+        var baseUrl = navIcon.closest('header').querySelector('a').getAttribute('href').replace(/\/$/, '');
+        fetch(baseUrl + '/assets/OuroborosCLEAN.svg')
+          .then(function(r) { return r.ok ? r.text() : ''; })
+          .then(function(svgText) {
+            if (!svgText) return;
+            navIcon.innerHTML = svgText;
+            var svg = navIcon.querySelector('svg');
+            if (svg) {
+              svg.style.width = '100%';
+              svg.style.height = '100%';
+              // Brighten the gray segments for dark nav background
+              var g = svg.querySelector('g[style]');
+              if (g) g.style.fill = '#9CA3AF';
+            }
+          })
+          .catch(function() {});
+      }
     });
   </script>
 </header>
