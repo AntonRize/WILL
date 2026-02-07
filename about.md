@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "About This Work"
+description: "About WILL Relational Geometry — independent open research by Anton Rize building a unified geometric framework for fundamental physics from first principles."
 ---
 
 # 📖 About WILL Geometry Research

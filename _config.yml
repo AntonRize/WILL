@@ -1,10 +1,16 @@
 # Site settings
 title: "WILL Relational Geometry"
-description: "Geometric framework for unified physics"
+description: "WILL Relational Geometry — a unified geometric framework for fundamental physics by Anton Rize. Derives Special and General Relativity, Cosmology, and Quantum Mechanics from a single geometric principle."
 author: "Anton Rize"
 email: "egeometricity@gmail.com"
 baseurl: "/WILL"
 url: "https://antonrize.github.io"
+lang: "en"
+
+# Social / SEO
+twitter:
+  card: summary
+github_username: AntonRize
 
 # Jekyll settings
 markdown: kramdown
@@ -15,6 +21,7 @@ permalink: /:year/:month/:day/:title/
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 # MathJax settings
 kramdown:
@@ -47,8 +54,16 @@ navigation:
 exclude:
   - README.md
   - Gemfile
-  - Gemfile.lock   
-  - FR/    
+  - Gemfile.lock
+  - FR/
+  - Holster/
+  - WILL DATABASE/
+  - proxy-server/
+  - SPARC DATA/
+  - Colab Notebooks/
+  - node_modules/
+  - package.json
+  - package-lock.json
 
 # Collections for content organization
 collections:

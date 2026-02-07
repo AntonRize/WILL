@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Documents & Key Results"
+description: "Download WILL Relational Geometry research papers and appendices. Key results in unified physics, cosmology, and galactic dynamics."
 ---
 
 <style>

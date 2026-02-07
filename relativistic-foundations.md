@@ -1,9 +1,8 @@
----  
-
-layout: default  
-title: "Relativistic Foundations" 
-
----  
+---
+layout: default
+title: "Relativistic Foundations"
+description: "Complete derivation of Special and General Relativity from a single geometric principle. WILL framework unifies spacetime structure and energy on the unit circle."
+---
 
 
 <style>

@@ -2,6 +2,7 @@
 layout: default
 title: "Galactic Dynamics"
 permalink: /Galactic_Dynamics/
+description: "Galaxy rotation curves explained without Dark Matter. Interactive SPARC database analysis using the WILL Relational Geometry framework — 175 galaxies fitted from first principles."
 ---
 
 {% include interactive/galaxy_zoo.html %}
