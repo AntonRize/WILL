@@ -16,9 +16,13 @@ title: "LOGOS MAP"
     <link rel="stylesheet" crossorigin href="{{ '/LOGOS_MAP/assets/index-B6hWJuUp.css' | relative_url }}">
     <style>
       body { font-family: 'Inter', sans-serif; }
-      /* Hide React app's built-in Navigation header */
-      #root > div > header:first-child { display: none !important; }
-      /* Reduce hero top padding since Jekyll sticky header is in document flow */
+      /* Hide the React app's own Navigation header (Jekyll header is outside #root) */
+      #root header,
+      #root [data-framer-name],
+      #root > div > header {
+        display: none !important;
+      }
+      /* Reduce hero top padding since Jekyll sticky header is already in document flow */
       #root > div > section:first-of-type { padding-top: 2rem !important; }
     </style>
   </head>
