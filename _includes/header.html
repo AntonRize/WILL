@@ -1,33 +1,86 @@
-<header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
-  <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-5xl">
-    <a href="{{ "/" | relative_url }}" class="text-xl font-bold text-white">{{ site.title }}</a>
-    <div class="hidden md:flex items-center space-x-6">
-      {% for item in site.navigation %}
-        <a href="{{ item.url | relative_url }}" class="text-gray-300 hover:text-cyan-400 transition-colors">{{ item.title }}</a>
-      {% endfor %}
-    </div>
-    <div class="md:hidden">
-      <button id="mobile-menu-button" class="text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6H4"></path></svg>
+<header id="site-header" class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 transition-all duration-300">
+  <div class="container mx-auto px-6 max-w-5xl">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="{{ "/" | relative_url }}" class="flex items-center gap-2 text-white font-semibold">
+        <svg class="w-6 h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="1"/>
+          <path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/>
+          <path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/>
+        </svg>
+        <span class="hidden sm:inline">{{ site.title }}</span>
+        <span class="sm:hidden">WILL RG</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-6">
+        {% for item in site.navigation %}
+          {% if page.url == item.url %}
+            <span class="text-sm text-cyan-400 font-medium">{{ item.title }}</span>
+          {% else %}
+            <a href="{{ item.url | relative_url }}" class="text-sm text-gray-300 hover:text-cyan-400 transition-colors">{{ item.title }}</a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="lg:hidden p-2 text-slate-300 hover:text-white" aria-label="Toggle menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
       </button>
     </div>
-  </nav>
-  <div id="mobile-menu" class="hidden md:hidden">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      {% for item in site.navigation %}
-        <a href="{{ item.url | relative_url }}" class="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">{{ item.title }}</a>
-      {% endfor %}
-    </div>
   </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-gray-900/95 backdrop-blur-md border-b border-gray-800">
+    <nav class="flex flex-col px-4 py-4 space-y-1">
+      {% for item in site.navigation %}
+        {% if page.url == item.url %}
+          <span class="text-cyan-400 font-medium py-2 text-center">{{ item.title }}</span>
+        {% else %}
+          <a href="{{ item.url | relative_url }}" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium text-center">{{ item.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const header = document.getElementById('site-header');
+      const menuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
-      if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+
+      if (menuButton && mobileMenu) {
+        menuButton.addEventListener('click', () => {
           mobileMenu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+          });
         });
       }
+
+      // Scroll detection for border
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('border-b', 'border-gray-800');
+        } else {
+          header.classList.remove('border-b', 'border-gray-800');
+        }
+      });
     });
   </script>
 </header>
