@@ -59,4 +59,4 @@ Scientific discussion forums for WILL Geometry research. Join conversations with
 
 ---
 
-**Quick Links:** [Research Documents](/WILL/) | [Calculator](/WILL/calculator/) | [Email Contact](mailto:egeometricity@gmail.com)
+**Quick Links:** [Research Documents](/WILL/) | [Calculator](/WILL/calculator/) | [Email Contact](mailto:antonrize@willrg.com)

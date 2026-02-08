@@ -219,7 +219,7 @@ from this single, foundational principle as  inevitable consequences without fre
 
 ## Contact
 
-Anton Rize - [egeometricity@gmail.com](mailto:freewillrg@gmail.com) 
+Anton Rize - [antonrize@willrg.com](mailto:antonrize@willrg.com) 
 
 Project Link: [https://github.com/AntonRize/WILL](https://github.com/AntonRize/WILL)
 

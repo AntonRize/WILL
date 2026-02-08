@@ -35,4 +35,4 @@ There is no institutional funding behind this; it is driven by first-principles 
 - [See current results & predictions]({{ site.baseurl }}/predictions/)
 
 ## Contact
-For collaboration or questions: [freewillrg@gmail.com](mailto:freewillrg@gmail.com)
+For collaboration or questions: [antonrize@willrg.com](mailto:antonrize@willrg.com)
