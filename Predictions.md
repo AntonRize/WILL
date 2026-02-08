@@ -61,6 +61,26 @@ description: "Testable predictions of the WILL Relational Geometry framework —
   font-style: italic;
 }
 
+.deriv-link {
+  display: inline-block;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.3);
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.7rem;
+  color: #93c5fd;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+.deriv-link:hover {
+  background: rgba(59,130,246,0.25);
+  border-color: rgba(59,130,246,0.6);
+  color: #bfdbfe;
+  text-decoration: none;
+}
+
 .section-head {
   display: flex;
   align-items: center;
@@ -148,6 +168,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     &mdash; within 1% of Planck 2018 (\(67.4\pm0.5\)).
   </p>
   <p class="doc-ref">Part II &mdash; &ldquo;Deriving \(H_0\) from CMB Temperature and \(\alpha\)&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:deriving-H0" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
@@ -178,6 +199,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     Pantheon+ redshift range.
   </p>
   <p class="doc-ref">Part II &mdash; &ldquo;Geometric Expansion Law: Distant Supernova Flux Levels Test&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:supernova-flux" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
@@ -203,6 +225,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     problem without dark matter.
   </p>
   <p class="doc-ref">Part II &mdash; &ldquo;Geometric Origin of the CMB Acoustic Spectrum&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:cmb-acoustic" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
@@ -228,6 +251,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     &mdash; falls within the WILL RG corridor.
   </p>
   <p class="doc-ref">Part II &mdash; &ldquo;Resolution of the Low Quadrupole Anomaly&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:low-quadrupole" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
@@ -252,6 +276,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     &mdash; comparable to or exceeding MOND, with near-zero systematic bias.
   </p>
   <p class="doc-ref">Part II &mdash; &ldquo;Galactic Dynamics: The Law of Resonant Interference&rdquo; and &ldquo;The Universal RAR&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:galactic-dynamics" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
@@ -275,6 +300,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     resolving the wide-binary anomaly that challenges standard MOND.
   </p>
   <p class="doc-ref">Part II &mdash; &ldquo;The Kinetic Resonance: Resolution of the Wide Binary Anomaly&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:wide-binary" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
@@ -298,6 +324,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     <span class="result-tag">predicted 1.46&Prime; vs. observed 1.43&Prime;</span>.
   </p>
   <p class="doc-ref">Part II &mdash; &ldquo;Strong Lensing: A Proof of Concept&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:strong-lensing" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
@@ -325,6 +352,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     <span class="result-tag">energetically saturated, non-singular regions</span>.
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;No Singularities, No Hidden Regions&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:No Singularities" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
 </div>
 
 
@@ -349,6 +377,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     \(E_0\).
   </p>
   <p class="doc-ref">Part I &mdash; Theorem &ldquo;Equivalence of Inertial and Gravitational Response&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#thm:equivalence" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
 </div>
 
 
@@ -371,6 +400,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     and observed precession for star&nbsp;S2.
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;The Universal Precession Law: Derivation via \(Q_a\)&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#eq:precession_law" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
 </div>
 
 
@@ -394,6 +424,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     &mdash; no ad-hoc doubling needed.
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;Single-Axis Energy Transfer and the Nature of Light&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:nature of light" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
 </div>
 
 
@@ -426,6 +457,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     from purely geometric principles.
   </p>
   <p class="doc-ref">Part III &mdash; &ldquo;Derivation of Atomic Structure from First Principles&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_III.pdf#sec:atomic-structure" target="_blank">&#128196; Open derivation in Part&nbsp;III</a>
 </div>
 
 
@@ -448,6 +480,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     charged fermion.
   </p>
   <p class="doc-ref">Part III &mdash; &ldquo;The Geometric Origin of the Fine Structure Constant&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_III.pdf#sec:fine-structure-constant" target="_blank">&#128196; Open derivation in Part&nbsp;III</a>
 </div>
 
 
@@ -472,6 +505,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     &mdash; derived from geometry, not abstract spinor equations.
   </p>
   <p class="doc-ref">Part III &mdash; Theorem &ldquo;The Unified Relativistic Energy Formula&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_III.pdf#thm:unified-energy" target="_blank">&#128196; Open derivation in Part&nbsp;III</a>
 </div>
 
 
@@ -495,6 +529,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     <span class="result-tag">Two electrons per orbital&mdash;derived, not postulated</span>.
   </p>
   <p class="doc-ref">Part III &mdash; &ldquo;The Geometric Origin of Spin and Exclusion&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_III.pdf#sec:spin-exclusion" target="_blank">&#128196; Open derivation in Part&nbsp;III</a>
 </div>
 
 
@@ -519,6 +554,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     winding.
   </p>
   <p class="doc-ref">Part III &mdash; &ldquo;Geometric Origin of the Uncertainty Principle&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_III.pdf#sec:geometric_uncertainty" target="_blank">&#128196; Open derivation in Part&nbsp;III</a>
 </div>
 
 
