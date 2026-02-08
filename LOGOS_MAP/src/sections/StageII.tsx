@@ -1,6 +1,8 @@
 import { motion, type Variants } from 'framer-motion';
 import { CheckCircle2, XCircle, ArrowDown } from 'lucide-react';
 
+const PDF_BASE = 'https://willrg.com/documents/WILL_RG_I.pdf#nameddest=';
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -11,8 +13,8 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.5 }
   }
@@ -52,14 +54,16 @@ export default function StageII() {
 
         {/* Energy Definition Branch */}
         <motion.div variants={itemVariants} className="flex items-start gap-4 mb-8">
-          <div className="flex-1 node-will px-5 py-4">
-            <div className="flex items-center gap-2 mb-2">
-              <CheckCircle2 className="w-4 h-4 text-will-green" />
-              <span className="text-will-green text-xs font-bold">T</span>
+          <a href={`${PDF_BASE}def:energy`} target="_blank" rel="noopener noreferrer" className="flex-1">
+            <div className="node-will px-5 py-4 hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="w-4 h-4 text-will-green" />
+                <span className="text-will-green text-xs font-bold">T</span>
+              </div>
+              <p className="text-white font-semibold">Definition 1.6: Energy</p>
+              <p className="text-slate-300 text-sm mt-1">Relational measure of difference between states (Bookkeeping)</p>
             </div>
-            <p className="text-white font-semibold">Definition 1.6: Energy</p>
-            <p className="text-slate-300 text-sm mt-1">Relational measure of difference between states (Bookkeeping)</p>
-          </div>
+          </a>
           <div className="node-fail px-4 py-3 max-w-[220px]">
             <div className="flex items-center gap-2 mb-1">
               <XCircle className="w-4 h-4 text-red-400" />
@@ -80,15 +84,17 @@ export default function StageII() {
 
         {/* Structure-Dynamics Branch */}
         <motion.div variants={itemVariants} className="flex items-start gap-4 mb-8">
-          <div className="flex-1 node-will px-5 py-4">
-            <div className="flex items-center gap-2 mb-2">
-              <CheckCircle2 className="w-4 h-4 text-will-green" />
-              <span className="text-will-green text-xs font-bold">T</span>
+          <a href={`${PDF_BASE}pr:unifying`} target="_blank" rel="noopener noreferrer" className="flex-1">
+            <div className="node-will px-5 py-4 hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="w-4 h-4 text-will-green" />
+                <span className="text-will-green text-xs font-bold">T</span>
+              </div>
+              <p className="text-white font-semibold">Principle 2.3: The Identity</p>
+              <p className="text-will-cyan font-mono text-lg mt-2 font-medium">SPACETIME ≡ ENERGY</p>
+              <p className="text-slate-300 text-sm mt-1">(Structure IS Dynamics)</p>
             </div>
-            <p className="text-white font-semibold">Principle 2.3: The Identity</p>
-            <p className="text-will-cyan font-mono text-lg mt-2 font-medium">SPACETIME ≡ ENERGY</p>
-            <p className="text-slate-300 text-sm mt-1">(Structure IS Dynamics)</p>
-          </div>
+          </a>
           <div className="node-fail px-4 py-3 max-w-[220px]">
             <div className="flex items-center gap-2 mb-1">
               <XCircle className="w-4 h-4 text-red-400" />
