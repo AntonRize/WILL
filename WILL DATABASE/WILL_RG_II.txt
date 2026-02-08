@@ -98,7 +98,7 @@ In this work, we apply the principles of WILL Relational Geometry (RG) to the do
 
      \item \textbf{Distant Supernova Flux Levels:}  using this $H_0$ value along with kinetic and potential geometric weights we compare the curve with \textbf{Pantheon+} dataset - deviations remains below 0.015 mag across the entire redshift range.
 
-     \item  \textbf{CMB Acoustic Spectrum:}  utilizing same derived horizon scale, we reconstruct the CMB acoustic spectrum as the resonant harmonics of an $S^2$ topology loaded by $\approx 4.2\%$ baryons, naturally resolving the "Low Quadrupole" anomaly via vacuum stiffness.
+     \item  \textbf{CMB Acoustic Spectrum:}  utilizing same derived horizon scale, we reconstruct the CMB acoustic spectrum as the resonant harmonics of an $S^2$ topology loaded by $\approx 4.2\%$ baryons, naturally resolving the "Low Quadrupole" anomaly via vacuum tension.
 
      \item \textbf{Galactic Rotation Curves:} we translate the global horizon into a local acceleration scale ($a_{\kappa} = cH_0/3\pi$), which we apply to the SPARC database (175 galaxies). This rigid geometric prescription predicts rotation curves, the Radial Acceleration Relation (RAR), and the linear scaling of Phantom Inertia with equal or higher precision than MOND phenomenology, without any fitting.
 
@@ -573,25 +573,241 @@ In WILL Relational Geometry, the "birth of light" is not an arbitrary thermal ac
 \end{itemize}
 \end{tcolorbox}
 
-\section{Derivation of Vacuum Stiffness}
+\section{Derivation of vacuum tension}
 
-Before analyzing the acoustic response of the Cosmic Microwave Background, we must strictly define the mechanical properties of the medium. In WILL Relational Geometry, the vacuum is not a container filled with energy; rather, spacetime itself is a projection of a saturated energy configuration. Therefore, the properties of the vacuum—its maximal density and its stiffness—are derived directly from the geometric capacity of the Global Horizon.
+Before analyzing the acoustic response of the Cosmic Microwave Background, we must strictly define the mechanical properties of the medium. In WILL Relational Geometry, the vacuum is not a container filled with energy; rather, spacetime itself is a projection of a saturated energy configuration. Therefore, the properties of the vacuum—its maximal density and its tension—are derived directly from the geometric capacity of the Global Horizon.
 
-\subsection{The Structural Stiffness ($\rho_{\Lambda}$)}
 
-The "Stiffness" or Tension of the vacuum as a structural projection corresponds to the potential weight $\Omega_{pot}$, which is strictly fixed to two-thirds of the Saturation Density:
+\section{Local Cosmological Term $\Lambda$ in RG (Eliminating "Dark Energy")}
+
+We using derived 
+
+\begin{lemma}[Normalization Identity]
+In WILL Relational Geometry, local energy density and its maximal counterpart are related by
+\begin{align}
+\rho(r) &= \frac{\kappa^{2} c^{2}}{8\pi G r^{2}}, \\
+\rho_{\max}(r) &= \frac{c^{2}}{8\pi G r^{2}}. 
+\end{align}
+The ratio of these quantities defines the dimensionless geometric projection parameter $\kappa^{2}$:
+\[
+\boxed{\kappa^{2} = \frac{\rho}{\rho_{\max}}}
+\]
+\end{lemma}
+
+\begin{theorem}[Unified Geometric Field Equation]
+For a static, spherically symmetric configuration, the relationship between geometry and energy density is governed by the equation:
 \begin{equation}
-\rho_{\Lambda} = \Omega_{pot} \cdot \rho_{max} = \frac{2}{3} \rho_{max}.
+\boxed{
+\frac{d}{dr}\!\left(r\,\kappa^{2}\right) = \frac{8\pi G}{c^{2}}\, r^{2}\rho(r)
+}.
+\label{eq:will_field}
+\end{equation}
+This expression reproduces the $tt$-component of the Einstein field equations inside a spherical mass distribution when written in terms of the areal radius $r$.
+\end{theorem}
+
+\begin{proof}
+Starting from the standard Tolman-Oppenheimer-Volkoff (TOV) form for metric component $g_{rr}$:
+\begin{equation}
+\frac{1}{r^{2}}\frac{d}{dr}\!\left[r\!\left(1-\frac{1}{g_{rr}}\right)\right] = \frac{8\pi G}{c^{2}}\rho(r).
+\end{equation}
+Using the identity $\kappa^2 = 1 - 1/g_{rr}$ (derived from the closure condition on $S^2$), we substitute directly:
+\[
+\frac{1}{r^{2}}\frac{d}{dr}\!\left[r\,\kappa^{2}\right] = \frac{8\pi G}{c^{2}}\rho(r).
+\]
+Multiplying by $r^2$ yields Eq.~\eqref{eq:will_field}.
+\end{proof}
+
+\subsection{Derivation of Vacuum Density}
+
+We now determine the intrinsic density of the vacuum by applying the conservation laws derived in Sec. 4 to the Universe as a whole.
+
+\begin{theorem}[Vacuum Energy Partition]
+In a globally closed relational system in equilibrium, the effective vacuum energy density $\rho_{\Lambda}$ is geometrically constrained to exactly two-thirds ($\Omega_{pot}=2/3$) of the saturation limit $\rho_{\max}$.
+\[
+\rho_{\Lambda}(r) =\Omega_{pot} \rho_{\max}(r)=\frac{2}{3}\rho_{\max}(r).
+\]
+\end{theorem}
+
+\begin{proof}
+We treat the vacuum as a self-contained relational system subject to the Lemmas of Closure and Conservation.
+
+1. \textbf{Total Projection Budget ($Q^2$).} 
+The total transformation resource available to the system is the sum of its relational carriers projections:
+\[
+Q^2 = \kappa^2 + \beta^2.
+\]
+
+2. \textbf{Equilibrium Condition.}
+According to the Energetic Closure Theorem, a stable, closed system must satisfy the invariant exchange rate:
+\[
+\kappa^2 = 2\beta^2.
+\]
+
+3. \textbf{The Structural Share.}
+To find the fraction of the total resource allocated strictly to the structural (potential) sector ($\Omega_{pot}$), we substitute the closure condition into the total budget equation:
+\[
+\Omega_{pot}=\frac{\kappa^2}{Q^2} = \frac{\kappa^2}{\kappa^2 + \beta^2} = \frac{2\beta^2}{2\beta^2 + \beta^2} = \frac{2}{3}.
+\]
+
+4. \textbf{Density Mapping.}
+Since the local energy density $\rho$ is linearly proportional to the squared projection $\kappa^2$ (via the Unified Field Equation), the density of the vacuum $\rho_{\Lambda}$ must represent the same $\Omega_{pot}=2/3$ proportion of the maximal density $\rho_{\max}$.
+
+Thus,
+\[
+\rho_{\Lambda}(r) = \Omega_{pot}\rho_{\max}(r) = \frac{2}{3}\frac{c^2}{8\pi G r^2}= \frac{c^2}{12\pi G r^2}.
+\]
+\end{proof}
+
+\subsection{Derivation of Vacuum Pressure (Equation of State)}
+
+Unlike in standard cosmology, where the equation of state $w=-1$ is assumed, in RG it is derived from the tension of the geometric field.
+
+\begin{theorem}[Vacuum Pressure]
+The intrinsic pressure of the vacuum geometry is negative and proportional to its density:
+\begin{equation}
+P_{\Lambda}(r) = -\,\rho_{\Lambda}(r)\,c^{2}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Pressure in a static field arises from the gradient of the potential. From the radial balance relation (derived from conservation of stress-energy):
+\[
+P(r) = \frac{c^4}{8\pi G} \frac{1}{r} \frac{d\kappa^2}{dr}.
+\]
+Substituting the vacuum potential $\kappa^2 = R_s/r$:
+\[
+\frac{d\kappa^2}{dr} = -\frac{R_s}{r^2} = -\frac{\kappa^2}{r}.
+\]
+Therefore:
+\[
+P(r) = \frac{c^4}{8\pi G} \frac{1}{r} \left( -\frac{\kappa^2}{r} \right) = - \frac{\kappa^2 c^4}{8\pi G r^2} = - \left( \frac{\kappa^2 c^2}{8\pi G r^2} \right) c^2.
+\]
+Recognizing the term in parentheses as density $\rho(r)$, we obtain:
+\[
+P(r) = -\rho(r) c^2.
+\]
+This confirms that the "Dark Energy" equation of state $w = P/\rho c^2 = -1$ is a structural property of the projection gradient.
+\end{proof}
+
+\subsection{Legacy Correspondence: Mapping to General Relativity}
+
+To demonstrate consistency with the standard cosmological model ($\Lambda$CDM), we translate our scalar results into the tensor formalism of General Relativity.
+
+\begin{remark}[Translation to Metric Formalism]
+The derived vacuum density $\rho_{\Lambda}$ corresponds to a vacuum stress-energy tensor of the form:
+\begin{equation}
+T^{(\mathrm{vac})}_{\mu\nu} \;\hat{=}\; -\,\rho_{\Lambda}(r)\,c^{2}\, g_{\mu\nu}.
+\end{equation}
+\end{remark}
+
+Substituting this into the Einstein equations yields an effective, radially dependent cosmological term:
+\begin{equation}
+\Lambda(r) = \frac{8\pi G}{c^4} (\rho_{\Lambda} c^2) = \frac{8\pi G}{c^2} \left(  \frac{\Omega_{pot}c^2}{8\pi G r^2} \right) =\frac{\Omega_{pot}}{r^2}= \frac{2}{3r^2}.
 \end{equation}
 
-\subsection{Numerical Value}
-Substituting the derived saturation density ($\rho_{max} \approx 2.908 \times 10^{-27} \, \text{kg/m}^3$):
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Summary]
+In RG, the cosmological constant is not an arbitrary parameter but an emergent property of geometric normalization:
+\[
+\boxed{\Lambda(r) = \dfrac{\Omega_{pot}}{r^{2}}=\dfrac{2}{3r^{2}}.}
+\]
+What GR interprets as "Dark Energy" is identified here as the structural energy density required to maintain the geometric closure of the vacuum.
+\end{tcolorbox}
+
+\subsection{Geometric Signature of Spatial Dimension}
+
+A striking topological feature emerges when we express the effective vacuum density in natural geometric units.
+Substituting $\rho_{\Lambda} = \frac{2}{3}\rho_{\max}$ into the explicit definition of $\rho_{\max}$:
+
 \begin{equation}
-\rho_{\Lambda} = \frac{2}{3} (2.908 \times 10^{-27}) \approx \mathbf{1.938 \times 10^{-27}} \, \text{kg/m}^3.
+\rho_{\Lambda}(r) = \frac{2}{3} \cdot \frac{c^2}{8\pi G r^2} = \frac{c^2}{12\pi G r^2}.
 \end{equation}
 
-This value is the necessary geometric density of a phase-closed vacuum state derived solely from $T_{CMB}$ and $\alpha$. We now use this stiffness to calculate the acoustic response of the CMB.
+Stripping away dimensional scaling factors ($c, G, r$) reveals a purely dimensionless geometric coefficient:
 
+\begin{equation}
+\boxed{
+\hat{\rho}_{\Lambda} = \frac{1}{12\pi} = \frac{1}{3 \times 4\pi}
+}
+\end{equation}
+
+This factorization suggests a profound geometric origin for 3D space:
+\begin{itemize}
+    \item The factor $4\pi$ represents the intrinsic capacity of the relational carrier $S^2$.
+    \item The factor $1/3$ suggests an equipartition of this 2D resource across three orthogonal spatial axes.
+\end{itemize}
+
+This hints that the dimensionality of observable space is not arbitrary but is a structural consequence of distributing the $S^2$ energy budget into a volume.
+
+
+\section{The Geometric Origin of Galactic Rotation Curves (Eliminating "Dark Matter")}
+
+We now apply the structural density of the vacuum ($\rho_{\Lambda}$) to the domain of galactic dynamics. We demonstrate that the phenomenon typically attributed to "Dark Matter" can be explained as the necessary observational consequence of the interaction between the vacuum's structural capacity and the system's relational shift ($Q^2$).
+
+Crucially, we show that the geometric coefficients arising from the vacuum partition and the virial dynamic state naturally cancel each other. This intrinsic symmetry reproduces the exact Newtonian density profile required for flat rotation curves without introducing any ad-hoc parameters or non-baryonic mass.
+
+\subsection{The Vacuum-Dynamic Equivalence}
+
+\begin{lemma}[Newtonian Halo Requirement]
+To sustain a flat rotation curve with constant velocity $V$ (where $\beta = V/c$) at a galactic radius $r$ where baryonic matter is negligible, classical mechanics postulates a Singular Isothermal Sphere (SIS) with the density profile:
+\begin{equation}
+\rho_{\text{N}}(r) = \frac{V^2}{4\pi G r^2}.
+\label{eq:newton_halo}
+\end{equation}
+This standard result is derived from the mass distribution condition $M(r) = V^2 r / G$, which implies $\rho(r) = \frac{1}{4\pi r^2} \frac{dM}{dr}$.
+\end{lemma}
+
+\begin{theorem}[Vacuum-Dynamic Equivalence]
+The structural vacuum density $\rho_{\Lambda}$, when excited by the dynamic state of a stable galactic system ($Q^2$), identically reproduces the Newtonian halo density.
+\begin{equation}
+\boxed{\rho_{\text{WILL}} \equiv \rho_{\text{N}}}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The derivation proceeds in three steps: establishing the vacuum capacity, defining the dynamic state, and demonstrating the geometric cancellation.
+
+\paragraph{1. The Structural Vacuum Density ($\rho_{\Lambda}$).}
+From the \textit{Vacuum Energy Partition Theorem} (Part B), the effective vacuum density is constrained by the global closure condition ($\Omega_{pot}=2/3$) to be exactly two-thirds of the maximal saturation density. This introduces the geometric factor $1/12\pi$:
+\begin{equation}
+\rho_{\Lambda}(r) = \frac{2}{3}\rho_{\max}(r) = \frac{2}{3}\left(\frac{c^2}{8\pi G r^2}\right) = \frac{c^2}{12\pi G r^2}.
+\end{equation}
+Note that the factor $1/12\pi$ can be viewed as the spherical capacity ($1/4\pi$) distributed across three spatial dimensions ($1/3$).
+
+\paragraph{2. The Dynamic State ($Q^2$).}
+The local intensity of the field is defined by the square of the relational shift vector $Q$. For a gravitationally bound, energy-closed (virial-like equilibrium) system, the closure condition $\kappa^2 \approx 2\beta^2$ implies a dynamic multiplier of 3:
+\begin{equation}
+Q^2 = \kappa^2 + \beta^2 \approx 2\beta^2 + \beta^2 = 3\beta^2 = 3\frac{V^2}{c^2}.
+\end{equation}
+
+\paragraph{3. The Geometric Cancellation (Synthesis).}
+The observable vacuum excitation density $\rho_{\text{WILL}}$ is the product of the vacuum capacity and the dynamic state:
+\begin{equation}
+\rho_{\text{WILL}} = Q^2 \cdot \rho_{\Lambda}.
+\end{equation}
+Substituting the terms from steps 1 and 2:
+\begin{equation}
+\rho_{\text{WILL}} = \underbrace{\left( 3 \frac{V^2}{c^2} \right)}_{\text{Dynamic Factor}} \cdot \underbrace{\left( \frac{c^2}{12\pi G r^2} \right)}_{\text{Vacuum Factor}}.
+\end{equation}
+Here, the Virial factor ($3$) and the Vacuum Geometry factor ($1/12$) exactly cancel to produce the Newtonian geometric factor ($1/4$):
+\begin{equation}
+\rho_{\text{WILL}} = \frac{3}{12} \left( \frac{V^2}{\pi G r^2} \right) = \frac{1}{4} \left( \frac{V^2}{\pi G r^2} \right) = \frac{V^2}{4\pi G r^2}.
+\end{equation}
+
+\paragraph{Conclusion.}
+Comparing this result with the standard requirement Eq.~\eqref{eq:newton_halo}, we find an exact identity:
+\[
+\boxed{ \rho_{\text{WILL}}(r) \equiv \rho_{\text{N}}(r) }
+\]
+The "Dark Matter" halo is thus identified not as a substance, but as the weight of the vacuum structure itself ($Q^2 \rho_{\Lambda}$).
+\end{proof}
+
+\begin{corollary}[Non-Existence of Dark Matter]
+Since $\rho_{\text{WILL}}$ provides 100\% of the required dynamical mass density purely through geometric relations, the hypothesis of Dark Matter is redundant. 
+The observed flat rotation curves are the direct consequence of the linear growth of the vacuum's effective mass ($M_{\text{vac}} \propto r$) compensating for the radial distance, governed by the invariant ratio:
+\[
+\frac{\text{Dynamic Intensity (3)}}{\text{Vacuum Partition (1/3)}} = 1.
+\]
+\end{corollary}
 
 \section{Geometric Expansion Law: Distant Supernova Flux Levels Test}
 
@@ -697,20 +913,20 @@ By comparing the Phase Ratio ($R_{\phi}$) to the Temperature Ratio ($R_T$):
 n = \frac{\ln(R_T)}{\ln(R_{\phi})} = \frac{\ln(T_{rec}/T_0)}{\ln(o_{max}/o_{rec})} \approx \frac{\ln(1100)}{\ln(39330)} \approx 0.662
 \end{equation}
 
-\subsection{Identification with Vacuum Stiffness}
+\subsection{Identification with vacuum tension}
 
 The derived exponent $n \approx 0.662$ corresponds to the \textbf{Structural Projection Weight}:
 \begin{equation}
 \boxed{\Omega_{pot}\equiv \Omega_{\Lambda} = \frac{2}{3}}
 \end{equation}
-This reveals a Cosmological Scaling Law: The expansion of the spatial scale $a$ is driven by the structural stiffness of the vacuum ($\Omega_{\Lambda}$).
+This reveals a Cosmological Scaling Law: The expansion of the spatial scale $a$ is driven by the structural tension of the vacuum ($\Omega_{\Lambda}$).
 \begin{equation}
 1+z = \left( \frac{o_{max}}{o} \right)^{2/3}
 \end{equation}
 
 \subsection{Validation: Predicting Recombination Temperature}
 
-We can now reverse the logic to predict the temperature of the Universe at the moment of geometric transparency ($o=1$), using only the current CMB temperature and the vacuum stiffness $\Omega_{\Lambda}=2/3$.
+We can now reverse the logic to predict the temperature of the Universe at the moment of geometric transparency ($o=1$), using only the current CMB temperature and the vacuum tension $\Omega_{\Lambda}=2/3$.
 
 \begin{equation}
 T_{rec(pred)} = T_0 \cdot (o_{max})^{2/3}
@@ -732,7 +948,7 @@ The predicted temperature ($\approx 3150$ K) is in agreement with the theoretica
 This strongly suggest that the thermal history of the Universe is fully determined by:
 \begin{enumerate}
     \item The Current Horizon Depth ($o_{max}$ derived from $\alpha$).
-    \item The Vacuum Stiffness ($\Omega_{\Lambda} = 2/3$).
+    \item The vacuum tension ($\Omega_{\Lambda} = 2/3$).
 \end{enumerate}
 
 
@@ -744,7 +960,7 @@ Standard cosmology ($\Lambda$CDM) interprets these peaks as acoustic oscillation
 
 \subsection{Quantitative Analysis: The Baryonic Consistency Test}
 
-\textit{Objective:} Determine if the vacuum stiffness derived from WILL Relational Geometry ($\Omega_{\Lambda} = 2/3$), when loaded with the standard baryonic mass known from nuclear physics ($\Omega_b \approx 0.048$), reproduces the observed acoustic peaks without requiring Dark Matter.
+\textit{Objective:} Determine if the vacuum tension derived from WILL Relational Geometry ($\Omega_{\Lambda} = 2/3$), when loaded with the standard baryonic mass known from nuclear physics ($\Omega_b \approx 0.048$), reproduces the observed acoustic peaks without requiring Dark Matter.
 
 \paragraph{1. The Vacuum Resonance Prediction ($l_{vac}$).}
 In Section 9.2, we established that the maximal saturation density $\rho_{max}$ is determined by the electromagnetic closure condition $Q_{EM}^2 = 3\alpha^2$, where $\alpha \equiv \beta_1$ represents the ground \textbf{Kinematic Projection} (derived in Part III).
@@ -759,9 +975,9 @@ The theoretical unloaded vacuum mode is therefore rigorously defined as:
 \paragraph{2. The Mass Loading Mechanism.}
 The observed acoustic peaks represent standing waves on this vacuum carrier. Matter acts as an inertial load, reducing the wave speed. 
 
-In standard mechanics, stiffness and inertia are independent properties. However, in WILL Relational Geometry, such separation violates the core principle \textbf{SPACETIME $\equiv$ ENERGY}. The vacuum's energy density $\rho_{\Lambda}$ constitutes its total mechanical existence; therefore, it necessarily provides both the structural tension (restoring force) and the self-inertia (resistance to acceleration). 
+In standard mechanics, tension and inertia are independent properties. However, in WILL Relational Geometry, such separation violates the core principle \textbf{SPACETIME $\equiv$ ENERGY}. The vacuum's energy density $\rho_{\Lambda}$ constitutes its total mechanical existence; therefore, it necessarily provides both the structural tension (restoring force) and the self-inertia (resistance to acceleration). 
 
-Consequently, the condition $\rho_{vac(inertia)} \equiv \rho_{\Lambda(stiffness)}$ is not a postulate but a strict identity required by the equivalence principle. The frequency shift factor $K$ is thus determined simply by the ratio of the Vacuum Density to the Total Density:
+Consequently, the condition $\rho_{vac(inertia)} \equiv \rho_{\Lambda(tension)}$ is not a postulate but a strict identity required by the equivalence principle. The frequency shift factor $K$ is thus determined simply by the ratio of the Vacuum Density to the Total Density:
 \begin{equation}
     K = \sqrt{\frac{\rho_{\Lambda}}{\rho_{\Lambda} + \rho_{matter}}}
 \end{equation}
@@ -775,7 +991,7 @@ Applying this shift to the vacuum mode:
 \[
 \ell_{pred(DM)} = 228.39 \times 0.827 \approx \mathbf{188.9}
 \]
-This result deviates from the observed Planck peak ($\ell_{obs} \approx 220.6$) by $\approx -14\%$, demonstrating that the WILL vacuum stiffness cannot support the inertial load of Dark Matter.
+This result deviates from the observed Planck peak ($\ell_{obs} \approx 220.6$) by $\approx -14\%$, demonstrating that the WILL vacuum tension cannot support the inertial load of Dark Matter.
 
 \paragraph{4. Scenario B: Pure Baryonic Inventory (WILL RG).}
 We now test the scenario where the Universe contains \textit{only} standard baryonic matter consistent with BBN ($\Omega_b \approx 0.048$).
@@ -790,7 +1006,7 @@ The predicted peak position is:
 
 \paragraph{Conclusion.}
 The WILL prediction ($\ell \approx 220.59$) matches the observed Planck value ($\ell \approx 220.60$) with a precision of $\sim 0.01\%$. 
-This extraordinary agreement implies that the "missing mass" problem is an artifact of fluid models that lack inherent vacuum stiffness. When the geometric tension $\Omega_{\Lambda}=2/3$ is accounted for, the standard inventory of baryonic matter derived from BBN is exactly sufficient to explain the CMB acoustic spectrum.
+This extraordinary agreement implies that the "missing mass" problem is an artifact of fluid models that lack inherent vacuum tension. When the geometric tension $\Omega_{\Lambda}=2/3$ is accounted for, the standard inventory of baryonic matter derived from BBN is exactly sufficient to explain the CMB acoustic spectrum.
 
 \subsection{Topological Selection: The $S^2$ Signature}
 
@@ -810,13 +1026,13 @@ The observed ratios are $1.00 : 2.44 : 3.68$. This pattern is not naturally prod
 
 We model the CMB spectrum as the vibration of the potential carrier ($S^2$) "loaded" by the inertia of matter. This is analogous to the "mass loading" effect in acoustics, where the addition of mass to a membrane lowers its resonant frequency without changing the geometric ratios of the harmonics.
 
-The observed frequency $\omega_{obs}$ is related to the pure vacuum frequency $\omega_{vac}$ by the ratio of stiffness to total inertia:
+The observed frequency $\omega_{obs}$ is related to the pure vacuum frequency $\omega_{vac}$ by the ratio of tension to total inertia:
 \begin{equation}
 \omega_{obs} = \omega_{vac} \sqrt{ \frac{\rho_{\Lambda}}{\rho_{\Lambda} + \rho_{matter}} }
 \end{equation}
 where:
 \begin{itemize}
-    \item $\rho_{\Lambda} $ is the stiffness (tension) of the vacuum geometry.
+    \item $\rho_{\Lambda} $ is the tension of the vacuum geometry.
     \item $\rho_{matter}$ is the mass density of the baryonic load.
 \end{itemize}
 In RG, $\rho_\Lambda$ parametrizes the restoring capacity of the $S^2$ carrier (structural projection), while $\rho_{matter}$ contributes solely to inertia; therefore their ratio enters exactly as in a tensioned membrane. 
@@ -828,7 +1044,7 @@ We perform a direct calculation to determine the required matter density $\rho_{
 \paragraph{1. Input Parameters.}
 We utilize the values derived in the previous section:
 \begin{itemize}
-    \item Vacuum Stiffness (Tension): $\rho_{\Lambda} \approx 1.938 \times 10^{-27} \, \text{kg/m}^3$.
+    \item vacuum tension (Tension): $\rho_{\Lambda} \approx 1.938 \times 10^{-27} \, \text{kg/m}^3$.
     \item Saturation Density: $\rho_{max} \approx 2.908 \times 10^{-27} \, \text{kg/m}^3$.
 \end{itemize}
 
@@ -879,12 +1095,12 @@ No Dark Matter or Dark Energy parameters are required. The observed CMB spectrum
 
 A persistent challenge to the Standard Model ($\Lambda$CDM) is the anomalously low amplitude of the quadrupole moment ($\ell=2$) in the CMB power spectrum. While $\Lambda$CDM predicts a scale-invariant plateau ($D_{\ell} \approx 1.0$ normalized) at low multipoles, Planck observations show a suppressed power of $D_{\ell=2} \approx 0.2$. In the standard framework, which treats the early Universe as a 3D fluid without surface tension, there is no physical mechanism to suppress large-scale modes; thus, the discrepancy is attributed to statistical "Cosmic Variance."
 
-\subsection{Vacuum Stiffness as a High-Pass Filter}
+\subsection{vacuum tension as a High-Pass Filter}
 
-In WILL Relational Geometry, the Universe is treated as a topologically closed surface ($S^2$) with a vacuum energy density $P = -\rho_{\Lambda} c^2$. Physically, this negative pressure manifests as \textbf{Vacuum Stiffness} (Tension).
+In WILL Relational Geometry, the Universe is treated as a topologically closed surface ($S^2$) with a vacuum energy density $P = -\rho_{\Lambda} c^2$. Physically, this negative pressure manifests as \textbf{vacuum tension} (Tension).
 Unlike a gas cloud, a tensioned membrane resists global deformation. The energy required to deform the global curvature (low $\ell$) is significantly higher than the energy required to create local ripples (high $\ell$). Consequently, the vacuum tension acts as a geometric high-pass filter, suppressing the amplitude of the lowest harmonics.
 
-The suppression factor $S(\ell)$ for the power spectrum is governed by the ratio of the Restoring Force (Vacuum Stiffness) to the Driving Force (Matter Inertia):
+The suppression factor $S(\ell)$ for the power spectrum is governed by the ratio of the Restoring Force (vacuum tension) to the Driving Force (Matter Inertia):
 
 \begin{equation}
 P(\ell) \propto \left( \frac{1}{1 + \frac{\mathcal{R}_{eff}}{\lambda_{\ell}}} \right)^2
@@ -893,13 +1109,13 @@ P(\ell) \propto \left( \frac{1}{1 + \frac{\mathcal{R}_{eff}}{\lambda_{\ell}}} \r
 where:
 \begin{itemize}
     \item $\lambda_{\ell} = \ell(\ell+1)$ is the Laplacian eigenvalue for the sphere (geometric scaling). For the quadrupole ($\ell=2$), $\lambda_2 = 6$.
-    \item $\mathcal{R}_{eff}$ is the effective Stiffness-to-Inertia ratio.
+    \item $\mathcal{R}_{eff}$ is the effective Tension-to-Inertia ratio.
 \end{itemize}
 
 \subsection{Quantitative Derivation of the Inertial Corridor}
 
 We calculate the suppression using the precise densities derived in the previous section, with zero free parameters.
-The Base Ratio of vacuum stiffness to baryonic mass is:
+The Base Ratio of vacuum tension to baryonic mass is:
 \begin{equation}
 \mathcal{R}_{base} = \frac{\rho_{\Lambda}}{\rho_{bary}} = \frac{1.9384 \times 10^{-27}}{1.2315 \times 10^{-28}} \approx 15.74
 \end{equation}
@@ -936,7 +1152,7 @@ The WILL RG framework predicts a theoretical "Inertial Corridor" for the quadrup
     \caption{\textbf{Resolution of the Low Quadrupole Anomaly.} 
     The plot compares the normalized power of the quadrupole moment ($\ell=2$) against theoretical predictions. 
     The \textbf{Standard Model} ($\Lambda$CDM, red dashed line) assumes a scale-invariant 3D fluid, predicting a normalized power of $\approx 1.0$, which overestimates the observation by a factor of 5. 
-    \textbf{WILL Relational Geometry} (green shaded region) treats the Universe as a tensioned $S^2$ membrane, where vacuum stiffness acts as a high-pass filter. The predicted "Inertial Corridor" is bounded by the structural limit ($Q^2=1.5\kappa^2$, lower bound $\approx 0.13$) and the kinetic limit ($Q^2=3\beta^2$, upper bound $\approx 0.28$). 
+    \textbf{WILL Relational Geometry} (green shaded region) treats the Universe as a tensioned $S^2$ membrane, where vacuum tension acts as a high-pass filter. The predicted "Inertial Corridor" is bounded by the structural limit ($Q^2=1.5\kappa^2$, lower bound $\approx 0.13$) and the kinetic limit ($Q^2=3\beta^2$, upper bound $\approx 0.28$). 
     The \textbf{Planck 2018 observation} ($D_{\ell=2} \approx 0.20$, black point) falls precisely within the center of the WILL RG corridor, confirming the geometric suppression of large-scale modes due to vacuum tension.}
     \hypertarget{fig:low_quadrupole}{}
 \end{figure}
@@ -958,10 +1174,10 @@ Standard Model ($\Lambda$CDM) & $\approx 1.00$ & Overprediction ($\times 5$) \\
 \textbf{Planck 2018 (Observed)} & $\mathbf{\approx 0.20}$ & \textbf{Within Predicted Corridor} \\
 \hline
 \end{tabular}
-\caption{The observed quadrupole power falls precisely within the predicted range of the WILL RG stiffness model, while $\Lambda$CDM overpredicts the power by an order of magnitude.}
+\caption{The observed quadrupole power falls precisely within the predicted range of the WILL RG tension model, while $\Lambda$CDM overpredicts the power by an order of magnitude.}
 \end{table}
 
-\textbf{Conclusion:} The observed suppression of the quadrupole moment is consistent with the vacuum stiffness predicted by the $S^2$ topology. Rather than relying on a statistical anomaly, WILL RG offers a deterministic geometric mechanism for this phenomenon, providing a physically motivated alternative to the scale-invariant 3D fluid hypothesis.
+\textbf{Conclusion:} The observed suppression of the quadrupole moment is consistent with the vacuum tension predicted by the $S^2$ topology. Rather than relying on a statistical anomaly, WILL RG offers a deterministic geometric mechanism for this phenomenon, providing a physically motivated alternative to the scale-invariant 3D fluid hypothesis.
 
 \subsection{The Geometry of Structure: Explaining the Alignments}
 
@@ -975,7 +1191,7 @@ Standard cosmology dismisses these as statistical flukes ("The Axis of Evil") or
 
 \subsection{Nodal Coupling on a Tensioned Surface}
 
-In a 3D volume ($S^3$), vibrational modes are geometrically independent. However, on a 2D surface ($S^2$) subject to vacuum stiffness ($P=-\rho c^2$), the modes are physically coupled to minimize surface energy.
+In a 3D volume ($S^3$), vibrational modes are geometrically independent. However, on a 2D surface ($S^2$) subject to vacuum tension ($P=-\rho c^2$), the modes are physically coupled to minimize surface energy.
 
 When the quadrupole mode ($\ell=2$) establishes a principal axis of deformation (breaking spherical symmetry into ellipsoidal), it creates an anisotropic tension field on the manifold. Subsequent modes, such as the octopole ($\ell=3$), minimize their energy by aligning their nodal lines with the established stress field.
 Thus, \textbf{Planarity and Alignment} are not statistical anomalies but energetic requirements for a coupled standing wave system. The probability of such alignment in a random 3D field is $<0.1\%$, but in a tensioned 2D system, it approaches unity. A quantitative treatment of mode coupling is left for future work.
@@ -1545,8 +1761,6 @@ This completes the Theoretical Ouroboros:
 \end{enumerate}
 Provided evidence strongly suggest that the Universe is a single, resonant, self-defining geometric relational unity.
 
-
-
 \section{General Discussion: Towards a Geometric Synthesis}
 
 The analysis presented in this work yields three structurally significant results that challenge the foundations of the Standard Model ($\Lambda$CDM) and standard Modified Gravity (MOND):
@@ -1567,7 +1781,7 @@ A fundamental epistemological test of any physical theory is the independence of
 In WILL Relational Geometry, we observe a strict \textbf{Orthogonal Decoupling} of these parameters. The derivations presented in this paper proceed along two mathematically disjoint paths, yet converge on the same observational reality (Planck 2018).
 
 \subsection{Path A: The Thermodynamic Limit ($H_0$)}
-The expansion rate $H_0$ is derived as a limit of \textbf{Energy Saturation}. It relies exclusively on thermodynamic inputs:
+The expansion rate $H_0$ is derived as a limit of \textbf{Energy Saturation}. It relies on thermodynamic input:
 \begin{equation}
     H_0 = \sqrt{8\pi G \cdot \rho_{max}} \quad \text{where} \quad \rho_{max} = \frac{\rho_{\gamma}(T_0)}{3\alpha^2}
 \end{equation}
@@ -1575,7 +1789,7 @@ The expansion rate $H_0$ is derived as a limit of \textbf{Energy Saturation}. It
 \textbf{Result:} $H_0 \approx 68.15$ km/s/Mpc.
 
 \subsection{Path B: The Topological Resonance ($\ell_{vac}$)}
-The acoustic scale is derived as a limit of \textbf{Resonant Structure}. It relies exclusively on the kinematic scale and geometric stiffness:
+The acoustic scale is derived as a limit of \textbf{Resonant Structure}. It relies exclusively on the kinematic scale and geometric tension:
 \begin{equation}
     \ell_{vac} = \frac{1}{\alpha} \underbrace{(1 + \Omega_{\Lambda})}_{\text{Impedance}}
 \end{equation}
@@ -1583,16 +1797,16 @@ The acoustic scale is derived as a limit of \textbf{Resonant Structure}. It reli
 \textbf{Result:} $\ell_{vac} \approx 228.39$ (unloaded).
 
 \subsection{The Independence Theorem}
-Crucially, the calculation of the acoustic peak does not require knowledge of the expansion history ($H_0$) or the age of the Universe. Conversely, the calculation of $H_0$ does not require knowledge of the vacuum stiffness. The correlation between these macroscopic observables is not a result of parameter fitting, but a consequence of their common origin in the geometric invariant $\alpha$:
+Crucially, the calculation of the acoustic peak does not require knowledge of the expansion history ($H_0$) or the age of the Universe. Conversely, the calculation of $H_0$ does not require knowledge of the vacuum tension. The correlation between these macroscopic observables is not a result of parameter fitting, but a consequence of their common origin in the geometric invariant $\alpha$:
 
 \begin{equation}
     \boxed{\frac{\partial H_0}{\partial \ell_{peak}} = 0}
 \end{equation}
 
-The fact that two independent derivation paths - one thermodynamic and one topological - yield results matching high-precision empirical data ($\delta \approx 1.0\%$ for $H_0$, $\delta \approx 0.004\%$ for $\ell$) constitutes a rigorous validation of the generative framework.
+The fact that two independent derivation paths - one thermodynamic and one topological - yield results matching high-precision empirical data ($\delta \approx 1.0\%$ for $H_0$, $\delta \approx 0.004\%$ for $\ell$) constitutes a strong argument for the generative WILL RG.
 
-\subsection{Sensitivity Analysis: The Exclusion of Dark Matter}
-The vacuum resonance model allows us to perform a precise sensitivity analysis regarding the mass content of the Universe. The acoustic peak position is determined by the inertial loading of the vacuum stiffness:
+\subsection{Sensitivity Analysis: The Major Constraints on Dark Matter}
+WILL RG allows us to perform a precise sensitivity analysis regarding the mass content of the Universe. The acoustic peak position is determined by the inertial loading of the vacuum tension:
 \begin{equation}
     \ell_{observed} = \ell_{vac} \cdot \sqrt{\frac{\Omega_{\Lambda}}{\Omega_{\Lambda} + \Omega_{load}}}
 \end{equation}
@@ -1613,11 +1827,45 @@ We compare two scenarios: one containing only BBN-derived Baryons (WILL RG), and
 Standard Model ($\Lambda$CDM + DM) & $0.308$ & $188.89$ & $-14.37\%$ \\
 \hline
 \end{tabular}
-\caption{\textbf{Baryonic Consistency Test.} The vacuum stiffness $\Omega_{\Lambda}=2/3$ accurately reproduces the first acoustic peak ($\ell \approx 220.6$) only when loaded with standard baryonic matter ($\Omega_b \approx 0.048$). The addition of Dark Matter ($\Omega_{dm} \approx 0.26$) creates excessive inertial drag, shifting the peak to $\ell \approx 189$, which is observationally ruled out.}
+\caption{\textbf{Baryonic Consistency Test.} The vacuum tension $\Omega_{\Lambda}=2/3$ accurately reproduces the first acoustic peak ($\ell \approx 220.6$) only when loaded with standard baryonic matter ($\Omega_b \approx 0.048$ From Nuclear Physics of the Yearly Universe). The addition of Dark Matter ($\Omega_{dm} \approx 0.26$) creates excessive inertial drag, shifting the peak to $\ell \approx 189$, which is in tension with observational data.}
 \hypertarget{tab:sensitivity}{}
 \end{table}
 
-\textbf{Conclusion:} The high stiffness of the structural vacuum ($\Omega_{\Lambda}=2/3$) eliminates the need for Dark Matter to explain the acoustic compression scale. The Universe operates as a Baryonic oscillator on a stiff geometric manifold.
+\textbf{Conclusion:} The high tension of the structural projection ($\Omega_{\Lambda}=2/3$) eliminates the need for Dark Matter to explain the acoustic compression scale. The Universe operates as a Baryonic oscillator on a stiff geometric manifold.
+\begin{table}[H!]
+\centering
+\small
+\caption{Unbroken Chain of 10 Derivations/Predictions. No Fitting Involved.}
+\hypertarget{\label{tab:cosmology_comparison}}{}
+
+\begin{tabular}{|p{2.8cm}|p{2.5cm}|p{2.5cm}|p{1.8cm}|p{1.5cm}|p{3cm}|}
+\hline
+\textbf{Parameter or Observable}& \textbf{Derived Theoretical Value} & \textbf{Empirical Comparison Value} & \textbf{System or Dataset} & \textbf{Deviation or Accuracy} & \textbf{Physical Formulation} \\
+\hline
+1. Hubble Constant ($H_0$)& 68.15 km/s/Mpc & 67.4$\pm$0.5 km/s/Mpc& Planck 2018 & +1.0\% & Geometric saturation density derived from CMB temperature and $\alpha$ \\
+\hline
+2. CMB First Acoustic Peak ($l_1$)& 220.59 & 220.60 & Planck 2018 & $\approx$ 0.01\% & Resonant harmonics of an $S^2$ topology loaded by 4.2\% baryonic mass \\
+\hline
+3. CMB Quadrupole Power ($D_{l=2}$)& 0.132--0.285 (Corridor)& $\approx$ 0.20 & Planck 2018 & Falls precisely within predicted corridor & Vacuum tension acting as a high-pass filter on a tensioned $S^2$ membrane \\
+\hline
+4. Galactic Rotation Curves Bias& 0.70 $\times$ $10^{-10}$ m/s$^2$ ($a_k$) & -2.26 km/s (Bias)& SPARC (175 galaxies) & RMSE $\approx$ 0.065 dex & Structural Projection Resonant Interference with Universal Fundamental Tone\\
+\hline
+5. Solar Orbital Velocity& 226.4 km/s & 229 $\pm$ 6 km/s & Gaia DR3 / Milky Way & Excellent agreement & Geometric mean interference between local potential and global horizon \\
+\hline
+6. Wide Binary Gravity Boost ($\gamma$)& $\approx$ 1.47 & $\approx$ 1.45--1.55 & Gaia DR3 / Chae 2023 & Exact Agreement & Kinetic Resonance Scale ($S^1$ carrier coupling weight 1/3) \\
+\hline
+7. Type Ia Supernova Distance Modulus& Offset expected $\approx$0.150 mag& Raw residual $\approx$ -0.151 mag & Pantheon+ & Shape deviation $\le$ 0.02 mag & Geometric Energy Budget Partitioning (2:1 ratio of $S^2$ tension to kinetic mass) \\
+\hline
+8. Strong Lensing Einstein Radius& 1.46'' & 1.43 $\pm$ 0.01'' & SDSSJ0946 +1006 (SLACS) & $\approx$ 2\% & Phantom Inertia ($Q^2$) acting as universal refractive medium \\
+\hline
+9. Recombination Epoch& $\approx$364,860 years& $\approx$378,000 years& Standard Cosmological Dating & $\approx$ 3.5\% & Unit Phase Condition ($\Omega_{crit} = 1$ radian) where arc length equals radius of curvature \\
+\hline
+10. Electron Mass ($m_e$)& 9.064 $\times$ $10^{-31}$ kg & 9.109 $\times$ $10^{-31}$ kg & CODATA & $\approx$ 0.49\% & Holographic Projection Principle / Geometric Capacity Resonance \\
+\hline
+\end{tabular}
+\end{table}
+
+
 
 \subsection{The Unified Scale Invariance}
 
