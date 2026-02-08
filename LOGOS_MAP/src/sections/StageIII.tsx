@@ -1,6 +1,8 @@
 import { motion, type Variants } from 'framer-motion';
 import { CheckCircle2, XCircle, ArrowDown } from 'lucide-react';
 
+const PDF_BASE = 'https://willrg.com/documents/WILL_RG_I.pdf#nameddest=';
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -11,8 +13,8 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.5 }
   }
@@ -53,23 +55,25 @@ export default function StageIII() {
 
         {/* Derived Constraints */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <div className="node-will px-6 py-4 max-w-xl">
-            <p className="text-will-green font-semibold mb-3">Derived Constraints</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="bg-will-navy/50 rounded-lg px-3 py-2">
-                <p className="text-white text-sm">1. Closure (No leakage)</p>
-                <p className="text-slate-400 text-xs">→ Lemma 3.1</p>
-              </div>
-              <div className="bg-will-navy/50 rounded-lg px-3 py-2">
-                <p className="text-white text-sm">2. Conservation (Fixed Budget)</p>
-                <p className="text-slate-400 text-xs">→ Lemma 3.2</p>
-              </div>
-              <div className="bg-will-navy/50 rounded-lg px-3 py-2">
-                <p className="text-white text-sm">3. Isotropy (Max Symmetry)</p>
-                <p className="text-slate-400 text-xs">→ Lemma 3.3</p>
+          <a href={`${PDF_BASE}lem:closure`} target="_blank" rel="noopener noreferrer">
+            <div className="node-will px-6 py-4 max-w-xl hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <p className="text-will-green font-semibold mb-3">Derived Constraints</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="bg-will-navy/50 rounded-lg px-3 py-2">
+                  <p className="text-white text-sm">1. Closure (No leakage)</p>
+                  <p className="text-slate-400 text-xs">&rarr; Lemma 3.1</p>
+                </div>
+                <div className="bg-will-navy/50 rounded-lg px-3 py-2">
+                  <p className="text-white text-sm">2. Conservation (Fixed Budget)</p>
+                  <p className="text-slate-400 text-xs">&rarr; Lemma 3.2</p>
+                </div>
+                <div className="bg-will-navy/50 rounded-lg px-3 py-2">
+                  <p className="text-white text-sm">3. Isotropy (Max Symmetry)</p>
+                  <p className="text-slate-400 text-xs">&rarr; Lemma 3.3</p>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </motion.div>
 
         {/* Decision: Derive Geometry */}
@@ -81,21 +85,23 @@ export default function StageIII() {
 
         {/* Minimal Relational Carriers */}
         <motion.div variants={itemVariants} className="flex items-start gap-4 mb-8">
-          <div className="flex-1 node-will px-5 py-4">
-            <div className="flex items-center gap-2 mb-2">
-              <CheckCircle2 className="w-4 h-4 text-will-green" />
-              <span className="text-will-green text-xs font-bold">T</span>
+          <a href={`${PDF_BASE}thm:carriers`} target="_blank" rel="noopener noreferrer" className="flex-1">
+            <div className="node-will px-5 py-4 hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="w-4 h-4 text-will-green" />
+                <span className="text-will-green text-xs font-bold">T</span>
+              </div>
+              <p className="text-white font-semibold mb-3">Minimal Relational Carriers (Theorem 3.4 Proof):</p>
+              <div className="space-y-2 text-sm">
+                <p className="text-slate-300">
+                  <span className="text-will-blue">1. Directional Relation (A&rarr;B):</span> Requires 1 DOF &rArr; Unique Constraint 1-Carrier: <span className="text-will-cyan font-mono font-bold">S&sup1;</span>
+                </p>
+                <p className="text-slate-300">
+                  <span className="text-will-blue">2. Omnidirectional Relation (Center&rarr;Field):</span> Requires 2 DOF &rArr; Unique Constraint 2-Carrier: <span className="text-will-cyan font-mono font-bold">S&sup2;</span>
+                </p>
+              </div>
             </div>
-            <p className="text-white font-semibold mb-3">Minimal Relational Carriers (Theorem 3.4 Proof):</p>
-            <div className="space-y-2 text-sm">
-              <p className="text-slate-300">
-                <span className="text-will-blue">1. Directional Relation (A→B):</span> Requires 1 DOF ⇒ Unique Constraint 1-Carrier: <span className="text-will-cyan font-mono font-bold">S¹</span>
-              </p>
-              <p className="text-slate-300">
-                <span className="text-will-blue">2. Omnidirectional Relation (Center→Field):</span> Requires 2 DOF ⇒ Unique Constraint 2-Carrier: <span className="text-will-cyan font-mono font-bold">S²</span>
-              </p>
-            </div>
-          </div>
+          </a>
           <div className="node-fail px-4 py-3 max-w-[180px]">
             <div className="flex items-center gap-2 mb-1">
               <XCircle className="w-4 h-4 text-red-400" />
@@ -109,24 +115,26 @@ export default function StageIII() {
         {/* Decision: Define State */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
           <div className="node-decision px-6 py-4">
-            <p className="text-yellow-200 font-medium text-center">Define State on Carriers (S¹, S²)</p>
+            <p className="text-yellow-200 font-medium text-center">Define State on Carriers (S&sup1;, S&sup2;)</p>
           </div>
         </motion.div>
 
         {/* State Definition Branch */}
         <motion.div variants={itemVariants} className="flex items-start gap-4 mb-8">
-          <div className="flex-1 node-will px-5 py-4">
-            <div className="flex items-center gap-2 mb-2">
-              <CheckCircle2 className="w-4 h-4 text-will-green" />
-              <span className="text-will-green text-xs font-bold">T</span>
+          <a href={`${PDF_BASE}lem:duality`} target="_blank" rel="noopener noreferrer" className="flex-1">
+            <div className="node-will px-5 py-4 hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="w-4 h-4 text-will-green" />
+                <span className="text-will-green text-xs font-bold">T</span>
+              </div>
+              <p className="text-white font-semibold">Lemma 6.1: Duality of Evolution</p>
+              <p className="text-slate-300 text-sm mt-2">State &equiv; Superposition of Orthogonal Axes:</p>
+              <div className="mt-2 space-y-1">
+                <p className="text-will-blue text-sm">1. <span className="font-semibold">Amplitude</span> (External Interaction)</p>
+                <p className="text-will-cyan text-sm">2. <span className="font-semibold">Phase</span> (Internal Existence)</p>
+              </div>
             </div>
-            <p className="text-white font-semibold">Lemma 6.1: Duality of Evolution</p>
-            <p className="text-slate-300 text-sm mt-2">State ≡ Superposition of Orthogonal Axes:</p>
-            <div className="mt-2 space-y-1">
-              <p className="text-will-blue text-sm">1. <span className="font-semibold">Amplitude</span> (External Interaction)</p>
-              <p className="text-will-cyan text-sm">2. <span className="font-semibold">Phase</span> (Internal Existence)</p>
-            </div>
-          </div>
+          </a>
           <div className="node-fail px-4 py-3 max-w-[180px]">
             <div className="flex items-center gap-2 mb-1">
               <XCircle className="w-4 h-4 text-red-400" />
@@ -139,40 +147,44 @@ export default function StageIII() {
 
         {/* Conservation Laws */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <div className="node-will px-6 py-4 max-w-xl">
-            <p className="text-will-green font-semibold mb-3">Thm 6.2 & 11.1: Orthogonal Conservation</p>
-            <p className="text-slate-300 text-sm mb-3">Unitary Budget ⇒ Pythagorean Closure</p>
-            <div className="space-y-2 font-mono text-sm">
-              <p className="text-will-blue bg-will-navy/50 rounded px-3 py-2">
-                S¹ (Kinematics): <span className="text-white">β²</span> (Motion) + <span className="text-white">β<sub>Y</sub>²</span> (SpaceTime) = 1
-              </p>
-              <p className="text-will-cyan bg-will-navy/50 rounded px-3 py-2">
-                S² (Gravity): <span className="text-white">κ²</span> (Potential) + <span className="text-white">κ<sub>X</sub>²</span> (TimeSpace) = 1
-              </p>
+          <a href={`${PDF_BASE}thm:Closure`} target="_blank" rel="noopener noreferrer">
+            <div className="node-will px-6 py-4 max-w-xl hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <p className="text-will-green font-semibold mb-3">Thm 6.2 & 11.1: Orthogonal Conservation</p>
+              <p className="text-slate-300 text-sm mb-3">Unitary Budget &rArr; Pythagorean Closure</p>
+              <div className="space-y-2 font-mono text-sm">
+                <p className="text-will-blue bg-will-navy/50 rounded px-3 py-2">
+                  S&sup1; (Kinematics): <span className="text-white">&beta;&sup2;</span> (Motion) + <span className="text-white">&beta;<sub>Y</sub>&sup2;</span> (SpaceTime) = 1
+                </p>
+                <p className="text-will-cyan bg-will-navy/50 rounded px-3 py-2">
+                  S&sup2; (Gravity): <span className="text-white">&kappa;&sup2;</span> (Potential) + <span className="text-white">&kappa;<sub>X</sub>&sup2;</span> (TimeSpace) = 1
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         </motion.div>
 
         {/* Decision: Exchange Rate */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
           <div className="node-decision px-6 py-4">
-            <p className="text-yellow-200 font-medium text-center">Determine Exchange Rate between Active Amplitudes (κ², β²)</p>
+            <p className="text-yellow-200 font-medium text-center">Determine Exchange Rate between Active Amplitudes (&kappa;&sup2;, &beta;&sup2;)</p>
           </div>
         </motion.div>
 
         {/* Energetic Closure */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <div className="node-will px-6 py-4 max-w-md text-center">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <CheckCircle2 className="w-4 h-4 text-will-green" />
-              <span className="text-will-green text-xs font-bold">T</span>
+          <a href={`${PDF_BASE}lem:dof-indifference`} target="_blank" rel="noopener noreferrer">
+            <div className="node-will px-6 py-4 max-w-md text-center hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <CheckCircle2 className="w-4 h-4 text-will-green" />
+                <span className="text-will-green text-xs font-bold">T</span>
+              </div>
+              <p className="text-white font-semibold mb-2">Theorem 10.2: Energetic Closure</p>
+              <p className="text-slate-300 text-sm mb-2">R = d.o.f(S&sup2;) / d.o.f(S&sup1;) = 2 / 1 = 2</p>
+              <p className="text-will-cyan font-mono text-xl font-bold border-2 border-will-cyan/40 rounded-lg px-4 py-2 inline-block">
+                &kappa;&sup2; = 2&beta;&sup2;
+              </p>
             </div>
-            <p className="text-white font-semibold mb-2">Theorem 10.2: Energetic Closure</p>
-            <p className="text-slate-300 text-sm mb-2">R = d.o.f(S²) / d.o.f(S¹) = 2 / 1 = 2</p>
-            <p className="text-will-cyan font-mono text-xl font-bold border-2 border-will-cyan/40 rounded-lg px-4 py-2 inline-block">
-              κ² = 2β²
-            </p>
-          </div>
+          </a>
         </motion.div>
       </div>
     </motion.section>
