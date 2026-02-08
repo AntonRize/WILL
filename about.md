@@ -71,7 +71,7 @@ I welcome critique, collaboration, and engagement from physicists, mathematician
 
 - **Email:** [freewillrg@gmail.com](mailto:freewillrg@gmail.com)
 - **GitHub:** [WILL Geometry Repository](https://github.com/AntonRize/WILL)
-- **WILL-AI:** [Trained on WILL Research Documents](/WILL/WILL-AI/)
+- **WILL-AI:** [Trained on WILL Research Documents](/WILL-AI/)
 ---
 
 ## Acknowledgments
@@ -101,4 +101,4 @@ the Cosmos does not possess "will" - yet through WILL, it manifests All that Is.
 
 ---
 
-**Navigation:** [Research Documents](/WILL/results/) | [Key Predictions](/WILL/predictions/) | [Home Page](/WILL/)
+**Navigation:** [Research Documents](/results/) | [Key Predictions](/predictions/) | [Home Page](/)

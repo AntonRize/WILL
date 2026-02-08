@@ -186,10 +186,10 @@ description: "Download WILL Relational Geometry research papers and appendices. 
   </ul>
   <p class="meta">69 pages &middot; Complete</p>
   <div class="doc-actions">
-    <a href="/WILL/documents/WILL_RG_I.pdf" target="_blank" class="btn-open">
+    <a href="/documents/WILL_RG_I.pdf" target="_blank" class="btn-open">
       Open PDF
     </a>
-    <a href="/WILL/documents/WILL_RG_I.pdf" download class="btn-download">
+    <a href="/documents/WILL_RG_I.pdf" download class="btn-download">
       Download
     </a>
   </div>
@@ -217,10 +217,10 @@ description: "Download WILL Relational Geometry research papers and appendices. 
   </ul>
   <p class="meta">41 pages &middot; In progress</p>
   <div class="doc-actions">
-    <a href="/WILL/documents/WILL_RG_II.pdf" target="_blank" class="btn-open">
+    <a href="/documents/WILL_RG_II.pdf" target="_blank" class="btn-open">
       Open PDF
     </a>
-    <a href="/WILL/documents/WILL_RG_II.pdf" download class="btn-download">
+    <a href="/documents/WILL_RG_II.pdf" download class="btn-download">
       Download
     </a>
   </div>
@@ -245,10 +245,10 @@ description: "Download WILL Relational Geometry research papers and appendices. 
   </ul>
   <p class="meta">30 pages &middot; In progress</p>
   <div class="doc-actions">
-    <a href="/WILL/documents/WILL_RG_III.pdf" target="_blank" class="btn-open">
+    <a href="/documents/WILL_RG_III.pdf" target="_blank" class="btn-open">
       Open PDF
     </a>
-    <a href="/WILL/documents/WILL_RG_III.pdf" download class="btn-download">
+    <a href="/documents/WILL_RG_III.pdf" download class="btn-download">
       Download
     </a>
   </div>
@@ -270,8 +270,8 @@ description: "Download WILL Relational Geometry research papers and appendices. 
       <p>Complete list of empirical tests and observational comparisons</p>
     </div>
     <div class="supp-actions">
-      <a href="/WILL/documents/WILL_RG_APPENDIX_I.pdf" target="_blank" class="supp-link">Open</a>
-      <a href="/WILL/documents/WILL_RG_APPENDIX_I.pdf" download class="supp-link">Download</a>
+      <a href="/documents/WILL_RG_APPENDIX_I.pdf" target="_blank" class="supp-link">Open</a>
+      <a href="/documents/WILL_RG_APPENDIX_I.pdf" download class="supp-link">Download</a>
     </div>
   </div>
 
@@ -281,8 +281,8 @@ description: "Download WILL Relational Geometry research papers and appendices. 
       <p>Logical structure and derivation flow of the framework</p>
     </div>
     <div class="supp-actions">
-      <a href="/WILL/documents/WILL_RG_LOGOS_MAP.pdf" target="_blank" class="supp-link">Open</a>
-      <a href="/WILL/documents/WILL_RG_LOGOS_MAP.pdf" download class="supp-link">Download</a>
+      <a href="/documents/WILL_RG_LOGOS_MAP.pdf" target="_blank" class="supp-link">Open</a>
+      <a href="/documents/WILL_RG_LOGOS_MAP.pdf" download class="supp-link">Download</a>
     </div>
   </div>
 
@@ -292,8 +292,8 @@ description: "Download WILL Relational Geometry research papers and appendices. 
       <p>Orbital precession calculation for the S4716 star</p>
     </div>
     <div class="supp-actions">
-      <a href="/WILL/documents/Precession_of_S4716.pdf" target="_blank" class="supp-link">Open</a>
-      <a href="/WILL/documents/Precession_of_S4716.pdf" download class="supp-link">Download</a>
+      <a href="/documents/Precession_of_S4716.pdf" target="_blank" class="supp-link">Open</a>
+      <a href="/documents/Precession_of_S4716.pdf" download class="supp-link">Download</a>
     </div>
   </div>
 
@@ -308,25 +308,25 @@ description: "Download WILL Relational Geometry research papers and appendices. 
 </h2>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
-  <a href="/WILL/predictions/" class="supp-card" style="text-decoration:none;">
+  <a href="/predictions/" class="supp-card" style="text-decoration:none;">
     <div>
       <h4>Testable Predictions</h4>
       <p>Quantitative, falsifiable predictions</p>
     </div>
   </a>
-  <a href="/WILL/Galactic_Dynamics/" class="supp-card" style="text-decoration:none;">
+  <a href="/Galactic_Dynamics/" class="supp-card" style="text-decoration:none;">
     <div>
       <h4>Galactic Dynamics</h4>
       <p>SPARC dataset interactive lab</p>
     </div>
   </a>
-  <a href="/WILL/assistant/" class="supp-card" style="text-decoration:none;">
+  <a href="/assistant/" class="supp-card" style="text-decoration:none;">
     <div>
       <h4>WILL AI</h4>
       <p>AI trained on research documents</p>
     </div>
   </a>
-  <a href="/WILL/" class="supp-card" style="text-decoration:none;">
+  <a href="/" class="supp-card" style="text-decoration:none;">
     <div>
       <h4>Home</h4>
       <p>Return to overview</p>
