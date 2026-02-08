@@ -129,15 +129,15 @@ description: "Complete derivation of Special and General Relativity from a singl
 
 For full mathematical derivations:  
 
-[WILL RG Papers](https://antonrize.github.io/WILL/results/)
+[WILL RG Papers](https://willrg.com/results/)
 
 For unique testable predictions:
 
-[WILL RG Predictions](https://antonrize.github.io/WILL/predictions/)
+[WILL RG Predictions](https://willrg.com/predictions/)
 
 For questions and curiosity:
 
-[WILL RG AI](https://antonrize.github.io/WILL/WILL-AI/)
+[WILL RG AI](https://willrg.com/WILL-AI/)
 
 ---
 

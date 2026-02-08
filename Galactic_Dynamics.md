@@ -20,7 +20,7 @@ The crisis in modern cosmology is not experimental; it is philosophical. When st
 >
 > $\textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY}$
 >
-> This principle asserts logical identity. Structure and dynamics are not distinct interacting entities but dual aspects of a single closed relational system. [Test Link: Definition of WILL](https://antonrize.github.io/WILL/documents/WILL_RG_I.pdf#nameddest=def:will)
+> This principle asserts logical identity. Structure and dynamics are not distinct interacting entities but dual aspects of a single closed relational system. [Test Link: Definition of WILL](https://willrg.com/documents/WILL_RG_I.pdf#nameddest=def:will)
 
 ## 2. The First Principle: Inevitability of the Fundamental Tone
 
