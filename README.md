@@ -212,16 +212,16 @@ from this single, foundational principle as  inevitable consequences without fre
 
 ## Getting Started
 
-* **[Interactive Website & Overview: Explore the concepts visually.](https://antonrize.github.io/WILL/)**
-* **[Ask the WILL AI: Interact with an AI trained on the research papers.](https://antonrize.github.io/WILL/WILL-AI/)**
-* **[Unique Testable Predictions & Falsification: See the specific forecasts and test the model yourself.](https://antonrize.github.io/WILL/predictions/)**
-* **[Full Papers & Mathematical Derivations: For the rigorous details.](https://antonrize.github.io/WILL/results/)**
+* **[Interactive Website & Overview: Explore the concepts visually.](https://willrg.com)**
+* **[Ask the WILL AI: Interact with an AI trained on the research papers.](https://willrg.com/WILL-AI/)**
+* **[Unique Testable Predictions & Falsification: See the specific forecasts and test the model yourself.](https://willrg.com/predictions/)**
+* **[Full Papers & Mathematical Derivations: For the rigorous details.](https://willrg.com/results/)**
 
 ## Contact
 
-Anton Rize - [egeometricity@gmail.com](mailto:freewillrg@gmail.com) 
+Anton Rize - [antonrize@willrg.com](antonrize@willrg.com) 
 
-Project Link: [https://github.com/AntonRize/WILL](https://github.com/AntonRize/WILL)
+Open Repository - [https://github.com/AntonRize/WILL](https://github.com/AntonRize/WILL)
 
 All code and documents are released for scientific use.
 
