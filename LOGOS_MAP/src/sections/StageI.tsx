@@ -79,7 +79,7 @@ export default function StageI() {
                   <CheckCircle2 className="w-4 h-4 text-will-green" />
                   <span className="text-will-green text-xs font-bold">T (Generative)</span>
                 </div>
-                <p className="text-white font-semibold">Principle 1: Epistemic Hygiene</p>
+                <p className="text-white font-semibold">Principle 1: Epistemic Hygiene  href={`${PDF_BASE}pr:epistemic`}</p>
                 <p className="text-slate-300 text-sm mt-1">(No Hidden Assumptions)</p>
               </div>
             </a>
