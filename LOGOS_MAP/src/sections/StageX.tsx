@@ -1,6 +1,8 @@
 import { motion, type Variants } from 'framer-motion';
 import { ArrowDown, Infinity, RotateCcw } from 'lucide-react';
 
+const PDF_BASE = 'https://willrg.com/documents/WILL_RG_I.pdf#nameddest=';
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -11,8 +13,8 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.5 }
   }
@@ -53,38 +55,44 @@ export default function StageX() {
 
         {/* WILL Invariant */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <div className="node-will px-6 py-4 max-w-xl text-center">
-            <p className="text-will-green font-semibold mb-3">Sec 21: W<sub>ILL</sub> Invariant</p>
-            <p className="text-slate-300 text-sm mb-3">Check consistency of all sectors: Energy (E), Time (T), Mass (M), Length (L)</p>
-            <p className="text-will-cyan font-mono text-2xl font-bold border-2 border-will-cyan/40 rounded-lg px-6 py-3 inline-block">
-              W<sub>ILL</sub> = ET/ML = 1
-            </p>
-            <p className="text-slate-400 text-sm mt-3">Unity of Relational Structure</p>
-          </div>
+          <a href={`${PDF_BASE}sec:willinvariant`} target="_blank" rel="noopener noreferrer">
+            <div className="node-will px-6 py-4 max-w-xl text-center hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <p className="text-will-green font-semibold mb-3">Sec 21: W<sub>ILL</sub> Invariant</p>
+              <p className="text-slate-300 text-sm mb-3">Check consistency of all sectors: Energy (E), Time (T), Mass (M), Length (L)</p>
+              <p className="text-will-cyan font-mono text-2xl font-bold border-2 border-will-cyan/40 rounded-lg px-6 py-3 inline-block">
+                W<sub>ILL</sub> = ET/ML = 1
+              </p>
+              <p className="text-slate-400 text-sm mt-3">Unity of Relational Structure</p>
+            </div>
+          </a>
         </motion.div>
 
         {/* Theoretical Ouroboros */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <div className="node-will px-6 py-4 max-w-xl text-center">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <RotateCcw className="w-5 h-5 text-will-green" />
-              <p className="text-will-green font-semibold">Sec 20: Theoretical Ouroboros</p>
+          <a href={`${PDF_BASE}def:will`} target="_blank" rel="noopener noreferrer">
+            <div className="node-will px-6 py-4 max-w-xl text-center hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <RotateCcw className="w-5 h-5 text-will-green" />
+                <p className="text-will-green font-semibold">Sec 20: Theoretical Ouroboros</p>
+              </div>
+              <p className="text-slate-300 text-sm">The Principle (Spacetime &equiv; Energy) generated the Field Equation.</p>
+              <p className="text-slate-300 text-sm mt-1">The Field Equation validates the Principle.</p>
+              <p className="text-will-cyan text-sm mt-2 font-medium">Logical loop is closed.</p>
             </div>
-            <p className="text-slate-300 text-sm">The Principle (Spacetime ≡ Energy) generated the Field Equation.</p>
-            <p className="text-slate-300 text-sm mt-1">The Field Equation validates the Principle.</p>
-            <p className="text-will-cyan text-sm mt-2 font-medium">Logical loop is closed.</p>
-          </div>
+          </a>
         </motion.div>
 
         {/* Final Node */}
         <motion.div variants={itemVariants} className="flex justify-center mb-12">
-          <div className="node-final px-10 py-8 text-center">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <Infinity className="w-6 h-6 text-will-blue" />
+          <a href={`${PDF_BASE}def:will`} target="_blank" rel="noopener noreferrer">
+            <div className="node-final px-10 py-8 text-center hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Infinity className="w-6 h-6 text-will-blue" />
+              </div>
+              <p className="text-will-blue font-bold text-xl mb-1">LOGOS &equiv; WILL &equiv; COSMOS</p>
+              <p className="text-white font-mono text-2xl font-bold mt-3">SPACETIME &equiv; ENERGY</p>
             </div>
-            <p className="text-will-blue font-bold text-xl mb-1">LOGOS ≡ WILL ≡ COSMOS</p>
-            <p className="text-white font-mono text-2xl font-bold mt-3">SPACETIME ≡ ENERGY</p>
-          </div>
+          </a>
         </motion.div>
       </div>
     </motion.section>

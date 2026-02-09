@@ -1,6 +1,8 @@
 import { motion, type Variants } from 'framer-motion';
 import { CheckCircle2, XCircle, ArrowDown } from 'lucide-react';
 
+const PDF_BASE = 'https://willrg.com/documents/WILL_RG_I.pdf#nameddest=';
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -11,8 +13,8 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.5 }
   }
@@ -47,30 +49,32 @@ export default function StageVIII() {
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
           <div className="node-axiom px-6 py-4 max-w-lg text-center">
             <p className="text-will-blue font-semibold text-sm mb-1">INPUT FROM STAGE VII</p>
-            <p className="text-white">Dynamics is Geometric. Pure Algebra of Projections (κ, β)</p>
+            <p className="text-white">Dynamics is Geometric. Pure Algebra of Projections (&kappa;, &beta;)</p>
           </div>
         </motion.div>
 
         {/* Decision: Define Density */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
           <div className="node-decision px-6 py-4">
-            <p className="text-yellow-200 font-medium text-center">Define Density (ρ)</p>
+            <p className="text-yellow-200 font-medium text-center">Define Density (&rho;)</p>
             <p className="text-yellow-200/70 text-sm text-center">Connect 2D Geometry to 3D Data</p>
           </div>
         </motion.div>
 
         {/* Density Branch */}
         <motion.div variants={itemVariants} className="flex items-start gap-4 mb-8">
-          <div className="flex-1 node-will px-5 py-4">
-            <div className="flex items-center gap-2 mb-2">
-              <CheckCircle2 className="w-4 h-4 text-will-green" />
-              <span className="text-will-green text-xs font-bold">T</span>
+          <a href={`${PDF_BASE}density`} target="_blank" rel="noopener noreferrer" className="flex-1">
+            <div className="node-will px-5 py-4 hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="w-4 h-4 text-will-green" />
+                <span className="text-will-green text-xs font-bold">T</span>
+              </div>
+              <p className="text-white font-semibold">Sec 17.1: The Translation Interface</p>
+              <p className="text-slate-300 text-sm mt-2">No new assumptions. Translate 2D Surface Data (S&sup2;) to 3D Proxy.</p>
+              <p className="text-slate-400 text-sm mt-2">Normalization by sphere area (4&pi;):</p>
+              <p className="text-will-blue font-mono text-sm mt-2">&rho; = (1/4&pi;) &middot; (&kappa;&sup2;c&sup2;/2Gr&sup2;)</p>
             </div>
-            <p className="text-white font-semibold">Sec 17.1: The Translation Interface</p>
-            <p className="text-slate-300 text-sm mt-2">No new assumptions. Translate 2D Surface Data (S²) to 3D Proxy.</p>
-            <p className="text-slate-400 text-sm mt-2">Normalization by sphere area (4π):</p>
-            <p className="text-will-blue font-mono text-sm mt-2">ρ = (1/4π) · (κ²c²/2Gr²)</p>
-          </div>
+          </a>
           <div className="node-fail px-4 py-3 max-w-[220px]">
             <div className="flex items-center gap-2 mb-1">
               <XCircle className="w-4 h-4 text-red-400" />
@@ -78,37 +82,41 @@ export default function StageVIII() {
             </div>
             <p className="text-red-300/70 text-sm font-medium">&quot;The Cannonball Principle&quot;</p>
             <p className="text-red-300/70 text-sm">Assumption: Mass is &quot;stuff&quot; filling a 3D volume uniformly.</p>
-            <p className="text-red-300/70 text-sm font-mono mt-1">ρ = M/V</p>
+            <p className="text-red-300/70 text-sm font-mono mt-1">&rho; = M/V</p>
             <p className="text-red-400/60 text-xs mt-2">Violates Minimalism. &quot;Cultural Artifact&quot; of Newton.</p>
           </div>
         </motion.div>
 
         {/* Density Identity */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <div className="node-will px-6 py-4 max-w-xl text-center">
-            <p className="text-will-green font-semibold mb-3">The Density Identity</p>
-            <p className="text-slate-300 text-sm mb-3">Local Density ≡ Relational Projection</p>
-            <div className="space-y-2">
-              <p className="text-will-cyan font-mono text-lg font-bold border-2 border-will-cyan/40 rounded-lg px-4 py-2 inline-block">
-                ρ = κ²c² / 8πGr²
-              </p>
-              <p className="text-will-blue font-mono text-lg font-bold border-2 border-will-blue/40 rounded-lg px-4 py-2 inline-block ml-2">
-                κ² = ρ/ρ<sub>max</sub>
-              </p>
+          <a href={`${PDF_BASE}density`} target="_blank" rel="noopener noreferrer">
+            <div className="node-will px-6 py-4 max-w-xl text-center hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <p className="text-will-green font-semibold mb-3">The Density Identity</p>
+              <p className="text-slate-300 text-sm mb-3">Local Density &equiv; Relational Projection</p>
+              <div className="space-y-2">
+                <p className="text-will-cyan font-mono text-lg font-bold border-2 border-will-cyan/40 rounded-lg px-4 py-2 inline-block">
+                  &rho; = &kappa;&sup2;c&sup2; / 8&pi;Gr&sup2;
+                </p>
+                <p className="text-will-blue font-mono text-lg font-bold border-2 border-will-blue/40 rounded-lg px-4 py-2 inline-block ml-2">
+                  &kappa;&sup2; = &rho;/&rho;<sub>max</sub>
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         </motion.div>
 
         {/* Intrinsic Pressure */}
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <div className="node-will px-6 py-4 max-w-xl text-center">
-            <p className="text-will-green font-semibold mb-2">Sec 17.3: Intrinsic Pressure</p>
-            <p className="text-slate-300 text-sm mb-3">If Density is Geometry (κ²), then Pressure is Geometric Tension.</p>
-            <p className="text-will-cyan font-mono text-xl font-bold border-2 border-will-cyan/40 rounded-lg px-4 py-2 inline-block">
-              P = -ρc²
-            </p>
-            <p className="text-slate-400 text-sm mt-2">(Analogue to Surface Tension)</p>
-          </div>
+          <a href={`${PDF_BASE}density`} target="_blank" rel="noopener noreferrer">
+            <div className="node-will px-6 py-4 max-w-xl text-center hover:ring-2 hover:ring-blue-400/50 transition-all cursor-pointer">
+              <p className="text-will-green font-semibold mb-2">Sec 17.3: Intrinsic Pressure</p>
+              <p className="text-slate-300 text-sm mb-3">If Density is Geometry (&kappa;&sup2;), then Pressure is Geometric Tension.</p>
+              <p className="text-will-cyan font-mono text-xl font-bold border-2 border-will-cyan/40 rounded-lg px-4 py-2 inline-block">
+                P = -&rho;c&sup2;
+              </p>
+              <p className="text-slate-400 text-sm mt-2">(Analogue to Surface Tension)</p>
+            </div>
+          </a>
         </motion.div>
       </div>
     </motion.section>
