@@ -44,7 +44,7 @@
 \renewcommand{\footrulewidth}{0pt} 
 
 % Left Footer: Website Link (Small text)
-\lfoot{\scriptsize \href{https://antonrize.github.io/WILL/}{antonrize.github.io/WILL}}
+\lfoot{\scriptsize \href{https://willrg.com}{https://willrg.com}}
 
 % Center Footer: Page Number
 \cfoot{\scriptsize \thepage}
@@ -59,7 +59,7 @@
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
-  \lfoot{\scriptsize \href{https://antonrize.github.io/WILL/}{antonrize.github.io/WILL}}
+  \lfoot{\scriptsize \href{https://willrg.com}{https://willrg.com}}
   \cfoot{\scriptsize \thepage}
   \rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
 }
@@ -83,7 +83,7 @@
 
 % --- Metadata ---
 \title{WILL Part I: Relational Geometry}
-\author{Anton Rize \\ freewillrg@gmail.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}} \\
+\author{Anton Rize \\ antonrize@willrg.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}} \\
 
 
 \date{October 2025}
@@ -1047,13 +1047,12 @@ All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as special
 \end{figure}
 
 
-
+\hypertarget{eq:Q-definition}{}\label{eq:Q-definition}
 When an observer observes another system, they assign to it a Total Relational Shift norm $Q$:
 \begin{equation}
 \boxed{
 Q^2=\beta^2+\kappa^2
 }
-\hypertarget{eq:Q-definition}{}\label{eq:Q-definition}
 \end{equation}
 Relational reciprocity is the invariance of this norm under the self-centering operation of each observer.
 
@@ -1124,6 +1123,7 @@ In general (open or elliptic) configurations, the full definition $Q^{2}=\beta^{
 \caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the orthogonal projections $\beta$ and $\kappa$. Interaction is causal only when the center of the Object lies within the Observer's horizon ($Q < 1$), ensuring mutual coverage.}
 \hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
 \end{figure}
+
 
 \paragraph{Self--centering reciprocity.}
 Every observer performs self--centering:
@@ -1315,7 +1315,7 @@ The factor $2$ is not empirical calibration and not a coordinate choice.
 It is the unique consequence of (1 DOF vs 2 DOF) under symmetry and minimalism.
 \end{remark}
 
-
+\hypertarget{def:closure_factor}{}\label{def:closure_factor}
 \begin{definition}[Closure Factor]
 $$\delta \equiv \frac{\kappa^2 }{2\beta^2} $$
 A subsystem is \emph{energetically closed} if \(\langle\delta\rangle_{\text{cycle}}=1.\)
@@ -1589,9 +1589,9 @@ The relational projections are encoded directly in the combined phase interactio
 \begin{proof}
 \textbf{Step 1: The Raw Observable ($\tau_W$).}
 Spectroscopy does not measure "gravitational potential" or "kinematic velocity" as separate isolates; it measures the total accumulated phase difference between the source and the observer. We define the \textbf{Relational Spacetime Factor} $\tau_W$ as the inverse of the total measured redshift product:
+\hypertarget{eq:tau_observable}{}\label{eq:tau_observable}
 \begin{equation}
 \tau_W \equiv \frac{1}{Z_{\text{tot}}} = \frac{1}{(1+z_{\text{obs}})}.
-\hypertarget{eq:tau_observable}{}\label{eq:tau_observable}
 \end{equation}
 In the WILL framework, this single observable represents the product of the internal phase projections of the carriers $S^2$ and $S^1$:
 \begin{equation}
@@ -1626,11 +1626,11 @@ Given measurements of geometric position ($r$) and kinematic intensity ($\beta$)
     \item Intensities: $\beta_1, \beta_2$ (from de-projected spectral line widths or proper motion)
 \end{itemize}
 the Schwarzschild radius is:
+\hypertarget{eq:Rs_two_point}{}\label{eq:Rs_two_point}
 \begin{equation}
 \boxed{
 R_s = \frac{r_1 r_2}{r_2 - r_1}(\beta_1^2 - \beta_2^2).
 }
-\hypertarget{eq:Rs_two_point}{}\label{eq:Rs_two_point}
 \end{equation}
 \end{theorem}
 
@@ -1668,11 +1668,11 @@ At the specific orbital phase $O_o = \arccos(-e)$, the system passes through its
 \begin{theorem}[Balance Point Formula]
 \hypertarget{thm:balance_point}{}\label{thm:balance_point}
 Given the geometric scale $a$ and the total light signal $\tau_W$ measured at the balance point ($r=a$):
+\hypertarget{eq:Rs_balance}{}\label{eq:Rs_balance}
 \begin{equation}
 \boxed{
 R_s = \frac{a}{2}\left(3 - \sqrt{1 + 8\tau_W^2(O_o)}\right).
 }
-\hypertarget{eq:Rs_balance}{}\label{eq:Rs_balance}
 \end{equation}
 \end{theorem}
 
@@ -1723,11 +1723,10 @@ Most generally, if the orbital geometry ($a$) is known, the scale $R_s$ can be d
 \begin{theorem}[Arbitrary Phase Formula]
 \hypertarget{thm:arbitrary_phase}{}\label{thm:arbitrary_phase}
 Given the orbital geometry ($a, r_o$) and the single light observable $\tau_{Wo}$:
+\hypertarget{eq:Rs_arbitrary}{}\label{eq:Rs_arbitrary}
 \begin{equation}
 \boxed{
-R_s = \frac{r_o}{2(2a-r_o)}\left(4a - r_o - \sqrt{(4a-r_o)^2 - 8a(2a-r_o)(1-\tau_{Wo}^2)}\right).
-}
-\hypertarget{eq:Rs_arbitrary}{}\label{eq:Rs_arbitrary}
+R_s = \frac{r_o}{2(2a-r_o)}\left(4a - r_o - \sqrt{(4a-r_o)^2 - 8a(2a-r_o)(1-\tau_{Wo}^2)}\right).}
 \end{equation}
 \end{theorem}
 
@@ -1843,11 +1842,11 @@ K &= \frac12 m\frac{GM_\oplus}{a}.
 \end{align}
 Adding these and dividing by the rest--energy $E_0 = m c^2$ yields
 the dimensionless total:
+\hypertarget{eq:classical_surface}{}\label{eq:classical_surface}
 \begin{equation}
 \frac{E_{\text{tot}}}{E_0}
 = \frac{GM_\oplus}{R_\oplus c^2}
  - \frac12\frac{GM_\oplus}{a c^2}.
-\hypertarget{eq:classical_surface}{}\label{eq:classical_surface}
 \end{equation}
 
 \subsection{Projection Parameters and Minkowski-like Form}
@@ -1862,10 +1861,10 @@ Define the WILL projection parameters for the surface and the orbit:
 \beta_{\text{orbit}}^2 &\equiv \frac{GM_\oplus}{a c^2}.
 \end{align}
 Substituting into \eqref{eq:classical_surface} gives the exact identity:
+\hypertarget{eq:will_minkowski_energy}{}\label{eq:will_minkowski_energy}
 \begin{equation}
 \frac{E_{\text{tot}}}{E_0}
 = \frac12\bigl(\kappa_\oplus^2 - \beta_{\text{orbit}}^2\bigr).
-\hypertarget{eq:will_minkowski_energy}{}\label{eq:will_minkowski_energy}
 \end{equation}
 
 This is already in the form of a \emph{hyperbolic difference of squares}:
@@ -2032,6 +2031,7 @@ is not a fundamental principle but another "degenerate shadow" of the WILL frame
 It arises as a necessary mathematical consequence of the same ontological collapse
 --- forcing a two-point relational law into a single-point, instantaneous formalism.
 
+\hypertarget{thm:third_law}{}\label{thm:third_law}
 \begin{theorem}[Newton's Third Law as a Degenerate Consequence]
 The Energy--Symmetry Law ($\Delta E_{A \to B} + \Delta E_{B \to A} = 0$)
 mathematically necessitates Newton's Third Law ($\vec{F}_{AB} = - \vec{F}_{BA}$)
@@ -2094,6 +2094,7 @@ Relational Geometry.
  \end{proof}
  
 \section{Substantialism vs. Relationalism}
+\hypertarget{sec:sub_v_rel}{}\label{sec:sub_v_rel}
 
 \subsection{No-Go Theorem for Fundamental One-Point Dynamics}
 
@@ -2293,6 +2294,7 @@ relational structure.
 \end{tcolorbox}
 
 \section{General Consequence}
+\hypertarget{sec:general_consequence}{}\label{sec:general_consequence}
 Substantialism as Bad philosophy, in RG sense, has three measurable effects:
 
 \begin{enumerate}
@@ -2328,6 +2330,7 @@ Nature's laws reduce to algebraic self-consistency.
 %___________________________________________________________________________________________________
 
 \section{Relational Orbital Mechanics (R.O.M.) Without Mass or $G$}
+\hypertarget{sec:rom}{}\label{sec:rom}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Thesis]
 \textbf{Orbital dynamics requires no mass, no $G$, no metric, and no spacetime geometry.}
@@ -2353,13 +2356,14 @@ Depending on the available observational data, the framework offers two distinct
 \end{itemize}
 
 \subsection{Derivation of Relational Eccentricity}
+\hypertarget{sec:rel_ecc}{}\label{sec:rel_ecc}
 
 Geometric eccentricity is not a free parameter but a measure of the energetic deviation from the circular equilibrium state ($\delta=1$).
 
 \begin{theorem}[Geometric Eccentricity]
 For a closed orbital system governed by the projection invariants of WILL Relational Geometry, the orbital eccentricity $e$ is strictly determined by the closure factor at periapsis, $\delta_p$:
 \begin{equation}
-e = \frac{1}{\delta_p} - 1 = \frac{1-\delta_p}{\delta_p}.
+e = \frac{2\beta_p^2}{\kappa_p^2}-1=\frac{1}{\delta_p} - 1 .
 \end{equation}
 \end{theorem}
 
@@ -2414,9 +2418,9 @@ Dividing both sides by $2e$ and multiplying by $(1+e)^2$:
 \kappa_p^2 (1+e) = 2\beta_p^2.
 \]
 This yields geometric identity for bound orbits:
+\hypertarget{eq:proj-balance}{}\label{eq:proj-balance}
 \begin{equation}
 2\beta_p^2 = \kappa_p^2 (1+e).
-\hypertarget{eq:proj-balance}{}\label{eq:proj-balance}
 \end{equation}
 
 \paragraph{Step 4: Connection to Closure.}
@@ -2562,11 +2566,11 @@ Using the identities $R_s = \kappa_p^2 r_p$ and $a(1-e^2) = r_p(1+e)$, and the c
 
 The secular evolution of an orbit is determined solely by the \textbf{ratio of the gravitational redshift to the Doppler shift} (red vs. blue) at the point of closest approach:
 \hypertarget{eq:precession_law}{}\label{eq:precession_law}
+\hypertarget{eq:light-ratio-law}{}\label{eq:light-ratio-law}
+
 \begin{equation}
 \boxed{
-\Delta\varphi = \frac{3}{2}\pi \frac{\kappa_p^4}{\beta_p^2}
-}
-\hypertarget{eq:light-ratio-law}{}\label{eq:light-ratio-law}
+\Delta\varphi = \frac{3}{2}\pi \frac{\kappa_p^4}{\beta_p^2}}
 \end{equation}
 
 This equation replaces the complex dynamical derivation with a direct comparison of light interactions.
@@ -2808,6 +2812,7 @@ m_0 = 4\pi r^3 \rho,
 which closes the consistency loop between the geometric and density-based formulations.
 
 \subsection{Pressure as Surface Curvature Gradient}
+\hypertarget{subsec:pressure}{}\label{subsec:pressure}
 
 In the RG framework pressure is not a thermodynamic assumption but the direct consequence of curvature gradients.  
 The radial balance relation gives
@@ -2862,15 +2867,14 @@ The negative pressure is not an exotic substance but the geometric tension requi
 \end{tcolorbox}
 
 \section{Unified Geometric Field Equation}
-
+\hypertarget{eq:unified_field}{}\label{eq:unified_field}
 
 From the energy-geometry equivalence, the complete description of gravitational phenomena reduces to a single algebraic relation linking the geometric scale to the energy density ratio:
-\hypertarget{eq:unified_identity}{}
+
 \[
 \boxed{
-\kappa^2 = \frac{R_s}{r} = \frac{\rho_{\text{field}}}{\rho_{\text{max}}}
-}
-\hypertarget{eq:unified_identity}{}\label{eq:unified_identity}
+\kappa^2 = \frac{R_s}{r} = \frac{\rho_{\text{field}}}{\rho_{\text{max}}}}
+
 \]
 
 This identity defines the \textbf{local energy state of the geometry itself}.
@@ -2879,12 +2883,11 @@ Here $\rho_{\text{max}} = c^2/(8\pi G r^2)$ is the saturation density limit, and
 \subsection{Field Equation and Matter Sources}
 
 For a static, spherically symmetric configuration containing matter with density $\rho_{\text{matter}}(r)$, the relationship is governed by the differential accumulation of the potential:
- \hypertarget{eq:will_field_diff}{}
+\hypertarget{eq:will_field_diff}{}\label{eq:will_field_diff}
 \begin{equation}
 \boxed{
 \frac{d}{dr}\!\left(r\,\kappa^{2}\right) = \frac{8\pi G}{c^{2}}\, r^{2}\rho_{\text{matter}}(r)
 }
-\hypertarget{eq:will_field_diff}{}\label{eq:will_field_diff}
 \end{equation}
 
 This expression reproduces the $tt$-component of the Einstein field equations.
@@ -2915,7 +2918,7 @@ This framework introduces no interior singularities, no coordinate patches hidde
 \]
 ensures that curvature and energy density evolve smoothly and remain bounded across all observable scales.
 
-WILL Relational Geometry resolves the singularity problem not by regularizing divergent terms, nor by introducing quantum effects, but by geometrically constraining the domain of valid projections. Curvature is always finite, and energy remains bounded by construction. Black holes become energetically saturated but nonsingular regions, described entirely by finite, dimensionless parameters.
+WILL Relational Geometry resolves the singularity problem not by regularizing divergent terms, nor by introducing quantum effects, but by geometrically constraining the domain of valid projections. Curvature is always finite, and energy remains bounded by construction. Black holes become energetically saturated but non-singular regions, described entirely by finite, dimensionless parameters.
 
 This projectional approach provides a clean, intrinsic termination to gravitational collapse, replacing singular endpoints with structured, maximally curved boundaries.
 
@@ -2928,7 +2931,7 @@ The constraint for non rotating systems $\kappa^2\le 1$ enforces $\rho\le\rho_{\
 
 
 \section{Theoretical Ouroboros}
-
+\hypertarget{sec:ouroboros}{}\label{sec:ouroboros}
 
 \begin{tcolorbox}[colback=gray!4, colframe=black!70!black, title=Closure]
 
@@ -2942,7 +2945,7 @@ Field Equation $\Longleftrightarrow$ Ontological Principle
     \centering
     \includegraphics[width=1\linewidth]{img/17_Theoretical-Ouroboros.png}
 \end{figure}
-
+\hypertarget{eq:unified_identity}{}\label{eq:unified_identity}
 We have shown that this single Ontological Principle  (\ref{pr:unifying}), through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with \(\text{SPACETIME} \equiv \text{ENERGY}\), from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and spacetime, proving the self-consistency of the initial idea.
 
 \[
@@ -2955,7 +2958,6 @@ We have shown that this single Ontological Principle  (\ref{pr:unifying}), throu
 \boxed{
 \kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{max}}
 }
-\hypertarget{eq:unified_field}{}\label{eq:unified_field}
 \]
 \[
 \boxed{
@@ -2990,11 +2992,8 @@ the expression in turn validates the principle.
 \end{tcolorbox}
 
 \begin{quote}
-      From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework - the "Theoretical Ouroboros". But regardless of  esthetic beauty of this result, let us remain skeptical.
-
+      From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework - the "Theoretical Ouroboros". But regardless of the aesthetic beauty of this result, let us remain sceptical.
 \end{quote}
-
-
 
 \section{$W_{\text{ILL}}$: Unity of Relational Structure}
 \hypertarget{sec:willinvariant}{}\label{sec:willinvariant}
@@ -3084,7 +3083,7 @@ the universe is not a stage where energy acts through time upon space,
 but a single self-balancing structure whose internal distinctions generate all phenomena.  
 The name also serves as a gentle irony toward anthropic thinking:  
 the Cosmos does not possess "will" - yet through WILL, it manifests All that Is.
-\begin{widetext}
+
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
 \[
 \boxed{
@@ -3102,8 +3101,7 @@ the Cosmos does not possess "will" - yet through WILL, it manifests All that Is.
 }
 \]
 \end{tcolorbox}
- \end{widetext}
-
+ 
 
 \section{Ontological Shift: From Descriptive to Generative Physics}
 \hypertarget{Generative Physics}{}\label{Generative Physics}
