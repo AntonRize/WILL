@@ -134,7 +134,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 <!-- ═══════════════════════ 1. COSMOLOGICAL ═══════════════════════ -->
 <div class="section-head cosmo">
   <h2>1. Cosmological Predictions</h2>
-  <span class="badge cosmo">7 predictions</span>
+  <span class="badge cosmo">6 predictions</span>
 </div>
 
 
@@ -221,8 +221,9 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 
   <p>
     <span class="result-tag">\(\ell_{\mathrm{obs}}\approx 220.60\)</span>
-    &mdash; agreement within ~0.01%, resolving the &ldquo;missing mass&rdquo;
-    problem without dark matter.
+    &mdash; agreement within ~0.01%, offers an alternative explanation &ldquo;missing mass&rdquo;
+    without invoking dark matter.
+ 
   </p>
   <p class="doc-ref">Part II &mdash; &ldquo;Geometric Origin of the CMB Acoustic Spectrum&rdquo;</p>
   <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:cmb-acoustic" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
@@ -234,7 +235,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
   <h3>d. Resolution of the Low Quadrupole Anomaly</h3>
 
   <p>
-    Vacuum stiffness acts as a geometric high-pass filter, naturally suppressing
+    Vacuum tension acts as a geometric high-pass filter, naturally suppressing
     the largest angular scales. The predicted quadrupole power:
   </p>
   <div class="eq-box">
@@ -286,7 +287,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 
   <p>
     Wide binary systems couple to the horizon via a distinct <em>kinematic</em>
-    resonance channel, predicting a gravity boost factor different from the
+    resonance channel, predicting a boost factor different from the
     galactic (structural) one:
   </p>
   <div class="eq-box">
@@ -297,34 +298,10 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 
   <p>
     <span class="result-tag">Matches Gaia DR3</span> observational data,
-    resolving the wide-binary anomaly that challenges standard MOND.
+    offering an explanation to the wide-binary anomaly that challenges standard MOND.
   </p>
-  <p class="doc-ref">Part II &mdash; &ldquo;The Kinetic Resonance: Resolution of the Wide Binary Anomaly&rdquo;</p>
+  <p class="doc-ref">Part II &mdash; &ldquo;The Kinetic Resonance: Potential explanation of the Wide Binary Anomaly&rdquo;</p>
   <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:wide-binary" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
-</div>
-
-
-<!-- 1g ── Strong Lensing ── -->
-<div class="pred-card cosmo">
-  <h3>g. Strong Gravitational Lensing</h3>
-
-  <p>
-    Lensing angles follow from observed stellar velocity dispersions, without
-    dark matter, by treating the vacuum energy density as the effective
-    refractive medium:
-  </p>
-  <div class="eq-box">
-    $$\theta_{\mathrm{pred}} \;=\; 4\pi
-    \left(\frac{\sigma_{\mathrm{obs}}}{c}\right)^{2}
-    \frac{D_{ls}}{D_s}$$
-  </div>
-
-  <p>
-    For SDSSJ0946+1006:
-    <span class="result-tag">predicted 1.46&Prime; vs. observed 1.43&Prime;</span>.
-  </p>
-  <p class="doc-ref">Part II &mdash; &ldquo;Strong Lensing: A Proof of Concept&rdquo;</p>
-  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:strong-lensing" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
@@ -337,11 +314,11 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 
 <!-- 2a ── Singularities ── -->
 <div class="pred-card rel">
-  <h3>a. Resolution of GR Singularities</h3>
+  <h3>a. Suggesting resolution of GR Singularities</h3>
 
   <p>
     WILL RG imposes a natural, geometry-derived upper bound on energy density,
-    eliminating black-hole singularities:
+    desolving black-hole singularities:
   </p>
   <div class="eq-box">
     $$\rho_{\max} \;=\; \frac{c^{2}}{8\pi\,G\,r^{2}}$$
@@ -387,7 +364,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 
   <p>
     The precession formula emerges algebraically from the ratio of gravitational
-    and kinematic projections at periapsis&mdash;no differential equations or
+    and kinematic projections at periapsis&mdash;no mass no G no differential equations or
     metric tensors required:
   </p>
   <div class="eq-box">
@@ -397,7 +374,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
   <p>
     Accurately predicts
     <span class="result-tag">Mercury&rsquo;s 43&Prime;/century</span>
-    and observed precession for star&nbsp;S2.
+    observed precession for star&nbsp;S2.
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;The Universal Precession Law: Derivation via \(Q_a\)&rdquo;</p>
   <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#eq:precession_law" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
@@ -466,7 +443,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
   <h3>b. The Fine Structure Constant \(\alpha\)</h3>
 
   <p>
-    The fine-structure constant is identified as the kinetic projection of the
+    The fine-structure constant is derived as the kinetic projection of the
     electron in the hydrogen ground state&mdash;not an empirical input but the
     unique kinematic amplitude compatible with geometric closure:
   </p>
