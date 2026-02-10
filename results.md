@@ -262,18 +262,6 @@ description: "Download WILL Relational Geometry research papers and appendices. 
   Supplementary Documents
 </h2>
 
-<div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 3rem;">
-
-  <div class="supp-card">
-    <div>
-      <h4>Appendix I &mdash; Empirical Validation</h4>
-      <p>Complete list of empirical tests and observational comparisons</p>
-    </div>
-    <div class="supp-actions">
-      <a href="/documents/WILL_RG_APPENDIX_I.pdf" target="_blank" class="supp-link">Open</a>
-      <a href="/documents/WILL_RG_APPENDIX_I.pdf" download class="supp-link">Download</a>
-    </div>
-  </div>
 
   <div class="supp-card">
     <div>
