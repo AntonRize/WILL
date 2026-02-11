@@ -116,20 +116,20 @@ These results show that the framework reproduces the considered empirical constr
 
 \newpage
 
-\section{Methodological Framework (WILL RG Part I Recap)}
+\section{Methodological Framework (\href{https://willrg.com/documents/WILL_RG_I.pdf}{WILL RG Part I} Recap)}
 
 \subsection{Ontological Principle: Generative Physics (Results Established in WILL RG Part I)}
 
 Standard cosmological models operate on a descriptive paradigm, fitting dynamical laws (Lagrangians) onto a pre-existing spacetime manifold. We adopt a strictly \textbf{generative} approach based on the foundational principle established in WILL Relational Geometry (Part I):
-\[
+\href{https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying}{\[
 \boxed{\text{SPACETIME} \equiv \text{ENERGY}}
-\]
+\]}
 \[\text{Throughout this paper, the identity is to be read as an ontological identification,}\]\[\text{not as an algebraic equation or a dynamical law.}\]
-This principle asserts that "spacetime" and "energy" are not distinct entities but dual projections of a single invariant relational structure. Consequently, we do not postulate a background metric. Instead, geometry emerges solely from the conservation requirements of closed relational carriers.
+This principle asserts that "spacetime" and \href{https://willrg.com/documents/WILL_RG_I.pdf#def:energy}{"energy"} are not distinct entities but dual projections of a single invariant relational structure. Consequently, we do not postulate a background metric. Instead, geometry emerges solely from the conservation \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:closure}{requirements} of closed relational carriers.
 
 \subsection{The Relational Carriers: $S^1$ and $S^2$}
 
-The topology of a closed, maximally symmetric system admits exactly two minimal relational carriers for the energy budget:
+The topology of a closed, maximally symmetric system admits exactly two minimal relational \href{requirementshttps://willrg.com/documents/WILL_RG_I.pdf#thm:carriers}{carriers} for the \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:duality}{energy budget}:
 \begin{enumerate}
     \item \textbf{Kinematic Carrier ($S^1$):} Encodes directional transformation (1 Degree of Freedom). Its state is defined by the orthogonal projections:
     \[ \beta^2 + \beta_Y^2 = 1 \]
@@ -161,7 +161,7 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa)
  
  $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\\hline
 \end{tabular}
-\caption{Unified representation of relativistic and gravitational effects for closed systems.}
+\caption{\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:geometric_composition}{Unified representation} of relativistic and gravitational effects for closed systems.}
 \end{table}
 
 ($z=$ gravitational redshift)
@@ -207,17 +207,14 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa)
 
 
 \subsection{The Energetic Closure Condition}
-
-For any stable, self-contained system, the energy budget must be partitioned between these carriers. The exchange rate is strictly determined by the ratio of their relational degrees of freedom ($\text{DOF}_{S^2}/\text{DOF}_{S^1} = 2$). This yields the fundamental \textbf{Closure Condition} governing all bound systems (virial equilibrium):
-\begin{equation}
 \hypertarget{eq:closure}{}\label{eq:closure}
-\boxed{\kappa^2 = 2\beta^2}
-\end{equation}
+For any stable, self-contained system, the energy budget must be partitioned between these carriers. The exchange rate is strictly determined by the ratio of their \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference}{relational degrees of freedom} ($\text{DOF}_{S^2}/\text{DOF}_{S^1} = 2$). This yields the fundamental \textbf{Closure Condition} governing all bound systems (virial equilibrium):
+\href{https://willrg.com/documents/WILL_RG_I.pdf#thm:Closure}{$$\boxed{\kappa^2 = 2\beta^2}$$}
 This geometric identity replaces the Newtonian dynamical postulate. It implies that for any closed system, the gravitational potential energy ($\kappa^2$) must be exactly twice the kinetic energy ($\beta^2$) to maintain topological stability.
 
 \subsection{Total Relational Shift and Self-Centering Reciprocity}
 
-Interaction between observers is defined  by the \textbf{Total Relational Shift} ($Q$), which measures the magnitude of displacement from the observer's origin on a ($\beta$, $\kappa$) plane (\ref{fig:relational_shift}):
+Interaction between observers is defined  by the \textbf{\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:DisQ}{Total Relational Shift} ($Q$)}, which measures the magnitude of displacement from the observer's origin on a ($\beta$, $\kappa$) plane (\ref{fig:relational_shift}):
 \begin{equation}
 Q^2 = \beta^2 + \kappa^2
 \end{equation}
@@ -355,7 +352,7 @@ Speed of Light & $c$ & \SI{2.99792e8}{\m\per\s} & Exact \\
 Stefan-Boltzmann Const. & $\sigma_{SB}$ & \SI{5.67037e-8}{\W\per\m\squared\per\K\tothe{4}} & Derived from fundamental \\
 \hline
 \end{tabular}
-\caption{Core inputs for the calculation.}
+\caption{Core inputs for the calculation. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb}{H_0 from $T_{CMB}$ and alpha.ipynb}}
 \end{table}
 
 \subsection{Step-by-Step Derivation}
@@ -575,7 +572,7 @@ In WILL Relational Geometry, the "birth of light" is not an arbitrary thermal ac
 Before analyzing the acoustic response of the Cosmic Microwave Background, we must strictly define the mechanical properties of the medium. In WILL Relational Geometry, the vacuum is not a container filled with energy; rather, spacetime itself is a projection of a saturated energy configuration. Therefore, the properties of the vacuum—its maximal density and its tension—are derived directly from the geometric capacity of the Global Horizon.
 
 
-\section{Local Cosmological Term $\Lambda$ in RG (Eliminating "Dark Energy")}
+\section{Local Cosmological Term $\Lambda$ in RG (Challenging "Dark Energy")}
 
 We using derived 
 
@@ -724,7 +721,7 @@ This factorization suggests a profound geometric origin for 3D space:
 This hints that the dimensionality of observable space is not arbitrary but is a structural consequence of distributing the $S^2$ energy budget into a volume.
 
 
-\section{The Geometric Origin of Galactic Rotation Curves (Eliminating "Dark Matter")}
+\section{The Geometric Origin of Galactic Rotation Curves (Challenging "Dark Matter")}
 
 We now apply the structural density of the vacuum ($\rho_{\Lambda}$) to the domain of galactic dynamics. We demonstrate that the phenomenon typically attributed to "Dark Matter" can be explained as the necessary observational consequence of the interaction between the vacuum's structural capacity and the system's relational shift ($Q^2$).
 
@@ -843,7 +840,7 @@ Any deviation beyond this constant offset would indicate a failure of the geomet
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{img/PantheonPlus_test.png}
-    \caption{\textbf{Ab Initio Prediction of Cosmic Expansion.} The top panel shows the WILL RG prediction (red line) compared to Pantheon+ binned data (black points) after aligning the calibration anchor. The bottom panel displays the residuals. The curve is not a fit; it is generated purely from microphysics ($T_{CMB}, \alpha$) and geometric partitioning ($\Omega=1/3, 2/3$).}
+    \caption{\textbf{Ab Initio Prediction of Cosmic Expansion.} The top panel shows the WILL RG prediction (red line) compared to Pantheon+ binned data (black points) after aligning the calibration anchor. The bottom panel displays the residuals. The curve is not a fit; it is generated purely from microphysics ($T_{CMB}, \alpha$) and geometric partitioning ($\Omega=1/3, 2/3$). Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Geometric_expansion_Pantheon.ipynb}{Geometric expansion Pantheon.ipynb}}
     \hypertarget{fig:hubble_diagram}{}\label{fig:hubble_diagram}
 \end{figure}
 
@@ -990,6 +987,7 @@ The predicted peak position is:
 \begin{equation}
     \ell_{pred(WILL)} = 228.39 \times 0.9658 \approx \mathbf{220.59}
 \end{equation}
+Clolab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Suspiciously_Perfect_CMB.ipynb}{Suspiciously Perfect CMB.ipynb}
 
 \paragraph{Conclusion.}
 The WILL prediction ($\ell \approx 220.59$) matches the observed Planck value ($\ell \approx 220.60$) with a precision of $\sim 0.01\%$. 
@@ -1007,6 +1005,8 @@ The observed CMB multipole moments from Planck (2018) are:
 \[
 \ell_1 \approx 220.59, \quad \ell_2 \approx 537.5, \quad \ell_3 \approx 810.8
 \]
+Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/CMB_SPECTR.ipynb}{CMB SPECTR.ipynb}
+
 The observed ratios are $1.00 : 2.44 : 3.68$. This pattern is not naturally produced by simple 3D cavity harmonics, while it emerges naturally from surface-based resonant spectra. This provides strong evidence that the fundamental oscillations of the Universe occur on a 2D relational carrier ($S^2$) rather than in a 3D volume.
 
 \subsection{The Mass Loading Mechanism}
@@ -1061,6 +1061,8 @@ We compare the derived matter density to the total saturation density $\rho_{max
 \[
 \Omega_b = \frac{\rho_{matter}}{\rho_{max}} = \frac{1.23 \times 10^{-28}}{2.908 \times 10^{-27}} \approx \mathbf{0.0423} \, (4.2\%)
 \]
+
+Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/CMB_SPECTR.ipynb}{CMB SPECTR.ipynb}
 
 \paragraph{Conclusion: No Additional Non-Baryonic Component Required Within WILL RG}
 This result ($\Omega_b \approx 4.2\%$) is in excellent agreement with the standard inventory of baryonic matter ($\Omega_b \approx 4.8\%$) derived from Big Bang Nucleosynthesis and $\Lambda$CDM.
@@ -1243,7 +1245,7 @@ where $\Omega =  \Omega_{kin}$ or $\Omega_{pot}$ depends on either structural or
 
 This equation derives the flat rotation curves of galaxies without invoking Dark Matter. The "extra" velocity is simply the physical manifestation of constructive interference between the local orbital frequency and the Universe's fundamental tone. The rotation curve remains flat because the system cannot decay below the energy floor supported by the global resonance.
 
-\section{Empirical Verification: Galactic Dynamics}
+\section{Galactic Dynamics}
 
 \subsection{Motivation and Protocol}
 
@@ -1345,9 +1347,9 @@ Performance is evaluated using three robust metrics: Median Absolute Error (MedA
 \end{itemize}
  
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
-\caption{Global performance metrics on the full SPARC sample ($N=175$). Values represent the median across all galaxies.}
+\caption{Global performance metrics on the full SPARC sample ($N=175$). Values represent the median across all galaxies. \textbf{Colab notebook link:} \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb}{Galactic Rotation Protocol Independent SPARC.ipynb}}
 \begin{tabular}{|l|c|c|c|}
 \hline
 \textbf{Model} & \textbf{MedAE} [km/s] & \textbf{Bias} [km/s] & \textbf{$F_{10}$} \\
@@ -1365,9 +1367,9 @@ WILL RG ($a_{\kappa}=cH_0/3\pi$)& 11.18 & \textbf{$-2.26$} & 0.47 \\
 \subsubsection{Analysis of Gas-Dominated Systems}
 To isolate physical validity from stellar mass-to-light ratio uncertainties, we analyze the subset of galaxies dominated by gas [$V_{\rm gas}^2>(\Upsilon V_{\rm disk}^2+\Upsilon V_{\rm bul}^2)$]. In this regime, the baryonic mass distribution is known with high precision.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
-\caption{Performance metrics on Gas-Dominated galaxies ($GasFrac > 0.5$).}
+\caption{Performance metrics on Gas-Dominated galaxies ($GasFrac > 0.5$). \textbf{Colab notebook link:} \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb}{Galactic Rotation Protocol Independent SPARC.ipynb }}
 \begin{tabular}{|l|c|c|c|}
 \hline
 \textbf{Model} & \textbf{MedAE} [km/s] & \textbf{Bias} [km/s]  & $F_{10}$\\\hline
@@ -1424,13 +1426,9 @@ The statistical analysis of the residuals (logarithmic deviation) yields:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{img/RAR_test.png}
-    \caption{Radial Acceleration Relation (RAR) for 175 SPARC galaxies. The green dots shows the density of $>3000$ individual data points. The cyan line represents the WILL Resonance Interference prediction ($g_{obs} = g_{bar} + \sqrt{g_{bar}a_{\kappa}}$) using the $H_0$ value derived from CMB thermodynamics. The remarkable agreement ($\text{RMSE} \approx 0.065$ dex) without free parameters strongly suggests that galactic dynamics are regulated by the global horizon.}
+    \caption{Radial Acceleration Relation (RAR) for 175 SPARC galaxies. The green dots shows the density of $>3000$ individual data points. The cyan line represents the WILL Resonance Interference prediction ($g_{obs} = g_{bar} + \sqrt{g_{bar}a_{\kappa}}$) using the $H_0$ value derived from CMB thermodynamics. The remarkable agreement ($\text{RMSE} \approx 0.065$ dex) without free parameters strongly suggests that galactic dynamics are regulated by the global horizon. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/RAR_test.ipynb}{RAR test.ipynb}}
     \hypertarget{fig:rar}{}\label{fig:rar}
 \end{figure}
-
-
-
-
 
 
 
@@ -1550,7 +1548,7 @@ Figure~\ref{fig:bullseye} presents the results of the analysis.
     \textbf{Black points:} Binned means with standard errors.
     \textbf{Cyan Line:} Hard Fixed WILL RG prediction.
     \textbf{Orange Dotted Line:} Naive WILL RG without $1.5\pi$ factor.
-    The red crosshair marks the Equivalence Point $(1,1)$.}
+    The red crosshair marks the Equivalence Point $(1,1)$. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Baryonic_Escape_Threshold.ipynb}{Baryonic Escape Threshold.ipynb}}
     \hypertarget{fig:bullseye}{}\label{fig:bullseye}
 \end{figure}
 
@@ -1616,7 +1614,7 @@ The predicted lensing signal ($1.46''$) agrees with the observation ($1.43''$) w
 This confirms that the Relational Inertia ($Q^2$) responsible for the high stellar velocities is sufficient to explain the gravitational lensing signal without invoking Dark Matter. The "Phantom Mass" acts universally on both baryons and photons.
 
 
-\section{The Kinetic Resonance: Resolution of the Wide Binary Anomaly}
+\section{The Kinetic Resonance: Wide Binary Anomaly}
 \hypertarget{sec:wide-binary}{}\label{sec:wide-binary}
 
 \subsection{The Problem: Breakdown of Newton in the Solar Neighbourhood}
@@ -1643,7 +1641,7 @@ We test this Kinetic Resonance prediction ($a_{\beta} = cH_0/6\pi$) against the 
 \textbf{Blue dashed line:} Standard MOND prediction ($a_0 = 1.2 \times 10^{-10} \, \mathrm{m/s^2}$), which systematically overestimates the anomaly.
 \textbf{Red solid line:} WILL RG Kinetic Resonance prediction 
 ($a_{\beta} = cH_0/6\pi \approx 0.35 \times 10^{-10} \, \mathrm{m/s^2}$)
-passes precisely through the observational data points, matches the reported trend of Wide Binary observations without any parameter fitting.}
+passes precisely through the observational data points, matches the reported trend of Wide Binary observations without any parameter fitting. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Wide_binary_Chae_2023.ipynb}{Wide binary Chae 2023.ipynb}}
 \hypertarget{fig:wide_binaries}{}\label{fig:wide_binaries}
 \end{figure}
 
@@ -1702,9 +1700,9 @@ A direct equality $\mathcal{R}_{int} = \mathcal{R}_{ext}$ is geometrically inval
 To map the internal curvature intensity ($\mathcal{R}_{int}$) onto the linear universal axis ($\mathcal{R}_{ext}$), we must apply the \textbf{Volumetric Projection Factor} $\Gamma^3$. This factor accounts for the transformation from the closed loop topology ($S^1 \to S^2$) of the particle kernel to the linear diameter ($R^1$) of the horizon measurement.
 
 The \textbf{Geometric Mach Equation} is thus:
+\hypertarget{eq:mach_geo}{}\label{eq:mach_geo}
 \begin{equation}
     \boxed{ \mathcal{R}_{int} \cdot \Gamma^3 = \mathcal{R}_{ext} }
-    \hypertarget{eq:mach_geo}{}\label{eq:mach_geo}
 \end{equation}
 where $\Gamma = \frac{1}{\pi\sqrt{2}}$ is the fundamental linear projection constant of WILL RG ($1/\sqrt{2}$ for kinetic closure, $1/\pi$ for diametric projection).
 
@@ -1752,7 +1750,7 @@ This completes the Theoretical Ouroboros:
 \end{enumerate}
 Provided evidence strongly suggest that the Universe is a single, resonant, self-defining geometric relational unity.
 
-\section{General Discussion: Towards a Geometric Synthesis}
+\section{General Discussion}
 
 The analysis presented in this work yields three structurally significant results that challenge the foundations of the Standard Model ($\Lambda$CDM) and standard Modified Gravity (MOND):
 
@@ -1831,7 +1829,7 @@ Standard Model ($\Lambda$CDM + DM) & $0.308$ & $188.89$ & $-14.37\%$ \\
 \caption{Unbroken Chain of 10 Derivations/Predictions. No Fitting Involved.}
 \hypertarget{\label{tab:cosmology_comparison}}{}
 
-\begin{tabular}{|p{2.8cm}|p{2.5cm}|p{2.5cm}|p{1.8cm}|p{1.5cm}|p{3cm}|}
+\begin{tabular}{|p{2.8cm}|p{2cm}|p{2cm}|p{1.5cm}|p{1.5cm}|p{4.5cm}|}
 \hline
 \textbf{Parameter or Observable}& \textbf{Derived Theoretical Value} & \textbf{Empirical Comparison Value} & \textbf{System or Dataset} & \textbf{Deviation or Accuracy} & \textbf{Physical Formulation} \\
 \hline
@@ -1885,7 +1883,7 @@ We have demonstrated that the "Dark Matter" phenomenon is the observational sign
 
 Just as the electron must satisfy the standing wave condition to exist as a bound state within the atom, the galaxy must satisfy the frequency resonance condition to exist as a bound state within the Universe. The precision of these predictions, achieved without any free parameters, strongly suggests that the paradigm of "Dark" phenomenology is becoming obsolete, superseded by a transparent \textbf{Relational Geometric Ontology.}
 
-\textbf{Code and data are fully open-source at}: \url{https://antonrize.github.io/WILL/}
+\textbf{Code and data are fully open-source at}: \url{https://willrg.com}
 
 \begin{thebibliography}{9}
 
