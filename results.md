@@ -276,7 +276,7 @@ description: "Download WILL Relational Geometry research papers and appendices. 
 
   <div class="supp-card">
     <div>
-      <h4>Precession of S4716</h4>
+      <h4>In Silico Precession Prediction of S4716</h4>
       <p>Orbital precession calculation for the S4716 star</p>
     </div>
     <div class="supp-actions">
@@ -285,7 +285,7 @@ description: "Download WILL Relational Geometry research papers and appendices. 
     </div>
   </div>
 
-</div>
+
 
 
 <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->

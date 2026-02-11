@@ -812,14 +812,14 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="bg-gray-800/50 p-6 rounded-lg">
     <h4 style="font-size:1.25em; margin-bottom:1rem;">A) Galaxy Rotation Curves</h4>
     <p style="margin-bottom:1rem; color:#d1d5db;">Metric: median RMSE &asymp; <strong>12.64&nbsp;km/s</strong></p>
-    <a href="{{ site.baseurl }}/Colab%20Notebooks/Protocol_Independent_Empirical_Comparison_SPARC.ipynb"
+    <a href="{{ site.baseurl }}/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb"
        class="text-cyan-400 hover:text-cyan-300">Notebook</a>
   </div>
 
   <div class="bg-gray-800/50 p-6 rounded-lg">
     <h4 style="font-size:1.25em; margin-bottom:1rem;">B) Relativistic Tests</h4>
     <p style="margin-bottom:1rem; color:#d1d5db;">Metrics: GPS, Mercury &amp; S2 precession</p>
-    <a href="{{ site.baseurl }}/Colab%20Notebooks/WILL-relativistic-tests-gps-mercury-s2.ipynb"
+    <a href="{{ site.baseurl }}/Colab_Notebooks/WILL-relativistic-tests-gps-mercury-s2.ipynb"
        class="text-cyan-400 hover:text-cyan-300">Notebook</a>
   </div>
 
@@ -828,7 +828,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <p style="margin-bottom:1rem; color:#d1d5db;">
       Metric: Planck 2018 empirical measurement
     </p>
-    <a href="{{ site.baseurl }}/Colab%20Notebooks/H_0_from_T_CMB_and_alpha.ipynb"
+    <a href="{{ site.baseurl }}/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb"
        class="text-cyan-400 hover:text-cyan-300">Notebook</a>
   </div>
 
@@ -837,7 +837,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <p style="margin-bottom:1rem; color:#d1d5db;">
       Cosmological scale metric predictions, tests, and demonstrations
     </p>
-    <a href="{{ site.baseurl }}/Colab%20Notebooks/WILL_Geometry_absolute_scale_cosmology.ipynb"
+    <a href="{{ site.baseurl }}/Colab_Notebooks/WILL_Geometry_absolute_scale_cosmology.ipynb"
        class="text-cyan-400 hover:text-cyan-300">Notebook</a>
   </div>
 
