@@ -803,42 +803,78 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- ═══════════════════════ NOTEBOOKS ═══════════════════════ -->
 <hr style="border-color:#374151; margin:3rem 0;">
 
-<h2 class="text-3xl font-extrabold text-white text-center" style="border:none; margin-bottom:2.5rem;">
-  Reproducible Notebooks
-</h2>
-
-<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem;">
-
-  <div class="bg-gray-800/50 p-6 rounded-lg">
-    <h4 style="font-size:1.25em; margin-bottom:1rem;">A) Galaxy Rotation Curves</h4>
-    <p style="margin-bottom:1rem; color:#d1d5db;">Metric: median RMSE &asymp; <strong>12.64&nbsp;km/s</strong></p>
-    <a href="{{ site.baseurl }}/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb"
-       class="text-cyan-400 hover:text-cyan-300">Notebook</a>
-  </div>
-
-  <div class="bg-gray-800/50 p-6 rounded-lg">
-    <h4 style="font-size:1.25em; margin-bottom:1rem;">B) Relativistic Tests</h4>
-    <p style="margin-bottom:1rem; color:#d1d5db;">Metrics: GPS, Mercury &amp; S2 precession</p>
-    <a href="{{ site.baseurl }}/Colab_Notebooks/WILL-relativistic-tests-gps-mercury-s2.ipynb"
-       class="text-cyan-400 hover:text-cyan-300">Notebook</a>
-  </div>
-
-  <div class="bg-gray-800/50 p-6 rounded-lg">
-    <h4 style="font-size:1.25em; margin-bottom:1rem;">C) Derivation of \(H_0\)</h4>
-    <p style="margin-bottom:1rem; color:#d1d5db;">
-      Metric: Planck 2018 empirical measurement
-    </p>
-    <a href="{{ site.baseurl }}/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb"
-       class="text-cyan-400 hover:text-cyan-300">Notebook</a>
-  </div>
-
-  <div class="bg-gray-800/50 p-6 rounded-lg">
-    <h4 style="font-size:1.25em; margin-bottom:1rem;">D) Absolute Scale Cosmology</h4>
-    <p style="margin-bottom:1rem; color:#d1d5db;">
-      Cosmological scale metric predictions, tests, and demonstrations
-    </p>
-    <a href="{{ site.baseurl }}/Colab_Notebooks/WILL_Geometry_absolute_scale_cosmology.ipynb"
-       class="text-cyan-400 hover:text-cyan-300">Notebook</a>
-  </div>
-
+<div class="flex justify-between items-end mb-10">
+    <h2 class="text-3xl font-extrabold text-white" style="border:none; margin:0;">
+      Reproducible Notebooks
+    </h2>
+    <a href="https://github.com/AntonRize/WILL/tree/main/Colab_Notebooks" target="_blank" class="text-sm text-cyan-400 hover:text-cyan-300 border border-gray-600 px-3 py-1 rounded hover:border-cyan-400 transition-colors">
+        View Source Folder &rarr;
+    </a>
 </div>
+
+<div id="notebook-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem;">
+    <p class="text-gray-400">Loading notebooks from GitHub...</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const repoOwner = 'AntonRize';
+    const repoName = 'WILL';
+    const folderPath = 'Colab_Notebooks';
+    const branch = 'main'; 
+
+    // GitHub API endpoint
+    const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}?ref=${branch}`;
+
+    const container = document.getElementById('notebook-grid');
+
+    fetch(apiUrl)
+    .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+    })
+    .then(data => {
+        // Cleaning container from "Loading..."
+        container.innerHTML = '';
+
+        // Filter only .ipynb files
+        const notebooks = data.filter(item => item.name.endsWith('.ipynb'));
+
+        notebooks.forEach(file => {
+            // 1. Forming clear name
+            const displayName = file.name.replace('.ipynb', '').replace(/_/g, ' ');
+
+            // 2. Link for opening in Colab
+            // Format: https://colab.research.google.com/github/USER/REPO/blob/BRANCH/PATH
+            const colabUrl = `https://colab.research.google.com/github/${repoOwner}/${repoName}/blob/${branch}/${folderPath}/${file.name}`;
+
+            // 3. Creating HTML for cards (same style)
+            const cardHTML = `
+                <div class="bg-gray-800/50 p-6 rounded-lg flex flex-col justify-between h-full border border-transparent hover:border-gray-600 transition-all">
+                    <div>
+                        <h4 style="font-size:1.15em; margin-bottom:0.5rem; line-height:1.4;">${displayName}</h4>
+                        <p style="margin-bottom:1rem; color:#9ca3af; font-size: 0.9em;">
+                           Interactive Notebook
+                        </p>
+                    </div>
+                    <div class="flex gap-4 mt-auto">
+                        <a href="${colabUrl}" target="_blank" class="text-cyan-400 hover:text-cyan-200 font-bold text-sm flex items-center gap-1">
+                           <span style="font-size:1.2em">▶</span> Run in Colab
+                        </a>
+                        <a href="${file.html_url}" target="_blank" class="text-gray-500 hover:text-gray-300 text-sm flex items-center">
+                           GitHub
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            // Pasting card
+            container.insertAdjacentHTML('beforeend', cardHTML);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching notebooks:', error);
+        container.innerHTML = `<p class="text-red-400">Failed to load notebooks via API. <a href="https://github.com/${repoOwner}/${repoName}/tree/${branch}/${folderPath}" class="underline">View on GitHub</a></p>`;
+    });
+});
+</script>
