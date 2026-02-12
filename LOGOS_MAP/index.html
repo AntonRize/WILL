@@ -562,15 +562,15 @@ description: "The Logical Structure of WILL Relational Geometry — a visual flo
       <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Define Interaction Measure (Distance/Difference)</p></div>
     </div>
 
-    <!-- Sec 10: Relational Displacement -->
+    <!-- Sec 10: Relational Shift -->
     <div class="reveal flex items-start gap-4">
       <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=sec:DisQ" target="_blank" rel="noopener noreferrer" class="flex-1">
         <div class="node-will px-5 py-4">
           <span class="text-green-400 text-xs font-bold">&#10003; T</span>
-          <p class="text-white font-semibold mt-1">Sec 10: Relational Displacement</p>
+          <p class="text-white font-semibold mt-1">Sec 10: Relational Shift</p>
           <p class="text-slate-300 text-sm mt-2">Self-Centering Reciprocity:</p>
           <span class="eq-box text-lg mt-2">Q&sup2; = &beta;&sup2; + &kappa;&sup2;</span>
-          <p class="text-slate-400 text-sm mt-2">Norm of deviation from observer</p>
+          <p class="text-slate-400 text-sm mt-2">Norm of state deviation from observer</p>
         </div>
       </a>
       <div class="node-fail px-4 py-3 max-w-[200px]">
@@ -632,7 +632,7 @@ description: "The Logical Structure of WILL Relational Geometry — a visual flo
           <p class="text-white font-semibold mt-1">Theorem 14.1: Energy-Symmetry Law</p>
           <p class="text-slate-300 text-sm mt-2">Causal Continuity:</p>
           <span class="eq-box text-lg mt-2">&Delta;E<sub>A&rarr;B</sub> + &Delta;E<sub>B&rarr;A</sub> = 0</span>
-          <p class="text-slate-400 text-sm mt-2">Transfers must sum to zero</p>
+          <p class="text-slate-400 text-sm mt-2">Energy cost of state transformations must sum to zero</p>
         </div>
       </a>
       <div class="node-fail px-4 py-3 max-w-[200px]">
@@ -653,7 +653,7 @@ description: "The Logical Structure of WILL Relational Geometry — a visual flo
         <div class="node-will px-5 py-4">
           <span class="text-green-400 text-xs font-bold">&#10003; T</span>
           <p class="text-white font-semibold mt-1">Self-Centering Principle</p>
-          <p class="text-slate-300 text-sm mt-2">Zero is ALWAYS the state of a local relational frame (A or B)</p>
+          <p class="text-slate-300 text-sm mt-2">Each observer places itself at the relational origin (β, κ)=(0, 0).</p>
         </div>
       </a>
       <div class="node-fail px-4 py-3 max-w-[200px]">
@@ -668,13 +668,13 @@ description: "The Logical Structure of WILL Relational Geometry — a visual flo
       <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Formalize Energy Description</p></div>
     </div>
 
-    <!-- Explicit Transition Cost -->
+    <!-- Explicit State Transition Cost -->
     <div class="reveal flex items-start gap-4">
       <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=def:energy" target="_blank" rel="noopener noreferrer" class="flex-1">
         <div class="node-will px-5 py-4">
           <span class="text-green-400 text-xs font-bold">&#10003; T</span>
-          <p class="text-white font-semibold mt-1">Explicit Transition Cost</p>
-          <p class="text-slate-300 text-sm mt-2">Energy as Work of Translation from State A to State B</p>
+          <p class="text-white font-semibold mt-1">Explicit State Transition Cost</p>
+          <p class="text-slate-300 text-sm mt-2">Energy is relational measure of difference between possible states. Always 2 points relation, transformation cost from State A to State B</p>
           <span class="eq-box text-lg mt-2">&Delta;E<sub>A&rarr;B</sub></span>
         </div>
       </a>
@@ -792,24 +792,42 @@ description: "The Logical Structure of WILL Relational Geometry — a visual flo
     </div>
 
     <!-- R.O.M. -->
-    <div class="reveal flex items-start gap-4">
-      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=sec:rom" target="_blank" rel="noopener noreferrer" class="flex-1">
-        <div class="node-will px-5 py-4">
-          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
-          <p class="text-white font-semibold mt-1">Relational Orbital Mechanics (R.O.M.)</p>
-          <p class="text-slate-300 text-sm mt-2">Inputs: Direct Optical Projections</p>
-          <div class="mt-2 space-y-1">
-            <p class="text-blue-400 text-sm">1. <span class="math">&beta;</span> (Doppler Shift)</p>
-            <p class="text-cyan-400 text-sm">2. <span class="math">&kappa;</span> (Gravitational Redshift)</p>
-          </div>
+   <div class="reveal flex items-start gap-4">
+  <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=sec:rom" target="_blank" rel="noopener noreferrer" class="flex-1">
+    <div class="node-will px-5 py-4">
+      <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+      <p class="text-white font-semibold mt-1">Relational Orbital Mechanics (R.O.M.)</p>
+      
+      <div class="mt-3 space-y-3">
+        
+        <div>
+          <p class="text-blue-300 font-mono text-[0.95em] tracking-wide">
+            &beta;<sup>2</sup> = 1 &minus; (1 + z<sub>b</sub>)<sup>&minus;2</sup>
+          </p>
+          <p class="text-gray-400 text-xs mt-0.5 ml-1">
+            where <span class="text-blue-200">z<sub>b</sub></span> = transverse Doppler
+          </p>
         </div>
-      </a>
+
+        <div>
+          <p class="text-cyan-300 font-mono text-[0.95em] tracking-wide">
+            &kappa;<sup>2</sup> = 1 &minus; (1 + z<sub>k</sub>)<sup>&minus;2</sup>
+          </p>
+          <p class="text-gray-400 text-xs mt-0.5 ml-1">
+            where <span class="text-cyan-200">z<sub>k</sub></span> = grav. redshift
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </a>
+</div>
       <div class="node-fail px-4 py-3 max-w-[240px]">
         <span class="text-red-400 text-xs font-bold">&#10007; F</span>
         <p class="text-red-300/70 text-sm">Input: Mass (M) &amp; Constant (G)</p>
         <p class="text-red-300/70 text-sm">Mechanism: Forces or Metric Curvature</p>
         <p class="text-red-300/70 text-sm">Method: Differential Equations</p>
-        <p class="text-red-400/60 text-xs mt-2">Violates Operationality. M and G are not direct observables.</p>
+        <p class="text-red-400/60 text-xs mt-2">Violates Ontological Minimalism. M and G are not direct observables.</p>
       </div>
     </div>
 

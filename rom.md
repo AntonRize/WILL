@@ -422,7 +422,7 @@ For the full theoretical derivation and connection to WILL Relational Geometry:
 - [Testable Predictions](/predictions/)
 
 For questions or collaboration:
-- Email: [freewillrg@gmail.com](mailto:freewillrg@gmail.com)
+- Email: [antonrize@willrg.com](mailto:antonrize@willrg.com)
 - GitHub: [WILL Repository](https://github.com/AntonRize/WILL)
 
 </div>
