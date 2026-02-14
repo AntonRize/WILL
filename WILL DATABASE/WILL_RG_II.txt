@@ -369,6 +369,7 @@ Using the input $T_0 = 2.7255$ K:
 \end{equation}
 
 \subsection{Step 2: Maximal Geometric Density ($\rho_{max}$)}
+\hypertarget{sec:deriving-H0}{}\label{sec:rho_max}  \label{sec:rho_max}
 \textit{Objective:} Calculate the saturation density of the geometric field.
 
 \textit{Logic:}
@@ -392,7 +393,7 @@ Using $\alpha \approx 7.297 \times 10^{-3}$ (where $\alpha^2 \approx 5.325 \time
 \begin{equation}
     \rho_{max} \approx \frac{4.641 \times 10^{-31}}{3 \cdot 5.325 \times 10^{-5}} \approx 2.907 \times 10^{-27} \, \text{kg/m}^3
 \end{equation}
-\textit{Note on Relativistic Backgrounds:} Standard cosmology includes a neutrino energy density contribution ($\rho_{\nu}$). However, in WILL RG, the geometric horizon is defined strictly by the electromagnetic coupling limit ($\alpha$). Since neutrinos are electrically neutral and do not couple to the charge structure defining $\alpha$, they do not contribute to the electromagnetic saturation density $\rho_{max}$.
+Derived value is in strong agreement with cosmological expectations. This result suggest Machian like connection between micro and macro scales.
 
 \subsection{Step 3: The Hubble Parameter ($H_0$)}
 \textit{Objective:} Convert the saturation density into the frequency parameter.
@@ -791,6 +792,40 @@ The observed flat rotation curves are the direct consequence of the linear growt
 \]
 \end{corollary}
 
+
+\section{Derivation of the Tully-Fisher Correspondence}
+\hypertarget{sec:supernova-flux}{}\label{sec:Tully-Fisher}
+
+\subsection{The Failure of the Local Paradigm}
+Modern cosmology faces a crisis of ontology. The "Dark Matter" hypothesis arises from the obsolete assumption that a galaxy is an isolated island. WILL Relational Geometry derives: \textbf{Structure and Dynamics are inseparable.} No object exists in a vacuum; objects and vacuum are parts of the fundamental whole—SPACE-TIME-ENERGY—which we call WILL.
+
+\subsection{Derivation of the Law from Resonance Geometry}
+To determine the precise scaling coefficient, we evaluate the velocity at the characteristic \textbf{Transition Radius} ($r_t$), defined where the baryonic acceleration exactly matches the effective vacuum threshold ($g_{bar} = a_{Mach}$).
+
+The coupling argument is defined as $\Gamma \equiv g_{bar}/a_{Mach}$.
+We define the vacuum screening factor as the natural geometric decay $e^{-\Gamma}$.
+At the threshold radius $r_t$, we have by definition $\Gamma=1$, and thus  $\Gamma_{r_t}=e^{-1}$.
+
+\begin{enumerate}
+    \item \textbf{The Newtonian Base:} At $r_t$, the Newtonian velocity component $V_N$ is constrained by the mass and the threshold acceleration:
+    \[
+    V_N^2 = g_{bar} r_t = a_{Mach} r_t \implies V_N^4 = G M_b a_{Mach}.
+    \]
+    
+    \item \textbf{The Vacuum Boost:} Applying the WILL screening function at the resonance point ($\Gamma=1$):
+    \[
+    V_{t}^2 = V_N^2 (1 + 2e^{- \Gamma}) = V_N^2 \left(1 + \frac{2}{e}\right).
+    \]
+    
+    \item \textbf{The BTFR Coefficient:} Squaring the velocity to obtain the Tully-Fisher scaling ($V^4 \propto M$):
+    \[
+    V_{t}^4 = V_N^4 \left(1 + \frac{2}{e}\right)^2 = G M_b (a_{Mach}) \underbrace{\left(1 + \frac{2}{e}\right)^2}_{\approx 3.01}.
+    \]
+\end{enumerate}
+$$V_{flat}^4 = \underbrace{ G (a_{Mach}) (1 +\frac{2}{e})^2}_{\text{Tully-Fisher coefficient}} \cdot M_b$$
+The term in brackets is the derived Tully-Fisher coefficient, predicted entirely from constants.  
+
+
 \section{Geometric Expansion Law: Distant Supernova Flux Levels Test}
 \hypertarget{sec:supernova-flux}{}\label{sec:supernova-flux}
 
@@ -874,9 +909,9 @@ Subtracting this constant calibration offset reveals the fidelity of the Geometr
 \hypertarget{tab:residuals}{}\label{tab:residuals}
 \end{table}
 
-\subsection{Conclusion: The Geometric Nature of Dark Energy}
+\subsection{Conclusion: Strong Empirical Agreement With Geometric Nature of DE}
 
-The observed expansion history is accurately reproduced by a closed system in which $\Omega_{\Lambda}=2/3$. The fact that the residual shape deviation is negligible ($\le 0.02$ mag) suggests that the "Dark Energy" parameter is physically identified as the \textbf{Structural Projection} weight of the vacuum geometry. The Universe maintains the structural integrity of its global horizon through this requisite tension, eliminating the need for an arbitrary cosmological constant fit.
+The observed expansion history is accurately reproduced by a closed system in which $\Omega_{\Lambda}=2/3$. The fact that the residual shape deviation is negligible ($\le 0.02$ mag) suggests that the "Dark Energy" parameter might be physically identified as the \textbf{Structural Tension} Projection of the vacuum. This suggest that the Universe maintains the structural integrity of its global horizon through this requisite tension. Potentially eliminating the need for an arbitrary cosmological constant fit.
 
 \section{The Geometric Cooling Law}
 
@@ -947,7 +982,7 @@ Standard cosmology ($\Lambda$CDM) interprets these peaks as acoustic oscillation
 \textit{Objective:} Determine if the vacuum tension derived from WILL Relational Geometry ($\Omega_{\Lambda} = 2/3$), when loaded with the standard baryonic mass known from nuclear physics ($\Omega_b \approx 0.048$), reproduces the observed acoustic peaks without requiring Dark Matter.
 
 \paragraph{1. The Vacuum Resonance Prediction ($l_{vac}$).}
-In Section 9.2, we established that the maximal saturation density $\rho_{max}$ is determined by the electromagnetic closure condition $Q_{EM}^2 = 3\alpha^2$, where $\alpha \equiv \beta_1$ represents the ground \textbf{Kinematic Projection} (derived in Part III).
+Earlier we established ( \ref{sec:rho_max} ) that the maximal saturation density $\rho_{max}$ is determined by the electromagnetic closure condition $Q_{EM}^2 = 3\alpha^2$, where $\alpha \equiv \beta_1$ represents the ground \textbf{Kinematic Projection} (derived in Part III).
 
 Since $\alpha$ defines the saturation density ($\rho_{max}$), its inverse $1/\alpha$ defines the \textbf{Linear Kinematic Scale} (wavenumber) of the vacuum. However, for the global vacuum horizon, this purely kinematic scale is modulated by the total geometric impedance, which includes both the metric basis ($1$) and the derived structural tension ($\Omega_{\Lambda} = 2/3$).
 
@@ -1003,7 +1038,7 @@ The first step is to identify the topology of the universal resonator. Different
 
 The observed CMB multipole moments from Planck (2018) are:
 \[
-\ell_1 \approx 220.59, \quad \ell_2 \approx 537.5, \quad \ell_3 \approx 810.8
+\ell_1 \approx 220.6, \quad \ell_2 \approx 537.5, \quad \ell_3 \approx 810.8
 \]
 Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/CMB_SPECTR.ipynb}{CMB SPECTR.ipynb}
 
@@ -1078,14 +1113,14 @@ The acoustic structure of the Universe is fully explained by:
 No Dark Matter or Dark Energy parameters are required. The observed CMB spectrum is the vibrational signature of a baryonic-loaded $S^2$ vacuum geometry.
 \end{tcolorbox}
 
-\section{Resolution of the Low Quadrupole Anomaly}
+\section{Relational Approach to the Low Quadrupole Anomaly}
 \hypertarget{sec:low-quadrupole}{}\label{sec:low-quadrupole}
 
 \subsection{The Missing Power Problem}
 
 A persistent challenge to the Standard Model ($\Lambda$CDM) is the anomalously low amplitude of the quadrupole moment ($\ell=2$) in the CMB power spectrum. While $\Lambda$CDM predicts a scale-invariant plateau ($D_{\ell} \approx 1.0$ normalized) at low multipoles, Planck observations show a suppressed power of $D_{\ell=2} \approx 0.2$. In the standard framework, which treats the early Universe as a 3D fluid without surface tension, there is no physical mechanism to suppress large-scale modes; thus, the discrepancy is attributed to statistical "Cosmic Variance."
 
-\subsection{vacuum tension as a High-Pass Filter}
+\subsection{Structural tension as a High-Pass Filter}
 
 In WILL Relational Geometry, the Universe is treated as a topologically closed surface ($S^2$) with a vacuum energy density $P = -\rho_{\Lambda} c^2$. Physically, this negative pressure manifests as \textbf{vacuum tension} (Tension).
 Unlike a gas cloud, a tensioned membrane resists global deformation. The energy required to deform the global curvature (low $\ell$) is significantly higher than the energy required to create local ripples (high $\ell$). Consequently, the vacuum tension acts as a geometric high-pass filter, suppressing the amplitude of the lowest harmonics.
@@ -1653,7 +1688,7 @@ At the characteristic low-acceleration point $g_N = 10^{-9.8} \, \mathrm{m/s^2}$
 \begin{itemize}
     \item \textbf{Observed (Gaia):} $\gamma \approx 1.45 - 1.55$.
     \item \textbf{Standard MOND:} $\gamma \approx 1.87$ (Overprediction $> 20\%$).
-    \item \textbf{WILL RG Prediction:} $\gamma \approx 1.47$ (Exact Agreement).
+    \item \textbf{WILL RG Prediction:} $\gamma \approx 1.47$ (Strong Agreement).
 \end{itemize}
 
 
