@@ -1,0 +1,27 @@
+<!-- LOGOS MAP: Scroll Reveal Animation -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+        setTimeout(function() { el.classList.add('visible'); }, delay);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '-40px' });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  /* Stagger siblings within each section */
+  document.querySelectorAll('section').forEach(function(section) {
+    var items = section.querySelectorAll('.reveal:not([data-delay])');
+    items.forEach(function(item, i) {
+      item.setAttribute('data-delay', String(i * 120));
+    });
+  });
+});
+</script>

@@ -1,0 +1,109 @@
+<!-- STAGE III: Geometry Definition -->
+<section class="py-12 mt-8">
+  <div class="flex justify-center mb-8 reveal">
+    <svg class="w-8 h-8 text-cyan-500/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+  </div>
+  <div class="text-center mb-12 reveal">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 mb-4">
+      <span class="text-blue-400 font-mono text-sm">STAGE III</span>
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold text-white">Geometry Definition</h2>
+    <p class="text-slate-400 mt-2">Deriving the mathematical structure</p>
+  </div>
+
+  <div class="max-w-4xl mx-auto space-y-6">
+    <!-- Derived Constraints -->
+    <div class="reveal flex justify-center">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=lem:closure" target="_blank" rel="noopener noreferrer">
+        <div class="node-will px-6 py-4 max-w-xl">
+          <p class="text-green-400 font-semibold mb-3">Derived Constraints</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="bg-slate-900/50 rounded-lg px-3 py-2"><p class="text-white text-sm">1. Closure (No leakage)</p><p class="text-slate-400 text-xs">&rarr; Lemma 3.1</p></div>
+            <div class="bg-slate-900/50 rounded-lg px-3 py-2"><p class="text-white text-sm">2. Conservation (Fixed Budget)</p><p class="text-slate-400 text-xs">&rarr; Lemma 3.2</p></div>
+            <div class="bg-slate-900/50 rounded-lg px-3 py-2"><p class="text-white text-sm">3. Isotropy (Max Symmetry)</p><p class="text-slate-400 text-xs">&rarr; Lemma 3.3</p></div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Decision: Derive Geometry -->
+    <div class="reveal flex justify-center">
+      <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Derive Geometry Satisfying Constraints</p></div>
+    </div>
+
+    <!-- Theorem 3.4: Carriers -->
+    <div class="reveal flex items-start gap-4">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=thm:carriers" target="_blank" rel="noopener noreferrer" class="flex-1">
+        <div class="node-will px-5 py-4">
+          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+          <p class="text-white font-semibold mt-1 mb-3">Minimal Relational Carriers (Theorem 3.4 Proof):</p>
+          <div class="space-y-2 text-sm">
+            <p class="text-slate-300"><span class="text-blue-400">1. Directional Relation (A&rarr;B):</span> Requires 1 DOF &rArr; Unique Constraint 1-Carrier: <span class="text-cyan-400 math font-bold">S&sup1;</span></p>
+            <p class="text-slate-300"><span class="text-blue-400">2. Omnidirectional Relation (Center&rarr;Field):</span> Requires 2 DOF &rArr; Unique Constraint 2-Carrier: <span class="text-cyan-400 math font-bold">S&sup2;</span></p>
+          </div>
+        </div>
+      </a>
+      <div class="node-fail px-4 py-3 max-w-[180px]">
+        <span class="text-red-400 text-xs font-bold">&#10007; F</span>
+        <p class="text-red-300/70 text-sm">Open Manifolds (Infinite Flat Space)</p>
+        <p class="text-red-400/60 text-xs mt-2">Violates Closure</p>
+      </div>
+    </div>
+
+    <!-- Decision: Define State -->
+    <div class="reveal flex justify-center">
+      <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Define State on Carriers (S&sup1;, S&sup2;)</p></div>
+    </div>
+
+    <!-- Lemma 6.1: Duality -->
+    <div class="reveal flex items-start gap-4">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=lem:duality" target="_blank" rel="noopener noreferrer" class="flex-1">
+        <div class="node-will px-5 py-4">
+          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+          <p class="text-white font-semibold mt-1">Lemma 6.1: Duality of Evolution</p>
+          <p class="text-slate-300 text-sm mt-2">State &equiv; Superposition of Orthogonal Axes:</p>
+          <div class="mt-2 space-y-1">
+            <p class="text-blue-400 text-sm">1. <span class="font-semibold">Amplitude</span> (External Interaction)</p>
+            <p class="text-cyan-400 text-sm">2. <span class="font-semibold">Phase</span> (Internal Existence)</p>
+          </div>
+        </div>
+      </a>
+      <div class="node-fail px-4 py-3 max-w-[180px]">
+        <span class="text-red-400 text-xs font-bold">&#10007; F</span>
+        <p class="text-red-300/70 text-sm">Scalar Parameter (Energy as Substance)</p>
+        <p class="text-red-400/60 text-xs mt-2">Impossible in relational model</p>
+      </div>
+    </div>
+
+    <!-- Thm 6.2 & 11.1: Conservation -->
+    <div class="reveal flex justify-center">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=thm:Closure" target="_blank" rel="noopener noreferrer">
+        <div class="node-will px-6 py-4 max-w-xl">
+          <p class="text-green-400 font-semibold mb-3">Thm 6.2 &amp; 11.1: Orthogonal Conservation</p>
+          <p class="text-slate-300 text-sm mb-3">Unitary Budget &rArr; Pythagorean Closure</p>
+          <div class="space-y-2 math text-sm">
+            <p class="text-blue-400 bg-slate-900/50 rounded px-3 py-2">S&sup1; (Kinematics): <span class="text-white">&beta;&sup2;</span> (Motion) + <span class="text-white">&beta;<sub>Y</sub>&sup2;</span> (SpaceTime) = 1</p>
+            <p class="text-cyan-400 bg-slate-900/50 rounded px-3 py-2">S&sup2; (Gravity): <span class="text-white">&kappa;&sup2;</span> (Potential) + <span class="text-white">&kappa;<sub>X</sub>&sup2;</span> (TimeSpace) = 1</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Decision: Exchange Rate -->
+    <div class="reveal flex justify-center">
+      <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Determine Exchange Rate between Active Amplitudes (&kappa;&sup2;, &beta;&sup2;)</p></div>
+    </div>
+
+    <!-- Theorem 10.2: Energetic Closure -->
+    <div class="reveal flex justify-center">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=lem:dof-indifference" target="_blank" rel="noopener noreferrer">
+        <div class="node-will px-6 py-4 max-w-md text-center">
+          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+          <p class="text-white font-semibold mt-1 mb-2">Theorem 10.2: Energetic Closure</p>
+          <p class="text-slate-300 text-sm mb-2">R = d.o.f(S&sup2;) / d.o.f(S&sup1;) = 2 / 1 = 2</p>
+          <span class="eq-box text-xl">&kappa;&sup2; = 2&beta;&sup2;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
