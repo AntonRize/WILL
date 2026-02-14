@@ -1,0 +1,137 @@
+<!-- STAGE V: Dynamics Definition -->
+<section class="py-12 mt-8">
+  <div class="flex justify-center mb-8 reveal">
+    <svg class="w-8 h-8 text-cyan-500/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+  </div>
+  <div class="text-center mb-12 reveal">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 mb-4">
+      <span class="text-blue-400 font-mono text-sm">STAGE V</span>
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold text-white">Dynamics Definition</h2>
+    <p class="text-slate-400 mt-2">The mechanism of interaction</p>
+  </div>
+
+  <div class="max-w-4xl mx-auto space-y-6">
+    <!-- Decision: Interaction Measure -->
+    <div class="reveal flex justify-center">
+      <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Define Interaction Measure (Distance/Difference)</p></div>
+    </div>
+
+    <!-- Sec 10: Relational Shift -->
+    <div class="reveal flex items-start gap-4">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=sec:DisQ" target="_blank" rel="noopener noreferrer" class="flex-1">
+        <div class="node-will px-5 py-4">
+          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+          <p class="text-white font-semibold mt-1">Sec 10: Relational Shift</p>
+          <p class="text-slate-300 text-sm mt-2">Self-Centering Reciprocity:</p>
+          <span class="eq-box text-lg mt-2">Q&sup2; = &beta;&sup2; + &kappa;&sup2;</span>
+          <p class="text-slate-400 text-sm mt-2">Norm of state deviation from observer</p>
+        </div>
+      </a>
+      <div class="node-fail px-4 py-3 max-w-[200px]">
+        <span class="text-red-400 text-xs font-bold">&#10007; F</span>
+        <p class="text-red-300/70 text-sm">Spatial Distance (Metric ds&sup2; in background)</p>
+        <p class="text-red-400/60 text-xs mt-2">Violates Relational Origin</p>
+      </div>
+    </div>
+
+    <!-- Self-Centering Diagram -->
+    <div class="reveal flex justify-center">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=fig:relational_shift" target="_blank" rel="noopener noreferrer">
+        <div class="bg-slate-800/50 border border-slate-600/50 rounded-xl px-6 py-5">
+          <p class="text-blue-400 font-semibold text-center mb-4">Self-Centering Reciprocity</p>
+          <svg viewBox="-1.3 -1.6 3.0 2.8" class="w-72 h-64 mx-auto">
+            <defs>
+              <marker id="arr-b" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><polygon points="0 0,6 2,0 4" fill="#9ca3af"/></marker>
+              <marker id="arr-k" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><polygon points="0 0,6 2,0 4" fill="#9ca3af"/></marker>
+              <marker id="arr-q" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><polygon points="0 0,6 2,0 4" fill="white"/></marker>
+            </defs>
+            <line x1="-0.2" y1="0" x2="1.3" y2="0" stroke="#9ca3af" stroke-width="0.02" marker-end="url(#arr-b)"/>
+            <line x1="0" y1="0.2" x2="0" y2="-1.3" stroke="#9ca3af" stroke-width="0.02" marker-end="url(#arr-k)"/>
+            <text x="1.4" y="0.05" fill="#e5e7eb" font-size="0.12" font-weight="500">&beta; (X)</text>
+            <text x="0.05" y="-1.38" fill="#e5e7eb" font-size="0.12" font-weight="500">&kappa; (Y)</text>
+            <circle cx="0" cy="0" r="1" fill="none" stroke="#3b82f6" stroke-width="0.035"/>
+            <circle cx="0" cy="0" r="0.05" fill="#3b82f6"/>
+            <text x="-0.12" y="0.2" fill="#3b82f6" font-size="0.12" font-weight="500">Obs A (0,0)</text>
+            <circle cx="0.7" cy="-0.5" r="1" fill="none" stroke="#ef4444" stroke-width="0.035" stroke-dasharray="0.1,0.06"/>
+            <circle cx="0.7" cy="-0.5" r="0.05" fill="#ef4444"/>
+            <text x="0.78" y="-0.58" fill="#ef4444" font-size="0.12" font-weight="500">Obj B (0,0)</text>
+            <line x1="0" y1="0" x2="0.65" y2="-0.46" stroke="white" stroke-width="0.035" marker-end="url(#arr-q)"/>
+            <text x="0.25" y="-0.3" fill="white" font-size="0.16" font-weight="bold">Q</text>
+            <line x1="0.7" y1="-0.5" x2="0.7" y2="0" stroke="#64748b" stroke-width="0.025" stroke-dasharray="0.05,0.05"/>
+            <line x1="0.7" y1="-0.5" x2="0" y2="-0.5" stroke="#64748b" stroke-width="0.025" stroke-dasharray="0.05,0.05"/>
+            <text x="0.7" y="0.16" fill="#64748b" font-size="0.12" text-anchor="middle">&beta;</text>
+            <text x="-0.08" y="-0.46" fill="#64748b" font-size="0.12" text-anchor="end">&kappa;</text>
+            <text x="0.7" y="0.95" fill="#94a3b8" font-size="0.14" text-anchor="middle" font-style="italic">Causal Lock: Q &lt; 1</text>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- Decision: Interaction Mechanism -->
+    <div class="reveal flex justify-center">
+      <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Define Interaction Mechanism (Dynamics)</p></div>
+    </div>
+
+    <!-- Theorem 14.1: Energy-Symmetry -->
+    <div class="reveal flex items-start gap-4">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=sec:energy-symmetry" target="_blank" rel="noopener noreferrer" class="flex-1">
+        <div class="node-will px-5 py-4">
+          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+          <p class="text-white font-semibold mt-1">Theorem 14.1: Energy-Symmetry Law</p>
+          <p class="text-slate-300 text-sm mt-2">Causal Continuity:</p>
+          <span class="eq-box text-lg mt-2">&Delta;E<sub>A&rarr;B</sub> + &Delta;E<sub>B&rarr;A</sub> = 0</span>
+          <p class="text-slate-400 text-sm mt-2">Energy cost of state transformations must sum to zero</p>
+        </div>
+      </a>
+      <div class="node-fail px-4 py-3 max-w-[200px]">
+        <span class="text-red-400 text-xs font-bold">&#10007; F</span>
+        <p class="text-red-300/70 text-sm">Forces / Potentials (Newton, Lagrange, Hamiltonian)</p>
+        <p class="text-red-400/60 text-xs mt-2">Ontologically &quot;dirty&quot; approximations</p>
+      </div>
+    </div>
+
+    <!-- Decision: Zero Point -->
+    <div class="reveal flex justify-center">
+      <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Define &quot;Zero Point&quot; (Reference System)</p></div>
+    </div>
+
+    <!-- Self-Centering Principle -->
+    <div class="reveal flex items-start gap-4">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=pr:self_cen" target="_blank" rel="noopener noreferrer" class="flex-1">
+        <div class="node-will px-5 py-4">
+          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+          <p class="text-white font-semibold mt-1">Self-Centering Principle</p>
+          <p class="text-slate-300 text-sm mt-2">Each observer places itself at the relational origin (&beta;, &kappa;)=(0, 0).</p>
+        </div>
+      </a>
+      <div class="node-fail px-4 py-3 max-w-[200px]">
+        <span class="text-red-400 text-xs font-bold">&#10007; F</span>
+        <p class="text-red-300/70 text-sm">Hypothetical Observer at Infinity (&infin;)</p>
+        <p class="text-red-400/60 text-xs mt-2">Idealized/Non-existent, leads to Gauge Ambiguities</p>
+      </div>
+    </div>
+
+    <!-- Decision: Formalize Energy -->
+    <div class="reveal flex justify-center">
+      <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Formalize Energy Description</p></div>
+    </div>
+
+    <!-- Explicit State Transition Cost -->
+    <div class="reveal flex items-start gap-4">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=def:energy" target="_blank" rel="noopener noreferrer" class="flex-1">
+        <div class="node-will px-5 py-4">
+          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+          <p class="text-white font-semibold mt-1">Explicit State Transition Cost</p>
+          <p class="text-slate-300 text-sm mt-2">Energy is relational measure of difference between possible states. Always 2 points relation, transformation cost from State A to State B</p>
+          <span class="eq-box text-lg mt-2">&Delta;E<sub>A&rarr;B</sub></span>
+        </div>
+      </a>
+      <div class="node-fail px-4 py-3 max-w-[200px]">
+        <span class="text-red-400 text-xs font-bold">&#10007; F</span>
+        <p class="text-red-300/70 text-sm">Formalisms L, H &mdash; Energy as intrinsic scalar at a single point</p>
+        <p class="text-red-400/60 text-xs mt-2">Ontologically &quot;murky&quot;, Mathematically inflated</p>
+      </div>
+    </div>
+  </div>
+</section>

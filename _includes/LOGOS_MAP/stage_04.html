@@ -1,0 +1,106 @@
+<!-- STAGE IV: Physics Derivation -->
+<section class="py-12 mt-8">
+  <div class="flex justify-center mb-8 reveal">
+    <svg class="w-8 h-8 text-cyan-500/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+  </div>
+  <div class="text-center mb-12 reveal">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 mb-4">
+      <span class="text-blue-400 font-mono text-sm">STAGE IV</span>
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold text-white">Physics Derivation</h2>
+    <p class="text-slate-400 mt-2">From geometry to physical laws</p>
+  </div>
+
+  <div class="max-w-4xl mx-auto space-y-6">
+    <!-- Decision: Define Mass -->
+    <div class="reveal flex justify-center">
+      <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Define Physical Meaning of Vertical Projection (&beta;<sub>Y</sub>)</p></div>
+    </div>
+
+    <!-- Thm 7.2: Invariant Mass -->
+    <div class="reveal flex items-start gap-4">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=thm:restenergy" target="_blank" rel="noopener noreferrer" class="flex-1">
+        <div class="node-will px-5 py-4">
+          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+          <p class="text-white font-semibold mt-1">Def 7.1 &amp; Thm 7.2: Self-relation (Motion=0) &rarr; Invariant Mass</p>
+          <p class="text-slate-300 text-sm mt-2">Vertical Projection &equiv; Rest Existence</p>
+          <div class="mt-2 math text-sm space-y-1">
+            <p class="text-blue-400">E &middot; &beta;<sub>Y</sub> = E<sub>0</sub> &equiv; m</p>
+            <p class="text-cyan-400">&gamma; = 1/&beta;<sub>Y</sub></p>
+          </div>
+        </div>
+      </a>
+      <div class="node-fail px-4 py-3 max-w-[200px]">
+        <span class="text-red-400 text-xs font-bold">&#10007; F</span>
+        <p class="text-red-300/70 text-sm">Independent Parameter (Mass as intrinsic substance)</p>
+        <p class="text-red-400/60 text-xs mt-2">Ontologically redundant</p>
+      </div>
+    </div>
+
+    <!-- Corollary 7.3: E-p relation -->
+    <div class="reveal flex justify-center">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=cor:energymomentum" target="_blank" rel="noopener noreferrer">
+        <div class="node-will px-6 py-4 max-w-xl text-center">
+          <p class="text-green-400 font-semibold mb-2">Corollary 7.3: Energy-Momentum</p>
+          <p class="text-slate-300 text-sm mb-3">Apply Pythagoras to S&sup1; Closure:</p>
+          <p class="math text-blue-400 text-sm mb-2">(E&beta;)&sup2; + (E&beta;<sub>Y</sub>)&sup2; = E&sup2;</p>
+          <p class="text-slate-300 text-sm mb-2">Identify p &equiv; E&beta;, m &equiv; E&beta;<sub>Y</sub></p>
+          <span class="eq-box text-xl">E&sup2; = p&sup2; + m&sup2;</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Decision: Equivalence -->
+    <div class="reveal flex justify-center">
+      <div class="node-decision px-6 py-4"><p class="text-yellow-200 font-medium text-center">Explain m<sub>i</sub> = m<sub>g</sub></p></div>
+    </div>
+
+    <!-- Theorem 12.2: Unified Scaling -->
+    <div class="reveal flex items-start gap-4">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=thm:equivalence" target="_blank" rel="noopener noreferrer" class="flex-1">
+        <div class="node-will px-5 py-4">
+          <span class="text-green-400 text-xs font-bold">&#10003; T</span>
+          <p class="text-white font-semibold mt-1">Theorem 12.2: Unified Scaling</p>
+          <p class="text-slate-300 text-sm mt-2">Kinematics (S&sup1;) and Gravity (S&sup2;) act on the SAME invariant E<sub>0</sub></p>
+          <span class="eq-box text-lg mt-2">m<sub>i</sub> &equiv; m<sub>g</sub> &equiv; E<sub>0</sub></span>
+        </div>
+      </a>
+      <div class="node-fail px-4 py-3 max-w-[200px]">
+        <span class="text-red-400 text-xs font-bold">&#10007; F</span>
+        <p class="text-red-300/70 text-sm font-medium">Weak Equivalence Principle</p>
+        <p class="text-red-300/70 text-sm">(Postulated as Axiom)</p>
+        <p class="text-red-400/60 text-xs mt-2">Descriptive physics (Coincidence)</p>
+      </div>
+    </div>
+
+    <!-- Reference Table -->
+    <div class="reveal flex justify-center">
+      <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=prop:relativity" target="_blank" rel="noopener noreferrer">
+        <div class="bg-slate-800/50 border border-slate-600/50 rounded-xl px-6 py-5 max-w-2xl">
+          <p class="text-blue-400 font-semibold text-center mb-4">Reference: Algebraic &harr; Trigonometric Forms</p>
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div class="text-center">
+              <p class="text-slate-400 mb-2">Algebraic Form</p>
+              <div class="space-y-1 math text-slate-200">
+                <p>&beta; = v/c</p>
+                <p>&kappa; = &radic;(R<sub>s</sub>/r)</p>
+                <p>&beta;<sub>Y</sub> = &radic;(1&minus;&beta;&sup2;)</p>
+                <p>&kappa;<sub>X</sub> = &radic;(1&minus;&kappa;&sup2;)</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <p class="text-slate-400 mb-2">Trigonometric Form</p>
+              <div class="space-y-1 math text-slate-200">
+                <p>&beta; = cos(&theta;&#8321;)</p>
+                <p>&kappa; = sin(&theta;&#8322;)</p>
+                <p>&beta;<sub>Y</sub> = sin(&theta;&#8321;)</p>
+                <p>&kappa;<sub>X</sub> = cos(&theta;&#8322;)</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-center text-slate-400 text-xs mt-4 math">&theta;&#8321; = arccos(&beta;), &theta;&#8322; = arcsin(&kappa;), &kappa;&sup2; = 2&beta;&sup2; (Closure)</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
