@@ -1,0 +1,246 @@
+======================================================================
+INTERNAL CONSISTENCY AUDIT REPORT
+WILL Relational Geometry — Logical Structure Analysis
+======================================================================
+
+1. SUMMARY STATISTICS
+----------------------------------------
+  Total formal elements parsed:     171
+  Elements with labels:             42
+  Dependency graph nodes:           53
+  Dependency graph edges:           26
+  Circular dependencies:            0
+  Unresolved references:            7
+  Defined terms extracted:          14
+  Definition ordering issues:       1
+
+2. AXIOMATIC BASIS (Root Elements)
+----------------------------------------
+These elements have no incoming dependencies — they are the
+foundational axioms/principles on which other results depend.
+
+  [1] Definition: WILL [WILL_RG_I]
+      Type: definition  |  Labels: def:will
+  [2] Theorem: Minimal Relational Carriers of the Conserved Energy Resource [WILL_RG_I]
+      Type: theorem  |  Labels: thm:carriers
+  [3] Theorem: Equivalence of Inertial and Gravitational Response [WILL_RG_I]
+      Type: theorem  |  Labels: thm:equivalence
+  [4] Corollary: Uniqueness [WILL_RG_I]
+      Type: corollary  |  Labels: cor:uniqueness
+  [5] Corollary: Energy--Momentum Relation [WILL_RG_I]
+      Type: corollary  |  Labels: cor:energymomentum
+  [6] Remark: Auditability [WILL_RG_I]
+      Type: remark  |  Labels: 
+  [7] Proof #2 [WILL_RG_I]
+      Type: proof  |  Labels: 
+  [8] Proof #3 [WILL_RG_I]
+      Type: proof  |  Labels: 
+  [9] Proof #5 [WILL_RG_I]
+      Type: proof  |  Labels: 
+  [10] Proof #9 [WILL_RG_I]
+      Type: proof  |  Labels: 
+  [11] Proof #15 [WILL_RG_I]
+      Type: proof  |  Labels: 
+  [12] Proof #18 [WILL_RG_I]
+      Type: proof  |  Labels: 
+  [13] Proof #2 [WILL_RG_II]
+      Type: proof  |  Labels: 
+  [14] Proof #6 [WILL_RG_II]
+      Type: proof  |  Labels: 
+  [15] Proof #5 [WILL_RG_III]
+      Type: proof  |  Labels: eq:beta=alpha
+
+3. TERMINAL RESULTS (Leaf Elements)
+----------------------------------------
+These elements reference other results but are not themselves
+referenced — they represent the end points of the deductive chain.
+
+  [1] Principle: Ontological Minimalism [WILL_RG_I]
+      Type: principle  |  References out: 0
+  [2] Principle: Relational Origin [WILL_RG_I]
+      Type: principle  |  References out: 0
+  [3] Principle: Ontological Principle: Removing the Hidden Assumption [WILL_RG_I]
+      Type: principle  |  References out: 0
+  [4] Lemma: False Separation [WILL_RG_I]
+      Type: lemma  |  References out: 0
+  [5] Lemma: Unified Relational Scaling [WILL_RG_I]
+      Type: lemma  |  References out: 0
+  [6] Lemma: DOF-Indifference [WILL_RG_I]
+      Type: lemma  |  References out: 0
+  [7] Proposition: Horizontal Projection as Momentum [WILL_RG_I]
+      Type: proposition  |  References out: 0
+  [8] Corollary: Energetic Closure Criterion [WILL_RG_I]
+      Type: corollary  |  References out: 0
+  [9] Lemma: Inevitability of Self-Interaction [WILL_RG_II]
+      Type: lemma  |  References out: 0
+  [10] Lemma: Newtonian Halo Requirement [WILL_RG_II]
+      Type: lemma  |  References out: 0
+  [11] Principle: Universal Scale Principle [WILL_RG_III]
+      Type: principle  |  References out: 0
+
+4. CIRCULAR DEPENDENCIES
+----------------------------------------
+  PASS: No circular dependencies detected.
+  The logical deduction chain is acyclic (well-founded).
+
+5. ORPHAN ELEMENTS
+----------------------------------------
+Elements with labels but no reference connections (neither cited
+nor citing other labeled elements).
+
+  [1] Principle: Epistemic Hygiene [WILL_RG_I]
+      Type: principle  |  Labels: pr:epistemic
+  [2] Principle: Simplicity [WILL_RG_I]
+      Type: principle  |  Labels: pr:simplicity 
+  [3] Principle: Mathematical Transparency [WILL_RG_I]
+      Type: principle  |  Labels: pr:Mathematical
+  [4] Definition: Energy [WILL_RG_I]
+      Type: definition  |  Labels: def:energy
+  [5] Lemma: Conservation [WILL_RG_I]
+      Type: lemma  |  Labels: lem:conservation
+  [6] Lemma: Duality of Evolution [WILL_RG_I]
+      Type: lemma  |  Labels: lem:duality
+  [7] Proposition: Physical Interpretation: Relativistic Effects [WILL_RG_I]
+      Type: proposition  |  Labels: prop:relativity
+  [8] Theorem: Invariant Projection of Rest Energy [WILL_RG_I]
+      Type: theorem  |  Labels: thm:restenergy
+  [9] Theorem: Closure [WILL_RG_I]
+      Type: theorem  |  Labels: thm:Closure
+  [10] Theorem: Two-Point Schwarzschild Scale [WILL_RG_I]
+      Type: theorem  |  Labels: thm:two_point, eq:Rs_two_point
+  [11] Theorem: Balance Point Formula [WILL_RG_I]
+      Type: theorem  |  Labels: thm:balance_point, eq:Rs_balance
+  [12] Theorem: Arbitrary Phase Formula [WILL_RG_I]
+      Type: theorem  |  Labels: thm:arbitrary_phase, eq:Rs_arbitrary
+  [13] Corollary: Rest Energy and Mass Equivalence [WILL_RG_I]
+      Type: corollary  |  Labels: cor:restmass
+  [14] Corollary: Mass Invariance under Relational Scaling [WILL_RG_I]
+      Type: corollary  |  Labels: cor:massinvariance
+  [15] Remark: Non-spatial Reading [WILL_RG_I]
+      Type: remark  |  Labels: rem:nonspatial
+  [16] Remark: Closure-specific simplification [WILL_RG_I]
+      Type: remark  |  Labels: 
+  [17] Proof #19 [WILL_RG_I]
+      Type: proof  |  Labels: eq:tau_observable
+  [18] Proof #24 [WILL_RG_I]
+      Type: proof  |  Labels: 
+  [19] Proof #29 [WILL_RG_I]
+      Type: proof  |  Labels: eq:proj-balance
+  [20] Theorem: Global Phase-Closure Constraint [WILL_RG_II]
+      Type: theorem  |  Labels: thm:resonance
+  [21] Theorem: Unified Geometric Field Equation [WILL_RG_II]
+      Type: theorem  |  Labels: eq:will_field
+  [22] Principle: Geometric Closure [WILL_RG_III]
+      Type: principle  |  Labels: pr:closure
+  [23] Theorem: The Unified Relativistic Energy Formula [WILL_RG_III]
+      Type: theorem  |  Labels: thm:unified-energy
+  [24] Remark: Calibration and the role of $\hbar$ [WILL_RG_III]
+      Type: remark  |  Labels: calibration
+
+6. UNRESOLVED REFERENCES
+----------------------------------------
+References to labels not found among extracted formal environments.
+These may point to equations, sections, or items defined outside
+the formal environment structure.
+
+  \ref{thm:closure}
+      cited by: Remark: Closure-specific simplification [WILL_RG_I]
+      cited by: Proof #5 [WILL_RG_III]
+  \ref{sec:energy-symmetry}
+      cited by: Proof #18 [WILL_RG_I]
+      cited by: Proof #24 [WILL_RG_I]
+  \ref{thm:conservation}
+      cited by: Proof #18 [WILL_RG_I]
+  \ref{thm:single-axis}
+      cited by: Proof #18 [WILL_RG_I]
+  \ref{sec:DisQ}
+      cited by: Proof #18 [WILL_RG_I]
+
+  Total unique unresolved labels: 5
+
+7. DEFINITION-USAGE ORDERING
+----------------------------------------
+Checks whether terms introduced in Definition environments are
+used only AFTER they are formally defined (by linear order).
+
+  [1] Term: "hypotenuse"
+      Used in:    Proof #9 [WILL_RG_I]  (order 80)
+      Defined in: Definition: Relativistic Angular Number [WILL_RG_III]  (order 127)
+
+8. DEPENDENCY CHAIN HIGHLIGHTS
+----------------------------------------
+  Most-referenced elements (highest in-degree):
+    in-degree=5  Lemma: Closure [WILL_RG_I]
+    in-degree=5  Lemma: Isotropy from Background--Free Relationality [WILL_RG_I]
+    in-degree=4  Principle: Ontological Principle: Removing the Hidden Assumption [WILL_RG_I]
+    in-degree=2  Corollary: Structure--Dynamics Coincidence [WILL_RG_I]
+    in-degree=1  Principle: Ontological Minimalism [WILL_RG_I]
+    in-degree=1  Principle: Relational Origin [WILL_RG_I]
+    in-degree=1  Lemma: False Separation [WILL_RG_I]
+    in-degree=1  Lemma: Unified Relational Scaling [WILL_RG_I]
+    in-degree=1  Lemma: DOF-Indifference [WILL_RG_I]
+    in-degree=1  Proposition: Horizontal Projection as Momentum [WILL_RG_I]
+
+  Most-dependent elements (highest out-degree):
+    out-degree=6  Proof #5 [WILL_RG_I]
+    out-degree=3  Corollary: Uniqueness [WILL_RG_I]
+    out-degree=2  Theorem: Minimal Relational Carriers of the Conserved Energy Resource [WILL_RG_I]
+    out-degree=1  Definition: WILL [WILL_RG_I]
+    out-degree=1  Lemma: Closure [WILL_RG_I]
+    out-degree=1  Lemma: Isotropy from Background--Free Relationality [WILL_RG_I]
+    out-degree=1  Theorem: Equivalence of Inertial and Gravitational Response [WILL_RG_I]
+    out-degree=1  Corollary: Structure--Dynamics Coincidence [WILL_RG_I]
+    out-degree=1  Corollary: Energy--Momentum Relation [WILL_RG_I]
+    out-degree=1  Proof #5 [WILL_RG_III]
+
+9. LABEL REGISTRY
+----------------------------------------
+  calibration                         -> Remark: Calibration and the role of $\hbar$ [WILL_RG_III]
+  cor:closurecriterion                -> Corollary: Energetic Closure Criterion [WILL_RG_I]
+  cor:coincidence                     -> Corollary: Structure--Dynamics Coincidence [WILL_RG_I]
+  cor:energymomentum                  -> Corollary: Energy--Momentum Relation [WILL_RG_I]
+  cor:massinvariance                  -> Corollary: Mass Invariance under Relational Scaling [WILL_RG_I]
+  cor:restmass                        -> Corollary: Rest Energy and Mass Equivalence [WILL_RG_I]
+  cor:uniqueness                      -> Corollary: Uniqueness [WILL_RG_I]
+  def:energy                          -> Definition: Energy [WILL_RG_I]
+  def:will                            -> Definition: WILL [WILL_RG_I]
+  eq:Rs_arbitrary                     -> Theorem: Arbitrary Phase Formula [WILL_RG_I]
+  eq:Rs_balance                       -> Theorem: Balance Point Formula [WILL_RG_I]
+  eq:Rs_two_point                     -> Theorem: Two-Point Schwarzschild Scale [WILL_RG_I]
+  eq:beta=alpha                       -> Proof #5 [WILL_RG_III]
+  eq:newton_halo                      -> Lemma: Newtonian Halo Requirement [WILL_RG_II]
+  eq:proj-balance                     -> Proof #29 [WILL_RG_I]
+  eq:tau_observable                   -> Proof #19 [WILL_RG_I]
+  eq:will_field                       -> Theorem: Unified Geometric Field Equation [WILL_RG_II]
+  lem:closure                         -> Lemma: Closure [WILL_RG_I]
+  lem:conservation                    -> Lemma: Conservation [WILL_RG_I]
+  lem:dof-indifference                -> Lemma: DOF-Indifference [WILL_RG_I]
+  lem:duality                         -> Lemma: Duality of Evolution [WILL_RG_I]
+  lem:false-separation                -> Lemma: False Separation [WILL_RG_I]
+  lem:isotropy                        -> Lemma: Isotropy from Background--Free Relationality [WILL_RG_I]
+  lem:self-interaction                -> Lemma: Inevitability of Self-Interaction [WILL_RG_II]
+  lem:unifiedscaling                  -> Lemma: Unified Relational Scaling [WILL_RG_I]
+  pr:Mathematical                     -> Principle: Mathematical Transparency [WILL_RG_I]
+  pr:closure                          -> Principle: Geometric Closure [WILL_RG_III]
+  pr:epistemic                        -> Principle: Epistemic Hygiene [WILL_RG_I]
+  pr:minimalism                       -> Principle: Ontological Minimalism [WILL_RG_I]
+  pr:relational                       -> Principle: Relational Origin [WILL_RG_I]
+  pr:scale                            -> Principle: Universal Scale Principle [WILL_RG_III]
+  pr:simplicity                       -> Principle: Simplicity [WILL_RG_I]
+  pr:unifying                         -> Principle: Ontological Principle: Removing the Hidden Assumption [WILL_RG_I]
+  prop:momentum                       -> Proposition: Horizontal Projection as Momentum [WILL_RG_I]
+  prop:relativity                     -> Proposition: Physical Interpretation: Relativistic Effects [WILL_RG_I]
+  rem:nonspatial                      -> Remark: Non-spatial Reading [WILL_RG_I]
+  thm:Closure                         -> Theorem: Closure [WILL_RG_I]
+  thm:arbitrary_phase                 -> Theorem: Arbitrary Phase Formula [WILL_RG_I]
+  thm:balance_point                   -> Theorem: Balance Point Formula [WILL_RG_I]
+  thm:carriers                        -> Theorem: Minimal Relational Carriers of the Conserved Energy Resource [WILL_RG_I]
+  thm:equivalence                     -> Theorem: Equivalence of Inertial and Gravitational Response [WILL_RG_I]
+  thm:resonance                       -> Theorem: Global Phase-Closure Constraint [WILL_RG_II]
+  thm:restenergy                      -> Theorem: Invariant Projection of Rest Energy [WILL_RG_I]
+  thm:two_point                       -> Theorem: Two-Point Schwarzschild Scale [WILL_RG_I]
+  thm:unified-energy                  -> Theorem: The Unified Relativistic Energy Formula [WILL_RG_III]
+
+======================================================================
+END OF REPORT
+======================================================================
