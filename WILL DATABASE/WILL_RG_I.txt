@@ -227,7 +227,7 @@ Mathematics is a language, not a world. Its symbols must never outnumber the phy
 \begin{principle}[Mathematical Transparency]
 \hypertarget{pr:Mathematical}{}\label{pr:Mathematical}
 \begin{enumerate}
-    \item Every  mathematical phrase, operational choice, or identity caries its on ontological  statement. 
+    \item Every  mathematical phrase, operational choice, or identity caries its own ontological  statement. 
     \item Each mathematical object must correspond to explicitly identifiable relation between observers with transparent ontological origin.
     \item Every symbol must be anchored to unique  physical idea. 
     \item Introducing symbols  without explicit necessity constitutes \textit{semantic inflation}: the proliferation of symbols without corresponding physical meaning.
@@ -389,7 +389,7 @@ Principle~\ref{pr:unifying} is foundational but testable: it is subject to (i) g
 \end{tcolorbox}
 
 \section{Deriving the WILL Structure}
-
+\hypertarget{sec:WILL_structure}{}\label{sec:WILL_structure}
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{img/6_Key-Constraints-on-the-Relational-Structure.png}
@@ -2537,28 +2537,29 @@ This demonstrates that physical mass is merely a dimensioned proxy for the geome
 
 This reconstructed $\kappa_p$ is then used to predict the precession in the next section.
 
-\subsection{The Universal Precession Law: Derivation via $Q_a$}
+\subsection{Orbital Precession as State Difference $Q$ Accumulation} 
 \hypertarget{sec:precession_law}{}\label{sec:precession_law}
 
 \paragraph{Derivation of the Phase Shift.}
-The precession is intrinsic to the relational shift. Since $Q_a$ represents the norm of deviation from the Euclidean background, the system accumulates a phase mismatch over every closed cycle. The total angular shift is simply the full orbital phase ($2\pi$) scaled by the quadratic intensity of this shift ($Q_a^2$), normalized by the elliptical geometry factor ($1-e^2$):
+The precession is intrinsic to the total state difference between the objects within the system.  The $Q=\sqrt{\beta^2+\kappa^2}$ parameter encapsulate this difference as a vector on ($\beta$, $\kappa$) relational state plane.  So Q is just a \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:DisQ}{relational measure of state difference}. The system accumulates a state mismatch over every closed cycle. The total angular shift is simply the full orbital phase ($2\pi$) scaled by the quadratic intensity of this shift 
+($Q^2=\beta^2+\kappa^2$), normalized by the elliptical geometry factor ($1-e^2$):
 \[
-\Delta\varphi = \underbrace{2\pi}_{\text{Cycle}} \cdot \underbrace{Q_a^2}_{\text{Intensity}} \cdot \underbrace{\frac{1}{1-e^2}}_{\text{Shape Factor}} = \frac{2\pi\,Q_a^{2}}{1-e^{2}}.
+\Delta\varphi = \underbrace{2\pi}_{\text{Cycle}} \cdot \underbrace{Q^2}_{\text{Intensity}} \cdot \underbrace{\frac{1}{1-e^2}}_{\text{Shape Factor}} = \frac{2\pi\,Q^{2}}{1-e^{2}}.
 \]
-This yields the general precession law strictly from geometric accumulation:
+This yields the general precession law strictly from geometric state difference accumulation:
 \hypertarget{eq:precession_law}{}\label{eq:precession_law}
 \begin{equation}
-\Delta\varphi = \frac{2\pi\,Q_a^{2}}{1-e^{2}}.
+\Delta\varphi = \frac{2\pi\,Q^{2}}{1-e^{2}}.
 \end{equation}
-Substituting $Q_a^2$, we recover the standard form purely algebraically:
-We select the semi-major axis $a$ as this reference scale, defining the norm $Q_a$.
+Substituting $Q^2$, we recover the standard form purely algebraically:
+We select the semi-major axis $a$ as this reference scale, defining the norm $Q$.
 At the scale $r=a$, the closure condition ($\kappa^2=2\beta^2$) implies the specific distribution of the invariant Schwarzschild scale $R_s$:
 \[
 \kappa^2(a) = \frac{R_s}{a}, \qquad \beta^2(a) = \frac{R_s}{2a}.
 \]
 Substituting these into the definition of the relational shift norm $Q^2 = \beta^2 + \kappa^2$:
 \begin{equation}
-Q_a^2 = \frac{R_s}{2a} + \frac{R_s}{a} = \frac{3R_s}{2a}.
+Q^2 = \frac{R_s}{2a} + \frac{R_s}{a} = \frac{3R_s}{2a}.
 \end{equation}
 \[
 \Delta\varphi = \frac{2\pi}{1-e^2} \left( \frac{3R_s}{2a} \right) = \frac{3\pi R_s}{a(1-e^2)}.
@@ -3262,25 +3263,27 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
 
 R.O.M. does not describe how a body moves under forces; it classifies the algebraically allowed relational states of a bound system.
 
-$\boxed{\kappa^2 = 1-\frac{1}{(1+z)^2}}$  ($z=$ gravitational redshift) \\
-$\boxed{\beta^2=1-\frac{1}{(1+z_{D})^{2}}}$  ($z_D=$ transverse Doppler shift) \\
+$\boxed{\kappa^2 = 1-\frac{1}{(1+z_k)^2}}$  ($z_k=$ gravitational redshift) \\
+$\boxed{\beta^2=1-\frac{1}{(1+z_{b})^{2}}}$  ($z_b=$ transverse Doppler shift) \\
 
 \subsubsection*{Observational Z Inputs} \\
-$Z_{sys}\left(o\right)=\left(1+z_{o}\left(o\right)\right)\left(1+z_{Do}\left(o\right)\right)$ (product of gravitational red shift and transverse Doppler shift) \\
+$Z_{sys}\left(o\right)=\left(1+z_{ko}\left(o\right)\right)\left(1+z_{bo}\left(o\right)\right)$ (product of gravitational red shift and transverse Doppler shift) \\
 $\tau_{Wo}\left(o\right)=\kappa_{Xo}\left(o\right)\cdot\beta_{Yo}\left(o\right)=\left(Z_{sys}\left(o\right)\right)^{-1}$  (product of projectinal phase factors on $S^1$ and $S^2$ carriers) \\
 \subsubsection*{Global System Parameters} \\
-$R_{s} = \kappa^{2}a = \frac{2Gm_{0}}{c^{2}}=\frac{2}{3}Q_{o}\left(O_{o}\right)^{2}a\ =\frac{ r_{1} r_{2}}{r_{2} - r_{1}}( \beta_{1}^{2} - \beta_{2}^{2} )=\frac{a}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})=\frac{r_{o}\left(o\right)}{2\left(2a-r_{o}\left(o\right)\right)}\left(4a-r_{o}\left(o\right)-\sqrt{\left(4a-r_{o}\left(o\right)\right)^{2}-8a\left(2a-r_{o}\left(o\right)\right)\left(1-\tau_{Wo}\left(o\right)^{2}\right)}\right)$  (Schwarzschild radius - system scale) \\
+
 $\kappa = \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)} =\sqrt{4W}=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})}$ (potential projection at semi-major axis) \\
-$a = \frac{R_{s}}{\kappa^{2}} =\frac{R_{s}}{4W} = \frac{\beta_{o}c}{\omega} \cdot \frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e\cos (o)}}$ (semi-major axis) \\
 $\beta = \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \sqrt{2W} =\sqrt{\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot\left(1+\left(\frac{1}{\delta_{o}\left(o\right)}-1\right)\right)}=\beta_{o}\left(o\right)\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos\left(o\right)}}$  (kinetic projection on semi major axis) \\
+$Q=\sqrt{\kappa^2+\beta^2}=\sqrt{\frac{3}{2}}\ \kappa=\sqrt{3}\ \beta$ (total relational shift (magnitude of state difference)) \\
+$R_{s} = \kappa^{2}a = \frac{2Gm_{0}}{c^{2}}=\frac{2}{3}Q_{o}\left(O_{o}\right)^{2}a\ =\frac{ r_{1} r_{2}}{r_{2} - r_{1}}( \beta_{1}^{2} - \beta_{2}^{2} )=\frac{a}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})=\frac{r_{o}\left(o\right)}{2\left(2a-r_{o}\left(o\right)\right)}\left(4a-r_{o}\left(o\right)-\sqrt{\left(4a-r_{o}\left(o\right)\right)^{2}-8a\left(2a-r_{o}\left(o\right)\right)\left(1-\tau_{Wo}\left(o\right)^{2}\right)}\right)$  (Schwarzschild radius - system scale) \\
+$a = \frac{R_{s}}{\kappa^{2}} =\frac{R_{s}}{4W} = \frac{\beta_{o}c}{\omega} \cdot \frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e\cos (o)}}$ (semi-major axis) \\
 $m_{0} = \frac{\kappa^{2}c^{2}a}{2G} = 4\pi\rho a^{3}$ (mass parameter) \\
-$o = \text{orbital phase in radians}$ \\
 $\delta = \frac{\kappa_{p}^2}{2\beta_{p}^2 }= \frac{1}{1+e}$ (closure factor, measured at $r_p$) \\
+$o = \text{orbital phase in radians}$ \\
 
 \subsubsection*{Eccentricity Relations} \\
 $e = \frac{1}{\delta} - 1 = 1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}} = \frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1$ (eccentricity derived from closure) \\
 $e_{Y} = \sqrt{1-e^{2}}$ (eccentricity's orthogonal value) \\
-$e_{X} = \frac{1+e}{1-e}=\frac{\delta_{a}}{\delta_{p}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}2\beta_{a}^{2}}$ (shape factor) \\
+$e_{X} = \frac{1+e}{1-e}=\frac{\delta_{a}}{\delta_{p}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (shape factor) \\
 
 \subsubsection*{Constants (Fixed for the Orbit)} \\
 $r_{p} = a(1-e)$ (radius at perihelion) \\
@@ -3303,18 +3306,18 @@ $\kappa_{a} = \sqrt{2W+\beta_{a}^{2}}$  (potential projection at apocenter) \\
 $\delta_{\text{a}} = \frac{1}{1-e}=\frac{\kappa_{a}^{2}}{2\beta_{a}^{2}}$  (closure factor at apocenter) \\
 
 \subsubsection*{Phase Variables (Depend on $o$)} \\
-$r = r_o (o)= a\frac{1-e^{2}}{1+e\cos o} = \frac{R_s}{\kappa_o^2}$ (radial distance at phase $o$) \\
+$r = r_o (o)= a\frac{1-e^{2}}{1+e\cos o} = \frac{R_s}{\kappa_o^2}$  (radial distance at phase $o$) \\
 $\kappa_{o} = \sqrt{\frac{R_{s}}{r}} = \kappa_{p}\sqrt{\frac{1+e\cos o}{1+e}}$ (local potential at phase $o$) \\
-$\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=\left(z_{o}\left(o\right)+1\right)^{-1}$   (gravitational phase factor at phase $o$) \\
+$\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=\left(z_{ko}\left(o\right)+1\right)^{-1}$   (gravitational phase factor at phase $o$) \\
 $\beta_{o} = \sqrt{\kappa_{o}^{2}-2W}$   (local kinetic from energy invariant) \\
-$\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=\left(z_{Do}\left(o\right)+1\right)^{-1}$    (relativistic phase factor at phase $o$) \\
+$\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=\left(z_{bo}\left(o\right)+1\right)^{-1}$    (relativistic phase factor at phase $o$) \\
 $\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $o$) \\
 $Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift vector at phase $o$) \\
 $\omega_o = a\beta c\frac{e_{Y}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e\cos o)^{2}}{(1-e^{2})^{3/2}}$ (angular speed) \\
 $\eta_{o} = \frac{r}{a}=2-\frac{2\beta_{o}\left(o\right)^{2}}{\kappa_{o}\left(o\right)^{2}}$  (phase scale amplitude) \\
 $t_o = \frac{r}{c}$ (temporal scale at phase $o$) \\
-$z_o = \frac{1}{\kappa_{Xo}}-1$ (redshift at phase $o$) \\
-$z_{Do}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
+$z_{ko} = \frac{1}{\kappa_{Xo}}-1$ (redshift at phase $o$) \\
+$z_{bo}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
 $\tau_{Wo}\left(o\right)=\kappa_{Xo}\left(o\right)\cdot\beta_{Yo}\left(o\right)= Z_{sys}(o)^{-1}$ (phase spacetime factor) \\
 
 \subsubsection*{Relational Geometry (WILL)} \\
@@ -3326,8 +3329,8 @@ $\tau_{W} = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\ \\
 $\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational shift amplitude) \\
 $O_{o} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos\left(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1\right)$ (orbital balance point where $\kappa_o^2=2\beta_o^2$ is true) \\
 $t = \frac{a}{c}$ (temporal scale as phase period) \\
-$z = \frac{1}{\kappa_{X}}-1$ (gravitational redshift) \\
-$z_{D}=\frac{1}{\beta_{Y}}-1$  (transverse Doppler shift) \\
+$z_k = \frac{1}{\kappa_{X}}-1$ (gravitational redshift) \\
+$z_{b}=\frac{1}{\beta_{Y}}-1$  (transverse Doppler shift) \\
 
 
 
