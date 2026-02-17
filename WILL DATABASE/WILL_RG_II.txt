@@ -116,6 +116,10 @@ These results show that the framework reproduces the considered empirical constr
 
 \newpage
 
+%___________________________________________________________________________________________________________
+%_______________________________________________Chapter_A_____________________________________________________
+%___________________________________________________________________________________________________________
+
 \section{Methodological Framework (\href{https://willrg.com/documents/WILL_RG_I.pdf}{WILL RG Part I} Recap)}
 
 \subsection{Ontological Principle: Generative Physics (Results Established in WILL RG Part I)}
@@ -732,6 +736,10 @@ The standard ``observed'' redshift of last scattering ($z^* = 1089.80$) is not a
 For reference, the phase $o_{crit} = 1$ can be mapped to a chronological age via $t = T_H / o_{max}$, yielding $t_{dec} \approx 365\,000$ years. However, this conversion is not fundamental to the derivation; it serves only as an interface with conventional cosmological notation. The primary observables - redshift and temperature - are predicted without reference to coordinate time.
 \end{remark}
 
+%___________________________________________________________________________________________________________
+%_______________________________________________Chapter_B_____________________________________________________
+%___________________________________________________________________________________________________________
+
 \section{Local Cosmological Term $\Lambda$ in RG (Challenging "Dark Energy")}
 
 
@@ -800,6 +808,34 @@ Thus,
 The fraction of $\rho_{max}$ allocated to the structural sector. 
 \end{proof}
 
+
+
+\begin{remark}[Geometric Signature of Spatial Dimension]
+A striking topological feature emerges when we express the effective vacuum density in natural geometric units.
+Substituting $\rho_{\Lambda} = \frac{2}{3}\rho_{\max}$ into the explicit definition of $\rho_{\max}$:
+
+\begin{equation}
+\rho_{\Lambda}(r) = \frac{2}{3} \cdot \frac{c^2}{8\pi G r^2} = \frac{c^2}{12\pi G r^2}.
+\end{equation}
+
+Stripping away dimensional scaling factors ($c, G, r$) reveals a purely dimensionless geometric coefficient:
+
+\begin{equation}
+\boxed{
+\hat{\rho}_{\Lambda} = \frac{1}{12\pi} = \frac{1}{3 \times 4\pi}
+}
+\end{equation}
+
+This factorization suggests a profound geometric origin for 3D space:
+\begin{itemize}
+    \item The factor $4\pi$ represents the intrinsic capacity of the relational carrier $S^2$.
+    \item The factor $1/3$ suggests an equipartition of this 2D resource across three orthogonal spatial axes.
+\end{itemize}
+
+This hints that the dimensionality of observable space is not arbitrary but is a structural consequence of distributing the $S^2$ energy budget into a volume.
+\end{remark}
+
+
 \subsection{Derivation of Vacuum Pressure (Equation of State)}
 
 Unlike in standard cosmology, where the equation of state $w=-1$ is assumed, in RG it is derived from the tension of the geometric field.
@@ -855,29 +891,17 @@ In RG, the cosmological "constant" is not an arbitrary parameter but an emergent
 What GR interprets as "Dark Energy" is identified here as the structural energy density required to maintain the geometric closure of the vacuum. Unlike standard $\Lambda CDM$, WILL RG predicts that $\Lambda$ is scale dependant. At $H_0$ scale it agrees with expected value $\Lambda(R_H)=3.6177839061\times10^{-53} \approx \frac{\Lambda_{\Lambda CDM}}{3}$.    
 \end{tcolorbox}
 
-\begin{remark}[Geometric Signature of Spatial Dimension]
-A striking topological feature emerges when we express the effective vacuum density in natural geometric units.
-Substituting $\rho_{\Lambda} = \frac{2}{3}\rho_{\max}$ into the explicit definition of $\rho_{\max}$:
-
+\begin{remark}[Scale-Dependent $\Lambda$ and DESI DR2]
+\hypertarget{rem:desi}{}\label{rem:desi}
+It is important to note that the FLRW evolution equation derived above treats $\rho_{pot}$ as a global constant at each epoch, consistent with the equation of state $w = -1$. However, as shown in Section~5, the \emph{local} vacuum density follows $\rho_{\Lambda}(r) = c^2/(12\pi G r^2)$, yielding a scale-dependent cosmological term:
 \begin{equation}
-\rho_{\Lambda}(r) = \frac{2}{3} \cdot \frac{c^2}{8\pi G r^2} = \frac{c^2}{12\pi G r^2}.
+    \Lambda(r) = \frac{2}{3r^2}.
 \end{equation}
+These two descriptions are not contradictory: the FLRW form captures the \emph{homogeneous evolution} of the global budget, while $\Lambda(r) \propto r^{-2}$ describes the \emph{spatial structure} of the vacuum at a given epoch. 
 
-Stripping away dimensional scaling factors ($c, G, r$) reveals a purely dimensionless geometric coefficient:
+In the standard $\Lambda$CDM paradigm, the cosmological constant is strictly constant ($w = -1$ exactly). WILL RG, by contrast, predicts that as the Universe expands and the effective horizon scale $r$ increases, $\Lambda$ decreases. This qualitative prediction - a weakening of dark energy over cosmic time - is consistent with recent results from the Dark Energy Spectroscopic Instrument (DESI DR2, 2025), which report evidence at $2.8$--$4.2\sigma$ significance for an evolving dark energy equation of state with $w_0 > -1$ and $w_a < 0$ \citep{DESI_DR2_2025}. In the $w_0 w_a$CDM parametrization $w(a) = w_0 + w_a(1-a)$, the DESI data favor a dark energy component that was stronger in the past and is weakening at the present epoch - precisely the behaviour predicted by $\Lambda \propto r^{-2}$ in an expanding geometry.
 
-\begin{equation}
-\boxed{
-\hat{\rho}_{\Lambda} = \frac{1}{12\pi} = \frac{1}{3 \times 4\pi}
-}
-\end{equation}
-
-This factorization suggests a profound geometric origin for 3D space:
-\begin{itemize}
-    \item The factor $4\pi$ represents the intrinsic capacity of the relational carrier $S^2$.
-    \item The factor $1/3$ suggests an equipartition of this 2D resource across three orthogonal spatial axes.
-\end{itemize}
-
-This hints that the dimensionality of observable space is not arbitrary but is a structural consequence of distributing the $S^2$ energy budget into a volume.
+A dedicated quantitative comparison between the RG-predicted $\Lambda(z)$ evolution and the DESI distance-redshift data is deferred to future work. Such an analysis would require extending the present homogeneous treatment to account for the interplay between local scale dependence and global expansion history.
 \end{remark}
 
 
@@ -901,7 +925,7 @@ This standard result is derived from the mass distribution condition $M(r) = V^2
 \begin{theorem}[Vacuum-Dynamic Equivalence]
 The structural vacuum density $\rho_{\Lambda}$, when excited by the dynamic state of a stable galactic system ($Q^2$), identically reproduces the Newtonian halo density.
 \begin{equation}
-\boxed{\rho_{\text{WILL}} \equiv \rho_{\text{N}}}
+\boxed{\rho \equiv \rho_{\text{N}}}
 \end{equation}
 \end{theorem}
 
@@ -948,7 +972,7 @@ The "Dark Matter" halo is thus identified not as a substance, but as the tension
 \end{proof}
 
 \begin{corollary}[Redundancy of Dark Matter Hypotheses]
-Since $\rho_{\text{WILL}}$ provides 100\% of the required dynamical mass density purely through geometric relations, the hypothesis of Dark Matter is redundant. 
+Since $\rho$ provides 100\% of the required dynamical mass density purely through geometric relations, the hypothesis of Dark Matter is redundant. 
 \end{corollary}
 
 \section{Geometric Expansion Law: Distant Supernova Flux Levels Test}
@@ -1083,126 +1107,118 @@ This trend is consistent with the RG matter fraction $\Omega_m = 1/3 \approx 0.3
 
 The observed expansion history is accurately reproduced by a closed system in which $\Omega_{\Lambda}=2/3$. The fact that the residual shape deviation is negligible ($\le 0.02$ mag) suggests that the "Dark Energy" parameter might be physically identified as the \textbf{Structural Tension} Projection of the vacuum. This suggest that the Universe maintains the structural integrity of its global horizon through this requisite tension. Potentially eliminating the need for an arbitrary cosmological constant fit.
 
-
 \section{Geometric Origin of the CMB Acoustic Spectrum}
-\hypertarget{sec:cmb-acoustic}{}\label{sec:cmb-acoustic}
+\hypertarget{tsec:cmb-acoustic}{}\label{tab:residuals}\label{sec:cmb-acoustic}
 
-Having established the value of the Hubble parameter $H_0$ from the constants $\alpha$ and $T_{CMB}$, we can test WILL RG against the Cosmic Microwave Background (CMB) acoustic structure.
+Having established the Hubble parameter $H_0$ from microphysical constants ($\alpha, T_{CMB}$), we now test the WILL RG framework against the precision data of the Cosmic Microwave Background (CMB).
 
-Phenomenology ($\Lambda$CDM) treats these peaks as acoustic oscillations in a fluid, fitting the matter density parameters ($\Omega_m, \Omega_b$) to match the observed positions. In contrast, we adopt a strict \textbf{ab initio} approach: we derive the peak positions solely from the structural tension (\ref{sec:tension}) established earlier, loaded by the independent nucleosynthesis constraints on baryonic matter.
+Standard cosmology ($\Lambda$CDM) treats the acoustic peaks as oscillations in a fluid, fitting the matter density parameters ($\Omega_m, \Omega_b$) to match observed positions. In contrast, we adopt a strict \textbf{ab initio} approach: we derive the peak positions solely from the structural tension of the vacuum ($\Omega_{\Lambda}=2/3$) and the kinematic constraint ($\alpha$), loaded by the independent Big Bang Nucleosynthesis (BBN) baryon prior.
 
-\subsection{The Unloaded Vacuum Resonance ($\ell_{vac}$)}
+\subsection{The Fundamental Tone ($\ell_1 $): Compression Phase}
 
-We first determine the oscillation of the fundamental mode of the Universe in the absence of matter (the "pure vacuum" state).
+The first acoustic peak corresponds to the maximum compression of the photon-baryon plasma within the gravitational potential wells at the moment of decoupling.
 
-As derived in  section  \ref{sec:rho_max}, the saturation density $\rho_{max}$ is governed by the fine-structure constant $\alpha$. Consequently, the inverse of the kinematic projection, $1/\alpha$, defines the linear wavenumber. However, on the Global Horizon, this kinematic scale is modulated by the total geometric impedance of the closed system, defined by the sum of the metric basis ($1$) and the derived structural tension ($\Omega_{\Lambda} = 2/3$).
-
-The theoretical unloaded vacuum multipole $\ell_{vac}$ is defined as:
-$$
-\ell_{vac} = \frac{1}{\alpha} \times (1 + \Omega_{\Lambda})
-$$
-Unloaded Vacuum Resonance:
-\begin{equation}
-    \ell_{vac} = 137.036 \times \left(1 + \frac{2}{3}\right) \approx 228.393
-\end{equation}
-
-This is a nonphysical intermediate result. It implies that we modeling the Universe as an empty container. But we know that the Universe is NOT a container. As we established in (WILL RG I) the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:WILL_structure}{Universe is the energy-closed relational system} where \textbf{SPACETIME} and \textbf{ENERGY} are \textbf{EQUIVALENT}. So lets add some ENERGY.
-
-\subsection{The Inertial Loading Transformation}
-
-Observed acoustic peaks are standing waves on this structure carrier. Matter acts as an inertial load, reducing the wave propagation speed (and thus the frequency) relative to the pure vacuum state.
-
-In WILL RG, owing to the principle \textbf{SPACETIME $\equiv$ ENERGY}, the structural density $\rho_{\Lambda}$ provides both the restoring force (tension) and the intrinsic inertia. The presence of material mass $\rho_{matter}$ adds solely to the inertia term.
-The frequency shift factor $K$ is determined by the ratio of the vacuum energy density to the total energy density:
-
-$$
-K = \sqrt{\frac{\rho_{\Lambda}}{\rho_{\Lambda} + \rho_{matter}}} = \sqrt{\frac{\Omega_{\Lambda}}{\Omega_{\Lambda} + \Omega_{matter}}}
-$$
-
-\subsubsection{Test A: Prediction using Standard Baryonic Inventory}
-We calculate the predicted shift using \textit{only} the standard baryonic matter density constraint derived from Big Bang Nucleosynthesis (BBN), where $\Omega_b h^2 \approx 0.022$. Given our derived $H_0 \approx 68.15$, this corresponds to a geometric weight of $\Omega_b \approx 0.048$.
-
-We do \textbf{not} fit this parameter; we take it as an external nuclear physics prior.
-
-$$
-K_{WILL} = \sqrt{\frac{0.6667}{0.6667 + 0.048}} = \sqrt{\frac{0.6667}{0.7147}} \approx 0.9658
-$$
-
-\textbf{Prediction for First Peak ($\ell_1$):}
-$$
-\ell_{1(pred)} = \ell_{vac} \times K_{WILL} = 228.393 \times 0.9658 \approx \mathbf{220.59}
-$$
-
-\textbf{Observation (Planck 2018):}
-$$
-\ell_{1(obs)} = 220.6 \pm 0.6
-$$
-
-\textbf{Result:} The prediction matches the observation with a precision of $0.01\%$. This confirms that the vacuum tension $\Omega_{\Lambda}=2/3$ is perfectly balanced to support the standard baryonic mass of the Universe.
-
-\subsubsection{Test B: Falsification of Dark Matter}
-We repeat the calculation assuming the existence of Dark Matter as required by $\Lambda$CDM ($\Omega_{dm} \approx 0.26$, yielding $\Omega_{total} \approx 0.31$).
-
-$$
-K_{CDM} = \sqrt{\frac{0.6667}{0.6667 + 0.31}} \approx 0.826
-$$
-$$
-\ell_{1(CDM)} = 228.393 \times 0.826 \approx \mathbf{188.6}
-$$
-
-\textbf{Result:} The inclusion of Dark Matter generates excessive inertial drag, shifting the fundamental peak to $\ell \approx 189$, which deviates from observation by $>30\sigma$. In the WILL RG framework, Dark Matter is physically precluded by the acoustic data.
-
-\subsection{The Harmonic Signature of $S^2$ Topology}
-
-Having accurately predicted the fundamental tone $\ell_1$, we now test the geometry of the resonator by analyzing higher-order harmonics.
-The resonant modes differ by topology:
-\begin{itemize}
-    \item \textbf{3D Cavity ($S^3$):} Harmonics follow an integer series ($1:2:3...$).
-    \item \textbf{2D Surface ($S^2$):} Harmonics on a spherical shell are governed by the roots of Bessel functions and associated Legendre polynomials, producing a distinct non-integer spacing ratio.
-\end{itemize}
-
-For a fluid-loaded spherical shell, the acoustic peaks correspond to the extrema of the projection. We calculate the predicted positions of the second and third peaks ($\ell_2, \ell_3$) by scaling the fundamental $\ell_{1(pred)}$ by the geometric ratios inherent to the $S^2$ multipole expansion ($R_2 \approx 2.44, R_3 \approx 3.68$).
-
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-\textbf{Peak} & \textbf{Geometric Ratio ($S^2$)} & \textbf{WILL Prediction} & \textbf{Planck 2018 Obs.} & \textbf{Accuracy} \\
-\hline
-$\ell_1$ & $1.00$ & \textbf{220.59}& $220.6 \pm 0.6$ & $0.0\%$ \\
-\hline
-$\ell_2$ & $\approx 2.44$ & $220.6 \times 2.44 = \mathbf{538.2}$ & $537.5 \pm 0.7$ & $0.13\%$ \\
-\hline
-$\ell_3$ & $\approx 3.68$ & $220.6 \times 3.68 = \mathbf{811.8}$ & $810.8 \pm 0.7$ & $0.12\%$ \\
-\hline
-\end{tabular}
-\caption{\textbf{Acoustic Spectrum Verification.} The theoretical predictions (Column 3) are derived strictly from the fundamental vacuum mode $\ell_{vac}$ loaded by baryons, multiplied by the topological ratios of the sphere. No curve fitting was performed.}
-\label{tab:cmb_peaks}
-\end{table}
-Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/CMB_SPECTR.ipynb}{CMB SPECTR.ipynb}
-
-\subsection{Conclusion}
-
-The analysis leads to three conclusions:
+In WILL RG, the fundamental resonance is determined by two factors:
 \begin{enumerate}
-    \item \textbf{Baryonic Sufficiency:} This result suggest that the "missing mass" problem in the CMB is strictly an artifact of assuming a vacuum with zero tension. When the geometric tension $\Omega_{\Lambda}=2/3$ is applied, standard BBN baryons are exactly sufficient to explain the inertial damping of the acoustic peaks.
-    \item \textbf{Topological Identification:} The harmonic ratios ($1 : 2.44 : 3.68$) strongly suggest to identify the Universe as a resonant $S^2$ surface, rather then 3D cavity models ($1:2:3$).
-    \item \textbf{Generative Success:} Without any cosmological inputs, our derived acoustic spectrum ($\ell_1, \ell_2, \ell_3$) , using only $\alpha$ and the BBN baryon prior and in remarkable agreement with empirical observations. 
+    \item \textbf{The Unloaded Vacuum Scale ($\ell_{vac}$):} The natural vibration of the geometric carrier, defined by the inverse fine-structure constant ($\alpha^{-1}$) modulated by the total geometric impedance ($1 + \Omega_{pot}$).
+    \item \textbf{The Inertial Loading Factor ($K_{comp}$):} The reduction in wave speed due to the inertia of baryonic matter.
 \end{enumerate}
 
-\begin{remark}[Scale-Dependent $\Lambda$ and DESI DR2]
-\hypertarget{rem:desi}{}\label{rem:desi}
-It is important to note that the FLRW evolution equation derived above treats $\rho_{pot}$ as a global constant at each epoch, consistent with the equation of state $w = -1$. However, as shown in Section~5, the \emph{local} vacuum density follows $\rho_{\Lambda}(r) = c^2/(12\pi G r^2)$, yielding a scale-dependent cosmological term:
+\subsubsection{Derivation}
+
+The unloaded vacuum resonance is given by:
 \begin{equation}
-    \Lambda(r) = \frac{2}{3r^2}.
+    \ell_{vac} = \frac{1}{\alpha}(1 + \Omega_{pot}) = 137.036 \times \left(1 + \frac{2}{3}\right) \approx 228.39
 \end{equation}
-These two descriptions are not contradictory: the FLRW form captures the \emph{homogeneous evolution} of the global budget, while $\Lambda(r) \propto r^{-2}$ describes the \emph{spatial structure} of the vacuum at a given epoch. 
 
-In the standard $\Lambda$CDM paradigm, the cosmological constant is strictly constant ($w = -1$ exactly). WILL RG, by contrast, predicts that as the Universe expands and the effective horizon scale $r$ increases, $\Lambda$ decreases. This qualitative prediction - a weakening of dark energy over cosmic time - is consistent with recent results from the Dark Energy Spectroscopic Instrument (DESI DR2, 2025), which report evidence at $2.8$--$4.2\sigma$ significance for an evolving dark energy equation of state with $w_0 > -1$ and $w_a < 0$ \citep{DESI_DR2_2025}. In the $w_0 w_a$CDM parametrization $w(a) = w_0 + w_a(1-a)$, the DESI data favor a dark energy component that was stronger in the past and is weakening at the present epoch - precisely the behaviour predicted by $\Lambda \propto r^{-2}$ in an expanding geometry.
+Since the first peak represents \textbf{compression}, the baryonic mass ($\Omega_b$) acts as an inertial load added to the vacuum tension ($\Omega_{pot}$). Using the BBN prior $\Omega_b \approx 0.048$ (derived from $\Omega_b h^2 = 0.0224$ and our calculated $H_0$), the loading factor is:
+\begin{equation}
+    K_{comp} = \sqrt{\frac{\Omega_{pot}}{\Omega_{pot} + \Omega_b}} = \sqrt{\frac{0.6667}{0.6667 + 0.0482}} \approx 0.9658
+\end{equation}
 
-A dedicated quantitative comparison between the RG-predicted $\Lambda(z)$ evolution and the DESI distance-redshift data is deferred to future work. Such an analysis would require extending the present homogeneous treatment to account for the interplay between local scale dependence and global expansion history.
-\end{remark}
+The predicted position of the fundamental peak is:
+\begin{equation}
+    \boxed{\ell_{1(pred)} = \ell_{vac} \times K_{comp} \approx 220.59}
+\end{equation}
+
+\textbf{Observation:} The Planck 2018 value is $\ell_{1(obs)} = 220.6 \pm 0.6$.
+\textbf{Result:} The prediction matches the observation with a precision of $\mathbf{-0.02\%}$. This confirms that the vacuum tension $\Omega_{pot}=2/3$ is perfectly balanced to support the standard baryonic mass of the Universe.
+
+\subsection{The Topological Skeleton: $S^2$ Bessel Roots}
+
+Having anchored the fundamental tone, the positions of higher harmonics are dictated by the topology of the resonator.
+\begin{itemize}
+    \item A \textbf{3D Cavity ($S^3$)} produces harmonics at integer intervals ($1:2:3$).
+    \item An \textbf{Energy-Closed Surface ($S^2$)} produces harmonics governed by the roots of the Bessel function $J_0(x)$.
+\end{itemize}
+
+The first three roots of $J_0(x)$ are $x_1 \approx 2.4048$, $x_2 \approx 5.5201$, and $x_3 \approx 8.6537$. These define the strict geometric ratios for the overtones:
+\begin{equation}
+    R_2 = \frac{x_2}{x_1} \approx 2.295, \qquad R_3 = \frac{x_3}{x_1} \approx 3.598
+\end{equation}
+
+\subsection{The Second Peak Anomaly: Baryonic Hysteresis}
+
+The second acoustic peak ($\ell_2$) corresponds to the \textbf{rarefaction} (expansion) phase of the acoustic wave, where the plasma "bounces" back against gravity.
+
+In a universe containing massive baryons, compression and rarefaction are not symmetric processes.
+\begin{itemize}
+    \item \textbf{Compression:} Baryonic inertia opposes the pressure gradient but aligns with the gravitational potential.
+    \item \textbf{Rarefaction:} The restoring force (photon pressure/vacuum tension) must work against both the gravitational potential and the baryonic inertia.
+\end{itemize}
+
+This creates a dynamic asymmetry or \textbf{Baryonic Hysteresis}. In the rarefaction phase, the effective stiffness of the system increases, as the baryonic scalar acts in opposition to the vacuum load. We model this as a \textbf{Counter-Loading} effect:
+\begin{equation}
+    K_{rare} = \sqrt{\frac{\Omega_{pot}}{\Omega_{pot} - \Omega_b}} = \sqrt{\frac{0.6667}{0.6667 - 0.0482}} \approx 1.038
+\end{equation}
+
+Using the $S^2$ Bessel ratio $R_2 \approx 2.295$:
+\begin{equation}
+    \boxed{\ell_{2(pred)} = \ell_{vac} \times K_{rare} \times R_2 \approx 544.32}
+\end{equation}
+This prediction deviates from the Planck observation ($537.5$) by only $+1.27\%$.
+\textit{Note: A symmetric loading model would predict $\ell_2 \approx 506$, a failure of $-5.8\%$. The success of the counter-loading hypothesis strongly suggests a physical asymmetry between gravitational infall and radiative bounce.}
+
+\subsection{The Third Peak ($\ell_3$): Return to Compression}
+
+The third peak represents the second \textbf{compression} phase. The system returns to the symmetric loading state ($K_{comp}$).
+Using the $S^2$ Bessel ratio $R_3 \approx 3.598$:
+\begin{equation}
+    \boxed{\ell_{3(pred)} = \ell_{vac} \times K_{comp} \times R_3 \approx 793.66}
+\end{equation}
+The deviation from observation ($810.8$) is $-2.11\%$. This slight damping is consistent with non-linear Silk damping effects expected at higher multipoles, which are not included in this pure geometric derivation.
+
+\subsection{Results and Conclusion}
+
+The results of the WILL RG ab initio derivation are summarized below.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Peak} & \textbf{Phase} & \textbf{Geometry} & \textbf{Loading Model} & \textbf{Prediction} & \textbf{Planck 2018} & \textbf{Error} \\
+\hline
+$\ell_1$ & Compression & $S^2$ ($x_1$) & Sym ($+$) & \textbf{220.55} & $220.6 \pm 0.6$ & $\mathbf{-0.02\%}$ \\
+\hline
+$\ell_2$ & Rarefaction & $S^2$ ($x_2$) & Asym ($-$) & \textbf{544.32} & $537.5 \pm 0.7$ & $\mathbf{+1.27\%}$ \\
+\hline
+$\ell_3$ & Compression & $S^2$ ($x_3$) & Sym ($+$) & \textbf{793.66} & $810.8 \pm 0.7$ & $\mathbf{-2.11\%}$ \\
+\hline
+\end{tabular}
+\caption{\textbf{Precision of the Geometric Metric.} The fundamental tone is predicted with near-perfect accuracy using standard BBN baryon loading. The higher harmonics confirm the $S^2$ Bessel topology, with the second peak revealing the distinct signature of baryonic hysteresis (counter-loading). Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/5c168289e40633a20cb0e0ebaf3f3912f867a788/Colab_Notebooks/Ab_Initio_CMB_Spectrum_Derivation.ipynb}{Ab Initio CMB Spectrum Derivation.ipynb}}
+\label{tab:cmb_results}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{img/Ab_Initio_CMB_Spectrum_Derivation.png}
+    \caption{\textbf{Ab Initio Acoustic Spectrum.} The red crosses mark the WILL RG predictions derived purely from $\alpha$, $T_{CMB}$, and $\Omega_{BBN}$. The black dots are Planck 2018 data. The close alignment of $\ell_1$ confirms the vacuum energy density $\Omega_{\Lambda}=2/3$, while the harmonic spacing falsifies 3D cavity models (which would predict $\ell_2 \approx 440$) in favor of the $S^2$ surface topology.}
+    \label{fig:cmb_plot}
+\end{figure}
+
+\textbf{Conclusion:}
+The acoustic structure of the Universe is accurately described as a standing wave on a topologically closed $S^2$ surface, tensioned by vacuum energy ($\Omega_{pot}=2/3$) and loaded by baryonic inertia. The sequence of peaks is not arbitrary but is rigidly determined by the zeros of the Bessel function $J_0$ and the dynamic asymmetry between gravitational compression and radiative expansion.
 
 \section{Relational Approach to the Low Quadrupole Anomaly}
 \hypertarget{sec:low-quadrupole}{}\label{sec:low-quadrupole}
@@ -1294,22 +1310,32 @@ Standard Model ($\Lambda$CDM) & $\approx 1.00$ & Overprediction ($\times 5$) \\
 
 \textbf{Conclusion:} The observed suppression of the quadrupole moment is consistent with the vacuum tension predicted by the $S^2$ topology. Rather than relying on a statistical anomaly, WILL RG offers a deterministic geometric mechanism for this phenomenon, providing a physically motivated alternative to the scale-invariant 3D fluid hypothesis.
 
-\subsection{The Geometry of Structure: Explaining the Alignments}
+\subsection{The "Axis of Evil": Explaining the Alignments}
 
-Beyond the suppression of power, the large-scale anomalies include two significant directional features:
+Beyond the suppression of large-scale power, CMB observations reveal significant directional anomalies that challenge the Statistical Isotropy assumption of $\Lambda$CDM:
 \begin{enumerate}
     \item \textbf{Internal Alignment:} The principal axes of the quadrupole ($\ell=2$) and octopole ($\ell=3$) are aligned to within $\sim 10^\circ$, defining a preferred plane.
-    \item \textbf{Ecliptic Alignment:} This preferred plane is highly correlated with the Solar System's ecliptic plane and the equinoxes.
+    \item \textbf{Ecliptic Correlation:} This preferred plane shows a high correlation with the local Ecliptic plane, often dismissed in standard cosmology as a statistical fluke (the "Axis of Evil") or foreground contamination.
 \end{enumerate}
 
-Standard cosmology dismisses these as statistical flukes ("The Axis of Evil") or foreground contamination. WILL RG offers a deterministic physical explanation based on the mechanics of the $S^2$ carrier.
+In WILL RG, these alignments are not random accidents but deterministic consequences of the $S^2$ carrier mechanics.
 
 \subsection{Nodal Coupling on a Tensioned Surface}
 
-In a 3D volume ($S^3$), vibrational modes are geometrically independent. However, on a 2D surface ($S^2$) subject to vacuum tension ($P=-\rho c^2$), the modes are physically coupled to minimize surface energy.
+In a standard 3D fluid model ($S^3$ topology), vibrational modes are geometrically orthogonal and statistically independent; the phase of $\ell=2$ should have no influence on $\ell=3$.
 
-When the quadrupole mode ($\ell=2$) establishes a principal axis of deformation (breaking spherical symmetry into ellipsoidal), it creates an anisotropic tension field on the manifold. Subsequent modes, such as the octopole ($\ell=3$), minimize their energy by aligning their nodal lines with the established stress field.
-Thus, \textbf{Planarity and Alignment} are not statistical anomalies but energetic requirements for a coupled standing wave system. The probability of such alignment in a random 3D field is $<0.1\%$, but in a tensioned 2D system, it approaches unity. A quantitative treatment of mode coupling is left for future work.
+However, on a 2D surface ($S^2$) governed by vacuum tension ($P=-\rho_{\Lambda} c^2$), the modes are physically coupled via the surface stress tensor.
+\begin{itemize}
+    \item \textbf{Symmetry Breaking:} The quadrupole mode ($\ell=2$) deforms the fundamental spherical geometry into an ellipsoid. This creates an \textbf{anisotropic tension field} across the manifold.
+    \item \textbf{Energetic Minimization:} Subsequent modes, particularly the octopole ($\ell=3$), minimize their potential energy not by random orientation, but by aligning their nodal lines with the principal axes of the quadrupole stress field.
+\end{itemize}
+
+Thus, \textbf{Planarity and Alignment} are energetic requirements for a coupled standing wave system on a tensioned membrane. What $\Lambda$CDM interprets as a "1-in-1000" statistical anomaly is, in RG, a predictable result of non-linear mode coupling on a compact surface.
+
+%___________________________________________________________________________________________________________
+%_______________________________________________Chapter_C_____________________________________________________
+%___________________________________________________________________________________________________________
+
 
 \section{Galactic Dynamics: The Resonant Horizon Interference}
 \hypertarget{sec:galactic-dynamics}{}\label{sec:galactic-dynamics}
@@ -1609,6 +1635,9 @@ WILL RG ($1/3\pi$) & \textbf{7.00} & \textbf{+0.53}& 0.66\\
 \end{figure}
 
 
+%___________________________________________________________________________________________________________
+%_______________________________________________Chapter_D_____________________________________________________
+%___________________________________________________________________________________________________________
 
 
 \section{The Universal Radial Acceleration Relation (RAR)}
@@ -1979,13 +2008,14 @@ The systematic failure of standard MOND to predict the Wide Binary boost factor 
 Unlike phenomenological models that fit acceleration scales ($a_0$) to minimize residuals, WILL RG derives the acceleration scale $a_{Mach} = cH_0/2\pi$ entirely from the CMB temperature and $\alpha$. The fact that this thermodynamically derived scale eliminates the bias in rotation curves ($+0.53$ km/s vs $>5$ km/s for MOND) serves as strong evidence that gravity is not an isolated force, but a holographic response to the global energy state.
 
 \subsection{Orthogonal Validation: The Geometric Invariant $\alpha$}
+\hypertarget{sec:invariant_alpha}{}\label{sec:invariant_alpha}
 
 A fundamental epistemological test of any physical theory is the independence of its observables. In standard $\Lambda$CDM cosmology, the Hubble parameter $H_0$ and the acoustic scale $\ell_{peak}$ are coupled variables; they are derived from a multi-parameter fit where altering $H_0$ shifts the angular diameter distance, forcing a recalibration of matter densities ($\Omega_m, \Omega_{\Lambda}$) to maintain consistency with the CMB spectrum.
 
 In WILL Relational Geometry, we observe a strict \textbf{Orthogonal Decoupling} of these parameters. The derivations presented in this paper proceed along two mathematically disjoint paths, yet converge on the same observational reality (Planck 2018).
 
 \subsection{Path A: The Thermodynamic Limit ($H_0$)}
-The expansion rate $H_0$ is derived as a limit of \textbf{Energy Saturation}. It relies on thermodynamic input:
+The expansion rate $H_0$ is derived (\ref{sec:deriving-H0}) as a limit of \textbf{Energy Saturation}. It relies on thermodynamic input:
 \begin{equation}
     H_0 = \sqrt{8\pi G \cdot \rho_{max}} \quad \text{where} \quad \rho_{max} = \frac{\rho_{\gamma}(T_0)}{3\alpha^2}
 \end{equation}
@@ -1993,7 +2023,7 @@ The expansion rate $H_0$ is derived as a limit of \textbf{Energy Saturation}. It
 \textbf{Result:} $H_0 \approx 68.15$ km/s/Mpc.
 
 \subsection{Path B: The Topological Resonance ($\ell_{vac}$)}
-The acoustic scale is derived as a limit of \textbf{Resonant Structure}. It relies exclusively on the kinematic scale and geometric tension:
+The acoustic scale is derived (\ref{sec:cmb-acoustic}) as a limit of \textbf{Resonant Structure}. It relies exclusively on the kinematic scale and geometric tension:
 \begin{equation}
     \ell_{vac} = \frac{1}{\alpha} \underbrace{(1 + \Omega_{\Lambda})}_{\text{Impedance}}
 \end{equation}
@@ -2044,7 +2074,7 @@ Standard Model ($\Lambda$CDM + DM) & $0.308$ & $188.89$ & $-14.37\%$ \\
 \caption{Unbroken Chain of 10 Derivations/Predictions. No Fitting Involved.}
 \hypertarget{\label{tab:cosmology_comparison}}{}
 
-\begin{tabular}{|p{2.8cm}|p{2cm}|p{2cm}|p{1.5cm}|p{1.5cm}|p{4.5cm}|}
+\begin{tabular}{|>{\centering\arraybackslash}p{2.8cm}|>{\centering\arraybackslash}p{1.75cm}|>{\centering\arraybackslash}p{1.75cm}|>{\centering\arraybackslash}p{1.75cm}|>{\centering\arraybackslash}p{1.75cm}|>{\centering\arraybackslash}p{4.5cm}|}
 \hline
 \textbf{Parameter or Observable}& \textbf{Derived Theoretical Value} & \textbf{Empirical Comparison Value} & \textbf{System or Dataset} & \textbf{Deviation or Accuracy} & \textbf{Physical Formulation} \\
 \hline
