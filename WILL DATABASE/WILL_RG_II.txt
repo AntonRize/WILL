@@ -360,7 +360,7 @@ Gravitational Const. & $G$ & \SI{6.674e-11}{\m\cubed\per\kg\per\s\squared} & COD
 \hline
 Speed of Light & $c$ & \SI{2.99792e8}{\m\per\s} & Exact \\
 \hline
-Stefan-Boltzmann Const. & $\sigma_{SB}$ & \SI{5.67037e-8}{\W\per\m\squared\per\K\tothe{4}} & Derived from fundamental 
+Stefan-Boltzmann Const. & $\sigma_{SB}$ & \SI{5.67037e-8}{\W\per\m\squared\per\K\tothe{4}} & Derived from fundamental constants
 \hline
 \end{tabular}
 \caption{Core inputs for the calculation. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb}{$H_0$ from $T_{CMB}$ and $\alpha$.ipynb}}
@@ -637,7 +637,7 @@ At $o=1$, the arc length of the causal propagation ($S = R \cdot o$) equals the 
 
 The fundamental observables in WILL RG are the geometric phase $o$, the cosmological redshift $z$, and the photon temperature $T$. We derive the physical conditions at the decoupling epoch directly in these quantities, without invoking coordinate time.
 
-Using the Geometric Cooling Law derived in Section \ref{sec:Cooling_Law}  the redshift and temperature at any phase depth $o$ are:
+Using the Geometric Cooling Law derived in Section \ref{sec:cooling-law}  the redshift and temperature at any phase depth $o$ are:
 \begin{equation}
     1 + z(o) = \left(\frac{o_{max}}{o}\right)^{2/3}, \qquad T(o) = T_0 \left(\frac{o_{max}}{o}\right)^{2/3}
 \end{equation}
@@ -848,7 +848,7 @@ Substituting this into the Einstein equations yields an effective, radially depe
 \end{equation}
 
 \begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Summary]
-In RG, the cosmological constant is not an arbitrary parameter but an emergent property of geometric normalization:
+In RG, the cosmological "constant" is not an arbitrary parameter but an emergent property of geometric normalization:
 \[
 \boxed{\Lambda(r) = \dfrac{\Omega_{pot}}{r^{2}}=\dfrac{2}{3r^{2}}.}
 \]
@@ -977,6 +977,45 @@ The total relational budget $Q^2$ of a closed system is conserved and partitione
 
 \textbf{Prediction:} The observed cosmic energy density is a direct manifestation of the $S^2$ topology, which imposes a strict $2:1$ ratio between Structural Tension ($\Omega_{\Lambda}$) and Kinetic Mass ($\Omega_m$).
 
+\subsection{Derivation of the WILL--Friedmann Evolution Equation}
+\hypertarget{sec:will-friedmann}{}\label{sec:will-friedmann}
+
+The luminosity distance Evolution Equation emerges from four structural ingredients derived in preceding sections.
+
+\paragraph{1. Saturation Identity (no Friedmann factor).}
+In WILL RG, the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{mass--density relation} is $m_0 = 4\pi r^3 \rho$ (derived from the $S^2$ carrier self-consistency in Part~I), \textbf{not} the Newtonian volume average $m_0 = \frac{4}{3}\pi r^3 \rho_{std}$. Consequently, the relation between the Hubble parameter and the saturation density is:
+\begin{equation}
+    H_0^2 = 8\pi G\,\rho_{max},
+\end{equation}
+without the factor of $1/3$ that appears in the standard Friedmann equation $H^2 = (8\pi G/3)\rho_{crit}$. The two expressions are numerically identical ($\rho_{max} = \rho_{crit}/3$), but their algebraic origins differ fundamentally.
+
+\paragraph{2. Relational Budget Partition.}
+At the Global Horizon, the closure condition $\kappa^2 = 2\beta^2$ partitions the saturation density between two sectors:
+\begin{equation}
+    \rho_{max,0} = \underbrace{\Omega_{kin}\,\rho_{max,0}}_{\rho_{kin,0} = \frac{1}{3}\rho_{max,0}} + \underbrace{\Omega_{pot}\,\rho_{max,0}}_{\rho_{pot,0} = \frac{2}{3}\rho_{max,0}}.
+\end{equation}
+
+\paragraph{3.  \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:pressure}{Equations of State} (from Part~I).}
+\begin{itemize}
+    \item \textbf{Kinetic sector} (free particles, no curvature gradient): $d\kappa^2/dr = 0 \Rightarrow P_{kin} = 0$. From energy conservation: $\rho_{kin} \propto a^{-3} = (1+z)^3$.
+    \item \textbf{Potential sector} (vacuum curvature gradient): $P_{pot} = -\rho_{pot}\,c^2$ (derived in Part~I). From energy conservation: $\rho_{pot} = \text{const}$.
+\end{itemize}
+The dilution law $\rho_{kin} \propto (1+z)^3$ follows from three ingredients internal to RG: 
+(i)~three-dimensional spatial volume arising from the $S^2$ carrier capacity distributed over three orthogonal axes; 
+(ii)~topological conservation of closed relational configurations (baryon number invariance); 
+(iii)~zero pressure for the kinetic sector.
+
+\paragraph{4. Maximal Symmetry.}
+The Global Phase-Closure Constraint (Theorem~\ref{thm:resonance}) enforces \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:closure}{homogeneity} and \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:isotropy}{isotropy}, which uniquely selects the Robertson--Walker metric form.
+
+\paragraph{Result.}
+Combining these ingredients yields the evolution equation:
+\begin{equation}
+    H^2(z) = 8\pi G\left[\frac{1}{3}\rho_{max,0}(1+z)^3 + \frac{2}{3}\rho_{max,0}\right] = H_0^2\left[\frac{1}{3}(1+z)^3 + \frac{2}{3}\right].
+\end{equation}
+
+\textbf{Critical Distinction:} The coefficient $1/3$ in this equation is the \textbf{Kinetic Relational Weight} $\Omega_{kin} = \beta^2/Q^2$, derived from the closure condition. It is \emph{not} the standard Friedmann factor $1/3$ arising from $(8\pi G/3)$ in the conventional equation. The numerical coincidence reflects the fact that the carrier topology ($\text{DOF}_{S^2}/\text{DOF}_{S^1} = 2$) determines both the mass--density convention and the energy partition through the same geometric structure.
+
 \subsection{The Hubble Diagram Test Protocol}
 
 We test this geometric prediction against the full \textbf{Pantheon+} dataset ($N=1701$ SNe; Scolnic et al., 2022). To ensure reproducibility, our analysis pipeline loads raw data directly from the official repository.
@@ -991,16 +1030,6 @@ Standard cosmological analyses often float $H_0$ and the absolute magnitude ($M$
         \mu_{WILL}(z) = 5 \log_{10} \left( \frac{c(1+z)}{H_0} \int_0^z \frac{dz'}{\sqrt{\frac{1}{3}(1+z')^3 + \frac{2}{3}}} \right) + 25
     \end{equation}
 \end{enumerate}
-
-\begin{remark}[Correspondence with FLRW Metric]
-The luminosity distance integral above has the standard Friedmann--Lema\^itre--Robertson--Walker (FLRW) form. In WILL RG, this expression is not postulated but emerges from three structural ingredients:
-\begin{enumerate}
-    \item The saturation identity yields the Friedmann equation: $H_0^2 = 8\pi G\,\rho_{max}$.
-    \item The Global Phase-Closure Constraint (Theorem~\ref{thm:resonance}) enforces maximal symmetry (homogeneity and isotropy), which uniquely selects the Robertson--Walker metric form.
-    \item Conservation of the relational budget requires that the kinetic (matter) component dilutes as $(1+z)^3$ while the structural (vacuum tension) component remains constant --- the standard scaling behaviours of the FLRW integrand.
-\end{enumerate}
-The partition $\Omega_m + \Omega_\Lambda = 1$ is enforced by the closure condition, and the individual weights ($1/3$ and $2/3$) are fixed by the carrier topology. No fitting is involved.
-\end{remark}
 
 \textbf{The Expected Calibration Offset:}
 The Pantheon+ dataset is calibrated to the SH0ES Cepheid scale ($H_{0,SH0ES} \approx 73.04$ km/s/Mpc). Since our microphysically derived $H_0$ (68.15) differs from this local calibration, we theoretically expect a constant vertical offset in the distance modulus:
@@ -1161,6 +1190,19 @@ The analysis leads to three conclusions:
     \item \textbf{Topological Identification:} The harmonic ratios ($1 : 2.44 : 3.68$) strongly suggest to identify the Universe as a resonant $S^2$ surface, rather then 3D cavity models ($1:2:3$).
     \item \textbf{Generative Success:} Without any cosmological inputs, our derived acoustic spectrum ($\ell_1, \ell_2, \ell_3$) , using only $\alpha$ and the BBN baryon prior and in remarkable agreement with empirical observations. 
 \end{enumerate}
+
+\begin{remark}[Scale-Dependent $\Lambda$ and DESI DR2]
+\hypertarget{rem:desi}{}\label{rem:desi}
+It is important to note that the FLRW evolution equation derived above treats $\rho_{pot}$ as a global constant at each epoch, consistent with the equation of state $w = -1$. However, as shown in Section~5, the \emph{local} vacuum density follows $\rho_{\Lambda}(r) = c^2/(12\pi G r^2)$, yielding a scale-dependent cosmological term:
+\begin{equation}
+    \Lambda(r) = \frac{2}{3r^2}.
+\end{equation}
+These two descriptions are not contradictory: the FLRW form captures the \emph{homogeneous evolution} of the global budget, while $\Lambda(r) \propto r^{-2}$ describes the \emph{spatial structure} of the vacuum at a given epoch. 
+
+In the standard $\Lambda$CDM paradigm, the cosmological constant is strictly constant ($w = -1$ exactly). WILL RG, by contrast, predicts that as the Universe expands and the effective horizon scale $r$ increases, $\Lambda$ decreases. This qualitative prediction - a weakening of dark energy over cosmic time - is consistent with recent results from the Dark Energy Spectroscopic Instrument (DESI DR2, 2025), which report evidence at $2.8$--$4.2\sigma$ significance for an evolving dark energy equation of state with $w_0 > -1$ and $w_a < 0$ \citep{DESI_DR2_2025}. In the $w_0 w_a$CDM parametrization $w(a) = w_0 + w_a(1-a)$, the DESI data favor a dark energy component that was stronger in the past and is weakening at the present epoch - precisely the behaviour predicted by $\Lambda \propto r^{-2}$ in an expanding geometry.
+
+A dedicated quantitative comparison between the RG-predicted $\Lambda(z)$ evolution and the DESI distance-redshift data is deferred to future work. Such an analysis would require extending the present homogeneous treatment to account for the interplay between local scale dependence and global expansion history.
+\end{remark}
 
 \section{Relational Approach to the Low Quadrupole Anomaly}
 \hypertarget{sec:low-quadrupole}{}\label{sec:low-quadrupole}
@@ -2082,6 +2124,8 @@ Just as the electron must satisfy the standing wave condition to exist as a boun
 \textit{Nature Physics}, vol.~11, no.~3, pp.~245--248, 2015.
 
 \bibitem{Peebles1968} Peebles, P. J. E. (1968). Recombination of the Primeval Plasma. \textit{The Astrophysical Journal}, 153, 1.
+
+\bibitem{DESI_DR2_2025} DESI Collaboration (2025). DESI DR2 Results II: Measurements of Baryon Acoustic Oscillations and Cosmological Constraints. \textit{Physical Review D}, 112, 083515.
 
 \end{thebibliography}
 
