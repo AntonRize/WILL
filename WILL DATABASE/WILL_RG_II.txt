@@ -145,14 +145,14 @@ The topology of a closed, maximally symmetric system admits exactly two minimal 
 \end{enumerate}
 
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|}\hline
-\multicolumn{2}{|c|}{\( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$}\\
+\multicolumn{2}{|c|}{$z_{\beta}=$ transverse Doppler shift,  $z_{\kappa}=$ gravitational redshift,  \( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$}\\
 \hline
 \textbf{Algebraic Form} & \textbf{Trigonometric Form} \\\hline
- $\beta=v/c=\sqrt{1-\frac{1}{(1+z_{D})^{2}}}$&$\beta=cos(\theta_1)$\\\hline
- $\kappa=\sqrt{R_s/r}=\sqrt{1-\frac{1}{(1+z)^2}}$&$\kappa=sin(\theta_2)$\\\hline
+ $\beta=v/c=\sqrt{1-(1+z_{\beta})^{-2}}$&$\beta=cos(\theta_1)$\\\hline
+ $\kappa=\sqrt{R_s/r}=\sqrt{1-(1+z_{\kappa})^{-2}}$&$\kappa=sin(\theta_2)$\\\hline
 
 $\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) = \sin(\arccos(\beta))$\\
 \hline
@@ -167,9 +167,6 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa)
 \end{tabular}
 \caption{\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:geometric_composition}{Unified representation} of relativistic and gravitational effects for closed systems.}
 \end{table}
-
-($z=$ gravitational redshift)
-($z_D=$ transverse Doppler shift) 
 
 \begin{center}
 \begin{tikzpicture}[scale=2.0,>=Latex]
@@ -482,7 +479,11 @@ Standard cosmological models (e.g., $\Lambda$CDM) aggregate all relativistic spe
 Therefore, including the neutrino background ($\rho_\nu$) in the definition of an $\alpha$-governed horizon would constitute a category error. The geometric saturation $\rho_{max}$ is normalized strictly against the energy density of the carrier field defining the metric - the photon "gas" $\rho_\gamma$.
 \end{remark}
 
-\subsection{Discussion of the Cosmological Anchor}
+\subsection{Discussion of the Cosmological Anchor}  
+
+%________________________________________________________________________________
+% FORESHADOW THE ELECTRON MASS PREDICTION
+%____________________________________________________________________________________
 
 The calculated value $H_0 \approx 68.15$ km/s/Mpc is derived without any free parameters or model fitting. It relies exclusively on the measured CMB temperature and the identification of the fine-structure constant $\alpha$ as the geometric scaling of the ground state.
 
@@ -697,9 +698,9 @@ Table~\ref{tab:recombination} compares the WILL RG prediction against the hierar
 \hline
 \textbf{Method} & \textbf{$T_{rec}$ [K]} & \textbf{$z_{rec}$} & \textbf{Model Dependence} \\
 \hline
-Saha equilibrium (50\% ionized) & $\sim$4,000& $\sim$1,500& Atomic physics only \\
+Saha equilibrium (50\% ionized)& $\sim$4,000& $\sim$1,500& Atomic physics only \\
 \hline
-Peebles non-eq. (50\% ionized) & $\sim$3,300& $\sim$1,210& Atomic physics + $\eta$ \\
+Peebles non-eq. (50\% ionized)& $\sim$3,300& $\sim$1,210& Atomic physics + $\eta$ \\
 \hline
 \textbf{WILL RG ($o_{crit}=1$)} & $\mathbf{\approx 3,150}$& $\mathbf{\approx 1\,156}$ & $\alpha$ and $T_0$ only \\
 \hline
@@ -1815,6 +1816,11 @@ The precise intersection confirms the geometric link between the\textbf{ thermod
 
 \section{Gravitational Lensing}
 
+%________________________________________________________________________________
+% FRAME AS A CHALLENGE FOR FUTURE WORK
+%____________________________________________________________________________________
+
+
 \subsection{Limits of Validity: The Weak Lensing Problem}
 
 Weak gravitational lensing is frequently cited as a critical test for theories addressing the dark matter problem. However, within WILL Relational Geometry, weak lensing cannot be treated as a primary or decisive validation requirement, for the following reasons.
@@ -1827,6 +1833,12 @@ A fully consistent weak-lensing treatment in RG requires a dedicated forward-mod
 
 \subsection{Strong Lensing: A Proof of Concept}
 \hypertarget{sec:strong-lensing}{}\label{sec:strong-lensing}
+
+
+%________________________________________________________________________________
+%EXPAND THE TESTING GROUND
+%____________________________________________________________________________________
+
 
 \subsubsection{Unified Vacuum Action}
 
@@ -1909,8 +1921,15 @@ The successful prediction of the Wide Binary anomaly confirms the \textbf{bifurc
 \end{itemize}
 Both scales are governed by the single Universal Horizon parameter $H_0$, unifying the dynamics of the Solar neighbourhood with the expansion of the Universe.
 
+%________________________________________________________________________________
+%WRIGHT THE BUILD UP BRIDGE TO ELECTRON MASS. SOMETHING LIKE "WE APPLIED TO THE UNIVERSE SCALE, GALACTIC SCALE, LOCAL SCALE LETS BRING IT HOME BACK TO ELECTRON" 
+%____________________________________________________________________________________
 
-\section{Consolidating Mach's Principle}
+
+\section{Consolidating Mach's Principle}   
+%________________________________________________________________________________
+%REWRITE. NOBODY CARES ABOUT YOUR POETIC BULLSHIT!!! 
+%____________________________________________________________________________________
 
 Through out our research we consistently pilled of anthropocentric noise in our philosophy in our mathematics and in our expectations. The goal is to silent the beast within so the Fundamental Tone is clear and could lead the way. 
 We letting the Universe to unfold by its own terms and rules. Now it is clear where the yellow brick road led us all that time. Mach's Principle!...
@@ -1994,6 +2013,11 @@ This completes the Theoretical Ouroboros:
 \end{enumerate}
 Provided evidence strongly suggest that the Universe is a single, resonant, self-defining geometric relational unity.
 
+%________________________________________________________________________________
+%ADD SECTION ABOUT "INPUTS COMPARING" WHERE YOU DEFEND YOUR 0 FREE PARAMETERS CLAIM
+%____________________________________________________________________________________
+
+
 \section{General Discussion}
 
 The analysis presented in this work yields three structurally significant results that challenge the foundations of the Standard Model ($\Lambda$CDM) and standard Modified Gravity (MOND):
@@ -2068,6 +2092,13 @@ Standard Model ($\Lambda$CDM + DM) & $0.308$ & $188.89$ & $-14.37\%$ \\
 \end{table}
 
 \textbf{Conclusion:} The high tension of the structural projection ($\Omega_{\Lambda}=2/3$) eliminates the need for Dark Matter to explain the acoustic compression scale. The Universe operates as a Baryonic oscillator on a stiff geometric manifold.
+
+
+%________________________________________________________________________________
+%THIS HAS TO BE A CULMINATION. BUILD UP TO IT. IS IT TO LATE IN THE PAPER?
+%____________________________________________________________________________________
+
+
 \begin{table}[H!]
 \centering
 \small
@@ -2122,7 +2153,11 @@ Therefore, the Galaxy is the gravitational realization of the Bohr orbit, scaled
 \end{tabular}
 \end{center}
 
-\subsection{Final Conclusion}
+\subsection{Final Conclusion}    
+%________________________________________________________________________________
+%MAKE IT FEEL LIKE A SCIENTIFIC MIC DROP IN PROFESSIONAL MANNER
+%____________________________________________________________________________________
+
 
 We have demonstrated that the "Dark Matter" phenomenon is the observational signature of scale-invariant geometric closure. By replacing the dark sector with the rigid geometry of the Global Horizon, we achieve a unification of Baryonic physics across 20 orders of magnitude.
 
