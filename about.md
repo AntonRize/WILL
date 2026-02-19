@@ -69,7 +69,7 @@ I welcome critique, collaboration, and engagement from physicists, mathematician
 
 ## Contact & Collaboration
 
-- **Email:** [freewillrg@gmail.com](mailto:freewillrg@gmail.com)
+- **Email:** [antonrizeg@willrg.com](mailto:antonrizeg@willrg.com)
 - **GitHub:** [WILL Geometry Repository](https://github.com/AntonRize/WILL)
 - **WILL-AI:** [Trained on WILL Research Documents](/WILL-AI/)
 ---
