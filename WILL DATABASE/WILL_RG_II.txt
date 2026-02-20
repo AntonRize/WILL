@@ -742,7 +742,7 @@ For reference, the phase $o_{crit} = 1$ can be mapped to a chronological age via
 %___________________________________________________________________________________________________________
 
 \section{Local Cosmological Term $\Lambda$ in RG (Challenging "Dark Energy")}
-
+\hypertarget{sec:dark_energy}{}\label{sec:dark_energy}
 
 \begin{lemma}[Normalization Identity]
 In \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{WILL RG I we derived} connection of local energy density and its maximal counterpart:
@@ -889,24 +889,11 @@ In RG, the cosmological "constant" is not an arbitrary parameter but an emergent
 \[
 \boxed{\Lambda(r) = \dfrac{\Omega_{pot}}{r^{2}}=\dfrac{2}{3r^{2}}.}
 \]
-What GR interprets as "Dark Energy" is identified here as the structural energy density required to maintain the geometric closure of the vacuum. Unlike standard $\Lambda CDM$, WILL RG predicts that $\Lambda$ is scale dependant. At $H_0$ scale it agrees with expected value $\Lambda(R_H)=3.6177839061\times10^{-53} \approx \frac{\Lambda_{\Lambda CDM}}{3}$.    
+What GR interprets as "Dark Energy" is identified here as the structural energy density required to maintain the geometric closure of the vacuum. Unlike standard $\Lambda CDM$, WILL RG predicts that $\Lambda$ is scale dependent. At $H_0$ scale it agrees with expected value $\Lambda(R_H)=3.6177839061\times10^{-53} \approx \frac{\Lambda_{\Lambda CDM}}{3}$.    
 \end{tcolorbox}
 
-\begin{remark}[Scale-Dependent $\Lambda$ and DESI DR2]
-\hypertarget{rem:desi}{}\label{rem:desi}
-It is important to note that the FLRW evolution equation derived above treats $\rho_{pot}$ as a global constant at each epoch, consistent with the equation of state $w = -1$. However, as shown in Section~5, the \emph{local} vacuum density follows $\rho_{\Lambda}(r) = c^2/(12\pi G r^2)$, yielding a scale-dependent cosmological term:
-\begin{equation}
-    \Lambda(r) = \frac{2}{3r^2}.
-\end{equation}
-These two descriptions are not contradictory: the FLRW form captures the \emph{homogeneous evolution} of the global budget, while $\Lambda(r) \propto r^{-2}$ describes the \emph{spatial structure} of the vacuum at a given epoch. 
-
-In the standard $\Lambda$CDM paradigm, the cosmological constant is strictly constant ($w = -1$ exactly). WILL RG, by contrast, predicts that as the Universe expands and the effective horizon scale $r$ increases, $\Lambda$ decreases. This qualitative prediction - a weakening of dark energy over cosmic time - is consistent with recent results from the Dark Energy Spectroscopic Instrument (DESI DR2, 2025), which report evidence at $2.8$--$4.2\sigma$ significance for an evolving dark energy equation of state with $w_0 > -1$ and $w_a < 0$ \citep{DESI_DR2_2025}. In the $w_0 w_a$CDM parametrization $w(a) = w_0 + w_a(1-a)$, the DESI data favor a dark energy component that was stronger in the past and is weakening at the present epoch - precisely the behaviour predicted by $\Lambda \propto r^{-2}$ in an expanding geometry.
-
-A dedicated quantitative comparison between the RG-predicted $\Lambda(z)$ evolution and the DESI distance-redshift data is deferred to future work. Such an analysis would require extending the present homogeneous treatment to account for the interplay between local scale dependence and global expansion history.
-\end{remark}
-
-
 \section{The Geometric Origin of Galactic Rotation Curves (Challenging "Dark Matter")}
+\hypertarget{sec:dark_matter}{}\label{sec:dark_matter}
 
 We now apply the structural density of the vacuum ($\rho_{\Lambda}$) to the domain of galactic dynamics. We demonstrate that the phenomenon typically attributed to "Dark Matter" can be explained as the necessary observational consequence of the interaction between the vacuum's structural capacity and the system's relational shift ($Q^2$).
 
@@ -975,6 +962,7 @@ The "Dark Matter" halo is thus identified not as a substance, but as the tension
 \begin{corollary}[Redundancy of Dark Matter Hypotheses]
 Since $\rho$ provides 100\% of the required dynamical mass density purely through geometric relations, the hypothesis of Dark Matter is redundant. 
 \end{corollary}
+
 
 \section{Geometric Expansion Law: Distant Supernova Flux Levels Test}
 \hypertarget{sec:supernova-flux}{}\label{sec:supernova-flux}
@@ -1104,12 +1092,26 @@ This trend is consistent with the RG matter fraction $\Omega_m = 1/3 \approx 0.3
 \hypertarget{tab:residuals}{}\label{tab:residuals}
 \end{table}
 
+
+\begin{remark}[Scale-Dependent $\Lambda$ and DESI DR2]
+\hypertarget{rem:desi}{}\label{rem:desi}
+It is important to note that the FLRW evolution equation derived above treats $\rho_{pot}$ as a global constant at each epoch, consistent with the equation of state $w = -1$. However, as shown in Section~\ref{sec:dark_energy}, the \emph{local} vacuum density follows $\rho_{\Lambda}(r) = c^2/(12\pi G r^2)$, yielding a scale-dependent cosmological term:
+\begin{equation}
+    \Lambda(r) = \frac{2}{3r^2}.
+\end{equation}
+These two descriptions are not contradictory: the FLRW form captures the \emph{homogeneous evolution} of the global budget, while $\Lambda(r) \propto r^{-2}$ describes the \emph{spatial structure} of the vacuum at a given epoch. 
+
+In the standard $\Lambda$CDM paradigm, the cosmological constant is strictly constant ($w = -1$ exactly). WILL RG, by contrast, predicts that as the Universe expands and the effective horizon scale $r$ increases, $\Lambda$ decreases. This qualitative prediction - a weakening of dark energy over cosmic time - is consistent with recent results from the Dark Energy Spectroscopic Instrument (DESI DR2, 2025), which report evidence at $2.8$--$4.2\sigma$ significance for an evolving dark energy equation of state with $w_0 > -1$ and $w_a < 0$ \citep{DESI_DR2_2025}. In the $w_0 w_a$CDM parametrization $w(a) = w_0 + w_a(1-a)$, the DESI data favor a dark energy component that was stronger in the past and is weakening at the present epoch - precisely the behaviour predicted by $\Lambda \propto r^{-2}$ in an expanding geometry.
+
+A dedicated quantitative comparison between the RG-predicted $\Lambda(z)$ evolution and the DESI distance-redshift data is deferred to future work. Such an analysis would require extending the present homogeneous treatment to account for the interplay between local scale dependence and global expansion history.
+\end{remark}
+
 \subsection{Conclusion: Strong Empirical Agreement With Geometric Nature of DE}
 
 The observed expansion history is accurately reproduced by a closed system in which $\Omega_{\Lambda}=2/3$. The fact that the residual shape deviation is negligible ($\le 0.02$ mag) suggests that the "Dark Energy" parameter might be physically identified as the \textbf{Structural Tension} Projection of the vacuum. This suggest that the Universe maintains the structural integrity of its global horizon through this requisite tension. Potentially eliminating the need for an arbitrary cosmological constant fit.
 
 \section{Geometric Origin of the CMB Acoustic Spectrum}
-\hypertarget{tsec:cmb-acoustic}{}\label{tab:residuals}\label{sec:cmb-acoustic}
+\hypertarget{sec:cmb-acoustic}{}\label{sec:cmb-acoustic}
 
 Having established the Hubble parameter $H_0$ from microphysical constants ($\alpha, T_{CMB}$), we now test the WILL RG framework against the precision data of the Cosmic Microwave Background (CMB).
 
@@ -1139,7 +1141,7 @@ Since the first peak represents \textbf{compression}, the baryonic mass ($\Omega
 
 The predicted position of the fundamental peak is:
 \begin{equation}
-    \boxed{\ell_{1(pred)} = \ell_{vac} \times K_{comp} \approx 220.59}
+    \boxed{\ell_{1(pred)} = \ell_{vac} \times K_{comp} \approx 220.55}
 \end{equation}
 
 \textbf{Observation:} The Planck 2018 value is $\ell_{1(obs)} = 220.6 \pm 0.6$.
@@ -1168,7 +1170,8 @@ In a universe containing massive baryons, compression and rarefaction are not sy
     \item \textbf{Rarefaction:} The restoring force (photon pressure/vacuum tension) must work against both the gravitational potential and the baryonic inertia.
 \end{itemize}
 
-This creates a dynamic asymmetry or \textbf{Baryonic Hysteresis}. In the rarefaction phase, the effective stiffness of the system increases, as the baryonic scalar acts in opposition to the vacuum load. We model this as a \textbf{Counter-Loading} effect:
+This creates a dynamic asymmetry or \textbf{Baryonic Hysteresis}. In the rarefaction phase, the effective tension of the system increases, as the baryonic scalar acts in opposition to the vacuum load. We model this as a
+$ K_{rare}=$ \textbf{Counter-Loading} effect:
 \begin{equation}
     K_{rare} = \sqrt{\frac{\Omega_{pot}}{\Omega_{pot} - \Omega_b}} = \sqrt{\frac{0.6667}{0.6667 - 0.0482}} \approx 1.038
 \end{equation}
@@ -1246,10 +1249,16 @@ where:
 
 \subsection{Quantitative Derivation of the Inertial Corridor}
 
-We calculate the suppression using the precise densities derived in the previous section, with zero free parameters.
-The Base Ratio of vacuum tension to baryonic mass is:
+We calculate the suppression using the precise densities derived from WILL RG first principles, with zero free parameters.
+
+The baryonic energy density is obtained from the BBN prior $\Omega_b h^2 = 0.0224$ (model-independent, from Big Bang Nucleosynthesis), where $h = H_0/100 = 0.6815$ is derived from our theoretical $H_0$:
 \begin{equation}
-\mathcal{R}_{base} = \frac{\rho_{\Lambda}}{\rho_{bary}} = \frac{1.9384 \times 10^{-27}}{1.2315 \times 10^{-28}} \approx 15.74
+\rho_{bary} = \Omega_b \cdot \rho_{max} = \frac{0.0224}{h^2} \cdot \rho_{max} = \frac{0.0224}{0.4644} \times 2.908 \times 10^{-27} \approx 1.403 \times 10^{-28} \, \text{kg/m}^3
+\end{equation}
+
+The Base Ratio of vacuum tension to baryonic mass is then:
+\begin{equation}
+\mathcal{R}_{base} = \frac{\rho_{\Lambda}}{\rho_{bary}} = \frac{1.9384 \times 10^{-27}}{1.403 \times 10^{-28}} \approx 13.82
 \end{equation}
 
 In Relational Geometry, the effective inertia of matter depends on the coupling to the potential ($Q^2$ scaling). We evaluate the physical limits of this coupling as established in the galactic dynamics section:
@@ -1257,21 +1266,21 @@ In Relational Geometry, the effective inertia of matter depends on the coupling 
 \paragraph{Scenario A: The Structural Limit ($Q^2 = \frac{3}{2}\kappa^2$)}
 If the inertia is dominated by the structural potential term, the coupling factor is $1.5$.
 \[
-\mathcal{R}_{struct} = \frac{15.74}{1.5} \approx 10.49
+\mathcal{R}_{struct} = \frac{13.82}{1.5} \approx 9.21
 \]
 Substituting into the suppression equation for $\ell=2$:
 \[
-\text{Amplitude} \approx \frac{1}{1 + \frac{10.49}{6}} \approx 0.364 \quad \Rightarrow \quad P_{\ell=2} \approx (0.364)^2 \approx \mathbf{0.132}
+\text{Amplitude} \approx \frac{1}{1 + \frac{9.21}{6}} \approx 0.394 \quad \Rightarrow \quad P_{\ell=2} \approx (0.394)^2 \approx \mathbf{0.156}
 \]
 
 \paragraph{Scenario B: The Kinetic Limit ($Q^2 = 3\beta^2$)}
 If the inertia follows the full kinetic coupling observed in rotation curves ($3\times$), the coupling factor is $3.0$.
 \[
-\mathcal{R}_{kin} = \frac{15.74}{3.0} \approx 5.25
+\mathcal{R}_{kin} = \frac{13.82}{3.0} \approx 4.61
 \]
 Substituting into the suppression equation for $\ell=2$:
 \[
-\text{Amplitude} \approx \frac{1}{1 + \frac{5.25}{6}} \approx 0.533 \quad \Rightarrow \quad P_{\ell=2} \approx (0.533)^2 \approx \mathbf{0.285}
+\text{Amplitude} \approx \frac{1}{1 + \frac{4.61}{6}} \approx 0.566 \quad \Rightarrow \quad P_{\ell=2} \approx (0.566)^2 \approx \mathbf{0.320}
 \]
 
 \subsection{Comparison with Observation}
@@ -1284,8 +1293,8 @@ The WILL RG framework predicts a theoretical "Inertial Corridor" for the quadrup
     \caption{\textbf{Resolution of the Low Quadrupole Anomaly.} 
     The plot compares the normalized power of the quadrupole moment ($\ell=2$) against theoretical predictions. 
     The \textbf{Standard Model} ($\Lambda$CDM, red dashed line) assumes a scale-invariant 3D fluid, predicting a normalized power of $\approx 1.0$, which overestimates the observation by a factor of 5. 
-    \textbf{WILL Relational Geometry} (green shaded region) treats the Universe as a tensioned $S^2$ membrane, where vacuum tension acts as a high-pass filter. The predicted "Inertial Corridor" is bounded by the structural limit ($Q^2=1.5\kappa^2$, lower bound $\approx 0.13$) and the kinetic limit ($Q^2=3\beta^2$, upper bound $\approx 0.28$). 
-    The \textbf{Planck 2018 observation} ($D_{\ell=2} \approx 0.20$, black point) falls precisely within the center of the WILL RG corridor, confirming the geometric suppression of large-scale modes due to vacuum tension.}
+    \textbf{WILL Relational Geometry} (green shaded region) treats the Universe as a tensioned $S^2$ membrane, where vacuum tension acts as a high-pass filter. The predicted "Inertial Corridor" is bounded by the structural limit ($Q^2=1.5\kappa^2$, lower bound $\approx 0.16$) and the kinetic limit ($Q^2=3\beta^2$, upper bound $\approx 0.32$). 
+    The \textbf{Planck 2018 observation} ($D_{\ell=2} \approx 0.20$, black point) falls within the WILL RG corridor, confirming the geometric suppression of large-scale modes due to vacuum tension.}
     \hypertarget{fig:low_quadrupole}{}\label{fig:low_quadrupole}
 \end{figure}
 
@@ -1299,9 +1308,9 @@ The WILL RG framework predicts a theoretical "Inertial Corridor" for the quadrup
 \hline
 Standard Model ($\Lambda$CDM) & $\approx 1.00$ & Overprediction ($\times 5$) \\
 \hline
-\textbf{WILL RG (Structural Bound)} & $\mathbf{\approx 0.132}$ & Lower Limit \\
+\textbf{WILL RG (Structural Bound)} & $\mathbf{\approx 0.156}$ & Lower Limit \\
 \hline
-\textbf{WILL RG (Kinetic Bound)} & $\mathbf{\approx 0.285}$ & Upper Limit \\
+\textbf{WILL RG (Kinetic Bound)} & $\mathbf{\approx 0.320}$ & Upper Limit \\
 \hline
 \textbf{Planck 2018 (Observed)} & $\mathbf{\approx 0.20}$ & \textbf{Within Predicted Corridor} \\
 \hline
@@ -1372,7 +1381,7 @@ Q^2 = \kappa^2 + \beta^2 = 3\beta^2 = \frac{3}{2}\kappa^2
 
 This assignment is strictly enforced by the algebraic closure condition $\kappa^2 = 2\beta^2$. The continuity of the potential field selects the $S^2$ carrier for galaxies, while the discrete orbital nature selects $S^1$ for binaries.
 
-Consequently, the resulting acceleration scales $a_\kappa = cH_0/3\pi$ and $a_\beta = cH_0/6\pi$ are \textbf{topological invariants} of the theory. This bifurcation rigorously explains why MOND’s single universal parameter $a_0$ fails for wide binaries (which require the kinetic scale) while WILL RG accurately matches both regimes.
+Consequently, the resulting acceleration scales $a_\kappa = cH_0/3\pi$ and $a_\beta = cH_0/6\pi$ are \textbf{topological invariants} of the theory. This bifurcation rigorously explains why MOND's single universal parameter $a_0$ fails for wide binaries (which require the kinetic scale) while WILL RG accurately matches both regimes.
 
 \subsection{The Interference with Fundamental Tone}
 
@@ -1439,7 +1448,7 @@ Squaring both sides gives the \textbf{Baryonic Tully-Fisher Relation}:
 
 \paragraph{2. Normalization.} The asymptotic coefficient $a_{\kappa} = cH_0/(3\pi) \approx 7.0 \times 10^{-11}$ m/s$^2$ is derived from first principles with zero free parameters.
 
-\paragraph{3. Effective coefficient at finite radius.} The BTFR is observationally measured at the outermost reliable data point, not at $r \to \infty$. At any finite radius $r = n \cdot r_t$ (where $r_t =\sqrt{3\pi0.5R_{s}R_{H}}= \sqrt{GM_b/a_{\kappa}}$ is the transition radius and $R_H=c/H_0$ is the Hubble horizon), the observed velocity retains a non-negligible Newtonian contribution:
+\paragraph{3. Effective coefficient at finite radius.} The BTFR is observationally measured at the outermost reliable data point, not at $r \to \infty$. At any finite radius $r = n \cdot r_t$ (where $r_t = \sqrt{\tfrac{3\pi}{2}\,R_s\,R_H} = \sqrt{GM_b/a_{\kappa}}$ is the transition radius and $R_H=c/H_0$ is the Hubble horizon), the observed velocity retains a non-negligible Newtonian contribution:
 \begin{equation}
 V_{obs}^2(n \cdot r_t) = \left(\frac{1}{n} + 1\right) (GM_b \cdot a_{\kappa})^{1/2}.
 \end{equation}
@@ -1540,7 +1549,7 @@ M_{\star} = \frac{r_{\rm last}}{G} \left( \Upsilon_{\rm disk} V_{\rm disk}^2(r_{
 \textbf{Halo Assignment:}
 \begin{itemize}
     \item \textbf{Halo Mass ($M_{200}$):} We map the estimated $M_{\star}$ to the virial mass $M_{200}$ using the inverse of the stellar-to-halo mass relation (SHMR) from Moster et al. (2013) at $z=0$.
-    \item \textbf{Concentration ($c_{200}$):} The halo concentration is derived from the mass-concentration relation of Dutton \& Macciò (2014), explicitly fixing the Hubble parameter to the Planck value ($h=0.674$).
+    \item \textbf{Concentration ($c_{200}$):} The halo concentration is derived from the mass-concentration relation of Dutton \& MacciÃ² (2014), explicitly fixing the Hubble parameter to the Planck value ($h=0.674$).
     \item \textbf{Velocity Profile:} The dark matter contribution is modeled as a standard NFW halo:
     \begin{equation}
     V_{\rm NFW}^2(r) = V_{200}^2 \frac{1}{x} \frac{\ln(1+cx) - \frac{cx}{1+cx}}{\ln(1+c) - \frac{c}{1+c}},
@@ -1660,7 +1669,7 @@ a_{\kappa} = \frac{c H_0}{3\pi} \approx 7.02 \times 10^{-11} \, \text{m/s}^2
 where $H_0 \approx 68.15$ km/s/Mpc is the theoretically derived Hubble parameter.
 
 \subsection{Statistical Validation}
-Figure \ref{fig:rar} demonstrates the resulting "Main Sequence of Galaxies". Despite the vast diversity of morphological types—ranging from gas-dominated dwarfs to massive high-surface-brightness spirals—the data collapses onto the single theoretical curve predicted by Eq. (14).
+Figure \ref{fig:rar} demonstrates the resulting "Main Sequence of Galaxies". Despite the vast diversity of morphological types---ranging from gas-dominated dwarfs to massive high-surface-brightness spirals---the data collapses onto the single theoretical curve predicted by Eq. (14).
 
 The statistical analysis of the residuals (logarithmic deviation) yields:
 \begin{itemize}
@@ -1967,7 +1976,7 @@ The \textbf{Geometric Mach Equation} is thus:
 \begin{equation}
     \boxed{ \mathcal{R}_{int} \cdot \Gamma^3 = \mathcal{R}_{ext} }
 \end{equation}
-where $\Gamma = \frac{1}{\pi\sqrt{2}}$ is the fundamental linear projection constant of WILL RG ($1/\sqrt{2}$ for kinetic closure, $1/\pi$ for diametric projection).
+where $\Gamma = \frac{1}{\pi\sqrt{2}}$ is the conversion factor of WILL RG ($1/\sqrt{2}$  converting from potential $S^2$ ($\kappa$) carrier to kinetic $S^1$ ($\beta$)  carrier via \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:Closure}{closure theorem}, $1/\pi$ for diametric projection).
 
 \subsection{Derivation}
 
@@ -2080,18 +2089,17 @@ We compare two scenarios: one containing only BBN-derived Baryons (WILL RG), and
 \textbf{Scenario} & \textbf{Load} & \textbf{Peak} & \textbf{Deviation} \\\hline
  & \textbf{($\Omega_{load}$)} & \textbf{($\ell$)} & \textbf{from Planck} \\
 \hline
-\textbf{WILL RG (Pure Baryons)} & $\mathbf{0.048}$ & $\mathbf{220.59}$ & $\mathbf{-0.005\%}$ \\
+\textbf{WILL RG (Pure Baryons)} & $\mathbf{0.048}$ & $\mathbf{220.55}$ & $\mathbf{-0.02\%}$ \\
 \hline
 Standard Model ($\Lambda$CDM + DM) & $0.308$ & $188.89$ & $-14.37\%$ \\
 \hline
 \end{tabular}
-\caption{\textbf{Baryonic Consistency Test.} The vacuum tension $\Omega_{\Lambda}=2/3$ accurately reproduces the first acoustic peak ($\ell \approx 220.6$) only when loaded with standard baryonic matter ($\Omega_b \approx 0.048$). The addition of Dark Matter ($\Omega_{dm} \approx 0.26$) creates excessive inertial drag, shifting the peak to $\ell \approx 189$, which is observationally ruled out.}
 \hypertarget{tab:sensitivity}{}\label{tab:sensitivity}
 \caption{\textbf{Baryonic Consistency Test.} The vacuum tension $\Omega_{\Lambda}=2/3$ accurately reproduces the first acoustic peak ($\ell \approx 220.6$) only when loaded with standard baryonic matter ($\Omega_b \approx 0.048$ From Nuclear Physics of the Yearly Universe). The addition of Dark Matter ($\Omega_{dm} \approx 0.26$) creates excessive inertial drag, shifting the peak to $\ell \approx 189$, which is in tension with observational data.}
 \hypertarget{tab:sensitivity}{}
 \end{table}
 
-\textbf{Conclusion:} The high tension of the structural projection ($\Omega_{\Lambda}=2/3$) eliminates the need for Dark Matter to explain the acoustic compression scale. The Universe operates as a Baryonic oscillator on a stiff geometric manifold.
+\textbf{Conclusion:} The high tension of the structural projection ($\Omega_{\Lambda}=2/3$) suggests that Dark Matter hypothesis is unnecessary. The Universe operates as a Baryonic oscillator on a tense relational geometry.
 
 
 %________________________________________________________________________________
@@ -2111,9 +2119,9 @@ Standard Model ($\Lambda$CDM + DM) & $0.308$ & $188.89$ & $-14.37\%$ \\
 \hline
 1. Hubble Constant ($H_0$)& 68.15 km/s/Mpc & 67.4$\pm$0.5 km/s/Mpc& Planck 2018 & +1.0\% & Geometric saturation density derived from CMB temperature and $\alpha$ \\
 \hline
-2. CMB First Acoustic Peak ($l_1$)& 220.59 & 220.60 & Planck 2018 & $\approx$ 0.01\% & Resonant harmonics of an $S^2$ topology loaded by 4.2\% baryonic mass \\
+2. CMB First Acoustic Peak ($l_1$)& 220.55 & 220.60 & Planck 2018 & $\approx$ 0.02\% & Resonant harmonics of an $S^2$ topology loaded by 4.2\% baryonic mass \\
 \hline
-3. CMB Quadrupole Power ($D_{l=2}$)& 0.132--0.285 (Corridor)& $\approx$ 0.20 & Planck 2018 & Within predicted corridor & Vacuum tension acting as a high-pass filter on a tensioned $S^2$ membrane \\
+3. CMB Quadrupole Power ($D_{l=2}$)& 0.156--0.320 (Corridor)& $\approx$ 0.20 & Planck 2018 & Within predicted corridor & Vacuum tension acting as a high-pass filter on a tensioned $S^2$ membrane \\
 \hline
 4. Galactic Rotation Curves Bias& 0.70 $\times$ $10^{-10}$ m/s$^2$ ($a_k$) & -2.26 km/s (Bias)& SPARC (175 galaxies) & RMSE $\approx$ 0.065 dex & Structural Projection Resonant Interference with Universal Fundamental Tone\\
 \hline
@@ -2171,7 +2179,7 @@ Just as the electron must satisfy the standing wave condition to exist as a boun
 
 \bibitem{Lelli2016} Lelli, F., McGaugh, S. S., \& Schombert, J. M. (2016). SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation Curves. \textit{The Astronomical Journal}, 152(6), 157.
 
-\bibitem{Chae2023} Chae, K. H. (2023). Breakdown of the Newton–Einstein Standard Gravity at Low Acceleration in Internal Dynamics of Wide Binary Stars. \textit{The Astrophysical Journal}, 952(2), 128.
+\bibitem{Chae2023} Chae, K. H. (2023). Breakdown of the Newton--Einstein Standard Gravity at Low Acceleration in Internal Dynamics of Wide Binary Stars. \textit{The Astrophysical Journal}, 952(2), 128.
 
 \bibitem{Hernandez2023} Hernandez, X., et al. (2023). Internal kinematics of Gaia DR3 wide binaries. \textit{Monthly Notices of the Royal Astronomical Society}, 525(2), 2615.
 

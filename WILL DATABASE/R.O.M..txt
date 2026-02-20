@@ -1,218 +1,228 @@
 
-\section{Closed Algebraic System of Relational Orbital Mechanics (R.O.M.)}
-R.O.M. does not describe how a body moves under forces; it classifies the algebraically allowed relational states of a bound two-body system.
-
-\subsubsection*{Global System Parameters}
-
-\begin{align}
-R_{s} &= \kappa^{2}a = \frac{2Gm_{0}}{c^{2}} && \text{(Schwarzschild radius - system scale)} \\
-\kappa &= \sqrt{\frac{R_{s}}{a}} = \sqrt{\kappa_{p}^{2}(1-e_{c})} =\sqrt{4W}
-&& \text{(global potential projection at semi-major axis)} \\
-a &= \frac{R_{s}}{\kappa^{2}} =\frac{R_{s}}{4W} = \frac{\beta_{o}c}{\omega} \cdot \frac{\sqrt{1-e_{c}^{2}}}{\sqrt{1+e_{c}^{2}+2e_{c}\cos o}}
-&& \text{(semi-major axis)} \\
-\beta &= \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e_{c}}{1+e_{c}}} = \sqrt{\frac{\beta_{p}^{2}(1-e_c)}{1+e_{c}}}=\sqrt{2W} 
-&& \text{(global kinetic projection - virial equivalent)}
-\end{align}
-\begin{align}
-m_{0} &= \frac{\kappa^{2}c^{2}a}{2G} = 4\pi\rho a^{3} = 2\rho\frac{4\pi a^{3}}{3} + \rho\frac{4\pi a^{3}}{3} 
-&& \text{(mass parameter)} \\
-o &= \text{orbital phase in radians} \\
-\delta &= \frac{\kappa_{p}}{\beta_{p}\sqrt{2}} = \frac{1}{\sqrt{1+e_{c}}} 
-&& \text{(closure factor,  measured at } r_p\text{)}
-\end{align}
-
-\subsubsection*{Eccentricity Relations}
-
-\begin{align}
-e_{c} &= \frac{1}{\delta^{2}} - 1 = 1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}} = \frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1&& \text{(eccentricity derived from closure)} \\
-e_{cY} &= \sqrt{1-e_{c}^{2}} && \text{(eccentricity's orthogonal value)} \\
-e_X &= \frac{1+e_c}{1-e_c} && \text{(shape factor)}
-\end{align}
-
-\subsubsection*{Constants (Fixed for the Orbit)}
-
-\begin{align}
-r_{p} &= a(1-e_{c}) && \text{(radius at perihelion)} \\
-\kappa_{p} &= \kappa\sqrt{\frac{1}{1-e_{c}}} = Q_{p}\sqrt{\frac{2}{3+e_{c}}} 
-&& \text{(potential at perihelion)} \\
-\beta_{p} &= \frac{V_{p}}{c} = \frac{\kappa_{p}}{\delta\sqrt{2}} = \sqrt{\kappa_{p}^{2}\cdot\frac{1+e_{c}}{2}} 
-&& \text{(kinetic at perihelion)} \\
-W &= \frac{1}{2}(\kappa_{p}^{2}-\beta_{p}^{2})=\frac{1}{4}\kappa_{p}^{2}\ \left(1-e_{c}\right)
-&& \text{(energy invariant - binding energy)} \\
-\Delta\phi_{\text{WILL}} &= \frac{3\pi}{2}\frac{\kappa_{p}^{4}}{\beta_{p}^{2}} 
-&& \text{(precession per orbit at perihelion)} \\
-h_{W} &= a \cdot \beta c \cdot e_{cY} && \text{(angular momentum)} \\
-\omega &= \frac{\beta c}{a} && \text{(angular frequency)} \\
-T &= \frac{2\pi}{\omega} && \text{(orbital period)} \\
-Q_{p} &= \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}} && \text{(displacement at perihelion)}
-\end{align}
-\subsubsection*{Time Integration}
-
-\begin{align}
-\omega_{\theta}(\theta) &= \frac{\beta c}{a} \cdot \frac{(1+e_{c}\cos\theta)^{2}}{(1-e_{c}^{2})^{3/2}} 
-&& \text{(angular frequency for time integration)} \\
-\Delta_{t1} &= \int_{0}^{o}\frac{1}{\omega_{\theta}(\theta)}\,d\theta 
-&& \text{(time duration of given phase interval)}
-\end{align}
-
-\subsubsection*{Apocenter Relations}
-
-\begin{align}
-\beta_{a} &= \sqrt{\beta_{p}^{2} e_{XA}^{2}} = \beta\sqrt{e_{XA}} && \text{(kinetic projection at apocenter)} \\
-\kappa_{a} &= \sqrt{2W+\beta_{a}^{2}} && \text{(potential projection at apocenter)} \\
-\delta_{\text{apo}} &= \frac{1}{\sqrt{1-e_{c}}} && \text{(closure factor at apocenter)} \\
-
-\end{align}
-
-\subsubsection*{Phase Variables (Depend on $o$)}
-
-\begin{align}
-r = r_o &= a\frac{1-e_{c}^{2}}{1+e_{c}\cos o} = \frac{R_s}{\kappa_o^2} 
-&& \text{(radial distance at phase } o\text{)} \\
-\kappa_{o} &= \sqrt{\frac{R_{s}}{r}} = \kappa_{p}\sqrt{\frac{1+e_{c}\cos o}{1+e_{c}}} 
-&& \text{(local potential at phase } o\text{)} \\
-\beta_{o} &= \sqrt{\kappa_{o}^{2}-2W} 
-&& \text{(local kinetic from energy invariant)} \\
-\delta_{o} &= \sqrt{\frac{1+e_{c}\cos o}{1+e_{c}^{2}+2e_{c}\cos o}} = \frac{\kappa_{o}}{\beta_{o}\sqrt{2}} 
-&& \text{(local closure factor at phase } o\text{)} \\
-Q_{o} &= \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}} 
-&& \text{(local displacement vector at phase } o\text{)} \\
-\omega_o &= a\beta c\frac{e_{cY}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e_{c}\cos o)^{2}}{(1-e_{c}^{2})^{3/2}} 
-&& \text{(angular speed)} \\
-\eta_{o} &= \frac{r}{a} && \text{(phase scale amplitude)} \\
-t_o &= \frac{r}{c} && \text{(temporal scale at phase } o\text{)}
-\end{align}
-
-\subsubsection*{Relational Geometry (WILL)}
-
-\begin{align}
-\theta_{1} &= \arccos(\beta) && \text{(distribution angle on } S^1\text{, non-physical)} \\
-\theta_{2} &= \arcsin(\kappa) && \text{(distribution angle on } S^2\text{, non-physical)} \\
-\beta_{Y} &= \sin(\theta_1) = \sqrt{1 - \beta^2} && \text{(relativistic phase factor)} \\
-\kappa_{X} &= \cos(\theta_2) = \sqrt{1 - \kappa^2} && \text{(gravitational phase factor)} \\
-\beta_{Yo} &= \sqrt{1 - \beta_o^{2}} && \text{(relativistic phase factor at phase } o\text{)} \\
-\kappa_{Xo} &= \sqrt{1 - \kappa_o^{2}} && \text{(gravitational phase factor at phase } o\text{)} \\
-\tau_{W} &= \kappa_{X}\beta_{Y} && \text{(relational spacetime factor)} \\
-\tau_{Wo} &= \kappa_{Xo}\beta_{Yo} && \text{(phase spacetime factor)} \\
-Q &= \sqrt{\kappa^{2}+\beta^{2}} && \text{(relational displacement vector)} \\
-\Delta_{Q} &= Q_{o}^{2}-Q^{2} && \text{(phase relational displacement amplitude)} \\
-O_{o} &= \arccos(1-\delta^{-2}) = \arccos(-e_c) && \text{(balance point in radians)} \\
-t &= \frac{a}{c} && \text{(temporal scale as phase period)} \\
-z &= \frac{1}{\kappa_{X}}-1 && \text{(redshift)} \\
-z_o &= \frac{1}{\kappa_{Xo}}-1 && \text{(redshift at phase } o\text{)}
-\end{align}
 
 
-
-
------ Additional Parameters (RG) -----
-
-F_{l}=\kappa_{X}^{2}    energy flux
-
-H=\frac{\kappa^{2}\cdot c}{R_{s}}=\frac{c}{a}=\frac{1}{t}    frequancy, scale dependant Hubble like parameter       
-
-\rho = \frac{\kappa^2 c^2}{8\pi G a^2} = \kappa^2 \cdot \rho_{max}    \text{(Vacuum density} 
-
-\rho_{max} = \frac{c^2}{8\pi G a^2} \quad \text{(Critical density where $\kappa=1$ event horizon)} 
-
-\Lambda=\frac{2}{3a^2}                              "Dark Energy" as scale dependant relational tension
-
-\Lambda_{rho}=\frac{c^{2}}{12\pi Ga^{2}}=\frac{\rho}{Q^2}      "Dark Energy" density
-
-\frac{\rho}{\Lambda_{rho}}=Q^2        unexpected solution for relational shift vector Q
-
-P(a) = - \frac{c^2}{8\pi G} \cdot \frac{1}{a} \cdot \frac{d\kappa^2}{da} \quad \text{(Pressure)}
-
-\frac{R_s}{a} = \frac{\rho}{\rho_{max}} = \kappa^2  Geometric field equation
-
-\frac{m_{P}}{m_{0}}\ \frac{2l_{P}}{a}=\kappa^2   Planck scale connection
-
-
-W_{ILL} = \frac{E \cdot T}{M \cdot L} = \frac{\frac{1}{\kappa_{X}} E_0 \kappa_{X} t^2_{d}}{\frac{1}{\beta_{Y}} m_0\beta_{Y} a^2_{d}} = \frac{\frac{1}{\sqrt{1-\kappa^{2}}}m_{0}c^{2}\cdot\sqrt{1-\kappa^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{3}}\right)^{2}}{\frac{1}{\sqrt{1-\beta^{2}}}m_{0}\cdot\sqrt{1-\beta^{2}}\left(\frac{2Gm_{0}}{\kappa^{2}c^{2}}\right)^{2}}=1      
-                                                                            WILL invariant. Not a unit of something, but Unity of Everything 
-                                                                                                (can be written through phase parameters as well)
-     
-
-
-\subsection{Inputs for H_0 derivation}
+\subsection{Clear Relational Symmetry Between Kinematic and Potential Projections }
+\hypertarget{projections symmetry}{}\label{projections symmetry}
+Now we can clearly see the underlying symmetry  between relativistic and gravitational factors that can be expressed in unified algebraic and trigonometric forms, as shown in Table 1.
 
 \begin{table}[h]
 \centering
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{l c l l}
-\toprule
-\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} & \textbf{Source/Definition} \\
-\midrule
-CMB Temperature & $T_0$ & \SI{2.7255}{\kelvin} & Fixsen (2009) / Planck \\
-Fine Structure Const. & $\alpha$ & $7.29735 \times 10^{-3}$ & CODATA ($\approx 1/137.036$) \\
-Gravitational Const. & $G$ & \SI{6.674e-11}{\cubic\meter\per\kilogram\per\second\squared} & CODATA \\
-Speed of Light & $c$ & \SI{2.99792e8}{\meter\per\second} & Exact \\
-Stefan-Boltzmann Const. & $\sigma_{\text{SB}}$ & \SI{5.67037e-8}{\watt\per\meter\squared\per\kelvin\tothe{4}} & Derived from fundamental \\
-\bottomrule
+\begin{tabular}{|c|c|}\hline
+\multicolumn{2}{|c|}{\( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$}\\
+\hline
+\textbf{Algebraic Form} & \textbf{Trigonometric Form} \\\hline
+ $\beta=v/c$&$\beta=cos(\theta_1)$\\\hline
+ $\kappa=\sqrt{R_s/r}$&$\kappa=sin(\theta_2)$\\\hline
+
+$\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) = \sin(\arccos(\beta))$\\
+\hline
+$\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa))$\\
+\hline
+ $p=E_0/c \cdot \beta/\beta_Y$&$p=E_0/c \cdot \cot(\theta_1) $\\
+ \hline
+ $p_g=E_0/c \cdot \kappa/\kappa_X$&$p_g=E_0/c \cdot \tan(\theta_2)$\\\hline
+ $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
+ 
+ $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\\hline
+ $  Q_t = \sqrt{1-Q^2} = \sqrt{1-\kappa^2-\beta^2} = \sqrt{1-3\beta^2}  $&$Q_t = \sqrt{1 - 3\cos^2(\theta_1)}$\\ \hline
 \end{tabular}
-\caption{Fundamental inputs for the calculation. All parameter values are fixed from independent measurements and no fitting is performed.}
-\label{tab:fundamental_constants}
+\caption{Unified representation of relativistic and gravitational effects for closed systems.}
 \end{table}
 
-                                                                              
-
-
-COSMO
-
-
-T_{CMB}=2.72548
-
-\sigma_{SB}=5.670374419\times10^{-8}
-
-\Lambda=\frac{\Omega_{pot}}{a^{2}}=3.6177838994\times10^{-53}
-
-a_{Mach}=\frac{c\cdot H_{0}}{3\cdot\pi}=7.0248526448\times10^{-11}
-
-M_{U}=\frac{c^{3}}{G\cdot H_{0}}=1.8279686442\times10^{53}
-
-R_{s}=\frac{2\cdot G\cdot m_{0}}{c^{2}}=2.7149576237\times10^{26}
-
-\rho_{ph}=\frac{4\cdot\sigma_{SB}\cdot T_{CMB}^{4}}{c^{3}}=4.6449561343\times10^{-31}
-
-\rho_{max}=\frac{\rho_{ph}}{3\alpha^{2}}=2.9075668133\times10^{-27}
-
-H_{0}=\sqrt{8\cdot\pi\cdot G\cdot\rho_{max}}=2.2084503668\times10^{-18}
-
-\rho=\frac{\kappa^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot a^{2}}=5.8151336266\times10^{-27}
-
-\rho_{Q}=\frac{Q^{2}\cdot c^{2}}{4\cdot\pi\cdot G\cdot a^{2}}=1.744540088\times10^{-26}
-
-rho_{\Lambda}=\frac{c^{2}}{12\cdot\pi\cdot G\cdot a^{2}}=1.9383778755\times10^{-27}
-
-P\left(a\right)=-\frac{c^{2}}{8\cdot\pi\cdot G}\cdot\frac{1}{a}\cdot\frac{d\cdot\kappa^{2}}{d\cdot a}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\textbf{The familiar SR and GR factors emerge here as projections of the same conserved resource. 
+Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate "effects" but dual aspects of one energy-transformation constraint revealing their unified origin.}
+\end{tcolorbox}
 
 
 
 
+\subsection{Causal Continuity and Energy Symmetry}
+\begin{theorem}[Energy Symmetry]
+The specific energy differences (per unit of rest energy) perceived by two observers for a transition between their states balance according to the Energy-Symmetry Law:
+\begin{equation}
+\Delta E_{A \to B} + \Delta E_{B \to A} = 0.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Consider two observers:
+\begin{itemize}
+\item Observer $A$ at rest on the surface at radius $r_A$ (state defined by $\kappa_A, \beta_A=0$).
+\item Observer $B$ orbiting at radius $r_B > r_A$ with orbital velocity $v_B$ (state defined by $\kappa_B, \beta_B$).
+\end{itemize}
+Each observer perceives energy transfers as the sum of the change in potential and kinetic energy budgets.
 
- "DARK MATTER" ELIMINATOR
+From $A$'s perspective (transition from surface to orbit):
+\begin{enumerate}
+\item An object gains potential energy by moving away from the gravitational center.
+\item It gains kinetic energy by accelerating to orbital velocity.
+\end{enumerate}
+The total specific energy required for this transition is the sum of these two contributions:
+\begin{equation}
+\boxed{\Delta E_{A \to B} = \underbrace{\frac{1}{2}\left(\kappa_A^2 - \kappa_B^2\right)}_{\text{Change in Potential}} + \underbrace{\frac{1}{2}\left(\beta_B^2 - \beta_A^2\right)}_{\text{Change in Kinetic}}}
+\end{equation}
+Since observer A is at rest, $\beta_A = 0$, and the expression simplifies to:
+\begin{equation}
+\Delta E_{A \to B} = \frac{1}{2}\left((\kappa_A^2 - \kappa_B^2) + \beta_B^2\right)
+\end{equation}
+
+From $B$'s perspective (transition from orbit to surface):
+\begin{enumerate}
+\item The object loses potential energy descending into a stronger gravitational field.
+\item It loses kinetic energy by reducing its velocity to rest.
+\end{enumerate}
+This results in a specific energy difference:
+\begin{equation}
+\Delta E_{B \to A} = \frac{1}{2}\left((\kappa_B^2 - \kappa_A^2) + (\beta_A^2 - \beta_B^2)\right) = \frac{1}{2}\left((\kappa_B^2 - \kappa_A^2) - \beta_B^2\right)
+\end{equation}
+
+Summing these transfers gives:
+\begin{equation}
+\Delta E_{A \to B} + \Delta E_{B \to A} = 0
+\end{equation}
+Thus, no net energy is created or destroyed in a closed cycle of transitions, confirming the Energy-Symmetry Law as a direct consequence of the closed geometry.
+\end{proof}
+
+\subsection{The Specific Energy Transfer ($\Delta E$):} This is the projectional energy difference between states, equivalent to the Total Relational Shift $Q$, corresponding to the classical total energy of a transition (per unit rest energy). It is defined as the \textbf{sum of the changes} in the potential and kinetic energy budgets:
+    \begin{equation}
+    \Delta E_{A \to B} = \Delta U_{A \to B} + \Delta K_{A \to B} = \frac{1}{2}\left(\kappa_A^2 - \kappa_B^2\right) + \frac{1}{2}\left(\beta_B^2 - \beta_A^2\right)
+    \end{equation}
+It is this quantity, $\Delta E$, that is conserved and must balance to zero in any closed system.
+    
+When the closure condition for stable, periodic orbits ($\kappa^2 - 2\beta^2 = 0$) is applied, the general Energy-Symmetry Law simplifies into remarkably elegant and direct forms. These simplified equations provide the precise energy balance for transitions involving energetically closed systems, such as planets or satellites in stable orbits.
+
+\paragraph{Case 1: Surface-to-Orbit Transfer.}
+For a transfer from a state of rest (A, where $\beta_A = 0$) to a closed orbit (B) where $E_{0B}$ is the objects rest energy, the specific energy balance is given by:
+\begin{equation}
+\frac{E_{A \to B}}{E_{0B}} = \frac{1}{2}(\kappa_A^2 - \beta_B^2)
+\end{equation}
+This result is derived by applying the closure condition $\kappa_B^2 = 2\beta_B^2$ to the general energy transfer formula, elegantly linking the initial potential projection to the final kinetic projection.
+
+\paragraph{Case 2: Orbit-to-Orbit Transfer.}
+For a transfer between two different closed orbits (A and B), the simplification is even more profound. The specific energy balance reduces to:
+\begin{equation}
+\frac{E_{A \to B}}{E_{0B}} = \frac{1}{2}(\beta_A^2 - \beta_B^2)
+\end{equation}
+In this case, applying the closure condition to both the initial and final orbits causes the potential projection terms ($\kappa^2$) to cancel out completely. The entire energy balance of the transfer is expressed purely as the difference between the squares of the initial and final kinetic projections. This demonstrates a deep symmetry in the energetic structure of stable orbital systems.
 
 
-Galactic rotation curves:
-
-\beta_{Q}=\sqrt{\beta^{2}+\sqrt{\frac{\beta^{2}a}{3\pi R_{H}}}}
-
-V_{bary}=\sqrt{V_{gas}^{2}+Y_{disk}V_{disk}^{2}+Y_{bulge}V_{bulge}^{2}}
-
-Y_{disk}=0.5
-
-Y_{bulge}=0.7
-
-\frac{V_{bary}}{c}=\beta
-
-\frac{c}{H_{0}}=R_{H}
-
-
-Wide binaries:
-
-\beta_{Q}=\sqrt{\beta^{2}+\sqrt{\frac{\beta^{2}a}{6\pi R_{H}}}}
 
 
 
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\small
+\begin{tabularx}{\textwidth}{|c|c|c|c|c|X|}
+\hline
+\textbf{Phenomenon} & \textbf{Radius $r$} & \(\beta^2\)& \(\kappa^2\)&\(Q^2\)& \textbf{Comment} \\
+\hline
+\textbf{ISCO (innermost stable orbit)}& $r=3R_s$ & $\tfrac{1}{6}$& $\tfrac{1}{3}$&$\tfrac{1}{2}$& Marginal stability of timelike orbits $Q = Q_t$ \\
+\hline
+\textbf{Photon sphere}& $r=\tfrac{3}{2}R_s$ & $\tfrac{1}{3}$& $\tfrac{2}{3}$&1& Null circular orbits, \(\theta_1=\theta_2\) $Q=1$, $Q_t=0$\\
+\hline
+\textbf{Static horizon (Schwarzschild)} & $r=R_s$ & $\tfrac{1}{2}$& $1$&$\tfrac{3}{2}$& Purely gravitational closure, $\kappa^2=2\beta^2$ \\
+\hline
+\textbf{Extremal Kerr horizon} & $r=\tfrac{1}{2}R_s$ & $1$& $2$&$3$& Maximal rotation, $\beta=1$, merged horizons \\
+\hline
+\end{tabularx}
+\caption{Critical radii and their projectional parameters in WILL Relational Geometry. 
+All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as special values of $(\kappa,\beta)$ from the single closure law $\kappa^2=2\beta^2$.}
+\end{table}
 
+
+
+
+\section{Closed Algebraic System of Relational Orbital Mechanics (R.O.M.)}
+\hypertarget{eq:rom}{}\label{eq:rom}
+
+R.O.M. does not describe how a body moves under forces; it classifies the algebraically allowed relational states of a bound system.
+
+$\boxed{\kappa^2 = 1-\frac{1}{(1+z_k)^2}}$  ($z_k=$ gravitational redshift) \\
+$\boxed{\beta^2=1-\frac{1}{(1+z_{b})^{2}}}$  ($z_b=$ transverse Doppler shift) \\
+
+\subsubsection*{Observational Z Inputs} \\
+$Z_{sys}(o)=(1+z_{ko}(o))(1+z_{bo}(o))$ (product of gravitational red shift and transverse Doppler shift) \\
+$\tau_{Wo}(o)=\kappa_{Xo}(o)\cdot\beta_{Yo}(o)=(Z_{sys}(o))^{-1}$  (product of projectinal phase factors on $S^1$ and $S^2$ carriers) \\
+\subsubsection*{Global System Parameters} \\
+
+$\kappa = \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)} =\sqrt{4W}=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})}=\sqrt{1-(1+z_{k})^{-2}}$ (potential projection at semi-major axis) \\
+$\beta = \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \sqrt{2W} =\sqrt{\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot(1+(\frac{1}{\delta_{o}(o)}-1))}=\beta_{o}(o)\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}=\sqrt{1-(1+z_{b})^{-2}}$  (kinetic projection on semi major axis) \\
+$Q=\sqrt{\kappa^2+\beta^2}=\sqrt{\frac{3}{2}}\ \kappa=\sqrt{3}\ \beta$ (total relational shift (magnitude of state difference)) \\
+$R_{s} = \kappa^{2}a = \frac{2Gm_{0}}{c^{2}}=\frac{2}{3}Q_{o}(O_{o})^{2}a\ =\frac{ r_{1} r_{2}}{r_{2} - r_{1}}( \beta_{1}^{2} - \beta_{2}^{2} )=\frac{a}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})=\frac{r_{o}(o)}{2(2a-r_{o}(o))}(4a-r_{o}(o)-\sqrt{(4a-r_{o}(o))^{2}-8a(2a-r_{o}(o))(1-\tau_{Wo}(o)^{2})})$  (Schwarzschild radius - system scale) \\
+$a = \frac{R_{s}}{\kappa^{2}} =\frac{R_{s}}{4W} = \frac{\beta_{o}c}{\omega} \cdot \frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e\cos (o)}}$ (semi-major axis) \\
+$m_{0} = \frac{\kappa^{2}c^{2}a}{2G} = 4\pi\rho a^{3}$ (mass parameter) \\
+$\delta = \frac{\kappa_{p}^2}{2\beta_{p}^2 }= \frac{1}{1+e}$ (closure factor, measured at $r_p$) \\
+$o = \text{orbital phase in radians}$ \\
+
+\subsubsection*{Eccentricity Relations} \\
+$e = \frac{1}{\delta} - 1 = 1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}} = \frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1$ (eccentricity derived from closure) \\
+$e_{Y} = \sqrt{1-e^{2}}$ (eccentricity's orthogonal value) \\
+$e_{X} = \frac{1+e}{1-e}=\frac{\delta_{a}}{\delta_{p}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (shape factor) \\
+
+\subsubsection*{Constants (Fixed for the Orbit)} \\
+$r_{p} = a(1-e)$ (radius at perihelion) \\
+$\kappa_{p} = \kappa\sqrt{\frac{1}{1-e}} = Q_{p}\sqrt{\frac{2}{3+e}}$ (potential at perihelion) \\
+$\beta_{p} = \frac{V_{p}}{c} = \frac{\kappa_{p}}{\delta\sqrt{2}} = \sqrt{\kappa_{p}^{2}\cdot\frac{1+e}{2}}$ (kinetic at perihelion) \\
+$W =\frac{\beta^2}{2} =\frac{1}{2}(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{1}{4}\kappa_{p}^{2}\ (1-e)=\frac{1}{2}(\kappa_{o}(o)^{2}-\frac{\kappa_{o}(o)^{2}}{2\delta_{o}(o)})$ (energy invariant - binding energy) \\
+$\Delta\phi_{\text{WILL}} = \frac{3\pi}{2}\frac{\kappa_{p}^{4}}{\beta_{p}^{2}} =\frac{2\pi Q^{2}}{1-e^{2}}$ (precession of perihelion per orbit) \\
+$h_{W} = a \cdot \beta c \cdot e_{Y}$ (angular momentum) \\
+$\omega = \frac{\beta c}{a}$ (angular frequency) \\
+$T = \frac{2\pi}{\omega}$ (orbital period) \\
+$Q_{p} = \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}}$  (relational shift at perihelion) \\
+
+\subsubsection*{Time Integration} \\
+$\omega_{o}(o)=\frac{\beta\cdot c}{a}\cdot\frac{(1+e\cdot\cos(o))^{2}}{(1-e^{2})^{\frac{3}{2}}}$  (angular frequency for time integration) \\
+$\Delta_{t1} = \int_{0}^{o}\frac{1}{\omega_{\theta}(\theta)}\,d\theta$  (time duration of given phase interval) \\
+
+\subsubsection*{Apocenter Relations} \\
+$\beta_{a} = \sqrt{\beta_{p}^{2} e_{X}^{2}} = \beta\sqrt{e_{X}}$  (kinetic projection at apocenter) \\
+$\kappa_{a} = \sqrt{2W+\beta_{a}^{2}}$  (potential projection at apocenter) \\
+$\delta_{\text{a}} = \frac{1}{1-e}=\frac{\kappa_{a}^{2}}{2\beta_{a}^{2}}$  (closure factor at apocenter) \\
+
+\subsubsection*{Phase Variables (Depend on $o$)} \\
+$r = r_o (o)= a\frac{1-e^{2}}{1+e\cos o} = \frac{R_s}{\kappa_o^2}$  (radial distance at phase $o$) \\
+$\kappa_{o} = \sqrt{\frac{R_{s}}{r}} = 1-(1+z_{ko}(o))^{-2} =\kappa_{p}\sqrt{\frac{1+e\cos (o)}{1+e}}$ (local potential at phase $o$) \\
+$\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=(z_{ko}(o)+1)^{-1}$   (gravitational phase factor at phase $o$) \\
+$\beta_{o}(o) = \sqrt{\kappa_{o}^{2}-2W}=\frac{\kappa_{o}(o)}{\sqrt{2 \delta_{o}(o)\ }}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}{\sqrt{1-e^{2}}}=\sqrt{\frac{\kappa_{o}(o)^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(o)}{\ \ 1+e\cdot\cos(o)}}=\sqrt{\frac{R_{s}}{r_{o}(o)}-\frac{R_{s}}{2a}}=\sqrt{1-\left(1+z_{bo}\left(o\right)\right)^{-2}}$ (kinetic projection at phase o)\\
+$\beta_{R}(o)=\beta\ \frac{e\sin (o)}{\sqrt{1-e^{2\ }}}=\sqrt{\beta_{o}(o)^{2}-\beta_{T}(o)^{2}}=\sqrt{((1-(1+z_{ko}(o))^{-2})-2W)-\frac{r_{o}(o)^{2}\omega_{o}(o)^{2}}{c^{2}}}$  (radial kinetic projection at phase o) \\
+$\beta_{T}(o)=\frac{r_{o}(o)\omega_{o}(o)}{c}=\beta\frac{1+e\cos(o)}{\sqrt{1-e^{2}}}$  (transverse kinetic projection at phase o) \\
+$\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{bo}(o)+1)^{-1}$    (relativistic phase factor at phase $o$) \\
+$\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}(o)^2}$ (local closure factor at phase $o$) \\
+$Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}(o)^{2}}$ (local relational shift vector at phase $o$) \\
+$\omega_o = a\beta c\frac{e_{Y}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e\cos o)^{2}}{(1-e^{2})^{3/2}}$ (angular speed) \\
+$\eta_{o} = \frac{r}{a}=2-\frac{2\beta_{o}(o)(o)^{2}}{\kappa_{o}(o)^{2}}$  (phase scale amplitude) \\
+$t_o = \frac{r}{c}$ (temporal scale at phase $o$) \\
+$z_{ko} = \frac{1}{\kappa_{Xo}}-1$ (redshift at phase $o$) \\
+$z_{bo}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
+$\tau_{Wo}(o)=\kappa_{Xo}(o)\cdot\beta_{Yo}(o)= Z_{sys}(o)^{-1}$ (phase spacetime factor) \\
+
+\subsubsection*{Relational Geometry (WILL)} \\
+$\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical) \\
+$\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical) \\
+$\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (relativistic phase factor) \\
+$\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}$ (gravitational phase factor) \\
+$\tau_{W} = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\ \\
+$\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational shift amplitude) \\
+$O_{o} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (orbital balance point where $\kappa_o^2=2\beta_o^2$ is true) \\
+$t = \frac{a}{c}$ (temporal scale as phase period) \\
+$z_k = \frac{1}{\kappa_{X}}-1$ (gravitational redshift) \\
+$z_{b}=\frac{1}{\beta_{Y}}-1$  (transverse Doppler shift) \\
+
+NEEDS TESTING
+$Z_{raw}(o)=(1+\frac{\beta}{e_{cY}}(\cos(o+\omega_{i})+e_{c}\cos(\omega_{i}))\sin(i))\ Z_{sys}(o)$ (raw light shift including the line of site Doppler at phase o) \\
+$i=$ (orbital inclination in relation to line of site and orbital plane)
+$\omega_{i}=$ (phase turn or argument of periapsis)
+
+\textbf{Un-tilted 2D coordinates within the orbital plane:}
+$x_{orb} = r(o) \cos(o + \omega_i)$
+$y_{orb} = r(o) \sin(o + \omega_i)$
+
+\textbf{Parametric equations for the observed orbit, entirely free of the absolute ICRF background}
+$
+\begin{bmatrix} x_{sky} \\ y_{sky} \\ z_{depth} \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos(i) & -\sin(i) \\ 0 & \sin(i) & \cos(i) \end{bmatrix} \begin{bmatrix} x_{orb} \\ y_{orb} \\ 0 \end{bmatrix}$ \\
+
+$x_{sky} = r(o) \cos(o + \omega_i)$ \\
+$y_{sky} = r(o) \sin(o + \omega_i) \cos(i)$ \\
+$z_{depth} = r(o) \sin(o + \omega_i) \sin(i)$ \\
 
