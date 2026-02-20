@@ -1823,63 +1823,63 @@ To verify that the result is not an artifact of axis interdependence:
 The precise intersection confirms the geometric link between the\textbf{ thermodynamics} of CMB temperature,  the \textbf{Quantum Mechanics} of  Fine Structure Constant $\alpha$ and the galactic dynamics coupling with \textbf{Hubble Horizon} $H_0$.
 \end{enumerate}
 
-\section{Gravitational Lensing}
-
 %________________________________________________________________________________
 % FRAME AS A CHALLENGE FOR FUTURE WORK
 %____________________________________________________________________________________
 
+\section{Gravitational Lensing}
+\hypertarget{sec:lensing}{}\label{sec:lensing}
 
-\subsection{Limits of Validity: The Weak Lensing Problem}
+\subsection{The Factor of Two: From Carrier Topology to Light Deflection}
 
-Weak gravitational lensing is frequently cited as a critical test for theories addressing the dark matter problem. However, within WILL Relational Geometry, weak lensing cannot be treated as a primary or decisive validation requirement, for the following reasons.
+In \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:nature_of_light}{WILL RG Part I}, the Single-Axis Transformation Principle establishes that for light ($\beta = 1$, $\beta_Y = 0$), the full relational resource is expressed along a single geometric axis. This eliminates the dual-axis partitioning factor $\frac{1}{2}$ that governs massive particles, yielding distinct gravitational potentials:
+\begin{equation}
+\Phi_{\gamma} = \kappa^2 c^2, \qquad \Phi_{mass} = \tfrac{1}{2}\kappa^2 c^2.
+\end{equation}
 
-First, weak lensing is not a direct observable in the same sense as kinematic measurements or strong lensing geometry. The measured quantity is not the gravitational field itself, but a highly processed statistical reconstruction of galaxy shape distortions. These reconstructions depend on extensive data conditioning, including point-spread-function deconvolution, shape-noise suppression, tomographic binning, intrinsic-alignment modeling, and cosmology-dependent filtering. As a result, weak lensing observables are strongly pipeline-dependent and cannot be regarded as model-independent empirical inputs.
+The ratio $W_{\gamma} = 2\,W_{mass}$ reproduces the well-known factor of two in gravitational light deflection - here derived not from the geodesic equation on a curved manifold, but from the topological constraint $\beta_Y = 0$ on the closed carrier $S^1$.
 
-Second, weak lensing is dominated by line-of-sight projections through dynamically unrelaxed structures, including merging systems, filamentary environments, and transient mass configurations. WILL RG is explicitly formulated for energetically quasi-closed and phase-stable systems, where relational closure and resonance conditions are well-defined. Applying a resonance-based, equilibrium geometry to non-equilibrium line-of-sight superpositions is therefore methodologically unjustified.
+\subsection{Phantom Inertia Acts on Light}
 
-A fully consistent weak-lensing treatment in RG requires a dedicated forward-modelling pipeline (including survey selection, intrinsic alignments, and line-of-sight structure). This is outside the scope of the present work; here we focus on direct dynamical observables and strong-lensing systems where the mapping from geometry to observable is closer to one-step. 
+Crucially, the $\kappa^2$ appearing in $\Phi_{\gamma}$ is the \emph{total} gravitational projection of the system, which in galactic potentials includes the contribution from the Relational Shift $Q^2$. The same Phantom Inertia that elevates stellar velocities in rotation curves (Section~\ref{sec:galactic-dynamics}) enters the photon potential with the universal factor of two.
 
-\subsection{Strong Lensing: A Proof of Concept}
-\hypertarget{sec:strong-lensing}{}\label{sec:strong-lensing}
+This yields a strict, parameter-free prediction: the dynamical mass inferred from stellar kinematics and the lensing mass inferred from photon deflection must be identical.
+\begin{equation}
+\boxed{\sigma_{dyn} \equiv \sigma_{lens}}
+\end{equation}
+No additional mass component is required to reconcile the two measurements.
 
+\textbf{Contrast with $\Lambda$CDM:} In the standard paradigm, this equality holds because early-type galaxies happen to have nearly isothermal total density profiles ($\gamma' \approx 2$), producing the empirical regularity $f_e \equiv \sigma_{\star}/\sigma_{SIS} \approx 1$. This coincidence is not derived from first principles. In WILL RG, it is a theorem: the carrier topology dictates that $Q^2$ couples universally to both massive and massless probes.
 
-%________________________________________________________________________________
-%EXPAND THE TESTING GROUND
-%____________________________________________________________________________________
+\subsection{External Validation: The SLACS Survey}
 
+The Sloan Lens ACS (SLACS) Survey \citep{Bolton2008} provides the definitive observational test. Across $\sim$60 early-type galaxy lenses with both spectroscopic velocity dispersions and HST-measured Einstein radii, combined lensing-and-dynamics analyses have consistently confirmed:
+\begin{equation}
+f_e \equiv \frac{\sigma_{\star}}{\sigma_{SIS}} \approx 1.00 \pm 0.02
+\end{equation}
+(Treu et al., 2006; Koopmans et al., 2009; \citealt{Auger2009}).
 
-\subsubsection{Unified Vacuum Action}
+The total lensing mass within the Einstein radius (typically $4$--$8$ kpc) is fully accounted for by the dynamical mass inferred from stellar motions, with no systematic offset across the entire sample. This is precisely the outcome predicted by the universal action of Phantom Inertia on both carriers.
 
-In WILL Relational Geometry, gravity is not a distinct force field but a manifestation of the global energy density ($Spacetime \equiv Energy$). The total relational shift $Q^2$, which determines the inertial behaviour of baryons (manifesting as "Phantom Mass" in rotation curves), defines the effective refractive density of the vacuum state.
+\subsection{Illustrative Calculation: SDSSJ0946+1006}
 
-We posit no additional geometric structures or hidden mass components. The hypothesis is strict: the vacuum density that boosts stellar velocities must simultaneously act as the refractive medium for photons. Therefore, the dynamical mass inferred from stellar kinematics ($\sigma_{star}$) must be identical to the lensing mass ($\sigma_{lens}$).
- 
-\subsubsection{Proof of Concept: SDSSJ0946+1006}
+To demonstrate the mechanism in a specific system, we examine the double-ring lens SDSSJ0946+1006 \citep{Bolton2008}, where both the stellar velocity dispersion ($\sigma_{obs} = 287 \pm 5$ km/s) and the Einstein radius ($\theta_{obs} = 1.43 \pm 0.01$ arcsec) are measured independently.
 
-To validate this unification, we examine the benchmark system SDSSJ0946+1006 from the SLACS survey. This system allows us to compare the "Phantom Mass" effect on matter against its effect on light directly.
-
-\textbf{Input Data \citep{Bolton2008}:}
-\begin{itemize}
-    \item Observed Stellar Velocity: $\sigma_{obs} = 287 \pm 5$ km/s (Includes Relational Inertia).
-    \item Observed Einstein Radius: $\theta_{obs} = 1.43 \pm 0.01$ arcsec.
-\end{itemize}
-
-\textbf{Calculation:}
-We apply the standard lensing deflection formula using the \textit{observed} stellar velocity as the sole input, assuming the light tracks the same potential $Q^2$ as the stars:
+The SIS model predicts an Einstein radius from the observed velocity dispersion alone:
 \begin{equation}
 \theta_{pred} = 4\pi \left( \frac{\sigma_{obs}}{c} \right)^2 \frac{D_{ls}}{D_s}
 \end{equation}
-Using the geometric distances derived from the WILL RG expansion parameter ($H_0 \approx 68.15$):
+
+Using the angular diameter distance ratio computed within WILL RG cosmology ($\Omega_m = 1/3$, $\Omega_{\Lambda} = 2/3$, $H_0 = 68.15$ km/s/Mpc) for the lens ($z_l = 0.222$) and source ($z_s = 0.609$) redshifts:
 \begin{equation}
-\theta_{pred} = 4\pi \left( \frac{287}{299792} \right)^2 \times (0.4907) \times 206265 \approx \mathbf{1.46''}
+\frac{D_{ls}}{D_s} = 0.593, \qquad \theta_{pred} \approx \mathbf{1.41''}
 \end{equation}
 
-\subsubsection{Result}
+The agreement with the observed $1.43''$ ($\approx 1.5\%$ deviation) confirms that the Phantom Inertia encoded in the stellar velocity dispersion, when coupled to photons through the Part~I factor-of-two mechanism, fully accounts for the lensing signal.
 
-The predicted lensing signal ($1.46''$) agrees with the observation ($1.43''$) within $\approx 2\%$.
-This confirms that the Relational Inertia ($Q^2$) responsible for the high stellar velocities is sufficient to explain the gravitational lensing signal without invoking Dark Matter. The "Phantom Mass" acts universally on both baryons and photons.
+\subsection{Weak Lensing: Future Work}
 
+Weak gravitational lensing probes mass distributions on larger scales through statistical shape distortions, but the observables are reconstructed through multi-step pipelines (PSF deconvolution, shape-noise suppression, tomographic binning, intrinsic alignment modelling) and are dominated by line-of-sight projections through dynamically unrelaxed structures. Developing a fully consistent weak-lensing forward model within the WILL RG framework constitutes a priority direction for future work.
 
 \section{The Kinetic Resonance: Wide Binary Anomaly}
 \hypertarget{sec:wide-binary}{}\label{sec:wide-binary}
