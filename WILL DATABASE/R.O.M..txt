@@ -1,4 +1,67 @@
 
+\section{Geometric composition of SR and GR factors}
+\hypertarget{sec:geometric_composition}{}\label{sec:geometric_composition}
+On the unit kinematic circle ($S^1$) we parametrize
+\[
+(\beta,\beta_Y)=(\cos\theta_1,\ \sin\theta_1),
+\]
+so that the invariant vertical projection reads
+\[
+E\,\beta_Y=E_0   \Longrightarrow    \quad 
+\boxed{\,E=\dfrac{E_0}{\beta_Y}=\dfrac{E_0}{\sin\theta_1}\,},\qquad
+p= \frac{E}{c}\,\beta=\dfrac{E_0\,\beta}{\beta_Y}=E_0\cot\theta_1,
+\]
+and therefore \(E^2=(pc)^2+E_0^2\).
+
+On the gravitational circle  ($S^2$) we parametrize
+\[
+(\kappa_X,\kappa)=(\cos\theta_2,\ \sin\theta_2),
+\]
+so that the invariant horizontal projection reads
+\[
+E_g\,\kappa_X=E_0  \Longrightarrow \quad 
+\boxed{\,E_g=\dfrac{E_0}{\kappa_X}=\dfrac{E_0}{\cos\theta_2}\,},\qquad
+p_g=E_g\,\kappa=\dfrac{E_0\,\kappa}{\kappa_X}=E_0\tan\theta_2,
+\]
+and therefore \(E_g^2=p_g^2+E_0^2\).
+
+\begin{center}
+\begin{tikzpicture}[scale=2.0,>=Latex]
+% Left circle: kinematics
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta=\cos\theta_1$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y=\sin\theta_1$};
+% vector and legs
+\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
+\draw[dashed] (0.8,0) -- (0.8,0.6);
+\draw[dashed] (0,0.6) -- (0.8,0.6);
+\node at (0.84,-0.12) {$\beta$};
+\node at (-0.14,0.6) {$\beta_Y$};
+\draw (0.25,0) arc (0:36.87:0.25);
+\node at (0.33,0.12) {$\theta_1$};
+\node at (0,-1.55) {\small \shortstack{$E=E_0/\beta_Y$ \\ $p=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
+
+% Right circle: gravity
+\begin{scope}[xshift=3.2cm]
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X=\cos\theta_2$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\kappa=\sin\theta_2$};
+% vector and legs
+\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_g$};
+\draw[dashed] (0.6,0) -- (0.6,0.8);
+\draw[dashed] (0,0.8) -- (0.6,0.8);
+\node at (0.6,-0.12) {$\kappa_X$};
+\node at (-0.14,0.8) {$\kappa$};
+\draw (0.25,0) arc (0:53.13:0.25);
+\node at (0.33,0.12) {$\theta_2$};
+\node at (0,-1.55) {\small \shortstack{$E_g=E_0/\kappa_X$ \\ $p_g=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
+\end{scope}
+
+% composition arrow
+\draw[->,thick] (1.3,0.6) -- (1.9,0.6);
+\node at (1.6,0.77) {\small compose};
+\end{tikzpicture}
+\end{center}
 
 
 \subsection{Clear Relational Symmetry Between Kinematic and Potential Projections }
@@ -37,78 +100,6 @@ Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate "effe
 
 
 
-\subsection{Causal Continuity and Energy Symmetry}
-\begin{theorem}[Energy Symmetry]
-The specific energy differences (per unit of rest energy) perceived by two observers for a transition between their states balance according to the Energy-Symmetry Law:
-\begin{equation}
-\Delta E_{A \to B} + \Delta E_{B \to A} = 0.
-\end{equation}
-\end{theorem}
-\begin{proof}
-Consider two observers:
-\begin{itemize}
-\item Observer $A$ at rest on the surface at radius $r_A$ (state defined by $\kappa_A, \beta_A=0$).
-\item Observer $B$ orbiting at radius $r_B > r_A$ with orbital velocity $v_B$ (state defined by $\kappa_B, \beta_B$).
-\end{itemize}
-Each observer perceives energy transfers as the sum of the change in potential and kinetic energy budgets.
-
-From $A$'s perspective (transition from surface to orbit):
-\begin{enumerate}
-\item An object gains potential energy by moving away from the gravitational center.
-\item It gains kinetic energy by accelerating to orbital velocity.
-\end{enumerate}
-The total specific energy required for this transition is the sum of these two contributions:
-\begin{equation}
-\boxed{\Delta E_{A \to B} = \underbrace{\frac{1}{2}\left(\kappa_A^2 - \kappa_B^2\right)}_{\text{Change in Potential}} + \underbrace{\frac{1}{2}\left(\beta_B^2 - \beta_A^2\right)}_{\text{Change in Kinetic}}}
-\end{equation}
-Since observer A is at rest, $\beta_A = 0$, and the expression simplifies to:
-\begin{equation}
-\Delta E_{A \to B} = \frac{1}{2}\left((\kappa_A^2 - \kappa_B^2) + \beta_B^2\right)
-\end{equation}
-
-From $B$'s perspective (transition from orbit to surface):
-\begin{enumerate}
-\item The object loses potential energy descending into a stronger gravitational field.
-\item It loses kinetic energy by reducing its velocity to rest.
-\end{enumerate}
-This results in a specific energy difference:
-\begin{equation}
-\Delta E_{B \to A} = \frac{1}{2}\left((\kappa_B^2 - \kappa_A^2) + (\beta_A^2 - \beta_B^2)\right) = \frac{1}{2}\left((\kappa_B^2 - \kappa_A^2) - \beta_B^2\right)
-\end{equation}
-
-Summing these transfers gives:
-\begin{equation}
-\Delta E_{A \to B} + \Delta E_{B \to A} = 0
-\end{equation}
-Thus, no net energy is created or destroyed in a closed cycle of transitions, confirming the Energy-Symmetry Law as a direct consequence of the closed geometry.
-\end{proof}
-
-\subsection{The Specific Energy Transfer ($\Delta E$):} This is the projectional energy difference between states, equivalent to the Total Relational Shift $Q$, corresponding to the classical total energy of a transition (per unit rest energy). It is defined as the \textbf{sum of the changes} in the potential and kinetic energy budgets:
-    \begin{equation}
-    \Delta E_{A \to B} = \Delta U_{A \to B} + \Delta K_{A \to B} = \frac{1}{2}\left(\kappa_A^2 - \kappa_B^2\right) + \frac{1}{2}\left(\beta_B^2 - \beta_A^2\right)
-    \end{equation}
-It is this quantity, $\Delta E$, that is conserved and must balance to zero in any closed system.
-    
-When the closure condition for stable, periodic orbits ($\kappa^2 - 2\beta^2 = 0$) is applied, the general Energy-Symmetry Law simplifies into remarkably elegant and direct forms. These simplified equations provide the precise energy balance for transitions involving energetically closed systems, such as planets or satellites in stable orbits.
-
-\paragraph{Case 1: Surface-to-Orbit Transfer.}
-For a transfer from a state of rest (A, where $\beta_A = 0$) to a closed orbit (B) where $E_{0B}$ is the objects rest energy, the specific energy balance is given by:
-\begin{equation}
-\frac{E_{A \to B}}{E_{0B}} = \frac{1}{2}(\kappa_A^2 - \beta_B^2)
-\end{equation}
-This result is derived by applying the closure condition $\kappa_B^2 = 2\beta_B^2$ to the general energy transfer formula, elegantly linking the initial potential projection to the final kinetic projection.
-
-\paragraph{Case 2: Orbit-to-Orbit Transfer.}
-For a transfer between two different closed orbits (A and B), the simplification is even more profound. The specific energy balance reduces to:
-\begin{equation}
-\frac{E_{A \to B}}{E_{0B}} = \frac{1}{2}(\beta_A^2 - \beta_B^2)
-\end{equation}
-In this case, applying the closure condition to both the initial and final orbits causes the potential projection terms ($\kappa^2$) to cancel out completely. The entire energy balance of the transfer is expressed purely as the difference between the squares of the initial and final kinetic projections. This demonstrates a deep symmetry in the energetic structure of stable orbital systems.
-
-
-
-
-
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -129,6 +120,151 @@ In this case, applying the closure condition to both the initial and final orbit
 \caption{Critical radii and their projectional parameters in WILL Relational Geometry. 
 All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as special values of $(\kappa,\beta)$ from the single closure law $\kappa^2=2\beta^2$.}
 \end{table}
+
+
+
+\begin{tikzpicture}[scale=2, thick]
+
+% Axes
+\draw[->] (0,0) -- (1.2,0) node[right] {$\beta^2$};
+\draw[->] (0,0) -- (0,2.4) node[above] {$\kappa^2$};
+
+% Points (beta^2, kappa^2)
+\coordinate (ISCO) at (0.166,0.333); % 1/6, 1/3
+\coordinate (Photon) at (0.333,0.666); % 1/3, 2/3
+\coordinate (Schwarz) at (0.5,1); % 1/2, 1
+\coordinate (Kerr) at (1,2); % 1, 2
+
+% Plot points
+\filldraw[red] (ISCO) circle (1pt) node[below left] {ISCO};
+\filldraw[blue] (Photon) circle (1pt) node[right] {Photon Sphere};
+\filldraw[green!60!black] (Schwarz) circle (1pt) node[right] {Schwarzschild Horizon};
+\filldraw[purple] (Kerr) circle (1pt) node[right] {Extremal Kerr Horizon};
+
+% Line through them (kappa^2 = 2 beta^2)
+\draw[dashed] (0,0) -- (1.1,2.2) node[above right] {$\kappa^2 = 2\beta^2$};
+
+\end{tikzpicture}
+
+
+\section{Total Relational Shift $Q$}
+\hypertarget{sec:DisQ}{}\label{sec:DisQ}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/13_Total-Projection-as-Vector-on-b-k-plane.png}
+\end{figure}
+
+
+\hypertarget{eq:Q-definition}{}\label{eq:Q-definition}
+When an observer observes another system, they assign to it a Total Relational Shift norm $Q$:
+\begin{equation}
+\boxed{
+Q^2=\beta^2+\kappa^2
+}
+\end{equation}
+Relational reciprocity is the invariance of this norm under the self-centering operation of each observer.
+
+Each observer places itself at the relational origin
+\[
+(\beta,\kappa)=(0,0).
+\]
+If the other system now looks back, it again self--centres at $(0,0)$ and applies
+the same rule. It measures the observer's $(\beta,\kappa)$ and again obtains
+\[
+Q^2=\beta^2+\kappa^2.
+\]
+Thus $Q$ is the \emph{norm} of Total Relational Shift, not a spatial distance.
+Geometrically, the observer is always at the centre of its own $S^{1}$ (or
+$S^{2}$) carrier, and any external system is a point $(\beta,\kappa)$ on that
+plane. The scalar $Q$ measures the total deviation from the observer's relational
+origin.
+
+\begin{remark}[Closure-specific simplification]
+Under energetic closure  $\kappa^{2}=2\beta^{2}$ (circular/periodic systems),
+the norm reduces to $Q^{2}=3\beta^{2}$ (proved uniquely in Chapter C, \ref{thm:closure}). 
+
+In general (open or elliptic) configurations, the full definition $Q^{2}=\beta^{2}+\kappa^{2}$ must be used.
+\end{remark}
+
+\subsection{Principle of Relational Reciprocity}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=3, >=Latex]
+    % --- Definitions ---
+    \def\R{1.0} % Unit Radius (The Horizon)
+    \coordinate (O) at (0,0);       % Observer Center
+    \coordinate (Obj) at (0.65, 0.45); % Object Center (Q vector end)
+    
+    % Projections of the Object center
+    \coordinate (Bx) at (0.65, 0);
+    \coordinate (Ky) at (0, 0.45);
+
+    % --- Axes ---
+    % Drawing axes slightly longer than radius to show context
+    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
+    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Gravitational)};
+
+    % --- Observer Frame (Blue) ---
+    % The "horizon" of the observer
+    \draw[blue, thick] (O) circle (\R);
+    \fill[blue] (O) circle (0.02) node[below left] {Obs $(0,0)$};
+
+    % --- Object Frame (Red) ---
+    % The "horizon" of the object, centered at Q
+    \draw[red, thick, dashed] (Obj) circle (\R);
+    \fill[red] (Obj) circle (0.02) node[above right] {Obj $(0 , 0)$};
+
+    % --- Vector Q ---
+    \draw[->, line width=1.5pt, black] (O) -- (Obj) node[midway, above left] {$Q$};
+
+    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
+    \draw[dotted, thick] (Obj) -- (Bx) node[below] {$\beta$};
+    \draw[dotted, thick] (Obj) -- (Ky) node[left] {$\kappa$};
+
+    % --- Annotations ---
+    % Optional: Show the Causal Lock condition physically
+    \node[blue, font=\small] at (-0.5, -0.8) {Observer's Horizon};
+    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
+
+\end{tikzpicture}
+\caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the orthogonal projections $\beta$ and $\kappa$. Interaction is causal only when the center of the Object lies within the Observer's horizon ($Q < 1$), ensuring mutual coverage.}
+\hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
+\end{figure}
+
+
+\paragraph{Self--centering reciprocity.}
+Every observer performs self--centering:
+\[
+(\beta,\kappa)=(0,0).
+\]
+When I observe another system, I assign to it $(\beta,\kappa)$ and therefore a
+total shift
+\[
+Q^2=\beta^2+\kappa^2.
+\]
+When that system observes me, it again self--centres and obtains the same form.
+It assigns to me some $(\beta,\kappa)$ and again computes $Q^2=\beta^2+\kappa^2$.
+
+Reciprocity is therefore not a vector symmetry in a shared space. It is a
+symmetry of the \emph{self--centering operation}: each observer applies the same
+rule and only the norm of shift is invariant.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\[
+\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
+\]
+There is no common background arena. There are only mutual total shift
+magnitudes $Q$ computed in each observer's own relational origin.
+\end{tcolorbox}
+
+
+
+
+
+
+
 
 
 
@@ -198,7 +334,7 @@ $z_{bo}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
 $\tau_{Wo}(o)=\kappa_{Xo}(o)\cdot\beta_{Yo}(o)= Z_{sys}(o)^{-1}$ (phase spacetime factor) \\
 
 \subsubsection*{Relational Geometry (WILL)} \\
-$\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical) \\
+$\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical)  \\
 $\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical) \\
 $\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (relativistic phase factor) \\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}$ (gravitational phase factor) \\
@@ -209,20 +345,36 @@ $t = \frac{a}{c}$ (temporal scale as phase period) \\
 $z_k = \frac{1}{\kappa_{X}}-1$ (gravitational redshift) \\
 $z_{b}=\frac{1}{\beta_{Y}}-1$  (transverse Doppler shift) \\
 
-NEEDS TESTING
+NEEDS TESTING \\
 $Z_{raw}(o)=(1+\frac{\beta}{e_{cY}}(\cos(o+\omega_{i})+e_{c}\cos(\omega_{i}))\sin(i))\ Z_{sys}(o)$ (raw light shift including the line of site Doppler at phase o) \\
-$i=$ (orbital inclination in relation to line of site and orbital plane)
-$\omega_{i}=$ (phase turn or argument of periapsis)
+$\beta_{los}\left(o\right)=\frac{\beta}{\sqrt{1-e_{c}^{2}}}\left(\cos(o+\omega_{i})+e_{c}\cos(\omega_{i})\right)\sin(i)$  (line of site light shift) \\
+$i=$ (orbital inclination in relation to line of site and orbital plane)  \\
+$\omega_{i}=$ (phase turn or argument of periapsis) \\
+$K_{i}=\frac{\beta}{\sqrt{1-e_{c}^{2}}}\sin(i)$  (semi-amplitude invariant) \\
+$Z_{rawmax}=Z_{sys}(o_{i1})\left(1+K_{i}(1+e_{c}\cos\omega_{i})\right)$ \\
+$Z_{rawmin}=Z_{sys}(o_{i2})\left(1+K_{i}(-1+e_{c}\cos\omega_{i})\right)$ \\
+$O_{oi}=\left(O_{o}+\omega_{i}\right)$ \\
+$o_{i1}=-\omega_{i}$ \\
+$o_{i2}=\pi-\omega_{i}$ \\
+$Z_{sysi1}(o_{i1})=\left(1-\beta^{2}\frac{1+e_{c}^{2}+2e_{c}\cos\left(\omega_{i}\right)}{1-e_{c}^{2}}\right)^{-\frac{1}{2}}\left(1-2\beta^{2}\frac{1+e_{c}\cos\left(\omega_{i}\right)}{1-e_{c}^{2}}\right)^{-\frac{1}{2}}$ \\
+$Z_{sysi2}(o_{i2})=\left(1-\beta^{2}\frac{1+e_{c}^{2}-2e_{c}\cos\left(\omega_{i}\right)}{1-e_{c}^{2}}\right)^{-\frac{1}{2}}\left(1-2\beta^{2}\frac{1-e_{c}\cos\left(\omega_{i}\right)}{1-e_{c}^{2}}\right)^{-\frac{1}{2}}$ \\
 
-\textbf{Un-tilted 2D coordinates within the orbital plane:}
-$x_{orb} = r(o) \cos(o + \omega_i)$
-$y_{orb} = r(o) \sin(o + \omega_i)$
 
-\textbf{Parametric equations for the observed orbit, entirely free of the absolute ICRF background}
-$
-\begin{bmatrix} x_{sky} \\ y_{sky} \\ z_{depth} \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos(i) & -\sin(i) \\ 0 & \sin(i) & \cos(i) \end{bmatrix} \begin{bmatrix} x_{orb} \\ y_{orb} \\ 0 \end{bmatrix}$ \\
+
+\textbf{Un-tilted 2D coordinates within the orbital plane} \\
+$x_{orb} = r(o) \cos(o + \omega_i)$ \\
+$y_{orb} = r(o) \sin(o + \omega_i)$ \\
+
+\textbf{Parametric equations for the observed orbit, entirely free of the absolute ICRF background}\\
+
+$\begin{bmatrix} x_{sky} \\ y_{sky} \\ z_{depth} \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos(i) & -\sin(i) \\ 0 & \sin(i) & \cos(i) \end{bmatrix} \begin{bmatrix} x_{orb} \\ y_{orb} \\ 0 \end{bmatrix}$ \\
 
 $x_{sky} = r(o) \cos(o + \omega_i)$ \\
 $y_{sky} = r(o) \sin(o + \omega_i) \cos(i)$ \\
 $z_{depth} = r(o) \sin(o + \omega_i) \sin(i)$ \\
+
+
+
+
+
 

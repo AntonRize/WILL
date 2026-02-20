@@ -1,0 +1,139 @@
+import numpy as np
+import pandas as pd
+from scipy.optimize import differential_evolution
+
+# ==========================================
+# 1. FIXED TIMING PARAMETERS
+# ==========================================
+C_KMS = 299792.458              
+P_YRS = 16.0518                 
+P_DAYS = P_YRS * 365.25         
+T_PERI = 58257.698              
+
+# ==========================================
+# 2. DYNAMIC KEPLER SOLVER
+# ==========================================
+def get_phase(t, t_peri, P, e):
+    M = (2 * np.pi / P) * (t - t_peri)
+    E = M.copy()
+    for _ in range(20):
+        E = E - (E - e * np.sin(E) - M) / (1 - e * np.cos(E))
+    o = 2 * np.arctan2(np.sqrt(1 + e) * np.sin(E / 2), np.sqrt(1 - e) * np.cos(E / 2))
+    return o
+
+# ==========================================
+# 3. R.O.M. EXACT OBSERVATIONAL MODEL (WITH PRECESSION)
+# ==========================================
+def generate_z_raw_dynamic(t_obs, o, beta, i_inc, beta_z0, e, omega_0):
+    # Calculate R.O.M. strict precession per orbit
+    delta_phi_will = (6 * np.pi * beta**2) / (1 - e**2)
+    
+    # Apply dynamic precession based on time elapsed since periapsis
+    orbits_elapsed = (t_obs - T_PERI) / P_DAYS
+    omega_dynamic = omega_0 + delta_phi_will * orbits_elapsed
+    
+    # Directional Line-of-Sight Kinematic Projection (using dynamic omega)
+    K = (beta / np.sqrt(1 - e**2)) * np.sin(i_inc)
+    beta_los = K * (np.cos(o + omega_dynamic) + e * np.cos(omega_dynamic))
+    
+    # Local Squared Projections (Scalar Invariants - strictly dependent on phase o)
+    beta_o_sq = (beta**2) * (1 + e**2 + 2 * e * np.cos(o)) / (1 - e**2)
+    kappa_o_sq = 2 * (beta**2) * (1 + e * np.cos(o)) / (1 - e**2)
+    
+    # Systemic Phase Factor Z_sys (2nd-Order Baseline)
+    Z_sys = (1 - beta_o_sq)**(-0.5) * (1 - kappa_o_sq)**(-0.5)
+    
+    # Total combined shift
+    return Z_sys * (1 + beta_los) * (1 + beta_z0)
+
+# ==========================================
+# 4. DATA PARSING
+# ==========================================
+print("Loading empirical dataset (LSR-corrected)...")
+df = pd.read_csv('S0-2_DataS1_full.csv')
+df.columns = df.columns.str.strip() 
+
+t_obs = df['MJD'].values
+vz_obs = df['RV_km_s'].values
+sigma_vz = df['sigma_km_s'].values
+
+Z_obs = 1.0 + (vz_obs / C_KMS)
+sigma_Z = sigma_vz / C_KMS
+
+# ==========================================
+# 5. PHYSICALLY CONSTRAINED 5-PARAM INVERSION + PRECESSION
+# ==========================================
+def objective_function(params):
+    beta_guess, i_guess, beta_z0_guess, e_guess, omega_0_guess = params
+    
+    # 1. Map time to pure geometric phase
+    o_obs_dynamic = get_phase(t_obs, T_PERI, P_DAYS, e_guess)
+    
+    # 2. Generate model with embedded R.O.M. dynamical precession
+    Z_model = generate_z_raw_dynamic(
+        t_obs, o_obs_dynamic, beta_guess, i_guess, beta_z0_guess, e_guess, omega_0_guess
+    )
+    
+    # 3. Calculate Chi-Squared
+    chi2 = np.sum(((Z_obs - Z_model) / sigma_Z)**2)
+    return chi2
+
+# Strictly justified physical boundaries
+bounds = [
+    (0.001, 0.05),          # beta bounds
+    (0.0, np.pi),           # i bounds (fully unconstrained 0 to 180)
+    (-0.0001, 0.0001),      # beta_z0 bounds (RESTRICTED to physical +/- 30 km/s)
+    (0.01, 0.99),           # e bounds
+    (0.0, 2 * np.pi)        # omega bounds (fully unconstrained 0 to 360)
+]
+
+print("\nExecuting Dynamic R.O.M. Inversion (Precession enabled)...")
+print("Searching full parameter space. Please wait...")
+
+result = differential_evolution(
+    objective_function, bounds, strategy='best1bin', 
+    maxiter=2000, popsize=20, tol=1e-7, seed=42
+)
+
+beta_opt, i_opt, beta_z0_opt, e_opt, omega_0_opt = result.x
+
+i_deg = np.degrees(i_opt) % 180
+omega_0_deg = np.degrees(omega_0_opt) % 360
+vz0_kms = beta_z0_opt * C_KMS
+
+# Calculate the actual R.O.M. precession applied (for output)
+delta_phi_will_opt = (6 * np.pi * beta_opt**2) / (1 - e_opt**2)
+precession_deg_per_orbit = np.degrees(delta_phi_will_opt)
+
+# ==========================================
+# 6. RESULTS OUTPUT
+# ==========================================
+print("\n=== R.O.M. DYNAMIC PRECESSION RECOVERY ===")
+print(f"Eccentricity (e):         {e_opt:.5f} (GRAVITY Ref: 0.88466)")
+print(f"Base Arg of Periapsis (\u03C90):{omega_0_deg:.2f}\u00B0 (GRAVITY Ref: 66.13\u00B0)")
+print(f"Internal R.O.M. Precession:{precession_deg_per_orbit:.3f}\u00B0 / orbit")
+print("---------------------------------------------------")
+print(f"Global Kin. Proj. (\u03B2):   {beta_opt:.6f}")
+print(f"Extracted Inclination (i): {i_deg:.2f}\u00B0 (GRAVITY Ref: ~134\u00B0)")
+print(f"Background Drift (v_z0):   {vz0_kms:.2f} km/s")
+print(f"Fit Quality (\u03C7\u00B2):        {result.fun:.2f}")
+
+
+
+OUTPUT:
+
+
+Loading empirical dataset (LSR-corrected)...
+
+Executing Dynamic R.O.M. Inversion (Precession enabled)...
+Searching full parameter space. Please wait...
+
+=== R.O.M. DYNAMIC PRECESSION RECOVERY ===
+Eccentricity (e):         0.88498 (GRAVITY Ref: 0.88466)
+Base Arg of Periapsis (ω0):66.26° (GRAVITY Ref: 66.13°)
+Internal R.O.M. Precession:0.207° / orbit
+---------------------------------------------------
+Global Kin. Proj. (β):   0.006448
+Extracted Inclination (i): 135.68° (GRAVITY Ref: ~134°)
+Background Drift (v_z0):   -20.56 km/s
+Fit Quality (χ²):        166.87
