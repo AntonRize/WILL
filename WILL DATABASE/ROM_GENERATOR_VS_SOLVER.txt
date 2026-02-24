@@ -1,0 +1,267 @@
+import numpy as np
+import pandas as pd
+
+# ==========================================
+# STRICT GR GENERATOR (STANDARD PHYSICS ONLY)
+# No R.O.M. equations are used here.
+# ==========================================
+
+np.random.seed(15658)
+
+# Standard Constants
+G = 6.6743e-11
+C = 299792458.0
+M_sun = 1.98847e30
+C_KMS = C / 1000.0
+
+# 1. Hidden Physical Parameters (Extreme S-star analogue)
+M_bh = 4.5e6 * M_sun                    # 4.3 million solar masses
+P_yrs = 15.2                            # 15.2 years
+P_sec = P_yrs * 365.25 * 86400.0
+T_peri = 56000.0
+
+# Kepler's 3rd Law for semi-major axis (meters)
+a_m = (G * M_bh * P_sec**2 / (4 * np.pi**2))**(1/3)
+
+true_e = 0.90                           # Extreme eccentricity
+true_i = np.radians(168)              # Hidden inclination
+true_omega = np.radians(70.0)          # Hidden argument of periapsis
+true_vz0 = -16.5                        # Background drift km/s
+
+# 2. Save Answers to Locked File
+with open('LOCKED_ANSWERS.txt', 'w') as f:
+    f.write("=== STRICT BLIND TEST TRUE PARAMETERS ===\n")
+    f.write("DO NOT READ UNTIL R.O.M. INVERSION IS COMPLETE.\n\n")
+    f.write(f"Period (P):               {P_yrs:.3f} yrs\n")
+    f.write(f"Eccentricity (e):         {true_e:.5f}\n")
+    f.write(f"Argument of Periapsis (w):{np.degrees(true_omega):.2f} deg\n")
+    f.write(f"Inclination (i):          {np.degrees(true_i):.2f} deg\n")
+    f.write(f"Background Drift (vz0):   {true_vz0:.2f} km/s\n")
+    f.write("=========================================\n")
+
+# 3. Generate Observation Times
+t_obs = np.sort(np.random.uniform(T_peri - 11000, T_peri + 11000, 250))
+
+# 4. Standard GR Precession (radians per orbit)
+delta_omega_gr = (6 * np.pi * G * M_bh) / (C**2 * a_m * (1 - true_e**2))
+
+def get_true_anomaly(t, t_peri, P_days, e):
+    M = (2 * np.pi / P_days) * (t - t_peri)
+    E = M.copy()
+    for _ in range(20):
+        E = E - (E - e * np.sin(E) - M) / (1 - e * np.cos(E))
+    nu = 2 * np.arctan2(np.sqrt(1 + e) * np.sin(E / 2), np.sqrt(1 - e) * np.cos(E / 2))
+    return nu
+
+nu_obs = get_true_anomaly(t_obs, T_peri, P_yrs * 365.25, true_e)
+
+# Dynamic omega (Standard GR)
+orbits_elapsed = (t_obs - T_peri) / (P_yrs * 365.25)
+omega_dyn = true_omega + delta_omega_gr * orbits_elapsed
+
+# 5. GR 1PN Kinematics
+# Keplerian RV
+K_amp = np.sqrt(G * M_bh / (a_m * (1 - true_e**2))) * np.sin(true_i)
+V_K = K_amp * (np.cos(omega_dyn + nu_obs) + true_e * np.cos(omega_dyn))
+
+# Transverse Doppler + Gravitational Redshift (1PN)
+r_m = a_m * (1 - true_e**2) / (1 + true_e * np.cos(nu_obs))
+v_sq = G * M_bh * (2/r_m - 1/a_m)
+gamma_shift = (v_sq / (2 * C**2)) + (G * M_bh / (r_m * C**2))
+V_rel = gamma_shift * C
+
+# Total standard observable RV
+total_rv_kms = (V_K + V_rel) / 1000.0 + true_vz0
+
+# 6. Noise Addition (Strictly defined to preserve SNR > 10)
+noise = np.random.normal(0, 10.0, len(t_obs)) # 10 km/s error
+obs_rv = total_rv_kms + noise
+
+df = pd.DataFrame({'MJD': t_obs, 'RV_km_s': obs_rv, 'sigma_km_s': 10.0})
+df.to_csv('GR_BLIND_DATASET.csv', index=False)
+print("Standard GR dataset generated: 'GR_BLIND_DATASET.csv'")
+# ==========================================
+# PRE-FLIGHT CHECK: IS THE SIGNAL RELATIVISTIC ENOUGH?
+# ==========================================
+# Calculate velocity at periastron (approximate Newtonian)
+v_peri_approx = np.sqrt((G * M_bh / a_m) * ((1 + true_e) / (1 - true_e)))
+beta_peri = v_peri_approx / C
+
+# Approximate relativistic shift amplitude (Z_sys effect in km/s)
+# This is roughly c * beta^2
+rel_shift_amplitude_kms = C_KMS * (beta_peri**2)
+
+print("\n=== DATASET DIAGNOSTICS ===")
+print(f"Peak velocity at periastron: ~{v_peri_approx/1000:.0f} km/s (beta ~ {beta_peri:.4f})")
+print(f"Approximate Relativistic Shift Signal: ~{rel_shift_amplitude_kms:.1f} km/s")
+print(f"Instrument Noise Level (Sigma): {10.0} km/s") # Change 10.0 if you changed it above
+
+if rel_shift_amplitude_kms > 2.0 * 10.0: # Signal should be at least 2x noise
+    print("STATUS: [GREEN] Excellent Dataset. Relativistic signal is strong.")
+elif rel_shift_amplitude_kms > 10.0:
+    print("STATUS: [YELLOW] Challenging Dataset. Signal is comparable to noise.")
+else:
+    print("STATUS: [RED] POOR DATASET. Relativistic signal drowned in noise. R.O.M. will likely fail to extract inclination.")
+print("===========================\n")
+
+
+
+
+________________________________________________________________________________________
+
+
+
+
+import numpy as np
+import pandas as pd
+from scipy.optimize import differential_evolution
+
+C_KMS = 299792.458
+
+def get_phase(t, t_peri, P, e):
+    M = (2 * np.pi / P) * (t - t_peri)
+    E = M.copy()
+    for _ in range(20):
+        E = E - (E - e * np.sin(E) - M) / (1 - e * np.cos(E))
+    o = 2 * np.arctan2(np.sqrt(1 + e) * np.sin(E / 2), np.sqrt(1 - e) * np.cos(E / 2))
+    return o
+
+# ==========================================
+# R.O.M. SOLVER WITH DYNAMIC PRECESSION
+# ==========================================
+def generate_z_raw_dynamic(t_obs, o, beta, i_inc, beta_z0, e, omega_0, P_days, T_peri):
+    # EXPLICIT R.O.M. PRECESSION INTEGRATION
+    delta_phi_will = (6 * np.pi * beta**2) / (1 - e**2)
+    orbits_elapsed = (t_obs - T_peri) / P_days
+    omega_dynamic = omega_0 + delta_phi_will * orbits_elapsed
+
+    # Kinematic Projections (utilizing dynamic precessed omega)
+    K = (beta / np.sqrt(1 - e**2)) * np.sin(i_inc)
+    beta_los = K * (np.cos(o + omega_dynamic) + e * np.cos(omega_dynamic))
+    beta_o_sq = (beta**2) * (1 + e**2 + 2 * e * np.cos(o)) / (1 - e**2)
+    kappa_o_sq = 2 * (beta**2) * (1 + e * np.cos(o)) / (1 - e**2)
+
+    # R.O.M. Systemic Baseline Invariant
+    Z_sys = (1 - beta_o_sq)**(-0.5) * (1 - kappa_o_sq)**(-0.5)
+
+    return Z_sys * (1 + beta_los) * (1 + beta_z0)
+
+print("Loading GR_BLIND dataset...")
+df = pd.read_csv('GR_BLIND_DATASET.csv')
+t_obs = df['MJD'].values
+vz_obs = df['RV_km_s'].values
+sigma_vz = df['sigma_km_s'].values
+
+Z_obs = 1.0 + (vz_obs / C_KMS)
+sigma_Z = sigma_vz / C_KMS
+
+def objective_function(params):
+    beta_guess, i_guess, beta_z0_guess, e_guess, omega_0_guess, P_days_guess, T_peri_guess = params
+
+    o_obs_dynamic = get_phase(t_obs, T_peri_guess, P_days_guess, e_guess)
+    Z_model = generate_z_raw_dynamic(
+        t_obs, o_obs_dynamic, beta_guess, i_guess, beta_z0_guess, e_guess, omega_0_guess, P_days_guess, T_peri_guess
+    )
+
+    chi2 = np.sum(((Z_obs - Z_model) / sigma_Z)**2)
+    return chi2
+
+time_span = np.max(t_obs) - np.min(t_obs)
+
+bounds = [
+    (0.005, 0.05),                                       # beta (forced high-relativistic search)
+    (0.0, np.pi),                                        # i (0 to 180 deg)
+    (-0.0003, 0.0003),                                   # beta_z0 (+/- 90 km/s)
+    (0.6, 0.99),                                         # e (forced highly eccentric)
+    (0.0, 2 * np.pi),                                    # omega_0
+    (3000, 7000),                                        # P_days (roughly 8 to 19 years)
+    (np.min(t_obs) - time_span, np.max(t_obs) + time_span) # T_peri
+]
+
+print("Executing 7-Parameter R.O.M. Inversion. Please wait...")
+
+result = differential_evolution(
+    objective_function, bounds, strategy='best1bin',
+    maxiter=4000, popsize=30, tol=1e-7, seed=101
+)
+
+beta_opt, i_opt, beta_z0_opt, e_opt, omega_0_opt, P_days_opt, T_peri_opt = result.x
+
+i_deg = np.degrees(i_opt) % 180
+omega_0_deg = np.degrees(omega_0_opt) % 360
+vz0_kms = beta_z0_opt * C_KMS
+P_yrs_opt = P_days_opt / 365.25
+prec_rate = np.degrees((6 * np.pi * beta_opt**2) / (1 - e_opt**2))
+
+print("\n=== R.O.M. EXTRACTION RESULTS ===")
+print(f"Period (P):               {P_yrs_opt:.3f} years")
+print(f"Eccentricity (e):         {e_opt:.5f}")
+print(f"Argument of Periapsis (w):{omega_0_deg:.2f}\u00B0")
+print(f"Extracted Inclination (i):{i_deg:.2f}\u00B0")
+print(f"Background Drift (v_z0):  {vz0_kms:.2f} km/s")
+print(f"Kinematic Proj (beta):    {beta_opt:.6f}")
+print(f"Precession Rate:          {prec_rate:.4f}\u00B0 / orbit")
+print(f"Fit Quality (\u03C7\u00B2):        {result.fun:.2f}")
+
+
+_________________________________________________________________________________________
+
+
+
+2 RESULTS:
+
+
+=== STRICT BLIND TEST TRUE PARAMETERS ===
+DO NOT READ UNTIL R.O.M. INVERSION IS COMPLETE.
+
+Period (P):               15.200 yrs
+Eccentricity (e):         0.90000
+Argument of Periapsis (w):70.00 deg
+Inclination (i):          168.00 deg
+Background Drift (vz0):   -16.50 km/s
+=========================================
+
+
+
+
+
+=== R.O.M. EXTRACTION RESULTS ===
+Period (P):               15.203 years
+Eccentricity (e):         0.90011
+Argument of Periapsis (w):67.97°
+Extracted Inclination (i):165.61°
+Background Drift (v_z0):  -10.96 km/s
+Kinematic Proj (beta):    0.005623
+Precession Rate:          0.1799° / orbit
+Fit Quality (χ²):        232.42
+
+
+
+__________________________________________________________________________________-
+
+
+
+
+=== STRICT BLIND TEST TRUE PARAMETERS ===
+DO NOT READ UNTIL R.O.M. INVERSION IS COMPLETE.
+
+Period (P):               15.200 yrs
+Eccentricity (e):         0.86000
+Argument of Periapsis (w):105.00 deg
+Inclination (i):          10.00 deg
+Background Drift (vz0):   18.50 km/s
+=========================================
+
+
+
+
+=== R.O.M. EXTRACTION RESULTS ===
+Period (P):               15.197 years
+Eccentricity (e):         0.86163
+Argument of Periapsis (w):103.91°
+Extracted Inclination (i):10.95°
+Background Drift (v_z0):  21.73 km/s
+Kinematic Proj (beta):    0.006022
+Precession Rate:          0.1520° / orbit
+Fit Quality (χ²):        224.24
+

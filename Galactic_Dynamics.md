@@ -2,70 +2,81 @@
 layout: default
 title: "Galactic Dynamics"
 permalink: /Galactic_Dynamics/
-description: "Galaxy rotation curves explained without Dark Matter. Interactive SPARC database analysis using the WILL Relational Geometry framework — 175 galaxies fitted from first principles."
+description: "Galaxy rotation curves explained without Dark Matter. Interactive SPARC database analysis (175 galaxies) using WILL Relational Geometry — zero free parameters."
 ---
 
 {% include interactive/galaxy_zoo.html %}
 
-# The Geometry of Logic: Resolving the Dark Sector
-### Why Philosophy Dictates the Numbers
+# Galactic Dynamics without Dark Matter
 
-## 1. The Philosophical Divergence: Substantialism vs. Relationalism
+**Flat rotation curves emerge naturally from the geometry of a closed relational universe.**
 
-The crisis in modern cosmology is not experimental; it is philosophical. When standard General Relativity fails to describe galactic rotations, the standard paradigm protects the theory by inventing invisible substances (**Dark Matter**) to fill the void. This approach assumes space is a passive container that must be filled to fit the equations.
+### The Standard Crisis
+Standard cosmology explains galactic rotation curves by adding an invisible halo of Dark Matter. This approach preserves General Relativity but requires ~5–10 times more mass than we can see — with no direct detection after decades of search.
 
-**WILL Relational Geometry** offers a rigorous alternative. We do not add invisible mass. We remove the hidden assumption of the "container."
+**WILL Relational Geometry** takes a different route. We do not add mass. We remove the hidden assumption that space is an empty container.  
 
-> **Definition: WILL**
->
-> $\textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY}$
->
-> This principle asserts logical identity. Structure and dynamics are not distinct interacting entities but dual aspects of a single closed relational system. [Test Link: Definition of WILL](https://willrg.com/documents/WILL_RG_I.pdf#nameddest=def:will)
+Instead, we treat **spacetime ≡ energy** as a single closed relational system (see [WILL RG Part I](https://willrg.com/documents/WILL_RG_I.pdf)). Geometry and dynamics become dual projections of the same invariant structure.
 
-## 2. The First Principle: Inevitability of the Fundamental Tone
+### The Fundamental Tone of the Universe
+Because the universe is topologically closed, any perturbation must eventually re-encounter itself. This enforces a **Global Phase-Closure Constraint**: only resonant modes persist and accumulate macroscopic relational shift.
 
-Since WILL is a closed relational structure, any perturbation must eventually re-encounter itself. This enforces a strict **Global Phase-Closure Constraint**: only modes that satisfy the phase condition $\Delta\phi = 2\pi n$ can persist.
+The result is a single persistent **Fundamental Standing Wave** — the resonant “tone” of the observable universe, set by the Hubble horizon scale $H_0$.
 
-This necessitates the existence of a **Fundamental Standing Wave** ($f_0$)—the resonant "heartbeat" of the Universe. The vacuum is not empty; it is a tensioned medium defined by the Universal Horizon ($H_0$).
+### The Law of Resonant Interference
+A star’s local Newtonian field interferes constructively with this global horizon tone. The observed velocity is the geometric-mean superposition:
 
-## 3. The New Formula: Law of Resonant Interference
+$$
+V_{\rm obs}^2 = V_{\rm bar}^2 + \sqrt{V_{\rm bar}^2 \cdot a_{\kappa} \cdot r}
+$$
 
-Why do rotation curves remain flat?
-It is not because of an invisible halo. It is because the local gravitational field of the star ($V_{bar}$) undergoes **Constructive Interference** with the Global Horizon acceleration ($a_{\kappa}$).
+where  
+- $V_{\rm bar}$ is the Newtonian velocity from visible baryons only,  
+- $r$ is the galactocentric radius,  
+- $a_{\kappa} = c H_0 / (3\pi) \approx 0.70 \times 10^{-10}$ m/s² is the **structural resonance scale**, derived directly from the measured CMB temperature $T_0$ and fine-structure constant $\alpha$ (no fitting, no free parameters).
 
-The observed velocity is strictly the geometric mean of the local Newtonian pull and the global pull:
+This single equation produces flat rotation curves, the Baryonic Tully–Fisher Relation ($V^4 \propto M_b$), and the Radial Acceleration Relation (RAR) across all galaxy types.
 
-$$V_{obs} = \sqrt{ V_{bar}^2 + \sqrt{V_{bar}^2 \cdot a_{\kappa} r} }$$
+### Zero-Parameter Test: SPARC Database (175 galaxies)
+We applied the interference law to the full SPARC sample — 175 disk galaxies with high-quality rotation curves and Spitzer photometry — using **fixed, population-synthesis mass-to-light ratios** and **zero adjustable parameters**.
 
-Where the acceleration scale $a_{\kappa}$ is not a fitted parameter, but is derived directly from the Cosmic Microwave Background temperature ($T_{CMB}$) and the Fine Structure Constant ($\alpha$):
+**Key results** (full protocol-independent analysis):
 
-$$a_{\kappa} = \frac{cH_0}{3\pi} \approx 0.70 \times 10^{-10} \, \text{m/s}^2$$
+| Metric                  | WILL RG Value          | Interpretation                          |
+|-------------------------|------------------------|-----------------------------------------|
+| Median RMSE             | 12.64 km/s             | High absolute accuracy                  |
+| Median signed bias      | –2.26 km/s (full sample)<br>+0.53 km/s (gas-dominated) | Negligible systematic offset |
+| Median reduced $\chi^2$ | 3.49                   | Excellent fit quality                   |
+| RAR scatter             | 0.065 dex              | Matches or beats best phenomenological models |
 
-## 4. Empirical Proof: The SPARC Database
+The same law also correctly predicts:
+- Milky Way solar-circle speed (~226 km/s, matches Gaia)
+- Wide-binary gravity boost (Gaia DR3/Chae 2023)
+- Baryonic Escape Threshold “bullseye” test
 
-We tested this "Zero Parameter" prediction against 175 galaxies from the SPARC database.
+### Verify It Yourself — Live Galactic Dynamics Engine
+The interactive lab below runs the **exact same zero-parameter WILL RG model** on raw SPARC data in real time.
 
-### Real Galaxies are Messy
-Real galaxies aren't perfect circles. To be fair, we apply a "Reality Filter" (Error Floor) to account for natural turbulence ($\sim 5$ km/s), preventing the model from being penalized for predicting smooth physics in a messy environment.
+**How to use:**
+1. Select any galaxy from the dropdown (or browse the full catalogue).  
+2. Watch the **cyan line** (WILL prediction) overlay the observed data points.  
+3. Check the live RMSE, $\chi^2$, and residuals.  
 
-### The Results
+{% include interactive/galactic_dynamics.html %}
 
-| Metric | Value | Meaning |
-| :--- | :--- | :--- |
-| **Median RMSE** | **12.64 km/s** | High Absolute Accuracy |
-| **Median Reduced $\chi^2$** | **3.49** | Exceptional Fit Quality |
+**Reality filter note**: A small 5 km/s error floor accounts for natural turbulence and measurement scatter — the model itself remains perfectly smooth.
 
-The data collapses onto the predicted curve without requiring Dark Matter halos.
+### What This Means
+The “missing mass” is not missing mass. It is the observable signature of a star’s resonant coupling to the cosmic horizon inside a closed relational geometry.  
+
+Dark Matter becomes redundant. The same framework that derives $H_0 \approx 68.15$ km/s/Mpc from $T_{\rm CMB}$ and $\alpha$ also explains galactic dynamics, supernova distances, CMB acoustics, and even returns the electron mass via holographic closure.
+
+**Full technical derivation** → [WILL Relational Geometry Part II (PDF)](https://willrg.com/documents/WILL_RG_II.pdf)  
+**All code & Colab notebooks** → [GitHub/AntonRize/WILL](https://github.com/AntonRize/WILL)
 
 ---
 
-## 5. Verify It Yourself (Galactic Dynamics Engine)
+**Ready to explore?**  
+Pick a galaxy above and watch the geometry speak for itself.
 
-Do not take our word for it. The calculator below runs the **Law of Resonant Interference** in real-time on raw astronomical data.
-
-**How to use:**
-1.  **Select Target:** Choose a galaxy from the dropdown.
-2.  **Observe:** Compare the **Cyan Line** (WILL Prediction) with the dots (Data).
-3.  **Check:** Look at the RMSE and $\chi^2$ values.
-
-{% include interactive/galactic_dynamics.html %}
+Questions or want to run your own dataset? Drop a message on the [forum](https://willrg.com/forum) or open an issue on GitHub.
