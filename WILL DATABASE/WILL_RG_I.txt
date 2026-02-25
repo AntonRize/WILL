@@ -2891,6 +2891,62 @@ In the Ablated model, this anti-correlation vanishes ($r = +0.031$), and $v_{z0}
 \caption{Full 5D Posterior mapping for S0-2 demonstrating the correctly positioned probability ridge.}
 \end{figure}
 
+\subsection{Independent Validation via Synthetic 1PN Data}
+\hypertarget{sec:synthetic_validation}{}\label{sec:synthetic_validation}
+
+To rigorously eliminate observational bias and prove that the algebraic decoupling of $\beta$ and $i$ is not an artefact of the specific S0-2 dataset or instrumental noise profile, the R.O.M. framework was subjected to a strict blind \textit{in silico} experiment.
+
+\subsubsection{Data Generation and Observational Strategy}
+
+A synthetic radial velocity dataset was generated using a standard 1st Post-Newtonian (1PN) Keplerian engine. The true parameters were randomly seeded, simulating a highly eccentric test mass ($e > 0.9$) orbiting a supermassive black hole. 
+
+Crucially, the generative model utilized the classical additive approximations for relativistic effects:
+\begin{equation}
+v_{\text{rel\_shift}} = c \left( \frac{GM}{rc^2} + \frac{v_{\text{orb}}^2}{2c^2} \right),
+\end{equation}
+and injected a realistic Gaussian noise profile of $\sigma = 3.0$ km/s. To simulate a realistic observational campaign (e.g., the GRAVITY Collaboration), the epoch sampling included sparse background monitoring and dense sampling around two consecutive periapsis passages to capture the accumulated precessional shift.
+
+\subsubsection{Three-Stage Algebraic Extraction}
+
+The recovery algorithm operated blindly, utilizing only the exact geometric constraints of R.O.M. without any reference to $M$ or $G$. The optimization was driven entirely by the unified phase observable:
+\begin{equation}
+Z_{\text{sys}} = \frac{1}{\sqrt{1 - \beta_o^2}\sqrt{1 - \kappa_o^2}},
+\end{equation}
+coupled with the continuous geometric precession rate $3\beta_{\text{int}}^2$ per radian of true anomaly.
+
+To avoid topological traps, a physics-first, three-stage extraction architecture was employed:
+\begin{enumerate}
+    \item \textbf{Global Keplerian Scout:} An unconstrained differential evolution scan isolated the geometric timing (Period $P$, eccentricity $e$, and epoch $T_{\text{peri}}$).
+    \item \textbf{R.O.M. Global Sniper:} The algorithm isolated the macroscopic amplitude $K \propto \beta \sin i$, breaking the $i$ vs $180^\circ - i$ projection symmetry by folding the domain to $[0, \pi/2]$.
+    \item \textbf{MCMC Bayesian Mapping:} A 32-walker ensemble mapped the residual probability ridge to extract the final parameters.
+\end{enumerate}
+
+\subsubsection{Blind Test Results}
+
+The R.O.M. framework successfully isolated the physical truth, breaking the $\beta \sin i$ degeneracy purely through the structural imposition of the $S^1$ and $S^2$ relational carrier constraints.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Parameter} & \textbf{True (Hidden 1PN Data)} & \textbf{R.O.M. MCMC Median} & \textbf{Deviation} \\
+\hline
+Period (yrs) & $12.237$ & $12.237$ & $0.00\%$ \\\hline
+Eccentricity ($e$) & $0.91024$ & $0.91023$ & $< 0.01\%$ \\\hline
+Inclination ($i$ folded) & $49.85^\circ$ & $49.92^\circ$ & $0.07^\circ$ \\\hline
+Background Drift ($v_{z0}$) & $-1.15$ km/s & $-1.00$ km/s & $0.15$ km/s \\
+\hline
+\end{tabular}
+\caption{Strict blind test recovery results ($\sigma = 3.0$ km/s). The R.O.M. algorithm cleanly separates the inclination $i$ from the kinematic projection $\beta$ without prior mass constraints. Colab Notebook: \href{https://github.com/AntonRize/WILL/blob/4c967185599ab7402fae50606a3a781c42dedb0d/Colab_Notebooks/ROM_Validation_via_Synthetic_1PN_Data.ipynb}{ROM_Validation_via_Synthetic_1PN_Data.ipynb}}
+\label{tab:synthetic_blind_test}
+\end{table}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Methodological Confirmation]
+The extraction of the true inclination angle $i$ from 1D radial synthetic data confirms that the $\beta-i$ degeneracy is strictly broken by the non-linear mathematical structure of the R.O.M. invariants. The framework explicitly maps 1D observables back to their complete 3D generative geometry.
+\end{tcolorbox}
+
 \subsection{Conclusion}
 
 The classical $M \sin i$ degeneracy is not a fundamental limitation of orbital mechanics. It is an artefact of using an incomplete, linearised description of the kinematic projection.  
