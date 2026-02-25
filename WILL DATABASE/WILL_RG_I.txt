@@ -23,6 +23,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}    
 \usepackage{enumitem}
+\usepackage{float}
 
 
 % --- START OF FOOTER SECTION ---
@@ -189,6 +190,9 @@ take the words as written, not as filtered through prior formalisms.
 \]
 \end{tcolorbox}
 
+\begin{itemize}
+    \item \textbf{\textit{\href{https://willrg.com/LOGOS_MAP/}{Interactive Derivation Map}}}
+\end{itemize}
 
 \begin{principle}[Epistemic Hygiene]
 \hypertarget{pr:epistemic}{}\label{pr:epistemic}
@@ -674,6 +678,10 @@ take the words as written, not as filtered through prior formalisms.
     \includegraphics[width=1\linewidth]{img/8_Kinetic-Energy-b-projection-on-S.png}
 \end{figure}
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Click to open]
+\textbf{ \href{https://www.desmos.com/geometry/6k1um2qbzm}{DESMOS: Kinetic projection β on the S¹ carrier (Special Relativity)}}
+\end{tcolorbox}
+
 Since $S^{1}$ encodes one-dimensional shift, the total energy $E$ of the system 
 must project consistently onto both axes:
 \[
@@ -681,6 +689,7 @@ E_{X} = E \beta,
 \qquad 
 E_{Y} = E \beta_{Y}.
 \]
+
 \subsection{The Geometric Nature of Mass}
 
 To derive the energy transformation, we must first explicitly identify the physical meaning of the orthogonal projections.
@@ -741,6 +750,9 @@ Mass is therefore not independent, but the rest-energy invariant itself.
     \centering
     \includegraphics[width=1\linewidth]{img/9_Energy-Momentum-Identity-on-S.png}
 \end{figure}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Click to open]
+\textbf{ \href{https://www.desmos.com/geometry/mbkzikthkh}{DESMOS: Energy-momentum Triangle}}
+\end{tcolorbox}
 
 
 \begin{proposition}[Horizontal Projection as Momentum]
@@ -766,6 +778,7 @@ Equivalently, upon restoring $c$,
 E^{2} = (pc)^{2} + (mc^{2})^{2}.
 \]
 \end{corollary}
+
 
 \begin{proof}
 By closure, $(E\beta)^2 + (E\beta_Y)^2 = E^2$. Substituting $p=E\beta$ and $m=E_0$ proves the claim. 
@@ -818,6 +831,10 @@ $\beta_Y = \sqrt{1-(v/c)^2}=\sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) = \sin(
     \centering
     \includegraphics[width=1\linewidth]{img/10_Potential-Energy-k-projection-on-S.png}
 \end{figure}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Click to open]
+\textbf{ \href{https://www.desmos.com/geometry/lsjhnc2e9x}{DESMOS: Potential projection as κ on S² carrier}}
+\end{tcolorbox}
+
 
 Analogous to $S^1$ the relational geometry of the sphere, $S^2$, provides orthogonal projections,  for two aspects of omnidirectional transformation. We define them as follows:
 
@@ -962,6 +979,9 @@ and therefore \(E_g^2=p_g^2+E_0^2\).
     \centering
     \includegraphics[width=1\linewidth]{img/13_Total-Projection-as-Vector-on-b-k-plane.png}
 \end{figure}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Click to open]
+\textbf{ \href{https://www.desmos.com/geometry/2nkjtezjpi}{DESMOS: Q as Total Relational Shift}}
+\end{tcolorbox}
 
 
 \hypertarget{eq:Q-definition}{}\label{eq:Q-definition}
@@ -2358,7 +2378,7 @@ did not reveal deeper reality - it compensated for a philosophical mistake.
 Once the ontological symmetry is restored, 
 Nature's laws reduce to algebraic self-consistency.  
 \[
-\boxed{\text{Bad Philosophy}} arrow \boxed{\text{Ontological Duplication}} arrow \boxed{\text{Mathematical Inflation}} 
+\boxed{\text{Bad Philosophy}} \Longrightarrow \boxed{\text{Ontological Duplication}} \Longrightarrow \boxed{\text{Mathematical Inflation}} 
 \]
 \[
 \boxed{\text{\textbf{Mathematical complexity is the symptom of philosophical negligence.}}}
@@ -2508,7 +2528,9 @@ Solar Gravitational Redshift & $z_{sun}$ & $2.1224 \times 10^{-6}$ & \cite{IAU_2
 \end{tabular}
 \end{table}
 
-
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Click to open]
+\textbf{ \href{https://www.desmos.com/calculator/wimnrykbvy}{DESMOS: Mercury's Precession no G no c}}
+\end{tcolorbox}
 
 \paragraph{1. Input: Kinematic Projection ($\beta_p$).}
 Radar telemetry directly measures the orbital velocity at perihelion ($v_p \approx 58.98$ km/s). The kinematic projection is simply this velocity normalized by the speed of light:
@@ -2834,20 +2856,25 @@ Table \ref{tab:mcmc_results} demonstrates that the classical (ablated) RV model 
 
 \begin{table}[H]
 \centering
-\small
+\footnotesize
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|l|c|c|c|c|}
 \hline
-\textbf{Parameter} & \textbf{Full R.O.M. (Median $\pm 1\sigma$)} & \textbf{Ablated Model (Median)} & \textbf{GRAVITY Ref.} & \textbf{In Full R.O.M. 95\% CI?} \\
+\textbf{Parameter} & \textbf{Full R.O.M.} & \textbf{Ablated} & \textbf{GRAVITY} & \textbf{In 95\%} \\
+ & \textbf{(Median $\pm 1\sigma$)} & \textbf{(Median)} & \textbf{Ref.} & \textbf{CI?} \\
 \hline
-$\beta$ (Kinematic) & $0.00597 \; (+0.00108 / -0.00078)$ & $0.00477$ & $0.00645$ & \textbf{YES} \\\hline
-$i$ (Inclination) & $130.8^\circ \; (+9.6^\circ / -11.7^\circ)$ & $105.8^\circ$ & $134.0^\circ$ & \textbf{YES} \\\hline
-$v_{z0}$ (Drift) & $-18.2 \; (+4.5 / -6.5)$ km/s & $-2.2$ km/s & $-20.0$ km/s & \textbf{YES} \\\hline
-$e$ (Eccentricity) & $0.88501 \; (\pm 0.00038)$ & $0.88496$ & $0.88466$ & \textbf{YES} \\\hline
-$\omega_0$ (Periapsis) & $65.99^\circ \; (+0.63^\circ / -0.39^\circ)$ & $64.43^\circ$ & $66.13^\circ$ & \textbf{YES} \\
+$\beta$ (Kinematic) & $0.00597^{+0.00108}_{-0.00078}$ & $0.00477$ & $0.00645$ & \textbf{YES} \\
+\hline
+$i$ (Inclination) & $130.8^{+9.6^\circ}_{-11.7^\circ}$& $105.8^\circ$ & $134.0^\circ$ & \textbf{YES} \\
+\hline
+$v_{z0}$ (Drift) & $-18.2^{+4.5}_{-6.5}$ km/s & $-2.2$ km/s & $-20.0$ km/s & \textbf{YES} \\
+\hline
+$e$ (Eccentricity) & $0.88501 \pm 0.00038$ & $0.88496$ & $0.88466$ & \textbf{YES} \\
+\hline
+$\omega_0$ (Periapsis) & $65.99^{+0.63^\circ}_{-0.39^\circ}$& $64.43^\circ$ & $66.13^\circ$ & \textbf{YES} \\
 \hline
 \end{tabular}
-\caption{MCMC marginal posteriors for S0-2. The Ablated model fails to capture the true parameters for $\beta$, $i$, and $v_{z0}$, confirming that classical RV analysis is strictly degenerate without geometric invariants.}
+\caption{MCMC marginal posteriors for S0-2. The Ablated model fails to capture the true parameters for $\beta$, $i$, and $v_{z0}$, confirming that classical RV analysis is strictly degenerate without geometric invariants. Colab Notebook: \href{https://github.com/AntonRize/WILL/blob/0f9149941d067907c4b87bc590a04fb1b2adae5d/Colab_Notebooks/beta_i_comparison.ipynb}{beta i comparison.ipynb}}
 \label{tab:mcmc_results}
 \end{table}
 
@@ -2861,21 +2888,23 @@ While R.O.M. successfully localizes the physical truth, the MCMC mapping reveals
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|l|c|c|c|}
 \hline
-\textbf{Model} & \textbf{corr($\beta$, $i$)} & \textbf{$\beta$ 68\% width} & \textbf{$i$ 68\% width} \\
+\textbf{Model} & \textbf{corr($\beta$, $i$)} & \textbf{$\beta$ width} & \textbf{$i$ width} \\
 \hline
-Full R.O.M. & +0.971 & 31\% & 21.3^\circ \\\hline
-Ablated (classical) & +0.811 & 12\% & 29.3^\circ \\\hline
-Full R.O.M. + $v_{z0}$ prior & +0.978 & 20\% & 12.8^\circ \\
+Full R.O.M. & +0.971 & 31\% & 21.3$^\circ$ \\
+\hline
+Ablated (classical) & +0.811 & 12\% & 29.3$^\circ$ \\
+\hline
+Full R.O.M. + $v_{z0}$ prior & +0.978 & 20\% & 12.8$^\circ$ \\
 \hline
 \end{tabular}
-\caption{Quantitative degeneracy metrics. The Full R.O.M. correctly positions the degeneracy ridge, while the ablated model displaces it entirely into non-physical parameter space. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/0f9149941d067907c4b87bc590a04fb1b2adae5d/Colab_Notebooks/beta_i_comparison.ipynb}{beta_i_comparison.ipynb}}
+\caption{Quantitative degeneracy metrics. The Full R.O.M. correctly positions the degeneracy ridge, while the ablated model displaces it entirely into non-physical parameter space. Column widths refer to 68\% credible intervals. Colab Notebook: \href{https://github.com/AntonRize/WILL/blob/0f9149941d067907c4b87bc590a04fb1b2adae5d/Colab_Notebooks/beta_i_comparison.ipynb}{beta i comparison.ipynb}}
 \end{table}
 
 Because the invariant constraints (precession and $Z_{\rm sys}$) both scale strictly as $\sim \beta^2$, they manifest as phase-differentiated signals of the same geometric order. This overdetermines the system, effectively moving the probability ridge to intersect the physically true values, but preserves a narrow $1\sigma$ distribution width due to the instrumental noise floor.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\textwidth]{img/beta_i_comparison.png}
+\includegraphics[width=0.75\textwidth]{img/beta_i_comparison.png}
 \caption{Direct comparison of the $\beta$--$i$ marginal posteriors. Left: Full R.O.M. (blue) — the degeneracy ridge is correctly centred on the true values. Right: Ablated model (orange) — the ridge is displaced and the true values lie outside the 95\% contour.}
 \end{figure}
 
@@ -2887,7 +2916,7 @@ In the Ablated model, this anti-correlation vanishes ($r = +0.031$), and $v_{z0}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\textwidth]{img/corner_full_rom.png}
+\includegraphics[width=0.5\textwidth]{img/corner_full_rom.png}
 \caption{Full 5D Posterior mapping for S0-2 demonstrating the correctly positioned probability ridge.}
 \end{figure}
 
@@ -2939,7 +2968,7 @@ Inclination ($i$ folded) & $49.85^\circ$ & $49.92^\circ$ & $0.07^\circ$ \\\hline
 Background Drift ($v_{z0}$) & $-1.15$ km/s & $-1.00$ km/s & $0.15$ km/s \\
 \hline
 \end{tabular}
-\caption{Strict blind test recovery results ($\sigma = 3.0$ km/s). The R.O.M. algorithm cleanly separates the inclination $i$ from the kinematic projection $\beta$ without prior mass constraints. Colab Notebook: \href{https://github.com/AntonRize/WILL/blob/4c967185599ab7402fae50606a3a781c42dedb0d/Colab_Notebooks/ROM_Validation_via_Synthetic_1PN_Data.ipynb}{ROM_Validation_via_Synthetic_1PN_Data.ipynb}}
+\caption{Strict blind test recovery results ($\sigma = 3.0$ km/s). The R.O.M. algorithm cleanly separates the inclination $i$ from the kinematic projection $\beta$ without prior mass constraints. Colab Notebook: \href{https://github.com/AntonRize/WILL/blob/4c967185599ab7402fae50606a3a781c42dedb0d/Colab_Notebooks/ROM_Validation_via_Synthetic_1PN_Data.ipynb}{ROM Validation via_Synthetic 1PN Data.ipynb}}
 \label{tab:synthetic_blind_test}
 \end{table}
 
@@ -3374,7 +3403,7 @@ In this sense, the ontological role of physical law is transformed.
 Physics ceases to be a catalog of empirical descriptions, and becomes the logical unfolding of a single relational structure.  
 WILL identifies the necessary conditions under which all observed phenomena arise. 
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|p{5cm}|p{5cm}|}
@@ -3401,7 +3430,7 @@ Goal: \emph{show why nothing else is possible}. \\
 \end{table}
 
 \hypertarget{GRvsRG}{}\label{GRvsRG}
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|p{4cm}|p{6cm}|p{6cm}|}
@@ -3604,19 +3633,7 @@ $z_{depth} = r(o) \sin(o + \omega_i) \sin(i)$ \\
 
 
 
-
-
-
-
-
-
-
-
-
-
 \section{References:}
-
-
 
 \begin{thebibliography}{99}
 
@@ -3648,5 +3665,4 @@ $z_{depth} = r(o) \sin(o + \omega_i) \sin(i)$ \\
 
 \end{thebibliography}
  
-
 \end{document}
