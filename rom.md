@@ -414,15 +414,39 @@ $$\tau_W = \kappa_X \beta_Y$$ *(spacetime factor)* | $$z = \frac{1}{\kappa_X} - 
 
 ---
 
-## Further Reading
 
-For the full theoretical derivation and connection to WILL Relational Geometry:
-- [WILL-AI](/WILL-AI/)
-- [Complete Results & Documents](/results/)
-- [Testable Predictions](/predictions/)
+<!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<hr style="border-color:#374151; margin:0 0 2rem 0;">
 
-For questions or collaboration:
-- Email: [antonrize@willrg.com](mailto:antonrize@willrg.com)
-- GitHub: [WILL Repository](https://github.com/AntonRize/WILL)
+<h2 class="text-2xl font-bold text-white" style="border:none; margin-bottom:1.25rem;">
+  Explore Further
+</h2>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+  <a href="/predictions/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>Testable Predictions</h4>
+      <p>Quantitative, falsifiable predictions</p>
+    </div>
+  </a>
+  <a href="/Galactic_Dynamics/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>Galactic Dynamics</h4>
+      <p>SPARC dataset interactive lab</p>
+    </div>
+  </a>
+  <a href="/WILL-AI/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>WILL AI</h4>
+      <p>AI trained on research documents</p>
+    </div>
+  </a>
+  <a href="/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>Home</h4>
+      <p>Return to overview</p>
+    </div>
+  </a>
+</div>
 
 </div>

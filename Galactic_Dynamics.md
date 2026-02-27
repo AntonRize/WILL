@@ -76,7 +76,37 @@ Dark Matter becomes redundant. The same framework that derives $H_0 \approx 68.1
 
 ---
 
-**Ready to explore?**  
-Pick a galaxy above and watch the geometry speak for itself.
 
-Questions or want to run your own dataset? Drop a message on the [forum](https://willrg.com/forum) or open an issue on GitHub.
+<!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<hr style="border-color:#374151; margin:0 0 2rem 0;">
+
+<h2 class="text-2xl font-bold text-white" style="border:none; margin-bottom:1.25rem;">
+  Explore Further
+</h2>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+  <a href="/predictions/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>Testable Predictions</h4>
+      <p>Quantitative, falsifiable predictions</p>
+    </div>
+  </a>
+  <a href="/Logos_Map/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>Logos Map</h4>
+      <p>Logical Structure of WILL Derivations</p>
+    </div>
+  </a>
+  <a href="/WILL-AI/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>WILL AI</h4>
+      <p>AI trained on research documents</p>
+    </div>
+  </a>
+  <a href="/" class="supp-card" style="text-decoration:none;">
+    <div>
+      <h4>Home</h4>
+      <p>Return to overview</p>
+    </div>
+  </a>
+</div>
