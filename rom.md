@@ -7,7 +7,7 @@ description: "Relational Orbital Mechanics — derive full orbital dynamics from
 
 <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-300 font-sans leading-relaxed" markdown="1">
 
-# Relational Orbital Mechanics (ROM)
+# Relational Orbital Mechanics (R.O.M.)
 
 ## Orbital Dynamics from Pure Optical Measurements
 
@@ -17,8 +17,8 @@ description: "Relational Orbital Mechanics — derive full orbital dynamics from
 Orbital dynamics requires **no mass, no $G$, no metric, and no spacetime geometry.** 
 
 All observable orbital structure follows from two directly measurable frequency projections:
-- ** $\kappa^2 = 1-\frac{1}{(1+z)^2}$  ($z=$ gravitational redshift)** 
-- ** $\beta^2=1-\frac{1}{(1+z_{D})^{2}}$  ($z_D=$ transverse Doppler shift)**
+- ** $\kappa^2 = 1-\frac{1}{(1+z_k)^2}$  ($z_k=$ gravitational redshift)** 
+- ** $\beta^2=1-\frac{1}{(1+z_{b})^{2}}$  ($z_b=$ transverse Doppler shift)**
 
 
 Everything else is **pure algebra**.
@@ -122,8 +122,8 @@ ROM defines a bound system through normalized projections:
 
 | Parameter | Definition | Physical Meaning |
 |-----------|------------|------------------|
-| $\kappa$ | $\sqrt{R_s/a}$ | Global potential projection $\kappa^2 = 1-\frac{1}{(1+z)^2}$  ($z=$ gravitational redshift) |
-| $\beta$ | $v/c$ | Global kinetic projection $\beta^2=1-\frac{1}{(1+z_{D})^{2}}$  ($z_D=$ transverse Doppler shift) |
+| $\kappa$ | $\sqrt{R_s/a}$ | Global potential projection $\kappa^2 = 1-\frac{1}{(1+z_k)^2}$  ($z_k=$ gravitational redshift) |
+| $\beta$ | $v/c$ | Global kinetic projection $\beta^2=1-\frac{1}{(1+z_{b})^{2}}$  ($z_b=$ transverse Doppler shift) |
 | $W$ | $\frac{1}{2}(\kappa^2 - \beta^2)$ | Energy invariant (binding energy) |
 | $\delta$ | $\frac{\kappa^2}{2\beta^2}$ | Closure factor (measures deviation from circular) |
 
@@ -329,7 +329,7 @@ Only the scale factor $a$ differs. All physics - eccentricity, precession, energ
 - Computationally intensive numerical integration
 
 **ROM:**
-- **Only needs light measurements**: redshift ($z$) and Doppler shift ($v/c$)
+- **Only needs light measurements**: redshift ($z_k$) and Doppler shift ($v/c$)
 - **2 parameters** determine the entire system through algebraic closure
 - Mass is derived, not required: $M = \frac{c^2 r}{2G}\kappa^2$
 - Scale-invariant: same equations for atoms and galaxies
@@ -362,57 +362,203 @@ From these two measurements, the entire system closes algebraically. This offers
 
 ---
 
-## Complete Equation System
+# R.O.M. — Complete Equation Set (LaTeX Reference)
 
-### Global System Parameters
+R.O.M. does not describe how a body moves under forces; it classifies the algebraically allowed relational states of a bound system.
 
-$$R_s = \kappa^2 a$$ *(Schwarzschild radius)* | $$\kappa = \sqrt{\frac{R_s}{a}} = \sqrt{4W}$$ *(global potential)* | $$\beta = \sqrt{2W}$$ *(global kinetic)*
+## Foundational Definitions
 
-$$a = \frac{R_s}{\kappa^2}$$ *(semi-major axis)* | $$\delta_p = \frac{\kappa_p^2}{2\beta_p^2} = \frac{1}{1+e_c}$$ *(closure factor)* | $$Q = \sqrt{\kappa^2 + \beta^2}$$ *(displacement)*
+$$\kappa^2 = 1 - \frac{1}{(1+z_k)^2}$$
+where $z_k$ is the gravitational redshift.
 
-### Eccentricity Relations
+$$\beta^2 = 1 - \frac{1}{(1+z_b)^2}$$
+where $z_b$ is the transverse Doppler shift.
 
-$$e_c = \frac{2\beta_p^2}{\kappa_p^2} - 1 = 1 - \frac{2\beta_a^2}{\kappa_a^2}$$ *(eccentricity from closure)* | $$e_{cY} = \sqrt{1-e_c^2}$$ *(orthogonal value)* | $$e_X = \frac{1+e_c}{1-e_c}$$ *(shape factor)*
+## Observational Z Inputs
 
-### Perihelion State
+$$Z_{sys}(o) = (1+z_{ko}(o))(1+z_{bo}(o))$$
+Product of gravitational redshift and transverse Doppler shift.
 
-$$r_p = a(1-e_c)$$ *(radius at perihelion)* | $$\kappa_p = \kappa\sqrt{\frac{1}{1-e_c}}$$ *(potential at perihelion)*
+$$\tau_{Wo}(o) = \kappa_{Xo}(o) \cdot \beta_{Yo}(o) = (Z_{sys}(o))^{-1}$$
+Product of projectional phase factors on $S^1$ and $S^2$ carriers.
 
-$$\beta_p = \sqrt{\kappa_p^2 \cdot \frac{1+e_c}{2}}$$ *(kinetic at perihelion)* | $$Q_p = \sqrt{\kappa_p^2 + \beta_p^2}$$ *(displacement at perihelion)*
+$$z_k = \frac{1}{\kappa_X} - 1$$
 
-### Aphelion State
+$$z_b = \frac{1}{\beta_Y} - 1$$
 
-$$r_a = a(1+e_c)$$ *(radius at aphelion)* | $$\kappa_a = \sqrt{2W + \beta_a^2}$$ *(potential at aphelion)*
+$$z_{ko} = \frac{1}{\kappa_{Xo}} - 1$$
 
-$$\beta_a = \frac{\beta}{\sqrt{e_X}}$$ *(kinetic at aphelion)* | $$\delta_{\text{apo}} = \frac{1}{1-e_c}$$ *(closure at aphelion)*
+$$z_{bo} = \frac{1}{\beta_{Yo}} - 1$$
 
-### Phase-Dependent Quantities
+## Global System Parameters (Fixed for the Orbit)
 
-At any orbital phase $o$:
+$$\kappa = \sqrt{\frac{R_s}{a}} = \sqrt{\frac{\rho}{\rho_{max}}} = \sqrt{\kappa_p^2(1-e)} = \sqrt{4W} = \sqrt{\frac{1}{2}\left(3 - \sqrt{1 + 8\tau_{Wo}(O_o)^2}\right)} = \sqrt{1 - (1+z_k)^{-2}}$$
 
-$$r_o = a\frac{1-e_c^2}{1+e_c\cos o}$$ *(radial distance)* | $$\eta_o = \frac{r_o}{a}$$ *(phase amplitude)* | $$t_o = \frac{r_o}{c}$$ *(temporal scale)*
+$$\kappa_X = \cos(\theta_2) = \sqrt{1 - \kappa^2}$$
 
-$$\kappa_o = \kappa_p\sqrt{\frac{1+e_c\cos o}{1+e_c}}$$ *(local potential)* | $$\beta_o = \sqrt{\kappa_o^2 - 2W}$$ *(local kinetic)*
+$$\beta = \frac{\kappa}{\sqrt{2}} = \beta_p\sqrt{\frac{1-e}{1+e}} = \sqrt{2W} = \sqrt{\kappa_o^2 - \frac{\kappa_o^2}{2}\left(1 + \left(\frac{1}{\delta_o(o)} - 1\right)\right)} = \beta_o(o)\frac{\sqrt{1-e^2}}{\sqrt{1+e^2+2e\cos(o)}} = \sqrt{1 - (1+z_b)^{-2}}$$
 
-$$\delta_o = \frac{\kappa_o^2}{2\beta_o^2}$$ *(local closure)* | $$Q_o = \sqrt{\kappa_o^2 + \beta_o^2}$$ *(local displacement)*
+$$\beta_Y = \sin(\theta_1) = \sqrt{1 - \beta^2}$$
 
-### Orbital Characteristics
+$$\beta_{int} = \frac{\beta}{\sqrt{1-e^2}}$$
 
-$$\omega = \frac{\beta c}{a}$$ *(angular frequency)* | $$T = \frac{2\pi}{\omega}$$ *(period)* | $$h_W = a \beta c e_{cY}$$ *(angular momentum)*
+$$\tau_W = \kappa_X \beta_Y$$
 
-$$\Delta\phi_{\text{WILL}} = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2}$$ *(precession per orbit - pure redshift/Doppler ratio)*
+$$Q = \sqrt{\kappa^2 + \beta^2} = \sqrt{\frac{3}{2}}\,\kappa = \sqrt{3}\,\beta$$
 
-$$\omega_o = \frac{\beta c}{a}\frac{(1+e_c\cos o)^2}{(1-e_c^2)^{3/2}}$$ *(angular speed at phase $o$)*
+$$R_s = \kappa^2 a = \frac{2Gm_0}{c^2} = \frac{2}{3}Q_o(O_o)^2 a = \frac{r_1 r_2}{r_2 - r_1}(\beta_1^2 - \beta_2^2) = \frac{a}{2}\left(3 - \sqrt{1 + 8\tau_{Wo}(O_o)^2}\right) = \frac{r_o(o)}{2(2a - r_o(o))}\left(4a - r_o(o) - \sqrt{(4a - r_o(o))^2 - 8a(2a - r_o(o))(1 - \tau_{Wo}(o)^2)}\right)$$
 
-### Relational Geometry (WILL Framework)
+$$a = \frac{R_s}{\kappa^2} = \frac{R_s}{4W} = \frac{\beta_o c}{\omega} \cdot \frac{\sqrt{1-e^2}}{\sqrt{1+e^2+2e\cos(o)}} = \frac{\Delta_{to}(o)}{\tau_o}\beta c$$
 
-$$\theta_1 = \arccos(\beta)$$ *(distribution on $S^1$)* | $$\theta_2 = \arcsin(\kappa)$$ *(distribution on $S^2$)*
+$$m_0 = \frac{\kappa^2 c^2 a}{2G} = 4\pi\rho a^3$$
 
-$$\beta_Y = \sqrt{1-\beta^2}$$ *(relativistic factor)* | $$\kappa_X = \sqrt{1-\kappa^2}$$ *(gravitational factor)*
+$$t = \frac{a}{c}$$
 
-$$\tau_W = \kappa_X \beta_Y$$ *(spacetime factor)* | $$z = \frac{1}{\kappa_X} - 1$$ *(redshift)*
+$$W = \frac{\beta^2}{2} = \frac{1}{2}(\kappa_o^2 - \beta_o^2) = \frac{1}{4}\kappa_p^2(1-e) = \frac{1}{2}\left(\kappa_o(o)^2 - \frac{\kappa_o(o)^2}{2\delta_o(o)}\right) = \frac{1}{2}\left((1-(1+z_{ko}(o))^{-2}) - (1-(1+z_{bo}(o))^{-2})\right)$$
 
----
+$$\Delta\phi = \frac{3\pi}{2}\frac{\kappa_p^4}{\beta_p^2} = \frac{2\pi Q^2}{1-e^2} = 6\pi\beta_{int}^2$$
+
+$$h_W = a \cdot \beta c \cdot e_Y$$
+
+$$\omega = \frac{\beta c}{a}$$
+
+$$T = \frac{2\pi}{\omega}$$
+
+
+## Eccentricity Relations
+
+$$e = \frac{1}{\delta} - 1 = 1 - \frac{2\beta_a^2}{\kappa_a^2} = \frac{2\beta_p^2}{\kappa_p^2} - 1$$
+
+$$e_Y = \sqrt{1 - e^2}$$
+
+$$e_X = \frac{1+e}{1-e} = \frac{r_a}{r_p} = \frac{\delta_a}{\delta_p} = \frac{\beta_p}{\beta_a} = \frac{\kappa_p^2}{\kappa_a^2} = \frac{\kappa_a^2 \beta_p^2}{\kappa_p^2 \beta_a^2}$$
+
+## Time Integration
+
+$$\omega_o(o) = \frac{\beta c}{a} \cdot \frac{(1 + e\cos(o))^2}{(1-e^2)^{3/2}}$$
+
+$$\Delta_{to}(o) = \int_0^o \frac{1}{\omega_\theta(\theta)}\,d\theta = \frac{a}{\beta c}\tau_o = \frac{T}{2\pi}\tau_o$$
+
+$$\tau_o = (1-e^2)^{3/2} \int_0^o (1 + e\cos(\theta))^{-2}\,d\theta = \frac{1}{\sqrt{1-e^2}}\int_0^o \left(\frac{t_o(\theta)}{t}\right)^2 d\theta$$
+
+## Perihelion Relations
+
+$$r_p = a(1-e) = \frac{R_s}{\kappa_p^2}$$
+
+$$\kappa_p = \kappa\sqrt{\frac{1}{1-e}} = Q_p\sqrt{\frac{2}{3+e}}$$
+
+$$\kappa_{Xp} = \sqrt{1 - \kappa_p^2}$$
+
+$$\beta_p = \frac{V_p}{c} = \frac{\kappa_p}{\delta\sqrt{2}} = \sqrt{\kappa_p^2 \cdot \frac{1+e}{2}}$$
+
+$$\delta_p = \frac{\kappa_p^2}{2\beta_p^2} = \frac{1}{1+e}$$
+
+$$Q_p = \sqrt{\kappa_p^2 + \beta_p^2}$$
+
+## Aphelion Relations
+
+$$r_a = a(1+e) = \frac{R_s}{\kappa_a^2}$$
+
+$$\beta_a = \sqrt{\beta_p^2 e_X^{-2}} = \beta\sqrt{e_X^{-1}}$$
+
+$$\kappa_a = \sqrt{2W + \beta_a^2}$$
+
+$$\delta_a = \frac{1}{1-e} = \frac{\kappa_a^2}{2\beta_a^2}$$
+
+$$Q_a = \sqrt{\kappa_a^2 + \beta_a^2}$$
+
+## Phase Variables (Depend on $o$)
+
+$o$ = orbital phase in radians
+
+$$r = r_o(o) = a\frac{1-e^2}{1+e\cos o} = \frac{R_s}{\kappa_o^2}$$
+
+$$\kappa_o = \sqrt{\frac{R_s}{r}} = \sqrt{1-(1+z_{ko}(o))^{-2}} = \kappa_p\sqrt{\frac{1+e\cos(o)}{1+e}}$$
+
+$$\kappa_{Xo} = \sqrt{1 - \kappa_o^2} = (z_{ko}(o)+1)^{-1}$$
+
+$$\beta_o(o) = \sqrt{\kappa_o^2 - 2W} = \frac{\kappa_o(o)}{\sqrt{2\delta_o(o)}} = \beta \cdot \frac{\sqrt{1+e^2+2e\cos(o)}}{\sqrt{1-e^2}} = \sqrt{\frac{\kappa_o(o)^2}{2} \cdot \frac{1+e^2+2e\cos(o)}{1+e\cos(o)}} = \sqrt{\frac{R_s}{r_o(o)} - \frac{R_s}{2a}} = \sqrt{1-(1+z_{bo}(o))^{-2}}$$
+
+$$\beta_R(o) = \beta\frac{e\sin(o)}{\sqrt{1-e^2}} = \sqrt{\beta_o(o)^2 - \beta_T(o)^2} = \sqrt{(1-(1+z_{ko}(o))^{-2}) - 2W - \frac{r_o(o)^2\omega_o(o)^2}{c^2}}$$
+
+$$\beta_T(o) = \frac{r_o(o)\omega_o(o)}{c} = \beta\frac{1+e\cos(o)}{\sqrt{1-e^2}}$$
+
+$$\beta_{Yo} = \sqrt{1 - \beta_o^2} = (z_{bo}(o)+1)^{-1}$$
+
+$$\delta_o = \frac{1+e\cos o}{1+e^2+2e\cos o} = \frac{\kappa_o^2}{2\beta_o(o)^2}$$
+
+$$Q_o = \sqrt{\kappa_o^2 + \beta_o(o)^2}$$
+
+$$\omega_o = \frac{a\beta c \cdot e_Y}{r_o^2} = \frac{\beta c}{a}\frac{(1+e\cos o)^2}{(1-e^2)^{3/2}}$$
+
+$$\eta_o = \frac{r}{a} = 2 - \frac{2\beta_o(o)^2}{\kappa_o(o)^2}$$
+
+$$\tau_{Wo}(o) = \kappa_{Xo}(o) \cdot \beta_{Yo}(o) = Z_{sys}(o)^{-1}$$
+
+$$t_o = \frac{r_o(o)}{c}$$
+
+$$\Delta_o = 3\beta_{int}^2 \cdot o$$
+
+## Relational Geometry (WILL)
+
+$$\theta_1 = \arccos(\beta)$$
+Distribution angle on $S^1$ (non-physical).
+
+$$\theta_2 = \arcsin(\kappa)$$
+Distribution angle on $S^2$ (non-physical).
+
+$$\Delta_Q = Q_o^2 - Q^2$$
+
+$$O_o = \arccos(1 - \delta^{-1}) = \arccos(-e) = \arccos\left(\frac{2\beta_a^2}{\kappa_a^2} - 1\right)$$
+Orbital balance point where $\kappa_o^2 = 2\beta_o^2$.
+
+## Observer-Dependent Relations
+
+$$Z_{raw}(o) = \left(1 + \frac{\beta}{e_Y}(\cos(o+\omega_i) + e\cos(\omega_i))\sin(i)\right) Z_{sys}(o)$$
+
+$$\beta_{los}(o) = \frac{\beta}{\sqrt{1-e^2}}(\cos(o+\omega_i) + e\cos(\omega_i))\sin(i)$$
+
+$i$ = orbital inclination relative to line of sight and orbital plane
+
+$\omega_i$ = phase turn or argument of periapsis
+
+$$K_i = \frac{\beta}{\sqrt{1-e^2}}\sin(i)$$
+
+$$Z_{rawmax} = Z_{sys}(o_{i1})(1 + K_i(1 + e\cos\omega_i))$$
+
+$$Z_{rawmin} = Z_{sys}(o_{i2})(1 + K_i(-1 + e\cos\omega_i))$$
+
+$$O_{oi} = O_o + \omega_i$$
+
+$$o_{i1} = -\omega_i$$
+
+$$o_{i2} = \pi - \omega_i$$
+
+$$Z_{sysi1}(o_{i1}) = (1 - \beta^2\frac{1+e^2+2e\cos(\omega_i)}{1-e^2})^{-1/2}(1 - 2\beta^2\frac{1+e\cos(\omega_i)}{1-e^2})^{-1/2}$$
+
+$$Z_{sysi2}(o_{i2}) = (1 - \beta^2\frac{1+e^2-2e\cos(\omega_i)}{1-e^2})^{-1/2}(1 - 2\beta^2\frac{1-e\cos(\omega_i)}{1-e^2})^{-1/2}$$
+
+### Un-tilted 2D Coordinates (UNTESTED)
+
+$$x_{orb} = r(o)\cos(o + \omega_i)$$
+
+$$y_{orb} = r(o)\sin(o + \omega_i)$$
+
+### Parametric Sky-Plane Projection (UNTESTED)
+
+$$\begin{bmatrix} x_{sky} \\ y_{sky} \\ z_{depth} \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos(i) & -\sin(i) \\ 0 & \sin(i) & \cos(i) \end{bmatrix} \begin{bmatrix} x_{orb} \\ y_{orb} \\ 0 \end{bmatrix}$$
+
+$$x_{sky} = r(o)\cos(o + \omega_i)$$
+
+$$y_{sky} = r(o)\sin(o + \omega_i)\cos(i)$$
+
+$$z_{depth} = r(o)\sin(o + \omega_i)\sin(i)$$
+
+## Beautiful and Interesting Connections
+
+$$\frac{r_a}{r_p} = \frac{1+e}{1-e} = \frac{\beta_p}{\beta_a} = \frac{\kappa_p^2}{\kappa_a^2} = \frac{\kappa_a^2\beta_p^2}{\kappa_p^2\beta_a^2}$$
+
+This remarkable equivalence of structural ($\kappa$ on $S^2$ carrier) and dynamical ($\beta$ on $S^1$ carrier) asymmetry confirms: **SPACETIME $\equiv$ ENERGY**.---
 
 
 <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->

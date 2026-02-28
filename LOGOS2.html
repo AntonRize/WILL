@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WILL Relational Geometry: LOGOS MAP</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B1120;
+            color: #f8fafc;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Mermaid Graph Custom CSS Overrides */
+        .node {
+            cursor: pointer;
+        }
+        
+        .node > rect, .node > polygon, .node > circle {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+        
+        /* Hover glow effects based on node class */
+        .node.principle:hover > rect { filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.5)); stroke-width: 2.5px !important; }
+        .node.rejected:hover > rect { filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.5)); stroke-width: 2.5px !important; }
+        .node.axiom:hover > rect { filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5)); stroke-width: 2.5px !important; }
+        .node.mechanics:hover > rect { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.5)); stroke-width: 2.5px !important; }
+        .node.complete:hover > rect { filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.6)); stroke-width: 2.5px !important; }
+
+        /* Ensure native links work inside SVG foreignObjects */
+        .node a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+            pointer-events: auto;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Hide default subgraph bounding boxes to create a cleaner layout */
+        .cluster rect {
+            fill: transparent !important;
+            stroke: none !important;
+        }
+
+        /* Style the subgraph titles to act as stage dividers */
+        .cluster-name text {
+            fill: #38bdf8 !important; 
+            font-size: 16px !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* Custom Scrollbar for Map Container */
+        .map-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .map-container::-webkit-scrollbar-track {
+            background: #0f172a; 
+            border-radius: 4px;
+        }
+        .map-container::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        .map-container::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start pb-16">
+
+    <!-- Top Header Section -->
+    <header class="w-full max-w-6xl flex flex-col items-center text-center mt-12 px-6">
+        
+        <!-- Logical Structure Badge -->
+        <div class="flex items-center space-x-2 text-blue-400 mb-4 text-sm font-bold tracking-widest uppercase">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            <span>Logical Structure</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+            <span class="text-white">LOGOS</span> <span class="text-emerald-400">MAP</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-slate-400 text-lg md:text-xl max-w-3xl leading-relaxed mb-10">
+            The Logical Structure of WILL Relational Geometry. A visual journey through the derivation of physics from first principles.
+        </p>
+
+        <!-- Legend / Key -->
+        <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-8 text-sm md:text-base font-medium text-slate-300 bg-slate-800/50 px-6 py-5 md:px-10 rounded-2xl border border-slate-700/50 shadow-xl w-full md:w-auto">
+            <div class="flex items-center space-x-3">
+                <div class="w-4 h-4 md:w-5 md:h-5 rounded-sm border-2 border-blue-500 bg-[#0B1120]"></div>
+                <span>Axiom / Input</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="w-4 h-4 md:w-5 md:h-5 rounded-sm border-2 border-amber-500 bg-[#0B1120]"></div>
+                <span>Mechanics</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="w-4 h-4 md:w-5 md:h-5 rounded-sm border-2 border-emerald-500 bg-[#0B1120]"></div>
+                <span class="text-emerald-400">WILL Principle</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="w-4 h-4 md:w-5 md:h-5 rounded-sm border-2 border-cyan-400 bg-cyan-900/30"></div>
+                <span class="text-cyan-400">Stage Complete</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Swipe Indicator (Only visible on small screens) -->
+    <div class="md:hidden flex items-center justify-center text-cyan-400 mt-8 mb-2 animate-pulse px-6 text-center">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+        <span class="text-xs font-bold tracking-widest uppercase">Swipe horizontally to explore map</span>
+    </div>
+
+    <!-- Graph Container -->
+    <main class="map-container w-full max-w-7xl mt-4 md:mt-12 px-6 overflow-x-auto pb-6" style="-webkit-overflow-scrolling: touch;">
+        <!-- Minimum width ensures readability on mobile; user scrolls to view -->
+        <div class="mermaid flex justify-center w-full min-w-[900px]">
+            %%{init: { 
+                'theme': 'base', 
+                'themeVariables': { 
+                    'fontFamily': 'Inter, sans-serif',
+                    'primaryColor': '#0f172a',
+                    'primaryTextColor': '#f8fafc',
+                    'primaryBorderColor': '#334155',
+                    'lineColor': '#475569',
+                    'secondaryColor': '#1e293b',
+                    'tertiaryColor': '#0f172a',
+                    'edgeLabelBackground': '#0B1120'
+                },
+                'flowchart': { 
+                    'htmlLabels': true, 
+                    'curve': 'basis', 
+                    'padding': 40,
+                    'nodeSpacing': 100,
+                    'rankSpacing': 120
+                } 
+            }}%%
+            graph TD
+                %% Class Definitions
+                classDef principle fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#f8fafc,rx:8px,ry:8px;
+                classDef rejected fill:#0f172a,stroke:#ef4444,stroke-width:2px,stroke-dasharray:5 5,color:#cbd5e1,rx:8px,ry:8px;
+                classDef axiom fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#f8fafc,rx:8px,ry:8px;
+                classDef mechanics fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#f8fafc,rx:8px,ry:8px;
+                classDef complete fill:#164e63,stroke:#22d3ee,stroke-width:2px,color:#f8fafc,rx:8px,ry:8px;
+
+                %% LEVEL 1
+                subgraph L1 [STAGE 1: Methodology Calibration]
+                    direction LR
+                    A["<a href='https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#10b981; font-size:20px; display:block; margin-bottom:12px;'>✔ Principle 1: Epistemic Hygiene</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>Nothing is assumed. Everything is derived.<br/>No absolute background permitted.</span></div></a>"]:::principle
+                    B["<a href='https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#ef4444; font-size:20px; display:block; margin-bottom:12px;'>✖ Standard Model Violation</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>Assumes empty void as container and<br/>imports 'Dark' entities to fix geometric leaks.</span></div></a>"]:::rejected
+                    A -->|Contrast| B
+                end
+
+                %% LEVEL 1.5 - Distance Justification
+                subgraph L1_5 [STAGE 2: The Concept of Distance]
+                    DIST["<a href='https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying' target='_blank'><div style='text-align:left; padding:16px; white-space:nowrap; width:max-content;'><b style='color:#3b82f6; font-size:22px; display:block; margin-bottom:16px;'>Distance as Relational Tension</b><div style='font-size:16px; color:#94a3b8; line-height:1.6;'><b style='color:#cbd5e1; font-size:17px;'>Philosophical Justification:</b><br/>If no absolute background container exists, spatial separation cannot<br/>be 'empty space' between objects. It is an ontological paradox<br/>to assign physical dimensions to nothingness.<br/><br/><b style='color:#cbd5e1; font-size:17px;'>Physical Justification:</b><br/>Distance must be physically derived as the <b>energetic tension</b> required<br/>to transition between different relational states within a closed topology.</div></div></a>"]:::axiom
+                end
+
+                A --> DIST
+
+                %% LEVEL 2
+                subgraph L2 [STAGE 3: Ontological Foundation]
+                    C["<a href='https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#10b981; font-size:20px; display:block; margin-bottom:12px;'>✔ Principle 2: Spacetime ≡ Energy</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>Total rejection of the empty void.<br/>The relational carrier itself is the energetic structure.</span></div></a>"]:::principle
+                    E["<a href='https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#3b82f6; font-size:20px; display:block; margin-bottom:12px;'>The Causal Horizon (R_H)</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>We make no metaphysical claims about the 'entire Universe'.<br/>The observer's causal horizon is mathematically and strictly closed.</span></div></a>"]:::axiom
+                    
+                    DIST --> C
+                    C --> E
+                end
+
+                %% LEVEL 3
+                subgraph L3 [STAGE 4: Topological Mechanics]
+                    F["<a href='https://willrg.com/documents/WILL_RG_II.pdf#sec:tone' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#f59e0b; font-size:20px; display:block; margin-bottom:12px;'>Global Phase-Closure</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>In a closed horizon, dissonant modes self-cancel.<br/>The surviving standing wave forms the Fundamental Tone.</span></div></a>"]:::mechanics
+                    G["<a href='https://willrg.com/documents/WILL_RG_II.pdf#sec:tone' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#f59e0b; font-size:20px; display:block; margin-bottom:12px;'>Topological Coupling (Ω_pot)</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>Galaxies are continuous S² structural potentials.<br/>Their coupling weight to the horizon is Ω_pot = 2/3.</span></div></a>"]:::mechanics
+                    H["<a href='https://willrg.com/documents/WILL_RG_II.pdf#sec:tone' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#f59e0b; font-size:20px; display:block; margin-bottom:12px;'>Horizon Circumference (C_H)</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>The boundary length of the closed causal system:<br/>C_H = 2π R_H</span></div></a>"]:::mechanics
+                    
+                    E --> F
+                    F --> G
+                    E --> H
+                end
+
+                %% LEVEL 4
+                subgraph L4 [STAGE 5: Horizon Interference]
+                    I["<a href='https://willrg.com/documents/WILL_RG_II.pdf#def:rel_weight' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#f59e0b; font-size:20px; display:block; margin-bottom:12px;'>Structural Resonance Scale</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>Derived entirely from geometry, zero fitting:<br/>Ω_pot × (1 / C_H) = (2/3) / (2π R_H) = <b style='color:#fcd34d; font-size:18px;'>1 / 3π R_H</b></span></div></a>"]:::mechanics
+                    J["<a href='https://willrg.com/documents/WILL_RG_II.pdf#def:rel_weight' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#f59e0b; font-size:20px; display:block; margin-bottom:12px;'>Geometric Interference</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>Local gravity cannot fall asymptotically into an empty void.<br/>It must physically interfere with the global horizon tension.</span></div></a>"]:::mechanics
+                    
+                    G --> I
+                    H --> I
+                    DIST -->|Defines tension limit for| J
+                    I --> J
+                end
+
+                %% LEVEL 5
+                subgraph L5 [STAGE 6: Algebraic Closure and Observables]
+                    K["<a href='https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics' target='_blank'><div style='text-align:left; padding:12px; white-space:nowrap; width:max-content;'><b style='color:#3b82f6; font-size:20px; display:block; margin-bottom:12px;'>The Geometric Cancellation</b><span style='font-size:16px; color:#94a3b8; line-height:1.6;'>Interference cross-term: √(β_N² × a_κ × r).<br/>Since local shift β_N² = R_s / 2r, the radial dependence (r) cancels perfectly.</span></div></a>"]:::axiom
+                    L["<a href='https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics' target='_blank'><div style='text-align:center; padding:20px; white-space:nowrap; width:max-content;'><b style='color:#cffafe; font-size:22px; display:block; margin-bottom:16px;'>Final Dimensionless State</b><span style='display:inline-block; margin:16px 0; font-size:26px; font-weight:700; color:#22d3ee; padding:16px 24px; background:#083344; border: 2px solid #164e63; border-radius:12px; letter-spacing: 0.05em;'>β_obs = √ [ β_N² + √( R_s / 6π R_H ) ]</span><br/><br/><i style='font-size:16px; color:#94a3b8; line-height:1.6; display:block; margin-top:8px;'>Galactic dynamics settle on a flat, universal topological floor.</i></div></a>"]:::complete
+                    
+                    J --> K
+                    K --> L
+                end
+        </div>
+    </main>
+
+    <footer class="mt-20 text-center text-sm text-slate-500 font-bold tracking-widest pb-12 uppercase px-6">
+        <p>&copy; WILL RELATIONAL GEOMETRY OPEN RESEARCH. ALL DERIVATIONS ROOT FROM METHODOLOGY.</p>
+    </footer>
+
+    <!-- Mermaid Initialization -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>
