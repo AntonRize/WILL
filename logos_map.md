@@ -2,7 +2,8 @@
 layout: default
 title: "LOGOS MAP"
 description: "The Logical Structure of WILL Relational Geometry — a visual flowchart of the foundational derivation from Axiom 0 to the unified field equation."
-permalink: /LOGOS_MAP/
+permalink: /logos_map/
+redirect_from: /LOGOS_MAP/
 ---
 
 {% include LOGOS_MAP/styles.html %}

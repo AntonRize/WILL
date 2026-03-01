@@ -1,7 +1,8 @@
 ---
 layout: default
 title: "Galactic Dynamics"
-permalink: /Galactic_Dynamics/
+permalink: /galactic_dynamics/
+redirect_from: /Galactic_Dynamics/
 description: "Galaxy rotation curves explained without Dark Matter. Interactive SPARC database analysis (175 galaxies) using WILL Relational Geometry — zero free parameters."
 ---
 

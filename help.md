@@ -71,4 +71,4 @@ There is no institutional funding behind this; it is driven by first-principles 
 
 
 ## Contact
-For collaboration or questions: [antonrizeg@willrg.com](mailto:antonrizeg@willrg.com)
+For collaboration or questions: [antonrize@willrg.com](mailto:antonrizeg@willrg.com)

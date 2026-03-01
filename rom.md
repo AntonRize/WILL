@@ -1,7 +1,8 @@
 ---
 layout: default
 title: "Relational Orbital Mechanics"
-permalink: /ROM/
+permalink: /rom/
+redirect_from: /ROM/
 description: "Relational Orbital Mechanics — derive full orbital dynamics from pure optical measurements (redshift). Interactive calculator for Mercury, binary pulsars, and S-stars."
 ---
 
