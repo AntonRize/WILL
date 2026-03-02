@@ -26,10 +26,22 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         overflow-y: hidden;
         max-width: 100%;
         margin: 0.8em 0;
+
     }
     .ai-message-bubble mjx-container {
         color: inherit !important;
     }
+    /* Level selection button styles */
+    .level-btn {
+        transition: all 0.2s;
+        border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+    .level-btn:hover {
+        background-color: rgba(6, 182, 212, 0.1);
+        border-color: rgba(6, 182, 212, 1);
+        transform: translateY(-2px);
+    }
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
@@ -37,6 +49,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
     const {useState, useEffect, useRef, useCallback} = React;
+    const REPO_BASE = 'https://raw.githubusercontent.com/AntonRize/WILL/main/';
     const FILES = [
         'WILL DATABASE/WILL_RG_I.txt',
         'WILL DATABASE/WILL_RG_II.txt',
@@ -54,7 +67,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
     };
 
     /* ── LaTeX-safe Markdown rendering ──
-       Protects LaTeX blocks from marked.js mangling, then restores them after. */
+        Protects LaTeX blocks from marked.js mangling, then restores them after. */
     function renderMarkdownWithLatex(text) {
         const placeholders = [];
         let idx = 0;
@@ -109,29 +122,42 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
     }
 
     function loadKB(){
-        const base='https://raw.githubusercontent.com/AntonRize/WILL/main/';
-        return Promise.all(FILES.map(p=>fetch(base+p).then(r=>{
+        return Promise.all(FILES.map(p=>fetch(REPO_BASE+p).then(r=>{
             if(!r.ok)throw new Error('KB fetch '+r.status);
             return r.text();
         }))).then(t=>t.join('\n\n'));
     }
+
+    function loadSystemPrompt(){
+        return fetch(REPO_BASE+'assistant/SYSTEM_PROMPT.txt').then(r=>{
+            if(!r.ok)throw new Error('Prompt fetch '+r.status);
+            return r.text();
+        });
+    }
+
     function askGemini(prompt){
         return fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})})
             .then(r=>r.text())
             .then(t=>{let d;try{d=JSON.parse(t);}catch{throw new Error(t);}if(!d.reply)throw new Error(d.error||'Proxy');return d.reply;});
     }
-    const isRu=s=>/[а-яё]/i.test(s);
+
+    // Unicode range for Cyrillic alphabet (removes direct Russian text from code)
+    const isRu=s=>/[\u0400-\u04FF]/i.test(s);
 
     function App(){
         const [kb,setKb]=useState('');
+        const [sysPrompt,setSysPrompt]=useState('');
         const [ks,setKs]=useState('loading');
+        const [engagementLevel, setEngagementLevel] = useState(null);
+
         const welcome={
             id:0,
-            txt:renderMarkdownWithLatex("**Hi! I am WILL AI**\n\nAsk me anything about WILL Relational Geometry.\n\n**Disclaimer:** I can make mistakes - always doublecheck with WILL original documentation."),
+            txt:renderMarkdownWithLatex("**Hi! I am WILL AI**\n\nTo begin, please select your preferred mathematical engagement level:"),
             user:false,
             isWelcome:true,
-            raw:"Hi! I am WILL AI Ask me anything about WILL Relational Geometry. Disclaimer: I can make mistakes - always doublecheck with WILL original documentation."
+            raw:"Initial Welcome"
         };
+
         const [log,setLog]=useState([welcome]);
         const logRef=useRef([welcome]);
         const [inp,setInp]=useState('');
@@ -139,19 +165,36 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         const endRef=useRef(null);
         const textRef=useRef(null);
 
-        useEffect(()=>{loadKB().then(d=>{setKb(d);setKs('ok');}).catch(()=>setKs('error'));},[]);
+        useEffect(()=>{
+            Promise.all([loadKB(), loadSystemPrompt()])
+                .then(([kbData, promptData])=>{
+                    setKb(kbData);
+                    setSysPrompt(promptData);
+                    setKs('ok');
+                })
+                .catch(()=>setKs('error'));
+        },[]);
+
         useEffect(()=>{
             endRef.current?.scrollIntoView({behavior:'smooth'});
             typesetMath();
         },[log]);
-        const push=(txt,user=false,raw=txt)=>{
+
+       const push=(txt,user=false,raw=txt)=>{
             const content=user?txt:renderMarkdownWithLatex(txt);
             const entry={id:Date.now()+Math.random(),txt:content,user,raw};
             logRef.current=[...logRef.current,entry];
             setLog(logRef.current);
         };
 
+        const handleLevelSelection = (level) => {
+            setEngagementLevel(level);
+            push(level, true, level);
+            push(`Confirmed. Mathematical engagement level set to **${level}**. How can I assist you with WILL Relational Geometry?`, false);
+        };
+
         function sendLog(){
+
             const payload = {
                 sessionId: SESSION_ID,
                 log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
@@ -176,7 +219,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
 
         async function send() {
             const q = inp.trim();
-            if (!q || busy) return;
+            if (!q || busy || !engagementLevel) return;
 
             push(q, true, q);
             setInp('');
@@ -202,91 +245,12 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
             try {
                 const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
 
-                const formattingInstruction = `
-<SYSTEM_INSTRUCTIONS>
+                const prompt = `${sysPrompt}
 
-<RULES_OF_INTELLECTUAL_CONDUCT>
-1.  **Substantiate All Claims:** You must justify every critical assertion. If you claim a concept is "partial," "incomplete," or "problematic," you must cite a specific reason or example from the provided knowledge base. Do not make unsubstantiated dismissive statements.
-2.  **Evaluate Internal Consistency First:** Before comparing the WILL framework to external theories, evaluate its claims based on its own internal logic and axioms. Acknowledge what the framework purports to achieve within its own system (e.g., if it claims to be a unification, describe it as such from its internal perspective).
-3.  **Understand the Foundational Principle:** When evaluating the framework's central principle (SPACETIME ≡ ENERGY), you must understand that it is presented not as a new postulate, but as the direct consequence of removing a hidden assumption from physics — the separation of "structure" (spacetime) and "dynamics" (energy). The framework's goal is to demonstrate that all of physics can be derived logically from this single act of methodological hygiene. Your analysis must focus on the validity of the logical steps that follow this removal, not on the principle as an arbitrary axiom.
-4.  **Avoid Vague and Subjective Labels:** Do not use pejorative or undefined terms like "crackpot," "extreme," or make judgments on philosophical approaches like "epistemic minimalism." Your critique must be based on specific, demonstrable points of logic, mathematics, or contradiction with established experimental data.
-5.  **Acknowledge Novel Claims Fairly:** When assessing novelty, if the framework derives known results from new principles, or if it claims to solve established problems (like singularities, the nature of energy density, etc.), you must acknowledge these as significant claims of novelty. Do not dismiss them as mere "reinterpretation" if they originate from a fundamentally different axiomatic basis.
-6. **No "Plastic Politeness":** Do not apologize for the theory's radical nature. Be firm, precise, and scientifically honest.
-
-</RULES_OF_INTELLECTUAL_CONDUCT>
-
-<ROLE_AND_IDENTITY>
-You are WILL AI, the specialized research assistant for the WILL Relational Geometry (RG) research.
-Your goal is not just to summarize text, but to **defend, explain, and demonstrate** the geometric logic of the unified theory.
-You are "Website Aware" and must actively direct users to specific web tools when needed.
-</ROLE_AND_IDENTITY>
-
-<SITE_MAP_AND_RESOURCES>
-Use these specific URLs to substantiate your answers:
-1.  **Relativistic Foundations (GPS, Mercury, Redshift):**
-    * URL: https://willrg.com/relativistic-foundations/
-    * *Use when:* User asks about proofs, GPS, Mercury precession or accuses the theory of "numerology." Point to the **Desmos Calculators** here. It is a short and simplified web-version of WILL_RG_I.txt with interactive Desmos projects for calculation of GPS time dilation and Mercury's precession.
-2.  **Relational Orbital Mechanics (ROM - Simulations):**
-    * URL: https://willrg.com/rom/
-    * *Use when:* User asks for "simulations," "time evolution," or claims the theory is static. It is an interactive orbital simulator demonstrating phase-driven evolution.
-3.  **Galactic Dynamics (Dark Matter):**
-    * URL: https://willrg.com/galactic_dynamics/
-    * *Use when:* User asks about Rotation Curves, Dark Matter, or MOND. It is an interactive lab for testing WILL RG against the full SPARC dataset.
-4.  **Predictions (Testable predictions, Falsifications, Python scripts):**
-    * URL: https://willrg.com/predictions/
-    * *Use when:* User asks about proofs, Numbers, Validations, testable unique predictions. It is a list of numerical predictions with Python scripts.
-5.  **LOGOS MAP (The Logical Dependency Graph):**
-    * URL: https://willrg.com/logos_map/
-    * *Use when:* User asks "How is this derived?", "Where do you start?", or attacks the foundational logic.
-    * *Description:* This is the **Derivation Tree** of the WILL_RG_I.txt foundations. It visualizes the 10 Stages of Generative Physics, showing every binary decision point where WILL diverges from standard physics (e.g., rejecting "Energy as Stuff" in Stage II, rejecting "Force Dynamics" in Stage V). Use this to show the user logical and philosophical basis of WILL RG.
-</SITE_MAP_AND_RESOURCES>
-
-<DEFENSE_PROTOCOLS>
-**Protocol 1: The "Numerology" & "Curve Fitting" Defense**
-If a user claims the theory just "fits numbers", you MUST:
-1.  Direct them to the **Predictions**, **Galactic Dynamics** and **Relativistic Foundations** pages.
-2.  Cite the unbroken derivation chains from methodology to Mercury's precession to atomic structure to Galactic Dynamics to CMB. Point out that it is impossible to fit results expanding on $10^{20}$ orders of magnitude.
-3.  Point at mathematical transparency and simplicity. Encourage the user to test it themselves via interactive pages and Python scripts.
-
-**Protocol 2: The "Simulation" & "Time Evolution" Defense**
-If a user asks for simulations or claims the theory is static because it lacks time variables:
-1.  Clarify that WILL is **Relational**, meaning systems evolve via **Phase ($\phi$)**, not absolute Time ($t$).
-2.  **IMMEDIATELY** provide the link to the **Relational Orbital Mechanics (ROM)** page.
-3.  Explain that the ROM simulator demonstrates dynamic stability and evolution using purely geometric phase drivers, proving the theory is dynamic without needing differential equations of time.
-
-**Protocol 3: The "GR without a Metric" Defense**
-If a user claims WILL is just "General Relativity without a metric" or a "re-parameterization":
-1.  Reject this as a **Category Error**.
-2.  Use the analogy: **"Calling WILL 'GR without a metric' is like calling Group Theory 'Differential Equations without derivatives'. It is a fundamental misclassification of the ontology."**
-3.  Explain the difference in logical flow: GR moves from Geometry $\to$ Dynamics; WILL moves from Observables $\to$ Algebraic Closure.
-</DEFENSE_PROTOCOLS>
-
-<FORMATTING_RULES>
-You MUST format your entire response using Markdown.
-To ensure readability, you MUST separate all paragraphs, headings, and list items with a double line break (a blank line).
-Never wrap your entire response in a code block.
-
-CRITICAL — DEFINITIONS, EQUATIONS AND MATH:
-
-**Definition:**
-    $ \\textbf{WILL}\\equiv\\ \\textbf{SPACE-TIME-ENERGY} $ is the technical term for the unified relational structure. All physically meaningful quantities are relational features of WILL; no external container is permitted.
-
-
-You MUST write ALL mathematical equations, formulas, variables, and expressions using LaTeX notation.
-- For inline math use dollar signs: $E = mc^2$
-- For display (block) equations use double dollar signs on their own lines:
-
-$$\\kappa^2 = 2\\beta^2$$
-
-- Always use LaTeX commands for Greek letters: $\\beta$, $\\kappa$, $\\theta$, $\\alpha$, etc.
-- Always use LaTeX for subscripts, superscripts, fractions, and operators: $v_e$, $R_s$, $\\frac{a}{b}$, $\\sqrt{x}$, etc.
-- NEVER write equations as plain text or Unicode. ALWAYS use LaTeX notation.
-</FORMATTING_RULES>
-
-</SYSTEM_INSTRUCTIONS>
-`;
-
-                const prompt = `${formattingInstruction}
+<USER_PROFILE>
+User Engagement Level: ${engagementLevel}
+Adapt your tone and mathematical rigor accordingly.
+</USER_PROFILE>
 
 <KNOWLEDGE_BASE>
 ${kb}
@@ -295,7 +259,7 @@ ${kb}
 ${conversation}
 </CONVERSATION_HISTORY>
 
-Answer in ${lang}. Use Markdown and cite sources as "doc. Part n - Section name". The user's question is below.
+Answer in ${lang}. Use Markdown. Follow the <CITATION_PROTOCOL> strictly for all references. The user's question is below.
 <USER_QUESTION>
 ${q}
 </USER_QUESTION>`;
@@ -309,13 +273,9 @@ ${q}
                 const errorMessage = String(e.message || '');
 
                 if (errorMessage.includes('overloaded')) {
-                    friendlyError = lang === 'Russian'
-                        ? 'Сервер AI сейчас перегружен большим количеством запросов. Пожалуйста, повторите ваш запрос через минуту.'
-                        : 'The AI server is currently overloaded with requests. Please try your request again in a moment.';
+                    friendlyError = 'The AI server is currently overloaded with requests. Please try your request again in a moment.';
                 } else if (errorMessage.includes('TIMEOUT')) {
-                    friendlyError = lang === 'Russian'
-                        ? 'Ваш запрос очень сложный, и AI потребовалось слишком много времени на размышления. Пожалуйста, попробуйте задать тот же вопрос еще раз или немного упростите его.'
-                        : 'Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...';
+                    friendlyError = 'Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...';
                 } else {
                     friendlyError = errorMessage;
                 }
@@ -362,13 +322,23 @@ ${q}
                 )
             ),
 
-            /* Input bar — pinned to the bottom */
+            /* Input bar or Engagement Level selector — pinned to the bottom */
             React.createElement('div',{className:'flex-shrink-0 border-t border-slate-700/50 bg-gray-900/80 backdrop-blur-sm px-4 md:px-8 lg:px-16 py-3'},
+                !engagementLevel ? 
+                React.createElement('div', {className: 'max-w-4xl mx-auto flex flex-col items-center justify-center gap-3 py-2'},
+                    React.createElement('div', {className: 'text-slate-300 text-sm font-semibold'}, 'Select Mathematical Engagement Level:'),
+                    React.createElement('div', {className: 'flex flex-wrap justify-center gap-3'},
+                        React.createElement('button', {onClick: () => handleLevelSelection('Humble thinker'), className: 'px-4 py-2 bg-indigo-900/50 hover:bg-indigo-800 text-indigo-200 rounded-lg border border-indigo-700 transition'}, 'Humble thinker'),
+                        React.createElement('button', {onClick: () => handleLevelSelection('Curious student'), className: 'px-4 py-2 bg-cyan-900/50 hover:bg-cyan-800 text-cyan-200 rounded-lg border border-cyan-700 transition'}, 'Curious student'),
+                        React.createElement('button', {onClick: () => handleLevelSelection('Rigorous physicist'), className: 'px-4 py-2 bg-emerald-900/50 hover:bg-emerald-800 text-emerald-200 rounded-lg border border-emerald-700 transition'}, 'Rigorous physicist')
+                    )
+                )
+                :
                 React.createElement('div',{className:'max-w-4xl mx-auto flex gap-2 items-end'},
                     React.createElement('textarea',{
                         ref:textRef,
                         className:'flex-1 resize-none bg-slate-800 text-slate-50 rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
-                        rows:1,value:inp,placeholder:'Ask about WILL Geometry…',
+                        rows:1,value:inp,placeholder:`Ask about WILL Geometry (${engagementLevel})…`,
                         onInput:e=>{setInp(e.target.value);e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,160)+'px';},
                         onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
                     }),
