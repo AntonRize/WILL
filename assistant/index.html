@@ -128,7 +128,6 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         }).then(text => `<SOURCE_DOCUMENT: ${p}>\n${text}\n</SOURCE_DOCUMENT>`)
         )).then(t=>t.join('\n\n'));
     }
-    }
 
     function loadSystemPrompt(){
         return fetch(REPO_BASE+'assistant/SYSTEM_PROMPT.txt').then(r=>{
