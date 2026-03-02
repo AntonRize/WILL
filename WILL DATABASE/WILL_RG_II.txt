@@ -343,7 +343,7 @@ The Fine Structure Constant $\alpha$ is rigorously identified as the unique \tex
 \alpha \equiv \beta_1 = \sqrt{\frac{1}{2} \frac{R_q}{a_0}}
 \end{equation}
 
-Thus, $\alpha$ is the scaling factor defining the ratio between the \textbf{critical limit of the field} and the \textbf{stable state of matter}. This rigid geometric scaling ($\beta \leftrightarrow \kappa$) allows us to use $\alpha$ to map the macroscopic saturation density $\rho_{max}$ in the following section.
+Thus, $\alpha$ is the scaling factor defining the ratio between the \textbf{critical limit of the field} and the \textbf{stable state of matter}. This rigid geometric scaling ($\beta rightarrow \kappa$) allows us to use $\alpha$ to map the macroscopic saturation density $\rho_{max}$ in the following section.
 
 
 \subsection{Input Parameters and Constants}
@@ -472,6 +472,13 @@ $$ \text{Conversion Factor} = \frac{3.0857 \times 10^{22} \text{ m/Mpc}}{1000 \t
     H_0 \approx 2.208 \times 10^{-18} \times 3.0857 \times 10^{19} \approx \mathbf{68.15} \, \text{km/s/Mpc}
 \end{equation}
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Implication]
+Desmos project link: \href{https://www.desmos.com/calculator/esx0b6ohdh}{https://www.desmos.com/calculator/esx0b6ohdh}
+
+ \href{https://github.com/AntonRize/WILL/blob/d36d936d0ac9ea2279b84077d9d8aea7d8840aa6/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb}{Colab notebook link}
+\end{tcolorbox}
+
+
 \begin{remark}[Metric Selectivity and Neutrino Exclusion]
 Standard cosmological models (e.g., $\Lambda$CDM) aggregate all relativistic species (photons + neutrinos) into a single radiation density term $\rho_{rad}$, assuming universal gravitational coupling via the stress-energy tensor.
 
@@ -499,6 +506,8 @@ The calculated value $H_0 \approx 68.15$ km/s/Mpc is derived without any free pa
 \end{itemize}
 
 \textbf{Result:} WILL Relational Geometry successfully bridges Quantum Mechanics (WILL RG Part III) and Cosmology (WILL RG Part I and II), yielding a theoretically grounded value for $H_0$ that matches observations.
+
+
 
 \section{Phase Evolution and the Geometric Origin of the CMB}
 \hypertarget{sec:phase_evolution}{}\label{sec:phase_evolution}
@@ -592,14 +601,14 @@ a(o) \propto o^{\,\Omega_\Lambda}, \qquad \Omega_\Lambda = \frac{2}{3}.
 
 Since temperature scales inversely with the expansion factor ($T \propto a^{-1}$), the cooling law takes the form:
 \begin{equation}
-\boxed{T(o) = T_0 \left(\frac{o_{max}}{o}\right)^{2/3}}
+\boxed{T(o) = T_0 (\frac{o_{max}}{o})^{2/3}}
 \label{eq:cooling_law}
 \end{equation}
 where $T_0 = 2.7255$ K is the current CMB temperature and $o_{max} = 2\pi/(3\alpha^2) \approx 39{,}330$ is the phase horizon depth derived in Section~4.3.
 
 Equivalently, the redshift at any phase $o$ is:
 \begin{equation}
-1 + z(o) = \left(\frac{o_{max}}{o}\right)^{2/3}.
+1 + z(o) = (\frac{o_{max}}{o})^{2/3}.
 \label{eq:redshift_phase}
 \end{equation}
 
@@ -649,12 +658,12 @@ The fundamental observables in WILL RG are the geometric phase $o$, the cosmolog
 
 Using the Geometric Cooling Law derived in Section \ref{sec:cooling-law}  the redshift and temperature at any phase depth $o$ are:
 \begin{equation}
-    1 + z(o) = \left(\frac{o_{max}}{o}\right)^{2/3}, \qquad T(o) = T_0 \left(\frac{o_{max}}{o}\right)^{2/3}
+    1 + z(o) = (\frac{o_{max}}{o})^{2/3}, \qquad T(o) = T_0 (\frac{o_{max}}{o})^{2/3}
 \end{equation}
 
 At the decoupling transition $o_{crit} = 1$:
 \begin{equation}
-    1 + z_{dec} = o_{max}^{2/3} = \left(\frac{2\pi}{3\alpha^2}\right)^{2/3}
+    1 + z_{dec} = o_{max}^{2/3} = (\frac{2\pi}{3\alpha^2})^{2/3}
 \end{equation}
 
 Substituting $o_{max} \approx 39{,}330$:
@@ -712,7 +721,7 @@ Peebles non-eq. (50\% ionized)& $\sim$3,300& $\sim$1,210& Atomic physics + $\eta
 $\Lambda$CDM visibility peak & $\sim$2,970& 1,090& Full $\Lambda$CDM pipeline \\
 \hline
 \end{tabular}
-\caption{Hierarchy of recombination epoch estimates. The WILL RG prediction falls between the model-independent atomic physics estimates and the $\Lambda$CDM-derived value. Its temperature ($\approx 3\,150$ K) lies within the physically expected range for hydrogen neutralization. Deviation from the Peebles non-equilibrium estimate is $\approx 4.5\%$; deviation from the $\Lambda$CDM-derived $z^*$ is $\approx 6\%$. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/ebd984ee5634180e6cf3bccde1d5527aebbe7c88/Colab_Notebooks/Recombination__Model_Independent_Atomic_Physics.ipynb}{Recombination_ Model Independent Atomic Physics.ipynb}}
+\caption{Hierarchy of recombination epoch estimates. The WILL RG prediction falls between the model-independent atomic physics estimates and the $\Lambda$CDM-derived value. Its temperature ($\approx 3\,150$ K) lies within the physically expected range for hydrogen neutralization. Deviation from the Peebles non-equilibrium estimate is $\approx 4.5\%$; deviation from the $\Lambda$CDM-derived $z^*$ is $\approx 6\%$. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/ebd984ee5634180e6cf3bccde1d5527aebbe7c88/Colab_Notebooks/Recombination__Model_Independent_Atomic_Physics.ipynb}{Recombination  Model Independent Atomic Physics.ipynb}}
 \label{tab:recombination}
 \end{table}
 
@@ -765,7 +774,7 @@ The ratio of these quantities defines the dimensionless geometric projection par
 For a static, spherically symmetric configuration, the relationship between geometry and energy density is governed by the equation:
 \begin{equation}
 \boxed{
-\frac{d}{dr}\!\left(r\,\kappa^{2}\right) = \frac{8\pi G}{c^{2}}\, r^{2}\rho(r)
+\frac{d}{dr}\!(r\,\kappa^{2}) = \frac{8\pi G}{c^{2}}\, r^{2}\rho(r)
 }.
 \label{eq:will_field}
 \end{equation}
@@ -775,11 +784,11 @@ This expression reproduces the $tt$-component of the Einstein field equations in
 \begin{proof}
 Starting from the standard Tolman-Oppenheimer-Volkoff (TOV) form for metric component $g_{rr}$:
 \begin{equation}
-\frac{1}{r^{2}}\frac{d}{dr}\!\left[r\!\left(1-\frac{1}{g_{rr}}\right)\right] = \frac{8\pi G}{c^{2}}\rho(r).
+\frac{1}{r^{2}}\frac{d}{dr}\![r\!(1-\frac{1}{g_{rr}})] = \frac{8\pi G}{c^{2}}\rho(r).
 \end{equation}
 Using the identity $\kappa^2 = 1 - 1/g_{rr}$ (derived from the closure condition on $S^2$), we substitute directly:
 \[
-\frac{1}{r^{2}}\frac{d}{dr}\!\left[r\,\kappa^{2}\right] = \frac{8\pi G}{c^{2}}\rho(r).
+\frac{1}{r^{2}}\frac{d}{dr}\![r\,\kappa^{2}] = \frac{8\pi G}{c^{2}}\rho(r).
 \]
 Multiplying by $r^2$ yields \href{https://willrg.com/documents/WILL_RG_I.pdf#eq:unified_field}{WILL Field Equation (derived in WILL RG I)}.
 \end{proof}
@@ -864,7 +873,7 @@ Substituting the vacuum potential $\kappa^2 = R_s/r$:
 \]
 Therefore:
 \[
-P(r) = \frac{c^4}{8\pi G} \frac{1}{r} \left( -\frac{\kappa^2}{r} \right) = - \frac{\kappa^2 c^4}{8\pi G r^2} = - \left( \frac{\kappa^2 c^2}{8\pi G r^2} \right) c^2.
+P(r) = \frac{c^4}{8\pi G} \frac{1}{r} ( -\frac{\kappa^2}{r} ) = - \frac{\kappa^2 c^4}{8\pi G r^2} = - ( \frac{\kappa^2 c^2}{8\pi G r^2} ) c^2.
 \]
 Recognising the term in parentheses as density $\rho(r)$, we obtain:
 \[
@@ -886,7 +895,7 @@ T^{(\mathrm{vac})}_{\mu\nu} \;\hat{=}\; -\,\rho_{\Lambda}(r)\,c^{2}\, g_{\mu\nu}
 
 Substituting this into the Einstein equations yields an effective, radially dependent cosmological term:
 \begin{equation}
-\Lambda(r) = \frac{8\pi G}{c^4} (\rho_{\Lambda} c^2) = \frac{8\pi G}{c^2} \left(  \frac{\Omega_{pot}c^2}{8\pi G r^2} \right) =\frac{\Omega_{pot}}{r^2}= \frac{2}{3r^2}.
+\Lambda(r) = \frac{8\pi G}{c^4} (\rho_{\Lambda} c^2) = \frac{8\pi G}{c^2} (  \frac{\Omega_{pot}c^2}{8\pi G r^2} ) =\frac{\Omega_{pot}}{r^2}= \frac{2}{3r^2}.
 \end{equation}
 
 \begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Summary]
@@ -928,7 +937,7 @@ The derivation proceeds in three steps: establishing the vacuum capacity, defini
 \paragraph{1. The Structural Vacuum Density ($\rho_{\Lambda}$).}
 From the \textit{Relational Energy Weights}, the effective vacuum density is constrained by relational weights ($\Omega_{pot}=2/3$) to be exactly two-thirds of the maximal saturation density. This introduces the geometric factor $1/12\pi$:
 \begin{equation}
-\rho_{\Lambda}(r) = \frac{2}{3}\rho_{\max}(r) = \frac{2}{3}\left(\frac{c^2}{8\pi G r^2}\right) = \frac{c^2}{12\pi G r^2}.
+\rho_{\Lambda}(r) = \frac{2}{3}\rho_{\max}(r) = \frac{2}{3}(\frac{c^2}{8\pi G r^2}) = \frac{c^2}{12\pi G r^2}.
 \end{equation}
 Note that the factor $1/12\pi$ can be viewed as the spherical capacity ($1/4\pi$) distributed across three spatial dimensions ($1/3$).
 
@@ -948,11 +957,11 @@ Taking their ratio and applying the closure condition $Q^2 = \frac{3}{2}\kappa^2
 \end{equation}
 Therefore $\rho = Q^2 \cdot \rho_{\Lambda}$ is an algebraic identity, not a postulate. Substituting the explicit forms:
 \begin{equation}
-\rho = \underbrace{\left( 3 \frac{V^2}{c^2} \right)}_{\text{Dynamic Factor}} \cdot \underbrace{\left( \frac{c^2}{12\pi G r^2} \right)}_{\text{Vacuum Tension Factor}}.
+\rho = \underbrace{( 3 \frac{V^2}{c^2} )}_{\text{Dynamic Factor}} \cdot \underbrace{( \frac{c^2}{12\pi G r^2} )}_{\text{Vacuum Tension Factor}}.
 \end{equation}
 Here, the closure factor ($3$) and the Vacuum Tension Factor ($1/12$) exactly cancel to produce the Newtonian geometric factor ($1/4$):
 \begin{equation}
-\rho = \frac{3}{12} \left( \frac{V^2}{\pi G r^2} \right) = \frac{1}{4} \left( \frac{V^2}{\pi G r^2} \right) = \frac{V^2}{4\pi G r^2}.
+\rho = \frac{3}{12} ( \frac{V^2}{\pi G r^2} ) = \frac{1}{4} ( \frac{V^2}{\pi G r^2} ) = \frac{V^2}{4\pi G r^2}.
 \end{equation}
 
 \paragraph{Conclusion.}
@@ -1015,7 +1024,7 @@ At the Global Horizon, the closure condition $\kappa^2 = 2\beta^2$ partitions th
 
 \paragraph{3.  \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:pressure}{Equations of State} (from Part~I).}
 \begin{itemize}
-    \item \textbf{Kinetic sector} (free particles, no curvature gradient): $d\kappa^2/dr = 0 \Rightarrow P_{kin} = 0$. From energy conservation: $\rho_{kin} \propto a^{-3} = (1+z)^3$.
+    \item \textbf{Kinetic sector} (free particles, no curvature gradient): $d\kappa^2/dr = 0 arrow P_{kin} = 0$. From energy conservation: $\rho_{kin} \propto a^{-3} = (1+z)^3$.
     \item \textbf{Potential sector} (vacuum curvature gradient): $P_{pot} = -\rho_{pot}\,c^2$ (derived in Part~I). From energy conservation: $\rho_{pot} = \text{const}$.
 \end{itemize}
 The dilution law $\rho_{kin} \propto (1+z)^3$ follows from three ingredients internal to RG: 
@@ -1029,7 +1038,7 @@ The Global Phase-Closure Constraint (Theorem~\ref{thm:resonance}) enforces \href
 \paragraph{Result.}
 Combining these ingredients yields the evolution equation:
 \begin{equation}
-    H^2(z) = 8\pi G\left[\frac{1}{3}\rho_{max,0}(1+z)^3 + \frac{2}{3}\rho_{max,0}\right] = H_0^2\left[\frac{1}{3}(1+z)^3 + \frac{2}{3}\right].
+    H^2(z) = 8\pi G[\frac{1}{3}\rho_{max,0}(1+z)^3 + \frac{2}{3}\rho_{max,0}] = H_0^2[\frac{1}{3}(1+z)^3 + \frac{2}{3}].
 \end{equation}
 
 \textbf{Critical Distinction:} The coefficient $1/3$ in this equation is the \textbf{Kinetic Relational Weight} $\Omega_{kin} = \beta^2/Q^2$, derived from the closure condition. It is \emph{not} the standard Friedmann factor $1/3$ arising from $(8\pi G/3)$ in the conventional equation. The numerical coincidence reflects the fact that the carrier topology ($\text{DOF}_{S^2}/\text{DOF}_{S^1} = 2$) determines both the mass--density convention and the energy partition through the same geometric structure.
@@ -1045,14 +1054,14 @@ Standard cosmological analyses often float $H_0$ and the absolute magnitude ($M$
     \item We use the \textit{geometric} density parameters $\Omega_m = 1/3$ and $\Omega_{\Lambda} = 2/3$.
     \item We calculate the theoretical Distance Modulus $\mu_{WILL}(z)$ ab initio:
     \begin{equation}
-        \mu_{WILL}(z) = 5 \log_{10} \left( \frac{c(1+z)}{H_0} \int_0^z \frac{dz'}{\sqrt{\frac{1}{3}(1+z')^3 + \frac{2}{3}}} \right) + 25
+        \mu_{WILL}(z) = 5 \log_{10} ( \frac{c(1+z)}{H_0} \int_0^z \frac{dz'}{\sqrt{\frac{1}{3}(1+z')^3 + \frac{2}{3}}} ) + 25
     \end{equation}
 \end{enumerate}
 
 \textbf{The Expected Calibration Offset:}
 The Pantheon+ dataset is calibrated to the SH0ES Cepheid scale ($H_{0,SH0ES} \approx 73.04$ km/s/Mpc). Since our microphysically derived $H_0$ (68.15) differs from this local calibration, we theoretically expect a constant vertical offset in the distance modulus:
 \begin{equation}
-    \Delta \mu_{expected} = 5 \log_{10} \left( \frac{73.04}{68.15} \right) \approx 0.150 \text{ mag}
+    \Delta \mu_{expected} = 5 \log_{10} ( \frac{73.04}{68.15} ) \approx 0.150 \text{ mag}
 \end{equation}
 Any deviation beyond this constant offset would indicate a failure of the geometric expansion law ($\Omega$ ratios).
 
@@ -1136,7 +1145,7 @@ In WILL RG, the fundamental resonance is determined by two factors:
 
 The unloaded vacuum resonance is given by:
 \begin{equation}
-    \ell_{vac} = \frac{1}{\alpha}(1 + \Omega_{pot}) = 137.036 \times \left(1 + \frac{2}{3}\right) \approx 228.39
+    \ell_{vac} = \frac{1}{\alpha}(1 + \Omega_{pot}) = 137.036 \times (1 + \frac{2}{3}) \approx 228.39
 \end{equation}
 
 Since the first peak represents \textbf{compression}, the baryonic mass ($\Omega_b$) acts as an inertial load added to the vacuum tension ($\Omega_{pot}$). Using the BBN prior $\Omega_b \approx 0.048$ (derived from $\Omega_b h^2 = 0.0224$ and our calculated $H_0$), the loading factor is:
@@ -1244,7 +1253,7 @@ Unlike a gas cloud, a tensioned membrane resists global deformation. The energy 
 The suppression factor $S(\ell)$ for the power spectrum is governed by the ratio of the Restoring Force (vacuum tension) to the Driving Force (Matter Inertia):
 
 \begin{equation}
-P(\ell) \propto \left( \frac{1}{1 + \frac{\mathcal{R}_{eff}}{\lambda_{\ell}}} \right)^2
+P(\ell) \propto ( \frac{1}{1 + \frac{\mathcal{R}_{eff}}{\lambda_{\ell}}} )^2
 \end{equation}
 where:
 \begin{itemize}
@@ -1275,7 +1284,7 @@ If the inertia is dominated by the structural potential term, the coupling facto
 \]
 Substituting into the suppression equation for $\ell=2$:
 \[
-\text{Amplitude} \approx \frac{1}{1 + \frac{9.21}{6}} \approx 0.394 \quad \Rightarrow \quad P_{\ell=2} \approx (0.394)^2 \approx \mathbf{0.156}
+\text{Amplitude} \approx \frac{1}{1 + \frac{9.21}{6}} \approx 0.394 \quad arrow \quad P_{\ell=2} \approx (0.394)^2 \approx \mathbf{0.156}
 \]
 
 \paragraph{Scenario B: The Kinetic Limit ($Q^2 = 3\beta^2$)}
@@ -1285,7 +1294,7 @@ If the inertia follows the full kinetic coupling observed in rotation curves ($3
 \]
 Substituting into the suppression equation for $\ell=2$:
 \[
-\text{Amplitude} \approx \frac{1}{1 + \frac{4.61}{6}} \approx 0.566 \quad \Rightarrow \quad P_{\ell=2} \approx (0.566)^2 \approx \mathbf{0.320}
+\text{Amplitude} \approx \frac{1}{1 + \frac{4.61}{6}} \approx 0.566 \quad arrow \quad P_{\ell=2} \approx (0.566)^2 \approx \mathbf{0.320}
 \]
 
 \subsection{Comparison with Observation}
@@ -1436,7 +1445,7 @@ The full velocity profile for a point mass thus takes the form:
 \begin{equation}
 V_{obs}^2(r) = \frac{GM_b}{r} + \sqrt{GM_b \cdot a_{\kappa}}.
 \end{equation}
-As $r \to \infty$, the Newtonian term vanishes, yielding the asymptotic flat velocity:co_speechnotes_plugin_fab_id:1253,417
+As $r \to \infty$, the Newtonian term vanishes, yielding the asymptotic flat velocity:
 \begin{equation}
 V_{flat}^2 = (GM_b \cdot a_{\kappa})^{1/2}.
 \end{equation}
@@ -1455,11 +1464,11 @@ Squaring both sides gives the \textbf{Baryonic Tully-Fisher Relation}:
 
 \paragraph{3. Effective coefficient at finite radius.} The BTFR is observationally measured at the outermost reliable data point, not at $r \to \infty$. At any finite radius $r = n \cdot r_t$ (where $r_t = \sqrt{\tfrac{3\pi}{2}\,R_s\,R_H} = \sqrt{GM_b/a_{\kappa}}$ is the transition radius and $R_H=c/H_0$ is the Hubble horizon), the observed velocity retains a non-negligible Newtonian contribution:
 \begin{equation}
-V_{obs}^2(n \cdot r_t) = \left(\frac{1}{n} + 1\right) (GM_b \cdot a_{\kappa})^{1/2}.
+V_{obs}^2(n \cdot r_t) = (\frac{1}{n} + 1) (GM_b \cdot a_{\kappa})^{1/2}.
 \end{equation}
 The effective BTFR coefficient at this radius is:
 \begin{equation}
-a_{eff}(n) = \left(\frac{1}{n} + 1\right)^2 a_{\kappa}.
+a_{eff}(n) = (\frac{1}{n} + 1)^2 a_{\kappa}.
 \end{equation}
 
 \begin{table}[H]
@@ -1548,7 +1557,7 @@ To represent the Standard Model framework without allowing ad-hoc halo fitting (
 \textbf{Stellar Mass Estimation:}
 Total stellar mass $M_{\star}$ is reconstructed directly from the kinematic data. We integrate the baryonic velocity components at the outermost observed radius $r_{\rm last}$ assuming Newtonian dynamics, consistent with the fixed mass-to-light ratios defined in Eq.~(1):
 \begin{equation}
-M_{\star} = \frac{r_{\rm last}}{G} \left( \Upsilon_{\rm disk} V_{\rm disk}^2(r_{\rm last}) + \Upsilon_{\rm bulge} V_{\rm bulge}^2(r_{\rm last}) \right).
+M_{\star} = \frac{r_{\rm last}}{G} ( \Upsilon_{\rm disk} V_{\rm disk}^2(r_{\rm last}) + \Upsilon_{\rm bulge} V_{\rm bulge}^2(r_{\rm last}) ).
 \end{equation}
 
 \textbf{Halo Assignment:}
@@ -1730,7 +1739,11 @@ Taking the square root yields the predicted orbital velocity:
 \begin{equation}
 \boxed{V_{pred} \approx 226.4 \, \mathrm{km/s}}
 \end{equation}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Implication]
 Desmos project link: \href{https://www.desmos.com/calculator/esx0b6ohdh}{https://www.desmos.com/calculator/esx0b6ohdh}
+\end{tcolorbox}
 
 \subsection{Result}
 
@@ -1874,7 +1887,7 @@ To demonstrate the mechanism in a specific system, we examine the double-ring le
 
 The SIS model predicts an Einstein radius from the observed velocity dispersion alone:
 \begin{equation}
-\theta_{pred} = 4\pi \left( \frac{\sigma_{obs}}{c} \right)^2 \frac{D_{ls}}{D_s}
+\theta_{pred} = 4\pi ( \frac{\sigma_{obs}}{c} )^2 \frac{D_{ls}}{D_s}
 \end{equation}
 
 Using the angular diameter distance ratio computed within WILL RG cosmology ($\Omega_m = 1/3$, $\Omega_{\Lambda} = 2/3$, $H_0 = 68.15$ km/s/Mpc) for the lens ($z_l = 0.222$) and source ($z_s = 0.609$) redshifts:
@@ -1942,6 +1955,7 @@ Both scales are governed by the single Universal Horizon parameter $H_0$, unifyi
 %____________________________________________________________________________________
 
 
+
 \section{Consolidating Mach's Principle}   
 %________________________________________________________________________________
 %REWRITE. NOBODY CARES ABOUT YOUR POETIC BULLSHIT!!! 
@@ -1956,14 +1970,14 @@ We letting the Universe to unfold by its own terms and rules. Now it is clear wh
 We derive the electron mass directly from the resonance between the internal geometry of the particle and the global geometry of the Universe. We define two dimensionless topological invariants describing the system state:
 
 \begin{enumerate}
-    \item \textbf{The Internal Capacity Ratio ($\mathcal{R}_{int}$):} The ratio of the particle's Electromagnetic Critical Radius ($R_q$) to its Gravitational Schwarzschild Radius ($R_s$). This describes the intrinsic \textit{intensity} of the particle's curvature.
+    \item \textbf{The Internal Capacity Ratio ($\mathcal{R}_{int}$):} The ratio of the particle's \href{https://willrg.com/documents/WILL_RG_III.pdf#pr:scale}{Electromagnetic Critical Radius ($R_q$)} to its \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:geometric_composition}{Gravitational Schwarzschild Radius ($R_s$)}. This describes the intrinsic \textit{intensity} of the particle's curvature.
     \begin{equation}
         \mathcal{R}_{int} = \frac{R_q}{R_s}
     \end{equation}
     Using the definitions derived in Part I ($R_s =\kappa^2r= 2Gm/c^2$) and Part III 
 ($R_q =\kappa_q^2r= 2\alpha^{2}a_{0}=2e^2 / 4\pi\varepsilon_0 m c^2$):
     \begin{equation}
-        \mathcal{R}_{int} = \frac{\left( \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} \right)}{\left( \frac{2G m_e}{c^2} \right)} = \frac{e^2}{4\pi\varepsilon_0 G m_e^2}
+        \mathcal{R}_{int} = \frac{( \frac{2e^2}{4\pi\varepsilon_0 m_e c^2} )}{( \frac{2G m_e}{c^2} )} = \frac{e^2}{4\pi\varepsilon_0 G m_e^2}
     \end{equation}
     
     \item \textbf{The External Horizon Ratio ($\mathcal{R}_{ext}$):} The ratio of the Universal Hubble Horizon ($R_H$) to the particle's Unitary Energy Radius ($r_e$). This describes the particle's \textit{scale} relative to the cosmos.
@@ -1983,13 +1997,14 @@ The \textbf{Geometric Mach Equation} is thus:
 \begin{equation}
     \boxed{ \mathcal{R}_{int} \cdot \Gamma^3 = \mathcal{R}_{ext} }
 \end{equation}
-where $\Gamma = \frac{1}{\pi\sqrt{2}}$ is the conversion factor of WILL RG ($1/\sqrt{2}$  converting from potential $S^2$ ($\kappa$) carrier to kinetic $S^1$ ($\beta$)  carrier via \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:Closure}{closure theorem}, $1/\pi$ for diametric projection).
+where $\Gamma = \frac{1}{\pi\sqrt{2}}$ is the conversion factor from potential projection to kinetic
+($\beta=\frac{\kappa}{\sqrt{2}}$  \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:Closure}{Part  I Closure theorem})  and $1/\pi$ for diametric projection).
 
 \subsection{Derivation}
 
 Substituting the definitions into Eq. (\ref{eq:mach_geo}):
 
-$$ \left( \frac{e^2}{4\pi\varepsilon_0 G m_e^2} \right) \cdot \Gamma^3 = \frac{m_e c^2}{H_0 \alpha \hbar} $$
+$$ ( \frac{e^2}{4\pi\varepsilon_0 G m_e^2} ) \cdot \Gamma^3 = \frac{m_e c^2}{H_0 \alpha \hbar} $$
 
 Using the definition of the fine structure constant $\alpha = \frac{e^2}{4\pi\varepsilon_0 \hbar c}$, we simplify the Left Hand Side (LHS):
 $$ \text{LHS} = \frac{\alpha \hbar c}{G m_e^2} \cdot \Gamma^3 $$
@@ -2003,12 +2018,12 @@ $$ m_e^3 = \Gamma^3 \cdot \frac{H_0 (\alpha \hbar c)^2}{G c^3} $$
 
 Taking the cube root of both sides:
 \begin{equation}
-    m_e = \Gamma \left( \frac{H_0 (\alpha \hbar c)^2}{G c^3} \right)^{1/3}
+    m_e = \Gamma ( \frac{H_0 (\alpha \hbar c)^2}{G c^3} )^{1/3}
 \end{equation}
 
 Substituting the explicit geometric projection $\Gamma = \frac{1}{\pi\sqrt{2}}$:
 \begin{equation}
-    \boxed{ m_{e(WILL)} = \frac{1}{\pi\sqrt{2}} \left( \frac{H_0 (\alpha \hbar c)^2}{G c^3} \right)^{1/3} }
+    \boxed{ m_{e(WILL)} = \frac{1}{\pi\sqrt{2}} ( \frac{H_0 (\alpha \hbar c)^2}{G c^3} )^{1/3} }
 \end{equation}
 
 \subsection{Numerical Verification}

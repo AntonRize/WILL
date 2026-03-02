@@ -41,6 +41,19 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         border-color: rgba(6, 182, 212, 1);
         transform: translateY(-2px);
     }
+    /* AI Hyperlink styles */
+    .ai-message-bubble a {
+        color: #22d3ee;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+    .ai-message-bubble a:hover {
+        color: #a5f3fc;
+    }
+
+</style>
 
 </style>
 
@@ -96,8 +109,11 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
             return ph;
         });
 
-        // Run marked on the now-safe text
+       // Run marked on the now-safe text
         let html = marked.parse(text);
+
+        // Force all links to open in a new tab safely
+        html = html.replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
 
         // Restore LaTeX blocks
         for (const {ph, val} of placeholders) {
