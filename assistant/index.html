@@ -121,11 +121,13 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         }
     }
 
-    function loadKB(){
+   function loadKB(){
         return Promise.all(FILES.map(p=>fetch(REPO_BASE+p).then(r=>{
             if(!r.ok)throw new Error('KB fetch '+r.status);
             return r.text();
-        }))).then(t=>t.join('\n\n'));
+        }).then(text => `<SOURCE_DOCUMENT: ${p}>\n${text}\n</SOURCE_DOCUMENT>`)
+        )).then(t=>t.join('\n\n'));
+    }
     }
 
     function loadSystemPrompt(){
