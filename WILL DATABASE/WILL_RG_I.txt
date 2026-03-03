@@ -1617,7 +1617,6 @@ This explains the experimentally verified factor of 2 in gravitational lensing a
 \end{tcolorbox}
 
 
-
 %-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %_________________________________________________Chapter C____________________________________________________
 %_______________________________________________________________________________________________________________
@@ -2609,7 +2608,6 @@ e_{\text{pred}} = \frac{1}{\delta_p} - 1 = \frac{1}{0.829297901025} - 1 \simeq 0
 \textbf{Conclusion:} The predicted  eccentricity closely matches (within inputs uncertainty) the observed value ($e \approx 0.2056$). 
 This demonstrates that the orbital geometry is fully determined by the ratio of the central redshift to the orbital Doppler shift, with no reference to mass or $G$.
 
-\href{https://www.desmos.com/calculator/wimnrykbvy}{Desmos project link: https://www.desmos.com/calculator/wimnrykbvy}
 
 \subsection{Path 2: Reconstruction of Potentials (Star S2)}
 
@@ -2797,6 +2795,12 @@ With the derived periapsis intensity $\beta_p $ and the corresponding potential 
     \boxed{\Delta \varphi \approx 14.7909706972 \approx  14.80 \text{ arcmin/orbit}.}
 \end{equation}
 
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Click to open]
+\textbf{ \href{https://www.desmos.com/calculator/n4lmkpsebx}{DESMOS: R.O.M.}}
+\end{tcolorbox}
+
+
 \subsection{Discussion}
 The result derived here ($\Delta \varphi \approx 14.80'$) matches the expectations of the Schwarzschild metric to high precision. However, the path to this result is physically distinct.
 
@@ -2825,8 +2829,71 @@ observable frequency projections.
 %________________________________Chapter E_____________________________________________________________
 %___________________________________________________________________________________________________
 
+\section{Relational Derivation of Absolute System Scale: The Chrono-Spectroscopic Theorem}
+\hypertarget{sec:absolute_scale}{}\label{sec:absolute_scale}
 
-\section{Resolution of the Classical $M \sin i$ Degeneracy}
+\subsection{The Epistemological Bottleneck of Spatial Distance}
+In classical orbital mechanics, the absolute gravitational scale $R_s = \frac{2GM}{c^2}$ is not a direct observable. Its derivation requires the gravitational constant $G$ and mass $M$, which in turn require measuring the physical semi-major axis $a$ in meters. This fundamentally tethers the determination of mass to the cosmic distance ladder (parallax). In the Relational Orbital Mechanics (R.O.M.), physical distance is not a fundamental property or an a priori container; rather, distance emerges macroscopically as the geometric "tension" between two relational energetic potentials.
+
+\subsection{The Theorem}
+By establishing the local relational spacetime factor $\tau_{Wo}(o) = Z_{sys}(o)^{-1}$ over a closed phase interval, the absolute scale of the system $R_s$ decouples entirely from spatial coordinates. For a complete orbital cycle (from $0$ to $2\pi$), the phase integral evaluates exactly to $2\pi$, collapsing the absolute system scale to:
+\[
+    R_{s} = T \cdot c \cdot \frac{\kappa^{2}\beta}{2\pi}
+\]
+Here, $\kappa^2$ and $\beta$ are the global potential and kinematic projections. While theoretically anchored to the dimensionless spectroscopic shifts ($z_{ko}, z_{bo}$) at the orbital balance point $\arccos(-e)$, the scale $R_s$ is generated exclusively from Chronometry (orbital period $T$) and Spectroscopy (light shifts), eliminating any dependency on $G$, $M$, or spatial parallax.
+
+\subsection{Phase-Angle Mapping and Empirical Validation}
+To operationalize this theorem without importing metric distances or Newtonian constants, local potential states must be mapped using pure angular and chronometric ratios. While the global invariants ($\kappa^2, \beta$) define the system, they can be reconstructed from any observable local state via invariant tension equations.
+
+We validate this on the Solar System utilizing Mercury's state at perihelion. The absolute relational distance is not measured with a "meter stick" but derived from pure optical tracking. The required parameter is $R_{ratio}$ (the ratio of the Solar radius to Mercury's perihelion distance). We extract this entirely from Earth-based dimensionless observables:
+\begin{enumerate}
+    \item \textbf{Direct Optical Radius ($\theta_{\odot}$):} The angular radius of the Sun viewed from Earth ($\approx 0.004652$ rad).
+    \item \textbf{Chronometric Scaling ($T_M / T_{\oplus}$):} The ratio of orbital periods, yielding the geometric semi-major axis ratio via empirical Keplerian kinematics $(T_M / T_{\oplus})^{2/3} \approx 0.3871$.
+    \item \textbf{Kinematic Eccentricity ($e$):} Derived from the ratio of maximum to minimum angular velocity across the sky ($e \approx 0.2056$).
+\end{enumerate}
+
+Thus, the pure relational scale factor at perihelion is computed without any reliance on $G$, $M$, or the Astronomical Unit in meters:
+\[
+    R_{ratio} = \frac{\theta_{\odot}}{(T_M / T_{\oplus})^{2/3} \cdot (1-e)} \approx 0.01512
+\]
+
+The potential at perihelion $\kappa_p^2$ is a direct projection of the Solar surface potential $\kappa_{sun}^2$ scaled by this dimensionless angular ratio:
+\[
+    \kappa_{p}^{2} = \left(1 - \frac{1}{(1+z_{sun})^{2}}\right) \cdot R_{ratio}
+\]
+
+The global invariants are then strictly recovered from the tension of these local perihelion states ($\kappa_p^2$ and the dimensionless transverse kinematic shift $\beta_p$):
+\[
+    \beta = \sqrt{\kappa_p^2 - \beta_p^2} \quad \text{and} \quad \kappa^2 = 2(\kappa_p^2 - \beta_p^2)
+\]
+
+\begin{table}[h!]
+\centering
+\caption{Dimensionless and Chronometric Inputs for Absolute Scale}
+\hypertarget{tab:mercury_params}{}\label{tab:mercury_params}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|l|c|c|p{5.5cm}|}
+\hline
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} & \textbf{Epistemological Source} \\ \hline
+Orbital Period & $T$ & $7,600,521.6 \text{ s}$ & Pure Chronometry \\\hline
+Transverse Kinematics & $\beta_{p}$ & $1.967 \times 10^{-4}$ & Pure Spectroscopic Shift ($z_{bp}$) \\\hline
+Angular Size Ratio & $R_{ratio}$ & $0.01512$ & Pure Optical-Chronometric Geometry \\\hline
+Solar Gravitational Redshift & $z_{sun}$ & $2.1224 \times 10^{-6}$ & Spectroscopic Shift \\ \hline
+\end{tabular}
+\end{table}
+
+Substituting these strictly relational observables into the R.O.M. absolute scale equation yields:
+\[
+    R_{s} \approx 2953.3 \text{ m}
+\]
+This result perfectly matches the classical derivation $\frac{2GM_{sun}}{c^{2}}$, yet it is achieved strictly through internal system clocks ($T$) and spectroscopic shifts ($\beta_p, z_{sun}$). 
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence]
+\textbf{SPACETIME $\equiv$ ENERGY}: The physical scale of a closed orbital system is algebraically equivalent to the ratio of geometric tension ($\kappa^2\beta$) to local clock ticks ($T$). The classical necessity of the "cosmic distance ladder" (meters) is an artifact of treating space as an a priori container, rather than recognizing it as the emergent relational tension between energetic states.
+\end{tcolorbox}
+
+
+\section{Sidestepping the Classical $M \sin i$ Degeneracy}
 \hypertarget{sec:M_sin(i)}{}\label{sec:M_sin(i)}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=The 130-Year Limitation]
@@ -2837,7 +2904,7 @@ K = \frac{\beta_{\rm int} \sin i}{\sqrt{1-e^2}},
 leaving an infinite family of physically distinct $(\beta, i)$ pairs consistent with the data. This degeneracy has been the principal obstacle to model-independent mass and inclination determination in exoplanet, binary, and Galactic-center studies.
 \end{tcolorbox}
 
-By deriving Relational Orbital Mechanics (R.O.M. \ref{sec:rom}) RG resolves this degeneracy at the algebraic level by introducing two independent higher-order kinematic invariants that depend on $\beta$ (or $\beta_{\rm int}$) alone, without reference to the observer's inclination $i$.
+By deriving Relational Orbital Mechanics (R.O.M. \ref{sec:rom}) RG sidesteps this degeneracy at the algebraic level by introducing two independent higher-order kinematic invariants that depend on $\beta$ (or $\beta_{\rm int}$) alone, without reference to the observer's inclination $i$.
 
 \subsection{The Interior Kinematic Projection}
 
@@ -2914,6 +2981,12 @@ $\omega_0$ (Periapsis) & $65.99^{+0.63^\circ}_{-0.39^\circ}$& $64.43^\circ$ & $6
 \caption{MCMC marginal posteriors for S0-2. The Ablated model fails to capture the true parameters for $\beta$, $i$, and $v_{z0}$, confirming that classical RV analysis is strictly degenerate without geometric invariants. Colab Notebook: \href{https://github.com/AntonRize/WILL/blob/0f9149941d067907c4b87bc590a04fb1b2adae5d/Colab_Notebooks/beta_i_comparison.ipynb}{beta i comparison.ipynb}}
 \label{tab:mcmc_results}
 \end{table}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Detailed Analysis]
+\href{https://willrg.com/msini_test}{https://willrg.com/msini test}
+\end{tcolorbox}
+
 
 \subsubsection{Topology of the Posterior and the Degeneracy Ridge}
 
@@ -3566,6 +3639,12 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
 \section{Closed Algebraic System of Relational Orbital Mechanics (R.O.M.)}
 \hypertarget{eq:rom}{}\label{eq:rom}
 
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Click to open]
+\textbf{ \href{https://www.desmos.com/calculator/n4lmkpsebx}{Desmos Project: R.O.M}}
+\end{tcolorbox}
+
+
 R.O.M. does not describe how a body moves under forces; it classifies the algebraically allowed relational states of a bound system.
 
 $\boxed{\kappa^2 = 1-\frac{1}{(1+z_k)^2}}$  ($z_k=$ gravitational redshift) \\
@@ -3580,14 +3659,14 @@ $z_{ko} = \frac{1}{\kappa_{Xo}}-1$ (redshift at phase $o$) \\
 $z_{bo}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
 
 \subsubsection*{Global System Parameters (Fixed for the Orbit)}\\
-$\kappa = \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)} =\sqrt{4W}=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})}=\sqrt{1-(1+z_{k})^{-2}}$ (potential projection at semi-major axis) \\
+$\kappa = \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)} =\sqrt{4W}=\sqrt{2(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})}=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})}=\sqrt{1-(1+z_{k})^{-2}}$ (potential projection at semi-major axis) \\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}$ (gravitational phase factor) \\
-$\beta = \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \sqrt{2W} =\sqrt{\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot(1+(\frac{1}{\delta_{o}(o)}-1))}=\beta_{o}(o)\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}=\sqrt{1-(1+z_{b})^{-2}}$  (kinetic projection on semi major axis) \\
+$\beta = \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \sqrt{2W}=\sqrt{(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})} =\sqrt{\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot(1+(\frac{1}{\delta_{o}(o)}-1))}=\beta_{o}(o)\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}=\sqrt{1-(1+z_{b})^{-2}}$  (kinetic projection on semi major axis) \\
 $\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (relativistic phase factor) \\
 $\beta_{int}=\frac{\beta}{\sqrt{1-e^2}}$ (interior kinetic projection) \\
 $\tau_{W} = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\ 
 $Q=\sqrt{\kappa^2+\beta^2}=\sqrt{\frac{3}{2}}\ \kappa=\sqrt{3}\ \beta$ (total relational shift (magnitude of state difference)) \\
-$R_{s} = \kappa^{2}a = \frac{2Gm_{0}}{c^{2}}=\frac{\Delta_{to}(o)}{\tau_{o}(o)}\kappa^{2}\beta c=\frac{T_{O}c}{\pi}\left(\kappa_{p}^{2}-\beta_{p}^{2}\right)^{\frac{3}{2}}=\frac{ r_{1} r_{2}}{r_{2} - r_{1}}( \beta_{1}^{2} - \beta_{2}^{2} )=\frac{a}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})=$ \\ $=\frac{r_{o}(o)}{2(2a-r_{o}(o))}(4a-r_{o}(o)-\sqrt{(4a-r_{o}(o))^{2}-8a(2a-r_{o}(o))(1-\tau_{Wo}(o)^{2})})$  (Schwarzschild radius -system scale) \\
+$R_{s} = \kappa^{2}a = \frac{2Gm_{0}}{c^{2}}=\frac{\Delta_{to}(o)}{\tau_{o}(o)}\kappa^{2}\beta c=\frac{T_{O}c}{\pi}(\kappa_{p}^{2}-\beta_{p}^{2})^{\frac{3}{2}}=\frac{ r_{1} r_{2}}{r_{2} - r_{1}}( \beta_{1}^{2} - \beta_{2}^{2} )=\frac{a}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})=$ \\ $=\frac{r_{o}(o)}{2(2a-r_{o}(o))}(4a-r_{o}(o)-\sqrt{(4a-r_{o}(o))^{2}-8a(2a-r_{o}(o))(1-\tau_{Wo}(o)^{2})})=\frac{T_{O}}{\pi}(\sqrt{1-(\frac{1}{1+z_{b}})^{2}})^{3}c$ (Schwarzschild radius -system scale) \\
 $a = \frac{R_{s}}{\kappa^{2}} =\frac{R_{s}}{4W} = \frac{\beta_{o}c}{\omega} \cdot \frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e\cos (o)}}=\frac{\Delta_{to}(o)}{\tau_{o}}\beta c$ (semi-major axis) \\
 $m_{0} = \frac{\kappa^{2}c^{2}a}{2G} = 4\pi\rho a^{3}$ (mass parameter) \\
 $t = \frac{a}{c}$ (temporal scale of the system) \\

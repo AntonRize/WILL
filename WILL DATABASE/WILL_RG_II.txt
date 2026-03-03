@@ -472,7 +472,7 @@ $$ \text{Conversion Factor} = \frac{3.0857 \times 10^{22} \text{ m/Mpc}}{1000 \t
     H_0 \approx 2.208 \times 10^{-18} \times 3.0857 \times 10^{19} \approx \mathbf{68.15} \, \text{km/s/Mpc}
 \end{equation}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Implication]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos and Colab]
 Desmos project link: \href{https://www.desmos.com/calculator/esx0b6ohdh}{https://www.desmos.com/calculator/esx0b6ohdh}
 
  \href{https://github.com/AntonRize/WILL/blob/d36d936d0ac9ea2279b84077d9d8aea7d8840aa6/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb}{Colab notebook link}
@@ -1548,10 +1548,10 @@ applied uniformly across the entire sample. This eliminates "per-galaxy tuning" 
 
 Five distinct physical prescriptions are compared.
 
-\subsubsection{1. Newtonian Baseline}
+\subsubsection*{1. Newtonian Baseline}
 \[ V_{\rm Newt}(r) = V_b(r). \]
 
-\subsubsection{2. LCDM with Abundance Matching (No Fitting)}
+\subsubsection*{2. LCDM with Abundance Matching (No Fitting)}
 To represent the Standard Model framework without allowing ad-hoc halo fitting (e.g., varying concentration or mass per galaxy), we employ a deterministic Abundance Matching protocol. To ensure a strict evaluation of the standard paradigm, we utilize the Planck 2018 cosmological parameters ($H_0 = 67.4$ km s$^{-1}$ Mpc$^{-1}$, $h=0.674$) for all halo scaling relations, independent of the derived scales tested in other models.
 
 \textbf{Stellar Mass Estimation:}
@@ -1572,7 +1572,7 @@ M_{\star} = \frac{r_{\rm last}}{G} ( \Upsilon_{\rm disk} V_{\rm disk}^2(r_{\rm l
 \end{itemize}
 The total velocity is then $V_{\rm LCDM} = \sqrt{V_b^2 + V_{\rm NFW}^2}$. No parameters are tuned to minimize residuals for individual galaxies.
 
-\subsubsection{3. MOND (Standard Benchmark)}
+\subsubsection*{3. MOND (Standard Benchmark)}
 We employ the standard interpolation function $\mu(x) = x/(1+x)$ with the canonical acceleration scale $a_0 = 1.2 \times 10^{-10}\,\mathrm{m\,s^{-2}}$. The prediction is given analytically by the solution to the algebraic quadratic equation:
 \begin{equation}
 V_{\rm MOND}(r) = \sqrt{ \frac{V_b^2(r) + \sqrt{V_b^4(r) + 4V_b^2(r)a_0 r}}{2} }.
@@ -1580,7 +1580,7 @@ V_{\rm MOND}(r) = \sqrt{ \frac{V_b^2(r) + \sqrt{V_b^4(r) + 4V_b^2(r)a_0 r}}{2} }
 
 \small{\textit{Note: In this benchmark, `MOND' refers strictly to the algebraic $\mu$-prescription (a phenomenological mapping), not a physical theory. It is included only as an empirical compression baseline for RAR.}}
 
-\subsubsection{4. Emergent Gravity (Verlinde, 2016)}
+\subsubsection*{4. Emergent Gravity (Verlinde, 2016)}
 We test the theoretical scaling proposed by Verlinde, where the acceleration scale is determined by the Hubble parameter $H_0$. Using the theoretical coefficient $1/6$:
 \begin{equation}
 a_{\rm VG} = \frac{c H_0}{6} \approx 1.1 \times 10^{-10}\,\mathrm{m\,s^{-2}}.
@@ -1590,7 +1590,7 @@ The velocity profile follows the Deep-MOND scaling for point masses:
 V_{\rm Verlinde}(r) = \sqrt{ V_b^2(r) + \sqrt{a_{\rm VG} V_b^2(r) r} }.
 \end{equation}
 
-\subsubsection{5. WILL Relational Geometry (RG)}
+\subsubsection*{5. WILL Relational Geometry (RG)}
 The RG prediction is structurally similar to the geometric mean scaling but employs a distinct coefficient derived from the theory's potential resonance condition ($3\pi$):
 \begin{equation}
 V_{\rm RG}(r) = \sqrt{ V_b^2(r) + \sqrt{a_{\kappa} V_b^2(r) r} }.
@@ -1601,7 +1601,7 @@ a_{\kappa} = \frac{c H_0}{3\pi}, \quad \text{where } H_0 \equiv \sqrt{8\pi G \rh
 \end{equation}
 This yields a theoretical $H_0 \approx 68.15$ km/s/Mpc and $a_{\kappa} \approx 0.70 \times 10^{-10}\,\mathrm{m\,s^{-2}}$.
 
-\subsection{Results}
+\subsection*{Results}
 
 Performance is evaluated using three robust metrics: Median Absolute Error (MedAE), Median Signed Bias (systematic offset), and the fraction of data points predicted within $10$ km/s ($F_{10}$).
 
@@ -1741,7 +1741,7 @@ Taking the square root yields the predicted orbital velocity:
 \end{equation}
 
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Implication]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos]
 Desmos project link: \href{https://www.desmos.com/calculator/esx0b6ohdh}{https://www.desmos.com/calculator/esx0b6ohdh}
 \end{tcolorbox}
 
@@ -1951,20 +1951,11 @@ The successful prediction of the Wide Binary anomaly confirms the \textbf{bifurc
 Both scales are governed by the single Universal Horizon parameter $H_0$, unifying the dynamics of the Solar neighbourhood with the expansion of the Universe.
 
 %________________________________________________________________________________
-%WRIGHT THE BUILD UP BRIDGE TO ELECTRON MASS. SOMETHING LIKE "WE APPLIED TO THE UNIVERSE SCALE, GALACTIC SCALE, LOCAL SCALE LETS BRING IT HOME BACK TO ELECTRON" 
+%WRITE THE BUILD UP BRIDGE TO ELECTRON MASS. SOMETHING LIKE "WE APPLIED TO THE UNIVERSE SCALE, GALACTIC SCALE, LOCAL SCALE LETS BRING IT HOME BACK TO ELECTRON" 
 %____________________________________________________________________________________
 
 
-
-\section{Consolidating Mach's Principle}   
-%________________________________________________________________________________
-%REWRITE. NOBODY CARES ABOUT YOUR POETIC BULLSHIT!!! 
-%____________________________________________________________________________________
-
-Through out our research we consistently pilled of anthropocentric noise in our philosophy in our mathematics and in our expectations. The goal is to silent the beast within so the Fundamental Tone is clear and could lead the way. 
-We letting the Universe to unfold by its own terms and rules. Now it is clear where the yellow brick road led us all that time. Mach's Principle!...
-
-\subsection{Derivation of Electron Mass: The Geometric Capacity Resonance}
+\section{Consolidating Mach's Principle: Derivation of Electron Mass: The Geometric Capacity Resonance}   
 
 \subsection{Topological Invariants}
 We derive the electron mass directly from the resonance between the internal geometry of the particle and the global geometry of the Universe. We define two dimensionless topological invariants describing the system state:
@@ -1987,47 +1978,84 @@ We derive the electron mass directly from the resonance between the internal geo
     \textit{Note: We use the Unitary Energy Radius $r_e$ (Classical Radius) here because it defines the localization scale of the rest energy $E_0$, consistent with the inertial definition of mass.}
 \end{enumerate}
 
-\subsection{The Holographic Projection Principle}
+\subsection{Derivation of the Topological Operator $\Gamma$}
+\hypertarget{sec:gamma_operator}{}\label{sec:gamma_operator}
+
 A direct equality $\mathcal{R}_{int} = \mathcal{R}_{ext}$ is geometrically invalid because it equates a \textbf{Volumetric Potential Capacity} (scaling with mass density) with a \textbf{Linear Metric Distance}. 
 
-To map the internal curvature intensity ($\mathcal{R}_{int}$) onto the linear universal axis ($\mathcal{R}_{ext}$), we must apply the \textbf{Volumetric Projection Factor} $\Gamma^3$. This factor accounts for the transformation from the closed loop topology ($S^1 \to S^2$) of the particle kernel to the linear diameter ($R^1$) of the horizon measurement.
+The topological operator $\Gamma$ governs the dimensional reduction from the closed 2D potential surface of the particle ($S^2$) to the 1D linear macroscopic horizon of the Universe ($R^1$). This transformation is the composition of two orthogonal geometric projections.
 
-The \textbf{Geometric Mach Equation} is thus:
+\paragraph{1. Energetic Projection ($\Gamma_E$).}
+The first operation maps the static capacity of the gravitational carrier ($S^2$) onto the dynamic kinematics of the quantum oscillator ($S^1$). From the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:Closure}{Closure Theorem}, a fully balanced structural state is governed by the invariant geometric identity:
+\begin{equation}
+    \kappa^2 = 2\beta^2
+\end{equation}
+The projection of the spherical potential amplitude onto the circular kinematic amplitude yields the energetic scaling factor:
+\begin{equation}
+    \Gamma_E = \frac{\beta}{\kappa} = \frac{1}{\sqrt{2}}
+\end{equation}
+
+\paragraph{2. Diametric Projection ($\Gamma_T$).}
+The second operation maps the internal quantum phase topology onto the external macroscopic geometry. The internal structure is defined by its closed phase trajectory, a topological loop ($S^1$) with circumference $C = 2\pi r$. Conversely, the external macroscopic horizon ($R_H$) is measured as a linear radial axis, topologically equivalent to a 1D segment ($R^1$). 
+
+The geometric unrolling of a closed structural loop onto an open linear measurement axis requires the ratio of its equivalent linear span (diameter $D = 2r$) to its full phase length (circumference $C$):
+\begin{equation}
+    \Gamma_T = \frac{D}{C} = \frac{2r}{2\pi r} = \frac{1}{\pi}
+\end{equation}
+
+\paragraph{3. Total Holographic Operator ($\Gamma$).}
+Since the energetic projection ($\Gamma_E$) and the spatial topological unwrapping ($\Gamma_T$) are independent, orthogonal operations, the complete holographic operator is their direct product:
+\begin{equation}
+    \boxed{ \Gamma = \Gamma_E \cdot \Gamma_T = \frac{1}{\pi\sqrt{2}} }
+\end{equation}
+
+\paragraph{4. The Geometric Mach Equation and Dimensional Resolution ($\Gamma^3$).}
+To map the internal curvature intensity onto the linear universal axis, we formulate the \textbf{Geometric Mach Equation}:
 \hypertarget{eq:mach_geo}{}\label{eq:mach_geo}
 \begin{equation}
     \boxed{ \mathcal{R}_{int} \cdot \Gamma^3 = \mathcal{R}_{ext} }
 \end{equation}
-where $\Gamma = \frac{1}{\pi\sqrt{2}}$ is the conversion factor from potential projection to kinetic
-($\beta=\frac{\kappa}{\sqrt{2}}$  \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:Closure}{Part  I Closure theorem})  and $1/\pi$ for diametric projection).
+In Equation (\ref{eq:mach_geo}), the Internal Capacity Ratio $\mathcal{R}_{int}$ incorporates the mass term squared in the denominator ($m_e^{-2}$). As established in \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{Part I section density} (Translating RG to Conventional Density), mass is not a fundamental scalar but a 3D translation artifact implicitly encoding a volumetric dependence ($1/r^3$). 
+
+Because $\mathcal{R}_{int}$ operates as a volumetric capacity metric, mapping it onto the 1D linear horizon ratio ($\mathcal{R}_{ext}$) creates a dimensional mismatch. To enforce geometric equilibrium, the 1D filter $\Gamma$ must be applied across all three spatial dimensions embedded within the mass artifact. The operator is strictly cubed ($\Gamma^3$), successfully unpacking the 3D-mass variable into a 1D relational length without empirical fitting parameters.
 
 \subsection{Derivation}
 
 Substituting the definitions into Eq. (\ref{eq:mach_geo}):
-
-$$ ( \frac{e^2}{4\pi\varepsilon_0 G m_e^2} ) \cdot \Gamma^3 = \frac{m_e c^2}{H_0 \alpha \hbar} $$
+\[
+\left( \frac{e^2}{4\pi\varepsilon_0 G m_e^2} \right) \cdot \Gamma^3 = \frac{m_e c^2}{H_0 \alpha \hbar}
+\]
 
 Using the definition of the fine structure constant $\alpha = \frac{e^2}{4\pi\varepsilon_0 \hbar c}$, we simplify the Left Hand Side (LHS):
-$$ \text{LHS} = \frac{\alpha \hbar c}{G m_e^2} \cdot \Gamma^3 $$
+\[
+\text{LHS} = \frac{\alpha \hbar c}{G m_e^2} \cdot \Gamma^3
+\]
 
 Now equate to RHS:
-$$ \frac{\alpha \hbar c}{G m_e^2} \cdot \Gamma^3 = \frac{m_e c^2}{H_0 \alpha \hbar} $$
+\[
+\frac{\alpha \hbar c}{G m_e^2} \cdot \Gamma^3 = \frac{m_e c^2}{H_0 \alpha \hbar}
+\]
 
 Isolating the mass term ($m_e^3$) by multiplying both sides by $m_e^2$ and rearranging:
-$$ m_e^3 = \Gamma^3 \cdot \frac{(\alpha \hbar c)(H_0 \alpha \hbar)}{G c^2} $$
-$$ m_e^3 = \Gamma^3 \cdot \frac{H_0 (\alpha \hbar c)^2}{G c^3} $$
+\[
+m_e^3 = \Gamma^3 \cdot \frac{(\alpha \hbar c)(H_0 \alpha \hbar)}{G c^2}
+\]
+\[
+m_e^3 = \Gamma^3 \cdot \frac{H_0 (\alpha \hbar c)^2}{G c^3}
+\]
 
 Taking the cube root of both sides:
 \begin{equation}
-    m_e = \Gamma ( \frac{H_0 (\alpha \hbar c)^2}{G c^3} )^{1/3}
+    m_e = \Gamma \left( \frac{H_0 (\alpha \hbar c)^2}{G c^3} \right)^{1/3}
 \end{equation}
 
 Substituting the explicit geometric projection $\Gamma = \frac{1}{\pi\sqrt{2}}$:
 \begin{equation}
-    \boxed{ m_{e(WILL)} = \frac{1}{\pi\sqrt{2}} ( \frac{H_0 (\alpha \hbar c)^2}{G c^3} )^{1/3} }
+    \boxed{ m_{e(WILL)} = \frac{1}{\pi\sqrt{2}} \left( \frac{H_0 (\alpha \hbar c)^2}{G c^3} \right)^{1/3} }
 \end{equation}
 
 \subsection{Numerical Verification}
-Using the value of $H_0$ derived in Part II from the CMB temperature ($H_0 \approx 2.2075 \times 10^{-18} \, \text{s}^{-1}$):
+Using the value of $H_0$ derived in Part II from the CMB temperature ($H_0 \approx 2.208 \times 10^{-18} \, \text{s}^{-1}$):
 \begin{itemize}
     \item \textbf{Calculated Mass:} $m_{e(WILL)} \approx 9.064 \times 10^{-31} \, \text{kg}$
     \item \textbf{Observed Mass:} $m_{e(CODATA)} \approx 9.109 \times 10^{-31} \, \text{kg}$
@@ -2042,7 +2070,7 @@ This completes the Theoretical Ouroboros:
     \item \textbf{Micro $\to$ Macro:} $\alpha \to H_0$ (Part II).
     \item \textbf{Macro $\to$ Micro:} $H_0 \to m_e$ (Part II Conclusion).
 \end{enumerate}
-Provided evidence strongly suggest that the Universe is a single, resonant, self-defining geometric relational unity.
+Provided evidence strongly suggests that the Universe is a single, resonant, self-defining geometric relational unity.
 
 %________________________________________________________________________________
 %ADD SECTION ABOUT "INPUTS COMPARING" WHERE YOU DEFEND YOUR 0 FREE PARAMETERS CLAIM
