@@ -25,3 +25,14 @@ user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like 
     "status": "UNAVAILABLE"
   }
 }
+
+
+**User:** The energy symmetry law is it approximation? It has 1/2 * beta Newtonian form...
+
+**Assistant:** {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
