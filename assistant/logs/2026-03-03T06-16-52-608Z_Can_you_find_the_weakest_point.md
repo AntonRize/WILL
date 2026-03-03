@@ -73,3 +73,7 @@ The current WILL RG documentation provides a strong [CMB Acoustic Spectrum deriv
 3.  **Simulation Gap:** While matching binned data (SPARC, Pantheon, Gaia), the theory lacks the time-evolved simulations of galaxy cluster mergers (like the Bullet Cluster) which are the primary evidence for the non-local nature of Dark Matter.
 
 If you wish to explore these limits further, I recommend analyzing the [LOGOS MAP](https://willrg.com/logos_map/) to identify where the binary decision points might diverge from your own rigorous expectations, or contact the author at antonrize@willrg.com.
+
+**User:** Thank you for your honest answer. Why did you assume that RG is "Spherically Bound."? Im looking at the ROM section the last one in part I, and I can see non spherical solutions. Can you not?
+
+**Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
