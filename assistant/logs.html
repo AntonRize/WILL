@@ -1,30 +1,490 @@
 ---
-layout: default
-title: "Conversation Logs"
+layout: chat
+title: "WILL-AI Conversation Logs"
 permalink: /assistant/logs/
 ---
 
-<div class="markdown-content py-8">
-  <h1>{{ page.title }}</h1>
-  <p>This page contains a list of all recorded conversations with the WILL AI Assistant.</p>
+<style>
+    /* Index page styles */
+    .logs-container {
+        max-width: 56rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 
-  <div class="my-6">
-    {% if site.logs.size > 0 %}
-      <ul class="space-y-4">
-        {% assign sorted_logs = site.logs | sort: 'date' | reverse %}
-        {% for log in sorted_logs %}
-          <li>
-            <a href="{{ site.baseurl }}{{ log.url }}" class="text-lg text-cyan-400 hover:underline">
-              {{ log.title }}
-            </a>
-            <p class="text-sm text-gray-400">
-              {{ log.date | date_to_string }}
-            </p>
-          </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>No conversation logs have been saved yet.</p>
-    {% endif %}
-  </div>
+    /* Header area */
+    .logs-header {
+        padding: 1.5rem 0 1rem;
+        flex-shrink: 0;
+    }
+    .logs-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0.25rem;
+    }
+    .logs-subtitle {
+        font-size: 0.875rem;
+        color: #6b7280;
+    }
+    .logs-count {
+        color: #22d3ee;
+        font-weight: 600;
+    }
+
+    /* Search bar */
+    .search-bar {
+        position: relative;
+        margin-bottom: 1rem;
+        flex-shrink: 0;
+    }
+    .search-bar input {
+        width: 100%;
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 0.75rem;
+        padding: 0.625rem 1rem 0.625rem 2.5rem;
+        color: #e2e8f0;
+        font-size: 0.875rem;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+    .search-bar input:focus {
+        border-color: rgba(6, 182, 212, 0.5);
+    }
+    .search-bar input::placeholder {
+        color: #4b5563;
+    }
+    .search-icon {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #4b5563;
+        pointer-events: none;
+    }
+
+    /* Scrollable log list */
+    .logs-list {
+        flex: 1;
+        overflow-y: auto;
+        padding-bottom: 2rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Log card */
+    .log-card {
+        display: block;
+        background-color: rgba(30, 41, 59, 0.5);
+        border: 1px solid #1e293b;
+        border-radius: 0.75rem;
+        padding: 1rem 1.25rem;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+    .log-card:hover {
+        background-color: rgba(30, 41, 59, 0.8);
+        border-color: rgba(6, 182, 212, 0.3);
+        transform: translateY(-1px);
+    }
+    .log-card-title {
+        color: #e2e8f0;
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin-bottom: 0.375rem;
+        line-height: 1.4;
+    }
+    .log-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.75rem;
+        color: #6b7280;
+    }
+    .log-card-date {
+        color: #22d3ee;
+        font-weight: 500;
+    }
+    .log-card-device {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    /* Date group headers */
+    .date-group {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #4b5563;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 1rem 0.25rem 0.5rem;
+    }
+    .date-group:first-child {
+        padding-top: 0;
+    }
+
+    /* Loading state */
+    .loading-dots {
+        display: flex;
+        justify-content: center;
+        padding: 3rem 0;
+        gap: 0.5rem;
+    }
+    .loading-dots span {
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: #22d3ee;
+        border-radius: 50%;
+        animation: bounce 1.4s ease-in-out infinite;
+    }
+    .loading-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes bounce {
+        0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+        40% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Empty / error states */
+    .state-message {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: #6b7280;
+    }
+    .state-message .icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Refresh button */
+    .refresh-btn {
+        background: none;
+        border: 1px solid #334155;
+        border-radius: 0.5rem;
+        color: #9ca3af;
+        padding: 0.375rem 0.625rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+    }
+    .refresh-btn:hover {
+        border-color: #22d3ee;
+        color: #22d3ee;
+    }
+    .refresh-btn.spinning svg {
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* Scrollbar styling */
+    .logs-list::-webkit-scrollbar {
+        width: 6px;
+    }
+    .logs-list::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .logs-list::-webkit-scrollbar-thumb {
+        background-color: #334155;
+        border-radius: 3px;
+    }
+    .logs-list::-webkit-scrollbar-thumb:hover {
+        background-color: #475569;
+    }
+</style>
+
+<div class="logs-container">
+    <!-- Header -->
+    <div class="logs-header">
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div>
+                <div class="logs-title">Conversation Logs</div>
+                <div class="logs-subtitle">
+                    <span id="log-count" class="logs-count">...</span> conversations with WILL-AI
+                </div>
+            </div>
+            <button id="refresh-btn" class="refresh-btn" title="Check for new logs">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+                Refresh
+            </button>
+        </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-bar">
+        <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input type="text" id="search-input" placeholder="Search conversations...">
+    </div>
+
+    <!-- Log list -->
+    <div class="logs-list" id="logs-list">
+        <div class="loading-dots" id="loading">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
 </div>
+
+<script>
+(function() {
+    var REPO_API = 'https://api.github.com/repos/AntonRize/WILL/contents/assistant/logs';
+    var BASE_PATH = '/assistant/logs/';
+    var CACHE_KEY = 'willrg_logs_cache';
+    var CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+    var AUTO_REFRESH_INTERVAL = 60 * 1000; // 60 seconds
+
+    var listEl = document.getElementById('logs-list');
+    var countEl = document.getElementById('log-count');
+    var searchInput = document.getElementById('search-input');
+    var refreshBtn = document.getElementById('refresh-btn');
+    var allLogs = [];
+
+    // --- Parsing helpers ---
+    function parseLogFilename(name) {
+        // Remove .md extension
+        var base = name.replace(/\.md$/i, '');
+
+        // Try ISO timestamp format: 2026-03-01T21-57-36-706Z_Title_here
+        var isoMatch = base.match(/^(\d{4}-\d{2}-\d{2})T(\d{2})-(\d{2})-(\d{2})-\d+Z_(.*)/);
+        if (isoMatch) {
+            var dateStr = isoMatch[1] + 'T' + isoMatch[2] + ':' + isoMatch[3] + ':' + isoMatch[4] + 'Z';
+            var title = isoMatch[5].replace(/_/g, ' ').replace(/\.\s*/g, '. ');
+            return { date: new Date(dateStr), title: title, slug: base };
+        }
+
+        // Try simple date prefix: 2026-03-01Title here
+        var simpleMatch = base.match(/^(\d{4}-\d{2}-\d{2})(.*)/);
+        if (simpleMatch) {
+            var title = simpleMatch[2].replace(/_/g, ' ').replace(/^\s+/, '').replace(/\.\s*/g, '. ');
+            // If title is missing, use date
+            if (!title) title = 'Conversation on ' + simpleMatch[1];
+            return { date: new Date(simpleMatch[1] + 'T12:00:00Z'), title: title, slug: base };
+        }
+
+        // Fallback
+        return { date: new Date(0), title: base.replace(/_/g, ' '), slug: base };
+    }
+
+    function formatDate(d) {
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    }
+
+    function formatTime(d) {
+        var h = d.getUTCHours();
+        var m = d.getUTCMinutes();
+        var ampm = h >= 12 ? 'PM' : 'AM';
+        h = h % 12 || 12;
+        return h + ':' + (m < 10 ? '0' : '') + m + ' ' + ampm + ' UTC';
+    }
+
+    function getDateGroup(d) {
+        var now = new Date();
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var logDay = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        var diff = (today - logDay) / (1000 * 60 * 60 * 24);
+
+        if (diff < 1) return 'Today';
+        if (diff < 2) return 'Yesterday';
+        if (diff < 7) return 'This Week';
+        if (diff < 30) return 'This Month';
+        return formatDate(d).replace(/\d+,/, '').trim(); // Just "Mar 2026"
+    }
+
+    function detectDevice(title) {
+        // We don't have user_agent in the filename, so return null
+        return null;
+    }
+
+    // --- Cache ---
+    function getCached() {
+        try {
+            var cached = localStorage.getItem(CACHE_KEY);
+            if (!cached) return null;
+            var data = JSON.parse(cached);
+            if (Date.now() - data.ts > CACHE_TTL) return null;
+            return data.logs;
+        } catch(e) { return null; }
+    }
+
+    function setCache(logs) {
+        try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), logs: logs }));
+        } catch(e) {}
+    }
+
+    // --- Rendering ---
+    function renderLogs(logs) {
+        listEl.innerHTML = '';
+
+        if (logs.length === 0) {
+            listEl.innerHTML = '<div class="state-message"><div class="icon">📭</div><div>No conversations found</div></div>';
+            return;
+        }
+
+        // Group by date
+        var currentGroup = '';
+        logs.forEach(function(log) {
+            var group = getDateGroup(log.date);
+            if (group !== currentGroup) {
+                currentGroup = group;
+                var header = document.createElement('div');
+                header.className = 'date-group';
+                header.textContent = group;
+                listEl.appendChild(header);
+            }
+
+            var card = document.createElement('a');
+            card.className = 'log-card';
+            card.href = BASE_PATH + encodeURIComponent(log.slug) + '/';
+
+            var titleDiv = document.createElement('div');
+            titleDiv.className = 'log-card-title';
+            // Truncate long titles
+            var displayTitle = log.title.length > 120 ? log.title.substring(0, 117) + '...' : log.title;
+            titleDiv.textContent = displayTitle;
+
+            var metaDiv = document.createElement('div');
+            metaDiv.className = 'log-card-meta';
+
+            var dateSpan = document.createElement('span');
+            dateSpan.className = 'log-card-date';
+            dateSpan.textContent = formatDate(log.date);
+            metaDiv.appendChild(dateSpan);
+
+            // Show time if we have it
+            if (log.date.getUTCHours() !== 12 || log.date.getUTCMinutes() !== 0) {
+                var timeSpan = document.createElement('span');
+                timeSpan.textContent = formatTime(log.date);
+                metaDiv.appendChild(timeSpan);
+            }
+
+            card.appendChild(titleDiv);
+            card.appendChild(metaDiv);
+            listEl.appendChild(card);
+        });
+    }
+
+    function filterAndRender() {
+        var query = (searchInput.value || '').toLowerCase().trim();
+        if (!query) {
+            renderLogs(allLogs);
+            countEl.textContent = allLogs.length;
+            return;
+        }
+        var filtered = allLogs.filter(function(log) {
+            return log.title.toLowerCase().indexOf(query) !== -1 ||
+                   formatDate(log.date).toLowerCase().indexOf(query) !== -1;
+        });
+        renderLogs(filtered);
+        countEl.textContent = filtered.length + ' of ' + allLogs.length;
+    }
+
+    // --- Fetch ---
+    function fetchLogs(useCache) {
+        if (useCache) {
+            var cached = getCached();
+            if (cached) {
+                allLogs = cached;
+                countEl.textContent = allLogs.length;
+                filterAndRender();
+                // Still fetch in background for freshness
+                fetchFromAPI(true);
+                return;
+            }
+        }
+
+        listEl.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
+        fetchFromAPI(false);
+    }
+
+    function fetchFromAPI(silent) {
+        if (!silent) {
+            refreshBtn.classList.add('spinning');
+        }
+
+        fetch(REPO_API, {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
+        })
+        .then(function(res) {
+            if (!res.ok) throw new Error('GitHub API: ' + res.status);
+            return res.json();
+        })
+        .then(function(files) {
+            var logs = files
+                .filter(function(f) { return f.name.endsWith('.md'); })
+                .map(function(f) { return parseLogFilename(f.name); })
+                .sort(function(a, b) { return b.date - a.date; });
+
+            allLogs = logs;
+            setCache(logs);
+            countEl.textContent = allLogs.length;
+            filterAndRender();
+        })
+        .catch(function(err) {
+            console.error('Failed to fetch logs:', err);
+            if (allLogs.length === 0) {
+                // Fall back to Jekyll-generated list
+                renderJekyllFallback();
+            }
+        })
+        .finally(function() {
+            refreshBtn.classList.remove('spinning');
+        });
+    }
+
+    function renderJekyllFallback() {
+        // Use Jekyll-rendered data as fallback
+        {% assign sorted_logs = site.pages | where: "layout", "log" | sort: "date" | reverse %}
+        var jekyllLogs = [
+        {% for log in sorted_logs %}
+            {
+                title: {{ log.title | jsonify }},
+                date: new Date("{{ log.date }}"),
+                slug: {{ log.url | remove: "/assistant/logs/" | remove: "/" | jsonify }}
+            },
+        {% endfor %}
+        ];
+
+        if (jekyllLogs.length > 0) {
+            allLogs = jekyllLogs;
+            countEl.textContent = allLogs.length;
+            filterAndRender();
+        } else {
+            listEl.innerHTML = '<div class="state-message"><div class="icon">⚠️</div><div>Could not load logs. Please try refreshing.</div></div>';
+        }
+    }
+
+    // --- Events ---
+    searchInput.addEventListener('input', filterAndRender);
+
+    refreshBtn.addEventListener('click', function() {
+        localStorage.removeItem(CACHE_KEY);
+        fetchLogs(false);
+    });
+
+    // --- Init ---
+    fetchLogs(true);
+
+    // Auto-refresh
+    setInterval(function() {
+        fetchFromAPI(true);
+    }, AUTO_REFRESH_INTERVAL);
+
+})();
+</script>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4YFFSYJGF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4YFFSYJGF');
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    {% seo %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #E5E7EB;
+        }
+
+        /* Chat bubble styles matching WILL-AI */
+        .chat-container {
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .msg-row {
+            display: flex;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+        }
+        .msg-row.user {
+            justify-content: flex-end;
+        }
+        .msg-row.assistant {
+            justify-content: flex-start;
+        }
+
+        .msg-bubble {
+            max-width: 85%;
+            border-radius: 1rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .msg-bubble.user {
+            background-color: rgb(14 116 144); /* cyan-700 */
+            color: white;
+            padding: 0.75rem 1rem;
+            white-space: pre-wrap;
+        }
+        .msg-bubble.assistant {
+            background-color: rgba(51, 65, 85, 0.8); /* slate-700/80 */
+            color: rgb(241 245 249); /* slate-100 */
+            padding: 1rem;
+        }
+        .msg-bubble.error {
+            background-color: rgba(127, 29, 29, 0.6);
+            color: rgb(252, 165, 165);
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            font-style: italic;
+        }
+
+        /* AI message content styles */
+        .msg-bubble.assistant p {
+            margin-bottom: 1em;
+        }
+        .msg-bubble.assistant p:last-child {
+            margin-bottom: 0;
+        }
+        .msg-bubble.assistant h1,
+        .msg-bubble.assistant h2,
+        .msg-bubble.assistant h3,
+        .msg-bubble.assistant h4 {
+            color: #ffffff;
+            margin-top: 1.2em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+        }
+        .msg-bubble.assistant h1 { font-size: 1.5em; }
+        .msg-bubble.assistant h2 { font-size: 1.3em; }
+        .msg-bubble.assistant h3 { font-size: 1.15em; }
+        .msg-bubble.assistant h4 { font-size: 1.05em; }
+
+        .msg-bubble.assistant a {
+            color: #22d3ee;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .msg-bubble.assistant a:hover {
+            color: #a5f3fc;
+        }
+        .msg-bubble.assistant code {
+            color: #f9a8d4;
+            background-color: #1f2937;
+            padding: 0.2em 0.4em;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+        .msg-bubble.assistant pre {
+            background-color: #1f2937;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 0.8em 0;
+        }
+        .msg-bubble.assistant pre code {
+            background: none;
+            padding: 0;
+        }
+        .msg-bubble.assistant blockquote {
+            border-left: 4px solid #4b5563;
+            padding-left: 1em;
+            color: #9ca3af;
+            margin: 0.8em 0;
+        }
+        .msg-bubble.assistant ul,
+        .msg-bubble.assistant ol {
+            margin: 0.5em 0;
+            padding-left: 1.5em;
+        }
+        .msg-bubble.assistant li {
+            margin-bottom: 0.3em;
+        }
+        .msg-bubble.assistant table {
+            border-collapse: collapse;
+            margin: 0.8em 0;
+            width: 100%;
+            font-size: 0.9em;
+        }
+        .msg-bubble.assistant th,
+        .msg-bubble.assistant td {
+            border: 1px solid #374151;
+            padding: 0.5em 0.75em;
+            text-align: left;
+        }
+        .msg-bubble.assistant th {
+            background-color: rgba(30, 41, 59, 0.8);
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .msg-bubble.assistant strong {
+            color: #ffffff;
+        }
+
+        /* MathJax in bubbles */
+        .msg-bubble mjx-container[jax="CHTML"][display="true"] {
+            display: block;
+            overflow-x: auto;
+            overflow-y: hidden;
+            max-width: 100%;
+            margin: 0.8em 0;
+        }
+        .msg-bubble mjx-container {
+            color: inherit !important;
+        }
+
+        /* Sender label */
+        .sender-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            padding: 0 0.25rem;
+        }
+        .sender-label.user {
+            color: #22d3ee;
+            text-align: right;
+        }
+        .sender-label.assistant {
+            color: #94a3b8;
+            text-align: left;
+        }
+
+        /* Meta info bar */
+        .log-meta {
+            border-bottom: 1px solid #1f2937;
+        }
+
+        /* Back link */
+        .back-link {
+            color: #67e8f9;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #a5f3fc;
+        }
+
+        /* Raw source initially hidden */
+        #raw-source {
+            display: none;
+        }
+    </style>
+    <script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['ams', 'newcommand', 'mathtools', 'physics']}
+    },
+    options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+        pageReady: function() {
+            return MathJax.startup.defaultPageReady().then(function() {
+                // Re-typeset after chat bubbles are built
+                if (window._chatBuilt) MathJax.typesetPromise();
+            });
+        }
+    }
+};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body class="antialiased">
+
+    {% include header.html %}
+
+    <!-- Meta info bar -->
+    <div class="log-meta bg-gray-900/60 backdrop-blur-sm py-3">
+        <div class="chat-container px-4 md:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <a href="{{ '/assistant/logs/' | relative_url }}" class="back-link text-sm flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                All Conversations
+            </a>
+            <div class="flex flex-col sm:items-end gap-0.5">
+                <span class="text-sm text-gray-400" id="log-date-display">
+                    {{ page.date | date: "%B %d, %Y at %H:%M UTC" }}
+                </span>
+                {% if page.user_agent %}
+                <span class="text-xs text-gray-600 hidden sm:inline">
+                    {% if page.user_agent contains "Mobile" %}📱 Mobile{% elsif page.user_agent contains "Windows" %}🖥 Windows{% elsif page.user_agent contains "Mac" %}🖥 macOS{% elsif page.user_agent contains "Linux" %}🖥 Linux{% else %}🌐 Web{% endif %}
+                </span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat area -->
+    <main class="flex-1 overflow-y-auto py-6" id="chat-area">
+        <!-- Raw rendered markdown (hidden, used as source for JS parsing) -->
+        <div id="raw-source">
+            {{ content }}
+        </div>
+
+        <!-- Chat bubbles will be injected here -->
+        <div id="chat-bubbles" class="chat-container px-4 md:px-8">
+        </div>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var raw = document.getElementById('raw-source');
+        var target = document.getElementById('chat-bubbles');
+        if (!raw || !target) return;
+
+        // Walk through all child nodes of raw source
+        // Group content by **User:** and **Assistant:** markers
+        var messages = [];
+        var current = null;
+
+        function flushCurrent() {
+            if (current && current.html.trim()) {
+                messages.push(current);
+            }
+            current = null;
+        }
+
+        // Get all child elements
+        var children = Array.from(raw.children);
+
+        children.forEach(function(el) {
+            var html = el.innerHTML || '';
+            var text = el.textContent || '';
+
+            // Check if this element starts a new user or assistant turn
+            var userMatch = html.match(/^<strong>User:<\/strong>\s*/i);
+            var assistantMatch = html.match(/^<strong>Assistant:<\/strong>\s*/i);
+
+            if (userMatch) {
+                flushCurrent();
+                var content = html.replace(/^<strong>User:<\/strong>\s*/i, '').trim();
+                current = { role: 'user', html: content ? '<p>' + content + '</p>' : '' };
+            } else if (assistantMatch) {
+                flushCurrent();
+                var content = html.replace(/^<strong>Assistant:<\/strong>\s*/i, '').trim();
+                // Check for error JSON
+                if (content.match(/\{[\s\S]*"error"[\s\S]*\}/)) {
+                    current = { role: 'error', html: content ? '<p>' + content + '</p>' : '' };
+                } else {
+                    current = { role: 'assistant', html: content ? '<p>' + content + '</p>' : '' };
+                }
+            } else if (current) {
+                // Check if this is an error response (JSON with error)
+                if (current.role === 'assistant' && text.match(/^\s*\{[\s\S]*"error"[\s\S]*\}/)) {
+                    current.role = 'error';
+                }
+                // Append to current message
+                current.html += el.outerHTML;
+            }
+        });
+        flushCurrent();
+
+        // Build chat bubbles
+        messages.forEach(function(msg) {
+            var row = document.createElement('div');
+            row.className = 'msg-row ' + (msg.role === 'user' ? 'user' : 'assistant');
+
+            var wrapper = document.createElement('div');
+
+            // Sender label
+            var label = document.createElement('div');
+            label.className = 'sender-label ' + (msg.role === 'user' ? 'user' : 'assistant');
+            if (msg.role === 'user') {
+                label.textContent = 'User';
+            } else if (msg.role === 'error') {
+                label.textContent = 'WILL-AI';
+                label.style.color = '#f87171';
+            } else {
+                label.textContent = 'WILL-AI';
+            }
+            wrapper.appendChild(label);
+
+            var bubble = document.createElement('div');
+            bubble.className = 'msg-bubble ' + (msg.role === 'error' ? 'assistant error' : msg.role);
+            bubble.innerHTML = msg.html;
+
+            // Clean up error messages to be more readable
+            if (msg.role === 'error') {
+                var errorText = bubble.textContent;
+                var errorMatch = errorText.match(/"message"\s*:\s*"([^"]+)"/);
+                if (errorMatch) {
+                    bubble.innerHTML = '<p>⚠ ' + errorMatch[1] + '</p>';
+                } else if (errorText.match(/too long to think|All models exhausted/i)) {
+                    bubble.innerHTML = '<p>⚠ ' + errorText.trim() + '</p>';
+                }
+            }
+
+            // Detect "too long to think" or "All models exhausted" in assistant messages
+            if (msg.role === 'assistant') {
+                var t = bubble.textContent.trim();
+                if (t.match(/too long to think|All models exhausted/i) && t.length < 200) {
+                    bubble.classList.add('error');
+                }
+            }
+
+            wrapper.appendChild(bubble);
+            row.appendChild(wrapper);
+            target.appendChild(row);
+        });
+
+        // Signal that chat is built for MathJax re-render
+        window._chatBuilt = true;
+        if (window.MathJax && MathJax.typesetPromise) {
+            MathJax.typesetPromise([target]);
+        }
+    });
+    </script>
+
+</body>
+</html>
