@@ -36,16 +36,25 @@ export default async function handler(req, res) {
       return;
     }
 
-    const firstUserMessage = messages.find(m => m.user && m.raw && m.raw.trim());
+    // Skip engagement level selections to find the real first question
+    const ENGAGEMENT_LEVELS = ['humble thinker', 'curious student', 'rigorous physicist'];
+    const firstUserMessage = messages.find(m => m.user && m.raw && m.raw.trim()
+      && !ENGAGEMENT_LEVELS.includes(m.raw.trim().toLowerCase()));
     const title = firstUserMessage
       ? firstUserMessage.raw.trim().substring(0, 50)
       : 'Conversation Log';
+
+    // Extract a valid ISO date from the sessionId (format: 2026-03-02T03-09-57-760Z_...)
+    const dateMatch = sessionId.match(/^(\d{4}-\d{2}-\d{2})T(\d{2})-(\d{2})-(\d{2})-(\d+)Z/);
+    const isoDate = dateMatch
+      ? `${dateMatch[1]}T${dateMatch[2]}:${dateMatch[3]}:${dateMatch[4]}.${dateMatch[5]}Z`
+      : new Date().toISOString();
 
     const content = [
       '---',
       'layout: log',
       `title: "${title.replace(/"/g, '\\"')}"`,
-      `date: ${sessionId}`,
+      `date: ${isoDate}`,
       `user_agent: "${ua.replace(/"/g, '\\"')}"`,
       '---',
       '',

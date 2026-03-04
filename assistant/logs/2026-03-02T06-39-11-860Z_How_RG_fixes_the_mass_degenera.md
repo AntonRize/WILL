@@ -2,9 +2,9 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "How RG fixes the mass degeneration in orbital systems"
 
-date: 2026-03-02T06-39-11-860Z_How_RG_fixes_the_mass_degenera
+date: 2026-03-02T06:39:11.860Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
 
