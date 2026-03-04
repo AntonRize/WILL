@@ -329,7 +329,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     <span class="result-tag">energetically saturated, non-singular regions</span>.
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;No Singularities, No Hidden Regions&rdquo;</p>
-  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:No Singularities" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:no_singularities" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
 </div>
 
 
@@ -401,7 +401,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     &mdash; no ad-hoc doubling needed.
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;Single-Axis Energy Transfer and the Nature of Light&rdquo;</p>
-  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:nature of light" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:nature_of_light" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
 </div>
 
 
@@ -457,7 +457,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     charged fermion.
   </p>
   <p class="doc-ref">Part III &mdash; &ldquo;The Geometric Origin of the Fine Structure Constant&rdquo;</p>
-  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_III.pdf#sec:fine-structure-constant" target="_blank">&#128196; Open derivation in Part&nbsp;III</a>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_III.pdf#sec:alpha" target="_blank">&#128196; Open derivation in Part&nbsp;III</a>
 </div>
 
 
