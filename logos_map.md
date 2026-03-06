@@ -36,6 +36,8 @@ redirect_from: /LOGOS_MAP/
 
 {% include LOGOS_MAP/stage_10.html %}
 
+{% include LOGOS_MAP/stage_11.html %}
+
 </div>
 </div>
 
