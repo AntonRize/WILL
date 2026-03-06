@@ -2429,6 +2429,11 @@ the same empirical content is reproduced with strictly fewer primitives.
 \section{Relational Orbital Mechanics (R.O.M.) Without Mass or $G$}
 \hypertarget{sec:rom}{}\label{sec:rom}
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=R.O.M. equations]
+\textbf{ \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{Closed Algebraic System of Relational Orbital Mechanics}}
+\end{tcolorbox}
+
+
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Thesis]
 \textbf{Orbital dynamics requires no mass, no $G$, no metric, and no spacetime geometry.}
 All observable orbital structure follows from two directly measurable frequency projections:
@@ -2828,6 +2833,80 @@ observable frequency projections.
 %___________________________________________________________________________________________________
 %________________________________Chapter E_____________________________________________________________
 %___________________________________________________________________________________________________
+
+\section{Algebraic Derivation of Light Deflection}
+\hypertarget{sec:light_deflection}{}\label{sec:light_deflection}
+
+In General Relativity, the deflection of light is obtained by integrating the null geodesic equations over a curved spacetime manifold, often relying on weak-field approximations and Taylor expansions. Within WILL Relational Geometry (RG), we reject both the background manifold and the use of mathematical approximations as non-operational ontological artifacts. 
+
+The system consists exclusively of its participants: the Source, the Lens (at periapsis $p$), and the Receiver. The total deflection angle must be derived as a strict, exact algebraic difference between their measurable relational phase states, without resorting to series expansions.
+
+\begin{theorem}[Algebraic Deflection of Light]
+Let $o$ be the orbital phase (true anomaly) representing the exact geometric angle between the lens periapsis and an observer. For an observer at local potential state $\kappa_o$, this angle is strictly determined by the algebraic identity:
+\begin{equation}
+\cos o = \frac{\kappa_o^2 - \kappa_p^4}{\kappa_p^2 \kappa_{Xp}^2}
+\end{equation}
+where $\kappa_p$ is the potential projection at periapsis, and $\kappa_{Xp}^2 = 1 - \kappa_p^2$ is the corresponding phase parameter.
+\end{theorem}
+
+\begin{proof}
+\textbf{Step 1: The Photonic Closure Defect (Shape Parameter)} \\
+By the  \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:nature_of_light}{Single-Axis Transformation Principle } for light, the kinematic projection saturates the carrier ($\beta = 1$), forcing the internal phase to vanish ($\beta_Y = 0$). This eliminates the $\frac{1}{2}$ partitioning factor inherent to massive bodies. Consequently, the closure defect at periapsis for a photon is defined exclusively by the total projections:
+\begin{equation}
+\delta_\gamma = \frac{\kappa_p^2}{\beta_p^2} = \kappa_p^2
+\end{equation}
+The \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:rel_ecc}{geometric eccentricity} (shape parameter) of the light trajectory emerges directly from this closure defect:
+\begin{equation}
+e_\gamma = \frac{1}{\delta_\gamma} - 1 = \frac{1}{\kappa_p^2} - 1
+\end{equation}
+
+\textbf{Step 2: Relational Phase State Equation} \\
+In  \href{https://willrg.com/documents/WILL_RG_I.pdf#eq:rom}{Relational Orbital Mechanics}, the local potential $\kappa_o$ at any orbital phase $o$ is related to the periapsis potential $\kappa_p$ by the exact topological scaling:
+\begin{equation}
+\kappa_o^2 = \kappa_p^2 \frac{1 + e_\gamma \cos(o)}{1 + e_\gamma}
+\end{equation}
+Substituting the photonic shape parameter $1 + e_\gamma = \frac{1}{\kappa_p^2}$:
+\begin{equation}
+\kappa_o^2 = \kappa_p^2 \frac{1 + (\frac{1}{\kappa_p^2} - 1)\cos (o)}{1 / \kappa_p^2} = \kappa_p^4 \left[ 1 + \left(\frac{1-\kappa_p^2}{\kappa_p^2}\right)\cos (o) \right]
+\end{equation}
+Expanding the bracket:
+\begin{equation}
+\kappa_o^2 = \kappa_p^4 + \kappa_p^2(1-\kappa_p^2)\cos (o)
+\end{equation}
+Recognizing that $1-\kappa_p^2 = \kappa_{Xp}^2$ (the phase component at periapsis), we solve for $\cos o$:
+\begin{equation}
+\cos (o) = \frac{\kappa_o^2 - \kappa_p^4}{\kappa_p^2 \kappa_{Xp}^2}
+\end{equation}
+This completes the exact algebraic link between the measured potentials and the geometric angle.
+\end{proof}
+
+\subsection{Total Deflection (No Approximations)}
+
+In a purely flat geometry without gravitational phase ($\kappa_p = 0$), this angle would be exactly $\frac{\pi}{2}$ (a straight line from a distant point to periapsis covers exactly a quarter of a circle). The presence of the gravitational gradient increases this angle by an exact one-sided deflection amount, which is half of the total deflection ($\frac{\Delta\varphi}{2}$). 
+
+Let $o_\infty = \frac{\pi}{2} + \frac{\Delta\varphi}{2}$. Applying the fundamental trigonometric identity $\cos(\frac{\pi}{2} + x) = -\sin(x)$:
+\begin{equation}
+-\sin\left(\frac{\Delta\varphi}{2}\right) = -\frac{\kappa_p^2}{\kappa_{Xp}^2} \quad \Longrightarrow \quad \sin\left(\frac{\Delta\varphi}{2}\right) = \frac{\kappa_p^2}{\kappa_{Xp}^2}
+\end{equation}
+
+Solving directly for the total deflection angle $\Delta\varphi$ gives the absolute, exact, and non-linear equation for light deflection in Generative Physics:
+
+\begin{equation}
+\boxed{ \Delta\varphi = 2 \arcsin\left( \frac{\kappa_p^2}{\kappa_{Xp}^2} \right) }
+\end{equation}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
+\textbf{\href{https://www.desmos.com/calculator/ldynwowqvi}{Algebraic Light Deflection (one input derivation)}}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Triumph]
+This result is achieved without a single differential equation, without background manifolds, and without Taylor series approximations. 
+The sine of the one-sided deflection angle is strictly equal to the ratio of the potential amplitude ($\kappa_p^2$) to the potential phase ($\kappa_{Xp}^2$) at periapsis. 
+For weak fields ($\kappa_p^2 \ll 1$), the phase component $\kappa_{Xp}^2 \to 1$ and $\arcsin(x) \approx x$, recovering the empirical value $\Delta\varphi \approx 2\kappa_p^2$ (equivalent to legacy ontologically inflated form $4GM/rc^2$). However, this equation remains exact and structurally unbroken across all interaction scales, demonstrating that spacetime curvature is simply the algebraic shadow of relational energy projections.
+\end{tcolorbox}
+
 
 \section{Relational Derivation of Absolute System Scale: The Chrono-Spectroscopic Theorem}
 \hypertarget{sec:absolute_scale}{}\label{sec:absolute_scale}
@@ -3647,130 +3726,6 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
 \text{SPACETIME} \equiv \text{ENERGY}.
 \]}
 \end{tcolorbox}
-
-
-\section{Closed Algebraic System of Relational Orbital Mechanics (R.O.M.)}
-\hypertarget{eq:rom}{}\label{eq:rom}
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Click to open]
-\textbf{ \href{https://www.desmos.com/calculator/n4lmkpsebx}{Desmos Project: R.O.M}}
-\end{tcolorbox}
-
-
-R.O.M. does not describe how a body moves under forces; it classifies the algebraically allowed relational states of a bound system.
-
-$\boxed{\kappa^2 = 1-\frac{1}{(1+z_k)^2}}$  ($z_k=$ gravitational redshift) \\
-$\boxed{\beta^2=1-\frac{1}{(1+z_{b})^{2}}}$  ($z_b=$ transverse Doppler shift) \\
-
-\subsubsection*{Observational Z Inputs} \\
-$Z_{sys}(o)=(1+z_{ko}(o))(1+z_{bo}(o))=\tau_{Wo}(o)^{-1}$ (product of gravitational red shift and transverse Doppler shift) \\
-$\tau_{Wo}(o)=\kappa_{Xo}(o)\cdot\beta_{Yo}(o)=(Z_{sys}(o))^{-1}$  (product of projectinal phase factors on $S^1$ and $S^2$ carriers) \\
-$z_k = \frac{1}{\kappa_{X}}-1$ (gravitational redshift) \\
-$z_{b}=\frac{1}{\beta_{Y}}-1$  (transverse Doppler shift) \\
-$z_{ko} = \frac{1}{\kappa_{Xo}}-1$ (redshift at phase $o$) \\
-$z_{bo}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
-
-\subsubsection*{Global System Parameters (Fixed for the Orbit)}\\
-$\kappa = \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)} =\sqrt{4W}=\sqrt{2(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})}=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})}=\sqrt{1-(1+z_{k})^{-2}}$ (potential projection at semi-major axis) \\
-$\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}$ (gravitational phase factor) \\
-$\beta = \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \sqrt{2W}=\sqrt{(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})} =\sqrt{\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot(1+(\frac{1}{\delta_{o}(o)}-1))}=\beta_{o}(o)\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}=\sqrt{1-(1+z_{b})^{-2}}$  (kinetic projection on semi major axis) \\
-$\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (relativistic phase factor) \\
-$\beta_{int}=\frac{\beta}{\sqrt{1-e^2}}$ (interior kinetic projection) \\
-$\tau_{W} = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\ 
-$Q=\sqrt{\kappa^2+\beta^2}=\sqrt{\frac{3}{2}}\ \kappa=\sqrt{3}\ \beta$ (total relational shift (magnitude of state difference)) \\
-$R_{s} = \kappa^{2}a = \frac{2Gm_{0}}{c^{2}}=\frac{\Delta_{to}(o)}{\tau_{o}(o)}\kappa^{2}\beta c=\frac{T_{O}c}{\pi}(\kappa_{p}^{2}-\beta_{p}^{2})^{\frac{3}{2}}=\frac{ r_{1} r_{2}}{r_{2} - r_{1}}( \beta_{1}^{2} - \beta_{2}^{2} )=\frac{a}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})=$ \\ $=\frac{r_{o}(o)}{2(2a-r_{o}(o))}(4a-r_{o}(o)-\sqrt{(4a-r_{o}(o))^{2}-8a(2a-r_{o}(o))(1-\tau_{Wo}(o)^{2})})=\frac{T_{O}}{\pi}(\sqrt{1-(\frac{1}{1+z_{b}})^{2}})^{3}c$ (Schwarzschild radius -system scale) \\
-$a = \frac{R_{s}}{\kappa^{2}} =\frac{R_{s}}{4W} = \frac{\beta_{o}c}{\omega} \cdot \frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e\cos (o)}}=\frac{\Delta_{to}(o)}{\tau_{o}}\beta c$ (semi-major axis) \\
-$m_{0} = \frac{\kappa^{2}c^{2}a}{2G} = 4\pi\rho a^{3}$ (mass parameter) \\
-$t = \frac{a}{c}$ (temporal scale of the system) \\
-$W =\frac{\beta^2}{2} =\frac{1}{2}(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{1}{4}\kappa_{p}^{2}\ (1-e)=\frac{1}{2}(\kappa_{o}(o)^{2}-\frac{\kappa_{o}(o)^{2}}{2\delta_{o}(o)})=\frac{1}{2}((1-(1+z_{ko}(o))^{-2})-(1-(1+z_{bo}(o))^{-2}))$ (energy invariant - binding energy) \\
-$\Delta\phi = \frac{3\pi}{2}\frac{\kappa_{p}^{4}}{\beta_{p}^{2}} =\frac{2\pi Q^{2}}{1-e^{2}}=6\pi\beta_{int}^2$ (precession of perihelion per orbit) \\
-$h_{W} = a \cdot \beta c \cdot e_{Y}$ (angular momentum) \\
-$\omega = \frac{\beta c}{a}$ (angular frequency) \\
-$T = \frac{2\pi}{\omega}$ (orbital period) \\
-$K_{illingV}=\frac{\kappa_{Xp}^{2}}{\sqrt{1-3\beta_{int}^{2}}}$ (Killing vector UNTESTED) \\
-
-\subsubsection*{Eccentricity Relations} \\
-$e = \frac{1}{\delta} - 1 = 1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}} = \frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1$ (eccentricity derived from closure) \\
-$e_{Y} = \sqrt{1-e^{2}}$ (eccentricity's orthogonal value) \\
-$e_{X} = \frac{1+e}{1-e}=\frac{r_{a}}{r_{p}}=\frac{\delta_{a}}{\delta_{p}}=\frac{\beta_{p}}{\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (shape factor) \\
-
-\subsubsection*{Time Integration} \\
-$\omega_{o}(o)=\frac{\beta\cdot c}{a}\cdot\frac{(1+e\cdot\cos(o))^{2}}{(1-e^{2})^{\frac{3}{2}}}$  (angular frequency at phase o) \\
-$\Delta_{to} (o) = \int_{0}^{o}\frac{1}{\omega_{\theta}(\theta)}\,d\theta =\frac{a}{\beta c}\tau_{o}= \frac{T_{O}}{2\pi}\tau_{o}$  (time duration of given phase interval) \\
-$\tau_{o}=(1-e^{2})^{\frac{3}{2}}\cdot(\int_{0}^{o}(1+e\cdot\cos(\theta))^{-2}d\theta)=\frac{1}{\sqrt{1-e^{2}}}\int_{0}^{o}(\frac{t_{o}(\theta)}{t})^{2}d\theta$ (Temporal Phase interval) \\
-
-\subsubsection*{Perihelion Relations} \\
-$r_{p} = a(1-e)=\frac{R_s}{\kappa_p^2}$ (radius at perihelion) \\
-$\kappa_{p} = \kappa\sqrt{\frac{1}{1-e}} = Q_{p}\sqrt{\frac{2}{3+e}}$ (potential at perihelion) \\
-$\kappa_{Xp} = \sqrt{1-\kappa_{p}^2} $  (potential phase projection at perihelion)
-$\beta_{p} = \frac{V_{p}}{c} = \frac{\kappa_{p}}{\delta\sqrt{2}} = \sqrt{\kappa_{p}^{2}\cdot\frac{1+e}{2}}$ (kinetic at perihelion) \\
-$\delta_p = \frac{\kappa_{p}^2}{2\beta_{p}^2 }= \frac{1}{1+e}$ (closure factor at perihelion) \\
-$Q_{p} = \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}}$  (relational shift at perihelion) \\
-
-\subsubsection*{Aphelion Relations} \\
-$r_a=a(1+e)=\frac{R_s}{\kappa_a^2}$ (radius at aphelion)  \\
-$\beta_{a} = \sqrt{\beta_{p}^{2}e_{X}^{-2}} = \beta\sqrt{e_{X}^{-1}}$  (kinetic projection at aphelion) \\
-$\kappa_{a} = \sqrt{2W+\beta_{a}^{2}}$  (potential projection at aphelion) \\
-$\delta_{\text{a}} = \frac{1}{1-e}=\frac{\kappa_{a}^{2}}{2\beta_{a}^{2}}$  (closure factor at aphelion) \\
-$Q_{a} = \sqrt{\kappa_{a}^{2}+\beta_{a}^{2}}$  (relational shift at aphelion) \\
-
-\subsubsection*{Phase Variables (Depend on $o$)} \\
-$o = \text{orbital phase in radians}$ \\
-$r = r_o (o)= a\frac{1-e^{2}}{1+e\cos o} = \frac{R_s}{\kappa_o^2}$  (radial distance at phase $o$) \\
-$\kappa_{o} = \sqrt{\frac{R_{s}}{r}} = 1-(1+z_{ko}(o))^{-2} =\kappa_{p}\sqrt{\frac{1+e\cos (o)}{1+e}}$ (local potential at phase $o$) \\
-$\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=(z_{ko}(o)+1)^{-1}$   (gravitational phase factor at phase $o$) \\
-$\beta_{o}(o) = \sqrt{\kappa_{o}^{2}-2W}=\frac{\kappa_{o}(o)}{\sqrt{2 \delta_{o}(o)\ }}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}{\sqrt{1-e^{2}}}=\sqrt{\frac{\kappa_{o}(o)^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(o)}{\ \ 1+e\cdot\cos(o)}}=\sqrt{\frac{R_{s}}{r_{o}(o)}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{bo}(o))^{-2}}$ (kinetic projection at phase o)\\
-$\beta_{R}(o)=\beta\ \frac{e\sin (o)}{\sqrt{1-e^{2\ }}}=\sqrt{\beta_{o}(o)^{2}-\beta_{T}(o)^{2}}=\sqrt{((1-(1+z_{ko}(o))^{-2})-2W)-\frac{r_{o}(o)^{2}\omega_{o}(o)^{2}}{c^{2}}}$  (radial kinetic projection at phase o) \\
-$\beta_{T}(o)=\frac{r_{o}(o)\omega_{o}(o)}{c}=\beta\frac{1+e\cos(o)}{\sqrt{1-e^{2}}}$  (transverse kinetic projection at phase o) \\
-$\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{bo}(o)+1)^{-1}$    (relativistic phase factor at phase $o$) \\
-$\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}(o)^2}$ (local closure factor at phase $o$) \\
-$Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}(o)^{2}}$ (local relational shift vector at phase $o$) \\
-$\omega_o = a\beta c\frac{e_{Y}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e\cos o)^{2}}{(1-e^{2})^{3/2}}$ (angular speed at phase $o$) \\
-$\eta_{o} = \frac{r}{a}=2-\frac{2\beta_{o}(o)(o)^{2}}{\kappa_{o}(o)^{2}}$  (phase scale amplitude at phase $o$) \\
-$\tau_{Wo}(o)=\kappa_{Xo}(o)\cdot\beta_{Yo}(o)= Z_{sys}(o)^{-1}$ (phase spacetime factor at phase $o$) \\
-$t_o=\frac{ r_o (o)}{c}$ (light time scale at phase o) \\
-$\Delta_o=3\beta_{int}^{2} \cdot o$   (precession of perihelion at phase $o$)
-
-
-\subsubsection*{Relational Geometry (WILL)} \\
-$\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical)  \\
-$\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical) \\
-
-$\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational shift amplitude at phase $o$) \\
-$O_{o} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (orbital balance point where $\kappa_o^2=2\beta_o^2$ is true) \\
-
-\subsubsection*{Observer dependant} \\
-$Z_{raw}(o)=(1+\beta_{int}(\cos(o+\omega_{i})+e\cos(\omega_{i}))\sin(i))\ Z_{sys}(o)$ (raw light shift including the line of site Doppler at phase o) \\
-$\beta_{los}(o)=\frac{\beta}{\sqrt{1-e^{2}}}(\cos(o+\omega_{i})+e\cos(\omega_{i}))\sin(i)$  (line of site light shift) \\
-$i=$ (orbital inclination in relation to line of site and orbital plane)  \\
-$\omega_{i}=$ (phase turn or argument of periapsis) \\
-$K_{i}=\frac{\beta}{\sqrt{1-e^{2}}}\sin(i)$  (semi-amplitude invariant) \\
-$Z_{rawmax}=Z_{sys}(o_{i1})(1+K_{i}(1+e\cos\omega_{i}))$ \\
-$Z_{rawmin}=Z_{sys}(o_{i2})(1+K_{i}(-1+e\cos\omega_{i}))$ \\
-$O_{oi}=(O_{o}+\omega_{i})$ \\
-$o_{i1}=-\omega_{i}$ \\
-$o_{i2}=\pi-\omega_{i}$ \\
-$Z_{sysi1}(o_{i1})=(1-\beta^{2}\frac{1+e^{2}+2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1+e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
-$Z_{sysi2}(o_{i2})=(1-\beta^{2}\frac{1+e^{2}-2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1-e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
-
-\textbf{Un-tilted 2D coordinates within the orbital plane (UNTESTED)} \\
-$x_{orb} = r(o) \cos(o + \omega_i)$ \\
-$y_{orb} = r(o) \sin(o + \omega_i)$ \\
-
-\textbf{Parametric equations for the observed orbit, entirely free of the absolute ICRF background (UNTESTED)}\\
-
-$\begin{bmatrix} x_{sky} \\ y_{sky} \\ z_{depth} \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos(i) & -\sin(i) \\ 0 & \sin(i) & \cos(i) \end{bmatrix} \begin{bmatrix} x_{orb} \\ y_{orb} \\ 0 \end{bmatrix}$ \\
-
-$x_{sky} = r(o) \cos(o + \omega_i)$ \\
-$y_{sky} = r(o) \sin(o + \omega_i) \cos(i)$ \\
-$z_{depth} = r(o) \sin(o + \omega_i) \sin(i)$ \\
-
-\subsubsection*{Beautiful and Interesting Connections} \\
-$\frac{r_{a}}{r_{p}}=\frac{1+e}{1-e}=\frac{\beta_{p}}{\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (remarkable equivalence of structural ($\kappa$ on $S^2$ carrier) and dynamical ($\beta$ on $S^1$ carrier) asymmetry confirming once again that $SPACETIME \equiv ENERGY$) \\
-
-
-
 
 \section{References:}
 

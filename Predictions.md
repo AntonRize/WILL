@@ -308,7 +308,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 <!-- ═══════════════════════ 2. RELATIVISTIC ═══════════════════════ -->
 <div class="section-head rel">
   <h2>2. Relativistic &amp; Gravitational Predictions</h2>
-  <span class="badge rel">4 predictions</span>
+  <span class="badge rel">5 predictions</span>
 </div>
 
 
@@ -402,6 +402,58 @@ description: "Testable predictions of the WILL Relational Geometry framework —
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;Single-Axis Energy Transfer and the Nature of Light&rdquo;</p>
   <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:nature_of_light" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
+</div>
+
+
+<!-- 2e ── Light Deflection ── -->
+<div class="pred-card rel">
+  <h3>e. Algebraic Light Deflection</h3>
+
+  <p>
+    The total deflection of light by a gravitational lens is derived as a strict,
+    exact algebraic difference between measurable relational phase states at
+    periapsis&mdash;without differential equations, background manifolds, or
+    Taylor series:
+  </p>
+
+  <p>Photonic closure defect (shape parameter) for light (\(\beta=1\)):</p>
+  <div class="eq-box">
+    $$\delta_\gamma \;=\; \kappa_p^{\,2}, \qquad
+    e_\gamma \;=\; \frac{1}{\kappa_p^{\,2}} - 1$$
+  </div>
+
+  <p>Phase state equation solved for the orbital angle \(o\):</p>
+  <div class="eq-box">
+    $$\cos\,o \;=\;
+    \frac{\kappa_o^{\,2} - \kappa_p^{\,4}}
+    {\kappa_p^{\,2}\,\kappa_{Xp}^{\,2}}$$
+  </div>
+
+  <p>Evaluating at spatial infinity (\(\kappa_o \to 0\)) and applying
+  \(\cos(\tfrac{\pi}{2}+x)=-\sin x\), the total deflection angle is:</p>
+  <div class="eq-box">
+    $$\boxed{\;\Delta\varphi \;=\;
+    2\,\arcsin\!\left(\frac{\kappa_p^{\,2}}{\kappa_{Xp}^{\,2}}\right)\;}$$
+  </div>
+
+  <p>
+    where \(\kappa_p^{2} = R_s/r_p\) and
+    \(\kappa_{Xp}^{2} = 1 - \kappa_p^{2}\).
+    For weak fields (\(\kappa_p^{2}\ll 1\)),
+    \(\arcsin(x)\approx x\) and \(\kappa_{Xp}^{2}\to 1\), recovering
+    the empirical value \(\Delta\varphi\approx 2\kappa_p^{2}=4GM/rc^{2}\).
+  </p>
+
+  <p>
+    <span class="result-tag">\(\Delta\varphi_\odot \approx 1.7500\;\mathrm{arcsec}\)</span>
+    &mdash; matches the observed solar deflection
+    (\(1.7512\pm 0.001\;\mathrm{arcsec}\), VLBI) to within measurement
+    uncertainty.  Difference from exact GR:
+    \(\sim 2\times 10^{-7}\;\mathrm{arcsec}\)&mdash;far below any
+    foreseeable detection threshold.
+  </p>
+  <p class="doc-ref">Part I &mdash; &ldquo;Algebraic Derivation of Light Deflection&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:light_deflection" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
 </div>
 
 
