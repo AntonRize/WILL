@@ -2792,65 +2792,49 @@ observable frequency projections.
 %________________________________Chapter E_____________________________________________________________
 %___________________________________________________________________________________________________
 
-\section{Algebraic Derivation of Light Deflection}
-\hypertarget{sec:light_deflection}{}\label{sec:light_deflection}
+\section{Derivation of Gravitational Deflection and Lensing}
+\hypertarget{sec:grav_optics}{}\label{sec:grav_optics}
 
 In General Relativity, the deflection of light is obtained by integrating the null geodesic equations over a curved spacetime manifold, often relying on weak-field approximations and Taylor expansions. Within WILL Relational Geometry (RG), we reject both the background manifold and the use of mathematical approximations as non-operational ontological artifacts. 
 
 The system consists exclusively of its participants: the Source, the Lens (at periapsis $p$), and the Receiver. The total deflection angle must be derived as a strict, exact algebraic difference between their measurable relational phase states, without resorting to series expansions.
 
-\begin{theorem}[Algebraic Deflection of Light]
-Let $o$ be the orbital phase (true anomaly) representing the exact geometric angle between the lens periapsis and an observer. For an observer at local potential state $\kappa_o$, this angle is strictly determined by the algebraic identity:
+\subsection{Gravitational Deflection and Interaction Gradient}
+\hypertarget{sec:grav_deflection}{}\label{sec:grav_deflection}
+
+Energy projections distribution among axis of relational carriers has to obey the conservation law (distribution between axis does not create nor destroy energy). There must exist a strict, algebraically closed gradient connecting all states, governed entirely by the kinematic projection $\beta$.
+
+\begin{theorem}[Unified Interaction Gradient]
+The gravitational interaction capacity of any entity is determined by its available phase buffer $\beta_Y$. The geometric scaling factor $\Gamma$ that dictates the distribution of the potential projection $\kappa^2$ onto the spatial trajectory is strictly defined by the arithmetic mean of the saturated carrier $S^1$:
 \begin{equation}
-\cos o = \frac{\kappa_o^2 - \kappa_p^4}{\kappa_p^2 \kappa_{Xp}^2}
+\Gamma(\beta) = \frac{1 + \beta^2}{2} = 1 - \frac{\beta_Y^2}{2}
 \end{equation}
-where $\kappa_p$ is the potential projection at periapsis, and $\kappa_{Xp}^2 = 1 - \kappa_p^2$ is the corresponding phase parameter.
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: The Photonic Closure Defect (Shape Parameter)} \\
-By the  \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:nature_of_light}{Single-Axis Transformation Principle } for light, the kinematic projection saturates the carrier ($\beta = 1$), forcing the internal phase to vanish ($\beta_Y = 0$). This eliminates the $\frac{1}{2}$ partitioning factor inherent to massive bodies. Consequently, the closure defect at periapsis for a photon is defined exclusively by the total projections:
-\begin{equation}
-\delta_\gamma = \frac{\kappa_p^2}{\beta_p^2} = \kappa_p^2
-\end{equation}
-The \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:rel_ecc}{geometric eccentricity} (shape parameter) of the light trajectory emerges directly from this closure defect:
-\begin{equation}
-e_\gamma = \frac{1}{\delta_\gamma} - 1 = \frac{1}{\kappa_p^2} - 1
-\end{equation}
-
-\textbf{Step 2: Relational Phase State Equation} \\
-In  \href{https://willrg.com/documents/WILL_RG_I.pdf#eq:rom}{Relational Orbital Mechanics}, the local potential $\kappa_o$ at any orbital phase $o$ is related to the periapsis potential $\kappa_p$ by the exact topological scaling:
-\begin{equation}
-\kappa_o^2 = \kappa_p^2 \frac{1 + e_\gamma \cos(o)}{1 + e_\gamma}
-\end{equation}
-Substituting the photonic shape parameter $1 + e_\gamma = \frac{1}{\kappa_p^2}$:
-\begin{equation}
-\kappa_o^2 = \kappa_p^2 \frac{1 + (\frac{1}{\kappa_p^2} - 1)\cos (o)}{1 / \kappa_p^2} = \kappa_p^4 \left[ 1 + \left(\frac{1-\kappa_p^2}{\kappa_p^2}\right)\cos (o) \right]
-\end{equation}
-Expanding the bracket:
-\begin{equation}
-\kappa_o^2 = \kappa_p^4 + \kappa_p^2(1-\kappa_p^2)\cos (o)
-\end{equation}
-Recognizing that $1-\kappa_p^2 = \kappa_{Xp}^2$ (the phase component at periapsis), we solve for $\cos o$:
-\begin{equation}
-\cos (o) = \frac{\kappa_o^2 - \kappa_p^4}{\kappa_p^2 \kappa_{Xp}^2}
-\end{equation}
-This completes the exact algebraic link between the measured potentials and the geometric angle.
+By the $S^1$ closure invariant ($\beta^2 + \beta_Y^2 = 1$), an object at rest ($\beta = 0$) possesses maximum internal phase ($\beta_Y = 1$). This phase acts as a geometric buffer, absorbing half of the relational gradient, yielding the classical partitioning $\Gamma = \frac{1}{2}$. 
+As the spatial projection $\beta$ increases, the internal clock slows, and the phase buffer $\beta_Y$ depletes. At the topological limit $\beta \to 1$ (light), the internal phase collapses ($\beta_Y \to 0$). The buffer is exhausted, forcing the entity to absorb the full, unpartitioned gravitational gradient, yielding $\Gamma = 1$.
 \end{proof}
 
-\subsection{Total Deflection (No Approximations)}
-
-In a purely flat geometry without gravitational phase ($\kappa_p = 0$), this angle would be exactly $\frac{\pi}{2}$ (a straight line from a distant point to periapsis covers exactly a quarter of a circle). The presence of the gravitational gradient increases this angle by an exact one-sided deflection amount, which is half of the total deflection ($\frac{\Delta\varphi}{2}$). 
-
-Let $o_\infty = \frac{\pi}{2} + \frac{\Delta\varphi}{2}$. Applying the fundamental trigonometric identity $\cos(\frac{\pi}{2} + x) = -\sin(x)$:
+Using this gradient, we define the \textbf{Unified Closure Defect} for any trajectory—from a slow asteroid to a photon—as:
 \begin{equation}
--\sin\left(\frac{\Delta\varphi}{2}\right) = -\frac{\kappa_p^2}{\kappa_{Xp}^2} \quad \Longrightarrow \quad \sin\left(\frac{\Delta\varphi}{2}\right) = \frac{\kappa_p^2}{\kappa_{Xp}^2}
+\delta_\varphi = \frac{\kappa_p^2}{\beta_p^2} \Gamma(\beta_p) = \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2}
 \end{equation}
 
-Solving directly for the total deflection angle $\Delta\varphi$ gives the absolute, exact, and non-linear equation for light deflection in Generative Physics:
+The geometric shape parameter (eccentricity) of the trajectory is derived directly from this defect:
+\begin{equation}
+e_\varphi = \frac{1}{\delta_\varphi} - 1 = \frac{2\beta_p^2}{\kappa_p^2(1+\beta_p^2)} - 1
+\end{equation}
+
+Applying the exact algebraic transit equation for a distant observer ($\kappa_o \to 0$), we have $\cos o_\infty = -1/e_\varphi$. Using the same trigonometric extraction as established for light ($\sin(\frac{\Delta\varphi}{2}) = \frac{1}{e_\varphi}$), we arrive at the absolute, unified equation for gravitational deflection:
 
 \begin{equation}
-\boxed{ \Delta\varphi = 2 \arcsin\left( \frac{\kappa_p^2}{\kappa_{Xp}^2} \right) }
+\boxed{ \Delta\varphi = 2 \arcsin( \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2 - \kappa_p^2 (1 + \beta_p^2)} ) }
+\end{equation}
+Solving for $\beta_p=1$ the total deflection angle $\Delta\varphi$ gives non-linear equation for light deflection in RG:
+
+\begin{equation}
+\boxed{ \Delta\gamma = 2 \arcsin( \frac{\kappa_p^2}{\kappa_{Xp}^2} ) }
 \end{equation}
 
 
@@ -2859,14 +2843,60 @@ Solving directly for the total deflection angle $\Delta\varphi$ gives the absolu
 \end{tcolorbox}
 
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Triumph]
-This result is achieved without a single differential equation, without background manifolds, and without Taylor series approximations. 
-The sine of the one-sided deflection angle is strictly equal to the ratio of the potential amplitude ($\kappa_p^2$) to the potential phase ($\kappa_{Xp}^2$) at periapsis. 
-For weak fields ($\kappa_p^2 \ll 1$), the phase component $\kappa_{Xp}^2 \to 1$ and $\arcsin(x) \approx x$, recovering the empirical value $\Delta\varphi \approx 2\kappa_p^2$ (equivalent to legacy ontologically inflated form $4GM/rc^2$). However, this equation remains exact and structurally unbroken across all interaction scales, demonstrating that spacetime curvature is simply the algebraic shadow of relational energy projections.
+
+\vspace{0.5cm}
+\noindent\textbf{Verification of Topological Limits:}
+\begin{itemize}
+    \item \textbf{Newtonian Limit ($\beta_p \ll 1$):} The phase buffer is full ($\Gamma \to 0.5$). The eccentricity is dominated by $2\beta_p^2 / \kappa_p^2$. The deflection reduces to the classical Rutherford/Newton scattering: $\Delta\varphi \approx \frac{\kappa_p^2}{\beta_p^2}$.
+    \item \textbf{Relativistic Limit ($\beta_p \to 0.99$):} The phase buffer is nearly depleted ($\Gamma \to 0.99$). The trajectory stiffens, and the deflection angle approaches the photonic maximum, smoothly capturing the post-Newtonian factor without Taylor expansions.
+    \item \textbf{Photonic Limit ($\beta_p = 1$):} The phase buffer is completely exhausted ($\Gamma = 1$). Substituting $\beta_p = 1$ yields $e = \frac{2}{\kappa_p^2(2)} - 1 = \frac{1}{\kappa_p^2} - 1 = \frac{\kappa_{Xp}^2}{\kappa_p^2}$. The equation resolves perfectly into the exact light deflection identity: $\Delta\varphi = 2 \arcsin ( \frac{\kappa_p^2}{\kappa_{Xp}^2} )$.
+\end{itemize}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Elimination of the "Massless" Myth]
+This formulation suggests that light is not a distinct ontological category governed by separate physical laws. There are no "massless particles" in RG. Light is simply the rightward topological limit of matter, where the internal phase $\beta_Y$ reaches zero. The historical factor of 2 in gravitational lensing is not an anomaly of curved spacetime, but the inevitable geometric consequence of an exhausted phase buffer.
+\end{tcolorbox}
+
+\subsection{Gravitational Lensing and the Einstein Ring}
+\hypertarget{sec:grav_lens}{}\label{sec:grav_lens}
+
+In Relational Geometry, the description of gravitational lensing (deflection, convergence, shear, and magnification) does not require a background metric or the postulation of a curved manifold. It arises entirely as the geometric projection of the deflection angle onto the observer's plane.
+
+By employing the standard geometric baseline equation for the observer-lens-source system, the true angular position $\theta_S$ of a source is related to its observed image position $\theta_I$ via:
+\begin{equation}
+\theta_S = \theta_I - \frac{D_{LS}}{D_S} \Delta\varphi_{\text{unified}}(\beta_p, \kappa_p(\theta_I))
+\end{equation}
+where $D_{LS}$ and $D_S$ are the relational baseline distances.
+
+The potential projection at periapsis $\kappa_p^2$ is strictly a function of the observed angle $\theta_I$, defined by the physical impact parameter $r_p = D_L \theta_I$:
+\begin{equation}
+\kappa_p^2(\theta_I) = \frac{R_s}{D_L \theta_I}
+\end{equation}
+
+\begin{theorem}[Exact Algebraic Einstein Ring]
+For a perfectly aligned system ($\theta_S = 0$), the image forms a symmetric ring. The exact angular radius of this Einstein ring, $\theta_E$, valid for all velocities and field strengths, is given by the implicit algebraic equation:
+\begin{equation}
+\theta_E = 2 \frac{D_{LS}}{D_S} \arcsin\left( \frac{\kappa_p^2(\theta_E) (1 + \beta_p^2)}{2\beta_p^2 - \kappa_p^2(\theta_E) (1 + \beta_p^2)} \right)
+\end{equation}
+\end{theorem}
+
+\vspace{0.3cm}
+\noindent\textbf{Recovery of Topological Limits:}
+To reveal the underlying gradient without altering the exact equation, we examine the weak-field astrophysical limit ($\kappa_p^2 \ll \beta_p^2$), where $\arcsin(x) \approx x$. The unified deflection simplifies algebraically to:
+\begin{equation}
+\theta_E \approx \frac{D_{LS}}{D_S} \frac{R_s}{D_L \theta_E} \left( \frac{1 + \beta_p^2}{\beta_p^2} \right) \quad \Longrightarrow \quad \theta_E^2 \approx \frac{R_s D_{LS}}{D_L D_S} \left( \frac{1 + \beta_p^2}{\beta_p^2} \right)
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{The Photonic Limit ($\beta_p \to 1$):} The kinematic factor evaluates exactly to $\frac{1+1}{1} = 2$. The equation resolves to $\theta_{E,\gamma} = \sqrt{\frac{2R_s D_{LS}}{D_L D_S}}$, perfectly matching the full General Relativistic prediction for light (equivalent to $4GM/c^2$).
+    \item \textbf{The Relativistic Massive Limit ($0 < \beta_p < 1$):} The continuous phase-buffer depletion natively supplies the correct post-Newtonian scaling without external ad-hoc gradients.
+\end{itemize}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence]
+The properties of the lens—convergence ($\kappa_{\text{lens}}$), shear ($\gamma$), and magnification ($\mu$)—are simply the components of the 2D Jacobian matrix of the deflection field $\vec{\alpha}(\vec{\theta})$. Because the physics of the phase-buffer $\beta_Y$ is fundamentally woven into the exact definition of $\Delta\varphi_{\text{unified}}$, no manual "weighting" of shear or convergence is required. The optical mapping emerges naturally from the pure algebraic closure of the $S^1$ and $S^2$ relational carriers.
 \end{tcolorbox}
 
 
-\section{Relational Derivation of Absolute System Scale: The Chrono-Spectroscopic Theorem}
+\section{Derivation of Absolute System Scale: The Chrono-Spectroscopic Theorem}
 \hypertarget{sec:absolute_scale}{}\label{sec:absolute_scale}
 
 \subsection{The Epistemological Bottleneck of Spatial Distance}
@@ -2896,7 +2926,7 @@ Thus, the pure relational scale factor at perihelion is computed without any rel
 
 The potential at perihelion $\kappa_p^2$ is a direct projection of the Solar surface potential $\kappa_{sun}^2$ scaled by this dimensionless angular ratio:
 \[
-    \kappa_{p}^{2} = \left(1 - \frac{1}{(1+z_{sun})^{2}}\right) \cdot R_{ratio}
+    \kappa_{p}^{2} = (1 - \frac{1}{(1+z_{sun})^{2}}) \cdot R_{ratio}
 \]
 
 The global invariants are then strictly recovered from the tension of these local perihelion states ($\kappa_p^2$ and the dimensionless transverse kinematic shift $\beta_p$):
