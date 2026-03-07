@@ -5,7 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[warn]{textcomp}
-\usepackage{cite}     % Required for numeric citations like [1]
+    
 
 
 % --- Page geometry ---
@@ -29,8 +29,7 @@
 % --- START OF FOOTER SECTION ---
 \usepackage{fancyhdr}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
-\usepackage{natbib}
-
+\usepackage[numbers]{natbib}   % Required for numeric citations like [1]
 
 % Activate the fancy page style
 \pagestyle{fancy}
@@ -85,14 +84,12 @@
 % --- Metadata ---
 \title{\textbf{WILL Part I} \\
 \textit{Relational Geometry}}
-\author{Anton Rize \\ antonrize@willrg.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}} \\
+\author{Anton Rize \\ antonrize@willrg.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}}
 
 
 \date{October 2025}
 
-
 \begin{document}
-
 \maketitle
 
 \begin{abstract}
@@ -259,10 +256,7 @@ built with a \emph{bi-variable} syntax:
 \quad+\quad
 \underbrace{\text{fields + constants}}_{\text{dynamics}}.
 \]
-No observation demands this duplication; it is retained purely
-because the resulting Lagrangians are empirically adequate
-\emph{inside} the split.  The split is therefore \emph{not} an
-empirical discovery but an unpaid ontological debt.
+No observation demands this duplication; it is retained purely because the resulting Lagrangians are empirically adequate \emph{inside} the split.  The split is therefore \emph{not} an empirical discovery but an unpaid ontological debt.
 
 \subsection{Empirical bankruptcy of the separation}
 \begin{itemize}
@@ -542,7 +536,7 @@ Thus the relativistic and gravitational trade-off is the direct physical express
 This identifies Relativistic and Gravitational Time Dilation not as a mysterious "slowing down" of clocks, but as a strict geometric \textbf{phase rotation}. As a system invests more of its existence into external Amplitude ($\beta$ or $\kappa$), it necessarily withdraws from its internal Phase ($\beta_Y$ or $\kappa_X$), changing the rate of its proper time evolution.
 \end{remark}
 
-\subsection{Ontological Status of the Relational Carriers \(S^1\) and \(S^2\)}
+\subsection{Ontological Status of the Relational Carriers $S^1$ and $S^2$}
 
 A natural question arises regarding the ontological status of the circle \(S^1\) and the sphere \(S^2\): What are they, and where do they "exist"?
 
@@ -636,8 +630,8 @@ take the words as written, not as filtered through prior formalisms.
     \includegraphics[width=1\linewidth]{img/8_Kinetic-Energy-b-projection-on-S.png}
 \end{figure}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Click to open]
-\textbf{ \href{https://www.desmos.com/geometry/6k1um2qbzm}{DESMOS: Kinetic projection β on the S¹ carrier (Special Relativity)}}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos project]
+\textbf{ \href{https://www.desmos.com/geometry/6k1um2qbzm}{Kinetic projection $\beta$ on the $S^1$ carrier (Special Relativity)}}
 \end{tcolorbox}
 
 Since $S^{1}$ encodes one-dimensional shift, the total energy $E$ of the system 
@@ -1590,259 +1584,6 @@ the responsibility of interpretation lies with the reader:
 take the words as written, not as filtered through prior formalisms.
 \end{tcolorbox}
 
-
-\section{Operational Independence and the Role of Constants}
-\hypertarget{sec:operational}{}\label{sec:operational}
-A frequent objection from conventional frameworks is that any model employing the Schwarzschild radius ($R_s$) must implicitly depend on the Newtonian constants $G$ and $m_0$ (mass) as fundamental inputs. This objection assumes that mass is the primary ontological entity and geometry is a secondary derivative.
-
-We demonstrate that this is incorrect. In the WILL RG framework, $G$ and $m_0$ are not physical inputs but \emph{output calibration tools}. The parameters $\kappa$ and $\beta$ are operationally measurable geometric intensities, and $R_s$ is a system scale derived directly from the phase interactions of light.
-
-\subsection{Operational Measurability of Relational Projections}
-\hypertarget{thm:operational}{}\label{thm:operational}
-
-\begin{theorem}[Operational Measurability]
-The relational projections are encoded directly in the combined phase interactions of light (spectroscopy) and are operationally independent of $G$, $c$, or $m_0$.
-\end{theorem}
-
-\begin{proof}
-\textbf{Step 1: The Raw Observable ($\tau_W$).}
-Spectroscopy does not measure "gravitational potential" or "kinematic velocity" as separate isolates; it measures the total accumulated phase difference between the source and the observer. We define the \textbf{Relational Spacetime Factor} $\tau_W$ as the inverse of the total measured redshift product:
-\hypertarget{eq:tau_observable}{}\label{eq:tau_observable}
-\begin{equation}
-\tau_W \equiv \frac{1}{Z_{\text{tot}}} = \frac{1}{(1+z_{\text{obs}})}.
-\end{equation}
-In the WILL framework, this single observable represents the product of the internal phase projections of the carriers $S^2$ and $S^1$:
-\begin{equation}
-\tau_W = \underbrace{\kappa_X}_{\text{Gravitational Phase}} \cdot \underbrace{\beta_Y}_{\text{Kinematic Phase}} = \sqrt{1-\kappa^2}\sqrt{1-\beta^2}.
-\end{equation}
-
-\textbf{Step 2: Exact Relational Identity.}
-We reject weak-field approximations. The exact relationship between the signal $\tau_W$ and the structural norm $Q$ is given by the algebraic expansion of the phase product:
-\begin{equation}
-\tau_W^2 = (1-\kappa^2)(1-\beta^2) = 1 - (\kappa^2 + \beta^2) + \kappa^2\beta^2.
-\end{equation}
-Substituting $Q^2 = \kappa^2 + \beta^2$, we obtain the rigorous link between the optical observable and the geometric state:
-\begin{equation}
-\tau_W^2 = 1 - Q^2 + \kappa^2\beta^2.
-\end{equation}
-This identity demonstrates that the optical signal contains the complete information about the system's structural state, measurable without prior knowledge of mass.
-\end{proof}
-
-\subsection{Algebraic Determination of System Scale}
-
-We now derive algebraic formulas for the system scale $R_s$ using three distinct observational methods. These derivations rely strictly on the \textbf{Conservation of the Energy Invariant $W$}, replacing the need for Newtonian force laws.
-
-\subsubsection{Method A: Differential (Two-Point Method)}
-
-This method is suitable when the orbital period is unknown, but the trajectory can be traced geometrically.
-
-\begin{theorem}[Two-Point Schwarzschild Scale]
-\hypertarget{thm:two_point}{}\label{thm:two_point}
-Given measurements of geometric position ($r$) and kinematic intensity ($\beta$) at two arbitrary points along a trajectory:
-\begin{itemize}
-    \item Radii: $r_1, r_2$ (from astrometry)
-    \item Intensities: $\beta_1, \beta_2$ (from de-projected spectral line widths or proper motion)
-\end{itemize}
-the Schwarzschild radius is:
-\hypertarget{eq:Rs_two_point}{}\label{eq:Rs_two_point}
-\begin{equation}
-\boxed{
-R_s = \frac{r_1 r_2}{r_2 - r_1}(\beta_1^2 - \beta_2^2).
-}
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-We invoke the \textbf{Conservation of the Relational Invariant} $W = \frac{1}{2}(\kappa^2 - \beta^2)$.
-This law states that for any closed system, the specific energy difference between the potential and kinematic projections is constant throughout the orbit.
-
-Therefore, at any two points 1 and 2:
-\begin{equation}
-\frac{1}{2}(\kappa_1^2 - \beta_1^2) = \frac{1}{2}(\kappa_2^2 - \beta_2^2).
-\end{equation}
-Rearranging to group the projections:
-\begin{equation}
-\kappa_1^2 - \kappa_2^2 = \beta_1^2 - \beta_2^2.
-\end{equation}
-Substituting the field identity $\kappa^2 = R_s/r$:
-\begin{equation}
-\frac{R_s}{r_1} - \frac{R_s}{r_2} = \beta_1^2 - \beta_2^2.
-\end{equation}
-Factoring out the scale parameter $R_s$:
-\begin{equation}
-R_s ( \frac{r_2 - r_1}{r_1 r_2} ) = \beta_1^2 - \beta_2^2.
-\end{equation}
-Solving for $R_s$:
-\begin{equation}
-R_s = \frac{\beta_1^2 - \beta_2^2}{\frac{r_2-r_1}{r_1 r_2}} = \frac{r_1 r_2}{r_2 - r_1}(\beta_1^2 - \beta_2^2).
-\end{equation}
-This formula extracts the "mass" scale purely from geometric gradients.
-\end{proof}
-
-\subsubsection{Method B: Geometric Resonance (Balance Point Method)}
-
-At the specific orbital phase $O_o = \arccos(-e)$, the system passes through its geometric balance point where the instantaneous radius $r$ equals the semi-major axis $a$. At this unique phase, the closure condition $\kappa^2 = 2\beta^2$ is satisfied instantaneously.
-
-\begin{theorem}[Balance Point Formula]
-\hypertarget{thm:balance_point}{}\label{thm:balance_point}
-Given the geometric scale $a$ and the total light signal $\tau_W$ measured at the balance point ($r=a$):
-\hypertarget{eq:Rs_balance}{}\label{eq:Rs_balance}
-\begin{equation}
-\boxed{
-R_s = \frac{a}{2}(3 - \sqrt{1 + 8\tau_W^2(O_o)}).
-}
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-\textbf{Step 1: Spacetime Factor Expansion.}
-At the balance point ($r=a$), the closure condition implies $\kappa^2 = R_s/a$ and $\beta^2 = R_s/2a$.
-The observable $\tau_W$ is:
-\begin{equation}
-\tau_W^2 = (1-\kappa^2)(1-\beta^2) = (1 - \frac{R_s}{a})(1 - \frac{R_s}{2a}).
-\end{equation}
-
-\textbf{Step 2: Exact Geometric Solution.}
-Expanding the product:
-\begin{equation}
-\tau_W^2 = 1 - \frac{R_s}{2a} - \frac{R_s}{a} + \frac{R_s^2}{2a^2} = 1 - \frac{3R_s}{2a} + \frac{R_s^2}{2a^2}.
-\end{equation}
-Multiplying by $2a^2$ to clear denominators and rearranging into standard quadratic form ($Ax^2 + Bx + C = 0$):
-\begin{equation}
-R_s^2 - 3a R_s + 2a^2(1-\tau_W^2) = 0.
-\end{equation}
-Solving for $R_s$ using the quadratic formula ($x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a_{coef}}$):
-\begin{equation}
-R_s = \frac{3a \pm \sqrt{(3a)^2 - 4(1)(2a^2(1-\tau_W^2))}}{2}.
-\end{equation}
-Simplifying the term under the radical:
-\begin{equation}
-9a^2 - 8a^2(1-\tau_W^2) = 9a^2 - 8a^2 + 8a^2\tau_W^2 = a^2(1 + 8\tau_W^2).
-\end{equation}
-Thus:
-\begin{equation}
-R_s = \frac{3a \pm a\sqrt{1 + 8\tau_W^2}}{2} = \frac{a}{2}(3 \pm \sqrt{1 + 8\tau_W^2}).
-\end{equation}
-For stable orbits, we must select the negative root.
-\end{proof}
-
-\begin{remark}[Light Separation]
-This unit-less factor in brackets is:
-\begin{itemize}
-    \item \textbf{Potential projection at semi-major axis}:  $ \kappa^2=\frac{1}{2}(3 - \sqrt{1 + 8\tau_W^2(O_o)} )$
-\end{itemize}
-A unique way to separate gravitational part from the light signal.
-\end{remark}
-
-\subsubsection{Method C: Instantaneous (Arbitrary Phase Method)}
-
-Most generally, if the orbital geometry ($a$) is known, the scale $R_s$ can be derived from a \textbf{single epoch} observation at any arbitrary radius $r_o$.
-
-\begin{theorem}[Arbitrary Phase Formula]
-\hypertarget{thm:arbitrary_phase}{}\label{thm:arbitrary_phase}
-Given the orbital geometry ($a, r_o$) and the single light observable $\tau_{Wo}$:
-\hypertarget{eq:Rs_arbitrary}{}\label{eq:Rs_arbitrary}
-\begin{equation}
-\boxed{
-R_s = \frac{r_o}{2(2a-r_o)}(4a - r_o - \sqrt{(4a-r_o)^2 - 8a(2a-r_o)(1-\tau_{Wo}^2)}).}
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-\textbf{Step 1: Relational Invariant Form.}
-We start with the energy invariant relation $W = \frac{1}{2}(\kappa^2 - \beta^2)$. For a bound orbit, $W = R_s/4a$.
-We express the kinematic intensity $\beta^2$ at arbitrary radius $r$ in terms of the field intensity $\kappa^2$:
-\begin{equation}
-\frac{1}{2}(\kappa^2 - \beta^2) = \frac{R_s}{4a} \quad \Longrightarrow \quad \beta^2 = \kappa^2 - \frac{R_s}{2a}.
-\end{equation}
-Substituting $\kappa^2 = R_s/r$:
-\begin{equation}
-\beta^2 = R_s ( \frac{1}{r} - \frac{1}{2a} ).
-\end{equation}
-
-\textbf{Step 2: Constraint via Observables.}
-We substitute the expressions for $\kappa^2$ and $\beta^2$ into the exact observable constraint $\tau_{Wo}^2 = (1-\kappa^2)(1-\beta^2)$:
-\begin{equation}
-\tau_{Wo}^2 = (1 - \frac{R_s}{r})(1 - R_s [ \frac{1}{r} - \frac{1}{2a} ]).
-\end{equation}
-Let $A = \frac{1}{r}$ and $B = \frac{1}{r} - \frac{1}{2a}$. The equation becomes:
-\begin{equation}
-\tau_{Wo}^2 = (1 - A R_s)(1 - B R_s) = 1 - (A+B)R_s + AB R_s^2.
-\end{equation}
-Rearranging into quadratic form:
-\begin{equation}
-(AB) R_s^2 - (A+B) R_s + (1-\tau_{Wo}^2) = 0.
-\end{equation}
-
-\textbf{Step 3: Coefficient Expansion.}
-We compute the coefficients explicitly:
-\begin{align}
-AB &= \frac{1}{r}(\frac{2a-r}{2ar}) = \frac{2a-r}{2ar^2} \\
-A+B &= \frac{1}{r} + \frac{2a-r}{2ar} = \frac{2a + 2a - r}{2ar} = \frac{4a-r}{2ar}
-\end{align}
-Multiplying the entire quadratic equation by $2ar^2$ to clear denominators:
-\begin{equation}
-(2a-r) R_s^2 - r(4a-r) R_s + 2ar^2(1-\tau_{Wo}^2) = 0.
-\end{equation}
-
-\textbf{Step 4: Solution.}
-Solving for $R_s$:
-\begin{equation}
-R_s = \frac{r(4a-r) \pm \sqrt{r^2(4a-r)^2 - 4(2a-r)(2ar^2)(1-\tau_{Wo}^2)}}{2(2a-r)}.
-\end{equation}
-Factoring out $r^2$ from the radical term $\sqrt{r^2 (...)} = r\sqrt{(...)}$:
-\begin{equation}
-R_s = \frac{r}{2(2a-r)} ( (4a-r) \pm \sqrt{(4a-r)^2 - 8a(2a-r)(1-\tau_{Wo}^2)} ).
-\end{equation}
-For stable orbits, we select the negative root, yielding the exact algebraic link between the observed light phase and the system's geometric scale.
-\end{proof}
-
-\subsection{The Role of $G$ as Translation Constant}
-
-The presence of $R_s$ in these formulas does not imply a dependency on mass $m_0$ or the constant $G$. The objection that $R_s = 2Gm_0/c^2$ makes $G$ fundamental rests on a categorical error: it mistakes a unit conversion factor for a physical source.
-
-\begin{theorem}[Constants as Converters]
-In WILL RG, $G$ and $m_0$ are derived calibration tools used to translate geometric scales into legacy units.
-\end{theorem}
-
-\begin{proof}
-The operational procedure is strictly geometric:
-\begin{enumerate}
-    \item \textbf{Measure:} Light phase $\tau_W$ (dimensionless) via spectroscopy.
-    \item \textbf{Measure:} Geometric scale $r$ (meters/AU) via astrometry.
-    \item \textbf{Calculate:} System Scale $R_s = f(r, \tau_W)$ via Theorems 15.2, 15.3, or 15.4.
-\end{enumerate}
-The physical calculation ends here. The system is fully defined.
-If, and only if, one wishes to interface with legacy catalogues, one employs the \textbf{unit converter}:
-\begin{equation}
-m_0 \equiv \frac{R_s c^2}{2G}.
-\end{equation}
-The constant $G$ describes the units we use (kilograms vs. meters), not the physics of the system.
-\end{proof}
-
-\begin{remark}[Historical Artifact]
-The kilogram is a human convention. In WILL RG, the fundamental quantity is the dimensionless ratio $\kappa^2 = R_s/r$, which encodes the energy density ratio $\rho/\rho_{\max}$. The "mass" $m_0$ is a secondary bookkeeping device.
-\end{remark}
-
-\subsection{Summary}
-
-We have derived three algebraically distinct formulas for $R_s$, each optimized for different observational scenarios:
-\begin{enumerate}
-    \item \textbf{Two-point}  Requires two velocity measurements
-    \item \textbf{Balance point}  Simplified form at special phase
-    \item \textbf{Arbitrary phase} Works for any single epoch
-\end{enumerate}
-
-All formulas are:
-\begin{itemize}
-    \item \textbf{Operationally independent} of $G$ and $m_0$
-    \item \textbf{Non-circular} (inputs are direct observables)
-    \item \textbf{Algebraically exact} (no approximations beyond Keplerian closure)
-\end{itemize}
-
-The operational input is always $\tau_W = 1/[(1+z)(1+z_D)]$, a dimensionless quantity directly measurable from spectroscopy. This demonstrates that WILL RG formulas are empirically grounded and do not rely on hidden assumptions about gravitational constants.
-
-
 \section{Classical Keplerian Energy and Minkowski Interval as Single-Point Limits of the Relational Energy-Symmetry Law}
 \hypertarget{sec:classical_vs_WILL}{}\label{sec:classical_vs_WILL}
 
@@ -2113,278 +1854,11 @@ limit of the more general relational balance condition
 $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$.
 \end{proof}
 
-
-\section{Substantialism vs. Relationalism}
-\hypertarget{sec:sub_v_rel}{}\label{sec:sub_v_rel}
-
-\subsection{No-Go Theorem for Fundamental One-Point Dynamics}
-\hypertarget{thm:no-go}{}\label{thm:no-go}
-
-\subsection*{Foundational Assumptions}
-
-\begin{definition}[Self--Centering]
-Each observer defines itself as the relational origin:
-\[
-(\beta,\kappa)=(0,0).
-\]
-This is an ontological definition of the observer's state, not a coordinate choice.
-\end{definition}
-
-\begin{definition}[Relational Reciprocity]
-The only invariant quantity between two observers is the norm of the Total Relational Shift:
-\[
-Q^2=\beta^2+\kappa^2.
-\]
-Reciprocity is invariance of this norm under the self--centering operation performed independently by each observer.
-\end{definition}
-
-\begin{definition}[Absence of Background]
-There exists no shared background structure: no global state space, no external time parameter, and no common coordinate system simultaneously hosting the states of distinct observers.
-\end{definition}
-
-\begin{definition}[Operationality]
-A physical quantity is admissible only if it is either:
-\begin{enumerate}
-\item directly measurable, or
-\item algebraically derivable from measurable quantities,
-\end{enumerate}
-without invoking non-observable auxiliary structures.
-\end{definition}
-
-\subsection*{Target Class}
-
-\begin{definition}[One--Point Dynamics]
-By one-point dynamics we mean any formulation in which:
-\begin{itemize}
-\item a system is represented by a state $x$ in a global space,
-\item physical law is given by a local evolution rule
-\[
-\dot{x}=F(x)
-\quad \text{or} \quad
-\delta x=\mathcal{L}(x),
-\]
-\item temporal evolution is defined as transitions of the same point through neighboring states.
-\end{itemize}
-This includes Lagrangian, Hamiltonian, field-theoretic, and metric-based formulations.
-\end{definition}
-
-\subsection*{No-Go Result}
-
-\begin{theorem}[No-Go for Fundamental One--Point Dynamics]
-Under Self--Centering, Relational Reciprocity, Absence of Background, and Operationality, no one-point dynamical formulation can be simultaneously:
-\begin{enumerate}
-\item relationally reciprocal,
-\item operationally well-defined,
-\item background-independent,
-\item ontologically minimal.
-\end{enumerate}
-Therefore one-point dynamics cannot be fundamental.
-\end{theorem}
-
-\begin{proof}
-\textbf{A one-point evolution law implicitly assumes a persistent identity 
-of the system across states:} it must be meaningful to say that the system 
-at $x(t_1)$ and at $x(t_2)$ is \emph{the same system}. This is a 
-substantialist commitment --- an intrinsic identity independent of 
-relational context.
-
-\textbf{Under Absence of Background, no such structure exists:} states are 
-defined only through mutual relational shifts $Q$. The continuous trajectory 
-$x(t)$ --- and with it $\dot{x}$ or $\delta x$ --- is an auxiliary construct 
-requiring non-observable distinctions between arbitrarily close states, 
-inadmissible by Operationality.
-
-\textbf{By Self-Centering, an observer is always at $(\beta,\kappa)=(0,0)$ 
-in its own relational origin:} there is no operationally available notion of 
-an observer's own worldline as a sequence of distinct states inside a shared 
-arena. Any attempt to define such a sequence introduces an external 
-state-labeling structure, contradicting Absence of Background.
-
-\textbf{By Relational Reciprocity, only the scalar norm $Q$ is invariant 
-under mutual self-centering:} directional quantities required by one-point 
-dynamics --- such as signed increments, tangent vectors, gradients, forces, 
-or local generators of change --- are not reciprocity-invariant objects and 
-therefore cannot be fundamental relational observables.
-
-\textbf{To restore a well-defined one-point dynamics, one must add at least 
-one of the following:} a global time parameter; a shared state manifold; a 
-persistent identity map between the same system at different moments; or a 
-background metric or symplectic structure that defines local generators. 
-
-\textbf{Each of these additions violates Absence of Background} and breaks the relational 
-closure enforced by Self-Centering and Reciprocity.
-
-\textbf{Therefore, under the stated foundational methodological constraints, 
-one-point dynamics cannot serve as a fundamental description.}
-\end{proof}
-
-
-\begin{corollary}[Constraint--Based Fundamental Law]
-Under the same assumptions, admissible fundamental laws must be algebraic and relational: they constrain mutual states through reciprocity-invariant quantities (such as $Q$ and closure relations) rather than prescribing one-point evolution.
-\end{corollary}
-
-\subsection{Theorem of Minimality for Relational Constraint Laws}
-\hypertarget{thm:minimality}{}\label{thm:minimality}
-
-\subsection*{Purpose}
-
-We prove that even if one-point dynamics is permitted as a non-fundamental
-descriptive tool, it is strictly non-minimal.
-Relational constraint-based formulations are provably optimal with respect to
-ontological and operational economy.
-
-\subsection*{Primitive Count and Ontological Cost}
-
-\begin{definition}[Ontological Primitive]
-An ontological primitive is any irreducible structure that must be assumed
-in order to formulate a physical law and that cannot be eliminated by algebraic
-redefinition.
-Examples include background time, global state manifolds, local generators,
-metrics, or identity maps between states.
-\end{definition}
-
-\begin{definition}[Ontological Cost]
-The ontological cost of a formulation is the minimal number of independent
-primitives required to state its laws in a closed and operationally meaningful
-form.
-\end{definition}
-
-\subsection*{Minimal Relational Formulation}
-
-\begin{lemma}[Primitive Content of Relational Constraint Laws]
-A relational constraint-based formulation requires only:
-\begin{itemize}
-\item self--centering of observers,
-\item relational reciprocity,
-\item algebraic invariants between relational projections.
-\end{itemize}
-No background structures, generators, or evolution parameters are required.
-\end{lemma}
-
-\begin{proof}
-Relational constraints relate observable projections directly through algebraic
-identities such as
-
-$Q^2=\beta^2+\kappa^2$    (\ref{sec:DisQ})
-$\kappa^2=2\beta^2$    (\ref{thm:Closure})
-$\Delta E_{A \to B} + \Delta E_{B \to A} = 0$  (\ref{sec:energy-symmetry})
-
-These quantities are dimensionless, operationally measurable, and invariant
-under self--centering.
-No additional structure is needed to define or apply such relations.
-\end{proof}
-
-\subsection*{Primitive Content of One--Point Dynamics}
-
-\begin{lemma}[Primitive Inflation in One--Point Dynamics]
-Any one-point dynamical formulation requires the introduction of at least one
-additional ontological primitive beyond those of relational constraints.
-\end{lemma}
-
-\begin{proof}
-To define a local evolution law $\dot{x}=F(x)$ or $\delta x=\mathcal{L}(x)$, one
-must introduce:
-\begin{itemize}
-\item a global space of states hosting $x$,
-\item a rule identifying the same system across multiple states,
-\item an ordering parameter distinguishing ``before'' and ``after'',
-\item a generator defining local change.
-\end{itemize}
-
-At least one of these structures is irreducible: by the No-Go Theorem (\ref{thm:no-go}), no such ordering or identity structure can be derived from relational methods alone without introducing additional background assumptions.
-\end{proof}
-
-\subsection*{The Minimality Theorem}
-
-\begin{theorem}[Strict Minimality of Relational Constraint Laws]
-Among all formulations capable of reproducing the same observable predictions,
-relational constraint-based laws have strictly lower ontological cost than any
-one-point dynamical formulation.
-\end{theorem}
-
-\begin{proof}
-By the first lemma, relational constraint laws achieve closure using only
-self--centering, reciprocity, and algebraic invariants.
-By the second lemma, any one-point dynamical formulation requires at least one
-additional primitive not present in the relational scheme.
-Therefore the ontological cost of one-point dynamics is strictly greater.
-Since relational constraint laws reproduce the empirical content of 
-one-point dynamics (as demonstrated by the explicit derivations in 
-\textbf{WILL Trilogy:(\ref{trilogy})} and do so with strictly lower ontological cost, the relational constraint formulation is minimal.
-\end{proof}
-
-\begin{remark}
-Throughout this section, \emph{fundamental} is used in the sense of 
-ontologically minimal and operationally closed: a formulation is 
-fundamental if it requires no primitives beyond those that are directly 
-measurable or derivable from measurable relational invariants.
-\end{remark}
-
-\subsection*{Operational Consequence}
-
-\begin{corollary}[Redundancy of One-Point Dynamics]
-Any one-point dynamical law is either:
-\begin{itemize}
-\item empirically redundant with respect to an underlying relational constraint,
-or
-\item dependent on surplus ontological structure.
-\end{itemize}
-
-\textbf{In neither case can it be fundamental.}
-\end{corollary}
-
-\subsection*{Summary}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Minimality Result]
-\[
-\boxed{
-\text{Relational Constraints}
-\;<\;
-\text{One--Point Dynamics}
-}
-\]
-The inequality denotes strict ontological and operational minimality.
-Substantival formalisms persist only as descriptive approximation of a more economical relational structure.
-\end{tcolorbox}
-
-\section{General Consequence}
-\hypertarget{sec:general_consequence}{}\label{sec:general_consequence}
-
-The adoption of substantialist assumptions, as identified in the 
-preceding theorems, produces three structural consequences:
-
-\begin{enumerate}
-    \item Inflated Formalism: Equations multiply to compensate for ontological error.
-    \item Loss of Transparency: Physical meaning becomes hidden behind coordinate dependencies.
-    \item Empirical Fragmentation: Each domain (cosmology, quantum, gravitation) requires separate constants.
-\end{enumerate}
-
-By contrast, Relationalism as good philosophy-\textbf{epistemic hygiene}-enforces relational closure and yields simplicity through necessity, not through approximation.
-
-In short:
-\boxed{\text{\textbf{Ontological assumptions generate complexity.\ 
-Relational minimalism reveals geometry.}}}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Daring Remark]
-The Strict Minimality Theorem demonstrates that mathematical complexity 
-is not an inevitable feature of physical law but a structural consequence 
-of surplus ontological assumptions. When those assumptions are removed, 
-the same empirical content is reproduced with strictly fewer primitives.
-\[
-\boxed{\text{Surplus Ontology}} \Longrightarrow 
-\boxed{\text{Ontological Duplication}} \Longrightarrow 
-\boxed{\text{Mathematical Inflation}} 
-\]
-\[
-\boxed{\text{\textbf{Mathematical complexity is the symptom of philosophical negligence.}}}
-\]
-\end{tcolorbox}
-
 %___________________________________________________________________________________________________
 %________________________________Chapter D_____________________________________________________________
 %___________________________________________________________________________________________________
 
-\section{Relational Orbital Mechanics (R.O.M.) Without Mass or $G$}
+\section{Relational Orbital Mechanics (R.O.M.)}
 \hypertarget{sec:rom}{}\label{sec:rom}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=R.O.M. equations]
@@ -2758,11 +2232,9 @@ With the derived periapsis intensity $\beta_p $ and the corresponding potential 
     \boxed{\Delta \varphi \approx 14.7909706972 \approx  14.80 \text{ arcmin/orbit}.}
 \end{equation}
 
-
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
 \textbf{ \href{https://www.desmos.com/calculator/n4lmkpsebx}{DESMOS: R.O.M.}}
 \end{tcolorbox}
-
 
 \subsection{Discussion}
 The result derived here ($\Delta \varphi \approx 14.80'$) matches the expectations of the Schwarzschild metric to high precision. However, the path to this result is physically distinct.
@@ -2791,110 +2263,6 @@ observable frequency projections.
 %___________________________________________________________________________________________________
 %________________________________Chapter E_____________________________________________________________
 %___________________________________________________________________________________________________
-
-\section{Derivation of Gravitational Deflection and Lensing}
-\hypertarget{sec:grav_optics}{}\label{sec:grav_optics}
-
-In General Relativity, the deflection of light is obtained by integrating the null geodesic equations over a curved spacetime manifold, often relying on weak-field approximations and Taylor expansions. Within WILL Relational Geometry (RG), we reject both the background manifold and the use of mathematical approximations as non-operational ontological artifacts. 
-
-The system consists exclusively of its participants: the Source, the Lens (at periapsis $p$), and the Receiver. The total deflection angle must be derived as a strict, exact algebraic difference between their measurable relational phase states, without resorting to series expansions.
-
-\subsection{Gravitational Deflection and Interaction Gradient}
-\hypertarget{sec:grav_deflection}{}\label{sec:grav_deflection}
-
-Energy projections distribution among axis of relational carriers has to obey the conservation law (distribution between axis does not create nor destroy energy). There must exist a strict, algebraically closed gradient connecting all states, governed entirely by the kinematic projection $\beta$.
-
-\begin{theorem}[Unified Interaction Gradient]
-The gravitational interaction capacity of any entity is determined by its available phase buffer $\beta_Y$. The geometric scaling factor $\Gamma$ that dictates the distribution of the potential projection $\kappa^2$ onto the spatial trajectory is strictly defined by the arithmetic mean of the saturated carrier $S^1$:
-\begin{equation}
-\Gamma(\beta) = \frac{1 + \beta^2}{2} = 1 - \frac{\beta_Y^2}{2}
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-By the $S^1$ closure invariant ($\beta^2 + \beta_Y^2 = 1$), an object at rest ($\beta = 0$) possesses maximum internal phase ($\beta_Y = 1$). This phase acts as a geometric buffer, absorbing half of the relational gradient, yielding the classical partitioning $\Gamma = \frac{1}{2}$. 
-As the spatial projection $\beta$ increases, the internal clock slows, and the phase buffer $\beta_Y$ depletes. At the topological limit $\beta \to 1$ (light), the internal phase collapses ($\beta_Y \to 0$). The buffer is exhausted, forcing the entity to absorb the full, unpartitioned gravitational gradient, yielding $\Gamma = 1$.
-\end{proof}
-
-Using this gradient, we define the \textbf{Unified Closure Defect} for any trajectory—from a slow asteroid to a photon—as:
-\begin{equation}
-\delta_\varphi = \frac{\kappa_p^2}{\beta_p^2} \Gamma(\beta_p) = \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2}
-\end{equation}
-
-The geometric shape parameter (eccentricity) of the trajectory is derived directly from this defect:
-\begin{equation}
-e_\varphi = \frac{1}{\delta_\varphi} - 1 = \frac{2\beta_p^2}{\kappa_p^2(1+\beta_p^2)} - 1
-\end{equation}
-
-Applying the exact algebraic transit equation for a distant observer ($\kappa_o \to 0$), we have $\cos o_\infty = -1/e_\varphi$. Using the same trigonometric extraction as established for light ($\sin(\frac{\Delta\varphi}{2}) = \frac{1}{e_\varphi}$), we arrive at the absolute, unified equation for gravitational deflection:
-
-\begin{equation}
-\boxed{ \Delta\varphi = 2 \arcsin( \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2 - \kappa_p^2 (1 + \beta_p^2)} ) }
-\end{equation}
-Solving for $\beta_p=1$ the total deflection angle $\Delta\varphi$ gives non-linear equation for light deflection in RG:
-
-\begin{equation}
-\boxed{ \Delta\gamma = 2 \arcsin( \frac{\kappa_p^2}{\kappa_{Xp}^2} ) }
-\end{equation}
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
-\textbf{\href{https://www.desmos.com/calculator/ldynwowqvi}{Algebraic Light Deflection (one input derivation)}}
-\end{tcolorbox}
-
-
-
-\vspace{0.5cm}
-\noindent\textbf{Verification of Topological Limits:}
-\begin{itemize}
-    \item \textbf{Newtonian Limit ($\beta_p \ll 1$):} The phase buffer is full ($\Gamma \to 0.5$). The eccentricity is dominated by $2\beta_p^2 / \kappa_p^2$. The deflection reduces to the classical Rutherford/Newton scattering: $\Delta\varphi \approx \frac{\kappa_p^2}{\beta_p^2}$.
-    \item \textbf{Relativistic Limit ($\beta_p \to 0.99$):} The phase buffer is nearly depleted ($\Gamma \to 0.99$). The trajectory stiffens, and the deflection angle approaches the photonic maximum, smoothly capturing the post-Newtonian factor without Taylor expansions.
-    \item \textbf{Photonic Limit ($\beta_p = 1$):} The phase buffer is completely exhausted ($\Gamma = 1$). Substituting $\beta_p = 1$ yields $e = \frac{2}{\kappa_p^2(2)} - 1 = \frac{1}{\kappa_p^2} - 1 = \frac{\kappa_{Xp}^2}{\kappa_p^2}$. The equation resolves perfectly into the exact light deflection identity: $\Delta\varphi = 2 \arcsin ( \frac{\kappa_p^2}{\kappa_{Xp}^2} )$.
-\end{itemize}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Elimination of the "Massless" Myth]
-This formulation suggests that light is not a distinct ontological category governed by separate physical laws. There are no "massless particles" in RG. Light is simply the rightward topological limit of matter, where the internal phase $\beta_Y$ reaches zero. The historical factor of 2 in gravitational lensing is not an anomaly of curved spacetime, but the inevitable geometric consequence of an exhausted phase buffer.
-\end{tcolorbox}
-
-\subsection{Gravitational Lensing and the Einstein Ring}
-\hypertarget{sec:grav_lens}{}\label{sec:grav_lens}
-
-In Relational Geometry, the description of gravitational lensing (deflection, convergence, shear, and magnification) does not require a background metric or the postulation of a curved manifold. It arises entirely as the geometric projection of the deflection angle onto the observer's plane.
-
-By employing the standard geometric baseline equation for the observer-lens-source system, the true angular position $\theta_S$ of a source is related to its observed image position $\theta_I$ via:
-\begin{equation}
-\theta_S = \theta_I - \frac{D_{LS}}{D_S} \Delta\varphi_{\text{unified}}(\beta_p, \kappa_p(\theta_I))
-\end{equation}
-where $D_{LS}$ and $D_S$ are the relational baseline distances.
-
-The potential projection at periapsis $\kappa_p^2$ is strictly a function of the observed angle $\theta_I$, defined by the physical impact parameter $r_p = D_L \theta_I$:
-\begin{equation}
-\kappa_p^2(\theta_I) = \frac{R_s}{D_L \theta_I}
-\end{equation}
-
-\begin{theorem}[Exact Algebraic Einstein Ring]
-For a perfectly aligned system ($\theta_S = 0$), the image forms a symmetric ring. The exact angular radius of this Einstein ring, $\theta_E$, valid for all velocities and field strengths, is given by the implicit algebraic equation:
-\begin{equation}
-\theta_E = 2 \frac{D_{LS}}{D_S} \arcsin\left( \frac{\kappa_p^2(\theta_E) (1 + \beta_p^2)}{2\beta_p^2 - \kappa_p^2(\theta_E) (1 + \beta_p^2)} \right)
-\end{equation}
-\end{theorem}
-
-\vspace{0.3cm}
-\noindent\textbf{Recovery of Topological Limits:}
-To reveal the underlying gradient without altering the exact equation, we examine the weak-field astrophysical limit ($\kappa_p^2 \ll \beta_p^2$), where $\arcsin(x) \approx x$. The unified deflection simplifies algebraically to:
-\begin{equation}
-\theta_E \approx \frac{D_{LS}}{D_S} \frac{R_s}{D_L \theta_E} \left( \frac{1 + \beta_p^2}{\beta_p^2} \right) \quad \Longrightarrow \quad \theta_E^2 \approx \frac{R_s D_{LS}}{D_L D_S} \left( \frac{1 + \beta_p^2}{\beta_p^2} \right)
-\end{equation}
-
-\begin{itemize}
-    \item \textbf{The Photonic Limit ($\beta_p \to 1$):} The kinematic factor evaluates exactly to $\frac{1+1}{1} = 2$. The equation resolves to $\theta_{E,\gamma} = \sqrt{\frac{2R_s D_{LS}}{D_L D_S}}$, perfectly matching the full General Relativistic prediction for light (equivalent to $4GM/c^2$).
-    \item \textbf{The Relativistic Massive Limit ($0 < \beta_p < 1$):} The continuous phase-buffer depletion natively supplies the correct post-Newtonian scaling without external ad-hoc gradients.
-\end{itemize}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence]
-The properties of the lens—convergence ($\kappa_{\text{lens}}$), shear ($\gamma$), and magnification ($\mu$)—are simply the components of the 2D Jacobian matrix of the deflection field $\vec{\alpha}(\vec{\theta})$. Because the physics of the phase-buffer $\beta_Y$ is fundamentally woven into the exact definition of $\Delta\varphi_{\text{unified}}$, no manual "weighting" of shear or convergence is required. The optical mapping emerges naturally from the pure algebraic closure of the $S^1$ and $S^2$ relational carriers.
-\end{tcolorbox}
-
 
 \section{Derivation of Absolute System Scale: The Chrono-Spectroscopic Theorem}
 \hypertarget{sec:absolute_scale}{}\label{sec:absolute_scale}
@@ -2937,7 +2305,6 @@ The global invariants are then strictly recovered from the tension of these loca
 \begin{table}[h!]
 \centering
 \caption{Dimensionless and Chronometric Inputs for Absolute Scale}
-\hypertarget{tab:mercury_params}{}\label{tab:mercury_params}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|l|c|c|p{5.5cm}|}
 \hline
@@ -2955,10 +2322,13 @@ Substituting these strictly relational observables into the R.O.M. absolute scal
 \]
 This result perfectly matches the classical derivation $\frac{2GM_{sun}}{c^{2}}$, yet it is achieved strictly through internal system clocks ($T$) and spectroscopic shifts ($\beta_p, z_{sun}$). 
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Operational Independence]
+\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:operational}{WILL RG is operationally independent from mass and G}
+\end{tcolorbox}
+
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence]
 \textbf{SPACETIME $\equiv$ ENERGY}: The physical scale of a closed orbital system is algebraically equivalent to the ratio of geometric tension ($\kappa^2\beta$) to local clock ticks ($T$). The classical necessity of the "cosmic distance ladder" (meters) is an artifact of treating space as an a priori container, rather than recognizing it as the emergent relational tension between energetic states.
 \end{tcolorbox}
-
 
 \section{Sidestepping the Classical $M \sin i$ Degeneracy}
 \hypertarget{sec:M_sin(i)}{}\label{sec:M_sin(i)}
@@ -3166,6 +2536,114 @@ Degeneracies are not features of Nature; they are symptoms of incomplete relatio
 \end{tcolorbox}
 
 
+\section{Derivation of Gravitational Deflection and Lensing}
+\hypertarget{sec:grav_optics}{}\label{sec:grav_optics}
+
+In General Relativity, the deflection of light is obtained by integrating the null geodesic equations over a curved spacetime manifold, often relying on weak-field approximations and Taylor expansions. Within WILL Relational Geometry (RG), we reject both the background manifold and the use of mathematical approximations as non-operational ontological artifacts. 
+
+The system consists exclusively of its participants: the Source, the Lens (at periapsis $p$), and the Receiver. The total deflection angle must be derived as a strict, exact algebraic difference between their measurable relational phase states, without resorting to series expansions.
+
+\subsection{Gravitational Deflection and Interaction Gradient}
+\hypertarget{sec:grav_deflection}{}\label{sec:grav_deflection}
+
+Energy projections distribution among axis of relational carriers has to obey the conservation law (distribution between axis does not create nor destroy energy). There must exist a strict, algebraically closed gradient connecting all states, governed entirely by the kinematic projection $\beta$.
+
+\begin{theorem}[Unified Interaction Gradient]
+The gravitational interaction capacity of any entity is determined by its available phase buffer $\beta_Y$. The geometric scaling factor $\Gamma$ that dictates the distribution of the potential projection $\kappa^2$ onto the spatial trajectory is strictly defined by the arithmetic mean of the saturated carrier $S^1$:
+\begin{equation}
+\Gamma(\beta) = \frac{1 + \beta^2}{2} = 1 - \frac{\beta_Y^2}{2}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By the $S^1$ closure invariant ($\beta^2 + \beta_Y^2 = 1$), an object at rest ($\beta = 0$) possesses maximum internal phase ($\beta_Y = 1$). This phase acts as a geometric buffer, absorbing half of the relational gradient, yielding the classical partitioning $\Gamma = \frac{1}{2}$. 
+As the spatial projection $\beta$ increases, the internal clock slows, and the phase buffer $\beta_Y$ depletes. At the topological limit $\beta \to 1$ (light), the internal phase collapses ($\beta_Y \to 0$). The buffer is exhausted, forcing the entity to absorb the full, unpartitioned gravitational gradient, yielding $\Gamma = 1$.
+\end{proof}
+
+Using this gradient, we define the \textbf{Unified Closure Defect} for any trajectory—from a slow asteroid to a photon—as:
+\begin{equation}
+\delta_\varphi = \frac{\kappa_p^2}{\beta_p^2} \Gamma(\beta_p) = \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2}
+\end{equation}
+
+The geometric shape parameter (eccentricity) of the trajectory is derived directly from this defect:
+\begin{equation}
+e_\varphi = \frac{1}{\delta_\varphi} - 1 = \frac{2\beta_p^2}{\kappa_p^2(1+\beta_p^2)} - 1
+\end{equation}
+
+Applying the exact algebraic transit equation for a distant observer ($\kappa_o \to 0$), we have $\cos o_\infty = -1/e_\varphi$. Using the same trigonometric extraction as established for light ($\sin(\frac{\Delta\varphi}{2}) = \frac{1}{e_\varphi}$), we arrive at the absolute, unified equation for gravitational deflection:
+
+\begin{equation}
+\boxed{ \Delta\varphi = 2 \arcsin( \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2 - \kappa_p^2 (1 + \beta_p^2)} ) }
+\end{equation}
+Solving for $\beta_p=1$ the total deflection angle $\Delta\varphi$ gives non-linear equation for light deflection in RG:
+
+\begin{equation}
+\boxed{ \Delta\gamma = 2 \arcsin( \frac{\kappa_p^2}{\kappa_{Xp}^2} ) }
+\end{equation}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
+\href{https://www.desmos.com/calculator/ldynwowqvi}{Algebraic Light Deflection (one input derivation)}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Gravitational_Deflection.ipynb}{Gravitational Deflection.ipynb}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+\noindent\textbf{Verification of Topological Limits:}
+\begin{itemize}
+    \item \textbf{Newtonian Limit ($\beta_p \ll 1$):} The phase buffer is full ($\Gamma \to 0.5$). The eccentricity is dominated by $2\beta_p^2 / \kappa_p^2$. The deflection reduces to the classical Rutherford/Newton scattering: $\Delta\varphi \approx \frac{\kappa_p^2}{\beta_p^2}$.
+    \item \textbf{Relativistic Limit ($\beta_p \to 0.99$):} The phase buffer is nearly depleted ($\Gamma \to 0.99$). The trajectory stiffens, and the deflection angle approaches the photonic maximum, smoothly capturing the post-Newtonian factor without Taylor expansions.
+    \item \textbf{Photonic Limit ($\beta_p = 1$):} The phase buffer is completely exhausted ($\Gamma = 1$). Substituting $\beta_p = 1$ yields $e = \frac{2}{\kappa_p^2(2)} - 1 = \frac{1}{\kappa_p^2} - 1 = \frac{\kappa_{Xp}^2}{\kappa_p^2}$. The equation resolves perfectly into the exact light deflection identity: $\Delta\varphi = 2 \arcsin ( \frac{\kappa_p^2}{\kappa_{Xp}^2} )$.
+\end{itemize}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Elimination of the "Massless" Myth]
+This formulation suggests that light is not a distinct ontological category governed by separate physical laws. There are no "massless particles" in RG. Light is simply the rightward topological limit of matter, where the internal phase $\beta_Y$ reaches zero. The historical factor of 2 in gravitational lensing is not an anomaly of curved spacetime, but the inevitable geometric consequence of an exhausted phase buffer.
+\end{tcolorbox}
+
+\subsection{Gravitational Lensing and the Einstein Ring}
+\hypertarget{sec:grav_lens}{}\label{sec:grav_lens}
+
+In Relational Geometry, the description of gravitational lensing (deflection, convergence, shear, and magnification) does not require a background metric or the postulation of a curved manifold. It arises entirely as the geometric projection of the deflection angle onto the observer's plane.
+
+By employing the standard geometric baseline equation for the observer-lens-source system, the true angular position $\theta_S$ of a source is related to its observed image position $\theta_I$ via:
+\begin{equation}
+\theta_S = \theta_I - \frac{D_{LS}}{D_S} \Delta\varphi_{\text{unified}}(\beta_p, \kappa_p(\theta_I))
+\end{equation}
+where $D_{LS}$ and $D_S$ are the relational baseline distances.
+
+The potential projection at periapsis $\kappa_p^2$ is strictly a function of the observed angle $\theta_I$, defined by the physical impact parameter $r_p = D_L \theta_I$:
+\begin{equation}
+\kappa_p^2(\theta_I) = \frac{R_s}{D_L \theta_I}
+\end{equation}
+
+\begin{theorem}[Exact Algebraic Einstein Ring]
+For a perfectly aligned system ($\theta_S = 0$), the image forms a symmetric ring. The exact angular radius of this Einstein ring, $\theta_E$, valid for all velocities and field strengths, is given by the implicit algebraic equation:
+\begin{equation}
+\theta_E = 2 \frac{D_{LS}}{D_S} \arcsin\left( \frac{\kappa_p^2(\theta_E) (1 + \beta_p^2)}{2\beta_p^2 - \kappa_p^2(\theta_E) (1 + \beta_p^2)} \right)
+\end{equation}
+\end{theorem}
+
+\vspace{0.3cm}
+\noindent\textbf{Recovery of Topological Limits:}
+To reveal the underlying gradient without altering the exact equation, we examine the weak-field astrophysical limit ($\kappa_p^2 \ll \beta_p^2$), where $\arcsin(x) \approx x$. The unified deflection simplifies algebraically to:
+\begin{equation}
+\theta_E \approx \frac{D_{LS}}{D_S} \frac{R_s}{D_L \theta_E} \left( \frac{1 + \beta_p^2}{\beta_p^2} \right) \quad \Longrightarrow \quad \theta_E^2 \approx \frac{R_s D_{LS}}{D_L D_S} \left( \frac{1 + \beta_p^2}{\beta_p^2} \right)
+\end{equation}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Gravitational_Lensing.ipynb}{Gravitational Lensing.ipynb}
+\end{tcolorbox}
+
+\begin{itemize}
+    \item \textbf{The Photonic Limit ($\beta_p \to 1$):} The kinematic factor evaluates exactly to $\frac{1+1}{1} = 2$. The equation resolves to $\theta_{E,\gamma} = \sqrt{\frac{2R_s D_{LS}}{D_L D_S}}$, perfectly matching the full General Relativistic prediction for light (equivalent to $4GM/c^2$).
+    \item \textbf{The Relativistic Massive Limit ($0 < \beta_p < 1$):} The continuous phase-buffer depletion natively supplies the correct post-Newtonian scaling without external ad-hoc gradients.
+\end{itemize}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence]
+The properties of the lens—convergence ($\kappa_{\text{lens}}$), shear ($\gamma$), and magnification ($\mu$)—are simply the components of the 2D Jacobian matrix of the deflection field $\vec{\alpha}(\vec{\theta})$. Because the physics of the phase-buffer $\beta_Y$ is fundamentally woven into the exact definition of $\Delta\varphi_{\text{unified}}$, no manual "weighting" of shear or convergence is required. The optical mapping emerges naturally from the pure algebraic closure of the $S^1$ and $S^2$ relational carriers.
+\end{tcolorbox}
+
 \section{Derivation of Density, Mass, and Pressure}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=IMPORTANT:]
@@ -3325,8 +2803,7 @@ From the energy-geometry equivalence, the complete description of gravitational 
 
 \[
 \boxed{
-\kappa^2 = \frac{R_s}{r} = \frac{\rho_{\text{field}}}{\rho_{\text{max}}}}
-
+\kappa^2 = \frac{R_s}{r} = \frac{\rho_{field}}{\rho_{max}}}
 \]
 
 This identity defines the \textbf{local energy state of the geometry itself}.
@@ -3338,14 +2815,14 @@ For a static, spherically symmetric configuration containing matter with density
 \hypertarget{eq:will_field_diff}{}\label{eq:will_field_diff}
 \begin{equation}
 \boxed{
-\frac{d}{dr}\!(r\,\kappa^{2}) = \frac{8\pi G}{c^{2}}\, r^{2}\rho_{\text{matter}}(r)
+\frac{d}{dr}\!(r\,\kappa^{2}) = \frac{8\pi G}{c^{2}}\, r^{2}\rho_{matter}(r)
 }
 \end{equation}
 
 This expression reproduces the $tt$-component of the Einstein field equations.
 
-\paragraph{The Vacuum Solution ($\rho_{\text{matter}} = 0$).}
-In the vacuum region outside a central mass, the source density vanishes ($\rho_{\text{matter}} = 0$). The field equation implies conservation of the projection budget:
+\paragraph{The Vacuum Solution ($\rho_{matter} = 0$).}
+In the vacuum region outside a central mass, the source density vanishes ($\rho_{matter} = 0$). The field equation implies conservation of the projection budget:
 \[
 \frac{d}{dr}(r\kappa^2) = 0 \quad \Longrightarrow \quad r\kappa^2 = \text{const} = R_s.
 \]

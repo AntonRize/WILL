@@ -1852,26 +1852,57 @@ The precise intersection confirms the geometric link between the\textbf{ thermod
 \section{Gravitational Lensing}
 \hypertarget{sec:lensing}{}\label{sec:lensing}
 
-\subsection{The Factor of Two: From Carrier Topology to Light Deflection}
 
-In \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:nature_of_light}{WILL RG Part I}, the Single-Axis Transformation Principle establishes that for light ($\beta = 1$, $\beta_Y = 0$), the full relational resource is expressed along a single geometric axis. This eliminates the dual-axis partitioning factor $\frac{1}{2}$ that governs massive particles, yielding distinct gravitational potentials:
+\subsection{Exact Algebraic Lensing of the Resonant Horizon (Replacing Dark Matter Lensing)}
+
+In standard cosmology, the deflection of light by galaxies requires the postulation of an extended "Dark Matter" halo (typically modeled as a Singular Isothermal Sphere, SIS). This is because the baryonic potential projection $\kappa_{bar}^2 \propto 1/r$ decays too rapidly to reproduce the large observed Einstein radii. 
+
+In WILL Relational Geometry, Dark Matter is redundant. The observed potential projection $\kappa_{obs}^2$ acting on photons is augmented by the same \textbf{Resonant Horizon Interference} that flattens galactic rotation curves, governed by the derived scale $a_{\kappa} = cH_0/3\pi$.
+
+\begin{theorem}[Geometric Mean of Lensing Projections]
+The total geometric projection $\kappa_{obs}^2$ acting on any test entity (including light) is the sum of the local baryonic projection and the geometric mean of the baryonic and Universal Horizon projections:
 \begin{equation}
-\Phi_{\gamma} = \kappa^2 c^2, \qquad \Phi_{mass} = \tfrac{1}{2}\kappa^2 c^2.
+\kappa_{obs}^2(r) = \kappa_{bar}^2(r) + \underbrace{\sqrt{\kappa_{bar}^2(r) \cdot \kappa_H^2(r)}}_{\kappa_{phantom}^2}
+\end{equation}
+where $\kappa_H^2 = \frac{2 r a_\kappa}{c^2}$ is the structural capacity of the Global Horizon evaluated at the local radial scale $r$.
+\end{theorem}
+
+\begin{proof}
+From the WILL RG galactic dynamics (Section \ref{sec:galactic-dynamics}), the effective acceleration is $g_{obs} = g_{bar} + \sqrt{g_{bar} a_\kappa}$.
+Multiplying the entire equation by $\frac{2r}{c^2}$ maps the kinematic accelerations into dimensionless geometric projections on the $S^2$ carrier ($\kappa^2 = \frac{2rg}{c^2}$):
+\begin{equation}
+\frac{2r}{c^2} g_{obs} = \frac{2r}{c^2} g_{bar} + \frac{2r}{c^2} \sqrt{g_{bar} a_\kappa}
+\end{equation}
+\begin{equation}
+\kappa_{obs}^2 = \kappa_{bar}^2 + \sqrt{ \left(\frac{2r}{c^2} g_{bar}\right) \left(\frac{2r}{c^2} a_\kappa\right) } = \kappa_{bar}^2 + \sqrt{\kappa_{bar}^2 \cdot \kappa_H^2}
+\end{equation}
+\end{proof}
+
+\subsubsection{The Emergence of the "Isothermal Halo" Constant}
+Let us evaluate the interference term, $\kappa_{phantom}^2$, in the region outside the bulk of the baryonic mass $M_{b}$, where the baryonic projection falls as $\kappa_{bar}^2 = \frac{2GM_{b}}{r c^2}$:
+\begin{equation}
+\kappa_{phantom}^2 = \sqrt{ \left(\frac{2GM_{b}}{r c^2}\right) \left(\frac{2 r a_\kappa}{c^2}\right) } = \sqrt{ \frac{4 G M_{b} a_\kappa}{c^4} } = \frac{2 \sqrt{G M_{b} a_\kappa}}{c^2}
 \end{equation}
 
-The ratio $W_{\gamma} = 2\,W_{mass}$ reproduces the well-known factor of two in gravitational light deflection - here derived not from the geodesic equation on a curved manifold, but from the topological constraint $\beta_Y = 0$ on the closed carrier $S^1$.
-
-\subsection{Phantom Inertia Acts on Light}
-
-Crucially, the $\kappa^2$ appearing in $\Phi_{\gamma}$ is the \emph{total} gravitational projection of the system, which in galactic potentials includes the contribution from the Relational Shift $Q^2$. The same Phantom Inertia that elevates stellar velocities in rotation curves (Section~\ref{sec:galactic-dynamics}) enters the photon potential with the universal factor of two.
-
-This yields a strict, parameter-free prediction: the dynamical mass inferred from stellar kinematics and the lensing mass inferred from photon deflection must be identical.
+Crucially, the radial distance $r$ \textbf{cancels out completely}. Using the derived Baryonic Tully-Fisher Relation ($V_{flat}^4 = G M_{b} a_\kappa$), the phantom projection reduces to a strict geometric constant:
 \begin{equation}
-\boxed{\sigma_{dyn} \equiv \sigma_{lens}}
+\kappa_{phantom}^2 = \frac{2 V_{flat}^2}{c^2}
 \end{equation}
-No additional mass component is required to reconcile the two measurements.
 
-\textbf{Contrast with $\Lambda$CDM:} In the standard paradigm, this equality holds because early-type galaxies happen to have nearly isothermal total density profiles ($\gamma' \approx 2$), producing the empirical regularity $f_e \equiv \sigma_{\star}/\sigma_{SIS} \approx 1$. This coincidence is not derived from first principles. In WILL RG, it is a theorem: the carrier topology dictates that $Q^2$ couples universally to both massive and massless probes.
+In standard General Relativity, a potential projection that does not decay with radius produces a constant deflection angle, which is the exact mathematical signature of a Singular Isothermal Sphere (SIS) dark matter halo. WILL RG perfectly generates this extended isothermal geometry not from invisible particles, but from the algebraic cancellation of $r$ in the geometric mean between the localized baryon mass and the expansive cosmic horizon.
+
+\subsubsection{The Unified Lensing Equation with Horizon Resonance}
+By substituting the enhanced resonant projection into the exact algebraic Einstein Ring equation (derived in Section \ref{sec:lensing}), we obtain the full, non-linear Dark Lensing radius without Dark Matter:
+
+\begin{equation}
+\boxed{ \theta_E = 2 \frac{D_{LS}}{D_S} \arcsin\left( \frac{(\kappa_{bar}^2(\theta_E) + \kappa_{phantom}^2(\theta_E)) (1 + \beta_p^2)}{2\beta_p^2 - (\kappa_{bar}^2(\theta_E) + \kappa_{phantom}^2(\theta_E)) (1 + \beta_p^2)} \right) }
+\end{equation}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Dark_Lensing.ipynb}{Dark Lensing.ipynb}
+\end{tcolorbox}
+
+For light ($\beta_p = 1$, depleting the phase buffer $\beta_Y \to 0$), the geometric interaction gradient $\mathcal{G} = 1$, and the equation calculates the exact macroscopic strong lensing observed in galaxy clusters and SLACS data, unified under a single relational ontology.
 
 \subsection{External Validation: The SLACS Survey}
 
