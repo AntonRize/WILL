@@ -1861,7 +1861,7 @@ $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$.
 \section{Relational Orbital Mechanics (R.O.M.)}
 \hypertarget{sec:rom}{}\label{sec:rom}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=R.O.M. equations]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=R.O.M. equations and definitions]
 \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{Closed Algebraic System of Relational Orbital Mechanics}
 \end{tcolorbox}
 
@@ -2415,7 +2415,7 @@ $e$ (Eccentricity) & $0.88501 \pm 0.00038$ & $0.88496$ & $0.88466$ & \textbf{YES
 $\omega_0$ (Periapsis) & $65.99^{+0.63^\circ}_{-0.39^\circ}$& $64.43^\circ$ & $66.13^\circ$ & \textbf{YES} \\
 \hline
 \end{tabular}
-\caption{MCMC marginal posteriors for S0-2. The Ablated model fails to capture the true parameters for $\beta$, $i$, and $v_{z0}$, confirming that classical RV analysis is strictly degenerate without geometric invariants. Colab Notebook: \href{https://github.com/AntonRize/WILL/blob/0f9149941d067907c4b87bc590a04fb1b2adae5d/Colab_Notebooks/beta_i_comparison.ipynb}{beta i comparison.ipynb}}
+\caption{MCMC marginal posteriors for S0-2. The Ablated model fails to capture the true parameters for $\beta$, $i$, and $v_{z0}$, confirming that classical RV analysis is strictly degenerate without geometric invariants.}
 \label{tab:mcmc_results}
 \end{table}
 
@@ -2444,8 +2444,13 @@ Ablated (classical) & +0.811 & 12\% & 29.3$^\circ$ \\
 Full R.O.M. + $v_{z0}$ prior & +0.978 & 20\% & 12.8$^\circ$ \\
 \hline
 \end{tabular}
-\caption{Quantitative degeneracy metrics. The Full R.O.M. correctly positions the degeneracy ridge, while the ablated model displaces it entirely into non-physical parameter space. Column widths refer to 68\% credible intervals. Colab Notebook: \href{https://github.com/AntonRize/WILL/blob/0f9149941d067907c4b87bc590a04fb1b2adae5d/Colab_Notebooks/beta_i_comparison.ipynb}{beta i comparison.ipynb}}
+\caption{Quantitative degeneracy metrics. The Full R.O.M. correctly positions the degeneracy ridge, while the ablated model displaces it entirely into non-physical parameter space. Column widths refer to 68\% credible intervals.}
 \end{table}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+\href{https://github.com/AntonRize/WILL/blob/0f9149941d067907c4b87bc590a04fb1b2adae5d/Colab_Notebooks/beta_i_comparison.ipynb}{Beta i comparison.ipynb}
+\end{tcolorbox}
 
 Because the invariant constraints (precession and $Z_{\rm sys}$) both scale strictly as $\sim \beta^2$, they manifest as phase-differentiated signals of the same geometric order. This overdetermines the system, effectively moving the probability ridge to intersect the physically true values, but preserves a narrow $1\sigma$ distribution width due to the instrumental noise floor.
 
@@ -2515,24 +2520,107 @@ Inclination ($i$ folded) & $49.85^\circ$ & $49.92^\circ$ & $0.07^\circ$ \\\hline
 Background Drift ($v_{z0}$) & $-1.15$ km/s & $-1.00$ km/s & $0.15$ km/s \\
 \hline
 \end{tabular}
-\caption{Strict blind test recovery results ($\sigma = 3.0$ km/s). The R.O.M. algorithm cleanly separates the inclination $i$ from the kinematic projection $\beta$ without prior mass constraints. Colab Notebook: \href{https://github.com/AntonRize/WILL/blob/4c967185599ab7402fae50606a3a781c42dedb0d/Colab_Notebooks/ROM_Validatio_via_Synthetic_1PN_Data.ipynb}{ROM Validation via Synthetic 1PN Data.ipynb}}
+\caption{Strict blind test recovery results ($\sigma = 3.0$ km/s). The R.O.M. algorithm cleanly separates the inclination $i$ from the kinematic projection $\beta$ without prior mass constraints.}
 \label{tab:synthetic_blind_test}
 \end{table}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+  \href{https://github.com/AntonRize/WILL/blob/4c967185599ab7402fae50606a3a781c42dedb0d/Colab_Notebooks/ROM_Validatio_via_Synthetic_1PN_Data.ipynb}{ROM Validation via Synthetic 1PN Data.ipynb}
+\end{tcolorbox}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Methodological Confirmation]
 The extraction of the true inclination angle $i$ from 1D radial synthetic data confirms that the $\beta-i$ degeneracy is strictly broken by the non-linear mathematical structure of the R.O.M. invariants. The framework explicitly maps 1D observables back to their complete 3D generative geometry.
 \end{tcolorbox}
 
+\subsection{Analytical Extraction of the Inclination Angle: The Decryption Invariant}
+\hypertarget{sec:analytical_sini}{}\label{sec:analytical_sini}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=R.O.M. equations and definitions]
+\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{Closed Algebraic System of Relational Orbital Mechanics}
+\end{tcolorbox}
+
+While Bayesian MCMC provides a robust statistical mapping of the probability ridge (Section \ref{sec:mcmc_s02}), the Relational Orbital Mechanics (R.O.M.)  allows for a strict, closed-form algebraic resolution of the $M \sin i$ degeneracy. By evaluating the raw observational shifts at the orbital extrema, the inclination angle $i$ can be completely isolated and extracted.
+
+\subsubsection{The Observer Equations at Extrema}
+
+The raw spectroscopic shift observed by a telescope, $Z_{raw}(o)$, is the product of the line-of-sight Doppler projection and the systemic transverse baseline $Z_{sys}(o)$. The extrema of the radial velocity occur at phases $o_{i1} = -\omega_i$ (maximum redshift) and $o_{i2} = \pi - \omega_i$ (minimum redshift/maximum blueshift).
+
+Utilizing the relational energy invariant $\kappa_o(o)^2 - \beta_o(o)^2 = \beta^2$, we eliminate the gravitational projection $\kappa_o$ from $Z_{sys}$ entirely. The systemic baselines at the extrema, denoted $D_{max}$ and $D_{min}$, become strict functions of the global kinematic projection $\beta$, eccentricity $e$, and the argument of periapsis $\omega_i$:
+
+\begin{align}
+D_{max}(\beta, e, \omega_i) &= \sqrt{1 - 2\beta^2\frac{1+e\cos\omega_i}{1-e^2}} \sqrt{1 - \beta^2\frac{1+e^2+2e\cos\omega_i}{1-e^2}} \\
+D_{min}(\beta, e, \omega_i) &= \sqrt{1 - 2\beta^2\frac{1-e\cos\omega_i}{1-e^2}} \sqrt{1 - \beta^2\frac{1+e^2-2e\cos\omega_i}{1-e^2}}
+\end{align}
+
+The observed raw extrema can then be written linearly with respect to the classical semi-amplitude invariant $K_i = \frac{\beta\sin i}{\sqrt{1-e^2}}$:
+\begin{align}
+Z_{rawmax} \cdot D_{max} &= 1 + K_i(1+e\cos\omega_i) \label{eq:zmax} \\
+Z_{rawmin} \cdot D_{min} &= 1 - K_i(1-e\cos\omega_i) \label{eq:zmin}
+\end{align}
+\subsubsection{Algebraic Decoupling of $\beta$ and $i$}
+
+To break the degeneracy, we isolate the inclination-dependent term. Subtracting Equation \ref{eq:zmin} from Equation \ref{eq:zmax} yields exactly twice the semi-amplitude:
+\begin{equation}
+2K_i = Z_{rawmax} D_{max} - Z_{rawmin} D_{min} \label{eq:2Ki}
+\end{equation}
+
+Adding the two equations yields:
+\begin{equation}
+Z_{rawmax} D_{max} + Z_{rawmin} D_{min} = 2 + 2K_i e\cos\omega_i
+\end{equation}
+
+Substituting $2K_i$ from Equation \ref{eq:2Ki} into this sum and grouping the $Z$ terms isolates the fundamental \textbf{Decryption Invariant}:
+
+\begin{tcolorbox}[colback=white, colframe=black, title=The Decryption Invariant]
+\begin{equation}
+Z_{rawmax} D_{max} (1 - e\cos\omega_i) + Z_{rawmin} D_{min} (1 + e\cos\omega_i) = 2
+\label{eq:decryption_invariant}
+\end{equation}
+\end{tcolorbox}
+
+This equation contains the raw observational signals ($Z_{rawmax}, Z_{rawmin}$), the known geometry ($e$), and the internal R.O.M. variables ($\beta, \omega_i$) locked inside the $D$ terms. Crucially, \textbf{the inclination angle $i$ has been strictly eliminated}. This proves analytically that the true kinematic projection $\beta$ is determined entirely by the asymmetry of the transverse baselines at the extrema, independent of the observer's viewing angle.
+
+\subsubsection{Analytical Extraction of $\sin i$}
+
+Once $\beta$ and $\omega_i$ are constrained via Equation \ref{eq:decryption_invariant} (and verified via the balance phase $O_o$), the true orbital inclination is trivially extracted by substituting the definition of $K_i$ back into Equation \ref{eq:2Ki}:
+
+\begin{equation}
+\boxed{\sin i = \frac{\sqrt{1-e^2}}{2\beta} \left[ Z_{rawmax} D_{max}(\beta, e, \omega_i) - Z_{rawmin} D_{min}(\beta, e, \omega_i) \right]}
+\end{equation}
+
+\subsubsection{Numerical Verification: S0-2 Extrema Synthesis}
+
+To verify this architecture, a forward-synthesis and reverse-extraction test was performed using the empirically established parameters of the S0-2 star (GRAVITY Collaboration: $e = 0.88466$, $\omega_i = 66.13^\circ$, $\beta = 0.00645$, $i = 134.0^\circ$). 
+
+Forward synthesis generates the exact transverse baselines $D_{max} = 0.999501$ and $D_{min} = 0.999775$, yielding the raw spectroscopic extrema:
+\begin{itemize}
+    \item $Z_{rawmax} = 1.014019$
+    \item $Z_{rawmin} = 0.993834$
+\end{itemize}
+
+Evaluating the Decryption Invariant (Equation \ref{eq:decryption_invariant}) with these values yields exactly $2.000000$, confirming absolute algebraic closure. Applying the extraction equation directly outputs $\sin i = 0.71931$, which immediately returns the true inclination $i = 133.99^\circ$. 
+
+\begin{remark}[Epistemological Proof vs. Empirical Extraction]
+While the Decryption Invariant (Equation \ref{eq:decryption_invariant}) provides the rigorous epistemological proof that the classical $M \sin i$ degeneracy is not a fundamental law of physics, its direct algebraic application is inherently bounded by instrumental limitations. 
+
+Because the baseline asymmetry $(D_{max} - D_{min})$ scales strictly as $\mathcal{O}(\beta^2)$ (e.g., $\approx 2.7 \times 10^{-4}$ for the S0-2 system), the algebraic inversion is hypersensitive to spectrographic noise. Any instrumental fluctuation or finite-sampling interpolation error at the exact extrema ($Z_{rawmax}$ and $Z_{rawmin}$) will be mathematically amplified by the inversion matrix.
+
+Therefore, the algebraic and statistical methods must operate in strict symbiosis. The algebraic system (Section \ref{sec:analytical_sini}) provides the exact topological initial locus, instantly dispatching the optimizer to the correct degeneracy ridge. The Bayesian MCMC framework (Section \ref{sec:mcmc_s02}) then takes over, integrating the continuous phase curve to suppress instrumental noise and establish robust empirical confidence intervals.
+\end{remark}
+
+This confirms that the classical $M \sin i$ degeneracy is algebraically penetrable without external metric priors or assumptions regarding the mass.
+
+
 \subsection{Conclusion}
 
-The classical $M \sin i$ degeneracy is not a fundamental limitation of orbital mechanics. It is an artefact of using an incomplete, linearised description of the kinematic projection.  
+The classical $M \sin i$ degeneracy is not a fundamental limitation of orbital mechanics. It is an artefact of  inflated substantival ontology using an incomplete, linearised description of the kinematic projection.  
 
-By restoring the full non-linear structure of the relational carriers $S^1$ and $S^2$, R.O.M. provides two independent quadratic invariants ($\Delta\phi \propto \beta_{\rm int}^2$ and $Z_{\rm sys} \propto \beta^2$) that operationally decouple $\beta$ from $i$. The inclination is then uniquely recovered from the linear amplitude.
+By rejecting speculative ontological baggage we restoring the full non-linear structure of the relational carriers $S^1$ and $S^2$, R.O.M. provides two independent quadratic invariants ($\Delta\phi \propto \beta_{\rm int}^2$ and $Z_{\rm sys} \propto \beta^2$) that operationally decouple $\beta$ from $i$. The inclination is then uniquely recovered from the linear amplitude.
 
 This result removes a 130-year observational barrier and demonstrates that what appear as fundamental degeneracies in descriptive physics are often resolved as soon as the generative relational geometry is fully expressed. The Bayesian analysis provides rigorous statistical confirmation that the degeneracy ridge is correctly positioned to contain the independently verified physical truth.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Implication]
-Degeneracies are not features of Nature; they are symptoms of incomplete relational description. When the full geometry of the closed carriers is restored, the apparent ambiguity dissolves into algebraic necessity.
+Degeneracies are not features of Nature; they are symptoms of incomplete substantival description. When the full relational geometry is restored, the apparent ambiguity dissolves into algebraic necessity.
 \end{tcolorbox}
 
 

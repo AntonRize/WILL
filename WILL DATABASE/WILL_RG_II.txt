@@ -474,7 +474,7 @@ $$ \text{Conversion Factor} = \frac{3.0857 \times 10^{22} \text{ m/Mpc}}{1000 \t
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos and Colab]
 Desmos: \href{https://www.desmos.com/calculator/s9gvcuttqm}{DERIVATION OF $H_0$ AND SUN'S ROTATION VELOCITY}
- \href{https://github.com/AntonRize/WILL/blob/d36d936d0ac9ea2279b84077d9d8aea7d8840aa6/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb}{Colab notebook link}
+Colab: \href{https://github.com/AntonRize/WILL/blob/d36d936d0ac9ea2279b84077d9d8aea7d8840aa6/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb}{$H_0$ from $T_{CMB}$ and alpha.ipynb}
 \end{tcolorbox}
 
 
@@ -720,9 +720,14 @@ Peebles non-eq. (50\% ionized)& $\sim$3,300& $\sim$1,210& Atomic physics + $\eta
 $\Lambda$CDM visibility peak & $\sim$2,970& 1,090& Full $\Lambda$CDM pipeline \\
 \hline
 \end{tabular}
-\caption{Hierarchy of recombination epoch estimates. The WILL RG prediction falls between the model-independent atomic physics estimates and the $\Lambda$CDM-derived value. Its temperature ($\approx 3\,150$ K) lies within the physically expected range for hydrogen neutralization. Deviation from the Peebles non-equilibrium estimate is $\approx 4.5\%$; deviation from the $\Lambda$CDM-derived $z^*$ is $\approx 6\%$. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/ebd984ee5634180e6cf3bccde1d5527aebbe7c88/Colab_Notebooks/Recombination__Model_Independent_Atomic_Physics.ipynb}{Recombination  Model Independent Atomic Physics.ipynb}}
+\caption{Hierarchy of recombination epoch estimates. The WILL RG prediction falls between the model-independent atomic physics estimates and the $\Lambda$CDM-derived value. Its temperature ($\approx 3\,150$ K) lies within the physically expected range for hydrogen neutralization. Deviation from the Peebles non-equilibrium estimate is $\approx 4.5\%$; deviation from the $\Lambda$CDM-derived $z^*$ is $\approx 6\%$. }
 \label{tab:recombination}
 \end{table}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+ \href{https://github.com/AntonRize/WILL/blob/ebd984ee5634180e6cf3bccde1d5527aebbe7c88/Colab_Notebooks/Recombination__Model_Independent_Atomic_Physics.ipynb}{Recombination  Model Independent Atomic Physics.ipynb}
+\end{tcolorbox}
+
 
 The WILL RG prediction $T_{dec} \approx 3\,150$ K falls squarely within the range where hydrogen transitions from ionized to neutral ($3\,000$--$3\,500$ K). This is the physically relevant comparison: the theory correctly identifies the epoch of transparency from pure geometry.
 
@@ -1067,9 +1072,14 @@ Any deviation beyond this constant offset would indicate a failure of the geomet
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{img/PantheonPlus_test.png}
-    \caption{\textbf{Ab Initio Prediction of Cosmic Expansion.} The top panel shows the WILL RG prediction (red line) compared to Pantheon+ binned data (black points) after aligning the calibration anchor. The bottom panel displays the residuals. The curve is not a fit; it is generated purely from microphysics ($T_{CMB}, \alpha$) and geometric partitioning ($\Omega=1/3, 2/3$). Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Geometric_expansion_Pantheon.ipynb}{Geometric expansion Pantheon.ipynb}}
+    \caption{\textbf{Ab Initio Prediction of Cosmic Expansion.} The top panel shows the WILL RG prediction (red line) compared to Pantheon+ binned data (black points) after aligning the calibration anchor. The bottom panel displays the residuals. The curve is not a fit; it is generated purely from microphysics ($T_{CMB}, \alpha$) and geometric partitioning ($\Omega=1/3, 2/3$).}
     \hypertarget{fig:hubble_diagram}{}\label{fig:hubble_diagram}
 \end{figure}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+ \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Geometric_expansion_Pantheon.ipynb}{Geometric expansion Pantheon.ipynb}
+\end{tcolorbox}
+
 
 \subsection{Residual Analysis and Interpretation}
 
@@ -1223,9 +1233,13 @@ $\ell_2$ & Rarefaction & $S^2$ ($x_2$) & Asym ($-$) & \textbf{544.32} & $537.5 \
 $\ell_3$ & Compression & $S^2$ ($x_3$) & Sym ($+$) & \textbf{793.66} & $810.8 \pm 0.7$ & $\mathbf{-2.11\%}$ \\
 \hline
 \end{tabular}
-\caption{\textbf{Precision of the Geometric Metric.} The fundamental tone is predicted with near-perfect accuracy using standard BBN baryon loading. The higher harmonics confirm the $S^2$ Bessel topology, with the second peak revealing the distinct signature of baryonic hysteresis (counter-loading). Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/5c168289e40633a20cb0e0ebaf3f3912f867a788/Colab_Notebooks/Ab_Initio_CMB_Spectrum_Derivation.ipynb}{Ab Initio CMB Spectrum Derivation.ipynb}}
+\caption{\textbf{Precision of the Geometric Metric.} The fundamental tone is predicted with near-perfect accuracy using standard BBN baryon loading. The higher harmonics confirm the $S^2$ Bessel topology, with the second peak revealing the distinct signature of baryonic hysteresis (counter-loading).}
 \label{tab:cmb_results}
 \end{table}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+ \href{https://github.com/AntonRize/WILL/blob/5c168289e40633a20cb0e0ebaf3f3912f867a788/Colab_Notebooks/Ab_Initio_CMB_Spectrum_Derivation.ipynb}{Ab Initio CMB Spectrum Derivation.ipynb}
+\end{tcolorbox}
 
 \begin{figure}[H]
     \centering
@@ -1629,16 +1643,12 @@ WILL RG ($a_{\kappa}=cH_0/3\pi$)& 11.18 & \textbf{$-2.26$} & 0.47 \\
 \end{tabular}
 \end{table}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Interactive web LAB:]
-\textbf{ \href{https://willrg.com/Galactic_Dynamics/}{Galactic Dynamics}}
-\end{tcolorbox}
-
 \subsubsection{Analysis of Gas-Dominated Systems}
 To isolate physical validity from stellar mass-to-light ratio uncertainties, we analyze the subset of galaxies dominated by gas [$V_{\rm gas}^2>(\Upsilon V_{\rm disk}^2+\Upsilon V_{\rm bul}^2)$]. In this regime, the baryonic mass distribution is known with high precision.
 
 \begin{table}[H]
 \centering
-\caption{Performance metrics on Gas-Dominated galaxies ($GasFrac > 0.5$). \textbf{Colab notebook link:} \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb}{Galactic Rotation Protocol Independent SPARC.ipynb }}
+\caption{Performance metrics on Gas-Dominated galaxies ($GasFrac > 0.5$).}
 \begin{tabular}{|l|c|c|c|}
 \hline
 \textbf{Model} & \textbf{MedAE} [km/s] & \textbf{Bias} [km/s]  & $F_{10}$\\\hline
@@ -1651,7 +1661,9 @@ WILL RG ($1/3\pi$) & \textbf{7.00} & \textbf{+0.53}& 0.66\\
 \end{tabular}
 \end{table}
 
-
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Interactive web LAB:]
+\textbf{ \href{https://willrg.com/Galactic_Dynamics/}{Galactic Dynamics}}
+\end{tcolorbox}
 
 \begin{figure}[H]
     \centering
@@ -1659,7 +1671,9 @@ WILL RG ($1/3\pi$) & \textbf{7.00} & \textbf{+0.53}& 0.66\\
     \caption{Grey points represent raw data; black squares denote binned means with standard error of the mean (SEM). \textbf{Standard MOND} ($a_0=1.2\times 10^{-10}$, blue) and \textbf{Verlinde's Emergent Gravity} ($a_0 \approx 1.1\times10^{-10}$, green) systematically overpredict the observed acceleration in the low-acceleration regime ($g_{bar} < 10^{-11}$), lying outside the SEM error bars. \textbf{WILL Relational Geometry} (red), utilizing a theoretically derived acceleration scale $a_{\kappa} = cH_0 /3\pi \approx 0.7\times10^{-10}$,  exhibiting negligible systematic bias (\textbf{+0.53} km/s).}
     \hypertarget{fig:RAR_Gas}{}\label{fig:RAR_Gas}
 \end{figure}
-
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+\href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb}{Galactic Rotation Protocol Independent SPARC.ipynb }
+\end{tcolorbox}
 
 %___________________________________________________________________________________________________________
 %_______________________________________________Chapter_D_____________________________________________________
@@ -1698,11 +1712,13 @@ The statistical analysis of the residuals (logarithmic deviation) yields:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{img/RAR_test.png}
-    \caption{Radial Acceleration Relation (RAR) for 175 SPARC galaxies. The green dots shows the density of $>3000$ individual data points. The cyan line represents the WILL Resonance Interference prediction ($g_{obs} = g_{bar} + \sqrt{g_{bar}a_{\kappa}}$) using the $H_0$ value derived from CMB thermodynamics. The remarkable agreement ($\text{RMSE} \approx 0.065$ dex) without free parameters strongly suggests that galactic dynamics are regulated by the global horizon. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/RAR_test.ipynb}{RAR test.ipynb}}
+    \caption{Radial Acceleration Relation (RAR) for 175 SPARC galaxies. The green dots shows the density of $>3000$ individual data points. The cyan line represents the WILL Resonance Interference prediction ($g_{obs} = g_{bar} + \sqrt{g_{bar}a_{\kappa}}$) using the $H_0$ value derived from CMB thermodynamics. The remarkable agreement ($\text{RMSE} \approx 0.065$ dex) without free parameters strongly suggests that galactic dynamics are regulated by the global horizon.}
     \hypertarget{fig:rar}{}\label{fig:rar}
 \end{figure}
 
-
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+ \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/RAR_test.ipynb}{RAR test.ipynb}
+\end{tcolorbox}
 
 \section{Local Verification: The Solar System Test}
  \hypertarget{sec:solar_system}{}\label{sec:solar_system}
@@ -1826,9 +1842,12 @@ Figure~\ref{fig:bullseye} presents the results of the analysis.
     \textbf{Black points:} Binned means with standard errors.
     \textbf{Cyan Line:} Hard Fixed WILL RG prediction.
     \textbf{Orange Dotted Line:} Naive WILL RG without $1.5\pi$ factor.
-    The red crosshair marks the Equivalence Point $(1,1)$. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Baryonic_Escape_Threshold.ipynb}{Baryonic Escape Threshold.ipynb}}
+    The red crosshair marks the Equivalence Point $(1,1)$.}
     \hypertarget{fig:bullseye}{}\label{fig:bullseye}
 \end{figure}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+ \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Baryonic_Escape_Threshold.ipynb}{Baryonic Escape Threshold.ipynb}
+\end{tcolorbox}
 
 \paragraph{Quantitative Analysis.}
 \begin{itemize}
@@ -1845,9 +1864,75 @@ To verify that the result is not an artifact of axis interdependence:
 The precise intersection confirms the geometric link between the\textbf{ thermodynamics} of CMB temperature,  the \textbf{Quantum Mechanics} of  Fine Structure Constant $\alpha$ and the galactic dynamics coupling with \textbf{Hubble Horizon} $H_0$.
 \end{enumerate}
 
-%________________________________________________________________________________
-% FRAME AS A CHALLENGE FOR FUTURE WORK
-%____________________________________________________________________________________
+\section{Galactic Scale Theorem: The Topological Ruler}
+\hypertarget{sec:galactic-ruler}{}\label{sec:galactic-ruler}
+
+\subsection{The Inversion of Distance}
+
+In classical astrophysics, the physical size of a galaxy ($R$) and the mass of its components are derived through apparent angular size and photometry, which requires a priori knowledge of the distance to the object (via Cepheids, TRGB, or cosmological redshift). This creates a dependency of local dynamics on the global "cosmic distance ladder" and necessitates the introduction of individual Dark Matter halos to balance the mass profile.
+
+In the WILL Relational Geometry, the physical scale of a macroscopic system is rigidly generated by the algebraic tension between the local baryonic potential and the cosmological resonance.
+
+Based on the equation of constructive horizon interference derived for galactic dynamics:
+\begin{equation}
+V_{obs}^2 = V_{bar}^2 + \sqrt{V_{bar}^2 \cdot a_{\kappa} \cdot R}
+\end{equation}
+
+We can algebraically isolate the absolute physical radius of the system $R$:
+\begin{equation}
+R = \frac{(V_{obs}^2 - V_{bar}^2)^2}{V_{bar}^2 \cdot a_{\kappa}}
+\end{equation}
+
+Where $a_\kappa = \frac{cH_0}{3\pi} \approx 7.02 \times 10^{-11} \, \mathrm{m/s^2}$ is the global structural invariant derived from the CMB temperature ($T_0$) and the fine-structure constant ($\alpha$).
+
+\textbf{Corollary (Galactic Scale Theorem):} The absolute physical size of any local orbital system ($R$) can be computed exclusively from dimensionless spectroscopic shifts ($\beta_{obs} \propto V_{obs}$, $\beta_{bar} \propto V_{bar}$) and the Fundamental Tone of the Universe weighted with potential partition ($a_\kappa$), without utilizing photometric "standard candles" or metric benchmarks.
+
+\subsection{Empirical Validation: The SPARC Database Test}
+
+To rigorously test the theorem, we applied the equation to the SPARC database (175 galaxies), which contains high-precision kinematic profiles (H I / H$\alpha$) and Spitzer $3.6\mu\mathrm{m}$ photometry.
+
+Each of the 3175 radial data points was treated as an independent local relational measurement. The baryonic kinematic projection was calculated as $V_{bar}^2 = V_{gas}^2 + \Upsilon_{disk} V_{disk}^2 + \Upsilon_{bulge} V_{bulge}^2$ using standard mass-to-light ratios ($\Upsilon_{disc} \approx 0.5; \Upsilon_{bulge} \approx 0.7$). The computed absolute radius $R_{WILL}$ was compared to the catalog radius $R_{SPARC}$ obtained via classical methods.
+
+\textbf{Statistical Analysis Results:}
+\begin{itemize}
+    \item \textbf{Median Ratio ($R_{WILL} / R_{SPARC}$):} $1.073$ (Deviation $\approx 7.3\%$).
+    \item \textbf{Mean Ratio:} $1.523$.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{img/Topological_Ruler.png}
+    \caption{\textbf{Empirical Validation of the Topological Ruler.} 
+    (Left) Log-Log scatter plot comparing the absolute physical radius $R_{WILL}$ generated exclusively from kinematic shifts ($V_{obs}, V_{bar}$) and the cosmic resonance ($a_\kappa$), against the cataloged $R_{SPARC}$ derived from classical photometry and distance ladders. The dashed red line represents the ideal 1:1 correlation. 
+    (Right) Histogram of the ratio $R_{WILL}/R_{SPARC}$ for 3175 independent radial data points. The peak of the distribution is centered perfectly on Unity, with a median ratio of $1.073$ (an error margin of merely $\approx 7.3\%$). The right-skewed distribution tail (Mean = $1.523$) and the low-radius scatter are strict algebraic consequences of the equation's extreme sensitivity to the 4th power of velocity ($R \propto \Delta V^4$). This exponent drastically amplifies localized physical fluctuations, such as variations in the stellar mass-to-light ratio ($\Upsilon_*$) and hydrodynamic asymmetric drift in irregular dwarf systems, without invalidating the fundamental $a_\kappa$ invariant.}
+    \hypertarget{fig:sparc_radii}{}\label{fig:sparc_radii}
+\end{figure}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Topological_ruler.ipynb}{Topological ruler..ipynb}
+\end{tcolorbox}
+
+The precise alignment of the median with Unity ($1.0$) proves that the central tendency of galactic scales is absolutely determined by the invariant $a_\kappa$. The equation algebraically "knows" the true physical sizes of galaxies relying solely on their spectroscopy.
+
+\subsection{Analytical Anatomy of the Scatter: The 4th Power Sensitivity}
+
+The observed dispersion and the shift of the mean relative to the median are not indicative of a fundamental error; rather, they strictly follow from the algebraic topology of the equation itself.
+
+The radius $R$ depends on the difference of kinematic projections to the fourth power:
+\begin{equation}
+R \propto (\Delta V^2)^2 \propto V^4
+\end{equation}
+
+This generates an effect of extreme algebraic noise amplification:
+\begin{enumerate}
+    \item \textbf{Fluctuations in $\Upsilon_*$:} Local variations in the mass-to-light ratio of stellar populations lead to errors in estimating $V_{bar}$. A velocity error of just $10\%$ mathematically translates into a calculated radius distortion of $\approx 40-50\%$.
+    \item \textbf{The Topological Limit (Dwarf Galaxies):} The largest discrepancies ($R_{WILL} \ll R_{SPARC}$) occur in dwarf irregular galaxies (e.g., CamB). In these systems, a dominant structural carrier $S^2$ (stellar disk) is absent, and the kinematics are governed by chaotic hydrodynamic gas pressure (asymmetric drift). The RG equation requires strict phase closure ($\kappa^2 = 2\beta^2$), which is violated in systems that have not reached Keplerian equilibrium.
+\end{enumerate}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence]
+This suggests that galaxies are not embedded in Dark Matter halos. The observed rotation curves and physical disk sizes are direct consequences of local deviations from the ideal cosmological balance. By measuring the velocities of gas and stars, we are effectively reading the interference pattern between the local mass and the global geometric horizon $H_0$. The algebraic difference between them rigidly generates the spatial scale $R$.
+\end{tcolorbox}
+
 
 \section{Gravitational Lensing}
 \hypertarget{sec:lensing}{}\label{sec:lensing}
@@ -1895,7 +1980,7 @@ In standard General Relativity, a potential projection that does not decay with 
 By substituting the enhanced resonant projection into the exact algebraic Einstein Ring equation (derived in Section \ref{sec:lensing}), we obtain the full, non-linear Dark Lensing radius without Dark Matter:
 
 \begin{equation}
-\boxed{ \theta_E = 2 \frac{D_{LS}}{D_S} \arcsin\left( \frac{(\kappa_{bar}^2(\theta_E) + \kappa_{phantom}^2(\theta_E)) (1 + \beta_p^2)}{2\beta_p^2 - (\kappa_{bar}^2(\theta_E) + \kappa_{phantom}^2(\theta_E)) (1 + \beta_p^2)} \right) }
+\boxed{ \theta_E = 2 \frac{D_{LS}}{D_S} \arcsin( \frac{(\kappa_{bar}^2(\theta_E) + \kappa_{phantom}^2(\theta_E)) (1 + \beta_p^2)}{2\beta_p^2 - (\kappa_{bar}^2(\theta_E) + \kappa_{phantom}^2(\theta_E)) (1 + \beta_p^2)} ) }
 \end{equation}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
