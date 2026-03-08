@@ -265,23 +265,23 @@ description: "Download WILL Relational Geometry research papers and appendices. 
 
   <div class="supp-card">
     <div>
-      <h4>LOGOS MAP</h4>
-      <p>Logical structure and derivation flow of the framework</p>
+      <h4>R.O.M.</h4>
+      <p>Closed Algebraic System of Relational Orbital Mechanics (R.O.M.)</p>
     </div>
     <div class="supp-actions">
-      <a href="/documents/WILL_RG_LOGOS_MAP.pdf" target="_blank" class="supp-link">Open</a>
-      <a href="/documents/WILL_RG_LOGOS_MAP.pdf" download class="supp-link">Download</a>
+      <a href="/documents/WILL_RG_R.O.M..pdf" target="_blank" class="supp-link">Open</a>
+      <a href="/documents/WILL_RG_R.O.M..pdf" download class="supp-link">Download</a>
     </div>
   </div>
 
   <div class="supp-card">
     <div>
-      <h4>In Silico Precession Prediction of S4716</h4>
-      <p>Orbital precession calculation for the S4716 star</p>
+      <h4>Substantialism vs. Relationalism</h4>
+      <p>Mathematical complexity is the symptom of philosophical negligence.</p>
     </div>
     <div class="supp-actions">
-      <a href="/documents/Precession_of_S4716.pdf" target="_blank" class="supp-link">Open</a>
-      <a href="/documents/Precession_of_S4716.pdf" download class="supp-link">Download</a>
+      <a href="/documents/WILL_RG_Substantialism_vs._Relationalism.pdf" target="_blank" class="supp-link">Open</a>
+      <a href="/documents/WILL_RG_Substantialism_vs._Relationalism.pdf" download class="supp-link">Download</a>
     </div>
   </div>
 

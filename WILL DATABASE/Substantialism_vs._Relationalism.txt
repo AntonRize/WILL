@@ -1,0 +1,363 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- Encoding and language ---
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[warn]{textcomp}
+    
+
+
+% --- Page geometry ---
+\usepackage{geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% --- Math and fonts ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}      % For proof environment
+
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}    
+\usepackage{enumitem}
+\usepackage{float}
+
+
+% --- START OF FOOTER SECTION ---
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+\usepackage[numbers]{natbib}   % Required for numeric citations like [1]
+
+% Activate the fancy page style
+\pagestyle{fancy}
+
+% Clear default headers and footers
+\fancyhf{} 
+
+% Remove the horizontal line in the header (optional, keeps it clean)
+\renewcommand{\headrulewidth}{0pt}
+
+% Remove the horizontal line in the footer (optional, set to 0.4pt if you want a line)
+\renewcommand{\footrulewidth}{0pt} 
+
+% Left Footer: Website Link (Small text)
+\lfoot{\scriptsize \href{https://willrg.com}{https://willrg.com}}
+
+% Center Footer: Page Number
+\cfoot{\scriptsize \thepage}
+
+% Right Footer: Zenodo DOI (Small text)
+\rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
+
+% --- HANDLING THE FIRST PAGE (TITLE PAGE) ---
+% By default, \maketitle resets the style to 'plain'. 
+% This code redefines 'plain' to match your custom footer so it appears on page 1 too.
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \lfoot{\scriptsize \href{https://willrg.com}{https://willrg.com}}
+  \cfoot{\scriptsize \thepage}
+  \rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
+}
+% --- END OF FOOTER SECTION ---
+
+% --- TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{shapes, positioning, arrows.meta, calc}
+
+% --- tcolorbox for styled theorems ---
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{principle}[theorem]{Principle}
+
+% --- Metadata ---
+\title{\textbf{WILL Part I (Addition)} \\
+\textit{Substantialism vs. Relationalism}}
+\author{Anton Rize \\ antonrize@willrg.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}}
+
+
+\date{October 2025}
+
+\begin{document}
+\maketitle
+
+
+
+\hypertarget{sec:sub_v_rel}{}\label{sec:sub_v_rel}
+\subsection{No-Go Theorem for Fundamental One-Point Dynamics}
+\hypertarget{thm:no-go}{}\label{thm:no-go}
+
+\subsection*{Foundational Assumptions}
+
+\begin{definition}[Self--Centering]
+Each observer defines itself as the relational origin:
+\[
+(\beta,\kappa)=(0,0).
+\]
+This is an ontological definition of the observer's state, not a coordinate choice.
+\end{definition}
+
+\begin{definition}[Relational Reciprocity]
+The only invariant quantity between two observers is the norm of the Total Relational Shift:
+\[
+Q^2=\beta^2+\kappa^2.
+\]
+Reciprocity is invariance of this norm under the self--centering operation performed independently by each observer.
+\end{definition}
+
+\begin{definition}[Absence of Background]
+There exists no shared background structure: no global state space, no external time parameter, and no common coordinate system simultaneously hosting the states of distinct observers.
+\end{definition}
+
+\begin{definition}[Operationality]
+A physical quantity is admissible only if it is either:
+\begin{enumerate}
+\item directly measurable, or
+\item algebraically derivable from measurable quantities,
+\end{enumerate}
+without invoking non-observable auxiliary structures.
+\end{definition}
+
+\subsection*{Target Class}
+
+\begin{definition}[One--Point Dynamics]
+By one-point dynamics we mean any formulation in which:
+\begin{itemize}
+\item a system is represented by a state $x$ in a global space,
+\item physical law is given by a local evolution rule
+\[
+\dot{x}=F(x)
+\quad \text{or} \quad
+\delta x=\mathcal{L}(x),
+\]
+\item temporal evolution is defined as transitions of the same point through neighboring states.
+\end{itemize}
+This includes Lagrangian, Hamiltonian, field-theoretic, and metric-based formulations.
+\end{definition}
+
+\subsection*{No-Go Result}
+
+\begin{theorem}[No-Go for Fundamental One--Point Dynamics]
+Under Self--Centering, Relational Reciprocity, Absence of Background, and Operationality, no one-point dynamical formulation can be simultaneously:
+\begin{enumerate}
+\item relationally reciprocal,
+\item operationally well-defined,
+\item background-independent,
+\item ontologically minimal.
+\end{enumerate}
+Therefore one-point dynamics cannot be fundamental.
+\end{theorem}
+
+\begin{proof}
+\textbf{A one-point evolution law implicitly assumes a persistent identity 
+of the system across states:} it must be meaningful to say that the system 
+at $x(t_1)$ and at $x(t_2)$ is \emph{the same system}. This is a 
+substantialist commitment --- an intrinsic identity independent of 
+relational context.
+
+\textbf{Under Absence of Background, no such structure exists:} states are 
+defined only through mutual relational shifts $Q$. The continuous trajectory 
+$x(t)$ --- and with it $\dot{x}$ or $\delta x$ --- is an auxiliary construct 
+requiring non-observable distinctions between arbitrarily close states, 
+inadmissible by Operationality.
+
+\textbf{By Self-Centering, an observer is always at $(\beta,\kappa)=(0,0)$ 
+in its own relational origin:} there is no operationally available notion of 
+an observer's own worldline as a sequence of distinct states inside a shared 
+arena. Any attempt to define such a sequence introduces an external 
+state-labeling structure, contradicting Absence of Background.
+
+\textbf{By Relational Reciprocity, only the scalar norm $Q$ is invariant 
+under mutual self-centering:} directional quantities required by one-point 
+dynamics --- such as signed increments, tangent vectors, gradients, forces, 
+or local generators of change --- are not reciprocity-invariant objects and 
+therefore cannot be fundamental relational observables.
+
+\textbf{To restore a well-defined one-point dynamics, one must add at least 
+one of the following:} a global time parameter; a shared state manifold; a 
+persistent identity map between the same system at different moments; or a 
+background metric or symplectic structure that defines local generators. 
+
+\textbf{Each of these additions violates Absence of Background} and breaks the relational 
+closure enforced by Self-Centering and Reciprocity.
+
+\textbf{Therefore, under the stated foundational methodological constraints, 
+one-point dynamics cannot serve as a fundamental description.}
+\end{proof}
+
+
+\begin{corollary}[Constraint--Based Fundamental Law]
+Under the same assumptions, admissible fundamental laws must be algebraic and relational: they constrain mutual states through reciprocity-invariant quantities (such as $Q$ and closure relations) rather than prescribing one-point evolution.
+\end{corollary}
+
+\subsection{Theorem of Minimality for Relational Constraint Laws}
+\hypertarget{thm:minimality}{}\label{thm:minimality}
+
+\subsection*{Purpose}
+
+We prove that even if one-point dynamics is permitted as a non-fundamental
+descriptive tool, it is strictly non-minimal.
+Relational constraint-based formulations are provably optimal with respect to
+ontological and operational economy.
+
+\subsection*{Primitive Count and Ontological Cost}
+
+\begin{definition}[Ontological Primitive]
+An ontological primitive is any irreducible structure that must be assumed
+in order to formulate a physical law and that cannot be eliminated by algebraic
+redefinition.
+Examples include background time, global state manifolds, local generators,
+metrics, or identity maps between states.
+\end{definition}
+
+\begin{definition}[Ontological Cost]
+The ontological cost of a formulation is the minimal number of independent
+primitives required to state its laws in a closed and operationally meaningful
+form.
+\end{definition}
+
+\subsection*{Minimal Relational Formulation}
+
+\begin{lemma}[Primitive Content of Relational Constraint Laws]
+A relational constraint-based formulation requires only:
+\begin{itemize}
+\item self--centering of observers,
+\item relational reciprocity,
+\item algebraic invariants between relational projections.
+\end{itemize}
+No background structures, generators, or evolution parameters are required.
+\end{lemma}
+
+\begin{proof}
+Relational constraints relate observable projections directly through algebraic
+identities such as
+
+\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:DisQ}{$Q^2=\beta^2+\kappa^2$}
+\href{https://willrg.com/documents/WILL_RG_I.pdf#thm:Closure}{$\kappa^2=2\beta^2$}    
+ \href{https://willrg.com/documents/WILL_RG_I.pdf#}{$\Delta E_{A \to B} + \Delta E_{B \to A} = 0$} 
+
+These quantities are dimensionless, operationally measurable, and invariant
+under self--centering.
+No additional structure is needed to define or apply such relations.
+\end{proof}
+
+\subsection*{Primitive Content of One--Point Dynamics}
+
+\begin{lemma}[Primitive Inflation in One--Point Dynamics]
+Any one-point dynamical formulation requires the introduction of at least one
+additional ontological primitive beyond those of relational constraints.
+\end{lemma}
+
+\begin{proof}
+To define a local evolution law $\dot{x}=F(x)$ or $\delta x=\mathcal{L}(x)$, one
+must introduce:
+\begin{itemize}
+\item a global space of states hosting $x$,
+\item a rule identifying the same system across multiple states,
+\item an ordering parameter distinguishing ``before'' and ``after'',
+\item a generator defining local change.
+\end{itemize}
+
+At least one of these structures is irreducible: by the No-Go Theorem (\ref{thm:no-go}), no such ordering or identity structure can be derived from relational methods alone without introducing additional background assumptions.
+\end{proof}
+
+\subsection*{The Minimality Theorem}
+
+\begin{theorem}[Strict Minimality of Relational Constraint Laws]
+Among all formulations capable of reproducing the same observable predictions,
+relational constraint-based laws have strictly lower ontological cost than any
+one-point dynamical formulation.
+\end{theorem}
+
+\begin{proof}
+By the first lemma, relational constraint laws achieve closure using only
+self--centering, reciprocity, and algebraic invariants.
+By the second lemma, any one-point dynamical formulation requires at least one
+additional primitive not present in the relational scheme.
+Therefore the ontological cost of one-point dynamics is strictly greater.
+Since relational constraint laws reproduce the empirical content of 
+one-point dynamics (as demonstrated by the explicit derivations in 
+\textbf{WILL Trilogy:(\ref{trilogy})} and do so with strictly lower ontological cost, the relational constraint formulation is minimal.
+\end{proof}
+
+\begin{remark}
+Throughout this section, \emph{fundamental} is used in the sense of 
+ontologically minimal and operationally closed: a formulation is 
+fundamental if it requires no primitives beyond those that are directly 
+measurable or derivable from measurable relational invariants.
+\end{remark}
+
+\subsection*{Operational Consequence}
+
+\begin{corollary}[Redundancy of One-Point Dynamics]
+Any one-point dynamical law is either:
+\begin{itemize}
+\item empirically redundant with respect to an underlying relational constraint,
+or
+\item dependent on surplus ontological structure.
+\end{itemize}
+
+\textbf{In neither case can it be fundamental.}
+\end{corollary}
+
+\subsection*{Summary}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Minimality Result]
+\[
+\boxed{
+\text{Relational Constraints}
+\;<\;
+\text{One--Point Dynamics}
+}
+\]
+The inequality denotes strict ontological and operational minimality.
+Substantival formalisms persist only as descriptive approximation of a more economical relational structure.
+\end{tcolorbox}
+
+\section{General Consequence}
+\hypertarget{sec:general_consequence}{}\label{sec:general_consequence}
+
+The adoption of substantialist assumptions, as identified in the 
+preceding theorems, produces three structural consequences:
+
+\begin{enumerate}
+    \item Inflated Formalism: Equations multiply to compensate for ontological error.
+    \item Loss of Transparency: Physical meaning becomes hidden behind coordinate dependencies.
+    \item Empirical Fragmentation: Each domain (cosmology, quantum, gravitation) requires separate constants.
+\end{enumerate}
+
+By contrast, Relationalism as good philosophy-\textbf{epistemic hygiene}-enforces relational closure and yields simplicity through necessity, not through approximation.
+
+In short:
+\boxed{\text{\textbf{Ontological assumptions generate complexity.\ 
+Relational minimalism reveals geometry.}}}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Daring Remark]
+The Strict Minimality Theorem demonstrates that mathematical complexity 
+is not an inevitable feature of physical law but a structural consequence 
+of surplus ontological assumptions. When those assumptions are removed, 
+the same empirical content is reproduced with strictly fewer primitives.
+\[
+\boxed{\text{Surplus Ontology}} \Longrightarrow 
+\boxed{\text{Ontological Duplication}} \Longrightarrow 
+\boxed{\text{Mathematical Inflation}} 
+\]
+\[
+\boxed{\text{\textbf{Mathematical complexity is the symptom of philosophical negligence.}}}
+\]
+\end{tcolorbox}
+
+
+
+\end{document}
