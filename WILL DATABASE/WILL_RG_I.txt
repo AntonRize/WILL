@@ -2235,6 +2235,12 @@ By establishing the local relational spacetime factor $\tau_{Wo}(o) = Z_{sys}(o)
 \]
 Here, $\kappa^2$ and $\beta$ are the global potential and kinematic projections. While theoretically anchored to the dimensionless spectroscopic shifts ($z_{ko}, z_{bo}$) at the orbital balance point $\arccos(-e)$, the scale $R_s$ is generated exclusively from Chronometry (orbital period $T$) and Spectroscopy (light shifts), eliminating any dependency on $G$, $M$, or spatial parallax.
 
+More evidence of mass and G independents:
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Operational Independence]
+\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:operational}{WILL RG is operationally independent from mass and G}
+\end{tcolorbox}
+
 \subsection{Phase-Angle Mapping and Empirical Validation}
 To operationalize this theorem without importing metric distances or Newtonian constants, local potential states must be mapped using pure angular and chronometric ratios. While the global invariants ($\kappa^2, \beta$) define the system, they can be reconstructed from any observable local state via invariant tension equations.
 
@@ -2259,6 +2265,9 @@ The global invariants are then strictly recovered from the tension of these loca
 \[
     \beta = \sqrt{\kappa_p^2 - \beta_p^2} \quad \text{and} \quad \kappa^2 = 2(\kappa_p^2 - \beta_p^2)
 \]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
+\href{https://www.desmos.com/calculator/iymnd3tw3z}{Chrono-Spectroscopic Theorem}
+\end{tcolorbox}
 
 \begin{table}[h!]
 \centering
@@ -2280,16 +2289,6 @@ Substituting these strictly relational observables into the R.O.M. absolute scal
 \]
 This result perfectly matches the classical derivation $\frac{2GM_{sun}}{c^{2}}$, yet it is achieved strictly through internal system clocks ($T$) and spectroscopic shifts ($\beta_p, z_{sun}$). 
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
-\href{https://www.desmos.com/calculator/iymnd3tw3z}{Chrono-Spectroscopic Theorem}
-\end{tcolorbox}
-
-More evidence of mass and G independents:
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Operational Independence]
-\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:operational}{WILL RG is operationally independent from mass and G}
-\end{tcolorbox}
-
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence]
 \textbf{SPACETIME $\equiv$ ENERGY}: The physical scale of a closed orbital system is algebraically equivalent to the ratio of geometric tension ($\kappa^2\beta$) to local clock ticks ($T$). The classical necessity of the "cosmic distance ladder" (meters) is an artifact of treating space as an a priori container, rather than recognizing it as the emergent relational tension between energetic states.
 \end{tcolorbox}
@@ -2297,18 +2296,17 @@ More evidence of mass and G independents:
 \section{Sidestepping the Classical $M \sin i$ Degeneracy}
 \hypertarget{sec:M_sin(i)}{}\label{sec:M_sin(i)}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=The 130-Year Limitation]
+\subsection{The 130-Year Limitation}
 For more than a century, radial-velocity and astrometric orbital analyses have been fundamentally limited by the \textbf{$M \sin i$} (or equivalently $\beta \sin i$) degeneracy. The observed velocity semi-amplitude $K$ only constrains the product
 \[
 K = \frac{\beta_{\rm int} \sin i}{\sqrt{1-e^2}},
 \]
 leaving an infinite family of physically distinct $(\beta, i)$ pairs consistent with the data. This degeneracy has been the principal obstacle to model-independent mass and inclination determination in exoplanet, binary, and Galactic-center studies.
-\end{tcolorbox}
+
 
 By deriving Relational Orbital Mechanics (R.O.M. \ref{sec:rom}) RG sidesteps this degeneracy at the algebraic level by introducing two independent higher-order kinematic invariants that depend on $\beta$ (or $\beta_{\rm int}$) alone, without reference to the observer's inclination $i$.
 
 \subsection{The Interior Kinematic Projection}
-
 We define the \textbf{interior kinematic projection} (the projection that appears in all relativistic invariants) as
 \[
 \beta_{\rm int} \equiv \frac{\beta}{\sqrt{1-e^2}}.
@@ -2316,7 +2314,6 @@ We define the \textbf{interior kinematic projection} (the projection that appear
 This is the natural variable once the elliptical geometry is accounted for. All higher-order effects now depend strictly on powers of $\beta_{\rm int}$.
 
 \subsection{Non-Linear Relational Invariants}
-
 R.O.M. supplies two independent constraints that are quadratic (or higher) in $\beta_{\rm int}$:
 
 \begin{theorem}[Decoupling of $\beta$ and $i$]
@@ -2413,7 +2410,7 @@ Full R.O.M. + $v_{z0}$ prior & +0.978 & 20\% & 12.8$^\circ$ \\
 
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
-\href{https://github.com/AntonRize/WILL/blob/0f9149941d067907c4b87bc590a04fb1b2adae5d/Colab_Notebooks/beta_i_comparison.ipynb}{Beta i comparison.ipynb}
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/beta_i_comparison.ipynb}{Beta i comparison.ipynb}
 \end{tcolorbox}
 
 Because the invariant constraints (precession and $Z_{\rm sys}$) both scale strictly as $\sim \beta^2$, they manifest as phase-differentiated signals of the same geometric order. This overdetermines the system, effectively moving the probability ridge to intersect the physically true values, but preserves a narrow $1\sigma$ distribution width due to the instrumental noise floor.
@@ -2471,7 +2468,7 @@ To avoid topological traps, a physics-first, three-stage extraction architecture
 The R.O.M. framework successfully isolated the physical truth, breaking the $\beta \sin i$ degeneracy purely through the structural imposition of the $S^1$ and $S^2$ relational carrier constraints.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
-  \href{https://github.com/AntonRize/WILL/blob/4c967185599ab7402fae50606a3a781c42dedb0d/Colab_Notebooks/ROM_Validatio_via_Synthetic_1PN_Data.ipynb}{ROM Validation via Synthetic 1PN Data.ipynb}
+  \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_Validation_via_Synthetic_1PN_Data.ipynb}{ROM Validation via Synthetic 1PN Data.ipynb}
 \end{tcolorbox}
 
 \begin{table}[H]
