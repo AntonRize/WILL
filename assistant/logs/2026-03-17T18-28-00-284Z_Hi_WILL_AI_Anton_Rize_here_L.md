@@ -162,3 +162,7 @@ folder"Constants"{
 }@{collapsed:true}
 
 **Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
+
+**User:** Hi WILL-AI! Anton Rize here. Lets think together - can we get rid of the mass and G in my Earth - GPS calculations as elegant as we did for Mercury - Sun system?
+
+**Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
