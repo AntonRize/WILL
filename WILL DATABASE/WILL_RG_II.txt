@@ -474,7 +474,7 @@ $$ \text{Conversion Factor} = \frac{3.0857 \times 10^{22} \text{ m/Mpc}}{1000 \t
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos and Colab]
 Desmos: \href{https://www.desmos.com/calculator/s9gvcuttqm}{DERIVATION OF $H_0$ AND SUN'S ROTATION VELOCITY}
-Colab: \href{https://github.com/AntonRize/WILL/blob/d36d936d0ac9ea2279b84077d9d8aea7d8840aa6/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb}{$H_0$ from $T_{CMB}$ and alpha.ipynb}
+Colab: \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb}{$H_0$ from $T_{CMB}$ and alpha.ipynb}
 \end{tcolorbox}
 
 
@@ -725,7 +725,7 @@ $\Lambda$CDM visibility peak & $\sim$2,970& 1,090& Full $\Lambda$CDM pipeline \\
 \end{table}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
- \href{https://github.com/AntonRize/WILL/blob/ebd984ee5634180e6cf3bccde1d5527aebbe7c88/Colab_Notebooks/Recombination__Model_Independent_Atomic_Physics.ipynb}{Recombination  Model Independent Atomic Physics.ipynb}
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Recombination__Model_Independent_Atomic_Physics.ipynb}{Recombination  Model Independent Atomic Physics.ipynb}
 \end{tcolorbox}
 
 
@@ -1077,7 +1077,7 @@ Any deviation beyond this constant offset would indicate a failure of the geomet
 \end{figure}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
- \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Geometric_expansion_Pantheon.ipynb}{Geometric expansion Pantheon.ipynb}
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Geometric_expansion_Pantheon.ipynb}{Geometric expansion Pantheon.ipynb}
 \end{tcolorbox}
 
 
@@ -1238,7 +1238,7 @@ $\ell_3$ & Compression & $S^2$ ($x_3$) & Sym ($+$) & \textbf{793.66} & $810.8 \p
 \end{table}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
- \href{https://github.com/AntonRize/WILL/blob/5c168289e40633a20cb0e0ebaf3f3912f867a788/Colab_Notebooks/Ab_Initio_CMB_Spectrum_Derivation.ipynb}{Ab Initio CMB Spectrum Derivation.ipynb}
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Ab_Initio_CMB_Spectrum_Derivation.ipynb}{Ab Initio CMB Spectrum Derivation.ipynb}
 \end{tcolorbox}
 
 \begin{figure}[H]
@@ -1738,7 +1738,7 @@ The statistical analysis of the residuals (logarithmic deviation) yields:
 \end{figure}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
- \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/RAR_test.ipynb}{RAR test.ipynb}
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/RAR_test.ipynb}{RAR test.ipynb}
 \end{tcolorbox}
 
 \section{Local Verification: The Solar System Test}
@@ -1789,6 +1789,62 @@ Taking the square root yields the predicted orbital velocity:
 The predicted velocity of $\approx 226$ km/s is in excellent agreement with the IAU standard value ($220$ km/s) and recent Gaia kinematic derivations ($229 \pm 6$ km/s).
 
 Crucially, the "missing" velocity component ($\approx 56$ km/s), traditionally attributed to a Dark Matter halo, emerges here automatically as the \textbf{Horizon Resonance term} $\sqrt{V_{bar}^2 a_{\kappa} R_0}$. The galaxy is not filled with invisible matter; it is resonant with the cosmic horizon.
+
+
+
+\section{The Kinetic Resonance: Wide Binary Anomaly}
+\hypertarget{sec:wide-binary}{}\label{sec:wide-binary}
+
+\subsection{The Problem: Breakdown of Newton in the Solar Neighbourhood}
+
+While the Radial Acceleration Relation (RAR) establishes the geometric link between baryons and the horizon on galactic scales ($10^{20}$ m), a critical test of any modified gravity framework is its applicability to small-scale systems ($10^{14}$ m) that are free from the complexities of dark matter halos and hydrodynamic gas pressure. Wide Binary Stars ($r > 2000$ AU) provide exactly such a laboratory.
+
+Recent high-precision analyses of the Gaia DR3 catalog \citep{Chae2023, Hernandez2023} have reported a definitive breakdown of Newtonian dynamics at low accelerations ($g_N < 10^{-9} \, \mathrm{m/s^2}$). However, a significant tension has emerged:
+\begin{itemize}
+    \item \textbf{Newtonian Failure:} The observed gravity boost factor $\gamma = g_{obs}/g_{N}$ rises clearly above unity ($\gamma > 1$).
+    \item \textbf{MOND Overprediction:} Standard Modified Newtonian Dynamics (AQUAL), tuned to galactic rotation curves ($a_0 \approx 1.2 \times 10^{-10}$), predicts a boost factor ($\gamma \approx 1.8 - 2.0$) that is significantly higher than the observed values ($\gamma \approx 1.4 - 1.6$).
+\end{itemize}
+To resolve this, standard MOND requires ad-hoc ``External Field Effects'' (EFE). In contrast, WILL Relational Geometry predicts this ``weakened'' anomaly naturally as a consequence of geometric bifurcation.
+
+\subsection{Empirical Verification against Gaia DR3}
+
+We test this Kinetic Resonance prediction ($a_{\beta} = cH_0/6\pi$) against the binned data from Chae (2023) for pure binary systems. The theoretical boost factor is calculated as:
+\begin{equation}
+\gamma_{WILL} = 1 + \sqrt{\frac{a_{\beta}}{g_N}} = 1 + \sqrt{\frac{cH_0}{6\pi g_N}}
+\end{equation}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{img/Wide_binary_Chae_2023.png}
+\caption{\textbf{The Kinetic Resonance Test.} The plot compares the gravity boost factor as a function of Newtonian acceleration.
+\textbf{Blue dashed line:} Standard MOND prediction ($a_0 = 1.2 \times 10^{-10} \, \mathrm{m/s^2}$), which systematically overestimates the anomaly.
+\textbf{Red solid line:} WILL RG Kinetic Resonance prediction 
+($a_{\beta} = cH_0/6\pi \approx 0.35 \times 10^{-10} \, \mathrm{m/s^2}$)
+passes precisely through the observational data points, matches the reported trend of Wide Binary observations without any parameter fitting. }
+\hypertarget{fig:wide_binaries}{}\label{fig:wide_binaries}
+\end{figure}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Wide_binary_Chae_2023.ipynb}{Wide_binary_Chae_2023.ipynb}
+\end{tcolorbox}
+
+
+\paragraph{Numerical Comparison (Deep Regime).}
+At the characteristic low-acceleration point $g_N = 10^{-9.8} \, \mathrm{m/s^2}$:
+\begin{itemize}
+    \item \textbf{Observed (Gaia):} $\gamma \approx 1.45 - 1.55$.
+    \item \textbf{Standard MOND:} $\gamma \approx 1.87$ (Overprediction $> 20\%$).
+    \item \textbf{WILL RG Prediction:} $\gamma \approx 1.47$ (Strong Agreement).
+\end{itemize}
+
+
+\subsection{Conclusion regarding Local Dynamics}
+The successful prediction of the Wide Binary anomaly confirms the \textbf{bifurcation of gravitational dynamics}:
+\begin{itemize}
+    \item Structural systems (Galaxies) resonate via $\Omega_{pot}=2/3$.
+    \item Kinetic systems (Binaries) resonate via $\Omega_{kin}=1/3$.
+\end{itemize}
+Both scales are governed by the single Universal Horizon parameter $H_0$, unifying the dynamics of the Solar neighbourhood with the expansion of the Universe.
 
 
 \section{The Baryonic Escape Threshold}
@@ -1867,7 +1923,7 @@ Figure~\ref{fig:bullseye} presents the results of the analysis.
     \hypertarget{fig:bullseye}{}\label{fig:bullseye}
 \end{figure}
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
- \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Baryonic_Escape_Threshold.ipynb}{Baryonic Escape Threshold.ipynb}
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Baryonic_Escape_Threshold.ipynb}{Baryonic Escape Threshold.ipynb}
 \end{tcolorbox}
 
 \paragraph{Quantitative Analysis.}
@@ -2023,55 +2079,6 @@ The total lensing mass within the Einstein radius (typically $4$--$8$ kpc) is fu
 \subsection{Weak Lensing: Future Work}
 
 Weak gravitational lensing probes mass distributions on larger scales through statistical shape distortions, but the observables are reconstructed through multi-step pipelines (PSF deconvolution, shape-noise suppression, tomographic binning, intrinsic alignment modelling) and are dominated by line-of-sight projections through dynamically unrelaxed structures. Developing a fully consistent weak-lensing forward model within the WILL RG framework constitutes a priority direction for future work.
-
-\section{The Kinetic Resonance: Wide Binary Anomaly}
-\hypertarget{sec:wide-binary}{}\label{sec:wide-binary}
-
-\subsection{The Problem: Breakdown of Newton in the Solar Neighbourhood}
-
-While the Radial Acceleration Relation (RAR) establishes the geometric link between baryons and the horizon on galactic scales ($10^{20}$ m), a critical test of any modified gravity framework is its applicability to small-scale systems ($10^{14}$ m) that are free from the complexities of dark matter halos and hydrodynamic gas pressure. Wide Binary Stars ($r > 2000$ AU) provide exactly such a laboratory.
-
-Recent high-precision analyses of the Gaia DR3 catalog \citep{Chae2023, Hernandez2023} have reported a definitive breakdown of Newtonian dynamics at low accelerations ($g_N < 10^{-9} \, \mathrm{m/s^2}$). However, a significant tension has emerged:
-\begin{itemize}
-    \item \textbf{Newtonian Failure:} The observed gravity boost factor $\gamma = g_{obs}/g_{N}$ rises clearly above unity ($\gamma > 1$).
-    \item \textbf{MOND Overprediction:} Standard Modified Newtonian Dynamics (AQUAL), tuned to galactic rotation curves ($a_0 \approx 1.2 \times 10^{-10}$), predicts a boost factor ($\gamma \approx 1.8 - 2.0$) that is significantly higher than the observed values ($\gamma \approx 1.4 - 1.6$).
-\end{itemize}
-To resolve this, standard MOND requires ad-hoc ``External Field Effects'' (EFE). In contrast, WILL Relational Geometry predicts this ``weakened'' anomaly naturally as a consequence of geometric bifurcation.
-
-\subsection{Empirical Verification against Gaia DR3}
-
-We test this Kinetic Resonance prediction ($a_{\beta} = cH_0/6\pi$) against the binned data from Chae (2023) for pure binary systems. The theoretical boost factor is calculated as:
-\begin{equation}
-\gamma_{WILL} = 1 + \sqrt{\frac{a_{\beta}}{g_N}} = 1 + \sqrt{\frac{cH_0}{6\pi g_N}}
-\end{equation}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\linewidth]{img/Wide_binary_Chae_2023.png}
-\caption{\textbf{The Kinetic Resonance Test.} The plot compares the gravity boost factor as a function of Newtonian acceleration.
-\textbf{Blue dashed line:} Standard MOND prediction ($a_0 = 1.2 \times 10^{-10} \, \mathrm{m/s^2}$), which systematically overestimates the anomaly.
-\textbf{Red solid line:} WILL RG Kinetic Resonance prediction 
-($a_{\beta} = cH_0/6\pi \approx 0.35 \times 10^{-10} \, \mathrm{m/s^2}$)
-passes precisely through the observational data points, matches the reported trend of Wide Binary observations without any parameter fitting. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Wide_binary_Chae_2023.ipynb}{Wide binary Chae 2023.ipynb}}
-\hypertarget{fig:wide_binaries}{}\label{fig:wide_binaries}
-\end{figure}
-
-
-\paragraph{Numerical Comparison (Deep Regime).}
-At the characteristic low-acceleration point $g_N = 10^{-9.8} \, \mathrm{m/s^2}$:
-\begin{itemize}
-    \item \textbf{Observed (Gaia):} $\gamma \approx 1.45 - 1.55$.
-    \item \textbf{Standard MOND:} $\gamma \approx 1.87$ (Overprediction $> 20\%$).
-    \item \textbf{WILL RG Prediction:} $\gamma \approx 1.47$ (Strong Agreement).
-\end{itemize}
-
-
-\subsection{Conclusion regarding Local Dynamics}
-The successful prediction of the Wide Binary anomaly confirms the \textbf{bifurcation of gravitational dynamics}:
-\begin{itemize}
-    \item Structural systems (Galaxies) resonate via $\Omega_{pot}=2/3$.
-    \item Kinetic systems (Binaries) resonate via $\Omega_{kin}=1/3$.
-\end{itemize}
-Both scales are governed by the single Universal Horizon parameter $H_0$, unifying the dynamics of the Solar neighbourhood with the expansion of the Universe.
 
 %________________________________________________________________________________
 %WRITE THE BUILD UP BRIDGE TO ELECTRON MASS. SOMETHING LIKE "WE APPLIED TO THE UNIVERSE SCALE, GALACTIC SCALE, LOCAL SCALE LETS BRING IT HOME BACK TO ELECTRON" 
