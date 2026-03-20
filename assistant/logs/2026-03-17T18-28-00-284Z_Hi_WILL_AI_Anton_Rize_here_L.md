@@ -4,7 +4,7 @@ layout: log
 
 title: "Rigorous physicist"
 
-date: 2026-03-17T18-28-00-284Z_Hi_WILL_AI_Anton_Rize_here_L
+date: 2026-03-17T18:28:00.284Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
 
