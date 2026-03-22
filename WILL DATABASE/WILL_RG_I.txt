@@ -1206,27 +1206,6 @@ Extremal Kerr horizon & $\frac{1}{2}R_s$ & $1$ & $2$ & $3$ & Maximal rotation, $
 \end{tikzpicture}
 \end{center}
 
-\subsection{Kinematic Mechanism of the Photon Sphere}
-\hypertarget{sec:photon_sphere}{}\label{sec:photon_sphere}
-
-In classical literature, the photon sphere is often heuristically justified by the speed of light. In RG, the existence of closed null orbits at $r = \frac{3}{2}R_s$ emerges strictly from the geometric invariant of systemic precession, independent of the entity's nature.
-
-For a system under total energetic closure ($\kappa^2 = 2\beta^2$), the baseline precession per orbit is given by:
-\begin{equation}
-\Delta \varphi  = \frac{2\pi \cdot Q^2}{1-e^2}=\frac{2\pi \cdot 3\beta^2}{1-e^2}
-\end{equation}
-(full derivation in \ref{sec:precession_law})
-At the Causal Circular Horizon, the system reaches the interaction limit $Q^2 = \beta^2 + \kappa^2 = 3\beta^2=1$. Substituting the closure condition yields the specific kinematic projection $\beta^2 = \frac{1}{3}$ and $\kappa^2 = \frac{2}{3}$.
-
-For a perfectly circular orbit ($e = 0$) at this limit, the precession evaluates to:
-\begin{equation}
-\Delta \varphi  = \frac{2\pi \cdot 3 (\frac{1}{3})}{1 - 0} = 2\pi
-\end{equation}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Geometric Origin of the Photon Sphere]
-\textbf{An orbital precession of exactly $\Delta \varphi  = 2\pi$ radians per revolution implies that the argument of periapsis shifts by a full circle during a single orbit. Consequently, the trajectory continuously folds onto itself perfectly, creating a closed, self-intersecting spherical locus. This is the true kinematic definition of the photon sphere: not the speed of the particle, but the unitary topological closure of its trajectory.}
-\end{tcolorbox}
-
 \section{Equivalence Principle as Derived Identity}
 
 \begin{lemma}[Unified Relational Scaling]
@@ -1912,6 +1891,45 @@ $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$.
 \section{Relational Orbital Mechanics (R.O.M.)}
 \hypertarget{sec:rom}{}\label{sec:rom}
 
+In this section we will show how all observational phenomenon of orbital systems are generated as the unavoidable consequences of RG. But first lets remind our selves some key definitions from sections above:   
+
+\begin{center}
+\begin{tikzpicture}[scale=2.0,>=Latex]
+% Left circle: kinematics
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta=\cos\theta_1$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y=\sin\theta_1$};
+% vector and legs
+\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
+\draw[dashed] (0.8,0) -- (0.8,0.6);
+\draw[dashed] (0,0.6) -- (0.8,0.6);
+\node at (0.84,-0.12) {$\beta$};
+\node at (-0.14,0.6) {$\beta_Y$};
+\draw (0.25,0) arc (0:36.87:0.25);
+\node at (0.33,0.12) {$\theta_1$};
+\node at (0,-1.55) {\small \shortstack{$E=E_0/\beta_Y$ \\ $p=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
+
+% Right circle: gravity
+\begin{scope}[xshift=3.2cm]
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X=\cos\theta_2$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\kappa=\sin\theta_2$};
+% vector and legs
+\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_g$};
+\draw[dashed] (0.6,0) -- (0.6,0.8);
+\draw[dashed] (0,0.8) -- (0.6,0.8);
+\node at (0.6,-0.12) {$\kappa_X$};
+\node at (-0.14,0.8) {$\kappa$};
+\draw (0.25,0) arc (0:53.13:0.25);
+\node at (0.33,0.12) {$\theta_2$};
+\node at (0,-1.55) {\small \shortstack{$E_g=E_0/\kappa_X$ \\ $p_g=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
+\end{scope}
+
+% composition arrow
+\draw[->,thick] (1.3,0.6) -- (1.9,0.6);
+\node at (1.6,0.77) {\small compose};
+\end{tikzpicture}
+\end{center}
 
 \begin{table}[h]
 \centering
@@ -1936,6 +1954,71 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa)
 \caption{Unified representation of relativistic and gravitational effects for closed systems.}
 \end{table}
 
+
+\subsection{Geometric Derivation of the Spectroscopic Shift}
+\hypertarget{sec:spectroscopic_shift}{}\label{sec:spectroscopic_shift}
+
+\begin{theorem}[Spectroscopic Phase Shift]
+The geometric projection $\kappa^2$ of a closed system is strictly determined by the operationally measurable gravitational redshift $z_\kappa$ via the identity:
+\begin{equation}
+\kappa^2 = 1 - \frac{1}{(1+z_\kappa)^2}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By the $S^2$ closure invariant (Theorem \ref{thm:conservation}), the gravitational amplitude $\kappa$ and internal phase $\kappa_X$ satisfy:
+\begin{equation}
+\kappa^2 + \kappa_X^2 = 1 \quad \Longrightarrow \quad \kappa^2 = 1 - \kappa_X^2.
+\end{equation}
+
+By the Principle of Relational Origin (\ref{pr:relational}), an observer must self-center at the relational origin $(\beta, \kappa) = (0,0)$. Consequently, the observer's local phase is maximal: $\kappa_{X(obs)} \equiv 1$.
+
+The observable spectroscopic shift $z_\kappa$ is the operational measure of the discrepancy between the observer's internal phase and the source's internal phase. The optical scaling ratio is defined as:
+\begin{equation}
+1 + z_\kappa = \frac{\kappa_{X(obs)}}{\kappa_{X(source)}}.
+\end{equation}
+
+Substituting the observer's maximal phase ($\kappa_{X(obs)} = 1$), the exact phase of the source is isolated:
+\begin{equation}
+\kappa_{X(source)} = \frac{1}{1+z_\kappa}.
+\end{equation}
+
+Substituting this internal phase back into the initial closure invariant yields the exact algebraic identity:
+\begin{equation}
+\kappa^2 = 1 - \left( \frac{1}{1+z_\kappa} \right)^2.
+\end{equation}
+\end{proof}
+
+\begin{theorem}[Kinematic Phase Shift (Transverse Doppler)]
+The kinematic geometric projection $\beta^2$ of a closed system is strictly determined by the operationally measurable transverse Doppler shift $z_\beta$ via the symmetric identity:
+\begin{equation}
+\beta^2 = 1 - \frac{1}{(1+z_\beta)^2}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By the $S^1$ closure invariant (Theorem \ref{thm:conservation}), the kinematic amplitude $\beta$ and internal kinematic phase $\beta_Y$ satisfy:
+\begin{equation}
+\beta^2 + \beta_Y^2 = 1 \quad \Longrightarrow \quad \beta^2 = 1 - \beta_Y^2.
+\end{equation}
+
+Following the Principle of Relational Origin (\ref{pr:relational}), the self-centered observer dictates the rest state, where external kinematic projection is zero ($\beta_{obs} = 0$), yielding maximum internal kinematic phase: $\beta_{Y(obs)} \equiv 1$.
+
+The transverse Doppler shift $z_\beta$ (measured orthogonally to eliminate classical radial kinematics) is the pure operational measure of the discrepancy between the observer's internal kinematic phase and the source's phase. The optical scaling ratio is:
+\begin{equation}
+1 + z_\beta = \frac{\beta_{Y(obs)}}{\beta_{Y(source)}}.
+\end{equation}
+
+Substituting $\beta_{Y(obs)} = 1$, we isolate the internal phase of the moving source:
+\begin{equation}
+\beta_{Y(source)} = \frac{1}{1+z_\beta}.
+\end{equation}
+
+Substituting this back into the $S^1$ closure invariant yields the exact algebraic identity:
+\begin{equation}
+\beta^2 = 1 - \left( \frac{1}{1+z_\beta} \right)^2.
+\end{equation}
+\end{proof}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=RED vs BLUE]
 \textbf{Orbital dynamics boils down to interplay of frequency shifts. 
@@ -2042,25 +2125,50 @@ e = \frac{1}{\delta_p} - 1=\frac{2\beta_p^2}{\kappa_p^2}-1 = 1-\frac{2\beta_a^2}
 This result confirms that eccentricity is strictly a measure of the energetic deviation from the circular equilibrium state ($\delta =1$), derived entirely from the conservation of relational projections without invoking mass or Newtonian forces. 
 \end{remark}
 \begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=SUMMARY]
-$$e \equiv  \frac{1}{\delta_p} - 1 \equiv\frac{2\beta_p^2}{\kappa_p^2}-1$$
+$$ \frac{2\beta_p^2}{\kappa_p^2}-1 \equiv e \equiv  1 - \frac{2\beta_a^2}{\kappa_a^2}$$
 $$\text{ECCENTRICITY} \equiv \text{CLOSURE DEFECT}$$
 $$\text{SPACETIME} \equiv \text{ENERGY}$$
 \end{tcolorbox}
 
-\subsection{Orbital Precession as State Difference $Q$ Accumulation} 
+\subsection{Orbital Precession as Relational Phase Accumulation} 
 \hypertarget{sec:precession_law}{}\label{sec:precession_law}
 
-\paragraph{Derivation of the Phase Shift.}
-The precession is intrinsic to the total state difference between the objects within the system.  The $Q=\sqrt{\beta^2+\kappa^2}$ parameter encapsulate this difference as a vector on ($\beta$, $\kappa$) relational state plane.  So Q is just a \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:DisQ}{relational measure of state difference}. The system accumulates a state mismatch over every closed cycle. The total angular shift is simply the full orbital phase ($2\pi$) scaled by the quadratic intensity of this shift 
-($Q^2=\beta^2+\kappa^2$), normalized by the elliptical geometry factor ($1-e^2$):
-\[
-\Delta\varphi = \underbrace{2\pi}_{\text{Cycle}} \cdot \underbrace{Q^2}_{\text{Intensity}} \cdot \underbrace{\frac{1}{1-e^2}}_{\text{Shape Factor}} = \frac{2\pi\,Q^{2}}{1-e^{2}}.
-\]
-This yields the general precession law strictly from geometric state difference accumulation:
-\hypertarget{eq:precession_law}{}\label{eq:precession_law}
+In standard General Relativity, orbital precession is derived via perturbative methods and Taylor expansions of the Schwarzschild metric. In WILL Relational Geometry, precession is derived strictly from the exact algebraic accumulation of the internal phase difference over a closed geometric cycle, without differential approximations.
+
+\begin{theorem}[Exact Precession Law]
+The secular angular shift (precession) $\Delta\varphi$ per closed orbit is the strict geometric projection of the system's exact relational state difference $\Delta_{state}$ normalized by the orbital shape factor $(1-e^2)$.
+\end{theorem}
+
+\begin{proof}
+\textbf{Step 1: Exact State Difference.} 
+A system completely at rest with the observer possesses maximal internal phase $\tau_W = 1$. The true relational phase of an orbiting system is the exact product of the $S^1$ and $S^2$ phase projections:
 \begin{equation}
-\Delta\varphi = \frac{2\pi\,Q^{2}}{1-e^{2}}.
+\tau_W^2 = \beta_Y^2 \kappa_X^2 = (1-\beta^2)(1-\kappa^2).
 \end{equation}
+Expanding this product algebraically yields:
+\begin{equation}
+\tau_W^2 = 1 - (\beta^2 + \kappa^2) + \kappa^2\beta^2.
+\end{equation}
+Recognizing the total relational shift norm $Q^2 = \beta^2 + \kappa^2$, the exact absolute state divergence from the rest origin ($\tau_W=1$) is:
+\begin{equation}
+\Delta_{state} \equiv \sqrt{1 - \tau_W^2} =\sqrt{ Q^2 - \kappa^2\beta^2}.
+\end{equation}
+The cross-coupling term $\kappa^2\beta^2$ represents the exact, non-linear geometric interaction between the directional and omnidirectional relational carriers.
+
+\textbf{Step 2: Geometric Accumulation. The exact form.}
+The system accumulates this state mismatch over the fundamental geometric cycle ($2\pi$). The total angular shift is the base phase scaled by the exact state divergence, normalized by the elliptical geometry factor $(1-e^2)$:
+\begin{equation}
+\Delta\varphi = \frac{2\pi \cdot \Delta_{state}^2}{1-e^2} = \frac{2\pi (Q^2 - \kappa^2\beta^2)}{1-e^2}.
+\end{equation}
+
+\textbf{Step 3: Operational Simplification.}
+For standard observable orbital dynamics, the geometric cross-coupling term $\kappa^2\beta^2$ is strictly orders of magnitude smaller than the primary structural shift $Q^2$. Applying algebraic simplification to isolate the primary operational observable, we recover the baseline precession law:
+\begin{equation}
+\Delta\varphi \simeq \frac{2\pi\,Q^{2}}{1-e^{2}}.
+\end{equation}
+\begin{remark}
+    This simplified form is mathematically equivalent to GR deferential approximation:
+    
 Substituting $Q^2$, we recover the standard form purely algebraically:
 We select the semi-major axis $a$ as this reference scale, defining the norm $Q$.
 At the scale $r=a$, the closure condition ($\kappa^2=2\beta^2$) implies the specific distribution of the invariant Schwarzschild scale $R_s$:
@@ -2072,26 +2180,59 @@ Substituting these into the definition of the relational shift norm $Q^2 = \beta
 Q^2 = \frac{R_s}{2a} + \frac{R_s}{a} = \frac{3R_s}{2a}.
 \end{equation}
 \[
-\Delta\varphi = \frac{2\pi}{1-e^2} ( \frac{3R_s}{2a} ) = \frac{3\pi R_s}{a(1-e^2)}.
+\Delta\varphi \simeq\frac{2\pi}{1-e^2} ( \frac{3R_s}{2a} ) \simeq \frac{3\pi R_s}{a(1-e^2)}.
 \]
-\subsubsection{Transformation to Periapsis Observables}
-To eliminate the abstract parameters $R_s, a, e$ in favor of direct observables, we map this expression to the periapsis ($p$), where interaction is maximal.
-Using the identities $R_s = \kappa_p^2 r_p$ and $a(1-e^2) = r_p(1+e)$, and the closure relation $(1+e) = 1/\delta_p = 2\beta_p^2/\kappa_p^2$, we arrive at the ultimate operational reduction.
+\end{remark}
 
-The secular evolution of an orbit is determined solely by the \textbf{ratio of the gravitational redshift to the Doppler shift} (red vs. blue) at the point of closest approach:
-\hypertarget{eq:light-ratio-law}{}\label{eq:light-ratio-law}
+\textbf{Step 4: Transformation to Observables.}
+At the reference scale $r=a$, the closure condition ($\kappa^2=2\beta^2$) enforces $Q^2 = 3\beta_a^2$. Mapping this expression to the periapsis ($p$) using the invariant identities $(1+e) = 2\beta_p^2/\kappa_p^2$ eliminates abstract semi-major axes in favor of direct projection intensities. The secular evolution is determined solely by the ratio of the potential to kinematic projections:
+\begin{equation}
+\boxed{
+\Delta\varphi \simeq \frac{3}{2}\pi \frac{\kappa_p^4}{\beta_p^2}}
+\end{equation}
+\textbf{Step 5: The exact form.}
+We don't have any reasons simplify our equations and turning them in to approximations of the fundamental connections they derived to highlight. Our mathematical language is restricted by Mathematical Transparency principle (\ref{pr:mathematical}) and is already in its clear and simple form:
 
 \begin{equation}
 \boxed{
-\Delta\varphi = \frac{3}{2}\pi \frac{\kappa_p^4}{\beta_p^2}}
+\Delta\varphi= \frac{2\pi \cdot \Delta_{state}^2}{1-e^2}}
 \end{equation}
+Where $\Delta_{state} \equiv \sqrt{1 - \tau_W^2}  \equiv \sqrt{1-\cos^{2}\left(\theta_{2}\right)\sin^{2}\left(\theta_{1}\right)}$ 
 
-This equation replaces the complex dynamical derivation with a direct comparison of light interactions.
-
+\end{proof}
 \[
 \boxed{\textbf{No differential formalism. No metric. Just light frequency shift red vs. blue}} 
 \]
-This formula reveals that relativistic precession is fundamentally a fourth-order effect in the gravitational projection ($\kappa^4$) moderated by the kinematic projection. The factor $\frac{3}{2}\pi$ is purely geometric, emerging from the $S^1\cdot S^2$ carrier structure. 
+\begin{remark}[Epistemic Purity]
+This derivation replaces the complex integration of perturbed differential equations with an exact algebraic evaluation of the relational phase. The presence of the $\kappa^2\beta^2$ term confirms that RG is structurally complete and relies on exact invariant topologies rather than weak-field truncations.
+\end{remark}
+
+\subsection{Kinematic Mechanism of the Dynamic Horizon}
+\hypertarget{sec:dynamic_horizon_closure}{}\label{sec:dynamic_horizon_closure}
+
+In classical literature, the event horizon is often heuristically treated as an escape-velocity boundary where spacetime curvature becomes infinitely steep. In RG, the horizon emerges strictly as the limit of geometric precessional invariant, representing the ultimate topological closure of a trajectory.
+
+Using the exact relational phase accumulation law (derived in \ref{sec:precession_law}), the baseline precession per orbit is given by:
+\begin{equation}
+\Delta \varphi  = \frac{2\pi \cdot \Delta_{state}}{1-e^2} = \frac{2\pi (1 - \tau_W^2)}{1-e^2}
+\end{equation}
+
+For a massive system under total energetic closure ($\kappa^2 = 2\beta^2$), consider the \textbf{Dynamic Horizon} state where the potential projection reaches absolute saturation ($\kappa^2 = 1$). By the closure rule, the kinematic projection is $\beta^2 = \frac{1}{2}$. 
+
+At this limit, the gravitational phase component collapses ($\kappa_X = \sqrt{1-1} = 0$), causing the entire internal causal structure of the system to vanish:
+\begin{equation}
+\tau_W^2 = (1-\beta^2)(1-\kappa^2) = 0 \quad \Longrightarrow \quad \Delta_{state} = 1
+\end{equation}
+
+For a perfectly circular orbit ($e = 0$) at this causal limit, the precession evaluates exactly to:
+\begin{equation}
+\Delta \varphi  = \frac{2\pi \cdot (1)}{1 - 0} = 2\pi
+\end{equation}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Geometric Origin of the Horizon]
+\textbf{An orbital precession of exactly $\Delta \varphi  = 2\pi$ radians per revolution implies that the argument of periapsis shifts by a full circle during a single orbit. Consequently, the trajectory continuously folds onto itself perfectly, creating a closed, self-intersecting locus where forward orbital motion mathematically nullifies itself. This is the true kinematic definition of the Dynamic Horizon: it is not a "point of no return" in an external container, but the unitary topological closure of the relational trajectory itself.}
+\end{tcolorbox}
+
 
 \section{Relational Parameterization and the Fundamental Primitives}
 \hypertarget{sec:relational_parameterization}{}\label{sec:relational_parameterization}
@@ -2116,9 +2257,9 @@ The following inputs are strictly dimensionless ratios. They represent direct ph
 \hline
 \textbf{Parameter} & \textbf{Value} & \textbf{Direct Observational Method} \\ \hline
 $\theta_{\odot}$ & $0.0046524 \text{ rad}$ & \textbf{Visual Size:} The angular radius of the Sun in the sky (how many angular units it occupies from the observer's viewpoint). \\ \hline
-$T_M / T_{\oplus}$ & $0.2408$ & \textbf{Cycle Ratio:} The observed planet's full orbital period divided by our own local orbital period. \\ \hline
+$T_M / T_{\oplus}$ & $0.2408$ & \textbf{Cycle Ratio:} The observed system's full orbital period divided by our own local orbital period.\\ \hline
 $e_{obs}$ & $0.2056$ & \textbf{Visual Kinematics:} Derived directly from the ratio of the planet's fastest ($\omega_{max}$) and slowest ($\omega_{min}$) apparent angular speeds across the sky: $e = \frac{\sqrt{\omega_{max}/\omega_{min}} - 1}{\sqrt{\omega_{max}/\omega_{min}} + 1}$. \\ \hline
-$z_{sun}$ & $2.1224 \times 10^{-6}$ & \textbf{Surface Redshift:} The measured gravitational frequency shift of light emitted directly from the central body's surface. \\ \hline
+$z_{sun}$ & $2.1224 \times 10^{-6}$ & \textbf{Spectroscopic Tension:} The raw fractional frequency shift of light ($1 - \nu_{obs}/\nu_{emit}$). Methodologically, it is defined strictly as an optical geometric observable, explicitly bypassing any a priori theoretical dependence on mass ($M$) or Newtonian constants ($G$).\\ \hline
 \end{tabular}
 \end{table}
 
@@ -2131,16 +2272,16 @@ The ratio of the Sun's radius to the planet's perihelion distance, derived entir
     R_{ratio} = \frac{\theta_{\odot}}{(T_M / T_{\oplus})^{2/3} \cdot (1-e_{obs})} \approx 0.0151290
 \]
 
-\textbf{2. Local Gravitational Projection (at perihelion)} \\
-Translating the surface spectral shift to the local orbit using the derived geometric scale:
+\textbf{2. Potential Projection (at perihelion)} \\
+Translating the surface spectral shift ($z_{sun}$) to the potential projection at perihelion ($\kappa_{p}^{2}$) using the derived scale factor ($  R_{ratio}$):
 \[
     \kappa_{p}^{2} = \left(1 - \frac{1}{(1+z_{sun})^{2}}\right) \cdot R_{ratio} \approx 6.4219 \times 10^{-8}
 \]
 
-\textbf{3. Local Kinematic Projection (at perihelion)} \\
-Deriving the orbital kinematics strictly from the local potential and the observed visual shape (eccentricity), requiring no Doppler or radar data:
+\textbf{3. Kinematic Projection (at perihelion)} \\
+Deriving the orbital kinematics strictly from the potential and eccentricity, requiring no Doppler or radar data:
 \[
-    \beta_p^2 = \frac{\kappa_p^2}{2}(1+e_{obs}) \approx 3.8711 \times 10^{-8}
+    \beta_p^2 = \frac{\kappa_p^2}{2}(1+e_{obs}) \approx 3.8712 \times 10^{-8}
 \]
 
 \textbf{4. Anomalous Precession} \\
@@ -2155,29 +2296,38 @@ To translate this invariant geometry into local human units (meters), we apply t
 \[
     R_{sRG} = T_M \cdot c \cdot \frac{\beta^3}{\pi} \approx 2954.8 \text{ m}
 \]
+and the standard value is:
 \[
 R_{sGR}=\frac{2GM_{sun}}{c^{2}}\approx 2953.33 \,\text{ m} \quad \text{where} \quad M_{sun}=1.98847\times10^{30} \, \text{ kg}
 \]
+Comparing the values:
 \[
 \frac{R_{sGR}-R_{sRG}}{R_{sGR}}100=|0.0476460603736|\%
 \]
 This difference is well within the observational uncertainties of the input parameters.
 
+\textbf{6. Semi-major axis} (Standard value $\approx 5.79\times10^{10}$):
 
-The logical chain is complete and algebraically closed. Neither $G$ nor $M$ are required at any step of the parameterization.
+$$a=\frac{R_{sRG}}{\kappa^2}= 5.7922885502\times10^{10} \,\text{ m} $$
 
+\textbf{7. Orbital radius at perihelium}  (Standard value $\approx 5.79\times10^{10}$):
+
+$$r_p=\frac{R_{sRG}}{\kappa_{p}^2}= 4.6013940242\times10^{10}$$
+
+\textbf{6. Conclusion:}
+The logical chain is complete and algebraically closed.
+All major gravitational system parameters recovered without use of mass, gravitational constant G, metric manifold, deferential formalism, postulation of "container-space" and external flow of time. 
 \end{proof}
 
-
-\begin{corollary}[Ontological Redundancy and Epicycles]
-If the complete structural and dynamical parameterization of a system can be derived without $G$ or $M$, then mass and the gravitational constant are not \textbf{fundamental primitives} of the Universe. They are epistemologically redundant. Rather than underlying physical causes, they are merely anthropocentric epicycles - legacy conversion factors used to map pure relational geometry into historical, Earth-centric systems of units.
+\begin{corollary}[Epistemic Mandate and Ontological Redundancy]
+In information theory and formal logic, if a parameter is strictly absent from the complete algebraic generative chain of a system, its reintroduction constitutes an epistemic violation. Because the full structural and dynamical parameterization ($e$, $\Delta\varphi$, $R_s$) is algebraically closed using only directly measurable parameters 
+($e, \theta_{\odot}, T_M/T_{\oplus}, z_{sun}$) and derived relational projections ($\kappa, \beta$), the variables $G$ and $M$ possess zero independent predictive power. They are not fundamental primitives. Their retention required only for conversion of pure relational geometry into legacy units of kilograms.
 \end{corollary}
 
 
-\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Colab notebook]
-
-\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Mercury-Sun_Relational_Parameterization.ipynb}{Mercury-Sun Relational Parameterization}
-
+\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Mercury-Sun Relational Parameterization]
+\href{https://www.desmos.com/calculator/mjen4ms452}{DESMOS}
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Mercury-Sun_Relational_Parameterization.ipynb}{COLAB}
 \end{tcolorbox}
 
 
@@ -2187,7 +2337,6 @@ If the complete structural and dynamical parameterization of a system can be der
 A frequent objection from conventional frameworks is that any model employing the Schwarzschild radius ($R_s$) must implicitly depend on the Newtonian constants $G$ and $m_0$ (mass) as fundamental inputs. This objection assumes that mass is the primary ontological entity and geometry is a secondary derivative.
 
 We demonstrate that this is incorrect. In the WILL RG framework, $G$ and $m_0$ are not physical inputs but \emph{output calibration tools}. The parameters $\kappa$ and $\beta$ are operationally measurable geometric intensities, and $R_s$ is a system scale derived directly from the phase interactions of light.
-
 
 \subsection{Operational Measurability of Relational Projections}
 \hypertarget{thm:operational}{}\label{thm:operational}
@@ -2949,6 +3098,37 @@ To reveal the underlying gradient without altering the exact equation, we examin
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence]
 The properties of the lens—convergence ($\kappa_{\text{lens}}$), shear ($\gamma$), and magnification ($\mu$)—are simply the components of the 2D Jacobian matrix of the deflection field $\vec{\alpha}(\vec{\theta})$. Because the physics of the phase-buffer $\beta_Y$ is fundamentally woven into the exact definition of $\Delta\varphi_{\text{unified}}$, no manual "weighting" of shear or convergence is required. The optical mapping emerges naturally from the pure algebraic closure of the $S^1$ and $S^2$ relational carriers.
 \end{tcolorbox}
+
+\section{Geometric Mechanism of Orbital Decay and Radiation}
+\hypertarget{sec:orbital_decay}{}\label{sec:orbital_decay}
+
+In standard formulations, the orbital decay of binary systems (e.g., the Hulse-Taylor pulsar) is attributed to the emission of gravitational waves carrying away energy and angular momentum. In WILL Relational Geometry, orbital contraction is not a mechanical loss of substance, but a strict topological necessity governed by the conservation of the Unitary State Vector.
+
+\begin{theorem}[Topological Orbital Contraction]
+The emission of radiation from a closed relational system mandates a compensatory geometric contraction of its orbital radius to strictly preserve the unitary state invariant.
+\end{theorem}
+
+\begin{proof}
+By the structure of the Unitary State Manifold, the system's exact internal causal phase ($\tau_W$) and its external relational projection ($\Delta_{state}$) are strictly bound by the geometric invariant:
+\begin{equation}
+\Delta_{state}^2 + \tau_W^2 = 1.
+\end{equation}
+
+Radiation - whether electromagnetic or gravitational—is operationally defined in RG as the transfer of internal causal order to the external relational network. Geometrically, this translates to the continuous depletion of the system's internal phase: $\tau_W \to \tau_{W} - \delta\tau$.
+
+To maintain the unitary invariant ($=1$), the exact external projection must concurrently grow to compensate for the lost internal phase:
+\begin{equation}
+\tau_W \downarrow \quad \Longrightarrow \quad \Delta_{state}^2 \uparrow.
+\end{equation}
+
+Recalling that the state difference is defined by the projection intensities $\Delta_{state}^2 = Q^2 - \kappa^2\beta^2$, and that $Q^2 \propto 1/r$, an absolute increase in $\Delta_{state}^2$ mathematically forces an increase in both $\kappa^2$ and $\beta^2$. 
+
+Consequently, the operational coordinate radius $r$ between the interacting bodies must decrease. The orbit shrinks not due to an external mechanical drag, but because the system is geometrically forced to descend into higher state projections to mathematically balance the loss of its internal causal budget.
+\end{proof}
+
+\begin{remark}[The Radiation Limit]
+This geometric decay naturally terminates at the Dynamic Horizon ($\kappa^2 = 1$). At this limit, the internal phase is completely exhausted ($\tau_W = 0$) and the state projection is maximal ($\Delta_{state}^2 = 1$). The system can no longer radiate, strictly forbidding the extraction of further relational phase from a merged causal horizon.
+\end{remark}
 
 \section{Derivation of Density, Mass, and Pressure}
 
