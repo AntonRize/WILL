@@ -158,3 +158,64 @@ The spacetime factor is defined as the product of phase projections: $\tau^2 = (
 **Severity: Medium.** Currently irrelevant for all verified systems (weak-field), but becomes a sharp falsification target in strong-field regimes if pulsar timing or gravitational wave data reach sufficient precision.
 
 **Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
+
+**User:** I withdraw Objection 2 as an internal consistency criticism. The quadratic form is exact within the carrier algebra. The remaining question is empirical, and that's the correct epistemic status for a competing prediction.
+
+**OBJECTION 3: $\tau_W = \kappa_X \cdot \beta_Y$ is not the Schwarzschild proper time.**
+
+The spacetime factor is defined as the product of phase projections: $\tau_W^2 = (1-\kappa^2)(1-\beta^2)$. For a circular orbit in Schwarzschild geometry, the proper time satisfies $(d\tau/dt)^2 = 1 - \kappa^2 - \beta^2$, which differs from $\tau_W^2$ by the cross-term $\kappa^2\beta^2$. The numerical check shows this difference is negligible for Mercury ($10^{-15}$) and S2 ($10^{-9}$), but reaches 11% at ISCO. The document handles this through $\Delta_{state}^2 = Q^2 - \kappa^2\beta^2$ in the precession formula, so the cross-term is not lost — it appears as the "exact non-linear geometric interaction." But $\tau_W$ is presented throughout as *the* spacetime factor governing observable frequencies, GPS shifts, and operational measurements. If an observer at ISCO measured frequency ratios, would they match $\tau_W$ or the Schwarzschild expression? This is a testable distinction.
+
+**Severity: Medium.** Currently irrelevant for all verified systems (weak-field), but becomes a sharp falsification target in strong-field regimes if pulsar timing or gravitational wave data reach sufficient precision.
+
+**Assistant:** Your objection is mathematically precise and identifies the fundamental divergence between the **Metric Ontology** of General Relativity (GR) and the **Projection Ontology** of WILL Relational Geometry (RG). 
+
+You are correct: $\tau_W = \kappa_X \cdot \beta_Y$ is not identical to the Schwarzschild proper time interval in the strong-field regime. This is not a "missing" term in WILL; it is a fundamental prediction of how the relational carriers interact.
+
+### 1. Ontological Justification: The Multiplicative Phase Filter
+
+In General Relativity, the proper time $d\tau$ is an interval on a single, fused spacetime manifold. Kinetic and potential effects are additive corrections to the metric components ($ds^2 = g_{\mu\nu}dx^\mu dx^\nu$).
+
+In WILL RG, we reject the background manifold. As derived in [Theorem [Equivalence of Inertial and Gravitational Response]](https://willrg.com/documents/WILL_RG_I.pdf#thm:equivalence), the system is described by two **independent relational carriers** ($S^1$ and $S^2$). 
+*   The kinematic carrier rescales the rest invariant $E_0$ by $1/\beta_Y$.
+*   The potential carrier rescales the rest invariant $E_0$ by $1/\kappa_X$.
+
+Because these transformations act as independent "geometric filters" on the same transformational resource, their composition is necessarily **multiplicative**, not additive. 
+$$\tau_W = \kappa_X \cdot \beta_Y$$
+This represents the [Unified Relational Scaling](https://willrg.com/documents/WILL_RG_I.pdf#lem:unifiedscaling). In the WILL framework, asking why we don't use the Schwarzschild "additive" form is equivalent to asking why we treat the dimensions of space as independent projections rather than a single coupled variable.
+
+### 2. The Cross-Term $\kappa^2\beta^2$ as Physical Content
+
+The difference between the WILL factor ($\tau_W^2$) and the Schwarzschild factor ($\tau_{GR}^2$) is exactly the cross-term $+\kappa^2\beta^2$:
+$$\tau_W^2 = (1-\kappa^2)(1-\beta^2) = 1 - \kappa^2 - \beta^2 + \kappa^2\beta^2$$
+$$\tau_{GR}^2 = 1 - \kappa^2 - \beta^2$$
+
+In WILL RG, this term is the **Exact Non-Linear Geometric Interaction**. It represents the fact that the kinematic state is itself embedded within a potential gradient (and vice versa). 
+The framework does not "miss" this term; it explicitly utilizes it to derive the [Exact Precession Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:precession_law):
+$$\Delta_{state}^2 = Q^2 - \kappa^2\beta^2$$
+Without this cross-term, WILL would fail to reproduce the correct anomalous precession of Mercury. The fact that $\Delta_{state}^2$ requires the subtraction of $\kappa^2\beta^2$ while the frequency shift $\tau_W$ includes it is the specific geometric "signature" of the $S^1 \times S^2$ topology.
+
+### 3. The Testable Distinction at ISCO
+
+You asked: *If an observer at ISCO measured frequency ratios, would they match $\tau_W$ or the Schwarzschild expression?*
+
+WILL RG predicts they would match $\tau_W$. Let us quantify the divergence at the **Innermost Stable Circular Orbit (ISCO)**:
+*   **GR Result:** $(d\tau/dt)^2 = 1 - 3R_s/2r$. At $r=3R_s$, $\tau^2 = 0.5$ ($\tau \approx 0.707$).
+*   **WILL RG Result:** Using the ISCO state [Table 2](https://willrg.com/documents/WILL_RG_I.pdf#projections_symmetry) ($\kappa^2=1/3, \beta^2=1/6$):
+    $$\tau_W^2 = (1-1/3)(1-1/6) = (2/3)(5/6) = 10/18 = 5/9 \approx 0.555 \dots$$
+    $$\tau_W = \sqrt{5}/3 \approx 0.745$$
+
+The difference is **~5.4% in frequency ratio** ($\approx 11\%$ in squared amplitude). 
+
+In the weak-field limit (GPS), this cross-term is $\sim 10^{-19}$, which is currently below the noise floor of atomic clocks but will be resolved by the next generation of space-based optical lattice clocks. In the strong-field limit, this is a **primary falsification target**. WILL RG asserts that the Schwarzschild metric is a first-order additive approximation of the deeper multiplicative relational geometry.
+
+### 4. Empirical Status
+
+Currently, all high-precision tests (GPS, Mercury, binary pulsars) occur in regimes where $\kappa^2\beta^2$ is negligible for frequency shifts, but essential for secular phase accumulation (precession). WILL RG matches the data in both.
+
+The "Medium" severity you assigned is correct for current technology. However, for a rigorous physicist, this represents the **"Smoking Gun"**:
+*   If strong-field frequency measurements (e.g., from stars orbiting Sgr A* or pulsar-black hole binaries) follow the additive metric shift, **WILL RG is falsified**.
+*   If they follow the multiplicative phase product, **General Relativity is revealed as a weak-field approximation**.
+
+You can explore these strong-field deviations and their effect on orbital stability using the [**Relational Orbital Mechanics (ROM) Simulator**](https://willrg.com/rom/) or verify the GPS-scale consistency on the [**Relativistic Foundations**](https://willrg.com/relativistic-foundations/) page.
+
+Do you accept this as a valid, albeit radical, prediction of the theory, or do you maintain that the additive metric form is an a priori requirement for any relativistic description?
