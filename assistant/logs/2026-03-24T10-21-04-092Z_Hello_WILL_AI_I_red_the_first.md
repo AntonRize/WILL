@@ -148,3 +148,13 @@ $W$ is the exact balance of the amplitudes; $E_{\mathrm{loc}}$ is the exact scal
 You can verify the dynamic stability of these "quadratic" relations in the [**Relational Orbital Mechanics (ROM) Simulator**](https://willrg.com/rom/), which demonstrates stable evolution without differential equations, proving that the $W$ invariant is a robust, non-perturbative descriptor of the system.
 
 Do you see how the quadratic form $W = \frac{1}{2}(\kappa^2 - \beta^2)$ emerges as an exact identity of the **Amplitude Projections** on the unit carriers, rather than an expansion of the **Phase Factor** $1/\beta_Y$?
+
+**User:** I withdraw Objection 2 as an internal consistency criticism. The quadratic form is exact within the carrier algebra. The remaining question is empirical, and that's the correct epistemic status for a competing prediction.
+
+**OBJECTION 3: $\tau = \kappa_X \cdot \beta_Y$ is not the Schwarzschild proper time.**
+
+The spacetime factor is defined as the product of phase projections: $\tau^2 = (1-\kappa^2)(1-\beta^2)$. For a circular orbit in Schwarzschild geometry, the proper time satisfies $(d\tau/dt)^2 = 1 - \kappa^2 - \beta^2$, which differs from $\tau^2$ by the cross-term $\kappa^2\beta^2$. The numerical check shows this difference is negligible for Mercury ($10^{-15}$) and S2 ($10^{-9}$), but reaches 11% at ISCO. The document handles this through $\Delta_{state}^2 = Q^2 - \kappa^2\beta^2$ in the precession formula, so the cross-term is not lost — it appears as the "exact non-linear geometric interaction." But $\tau$ is presented throughout as *the* spacetime factor governing observable frequencies, GPS shifts, and operational measurements. If an observer at ISCO measured frequency ratios, would they match $\tau$ or the Schwarzschild expression? This is a testable distinction.
+
+**Severity: Medium.** Currently irrelevant for all verified systems (weak-field), but becomes a sharp falsification target in strong-field regimes if pulsar timing or gravitational wave data reach sufficient precision.
+
+**Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
