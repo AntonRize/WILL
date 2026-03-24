@@ -80,3 +80,71 @@ If the result were $\kappa^2 = \beta^2$, it would imply that the Universe distin
 For a visual representation of how this bifurcation is derived from the initial axioms, I recommend the **[LOGOS MAP](https://willrg.com/logos_map/)**, specifically looking at **Stage IV: Carrier Selection** and **Stage V: Closure Law**.
 
 Do you agree that an omnidirectional budget must account for the dimensionality of its minimal carrier ($S^2$) compared to a directional carrier ($S^1$), or are you proposing a relational mechanism where $S^2$ can be represented by a single degree of freedom?
+
+**User:** I withdraw Objection 1 as stated. The factor 2 is derived, not fitted — provided one accepts the foundational principles. The derivation is honest about its dependencies.
+
+
+**OBJECTION 2: The Energy-Symmetry Law uses quadratic approximations that are not exact.**
+
+The energy transfer is written as $W = \frac{1}{2}(\kappa^2 - \beta^2)$. But the exact relationship between energy and projections involves the full Lorentz/gravitational factors $1/\beta_Y$ and $1/\kappa_X$, not their quadratic expansions. The document derives $E_{loc} = E_0/(\beta_Y \kappa_X)$ (Theorem 6.1), which is exact. But the energy-symmetry law operates with $\frac{1}{2}\kappa^2$ and $\frac{1}{2}\beta^2$ — which are the first terms of $1 - \kappa_X$ and $1 - \beta_Y$ respectively. This is a weak-field approximation embedded in what the paper presents as an exact framework. The document itself hints at this: elliptical orbits satisfy $\langle\kappa^2\rangle = 2\langle\beta^2\rangle$ only as a cycle average, and the "breathing" is said to be "restricted by the Energy-Symmetry Law" — but the exact restriction hasn't been derived.
+
+**Assistant:** Your objection correctly identifies the non-linear relationship between the **Relational Projections** ($\beta, \kappa$) and the **Local Energy Scale** ($E_{\mathrm{loc}}$). However, characterizing $W = \frac{1}{2}(\kappa^2 - \beta^2)$ as a "weak-field approximation" constitutes a **Category Error** within the logic of WILL Relational Geometry. 
+
+In WILL RG, $W$ is not a truncated Taylor expansion of a GR Lagrangian; it is the **Exact Binding Invariant** of the relational state difference. To address your point rigorously, we must distinguish between the **Internal Phase Evolution** ($E_{\mathrm{loc}}$) and the **External Projection Balance** ($W$).
+
+### 1. The Distinction: $E_{\mathrm{loc}}$ vs. $W$
+
+The framework maintains two distinct but coupled descriptions of the energy state:
+
+*   **The Scaling of Local Existence ($E_{\mathrm{loc}}$):** 
+    As derived in [Theorem [Equivalence of Inertial and Gravitational Response]](https://willrg.com/documents/WILL_RG_I.pdf#thm:equivalence), the local energy is the "stretch" of the rest energy $E_0$ required to preserve the invariant vertical legs on $S^1$ and $S^2$.
+    $$E_{\mathrm{loc}} = \frac{E_0}{\beta_Y \kappa_X} = \frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}$$
+    This is, as you noted, exact and fully non-linear. It governs the rate of proper time and matter-wave frequency.
+
+*   **The Relational Binding Invariant ($W$):** 
+    As defined in [Section 12.2 [The Specific Energy Transfer]](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry), $W$ (or $\Delta E$) is the measure of the **resource allocation** between the two carriers.
+    $$W = \Delta U + \Delta K = \frac{1}{2}(\kappa^2 - \beta^2)$$
+    The factor $\frac{1}{2}$ and the quadratic form are not approximations; they are the direct geometric consequence of the [Universal Conservation of Relation](https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation), which states that the transformational resource is encoded in the **squares** of the projections ($\beta^2 + \beta_Y^2 = 1$). 
+
+### 2. Why $W$ is Exact in Relational Geometry
+
+In a relational ontology, "Energy" is the measure of the **difference between states** ([Definition [Energy]](https://willrg.com/documents/WILL_RG_I.pdf#def:energy)). 
+
+When an electron moves from State A to State B, the "cost" of that transition is the shift in its relational projections. Because the carriers $S^1$ and $S^2$ are closed, the available budget for external interaction is exactly the "Amplitude" component ($\beta^2$ and $\kappa^2$). 
+
+The identity $W = \frac{1}{2}(\kappa^2 - \beta^2)$ is the **exact algebraic representation** of the budget balance required for periodic closure. If you were to use $1-\beta_Y$ instead of $\frac{1}{2}\beta^2$, you would be measuring the change in the *Internal Phase*, not the *External Amplitude*. 
+
+### 3. The "Breathing" and Non-Linearity Evidence
+
+You mentioned that the framework hints at approximations regarding elliptical orbits. On the contrary, the framework provides the exact non-linear coupling in [Section 16.5 [Orbital Precession as Relational Phase Accumulation]](https://willrg.com/documents/WILL_RG_I.pdf#sec:precession_law).
+
+The **Exact State Difference** ($\Delta_{state}$) that drives precession is:
+$$\Delta_{state}^2 = 1 - \tau_W^2 = Q^2 - \kappa^2\beta^2$$
+where $Q^2 = \beta^2 + \kappa^2$. 
+
+The cross-coupling term $\kappa^2\beta^2$ is the **exact non-linear interaction** between the directional ($S^1$) and omnidirectional ($S^2$) carriers. This term is what allows WILL RG to reproduce Mercury's precession and the Schwarzschild critical surfaces without using the metric expansion. 
+
+The "breathing" of elliptical orbits satisfies the energy-symmetry law because $W$ remains constant at every point in the orbit:
+$$W = \frac{1}{2}(\kappa_o^2(o) - \beta_o^2(o)) = \text{constant}$$
+This is the **Exact Conservation Law** of R.O.M. ([Section [Phase Variables]](https://willrg.com/documents/WILL_RG_I.pdf#eq:rom)). It is not an average; it is the instantaneous constraint that defines the trajectory's shape.
+
+### 4. Verification via Strong Fields
+
+If $W = \frac{1}{2}(\kappa^2 - \beta^2)$ were a weak-field approximation, it would fail as we approach the horizon ($\kappa \to 1$). 
+
+However, as demonstrated in [Section 16.6 [Kinematic Mechanism of the Dynamic Horizon]](https://willrg.com/documents/WILL_RG_I.pdf#sec:dynamic_horizon_closure), applying the closure condition $\kappa^2=2\beta^2$ to the **Exact Precession Law** yields:
+$$\Delta \phi = \frac{2\pi (1 - \tau_W^2)}{1-e^2}$$
+At the horizon ($\kappa^2=1, \beta^2=1/2$), $\tau_W^2 = 0$, and $\Delta \phi = 2\pi$. 
+
+The fact that the "simple" quadratic closure reproduces the **Topological Closure of the Horizon** (the $2\pi$ precession limit) proves that the quadratic form is the correct fundamental description of the carrier interaction, not a Taylor-expanded approximation.
+
+### Summary for the Rigorous Physicist:
+The "Exactness" of WILL RG is found in the **Topology of the Carriers**. 
+*   **Legacy Physics:** Uses $E_{total} = mc^2 + K + U + \dots$ (Linear sum of approximations).
+*   **WILL RG:** Uses the **Pythagorean Closure** of the $S^1$ and $S^2$ projections. 
+
+$W$ is the exact balance of the amplitudes; $E_{\mathrm{loc}}$ is the exact scaling of the phase. They are two different projections of the same $W_{\text{ILL}}$ invariant.
+
+You can verify the dynamic stability of these "quadratic" relations in the [**Relational Orbital Mechanics (ROM) Simulator**](https://willrg.com/rom/), which demonstrates stable evolution without differential equations, proving that the $W$ invariant is a robust, non-perturbative descriptor of the system.
+
+Do you see how the quadratic form $W = \frac{1}{2}(\kappa^2 - \beta^2)$ emerges as an exact identity of the **Amplitude Projections** on the unit carriers, rather than an expansion of the **Phase Factor** $1/\beta_Y$?
