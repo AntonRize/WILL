@@ -860,6 +860,7 @@ This hints that the dimensionality of observable space is not arbitrary but is a
 Unlike in standard cosmology, where the equation of state $w=-1$ is assumed, in RG it is derived from the tension of the geometric field.
 
 \begin{theorem}[Vacuum Pressure]
+\hypertarget{thm:w=-1}{}\label{thm:w=-1}
 The \href{https://willrg.com/documents/WILL_RG_I.pdf#subsec:pressure}{intrinsic pressure of the vacuum geometry (derived in WILL RG I)} is negative and proportional to its density:
 \begin{equation}
 P_{\Lambda}(r) = -\,\rho_{\Lambda}(r)\,c^{2}.
@@ -946,7 +947,7 @@ From the \textit{Relational Energy Weights}, the effective vacuum density is con
 Note that the factor $1/12\pi$ can be viewed as the spherical capacity ($1/4\pi$) distributed across three spatial dimensions ($1/3$).
 
 \paragraph{2. The Dynamic State ($Q^2$).}
-The local intensity \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:norm_id}{} is defined by the square of the relational shift vector $Q$. For a gravitationally bound, energy-closed (virial-like equilibrium) system, the closure condition $\kappa^2 \approx 2\beta^2$ implies a dynamic multiplier of 3:
+The \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:norm_id}{ local intensity} is defined by the square of the relational shift vector $Q$. For a gravitationally bound, energy-closed (virial-like equilibrium) system, the closure condition $\kappa^2 \approx 2\beta^2$ implies a dynamic multiplier of 3:
 \begin{equation}
 Q^2 = \kappa^2 + \beta^2 \approx 2\beta^2 + \beta^2 = 3\beta^2 = 3\frac{V^2}{c^2}.
 \end{equation}
@@ -1026,9 +1027,9 @@ At the Global Horizon, the closure condition $\kappa^2 = 2\beta^2$ partitions th
     \rho_{max,0} = \underbrace{\Omega_{kin}\,\rho_{max,0}}_{\rho_{kin,0} = \frac{1}{3}\rho_{max,0}} + \underbrace{\Omega_{pot}\,\rho_{max,0}}_{\rho_{pot,0} = \frac{2}{3}\rho_{max,0}}.
 \end{equation}
 
-\paragraph{3.  \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:pressure}{Equations of State} (from Part~I).}
+\paragraph{3.Equations of State}   \href{https://willrg.com/documents/WILL_RG_II.pdf#thm:w=-1}{Equations of State}.
 \begin{itemize}
-    \item \textbf{Kinetic sector} (free particles, no curvature gradient): $d\kappa^2/dr = 0 arrow P_{kin} = 0$. From energy conservation: $\rho_{kin} \propto a^{-3} = (1+z)^3$.
+    \item \textbf{Kinetic sector} (free particles, no curvature gradient): $d\kappa^2/dr = 0  \Longrightarrow  P_{kin} = 0$. From energy conservation: $\rho_{kin} \propto a^{-3} = (1+z)^3$.
     \item \textbf{Potential sector} (vacuum curvature gradient): $P_{pot} = -\rho_{pot}\,c^2$ (derived in Part~I). From energy conservation: $\rho_{pot} = \text{const}$.
 \end{itemize}
 The dilution law $\rho_{kin} \propto (1+z)^3$ follows from three ingredients internal to RG: 
@@ -1693,7 +1694,7 @@ WILL RG ($1/3\pi$) & \textbf{7.00} & \textbf{+0.53}& 0.66\\
     \hypertarget{fig:RAR_Gas}{}\label{fig:RAR_Gas}
 \end{figure}
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
-\href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb}{Galactic Rotation Protocol Independent SPARC.ipynb }
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb}{Galactic Rotation Protocol Independent SPARC.ipynb }
 \end{tcolorbox}
 
 %___________________________________________________________________________________________________________
