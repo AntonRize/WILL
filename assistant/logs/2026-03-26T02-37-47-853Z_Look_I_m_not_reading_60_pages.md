@@ -29,3 +29,9 @@ user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 Keep it short. If it fails any of these, just say “no.”
 
 **Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
+
+**User:** Look, I’m not reading 60 pages unless it passes basic sanity checks. Just tell me:
+
+1. Does it give a Lagrangian or explicit math framework? If yes, show the main equation.
+
+**Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
