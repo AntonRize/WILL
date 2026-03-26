@@ -35,3 +35,13 @@ user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 **User:** Cite specific equation where the text claims to reproduce established physical limits. If the text asserts agreement without showing the derivation or limit, categorize this as an unsupported claim.
 
 **Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
+
+**User:** Does this model give a Lagrangian or explicit math framework?
+
+**Assistant:** {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
