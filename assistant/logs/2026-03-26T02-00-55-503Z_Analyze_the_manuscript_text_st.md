@@ -27,3 +27,7 @@ user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 4. **Domain Boundaries:** Locate the text defining the model's range of validity. If the manuscript claims universal applicability without specifying energy scales or conditions where the model fails, flag this as scientifically unsound.
 
 **Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
+
+**User:** List the exact sentences defining the fundamental postulates. If any core term is used prior to definition or relies on implicit understanding, flag this as a logical gap.
+
+**Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
