@@ -31,3 +31,7 @@ user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 **User:** List the exact sentences defining the fundamental postulates. If any core term is used prior to definition or relies on implicit understanding, flag this as a logical gap.
 
 **Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
+
+**User:** Cite specific equation where the text claims to reproduce established physical limits. If the text asserts agreement without showing the derivation or limit, categorize this as an unsupported claim.
+
+**Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...
