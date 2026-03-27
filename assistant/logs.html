@@ -281,11 +281,13 @@ permalink: /assistant/logs/
     }
 
     function formatDate(d) {
+        d = ensureDate(d);
         var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
     }
 
     function formatTime(d) {
+        d = ensureDate(d);
         var h = d.getUTCHours();
         var m = d.getUTCMinutes();
         var ampm = h >= 12 ? 'PM' : 'AM';
@@ -294,6 +296,7 @@ permalink: /assistant/logs/
     }
 
     function getDateGroup(d) {
+        d = ensureDate(d);
         var now = new Date();
         var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         var logDay = new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -311,6 +314,16 @@ permalink: /assistant/logs/
         return null;
     }
 
+    // --- Ensure date is a Date object (cache deserializes Dates as strings) ---
+    function ensureDate(d) {
+        if (d instanceof Date && !isNaN(d)) return d;
+        if (typeof d === 'string' || typeof d === 'number') {
+            var parsed = new Date(d);
+            return isNaN(parsed) ? new Date(0) : parsed;
+        }
+        return new Date(0);
+    }
+
     // --- Cache ---
     function getCached() {
         try {
@@ -318,7 +331,10 @@ permalink: /assistant/logs/
             if (!cached) return null;
             var data = JSON.parse(cached);
             if (Date.now() - data.ts > CACHE_TTL) return null;
-            return data.logs;
+            // Rehydrate date strings back into Date objects
+            return data.logs.map(function(log) {
+                return { date: ensureDate(log.date), title: log.title, slug: log.slug };
+            });
         } catch(e) { return null; }
     }
 
@@ -368,7 +384,8 @@ permalink: /assistant/logs/
             metaDiv.appendChild(dateSpan);
 
             // Show time if we have it
-            if (log.date.getUTCHours() !== 12 || log.date.getUTCMinutes() !== 0) {
+            var d = ensureDate(log.date);
+            if (d.getUTCHours() !== 12 || d.getUTCMinutes() !== 0) {
                 var timeSpan = document.createElement('span');
                 timeSpan.textContent = formatTime(log.date);
                 metaDiv.appendChild(timeSpan);
@@ -455,7 +472,7 @@ permalink: /assistant/logs/
         {% for log in sorted_logs %}
             {
                 title: {{ log.title | jsonify }},
-                date: new Date("{{ log.date }}"),
+                date: ensureDate("{{ log.date }}"),
                 slug: {{ log.url | remove: "/assistant/logs/" | remove: "/" | jsonify }}
             },
         {% endfor %}
