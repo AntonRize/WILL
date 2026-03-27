@@ -309,7 +309,17 @@ permalink: /assistant/logs/
         return formatDate(d).replace(/\d+,/, '').trim(); // Just "Mar 2026"
     }
 
-    function detectDevice(title) {
+        // --- Ensure date is a Date object (cache deserializes Dates as strings) ---
+    function ensureDate(d) {
+        if (d instanceof Date && !isNaN(d)) return d;
+        if (typeof d === 'string' || typeof d === 'number') {
+            var parsed = new Date(d);
+            return isNaN(parsed) ? new Date(0) : parsed;
+        }
+        return new Date(0);
+    }
+
+function detectDevice(title) {
         // We don't have user_agent in the filename, so return null
         return null;
     }
@@ -387,7 +397,7 @@ permalink: /assistant/logs/
             var d = ensureDate(log.date);
             if (d.getUTCHours() !== 12 || d.getUTCMinutes() !== 0) {
                 var timeSpan = document.createElement('span');
-                timeSpan.textContent = formatTime(log.date);
+                timeSpan.textContent = formatTime(d);
                 metaDiv.appendChild(timeSpan);
             }
 
