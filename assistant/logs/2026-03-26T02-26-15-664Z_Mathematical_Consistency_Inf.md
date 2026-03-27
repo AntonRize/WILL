@@ -4,7 +4,7 @@ layout: log
 
 title: "Rigorous physicist"
 
-date: 2026-03-26T02-26-15-664Z_Mathematical_Consistency_Inf
+date: 2026-03-26T02:26:15.664Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
 
