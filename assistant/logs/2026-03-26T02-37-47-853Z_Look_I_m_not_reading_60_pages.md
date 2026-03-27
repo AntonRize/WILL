@@ -4,7 +4,7 @@ layout: log
 
 title: "Rigorous physicist"
 
-date: 2026-03-26T02-37-47-853Z_Look_I_m_not_reading_60_pages
+date: 2026-03-26T02:37:47.853Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
 
