@@ -4,7 +4,7 @@ layout: log
 
 title: "Rigorous physicist"
 
-date: 2026-03-26T03-05-44-173Z_What_is_this_research_about_
+date: 2026-03-26T03:05:44.173Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
 
