@@ -2296,6 +2296,7 @@ R_s = \frac{a}{2}(3 - \sqrt{1 + 8\tau^2(O_o)}).
 }
 \end{equation}
 \end{theorem}
+$O_{o} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos(1-\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}})=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (orbital balance point where $\kappa_o^2=2\beta_o^2$ is true) 
 
 \begin{proof}
 \textbf{Step 1: Spacetime Factor Expansion.}
@@ -2347,7 +2348,7 @@ Given the orbital geometry ($a, r_o$) and the single light observable $\tau_{Wo}
 \hypertarget{eq:Rs_arbitrary}{}\label{eq:Rs_arbitrary}
 \begin{equation}
 \boxed{
-R_s = \frac{r_o}{2(2a-r_o)}(4a - r_o - \sqrt{(4a-r_o)^2 - 8a(2a-r_o)(1-\tau_{Wo}^2)}).}
+R_s = \frac{r_o}{2(2a-r_o)}(4a - r_o - \sqrt{(4a-r_o)^2 - 8a(2a-r_o)(1-\tau_{o}^2)}).}
 \end{equation}
 \end{theorem}
 
@@ -2364,17 +2365,17 @@ Substituting $\kappa^2 = R_s/r$:
 \end{equation}
 
 \textbf{Step 2: Constraint via Observables.}
-We substitute the expressions for $\kappa^2$ and $\beta^2$ into the exact observable constraint $\tau_{Wo}^2 = (1-\kappa^2)(1-\beta^2)$:
+We substitute the expressions for $\kappa^2$ and $\beta^2$ into the exact observable constraint $\tau_{o}^2 = (1-\kappa^2)(1-\beta^2)$:
 \begin{equation}
-\tau_{Wo}^2 = (1 - \frac{R_s}{r})(1 - R_s [ \frac{1}{r} - \frac{1}{2a} ]).
+\tau_{o}^2 = (1 - \frac{R_s}{r})(1 - R_s [ \frac{1}{r} - \frac{1}{2a} ]).
 \end{equation}
 Let $A = \frac{1}{r}$ and $B = \frac{1}{r} - \frac{1}{2a}$. The equation becomes:
 \begin{equation}
-\tau_{Wo}^2 = (1 - A R_s)(1 - B R_s) = 1 - (A+B)R_s + AB R_s^2.
+\tau_{o}^2 = (1 - A R_s)(1 - B R_s) = 1 - (A+B)R_s + AB R_s^2.
 \end{equation}
 Rearranging into quadratic form:
 \begin{equation}
-(AB) R_s^2 - (A+B) R_s + (1-\tau_{Wo}^2) = 0.
+(AB) R_s^2 - (A+B) R_s + (1-\tau_{o}^2) = 0.
 \end{equation}
 
 \textbf{Step 3: Coefficient Expansion.}
@@ -2385,17 +2386,17 @@ A+B &= \frac{1}{r} + \frac{2a-r}{2ar} = \frac{2a + 2a - r}{2ar} = \frac{4a-r}{2a
 \end{align}
 Multiplying the entire quadratic equation by $2ar^2$ to clear denominators:
 \begin{equation}
-(2a-r) R_s^2 - r(4a-r) R_s + 2ar^2(1-\tau_{Wo}^2) = 0.
+(2a-r) R_s^2 - r(4a-r) R_s + 2ar^2(1-\tau_{o}^2) = 0.
 \end{equation}
 
 \textbf{Step 4: Solution.}
 Solving for $R_s$:
 \begin{equation}
-R_s = \frac{r(4a-r) \pm \sqrt{r^2(4a-r)^2 - 4(2a-r)(2ar^2)(1-\tau_{Wo}^2)}}{2(2a-r)}.
+R_s = \frac{r(4a-r) \pm \sqrt{r^2(4a-r)^2 - 4(2a-r)(2ar^2)(1-\tau_{o}^2)}}{2(2a-r)}.
 \end{equation}
 Factoring out $r^2$ from the radical term $\sqrt{r^2 (...)} = r\sqrt{(...)}$:
 \begin{equation}
-R_s = \frac{r}{2(2a-r)} ( (4a-r) \pm \sqrt{(4a-r)^2 - 8a(2a-r)(1-\tau_{Wo}^2)} ).
+R_s = \frac{r}{2(2a-r)} ( (4a-r) \pm \sqrt{(4a-r)^2 - 8a(2a-r)(1-\tau_{o}^2)} ).
 \end{equation}
 For stable orbits, we select the negative root, yielding the exact algebraic link between the observed light phase and the system's geometric scale.
 \end{proof}
@@ -2486,25 +2487,26 @@ The ratio of the Sun's radius to the planet's perihelion distance, derived entir
 \]
 
 \textbf{2. Potential Projection (at perihelion)} \\
-Translating the spectral shift at the Sun's surface ($z_{sun}$) to the potential projection at Mercury's perihelion ($\kappa_{p}^{2}$) using the derived scale factor ($R_{ratio}$):
+Translating the spectral shift at the Sun's surface ($z_{sun}$) to the potential projection 
+(\ref{sec:spectroscopic_shift}) at Mercury's perihelion ($\kappa_{p}^{2}$) using the derived scale factor ($R_{ratio}$):
 \[
     \kappa_{p}^{2} = \left(1 - \frac{1}{(1+z_{sun})^{2}}\right) \cdot R_{ratio} \approx 6.4219 \times 10^{-8}
 \]
 
 \textbf{3. Kinematic Projection (at perihelion)} \\
-Deriving the orbital kinematics strictly from the potential and eccentricity, requiring no Doppler or radar data:
+Deriving the orbital kinematics strictly from the potential and eccentricity (\ref{sec:rel_ecc}), requiring no Doppler or radar data:
 \[
     \beta_p^2 = \frac{\kappa_p^2}{2}(1+e_{obs}) \approx 3.8712 \times 10^{-8}
 \]
 
 \textbf{4. Global Orbital Invariants} \\
-Deriving the system's global projections (at the semi-major axis balance point) via the invariant binding energy $W = \frac{1}{2}(\kappa_p^2 - \beta_p^2)$:
+Deriving the system's global projections (at the semi-major axis balance point) via the invariant binding energy $W = \frac{1}{2}(\kappa_p^2 - \beta_p^2)$ (\ref{sec:energy-symmetry}):
 \[
     \beta^2 = 2W \approx 2.5508 \times 10^{-8} \quad \text{and} \quad \kappa^2 = 4W \approx 5.1016 \times 10^{-8}
 \]
 
 \textbf{5. Exact Orbital Precession} \\
-The secular phase shift emerges from accumulation of the relational state divergence ($\tau_{Y}^2 = 1 - (1-\kappa^2)(1-\beta^2)$) over the full cycle:
+The secular phase shift emerges (\ref{sec:precession_law}) from accumulation of the relational state divergence ($\tau_{Y}^2 = 1 - (1-\kappa^2)(1-\beta^2)$) over the full cycle:
 \[
     \Delta\varphi = \frac{2\pi \cdot \tau_{Y}^2}{1-e_{obs}^2} \approx 5.0203 \times 10^{-7} \text{ rad/orbit}
 \]
