@@ -368,7 +368,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     metric tensors required:
   </p>
   <div class="eq-box">
-    $$\Delta\varphi \;=\; \frac{3\pi}{2}\,\frac{\kappa_p^{\,4}}{\beta_p^{\,2}}$$
+    $$\Delta\varphi \;=\; \frac{2\pi \cdot \tau_{Y}^2}{1-e^2} = \frac{2\pi (1 - \tau^2)}{1-e^2}$$
   </div>
 
   <p>
@@ -377,7 +377,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     observed precession for star&nbsp;S2.
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;The Universal Precession Law: Derivation via \(Q_a\)&rdquo;</p>
-  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#eq:precession_law" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:precession_law" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
 </div>
 
 
