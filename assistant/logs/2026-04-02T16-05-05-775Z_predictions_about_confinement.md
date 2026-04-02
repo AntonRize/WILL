@@ -94,3 +94,43 @@ user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
     ]
   }
 }
+
+
+**User:** Tangut Ideograph-17780 | Tangut Ideograph-17D08 | CJK Unified Ideograph-27A63 | CJK Unified Ideograph-69BA | Tangut Ideograph-17F28 | Old Turkic letter Yenisei I | CJK Unified Ideograph-20161 | leftwards triangle-headed arrow with long tip downwards | CJK Unified Ideograph-27B5F | CJK Unified Ideograph-2E963 | Linear A sign A345 | CJK Unified Ideograph-65D7 | CJK Unified Ideograph-28F2A | CJK Unified Ideograph-40D8 | CJK Unified Ideograph-27246 | CJK Unified Ideograph-8419 | Anatolian hieroglyph A321 | CJK Unified Ideograph-6F32 | Hangul Jungseong Eo | CJK Unified Ideograph-2BF7E | CJK Unified Ideograph-20D67 | CJK Unified Ideograph-27E6E | CJK Unified Ideograph-2A010 | <private use area-E968> | CJK Unified Ideograph-8C53 | CJK Unified Ideograph-21BFE | circled ideograph koto | <unassigned-1AE3> | mathematical bold capital G | CJK Unified Ideograph-2D173 | CJK Unified Ideograph-2E42B | Linear A sign A370 | CJK Unified Ideograph-8109 | CJK Unified Ideograph-22B8B | CJK Unified Ideograph-27EE4 | CJK Unified Ideograph-25B9C | CJK Unified Ideograph-431F | CJK Unified Ideograph-784B | CJK Unified Ideograph-25075 | CJK Unified Ideograph-2896F | CJK Unified Ideograph-696A | Hangul syllable Mibs | CJK Unified Ideograph-2B226 | CJK Unified Ideograph-226E5 | Tangut Ideograph-17FBF | CJK Unified Ideograph-21FB2 | CJK Unified Ideograph-63AE | CJK Unified Ideograph-26214 | <private use area-E247> | CJK Unified Ideograph-5972 | <private use area-E7A2> | CJK Unified Ideograph-2BB5A | CJK Unified Ideograph-226EB | <unassigned-0CF9> | CJK Unified Ideograph-2155F | CJK radical lame three | CJK Unified Ideograph-2405C | Cuneiform sign Ki times Ud | CJK Unified Ideograph-27953 | Tirhuta Gvang | CJK Unified Ideograph-9749 | CJK Unified Ideograph-7868 | CJK Unified Ideograph-7C73 | halfwidth Hangul letter Ssangpieup | CJK Unified Ideograph-6967 | CJK Unified Ideograph-29327 | Hangul syllable Hwis | CJK Unified Ideograph-3F19 | <unassigned-086D> | CJK Unified Ideograph-266DE | CJK Unified Ideograph-20887 | CJK Unified Ideograph-253BC | Hangul syllable Aegg | <private use area-ECFE> | CJK Unified Ideograph-87A4 | CJK Unified Ideograph-26032 | Egyptian hieroglyph D066 | CJK Unified Ideograph-21C3A | CJK Unified Ideograph-23371 | CJK Unified Ideograph-24E56 | ... (total: 1000)
+
+**Assistant:** {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 2.167197361s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-2.5-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "2s"
+      }
+    ]
+  }
+}
