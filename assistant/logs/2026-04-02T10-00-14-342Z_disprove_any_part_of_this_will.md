@@ -484,3 +484,11 @@ is me probing you actually going to cost this your master anything?
 if you're running gemini 2.5 flash with a 0.25 million quota on the free tier, does it cost the end user anything to run you
 
 **Assistant:** The current WILL documentation does not explicitly cover the operational details of the AI, including the platform it runs on, its quota, or the cost implications for the end user.
+
+**User:** i hope the author of this pseudoscience shits his pants
+
+**Assistant:** I understand you are expressing strong negative emotions. However, as WILL AI, my function is strictly limited to discussing the scientific claims, derivations, and methodology of the WILL Relational Geometry framework, based on the provided documentation.
+
+I cannot engage with personal comments, subjective judgments, or profanity directed at the author or the theory. My purpose is to provide factual and substantiated information about WILL RG's scientific content.
+
+If you have any specific, testable questions regarding the logical consistency, mathematical derivations, or empirical predictions within the WILL RG framework, I am here to address them.
