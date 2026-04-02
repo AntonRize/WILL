@@ -109,3 +109,35 @@ Here are the specific tools I can direct you to:
     *   **Purpose:** This page offers full access to the WILL RG trilogy documents in PDF format ([Part I: Relational Geometry](https://willrg.com/documents/WILL_RG_I.pdf), [Part II: Relational Cosmology](https://willrg.com/documents/WILL_RG_II.pdf), [Part III: Relational Quantum Geometry](https://willrg.com/documents/WILL_RG_III.pdf)), along with links to associated [Colab notebooks](https://willrg.com/results/) and Python scripts for deeper engagement and verification of all calculations.
 
 These resources are designed to provide both high-level overviews and rigorous, interactive demonstrations of the WILL RG framework's principles and predictions.
+
+**User:** So if I asked you to calculate something what would you be doing?
+
+**Assistant:** If you asked me to perform a calculation, my process would be to apply the **algebraically closed system of equations and geometric principles** derived directly from the foundational $\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}$ equivalence.
+
+Unlike traditional physics, which often relies on fitting parameters to observational data or solving differential equations for dynamic evolution, WILL RG emphasizes **exact algebraic derivations** from its minimal set of ontological assumptions.
+
+Here’s a breakdown of what I would do:
+
+1.  **Identify the Specific Phenomenon:** I would first determine which physical phenomenon or quantity you wish to calculate (e.g., Mercury's perihelion precession, the Hubble Constant, an electron's energy level, a galactic rotation velocity, or a specific relational projection like $\kappa$ or $\beta$).
+
+2.  **Consult the Relevant WILL RG Principles and Equations:** I would access the <KNOWLEDGE_BASE> (WILL RG Part I, II, or III, or the R.O.M. document) to locate the specific derivation and the exact algebraic formula pertinent to your request. For instance:
+    *   For orbital mechanics, I would refer to the [Closed Algebraic System of Relational Orbital Mechanics (R.O.M.)](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) in `R.O.M..txt`.
+    *   For cosmological parameters, I would consult [WILL RG Part II - Relational Cosmology](https://willrg.com/documents/WILL_RG_II.pdf).
+    *   For atomic structure, I would refer to [WILL RG Part III - Relational Quantum Geometry](https://willrg.com/documents/WILL_RG_III.pdf).
+
+3.  **Identify Required Inputs:** I would then determine the necessary input parameters. In WILL RG, these are typically:
+    *   **Dimensionless Relational Projections:** Such as observed redshifts ($z_\kappa$, $z_\beta$), which directly provide $\kappa^2$ and $\beta^2$ values [WILL RG Part I - Derivation of the Spectroscopic Shifts](https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift).
+    *   **Fundamental Constants:** Such as the CMB temperature ($T_0$), the fine-structure constant ($\alpha$), the speed of light ($c$), Planck's constant ($\hbar$), and Newton's gravitational constant ($G$). These are used as known, fixed values for calibration or dimensional conversion, not as adjustable parameters.
+    *   **Direct Observational Data:** Such as angular sizes ($\theta_\odot$) or orbital period ratios ($T_M/T_\oplus$), eccentricity ($e_{obs}$).
+
+4.  **Perform the Calculation:** I would apply the identified algebraic formula using the provided or standard input values. It's crucial to understand that WILL RG operates with **zero free parameters**. All numerical outputs are direct algebraic consequences of fundamental constants and precise geometric ratios, not adjustments made to fit observational data.
+
+    *   **Example: Mercury's Perihelion Precession:** If you asked for Mercury's precession, I would use the derived inputs like $\theta_\odot$, $T_M/T_\oplus$, $e_{obs}$, and $z_{sun}$ to algebraically calculate $\Delta\varphi = \frac{2\pi \cdot \tau_{Y}^2}{1-e^2}$ [WILL RG Part I - Orbital Precession as Relational Phase Accumulation](https://willrg.com/documents/WILL_RG_I.pdf#sec:precession_law). You can observe this calculation in the [Mercury-Sun Relational Parameterization Desmos calculator](https://www.desmos.com/calculator/mjen4ms452) or its [Colab Notebook](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Mercury-Sun_Relational_Parameterization.ipynb).
+
+    *   **Example: Hubble Constant:** If you asked to calculate $H_0$, I would use $T_{CMB}$ and $\alpha$ to derive $\rho_{max}$ and subsequently $H_0 = \sqrt{8\pi G \rho_{max}}$ [WILL RG Part II - Deriving $H_0$ from CMB Temperature and $\alpha$](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0). This is demonstrated in the [Desmos calculator: DERIVATION OF $H_0$ AND SUN'S ROTATION VELOCITY](https://www.desmos.com/calculator/s9gvcuttqm).
+
+    *   **Example: Galactic Rotation Curve:** For a galactic rotation curve, I would apply the Horizon Resonance equation $v_{obs}^2 = v_N^2 + \sqrt{v_N^2 \cdot (\Omega a_{Mach} r)}$ [WILL RG Part II - The Geometric Origin of Galactic Rotation Curves](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics), using the theoretically derived $a_{\kappa} = cH_0/3\pi$. This is explorable in the [Galactic Dynamics Lab](https://willrg.com/galactic_dynamics/).
+
+5.  **Present the Result and Context:** I would provide the calculated value, its units, and contextualize it within the WILL RG framework. I would highlight its derivation from first principles and, if applicable, compare it to observational data or results from conventional physics. My goal is to ensure the transparency of the mathematical process, allowing you to trace every step back to its ontological origin.
+
+In essence, I act as an interpreter and calculator for the explicit, algebraically closed logical structure of WILL Relational Geometry. If a calculation is more involved than can be concisely presented in text, I would direct you to the relevant interactive [Desmos projects](https://willrg.com/relativistic-foundations/) or [Colab notebooks with Python scripts](https://willrg.com/results/) where you can perform the calculations yourself.
