@@ -102,7 +102,7 @@ This paper, the first in the \textbf{WILL Trilogy:}
 \newline \href{https://willrg.com/documents/WILL_RG_I.pdf}{Part I: Relational Geometry};
 \newline \href{https://willrg.com/documents/WILL_RG_II.pdf}{Part II: Relational Cosmology};  
 \newline \href{https://willrg.com/documents/WILL_RG_III.pdf}{Part III: Relational Quantum Geometry}. 
-\newline Applying extreme methodological constraints and establishes \textit{Relational Geometry (RG)}: a foundational framework where spacetime is an emergent property of relational energy transformations. This shift establishes an ontological transition from \textit{descriptive} to \textit{generative} physics: instead of introducing laws to model observations, it derives them as necessary consequences of Relational Geometry itself - turning physics from a catalogue of phenomena into the logical unfolding of inevitable geometrical constrains on closed relational carriers $S^1$ (directional) and $S^2$ (omnidirectional).
+\newline Applying extreme methodological constraints and establishes \textit{Relational Geometry (RG)}: a foundational framework where spacetime is an emergent property of relational energy transformations. This shift establishes an ontological transition from \textit{descriptive} to \textit{generative} physics: instead of introducing laws to model observations, it derives them as necessary consequences of Relational Geometry itself - turning physics from a catalogue of phenomena into the logical unfolding of inevitable geometrical constrains. 
 
  Without metrics, tensors, or free parameters, it reproduces Lorentz factors, the energy-momentum relation, Schwarzschild and Einstein field equations via the dimensionless projections $\beta$ (kinematic) and $\kappa$ (potential). All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as simple fractions of $(\kappa,\beta)$ from the single closure law $\kappa^2=2\beta^2$ (topologically derived, virial-like theorem (\ref{thm:Closure}). 
 
@@ -114,7 +114,7 @@ This paper, the first in the \textbf{WILL Trilogy:}
     \item \textbf{Derivation of the equivalence principle} (from the common channel of rest-invariant state (\ref{cor:massinvariance}) scaling\ref{thm:equivalence}), 
     \item \textbf{Removal of local energy density ambiguity} $\rho=\frac{\kappa^{2}c^{2}}{8\pi G r^{2}}$ (\ref{lem:norm_id}), 
     \item \textbf{Revelation of a clear relational symmetry between kinematic and potential} projections (\ref{projections_symmetry}),
-    \item \textbf{Developed closed system of equations for Relational Orbital Mechanics (ROM) }without G, mass and differential formalism (\ref{sec:rom}).
+    \item \textbf{Developed Relational Orbital Mechanics (R.O.M.)}  closed algebraic system of equations without G, mass and differential formalism (\ref{sec:rom}).
     \item \textbf{Establishment of a computationally simpler and ontologically consistent foundation} for subsequent papers on cosmology (\href{https://willrg.com/documents/WILL_RG_II.pdf}{Part~II}) and quantum mechanics (\href{https://willrg.com/documents/WILL_RG_II.pdf}{Part~III}).
 \end{itemize}
 \end{abstract}
@@ -803,6 +803,43 @@ $\beta_Y = \sqrt{1-(v/c)^2}=\sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) = \sin(
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
 \textbf{The energy--momentum relation $E^{2} = (pc)^{2} + (mc^{2})^{2}$ is geometric identity of $S^1$.}
 \end{tcolorbox}
+
+
+\subsection{Kinematic Equivalence: The Minkowski Metric as an $S^1$ Trigonometric Projection}
+\label{sec:kinematic_mapping}
+
+The Minkowski spacetime interval, posited by legacy Special Relativity as a physical metric of a 4D background manifold, mathematically collapses into the invariant phase budget of the kinematic relational carrier ($S^1$).
+
+The standard interval formulation relies on absolute spatial and temporal coordinates:
+\begin{equation}
+c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2
+\end{equation}
+
+Restricting relative translation to a single spatial degree of freedom ($dx$) eliminates orthogonal components while maintaining exact algebraic equality:
+\begin{equation}
+c^2 d\tau^2 = c^2 dt^2 - dx^2
+\end{equation}
+
+Dividing the relation by the coordinate phase component ($c^2 dt^2$) extracts the dimensionless relational ratios:
+\begin{equation}
+\left(\frac{d\tau}{dt}\right)^2 = 1 - \left(\frac{1}{c} \frac{dx}{dt}\right)^2
+\end{equation}
+
+Substituting the standard kinematic definition of velocity ($v = dx/dt$) and rearranging the terms produces the constraint of the WILL Relational Geometry:
+\begin{equation}
+\left(\frac{v}{c}\right)^2 + \left(\frac{d\tau}{dt}\right)^2= \beta^2 + \beta_Y^2 = 1
+\end{equation}
+
+This derivation mandates the explicit legacy translation mapping:
+\begin{itemize}
+    \item \textbf{Kinematic Projection ($\beta$):} $\beta \equiv  \cos(\theta_1)= \frac{v}{c}$
+    \item \textbf{Internal Phase Projection ($\beta_Y$):} $\beta_Y \equiv  \sin (\theta_1)=\sqrt{1-\beta^2}=\frac{d\tau}{dt} = \frac{1}{\gamma}$
+\end{itemize}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence: Elimination of the Manifold]
+The Lorentz factor ($\gamma$) is mathematically identical to the reciprocal of the internal phase projection $\gamma = \frac{1}{\beta_Y} = \frac{1}{\sin\theta_1}$. Kinematic time dilation ($\beta_Y < 1$) is not a physical deformation of a spatial fabric, but a strict geometric rotation on the $S^1$ unit circle. The constraint $\beta^2 + \beta_Y^2 = 1$ fully replicates the invariant scalar properties of Minkowski space without requiring a background spatial coordinate system.
+\end{tcolorbox}
+
 
 \section{Potential Energy Projection on $S^2$}
 \hypertarget{sec:potential}{}\label{sec:potential}
@@ -2222,6 +2259,26 @@ For a perfectly circular orbit ($e = 0$) at this causal limit, the precession ev
 \end{tcolorbox}
 
 
+\subsection*{Optical Phase Projection (Angular Radius)}
+\hypertarget{eq:optical_phase}{}\label{eq:optical_phase}
+
+Physical radius of the central body is replaced by its limiting relational phase boundary, $\kappa_{R}^2$, defined by the surface gravitational redshift:
+\[
+\kappa_{R}^2 = 1 - \frac{1}{(1+z_{\kappa R})^2}
+\]
+The spatial boundaries for the central source surface ($r_{surf}$) and the observer's orbital semi-major axis ($a$) are projections of the system scale $R_s$:
+\[
+r_{surf} = \frac{R_s}{\kappa_{R}^2}, \quad a = \frac{R_s}{\kappa^2}
+\]
+The exact geometric relationship for the apparent angular radius $\theta$ of the central body observed from the orbit nullifies the scale parameter $R_s$, resulting in a pure ratio of dimensionless projection states:
+\[
+\boxed{\sin(\theta) = \frac{\kappa^2}{\kappa_{R}^2}}
+\]
+This algebraically closes the system, allowing the derivation of the system scale $R_s$ exclusively from local observables ($T$, $\theta$, $z_{sun}$) without Newtonian mass approximations:
+\[
+R_s = \frac{T c}{\pi} \left( \kappa_{R}^2 \frac{\sin(\theta)}{2} \right)^{\frac{3}{2}}
+\]
+
 \subsection{Algebraic Determination of Absolute System Scale}
 
 We now derive algebraic formulas for the system scale $R_s$ using three distinct observational methods. These derivations rely strictly on the \textbf{Conservation of the Energy Invariant $W$}, replacing the need for Newtonian force laws.
@@ -2921,14 +2978,14 @@ An affine-invariant ensemble sampler (\textit{emcee}) was utilized with 50 walke
 
 \subsubsection{Ablation Study Results}
 
-Table \ref{tab:mcmc_results}  demonstrates that the classical (ablated) RV model is fundamentally under-determined with respect to the true physical states relations, whereas the Full R.O.M successfully encompasses the independently verified GRAVITY Collaboration parameters within its 95\% confidence interval (CI).
+Table \ref{tab:mcmc_results}  demonstrates that the classical (ablated) RV model is fundamentally under-determined with respect to the true physical states relations, whereas the Full R.O.M. successfully encompasses the independently verified GRAVITY Collaboration parameters within its 95\% confidence interval (CI).
 \begin{table}[H]
 \centering
 \footnotesize
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|l|c|c|c|c|}
 \hline
-\textbf{Parameter} & \textbf{Full R.O.M.} & \textbf{Ablated} & \textbf{GRAVITY} & \textbf{In 95\%} \\
+\textbf{Parameter} & \textbf{Full R.O.M.} & \textbf{Ablated} & \textbf{GRAVITY} & \textbf{In 95\%} \\\hline
  & \textbf{(Median $\pm 1\sigma$)} & \textbf{(Median)} & \textbf{Ref.} & \textbf{CI?} \\
 \hline
 $\beta$ (Kinematic) & $0.00597^{+0.00108}_{-0.00078}$ & $0.00477$ & $0.00645$ & \textbf{YES} \\
@@ -3470,6 +3527,7 @@ In vacuum, the generator is zero, but the field persists as the algebraic struct
 
 \section{No Singularities, No Hidden Regions}
 \hypertarget{sec:no_singularities}{}\label{sec:no_singularities}
+
 This framework introduces no interior singularities, no coordinate patches hidden behind horizons, and no ambiguous initial conditions. The geometric field equation:
 
 \[
@@ -3663,7 +3721,7 @@ the Cosmos does not possess "will" - yet through WILL, it manifests All that Is.
 }
 \]
 \end{tcolorbox}
- 
+
 
 \section{Ontological Shift: From Descriptive to Generative Physics}
 \hypertarget{Generative Physics}{}\label{Generative Physics}
