@@ -531,3 +531,111 @@ If you have any specific, testable questions regarding the logical consistency, 
     ]
   }
 }
+
+
+**User:** clean this shit up
+
+Chart 1: Trader Houses (4 Traders each)
+House	Slot 1	Slot 2	Slot 3	Slot 4
+1	Blastoise	Prinplup	Empoleon	
+6	Ampharos	Typhlosion
+9	Golem	Sudowoodo
+10	Dachsbun
+	Gardevoir
+	Alakazam
+	Dragapult (+Gather)
+
+
+Armarouge	Ceruledge
+Clefable	Wigglytuff	Audino
+Tyrogue	Hitmonlee hitmonchan, hitmontop
+Gastly (+Gather)	Haunter (+Gather)	Gengar (+Gather)
+Happiny	Chansey	Blissey (+Litter) Dusknoir (+Gather)
+Tatsugiri	Tatsugiri Tatsugiri
+Hoothoot	Noctowl	Murkrow	Honchkrow
+Misdreavus	Mismagius (+Gather) 
+Zorua	Zoroark	Mimikyu Mawile
+Persian	Meowth	Snorlax	(munchlax)
+Gastrodon	Gastrodon (shellos) (shellos)
+Goodra line (only goodra has trade)
+Slowbro line (only Slowbro has trade)
+Evee gangbang (evee and glaceon only trade)
+
+
+
+Crew	Litterer 1	Litterer 2	Litterer 3	Gatherer	Litter Item
+1	Bellsprout	Weepinbell	Tangela	Drifblim	Vine Rope
+2	Tangrowth	Snivy	Servine	Minccino	Vine Rope
+3	Serperior	Venusaur	Vileplume	Cinccino	Vine Rope / Leaf
+4	Rampardos	Bastiodon	Tyrantrum	Machop	Stone
+5	Spinarak	Ariados	Larvesta	Machoke	Twine
+6	Mareep	Flaaffy	Swablu	Machamp	Fluff
+7	Paldean Wooper	Clodsire	Trapinch	Rolycoly	Squishy Clay
+8	Grimer	Muk	Garbodor	Carkol	Nonburnable Garbage
+9	Altaria	Jumpluff	Volcarona	Coalossal	Fluff / Twine
+10	Glimmet	Glimmora	Aurorus	Mime Jr.	Iron Ore / Stone
+11	Cacturne	Combee	Haxorus	Mr. Mime	Mixed (Stick / Honey / Log)
+
+Chart 3: Leftover Gatherers (blocks of 4)
+Block	Slot 1	Slot 2	Slot 3	Slot 4
+1	Girafarig	Farigiraf	Duskull	Dusclops
+2 (partial)	Dreepy	Drakloak	Espeon	—
+
+**Assistant:** Here is the cleaned-up version of your information, organized into Markdown tables for clarity:
+
+---
+
+### Chart 1: Trader Houses (4 Traders each)
+
+| House | Slot 1    | Slot 2    | Slot 3    | Slot 4           |
+|:------|:----------|:----------|:----------|:-----------------|
+| 1     | Blastoise | Prinplup  | Empoleon  |                  |
+| 6     | Ampharos  | Typhlosion|           |                  |
+| 9     | Golem     | Sudowoodo |           |                  |
+| 10    | Dachsbun  | Gardevoir | Alakazam  | Dragapult (+Gather) |
+
+---
+
+### Additional Trader Pokémon/Lines (Unassigned to Specific Houses)
+
+*   Armarouge, Ceruledge
+*   Clefable, Wigglytuff, Audino
+*   Tyrogue, Hitmonlee, Hitmonchan, Hitmontop
+*   Gastly (+Gather), Haunter (+Gather), Gengar (+Gather)
+*   Happiny, Chansey, Blissey (+Litter), Dusknoir (+Gather)
+*   Tatsugiri, Tatsugiri, Tatsugiri
+*   Hoothoot, Noctowl, Murkrow, Honchkrow
+*   Misdreavus, Mismagius (+Gather)
+*   Zorua, Zoroark, Mimikyu, Mawile
+*   Persian, Meowth, Snorlax (Munchlax)
+*   Gastrodon, Gastrodon (Shellos), (Shellos)
+*   Goodra line (only Goodra has trade)
+*   Slowbro line (only Slowbro has trade)
+*   Eevee, Glaceon (only Eevee and Glaceon trade)
+
+---
+
+### Chart 2: Crew Assignments
+
+| Crew | Litterer 1  | Litterer 2  | Litterer 3  | Gatherer    | Litter Item               |
+|:-----|:------------|:------------|:------------|:------------|:--------------------------|
+| 1    | Bellsprout  | Weepinbell  | Tangela     | Drifblim    | Vine Rope                 |
+| 2    | Tangrowth   | Snivy       | Servine     | Minccino    | Vine Rope                 |
+| 3    | Serperior   | Venusaur    | Vileplume   | Cinccino    | Vine Rope / Leaf          |
+| 4    | Rampardos   | Bastiodon   | Tyrantrum   | Machop      | Stone                     |
+| 5    | Spinarak    | Ariados     | Larvesta    | Machoke     | Twine                     |
+| 6    | Mareep      | Flaaffy     | Swablu      | Machamp     | Fluff                     |
+| 7    | Paldean Wooper | Clodsire   | Trapinch    | Rolycoly    | Squishy Clay              |
+| 8    | Grimer      | Muk         | Garbodor    | Carkol      | Nonburnable Garbage       |
+| 9    | Altaria     | Jumpluff    | Volcarona   | Coalossal   | Fluff / Twine             |
+| 10   | Glimmet     | Glimmora    | Aurorus     | Mime Jr.    | Iron Ore / Stone          |
+| 11   | Cacturne    | Combee      | Haxorus     | Mr. Mime    | Mixed (Stick / Honey / Log) |
+
+---
+
+### Chart 3: Leftover Gatherers (blocks of 4)
+
+| Block | Slot 1    | Slot 2    | Slot 3    | Slot 4    |
+|:------|:----------|:----------|:----------|:----------|
+| 1     | Girafarig | Farigiraf | Duskull   | Dusclops  |
+| 2 (partial) | Dreepy    | Drakloak  | Espeon    | —         |
