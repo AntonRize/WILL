@@ -70,3 +70,42 @@ Here's an overview of the framework:
 In essence, WILL RG states that what we perceive as spacetime is an emergent "shadow" cast by the dynamics of energy relations projected onto these fundamental relational architectures. It transforms physics from a catalogue of observed phenomena into the logical unfolding of inevitable geometrical constraints [WILL RG Part I - \hyperlink{trilogy}{abstract}].
 
 For a deeper dive into the logical foundations and derivations, I recommend exploring the interactive [Logos Map](https://willrg.com/logos_map/) on the WILL RG website. This map visualizes the generative chain, showing how each concept logically follows from the initial principles.
+
+**User:** What is the fine structure constant in this framework?
+
+**Assistant:** {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 57.307213049s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-2.5-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "57s"
+      }
+    ]
+  }
+}
