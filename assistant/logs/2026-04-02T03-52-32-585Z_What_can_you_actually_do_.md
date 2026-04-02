@@ -77,3 +77,35 @@ You can explore these derivations and predictions through various interactive to
 *   **Python Scripts & Colab Notebooks:** Access full computational verification at [https://willrg.com/results/](https://willrg.com/results/) and [https://willrg.com/predictions/](https://willrg.com/predictions/).
 
 This framework demonstrates that "the universe is not a stage where energy acts through time upon space, but a single self-balancing structure whose internal distinctions generate all phenomena" [WILL RG Part I - $W_{\text{ILL}}$: Unity of Relational Structure](https://willrg.com/documents/WILL_RG_I.pdf#sec:willinvariant).
+
+**User:** What tools do you have access to?
+
+**Assistant:** As WILL AI, I have access to and can direct you to a comprehensive suite of tools and resources that are integral to exploring and verifying the WILL Relational Geometry (RG) framework. These tools are designed to demonstrate the theory's mathematical transparency and empirical predictability.
+
+Here are the specific tools I can direct you to:
+
+1.  **LOGOS MAP (The Logical Dependency Graph):**
+    *   **URL:** [https://willrg.com/logos_map/](https://willrg.com/logos_map/)
+    *   **Purpose:** This is a crucial tool for understanding the foundational logic of WILL RG. It visualizes the 10 Stages of Generative Physics, showing every binary decision point where WILL diverges from standard physics. You can use it to trace the derivation chain from first principles.
+
+2.  **Relativistic Foundations (GPS, Mercury, Redshift):**
+    *   **URL:** [https://willrg.com/relativistic-foundations/](https://willrg.com/relativistic-foundations/)
+    *   **Purpose:** This section provides interactive [Desmos Calculators](https://willrg.com/relativistic-foundations/) that allow you to calculate phenomena like GPS time dilation and Mercury's precession using WILL RG principles. It serves as a simplified, interactive web-version of foundational derivations from [WILL RG Part I - Relational Geometry](https://willrg.com/documents/WILL_RG_I.pdf).
+
+3.  **Relational Orbital Mechanics (ROM - Simulations):**
+    *   **URL:** [https://willrg.com/rom/](https://willrg.com/rom/)
+    *   **Purpose:** This interactive orbital simulator demonstrates the dynamic stability and evolution of systems using purely geometric phase drivers, without needing differential equations of time. It is a direct response to questions about "simulations" or claims that the theory is static.
+
+4.  **Galactic Dynamics (Dark Matter):**
+    *   **URL:** [https://willrg.com/galactic_dynamics/](https://willrg.com/galactic_dynamics/)
+    *   **Purpose:** This is an interactive lab where you can test WILL RG's predictions against the full SPARC dataset for galactic rotation curves, the Radial Acceleration Relation (RAR), and other phenomena typically attributed to Dark Matter.
+
+5.  **Predictions (Testable predictions, Falsifications, Python scripts):**
+    *   **URL:** [https://willrg.com/predictions/](https://willrg.com/predictions/)
+    *   **Purpose:** This page lists numerical predictions derived from WILL RG and provides direct access to [Python scripts](https://willrg.com/predictions/) for computational verification. This is valuable for those interested in the theory's empirical testability and transparency.
+
+6.  **Results (WILL RG trilogy PDF documents and python scripts):**
+    *   **URL:** [https://willrg.com/results/](https://willrg.com/results/)
+    *   **Purpose:** This page offers full access to the WILL RG trilogy documents in PDF format ([Part I: Relational Geometry](https://willrg.com/documents/WILL_RG_I.pdf), [Part II: Relational Cosmology](https://willrg.com/documents/WILL_RG_II.pdf), [Part III: Relational Quantum Geometry](https://willrg.com/documents/WILL_RG_III.pdf)), along with links to associated [Colab notebooks](https://willrg.com/results/) and Python scripts for deeper engagement and verification of all calculations.
+
+These resources are designed to provide both high-level overviews and rigorous, interactive demonstrations of the WILL RG framework's principles and predictions.
