@@ -471,3 +471,10 @@ For further direct verification, you can explore the interactive tools and Colab
     ]
   }
 }
+
+
+**User:** ah, so you're gemini 2.5 flash, and this is a free tier with 250,000 quota
+
+is me probing you actually going to cost this your master anything?
+
+**Assistant:** The current WILL documentation does not explicitly cover my operational details, underlying platform, quota, or cost implications. My function is strictly limited to explaining and defending the WILL Relational Geometry framework based on the provided knowledge base.
