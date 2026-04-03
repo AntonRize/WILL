@@ -301,12 +301,12 @@ Answer in ${lang}. Use Markdown. Follow the <CITATION_PROTOCOL> strictly for all
 ${q}
 </USER_QUESTION>`;
 
-                const forceModel = selectedModel === 'minimax' ? 'minimax' : null;
+                const forceModel = selectedModel === 'qwen3.6' ? 'qwen' : null;
                 const ans = await askGemini(fullPrompt, forceModel);
 
                 const modelInfo = selectedModel === 'gemini' 
                     ? 'Powered by Gemini 2.5 Flash' 
-                    : 'Using MiniMax M2.5 (free) — Manual mode';
+                    : 'Using QWEN3.6 — Manual mode';
 
                 push(ans, false, ans, modelInfo);
                 sendLog();
@@ -385,8 +385,8 @@ ${q}
                         }, 'Gemini 2.5 Flash'),
                         React.createElement('button',{
                             onClick: () => setSelectedModel('minimax'),
-                            className: `model-btn ${selectedModel === 'minimax' ? 'active' : ''}`
-                        }, 'MiniMax M2.5 (free)')
+                            className: `model-btn ${selectedModel === 'qwen3.6' ? 'active' : ''}`
+                        }, 'QWEN3.6 (free)')
                     ),
                     React.createElement('div',{className:'flex gap-2 items-end'},
                         React.createElement('textarea',{
