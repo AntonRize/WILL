@@ -345,11 +345,12 @@ ${q}
                             style:{whiteSpace:'pre-wrap'}
                         },m.txt)
                         :
-                        React.createElement('div',{
-                            className:`ai-message-bubble max-w-[85%] p-4 rounded-2xl bg-slate-700/80 text-slate-100 ${m.isWelcome?'border border-cyan-500/40':''}`,
-                            dangerouslySetInnerHTML:{__html:m.txt}
-                        },
-                        m.modelInfo && React.createElement('div',{className:'model-indicator'}, m.modelInfo)
+                        React.createElement('div',{className:'max-w-[85%]'},
+                            React.createElement('div',{
+                                className:`ai-message-bubble p-4 rounded-2xl bg-slate-700/80 text-slate-100 ${m.isWelcome?'border border-cyan-500/40':''}`,
+                                dangerouslySetInnerHTML:{__html:m.txt}
+                            }),
+                            m.modelInfo && React.createElement('div',{className:'model-indicator'}, m.modelInfo)
                         )
                     )),
                     busy&&React.createElement('div',{className:'flex justify-start'},
@@ -389,6 +390,8 @@ ${q}
                     ),
                     React.createElement('div',{className:'flex gap-2 items-end'},
                         React.createElement('textarea',{
+                            id:'will-ai-input',
+                            name:'will-ai-input',
                             ref:textRef,
                             className:'flex-1 resize-none bg-slate-800 text-slate-50 rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
                             rows:1,value:inp,placeholder:`Ask about WILL Geometry (${engagementLevel})…`,
@@ -405,5 +408,4 @@ ${q}
         );
     }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
-</script>
+    ReactDOM.createRoot(document.getElementById('root
