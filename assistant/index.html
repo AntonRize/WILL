@@ -8,7 +8,6 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
 
 <div id="root" class="h-full"></div>
 
-<!-- v2: model switcher + MiniMax fallback -->
 <style>
     textarea::-webkit-scrollbar{
         width:4px
@@ -306,7 +305,7 @@ ${q}
 
                 const modelInfo = selectedModel === 'gemini' 
                     ? 'Powered by Gemini 2.5 Flash' 
-                    : 'Using MiniMax M2.5 (free) — Manual mode';
+                    : 'Using Qwen 3.6 Plus — Manual mode';
 
                 push(ans, false, ans, modelInfo);
                 sendLog();
@@ -386,20 +385,20 @@ ${q}
                         React.createElement('button',{
                             onClick: () => setSelectedModel('minimax'),
                             className: `model-btn ${selectedModel === 'minimax' ? 'active' : ''}`
-                        }, 'MiniMax M2.5 (free)')
+                        }, 'Qwen 3.6 Plus')
                     ),
                     React.createElement('div',{className:'flex gap-2 items-end'},
                         React.createElement('textarea',{
                             id:'will-ai-input',
                             name:'will-ai-input',
                             ref:textRef,
-                            className:'flex-1 resize-none bg-slate-800 text-slate-50 rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
+                            className:'flex-1 resize-none bg-slate-800 text-slate-50 text-[16px] rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
                             rows:1,value:inp,placeholder:`Ask about WILL Geometry (${engagementLevel})…`,
                             onInput:e=>{setInp(e.target.value);e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,160)+'px';},
                             onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
                         }),
                         React.createElement('button',{
-                            className:'px-5 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors disabled:opacity-40 disabled:hover:bg-cyan-600',
+                            className:'px-5 py-3 shrink-0 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors disabled:opacity-40 disabled:hover:bg-cyan-600',
                             disabled:!inp.trim()||busy,onClick:send
                         },'Send')
                     )
