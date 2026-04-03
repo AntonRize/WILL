@@ -47,7 +47,8 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
     .ai-message-bubble a:hover {
         color: #a5f3fc;
     }
-    /* New styles for model switcher */
+
+    /* Model switcher styles */
     .model-switcher {
         display: flex;
         gap: 10px;
@@ -95,10 +96,10 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
     const PROXY = 'https://proxy-flame-seven.vercel.app/api/gemini';
     const LOG_API = 'https://proxy-flame-seven.vercel.app/api/save_log';
     const QUICK = {
-        'beta': 'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
-        'β': 'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
+        'beta':  'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
+        'β':     'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
         'kappa': 'κ (kappa) is the gravitational projection $v_e / c$. Relation $\\kappa^2 = 2 \\beta^2$.',
-        'κ': 'κ (kappa) is the gravitational projection $v_e / c$. Relation $\\kappa^2 = 2 \\beta^2$.'
+        'κ':     'κ (kappa) is the gravitational projection $v_e / c$. Relation $\\kappa^2 = 2 \\beta^2$.'
     };
 
     function renderMarkdownWithLatex(text) {
@@ -124,8 +125,10 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
             placeholders.push({ph, val: m});
             return ph;
         });
+
         let html = marked.parse(text);
         html = html.replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
+
         for (const {ph, val} of placeholders) {
             html = html.replace(ph, val);
         }
@@ -172,7 +175,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         const [sysPrompt,setSysPrompt]=useState('');
         const [ks,setKs]=useState('loading');
         const [engagementLevel, setEngagementLevel] = useState(null);
-        const [selectedModel, setSelectedModel] = useState('gemini'); // 'gemini' or 'minimax'
+        const [selectedModel, setSelectedModel] = useState('gemini'); // gemini or minimax
 
         const sessionIdRef = useRef(new Date().toISOString().replace(/[:.]/g, '-'));
         const sessionNamedRef = useRef(false);
@@ -276,31 +279,44 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
             try {
                 const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
 
-                const prompt = `${sysPrompt}
+                const fullPrompt = `${sysPrompt}
+
 <USER_PROFILE>
 User Engagement Level: ${engagementLevel}
 Adapt your tone and mathematical rigor accordingly.
 </USER_PROFILE>
+
 <KNOWLEDGE_BASE>
 ${kb}
 </KNOWLEDGE_BASE>
 <CONVERSATION_HISTORY>
 ${conversation}
 </CONVERSATION_HISTORY>
+
 Answer in ${lang}. Use Markdown. Follow the <CITATION_PROTOCOL> strictly for all references. The user's question is below.
 <USER_QUESTION>
 ${q}
 </USER_QUESTION>`;
 
-                const ans = await askGemini(prompt);   // Здесь пока без forceModel, добавим в следующей итерации если нужно
+                // Передаём forceModel, чтобы бэкенд знал, какую модель использовать
+                const requestBody = {
+                    prompt: fullPrompt,
+                    forceModel: selectedModel === 'minimax' ? 'minimax' : null
+                };
 
-                let modelInfo = selectedModel === 'gemini' ? 'Powered by Gemini 2.5 Flash' : 'Using MiniMax M2.5 (free) — Manual';
+                const ans = await askGemini(requestBody);   // askGemini теперь принимает объект
+
+                const modelInfo = selectedModel === 'gemini' 
+                    ? 'Powered by Gemini 2.5 Flash' 
+                    : 'Using MiniMax M2.5 (free) — Manual mode';
 
                 push(ans, false, ans, modelInfo);
                 sendLog();
+
             } catch (e) {
                 let friendlyError;
                 const errorMessage = String(e.message || '');
+
                 if (errorMessage.includes('overloaded')) {
                     friendlyError = 'The AI server is currently overloaded with requests. Please try your request again in a moment.';
                 } else if (errorMessage.includes('TIMEOUT')) {
@@ -308,16 +324,20 @@ ${q}
                 } else {
                     friendlyError = errorMessage;
                 }
+
                 push(friendlyError, false, friendlyError);
                 sendLog();
             }
             setBusy(false);
         }
 
+        /* ── Render ── */
         return React.createElement('div',{className:'flex flex-col h-full'},
+
             ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 py-1 flex-shrink-0'},
                 ks==='loading'?'Knowledge base loading…':'KB error (check console)'
             ),
+
             React.createElement('div',{className:'flex-1 min-h-0 overflow-y-auto px-4 md:px-8 lg:px-16 py-4'},
                 React.createElement('div',{className:'max-w-4xl mx-auto space-y-4'},
                     log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
@@ -346,8 +366,9 @@ ${q}
                     React.createElement('div',{ref:endRef})
                 )
             ),
+
             React.createElement('div',{className:'flex-shrink-0 border-t border-slate-700/50 bg-gray-900/80 backdrop-blur-sm px-4 md:px-8 lg:px-16 py-3'},
-                !engagementLevel ?
+                !engagementLevel ? 
                 React.createElement('div', {className: 'max-w-4xl mx-auto flex flex-col items-center justify-center gap-3 py-2'},
                     React.createElement('div', {className: 'text-slate-300 text-sm font-semibold'}, 'Select Mathematical Engagement Level:'),
                     React.createElement('div', {className: 'flex flex-wrap justify-center gap-3'},

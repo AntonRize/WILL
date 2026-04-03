@@ -26,7 +26,6 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         overflow-y: hidden;
         max-width: 100%;
         margin: 0.8em 0;
-
     }
     .ai-message-bubble mjx-container {
         color: inherit !important;
@@ -52,14 +51,13 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
     .ai-message-bubble a:hover {
         color: #a5f3fc;
     }
-
 </style>
-
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 <script>
     const {useState, useEffect, useRef, useCallback} = React;
     const REPO_BASE = 'https://raw.githubusercontent.com/AntonRize/WILL/main/';
@@ -69,7 +67,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         'WILL DATABASE/WILL_RG_II.txt',
         'WILL DATABASE/WILL_RG_III.txt',
     ];
-    const CORE = `β (beta)=v/c  ·  κ (kappa)=vₑ/c  ·  κ²=2β²`;
+    const CORE = `β (beta)=v/c · κ (kappa)=vₑ/c · κ²=2β²`;
     const PROXY = 'https://proxy-flame-seven.vercel.app/api/gemini';
     const LOG_API = 'https://proxy-flame-seven.vercel.app/api/save_log';
     const QUICK = {
@@ -166,7 +164,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         const [sysPrompt,setSysPrompt]=useState('');
         const [ks,setKs]=useState('loading');
         const [engagementLevel, setEngagementLevel] = useState(null);
-        
+       
         const sessionIdRef = useRef(new Date().toISOString().replace(/[:.]/g, '-'));
         const sessionNamedRef = useRef(false);
 
@@ -214,7 +212,6 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         };
 
         function sendLog(){
-
             const payload = {
                 sessionId: sessionIdRef.current,
                 log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
@@ -376,5 +373,6 @@ ${q}
             )
         );
     }
+
     ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
 </script>
