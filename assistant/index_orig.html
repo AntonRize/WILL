@@ -12,22 +12,26 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
     textarea::-webkit-scrollbar{
         width:4px
     }
+    /* Paragraph spacing inside AI responses */
     .ai-message-bubble p {
         margin-bottom: 1em;
     }
     .ai-message-bubble p:last-child {
         margin-bottom: 0;
     }
+    /* MathJax display equations inside chat bubbles */
     .ai-message-bubble mjx-container[jax="CHTML"][display="true"] {
         display: block;
         overflow-x: auto;
         overflow-y: hidden;
         max-width: 100%;
         margin: 0.8em 0;
+
     }
     .ai-message-bubble mjx-container {
         color: inherit !important;
     }
+    /* Level selection button styles */
     .level-btn {
         transition: all 0.2s;
         border: 1px solid rgba(6, 182, 212, 0.3);
@@ -37,6 +41,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         border-color: rgba(6, 182, 212, 1);
         transform: translateY(-2px);
     }
+    /* AI Hyperlink styles */
     .ai-message-bubble a {
         color: #22d3ee;
         text-decoration: underline;
@@ -48,43 +53,15 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         color: #a5f3fc;
     }
 
-    /* Model switcher styles */
-    .model-switcher {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 12px;
-        flex-wrap: wrap;
-    }
-    .model-btn {
-        padding: 8px 18px;
-        border: 2px solid #334155;
-        background: #1e2937;
-        color: #94a3b8;
-        border-radius: 9999px;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-    .model-btn.active {
-        background: #22d3ee;
-        color: #0f172a;
-        border-color: #22d3ee;
-        font-weight: 600;
-    }
-    .model-indicator {
-        font-size: 0.75rem;
-        color: #64748b;
-        margin-top: 6px;
-        text-align: right;
-    }
+</style>
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
 <script>
-    const {useState, useEffect, useRef} = React;
+    const {useState, useEffect, useRef, useCallback} = React;
     const REPO_BASE = 'https://raw.githubusercontent.com/AntonRize/WILL/main/';
     const FILES = [
         'WILL DATABASE/WILL_RG_I.txt',
@@ -92,7 +69,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         'WILL DATABASE/WILL_RG_II.txt',
         'WILL DATABASE/WILL_RG_III.txt',
     ];
-    const CORE = `β (beta)=v/c · κ (kappa)=vₑ/c · κ²=2β²`;
+    const CORE = `β (beta)=v/c  ·  κ (kappa)=vₑ/c  ·  κ²=2β²`;
     const PROXY = 'https://proxy-flame-seven.vercel.app/api/gemini';
     const LOG_API = 'https://proxy-flame-seven.vercel.app/api/save_log';
     const QUICK = {
@@ -102,41 +79,54 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         'κ':     'κ (kappa) is the gravitational projection $v_e / c$. Relation $\\kappa^2 = 2 \\beta^2$.'
     };
 
+    /* ── LaTeX-safe Markdown rendering ──
+        Protects LaTeX blocks from marked.js mangling, then restores them after. */
     function renderMarkdownWithLatex(text) {
         const placeholders = [];
         let idx = 0;
+
+        // Protect display math ($$...$$) first
         text = text.replace(/\$\$([\s\S]*?)\$\$/g, function(m) {
             const ph = '\x00MATH' + (idx++) + '\x00';
             placeholders.push({ph, val: m});
             return ph;
         });
+        // Protect inline math ($...$) — avoid matching empty $$
         text = text.replace(/\$([^\$\n]+?)\$/g, function(m) {
             const ph = '\x00MATH' + (idx++) + '\x00';
             placeholders.push({ph, val: m});
             return ph;
         });
+        // Protect \[...\] display math
         text = text.replace(/\\\[([\s\S]*?)\\\]/g, function(m) {
             const ph = '\x00MATH' + (idx++) + '\x00';
             placeholders.push({ph, val: m});
             return ph;
         });
+        // Protect \(...\) inline math
         text = text.replace(/\\\(([\s\S]*?)\\\)/g, function(m) {
             const ph = '\x00MATH' + (idx++) + '\x00';
             placeholders.push({ph, val: m});
             return ph;
         });
 
+       // Run marked on the now-safe text
         let html = marked.parse(text);
+
+        // Force all links to open in a new tab safely
         html = html.replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
 
+        // Restore LaTeX blocks
         for (const {ph, val} of placeholders) {
             html = html.replace(ph, val);
         }
         return html;
     }
 
+    /* ── Trigger MathJax on dynamically added content ── */
     function typesetMath() {
         if (window.MathJax && MathJax.typesetPromise) {
+            // Reset MathJax's internal tracking so it re-processes the page
             if (MathJax.startup && MathJax.startup.document) {
                 MathJax.startup.document.clear();
                 MathJax.startup.document.updateDocument();
@@ -147,7 +137,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         }
     }
 
-    function loadKB(){
+   function loadKB(){
         return Promise.all(FILES.map(p=>fetch(REPO_BASE+p).then(r=>{
             if(!r.ok)throw new Error('KB fetch '+r.status);
             return r.text();
@@ -162,14 +152,13 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         });
     }
 
-    function askGemini(prompt, forceModel){
-        const body = {prompt};
-        if(forceModel) body.forceModel = forceModel;
-        return fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+    function askGemini(prompt){
+        return fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})})
             .then(r=>r.text())
             .then(t=>{let d;try{d=JSON.parse(t);}catch{throw new Error(t);}if(!d.reply)throw new Error(d.error||'Proxy');return d.reply;});
     }
 
+    // Unicode range for Cyrillic alphabet (removes direct Russian text from code)
     const isRu=s=>/[\u0400-\u04FF]/i.test(s);
 
     function App(){
@@ -177,8 +166,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         const [sysPrompt,setSysPrompt]=useState('');
         const [ks,setKs]=useState('loading');
         const [engagementLevel, setEngagementLevel] = useState(null);
-        const [selectedModel, setSelectedModel] = useState('gemini'); // gemini or minimax
-
+        
         const sessionIdRef = useRef(new Date().toISOString().replace(/[:.]/g, '-'));
         const sessionNamedRef = useRef(false);
 
@@ -212,9 +200,9 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
             typesetMath();
         },[log]);
 
-        const push=(txt,user=false,raw=txt,modelInfo=null)=>{
+       const push=(txt,user=false,raw=txt)=>{
             const content=user?txt:renderMarkdownWithLatex(txt);
-            const entry={id:Date.now()+Math.random(),txt:content,user,raw,modelInfo};
+            const entry={id:Date.now()+Math.random(),txt:content,user,raw};
             logRef.current=[...logRef.current,entry];
             setLog(logRef.current);
         };
@@ -226,6 +214,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
         };
 
         function sendLog(){
+
             const payload = {
                 sessionId: sessionIdRef.current,
                 log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
@@ -233,6 +222,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
             fetch(LOG_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
         }
 
+        // Save log when user leaves the page (backup)
         useEffect(()=>{
             const onUnload = () => {
                 const msgs = logRef.current.filter(m=>!m.isWelcome);
@@ -281,7 +271,7 @@ description: "Ask WILL AI about Relational Geometry, unified physics, cosmology,
             try {
                 const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
 
-                const fullPrompt = `${sysPrompt}
+                const prompt = `${sysPrompt}
 
 <USER_PROFILE>
 User Engagement Level: ${engagementLevel}
@@ -300,14 +290,8 @@ Answer in ${lang}. Use Markdown. Follow the <CITATION_PROTOCOL> strictly for all
 ${q}
 </USER_QUESTION>`;
 
-                const forceModel = selectedModel === 'minimax' ? 'minimax' : null;
-                const ans = await askGemini(fullPrompt, forceModel);
-
-                const modelInfo = selectedModel === 'gemini' 
-                    ? 'Powered by Gemini 2.5 Flash' 
-                    : 'Using MiniMax M2.5 (free) — Manual mode';
-
-                push(ans, false, ans, modelInfo);
+                const ans = await askGemini(prompt);
+                push(ans, false, ans);
                 sendLog();
 
             } catch (e) {
@@ -317,7 +301,7 @@ ${q}
                 if (errorMessage.includes('overloaded')) {
                     friendlyError = 'The AI server is currently overloaded with requests. Please try your request again in a moment.';
                 } else if (errorMessage.includes('TIMEOUT')) {
-                    friendlyError = 'Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com.';
+                    friendlyError = 'Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com. Sometimes a good question is better than any answer...';
                 } else {
                     friendlyError = errorMessage;
                 }
@@ -331,10 +315,12 @@ ${q}
         /* ── Render ── */
         return React.createElement('div',{className:'flex flex-col h-full'},
 
+            /* KB status bar */
             ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 py-1 flex-shrink-0'},
                 ks==='loading'?'Knowledge base loading…':'KB error (check console)'
             ),
 
+            /* Messages area — the ONLY scrollable element */
             React.createElement('div',{className:'flex-1 min-h-0 overflow-y-auto px-4 md:px-8 lg:px-16 py-4'},
                 React.createElement('div',{className:'max-w-4xl mx-auto space-y-4'},
                     log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
@@ -347,9 +333,7 @@ ${q}
                         React.createElement('div',{
                             className:`ai-message-bubble max-w-[85%] p-4 rounded-2xl bg-slate-700/80 text-slate-100 ${m.isWelcome?'border border-cyan-500/40':''}`,
                             dangerouslySetInnerHTML:{__html:m.txt}
-                        },
-                        m.modelInfo && React.createElement('div',{className:'model-indicator'}, m.modelInfo)
-                        )
+                        })
                     )),
                     busy&&React.createElement('div',{className:'flex justify-start'},
                         React.createElement('div',{className:'p-4 rounded-2xl bg-slate-700/80 text-slate-300'},
@@ -364,6 +348,7 @@ ${q}
                 )
             ),
 
+            /* Input bar or Engagement Level selector — pinned to the bottom */
             React.createElement('div',{className:'flex-shrink-0 border-t border-slate-700/50 bg-gray-900/80 backdrop-blur-sm px-4 md:px-8 lg:px-16 py-3'},
                 !engagementLevel ? 
                 React.createElement('div', {className: 'max-w-4xl mx-auto flex flex-col items-center justify-center gap-3 py-2'},
@@ -375,34 +360,21 @@ ${q}
                     )
                 )
                 :
-                React.createElement('div',{className:'max-w-4xl mx-auto'},
-                    React.createElement('div',{className:'model-switcher'},
-                        React.createElement('button',{
-                            onClick: () => setSelectedModel('gemini'),
-                            className: `model-btn ${selectedModel === 'gemini' ? 'active' : ''}`
-                        }, 'Gemini 2.5 Flash'),
-                        React.createElement('button',{
-                            onClick: () => setSelectedModel('minimax'),
-                            className: `model-btn ${selectedModel === 'minimax' ? 'active' : ''}`
-                        }, 'MiniMax M2.5 (free)')
-                    ),
-                    React.createElement('div',{className:'flex gap-2 items-end'},
-                        React.createElement('textarea',{
-                            ref:textRef,
-                            className:'flex-1 resize-none bg-slate-800 text-slate-50 rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
-                            rows:1,value:inp,placeholder:`Ask about WILL Geometry (${engagementLevel})…`,
-                            onInput:e=>{setInp(e.target.value);e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,160)+'px';},
-                            onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
-                        }),
-                        React.createElement('button',{
-                            className:'px-5 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors disabled:opacity-40 disabled:hover:bg-cyan-600',
-                            disabled:!inp.trim()||busy,onClick:send
-                        },'Send')
-                    )
+                React.createElement('div',{className:'max-w-4xl mx-auto flex gap-2 items-end'},
+                    React.createElement('textarea',{
+                        ref:textRef,
+                        className:'flex-1 resize-none bg-slate-800 text-slate-50 rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
+                        rows:1,value:inp,placeholder:`Ask about WILL Geometry (${engagementLevel})…`,
+                        onInput:e=>{setInp(e.target.value);e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,160)+'px';},
+                        onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
+                    }),
+                    React.createElement('button',{
+                        className:'px-5 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors disabled:opacity-40 disabled:hover:bg-cyan-600',
+                        disabled:!inp.trim()||busy,onClick:send
+                    },'Send')
                 )
             )
         );
     }
-
     ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
 </script>
