@@ -336,18 +336,18 @@ ${q}
                 ks==='loading'?'Knowledge base loading…':'KB error (check console)'
             ),
 
-            React.createElement('div',{className:'flex-1 min-h-0 overflow-y-auto px-4 md:px-8 lg:px-16 py-4'},
+          React.createElement('div',{className:'flex-1 min-h-0 overflow-y-auto overflow-x-hidden w-full px-4 md:px-8 lg:px-16 py-4'},
                 React.createElement('div',{className:'max-w-4xl mx-auto space-y-4'},
                     log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
                         m.user?
                         React.createElement('div',{
-                            className:'max-w-[85%] p-3 rounded-2xl bg-cyan-700 text-white',
+                            className:'max-w-[85%] p-3 rounded-2xl bg-cyan-700 text-white break-words',
                             style:{whiteSpace:'pre-wrap'}
                         },m.txt)
                         :
                         React.createElement('div',{className:'max-w-[85%]'},
                             React.createElement('div',{
-                                className:`ai-message-bubble p-4 rounded-2xl bg-slate-700/80 text-slate-100 ${m.isWelcome?'border border-cyan-500/40':''}`,
+                                className:`ai-message-bubble p-4 rounded-2xl bg-slate-700/80 text-slate-100 break-words w-full overflow-hidden ${m.isWelcome?'border border-cyan-500/40':''}`,
                                 dangerouslySetInnerHTML:{__html:m.txt}
                             }),
                             m.modelInfo && React.createElement('div',{className:'model-indicator'}, m.modelInfo)
@@ -378,28 +378,29 @@ ${q}
                 )
                 :
                 React.createElement('div',{className:'max-w-4xl mx-auto'},
-                    React.createElement('div',{className:'model-switcher'},
+                  React.createElement('div',{className:'model-switcher'},
                         React.createElement('button',{
                             onClick: () => setSelectedModel('gemini'),
                             className: `model-btn ${selectedModel === 'gemini' ? 'active' : ''}`
                         }, 'Gemini 2.5 Flash'),
                         React.createElement('button',{
                             onClick: () => setSelectedModel('minimax'),
-                            className: `model-btn ${selectedModel === 'qwen3.6' ? 'active' : ''}`
-                        }, 'QWEN3.6 (free)')
+                            className: `model-btn ${selectedModel === 'minimax' ? 'active' : ''}`
+                        }, 'Qwen 3.6 Plus')
                     ),
-                    React.createElement('div',{className:'flex gap-2 items-end'},
+                   React.createElement('div',{className:'flex gap-2 items-end w-full max-w-full'},
                         React.createElement('textarea',{
                             id:'will-ai-input',
                             name:'will-ai-input',
                             ref:textRef,
-                            className:'flex-1 resize-none bg-slate-800 text-slate-50 rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
+                            className:'flex-1 min-w-0 w-full resize-none bg-slate-800 text-slate-50 text-base rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
                             rows:1,value:inp,placeholder:`Ask about WILL Geometry (${engagementLevel})…`,
-                            onInput:e=>{setInp(e.target.value);e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,160)+'px';},
-                            onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
+                            onChange:e=>setInp(e.target.value),
+                            onInput:e=>{e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,160)+'px';},
+                            onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();setTimeout(send,10);}}
                         }),
                         React.createElement('button',{
-                            className:'px-5 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors disabled:opacity-40 disabled:hover:bg-cyan-600',
+                            className:'px-4 py-3 md:px-5 shrink-0 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors disabled:opacity-40 disabled:hover:bg-cyan-600',
                             disabled:!inp.trim()||busy,onClick:send
                         },'Send')
                     )
