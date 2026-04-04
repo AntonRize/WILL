@@ -187,6 +187,161 @@ permalink: /assistant/logs/
         to { transform: rotate(360deg); }
     }
 
+    /* Delete button on cards */
+    .log-card-wrapper {
+        position: relative;
+        margin-bottom: 0.5rem;
+    }
+    .log-card {
+        margin-bottom: 0;
+    }
+    .delete-btn {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        background: none;
+        border: none;
+        color: #4b5563;
+        cursor: pointer;
+        padding: 0.25rem;
+        border-radius: 0.375rem;
+        transition: all 0.2s;
+        opacity: 0;
+        z-index: 2;
+        line-height: 1;
+    }
+    .log-card-wrapper:hover .delete-btn {
+        opacity: 1;
+    }
+    .delete-btn:hover {
+        color: #ef4444;
+        background: rgba(239, 68, 68, 0.1);
+    }
+
+    /* Confirmation modal */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        z-index: 100;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-overlay.active {
+        display: flex;
+    }
+    .modal-box {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        max-width: 24rem;
+        width: 90%;
+        text-align: center;
+    }
+    .modal-title {
+        color: #f1f5f9;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    .modal-text {
+        color: #94a3b8;
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+    .modal-input {
+        width: 100%;
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        color: #e2e8f0;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+        outline: none;
+    }
+    .modal-input:focus {
+        border-color: rgba(6, 182, 212, 0.5);
+    }
+    .modal-input.error {
+        border-color: #ef4444;
+    }
+    .modal-error {
+        color: #ef4444;
+        font-size: 0.75rem;
+        margin: -0.75rem 0 0.75rem;
+        display: none;
+    }
+    .modal-error.visible {
+        display: block;
+    }
+    .modal-actions {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+    }
+    .modal-btn {
+        padding: 0.5rem 1.25rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: none;
+    }
+    .modal-btn.cancel {
+        background: #334155;
+        color: #e2e8f0;
+    }
+    .modal-btn.cancel:hover {
+        background: #475569;
+    }
+    .modal-btn.confirm {
+        background: #dc2626;
+        color: #fff;
+    }
+    .modal-btn.confirm:hover {
+        background: #b91c1c;
+    }
+    .modal-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    /* Toast notification */
+    .toast {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(100%);
+        background: #1e293b;
+        border: 1px solid #334155;
+        color: #e2e8f0;
+        padding: 0.625rem 1.25rem;
+        border-radius: 0.75rem;
+        font-size: 0.875rem;
+        z-index: 200;
+        opacity: 0;
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+    .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    .toast.error {
+        border-color: #ef4444;
+        color: #fca5a5;
+    }
+    .toast.success {
+        border-color: #22c55e;
+        color: #86efac;
+    }
+
     /* Scrollbar styling */
     .logs-list::-webkit-scrollbar {
         width: 6px;
@@ -239,6 +394,23 @@ permalink: /assistant/logs/
         </div>
     </div>
 </div>
+
+<!-- Delete confirmation modal -->
+<div class="modal-overlay" id="delete-modal">
+    <div class="modal-box">
+        <div class="modal-title">Delete conversation?</div>
+        <div class="modal-text" id="delete-modal-text">This will permanently remove this log.</div>
+        <input type="password" class="modal-input" id="delete-password" placeholder="Admin password" autocomplete="off">
+        <div class="modal-error" id="delete-error">Incorrect password</div>
+        <div class="modal-actions">
+            <button class="modal-btn cancel" id="delete-cancel">Cancel</button>
+            <button class="modal-btn confirm" id="delete-confirm">Delete</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
 
 <script>
 (function() {
@@ -354,6 +526,110 @@ function detectDevice(title) {
         } catch(e) {}
     }
 
+    // --- Delete infrastructure ---
+    var DELETE_API = 'https://proxy-flame-seven.vercel.app/api/delete_log';
+    var deleteModal = document.getElementById('delete-modal');
+    var deleteModalText = document.getElementById('delete-modal-text');
+    var deletePasswordInput = document.getElementById('delete-password');
+    var deleteError = document.getElementById('delete-error');
+    var deleteCancelBtn = document.getElementById('delete-cancel');
+    var deleteConfirmBtn = document.getElementById('delete-confirm');
+    var toastEl = document.getElementById('toast');
+    var pendingDeleteSlug = null;
+
+    function showToast(message, type) {
+        toastEl.textContent = message;
+        toastEl.className = 'toast ' + (type || '');
+        // Force reflow
+        void toastEl.offsetWidth;
+        toastEl.classList.add('show');
+        setTimeout(function() { toastEl.classList.remove('show'); }, 3000);
+    }
+
+    function openDeleteModal(slug, title) {
+        pendingDeleteSlug = slug;
+        var displayTitle = title.length > 60 ? title.substring(0, 57) + '...' : title;
+        deleteModalText.textContent = 'Delete "' + displayTitle + '"? This cannot be undone.';
+        deleteError.classList.remove('visible');
+        deletePasswordInput.classList.remove('error');
+        deletePasswordInput.value = sessionStorage.getItem('willrg_admin_pw') || '';
+        deleteConfirmBtn.disabled = false;
+        deleteConfirmBtn.textContent = 'Delete';
+        deleteModal.classList.add('active');
+        if (!deletePasswordInput.value) {
+            deletePasswordInput.focus();
+        }
+    }
+
+    function closeDeleteModal() {
+        deleteModal.classList.remove('active');
+        pendingDeleteSlug = null;
+    }
+
+    function performDelete() {
+        var pw = deletePasswordInput.value.trim();
+        if (!pw) {
+            deletePasswordInput.classList.add('error');
+            deleteError.textContent = 'Password required';
+            deleteError.classList.add('visible');
+            return;
+        }
+
+        deleteConfirmBtn.disabled = true;
+        deleteConfirmBtn.textContent = 'Deleting...';
+        deleteError.classList.remove('visible');
+        deletePasswordInput.classList.remove('error');
+
+        fetch(DELETE_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug: pendingDeleteSlug, password: pw })
+        })
+        .then(function(res) {
+            if (res.status === 403) {
+                throw { auth: true };
+            }
+            if (!res.ok) {
+                return res.json().then(function(d) { throw new Error(d.error || 'Delete failed'); });
+            }
+            return res.json();
+        })
+        .then(function() {
+            // Remember password for this session
+            sessionStorage.setItem('willrg_admin_pw', pw);
+            // Remove from local list
+            allLogs = allLogs.filter(function(l) { return l.slug !== pendingDeleteSlug; });
+            localStorage.removeItem(CACHE_KEY);
+            closeDeleteModal();
+            filterAndRender();
+            countEl.textContent = allLogs.length;
+            showToast('Log deleted', 'success');
+        })
+        .catch(function(err) {
+            if (err && err.auth) {
+                deletePasswordInput.classList.add('error');
+                deleteError.textContent = 'Incorrect password';
+                deleteError.classList.add('visible');
+                deleteConfirmBtn.disabled = false;
+                deleteConfirmBtn.textContent = 'Delete';
+                sessionStorage.removeItem('willrg_admin_pw');
+            } else {
+                closeDeleteModal();
+                showToast('Delete failed: ' + (err.message || 'Unknown error'), 'error');
+            }
+        });
+    }
+
+    deleteCancelBtn.addEventListener('click', closeDeleteModal);
+    deleteConfirmBtn.addEventListener('click', performDelete);
+    deletePasswordInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') performDelete();
+        if (e.key === 'Escape') closeDeleteModal();
+    });
+    deleteModal.addEventListener('click', function(e) {
+        if (e.target === deleteModal) closeDeleteModal();
+    });
+
     // --- Rendering ---
     function renderLogs(logs) {
         listEl.innerHTML = '';
@@ -374,6 +650,9 @@ function detectDevice(title) {
                 header.textContent = group;
                 listEl.appendChild(header);
             }
+
+            var wrapper = document.createElement('div');
+            wrapper.className = 'log-card-wrapper';
 
             var card = document.createElement('a');
             card.className = 'log-card';
@@ -403,7 +682,23 @@ function detectDevice(title) {
 
             card.appendChild(titleDiv);
             card.appendChild(metaDiv);
-            listEl.appendChild(card);
+            wrapper.appendChild(card);
+
+            // Delete button
+            var delBtn = document.createElement('button');
+            delBtn.className = 'delete-btn';
+            delBtn.title = 'Delete this log';
+            delBtn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>';
+            (function(slug, title) {
+                delBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openDeleteModal(slug, title);
+                });
+            })(log.slug, log.title);
+            wrapper.appendChild(delBtn);
+
+            listEl.appendChild(wrapper);
         });
     }
 
