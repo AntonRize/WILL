@@ -127,6 +127,37 @@
     .act { opacity: 0; transform: translateY(8px); transition: opacity 0.9s ease, transform 0.9s ease; }
     .act.revealed { opacity: 1; transform: none; }
 
+    /* Calculation-in-progress indicators */
+    .pulse-dot {
+      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+      background: #a7f3d0; margin-right: 8px; vertical-align: middle;
+      box-shadow: 0 0 8px rgba(167,243,208,0.8);
+      animation: pulseDot 1.2s ease-in-out infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 0.35; transform: scale(0.85); }
+      50%      { opacity: 1.0;  transform: scale(1.15); }
+    }
+    .mcmc-bar-track {
+      width: 100%; max-width: 520px; margin: 14px auto 0;
+      height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px;
+      overflow: hidden;
+    }
+    .mcmc-bar-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #67e8f9 0%, #c084fc 55%, #a7f3d0 100%);
+      box-shadow: 0 0 8px rgba(167,243,208,0.5);
+      transition: width 0.3s ease-out;
+    }
+    .indeterminate .mcmc-bar-fill {
+      width: 40% !important;
+      animation: slideBar 1.6s ease-in-out infinite;
+    }
+    @keyframes slideBar {
+      0%   { margin-left: -40%; }
+      100% { margin-left: 100%; }
+    }
+
     .dim     { color: #6b7280; }
     .whisper { color: #9ca3af; font-size: 0.85rem; line-height: 1.6; }
   </style>

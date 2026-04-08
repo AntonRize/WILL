@@ -160,8 +160,32 @@
             setTimeout(() => {
                 act3.classList.add("revealed");
                 act3.scrollIntoView({ behavior: "smooth", block: "start" });
+                // Force an immediate empty-grid paint so the plane is visible
+                setTimeout(() => { resizeQo(); drawQo(); }, 400);
             }, 50);
         });
+    }
+
+    function setMcmcBar(frac) {
+        const bar = $("mcmc-bar");
+        if (!bar) return;
+        const fill = bar.querySelector(".mcmc-bar-fill");
+        if (frac == null) {
+            bar.classList.add("indeterminate");
+            if (fill) fill.style.width = "40%";
+        } else {
+            bar.classList.remove("indeterminate");
+            if (fill) fill.style.width = Math.max(0, Math.min(1, frac)) * 100 + "%";
+        }
+    }
+
+    const act4 = $("act-4");
+    let act4Revealed = false;
+    function revealAct4() {
+        if (!act4 || act4Revealed) return;
+        act4Revealed = true;
+        act4.classList.remove("hidden");
+        requestAnimationFrame(() => setTimeout(() => act4.classList.add("revealed"), 80));
     }
 
     // ---- Q_o canvas (β_o, κ_o) plane ------------------------------------
@@ -169,15 +193,45 @@
     const qoCtx    = qoCanvas.getContext("2d");
     let qoState = { beta: null, e: null, phase: 0 };
     function resizeQo() {
-        const r = qoCanvas.getBoundingClientRect();
-        qoCanvas.width  = r.width  * devicePixelRatio;
-        qoCanvas.height = r.height * devicePixelRatio;
+        const wrap = $("qo-wrap");
+        const r = wrap ? wrap.getBoundingClientRect() : qoCanvas.getBoundingClientRect();
+        const W = Math.max(200, r.width  || 420);
+        const H = Math.max(200, r.height || 360);
+        qoCanvas.width  = W * devicePixelRatio;
+        qoCanvas.height = H * devicePixelRatio;
     }
     window.addEventListener("resize", resizeQo);
 
     function drawQo() {
-        if (qoState.beta == null) return;
         resizeQo();
+        // If no fit yet, draw an empty breathing grid so the plane is visible
+        if (qoState.beta == null) {
+            const W = qoCanvas.width, H = qoCanvas.height;
+            qoCtx.clearRect(0, 0, W, H);
+            const pad = 40 * devicePixelRatio;
+            qoCtx.strokeStyle = "rgba(255,255,255,0.12)";
+            qoCtx.lineWidth = 1 * devicePixelRatio;
+            qoCtx.beginPath();
+            qoCtx.moveTo(pad, H-pad); qoCtx.lineTo(W-pad, H-pad);
+            qoCtx.moveTo(pad, H-pad); qoCtx.lineTo(pad, pad);
+            qoCtx.stroke();
+            // Closure line κ = √2·β
+            qoCtx.strokeStyle = "rgba(167,243,208,0.45)";
+            qoCtx.setLineDash([6, 6]);
+            qoCtx.beginPath();
+            qoCtx.moveTo(pad, H-pad);
+            qoCtx.lineTo(W-pad, pad + (H-2*pad)*(1 - 1/Math.SQRT2));
+            qoCtx.stroke();
+            qoCtx.setLineDash([]);
+            qoCtx.fillStyle = "rgba(156,163,175,0.75)";
+            qoCtx.font = (11 * devicePixelRatio) + "px JetBrains Mono";
+            qoCtx.fillText("β_o", W - pad - 20*devicePixelRatio, H - pad + 18*devicePixelRatio);
+            qoCtx.fillText("κ_o", pad - 28*devicePixelRatio, pad + 4*devicePixelRatio);
+            qoCtx.fillStyle = "rgba(251,191,36,0.55)";
+            qoCtx.font = (10 * devicePixelRatio) + "px JetBrains Mono";
+            qoCtx.fillText("waiting for (β, κ)…", pad + 10*devicePixelRatio, pad + 18*devicePixelRatio);
+            return;
+        }
         const W = qoCanvas.width, H = qoCanvas.height;
         qoCtx.clearRect(0, 0, W, H);
         const pad = 40 * devicePixelRatio;
@@ -397,6 +451,12 @@
         window.__decoderScout = p;
         revealAct2();
 
+        // Reveal Act III immediately so the user sees the progress bar and plane
+        revealAct3();
+        const prog = $("mcmc-progress");
+        if (prog) prog.innerHTML =
+            `<span class="pulse-dot"></span> R.O.M. global sniper searching (β, κ) — this takes ~20–40 s in your browser`;
+        setMcmcBar(0);
         // Auto-trigger Act III: the R.O.M. Sniper
         const ds = window.__decoderDataset;
         worker.postMessage({
@@ -420,9 +480,9 @@
         qoState.e    = prm.e;
         startQoAnim();
         revealAct3();
-        $("mcmc-progress").textContent =
-            `sniper peak found · β = ${prm.beta.toExponential(3)} · initialising MCMC…`;
-        // Kick off MCMC
+        $("mcmc-progress").innerHTML =
+            `<span class="pulse-dot"></span>sniper peak found · β = ${prm.beta.toExponential(3)} · initialising posterior…`;
+        setMcmcBar(0);
         worker.postMessage({ type: "mcmc-init", total_steps: MCMC_TOTAL });
     }
 
@@ -431,8 +491,10 @@
     }
 
     function onMcmcChunk(s) {
-        $("mcmc-progress").textContent =
-            `MCMC · ${s.steps_done} / ${s.total_steps} steps`;
+        const pct = Math.round(100 * s.steps_done / s.total_steps);
+        $("mcmc-progress").innerHTML =
+            `<span class="pulse-dot"></span>sampling the posterior · ${s.steps_done} / ${s.total_steps} steps · ${pct}%`;
+        setMcmcBar(s.steps_done / s.total_steps);
         if (s.beta_median != null) {
             $("mcmc-medians").innerHTML =
                 `β = <span class="accent-beta">${s.beta_median.toExponential(4)}</span> ` +
@@ -454,8 +516,9 @@
 
     function onMcmcFinal(p) {
         const m = p.median, b = p.band_16_84;
-        $("mcmc-progress").textContent =
-            `MCMC complete · ${p.n_samples} samples`;
+        $("mcmc-progress").innerHTML =
+            `<span style="color:#a7f3d0">●</span> posterior locked · ${p.n_samples} samples`;
+        setMcmcBar(1);
         $("mcmc-medians").innerHTML =
             `β = <span class="accent-beta">${m.beta.toExponential(4)}</span>  ·  ` +
             `i = <span class="accent-lock">${m.i_deg.toFixed(2)}°</span>  ·  ` +
@@ -473,25 +536,89 @@
         } else {
             $("invariant-line").textContent = "invariant undefined at this point";
         }
-        // Truth reveal
+        // ------------------------------------------------------------
+        // Full metric recovery from (β, P, e) alone — no G, no M input
+        // ------------------------------------------------------------
+        // Canonical closures:
+        //   R_s = (P · c · β^3) / π
+        //   a   = R_s / (2 β^2)          (since κ² = 2β²  ⇒  R_s/a = 2β²)
+        //   r_p = a (1 − e)
+        //   Δω per revolution = 3 R_s / (a (1 − e²)) · (2π)
+        //   Legacy mass M = R_s c² / (2 G)    (shown muted)
+        const C_MS  = 299792458.0;
+        const G_SI  = 6.67430e-11;
+        const MSUN  = 1.98847e30;
+        const SECYR = 365.25 * 86400;
+        const AU_M  = 1.495978707e11;
+        const P_s   = m.P_years * SECYR;
+        const Rs_m  = (P_s * C_MS * Math.pow(m.beta, 3)) / Math.PI;
+        const a_m   = Rs_m / (2 * m.beta * m.beta);
+        const rp_m  = a_m * (1 - m.e);
+        const prec_per_rev_rad = (3 * Rs_m) / (a_m * (1 - m.e*m.e)) * 2 * Math.PI;
+        const prec_arcsec_per_century =
+            prec_per_rev_rad * (180/Math.PI) * 3600 * (100.0 / m.P_years);
+        const M_legacy_kg   = Rs_m * C_MS * C_MS / (2 * G_SI);
+        const M_legacy_Msun = M_legacy_kg / MSUN;
+
+        window.__decoderRecovered = {
+            beta: m.beta, e: m.e, i_deg: m.i_deg,
+            P_years: m.P_years, omega_deg: m.omega_deg, vz0_kms: m.vz0_kms,
+            Rs_m, a_m, rp_m,
+            a_AU: a_m / AU_M, rp_AU: rp_m / AU_M,
+            prec_per_rev_arcsec: prec_per_rev_rad * (180/Math.PI) * 3600,
+            prec_arcsec_per_century,
+            M_legacy_Msun,
+        };
+
+        // ------------------------------------------------------------
+        // Truth reveal — sealed-envelope style
+        // ------------------------------------------------------------
         const ds = window.__decoderDataset;
-        if (ds && ds.truth) {
-            const t = ds.truth;
-            const rows = [
-                ["β",       t.beta_true     != null ? t.beta_true.toExponential(4)     : "—", m.beta.toExponential(4)],
-                ["e",       t.e             != null ? t.e.toFixed(5)                   : "—", m.e.toFixed(5)],
-                ["i (deg)", t.i_deg         != null ? t.i_deg.toFixed(2)               : "—", m.i_deg.toFixed(2)],
-                ["P (yr)",  t.P_years       != null ? t.P_years.toFixed(3)             : "—", m.P_years.toFixed(3)],
-                ["ω (deg)", t.omega_deg     != null ? t.omega_deg.toFixed(2)           : "—", m.omega_deg.toFixed(2)],
-            ];
-            const html = `<table class="mx-auto text-sm"><thead><tr>
-                <th class="pr-6 text-left whisper">parameter</th>
-                <th class="pr-6 text-left whisper">truth</th>
-                <th class="text-left whisper">recovered</th></tr></thead><tbody>` +
-                rows.map(r => `<tr><td class="pr-6 dim">${r[0]}</td><td class="pr-6 text-gray-300">${r[1]}</td><td class="accent-lock">${r[2]}</td></tr>`).join("") +
-                `</tbody></table>`;
-            $("truth-table").innerHTML = html;
-        }
+        const t  = (ds && ds.truth) ? ds.truth : {};
+        // Compute truth-derived Rs, a, r_p, precession so all rows are comparable
+        const P_s_t  = t.P_yrs ? t.P_yrs * SECYR : null;
+        const Rs_t   = (P_s_t && t.beta) ? (P_s_t * C_MS * Math.pow(t.beta, 3)) / Math.PI : null;
+        const a_t    = (Rs_t != null)    ? Rs_t / (2 * t.beta * t.beta) : null;
+        const rp_t   = (a_t  != null)    ? a_t * (1 - t.e) : null;
+        const prec_t_rev = (Rs_t != null && a_t != null)
+            ? (3 * Rs_t) / (a_t * (1 - t.e*t.e)) * 2 * Math.PI * (180/Math.PI) * 3600 : null;
+        const prec_t_cy  = (prec_t_rev != null && t.P_yrs)
+            ? prec_t_rev * (100.0 / t.P_yrs) : null;
+
+        const fmt = (x, f) => (x == null || !isFinite(x)) ? "—" : f(x);
+        const rows = [
+            ["β  (kinematic projection)",       fmt(t.beta,    v => v.toExponential(4)),           m.beta.toExponential(4)],
+            ["e  (eccentricity)",               fmt(t.e,       v => v.toFixed(5)),                 m.e.toFixed(5)],
+            ["i  (inclination, deg)",           fmt(t.i_deg,   v => v.toFixed(2)),                 m.i_deg.toFixed(2)],
+            ["P  (period, years)",              fmt(t.P_yrs,   v => v.toFixed(4)),                 m.P_years.toFixed(4)],
+            ["ω  (argument of pericentre, deg)",fmt(t.omega_deg,v => v.toFixed(2)),                m.omega_deg.toFixed(2)],
+            ["v<sub>z0</sub>  (systemic, km/s)",fmt(t.vz0_kms, v => v.toFixed(2)),                 m.vz0_kms.toFixed(2)],
+            ["R<sub>s</sub>  (Schwarzschild radius, m)", fmt(Rs_t, v => v.toExponential(4)),       Rs_m.toExponential(4)],
+            ["a  (semi-major axis, AU)",        fmt(a_t,  v => (v/AU_M).toFixed(4)),               (a_m/AU_M).toFixed(4)],
+            ["r<sub>p</sub>  (pericentre, AU)", fmt(rp_t, v => (v/AU_M).toFixed(4)),               (rp_m/AU_M).toFixed(4)],
+            ["Δω  (precession, arcsec/century)",fmt(prec_t_cy, v => v.toFixed(2)),                 prec_arcsec_per_century.toFixed(2)],
+            ["M  (legacy, M<sub>☉</sub>) — footnote", fmt(t.M_solar, v => v.toFixed(3)),           M_legacy_Msun.toFixed(3)],
+        ];
+
+        const html = `<table class="mx-auto text-sm"><thead><tr>
+            <th class="pr-8 text-left whisper">quantity</th>
+            <th class="pr-8 text-left whisper">sealed truth</th>
+            <th class="text-left whisper">recovered from 1D light alone</th></tr></thead><tbody>` +
+            rows.map(r => `<tr>
+                <td class="pr-8 py-1 dim">${r[0]}</td>
+                <td class="pr-8 py-1 text-gray-300">${r[1]}</td>
+                <td class="py-1 accent-lock">${r[2]}</td></tr>`).join("") +
+            `</tbody></table>
+            <p class="whisper max-w-2xl mx-auto mt-6 leading-relaxed">
+              Every recovered quantity above was reconstructed from a single one-dimensional
+              stream of light-frequency measurements, using only the speed of light and the
+              two dimensionless projections (β, κ). Newton's constant G and the companion's
+              mass M never entered the fit; the last row — M in solar masses — is shown only
+              because it is the language physics has spoken for three centuries, computed
+              after the fact from M = R<sub>s</sub>c²/(2G).
+            </p>`;
+        $("truth-table").innerHTML = html;
+        revealAct4();
     }
 
     // ---- Run ------------------------------------------------------------

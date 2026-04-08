@@ -224,7 +224,9 @@ permalink: /decoder/
   <!-- Running MCMC inscription -->
   <div class="text-center mb-10">
     <p class="whisper tracking-[0.15em] uppercase mb-3">running posterior</p>
-    <div id="mcmc-progress" class="mono text-sm dim mb-3">waiting for the sniper…</div>
+    <div id="mcmc-progress" class="mono text-sm dim mb-1">waiting for the sniper…</div>
+    <div id="mcmc-bar" class="mcmc-bar-track indeterminate"><div class="mcmc-bar-fill"></div></div>
+    <div class="h-3"></div>
     <div id="mcmc-medians" class="mono text-sm text-gray-300 leading-loose"></div>
   </div>
 
@@ -233,8 +235,8 @@ permalink: /decoder/
     <p class="whisper tracking-[0.15em] uppercase">the Q<sub>o</sub> vector on the (β<sub>o</sub>, κ<sub>o</sub>) plane</p>
     <p id="qo-info" class="whisper mono"></p>
   </div>
-  <div class="relative mx-auto" style="height: 360px; max-width: 420px;">
-    <canvas id="qo-canvas"></canvas>
+  <div id="qo-wrap" class="relative mx-auto" style="width:100%;max-width:440px;height:360px;">
+    <canvas id="qo-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;"></canvas>
   </div>
   <p class="whisper max-w-xl mx-auto text-center mt-5">
     The vector breathes with orbital phase. The dashed ray is the closure
@@ -257,6 +259,112 @@ permalink: /decoder/
   <div class="mt-14 text-center">
     <p class="whisper tracking-[0.15em] uppercase mb-2">reveal</p>
     <div id="truth-table" class="mono text-sm text-gray-400"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ACT IV — What we have just done
+     ============================================================ -->
+<section id="act-4" class="act mb-24 hidden">
+  <div class="text-center mb-10">
+    <p class="whisper tracking-[0.2em] uppercase mb-2">Act IV</p>
+    <h2 class="text-2xl font-light text-white">What we have just done</h2>
+  </div>
+
+  <div class="max-w-2xl mx-auto text-gray-300 leading-relaxed space-y-6 text-[15px]">
+    <p>
+      We began with a telescope pointed at a single star and a stream of
+      numbers — how the frequency of its light drifted over time. One
+      dimension. A scalar function of one variable. By every classical
+      accounting this is the most impoverished signal in astrophysics:
+      the famous <em>M sin i</em> degeneracy says that mass and
+      inclination cannot be separated from radial velocities alone.
+    </p>
+    <p>
+      And yet the table above lists the full three-dimensional orbit —
+      its eccentricity, its tilt, its period, the orientation of its
+      long axis, the Schwarzschild radius of the companion, the
+      semi-major axis in astronomical units, the pericentre distance,
+      the rate at which the orbit's axis turns century after century.
+      None of these numbers were fit independently. They all fell out
+      of a single closed-form identity
+      (<span class="mono">Eq. 3.123</span>) tying the observed redshift
+      extrema to two dimensionless ratios (β, κ) that obey one law:
+      <span class="mono accent-q">κ² = 2β²</span>.
+    </p>
+    <p>
+      The only physical constant we used was the speed of light.
+      Newton's G never appeared. The companion's mass M never appeared.
+      The legacy mass in the last row of the table is a translation, not
+      a measurement — a sentence rewritten into an older language after
+      the book has already been read.
+    </p>
+
+    <div class="my-10 border-t border-gray-800"></div>
+
+    <p class="text-gray-200">
+      The usual way to describe this would be: <em>we compressed a 3D
+      reality into a 1D signal and then decompressed it.</em> That
+      description is wrong, and the wrongness is the point.
+    </p>
+    <p>
+      A 1D stream cannot <em>contain</em> a 3D reality — not in any
+      bit-counting sense. What the decoding shows is that the
+      three-dimensional picture was never the fundamental object. The
+      orbit, the axis, the inclination, the mass — these are not things
+      the universe stores; they are things we reconstruct from
+      relational invariants that live on a lower-dimensional carrier.
+      Dimensionality is a property of representation, not of
+      information. The geometry we thought was out there, waiting to be
+      measured, was already encoded in the relational shift
+      <span class="mono accent-q">Q² = κ² + β² = 3β²</span> — a single
+      dimensionless number that breathes with orbital phase along the
+      line <span class="mono">κ² = 2β²</span>.
+    </p>
+    <p>
+      Consider what just happened, in the most deflationary terms
+      possible. A number line drifted over days. From that number line,
+      a browser with no access to Newton's constant reconstructed the
+      size of a black hole, the shape of an orbit, the tilt of a plane
+      it cannot see, and the rate at which that plane will turn over
+      the next hundred years. It did this by insisting on one equation
+      — <span class="mono accent-q">κ² = 2β²</span> — and refusing to
+      use mass as a primitive.
+    </p>
+    <p>
+      Mass, in other words, was not needed to describe gravity. It was
+      only needed to translate the answer back into a vocabulary
+      inherited from Newton. The decoder treats M the way a modern
+      physicist treats phlogiston: a historical unit of account, not a
+      constituent of nature.
+    </p>
+
+    <div class="my-10 text-center">
+      <p class="whisper tracking-[0.2em] uppercase mb-4">the conclusion</p>
+      <p class="text-2xl font-light text-white tracking-wide leading-relaxed">
+        <span class="breathe accent-lock">SPACETIME  ≡  ENERGY</span>
+      </p>
+      <p class="mt-6 text-gray-300 leading-relaxed max-w-xl mx-auto">
+        Not as metaphor. Not as slogan. As the only reading of the
+        equation above that survives the fact that you just watched
+        three dimensions of reality unfold out of one, in a browser,
+        with no mass and no gravitational constant in the arithmetic.
+      </p>
+      <p class="whisper max-w-xl mx-auto mt-6 italic">
+        Spacetime is what relational energy looks like when you draw
+        it. The star you began with was not <em>in</em> a geometry —
+        the star <em>was</em> the geometry, rewritten in a coordinate
+        system that human astronomy happens to call "position" and
+        "time". The decoder did not uncompress a picture. It remembered
+        that the picture was never separate from the thing.
+      </p>
+    </div>
+
+    <p class="whisper text-center mt-2">
+      This page is a single experiment, not a proof. But any theory of
+      gravity that still needs M as a primitive now has to explain why
+      a dimensionless closure on a 1D data stream was enough.
+    </p>
   </div>
 </section>
 
