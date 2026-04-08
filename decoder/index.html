@@ -124,8 +124,68 @@ permalink: /decoder/
   </div>
 </section>
 
-<!-- Acts II–IV intentionally omitted from the DOM until they are built.
-     Progressive disclosure: the page grows with the instrument. -->
+<!-- ============================================================
+     ACT II — The skeleton
+     Revealed once the Keplerian Scout finishes. Shows the best
+     classical fit overlaid on the data, and the residuals that
+     the classical model cannot explain.
+     ============================================================ -->
+<section id="act-2" class="act mb-24 hidden">
+  <div class="text-center mb-10">
+    <p class="whisper tracking-[0.2em] uppercase mb-2">Act II</p>
+    <h2 class="text-2xl font-light text-white">The classical skeleton</h2>
+  </div>
+
+  <p class="guided-only text-gray-400 leading-relaxed max-w-xl mx-auto text-center mb-10">
+    A classical Kepler orbit — the kind Newton would have written down —
+    captures the bulk of what the light is doing. It explains the rising
+    and falling velocity. It finds a period, an eccentricity, an angle.
+    But look at what it cannot explain. What remains after subtracting
+    the Kepler curve is <span class="text-gray-300">not random noise.</span>
+    It is a coherent wave, locked to the orbit's own rhythm. Something
+    systematic is hiding in the light, and classical mechanics alone
+    has no name for it.
+  </p>
+
+  <p class="rigorous-only text-gray-500 leading-relaxed max-w-2xl mx-auto text-center mb-10 hidden">
+    A six-parameter Keplerian radial-velocity model
+    (semi-amplitude, systemic velocity, eccentricity, pericentre angle,
+    period, time of pericentre) is fit to the data by differential
+    evolution. The residuals — observed velocity minus best classical
+    fit — are shown below as a function of time. Their amplitude and
+    the fact that they are phase-locked to the orbit, not white, is
+    the signature of the relativistic baseline and the secular
+    pericentre precession that a purely Newtonian model is structurally
+    incapable of producing.
+  </p>
+
+  <!-- Best-fit parameters (appears as a quiet inscription) -->
+  <div class="text-center mb-10">
+    <p class="whisper tracking-[0.15em] uppercase mb-3">best classical fit</p>
+    <div id="scout-params" class="mono text-sm text-gray-300 leading-loose"></div>
+  </div>
+
+  <!-- Residuals plot with clear axis meaning -->
+  <div class="mb-3 flex items-baseline justify-between">
+    <p class="whisper tracking-[0.15em] uppercase">what the classical fit cannot explain</p>
+    <p id="resid-info" class="whisper mono"></p>
+  </div>
+  <div class="relative" style="height: 280px;">
+    <canvas id="resid-canvas"></canvas>
+  </div>
+
+  <p class="whisper max-w-xl mx-auto text-center mt-6">
+    If this were random measurement noise, the points would scatter
+    flatly around zero. They do not. This is the relativistic signal
+    Act III will decode.
+  </p>
+
+  <!-- Scout report (Rigorous) -->
+  <div id="scout-report" class="mt-10 rigorous-only hidden">
+    <p class="whisper tracking-[0.15em] uppercase mb-3">scout report</p>
+    <pre id="scout-report-body" class="mono text-xs text-gray-400 whitespace-pre-wrap"></pre>
+  </div>
+</section>
 
 <!-- Quiet source strip at the very bottom ------------------------------- -->
 <footer class="hairline pt-6 mt-16 text-center whisper flex flex-col sm:flex-row justify-center gap-4">

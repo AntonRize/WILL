@@ -40,7 +40,7 @@ print("emcee OK:", emcee.__version__)
 async function loadPythonFiles() {
     if (pythonFilesLoaded) return;
     const pyo = await init();
-    const files = ["generator.py"]; // decoder.py and extractor.py follow in later passes
+    const files = ["generator.py", "scout.py"]; // Acts I + II; decoder.py + extractor.py follow
     for (const f of files) {
         const resp = await fetch("../py/" + f);
         const src  = await resp.text();
@@ -51,6 +51,7 @@ import sys
 if "/home/pyodide" not in sys.path:
     sys.path.insert(0, "/home/pyodide")
 from generator import run_generator
+from scout import run_scout
     `);
     pythonFilesLoaded = true;
 }
@@ -68,11 +69,22 @@ self.onmessage = async (ev) => {
             await loadPythonFiles();
             const pyo = await init();
             const seed = Number(msg.seed);
-            postMessage({ type: "engine", state: "generating", progress: "running 1PN generator…" });
+            postMessage({ type: "engine", state: "generating", progress: "" });
             const result = await pyo.runPythonAsync(
                 `run_generator(${Number.isFinite(seed) ? seed : 0})`
             );
             postMessage({ type: "generator-result", payload: JSON.parse(result) });
+            postMessage({ type: "engine", state: "ready", progress: "" });
+            return;
+        }
+        if (msg.type === "scout") {
+            await loadPythonFiles();
+            const pyo = await init();
+            postMessage({ type: "engine", state: "scouting", progress: "" });
+            // Stash the dataset JSON on the Python side, then run the scout
+            pyo.globals.set("_dataset_json", msg.dataset_json);
+            const result = await pyo.runPythonAsync(`run_scout(_dataset_json)`);
+            postMessage({ type: "scout-result", payload: JSON.parse(result) });
             postMessage({ type: "engine", state: "ready", progress: "" });
             return;
         }
