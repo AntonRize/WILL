@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4YFFSYJGF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4YFFSYJGF');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  {% seo %}
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #111827;
+      color: #E5E7EB;
+    }
+    /* Same fade-in as the homepage */
+    main.fade {
+      opacity: 0;
+      transition: opacity 3.0s ease-in;
+    }
+
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+    /* Color grammar: match the homepage */
+    .accent-beta  { color: #67e8f9; }   /* cyan    — kinematic */
+    .accent-kappa { color: #c084fc; }   /* purple  — potential */
+    .accent-q     { color: #fbbf24; }   /* amber   — composite Q */
+    .accent-lock  { color: #a7f3d0; }   /* emerald — converged (homepage hover color) */
+
+    /* Breathing glow, same feel as the Ouroboros segments */
+    @keyframes breathe {
+      0%, 100% { filter: none; }
+      50%      { filter: drop-shadow(0 0 6px rgba(167, 243, 208, 0.7)); }
+    }
+    .breathe { animation: breathe 5s ease-in-out infinite; }
+
+    /* No card chrome. Separation is by whitespace, not by borders. */
+    .panel { background: transparent; }
+    .hairline { border-top: 1px solid rgba(55, 65, 81, 0.35); }
+
+    /* Soft tooltip, same visual as the homepage */
+    .tip {
+      position: absolute;
+      z-index: 10;
+      max-width: 280px;
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 10px 14px;
+      border: 1px solid rgba(55, 65, 81, 0.5);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.55;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-in-out;
+      white-space: pre-line;
+    }
+
+    /* Minimal text input, no card look */
+    input[type="text"], input[type="number"] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(107, 114, 128, 0.4);
+      color: #E5E7EB;
+      padding: 0.35rem 0.1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      transition: border-color 0.25s ease;
+    }
+    input:focus { outline: none; border-bottom-color: #a7f3d0; }
+
+    /* Quiet primary button */
+    button.primary {
+      background: transparent;
+      color: #a7f3d0;
+      border: 1px solid rgba(167, 243, 208, 0.4);
+      padding: 0.55rem 1.3rem;
+      border-radius: 999px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.35s ease;
+    }
+    button.primary:hover {
+      border-color: rgba(167, 243, 208, 0.9);
+      filter: drop-shadow(0 0 6px rgba(167, 243, 208, 0.4));
+    }
+    button.primary:disabled { opacity: 0.35; cursor: not-allowed; filter: none; }
+
+    /* Quiet secondary icon button */
+    button.icon {
+      color: #6b7280;
+      background: transparent;
+      border: none;
+      padding: 0.35rem 0.5rem;
+      transition: color 0.25s ease;
+    }
+    button.icon:hover { color: #a7f3d0; }
+
+    /* Mode toggle: inline hairline, no pill */
+    .mode-toggle button {
+      color: #6b7280;
+      background: transparent;
+      padding: 0.25rem 0;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .mode-toggle button.active { color: #E5E7EB; border-bottom-color: #a7f3d0; }
+    .mode-toggle .sep { color: #374151; padding: 0 0.75rem; user-select: none; }
+
+    /* Section reveal animation (progressive disclosure) */
+    .act { opacity: 0; transform: translateY(8px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .act.revealed { opacity: 1; transform: none; }
+
+    .dim     { color: #6b7280; }
+    .whisper { color: #9ca3af; font-size: 0.85rem; line-height: 1.6; }
+  </style>
+
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+      options: { ignoreHtmlClass: 'tex2jax_ignore', processHtmlClass: 'tex2jax_process' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body class="antialiased">
+  {% include header.html %}
+
+  <main class="fade flex flex-col items-center px-6 sm:px-8 py-16 sm:py-24">
+    <div class="w-full max-w-3xl">
+      {{ content }}
+    </div>
+  </main>
+
+  {% include footer.html %}
+
+  <script>
+    // Homepage-style fade-in
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const m = document.querySelector('main.fade');
+        if (m) m.style.opacity = 1;
+      }, 100);
+    });
+  </script>
+</body>
+</html>

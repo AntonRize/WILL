@@ -1,0 +1,131 @@
+---
+layout: decoder
+title: "Holographic Decoder"
+permalink: /decoder/
+---
+
+<!-- ======================================================================
+     ROM HOLOGRAPHIC DECODER — live in-browser reconstruction of the 3D
+     metric from a 1D radial-velocity stream. Python runs under Pyodide
+     inside a Web Worker. Zero backend. Zero cost.
+     Byte-equivalent to: Colab_Notebooks/ROM_HOLOGRAPHIC_REALITY_DECODER.ipynb
+     ====================================================================== -->
+
+<!-- Hero ---------------------------------------------------------------- -->
+<header class="text-center mb-16">
+  <p class="whisper tracking-[0.2em] uppercase mb-5">WILL Relational Geometry · Live Instrument</p>
+
+  <h1 class="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-tight">
+    The Holographic Decoder
+  </h1>
+
+  <p class="mt-7 text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
+    One scalar per epoch — the redshift of light — carries the complete
+    relational state of a bound system. This page runs the exact
+    R.O.M. pipeline in your browser and reconstructs the 3D metric from
+    a 1D stream, using only the speed of light and two dimensionless
+    projections:
+    <span class="accent-beta breathe mono" data-tip="β — kinematic projection&#10;β = v/c, the amplitude on the S¹ carrier.">β</span>
+    and
+    <span class="accent-kappa breathe mono" data-tip="κ — potential projection&#10;κ = √(Rₛ/r), the amplitude on the S² carrier.">κ</span>.
+    No <span class="mono dim">G</span>. No <span class="mono dim">M</span>.
+  </p>
+
+  <!-- Mode toggle: inline, no pill, matches homepage rhythm -->
+  <div class="mode-toggle mt-10 inline-flex items-center text-gray-500">
+    <button id="mode-guided"   class="active">Guided</button>
+    <span class="sep">·</span>
+    <button id="mode-rigorous">Rigorous</button>
+  </div>
+</header>
+
+<!-- Engine whisper — single status line, no panel ----------------------- -->
+<div class="text-center mb-16">
+  <p class="whisper mono">
+    <span id="engine-state" class="dim">initializing engine…</span>
+    <span id="engine-progress" class="dim"></span>
+  </p>
+</div>
+
+<!-- ============================================================
+     ACT I — Here is all you get
+     ============================================================ -->
+<section id="act-1" class="act mb-24">
+  <div class="text-center mb-10">
+    <p class="whisper tracking-[0.2em] uppercase mb-2">Act I</p>
+    <h2 class="text-2xl font-light text-white">Here is all you get</h2>
+  </div>
+
+  <p class="guided-only text-gray-400 leading-relaxed max-w-xl mx-auto text-center mb-10">
+    A telescope points at a star orbiting an unseen companion. For every
+    epoch it records one number. Nothing else. No image. No mass. No orbit.
+    <span class="text-gray-300">One scalar per observation.</span>
+    Everything that follows is reconstructed from it.
+  </p>
+
+  <p class="rigorous-only text-gray-400 leading-relaxed max-w-xl mx-auto text-center mb-10 mono text-xs hidden">
+    1PN forward model of a bound two-body system. Injects relativistic baseline
+    Z<sub>sys</sub> = (1+z<sub>κ</sub>)(1+z<sub>β</sub>) and secular precession
+    Δϖ = 2π·τ<sub>Y</sub>²/(1−e²) with τ<sub>Y</sub>² = 3β² − 2β⁴ under closure
+    κ² = 2β². Re-seeds internally until SNR ≥ 4 and β ≥ 0.006. Exports only
+    (MJD, RV, σ). Truth is sealed until Act III converges.
+  </p>
+
+  <!-- Seed + run, centered, no card -->
+  <div class="flex flex-col items-center gap-5 mb-12">
+    <div class="flex items-center gap-4">
+      <label class="whisper tracking-[0.15em] uppercase">seed</label>
+      <input id="seed-input" type="text" value="84256" class="w-36 text-center" />
+      <button id="seed-random" class="icon" title="New random seed">↻</button>
+    </div>
+    <button id="run-generator" class="primary" disabled>
+      Generate 1D stream
+    </button>
+  </div>
+
+  <!-- RV scatter — no panel chrome, just the data -->
+  <div class="mb-3 flex items-baseline justify-between">
+    <p class="whisper tracking-[0.15em] uppercase">radial velocity · km/s vs MJD</p>
+    <p id="rv-count" class="whisper mono"></p>
+  </div>
+  <div class="relative" style="height: 340px;">
+    <canvas id="rv-canvas"></canvas>
+  </div>
+
+  <!-- Dataset report (Rigorous only) -->
+  <div id="dataset-report" class="mt-10 rigorous-only hidden">
+    <p class="whisper tracking-[0.15em] uppercase mb-3">dataset report</p>
+    <pre id="dataset-report-body" class="mono text-xs text-gray-400 whitespace-pre-wrap"></pre>
+  </div>
+
+  <!-- Sealed truth — a single inscriptive line, not a card -->
+  <div class="mt-12 text-center">
+    <p class="whisper tracking-[0.15em] uppercase mb-2">hidden truth</p>
+    <div id="truth-sealed" class="mono text-sm text-gray-500">
+      P · e · i · β · M <span class="dim">— sealed until Act III converges</span>
+    </div>
+    <div id="truth-revealed" class="mono text-sm hidden"></div>
+  </div>
+</section>
+
+<!-- Acts II–IV intentionally omitted from the DOM until they are built.
+     Progressive disclosure: the page grows with the instrument. -->
+
+<!-- Quiet source strip at the very bottom ------------------------------- -->
+<footer class="hairline pt-6 mt-16 text-center whisper flex flex-col sm:flex-row justify-center gap-4">
+  <a id="colab-link"
+     href="https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_HOLOGRAPHIC_REALITY_DECODER.ipynb"
+     target="_blank" rel="noopener"
+     class="hover:text-white transition-colors">↗ Open the exact notebook in Google Colab</a>
+  <span class="dim hidden sm:inline">·</span>
+  <a href="https://github.com/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_HOLOGRAPHIC_REALITY_DECODER.ipynb"
+     target="_blank" rel="noopener"
+     class="hover:text-white transition-colors">View source on GitHub</a>
+  <span class="dim hidden sm:inline">·</span>
+  <span class="dim">The Python running in your browser is byte-identical to the notebook.</span>
+</footer>
+
+<!-- Shared tooltip node for hover-defined glyphs -->
+<div id="tooltip" class="tip"></div>
+
+<script src="{{ '/decoder/js/app.js' | relative_url }}"></script>
