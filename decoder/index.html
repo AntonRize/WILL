@@ -20,15 +20,18 @@ permalink: /decoder/
   </h1>
 
   <p class="mt-7 text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
-    One scalar per epoch — the redshift of light — carries the complete
-    relational state of a bound system. This page runs the exact
-    R.O.M. pipeline in your browser and reconstructs the 3D metric from
-    a 1D stream, using only the speed of light and two dimensionless
-    projections:
-    <span class="accent-beta breathe mono" data-tip="β — kinematic projection&#10;β = v/c, the amplitude on the S¹ carrier.">β</span>
+    A telescope watches a star and measures how the frequency of its light
+    shifts over time. That is all we collect. From that single stream of
+    numbers this page reconstructs the complete three-dimensional orbit —
+    its shape, its tilt, its size in kilometres, and the mass of the
+    invisible partner pulling on the star — using only the speed of light
+    and two dimensionless ratios,
+    <span class="accent-beta breathe mono" data-tip="β = v/c&#10;How fast the star moves, as a fraction of the speed of light.">β</span>
     and
-    <span class="accent-kappa breathe mono" data-tip="κ — potential projection&#10;κ = √(Rₛ/r), the amplitude on the S² carrier.">κ</span>.
-    No <span class="mono dim">G</span>. No <span class="mono dim">M</span>.
+    <span class="accent-kappa breathe mono" data-tip="κ = √(Rₛ/r)&#10;How deep the star sits in the companion's gravitational well, as a fraction of the speed of light squared.">κ</span>.
+    Newton's constant <span class="mono dim">G</span> and the mass
+    <span class="mono dim">M</span> never enter the chain. They reappear
+    only at the very end, as a translation into familiar units.
   </p>
 
   <!-- Mode toggle: inline, no pill, matches homepage rhythm -->
@@ -57,18 +60,23 @@ permalink: /decoder/
   </div>
 
   <p class="guided-only text-gray-400 leading-relaxed max-w-xl mx-auto text-center mb-10">
-    A telescope points at a star orbiting an unseen companion. For every
-    epoch it records one number. Nothing else. No image. No mass. No orbit.
-    <span class="text-gray-300">One scalar per observation.</span>
-    Everything that follows is reconstructed from it.
+    We record how the frequency of a star's light changes with time.
+    That is all the information we will use to decode its world.
   </p>
 
-  <p class="rigorous-only text-gray-400 leading-relaxed max-w-xl mx-auto text-center mb-10 mono text-xs hidden">
-    1PN forward model of a bound two-body system. Injects relativistic baseline
-    Z<sub>sys</sub> = (1+z<sub>κ</sub>)(1+z<sub>β</sub>) and secular precession
-    Δϖ = 2π·τ<sub>Y</sub>²/(1−e²) with τ<sub>Y</sub>² = 3β² − 2β⁴ under closure
-    κ² = 2β². Re-seeds internally until SNR ≥ 4 and β ≥ 0.006. Exports only
-    (MJD, RV, σ). Truth is sealed until Act III converges.
+  <p class="rigorous-only text-gray-500 leading-relaxed max-w-2xl mx-auto text-center mb-10 hidden">
+    The simulator generates a realistic radial-velocity dataset for a star
+    bound to a compact invisible companion. The underlying orbit is treated
+    to first post-Newtonian order, so the light carries the classical
+    Keplerian motion <em>plus</em> three general-relativistic corrections:
+    the gravitational redshift from the companion's potential well, the
+    transverse Doppler shift from the star's orbital speed, and the
+    relativistic precession of the orbit's pericentre. The simulator
+    keeps drawing new system parameters until the relativistic part of
+    the signal rises clearly above the measurement noise. The exported
+    file holds only what any real spectroscopic survey would publish:
+    the time of each observation, the measured line-of-sight velocity in
+    km/s, and its uncertainty in km/s.
   </p>
 
   <!-- Seed + run, centered, no card -->
@@ -101,8 +109,16 @@ permalink: /decoder/
   <!-- Sealed truth — a single inscriptive line, not a card -->
   <div class="mt-12 text-center">
     <p class="whisper tracking-[0.15em] uppercase mb-2">hidden truth</p>
+    <p class="whisper max-w-xl mx-auto mb-3">
+      The real orbital parameters the simulator used to generate this
+      light-curve — orbital period, eccentricity, inclination, pericentre
+      angle, systemic drift of the whole system, and the mass of the
+      invisible companion. They are held back. The decoder will be asked
+      to recover them from the light alone, and only then will they be
+      revealed for comparison.
+    </p>
     <div id="truth-sealed" class="mono text-sm text-gray-500">
-      P · e · i · β · M <span class="dim">— sealed until Act III converges</span>
+      period · eccentricity · inclination · pericentre angle · systemic drift · companion mass
     </div>
     <div id="truth-revealed" class="mono text-sm hidden"></div>
   </div>
