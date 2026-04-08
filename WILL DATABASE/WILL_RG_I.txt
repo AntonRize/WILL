@@ -805,7 +805,7 @@ $\beta_Y = \sqrt{1-(v/c)^2}=\sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) = \sin(
 \end{tcolorbox}
 
 
-\subsection{Kinematic Equivalence: The Minkowski Metric as an $S^1$ Trigonometric Projection}
+\subsection{Kinematic Projection Equivalence: The Minkowski metric interval as an $S^1$ Pythagorean Identity}
 \label{sec:kinematic_mapping}
 
 The Minkowski spacetime interval, posited by legacy Special Relativity as a physical metric of a 4D background manifold, mathematically collapses into the invariant phase budget of the kinematic relational carrier ($S^1$).
@@ -879,6 +879,36 @@ $(\kappa_X,\kappa)=(\cos\theta_2,\sin\theta_2)$.
 
 The redistribution of the budget between the Phase and Amplitude components directly produces the effects of General Relativity. An increase in the relational measure ($\kappa$, gravitational potential) necessarily requires a decrease in the measure of the internal structure ($\kappa_X$). This geometric trade-off is observed physically as gravitational length and time corrections. Thus, the geometry of spacetime is the shadow cast by the geometry of relations.
 
+
+
+\section*{ Potential Equivalence: The Schwarzschild metric interval as an $S^2$ Pythagorean Identity}
+
+This derivation demonstrates how the Schwarzschild metric interval, a cornerstone of General Relativity (GR), algebraically maps to the closure identity of the potential carrier, $\kappa^2 + \kappa_X^2 = 1$, within WILL Relational Geometry (RG). This is analogous to how the Minkowski interval maps directly to the kinematic closure identity $\beta^2 + \beta_Y^2 = 1$.
+
+The Schwarzschild metric describes the spacetime geometry around a spherically symmetric, non-rotating mass $M$. For a static observer (i.e., not moving radially or angularly, so $dr=0$, $d\theta=0$, $d\phi=0$), the metric interval is:
+$$ ds^2 = c^2 \left(1 - \frac{R_s}{r}\right) dt^2 $$
+where $R_s = \frac{2GM}{c^2}$ is the Schwarzschild radius.
+
+The proper time $d\tau$ experienced by the static observer is related to the metric interval by $ds^2 = c^2 d\tau^2$. Substituting this into the Schwarzschild interval:
+$$ c^2 d\tau^2 = c^2 \left(1 - \frac{R_s}{r}\right) dt^2 $$
+Dividing both sides by $c^2 dt^2$, we obtain the squared gravitational time dilation factor:
+$$ \left(\frac{d\tau}{dt}\right)^2 = 1 - \frac{R_s}{r} $$
+In WILL Relational Geometry, the potential phase component $ \kappa_X \equiv \frac{d\tau}{dt} \equiv \sqrt{1-\kappa^2} $ (which governs the intrinsic scale of proper time in a gravitational field) is identified with this gravitational time dilation factor (see \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:potential}{WILL RG Part I - Potential Energy Projection on $S^2$}). Also, the potential amplitude is defined as $\kappa^2 \equiv \frac{R_s}{r}$. Therefore:
+$$ \frac{R_s}{r}+(\frac{d\tau}{dt})^2 = \kappa^2 + \kappa_X^2 = 1$$
+We arrive at the fundamental closure identity for the $S^2$ potential carrier in WILL RG:
+This derivation mandates the explicit legacy translation mapping:
+\begin{itemize}
+    \item \textbf{Kinematic Projection ($\kappa$):} $\kappa \equiv  \sin(\theta_2)= \sqrt{\frac{R_s}{r}}$
+    \item \textbf{Internal Phase Projection ($\kappa_X$):} $\kappa_X \equiv  \cos (\theta_2)=\sqrt{1-\kappa^2}=\frac{d\tau}{dt} $
+\end{itemize}
+
+\subsection{Epistemological Consequence: Unveiling the Geometric Structure}
+
+This exercise demonstrates that the algebraic structure of the Schwarzschild metric's $g_{tt}$ component directly maps to the closure identity of the $S^2$ potential carrier in WILL RG. The terms in GR's description of spacetime curvature (specifically, the gravitational time dilation factor) are shown to be directly equivalent to the squared potential phase and amplitude projections of WILL RG.
+
+\begin{tcolorbox}[willbox, title=Key Insight]
+While the Schwarzschild metric \textit{describes} gravitational effects within a pre-existing spacetime, WILL RG \textit{generates} the underlying relational geometry ($\kappa^2 + \kappa_X^2 = 1$) from its foundational ontological principle ($\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}$). This algebraic correspondence indicates that the physical reality captured by GR is an emergent phenomenon consistent with the more fundamental relational structure of WILL RG. The geometric identity $\kappa^2 + \kappa_X^2 = 1$ is thus not merely a re-parameterization, but a direct consequence of the removal of hidden assumptions about the separation of structure and dynamics.
+\end{tcolorbox}
 
 \subsection{Gravitational Tangent Formulation}
 
@@ -2259,6 +2289,150 @@ For a perfectly circular orbit ($e = 0$) at this causal limit, the precession ev
 \end{tcolorbox}
 
 
+\section{Relational Parameterization and the Fundamental Primitives}
+\hypertarget{sec:relational_parameterization}{}\label{sec:relational_parameterization}
+
+\begin{theorem}[Relational Parameterization]
+The complete structural and dynamical parameterization of any closed orbital system — specifically its geometric shape ($e$, eccentricity), secular phase shift ($\Delta\varphi$, orbital precession), critical scale ($R_s$, Schwarzschild radius), and global scale ($a$, semi-major axis) — are strictly determined by the algebraic relations of its dimensionless spectroscopic and chronometric observables. The derivation requires no independent mass parameter ($M$), gravitational constant ($G$), or a priori spatial metric.
+\end{theorem}
+
+\begin{proof}
+The proof is constructive and algebraically closed. It generalizes to any bound orbital system. We demonstrate this using the Mercury-Sun system as an operational test case.  
+All governing equations are derived exclusively from the internal topology of the WILL relational carriers ($S^1$, $S^2$), strictly bypassing Newtonian mechanics, Special Relativity, or General Relativity. 
+The derivation is executed using only four dimensionless, epistemologically direct observables ($e_{obs}, \theta_{\odot}, T_M/T_{\oplus}, z_{sun}$):
+
+\textbf{INPUTS (Cross-Cultural Invariants)} \\
+The following inputs are strict dimensionless ratios. They represent direct physical observables that remain identical for any observer in the Universe, regardless of local unit systems (meters/seconds) or theoretical paradigms.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c|p{8cm}|}
+\hline
+\textbf{Parameter} & \textbf{Value} & \textbf{Direct Observational Method} \\ \hline
+$\theta_{\odot}$ & $0.0046524 \text{ rad}$& \textbf{Visual Size:} The angular radius of the central body in the sky. \cite{Meftah2014}\\ \hline
+$T_M / T_{\oplus}$ & $0.2408$ & \textbf{Cycle Ratio:} The observed system's full orbital period divided by the observer's local orbital period. \cite{NASA_Planetary}\\ \hline
+$e_{obs}$ & $0.2056$ & \textbf{Visual Kinematics:} Derived directly from the ratio of the planet's fastest ($\omega_{max}$) and slowest ($\omega_{min}$) apparent angular speeds: $e = \frac{\sqrt{\omega_{max}/\omega_{min}} - 1}{\sqrt{\omega_{max}/\omega_{min}} + 1}$ \cite{JPL_DE430}.\\ \hline
+$z_{sun}$ & $2.1224 \times 10^{-6}$& \textbf{Spectroscopic Tension:} The raw fractional frequency shift of light ($1 - \nu_{obs}/\nu_{emit}$). Defined strictly as an optical geometric observable, independent of mass or Newtonian constants \cite{Gonzalez2020}.\\ \hline
+\end{tabular}
+\end{table}
+
+\vspace{0.5cm}
+\textbf{Algebraic Derivation}
+
+\textbf{1. Relational Scale Factor} \\
+The ratio of the Sun's radius to the planet's perihelion distance is derived entirely from visual size and cycle ratios:
+\[
+    R_{ratio} = \frac{\theta_{\odot}}{(T_M / T_{\oplus})^{2/3} \cdot (1-e_{obs})} \approx 0.0151290
+\]
+
+\textbf{2. Potential Projection (at perihelion)} \\
+Translating the spectral shift at the Sun's surface ($z_{sun}$) to the potential projection (\ref{sec:spectroscopic_shift}) at Mercury's perihelion ($\kappa_{p}^{2}$) using the derived scale factor:
+\[
+    \kappa_{p}^{2} = \left(1 - \frac{1}{(1+z_{sun})^{2}}\right) \cdot R_{ratio} \approx 6.4219 \times 10^{-8}
+\]
+
+\textbf{3. Kinematic Projection (at perihelion)} \\
+Deriving orbital kinematics strictly from the potential and eccentricity (\ref{sec:rel_ecc}), requiring no Doppler or radar data:
+\[
+    \beta_p^2 = \frac{\kappa_p^2}{2}(1+e_{obs}) \approx 3.8712 \times 10^{-8}
+\]
+
+\textbf{4. Global Orbital Invariants} \\
+Extracting the system's global projections via the invariant binding energy $W = \frac{1}{2}(\kappa_p^2 - \beta_p^2)$ (\ref{sec:energy-symmetry}):
+\[
+    \beta^2 = 2W \approx 2.5508 \times 10^{-8} \quad \text{and} \quad \kappa^2 = 4W \approx 5.1016 \times 10^{-8}
+\]
+
+\textbf{5. Exact Orbital Precession} \\
+The secular phase shift emerges (\ref{sec:precession_law}) from the accumulation of the relational state divergence ($\tau_{Y}^2 = 1 - (1-\kappa^2)(1-\beta^2)$) over a full cycle:
+\[
+    \Delta\varphi = \frac{2\pi \cdot \tau_{Y}^2}{1-e_{obs}^2} \approx 5.0203 \times 10^{-7} \text{ rad/orbit}
+\]
+Converting this pure geometric phase shift to standard observational units yields \textbf{43.015 arcsec/century}, perfectly matching the observed precession of Mercury.
+
+\textbf{6. Absolute System Scale (Metric Translation)} \\
+To translate the geometric scale into legacy metric units (meters), we map Mercury's orbital period ($T_M = 7,600,521.6$ s) and the speed of light ($c$) to the global kinematic projection ($\beta$):
+\[
+    R_{sRG} = T_M \cdot c \cdot \frac{\beta^3}{\pi} \approx 2954.8 \text{ m}
+\]
+Standard GR value:
+\[
+    R_{sGR}=\frac{2GM_{sun}}{c^{2}}\approx 2953.33 \,\text{ m} \quad \text{where} \quad M_{sun}=1.98847\times10^{30} \, \text{ kg}
+\]
+Discrepancy:
+\[
+    \frac{R_{sGR}-R_{sRG}}{R_{sGR}} \times 100 = |0.0476|\%
+\]
+This variance is strictly within the observational uncertainty limits of the input parameters ($z_{sun}$ and $\theta_{\odot}$).
+
+\textbf{7. Semi-major Axis} (Standard value $\approx 5.79\times10^{10}$ m):
+\[
+    a=\frac{R_{sRG}}{\kappa^2} \approx 5.792288\times10^{10} \,\text{ m} 
+\]
+
+\textbf{8. Perihelion Radius} (Standard value $\approx 4.60\times10^{10}$ m):
+\[
+    r_p=\frac{R_{sRG}}{\kappa_{p}^2} \approx 4.601394\times10^{10} \,\text{ m}
+\]
+\vspace{0.5cm}
+\textbf{Universality of the Framework: The Jovian Extension} \\
+To rigorously demonstrate that this parameterization is not a localized artifact of the Mercury-Sun proximity, but a universal geometric property of bound systems, we apply the exact same algebraic chain to Jupiter. We replace the inputs with Jupiter's chronometric cycle and eccentricity, keeping the central reference invariants ($\theta_{\odot}$, $z_{sun}$, $T_{\oplus}$) strictly identical.
+
+\textbf{Jovian Inputs:}
+\begin{itemize}[noitemsep]
+    \item $T_J = 4332.589 \text{ days}$ \cite{NASA_RadioJOVE_JupiterFactSheet}
+    \item $e_J = 0.04839266$ \cite{NASA_RadioJOVE_JupiterFactSheet}
+    \item $T_{ratioJ} = T_J / T_{\oplus} \approx 11.862$
+\end{itemize}
+
+\textbf{1. Global Potential Projection ($\kappa_J$)} \\
+The local potential projection at Jupiter's semi-major axis reduces to a remarkably elegant relation, scaling the solar surface tension strictly through the inverse temporal cycle ratio:
+\[
+    \kappa_{J} = \sqrt{\left(1-\frac{1}{(1+z_{sun})^2}\right) \cdot \frac{\theta_{\odot}}{(T_{ratioJ})^{2/3}}} \approx 6.1623 \times 10^{-5}
+\]
+
+\textbf{2. Absolute System Scale Recovery ($R_{sRGJ}$)} \\
+Expanding the algebraic chain utilizing Jupiter's specific kinematic projection ($\beta_J$) yields the invariant core scale:
+\[
+    R_{sRGJ} = \frac{T_J \cdot c}{\pi} \left[ \frac{1}{1-e_J} \left(1-\frac{1}{(1+z_{sun})^2}\right) \frac{\theta_{\odot}}{T_{ratioJ}^{2/3}} - \frac{1}{2} \frac{1+e_J}{1-e_J} \left(1-\frac{1}{(1+z_{sun})^2}\right) \frac{\theta_{\odot}}{T_{ratioJ}^{2/3}} \right]^{3/2}
+\]
+\[
+    R_{sRGJ} \approx 2955.41 \text{ m}
+\]
+
+\textbf{3. Jovian Semi-major Axis ($a_J$)} \\
+Translating the recovered systemic scale to the spatial scale of Jupiter's orbit:
+\[
+    a_J = \frac{R_{sRGJ}}{\kappa_J^2} \approx 7.7827 \times 10^{11} \text{ m}
+\]
+Standard observed value $a_{JDATA} = 778.57 \times 10^9 \text{ m}$ \cite{NASA_RadioJOVE_JupiterFactSheet}.
+\[
+    \text{Discrepancy} = \frac{|a_{JDATA} - a_J|}{a_{JDATA}} \times 100 \approx 0.038\%
+\]
+
+The extraction of the central Schwarzschild radius ($R_s$) and the local geometric scale ($a$) remains perfectly invariant and algebraically closed, proving that the full system geometry can be holographically reconstructed regardless of which planet's dimensional "shadow" ($T, e$) is utilized as the observational lens.
+
+
+\textbf{9. Conclusion} \\
+The logical chain is complete and algebraically closed. All fundamental parameters of the gravitational system are recovered precisely without the use of mass ($M$), the gravitational constant ($G$), a metric manifold, differential formalism, or the postulation of an external flow of time.
+\end{proof}
+
+\[
+\boxed{\textbf{No differential formalism. No metric space. Just light frequency shift red vs. blue.}} 
+\]
+
+\begin{corollary}[Epistemic Mandate and Ontological Redundancy]
+In information theory and formal logic, if a parameter is strictly absent from the complete algebraic generative chain of a system, its reintroduction constitutes an epistemic violation. Because the full structural and dynamical parameterization ($e$, $\Delta\varphi$, $R_s$, $a$) is algebraically closed using only directly measurable dimensionless ratios ($e_{obs}, \theta_{\odot}, T_M/T_{\oplus}, z_{sun}$) and derived relational projections ($\kappa, \beta$), the variables $G$ and $M$ possess zero independent predictive power. They are not fundamental primitives. Their retention is required exclusively for the conversion of pure relational geometry into legacy units of kilograms.
+\end{corollary}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Mercury-Sun Relational Parameterization]
+\href{https://www.desmos.com/calculator/mjen4ms452}{DESMOS} \\
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Mercury-Sun_Relational_Parameterization.ipynb}{COLAB}
+\end{tcolorbox}
+
+
+
 \subsection*{Optical Phase Projection (Angular Radius)}
 \hypertarget{eq:optical_phase}{}\label{eq:optical_phase}
 
@@ -2277,6 +2451,10 @@ The exact geometric relationship for the apparent angular radius $\theta$ of the
 This algebraically closes the system, allowing the derivation of the system scale $R_s$ exclusively from local observables ($T$, $\theta$, $z_{sun}$) without Newtonian mass approximations:
 \[
 R_s = \frac{T c}{\pi} \left( \kappa_{R}^2 \frac{\sin(\theta)}{2} \right)^{\frac{3}{2}}
+\]
+And kinetic global form
+\[
+R_s = \frac{T c}{\pi} \beta^{3}
 \]
 
 \subsection{Algebraic Determination of Absolute System Scale}
@@ -2498,117 +2676,6 @@ All formulas are:
 
 The operational input is always $\tau = 1/[(1+z_{\kappa})(1+z_{\beta})]$, a dimensionless quantity directly measurable from spectroscopy. This demonstrates that WILL RG formulas are empirically grounded and do not rely on hidden assumptions about gravitational constants.
 
-
-\section{Relational Parameterization and the Fundamental Primitives}
-\hypertarget{sec:relational_parameterization}{}\label{sec:relational_parameterization}
-
-\begin{theorem}[Relational Parameterization]
-The complete structural and dynamical parameterization of any closed orbital system  -  specifically its geometric shape ($e=$ eccentricity), secular phase shift ($\Delta\varphi=$ orbital precession), critical scale 
-($R_s$= Schwarzschild radius),  global scale ($a=$ semi-major axis),  strictly determined by the algebraic relations of its dimensionless spectroscopic and chronometric observables. The derivation requires no independent mass parameter ($M$), gravitational constant ($G$), or an a priori spatial metric.
-\end{theorem}
-
-\begin{proof}
-The proof is constructive and algebraically closed. It generalises to any bound orbital system. We demonstrate this using the Mercury-Sun system as an operational test case.  
-All governing equations are derived exclusively from the internal topology of the WILL relational carriers ($S^1$, $S^2$) and have zero theoretical dependence on Newtonian mechanics, Special Relativity, or General Relativity. 
-The derivation is executed using only four dimensionless, epistemologically direct observables: 
-($e, \theta_{\odot}, T_M/T_{\oplus}, z_{sun}$):
-
-\textbf{INPUTS (Cross-Cultural Invariants)} \\
-The following inputs are strictly dimensionless ratios. They represent direct physical observables that remain identical for any observer in the Universe, regardless of their local system of units (meters/seconds) or theoretical paradigms.
-
-
-\begin{table}[h!]
-\centering
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|l|c|p{8cm}|}
-\hline
-\textbf{Parameter} & \textbf{Value} & \textbf{Direct Observational Method} \\ \hline
-$\theta_{\odot}$ & $0.0046524 \text{ rad}$& \textbf{Visual Size:} The angular radius of the Sun in the sky (how many angular units it occupies from the observer's viewpoint) \cite{Meftah2014}.\\ \hline
-$T_M / T_{\oplus}$ & $0.2408$ & \textbf{Cycle Ratio:} The observed system's full orbital period divided by our own local orbital period. \cite{NASA_Planetary}\\ \hline
-$e_{obs}$ & $0.2056$ & \textbf{Visual Kinematics:} Derived directly from the ratio of the planet's fastest ($\omega_{max}$) and slowest ($\omega_{min}$) apparent angular speeds across the sky: $e = \frac{\sqrt{\omega_{max}/\omega_{min}} - 1}{\sqrt{\omega_{max}/\omega_{min}} + 1}$ \cite{JPL_DE430}.\\ \hline
-$z_{sun}$ & $2.1224 \times 10^{-6}$& \textbf{Spectroscopic Tension:} The raw fractional frequency shift of light ($1 - \nu_{obs}/\nu_{emit}$). Methodologically, it is defined strictly as an optical geometric observable, explicitly bypassing any a priori theoretical dependence on mass ($M$) or Newtonian constants ($G$) \cite{Gonzalez2020}.\\ \hline
-\end{tabular}
-\end{table}
-
-
-\vspace{0.5cm}
-\textbf{Algebraic Derivation}
-
-\textbf{1. Relational Scale Factor} \\
-The ratio of the Sun's radius to the planet's perihelion distance, derived entirely from visual size and cycle ratios, without metric distances:
-\[
-    R_{ratio} = \frac{\theta_{\odot}}{(T_M / T_{\oplus})^{2/3} \cdot (1-e_{obs})} \approx 0.0151290
-\]
-
-\textbf{2. Potential Projection (at perihelion)} \\
-Translating the spectral shift at the Sun's surface ($z_{sun}$) to the potential projection 
-(\ref{sec:spectroscopic_shift}) at Mercury's perihelion ($\kappa_{p}^{2}$) using the derived scale factor ($R_{ratio}$):
-\[
-    \kappa_{p}^{2} = \left(1 - \frac{1}{(1+z_{sun})^{2}}\right) \cdot R_{ratio} \approx 6.4219 \times 10^{-8}
-\]
-
-\textbf{3. Kinematic Projection (at perihelion)} \\
-Deriving the orbital kinematics strictly from the potential and eccentricity (\ref{sec:rel_ecc}), requiring no Doppler or radar data:
-\[
-    \beta_p^2 = \frac{\kappa_p^2}{2}(1+e_{obs}) \approx 3.8712 \times 10^{-8}
-\]
-
-\textbf{4. Global Orbital Invariants} \\
-Deriving the system's global projections (at the semi-major axis balance point) via the invariant binding energy $W = \frac{1}{2}(\kappa_p^2 - \beta_p^2)$ (\ref{sec:energy-symmetry}):
-\[
-    \beta^2 = 2W \approx 2.5508 \times 10^{-8} \quad \text{and} \quad \kappa^2 = 4W \approx 5.1016 \times 10^{-8}
-\]
-
-\textbf{5. Exact Orbital Precession} \\
-The secular phase shift emerges (\ref{sec:precession_law}) from accumulation of the relational state divergence ($\tau_{Y}^2 = 1 - (1-\kappa^2)(1-\beta^2)$) over the full cycle:
-\[
-    \Delta\varphi = \frac{2\pi \cdot \tau_{Y}^2}{1-e_{obs}^2} \approx 5.0203 \times 10^{-7} \text{ rad/orbit}
-\]
-Converting this pure geometric phase shift to standard observational units (arcseconds per century) yields  \textbf{43.015 arcsec/century}, matching the observed precession of Mercury within observational uncertainties.
-
-\textbf{6. Absolute System Scale (Metric Translation)} \\
-To translate this into human units (meters), we express Mercury's orbital period in seconds 
-($T_M = 7,600,521.6$ s) and the speed of light ($c = 299,792,458$ m/s) to the derived global kinematic projection ($\beta = \sqrt{2W}$):
-\[
-    R_{sRG} = T_M \cdot c \cdot \frac{\beta^3}{\pi} \approx 2954.8 \text{ m}
-\]
-and the standard value is:
-\[
-    R_{sGR}=\frac{2GM_{sun}}{c^{2}}\approx 2953.33 \,\text{ m} \quad \text{where} \quad M_{sun}=1.98847\times10^{30} \, \text{ kg}
-\]
-Comparing the values:
-\[
-    \frac{R_{sGR}-R_{sRG}}{R_{sGR}} \times 100 = |0.0476|\%
-\]
-This difference is well within the observational uncertainties of the input parameters.
-
-\textbf{7. Semi-major axis}  (Standard value $\approx 5.79\times10^{10}$ m):
-\[
-    a=\frac{R_{sRG}}{\kappa^2}= 5.792288\times10^{10} \,\text{ m} 
-\]
-
-\textbf{8. Orbital radius at perihelion}  (Standard value $\approx 4.60\times10^{10}$ m):
-\[
-    r_p=\frac{R_{sRG}}{\kappa_{p}^2}= 4.601394\times10^{10} \,\text{ m}
-\]
-\textbf{9. Conclusion:}
-The logical chain is complete and algebraically closed.
-All major parameters of gravitational system recovered without use of mass, gravitational constant G, metric manifold, differential formalism, postulation of "container-space" and external flow of time.
-\end{proof}
-
-\[
-\boxed{\textbf{No differential formalism. No metric space. Just light frequency shift red vs. blue}} 
-\]
-
-\begin{corollary}[Epistemic Mandate and Ontological Redundancy]
-In information theory and formal logic, if a parameter is strictly absent from the complete algebraic generative chain of a system, its reintroduction constitutes an epistemic violation. Because the full structural and dynamical parameterization ($e$, $\Delta\varphi$, $R_s$) is algebraically closed using only directly measurable parameters 
-($e, \theta_{\odot}, T_M/T_{\oplus}, z_{sun}$) and derived relational projections ($\kappa, \beta$), the variables $G$ and $M$ possess zero independent predictive power. They are not fundamental primitives. Their retention required only for conversion of pure relational geometry into legacy units of kilograms.
-\end{corollary}
-
-\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Mercury-Sun Relational Parameterization]
-\href{https://www.desmos.com/calculator/mjen4ms452}{DESMOS}
-\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Mercury-Sun_Relational_Parameterization.ipynb}{COLAB}
-\end{tcolorbox}
 
 
 \section{Rotational Systems (Kerr Without Metric)}
@@ -3010,6 +3077,84 @@ Concurrently, the raw spectroscopic observable $Z_{\rm raw}$ intrinsically conta
 The degeneracy is not fundamental; it is an artifact of truncating the kinematic description to its first-order linear term. R.O.M. restores the full non-linear structure of the relational carriers and renders $\beta$ and $i$ separately measurable from a single dataset.
 \end{tcolorbox}
 
+
+\subsection{Analytical Extraction of the Inclination Angle: The Decryption Invariant}
+\hypertarget{sec:analytical_sini}{}\label{sec:analytical_sini}
+
+While Bayesian MCMC provides a robust statistical mapping of the probability ridge (Section \ref{sec:mcmc_s02}), the Relational Orbital Mechanics (R.O.M.) allows for a strict, closed-form algebraic resolution of the $M \sin i$ degeneracy. By evaluating the raw observational shifts at the exact orbital extrema, the inclination angle $i$ can be completely isolated and extracted.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=R.O.M. equations and definitions]
+\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{Closed Algebraic System of Relational Orbital Mechanics}
+\end{tcolorbox}
+
+\subsubsection{The Observer Equations at Extrema}
+
+The raw spectroscopic shift observed by a telescope, $Z_{raw}(o)$, is the product of the line-of-sight Doppler projection and the systemic transverse baseline $Z_{sys}(o)$. The extrema of the radial velocity occur at phases $o_{i1} = -\omega_i$ (maximum redshift) and $o_{i2} = \pi - \omega_i$ (minimum redshift/maximum blueshift).
+
+Utilizing the relational energy invariant $\kappa_o(o)^2 - \beta_o(o)^2 = \beta^2$, we eliminate the gravitational projection $\kappa_o$ entirely. Because $Z_{sys}(o) = 1/\tau(o)$, the systemic spacetime phase factors at the extrema, $\tau(-\omega_i)$ and $\tau(\pi-\omega_i)$, become strict functions of the global kinematic projection $\beta$, eccentricity $e$, and the argument of periapsis $\omega_i$:
+
+\begin{align}
+\tau(-\omega_i) &= \sqrt{1 - 2\beta^2\frac{1+e\cos\omega_i}{1-e^2}} \sqrt{1 - \beta^2\frac{1+e^2+2e\cos\omega_i}{1-e^2}} \\
+\tau(\pi-\omega_i) &= \sqrt{1 - 2\beta^2\frac{1-e\cos\omega_i}{1-e^2}} \sqrt{1 - \beta^2\frac{1+e^2-2e\cos\omega_i}{1-e^2}}
+\end{align}
+
+The observed raw extrema can then be written linearly with respect to the classical semi-amplitude invariant $K_i = \frac{\beta\sin i}{\sqrt{1-e^2}}$:
+\begin{align}
+Z_{raw}(-\omega_i) \cdot \tau(-\omega_i) &= 1 + K_i(1+e\cos\omega_i) \label{eq:zmax} \\
+Z_{raw}(\pi-\omega_i) \cdot \tau(\pi-\omega_i) &= 1 - K_i(1-e\cos\omega_i) \label{eq:zmin}
+\end{align}
+
+\subsubsection{Algebraic Decoupling of $\beta$ and $i$}
+
+To break the degeneracy, we isolate the inclination-dependent term. Subtracting Equation \ref{eq:zmin} from Equation \ref{eq:zmax} yields  twice the semi-amplitude:
+\begin{equation}
+2K_i = Z_{raw}(-\omega_i) \tau(-\omega_i) - Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) \label{eq:2Ki}
+\end{equation}
+
+Adding the two equations yields:
+\begin{equation}
+Z_{raw}(-\omega_i) \tau(-\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) = 2 + 2K_i e\cos\omega_i
+\end{equation}
+
+Substituting $2K_i$ from Equation \ref{eq:2Ki} into this sum and grouping the $Z_{raw}$ terms isolates the fundamental \textbf{Decryption Invariant}:
+
+\begin{tcolorbox}[colback=white, colframe=black, title=The Decryption Invariant]
+\begin{equation}
+Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2
+\label{eq:decryption_invariant}
+\end{equation}
+\end{tcolorbox}
+
+This equation contains the raw observational signals, the known geometry ($e$), and the internal R.O.M. variables ($\beta, \omega_i$) locked inside the $\tau$ functions. Crucially, \textbf{the inclination angle $i$ has been strictly eliminated}. This proves analytically that the true kinematic projection $\beta$ is determined entirely by the asymmetry of the transverse baselines at the extrema, independent of the observer's viewing angle.
+
+\subsubsection{Analytical Extraction of $\sin i$}
+
+Once $\beta$ and $\omega_i$ are constrained via Equation \ref{eq:decryption_invariant} (and verified via the balance phase $O_o$), the true orbital inclination is trivially extracted by substituting the definition of $K_i$ back into Equation \ref{eq:2Ki}:
+
+\begin{equation}
+\boxed{\sin i = \frac{\sqrt{1-e^2}}{2\beta} \left[ Z_{raw}(-\omega_i) \tau(-\omega_i) - Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) \right]}
+\end{equation}
+
+\subsubsection{Numerical Verification: S0-2 Extrema Synthesis}
+
+To verify this architecture, a forward-synthesis and reverse-extraction test was performed using the empirically established parameters of the S0-2 star (GRAVITY Collaboration: $e = 0.88466$, $\omega_i = 66.13^\circ$, $\beta = 0.00645$, $i = 134.0^\circ$). 
+
+Forward synthesis generates the exact transverse spacetime factors $\tau(-\omega_i) = 0.999501$ and $\tau(\pi-\omega_i) = 0.999775$, yielding the raw spectroscopic extrema:
+\begin{itemize}
+    \item $Z_{raw}(-\omega_i) = 1.014019$
+    \item $Z_{raw}(\pi-\omega_i) = 0.993834$
+\end{itemize}
+
+Evaluating the Decryption Invariant (Equation \ref{eq:decryption_invariant}) with these values yields exactly $2.000000$, confirming absolute algebraic closure. Applying the extraction equation directly outputs $\sin i = 0.71931$, which immediately returns the true inclination $i = 133.99^\circ$. 
+
+\begin{remark}[Epistemological Proof vs. Empirical Extraction]
+While the Decryption Invariant (Equation \ref{eq:decryption_invariant}) provides the rigorous epistemological proof that the classical $M \sin i$ degeneracy is not a fundamental law of physics, its direct algebraic application is inherently bounded by instrumental limitations. 
+
+Because the baseline asymmetry $(\tau(-\omega_i) - \tau(\pi-\omega_i))$ scales strictly as $\mathcal{O}(\beta^2)$ (e.g., $\approx 2.7 \times 10^{-4}$ for the S0-2 system), the algebraic inversion is hypersensitive to spectrographic noise. Any instrumental fluctuation or finite-sampling interpolation error at the exact extrema ($Z_{raw}(-\omega_i)$ and $Z_{raw}(\pi-\omega_i)$) will be mathematically amplified by the inversion matrix.
+
+Therefore, the algebraic and statistical methods must operate in strict symbiosis. The algebraic system (Section \ref{sec:analytical_sini}) provides the exact topological initial locus, instantly dispatching the optimizer to the correct degeneracy ridge. The Bayesian MCMC framework (Section \ref{sec:mcmc_s02}) then takes over, integrating the continuous phase curve to suppress instrumental noise and establish robust empirical confidence intervals.
+\end{remark}
+
 \subsection{Empirical Validation: Bayesian MCMC Analysis on S0-2 Data}
 \hypertarget{sec:mcmc_s02}{}\label{sec:mcmc_s02}
 
@@ -3164,91 +3309,21 @@ Furthermore, the sub-degree residual deviation in $i$ and $v_{z0}$ highlights th
 \end{tcolorbox}
 
 
-\subsection{Analytical Extraction of the Inclination Angle: The Decryption Invariant}
-\hypertarget{sec:analytical_sini}{}\label{sec:analytical_sini}
-
-While Bayesian MCMC provides a robust statistical mapping of the probability ridge (Section \ref{sec:mcmc_s02}), the Relational Orbital Mechanics (R.O.M.) allows for a strict, closed-form algebraic resolution of the $M \sin i$ degeneracy. By evaluating the raw observational shifts at the exact orbital extrema, the inclination angle $i$ can be completely isolated and extracted.
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=R.O.M. equations and definitions]
-\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{Closed Algebraic System of Relational Orbital Mechanics}
-\end{tcolorbox}
-
-\subsubsection{The Observer Equations at Extrema}
-
-The raw spectroscopic shift observed by a telescope, $Z_{raw}(o)$, is the product of the line-of-sight Doppler projection and the systemic transverse baseline $Z_{sys}(o)$. The extrema of the radial velocity occur at phases $o_{i1} = -\omega_i$ (maximum redshift) and $o_{i2} = \pi - \omega_i$ (minimum redshift/maximum blueshift).
-
-Utilizing the relational energy invariant $\kappa_o(o)^2 - \beta_o(o)^2 = \beta^2$, we eliminate the gravitational projection $\kappa_o$ entirely. Because $Z_{sys}(o) = 1/\tau(o)$, the systemic spacetime phase factors at the extrema, $\tau(-\omega_i)$ and $\tau(\pi-\omega_i)$, become strict functions of the global kinematic projection $\beta$, eccentricity $e$, and the argument of periapsis $\omega_i$:
-
-\begin{align}
-\tau(-\omega_i) &= \sqrt{1 - 2\beta^2\frac{1+e\cos\omega_i}{1-e^2}} \sqrt{1 - \beta^2\frac{1+e^2+2e\cos\omega_i}{1-e^2}} \\
-\tau(\pi-\omega_i) &= \sqrt{1 - 2\beta^2\frac{1-e\cos\omega_i}{1-e^2}} \sqrt{1 - \beta^2\frac{1+e^2-2e\cos\omega_i}{1-e^2}}
-\end{align}
-
-The observed raw extrema can then be written linearly with respect to the classical semi-amplitude invariant $K_i = \frac{\beta\sin i}{\sqrt{1-e^2}}$:
-\begin{align}
-Z_{raw}(-\omega_i) \cdot \tau(-\omega_i) &= 1 + K_i(1+e\cos\omega_i) \label{eq:zmax} \\
-Z_{raw}(\pi-\omega_i) \cdot \tau(\pi-\omega_i) &= 1 - K_i(1-e\cos\omega_i) \label{eq:zmin}
-\end{align}
-
-\subsubsection{Algebraic Decoupling of $\beta$ and $i$}
-
-To break the degeneracy, we isolate the inclination-dependent term. Subtracting Equation \ref{eq:zmin} from Equation \ref{eq:zmax} yields  twice the semi-amplitude:
-\begin{equation}
-2K_i = Z_{raw}(-\omega_i) \tau(-\omega_i) - Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) \label{eq:2Ki}
-\end{equation}
-
-Adding the two equations yields:
-\begin{equation}
-Z_{raw}(-\omega_i) \tau(-\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) = 2 + 2K_i e\cos\omega_i
-\end{equation}
-
-Substituting $2K_i$ from Equation \ref{eq:2Ki} into this sum and grouping the $Z_{raw}$ terms isolates the fundamental \textbf{Decryption Invariant}:
-
-\begin{tcolorbox}[colback=white, colframe=black, title=The Decryption Invariant]
-\begin{equation}
-Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2
-\label{eq:decryption_invariant}
-\end{equation}
-\end{tcolorbox}
-
-This equation contains the raw observational signals, the known geometry ($e$), and the internal R.O.M. variables ($\beta, \omega_i$) locked inside the $\tau$ functions. Crucially, \textbf{the inclination angle $i$ has been strictly eliminated}. This proves analytically that the true kinematic projection $\beta$ is determined entirely by the asymmetry of the transverse baselines at the extrema, independent of the observer's viewing angle.
-
-\subsubsection{Analytical Extraction of $\sin i$}
-
-Once $\beta$ and $\omega_i$ are constrained via Equation \ref{eq:decryption_invariant} (and verified via the balance phase $O_o$), the true orbital inclination is trivially extracted by substituting the definition of $K_i$ back into Equation \ref{eq:2Ki}:
-
-\begin{equation}
-\boxed{\sin i = \frac{\sqrt{1-e^2}}{2\beta} \left[ Z_{raw}(-\omega_i) \tau(-\omega_i) - Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) \right]}
-\end{equation}
-
-\subsubsection{Numerical Verification: S0-2 Extrema Synthesis}
-
-To verify this architecture, a forward-synthesis and reverse-extraction test was performed using the empirically established parameters of the S0-2 star (GRAVITY Collaboration: $e = 0.88466$, $\omega_i = 66.13^\circ$, $\beta = 0.00645$, $i = 134.0^\circ$). 
-
-Forward synthesis generates the exact transverse spacetime factors $\tau(-\omega_i) = 0.999501$ and $\tau(\pi-\omega_i) = 0.999775$, yielding the raw spectroscopic extrema:
-\begin{itemize}
-    \item $Z_{raw}(-\omega_i) = 1.014019$
-    \item $Z_{raw}(\pi-\omega_i) = 0.993834$
-\end{itemize}
-
-Evaluating the Decryption Invariant (Equation \ref{eq:decryption_invariant}) with these values yields exactly $2.000000$, confirming absolute algebraic closure. Applying the extraction equation directly outputs $\sin i = 0.71931$, which immediately returns the true inclination $i = 133.99^\circ$. 
-
-\begin{remark}[Epistemological Proof vs. Empirical Extraction]
-While the Decryption Invariant (Equation \ref{eq:decryption_invariant}) provides the rigorous epistemological proof that the classical $M \sin i$ degeneracy is not a fundamental law of physics, its direct algebraic application is inherently bounded by instrumental limitations. 
-
-Because the baseline asymmetry $(\tau(-\omega_i) - \tau(\pi-\omega_i))$ scales strictly as $\mathcal{O}(\beta^2)$ (e.g., $\approx 2.7 \times 10^{-4}$ for the S0-2 system), the algebraic inversion is hypersensitive to spectrographic noise. Any instrumental fluctuation or finite-sampling interpolation error at the exact extrema ($Z_{raw}(-\omega_i)$ and $Z_{raw}(\pi-\omega_i)$) will be mathematically amplified by the inversion matrix.
-
-Therefore, the algebraic and statistical methods must operate in strict symbiosis. The algebraic system (Section \ref{sec:analytical_sini}) provides the exact topological initial locus, instantly dispatching the optimizer to the correct degeneracy ridge. The Bayesian MCMC framework (Section \ref{sec:mcmc_s02}) then takes over, integrating the continuous phase curve to suppress instrumental noise and establish robust empirical confidence intervals.
-\end{remark}
-
 This confirms that the classical $M \sin i$ degeneracy is algebraically penetrable without external metric priors or assumptions regarding the mass.
+
+\begin{tcolorbox}[colback=white, colframe=black, title=Comparative Epistemology ROM vs PPK]
+Comparative Epistemology: R.O.M. vs. Parameterized Post-Keplerian Formalism
+\href{https://willrg.com/documents/ROMvsPPK.pdf#sec:ROMvsPPK}{https://willrg.com/documents/ROMvsPPK.pdf-sec:ROMvsPPK}
+\end{tcolorbox}
+
 
 \subsection{Conclusion}
 
 The classical $M \sin i$ degeneracy is not a fundamental limitation of orbital mechanics. It is an artifact of an incomplete, linearized description of the kinematic projection.By moving beyond first-order approximations and restoring the full non-linear structure of the relational carriers $S^1$ and $S^2$, RG provides two independent quadratic invariants ($\Delta\phi \propto \beta_{\rm int}^2$ and $Z_{\rm sys} \propto \beta^2$) that operationally decouple $\beta$ from $i$. The true inclination is then uniquely recovered from the classical linear amplitude. 
 This result provides an exact algebraic resolution to a 130-year theoretical degeneracy, transforming what was previously considered an intractable physical ambiguity into a straightforward problem of instrumental signal-to-noise resolution. The Bayesian analysis provides rigorous statistical confirmation that, wherever observational precision permits, the degeneracy ridge is correctly positioned to isolate the independently verified physical truth.
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Implication]Degeneracies are not inherent features of Nature; they are symptoms of incomplete structural description. When the full relational geometry is restored, apparent ambiguities dissolve into algebraic necessity.\end{tcolorbox}
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Implication]
+Degeneracies are not inherent features of Nature; they are symptoms of incomplete structural description. When the full relational geometry is restored, apparent ambiguities dissolve into algebraic necessity.\end{tcolorbox}
 
 
 \section{Derivation of Gravitational Deflection and Lensing}
@@ -3355,6 +3430,12 @@ To reveal the underlying gradient without altering the exact equation, we examin
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence]
 The properties of the lens - convergence ($\kappa_{\text{lens}}$), shear ($\gamma$), and magnification ($\mu$) - are the components of the 2D Jacobian matrix of the deflection field $\vec{\alpha}(\vec{\theta})$. Because the physics of the phase-buffer $\beta_Y$ is fundamentally woven into the exact definition of $\Delta\varphi_{\text{unified}}$, no manual "weighting" of shear or convergence is required. The optical mapping emerges naturally from the pure algebraic closure of the $S^1$ and $S^2$ relational carriers.
 \end{tcolorbox}
+
+
+
+
+
+
 
 \section{Geometric Mechanism of Orbital Decay and Radiation (work in progress)}
 \hypertarget{sec:orbital_decay}{}\label{sec:orbital_decay}

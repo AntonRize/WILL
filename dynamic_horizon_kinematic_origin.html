@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Horizon — Kinematic Origin | WILL Relational Geometry</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f8f7f4;
+    color: #1a1a18;
+    padding: 24px 16px;
+    min-height: 100vh;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #141412; color: #e2e0d6; }
+  }
+  h1 { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+  .sub { font-size: 12px; color: #888; margin-bottom: 16px; }
+  #orb {
+    display: block;
+    margin: 0 auto;
+    border: 0.5px solid rgba(0,0,0,0.12);
+    border-radius: 8px;
+    background: #f0efe9;
+  }
+  @media (prefers-color-scheme: dark) {
+    #orb { border-color: rgba(255,255,255,0.1); background: #1a1a18; }
+  }
+  .wrap { max-width: 480px; margin: 0 auto; }
+  .legend { display: flex; gap: 14px; font-size: 11px; color: #888; margin: 6px 0; }
+  .ldot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; margin-right: 4px; }
+  .cr { display: flex; align-items: center; gap: 10px; margin: 5px 0; font-size: 12px; color: #666; }
+  .cr span:first-child { min-width: 100px; font-family: monospace; font-size: 11px; }
+  .cr span:last-child { min-width: 48px; text-align: right; font-family: monospace; font-size: 11px; }
+  @media (prefers-color-scheme: dark) { .cr { color: #aaa; } }
+  .stats { display: flex; gap: 14px; font-size: 11px; color: #888; font-family: monospace; flex-wrap: wrap; margin: 6px 0; }
+  input[type=range] { flex: 1; cursor: pointer; }
+  #hs { font-size: 12px; font-weight: 500; padding: 6px 10px; border-radius: 6px; margin: 4px 0; transition: all 0.3s; }
+  .btns { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+  button {
+    font-size: 11px; padding: 4px 10px; border-radius: 4px; cursor: pointer;
+    border: 0.5px solid rgba(0,0,0,0.2); background: transparent; color: inherit;
+  }
+  button:hover { background: rgba(0,0,0,0.06); }
+  @media (prefers-color-scheme: dark) {
+    button { border-color: rgba(255,255,255,0.15); }
+    button:hover { background: rgba(255,255,255,0.06); }
+  }
+  .eq {
+    font-family: monospace; font-size: 11px; color: #888;
+    background: rgba(0,0,0,0.04); border-radius: 4px; padding: 8px 12px;
+    margin: 8px 0; line-height: 1.8;
+  }
+  @media (prefers-color-scheme: dark) { .eq { background: rgba(255,255,255,0.04); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Dynamic Horizon — Kinematic Origin</h1>
+  <p class="sub">WILL Relational Geometry · A. Rize · willrg.com</p>
+
+  <canvas id="orb" width="480" height="420"></canvas>
+
+  <div style="margin-top:10px">
+    <div class="legend">
+      <span><span class="ldot" style="background:#3b82f6"></span>O_P (test body)</span>
+      <span><span class="ldot" style="background:#f97316"></span>P_pshift (periapsis)</span>
+      <span><span class="ldot" style="background:#f59e0b"></span>Central body</span>
+    </div>
+
+    <div class="cr">
+      <span>β² (kinematic)</span>
+      <input type="range" id="b2" min="0.01" max="0.48" step="0.005" value="0.12">
+      <span id="b2v">0.120</span>
+    </div>
+    <div class="cr">
+      <span>e (eccentricity)</span>
+      <input type="range" id="ec" min="0.05" max="0.88" step="0.01" value="0.45">
+      <span id="ecv">0.45</span>
+    </div>
+
+    <div class="stats">
+      <span>κ²=<b id="k2v">—</b></span>
+      <span>τ_Y²=<b id="ty2v">—</b></span>
+      <span>prec/rad=<b id="prv">—</b></span>
+      <span>horizon at β²=<b id="hbv">—</b></span>
+    </div>
+
+    <div id="hs">—</div>
+
+    <div class="btns">
+      <button onclick="rst()">Reset trail</button>
+      <button onclick="setPreset(0.05,0.45)">Sub-horizon</button>
+      <button onclick="setPreset('h',0.45)">At horizon</button>
+      <button onclick="setPreset('s',0.45)">Super-horizon</button>
+    </div>
+
+    <div class="eq">
+      r_O = (1−e²) / (1 + e·cos(o − ω_shift))<br>
+      ω_shift = τ_Y² · o / (1−e²)<br>
+      τ_Y² = 1 − (1−κ²)(1−β²) &nbsp;|&nbsp; κ² = 2β² (closure)<br>
+      <b>Horizon: τ_Y² / (1−e²) = 1 &nbsp;→&nbsp; β²_h = (3 − √(1+8e²)) / 4</b>
+    </div>
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('orb');
+const ctx = canvas.getContext('2d');
+const W=480, H=420, cx=W/2, cy=H/2+10;
+const SC=155;
+
+const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const BG    = dark ? '#1a1a18' : '#f0efe9';
+const FAINT  = dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+const TXTC   = dark ? 'rgba(255,255,255,0.55)' : 'rgba(0,0,0,0.5)';
+
+let beta2=0.12, ec=0.45, o=0;
+let trail=[], MAX_T=700;
+
+function horizonBeta2(e) {
+  return (3 - Math.sqrt(1 + 8*e*e)) / 4;
+}
+
+function prm() {
+  const k2 = 2*beta2;
+  const tau2 = (1-k2)*(1-beta2);
+  const tY2 = Math.max(0, 1-tau2);
+  const pr = tY2 / (1 - ec*ec);
+  return {k2, tau2, tY2, pr};
+}
+
+function getPos(o_, pr_) {
+  const wS = pr_ * o_;
+  const l = 1 - ec*ec;
+  const denom = 1 + ec * Math.cos(o_ - wS);
+  if (Math.abs(denom) < 0.01) return null;
+  const r = l / denom;
+  return {
+    bx: r*Math.cos(o_), by: r*Math.sin(o_),
+    wS,
+    px: (1-ec)*Math.cos(wS), py: (1-ec)*Math.sin(wS)
+  };
+}
+
+function sc(x,y){ return [cx + x*SC, cy - y*SC]; }
+
+function frame() {
+  const {k2, tY2, pr} = prm();
+  o += 0.022;
+
+  const pos = getPos(o, pr);
+  if(pos) {
+    trail.push({x:pos.bx, y:pos.by});
+    if(trail.length > MAX_T) trail.shift();
+  }
+
+  ctx.fillStyle = BG;
+  ctx.fillRect(0,0,W,H);
+
+  ctx.strokeStyle = FAINT;
+  ctx.lineWidth = 0.5;
+  ctx.beginPath(); ctx.moveTo(0,cy); ctx.lineTo(W,cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx,0); ctx.lineTo(cx,H); ctx.stroke();
+
+  if(pos) {
+    ctx.beginPath();
+    let first=true;
+    for(let th=0; th<Math.PI*2; th+=0.04) {
+      const r=(1-ec*ec)/(1+ec*Math.cos(th-pos.wS));
+      if(r<0||r>4) continue;
+      const [sx,sy]=sc(r*Math.cos(th), r*Math.sin(th));
+      if(first){ctx.moveTo(sx,sy);first=false;} else ctx.lineTo(sx,sy);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = dark?'rgba(255,255,255,0.1)':'rgba(0,0,0,0.1)';
+    ctx.lineWidth=0.5; ctx.stroke();
+  }
+
+  for(let i=0;i<trail.length;i++) {
+    const alpha=(i/trail.length)*0.85;
+    const [sx,sy]=sc(trail[i].x, trail[i].y);
+    let col;
+    if(pr<0.96) col=`rgba(59,130,246,${alpha})`;
+    else if(pr<1.06) col=`rgba(245,158,11,${alpha})`;
+    else col=`rgba(239,68,68,${alpha})`;
+    ctx.fillStyle=col;
+    ctx.fillRect(sx-1.2,sy-1.2,2.4,2.4);
+  }
+
+  ctx.beginPath(); ctx.arc(cx,cy,9,0,Math.PI*2);
+  ctx.fillStyle='#f59e0b'; ctx.fill();
+  ctx.strokeStyle=BG; ctx.lineWidth=1.5; ctx.stroke();
+
+  if(pos) {
+    const pLen=1.45;
+    const [plx,ply]=sc(pos.px*pLen, pos.py*pLen);
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(plx,ply);
+    ctx.strokeStyle='rgba(249,115,22,0.3)';
+    ctx.lineWidth=1; ctx.setLineDash([4,4]); ctx.stroke(); ctx.setLineDash([]);
+
+    const [ppx,ppy]=sc(pos.px,pos.py);
+    ctx.beginPath(); ctx.arc(ppx,ppy,6,0,Math.PI*2);
+    ctx.fillStyle='#f97316'; ctx.fill();
+    ctx.strokeStyle=BG; ctx.lineWidth=1.5; ctx.stroke();
+
+    const [bbx,bby]=sc(pos.bx,pos.by);
+    const bc = pr<0.96?'#3b82f6': pr<1.06?'#f59e0b':'#ef4444';
+    ctx.beginPath(); ctx.arc(bbx,bby,7,0,Math.PI*2);
+    ctx.fillStyle=bc; ctx.fill();
+    ctx.strokeStyle=BG; ctx.lineWidth=1.5; ctx.stroke();
+
+    ctx.font='10px sans-serif';
+    ctx.fillStyle=TXTC;
+    ctx.fillText('O_P', bbx+10, bby-5);
+    ctx.fillStyle='rgba(249,115,22,0.85)';
+    ctx.fillText('P_p', ppx+8, ppy-5);
+
+    const barX=12, barY=H-28, barW=160, barH=8;
+    ctx.fillStyle=dark?'rgba(255,255,255,0.08)':'rgba(0,0,0,0.08)';
+    ctx.fillRect(barX,barY,barW,barH);
+    const fillW=Math.min(pr,2)/2*barW;
+    const fillC=pr<0.96?'rgba(59,130,246,0.7)':pr<1.06?'rgba(245,158,11,0.8)':'rgba(239,68,68,0.7)';
+    ctx.fillStyle=fillC;
+    ctx.fillRect(barX,barY,fillW,barH);
+    const midX=barX+barW/2;
+    ctx.fillStyle=dark?'rgba(255,255,255,0.5)':'rgba(0,0,0,0.4)';
+    ctx.fillRect(midX-0.5,barY-3,1,barH+6);
+    ctx.font='9px sans-serif';
+    ctx.fillStyle=TXTC;
+    ctx.fillText('prec/rad: '+pr.toFixed(3)+'  (horizon = 1.000)', barX, barY-5);
+  }
+
+  const hb = horizonBeta2(ec);
+  document.getElementById('k2v').textContent  = (2*beta2).toFixed(4);
+  document.getElementById('ty2v').textContent = tY2.toFixed(4);
+  document.getElementById('prv').textContent  = pr.toFixed(4);
+  document.getElementById('hbv').textContent  = hb.toFixed(4);
+
+  const hs=document.getElementById('hs');
+  if(pr<0.96){
+    hs.style.background=dark?'rgba(59,130,246,0.12)':'rgba(59,130,246,0.08)';
+    hs.style.color='#3b82f6';
+    hs.textContent='● O_P faster than P_p — orbit closes — rosette forms';
+  } else if(pr<=1.06){
+    hs.style.background=dark?'rgba(245,158,11,0.15)':'rgba(245,158,11,0.1)';
+    hs.style.color=dark?'#fbbf24':'#92400e';
+    hs.textContent='◉ DYNAMIC HORIZON — periapsis matches body exactly — orbit cannot close';
+  } else {
+    hs.style.background=dark?'rgba(239,68,68,0.12)':'rgba(239,68,68,0.08)';
+    hs.style.color='#ef4444';
+    hs.textContent='● P_p faster than O_P — body goes backward in periapsis frame';
+  }
+
+  requestAnimationFrame(frame);
+}
+
+function rst(){ trail=[]; o=0; }
+
+function setPreset(b2, e) {
+  ec=e;
+  const hb=horizonBeta2(ec);
+  if(b2==='h') beta2=hb;
+  else if(b2==='s') beta2=Math.min(0.48, hb+0.06);
+  else beta2=b2;
+  beta2=Math.max(0.01,Math.min(0.48,beta2));
+  document.getElementById('b2').value=beta2;
+  document.getElementById('ec').value=ec;
+  document.getElementById('b2v').textContent=beta2.toFixed(3);
+  document.getElementById('ecv').textContent=ec.toFixed(2);
+  rst();
+}
+
+document.getElementById('b2').addEventListener('input',e=>{
+  beta2=parseFloat(e.target.value);
+  document.getElementById('b2v').textContent=beta2.toFixed(3);
+  rst();
+});
+document.getElementById('ec').addEventListener('input',e=>{
+  ec=parseFloat(e.target.value);
+  document.getElementById('ecv').textContent=ec.toFixed(2);
+  rst();
+});
+
+frame();
+</script>
+</body>
+</html>
