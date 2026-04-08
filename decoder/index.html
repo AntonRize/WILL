@@ -187,6 +187,79 @@ permalink: /decoder/
   </div>
 </section>
 
+<!-- ============================================================
+     ACT III — The R.O.M. decoding
+     ============================================================ -->
+<section id="act-3" class="act mb-24 hidden">
+  <div class="text-center mb-10">
+    <p class="whisper tracking-[0.2em] uppercase mb-2">Act III</p>
+    <h2 class="text-2xl font-light text-white">The relational decoding</h2>
+  </div>
+
+  <p class="guided-only text-gray-400 leading-relaxed max-w-xl mx-auto text-center mb-10">
+    The coherent wave left over from Act II is not noise and not a
+    mystery — it is the signature of two dimensionless ratios,
+    <span class="accent-beta breathe mono">β</span> (how fast the star
+    moves, as a fraction of the speed of light) and
+    <span class="accent-kappa breathe mono">κ</span> (how deep it sits
+    in the companion's gravity well). The decoder now searches for the
+    single pair (β, κ) that explains both the Keplerian rhythm <em>and</em>
+    the residual wave at once, then walks a Markov chain around that point
+    to measure how tightly the data pin it down.
+  </p>
+
+  <p class="rigorous-only text-gray-500 leading-relaxed max-w-2xl mx-auto text-center mb-10 hidden">
+    Stage 2 runs a 7-parameter differential-evolution search over
+    (β, i, vz₀, e, ω, P, T_peri) against the full R.O.M. forward model
+    Z_sys(o)·(1+β_los)·(1+vz₀/c), with phase projections
+    β_o² = β²(1+e²+2e cos o)/(1−e²) and κ_o² = 2β²(1+e cos o)/(1−e²),
+    and exact phase-accumulated precession ω(o) = ω₀ + (τ_Y²/(1−e²))·o.
+    Stage 3 initialises 32 emcee walkers in a 1e−6 ball around the
+    Stage-2 peak and samples the posterior; running medians update as
+    each chunk completes. The Decryption Invariant (Eq. 3.123) is
+    evaluated at every finalised point and its residual |LHS−2| is
+    reported below.
+  </p>
+
+  <!-- Running MCMC inscription -->
+  <div class="text-center mb-10">
+    <p class="whisper tracking-[0.15em] uppercase mb-3">running posterior</p>
+    <div id="mcmc-progress" class="mono text-sm dim mb-3">waiting for the sniper…</div>
+    <div id="mcmc-medians" class="mono text-sm text-gray-300 leading-loose"></div>
+  </div>
+
+  <!-- Q_o vector canvas on (β_o, κ_o) plane -->
+  <div class="mb-3 flex items-baseline justify-between">
+    <p class="whisper tracking-[0.15em] uppercase">the Q<sub>o</sub> vector on the (β<sub>o</sub>, κ<sub>o</sub>) plane</p>
+    <p id="qo-info" class="whisper mono"></p>
+  </div>
+  <div class="relative mx-auto" style="height: 360px; max-width: 420px;">
+    <canvas id="qo-canvas"></canvas>
+  </div>
+  <p class="whisper max-w-xl mx-auto text-center mt-5">
+    The vector breathes with orbital phase. The dashed ray is the closure
+    line κ² = 2β². If the decoding is correct, the orbit traces a closed
+    loop tangent to that line at pericentre.
+  </p>
+
+  <!-- Decryption invariant -->
+  <div class="text-center mt-12">
+    <p class="whisper tracking-[0.15em] uppercase mb-3">decryption invariant  ·  Eq. 3.123</p>
+    <div id="invariant-line" class="mono text-sm text-gray-400">—</div>
+    <p class="whisper max-w-xl mx-auto mt-4">
+      A single closed-form identity, evaluated against the observed
+      redshift extrema. Its residual is the distance between R.O.M.
+      and the data. As MCMC converges, it collapses to measurement noise.
+    </p>
+  </div>
+
+  <!-- Truth reveal -->
+  <div class="mt-14 text-center">
+    <p class="whisper tracking-[0.15em] uppercase mb-2">reveal</p>
+    <div id="truth-table" class="mono text-sm text-gray-400"></div>
+  </div>
+</section>
+
 <!-- Quiet source strip at the very bottom ------------------------------- -->
 <footer class="hairline pt-6 mt-16 text-center whisper flex flex-col sm:flex-row justify-center gap-4">
   <a id="colab-link"

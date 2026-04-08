@@ -149,6 +149,123 @@
     });
 
     // ---- Engine status ---------------------------------------------------
+    // ---- Act III elements -----------------------------------------------
+    const act3 = $("act-3");
+    let act3Revealed = false;
+    function revealAct3() {
+        if (act3Revealed) return;
+        act3Revealed = true;
+        act3.classList.remove("hidden");
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                act3.classList.add("revealed");
+                act3.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 50);
+        });
+    }
+
+    // ---- Q_o canvas (β_o, κ_o) plane ------------------------------------
+    const qoCanvas = $("qo-canvas");
+    const qoCtx    = qoCanvas.getContext("2d");
+    let qoState = { beta: null, e: null, phase: 0 };
+    function resizeQo() {
+        const r = qoCanvas.getBoundingClientRect();
+        qoCanvas.width  = r.width  * devicePixelRatio;
+        qoCanvas.height = r.height * devicePixelRatio;
+    }
+    window.addEventListener("resize", resizeQo);
+
+    function drawQo() {
+        if (qoState.beta == null) return;
+        resizeQo();
+        const W = qoCanvas.width, H = qoCanvas.height;
+        qoCtx.clearRect(0, 0, W, H);
+        const pad = 40 * devicePixelRatio;
+        const { beta, e } = qoState;
+
+        // Trace locus
+        const N = 256;
+        const pts = [];
+        let maxB = 0, maxK = 0;
+        for (let i = 0; i < N; i++) {
+            const o = (i / N) * 2 * Math.PI;
+            const bo2 = beta*beta * (1 + e*e + 2*e*Math.cos(o)) / (1 - e*e);
+            const ko2 = 2*beta*beta * (1 + e*Math.cos(o)) / (1 - e*e);
+            const bo = Math.sqrt(Math.max(0, bo2));
+            const ko = Math.sqrt(Math.max(0, ko2));
+            pts.push([bo, ko]);
+            if (bo > maxB) maxB = bo;
+            if (ko > maxK) maxK = ko;
+        }
+        const span = Math.max(maxB, maxK) * 1.15 || 0.01;
+        const sx = (b) => pad + (b / span) * (W - 2*pad);
+        const sy = (k) => H - pad - (k / span) * (H - 2*pad);
+
+        // Axes
+        qoCtx.strokeStyle = "rgba(255,255,255,0.12)";
+        qoCtx.lineWidth = 1 * devicePixelRatio;
+        qoCtx.beginPath();
+        qoCtx.moveTo(pad, H-pad); qoCtx.lineTo(W-pad, H-pad);
+        qoCtx.moveTo(pad, H-pad); qoCtx.lineTo(pad, pad);
+        qoCtx.stroke();
+
+        // Closure line κ = √2 · β
+        qoCtx.strokeStyle = "rgba(167,243,208,0.5)";
+        qoCtx.setLineDash([6, 6]);
+        qoCtx.beginPath();
+        qoCtx.moveTo(sx(0), sy(0));
+        const bEnd = span / Math.SQRT2;
+        qoCtx.lineTo(sx(bEnd), sy(bEnd * Math.SQRT2));
+        qoCtx.stroke();
+        qoCtx.setLineDash([]);
+
+        // Locus
+        qoCtx.strokeStyle = "rgba(251,191,36,0.7)";
+        qoCtx.lineWidth = 1.5 * devicePixelRatio;
+        qoCtx.beginPath();
+        pts.forEach((p, i) => {
+            const x = sx(p[0]), y = sy(p[1]);
+            if (i === 0) qoCtx.moveTo(x, y); else qoCtx.lineTo(x, y);
+        });
+        qoCtx.closePath();
+        qoCtx.stroke();
+
+        // Live Q_o vector
+        const o = qoState.phase;
+        const bo2 = beta*beta * (1 + e*e + 2*e*Math.cos(o)) / (1 - e*e);
+        const ko2 = 2*beta*beta * (1 + e*Math.cos(o)) / (1 - e*e);
+        const bo = Math.sqrt(Math.max(0, bo2));
+        const ko = Math.sqrt(Math.max(0, ko2));
+        qoCtx.strokeStyle = "rgba(103,232,249,0.95)";
+        qoCtx.lineWidth = 2.5 * devicePixelRatio;
+        qoCtx.beginPath();
+        qoCtx.moveTo(sx(0), sy(0));
+        qoCtx.lineTo(sx(bo), sy(ko));
+        qoCtx.stroke();
+        qoCtx.fillStyle = "rgba(192,132,252,0.95)";
+        qoCtx.beginPath();
+        qoCtx.arc(sx(bo), sy(ko), 4 * devicePixelRatio, 0, 2*Math.PI);
+        qoCtx.fill();
+
+        // Labels
+        qoCtx.fillStyle = "rgba(156,163,175,0.8)";
+        qoCtx.font = (11 * devicePixelRatio) + "px JetBrains Mono";
+        qoCtx.fillText("β_o", W - pad - 20*devicePixelRatio, H - pad + 18*devicePixelRatio);
+        qoCtx.fillText("κ_o", pad - 28*devicePixelRatio, pad + 4*devicePixelRatio);
+    }
+
+    let qoAnim = null;
+    function startQoAnim() {
+        cancelAnimationFrame(qoAnim);
+        const t0 = performance.now();
+        const loop = (t) => {
+            qoState.phase = ((t - t0) / 4000) * 2 * Math.PI % (2*Math.PI);
+            drawQo();
+            qoAnim = requestAnimationFrame(loop);
+        };
+        qoAnim = requestAnimationFrame(loop);
+    }
+
     const ENGINE_LABELS = {
         "loading-pyodide":   "loading pyodide runtime…",
         "loading-packages":  "loading numpy · scipy · pandas…",
@@ -158,6 +275,7 @@
         "ready":             "engine ready",
         "generating":        "generating the light-curve…",
         "scouting":          "fitting a classical Kepler orbit…",
+        "sniping":           "R.O.M. global sniper searching (β, κ)…",
     };
 
     let act1Revealed = false;
@@ -201,6 +319,14 @@
             onGeneratorResult(m.payload);
         } else if (m.type === "scout-result") {
             onScoutResult(m.payload);
+        } else if (m.type === "sniper-result") {
+            onSniperResult(m.payload);
+        } else if (m.type === "mcmc-init-done") {
+            mcmcDriver();
+        } else if (m.type === "mcmc-chunk-done") {
+            onMcmcChunk(m.payload);
+        } else if (m.type === "mcmc-final") {
+            onMcmcFinal(m.payload);
         } else if (m.type === "error") {
             engineState.textContent = "error";
             engineState.className = "text-red-400";
@@ -270,6 +396,102 @@
 
         window.__decoderScout = p;
         revealAct2();
+
+        // Auto-trigger Act III: the R.O.M. Sniper
+        const ds = window.__decoderDataset;
+        worker.postMessage({
+            type: "sniper",
+            dataset_json: JSON.stringify({
+                t_obs:     ds.t_obs,
+                rv_kms:    ds.rv_kms,
+                sigma_kms: ds.sigma_kms,
+            }),
+            scout_json: JSON.stringify({ params: p.params }),
+        });
+    }
+
+    const MCMC_TOTAL = 1000;
+    const MCMC_CHUNK = 50;
+
+    function onSniperResult(p) {
+        window.__decoderSniper = p;
+        const prm = p.params;
+        qoState.beta = prm.beta;
+        qoState.e    = prm.e;
+        startQoAnim();
+        revealAct3();
+        $("mcmc-progress").textContent =
+            `sniper peak found · β = ${prm.beta.toExponential(3)} · initialising MCMC…`;
+        // Kick off MCMC
+        worker.postMessage({ type: "mcmc-init", total_steps: MCMC_TOTAL });
+    }
+
+    function mcmcDriver() {
+        worker.postMessage({ type: "mcmc-chunk", n_steps: MCMC_CHUNK });
+    }
+
+    function onMcmcChunk(s) {
+        $("mcmc-progress").textContent =
+            `MCMC · ${s.steps_done} / ${s.total_steps} steps`;
+        if (s.beta_median != null) {
+            $("mcmc-medians").innerHTML =
+                `β = <span class="accent-beta">${s.beta_median.toExponential(4)}</span> ` +
+                `± ${s.beta_sigma.toExponential(2)}  ·  ` +
+                `i = <span class="accent-lock">${s.i_deg_median.toFixed(2)}°</span>  ·  ` +
+                `e = <span class="accent-lock">${s.e_median.toFixed(5)}</span>  ·  ` +
+                `P = <span class="accent-lock">${s.P_years_median.toFixed(3)}</span> yr  ·  ` +
+                `ω = <span class="accent-lock">${s.omega_deg_median.toFixed(2)}°</span>`;
+            // Live-update Q_o locus with running median
+            qoState.beta = s.beta_median;
+            qoState.e    = s.e_median;
+        }
+        if (s.steps_done < s.total_steps) {
+            worker.postMessage({ type: "mcmc-chunk", n_steps: MCMC_CHUNK });
+        } else {
+            worker.postMessage({ type: "mcmc-finalize" });
+        }
+    }
+
+    function onMcmcFinal(p) {
+        const m = p.median, b = p.band_16_84;
+        $("mcmc-progress").textContent =
+            `MCMC complete · ${p.n_samples} samples`;
+        $("mcmc-medians").innerHTML =
+            `β = <span class="accent-beta">${m.beta.toExponential(4)}</span>  ·  ` +
+            `i = <span class="accent-lock">${m.i_deg.toFixed(2)}°</span>  ·  ` +
+            `e = <span class="accent-lock">${m.e.toFixed(5)}</span>  ·  ` +
+            `P = <span class="accent-lock">${m.P_years.toFixed(3)}</span> yr  ·  ` +
+            `ω = <span class="accent-lock">${m.omega_deg.toFixed(2)}°</span>  ·  ` +
+            `v<sub>z0</sub> = <span class="accent-lock">${m.vz0_kms.toFixed(2)}</span> km/s`;
+        qoState.beta = m.beta;
+        qoState.e    = m.e;
+        const inv = p.decryption_invariant;
+        if (inv) {
+            $("invariant-line").innerHTML =
+                `LHS = <span class="accent-lock">${inv.LHS.toFixed(8)}</span>  ·  ` +
+                `|LHS − 2| = <span class="accent-lock">${inv.residual.toExponential(3)}</span>`;
+        } else {
+            $("invariant-line").textContent = "invariant undefined at this point";
+        }
+        // Truth reveal
+        const ds = window.__decoderDataset;
+        if (ds && ds.truth) {
+            const t = ds.truth;
+            const rows = [
+                ["β",       t.beta_true     != null ? t.beta_true.toExponential(4)     : "—", m.beta.toExponential(4)],
+                ["e",       t.e             != null ? t.e.toFixed(5)                   : "—", m.e.toFixed(5)],
+                ["i (deg)", t.i_deg         != null ? t.i_deg.toFixed(2)               : "—", m.i_deg.toFixed(2)],
+                ["P (yr)",  t.P_years       != null ? t.P_years.toFixed(3)             : "—", m.P_years.toFixed(3)],
+                ["ω (deg)", t.omega_deg     != null ? t.omega_deg.toFixed(2)           : "—", m.omega_deg.toFixed(2)],
+            ];
+            const html = `<table class="mx-auto text-sm"><thead><tr>
+                <th class="pr-6 text-left whisper">parameter</th>
+                <th class="pr-6 text-left whisper">truth</th>
+                <th class="text-left whisper">recovered</th></tr></thead><tbody>` +
+                rows.map(r => `<tr><td class="pr-6 dim">${r[0]}</td><td class="pr-6 text-gray-300">${r[1]}</td><td class="accent-lock">${r[2]}</td></tr>`).join("") +
+                `</tbody></table>`;
+            $("truth-table").innerHTML = html;
+        }
     }
 
     // ---- Run ------------------------------------------------------------

@@ -40,7 +40,7 @@ print("emcee OK:", emcee.__version__)
 async function loadPythonFiles() {
     if (pythonFilesLoaded) return;
     const pyo = await init();
-    const files = ["generator.py", "scout.py"]; // Acts I + II; decoder.py + extractor.py follow
+    const files = ["generator.py", "scout.py", "sniper.py"]; // Acts I + II + III
     for (const f of files) {
         const resp = await fetch("../py/" + f);
         const src  = await resp.text();
@@ -52,6 +52,7 @@ if "/home/pyodide" not in sys.path:
     sys.path.insert(0, "/home/pyodide")
 from generator import run_generator
 from scout import run_scout
+from sniper import run_sniper, mcmc_init, mcmc_run_chunk, mcmc_finalize
     `);
     pythonFilesLoaded = true;
 }
@@ -85,6 +86,38 @@ self.onmessage = async (ev) => {
             pyo.globals.set("_dataset_json", msg.dataset_json);
             const result = await pyo.runPythonAsync(`run_scout(_dataset_json)`);
             postMessage({ type: "scout-result", payload: JSON.parse(result) });
+            postMessage({ type: "engine", state: "ready", progress: "" });
+            return;
+        }
+        if (msg.type === "sniper") {
+            await loadPythonFiles();
+            const pyo = await init();
+            postMessage({ type: "engine", state: "sniping", progress: "" });
+            pyo.globals.set("_dataset_json", msg.dataset_json);
+            pyo.globals.set("_scout_json",   msg.scout_json);
+            const result = await pyo.runPythonAsync(`run_sniper(_dataset_json, _scout_json)`);
+            postMessage({ type: "sniper-result", payload: JSON.parse(result) });
+            postMessage({ type: "engine", state: "ready", progress: "" });
+            return;
+        }
+        if (msg.type === "mcmc-init") {
+            const pyo = await init();
+            const total = Number(msg.total_steps) || 1000;
+            const result = await pyo.runPythonAsync(`mcmc_init(${total})`);
+            postMessage({ type: "mcmc-init-done", payload: JSON.parse(result) });
+            return;
+        }
+        if (msg.type === "mcmc-chunk") {
+            const pyo = await init();
+            const n = Number(msg.n_steps) || 50;
+            const result = await pyo.runPythonAsync(`mcmc_run_chunk(${n})`);
+            postMessage({ type: "mcmc-chunk-done", payload: JSON.parse(result) });
+            return;
+        }
+        if (msg.type === "mcmc-finalize") {
+            const pyo = await init();
+            const result = await pyo.runPythonAsync(`mcmc_finalize()`);
+            postMessage({ type: "mcmc-final", payload: JSON.parse(result) });
             postMessage({ type: "engine", state: "ready", progress: "" });
             return;
         }
