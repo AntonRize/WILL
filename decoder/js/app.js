@@ -7,6 +7,7 @@
 (function () {
     const worker = new Worker("/decoder/js/worker.js");
     const $ = (id) => document.getElementById(id);
+    const C = (window.DECODER_CONTENT) || { status: {}, reveal: { headers: {}, rows: {} }, invariant: {}, links: {} };
 
     const engineState    = $("engine-state");
     const engineProgress = $("engine-progress");
@@ -161,7 +162,7 @@
                 act3.classList.add("revealed");
                 act3.scrollIntoView({ behavior: "smooth", block: "start" });
                 // Force an immediate empty-grid paint so the plane is visible
-                setTimeout(() => { resizeQo(); drawQo(); }, 400);
+                setTimeout(() => { resizeQo(); drawQo(); resizeOrbit(); drawOrbit(); }, 400);
             }, 50);
         });
     }
@@ -308,6 +309,132 @@
         qoCtx.fillText("κ_o", pad - 28*devicePixelRatio, pad + 4*devicePixelRatio);
     }
 
+    // ---- Precessing orbit canvas (orbital plane view) -------------------
+    const orbitCanvas = $("orbit-canvas");
+    const orbitCtx    = orbitCanvas ? orbitCanvas.getContext("2d") : null;
+
+    function resizeOrbit() {
+        if (!orbitCanvas) return;
+        const wrap = $("orbit-wrap");
+        const r = wrap ? wrap.getBoundingClientRect() : orbitCanvas.getBoundingClientRect();
+        const W = Math.max(200, r.width  || 420);
+        const H = Math.max(200, r.height || 340);
+        orbitCanvas.width  = W * devicePixelRatio;
+        orbitCanvas.height = H * devicePixelRatio;
+    }
+    window.addEventListener("resize", resizeOrbit);
+
+    function drawOrbit() {
+        if (!orbitCtx) return;
+        resizeOrbit();
+        const W = orbitCanvas.width, H = orbitCanvas.height;
+        orbitCtx.clearRect(0, 0, W, H);
+        const cx = W / 2, cy = H / 2;
+        const pad = 30 * devicePixelRatio;
+
+        if (qoState.beta == null) {
+            // Empty frame + focus mark
+            orbitCtx.strokeStyle = "rgba(255,255,255,0.12)";
+            orbitCtx.lineWidth = 1 * devicePixelRatio;
+            orbitCtx.strokeRect(pad, pad, W - 2*pad, H - 2*pad);
+            orbitCtx.fillStyle = "rgba(251,191,36,0.55)";
+            orbitCtx.font = (10 * devicePixelRatio) + "px JetBrains Mono";
+            orbitCtx.fillText("waiting for (β, e)…", pad + 8*devicePixelRatio, pad + 18*devicePixelRatio);
+            // center point
+            orbitCtx.fillStyle = "rgba(167,243,208,0.6)";
+            orbitCtx.beginPath();
+            orbitCtx.arc(cx, cy, 3 * devicePixelRatio, 0, 2*Math.PI);
+            orbitCtx.fill();
+            return;
+        }
+
+        const e    = qoState.e;
+        const beta = qoState.beta;
+        // τ² = (1−β²)(1−2β²);  τ_Y² = 1 − τ²
+        const tau_sq   = (1 - beta*beta) * (1 - 2*beta*beta);
+        const tauY_sq  = 1 - tau_sq;
+        const shiftPerRad = tauY_sq / (1 - e*e);
+
+        // ω_shift for animated periapsis uses the running orbital phase.
+        // Trail: sample many revolutions so precession is visible.
+        const N_REV  = 8;               // visible revolutions
+        const N_PTS  = 1400;
+        const r_of = (o, wshift) => (1 - e*e) / (1 + e*Math.cos(o - wshift));
+
+        // Compute scale from peak r so the trail fits
+        let rmax = 0;
+        for (let i = 0; i < N_PTS; i++) {
+            const o = (i / N_PTS) * N_REV * 2 * Math.PI;
+            const ws = shiftPerRad * o;
+            const r = r_of(o, ws);
+            if (r > rmax) rmax = r;
+        }
+        const Rpx = ((Math.min(W, H) / 2) - pad) / (rmax * 1.05);
+
+        // Axes (faint)
+        orbitCtx.strokeStyle = "rgba(255,255,255,0.08)";
+        orbitCtx.lineWidth = 1 * devicePixelRatio;
+        orbitCtx.beginPath();
+        orbitCtx.moveTo(pad, cy); orbitCtx.lineTo(W - pad, cy);
+        orbitCtx.moveTo(cx, pad); orbitCtx.lineTo(cx, H - pad);
+        orbitCtx.stroke();
+
+        // Precessing trail — fade older revolutions
+        orbitCtx.lineWidth = 1.2 * devicePixelRatio;
+        for (let seg = 0; seg < N_REV; seg++) {
+            const alpha = 0.15 + 0.80 * (seg / (N_REV - 1));
+            orbitCtx.strokeStyle = `rgba(103,232,249,${alpha.toFixed(3)})`;
+            orbitCtx.beginPath();
+            const steps = 180;
+            for (let k = 0; k <= steps; k++) {
+                const o = (seg + k/steps) * 2 * Math.PI;
+                const ws = shiftPerRad * o;
+                const r = r_of(o, ws);
+                const x = cx + r * Math.cos(o) * Rpx;
+                const y = cy - r * Math.sin(o) * Rpx;
+                if (k === 0) orbitCtx.moveTo(x, y); else orbitCtx.lineTo(x, y);
+            }
+            orbitCtx.stroke();
+        }
+
+        // Focus (companion)
+        orbitCtx.fillStyle = "rgba(167,243,208,0.95)";
+        orbitCtx.beginPath();
+        orbitCtx.arc(cx, cy, 3.5 * devicePixelRatio, 0, 2*Math.PI);
+        orbitCtx.fill();
+
+        // Moving test body — use local phase in [0, 2π] on the *current* revolution
+        const oNow = qoState.phase;
+        const wsNow = shiftPerRad * oNow;
+        const rNow  = r_of(oNow, wsNow);
+        const bx = cx + rNow * Math.cos(oNow) * Rpx;
+        const by = cy - rNow * Math.sin(oNow) * Rpx;
+        orbitCtx.fillStyle = "rgba(103,232,249,1.0)";
+        orbitCtx.beginPath();
+        orbitCtx.arc(bx, by, 4 * devicePixelRatio, 0, 2*Math.PI);
+        orbitCtx.fill();
+
+        // Periapsis marker (drifts with ω_shift)
+        const Dpx = (1 - e) * Math.cos(wsNow);
+        const Dpy = (1 - e) * Math.sin(wsNow);
+        const px = cx + Dpx * Rpx;
+        const py = cy - Dpy * Rpx;
+        orbitCtx.strokeStyle = "rgba(192,132,252,0.9)";
+        orbitCtx.lineWidth = 1.5 * devicePixelRatio;
+        orbitCtx.beginPath();
+        orbitCtx.moveTo(cx, cy); orbitCtx.lineTo(px, py);
+        orbitCtx.stroke();
+        orbitCtx.fillStyle = "rgba(192,132,252,0.95)";
+        orbitCtx.beginPath();
+        orbitCtx.arc(px, py, 3 * devicePixelRatio, 0, 2*Math.PI);
+        orbitCtx.fill();
+
+        // Labels
+        orbitCtx.fillStyle = "rgba(156,163,175,0.75)";
+        orbitCtx.font = (10 * devicePixelRatio) + "px JetBrains Mono";
+        orbitCtx.fillText("periapsis drift", pad + 6*devicePixelRatio, pad + 14*devicePixelRatio);
+    }
+
     let qoAnim = null;
     function startQoAnim() {
         cancelAnimationFrame(qoAnim);
@@ -315,6 +442,7 @@
         const loop = (t) => {
             qoState.phase = ((t - t0) / 4000) * 2 * Math.PI % (2*Math.PI);
             drawQo();
+            drawOrbit();
             qoAnim = requestAnimationFrame(loop);
         };
         qoAnim = requestAnimationFrame(loop);
@@ -454,8 +582,7 @@
         // Reveal Act III immediately so the user sees the progress bar and plane
         revealAct3();
         const prog = $("mcmc-progress");
-        if (prog) prog.innerHTML =
-            `<span class="pulse-dot"></span> R.O.M. global sniper searching (β, κ) — this takes ~20–40 s in your browser`;
+        if (prog) prog.innerHTML = `<span class="pulse-dot"></span> ${C.status.sniperRunning}`;
         setMcmcBar(0);
         // Auto-trigger Act III: the R.O.M. Sniper
         const ds = window.__decoderDataset;
@@ -481,7 +608,7 @@
         startQoAnim();
         revealAct3();
         $("mcmc-progress").innerHTML =
-            `<span class="pulse-dot"></span>sniper peak found · β = ${prm.beta.toExponential(3)} · initialising posterior…`;
+            `<span class="pulse-dot"></span>${C.status.sniperDone(prm.beta.toExponential(3))}`;
         setMcmcBar(0);
         worker.postMessage({ type: "mcmc-init", total_steps: MCMC_TOTAL });
     }
@@ -493,7 +620,7 @@
     function onMcmcChunk(s) {
         const pct = Math.round(100 * s.steps_done / s.total_steps);
         $("mcmc-progress").innerHTML =
-            `<span class="pulse-dot"></span>sampling the posterior · ${s.steps_done} / ${s.total_steps} steps · ${pct}%`;
+            `<span class="pulse-dot"></span>${C.status.mcmcChunk(s.steps_done, s.total_steps, pct)}`;
         setMcmcBar(s.steps_done / s.total_steps);
         if (s.beta_median != null) {
             $("mcmc-medians").innerHTML =
@@ -517,7 +644,7 @@
     function onMcmcFinal(p) {
         const m = p.median, b = p.band_16_84;
         $("mcmc-progress").innerHTML =
-            `<span style="color:#a7f3d0">●</span> posterior locked · ${p.n_samples} samples`;
+            `<span style="color:#a7f3d0">●</span> ${C.status.mcmcLocked(p.n_samples)}`;
         setMcmcBar(1);
         $("mcmc-medians").innerHTML =
             `β = <span class="accent-beta">${m.beta.toExponential(4)}</span>  ·  ` +
@@ -530,11 +657,9 @@
         qoState.e    = m.e;
         const inv = p.decryption_invariant;
         if (inv) {
-            $("invariant-line").innerHTML =
-                `LHS = <span class="accent-lock">${inv.LHS.toFixed(8)}</span>  ·  ` +
-                `|LHS − 2| = <span class="accent-lock">${inv.residual.toExponential(3)}</span>`;
+            $("invariant-line").innerHTML = C.invariant.format(inv.LHS, inv.residual);
         } else {
-            $("invariant-line").textContent = "invariant undefined at this point";
+            $("invariant-line").textContent = C.invariant.undefinedMsg;
         }
         // ------------------------------------------------------------
         // Full metric recovery from (β, P, e) alone — no G, no M input
@@ -585,38 +710,43 @@
         const prec_t_cy  = (prec_t_rev != null && t.P_yrs)
             ? prec_t_rev * (100.0 / t.P_yrs) : null;
 
+        // Fold inclination into [0°, 90°] and wrap ω to [0°, 360°) —
+        // RV is only sensitive to sin i (cos i sign is unrecoverable),
+        // and ω is an angle, so direct string comparison needs wrapping.
+        const foldI  = (d) => (d == null || !isFinite(d)) ? null : (d <= 90 ? d : 180 - d);
+        const wrapW  = (d) => (d == null || !isFinite(d)) ? null : ((d % 360) + 360) % 360;
+        const sinI_truth = foldI(t.i_deg);
+        const sinI_reco  = foldI(m.i_deg);
+        const w_truth    = wrapW(t.omega_deg);
+        const w_reco     = wrapW(m.omega_deg);
+
         const fmt = (x, f) => (x == null || !isFinite(x)) ? "—" : f(x);
+        const L = C.reveal.rows;
         const rows = [
-            ["β  (kinematic projection)",       fmt(t.beta,    v => v.toExponential(4)),           m.beta.toExponential(4)],
-            ["e  (eccentricity)",               fmt(t.e,       v => v.toFixed(5)),                 m.e.toFixed(5)],
-            ["i  (inclination, deg)",           fmt(t.i_deg,   v => v.toFixed(2)),                 m.i_deg.toFixed(2)],
-            ["P  (period, years)",              fmt(t.P_yrs,   v => v.toFixed(4)),                 m.P_years.toFixed(4)],
-            ["ω  (argument of pericentre, deg)",fmt(t.omega_deg,v => v.toFixed(2)),                m.omega_deg.toFixed(2)],
-            ["v<sub>z0</sub>  (systemic, km/s)",fmt(t.vz0_kms, v => v.toFixed(2)),                 m.vz0_kms.toFixed(2)],
-            ["R<sub>s</sub>  (Schwarzschild radius, m)", fmt(Rs_t, v => v.toExponential(4)),       Rs_m.toExponential(4)],
-            ["a  (semi-major axis, AU)",        fmt(a_t,  v => (v/AU_M).toFixed(4)),               (a_m/AU_M).toFixed(4)],
-            ["r<sub>p</sub>  (pericentre, AU)", fmt(rp_t, v => (v/AU_M).toFixed(4)),               (rp_m/AU_M).toFixed(4)],
-            ["Δω  (precession, arcsec/century)",fmt(prec_t_cy, v => v.toFixed(2)),                 prec_arcsec_per_century.toFixed(2)],
-            ["M  (legacy, M<sub>☉</sub>) — footnote", fmt(t.M_solar, v => v.toFixed(3)),           M_legacy_Msun.toFixed(3)],
+            [L.beta,  fmt(t.beta,    v => v.toExponential(4)),     m.beta.toExponential(4)],
+            [L.e,     fmt(t.e,       v => v.toFixed(5)),           m.e.toFixed(5)],
+            [L.i,     fmt(sinI_truth,v => v.toFixed(2) + "°"),     sinI_reco.toFixed(2) + "°"],
+            [L.P,     fmt(t.P_yrs,   v => v.toFixed(4)),           m.P_years.toFixed(4)],
+            [L.omega, fmt(w_truth,   v => v.toFixed(2)),           w_reco.toFixed(2)],
+            [L.vz0,   fmt(t.vz0_kms, v => v.toFixed(2)),           m.vz0_kms.toFixed(2)],
+            [L.Rs,    fmt(Rs_t,      v => v.toExponential(4)),     Rs_m.toExponential(4)],
+            [L.a,     fmt(a_t,       v => (v/AU_M).toFixed(4)),    (a_m/AU_M).toFixed(4)],
+            [L.rp,    fmt(rp_t,      v => (v/AU_M).toFixed(4)),    (rp_m/AU_M).toFixed(4)],
+            [L.prec,  fmt(prec_t_cy, v => v.toFixed(2)),           prec_arcsec_per_century.toFixed(2)],
+            [L.M,     fmt(t.M_solar, v => v.toFixed(3)),           M_legacy_Msun.toFixed(3)],
         ];
 
+        const H = C.reveal.headers;
         const html = `<table class="mx-auto text-sm"><thead><tr>
-            <th class="pr-8 text-left whisper">quantity</th>
-            <th class="pr-8 text-left whisper">sealed truth</th>
-            <th class="text-left whisper">recovered from 1D light alone</th></tr></thead><tbody>` +
+            <th class="pr-8 text-left whisper">${H.quantity}</th>
+            <th class="pr-8 text-left whisper">${H.truth}</th>
+            <th class="text-left whisper">${H.recovered}</th></tr></thead><tbody>` +
             rows.map(r => `<tr>
                 <td class="pr-8 py-1 dim">${r[0]}</td>
                 <td class="pr-8 py-1 text-gray-300">${r[1]}</td>
                 <td class="py-1 accent-lock">${r[2]}</td></tr>`).join("") +
             `</tbody></table>
-            <p class="whisper max-w-2xl mx-auto mt-6 leading-relaxed">
-              Every recovered quantity above was reconstructed from a single one-dimensional
-              stream of light-frequency measurements, using only the speed of light and the
-              two dimensionless projections (β, κ). Newton's constant G and the companion's
-              mass M never entered the fit; the last row — M in solar masses — is shown only
-              because it is the language physics has spoken for three centuries, computed
-              after the fact from M = R<sub>s</sub>c²/(2G).
-            </p>`;
+            <p class="whisper max-w-2xl mx-auto mt-6 leading-relaxed">${C.reveal.caption}</p>`;
         $("truth-table").innerHTML = html;
         revealAct4();
     }
