@@ -156,7 +156,8 @@ def run_sniper(dataset_json, scout_json):
             "P_years":   P / 365.25,
             "P_days":    P,
             "t_peri":    t_peri,
-            "beta_upper_bound": beta_upper,
+            "beta_upper_bound": beta_hi,
+            "beta_lower_bound": beta_lo,
         },
     })
 
