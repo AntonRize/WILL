@@ -168,6 +168,20 @@
     }
 
     // ---- Always-visible sticky status strip -----------------------------
+    // Monotonic "stage" counter. Higher-numbered stages always win over
+    // lower-numbered ones, so a late-arriving engine→ready message from
+    // the worker cannot stomp a fresher stage message.
+    let _stripStage = 0;
+    const STAGE = {
+        boot: 0, engineReady: 1,
+        generating: 2, scouting: 3, sniping: 4, mcmc: 5, done: 6,
+    };
+    function setStripStage(stage, label, frac, opts) {
+        if (stage < _stripStage) return;   // ignore stale updates
+        _stripStage = stage;
+        setStrip(label, frac, opts);
+    }
+
     function setStrip(label, frac, opts) {
         const strip = $("status-strip");
         const lbl   = $("strip-label");
@@ -522,16 +536,20 @@
             engineState.className = (m.state === "ready") ? "accent-lock" : "dim";
             engineProgress.textContent = m.progress ? " · " + m.progress : "";
             // Sticky strip: translate engine states into visitor language
+            // NOTE: we deliberately do NOT update the strip on state "ready".
+            // The worker posts engine→ready after every stage completes, and
+            // overwriting the strip there would stomp on the stage messages
+            // set by onGeneratorResult / onScoutResult / onSniperResult /
+            // onMcmcFinal, leaving the indicator frozen on "engine ready …".
             const STRIP = {
-                "loading-pyodide":   ["loading the in-browser Python engine (≈8 s)", null],
-                "loading-packages":  ["loading numpy, scipy and the MCMC sampler (≈10 s)", null],
-                "ready":             ["engine ready — generating the synthetic light stream…", null],
-                "generating":        ["Stage 0 · generating a 1PN radial-velocity dataset", null],
-                "scouting":          ["Stage 1 · fitting a classical Kepler orbit", null],
-                "sniping":           ["Stage 2 · searching for the relational solution (speed + gravity-well depth)", null],
+                "loading-pyodide":   [STAGE.boot,        "loading the in-browser Python engine (≈8 s)", null],
+                "loading-packages":  [STAGE.boot,        "loading numpy, scipy and the MCMC sampler (≈10 s)", null],
+                "generating":        [STAGE.generating,  "Stage 0 · generating a 1PN radial-velocity dataset", null],
+                "scouting":          [STAGE.scouting,    "Stage 1 · fitting a classical Kepler orbit", null],
+                "sniping":           [STAGE.sniping,     "Stage 2 · searching for the relational solution (speed + gravity-well depth)", null],
             };
             if (STRIP[m.state]) {
-                setStrip(STRIP[m.state][0], STRIP[m.state][1]);
+                setStripStage(STRIP[m.state][0], STRIP[m.state][1], STRIP[m.state][2]);
             }
             if (m.state === "ready") {
                 runBtn.disabled = false;
@@ -540,7 +558,7 @@
         } else if (m.type === "init-done") {
             runBtn.disabled = false;
             revealAct1();
-            setStrip("engine ready — press Generate to begin", 0);
+            setStripStage(STAGE.engineReady, "engine ready — press Generate to begin", 0);
         } else if (m.type === "generator-result") {
             onGeneratorResult(m.payload);
         } else if (m.type === "scout-result") {
@@ -570,7 +588,7 @@
         rvChart.data.datasets[1].hidden = true;
         rvChart.update();
         rvCount.textContent = `${p.t_obs.length} observations`;
-        setStrip("Stage 1 · fitting a classical Kepler orbit (~3 s)", null);
+        setStripStage(STAGE.scouting, "Stage 1 · fitting a classical Kepler orbit (~3 s)", null);
         reportBody.textContent = p.report;
         window.__decoderDataset = p;
 
@@ -625,7 +643,7 @@
         window.__decoderScout = p;
         revealAct2();
 
-        setStrip("Stage 2 · relational decoder searching (speed + gravity-well depth) — ~20–40 s", null);
+        setStripStage(STAGE.sniping, "Stage 2 · relational decoder searching (speed + gravity-well depth) — ~20–40 s", null);
         // Reveal Act III immediately so the user sees the progress bar and plane
         revealAct3();
         const prog = $("mcmc-progress");
@@ -657,7 +675,7 @@
         $("mcmc-progress").innerHTML =
             `<span class="pulse-dot"></span>${C.status.sniperDone(prm.beta.toExponential(3))}`;
         setMcmcBar(0);
-        setStrip("Stage 3 · sampling the posterior to measure how tightly the data pin the answer", 0);
+        setStripStage(STAGE.mcmc, "Stage 3 · sampling the posterior to measure how tightly the data pin the answer", 0);
         worker.postMessage({ type: "mcmc-init", total_steps: MCMC_TOTAL });
     }
 
@@ -670,7 +688,7 @@
         $("mcmc-progress").innerHTML =
             `<span class="pulse-dot"></span>${C.status.mcmcChunk(s.steps_done, s.total_steps, pct)}`;
         setMcmcBar(s.steps_done / s.total_steps);
-        setStrip(
+        setStripStage(STAGE.mcmc,
             `Stage 3 · sampling the posterior · step ${s.steps_done} of ${s.total_steps}`,
             s.steps_done / s.total_steps
         );
@@ -698,7 +716,7 @@
         $("mcmc-progress").innerHTML =
             `<span style="color:#a7f3d0">●</span> ${C.status.mcmcLocked(p.n_samples)}`;
         setMcmcBar(1);
-        setStrip(`reconstruction complete · ${p.n_samples} posterior samples`, 1, { done: true });
+        setStripStage(STAGE.done, `simulation complete · ${p.n_samples} posterior samples`, 1, { done: true });
         $("mcmc-medians").innerHTML =
             `β = <span class="accent-beta">${m.beta.toExponential(4)}</span>  ·  ` +
             `i = <span class="accent-lock">${m.i_deg.toFixed(2)}°</span>  ·  ` +
