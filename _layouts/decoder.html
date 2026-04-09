@@ -127,6 +127,46 @@
     .act { opacity: 0; transform: translateY(8px); transition: opacity 0.9s ease, transform 0.9s ease; }
     .act.revealed { opacity: 1; transform: none; }
 
+    /* Sticky always-visible status strip */
+    #status-strip {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(8, 10, 14, 0.92);
+      border-bottom: 1px solid rgba(167, 243, 208, 0.18);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12.5px;
+      color: #d1d5db;
+    }
+    #status-strip .strip-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 10px 20px 12px;
+      display: flex; align-items: center; gap: 12px;
+      flex-wrap: wrap;
+    }
+    #status-strip .strip-label { flex: 1 1 auto; min-width: 200px; }
+    #status-strip .strip-pct {
+      color: #a7f3d0; font-weight: 500; min-width: 44px; text-align: right;
+    }
+    #status-strip .strip-bar {
+      flex: 0 0 100%;
+      height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px;
+      overflow: hidden; margin-top: 2px;
+    }
+    #status-strip .strip-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #67e8f9 0%, #c084fc 55%, #a7f3d0 100%);
+      box-shadow: 0 0 8px rgba(167,243,208,0.5);
+      transition: width 0.3s ease-out;
+    }
+    #status-strip.indeterminate .strip-fill {
+      width: 40% !important;
+      animation: slideBar 1.6s ease-in-out infinite;
+    }
+    #status-strip.done { border-bottom-color: rgba(167,243,208,0.45); }
+    #status-strip.done .strip-fill { width: 100%; }
+    body { padding-top: 58px; }  /* room for the sticky strip */
+
     /* Calculation-in-progress indicators */
     .pulse-dot {
       display: inline-block; width: 8px; height: 8px; border-radius: 50%;

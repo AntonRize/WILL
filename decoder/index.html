@@ -15,23 +15,51 @@ permalink: /decoder/
 <header class="text-center mb-16">
   <p class="whisper tracking-[0.2em] uppercase mb-5">WILL Relational Geometry · Live Instrument</p>
 
-  <h1 class="text-4xl sm:text-5xl font-semibold text-white tracking-tight leading-tight">
-    The Holographic Decoder
+  <h1 class="text-3xl sm:text-5xl font-semibold text-white tracking-tight leading-tight max-w-4xl mx-auto">
+    The Holographic Unfolding:<br class="hidden sm:block">
+    Reconstructing Reality from a 1D Data Stream
   </h1>
 
-  <p class="mt-7 text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
-    A telescope watches a star and measures how the frequency of its light
-    shifts over time. That is all we collect. From that single stream of
-    numbers this page reconstructs the complete three-dimensional orbit —
-    its shape, its tilt, its size in kilometres, and the mass of the
-    invisible partner pulling on the star — using only the speed of light
-    and two dimensionless ratios,
-    <span class="accent-beta breathe mono" data-tip="β = v/c&#10;How fast the star moves, as a fraction of the speed of light.">β</span>
-    and
-    <span class="accent-kappa breathe mono" data-tip="κ = √(Rₛ/r)&#10;How deep the star sits in the companion's gravitational well, as a fraction of the speed of light squared.">κ</span>.
-    Newton's constant <span class="mono dim">G</span> and the mass
-    <span class="mono dim">M</span> never enter the chain. They reappear
-    only at the very end, as a translation into familiar units.
+  <div class="mt-8 text-gray-300 text-[15.5px] leading-relaxed max-w-2xl mx-auto text-left space-y-5">
+    <p>
+      In this computational proof, we synthesize a one-dimensional data
+      stream — the time-evolution of light-frequency shifts, i.e. radial
+      velocity — using the established first post-Newtonian (1PN)
+      framework of General Relativity. This mimics the minimal data
+      footprint obtainable from astronomical observations.
+    </p>
+    <p>
+      Our objective is radical: we test whether the entirety of a
+      celestial system's physical reality — its absolute scale, its true
+      mass, and its complete three-dimensional geometry — can be
+      resurrected solely from this one-dimensional temporal stream.
+    </p>
+    <p>
+      Utilising the closed algebraic framework of WILL Relational
+      Geometry (see
+      <a class="accent-lock underline decoration-dotted" target="_blank"
+         href="https://willrg.com/documents/WILL_RG_I.pdf#sec:rom">R.O.M.
+      Equations, Part I</a>), we process this data and completely
+      bypass both Newtonian constraints and the classical
+      mass–inclination degeneracy. By extracting the absolute metric —
+      the Schwarzschild radius — and the effective mass of the system
+      from dimensionless phase shifts alone, we argue that physical
+      reality is not a container of objects but a holographic
+      projection of relational information.
+    </p>
+  </div>
+
+  <p class="mt-8 text-gray-400 text-sm">
+    <a class="underline decoration-dotted" target="_blank"
+       href="https://willrg.com/documents/WILL_RG_I.pdf#sec:M_sin(i)">Complete
+    derivation</a>
+    &nbsp;·&nbsp;
+    <a class="underline decoration-dotted" target="_blank"
+       href="https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_HOLOGRAPHIC_REALITY_DECODER.ipynb">Colab
+    notebook</a>
+    &nbsp;·&nbsp;
+    <a class="underline decoration-dotted" target="_blank"
+       href="https://willrg.com/will-ai/">For curiosity questions</a>
   </p>
 
   <!-- Mode toggle: inline, no pill, matches homepage rhythm -->
@@ -41,6 +69,19 @@ permalink: /decoder/
     <button id="mode-rigorous">Rigorous</button>
   </div>
 </header>
+
+<!-- ============================================================
+     ALWAYS-VISIBLE STATUS BAR — sticky top, tells the visitor
+     exactly which stage is computing and how far along it is.
+     ============================================================ -->
+<div id="status-strip" aria-live="polite">
+  <div class="strip-inner">
+    <span class="pulse-dot" id="strip-dot"></span>
+    <span class="strip-label" id="strip-label">initialising the in-browser engine…</span>
+    <span class="strip-pct"   id="strip-pct"></span>
+    <div class="strip-bar"><div class="strip-fill" id="strip-fill"></div></div>
+  </div>
+</div>
 
 <!-- Engine whisper — single status line, no panel ----------------------- -->
 <div class="text-center mb-16">
@@ -318,10 +359,6 @@ permalink: /decoder/
     <div class="my-8 text-center">
       <p class="text-xl font-light text-white tracking-wide py-2">
         <span class="breathe accent-lock">SPACETIME ≡ ENERGY</span>
-      </p>
-      <p class="mt-4 text-gray-400 text-[14px] max-w-md mx-auto">
-        A hypothesis, not a theorem — the question this decoder exists
-        to make sharper.
       </p>
     </div>
   </div>
