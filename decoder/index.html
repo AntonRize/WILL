@@ -92,7 +92,7 @@ permalink: /decoder/
 </div>
 
 <!-- ============================================================
-     ACT I — Here is all you get
+     ACT I — Light RED vs BLUE
      ============================================================ -->
 <section id="act-1" class="act mb-24">
   <div class="text-center mb-10">
@@ -166,7 +166,7 @@ permalink: /decoder/
 </section>
 
 <!-- ============================================================
-     ACT II — The skeleton
+     ACT II — The Shape
      Revealed once the Keplerian Scout finishes. Shows the best
      classical fit overlaid on the data, and the residuals that
      the classical model cannot explain.
@@ -174,7 +174,7 @@ permalink: /decoder/
 <section id="act-2" class="act mb-24 hidden">
   <div class="text-center mb-10">
     <p class="whisper tracking-[0.2em] uppercase mb-2">Act II</p>
-    <h2 class="text-2xl font-light text-white">The classical skeleton</h2>
+    <h2 class="text-2xl font-light text-white">The Shape</h2>
   </div>
 
   <p class="guided-only text-gray-400 leading-relaxed max-w-xl mx-auto text-center mb-10">
@@ -189,15 +189,14 @@ permalink: /decoder/
   </p>
 
   <p class="rigorous-only text-gray-500 leading-relaxed max-w-2xl mx-auto text-center mb-10 hidden">
-    A six-parameter Keplerian radial-velocity model
+    A six-parameter Keplerian-like radial-velocity model
     (semi-amplitude, systemic velocity, eccentricity, pericentre angle,
     period, time of pericentre) is fit to the data by differential
     evolution. The residuals — observed velocity minus best classical
     fit — are shown below as a function of time. Their amplitude and
-    the fact that they are phase-locked to the orbit, not white, is
+    the fact that they are phase-locked to the orbit is
     the signature of the relativistic baseline and the secular
-    pericentre precession that a purely Newtonian model is structurally
-    incapable of producing.
+    pericentre precession. 
   </p>
 
   <!-- Best-fit parameters (appears as a quiet inscription) -->
@@ -229,7 +228,7 @@ permalink: /decoder/
 </section>
 
 <!-- ============================================================
-     ACT III — The R.O.M. decoding
+     ACT III — The Holographic Unfolding
      ============================================================ -->
 <section id="act-3" class="act mb-24 hidden">
   <div class="text-center mb-10">
@@ -238,10 +237,9 @@ permalink: /decoder/
   </div>
 
   <p class="guided-only text-gray-400 leading-relaxed max-w-xl mx-auto text-center mb-10">
-    The small wave Act II could not explain is not noise. It carries
+    The small wave from Act II carries
     two physical quantities: how fast the star actually moves along
-    its orbit, and how deep it sits inside the companion's gravity
-    well at every instant. The decoder now searches for the single
+    its orbit, and how deep is the potential well at every instant. The decoder now searches for the single
     pair of numbers that explains both the classical wobble and the
     leftover wave at once — and then walks a Markov chain around that
     point to measure how tightly the data pin the answer down.
@@ -253,13 +251,12 @@ permalink: /decoder/
     including the systemic gravitational redshift, the transverse
     Doppler effect, the line-of-sight Doppler shift, and the
     relativistic precession of the orbit's major axis accumulated
-    exactly through each revolution. Stage 3 then runs a Markov-chain
+   per radian. Stage 3 then runs a Markov-chain
     sampler in a tight local prior around the Stage 2 peak to measure
     the posterior width on every parameter. The closed-form identity
     from
     <a class="underline decoration-dotted" target="_blank"
-       href="https://willrg.com/documents/WILL_RG_I.pdf#sec:analytical_sini">Sidestepping
-    the M sin i Degeneracy</a> in WILL_RG_I is evaluated at the
+       href=" https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:decryption_invariant">Decryption Iinvariant</a> in WILL_RG_I is evaluated at the
     posterior median; its residual against the observed redshift
     extrema is reported below.
   </p>
@@ -276,16 +273,13 @@ permalink: /decoder/
   <!-- Q_o plane + precessing orbit side by side -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
     <div>
-      <p class="whisper tracking-[0.15em] uppercase mb-3 text-center">speed vs. depth in the gravity well</p>
+      <p class="whisper tracking-[0.15em] uppercase mb-3 text-center">(kinetic projection) β₀(o) vs. κ₀(o) (potential projection)</p>
       <div id="qo-wrap" class="relative mx-auto" style="width:100%;max-width:440px;height:340px;">
         <canvas id="qo-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;"></canvas>
       </div>
       <p class="whisper max-w-xs mx-auto text-center mt-4">
         Horizontal axis: how fast the star moves, as a fraction of
-        light-speed. Vertical axis: how deep it sits in the companion's
-        gravity well. The orbit traces a closed loop that <em>must</em>
-        touch the dashed line at every instant — that is the law that
-        lets the decoder work.
+        light-speed. Vertical axis: how deep it sits in the potential well.
       </p>
     </div>
     <div>
@@ -294,10 +288,10 @@ permalink: /decoder/
         <canvas id="orbit-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;"></canvas>
       </div>
       <p class="whisper max-w-xs mx-auto text-center mt-4">
-        The companion sits at the emerald dot. The cyan body traces the
+        Central body sits at the emerald dot. The cyan point traces the
         star's orbit around it. Each pass is slightly rotated from the
         one before — the same relativistic precession Einstein first
-        computed for Mercury, now recovered here from the light signal
+        computed for Mercury, now recovered here from the light frequency
         alone. The purple ray points to the closest approach of the
         current revolution.
       </p>
@@ -308,13 +302,13 @@ permalink: /decoder/
   <div class="text-center mt-12">
     <p class="whisper tracking-[0.15em] uppercase mb-3">
       <a target="_blank" class="underline decoration-dotted"
-         href="https://willrg.com/documents/WILL_RG_I.pdf#eq:decryption_invariant">decryption
-      invariant</a>
+         href="https://willrg.com/documents/WILL_RG_I.pdf#eq:decryption_invariant">Decryption
+      Invariant</a>
     </p>
     <div id="invariant-line" class="mono text-sm text-gray-400">—</div>
     <p class="whisper max-w-xl mx-auto mt-4">
       A single closed-form identity, evaluated against the observed
-      redshift extrema. Its residual is the distance between R.O.M.
+      redshift extrema. Its residual is the distance between our unfolding
       and the data. As MCMC converges, it collapses to measurement noise.
     </p>
   </div>
@@ -339,21 +333,21 @@ permalink: /decoder/
     <p>
       We started with one number drifting over time — the frequency of
       a star's light. We finished with its orbit, eccentricity, period,
-      Schwarzschild radius, pericentre, and century of precession.
+      Schwarzschild radius, pericentre, precession... all main orbital parameters.
     </p>
     <p>
-      The only constant used was c. Newton's G and the companion's mass
+      The only constant used was c. Newton's G and mass
       M never entered the fit. The legacy mass in the last row is a
       translation, computed after the fact from
       <span class="mono">M = R<sub>s</sub>c²/(2G)</span>.
     </p>
     <p>
       The reconstruction rests on one relation —
-      <span class="mono accent-q">κ² = 2β²</span> — and one closed-form
+      <span class="mono accent-q">κ² = 2β²</span>  (<a class="underline decoration-dotted" target="_blank"
+         href="https://willrg.com/documents/WILL_RG_I.pdf#thm:closure">seeClosure theorem</a>) — and one algebraic
       identity applied to the observed redshift extrema (see
       <a class="underline decoration-dotted" target="_blank"
-         href="https://willrg.com/documents/WILL_RG_I.pdf#sec:analytical_sini">Sidestepping
-      the M sin i Degeneracy</a> in WILL_RG_I).
+         href="https://willrg.com/documents/WILL_RG_I.pdf#eq:decryption_invariant">Decryption Invariant</a> in WILL_RG_I).
     </p>
 
     <div class="my-8 text-center">
