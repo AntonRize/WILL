@@ -1981,6 +1981,17 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa)
 \end{table}
 
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=ROM]
+
+Please follow this link to see all \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. equations and definitions}
+
+\href{https://www.desmos.com/calculator/lpjawsn19f}{DESMOS: https://www.desmos.com/calculator/lpjawsn19f}
+\end{tcolorbox}
+
+
+
+
+
 \section{Operational Independence and the Role of Constants}
 \hypertarget{sec:operational}{}\label{sec:operational}
 
@@ -3049,6 +3060,13 @@ We define the \textbf{interior kinematic projection} (the projection that appear
 \]
 This is the natural variable once the elliptical geometry is accounted for. All higher-order effects now depend strictly on powers of $\beta_{\rm int}$.
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=ROM]
+
+Please follow this link to see all \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. equations and definitions}
+
+\href{https://www.desmos.com/calculator/lpjawsn19f}{DESMOS: https://www.desmos.com/calculator/lpjawsn19f}
+\end{tcolorbox}
+
 \subsection{Non-Linear Relational Invariants}
 R.O.M. supplies two independent constraints that are quadratic (or higher) in $\beta_{\rm int}$:
 
@@ -3083,13 +3101,10 @@ The degeneracy is not fundamental; it is an artifact of truncating the kinematic
 
 While Bayesian MCMC provides a robust statistical mapping of the probability ridge (Section \ref{sec:mcmc_s02}), the Relational Orbital Mechanics (R.O.M.) allows for a strict, closed-form algebraic resolution of the $M \sin i$ degeneracy. By evaluating the raw observational shifts at the exact orbital extrema, the inclination angle $i$ can be completely isolated and extracted.
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=R.O.M. equations and definitions]
-\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{Closed Algebraic System of Relational Orbital Mechanics}
-\end{tcolorbox}
 
 \subsubsection{The Observer Equations at Extrema}
 
-The raw spectroscopic shift observed by a telescope, $Z_{raw}(o)$, is the product of the line-of-sight Doppler projection and the systemic transverse baseline $Z_{sys}(o)$. The extrema of the radial velocity occur at phases $o_{i1} = -\omega_i$ (maximum redshift) and $o_{i2} = \pi - \omega_i$ (minimum redshift/maximum blueshift).
+The raw spectroscopic shift observed by a telescope, $Z_{raw}(o)$, is the product of the line-of-sight Doppler projection and the systemic transverse baseline $Z_{sys}(o)$. The extrema of the radial velocity occur at phases $o_{i1} = -\omega_i$ (maximum redshift) and $o_{i2} = \pi - \omega_i$ (minimum redshift/maximum blue shift).
 
 Utilizing the relational energy invariant $\kappa_o(o)^2 - \beta_o(o)^2 = \beta^2$, we eliminate the gravitational projection $\kappa_o$ entirely. Because $Z_{sys}(o) = 1/\tau(o)$, the systemic spacetime phase factors at the extrema, $\tau(-\omega_i)$ and $\tau(\pi-\omega_i)$, become strict functions of the global kinematic projection $\beta$, eccentricity $e$, and the argument of periapsis $\omega_i$:
 
@@ -3118,12 +3133,13 @@ Z_{raw}(-\omega_i) \tau(-\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) = 
 
 Substituting $2K_i$ from Equation \ref{eq:2Ki} into this sum and grouping the $Z_{raw}$ terms isolates the fundamental \textbf{Decryption Invariant}:
 
+\hypertarget{eq:decryption_invariant}{}\label{eq:decryption_invariant}
 \begin{tcolorbox}[colback=white, colframe=black, title=The Decryption Invariant]
 \begin{equation}
 Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2
-\label{eq:decryption_invariant}
 \end{equation}
 \end{tcolorbox}
+
 
 This equation contains the raw observational signals, the known geometry ($e$), and the internal R.O.M. variables ($\beta, \omega_i$) locked inside the $\tau$ functions. Crucially, \textbf{the inclination angle $i$ has been strictly eliminated}. This proves analytically that the true kinematic projection $\beta$ is determined entirely by the asymmetry of the transverse baselines at the extrema, independent of the observer's viewing angle.
 

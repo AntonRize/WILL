@@ -96,9 +96,9 @@
 \maketitle
 
 
-\subsection{Closed Algebraical System of R.O.M Equations}
+\subsection{Closed Algebraical System of R.O.M. Equations}
 
-Dedicated sections in WILL RG Part I: \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:rom}{https://willrg.com/documents/WILL_RG_I.pdf#sec:rom}
+Dedicated sections in WILL RG Part I: \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:rom}{https://willrg.com/documents/WILL_RG_I.pdf-sec:rom}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
 \textbf{ \href{https://www.desmos.com/calculator/n4lmkpsebx}{R.O.M.}}
@@ -144,12 +144,12 @@ $h_{W}=a\cdot\beta c\cdot e_{Y}$ (angular momentum, invariant at focal points) \
 $\omega=\frac{\beta c}{a}$ (angular frequency) \\
 $T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi~r_{o}(O_{o})}{\beta_{o}(O_{o})c}=\frac{\pi R_{\epsilon}}{2\sqrt{2}c}W^{-\frac{3}{2}}$ (orbital period) \\
 
-Eccentricity Relations
+Eccentricity Relations \\
 $e=\frac{1}{\delta_{p}}-1=1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}=\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1$ (eccentricity derived from closure) \\
 $e_{Y}=\sqrt{1-e^{2}}$ (eccentricity's orthogonal value) \\
 $e_{X}=\frac{1+e}{1-e}=\frac{r_{a}}{r_{p}}=\frac{\delta_{a}}{\delta_{p}}=\frac{\beta_{p}}{\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (shape factor, still looks like magic to me) \\
 
-Time-phase mystery
+Time-phase mystery \\
 $\omega_{o}(o)=\frac{\beta\cdot c}{a}\cdot\frac{(1+e\cdot cos(o))^{2}}{(1-e^{2})^{\frac{3}{2}}}$ (angular frequency at phase o) \\
 $\Delta_{to} (o) = \int_{0}^{o}\frac{1}{\omega_{\theta}(\theta)}\,d\theta =\frac{a}{\beta c}\zeta= \frac{T_{O}}{2\pi}\zeta$  (time duration of given phase interval) \\
 $\zeta=(1-e^{2})^{\frac{3}{2}}\cdot(\int_{0}^{o}(1+e\cdot\cos(\theta))^{-2}d\theta)=\frac{1}{\sqrt{1-e^{2}}}\int_{0}^{o}(\frac{t_{o}(\theta)}{t})^{2}d\theta$ (Temporal Phase interval) \\
@@ -179,7 +179,7 @@ $\beta_{R}(o)=\beta\ \frac{e\sin (o)}{\sqrt{1-e^{2\ }}}=\sqrt{\beta_{o}(o)^{2}-\
 $\beta_{T}(o)=\frac{r_{o}(o)\omega_{o}(o)}{c}=\beta\frac{1+e\cos(o)}{\sqrt{1-e^{2}}}$  (transverse kinetic projection at phase o) \\
 $\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{\beta o}(o)+1)^{-1}$    (relativistic phase factor at phase $o$) \\
 $\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}(o)^2}$ (local closure factor at phase $o$) \\
-$Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}(o)^{2}}$ (local relational shift vector at phase $o$) \\
+$Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift vector at phase $o$) \\
 $\omega_o = a\beta c\frac{e_{Y}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e\cos o)^{2}}{(1-e^{2})^{3/2}}$ (angular speed at phase $o$) \\
 $\eta_{o} = \frac{r}{a}=2-\frac{2\beta_{o}(o)^{2}}{\kappa_{o}(o)^{2}}$  (phase scale amplitude at phase $o$) \\
 $\tau(o)=\kappa_{Xo}(o)\cdot\beta_{Yo}(o)= Z_{sys}(o)^{-1}$ (phase spacetime factor at phase $o$) \\
@@ -202,13 +202,11 @@ $\beta_{los}(o)=\frac{\beta}{\sqrt{1-e^{2}}}(\cos(o+\omega_{i})+e\cos(\omega_{i}
 $i=$ (orbital inclination in relation to line of site and orbital plane)  \\
 $\omega_{i}=$ (phase turn or argument of periapsis) \\
 $K_{i}=\frac{\beta}{\sqrt{1-e^{2}}}\sin(i)=\beta_{int}\sin(i)$  (semi-amplitude invariant) \\
-$Z_{rawmax}=Z_{sys}(o_{i1})(1+K_{i}(1+e\cos\omega_{i}))$ \\
-$Z_{rawmin}=Z_{sys}(o_{i2})(1+K_{i}(-1+e\cos\omega_{i}))$ \\
+$Z_{rawmax}=Z_{sys}(-\omega_{i})(1+K_{i}(1+e\cos\omega_{i}))$ \\
+$Z_{rawmin}=Z_{sys}(\pi-\omega_{i})(1+K_{i}(-1+e\cos\omega_{i}))$ \\
 $O_{oi}=(O_{o}+\omega_{i})$ \\
-$o_{i1}=-\omega_{i}$ \\
-$o_{i2}=\pi-\omega_{i}$ \\
-$Z_{sysi1}(o_{i1})=(1-\beta^{2}\frac{1+e^{2}+2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1+e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
-$Z_{sysi2}(o_{i2})=(1-\beta^{2}\frac{1+e^{2}-2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1-e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
+$Z_{sys}(-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}+2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1+e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
+$Z_{sys}(\pi-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}-2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1-e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
 
 \subsubsection*{Un-tilted 2D coordinates within the orbital plane}
 $x_{orb} = r(o) \cos(o + \omega_i)$ \\
