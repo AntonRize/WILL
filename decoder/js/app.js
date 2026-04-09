@@ -226,11 +226,11 @@
             qoCtx.setLineDash([]);
             qoCtx.fillStyle = "rgba(156,163,175,0.75)";
             qoCtx.font = (11 * devicePixelRatio) + "px JetBrains Mono";
-            qoCtx.fillText("β_o", W - pad - 20*devicePixelRatio, H - pad + 18*devicePixelRatio);
-            qoCtx.fillText("κ_o", pad - 28*devicePixelRatio, pad + 4*devicePixelRatio);
+            qoCtx.fillText("speed →", W - pad - 50*devicePixelRatio, H - pad + 18*devicePixelRatio);
+            qoCtx.fillText("depth ↑", pad - 18*devicePixelRatio, pad - 6*devicePixelRatio);
             qoCtx.fillStyle = "rgba(251,191,36,0.55)";
             qoCtx.font = (10 * devicePixelRatio) + "px JetBrains Mono";
-            qoCtx.fillText("waiting for (β, κ)…", pad + 10*devicePixelRatio, pad + 18*devicePixelRatio);
+            qoCtx.fillText("waiting for the fit…", pad + 10*devicePixelRatio, pad + 18*devicePixelRatio);
             return;
         }
         const W = qoCanvas.width, H = qoCanvas.height;
@@ -305,8 +305,8 @@
         // Labels
         qoCtx.fillStyle = "rgba(156,163,175,0.8)";
         qoCtx.font = (11 * devicePixelRatio) + "px JetBrains Mono";
-        qoCtx.fillText("β_o", W - pad - 20*devicePixelRatio, H - pad + 18*devicePixelRatio);
-        qoCtx.fillText("κ_o", pad - 28*devicePixelRatio, pad + 4*devicePixelRatio);
+        qoCtx.fillText("speed →", W - pad - 50*devicePixelRatio, H - pad + 18*devicePixelRatio);
+        qoCtx.fillText("depth ↑", pad - 18*devicePixelRatio, pad - 6*devicePixelRatio);
     }
 
     // ---- Precessing orbit canvas (orbital plane view) -------------------

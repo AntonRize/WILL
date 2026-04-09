@@ -38,26 +38,29 @@ window.DECODER_CONTENT = {
             recovered: "recovered from 1D light alone",
         },
         rows: {
-            beta:   "β  (kinematic projection)",
-            e:      "e  (eccentricity)",
-            i:      'sin i  (inclination, folded to [0°,90°])',
-            P:      "P  (period, years)",
-            omega:  "ω  (argument of pericentre, deg, mod 360°)",
-            vz0:    "v<sub>z0</sub>  (systemic, km/s)",
-            Rs:     "R<sub>s</sub>  (Schwarzschild radius, m)",
-            a:      "a  (semi-major axis, AU)",
-            rp:     "r<sub>p</sub>  (pericentre, AU)",
-            prec:   "Δω  (precession, arcsec/century)",
-            M:      "M  (legacy, M<sub>☉</sub>) — footnote",
+            beta:   "orbital speed, as a fraction of light-speed",
+            e:      "eccentricity of the orbit",
+            i:      "inclination (folded to 0°–90°, see note)",
+            P:      "orbital period (years)",
+            omega:  "orientation of the long axis in the orbit plane (deg)",
+            vz0:    "overall drift of the system toward/away from us (km/s)",
+            Rs:     "Schwarzschild radius of the companion (m)",
+            a:      "size of the orbit (AU)",
+            rp:     "closest approach distance (AU)",
+            prec:   "rate at which the orbit's long axis turns (arcsec/century)",
+            M:      "companion mass in solar masses — legacy footnote",
         },
         caption:
-            "Every recovered quantity was reconstructed from a one-dimensional " +
-            "stream of light-frequency measurements, using only the speed of " +
-            "light and the two dimensionless projections (β, κ). Newton's G " +
-            "and the companion's mass M never entered the fit. " +
-            "Inclination is reported in [0°, 90°] because radial velocity is " +
-            "sensitive only to sin i; the sign of cos i cannot be recovered " +
-            "from RV alone — this is a property of the signal, not of R.O.M.",
+            "Every row was reconstructed from a single one-dimensional stream " +
+            "of light-frequency measurements, using only the speed of light. " +
+            "Newton's gravitational constant and the companion's mass never " +
+            "entered the fit. The last row is shown only for comparison with " +
+            "classical astronomy: it is the Schwarzschild radius rewritten as " +
+            "a mass, not an independent measurement. Inclination is reported " +
+            "in the range 0° to 90° because radial-velocity data cannot tell " +
+            "whether the orbit tips toward us or away from us — that piece of " +
+            "information is genuinely absent from the signal, not from the " +
+            "decoder.",
     },
 
     // ----- Invariant line --------------------------------------------------

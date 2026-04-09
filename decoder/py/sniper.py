@@ -102,19 +102,22 @@ def run_sniper(dataset_json, scout_json):
     P_s1      = prm["P_days"]
     t_peri_s1 = prm["t_peri"]
 
-    # Dynamic beta anchor from scout K
-    beta_min_approx = (K_s1 / C_KMS) * np.sqrt(1 - e_s1 ** 2)
-    beta_upper = float(min(0.15, beta_min_approx * 15.0))
-    _state["beta_upper_bound"] = beta_upper
+    # Physical β floor: sin(i) ≤ 1 ⇒ β ≥ K·√(1−e²)/c.
+    # Use [0.8, 6]×β_floor as the sniper box so sin(i) lives in a sane range.
+    beta_floor = (K_s1 / C_KMS) * np.sqrt(1 - e_s1 ** 2)
+    beta_lo    = max(1e-5, 0.80 * beta_floor)
+    beta_hi    = min(0.30, 6.00 * beta_floor)
+    _state["beta_upper_bound"] = beta_hi
+    _state["beta_lower_bound"] = beta_lo
 
     bounds = [
-        (1e-5, beta_upper),                                     # beta
+        (beta_lo, beta_hi),                                     # beta
         (1e-3, np.pi / 2),                                      # i (folded)
         (-150.0 / C_KMS, 150.0 / C_KMS),                        # vz0_c
-        (max(0.5, e_s1 - 0.05), min(0.999, e_s1 + 0.05)),       # e
+        (max(0.1, e_s1 - 0.15), min(0.999, e_s1 + 0.15)),       # e  (wider)
         (0.0, 2 * np.pi),                                       # omega
-        (max(10.0, P_s1 - 1000.0), P_s1 + 1000.0),              # P
-        (t_peri_s1 - 200.0, t_peri_s1 + 200.0),                 # T_peri
+        (max(10.0, P_s1 * 0.90), P_s1 * 1.10),                  # P (±10%)
+        (t_peri_s1 - 0.05 * P_s1, t_peri_s1 + 0.05 * P_s1),     # T_peri (±5% of P)
     ]
 
     t_obs   = _state["t_obs"]
@@ -162,14 +165,18 @@ def run_sniper(dataset_json, scout_json):
 # STAGE 3 — emcee MCMC, chunked for streaming UI updates
 # -------------------------------------------------------------------
 def _log_prior(theta):
+    """Tight local prior centered on the sniper peak — prevents walkers
+    from escaping into far-away modes along the β ↔ sin(i) ridge."""
     beta, i_inc, vz0_c, e, omega, P, t_peri = theta
-    bu = _state["beta_upper_bound"]
-    if not (1e-5 < beta < bu):          return -np.inf
-    if not (0.0   < i_inc < np.pi / 2): return -np.inf
-    if not (0.5   < e < 0.999):         return -np.inf
-    if not (0.0   < omega < 2 * np.pi): return -np.inf
-    if not (10.0  < P < 500000.0):      return -np.inf
-    if abs(vz0_c * C_KMS) > 150.0:      return -np.inf
+    lo = _state["mcmc_low"]
+    hi = _state["mcmc_high"]
+    if not (lo[0] < beta  < hi[0]): return -np.inf
+    if not (lo[1] < i_inc < hi[1]): return -np.inf
+    if not (lo[2] < vz0_c < hi[2]): return -np.inf
+    if not (lo[3] < e     < hi[3]): return -np.inf
+    if not (lo[4] < omega < hi[4]): return -np.inf
+    if not (lo[5] < P     < hi[5]): return -np.inf
+    if not (lo[6] < t_peri < hi[6]): return -np.inf
     return 0.0
 
 
@@ -192,11 +199,42 @@ def _log_probability(theta):
 
 
 def mcmc_init(total_steps=1000, nwalkers=32, seed=101):
-    """Prepare emcee sampler positioned on the sniper peak."""
+    """Prepare emcee sampler positioned on the sniper peak, with a
+    tight local prior and fractional walker jitter."""
     np.random.seed(int(seed))
     peak = np.array(_state["sniper_peak"])
     ndim = len(peak)
-    pos = peak + 1e-6 * np.random.randn(nwalkers, ndim)
+    beta, i_inc, vz0_c, e, omega, P, t_peri = peak
+
+    # Build a LOCAL prior box that tightly wraps the sniper peak so
+    # walkers cannot escape into the β ↔ sin(i) degenerate ridge.
+    _state["mcmc_low"] = np.array([
+        max(1e-6, beta * 0.60),          # β  ±40%
+        max(1e-3, i_inc - 0.35),         # i  ±0.35 rad (~20°)
+        vz0_c - 30.0 / C_KMS,            # vz0 ±30 km/s
+        max(0.05, e - 0.08),             # e  ±0.08
+        (omega - 0.6),                   # ω  ±0.6 rad
+        P * 0.97,                        # P  ±3%
+        t_peri - 0.02 * P,               # T_peri ±2% of P
+    ])
+    _state["mcmc_high"] = np.array([
+        min(0.30, beta * 1.60),
+        min(np.pi / 2 - 1e-3, i_inc + 0.35),
+        vz0_c + 30.0 / C_KMS,
+        min(0.999, e + 0.08),
+        (omega + 0.6),
+        P * 1.03,
+        t_peri + 0.02 * P,
+    ])
+
+    # Fractional jitter scaled to each parameter's local span
+    scale = 0.002 * (_state["mcmc_high"] - _state["mcmc_low"])
+    pos = peak + scale * np.random.randn(nwalkers, ndim)
+    # Clamp to the prior box so walkers start inside log_prior support
+    pos = np.clip(pos,
+                  _state["mcmc_low"]  + 1e-9,
+                  _state["mcmc_high"] - 1e-9)
+
     sampler = emcee.EnsembleSampler(nwalkers, ndim, _log_probability)
     _state["sampler"]     = sampler
     _state["pos"]         = pos
