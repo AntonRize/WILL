@@ -42,7 +42,8 @@ async function loadPythonFiles() {
     const pyo = await init();
     const files = ["generator.py", "scout.py", "sniper.py"]; // Acts I + II + III
     for (const f of files) {
-        const resp = await fetch("../py/" + f);
+        // Cache-buster so edits to the .py files are never served stale
+        const resp = await fetch("../py/" + f + "?v=" + Date.now());
         const src  = await resp.text();
         pyo.FS.writeFile("/home/pyodide/" + f, src);
     }

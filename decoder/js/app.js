@@ -5,7 +5,7 @@
 // ==========================================================================
 
 (function () {
-    const worker = new Worker("/decoder/js/worker.js");
+    const worker = new Worker("/decoder/js/worker.js?v=" + Date.now());
     const $ = (id) => document.getElementById(id);
     const C = (window.DECODER_CONTENT) || { status: {}, reveal: { headers: {}, rows: {} }, invariant: {}, links: {} };
 
