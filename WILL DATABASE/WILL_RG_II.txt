@@ -1551,9 +1551,10 @@ The full rotation curve analysis on the 175-galaxy SPARC sample (Section~\ref{se
 
 \subsection{Motivation and Protocol}
 
-The central empirical challenge addressed here is the discrepancy between observed galactic rotation velocities and the predictions of Newtonian gravity sourced solely by baryons. Standard analyses often employ complex error weighting, likelihood maximization, and galaxy-specific parameter tuning (e.g., varying mass-to-light ratios), which can obscure the distinction between a model's predictive power and its parametric flexibility.
+The central empirical challenge addressed here is the discrepancy between observed galactic rotation velocities and the predictions of Newtonian and GR gravity sourced solely by baryons. 
+Standard analyses often employ complex error weighting, likelihood maximization, and galaxy-specific parameter tuning (e.g., varying mass-to-light ratios), which can obscure the distinction between a model's predictive power and its parametric flexibility.
 
-Our objective is to assess whether a fixed physical prescription reproduces the kinematic structure of disk galaxies in a transparent, assumption-minimal manner. We adopt a deliberately austere protocol:
+Our objective is to assess whether raw mathematics reflex physical a fixed physical prescription reproduces the kinematic structure of disk galaxies in a transparent, assumption-minimal manner. We adopt a deliberately austere protocol:
 \begin{enumerate}
     \item \textbf{No Parameter Tuning:} No free parameters are adjusted per galaxy.
     \item \textbf{Fixed Mass-to-Light Ratios:} We adhere to standard population synthesis values without variation.
@@ -1626,11 +1627,11 @@ V_{\rm Verlinde}(r) = \sqrt{ V_b^2(r) + \sqrt{a_{\rm VG} V_b^2(r) r} }.
 \end{equation}
 
 \subsubsection*{5. WILL Relational Geometry (RG)}
-The RG prediction is structurally similar to the geometric mean scaling but employs a distinct coefficient derived from the theory's potential resonance condition ($3\pi$):
+We test RG using Horizon Resonance equation derived in Galactic Dynamics (\ref{sec:galactic-dynamics}) section. 
 \begin{equation}
 V_{\rm RG}(r) = \sqrt{ V_b^2(r) + \sqrt{a_{\kappa} V_b^2(r) r} }.
 \end{equation}
-Crucially, the acceleration scale $a_{\kappa}$ is \textbf{not fitted} and is not based on external $H_0$ measurements. It is derived exclusively from the CMB temperature $T_0$ and the fine-structure constant $\alpha$:
+This equation include 0 free  parameters and no adjustable nods. It derived directley from methodological principals of Relational Geometry.
 \begin{equation}
 a_{\kappa} = \frac{c H_0}{3\pi}, \quad \text{where } H_0 \equiv \sqrt{8\pi G \rho_{\gamma}/(3\alpha^2)}.
 \end{equation}

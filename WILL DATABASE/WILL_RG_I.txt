@@ -1340,7 +1340,7 @@ great-circle section.
 \end{remark}
 
 \subsection{Uniqueness of the Exchange Rate (No Hidden Weighting)}
-\hypertarget{thm:closure}{}\label{thm:closure}
+\hypertarget{thm:closure}{}\label{sec:closure}
 
 \begin{lemma}[DOF-Indifference]
 \hypertarget{lem:dof-indifference}{}\label{lem:dof-indifference}
@@ -1357,6 +1357,7 @@ relations, violating maximal symmetry and minimalism.
 \end{proof}
 
 \begin{theorem}[Closure]
+\hypertarget{thm:Closure}{}\label{thm:closure}
 \hypertarget{thm:Closure}{}\label{thm:Closure}
 Within WILL, the only exchange rate between the kinematic carrier $S^1$
 (1 DOF) and the gravitational carrier $S^2$ (2 DOF) compatible with
@@ -2444,7 +2445,7 @@ In information theory and formal logic, if a parameter is strictly absent from t
 
 
 
-\subsection*{Optical Phase Projection (Angular Radius)}
+\subsection{Optical Phase Projection (Angular Radius)}
 \hypertarget{eq:optical_phase}{}\label{eq:optical_phase}
 
 Physical radius of the central body is replaced by its limiting relational phase boundary, $\kappa_{R}^2$, defined by the surface gravitational redshift:
@@ -2864,22 +2865,22 @@ In strictly empirical terms, RG refrains from ontological speculation regarding 
 
 The time duration of a given phase interval is defined via the integral:
 \begin{equation}
-    \Delta_{to}(o) = \int_{0}^{o} \frac{1}{\omega_{\theta}(\theta)} \, d\theta = \frac{a}{\beta c}\,\tau_o = \frac{T}{2\pi}\,\tau_o
+    \Delta_{to}(o) = \int_{0}^{o} \frac{1}{\omega_{\theta}(\theta)} \, d\theta = \frac{a}{\beta c}\,\tau_o = \frac{T}{2\pi}\, \zeta_o
 \end{equation}
 where $\omega_{o}(o)$ is the instantaneous angular frequency at phase $o$:
 \begin{equation}
     \omega_{o}(o) = \frac{\beta \cdot c}{a} \cdot \frac{(1+e \cdot \cos(o))^2}{(1-e^2)^{\frac{3}{2}}}
 \end{equation}
-and $\tau_o$ is the temporal phase interval:
+and $\zeta_o$ is the temporal phase interval:
 \begin{equation}
-    \tau_o = (1-e^2)^{\frac{3}{2}} \int_{0}^{o} (1+e\cos\theta)^{-2}\,d\theta
+    \zeta_o = (1-e^2)^{\frac{3}{2}} \int_{0}^{o} (1+e\cos\theta)^{-2}\,d\theta
 \end{equation}
 
 This integral admits an exact closed-form evaluation expressed entirely in R.O.M. quantities. Via the Weierstrass half-angle substitution $t = \tan(\theta/2)$ and subsequent reduction through the shape factor $e_X = (1+e)/(1-e)$ and the complementary eccentricity $e_Y = \sqrt{1-e^2}$, the temporal phase interval evaluates to:
 
 \begin{equation}
 \boxed{
-    \tau_o(o) = 2\arctan\!\left(\frac{\sin(o/2)}{\sqrt{e_X}\,\cos(o/2)}\right) - \frac{e\,e_Y\,\sin(o)}{1+e\cos(o)}
+    \zeta_o(o) = 2\arctan\!\left(\frac{\sin(o/2)}{\sqrt{e_X}\,\cos(o/2)}\right) - \frac{e\,e_Y\,\sin(o)}{1+e\cos(o)}
 }
 \end{equation}
 
@@ -2887,24 +2888,24 @@ Every symbol in this expression is native to R.O.M.:
 \begin{itemize}
     \item $o$ — orbital phase (true anomaly),
     \item $e = 1/\delta_p - 1$ — eccentricity (closure defect),
-    \item $e_X = (1+e)/(1-e) = r_a/r_p = \beta_p/\beta_a = \kappa_p^2/\kappa_a^2$ — shape factor,
-    \item $e_Y = \sqrt{1-e^2}$ — complementary eccentricity.
+    \item $e_X = (1+e)/(1-e) = r_a/r_p = \beta_p/\beta_a = \kappa_p^2/\kappa_a^2$ - shape factor,
+    \item $e_Y = \sqrt{1-e^2}$ - complementary eccentricity.
 \end{itemize}
 
 The forward direction (phase $\to$ time) is therefore algebraically closed:
 \begin{equation}
-    \Delta_{to}(o) = \frac{T}{2\pi}\,\tau_o(o)
+    \Delta_{to}(o) = \frac{T}{2\pi}\,\zeta_o(o)
 \end{equation}
 
 \subsection{Irreducible Transcendence of the Inverse Problem}
 
-The inverse problem — determining the orbital phase $o$ from a given elapsed time $\Delta t$ — requires solving:
+The inverse problem - determining the orbital phase $o$ from a given elapsed time $\Delta t$ - requires solving:
 \begin{equation}
-    \tau_o(o) = \frac{2\pi}{T}\,\Delta t
+    \zeta_o(o) = \frac{2\pi}{T}\,\Delta t
 \end{equation}
 Since the unknown $o$ appears simultaneously inside the $\arctan$ and the trigonometric terms, this equation is irreducibly transcendental: no finite algebraic rearrangement to the form $o = f(\Delta t, e)$ exists. This is a mathematical property of elliptical geometry, not a limitation of any formalism.
 
-Graphically, the equation is solved by plotting $\tau_o(x)$ against the constant right-hand side and reading the intersection directly.
+Graphically, the equation is solved by plotting $\zeta_o(x)$ against the constant right-hand side and reading the intersection directly.
 
 \subsection{Operational Discrete Alternative}
 
@@ -2923,6 +2924,52 @@ The complete orbital phase evolution over any measured macroscopic time interval
 \begin{remark}[Operational Discretization]
 This iterative state machine represents the operational reality of the physical measurement apparatus. The accumulated discretization error within this first-order map physically corresponds to the intra-tick geometric evolution that remains fundamentally unresolvable to an observer bounded by the finite frequency of their local clock. The continuous, transcendental integral is recovered identically only in the unobservable limit $\Delta t_{tick} \to 0$.
 \end{remark}
+
+\subsection{Epistemological Emergence of the Classical Clock}
+
+To prove the closed-form evaluation of $\zeta_o$ generates exact classical time evolution without positing an absolute background temporal dimension ($dt$), we reduce the two terms of the expression independently.
+
+\textbf{Phase Transformation (Logarithmic Core):} \\
+The first term evaluates the phase angle transformation:
+\begin{equation}
+    2\arctan\!\left(\frac{\sin(o/2)}{\sqrt{e_X}\,\cos(o/2)}\right)
+\end{equation}
+Substituting the shape factor definition $e_X = \frac{1+e}{1-e}$ yields $\frac{1}{\sqrt{e_X}} = \sqrt{\frac{1-e}{1+e}}$. Recognizing $\tan(o/2) = \frac{\sin(o/2)}{\cos(o/2)}$, the term collapses to:
+\begin{equation}
+    2\arctan\!\left(\sqrt{\frac{1-e}{1+e}} \tan\left(\frac{o}{2}\right)\right)
+\end{equation}
+This expression is the exact geometric definition of the Eccentric Anomaly ($E$) mapped from the True Anomaly ($o$). The first term is identically $E$.
+
+\textbf{Rational Trigonometric Projection:} \\
+The second term evaluates the internal structural geometry:
+\begin{equation}
+    \frac{e\,e_Y\,\sin(o)}{1+e\cos(o)}
+\end{equation}
+Substituting the complementary eccentricity $e_Y = \sqrt{1-e^2}$ applies the geometric identity mapping true anomaly to eccentric anomaly:
+\begin{equation}
+    \frac{\sqrt{1-e^2}\sin(o)}{1+e\cos(o)} = \sin(E)
+\end{equation}
+Multiplying by the closure defect $e$ yields exactly the second term.
+
+\textbf{Reduction:} \\
+Substituting the reduced terms back into the primary evaluation yields Kepler's Equation:
+\begin{equation}
+    \zeta_o = E - e\sin(E)
+\end{equation}
+The R.O.M. phase integral synthesizes the passage of classical time purely from static $S^1$ and $S^2$ relational parameters. Mechanistic orbital time is strictly the linear expansion of the internal temporal phase interval $\zeta_o$ required to satisfy the $S^1$ closure constraint.
+
+\subsection{Super-Horizon Kinematic Lockout and Imaginary Time}
+
+The operational validity of the continuous phase clock is bounded by the relational geometry structural limits. At the kinematic lockout state ($\omega_{pshift} \ge 1$), the $S^2$ potential carrier reaches saturation ($\kappa^2 \ge 1$). The geometry cannot maintain a bounded, periodic state, forcing the closure defect to break the elliptical limit ($e > 1$).
+
+Evaluating the time integral boundary coefficient under this condition:
+\begin{equation}
+    (1 - e^2)^{\frac{3}{2}} \quad \text{for } e > 1
+\end{equation}
+The term $(1 - e^2)$ evaluates strictly negative. The fractional exponent forces the resulting temporal phase interval $\zeta_o$ into the mathematically imaginary domain.
+
+In analytical mechanics, an imaginary temporal interval proves the cessation of periodic physical states. The operational clock ceases to exist because the periodic geometric intersection required to register a relational day is permanently locked out. The trajectory transitions into a pure, non-periodic plunge. This maps identically to the General Relativistic prohibition of stable timelike geodesics inside the event horizon, deriving the plunging state purely from the algebraic shattering of the $S^1$ bounding limit, eliminating the metric singularity.
+
 
 
 \section{Strong Field Test (S2 Star )}
