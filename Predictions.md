@@ -122,11 +122,11 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     Testable Predictions
   </h1>
   <p class="mt-3 text-lg text-gray-400 font-light" style="max-width:750px;">
-    WILL Relational Geometry derives quantitative, falsifiable predictions across
-    cosmology, gravitation, and quantum mechanics&mdash;all from the single closure
-    condition&nbsp;\(\kappa^{2}=2\beta^{2}\) and without free parameters.
-    Every result below is linked to its derivation, an interactive lab, or a
-    runnable notebook.
+    WILL Relational Geometry derives <strong>28</strong> quantitative, falsifiable
+    predictions across cosmology, gravitation, and quantum mechanics&mdash;all
+    from the single closure condition&nbsp;\(\kappa^{2}=2\beta^{2}\) and
+    without free parameters. Every result below is linked to its derivation,
+    an interactive lab, or a runnable notebook.
   </p>
 </div>
 
@@ -134,7 +134,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 <!-- ═══════════════════════ 1. COSMOLOGICAL ═══════════════════════ -->
 <div class="section-head cosmo">
   <h2>1. Cosmological Predictions</h2>
-  <span class="badge cosmo">6 predictions</span>
+  <span class="badge cosmo">12 predictions</span>
 </div>
 
 
@@ -305,10 +305,157 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 </div>
 
 
+<!-- 1g ── Recombination Epoch ── -->
+<div class="pred-card cosmo">
+  <h3>g. Geometric Recombination Epoch</h3>
+
+  <p>
+    The geometric cooling law predicts the epoch of recombination from the
+    phase horizon depth \(o_{\max}\) and the topological structure of the
+    relational carriers&mdash;without thermodynamic modelling:
+  </p>
+
+  <p>Phase horizon depth:</p>
+  <div class="eq-box">
+    $$o_{\max} \;=\; \frac{2\pi}{3\,\alpha^{2}} \;\approx\; 39{,}330$$
+  </div>
+
+  <p>Geometric cooling law:</p>
+  <div class="eq-box">
+    $$T(o) \;=\; T_0\left(\frac{o_{\max}}{o}\right)^{\!2/3}$$
+  </div>
+
+  <p>
+    <span class="result-tag">\(z_{\mathrm{dec}}\approx 1156,\; T_{\mathrm{dec}}\approx 3150\;\mathrm{K}\)</span>
+    &mdash; within ~6% of Planck observation (\(z\approx 1090\), \(T\approx 3000\;\mathrm{K}\)).
+  </p>
+  <p class="doc-ref">Part II &mdash; &ldquo;Phase Evolution and the Geometric Origin of the CMB&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:phase_evolution" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+</div>
+
+
+<!-- 1h ── Equation of State ── -->
+<div class="pred-card cosmo">
+  <h3>h. Vacuum Equation of State \(w = -1\)</h3>
+
+  <p>
+    The equation of state for vacuum energy is <em>derived</em> from the
+    geometric closure condition, not assumed as in &Lambda;CDM. The potential
+    carrier \(S^{2}\) requires a pressure-to-density ratio of exactly:
+  </p>
+  <div class="eq-box">
+    $$w \;=\; \frac{p}{\rho\,c^{2}} \;=\; -1$$
+  </div>
+
+  <p>
+    <span class="result-tag">\(w=-1\) derived from closure</span>
+    &mdash; &ldquo;dark energy&rdquo; is identified as the structural requirement
+    for geometric self-consistency.
+  </p>
+  <p class="doc-ref">Part II &mdash; &ldquo;Local Cosmological Term &Lambda; in RG&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#thm:w=-1" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+</div>
+
+
+<!-- 1i ── Tully-Fisher ── -->
+<div class="pred-card cosmo">
+  <h3>i. Baryonic Tully&ndash;Fisher Relation</h3>
+
+  <p>
+    The observed scaling between flat rotation velocity and baryonic mass
+    follows from the asymptotic limit of the resonant horizon:
+  </p>
+  <div class="eq-box">
+    $$V_{\mathrm{flat}}^{\,4} \;=\; G\;\cdot\;a_\kappa\;\cdot\;M_b$$
+  </div>
+
+  <p>
+    The slope is fixed at exactly 4 and the normalisation is set by
+    \(a_\kappa = cH_0/3\pi\)&mdash;zero free parameters.
+  </p>
+
+  <p>
+    <span class="result-tag">Slope = 4 (observed: \(4.0\pm 0.1\))</span>
+    &mdash; derived, not fitted.
+  </p>
+  <p class="doc-ref">Part II &mdash; &ldquo;Derivation of the Baryonic Tully&ndash;Fisher Relation&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:Tully-Fisher" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+</div>
+
+
+<!-- 1j ── Topological Ruler ── -->
+<div class="pred-card cosmo">
+  <h3>j. The Topological Ruler (Galactic Scale Theorem)</h3>
+
+  <p>
+    A galaxy&rsquo;s characteristic dynamical radius is predicted as the
+    geometric mean of its Schwarzschild radius and the Hubble horizon:
+  </p>
+  <div class="eq-box">
+    $$R_{\mathrm{trans}} \;=\; \sqrt{\tfrac{3\pi}{2}\;\cdot\;R_s\;\cdot\;R_H}$$
+  </div>
+
+  <p>
+    <span class="result-tag">Validated across 175 SPARC galaxies</span>
+    &mdash; predicted radii match observed dynamical radii with scatter
+    explained by the 4th-power sensitivity of the relation.
+  </p>
+  <p class="doc-ref">Part II &mdash; &ldquo;Galactic Scale Theorem: The Topological Ruler&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:galactic-ruler" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+</div>
+
+
+<!-- 1k ── Baryonic Escape Threshold ── -->
+<div class="pred-card cosmo">
+  <h3>k. Baryonic Escape Threshold</h3>
+
+  <p>
+    At a critical radius where the baryonic gravitational field equals the
+    resonant horizon contribution, the apparent &ldquo;dark matter&rdquo;
+    fraction transitions from negligible to dominant. The transition scale:
+  </p>
+  <div class="eq-box">
+    $$R_{\mathrm{trans}} \;=\; \sqrt{\frac{3\pi}{2}\;\cdot\;R_s\;\cdot\;R_H},
+    \qquad
+    \frac{M_{\mathrm{obs}}}{M_{\mathrm{bar}}} \;=\; 1 + \frac{r}{R_{\mathrm{trans}}}$$
+  </div>
+
+  <p>
+    <span class="result-tag">Matches SPARC escape velocity data</span>
+    &mdash; predicts where galaxies &ldquo;need dark matter&rdquo; from geometry alone.
+  </p>
+  <p class="doc-ref">Part II &mdash; &ldquo;The Baryonic Escape Threshold&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#fig:bullseye" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+</div>
+
+
+<!-- 1l ── Galaxy Clusters ── -->
+<div class="pred-card cosmo">
+  <h3>l. Galaxy Cluster Dynamics</h3>
+
+  <p>
+    The same Machian acceleration scale \(a_\kappa\) that governs individual
+    galaxy rotation curves also predicts the velocity dispersion of galaxy
+    clusters without any dark matter or additional fitting:
+  </p>
+  <div class="eq-box">
+    $$\sigma_{\mathrm{pred}}^{2} \;=\; \sigma_{\mathrm{bar}}^{2}
+    \;+\; \sqrt{\sigma_{\mathrm{bar}}^{2}\;\cdot\;a_\kappa\;\cdot\;R_{\mathrm{cl}}}$$
+  </div>
+
+  <p>
+    <span class="result-tag">Matches Coma, Virgo, Fornax clusters</span>
+    &mdash; observed dispersions accounted for without dark matter haloes.
+  </p>
+  <p class="doc-ref">Part II &mdash; Galactic Dynamics</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:galactic-dynamics" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+</div>
+
+
 <!-- ═══════════════════════ 2. RELATIVISTIC ═══════════════════════ -->
 <div class="section-head rel">
   <h2>2. Relativistic &amp; Gravitational Predictions</h2>
-  <span class="badge rel">5 predictions</span>
+  <span class="badge rel">10 predictions</span>
 </div>
 
 
@@ -457,10 +604,132 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 </div>
 
 
+<!-- 2f ── Solar System Precision ── -->
+<div class="pred-card rel">
+  <h3>f. Solar System Precision Tests</h3>
+
+  <p>
+    WILL RG reproduces all classical relativistic solar-system observables
+    from the energy-symmetry law&mdash;GPS satellite time dilation,
+    Mercury&rsquo;s perihelion precession, and the S2 star orbit near
+    Sgr&nbsp;A*&mdash;to over <strong>50 decimal digits</strong> of precision:
+  </p>
+  <div class="eq-box">
+    $$\Delta t_{B\to A} \;=\;
+    \left(1 - \frac{\sqrt{1-Q_A^{2}}}{\sqrt{1-Q_B^{2}}}\right)\times 86\,400\;\mathrm{s},
+    \qquad Q^{2}=\kappa^{2}+\beta^{2}$$
+  </div>
+
+  <p>
+    <span class="result-tag">GPS: 38.7 &mu;s/day reproduced exactly</span>
+    &mdash; three independent systems verified with zero free parameters.
+  </p>
+  <p class="doc-ref">Part II &mdash; &ldquo;Local Verification: The Solar System Test&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:solar_system" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+</div>
+
+
+<!-- 2g ── Dark Lensing / SLACS ── -->
+<div class="pred-card rel">
+  <h3>g. Dark Lensing (Strong Gravitational Lensing)</h3>
+
+  <p>
+    The &ldquo;dark matter halo&rdquo; seen in strong-lensing surveys is
+    predicted to be a purely geometric effect&mdash;the <em>phantom inertia</em>
+    of the resonant horizon:
+  </p>
+  <div class="eq-box">
+    $$\kappa_{\mathrm{phantom}}^{2} \;=\;
+    \sqrt{\frac{4\,G\,M_b\;\cdot\;a_\kappa}{c^{4}}}
+    \;=\; \frac{2\,V_{\mathrm{flat}}^{2}}{c^{2}}$$
+  </div>
+
+  <p>
+    <span class="result-tag">\(f_e = \sigma_*/\sigma_{\mathrm{SIS}} \approx 1.00\pm 0.02\)</span>
+    &mdash; SLACS survey: lensing mass equals dynamical mass with no dark matter offset.
+  </p>
+  <p class="doc-ref">Part II &mdash; &ldquo;Gravitational Lensing&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:lensing" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+</div>
+
+
+<!-- 2h ── Orbital Decay ── -->
+<div class="pred-card rel">
+  <h3>h. Orbital Decay Rate</h3>
+
+  <p>
+    Orbital energy loss in compact binaries follows from the
+    energy-symmetry law applied to the closure defect \(\delta\). The
+    predicted period derivative for the Hulse&ndash;Taylor binary pulsar:
+  </p>
+  <div class="eq-box">
+    $$\dot{P}_b \;\propto\;
+    \frac{\mathrm{d}}{\mathrm{d}t}\!\left(\frac{\kappa^{2}}{2\beta^{2}}\right)$$
+  </div>
+
+  <p>
+    <span class="result-tag">Matches Hulse&ndash;Taylor &amp; Double Pulsar</span>
+    &mdash; orbital decay predicted from energy symmetry without
+    gravitational-wave emission postulate.
+  </p>
+  <p class="doc-ref">Part I &mdash; &ldquo;Geometric Mechanism of Orbital Decay and Radiation&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:orbital_decay" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
+</div>
+
+
+<!-- 2i ── S2 Star R.O.M. Inversion ── -->
+<div class="pred-card rel">
+  <h3>i. S2 Star: Holographic Orbit Recovery</h3>
+
+  <p>
+    The R.O.M. inverse solution recovers the full 3-D orbital geometry of
+    the S2 star (orbiting Sgr&nbsp;A*) from a single 1-D radial-velocity
+    time series&mdash;period, eccentricity, and inclination extracted
+    algebraically:
+  </p>
+  <div class="eq-box">
+    $$\kappa^{2} = 1 - \frac{1}{(1+z_\kappa)^{2}},
+    \qquad
+    \beta^{2} = 1 - \frac{1}{(1+z_\beta)^{2}}$$
+  </div>
+
+  <p>
+    <span class="result-tag">Posterior distributions match Gravity Collaboration</span>
+    &mdash; MCMC recovery of \((P,\,e,\,i)\) from spectroscopic data alone.
+  </p>
+  <p class="doc-ref">Part I &mdash; &ldquo;Empirical Validation: Bayesian MCMC Analysis on S0-2 Data&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:mcmc_s02" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
+</div>
+
+
+<!-- 2j ── OJ 287 ── -->
+<div class="pred-card rel">
+  <h3>j. OJ 287 Binary Black Hole Flare Timing</h3>
+
+  <p>
+    The R.O.M. algebraic system is applied to the OJ&nbsp;287 supermassive
+    binary black hole to predict optical flare epochs from the orbital
+    precession cycle:
+  </p>
+  <div class="eq-box">
+    $$\Delta\varphi_{\mathrm{OJ}} \;=\;
+    \frac{2\pi\;\tau_Y^{2}}{1-e^{2}}$$
+  </div>
+
+  <p>
+    <span class="result-tag">In progress</span>
+    &mdash; R.O.M. orbital analysis and flare timing prediction under
+    active development.
+  </p>
+  <p class="doc-ref">Notebook &mdash; OJ 287 WILL RG Orbital Analysis</p>
+  <a class="deriv-link" href="https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/OJ_287_WILL_RG_ORBITAL_ANALYSIS_AND_FLARE_TIMING.ipynb" target="_blank">&#128196; Open notebook in Colab</a>
+</div>
+
+
 <!-- ═══════════════════════ 3. QUANTUM ═══════════════════════ -->
 <div class="section-head quant">
   <h2>3. Quantum Mechanical Predictions</h2>
-  <span class="badge quant">5 predictions</span>
+  <span class="badge quant">6 predictions</span>
 </div>
 
 
@@ -584,6 +853,42 @@ description: "Testable predictions of the WILL Relational Geometry framework —
   </p>
   <p class="doc-ref">Part III &mdash; &ldquo;Geometric Origin of the Uncertainty Principle&rdquo;</p>
   <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_III.pdf#sec:geometric_uncertainty" target="_blank">&#128196; Open derivation in Part&nbsp;III</a>
+</div>
+
+
+<!-- 3f ── Electron Mass ── -->
+<div class="pred-card quant">
+  <h3>f. Electron Mass from Mach&rsquo;s Principle</h3>
+
+  <p>
+    The electron mass is derived as a <em>Machian invariant</em>&mdash;the
+    unique particle mass that satisfies the topological resonance between
+    microscopic and cosmological scales simultaneously:
+  </p>
+
+  <p>Internal capacity ratio (intrinsic curvature intensity):</p>
+  <div class="eq-box">
+    $$R_{\mathrm{int}} \;=\; \frac{R_q}{R_s}
+    \;=\; \frac{e^{2}}{4\pi\varepsilon_0\,G\,m_e^{2}}$$
+  </div>
+
+  <p>External horizon ratio (particle scale relative to cosmos):</p>
+  <div class="eq-box">
+    $$R_{\mathrm{ext}} \;=\; \frac{R_H}{r_e}$$
+  </div>
+
+  <p>
+    A topological operator \(\Gamma\) bridges the two ratios, fixing
+    \(m_e\) from \(\alpha\), \(H_0\), \(c\), \(\hbar\), and \(G\) alone.
+  </p>
+
+  <p>
+    <span class="result-tag">Electron mass derived from \(\alpha\) and \(H_0\)</span>
+    &mdash; Mach&rsquo;s principle geometrically realised; micro&ndash;macro
+    resonance uniquely determines the particle mass.
+  </p>
+  <p class="doc-ref">Part II &mdash; &ldquo;Consolidating Mach&rsquo;s Principle: Derivation of Electron Mass&rdquo;</p>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:gamma_operator" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
