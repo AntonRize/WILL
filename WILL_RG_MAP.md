@@ -460,31 +460,67 @@ Key quantities and where they appear across the research programme.
 
 ---
 
-## 10 — Empirical Prediction Registry
+## 10 — Prediction Registry
 
-Every prediction below is derived with **zero free parameters**.
+All predictions derived with **zero free parameters**. Organised to match [willrg.com/predictions](https://willrg.com/predictions/).
 
-| # | Prediction | Derived Value | Observed / Standard | Status | Paper Section | Notebook |
-|---|-----------|--------------|---------------------|--------|--------------|----------|
-| 1 | **Hubble constant H₀** | 68.15 km/s/Mpc | Planck 2018: 67.4 ± 0.5 | ✓ 1% | [sec:deriving-H0](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) | [H_0_from_T_CMB_and_alpha](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb) |
-| 2 | **Supernova Hubble diagram** | WILL–Friedmann curve | Pantheon+: residuals < 0.015 mag | ✓ | [sec:supernova-flux](https://willrg.com/documents/WILL_RG_II.pdf#sec:supernova-flux) | [Geometric_expansion_Pantheon](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Geometric_expansion_Pantheon.ipynb) |
-| 3 | **CMB acoustic peaks** | ℓ₁ ≈ 220.6, ℓ₂ ≈ 544, ℓ₃ ≈ 794 | Planck 2018 data | ✓ | [sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) | [Ab_Initio_CMB_Spectrum_Derivation](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Ab_Initio_CMB_Spectrum_Derivation.ipynb) |
-| 4 | **Low quadrupole suppression** | Vacuum tension filter | Observed CMB anomaly | ✓ | [sec:low-quadrupole](https://willrg.com/documents/WILL_RG_II.pdf#sec:low-quadrupole) | [Low_Quadrupole_Suppression](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Low_Quadrupole_Suppression.ipynb) |
-| 5 | **Recombination epoch** | z_dec ≈ 1156, T ≈ 3150 K | z ≈ 1090, T ≈ 3000 K | ✓ ~6% | [sec:phase_evolution](https://willrg.com/documents/WILL_RG_II.pdf#sec:phase_evolution) | [Recombination__Model_Independent_Atomic_Physics](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Recombination__Model_Independent_Atomic_Physics.ipynb) |
-| 6 | **Galaxy rotation curves (RAR)** | g_obs = g_bar + √(g_bar·a_κ) | 175 SPARC galaxies | ✓ | [sec:dark_matter](https://willrg.com/documents/WILL_RG_II.pdf#sec:dark_matter) | [Galactic_Rotation_Protocol_Independent_SPARC](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb) |
-| 7 | **Baryonic Tully-Fisher** | V⁴ ∝ M (slope = 4) | Observed 4.0 ± 0.1 | ✓ | [sec:Tully-Fisher](https://willrg.com/documents/WILL_RG_II.pdf#sec:Tully-Fisher) | — |
-| 8 | **Wide binary gravity boost** | γ ≈ 1.47 | Gaia DR3: 1.45–1.55 | ✓ | [sec:wide-binary](https://willrg.com/documents/WILL_RG_II.pdf#sec:wide-binary) | [Wide_binary_Chae_2023](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Wide_binary_Chae_2023.ipynb) |
-| 9 | **Strong lensing (SLACS)** | f_e ≈ 1.00 | Observed: 1.00 ± 0.02 | ✓ | [sec:lensing](https://willrg.com/documents/WILL_RG_II.pdf#sec:lensing) | [Dark_Lensing](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Dark_Lensing.ipynb) |
-| 10 | **Solar system (Mercury, GPS, S2)** | GR-precision results | Solar system data | ✓ | [sec:solar_system](https://willrg.com/documents/WILL_RG_II.pdf#sec:solar_system) | [WILL-relativistic-tests-gps-mercury-s2](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/WILL-relativistic-tests-gps-mercury-s2.ipynb) |
-| 11 | **Topological ruler (galactic radii)** | R_trans from geometric mean | SPARC radii | ✓ | [sec:galactic-ruler](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-ruler) | [Topological_ruler](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Topological_ruler.ipynb) |
-| 12 | **Galaxy cluster dynamics** | a_κ prediction | Coma, Virgo, Fornax | ✓ | — | [Galactic_Clusters_DM_Killer](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Clusters_DM_Killer.ipynb) |
-| 13 | **Baryonic escape threshold** | R_trans prediction | SPARC data | ✓ | [sec:baryonic_escape](https://willrg.com/documents/WILL_RG_I.pdf#lem:duality) | [Baryonic_Escape_Threshold](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Baryonic_Escape_Threshold.ipynb) |
-| 14 | **S2 star R.O.M. inversion** | Orbital recovery from redshift | Gravity Collaboration data | ✓ | [sec:mcmc_s02](https://willrg.com/documents/WILL_RG_I.pdf#sec:mcmc_s02) | [ROM_S2_SOLVER](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_S2_SOLVER.ipynb) |
-| 15 | **OJ 287 flare timing** | R.O.M. orbital analysis | Observed flare data | In progress | — | [OJ_287_WILL_RG_ORBITAL_ANALYSIS_AND_FLARE_TIMING](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/OJ_287_WILL_RG_ORBITAL_ANALYSIS_AND_FLARE_TIMING.ipynb) |
-| 16 | **Equation of state w = −1** | Derived from closure | ΛCDM assumption | ✓ | [thm:w=-1](https://willrg.com/documents/WILL_RG_II.pdf#thm:w=-1) | — |
-| 17 | **Electron mass (Machian)** | From α, H₀, c, ℏ, G | CODATA value | ✓ | [sec:gamma_operator](https://willrg.com/documents/WILL_RG_II.pdf#sec:gamma_operator) | — |
-| 18 | **Gravitational deflection** | Relational prediction | Solar deflection data | ✓ | [sec:grav_deflection](https://willrg.com/documents/WILL_RG_I.pdf#sec:grav_deflection) | [Gravitational_Deflection](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Gravitational_Deflection.ipynb) |
-| 19 | **Orbital decay rate** | Energy symmetry prediction | Hulse-Taylor / double pulsar | ✓ | [sec:orbital_decay](https://willrg.com/documents/WILL_RG_I.pdf#sec:orbital_decay) | [Double_Pulsar_orbital_decay_rate](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Holster/Double_Pulsar_orbital_decay_rate.ipynb) |
+### 10.1 Cosmological Predictions (6)
+
+| # | Prediction | Key Equation | Result | Paper Section | Notebook |
+|---|-----------|-------------|--------|--------------|----------|
+| C1 | **Hubble constant H₀** | H₀ = √(8πG·ρ_γ/(3α²)) | **68.15 km/s/Mpc** (Planck: 67.4 ± 0.5, within 1%) | [sec:deriving-H0](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) | [H_0_from_T_CMB_and_alpha](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb) |
+| C2 | **Distant supernova flux** | μ_WILL(z) with Ω_m=1/3, Ω_Λ=2/3 | **Residuals < 0.015 mag** across full Pantheon+ range | [sec:supernova-flux](https://willrg.com/documents/WILL_RG_II.pdf#sec:supernova-flux) | [Geometric_expansion_Pantheon](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Geometric_expansion_Pantheon.ipynb) |
+| C3 | **CMB acoustic spectrum** | ℓ_pred = ℓ_vac · Ω_Λ/(Ω_Λ + Ω_bary) | **ℓ₁ ≈ 220.59** (obs: 220.60, agreement ~0.01%) | [sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) | [Ab_Initio_CMB_Spectrum_Derivation](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Ab_Initio_CMB_Spectrum_Derivation.ipynb) |
+| C4 | **Low quadrupole suppression** | P(ℓ=2) ∝ (1 + R_eff·λ₂)⁻², λ₂=6 | **Corridor 0.132–0.285** (Planck: D_ℓ=2 ≈ 0.20, inside corridor) | [sec:low-quadrupole](https://willrg.com/documents/WILL_RG_II.pdf#sec:low-quadrupole) | [Low_Quadrupole_Suppression](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Low_Quadrupole_Suppression.ipynb) |
+| C5 | **Galactic rotation curves & RAR** | V_RG(r) = √(V_b² + √(V_b²·a_κ·r)), a_κ = cH₀/(3π) | **Median RMSE ≈ 12.64 km/s** over 175 SPARC galaxies, zero fitting | [sec:galactic-dynamics](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics) | [Galactic_Rotation_Protocol_Independent_SPARC](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb) |
+| C6 | **Wide binary stars** | γ_WILL = 1 + a_β/g_N, a_β = cH₀/(6π) | **Matches Gaia DR3** (WILL ≈ 1.47; MOND overpredicts at 1.87) | [sec:wide-binary](https://willrg.com/documents/WILL_RG_II.pdf#sec:wide-binary) | [Wide_binary_Chae_2023](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Wide_binary_Chae_2023.ipynb) |
+
+### 10.2 Relativistic & Gravitational Predictions (5)
+
+| # | Prediction | Key Equation | Result | Paper Section | Notebook |
+|---|-----------|-------------|--------|--------------|----------|
+| R1 | **Resolution of GR singularities** | ρ_max = c²/(8πGr²) | **Black holes become energetically saturated, non-singular regions** | [sec:no_singularities](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities) | — |
+| R2 | **Derivation of the Equivalence Principle** | E_loc = E₀/(β_Y·κ_X), so m_g ≡ m_i ≡ m_eff | **Gravitational = inertial mass from unified scaling** (derived, not postulated) | [thm:equivalence](https://willrg.com/documents/WILL_RG_I.pdf#thm:equivalence) | — |
+| R3 | **Perihelion precession** | Δφ = 2π·τ_Y²/(1−e²) | **Mercury's 43″/century** reproduced; S2 star precession confirmed | [sec:precession_law](https://willrg.com/documents/WILL_RG_I.pdf#sec:precession_law) | [Mercury-Sun_Relational_Parameterization](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Mercury-Sun_Relational_Parameterization.ipynb) |
+| R4 | **Factor of 2 in lensing & Shapiro delay** | Φ_γ = κ²c² (light); Φ_mass = ½κ²c² (matter) | **Factor of 2 explained geometrically** — light uses single axis, removing ½ partitioning | [sec:nature_of_light](https://willrg.com/documents/WILL_RG_I.pdf#sec:nature_of_light) | — |
+| R5 | **Algebraic light deflection** | Δφ = 2·arcsin(κ_p²/κ_Xp²) | **Δφ_☉ ≈ 1.7500″** (VLBI: 1.7512 ± 0.001″, difference ~2×10⁻⁷″) | [sec:grav_deflection](https://willrg.com/documents/WILL_RG_I.pdf#sec:grav_deflection) | [Gravitational_Deflection](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Gravitational_Deflection.ipynb) |
+
+### 10.3 Quantum Mechanical Predictions (5)
+
+| # | Prediction | Key Equation | Result | Paper Section | Notebook |
+|---|-----------|-------------|--------|--------------|----------|
+| Q1 | **Quantised atomic radii & energy levels** | r_n = 4πε₀n²ℏ²/(m_e e²); E_n = −α²m_ec²/(2n²) | **Reproduces standard QM results** from geometric closure alone | [sec:atomic-structure](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure) | — |
+| Q2 | **Fine-structure constant α** | α ≡ β₁ (ground-state kinetic projection) | **α derived, not assumed** — identified as electron's geometric amplitude | [sec:alpha](https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha) | — |
+| Q3 | **Unified relativistic energy formula** | E_{n,j} = m_ec²/√(1+(Zα/n_eff)²) | **Matches Sommerfeld–Dirac exactly** from geometry, not spinor equations | [thm:unified-energy](https://willrg.com/documents/WILL_RG_III.pdf#thm:unified-energy) | — |
+| Q4 | **Geometric spin & Pauli exclusion** | Spin = topological chirality (±½ winding on S¹) | **Two electrons per orbital — derived, not postulated** | [sec:spin-exclusion](https://willrg.com/documents/WILL_RG_III.pdf#sec:spin-exclusion) | — |
+| Q5 | **Geometric uncertainty principle** | Δβ_X·Δβ_Y ≥ ½|sin 2θ|·(2π/n)² → Δx·Δp ≈ ℏ | **Heisenberg relation emerges** from topological winding granularity | [sec:geometric_uncertainty](https://willrg.com/documents/WILL_RG_III.pdf#sec:geometric_uncertainty) | — |
+
+### 10.4 Additional Empirical Tests
+
+| # | Prediction | Result | Paper Section | Notebook |
+|---|-----------|--------|--------------|----------|
+| A1 | **Baryonic Tully-Fisher relation** | V⁴ ∝ M (slope = 4), derived not fitted | [sec:Tully-Fisher](https://willrg.com/documents/WILL_RG_II.pdf#sec:Tully-Fisher) | — |
+| A2 | **Strong lensing (SLACS)** | f_e ≈ 1.00 (obs: 1.00 ± 0.02) | [sec:lensing](https://willrg.com/documents/WILL_RG_II.pdf#sec:lensing) | [Dark_Lensing](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Dark_Lensing.ipynb) |
+| A3 | **Solar system precision (Mercury, GPS, S2)** | GR-precision, 50+ digit accuracy | [sec:solar_system](https://willrg.com/documents/WILL_RG_II.pdf#sec:solar_system) | [WILL-relativistic-tests-gps-mercury-s2](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/WILL-relativistic-tests-gps-mercury-s2.ipynb) |
+| A4 | **Topological ruler (galactic radii)** | R_trans from geometric mean of R_s and R_H | [sec:galactic-ruler](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-ruler) | [Topological_ruler](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Topological_ruler.ipynb) |
+| A5 | **Galaxy cluster dynamics** | a_κ prediction matches Coma, Virgo, Fornax | — | [Galactic_Clusters_DM_Killer](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Clusters_DM_Killer.ipynb) |
+| A6 | **Baryonic escape threshold** | R_trans prediction matches SPARC data | — | [Baryonic_Escape_Threshold](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Baryonic_Escape_Threshold.ipynb) |
+| A7 | **S2 star R.O.M. inversion** | Orbital recovery from 1D redshift | [sec:mcmc_s02](https://willrg.com/documents/WILL_RG_I.pdf#sec:mcmc_s02) | [ROM_S2_SOLVER](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_S2_SOLVER.ipynb) |
+| A8 | **Recombination epoch** | z_dec ≈ 1156, T ≈ 3150 K (obs: z ≈ 1090, T ≈ 3000 K) | [sec:phase_evolution](https://willrg.com/documents/WILL_RG_II.pdf#sec:phase_evolution) | [Recombination__Model_Independent_Atomic_Physics](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Recombination__Model_Independent_Atomic_Physics.ipynb) |
+| A9 | **Equation of state w = −1** | Derived from closure (not assumed) | [thm:w=-1](https://willrg.com/documents/WILL_RG_II.pdf#thm:w=-1) | — |
+| A10 | **Electron mass (Machian derivation)** | From α, H₀, c, ℏ, G | [sec:gamma_operator](https://willrg.com/documents/WILL_RG_II.pdf#sec:gamma_operator) | — |
+| A11 | **Orbital decay rate** | Energy symmetry prediction matches Hulse-Taylor | [sec:orbital_decay](https://willrg.com/documents/WILL_RG_I.pdf#sec:orbital_decay) | [Double_Pulsar_orbital_decay_rate](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Holster/Double_Pulsar_orbital_decay_rate.ipynb) |
+| A12 | **OJ 287 flare timing** | R.O.M. orbital analysis (in progress) | — | [OJ_287_WILL_RG_ORBITAL_ANALYSIS_AND_FLARE_TIMING](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/OJ_287_WILL_RG_ORBITAL_ANALYSIS_AND_FLARE_TIMING.ipynb) |
+
+### 10.5 Falsification Clauses
+
+From [willrg.com/predictions](https://willrg.com/predictions/):
+
+| Lab | Clause |
+|-----|--------|
+| Galactic Dynamics (SPARC) | Falsified if median RMSE > 50 km/s for ≥ 25% of the sample |
+| R.O.M. | Falsified if disagreement with observations > 5% given accurate inputs |
+| Relativistic Time Offset | Falsified if predicted daily clock offset disagrees with GPS/satellite data |
 
 ---
 
