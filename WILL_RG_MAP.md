@@ -1,3 +1,18 @@
+---
+layout: default
+title: "Research Map"
+permalink: /research_map/
+description: "Communicate the full content, structure, and evidence base of the WILL Relational Geometry research programme to any reader — human or LLM — in a single, link-rich document."
+---
+
+
+
+
+
+
+
+
+
 # WILL Relational Geometry — Research Map
 
 > **Purpose:** Communicate the full content, structure, and evidence base of the WILL Relational Geometry research programme to any reader — human or LLM — in a single, link-rich document.

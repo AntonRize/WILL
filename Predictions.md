@@ -425,7 +425,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     &mdash; predicts where galaxies &ldquo;need dark matter&rdquo; from geometry alone.
   </p>
   <p class="doc-ref">Part II &mdash; &ldquo;The Baryonic Escape Threshold&rdquo;</p>
-  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#fig:bullseye" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:baryonic_escape" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
 </div>
 
 
@@ -436,19 +436,20 @@ description: "Testable predictions of the WILL Relational Geometry framework —
   <p>
     The same Machian acceleration scale \(a_\kappa\) that governs individual
     galaxy rotation curves also predicts the velocity dispersion of galaxy
-    clusters without any dark matter or additional fitting:
+    clusters without any dark matter or additional fitting. The WILL RG
+    3-D balance equation:
   </p>
   <div class="eq-box">
-    $$\sigma_{\mathrm{pred}}^{2} \;=\; \sigma_{\mathrm{bar}}^{2}
-    \;+\; \sqrt{\sigma_{\mathrm{bar}}^{2}\;\cdot\;a_\kappa\;\cdot\;R_{\mathrm{cl}}}$$
+    $$2\,\sigma^{2} \;=\; V_N^{2} \;+\; \sqrt{V_N^{2}\;\cdot\;a_\kappa\;\cdot\;R},
+    \qquad V_N^{2}=\frac{G\,M_{\mathrm{bar}}}{R}$$
   </div>
 
   <p>
     <span class="result-tag">Matches Coma, Virgo, Fornax clusters</span>
     &mdash; observed dispersions accounted for without dark matter haloes.
   </p>
-  <p class="doc-ref">Part II &mdash; Galactic Dynamics</p>
-  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:galactic-dynamics" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+  <p class="doc-ref">Notebook &mdash; Galactic Clusters DM Killer</p>
+  <a class="deriv-link" href="https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Clusters_DM_Killer.ipynb" target="_blank">&#128196; Open notebook in Colab</a>
 </div>
 
 
@@ -600,7 +601,7 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     foreseeable detection threshold.
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;Algebraic Derivation of Light Deflection&rdquo;</p>
-  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:light_deflection" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
+  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_I.pdf#sec:grav_deflection" target="_blank">&#128196; Open derivation in Part&nbsp;I</a>
 </div>
 
 
@@ -624,8 +625,8 @@ description: "Testable predictions of the WILL Relational Geometry framework —
     <span class="result-tag">GPS: 38.7 &mu;s/day reproduced exactly</span>
     &mdash; three independent systems verified with zero free parameters.
   </p>
-  <p class="doc-ref">Part II &mdash; &ldquo;Local Verification: The Solar System Test&rdquo;</p>
-  <a class="deriv-link" href="{{ site.baseurl }}/documents/WILL_RG_II.pdf#sec:solar_system" target="_blank">&#128196; Open derivation in Part&nbsp;II</a>
+  <p class="doc-ref">Part I &mdash; &ldquo;The Total Relational Shift Q&rdquo; &amp; Relativistic Tests Notebook</p>
+  <a class="deriv-link" href="https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/WILL-relativistic-tests-gps-mercury-s2.ipynb" target="_blank">&#128196; Open notebook in Colab</a>
 </div>
 
 
@@ -655,21 +656,31 @@ description: "Testable predictions of the WILL Relational Geometry framework —
 
 <!-- 2h ── Orbital Decay ── -->
 <div class="pred-card rel">
-  <h3>h. Orbital Decay Rate</h3>
+  <h3>h. Orbital Decay Rate (Topological Orbital Contraction)</h3>
 
   <p>
-    Orbital energy loss in compact binaries follows from the
-    energy-symmetry law applied to the closure defect \(\delta\). The
-    predicted period derivative for the Hulse&ndash;Taylor binary pulsar:
+    Orbital contraction in compact binaries is a strict topological
+    necessity: radiation depletes the system&rsquo;s internal causal phase
+    \(\tau\), forcing the external projection \(\tau_Y\) to grow in order
+    to preserve the unitary state invariant:
   </p>
   <div class="eq-box">
-    $$\dot{P}_b \;\propto\;
-    \frac{\mathrm{d}}{\mathrm{d}t}\!\left(\frac{\kappa^{2}}{2\beta^{2}}\right)$$
+    $$\tau_Y^{\,2} + \tau^{2} = 1,
+    \qquad
+    \tau\downarrow\;\Longrightarrow\;\tau_Y^{\,2}\uparrow
+    \;\Longrightarrow\; r\downarrow$$
   </div>
 
   <p>
+    Since \(Q^{2}\propto 1/r\), the increase in \(\tau_Y^{2}\) forces both
+    \(\kappa^{2}\) and \(\beta^{2}\) to grow, so the orbital radius must
+    shrink. The orbit contracts not from mechanical drag but because the
+    geometry must balance the loss of internal causal budget.
+  </p>
+
+  <p>
     <span class="result-tag">Matches Hulse&ndash;Taylor &amp; Double Pulsar</span>
-    &mdash; orbital decay predicted from energy symmetry without
+    &mdash; orbital decay predicted from \(\tau\)-conservation without
     gravitational-wave emission postulate.
   </p>
   <p class="doc-ref">Part I &mdash; &ldquo;Geometric Mechanism of Orbital Decay and Radiation&rdquo;</p>
