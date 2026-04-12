@@ -521,9 +521,9 @@ All predictions derived with **zero free parameters**. Organised to match [willr
 | Q2 | **Fine-structure constant α** | α ≡ β₁ (ground-state kinetic projection) | **α derived, not assumed** — identified as electron's geometric amplitude | [sec:alpha](https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha) | — |
 | Q3 | **Unified relativistic energy formula** | E_{n,j} = m_ec²/√(1+(Zα/n_eff)²) | **Matches Sommerfeld–Dirac exactly** from geometry, not spinor equations | [thm:unified-energy](https://willrg.com/documents/WILL_RG_III.pdf#thm:unified-energy) | — |
 | Q4 | **Geometric spin & Pauli exclusion** | Spin = topological chirality (±½ winding on S¹) | **Two electrons per orbital — derived, not postulated** | [sec:spin-exclusion](https://willrg.com/documents/WILL_RG_III.pdf#sec:spin-exclusion) | — |
-| Q5 | **Geometric uncertainty principle** | Δβ_X·Δβ_Y ≥ ½|sin 2θ|·(2π/n)² → Δx·Δp ≈ ℏ | **Heisenberg relation emerges** from topological winding granularity | [sec:geometric_uncertainty](https://willrg.com/documents/WILL_RG_III.pdf#sec:geometric_uncertainty) | — |
+| Q5 | **Geometric uncertainty principle** | Δβ_X·Δβ_Y ≥ ½sin 2θ·(2π/n)² → Δx·Δp ≈ ℏ | **Heisenberg relation emerges** from topological winding granularity | [sec:geometric_uncertainty](https://willrg.com/documents/WILL_RG_III.pdf#sec:geometric_uncertainty) | — |
 
-### 10.4 Additional Empirical Tests
+
 
 | # | Prediction | Result | Paper Section | Notebook |
 |---|-----------|--------|--------------|----------|
