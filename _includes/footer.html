@@ -1,7 +1,8 @@
 <footer class="bg-gray-900 mt-16 border-t border-gray-800">
   <div class="container mx-auto px-6 py-6 text-center text-gray-500">
 
-    <div class="mt-4 flex flex-col items-center justify-center gap-2">
+    <div class="mt-4 flex flex-col md:flex-row justify-between items-center gap-4 w-full">
+      
       <div class="flex flex-row items-center gap-3">
         <iframe
           id="sponsor-frame"
@@ -20,20 +21,23 @@
           </a>
         </span>
       </div>
+
+      <div class="flex flex-row items-center gap-6 text-sm">
+        <a href="https://www.youtube.com/@anton_rize" target="_blank" rel="noopener noreferrer" 
+           class="text-cyan-300 hover:text-cyan-200 transition">
+          YouTube
+        </a>
+        <a href="https://www.researchgate.net/profile/Anton-Rize" target="_blank" rel="noopener noreferrer" 
+           class="text-cyan-300 hover:text-cyan-200 transition">
+          ResearchGate
+        </a>
+      </div>
+
     </div>
 
-    <div class="mt-4 flex justify-center gap-6 text-sm">
-      <a href="https://www.youtube.com/@anton_rize" target="_blank" rel="noopener noreferrer" 
-         class="text-cyan-300 hover:text-cyan-200 transition">
-        YouTube
-      </a>
-      <a href="https://www.researchgate.net/profile/Anton-Rize" target="_blank" rel="noopener noreferrer" 
-         class="text-cyan-300 hover:text-cyan-200 transition">
-        ResearchGate
-      </a>
-    </div>
+    <hr class="border-gray-800 my-6">
 
-    <div class="mt-8 text-xs text-gray-500 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="text-xs text-gray-500 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
       <div class="order-2 md:order-1 text-center md:text-left">
         Archived release available at
         <a href="https://doi.org/10.5281/zenodo.17115270"
@@ -51,6 +55,6 @@
       </div>
     </div>
 
-    <p class="mt-6 text-xs">&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
+    <p class="mt-6 text-xs text-center">&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All materials available for scientific use.</p>
   </div>
 </footer>
