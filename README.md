@@ -9,6 +9,7 @@
   <a href="https://antonrize.github.io/WILL/results/">
     <img src="https://img.shields.io/badge/docs-live-blue.svg" alt="Documentation">
   </a>
+  <a href="https://www.researchgate.net/profile/Anton-Rize">Anton Rize on ResearchGate</a>
   <a href="https://github.com/AntonRize/WILL">
     <img src="https://img.shields.io/badge/source-GitHub-black.svg" alt="Source">
   </a>
