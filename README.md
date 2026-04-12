@@ -1,28 +1,29 @@
 ![Theoretical-Ouroboros-min](https://raw.githubusercontent.com/AntonRize/WILL/main/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.png)
 
-<h1 align="center">WILL Relational Geometry</h1>
+<h1 align="center">WILL Relational Geometry Open Research</h1>
 
 <p align="center">
   <a href="https://doi.org/10.5281/zenodo.17115270">
     <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17115270.svg" alt="DOI">
   </a>
-  <a href="https://antonrize.github.io/WILL/results/">
-    <img src="https://img.shields.io/badge/docs-live-blue.svg" alt="Documentation">
+  <a href="https://willrg.com/">
+    <img src="https://img.shields.io/badge/docs-live-blue.svg" alt="willrg.com">
   </a>
-  <a href="https://www.researchgate.net/profile/Anton-Rize">Anton Rize on ResearchGate</a>
+  <a href="https://www.researchgate.net/profile/Anton-Rize">Research Gate</a>
+  
   <a href="https://github.com/AntonRize/WILL">
-    <img src="https://img.shields.io/badge/source-GitHub-black.svg" alt="Source">
+    <img src="https://img.shields.io/badge/source-GitHub-black.svg" alt="repo">
   </a>
 </p>
 
 ---
 
-**Live demo and documentation:** [https://antonrize.github.io/WILL/](https://antonrize.github.io/WILL/)
+**WILL-AI:** [https://willrg.com/will-ai/](https://willrg.com/will-ai/)
 
 **Citation:**  
 If you use this work, please cite via DOI: [10.5281/zenodo.17115270](https://doi.org/10.5281/zenodo.17115270).
 
-## About The Project
+[## About The Project
 
 WILL Relational Geometry (RG) is build on principles of relationalism, epistemic hygiene and ontological minimalism. It applies extreme methodological constraints and establishes a foundational framework where spacetime is not a background arena but an emergent property of energy transformations. 
 
@@ -210,6 +211,7 @@ from this single, foundational principle as  inevitable consequences without fre
         <p><strong>Result:</strong> The same algebraic projection geometry ($\kappa$ and $\beta$) that describes cosmological dynamics and black hole orbits is shown to govern atomic structure, demonstrating a deep, underlying unity across all scales of physics.</p>
     </div>
 </details>
+](https://willrg.com/will-ai/)
 
 ## Getting Started
 
