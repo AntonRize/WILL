@@ -201,7 +201,7 @@ Two spectroscopic redshifts seed the entire system:
 - **Operational measurability:** [thm:operational](https://willrg.com/documents/WILL_RG_I.pdf#thm:operational)
 - **Eccentricity derivation:** [sec:rel_ecc](https://willrg.com/documents/WILL_RG_I.pdf#sec:rel_ecc)
 - **Orbital precession:** [sec:precession_law](https://willrg.com/documents/WILL_RG_I.pdf#sec:precession_law)
-- **Dynamic horizon closure:** [sec:dynamic_horizon_closure](https://willrg.com/documents/WILL_RG_I.pdf#sec:dynamic_horizon_closure)
+- **Dynamic horizon closure:** [sec:dynamic_horizon](https://willrg.com/documents/WILL_RG_I.pdf#sec:dynamic_horizon)
 - **Relational parameterisation & primitives:** [sec:relational_parameterization](https://willrg.com/documents/WILL_RG_I.pdf#sec:relational_parameterization)
 
 ### 5.4 Schwarzschild-like Surfaces (from algebraic closure)
