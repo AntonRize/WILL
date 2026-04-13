@@ -2,7 +2,7 @@
 layout: default
 title: "Research Map"
 permalink: /research_map/
-description: "Communicate the full content, structure, and evidence base of the WILL Relational Geometry research programme to any reader — human or LLM — in a single, link-rich document."
+description: "Complete research map of the WILL Relational Geometry programme — full content, structure, derivations, predictions, and evidence base in a single navigable document."
 ---
 
 

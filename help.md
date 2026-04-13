@@ -2,7 +2,7 @@
 layout: default
 title: Help This Research
 permalink: /help/
-description: Support independent, open, first-principles physics research — WILL Geometry.
+description: "Support independent, open, first-principles physics research. Help advance WILL Relational Geometry — a unified framework challenging dark matter and dark energy."
 ---
 
 # Help This Research

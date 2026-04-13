@@ -9,7 +9,7 @@
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-6">
+      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-6">
         {% for item in site.navigation %}
           {% if page.url == item.url %}
             <span class="text-sm text-cyan-400 font-medium">{{ item.title }}</span>
