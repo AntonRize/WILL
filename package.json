@@ -1,16 +1,21 @@
 {
   "name": "will",
   "version": "1.0.0",
-  "description": "",
+  "description": "WILL Relational Geometry - open research site",
   "main": "index.js",
   "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/src/main.css -o ./assets/css/tailwind.css --minify",
+    "dev:css": "tailwindcss -i ./assets/css/src/main.css -o ./assets/css/tailwind.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anton Rize",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "jsdom": "^26.1.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4"
   }
 }
