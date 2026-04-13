@@ -26,9 +26,14 @@
       background-color: #111827;
       color: #E5E7EB;
     }
+   @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     main {
-      opacity: 0;
-      transition: opacity 3.0s ease-in;
+      opacity: 0; 
+      animation: fadeIn 3.0s ease-in forwards;
     }
     #ob-tooltip {
       position: absolute;
@@ -80,15 +85,10 @@
   
   {% include footer.html %}
 
-  <script>
+ <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const mainElement = document.querySelector('main');
       const container = document.getElementById('ouroboros-container');
       const tooltip = document.getElementById('ob-tooltip');
-      
-      setTimeout(() => {
-          mainElement.style.opacity = 1;
-      }, 100);
 
       const svgUrl = '{{ site.baseurl }}/assets/OuroborosCLEAN.svg';
       
