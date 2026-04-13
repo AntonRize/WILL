@@ -12,6 +12,7 @@
       "@type": "WebSite",
       "name": "{{ site.title }}",
       "url": "{{ site.url }}{{ site.baseurl }}/",
+      "sameAs": "https://doi.org/10.5281/zenodo.17115270",
       "description": "{{ site.description | strip_newlines | escape }}",
       "author": {
         "@type": "Person",
@@ -67,7 +68,13 @@
         {"@type": "Thing", "name": "Relational Geometry"},
         {"@type": "Thing", "name": "Unified Field Theory"}
       ],
-      "isAccessibleForFree": true
+      "isAccessibleForFree": true,
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.5281/zenodo.17115270",
+        "url": "https://doi.org/10.5281/zenodo.17115270"
+      }
     }{% endif %}
   ]
 }
