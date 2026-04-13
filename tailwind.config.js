@@ -11,7 +11,7 @@ module.exports = {
     './_parts/**/*.{html,md}',
     './_results/**/*.{html,md}',
     './_discussions/**/*.{html,md}',
-    './_layouts/ouroboros.html/**/*.html',
+    './_layouts/ouroboros.html',
   ],
   theme: {
     extend: {},
