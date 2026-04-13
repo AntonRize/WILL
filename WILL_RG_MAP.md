@@ -13,7 +13,7 @@ description: "Complete research map of the WILL Relational Geometry programme �
 
 
 
-# WILL Relational Geometry — Research Map
+# WILL Relational Geometry — Open Research Map
 
 > **Purpose:** Communicate the full content, structure, and evidence base of the WILL Relational Geometry research programme to any reader — human or LLM — in a single, link-rich document.
 >
