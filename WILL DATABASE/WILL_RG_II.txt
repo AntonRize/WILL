@@ -584,6 +584,62 @@ Using the standard value $\alpha \approx 7.297 \times 10^{-3}$:
 \end{equation}
 This dimensionless number represents the "winding count" of the Universe from the "Singularity" to the current Hubble Horizon.
 
+
+\subsection{Derivation of the Scaling Exponent}
+\hypertarget{sec:scaling_exponent}{}\label{sec:scaling_exponent}
+
+The total relational phase $o$ measures the cumulative geometric evolution of the Universe, encompassing both kinetic and potential degrees of freedom. The spatial scale factor $a$, however, responds exclusively to the structural (potential) component of this evolution.
+
+The fraction of the total phase budget allocated to the structural sector is the 
+Potential Relational \ref{def:rel_weight} Weight $\Omega_{pot} = 2/3$, derived from the closure condition $\kappa^2 = 2\beta^2$.
+
+This partition governs the fractional strain of the geometry. The fractional change in the spatial scale factor ($da/a$) is strictly proportional to the fractional change in the total geometric phase ($do/o$), scaled by the structural weight:
+\begin{equation}
+\frac{da}{a} = \Omega_{pot} \frac{do}{o}
+\end{equation}
+
+Integrating this differential relation transforms the linear partition weight into a geometric power law:
+\begin{equation}
+\int \frac{da}{a} = \Omega_{pot} \int \frac{do}{o} \quad \implies \quad \ln(a) = \Omega_{pot} \ln(o) + C
+\end{equation}
+\begin{equation}
+a(o) \propto o^{\Omega_{pot}}
+\end{equation}
+
+Substituting $\Omega_{pot} = 2/3$, the spatial scale factor maps to the geometric phase as:
+\begin{equation}
+a(o) \propto o^{2/3}
+\end{equation}
+
+\subsection{The Topological Tautology of the Present Epoch}
+\hypertarget{sec:topological_tautology}{}\label{sec:topological_tautology}
+
+
+The redshift at any phase $o$ is:
+\begin{equation}
+1 + z_{U}(o) = (\frac{o_{max}}{o})^{2/3}.
+\label{eq:redshift_phase}
+\end{equation}
+
+
+Evaluating the phase depth at the observer's present epoch ($z_U=0$) yields the absolute phase horizon:
+\begin{equation}
+o_z(z_U) = \frac{o_{max}}{(1+z_U)^{\frac{3}{2}}} \quad \implies \quad o_z(0) = o_{max}
+\end{equation}
+This result is a strict topological tautology. By the Principle of  \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:DisQ}{Relational Reciprocity}, the observer mathematically self-centers at $z=0$. The evaluation strictly isolates the observer's immediate local present.
+
+Standard descriptive cosmology assigns the observer's epoch to an arbitrary temporal coordinate within an independent background container, rendering the causal horizon an empirical, time-dependent variable. Relational Geometry eliminates the background container. The phase depth $o$ measures geometric divergence strictly from the observer's \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy}{rest state}. 
+
+The Universal Phase Horizon ($o_{max}$) constitutes the geometric definition of the causal limit. Causal coherence between an observer and a source severs exactly when the cumulative relational phase shift completes one full geometric cycle:
+\begin{equation}
+\omega_{shift}(o_{max}) = 3\alpha^2 \cdot o_{max} = 2\pi
+\end{equation}
+
+The value $2\pi$ defines the maximum structural capacity of the $S^1$ kinematic carrier from the perspective of the localized observer. The horizon acts as a relational boundary mathematically tethered to the observer, enforcing that the causal depth of the observable universe spans exactly one geometric cycle. 
+
+The algebraic tautology $o_z(0) = o_{max}$ stands as the mathematical proof of epistemic closure. It forbids the observer from occupying a coordinate in a surplus external container. The entire causal history of the universe, from the relational origin to the present state, spans exactly one full $2\pi$ divergence of the geometric ground state.
+
+
 \subsection{The Geometric Cooling Law}
 \hypertarget{sec:cooling-law}{}\label{sec:cooling-law}
 
@@ -593,7 +649,7 @@ We now derive the relationship between the geometric phase $o$ and the physical 
 
 The total relational phase $o$ measures the cumulative geometric evolution of the Universe, encompassing both kinetic and potential degrees of freedom. The spatial scale factor $a$, however, responds only to the structural (potential) component of this evolution, since spatial expansion is the observable projection of the vacuum tension onto the metric.
 
-The fraction of the total phase budget allocated to the structural sector is the Potential Relational Weight $\Omega_{pot} = 2/3$, derived from the closure condition $\kappa^2 = 2\beta^2$ (Section~1.4). Therefore, the spatial scale factor maps to the geometric phase as:
+The fraction of the total phase budget allocated to the structural sector is the Potential Relational Weight $\Omega_{pot} = 2/3$, derived from the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{closure condition} $\kappa^2 = 2\beta^2$.  Therefore, the spatial scale factor maps to the geometric phase as:
 \begin{equation}
 a(o) \propto o^{\,\Omega_\Lambda}, \qquad \Omega_\Lambda = \frac{2}{3}.
 \end{equation}
@@ -603,7 +659,7 @@ Since temperature scales inversely with the expansion factor ($T \propto a^{-1}$
 \boxed{T(o) = T_0 (\frac{o_{max}}{o})^{2/3}}
 \label{eq:cooling_law}
 \end{equation}
-where $T_0 = 2.7255$ K is the current CMB temperature and $o_{max} = 2\pi/(3\alpha^2) \approx 39{,}330$ is the phase horizon depth derived in Section~4.3.
+where $T_0 = 2.7255$ K is the current CMB temperature and $o_{max} = 2\pi/(3\alpha^2) \approx 39{,}330$ is the phase horizon depth derived in Section above.
 
 Equivalently, the redshift at any phase $o$ is:
 \begin{equation}
@@ -627,8 +683,8 @@ z_{dec} = o_{max}^{2/3} - 1 \approx 1156.
 
 Two points merit emphasis:
 \begin{enumerate}
-    \item The exponent $2/3$ is \textbf{not fitted} to any observed redshift value. It is derived from the closure condition via $\Omega_\Lambda = \kappa^2/Q^2 = 2/3$.
-    \item The resulting temperature $T_{dec} \approx 3150$ K is a \textbf{prediction} that must be compared with atomic physics, not with $\Lambda$CDM-derived values (which assume dark matter and neutrino contributions to $H(z)$; see Table~\ref{tab:recombination}  for a detailed discussion of the model-dependence hierarchy).
+    \item The exponent $2/3$ is \textbf{not fitted} to any observed redshift value. It is derived from the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{closure condition} via $\Omega_\Lambda = \kappa^2/Q^2 = 2/3$.
+    \item The resulting temperature $T_{dec} \approx 3150$ K is a \textbf{prediction} that must be compared with atomic physics, not with $\Lambda$CDM-derived values (which assume dark matter and dark energy contributions to $H(z)$; see Table~\ref{tab:recombination}  for a detailed discussion of the model-dependence hierarchy).
 \end{enumerate}
 
 \subsection{The Unit Phase Transition: Geometry of Transparency}
@@ -1591,7 +1647,7 @@ Five distinct physical prescriptions are compared.
 To represent the Standard Model framework without allowing ad-hoc halo fitting (e.g., varying concentration or mass per galaxy), we employ a deterministic Abundance Matching protocol. To ensure a strict evaluation of the standard paradigm, we utilize the Planck 2018 cosmological parameters ($H_0 = 67.4$ km s$^{-1}$ Mpc$^{-1}$, $h=0.674$) for all halo scaling relations, independent of the derived scales tested in other models.
 
 \textbf{Stellar Mass Estimation:}
-Total stellar mass $M_{\star}$ is reconstructed directly from the kinematic data. We integrate the baryonic velocity components at the outermost observed radius $r_{\rm last}$ assuming Newtonian dynamics, consistent with the fixed mass-to-light ratios defined in Eq.~(1):
+Total stellar mass $M_{\star}$ is reconstructed directly from the kinematic data. We integrate the baryonic velocity components at the outermost observed radius $r_{\rm last}$ assuming Newtonian dynamics, consistent with the fixed mass-to-light ratios:
 \begin{equation}
 M_{\star} = \frac{r_{\rm last}}{G} ( \Upsilon_{\rm disk} V_{\rm disk}^2(r_{\rm last}) + \Upsilon_{\rm bulge} V_{\rm bulge}^2(r_{\rm last}) ).
 \end{equation}
@@ -1631,7 +1687,7 @@ We test RG using Horizon Resonance equation derived in Galactic Dynamics (\ref{s
 \begin{equation}
 V_{\rm RG}(r) = \sqrt{ V_b^2(r) + \sqrt{a_{\kappa} V_b^2(r) r} }.
 \end{equation}
-This equation include 0 free  parameters and no adjustable nods. It derived directley from methodological principals of Relational Geometry.
+This equation include 0 free  parameters and no adjustable nods. It derived directly from methodological principals of Relational Geometry.
 \begin{equation}
 a_{\kappa} = \frac{c H_0}{3\pi}, \quad \text{where } H_0 \equiv \sqrt{8\pi G \rho_{\gamma}/(3\alpha^2)}.
 \end{equation}

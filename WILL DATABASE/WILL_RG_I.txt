@@ -805,7 +805,8 @@ $\beta_Y = \sqrt{1-(v/c)^2}=\sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) $\\\hli
 
 
 \subsection{Kinematic Projection Equivalence: The Minkowski metric interval as an $S^1$ Pythagorean Identity}
-\label{sec:kinematic_mapping}
+\hypertarget{sec:SR_interval}{}\label{sec:SR_interval}
+
 
 The Minkowski spacetime interval, posited by legacy Special Relativity as a physical metric of a 4D background manifold, mathematically collapses into the invariant phase budget of the kinematic relational carrier ($S^1$).
 
@@ -876,8 +877,8 @@ $(\kappa_X,\kappa)=(\cos\theta_2,\sin\theta_2)$.
 The redistribution of the relational budget between the Phase and Amplitude components directly produces the effects of General Relativity. An increase in the relational amplitude measure ($\kappa$, gravitational potential) strictly necessitates a geometric decrease in the measure of the internal structure ($\kappa_X$). This geometric trade-off is observed physically as gravitational length contraction and time dilation. Thus, the curved geometry of spacetime is merely the shadow cast by the geometry of conserved relations.
 
 
-
-\section*{Potential Equivalence: The Schwarzschild Metric Interval as an $S^2$ Pythagorean Identity}
+\subsection{Potential Equivalence: The Schwarzschild Metric Interval as an $S^2$ Pythagorean Identity}
+\hypertarget{sec:GR_interval}{}\label{sec:GR_interval}
 
 This derivation demonstrates how the Schwarzschild metric interval, a cornerstone of General Relativity (GR), algebraically maps directly to the closure identity of the potential carrier, $\kappa^2 + \kappa_X^2 = 1$, within WILL Relational Geometry (RG). This is strictly analogous to how the Minkowski interval maps to the kinematic closure identity $\beta^2 + \beta_Y^2 = 1$.
 
@@ -2117,6 +2118,47 @@ $z_{\beta}=\frac{1}{\beta_{Y}}-1$  (transverse Doppler shift) \\
 Everything else is Closed Algebraic System of Relational Orbital Mechanics (R.O.M.)
 Please follow this link to see all \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. equations and definitions}
 \end{tcolorbox}
+
+\subsection{Derivation of Orbital Proportionality and Ontological Independence}
+\hypertarget{sec:orbital_prop}{}\label{sec:orbital_prop}
+
+The Keplerian proportionality $a \propto T^{2/3}$ is a direct algebraic consequence of the energetic equilibrium between the 1-DOF directional kinematic carrier ($S^1$) and the 2-DOF omnidirectional potential carrier ($S^2$). The derivation strictly utilizes dimensionless ratios and absolute geometric scale, eliminating dependence on classical mass and the empirical gravitational constant.
+
+The kinematic amplitude $\beta$ on $S^1$ defines (\ref{sec:SR_interval}) the ratio of directional motion to the universal limit $c$:
+\begin{equation}
+    \beta = \frac{2\pi a}{cT}
+\end{equation}
+
+The omnidirectional potential amplitude squared $\kappa^2$ on $S^2$ is defined (\ref{sec:GR_interval}) by the absolute spatial geometric scale invariant $R_s$ and the radial distance $a$:
+\begin{equation}
+    \kappa^2 = \frac{R_s}{a}
+\end{equation}
+
+Energetic closure (\ref{sec:closure}) dictates the invariant geometric exchange rate between the carriers:
+\begin{equation}
+    \kappa^2 = 2\beta^2
+\end{equation}
+
+Substituting the parameterizations into the closure condition yields:
+\begin{equation}
+    \frac{R_s}{a} = 2 \left( \frac{2\pi a}{cT} \right)^2 = \frac{8\pi^2 a^2}{c^2 T^2}
+\end{equation}
+
+Rearranging to isolate the semi-major axis $a$ gives the exact closed-form relation:
+\begin{equation}
+    a^3 = \frac{R_s c^2}{8\pi^2} T^2
+\end{equation}
+\begin{equation}
+    a = \left( \frac{R_s c^2}{8\pi^2} \right)^{1/3} T^{2/3} \implies a \propto T^{2/3}
+\end{equation}
+
+\subsubsection{Refutation of the Reparameterization Objection}
+
+A classical critique posits that because $R_s$ can be equated to $\frac{2GM}{c^2}$, this derivation is a superficial algebraic reparameterization of Newtonian mechanics. This objection reverses the causal and ontological hierarchy.
+
+The terms $G$ and $M$ are epistemologically secondary composites. They function as empirical translation factors required to map invariant relational geometry onto an assumed absolute spatial container. $R_s$, conversely, is a primary, coordinate-independent geometric invariant determining the absolute spatial scale of the system's potential projection. 
+
+The derivation isolates true dynamic proportionality using exclusively operational observables (chronometric phase $T$) and intrinsic geometric scaling ($a$, $R_s$). Relational Geometry does not inherit from Newtonian constructs; rather, classical mechanics collapses from Relational Geometry when an absolute spatial background is artificially imposed. $R_s$ does not conceal mass; rather, classical mass is an anthropocentric proxy for the invariant geometric boundary $R_s$.
 
 
 \subsection{Derivation of Eccentricity}
@@ -4103,6 +4145,10 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of a single re
 \bibitem{JPL_DE430} Folkner, W.M., et al. (2014). \textit{IPN Progress Report} \textbf{42-196}, 1-81.
 
 \bibitem{Gonzalez2020} Gonzalez Hernandez, J.I., et al. (2020). \textit{Astron. Astrophys.} \textbf{643}, A146.
+
+\bibitem{NASA_RadioJOVE_JupiterFactSheet}
+NASA Radio JOVE Project, \emph{Jupiter Fact Sheet}. 
+\url{https://radiojove.gsfc.nasa.gov/education/jupiter/basics/jfacts.htm}, 13 July 2000.
 
 \end{thebibliography}
  
