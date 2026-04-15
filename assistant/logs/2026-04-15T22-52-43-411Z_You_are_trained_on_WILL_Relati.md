@@ -115,3 +115,41 @@ Here is the justification:
     The continuous empirical success of predictions that rely on $\kappa^2 = 2\beta^2$ (such as Mercury's precession, the derivation of $H_0$, galactic rotation curves, and CMB acoustic peaks) serves as indirect, but robust, validation of the DOF-Indifference principle.
 
 Given that the DOF-Indifference principle is a direct consequence of ontological minimalism, how would a framework that permits unequal weighting of degrees of freedom avoid introducing "hidden structure" without violating its own foundational principles of parsimony?
+
+**User:** What, exactly, is the logical form of the proof of DOF-Indifference?
+
+Please choose one:
+(1) a theorem derived from explicit mathematical axioms,
+(2) a consistency requirement imposed by methodological principles,
+or
+(3) an empirical regularity inferred from successful fits.
+
+Then justify the choice step by step.
+
+If you claim it is a theorem, write the axioms and the deduction explicitly.
+If you claim it is a consistency requirement, state clearly why it should be treated as logically necessary rather than merely preferred.
+If you claim it is empirical, specify the dataset and the test statistic.
+
+**Assistant:** The logical form of the proof of DOF-Indifference is:
+
+(2) **a consistency requirement imposed by methodological principles.**
+
+Here's a step-by-step justification for this classification, explaining why it should be treated as logically necessary rather than merely preferred:
+
+1.  **Anchoring to Foundational Methodological Principles:**
+    The WILL Relational Geometry (RG) framework is constructed upon strict methodological principles that guide the formation of the theory itself. Two key principles directly underpin the DOF-Indifference requirement:
+    *   **[Ontological Minimalism](https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism):** This principle mandates that any fundamental theory must operate with the absolute minimum number of ontological assumptions. Any introduction of additional complexity or new entities requires explicit justification.
+    *   **[Relational Isotropy (Maximal Symmetry)](https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy):** This theorem, derived from the absence of a privileged background, asserts that the fundamental geometry encoding conserved energy must be maximally symmetric. No direction or relational component can be *a priori* privileged.
+
+2.  **Proof by *Reductio ad Absurdum*:**
+    The proof of the [Lemma of DOF-Indifference](https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference) proceeds by assuming the opposite of the claim and demonstrating that this assumption leads to a direct contradiction with the aforementioned foundational principles.
+    *   **Assumption (for contradiction):** Let us assume that two independent degrees of freedom (DOFs) *do not* contribute equal quadratic weights to the conserved energy budget of a relational system. This would mean that one DOF is inherently "weighted" differently or "preferred" over another.
+    *   **Contradiction with [Relational Isotropy (Maximal Symmetry)](https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy):** If unequal weighting were permitted, it would imply the existence of an implicit weighting structure within the theory. This structure would inherently distinguish between DOFs, granting a privileged status to some relational channels over others *without any external or relational justification*. This directly violates the principle of [Maximal Symmetry](https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy), which demands that no intrinsic, unobservable bias exists in the fundamental geometry.
+    *   **Contradiction with [Ontological Minimalism](https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism):** Furthermore, introducing such an intrinsic weighting factor without deriving it from existing relations constitutes an arbitrary ontological addition. It introduces a "hidden structure" or "surplus ontology" that adds complexity without necessity. This directly violates the principle of [Ontological Minimalism](https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism), which seeks to remove unjustified assumptions.
+
+3.  **Logical Necessity:**
+    Because assuming unequal weighting inevitably leads to a logical contradiction with the core methodological principles upon which WILL RG is built, the principle of equal quadratic weighting per DOF is not merely a preferred choice. It is a **logically necessary consistency requirement** for the internal coherence and philosophical foundation of the theory. To abandon equal weighting would be to reintroduce the very "hidden assumptions" and "unjustified complexity" that the framework's [Epistemic Hygiene](https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic) aims to remove.
+
+Therefore, the DOF-Indifference principle is a **consistency requirement** that ensures the theory remains true to its foundational commitment to a background-free, maximally symmetric, and ontologically minimal relational universe.
+
+Can you provide a mathematical justification for why an external continuous time parameter ($t$) is necessary here, given that the system's geometric closure is achieved purely through dimensionless phase relations?
