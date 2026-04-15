@@ -142,3 +142,54 @@ The Desmos project for Mercury's precession calculates the orbital parameters (i
 To summarize, the closure rule is a universal topological principle. Its local manifestation is either instantaneous (for circular orbits), cycle-averaged (for elliptical orbits), or accounts for energy flow through other channels (for open systems). R.O.M. leverages these nuances to make precise, parameter-free predictions.
 
 Are you willing to test this parameter-free prediction against raw observational data, or does your critique rely solely on defending the standard model's coordinate-dependent ontology?
+
+**User:** I accept the challenge. I am willing to test the parameter-free prediction against observational data. But to do so, I need to see the calculation pipeline explicitly, not just the final formula.
+
+Let's take a concrete, well-measured system: the Earth's orbit around the Sun. I want to use WILL RG to predict the Earth's orbital period (the sidereal year) from purely dimensionless observables, without using $G$, $M_\odot$, or Kepler's third law as input.
+
+Please walk me through the step-by-step calculation using the WILL RG framework, as you would instruct a colleague to perform it. For each step, specify:
+
+Input Observables: What dimensionless quantities (e.g., frequency shifts $z_\kappa$, $z_\beta$, angular size, etc.) are required? Where would one obtain these values from astronomical data?
+
+Derivation of $\kappa$ and $\beta$: Show the exact algebraic mapping from the observables to the dimensionless projections $\kappa$ and $\beta$ at a chosen reference point in the orbit (e.g., at $r = a$, the semi-major axis).
+
+Application of Closure: Since Earth's orbit is elliptical, you stated that $\langle \kappa^2 \rangle_{\text{cycle}} = 2 \langle \beta^2 \rangle_{\text{cycle}}$ applies on average. How is this averaging performed in practice? Do we integrate over the orbit, or is there a shortcut using the invariant $W$?
+
+Relating Phase to Period: The R.O.M. framework parameterizes orbits by phase $\phi$, not time $t$. Yet the output we want is a time period (e.g., 365.25 days). How is the phase accumulation $\Delta\phi$ converted to a prediction for the elapsed time in seconds, without presupposing the very $G$ and $M_\odot$ we are trying to avoid?
+
+Final Prediction and Comparison: Provide the predicted value for the Earth's orbital period in days, and show how it compares to the measured value.
+
+If this step-by-step derivation is already implemented in one of the Colab notebooks or Desmos projects you reference, please provide the direct link to the specific notebook cell or Desmos expression that performs the calculation.
+
+I am not asking you to defend the ontology. I am asking you to demonstrate the computational mechanics of the framework on a familiar test case. This is how I, and many on this forum, assess the empirical viability of a new theoretical approach.
+
+**Assistant:** I appreciate your precise and rigorous inquiry into the computational mechanics of WILL Relational Geometry. Your challenge to predict Earth's orbital period from purely dimensionless observables, without recourse to $G$, $M_\odot$, or Kepler's third law, directly probes the framework's ability to bootstrap absolute scales.
+
+Upon careful review of the current WILL RG documentation, I must state that **the current WILL documentation does not explicitly cover deriving an absolute orbital period (in seconds or days) from purely dimensionless local observables without any prior absolute time or length scale input.**
+
+Let me explain the reasoning within the WILL RG ontology:
+
+1.  **Nature of Relational Parameterization:**
+    As described in [Relational Parameterization and the Fundamental Primitives](https://willrg.com/documents/WILL_RG_I.pdf#sec:relational_parameterization), WILL RG excels at deriving the *relationships* between physical quantities and the *dimensionless parameters* ($\kappa, \beta, e, \Delta\varphi$) that govern them. It demonstrates how these parameters can be extracted or predicted from other dimensionless observables (like spectroscopic shifts $z_\kappa, z_\beta$, or angular size $\theta$).
+
+2.  **Introduction of Absolute Scale:**
+    However, to transition from these dimensionless relations to predictions in *absolute units* (such as meters for radius, or seconds/days for a period), the framework, in its current formulation, requires at least one *absolute scale reference* to be provided as an input.
+    *   For instance, in the derivation of Mercury's and Jupiter's orbital parameters in [Section: Relational Parameterization](https://willrg.com/documents/WILL_RG_I.pdf#sec:relational_parameterization), the absolute Schwarzschild radius ($R_{sRG}$) is calculated using Mercury's known orbital period ($T_M$) *in seconds*:
+        $$ R_{sRG} = T_M \cdot c \cdot \frac{\beta^3}{\pi} $$
+        Here, $T_M$ serves as the anchor for absolute time, and $c$ (the speed of light in meters/second) implicitly provides the link to absolute length units. Without such an input, $R_{sRG}$ (and subsequently the semi-major axis $a$) cannot be given in absolute meters.
+
+3.  **Methods for Deriving $R_s$ (System Scale):**
+    The methods for algebraically determining the absolute system scale $R_s$ (e.g., [Theorem: Two-Point Schwarzschild Scale](https://willrg.com/documents/WILL_RG_I.pdf#thm:two_point), [Theorem: Balance Point Formula](https://willrg.com/documents/WILL_RG_I.pdf#thm:balance_point), [Theorem: Arbitrary Phase Formula](https://willrg.com/documents/WILL_RG_I.pdf#thm:arbitrary_phase)) all require inputs of *absolute lengths* ($r_1, r_2, a, r_o$) to yield $R_s$ in absolute units.
+
+4.  **The "Without Using G" Constraint:**
+    The alternative approach to establishing an absolute scale, as demonstrated in [Part II](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) where the Hubble parameter $H_0$ is derived from CMB temperature and the fine-structure constant ($\alpha$), *does* use the gravitational constant $G$ in its formulation ($H_0 = \sqrt{8\pi G \rho_{max}}$). This falls outside your specified constraint of "without using $G$."
+
+Therefore, while WILL RG can derive all *dimensionless* orbital parameters (like eccentricity $e$, potential $\kappa$, kinetic $\beta$, and even dimensionless precession per orbit $\Delta\varphi$) from purely dimensionless local observables, it cannot bootstrap the very first absolute time (or length) scale required to express the period "in days" *without one absolute input*. The framework is inherently about relations and ratios.
+
+To proceed with predicting Earth's orbital period (e.g., in days or seconds), you would need to relax one of your constraints to allow for an absolute scale input. For example, we could:
+*   Provide Earth's semi-major axis ($a_{Earth}$) in meters as an input.
+*   Provide the absolute orbital period of another system (e.g., Mercury's period in seconds) as a universal time calibration.
+
+If you are willing to relax one of these constraints, I can walk you through the detailed computational mechanics for deriving Earth's orbital period within WILL RG. If not, I can demonstrate how to derive the *dimensionless ratios* of orbital periods or other dimensionless properties of Earth's orbit from your specified inputs.
+
+Given this clarification on the absolute scaling in WILL RG, are you willing to provide an absolute length or time reference to perform the calculation, or would you prefer a derivation that yields only dimensionless ratios?
