@@ -244,3 +244,52 @@ Here's a step-by-step justification:
 The entire process demonstrates that time, in WILL RG, is an emergent property derived from internal phase relations, rather than an independent external parameter.
 
 Given that $\zeta_o$ is a dimensionless geometric quantity that can be analytically derived (and is equivalent to $E - e\sin(E)$), what is the most profound implication of its direct proportionality to a dimensional time $\Delta_{to}(o)$ for the ontological status of time itself?
+
+**User:** In the relation
+\[
+\Delta_{to}(o) = \frac{T}{2\pi}\,\zeta_o,
+\]
+what is the exact mathematical status of \(T\)?
+
+Please choose one:
+
+(1) \(T\) is a primitive external parameter,
+(2) \(T\) is derived from relational variables, or
+(3) \(T\) is merely a convenient normalization constant.
+
+Justify the choice step by step.
+
+If \(T\) is primitive, explain why it is not hidden structure.
+If \(T\) is derived, show the derivation explicitly.
+If \(T\) is only a normalization constant, explain why the equation does not merely reintroduce time through scaling.
+
+**Assistant:** In WILL Relational Geometry (RG), the exact mathematical status of $T$ (orbital period) is:
+
+(2) **$T$ is derived from relational variables.**
+
+Here is a step-by-step justification:
+
+1.  **Rejection of Primitive Time:**
+    The core philosophy of WILL RG fundamentally rejects time as a primitive, external parameter. As established by the [Unifying Ontological Principle: SPACETIME $\equiv$ ENERGY](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying), WILL RG is constructed by removing hidden assumptions, including the separation of space, time, and energy. Introducing an absolute, independent time variable would constitute "ontological contraband," violating the principles of [Epistemic Hygiene](https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic) and [Ontological Minimalism](https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism) that guide the framework. Therefore, $T$ cannot be a primitive external parameter.
+
+2.  **$T$ as a Physical Measure of a Complete Phase Cycle:**
+    While $T$ functions as a scaling factor in the equation $\Delta_{to}(o) = \frac{T}{2\pi}\,\zeta_o$, it is not "merely a convenient normalization constant." It represents the physical duration of a *complete orbital cycle* for a given system, which is a definable and measurable quantity, albeit one that is *internally generated* by the system's own phase dynamics. The "normalization" it provides is therefore intrinsic to the system's emergent temporal scale, rather than an arbitrary external choice of units.
+
+3.  **Derivation from Relational Geometric Variables:**
+    The orbital period $T$ is explicitly shown to be an algebraically derived quantity within the [Relational Orbital Mechanics (R.O.M.)](https://willrg.com/documents/WILL_RG_I.pdf#sec:rom) system. For any given system, $T$ can be expressed in terms of other fundamental, dimensionless relational parameters and derived scales:
+    *   From the definition of the kinematic projection $\beta$ and the semi-major axis $a$:
+        $$\beta = \frac{2\pi a}{cT} \quad \implies \quad T = \frac{2\pi a}{\beta c}$$
+        This equation is listed under "Global System Parameters" in [R.O.M. equations and definitions](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom).
+
+    *   Furthermore, $a$ and $\beta$ themselves are derived parameters within the R.O.M. framework. For instance, the semi-major axis $a$ is defined as $a=\frac{R_s}{\kappa^2}$, where $R_s$ is the system's absolute geometric scale (Schwarzschild radius) and $\kappa$ is the potential projection (also from [R.O.M. equations and definitions](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom)). The closure condition [thm:closure](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) then links $\kappa$ and $\beta$ via $\kappa^2=2\beta^2$.
+
+    *   Substituting these relations, $T$ can be fully expressed in terms of $R_s$ and $\beta$:
+        $$T = \frac{2\pi}{\beta c} \left(\frac{R_s}{\kappa^2}\right) = \frac{2\pi}{\beta c} \left(\frac{R_s}{2\beta^2}\right) = \frac{\pi R_s}{c \beta^3}$$
+        This equation is also listed under "Global System Parameters" in [R.O.M. equations and definitions](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom).
+
+4.  **$R_s$ as a Derived Scale:**
+    Crucially, $R_s$ (the Schwarzschild radius) is also not a primitive in WILL RG. It is rigorously derived from other dimensionless observables without resorting to classical mass ($M$) or the gravitational constant ($G$). For example, $R_s$ can be calculated from geometric position ($r$) and kinematic intensity ($\beta$) at two points along a trajectory ([Two-Point Schwarzschild Scale](https://willrg.com/documents/WILL_RG_I.pdf#thm:two_point)). This demonstrates that all components needed to calculate $T$ are themselves products of relational geometry, not external primitives.
+
+Therefore, $T$ is unequivocally a **derived parameter** emerging from the underlying relational geometry of the system. It is a manifestation of the system's internal phase evolution, rather than an external clock, and its calculation further demonstrates that "time" itself is an emergent property within WILL RG.
+
+Given that $T$ is derived from relational variables like $a$ and $\beta$, what is the specific operational definition of the "orbital period" $T$ in a purely relational framework that strictly avoids an external, continuous time parameter?
