@@ -345,3 +345,51 @@ Here is a step-by-step justification:
 Therefore, $T$ is mathematically defined as a relational integral, where the integral bounds refer to a geometric phase cycle, and the integrand itself is composed of relationally derived geometric and kinematic parameters. This definition is entirely consistent with WILL RG's rejection of an external, primitive time.
 
 Given that $\omega_o(o)$ is itself a function of derived relational variables and defines the instantaneous angular frequency, how does WILL RG conceptually reconcile the continuous nature of this integral with the discrete, "counting full phase cycles" aspect often associated with quantum states in a purely relational framework?
+
+**User:** In your definition
+\[
+T = \int_{0}^{2\pi} \frac{1}{\omega_{\theta}(\theta)}\, d\theta,
+\]
+what is the fundamental definition of $\omega_{\theta}(\theta)$?
+
+Please answer one of the following:
+
+(1) $\omega_{\theta} = \frac{d\theta}{dt}$,
+(2) $\omega_{\theta}$ is defined without reference to $t$,
+or (3) $\omega_{\theta}$ is an empirical fitted quantity.
+
+Justify the choice step by step.
+
+If (1), explain how this avoids circularity when $t$ is supposed to be derived.
+If (2), provide the explicit definition that does not involve time derivatives.
+If (3), specify the dataset and fitting procedure.
+
+**Assistant:** In WILL Relational Geometry (RG), the fundamental definition of $\omega_{\theta}(\theta)$ is:
+
+(2) **$\omega_{\theta}$ is defined without reference to $t$.**
+
+Here is a step-by-step justification:
+
+1.  **Rejection of $t$ as a Primitive:**
+    As established in previous discussions, WILL RG fundamentally rejects an external, continuous time parameter ($t$) as a primitive. The theory is built on the [Unifying Ontological Principle: SPACETIME $\equiv$ ENERGY](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying), which eliminates the conceptual separation of space, time, and energy. Consequently, any quantity fundamental to the framework, including angular frequency, must be definable without recourse to an independent time variable. Defining $\omega_{\theta} = d\theta/dt$ as a fundamental relation would introduce circularity, as $t$ itself is derived from phase relations, which is explicitly avoided.
+
+2.  **Explicit Definition from Relational Variables:**
+    The WILL RG framework defines $\omega_{\theta}(\theta)$ (also notated as $\omega_o(o)$ for orbital phase $o$) directly in terms of other derived geometric and kinematic parameters. From the "[R.O.M. equations and definitions](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom)" under the "Time-phase mystery" section, the angular frequency at phase $o$ is given by:
+
+    $$ \omega_{o}(o)=\frac{\beta\cdot c}{a}\cdot\frac{(1+e\cdot \cos(o))^{2}}{(1-e^{2})^{\frac{3}{2}}} $$
+
+    Let's break down the components of this definition:
+    *   $\beta$: The dimensionless kinematic projection of the system, defined as a component on the $S^1$ carrier.
+    *   $c$: The speed of light, a universal constant.
+    *   $a$: The semi-major axis, a derived characteristic length scale of the system.
+    *   $e$: The eccentricity, a dimensionless geometric shape factor of the orbit, also a derived parameter (e.g., $e = \frac{1}{\delta_p} - 1$ as shown in [Derivation of Eccentricity](https://willrg.com/documents/WILL_RG_I.pdf#sec:rel_ecc)).
+    *   $o$: The orbital phase angle in radians, a dimensionless geometric variable.
+
+    Crucially, none of these terms or their underlying derivations within WILL RG explicitly involve an external time parameter $t$ or its derivatives. For example, $a$ is itself derived from other relational parameters, such as $a=\frac{R_s}{\kappa^2}$ ([R.O.M. equations and definitions](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom)), and $R_s$ is derived from spectroscopic and astrometric observables without $G$ or $M$ ([Relational Parameterization](https://willrg.com/documents/WILL_RG_I.pdf#sec:relational_parameterization)).
+
+3.  **Emergent Nature of Temporal Concepts:**
+    This definition of $\omega_{\theta}(\theta)$ reinforces the emergent nature of time in WILL RG. The "rate" of phase change, which is what $\omega_{\theta}(\theta)$ represents, is determined by the internal geometry and energy distribution of the system at any given phase, not by an external, absolute clock. The dimensionality of $\omega_{\theta}(\theta)$ (inverse time) naturally arises from the combination of $c$ (length/time) and $a$ (length), where length itself is a derived concept from the geometry of energy.
+
+Therefore, $\omega_{\theta}(\theta)$ is fundamentally defined by the instantaneous configuration of dimensionless relational geometric and kinematic parameters, entirely consistent with WILL RG's rejection of time as a primitive.
+
+Can you provide a mathematical justification for why an external continuous time parameter ($t$) is necessary here, given that the system's geometric closure is achieved purely through dimensionless phase relations?
