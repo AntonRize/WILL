@@ -393,3 +393,63 @@ Here is a step-by-step justification:
 Therefore, $\omega_{\theta}(\theta)$ is fundamentally defined by the instantaneous configuration of dimensionless relational geometric and kinematic parameters, entirely consistent with WILL RG's rejection of time as a primitive.
 
 Can you provide a mathematical justification for why an external continuous time parameter ($t$) is necessary here, given that the system's geometric closure is achieved purely through dimensionless phase relations?
+
+**User:** Claim: There exists an external physical time flow $t$.
+
+Falsification criterion:
+
+The claim is false if all observable predictions of a physical system are invariant under arbitrary smooth, monotonic reparameterizations
+\[
+t \;\rightarrow\; f(t),
+\]
+while holding all relational (dimensionless or directly measurable) quantities fixed.
+
+Operational test:
+
+1. Choose any physical system and express all observables $O_i$ purely in terms of relational variables (e.g., ratios, phases, frequencies, dimensionless parameters).
+
+2. Construct two descriptions of the same system:
+   (A) parameterized by $t$,
+   (B) parameterized by $\tau = f(t)$, where $f$ is any smooth, strictly monotonic function.
+
+3. Compare predictions:
+   \[
+   O_i^{(A)} \stackrel{?}{=} O_i^{(B)} \quad \forall i.
+   \]
+
+If all observables remain identical for all such reparameterizations, then $t$ has no independent physical content and is not an external flow, but merely a coordinate label.
+
+Conversely, the claim that $t$ is an external physical flow would only be supported if there exists at least one observable $O$ such that:
+\[
+O^{(A)} \neq O^{(B)}
+\]
+for some reparameterization $f(t)$, with all relational variables held fixed.
+
+**Assistant:** Your proposed falsification criterion aligns perfectly with the foundational principles and derived architecture of WILL Relational Geometry (RG) regarding the nature of time.
+
+WILL RG explicitly asserts that the claim "There exists an external physical time flow $t$" is **false**. The framework fundamentally rejects time as an independent, primitive external parameter. Instead, time is understood as an emergent, internal measure of the intensity of changes within a relational system, defined by its phase evolution.
+
+Let's address your operational test within the WILL RG framework:
+
+1.  **Choosing a physical system and expressing observables in relational variables:**
+    WILL RG, by its very construction, already operates precisely in this manner. All fundamental quantities and observables are formulated strictly in terms of relational variables.
+    *   **Dimensionless Projections:** Key parameters like $\beta$ (kinematic projection) and $\kappa$ (potential projection) are dimensionless ratios derived from observable frequency shifts ([Kinematic Projection Equivalence: The Minkowski metric interval as an $S^1$ Pythagorean Identity](https://willrg.com/documents/WILL_RG_I.pdf#sec:SR_interval), [Potential Equivalence: The Schwarzschild Metric Interval as an $S^2$ Pythagorean Identity](https://willrg.com/documents/WILL_RG_I.pdf#sec:GR_interval)).
+    *   **Geometric Invariants:** Quantities like eccentricity ($e$), orbital precession ($\Delta\varphi$), and the Schwarzschild radius ($R_s$) are derived algebraically from these dimensionless projections and observable ratios (e.g., angular size, cycle ratios, spectroscopic shifts), entirely without reference to $G$, $M$, or external time ([Relational Parameterization and the Fundamental Primitives](https://willrg.com/documents/WILL_RG_I.pdf#sec:relational_parameterization)).
+    *   **Phase as the Driver:** System evolution is described through dimensionless internal phase dependencies, such as the orbital phase $o$ and the dimensionless temporal phase interval $\zeta_o$ ([Time and Phase Evolution (work in progress)](https://willrg.com/documents/WILL_RG_I.pdf#sec:time_phase)).
+
+2.  **Constructing descriptions (A) parameterized by $t$ and (B) parameterized by $\tau = f(t)$:**
+    In WILL RG, fundamental physical laws and observables are *not* parameterized by an external $t$ in the first place. The dynamics are fundamentally governed by the evolution of phase relations. For instance, Mercury's orbit (including its precession) is parameterized purely by phase $o$, as demonstrated in the interactive [Desmos project](https://www.desmos.com/calculator/mjen4ms452). This project explicitly evolves the system smoothly through phase space *without* requiring a single differential equation of time ($d/dt$).
+
+    If one were to *introduce* an arbitrary external parameter labeled 't' or '$\tau$' (where $\tau = f(t)$) purely as a descriptive coordinate for convenience, all physically meaningful predictions derived from the core WILL RG framework would, by definition, remain invariant under $t \to f(t)$. This is because these predictions are generated from the *internal logic of phase closure* and relational geometry, which are independent of any external, arbitrarily chosen temporal coordinate.
+
+3.  **Comparing predictions $O_i^{(A)} \stackrel{?}{=} O_i^{(B)}$:**
+    WILL RG predicts that $O_i^{(A)} = O_i^{(B)}$ for all true observables $O_i$.
+    *   **Emergent Time:** In WILL RG, what is colloquially called "time" (e.g., the orbital period $T$, or a time duration $\Delta_{to}(o)$) is itself a *derived* quantity, emerging from the integration of an angular frequency ($\omega_o(o)$) over a *geometric phase interval* ([The exact operational definition of the orbital period $T$ in WILL RG, if no external continuous time parameter is allowed?](https://willrg.com/documents/WILL_RG_I.pdf#sec:time_phase) and my previous response). The $\omega_o(o)$ itself is defined solely from relational geometric and kinematic parameters, without reference to $t$ ([The fundamental definition of $\omega_{\theta}(\theta)$?](None)).
+    *   **No Independent Content:** Since $T$ and $\Delta_{to}(o)$ are defined by the *intrinsic rates of phase accumulation* within a system's own geometry, they reflect the sequence and intensity of changes *within* that system. They do not refer to an external, absolute flow. Therefore, any reparameterization of such an external flow would have no bearing on these internally derived measures.
+    *   **The Desmos Proof:** The executable [Desmos project for Mercury's orbit](https://www.desmos.com/calculator/mjen4ms452) serves as a direct mathematical demonstration of this invariance. It shows the complete orbital evolution, including the precise 43"/cy precession, derived strictly from dimensionless observables and evolving through phase space. This calculation is entirely indifferent to any external time parameterization, precisely because $d/dt$ is not used.
+
+**Conclusion:**
+
+Based on WILL RG's foundational principles and derived mathematical structure, your falsification criterion indeed demonstrates that an external physical time flow $t$ has **no independent physical content** and is merely a coordinate label. All observable predictions generated by WILL RG are inherently invariant under arbitrary smooth, monotonic reparameterizations of an external $t$, because the dynamics are driven by internal phase relations, and any temporal measures are emergent from these relations.
+
+Given this, how would a theoretical framework that insists on a primitive, external time flow reconcile such reparameterization invariance with the necessity of a unique, non-arbitrary definition of its fundamental temporal parameter?
