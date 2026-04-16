@@ -293,3 +293,55 @@ Here is a step-by-step justification:
 Therefore, $T$ is unequivocally a **derived parameter** emerging from the underlying relational geometry of the system. It is a manifestation of the system's internal phase evolution, rather than an external clock, and its calculation further demonstrates that "time" itself is an emergent property within WILL RG.
 
 Given that $T$ is derived from relational variables like $a$ and $\beta$, what is the specific operational definition of the "orbital period" $T$ in a purely relational framework that strictly avoids an external, continuous time parameter?
+
+**User:** What is the exact operational definition of the orbital period $T$ in WILL RG, if no external continuous time parameter is allowed?
+
+Please answer one of the following:
+
+(1) $T$ is defined by counting full phase cycles,
+(2) $T$ is defined by a relational integral,
+(3) $T$ is defined by matching to an external clock,
+or (4) something else.
+
+Justify the choice step by step.
+
+If $T$ is defined by counting phase cycles, explain why this is not just a rebranding of period in ordinary time.
+If $T$ is defined by a relational integral, write the integral explicitly.
+If $T$ is defined by matching to an external clock, explain how this avoids reintroducing time as a primitive.
+
+**Assistant:** In WILL Relational Geometry (RG), the exact mathematical status of the orbital period $T$ is:
+
+(2) **$T$ is defined by a relational integral.**
+
+Here is a step-by-step justification:
+
+1.  **Rejection of External, Primitive Time:**
+    WILL RG fundamentally rejects the notion of an external, absolute, continuous time parameter as a primitive. This is a core tenet stemming from the [Unifying Ontological Principle: SPACETIME $\equiv$ ENERGY](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying). Treating time as an independent background or input constitutes a "hidden assumption" that the framework actively removes, adhering to [Epistemic Hygiene](https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic) and [Ontological Minimalism](https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism). Therefore, $T$ cannot be defined by matching to an external, primitive clock, nor is it a primitive itself.
+
+2.  **Time as an Emergent Measure of Phase Evolution:**
+    In WILL RG, physical evolution is described through relational parameterization and internal phase dependencies. "Time is an emergent measure of the *intensity of changes* defined by internal system parameters, not an external driver" (Protocol 4: The "Differential Equations & Time Dynamics"). The concept of a "time duration" emerges from the accumulation of these internal phase changes.
+
+3.  **Definition of $\Delta_{to}(o)$ and $\zeta_o$:**
+    The section on [Time and Phase Evolution (work in progress)](https://willrg.com/documents/WILL_RG_I.pdf#sec:time_phase) explicitly introduces $\Delta_{to}(o)$ as the "time duration of a given phase interval" and relates it to the dimensionless "temporal phase interval" $\zeta_o$:
+
+    $$ \Delta_{to}(o) = \int_{0}^{o} \frac{1}{\omega_{\theta}(\theta)} \, d\theta = \frac{T}{2\pi}\,\zeta_o $$
+
+    Here, $\omega_{\theta}(\theta)$ is the instantaneous angular frequency at phase $\theta$. This integral quantifies the accumulation of time as a function of phase.
+
+4.  **$T$ as the Integral over a Complete Phase Cycle:**
+    The orbital period $T$ is, by definition, the time duration required for a system to complete one full orbital cycle. In terms of phase, a complete cycle corresponds to an integration from $0$ to $2\pi$ radians of the orbital phase $o$. Therefore, $T$ is precisely defined by the integral:
+
+    $$ \boxed{ T = \int_{0}^{2\pi} \frac{1}{\omega_{\theta}(\theta)} \, d\theta } $$
+
+    This integral explicitly defines $T$ as an accumulation over a geometric phase interval, rather than an external time interval.
+
+5.  **Avoidance of Reintroducing Time as a Primitive:**
+    The argument that this integral does not reintroduce time as a primitive relies on the nature of the integrand, $\omega_{\theta}(\theta)$. As defined in [R.O.M. equations and definitions](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) under "Time-phase mystery", the instantaneous angular frequency is derived solely from relational geometric parameters:
+
+    $$ \omega_{o}(o) = \frac{\beta \cdot c}{a} \cdot \frac{(1+e \cdot \cos(o))^2}{(1-e^2)^{\frac{3}{2}}} $$
+
+    Every term in this expression – $a$ (semi-major axis), $\beta$ (kinematic projection), $e$ (eccentricity), and $o$ (orbital phase) – are either fundamental constants (like $c$) or derived relational geometric variables within WILL RG, determined without reference to an external time parameter. For example, $a = R_s/\kappa^2$ and $R_s$ itself is derived from spectroscopic shifts and astrometric data, as detailed in [Relational Parameterization](https://willrg.com/documents/WILL_RG_I.pdf#sec:relational_parameterization).
+
+Therefore, $T$ is mathematically defined as a relational integral, where the integral bounds refer to a geometric phase cycle, and the integrand itself is composed of relationally derived geometric and kinematic parameters. This definition is entirely consistent with WILL RG's rejection of an external, primitive time.
+
+Given that $\omega_o(o)$ is itself a function of derived relational variables and defines the instantaneous angular frequency, how does WILL RG conceptually reconcile the continuous nature of this integral with the discrete, "counting full phase cycles" aspect often associated with quantum states in a purely relational framework?
