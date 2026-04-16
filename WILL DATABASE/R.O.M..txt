@@ -142,7 +142,7 @@ $W=\frac{\beta^{2}}{2}=\frac{1}{2}(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{1}{4}\kap
 $\Delta\phi=\frac{2\pi\cdot\tau_{Y}^{2}}{1-e_{\alpha}^{2}}=\frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}}$ (precession of perihelion per orbit) \\
 $h_{W}=a\cdot\beta c\cdot e_{Y}$ (angular momentum, invariant at focal points) \\
 $\omega=\frac{\beta c}{a}$ (angular frequency) \\
-$T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi~r_{o}(O_{o})}{\beta_{o}(O_{o})c}=\frac{\pi R_{\epsilon}}{2\sqrt{2}c}W^{-\frac{3}{2}}$ (orbital period) \\
+$T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi~r_{o}(O_{o})}{\beta_{o}(O_{o})c}=\frac{\pi R_{s}}{c\beta^{3}}=\frac{\pi R_{\epsilon}}{2\sqrt{2}c}W^{-\frac{3}{2}}$ (orbital period) \\
 
 Eccentricity Relations \\
 $e=\frac{1}{\delta_{p}}-1=1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}=\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1$ (eccentricity derived from closure) \\
@@ -156,7 +156,7 @@ $\zeta=(1-e^{2})^{\frac{3}{2}}\cdot(\int_{0}^{o}(1+e\cdot\cos(\theta))^{-2}d\the
 
 \subsubsection*{Perihelion Relations} 
 $r_{p} = a(1-e)=\frac{R_s}{\kappa_p^2}$ (radius at perihelion) \\
-$\kappa_{p} = \kappa\sqrt{\frac{1}{1-e}} = Q_{p}\sqrt{\frac{2}{3+e}}$ (potential projection at perihelion) \\
+$\kappa_{p} = \kappa\sqrt{\frac{1}{1-e}} = \sqrt{\frac{2\beta^2}{1-e}}=Q_{p}\sqrt{\frac{2}{3+e}}$ (potential projection at perihelion) \\
 $\kappa_{Xp} = \sqrt{1-\kappa_{p}^2} $  (potential phase projection at perihelion)
 $\beta_{p} = \frac{V_{p}}{c} = \beta\ \sqrt{\frac{1+e}{1-e}}=\frac{\kappa_{p}}{\sqrt{2\delta_{p}}}= \frac{\kappa_{p}}{\sqrt{2}}\sqrt{1+e}$ (kinetic projection at perihelion) \\
 $\delta_p = \frac{\kappa_{p}^2}{2\beta_{p}^2 }= \frac{1}{1+e}$ (closure factor at perihelion) \\
@@ -172,13 +172,13 @@ $Q_{a} = \sqrt{\kappa_{a}^{2}+\beta_{a}^{2}}$  (relational shift at aphelion) \\
 \subsubsection*{Phase Variables (Depend on $o$)} 
 $o = \text{orbital phase in radians}$ \\
 $r = r_o (o)= a\frac{1-e^{2}}{1+e\cos o} = \frac{R_s}{\kappa_o^2}$  (radial distance at phase $o$) \\
-$\kappa_{o} = \sqrt{\frac{R_{s}}{r}} = 1-(1+z_{\kappa o}(o))^{-2} =\kappa_{p}\sqrt{\frac{1+e\cos (o)}{1+e}}=\beta^{2}+\beta_{o}^{2}$ (local potential at phase $o$) \\
+$\kappa_{o} = \sqrt{\frac{R_{s}}{r}} = 1-(1+z_{\kappa o}(o))^{-2} =\kappa_{p}\sqrt{\frac{1+e\cos (o)}{1+e}}=\beta^{2}+\beta_{o}^{2}=\sqrt{\kappa_{surface}^2 \cdot \sin(\theta_{obs})}$ (local potential at phase $o$) \\
 $\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=(z_{\kappa o}(o)+1)^{-1}$   (gravitational phase factor at phase $o$) \\
-$\beta_{o}(o) = \sqrt{\kappa_{o}^{2}-2W}=\frac{\kappa_{o}(o)}{\sqrt{2 \delta_{o}(o)\ }}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}{\sqrt{1-e^{2}}}=\sqrt{\frac{\kappa_{o}(o)^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(o)}{\ \ 1+e\cdot\cos(o)}}=\sqrt{\frac{R_{s}}{r_{o}(o)}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o}(o))^{-2}}$ (kinetic projection at phase o)\\
+$\beta_{o}(o) =\sqrt{\frac{2\beta^{2}}{1-e}-\beta^{2}}= \sqrt{\kappa_{o}^{2}-2W}=\frac{\kappa_{o}(o)}{\sqrt{2 \delta_{o}(o)\ }}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}{\sqrt{1-e^{2}}}=\sqrt{\frac{\kappa_{o}(o)^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(o)}{\ \ 1+e\cdot\cos(o)}}=\sqrt{\frac{R_{s}}{r_{o}(o)}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o}(o))^{-2}}$ (kinetic projection at phase o)\\
 $\beta_{R}(o)=\beta\ \frac{e\sin (o)}{\sqrt{1-e^{2\ }}}=\sqrt{\beta_{o}(o)^{2}-\beta_{T}(o)^{2}}=\sqrt{((1-(1+z_{\kappa o}(o))^{-2})-2W)-\frac{r_{o}(o)^{2}\omega_{o}(o)^{2}}{c^{2}}}$  (radial kinetic projection at phase o) \\
 $\beta_{T}(o)=\frac{r_{o}(o)\omega_{o}(o)}{c}=\beta\frac{1+e\cos(o)}{\sqrt{1-e^{2}}}$  (transverse kinetic projection at phase o) \\
 $\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{\beta o}(o)+1)^{-1}$    (relativistic phase factor at phase $o$) \\
-$\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}(o)^2}$ (local closure factor at phase $o$) \\
+$\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $o$) \\
 $Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift vector at phase $o$) \\
 $\omega_o = a\beta c\frac{e_{Y}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e\cos o)^{2}}{(1-e^{2})^{3/2}}$ (angular speed at phase $o$) \\
 $\eta_{o} = \frac{r}{a}=2-\frac{2\beta_{o}(o)^{2}}{\kappa_{o}(o)^{2}}$  (phase scale amplitude at phase $o$) \\
@@ -207,6 +207,11 @@ $Z_{rawmin}=Z_{sys}(\pi-\omega_{i})(1+K_{i}(-1+e\cos\omega_{i}))$ \\
 $O_{oi}=(O_{o}+\omega_{i})$ \\
 $Z_{sys}(-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}+2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1+e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
 $Z_{sys}(\pi-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}-2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1-e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
+\begin{tcolorbox}[colback=white, colframe=black, title=The Decryption Invariant]
+\begin{equation}
+Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2
+\end{equation}
+\end{tcolorbox}
 
 \subsubsection*{Un-tilted 2D coordinates within the orbital plane}
 $x_{orb} = r(o) \cos(o + \omega_i)$ \\
