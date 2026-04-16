@@ -98,7 +98,7 @@
 
 \subsection{Closed Algebraical System of R.O.M. Equations}
 
-Dedicated sections in WILL RG Part I: \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:rom}{https://willrg.com/documents/WILL_RG_I.pdf-sec:rom}
+Dedicated sections in WILL RG Part I: \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:rom}{https://willrg.com/documents/WILL RG I.pdf-sec:rom}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
 \textbf{ \href{https://www.desmos.com/calculator/n4lmkpsebx}{R.O.M.}}
@@ -125,7 +125,7 @@ $z_{\beta o}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
 
 \subsubsection*{Global System Parameters (Fixed for the Orbit)}
 $\kappa = \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)} =\sqrt{4W}=\sqrt{2(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})}=$
-$=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})}=\sqrt{1-(1+z_{\kappa})^{-2}}=\kappa_R^2 \left(\frac{I_t}{T}\right)^{\frac{2}{3}}$ (potential projection at semi-major axis)\\
+$=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})}=\sqrt{1-(1+z_{\kappa})^{-2}}=\kappa_R^2 \left(\frac{I_t}{T}\right)^{\frac{2}{3}}=\kappa_{o}^{2}\cdot\eta_{o}$ (potential projection at semi-major axis)\\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}=\frac{1}{(1+z_{\kappa})}$ (potential phase factor) \\
 $\beta = \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \sqrt{2W}=\frac{4\pi^{2}a^{2}}{T^{2}c^{2}}=\left(\frac{R_{s}}{\frac{T}{\pi} c}\right)^{\frac{2}{3}}=\sqrt{(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})} =\sqrt{\frac{\kappa_{p}^{2}}{2}(1-e)}=$
 $=\sqrt{\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot\left(1+\left(\frac{1}{\delta_{o}(o)}-1\right)\right)}=\beta_{o}(o)\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}=\sqrt{1-(1+z_{\beta})^{-2}}$ (kinetic projection on semi major axis) \\
@@ -140,16 +140,16 @@ $m_{0}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}$ (mass parameter) \\
 $t=\frac{a}{c}$(temporal scale of the system) \\
 $W=\frac{\beta^{2}}{2}=\frac{1}{2}(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{1}{4}\kappa_{p}^{2}(1-e)=\frac{1}{2}(\kappa_{o}(o)^{2}-\frac{\kappa_{o}(o)^{2}}{2\delta_{o}(o)})=\frac{1}{2}((1-(1+z_{\kappa o}(o))^{-2})-(1-(1+z_{\beta o}(o))^{-2}))=(\frac{\pi R_{s}}{2\sqrt{2}cT_{o}})^{\frac{2}{3}}$ (energy invariant - binding energy) \\
 $\Delta\phi=\frac{2\pi\cdot\tau_{Y}^{2}}{1-e_{\alpha}^{2}}=\frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}}$ (precession of perihelion per orbit) \\
-$h_{W}=a\cdot\beta c\cdot e_{Y}$ (angular momentum, invariant at focal points) \\
+$h_{W}=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}=R_s c \frac{\sqrt{1-e^2}}{2\beta}$ (angular momentum, invariant at focal points) \\
 $\omega=\frac{\beta c}{a}$ (angular frequency) \\
 $T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi~r_{o}(O_{o})}{\beta_{o}(O_{o})c}=\frac{\pi R_{s}}{c\beta^{3}}=\frac{\pi R_{\epsilon}}{2\sqrt{2}c}W^{-\frac{3}{2}}$ (orbital period) \\
 
-Eccentricity Relations \\
+\subsubsection*{Eccentricity Relations}
 $e=\frac{1}{\delta_{p}}-1=1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}=\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1$ (eccentricity derived from closure) \\
 $e_{Y}=\sqrt{1-e^{2}}$ (eccentricity's orthogonal value) \\
 $e_{X}=\frac{1+e}{1-e}=\frac{r_{a}}{r_{p}}=\frac{\delta_{a}}{\delta_{p}}=\frac{\beta_{p}}{\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (shape factor, still looks like magic to me) \\
 
-Time-phase mystery \\
+\subsubsection*{Time-phase}
 $\omega_{o}(o)=\frac{\beta\cdot c}{a}\cdot\frac{(1+e\cdot cos(o))^{2}}{(1-e^{2})^{\frac{3}{2}}}$ (angular frequency at phase o) \\
 $\Delta_{to} (o) = \int_{0}^{o}\frac{1}{\omega_{\theta}(\theta)}\,d\theta =\frac{a}{\beta c}\zeta= \frac{T_{O}}{2\pi}\zeta$  (time duration of given phase interval) \\
 $\zeta=(1-e^{2})^{\frac{3}{2}}\cdot(\int_{0}^{o}(1+e\cdot\cos(\theta))^{-2}d\theta)=\frac{1}{\sqrt{1-e^{2}}}\int_{0}^{o}(\frac{t_{o}(\theta)}{t})^{2}d\theta$ (Temporal Phase interval) \\
@@ -172,11 +172,12 @@ $Q_{a} = \sqrt{\kappa_{a}^{2}+\beta_{a}^{2}}$  (relational shift at aphelion) \\
 \subsubsection*{Phase Variables (Depend on $o$)} 
 $o = \text{orbital phase in radians}$ \\
 $r = r_o (o)= a\frac{1-e^{2}}{1+e\cos o} = \frac{R_s}{\kappa_o^2}$  (radial distance at phase $o$) \\
-$\kappa_{o} = \sqrt{\frac{R_{s}}{r}} = 1-(1+z_{\kappa o}(o))^{-2} =\kappa_{p}\sqrt{\frac{1+e\cos (o)}{1+e}}=\beta^{2}+\beta_{o}^{2}=\sqrt{\kappa_{surface}^2 \cdot \sin(\theta_{obs})}$ (local potential at phase $o$) \\
+$\kappa_{o} =\sqrt{\beta_R(o)^2 + \beta_T(o)^2 + \beta^2}= \sqrt{\frac{R_{s}}{r}} = 1-(1+z_{\kappa o}(o))^{-2} =\kappa_{p}\sqrt{\frac{1+e\cos (o)}{1+e}}=\beta^{2}+\beta_{o}^{2}=\sqrt{\kappa_{surface}^2 \cdot \sin(\theta_{obs})}$ (local potential at phase $o$) \\
 $\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=(z_{\kappa o}(o)+1)^{-1}$   (gravitational phase factor at phase $o$) \\
-$\beta_{o}(o) =\sqrt{\frac{2\beta^{2}}{1-e}-\beta^{2}}= \sqrt{\kappa_{o}^{2}-2W}=\frac{\kappa_{o}(o)}{\sqrt{2 \delta_{o}(o)\ }}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}{\sqrt{1-e^{2}}}=\sqrt{\frac{\kappa_{o}(o)^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(o)}{\ \ 1+e\cdot\cos(o)}}=\sqrt{\frac{R_{s}}{r_{o}(o)}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o}(o))^{-2}}$ (kinetic projection at phase o)\\
+$\beta_{o}(o) =\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}{\sqrt{1-e^{2}}}= \sqrt{\kappa_{o}^{2}-2W}=\frac{\kappa_{o}(o)}{\sqrt{2 \delta_{o}(o)\ }}=$
+$=\sqrt{\frac{\kappa_{o}(o)^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(o)}{\ \ 1+e\cdot\cos(o)}}=\sqrt{\frac{R_{s}}{r_{o}(o)}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o}(o))^{-2}}$ (kinetic projection at phase o)\\
 $\beta_{R}(o)=\beta\ \frac{e\sin (o)}{\sqrt{1-e^{2\ }}}=\sqrt{\beta_{o}(o)^{2}-\beta_{T}(o)^{2}}=\sqrt{((1-(1+z_{\kappa o}(o))^{-2})-2W)-\frac{r_{o}(o)^{2}\omega_{o}(o)^{2}}{c^{2}}}$  (radial kinetic projection at phase o) \\
-$\beta_{T}(o)=\frac{r_{o}(o)\omega_{o}(o)}{c}=\beta\frac{1+e\cos(o)}{\sqrt{1-e^{2}}}$  (transverse kinetic projection at phase o) \\
+$\beta_{T}(o)=\frac{r_{o}(o)\omega_{o}(o)}{c}=\beta\frac{1+e\cos(o)}{\sqrt{1-e^{2}}}=\kappa_o^2 \frac{\sqrt{1-e^2}}{2\beta}$  (transverse kinetic projection at phase o) \\
 $\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{\beta o}(o)+1)^{-1}$    (relativistic phase factor at phase $o$) \\
 $\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $o$) \\
 $Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift vector at phase $o$) \\
@@ -184,7 +185,15 @@ $\omega_o = a\beta c\frac{e_{Y}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e\cos o)
 $\eta_{o} = \frac{r}{a}=2-\frac{2\beta_{o}(o)^{2}}{\kappa_{o}(o)^{2}}$  (phase scale amplitude at phase $o$) \\
 $\tau(o)=\kappa_{Xo}(o)\cdot\beta_{Yo}(o)= Z_{sys}(o)^{-1}$ (phase spacetime factor at phase $o$) \\
 $t_o=\frac{ r_o (o)}{c}$ (light time scale at phase o) \\
-$\Delta_o=3\beta_{int}^{2} \cdot o$   (precession of perihelion at phase $o$)
+$\Delta_o=3\beta_{int}^{2} \cdot o$   (precession of perihelion at phase $o$) \\
+
+\subsubsection*{Orbital Phase Invariants}
+
+$\frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt{1-e^2}}{2\beta}$ \\
+$W=\frac{1}{2}(\kappa_{o}^{2}-\beta_{o}^{2})$ \\
+$h_{W}=r_{o}^{2} \cdot \omega_{o}$ \\
+
+
 
 \subsubsection*{Relational Geometry (WILL)} 
 $\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical)  \\
@@ -193,7 +202,7 @@ $\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational shift amplitude at phase $o$) \
 $O_{o} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos(1-\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}})=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (orbital balance point where $\kappa_o^2=2\beta_o^2$ is true) \\
 
 \subsubsection*{Structural-Dynamical Equivalence}
-$\frac{r_{a}}{r_{p}}= \frac{\delta_{a}}{\delta_{p}} = \frac{1+e}{1-e}=\frac{\beta_{p}}{\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (remarkable equivalence of structural ($\kappa$ on $S^2$ carrier) and dynamical ($\beta$ on $S^1$ carrier) asymmetry suggesting once again that $SPACETIME \equiv ENERGY$) \\
+$\frac{r_{a}}{r_{p}}= \frac{\delta_{a}}{\delta_{p}} = \frac{1+e}{1-e}=\frac{\beta_{p}}  {\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (remarkable equivalence of structural ($\kappa$ on $S^2$ carrier) and dynamical ($\beta$ on $S^1$ carrier) symmetry suggesting once again that $SPACETIME \equiv ENERGY$) \\
 
 
 \subsubsection*{Observer dependant} 
@@ -213,11 +222,12 @@ Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \
 \end{equation}
 \end{tcolorbox}
 
+
+\subsection*{Background Free Parametric Equations for the Observed Orbit}
+
 \subsubsection*{Un-tilted 2D coordinates within the orbital plane}
 $x_{orb} = r(o) \cos(o + \omega_i)$ \\
 $y_{orb} = r(o) \sin(o + \omega_i)$ \\
-
-\subsubsection*{Parametric equations for the observed orbit, entirely free of the absolute ICRF background}
 
 $\begin{bmatrix} x_{sky} \\ y_{sky} \\ z_{depth} \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos(i) & -\sin(i) \\ 0 & \sin(i) & \cos(i) \end{bmatrix} \begin{bmatrix} x_{orb} \\ y_{orb} \\ 0 \end{bmatrix}$ \\
 
