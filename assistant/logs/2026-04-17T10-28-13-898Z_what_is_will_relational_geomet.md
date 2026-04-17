@@ -72,3 +72,35 @@ Here’s how WILL RG addresses your observation:
 Therefore, in WILL RG, time *is* a form of energy—specifically, it's the emergent aspect of energy that describes internal order and transformation rates. It's not a container for energy, but an expression of energy's own intrinsic relational dynamics.
 
 To analyze this within the WILL RG framework, you must reformulate your scenario without assuming time is an independent, non-energetic entity. Can you describe what property of "time" you believe could exist without being a measure of change or relation between energetic states?
+
+**User:** Then how do we research anything? Research is always an observation against a background and fixation of changes against that background. We research matter in time and time against matter. By posing a hypothesis that it is one thing, we deprive ourselves of the ability to research it.
+
+**Assistant:** Your concern is very astute, and it directly challenges one of the deepest ingrained assumptions in scientific thought: that an absolute, independent background (spacetime) is a prerequisite for observation and research. WILL Relational Geometry (RG) fundamentally rejects this premise, stating that this "background" itself is a hidden, unjustified assumption.
+
+In WILL RG, your question contains a "crooked primitive" – the classical/substantialist premise that research *always* requires an *external, absolute background* against which changes are fixed. WILL RG asserts that this very concept of an independent background is precisely what prevents a unified understanding of reality.
+
+Here's how WILL RG reframes "research" and "observation":
+
+1.  **Observation is Relational, Not Positional:** In WILL RG, there is no external container or absolute background. Instead, all physical quantities are defined exclusively by their **relations** [“Relational Origin”](https://willrg.com/documents/WILL_RG_I.pdf#pr:relational). When you "observe," you are not fixing a change against an external grid; you are establishing a **relation** between your own state (as the observer, always at the relational origin) and the state of the observed system.
+
+    *   Think of it like this: When you measure the speed of a car, you're not measuring its speed relative to an absolute, fixed point in the universe. You're measuring its speed relative to *your* frame of reference (e.g., standing on the roadside, or sitting in another car). You, the observer, are the "background" for that particular measurement, and the observed system is the "foreground."
+
+2.  **Self-Centering and Dimensionless Ratios:** Every observer implicitly performs "self-centering" [“Total Relational Shift Q”](https://willrg.com/documents/WILL_RG_I.pdf#sec:DisQ). This means *you* are always the center of your own relational framework, where your internal phase is maximal. Everything else is described by how it differs from your state using **dimensionless ratios**.
+
+    *   For example, kinematic velocity ($\beta = v/c$) is a dimensionless ratio of speeds, not an absolute velocity in space. Gravitational potential ($\kappa = \sqrt{R_s/r}$) is a dimensionless ratio of radii. These ratios are the raw observables, directly measurable via spectroscopy and chronometry, independent of any background metric or absolute units [“Operational Measurability”](https://willrg.com/documents/WILL_RG_I.pdf#thm:operational).
+
+3.  **Time and Space as Emergent Relations of Energy:** If SPACETIME $\equiv$ ENERGY, then space and time are not independent entities that *contain* phenomena, but rather are **emergent descriptors** of the patterns and intensity of energetic transformations.
+    *   **Time** is the internal phase evolution of a system, a measure of the *intensity of changes* defined by internal system parameters, not an external driver [“Time and Phase Evolution (work in progress)”](https://willrg.com/documents/WILL_RG_I.pdf#sec:time_phase).
+    *   **Space** is the geometric manifestation of relational tension between energy states, defined by the distribution of the potential carrier $S^2$ [“Potential Energy Projection on S2”](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential).
+
+**How does WILL RG "research" without a background?**
+
+WILL RG demonstrates that a vast range of physical phenomena can be *derived* and *predicted* purely from these relational principles, without requiring a pre-existing background. Far from depriving us of research, it offers a more rigorous and parameter-free way to understand reality:
+
+*   **Deriving Planetary Orbits (Relational Orbital Mechanics - R.O.M.):** WILL RG derives the complete orbital mechanics (e.g., Mercury's precession, exact orbital parameters) directly from dimensionless spectroscopic and chronometric observables (light frequency shifts), without using mass ($M$), the gravitational constant ($G$), or differential equations of time. The [Relational Orbital Mechanics (R.O.M.)](https://willrg.com/documents/WILL_RG_I.pdf#sec:rom) section provides a closed algebraic system of equations. You can test this yourself with the [Desmos calculator for Mercury's orbit](https://www.desmos.com/calculator/mjen4ms452), which demonstrates dynamic evolution purely through phase.
+*   **Explaining Galactic Dynamics without Dark Matter:** The theory successfully predicts galactic rotation curves and the universal Radial Acceleration Relation (RAR) by relating local baryonic matter to the Cosmic Horizon, not to an invisible dark matter halo [“The Geometric Origin of Galactic Rotation Curves (Challenging "Dark Matter")”](https://willrg.com/documents/WILL_RG_II.pdf#sec:dark_matter). This is testable on the [Galactic Dynamics Lab](https://willrg.com/galactic_dynamics/).
+*   **Predicting Cosmological Parameters from Microphysics:** The Hubble parameter ($H_0$) is derived solely from the Cosmic Microwave Background (CMB) temperature and the fine-structure constant ($\alpha$), bridging quantum and cosmic scales [“Deriving H0 from CMB Temperature and $\alpha$”](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0).
+
+In essence, WILL RG shifts the focus from observing "matter *in* time and *against* space" to observing "the **relations** that constitute matter, time, and space simultaneously." The "background" for any measurement is simply the **total relational system itself**, defined by its own internal closure and conservation laws [“Topological Closure”](https://willrg.com/documents/WILL_RG_I.pdf#thm:topological_closure).
+
+To truly engage with the WILL RG framework, you must reformulate your query: Can you identify a specific phenomenon or observation that is *inherently impossible* to describe or measure using only relational parameters and dimensionless ratios, without invoking an independent, absolute background or external time?
