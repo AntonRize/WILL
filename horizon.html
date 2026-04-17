@@ -1,0 +1,139 @@
+import React, { useState, useMemo } from 'react';
+
+const DynamicHorizonSimulator = () => {
+  // WILL Relational Geometry Primitives
+  const [beta, setBeta] = useState(0.40); // Kinematic projection (velocity scale)
+  const [ec, setEc] = useState(0.60);     // Closure defect (eccentricity)
+  const [cycles, setCycles] = useState(5);
+
+  const { points, isSuperHorizon, shiftRate, deltaO } = useMemo(() => {
+    // Exact algebraic evaluation of the relational state
+    const betaSq = beta * beta;
+    const tauYSq = 3 * betaSq - 2 * betaSq * betaSq; // tau_Y^2
+    const ecSq = ec * ec;
+    const shapeFactor = 1 - ecSq; // 1 - e_c^2
+    
+    // Geometric Accumulation
+    const rate = tauYSq / shapeFactor; 
+    const delta_o = 2 * Math.PI * rate;
+    const superHorizonActive = rate >= 1; // Precession outpaces orbital velocity
+
+    const pts = [];
+    const stepsPerCycle = 500;
+    const totalSteps = stepsPerCycle * cycles;
+    
+    // Dynamic visual scaling based on maximum possible apoapsis
+    const r_max = shapeFactor / (1 - ec); 
+    const scale = Math.min(200 / r_max, 180); 
+
+    for (let i = 0; i <= totalSteps; i++) {
+      const o = (i / stepsPerCycle) * 2 * Math.PI; // Orbital phase (true anomaly)
+      
+      // w_shift = (tau_Y^2 * o) / (1 - e_c^2)
+      const w_shift = rate * o;
+      
+      // Exact relational trajectory geometry
+      const r = shapeFactor / (1 + ec * Math.cos(o - w_shift));
+      
+      // Cartesian projection: O_p = (r * cos(o), r * sin(o))
+      const x = r * Math.cos(o) * scale;
+      const y = r * Math.sin(o) * scale;
+      
+      pts.push(`${x},${y}`);
+    }
+
+    return { 
+      points: pts.join(' '), 
+      isSuperHorizon: superHorizonActive, 
+      shiftRate: rate,
+      deltaO: delta_o
+    };
+  }, [beta, ec, cycles]);
+
+  return (
+    <div style={{ backgroundColor: '#0d1117', color: '#c9d1d9', padding: '24px', borderRadius: '8px', fontFamily: 'monospace', maxWidth: '600px', border: '1px solid #30363d' }}>
+      <h2 style={{ margin: '0 0 16px 0', borderBottom: '1px solid #21262d', paddingBottom: '8px', color: '#58a6ff' }}>
+        WILL RG: Dynamic Horizon / Phase Evolution
+      </h2>
+      
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+        <div>
+          <label style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <span>Kinematic Proj (β)</span>
+            <span style={{ color: '#79c0ff' }}>{beta.toFixed(3)}</span>
+          </label>
+          <input 
+            type="range" min="0" max="0.707" step="0.001" 
+            value={beta} 
+            onChange={(e) => setBeta(parseFloat(e.target.value))}
+            style={{ width: '100%', accentColor: '#58a6ff' }} 
+          />
+        </div>
+        
+        <div>
+          <label style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <span>Closure Defect (e_c)</span>
+            <span style={{ color: '#79c0ff' }}>{ec.toFixed(3)}</span>
+          </label>
+          <input 
+            type="range" min="0" max="0.95" step="0.01" 
+            value={ec} 
+            onChange={(e) => setEc(parseFloat(e.target.value))}
+            style={{ width: '100%', accentColor: '#58a6ff' }} 
+          />
+        </div>
+      </div>
+
+      <div style={{ marginBottom: '20px', padding: '12px', backgroundColor: isSuperHorizon ? '#490202' : '#161b22', borderRadius: '6px', border: `1px solid ${isSuperHorizon ? '#ff7b72' : '#30363d'}` }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+          <span>Phase Shift Rate (ω_shift / o):</span>
+          <strong style={{ color: isSuperHorizon ? '#ff7b72' : '#3fb950' }}>{shiftRate.toFixed(4)}</strong>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+          <span>Precession per Orbit (Δ_o):</span>
+          <span>{(deltaO / Math.PI).toFixed(2)}π rad</span>
+        </div>
+        {isSuperHorizon && (
+          <div style={{ color: '#ff7b72', fontWeight: 'bold', marginTop: '10px', textAlign: 'center', fontSize: '0.9em' }}>
+            ⚠ SUPER-HORIZON KINEMATIC LOCKOUT (Rate ≥ 1)<br/>
+            Periodic closure broken. Trajectory in retrograde evolution.
+          </div>
+        )}
+      </div>
+
+      <div style={{ marginBottom: '16px' }}>
+        <label>Orbital Cycles: {cycles}</label>
+        <input 
+          type="range" min="1" max="20" step="1" 
+          value={cycles} 
+          onChange={(e) => setCycles(parseInt(e.target.value))}
+          style={{ width: '100%', accentColor: '#8b949e' }} 
+        />
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#010409', borderRadius: '8px', overflow: 'hidden', border: '1px solid #30363d' }}>
+        <svg width="500" height="500" viewBox="-250 -250 500 500">
+          {/* Reference Grid */}
+          <circle cx="0" cy="0" r="100" fill="none" stroke="#21262d" strokeWidth="1" strokeDasharray="4 4" />
+          <circle cx="0" cy="0" r="200" fill="none" stroke="#21262d" strokeWidth="1" strokeDasharray="4 4" />
+          <line x1="-250" y1="0" x2="250" y2="0" stroke="#21262d" strokeWidth="1" />
+          <line x1="0" y1="-250" x2="0" y2="250" stroke="#21262d" strokeWidth="1" />
+          
+          {/* Origin / Focal Point */}
+          <circle cx="0" cy="0" r="4" fill="#e3b341" />
+          
+          {/* Exact Geometric Trajectory */}
+          <polyline 
+            points={points} 
+            fill="none" 
+            stroke={isSuperHorizon ? "#ff7b72" : "#58a6ff"} 
+            strokeWidth="1.5" 
+            opacity="0.9"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+export default DynamicHorizonSimulator;
