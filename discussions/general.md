@@ -4,16 +4,7 @@ title: "General discussion"
 permalink: /discussions/general/
 ---
 
-<!--
-  ONE-TIME SETUP before the giscus widget below will render comments:
-  1. Enable Discussions on https://github.com/AntonRize/WILL/settings
-  2. Create a GitHub Discussions category named exactly "General discussion"
-  3. Go to https://giscus.app, paste repo "AntonRize/WILL", select the category,
-     copy the data-repo-id and data-category-id it shows
-  4. Replace REPO_ID_PLACEHOLDER and CATEGORY_ID_PLACEHOLDER below
-  (The same REPO_ID is reused on collaboration.md and questions.md;
-   each page has its own CATEGORY_ID.)
--->
+<!-- giscus wired to GitHub Discussions category "General discussion" in AntonRize/WILL. Theme/position match giscus.app selections. -->
 
 # 💬 General discussion
 
@@ -49,15 +40,15 @@ Open conversation about WILL Relational Geometry — ideas, reactions, informal 
 <div class="bg-gray-800/50 p-6 rounded-lg mt-4">
   <script src="https://giscus.app/client.js"
           data-repo="AntonRize/WILL"
-          data-repo-id="REPO_ID_PLACEHOLDER"
+          data-repo-id="R_kgDOOzHrqQ"
           data-category="General discussion"
-          data-category-id="CATEGORY_ID_PLACEHOLDER"
+          data-category-id="DIC_kwDOOzHrqc4CrijG"
           data-mapping="pathname"
           data-strict="0"
           data-reactions-enabled="1"
           data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="noborder_dark"
+          data-input-position="bottom"
+          data-theme="dark_high_contrast"
           data-lang="en"
           crossorigin="anonymous"
           async>

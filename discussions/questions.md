@@ -4,13 +4,7 @@ title: "Questions to author"
 permalink: /discussions/questions/
 ---
 
-<!--
-  ONE-TIME SETUP before the giscus widget below will render comments:
-  1. Create a GitHub Discussions category named exactly "Questions to author"
-     (recommended category type: Q&A, so answers can be marked)
-  2. On https://giscus.app, select that category, copy its data-category-id
-  3. Replace REPO_ID_PLACEHOLDER (same as on general.md) and CATEGORY_ID_PLACEHOLDER below
--->
+<!-- giscus wired to GitHub Discussions category "Questions to author" in AntonRize/WILL. -->
 
 # ❓ Questions to author
 
@@ -55,15 +49,15 @@ Direct questions for Anton — about the framework, specific derivations, predic
 <div class="bg-gray-800/50 p-6 rounded-lg mt-4">
   <script src="https://giscus.app/client.js"
           data-repo="AntonRize/WILL"
-          data-repo-id="REPO_ID_PLACEHOLDER"
+          data-repo-id="R_kgDOOzHrqQ"
           data-category="Questions to author"
-          data-category-id="CATEGORY_ID_PLACEHOLDER"
+          data-category-id="DIC_kwDOOzHrqc4C7BxY"
           data-mapping="pathname"
           data-strict="0"
           data-reactions-enabled="1"
           data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="noborder_dark"
+          data-input-position="bottom"
+          data-theme="dark_high_contrast"
           data-lang="en"
           crossorigin="anonymous"
           async>
