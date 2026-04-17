@@ -1,9 +1,10 @@
 ---
 layout: default
 title: "Discussions & Forums"
+permalink: /discussions/
 ---
 
-# 💬 WILL Geometry Discussions
+# 💬 WILL Relational Geometry Discussions
 
 Scientific discussion forums for WILL Geometry research. Join conversations with researchers and contribute to the development of geometric unified physics.
 
@@ -59,4 +60,4 @@ Scientific discussion forums for WILL Geometry research. Join conversations with
 
 ---
 
-**Quick Links:** [Research Documents](/WILL/) | [Calculator](/WILL/calculator/) | [Email Contact](mailto:egeometricity@gmail.com)
+**Quick Links:** [Research Documents](/WILL/results/) | [Predictions](/WILL/predictions/) | [WILL-AI](/WILL/WILL-AI/)
