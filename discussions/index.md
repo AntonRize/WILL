@@ -1,63 +1,45 @@
 ---
 layout: default
-title: "Discussions & Forums"
+title: "Forums"
 permalink: /discussions/
 ---
 
-# 💬 WILL Relational Geometry Discussions
+# 💬 WILL RG Forums
 
-Scientific discussion forums for WILL Geometry research. Join conversations with researchers and contribute to the development of geometric unified physics.
+A simple space for questions, collaboration, and open discussion around WILL Relational Geometry. Reading is open to everyone; posting uses your GitHub account.
 
----
+<div class="grid gap-5 my-10" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
 
-## 🔬 Forums
+  <a href="/discussions/general/" class="block bg-gray-800/50 hover:bg-gray-800/70 p-6 rounded-lg border-l-4 transition-colors no-underline" style="border-color: #22d3ee;">
+    <h3 class="text-xl font-semibold mt-0 mb-2 text-white">💬 General discussion</h3>
+    <p class="text-gray-300 mb-0">Open conversation about the research, the ideas, and anything in between.</p>
+  </a>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
+  <a href="/discussions/collaboration/" class="block bg-gray-800/50 hover:bg-gray-800/70 p-6 rounded-lg border-l-4 transition-colors no-underline" style="border-color: #f59e0b;">
+    <h3 class="text-xl font-semibold mt-0 mb-2 text-white">🤝 Collaboration</h3>
+    <p class="text-gray-300 mb-0">Joint work, co-authoring, shared datasets, and research partnerships.</p>
+  </a>
 
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #e74c3c;">
-    <h3>⚡ Relativity</h3>
-    <p>Special and general relativity within WILL Geometry framework</p>
-    <a href="/WILL/discussions/relativity/" style="color: #e74c3c; font-weight: bold;">→ Join Discussion</a>
-</div>
-
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #8e44ad;">
-    <h3>🌌 Cosmology</h3>
-    <p>Cosmological models, dark energy, and cosmic evolution</p>
-    <a href="/WILL/discussions/cosmology/" style="color: #8e44ad; font-weight: bold;">→ Join Discussion</a>
-</div>
-
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #27ae60;">
-    <h3>⚛️ Quantum Mechanics</h3>
-    <p>Geometric quantization and atomic physics</p>
-    <a href="/WILL/discussions/quantum/" style="color: #27ae60; font-weight: bold;">→ Join Discussion</a>
-</div>
-
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #f39c12;">
-    <h3>❓ General Questions</h3>
-    <p>Basic questions and introductory discussions</p>
-    <a href="/WILL/discussions/general/" style="color: #f39c12; font-weight: bold;">→ Ask Questions</a>
-</div>
-
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #0c5460;">
-    <h3>🤔 Philosophy</h3>
-    <p>Philosophical implications and broader meaning</p>
-    <a href="/WILL/discussions/philosophy/" style="color: #0c5460; font-weight: bold;">→ Join Discussion</a>
-</div>
-
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #95a5a6;">
-    <h3>🤝 Collaboration</h3>
-    <p>Research partnerships and joint projects</p>
-    <a href="/WILL/discussions/collaboration/" style="color: #95a5a6; font-weight: bold;">→ Join Discussion</a>
-</div>
-
-<div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #721c24;">
-    <h3>💻 Technical</h3>
-    <p>Website, calculator, and development support</p>
-    <a href="/WILL/discussions/technical/" style="color: #721c24; font-weight: bold;">→ Technical Support</a>
-</div>
+  <a href="/discussions/questions/" class="block bg-gray-800/50 hover:bg-gray-800/70 p-6 rounded-lg border-l-4 transition-colors no-underline" style="border-color: #a78bfa;">
+    <h3 class="text-xl font-semibold mt-0 mb-2 text-white">❓ Questions to author</h3>
+    <p class="text-gray-300 mb-0">Direct questions for Anton — conceptual, technical, or about the framework.</p>
+  </a>
 
 </div>
 
----
+<div class="bg-gray-900/70 border border-gray-800 rounded-lg p-5 my-8">
+  <h3 class="mt-0 mb-3 text-gray-100 text-base font-semibold">How the forums work</h3>
+  <ul class="text-sm text-gray-300 mb-0 space-y-2 list-disc pl-5">
+    <li>Each subforum has a <strong>Start a new topic</strong> button for full threaded discussions.</li>
+    <li>Topics and replies live on GitHub Discussions — one sign-in, everything is preserved.</li>
+    <li>For quick remarks, an inline comment box sits at the bottom of each subforum page.</li>
+    <li>Please keep it friendly. Disagreement is welcome; rudeness is not.</li>
+  </ul>
+</div>
 
-**Quick Links:** [Research Documents](/WILL/results/) | [Predictions](/WILL/predictions/) | [WILL-AI](/WILL/WILL-AI/)
+<p class="text-sm text-gray-500 mt-8">Looking for older subforum threads? They're preserved as read-only archives:
+<a href="/discussions/relativity/">Relativity</a> · 
+<a href="/discussions/cosmology/">Cosmology</a> · 
+<a href="/discussions/quantum/">Quantum Mechanics</a> · 
+<a href="/discussions/philosophy/">Philosophy</a> · 
+<a href="/discussions/technical/">Technical</a>.</p>
