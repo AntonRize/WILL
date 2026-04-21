@@ -26,7 +26,7 @@
 
 ---
 
-# WILL Relational Geometry — Research Map
+# WILL Relational Geometry — Open Research Map
 
 > **Purpose:** Communicate the full content, structure, and evidence base of the WILL Relational Geometry research programme to any reader — human or LLM — in a single, link-rich document.
 >
@@ -55,7 +55,7 @@ WILL Relational Geometry (RG) is a generative physics framework built from a sin
 | **I** | WILL Part I — Relational Geometry | ~80 pp | [WILL_RG_I.pdf](https://willrg.com/documents/WILL_RG_I.pdf) |
 | **II** | WILL Part II — Relational Approach to the Dark Sector Problem in Cosmology | ~50 pp | [WILL_RG_II.pdf](https://willrg.com/documents/WILL_RG_II.pdf) |
 | **III** | WILL Part III — Relational Quantum Geometry | ~30 pp | [WILL_RG_III.pdf](https://willrg.com/documents/WILL_RG_III.pdf) |
-| **ROM** | Closed Algebraic System of R.O.M. | ~8 pp | [R.O.M..pdf](https://willrg.com/documents/R.O.M..pdf) |
+| **ROM** | Closed Algebraic System of R.O.M. | ~8 pp | [R.O.M..pdf](https://willrg.com/documents/WILL_RG_R.O.M..pdf) |
 | **SvR** | Substantialism vs. Relationalism | ~8 pp | [WILL_RG_Substantialism_vs._Relationalism.pdf](https://willrg.com/documents/WILL_RG_Substantialism_vs._Relationalism.pdf) |
 
 ---
@@ -174,7 +174,7 @@ The standard formulations of physics are recovered as *single-point ontological 
 
 The complete closed algebraic system for bound two-body gravitational dynamics. Every orbital quantity is expressed in terms of (κ, β) projections — no differential equations, no numerical integration required.
 
-**Full equation system:** [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom)
+**Full equation system:** [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf)
 
 ### 5.1 Observational Inputs
 
@@ -434,7 +434,7 @@ Key quantities and where they appear across the research programme.
 | Context | Definition | Document | Link |
 |---------|-----------|----------|------|
 | General | Horizontal projection on S¹; v/c at low speed | Part I | [sec:kinetic](https://willrg.com/documents/WILL_RG_I.pdf#sec:kinetic) |
-| Orbital | Local kinetic state β_o(o) at orbital phase o | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
+| Orbital | Local kinetic state β_o(o) at orbital phase o | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf) |
 | Cosmological | β² = ρ_kin/ρ_max (kinetic energy fraction) | Part II | [lem:rho_tot](https://willrg.com/documents/WILL_RG_II.pdf#lem:rho_tot) |
 | Quantum | β₁ = α (ground-state electron) | Part III | [eq:beta=alpha](https://willrg.com/documents/WILL_RG_III.pdf#eq:beta=alpha) |
 
@@ -443,7 +443,7 @@ Key quantities and where they appear across the research programme.
 | Context | Definition | Document | Link |
 |---------|-----------|----------|------|
 | General | Depth projection on S²; √(R_s/r) at Newtonian limit | Part I | [sec:potential](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential) |
-| Orbital | κ² = R_s/r (gravitational depth at radius r) | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
+| Orbital | κ² = R_s/r (gravitational depth at radius r) | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
 | Cosmological | κ² = ρ_pot/ρ_max; Ω_pot = 2/3 | Part II | [sec:dark_energy](https://willrg.com/documents/WILL_RG_II.pdf#sec:dark_energy) |
 | Quantum | κ_q² = R_q/r_n (electromagnetic depth) | Part III | [sec:atomic-structure](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure) |
 
@@ -468,15 +468,15 @@ Key quantities and where they appear across the research programme.
 | Context | Expression | Document | Link |
 |---------|-----------|----------|------|
 | Definition | δ ≡ κ²/(2β²) | Part I | [def:closure_factor](https://willrg.com/documents/WILL_RG_I.pdf#def:closure_factor) |
-| Circular orbit | δ = 1 | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
-| Perihelion | δ_p = 1/(1+e) | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
-| Aphelion | δ_a = 1/(1−e) | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
+| Circular orbit | δ = 1 | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
+| Perihelion | δ_p = 1/(1+e) | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
+| Aphelion | δ_a = 1/(1−e) | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
 
 ### τ — Relational Spacetime Factor
 
 | Context | Expression | Document | Link |
 |---------|-----------|----------|------|
-| Orbital | τ = κ_X · β_Y = 1/Z_sys | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
+| Orbital | τ = κ_X · β_Y = 1/Z_sys | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
 | Observable | [eq:tau_observable](https://willrg.com/documents/WILL_RG_I.pdf#eq:tau_observable) | Part I | [thm:operational](https://willrg.com/documents/WILL_RG_I.pdf#thm:operational) |
 
 ### a_κ, a_β — Resonance Acceleration Scales
@@ -521,9 +521,9 @@ All predictions derived with **zero free parameters**. Organised to match [willr
 | Q2 | **Fine-structure constant α** | α ≡ β₁ (ground-state kinetic projection) | **α derived, not assumed** — identified as electron's geometric amplitude | [sec:alpha](https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha) | — |
 | Q3 | **Unified relativistic energy formula** | E_{n,j} = m_ec²/√(1+(Zα/n_eff)²) | **Matches Sommerfeld–Dirac exactly** from geometry, not spinor equations | [thm:unified-energy](https://willrg.com/documents/WILL_RG_III.pdf#thm:unified-energy) | — |
 | Q4 | **Geometric spin & Pauli exclusion** | Spin = topological chirality (±½ winding on S¹) | **Two electrons per orbital — derived, not postulated** | [sec:spin-exclusion](https://willrg.com/documents/WILL_RG_III.pdf#sec:spin-exclusion) | — |
-| Q5 | **Geometric uncertainty principle** | Δβ_X·Δβ_Y ≥ ½sin 2θ·(2π/n)² → Δx·Δp ≈ ℏ | **Heisenberg relation emerges** from topological winding granularity | [sec:geometric_uncertainty](https://willrg.com/documents/WILL_RG_III.pdf#sec:geometric_uncertainty) | — |
+| Q5 | **Geometric uncertainty principle** | Δβ_X·Δβ_Y ≥ ½|sin 2θ|·(2π/n)² → Δx·Δp ≈ ℏ | **Heisenberg relation emerges** from topological winding granularity | [sec:geometric_uncertainty](https://willrg.com/documents/WILL_RG_III.pdf#sec:geometric_uncertainty) | — |
 
-
+### 10.4 Additional Empirical Tests
 
 | # | Prediction | Result | Paper Section | Notebook |
 |---|-----------|--------|--------------|----------|
@@ -686,6 +686,8 @@ All scales connected through the same (κ, β) algebra:
 **If you are reviewing the mathematics:** the R.O.M. document (§5) is the most self-contained testable component — a complete closed algebraic system that can be verified against any known orbit. The notebooks provide independent computational verification of every claim.
 
 ---
+
+*This document is maintained alongside the research. To suggest additions or corrections: antonrize@willrg.com*
 
 ## Getting Started
 

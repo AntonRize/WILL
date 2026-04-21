@@ -42,7 +42,7 @@ WILL Relational Geometry (RG) is a generative physics framework built from a sin
 | **I** | WILL Part I — Relational Geometry | ~80 pp | [WILL_RG_I.pdf](https://willrg.com/documents/WILL_RG_I.pdf) |
 | **II** | WILL Part II — Relational Approach to the Dark Sector Problem in Cosmology | ~50 pp | [WILL_RG_II.pdf](https://willrg.com/documents/WILL_RG_II.pdf) |
 | **III** | WILL Part III — Relational Quantum Geometry | ~30 pp | [WILL_RG_III.pdf](https://willrg.com/documents/WILL_RG_III.pdf) |
-| **ROM** | Closed Algebraic System of R.O.M. | ~8 pp | [R.O.M..pdf](https://willrg.com/documents/R.O.M..pdf) |
+| **ROM** | Closed Algebraic System of R.O.M. | ~8 pp | [R.O.M..pdf](https://willrg.com/documents/WILL_RG_R.O.M..pdf) |
 | **SvR** | Substantialism vs. Relationalism | ~8 pp | [WILL_RG_Substantialism_vs._Relationalism.pdf](https://willrg.com/documents/WILL_RG_Substantialism_vs._Relationalism.pdf) |
 
 ---
@@ -161,7 +161,7 @@ The standard formulations of physics are recovered as *single-point ontological 
 
 The complete closed algebraic system for bound two-body gravitational dynamics. Every orbital quantity is expressed in terms of (κ, β) projections — no differential equations, no numerical integration required.
 
-**Full equation system:** [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom)
+**Full equation system:** [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf)
 
 ### 5.1 Observational Inputs
 
@@ -421,7 +421,7 @@ Key quantities and where they appear across the research programme.
 | Context | Definition | Document | Link |
 |---------|-----------|----------|------|
 | General | Horizontal projection on S¹; v/c at low speed | Part I | [sec:kinetic](https://willrg.com/documents/WILL_RG_I.pdf#sec:kinetic) |
-| Orbital | Local kinetic state β_o(o) at orbital phase o | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
+| Orbital | Local kinetic state β_o(o) at orbital phase o | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf) |
 | Cosmological | β² = ρ_kin/ρ_max (kinetic energy fraction) | Part II | [lem:rho_tot](https://willrg.com/documents/WILL_RG_II.pdf#lem:rho_tot) |
 | Quantum | β₁ = α (ground-state electron) | Part III | [eq:beta=alpha](https://willrg.com/documents/WILL_RG_III.pdf#eq:beta=alpha) |
 
@@ -430,7 +430,7 @@ Key quantities and where they appear across the research programme.
 | Context | Definition | Document | Link |
 |---------|-----------|----------|------|
 | General | Depth projection on S²; √(R_s/r) at Newtonian limit | Part I | [sec:potential](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential) |
-| Orbital | κ² = R_s/r (gravitational depth at radius r) | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
+| Orbital | κ² = R_s/r (gravitational depth at radius r) | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
 | Cosmological | κ² = ρ_pot/ρ_max; Ω_pot = 2/3 | Part II | [sec:dark_energy](https://willrg.com/documents/WILL_RG_II.pdf#sec:dark_energy) |
 | Quantum | κ_q² = R_q/r_n (electromagnetic depth) | Part III | [sec:atomic-structure](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure) |
 
@@ -455,15 +455,15 @@ Key quantities and where they appear across the research programme.
 | Context | Expression | Document | Link |
 |---------|-----------|----------|------|
 | Definition | δ ≡ κ²/(2β²) | Part I | [def:closure_factor](https://willrg.com/documents/WILL_RG_I.pdf#def:closure_factor) |
-| Circular orbit | δ = 1 | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
-| Perihelion | δ_p = 1/(1+e) | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
-| Aphelion | δ_a = 1/(1−e) | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
+| Circular orbit | δ = 1 | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
+| Perihelion | δ_p = 1/(1+e) | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
+| Aphelion | δ_a = 1/(1−e) | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
 
 ### τ — Relational Spacetime Factor
 
 | Context | Expression | Document | Link |
 |---------|-----------|----------|------|
-| Orbital | τ = κ_X · β_Y = 1/Z_sys | R.O.M. | [eq:rom](https://willrg.com/documents/R.O.M..pdf#eq:rom) |
+| Orbital | τ = κ_X · β_Y = 1/Z_sys | R.O.M. | [eq:rom](https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom) |
 | Observable | [eq:tau_observable](https://willrg.com/documents/WILL_RG_I.pdf#eq:tau_observable) | Part I | [thm:operational](https://willrg.com/documents/WILL_RG_I.pdf#thm:operational) |
 
 ### a_κ, a_β — Resonance Acceleration Scales
