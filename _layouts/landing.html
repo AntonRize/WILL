@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4YFFSYJGF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4YFFSYJGF');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  {% seo %}
+  {% include seo_extras.html %}
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:       #0f172a;   /* matches LOGOS MAP for site-wide continuity */
+      --panel:    #111a2d;
+      --panel-2:  #0b1324;
+      --hairline: rgba(148, 163, 184, 0.14);
+      --text:     #e2e8f0;
+      --muted:    #94a3b8;
+      --dim:      #64748b;
+      --accent:   #22d3ee;   /* cyan-400 */
+      --accent-2: #60a5fa;   /* blue-400 */
+      --accent-3: #a5f3fc;   /* cyan-200 for hover */
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    /* Soft fade-in on page load — mellow, not flashy */
+    @keyframes softRise {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .rise { opacity: 0; animation: softRise 900ms ease-out forwards; }
+    .rise-1 { animation-delay: 0.05s; }
+    .rise-2 { animation-delay: 0.25s; }
+    .rise-3 { animation-delay: 0.45s; }
+
+    /* --- Typography for landing prose --- */
+    .lead-eyebrow {
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .lead-title {
+      font-weight: 300;
+      letter-spacing: -0.015em;
+      color: #f1f5f9;
+      line-height: 1.1;
+    }
+    .lead-sub {
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .prose-block {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: #cbd5e1;
+      font-weight: 300;
+      max-width: 62ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .prose-block p + p { margin-top: 1.25em; }
+    .prose-block em { color: #e2e8f0; font-style: italic; }
+
+    /* --- Section header pattern --- */
+    .sec-rule {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 auto 1.5rem;
+    }
+    .sec-eyebrow {
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-size: 0.70rem;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+    }
+    .sec-title {
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: #f1f5f9;
+      line-height: 1.25;
+    }
+
+    /* --- Principle cards --- */
+    .principle-card {
+      background: linear-gradient(180deg, rgba(30,41,59,0.35), rgba(15,23,42,0.35));
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .principle-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.35), transparent);
+      opacity: 0.8;
+    }
+    .principle-card:hover {
+      border-color: rgba(34, 211, 238, 0.30);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(2, 6, 23, 0.45), 0 0 0 1px rgba(34, 211, 238, 0.12);
+    }
+    .principle-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .principle-name {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #f1f5f9;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.005em;
+    }
+    .principle-gist {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+      font-weight: 300;
+      flex-grow: 1;
+    }
+    .principle-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      transition: color 200ms ease, gap 200ms ease;
+    }
+    .principle-link:hover { color: var(--accent-3); gap: 0.6rem; }
+    .principle-link svg { width: 14px; height: 14px; transition: transform 200ms ease; }
+    .principle-link:hover svg { transform: translateX(2px); }
+
+    /* --- Energy panel --- */
+    .energy-panel {
+      background: linear-gradient(180deg, rgba(15,23,42,0.55), rgba(15,23,42,0.15));
+      border: 1px solid var(--hairline);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+    @media (min-width: 640px) {
+      .energy-panel { padding: 3rem 3rem; }
+    }
+    .energy-panel::before {
+      content: '';
+      position: absolute;
+      left: 2rem; top: 0;
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    /* --- Go-deeper cards --- */
+    .deeper-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem 1.5rem 1.25rem;
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.4);
+      transition: border-color 200ms ease, background 200ms ease, transform 200ms ease;
+      height: 100%;
+    }
+    .deeper-card:hover {
+      border-color: rgba(96, 165, 250, 0.32);
+      background: rgba(15, 23, 42, 0.7);
+      transform: translateY(-1px);
+    }
+    .deeper-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(34, 211, 238, 0.08);
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+    .deeper-title {
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: #f1f5f9;
+      margin-bottom: 0.35rem;
+    }
+    .deeper-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* --- Attribution link --- */
+    .attribution {
+      font-size: 0.78rem;
+      color: var(--dim);
+      letter-spacing: 0.02em;
+    }
+    .attribution a { color: var(--muted); border-bottom: 1px dotted var(--hairline); }
+    .attribution a:hover { color: var(--accent-3); border-bottom-color: var(--accent-3); }
+
+    /* --- Separator between sections --- */
+    .sec-sep {
+      height: 1px;
+      max-width: 120px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, transparent, var(--hairline), transparent);
+    }
+
+    /* Prefer-reduced-motion: disable rises */
+    @media (prefers-reduced-motion: reduce) {
+      .rise { animation: none; opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  {% include header.html %}
+
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="px-6 sm:px-8 pt-16 sm:pt-24 pb-10 sm:pb-14">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="rise rise-1 mb-6">
+          <span class="lead-eyebrow">Open Research &nbsp;&middot;&nbsp; Foundations of Physics</span>
+        </div>
+        <h1 class="lead-title rise rise-1 text-4xl sm:text-5xl lg:text-6xl mb-5">
+          WILL Relational Geometry
+        </h1>
+        <p class="lead-sub rise rise-2 text-base sm:text-lg max-w-2xl mx-auto">
+          An attempt to derive the laws of physical reality from the most elementary geometric principles &mdash;
+          without introducing new postulates, axioms, or arbitrary choices.
+        </p>
+        <div class="rise rise-3 mt-10 flex justify-center">
+          <a href="#entry" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-cyan-300 transition-colors">
+            <span>Begin</span>
+            <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="sec-sep my-8 sm:my-12"></div>
+
+    <!-- ==================== ENTRY TEXT ==================== -->
+    <section id="entry" class="px-6 sm:px-8 py-14 sm:py-20">
+      <div class="max-w-3xl mx-auto">
+        <div class="sec-rule"></div>
+        <div class="text-center mb-10">
+          <div class="sec-eyebrow mb-3">Why This Research Begins Where It Does</div>
+          <h2 class="sec-title text-2xl sm:text-3xl">A Note Before the First Equation</h2>
+        </div>
+
+        <div class="prose-block">
+          <p>
+            As humans, we often project ourselves onto observed phenomena, obscuring the true
+            nature of reality behind our anthropic tendencies. In order to prevent such
+            misleading practices, we must establish <em>extreme methodological constraints</em>.
+            These constraints are not statements about the nature of reality, but the strict
+            rules of logical purity for constructing a theory.
+          </p>
+          <p>
+            Without strict methodology, any theoretical construct risks that excessive freedom of
+            interpretation will result in a framework that tells us more about ourselves than
+            about the nature of the Universe.
+          </p>
+          <p>
+            The philosophical reasoning behind these particular methodological constraints might
+            deserve its own dedicated publication and can be challenged, but this research's main
+            domain lies within physical reality that can be empirically tested; therefore,
+            empirical alignment is the ultimate test of the methods presented.
+          </p>
+        </div>
+
+        <p class="attribution text-center mt-8">
+          From
+          <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=sec:foundational" target="_blank" rel="noopener noreferrer">
+            WILL Part&nbsp;I &mdash; Foundational Methodological Principles
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <div class="sec-sep"></div>
+
+    <!-- ==================== FIVE PRINCIPLES ==================== -->
+    <section class="px-6 sm:px-8 py-14 sm:py-20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="sec-rule"></div>
+          <div class="sec-eyebrow mb-3">The Methodology</div>
+          <h2 class="sec-title text-2xl sm:text-3xl mb-4">Five Principles, One Constraint</h2>
+          <p class="lead-sub max-w-2xl mx-auto">
+            Before any geometry, any equation, any derivation &mdash; these five rules govern what
+            this research permits itself to assume. Nothing is added; complexity is only removed.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+
+          <!-- Principle 1 -->
+          <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=pr:epistemic"
+             target="_blank" rel="noopener noreferrer"
+             class="principle-card">
+            <div class="principle-num">PRINCIPLE &middot; 01</div>
+            <div class="principle-name">Epistemic Hygiene</div>
+            <p class="principle-gist">
+              Physics by the refusal to import unjustified assumptions. No postulates, no free
+              parameters &mdash; laws are derived by <em>removing</em> hidden assumptions, not by adding
+              new ones.
+            </p>
+            <span class="principle-link">
+              Read in paper
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Principle 2 -->
+          <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=pr:minimalism"
+             target="_blank" rel="noopener noreferrer"
+             class="principle-card">
+            <div class="principle-num">PRINCIPLE &middot; 02</div>
+            <div class="principle-name">Ontological Minimalism</div>
+            <p class="principle-gist">
+              A fundamental theory must proceed from the minimum possible number of ontological
+              assumptions. Every new entity or construct bears the burden of proof.
+            </p>
+            <span class="principle-link">
+              Read in paper
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Principle 3 -->
+          <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=pr:relational"
+             target="_blank" rel="noopener noreferrer"
+             class="principle-card">
+            <div class="principle-num">PRINCIPLE &middot; 03</div>
+            <div class="principle-name">Relational Origin</div>
+            <p class="principle-gist">
+              All physical quantities must be defined by their <em>relations</em>. Absolute properties
+              reintroduce metaphysical artefacts and contradict the foundational insight of
+              relationalism.
+            </p>
+            <span class="principle-link">
+              Read in paper
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Principle 4 -->
+          <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=pr:simplicity"
+             target="_blank" rel="noopener noreferrer"
+             class="principle-card">
+            <div class="principle-num">PRINCIPLE &middot; 04</div>
+            <div class="principle-name">Simplicity</div>
+            <p class="principle-gist">
+              Everything must be expressed in the <em>simplest</em> form possible. Any unjustified
+              complexity risks reintroducing metaphysical artefacts and contradicts the insight
+              of Epistemic Hygiene.
+            </p>
+            <span class="principle-link">
+              Read in paper
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Principle 5 -->
+          <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=pr:Mathematical"
+             target="_blank" rel="noopener noreferrer"
+             class="principle-card">
+            <div class="principle-num">PRINCIPLE &middot; 05</div>
+            <div class="principle-name">Mathematical Transparency</div>
+            <p class="principle-gist">
+              Every mathematical phrase carries its own ontological statement. One symbol,
+              one physical idea. The number of symbols must equal the number of independent
+              physical ideas &mdash; no more.
+            </p>
+            <span class="principle-link">
+              Read in paper
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Summary card (6th slot, fills the 3x2 grid on desktop) -->
+          <div class="principle-card" style="background: linear-gradient(180deg, rgba(30,58,138,0.18), rgba(15,23,42,0.1)); border-color: rgba(96,165,250,0.18);">
+            <div class="principle-num" style="color: var(--accent-2);">TAKEN TOGETHER</div>
+            <div class="principle-name">One Unified Constraint</div>
+            <p class="principle-gist">
+              These five rules are not independent preferences. They form a single filter:
+              admit only what is <em>geometrically or energetically necessary</em>. Everything else
+              is a historical accident of how physics has been told.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="sec-sep"></div>
+
+    <!-- ==================== WHAT IS ENERGY ==================== -->
+    <section class="px-6 sm:px-8 py-14 sm:py-20">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <div class="sec-rule"></div>
+          <div class="sec-eyebrow mb-3">A Familiar Word, Reconsidered</div>
+          <h2 class="sec-title text-2xl sm:text-3xl">What is Energy?</h2>
+        </div>
+
+        <div class="energy-panel">
+          <div class="prose-block" style="max-width: none;">
+            <p>
+              Across all domains of physics, one empirical fact persists: in every closed system
+              there exists a quantity that never disappears or arises spontaneously, but only
+              transforms in form. This invariant is observed under many guises &mdash; kinetic,
+              potential, thermal, chemical &mdash; yet all are interchangeable, pointing to a single
+              underlying structure.
+            </p>
+            <p>
+              Crucially, this quantity is never observed directly, but only through
+              <em>differences between states</em>: a change of velocity, a shift in configuration,
+              a transition of phase. Its value is relational, not absolute: it depends on the
+              chosen frame or comparison, never on an object in isolation.
+            </p>
+            <p>
+              Moreover, this quantity provides continuity of causality. If it changes in one part
+              of the system, a complementary change must occur elsewhere, ensuring the unbroken
+              chain of transitions. Thus it is the bookkeeping of causality itself.
+            </p>
+          </div>
+
+          <div class="mt-8 pt-6" style="border-top: 1px solid var(--hairline);">
+            <p class="attribution text-center">
+              <a href="https://willrg.com/documents/WILL_RG_I.pdf#nameddest=def:energy" target="_blank" rel="noopener noreferrer">
+                Read the formal definition in the paper &rarr;
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sec-sep"></div>
+
+    <!-- ==================== GO DEEPER ==================== -->
+    <section class="px-6 sm:px-8 py-14 sm:py-20 pb-24">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="sec-rule"></div>
+          <div class="sec-eyebrow mb-3">Continue</div>
+          <h2 class="sec-title text-2xl sm:text-3xl mb-4">Where to Go Next</h2>
+          <p class="lead-sub max-w-xl mx-auto">
+            Four ways into the research, depending on how you prefer to read.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+
+          <a href="{{ '/logos_map/' | relative_url }}" class="deeper-card">
+            <div class="deeper-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 3v12M18 9a3 3 0 100-6 3 3 0 000 6zm0 0v3a3 3 0 01-3 3H9m0 0a3 3 0 100 6 3 3 0 000-6z"/>
+              </svg>
+            </div>
+            <div class="deeper-title">Logos Map</div>
+            <p class="deeper-desc">
+              The complete derivation tree &mdash; every step from Axiom 0 to the unified field
+              equation, with each node linked into the paper.
+            </p>
+          </a>
+
+          <a href="https://willrg.com/documents/WILL_RG_I.pdf" target="_blank" rel="noopener noreferrer" class="deeper-card">
+            <div class="deeper-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <div class="deeper-title">The Paper</div>
+            <p class="deeper-desc">
+              WILL Part&nbsp;I &mdash; Relational Geometry. The full 60-page derivation chain,
+              archived on Zenodo.
+            </p>
+          </a>
+
+          <a href="{{ '/will-ai/' | relative_url }}" class="deeper-card">
+            <div class="deeper-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+              </svg>
+            </div>
+            <div class="deeper-title">Ask WILL&nbsp;AI</div>
+            <p class="deeper-desc">
+              A model trained strictly on the paper. Ask whether this work meets your criteria
+              before committing to the full read.
+            </p>
+          </a>
+
+          <a href="{{ '/predictions/' | relative_url }}" class="deeper-card">
+            <div class="deeper-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+              </svg>
+            </div>
+            <div class="deeper-title">Testable Predictions</div>
+            <p class="deeper-desc">
+              Falsifiable consequences of Relational Geometry &mdash; the claims this framework
+              puts at empirical risk.
+            </p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  {{ content }}
+
+  {% include footer.html %}
+</body>
+</html>
