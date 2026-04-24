@@ -1,0 +1,219 @@
+---
+layout: default
+title: "quantazation"
+permalink: /quantazation.html
+description: "Relational origin of quantazation phenomenon in WILL Relational Geometry ontology. Interactive visualisation."
+---
+
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WILL RG: Topological Phase Closure</title>
+    <style>
+        .will-simulator-container {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            color: #333;
+        }
+        .will-description {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            border-left: 4px solid #007bff;
+            padding-left: 15px;
+        }
+        .will-description h2 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .will-canvas-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+        .will-controls {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .will-slider {
+            width: 100%;
+            cursor: pointer;
+        }
+        .will-stats {
+            margin-top: 15px;
+            font-size: 0.95em;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+            max-width: 500px;
+        }
+        .stat-item {
+            padding: 8px;
+            background: #f1f3f5;
+            border-radius: 4px;
+        }
+        .stat-label {
+            font-weight: bold;
+            display: block;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            color: #666;
+        }
+        .status-closed { color: #28a745; font-weight: bold; }
+        .status-broken { color: #dc3545; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="will-simulator-container">
+    <div class="will-description">
+        <h2>Topological Phase Closure</h2>
+        <p>
+            In <strong>WILL Relational Geometry</strong>, a stable state is represented by a closed geometric projection on the S1 manifold. 
+            The quantum number <strong>n</strong> is the topological winding number. 
+            When <strong>n</strong> is an integer, the geometry achieves closure, creating a stable resonance. 
+            Non-integer values lead to destructive interference and broken geometry. 
+            This fundamental constraint establishes the <strong>Minimal Phase Grain (2&pi;/n)</strong>, 
+            providing the ontological origin of quantum granularity and uncertainty.
+        </p>
+    </div>
+
+    <div class="will-canvas-wrapper">
+        <canvas id="willCanvas" width="500" height="500"></canvas>
+        
+        <div class="will-controls">
+            <label for="nSlider">Winding Number (n): <span id="nValue">1.0</span></label>
+            <input type="range" id="nSlider" class="will-slider" min="0.5" max="5.0" step="0.1" value="1.0">
+        </div>
+
+        <div class="will-stats">
+            <div class="stat-item">
+                <span class="stat-label">System Status</span>
+                <span id="statusText" class="status-closed">Topologically Closed</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Minimal Phase Grain</span>
+                <span id="grainText">6.28 rad (2&pi;)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('willCanvas');
+    const ctx = canvas.getContext('2d');
+    const slider = document.getElementById('nSlider');
+    const nValueDisplay = document.getElementById('nValue');
+    const statusText = document.getElementById('statusText');
+    const grainText = document.getElementById('grainText');
+
+    function draw() {
+        const n = parseFloat(slider.value);
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const baseRadius = 120;
+        const amplitude = 30;
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Update UI
+        nValueDisplay.textContent = n.toFixed(1);
+        const isClosed = Math.abs(n - Math.round(n)) < 0.01;
+        
+        if (isClosed) {
+            statusText.textContent = "Topologically Closed";
+            statusText.className = "status-closed";
+        } else {
+            statusText.textContent = "Broken Geometry";
+            statusText.className = "status-broken";
+        }
+
+        const grainSize = (2 * Math.PI / Math.max(1, Math.floor(n)));
+        grainText.textContent = grainSize.toFixed(2) + " rad";
+
+        // 1. Draw Base S1 Manifold
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, baseRadius, 0, 2 * Math.PI);
+        ctx.strokeStyle = '#dee2e6';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // 2. Draw Phase Grain Sector
+        if (n >= 1) {
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, baseRadius + amplitude + 20, -Math.PI/2, -Math.PI/2 + grainSize);
+            ctx.lineTo(centerX, centerY);
+            ctx.fillStyle = 'rgba(0, 123, 255, 0.1)';
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(0, 123, 255, 0.3)';
+            ctx.stroke();
+        }
+
+        // 3. Draw Winding Energy Projection (Wave)
+        ctx.beginPath();
+        const steps = 1000;
+        for (let i = 0; i <= steps; i++) {
+            const angle = (i / steps) * 2 * Math.PI;
+            const r = baseRadius + Math.sin(angle * n) * amplitude;
+            const x = centerX + r * Math.cos(angle - Math.PI/2);
+            const y = centerY + r * Math.sin(angle - Math.PI/2);
+            
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = isClosed ? '#28a745' : '#dc3545';
+        ctx.stroke();
+
+        // 4. Highlight the Gap if not closed
+        if (!isClosed) {
+            const endAngle = 2 * Math.PI;
+            const rStart = baseRadius + Math.sin(0) * amplitude;
+            const rEnd = baseRadius + Math.sin(endAngle * n) * amplitude;
+            
+            ctx.beginPath();
+            ctx.arc(centerX + rStart * Math.cos(-Math.PI/2), centerY + rStart * Math.sin(-Math.PI/2), 5, 0, 7);
+            ctx.fillStyle = '#dc3545';
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(centerX + rEnd * Math.cos(-Math.PI/2), centerY + rEnd * Math.sin(-Math.PI/2), 5, 0, 7);
+            ctx.stroke();
+        }
+    }
+
+    slider.addEventListener('input', draw);
+    draw(); // Initial call
+</script>
+
+</body>
+</html>
+"""
+
+file_path = "/mnt/data/topological_phase_simulator.html"
+with open(file_path, "w") as f:
+    f.write(html_content)
+
+print(file_path)
