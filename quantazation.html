@@ -18,7 +18,6 @@ html_content = """
             max-width: 800px;
             margin: 20px auto;
             padding: 25px;
-            background-color: #f8f9fa;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             color: #333;
@@ -87,11 +86,11 @@ html_content = """
     <div class="will-description">
         <h2>Topological Phase Closure</h2>
         <p>
-            In <strong>WILL Relational Geometry</strong>, a stable state is represented by a closed geometric projection on the S1 manifold. 
+            In <strong>WILL Relational Geometry</strong>, a stable state is represented by a closed geometric projection on the S1 carrier. 
             The quantum number <strong>n</strong> is the topological winding number. 
-            When <strong>n</strong> is an integer, the geometry achieves closure, creating a stable resonance. 
+            When <strong>n</strong> is an integer, the geometry achieves closure, creating a stable structure. 
             Non-integer values lead to destructive interference and broken geometry. 
-            This fundamental constraint establishes the <strong>Minimal Phase Grain (2&pi;/n)</strong>, 
+            This constraint establishes the <strong>Minimal Phase Grain (2&pi;/n)</strong>, 
             providing the ontological origin of quantum granularity and uncertainty.
         </p>
     </div>
@@ -211,9 +210,3 @@ html_content = """
 </body>
 </html>
 """
-
-file_path = "/mnt/data/topological_phase_simulator.html"
-with open(file_path, "w") as f:
-    f.write(html_content)
-
-print(file_path)
