@@ -371,7 +371,6 @@ Any attempt to treat \emph{``spacetime structure''} as separate from \emph{``dyn
 
 \subsection{The Unifying Principle: Removing the Hidden Assumption}
 
-\subsection{False Separation}
 \begin{lemma}[False Separation]
 \hypertarget{lem:false-separation}{}\label{lem:false-separation}
 Any model that treats processes as unfolding \emph{within} an independent background necessarily assigns to that background structural features (metric, orientation, or frame) not derivable from the relations among the processes themselves. Such a background constitutes an \emph{extraneous absolute}.
@@ -1915,9 +1914,16 @@ This completes the proof. Since all physical observations are strictly relative,
 \section{Relational Orbital Mechanics (R.O.M.)}
 \hypertarget{sec:rom}{}\label{sec:rom}
 
-In this section we will prove independence from mass $M$ and gravitational constant $G$, and will show how all observational phenomenon of orbital systems are generated as the unavoidable consequences of Relational Geometry.
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=ROM]
 
-But first lets remind our selves some key definitions established in prior sections:   
+Please follow this link to see all \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. equations and definitions}
+
+\href{https://www.desmos.com/calculator/lpjawsn19f}{DESMOS: https://www.desmos.com/calculator/lpjawsn19f}
+\end{tcolorbox}
+
+In order to establish contact with physical reality and show that long derivation chain leads to strong agreement with observational data - we will open this section with empirical verification.
+
+But first lets remind our selves some key definitions and results established prior:   
 
 \begin{center}
 \begin{tikzpicture}[scale=2.0,>=Latex]
@@ -1983,18 +1989,8 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa)
 \end{table}
 
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=ROM]
 
-Please follow this link to see all \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. equations and definitions}
-
-\href{https://www.desmos.com/calculator/lpjawsn19f}{DESMOS: https://www.desmos.com/calculator/lpjawsn19f}
-\end{tcolorbox}
-
-
-
-
-
-\section{Empirical Verification: S2 Star (Sgr A*) Case Study}
+\subsection{Empirical Verification: S2 Star (Sgr A*) Case Study}
 \hypertarget{sec:S2test}{}\label{sec:S2test}
 
 \noindent\textbf{Scientific Statement:} \\
@@ -2045,77 +2041,17 @@ Free Precession Parameters & 1 (Differential) & 0 (Algebraic)\\ \hline
 The reduction of the chi-squared statistic by approximately 25\% ($\Delta\chi^2 = 241.97$) relative to the GR baseline provides objective evidence that the algebraic closure of relational phases ($\tau_Y^2$) describes strong-field dynamics with greater fidelity than differential spacetime metrics. The autonomous derivation of the Sgr A* scale ($R_s \approx 12.8 \times 10^6$ km) directly from orbital phases confirms the structural integrity of the WILL Relational Geometry framework.
 
 
-\section{Derivation of the Spectroscopic Shifts}
+\subsection{Derivation of the Spectroscopic Shifts}
 \hypertarget{sec:spectroscopic_shift}{}\label{sec:spectroscopic_shift}
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=R.O.M.]
 
-In this and following sections we demonstrate that RG's relational projections ($\kappa$, $\beta$) are ontologically and operationally independent from mass $M$ and gravitational constant $G$. We will show that $R_s$ as a system scale derived directly from the phase interactions of light and will show how all observational phenomenon of orbital systems are generated as the unavoidable consequences of Relational Geometry.
+Please follow this link to see full list of \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. equations and definitions}
 
-But first lets remind our selves some key definitions established prior:   
+\href{https://www.desmos.com/calculator/lpjawsn19f}{DESMOS: https://www.desmos.com/calculator/lpjawsn19f}
+\end{tcolorbox}
 
-\begin{center}
-\begin{tikzpicture}[scale=2.0,>=Latex]
-% Left circle: kinematics
-\draw (0,0) circle (1);
-\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta=\cos\theta_1$};
-\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y=\sin\theta_1$};
-% vector and legs
-\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
-\draw[dashed] (0.8,0) -- (0.8,0.6);
-\draw[dashed] (0,0.6) -- (0.8,0.6);
-\node at (0.84,-0.12) {$\beta$};
-\node at (-0.14,0.6) {$\beta_Y$};
-\draw (0.25,0) arc (0:36.87:0.25);
-\node at (0.33,0.12) {$\theta_1$};
-\node at (0,-1.55) {\small \shortstack{$E=E_0/\beta_Y$ \\ $p=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
-
-% Right circle: gravity
-\begin{scope}[xshift=3.2cm]
-\draw (0,0) circle (1);
-\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X=\cos\theta_2$};
-\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\kappa=\sin\theta_2$};
-% vector and legs
-\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_g$};
-\draw[dashed] (0.6,0) -- (0.6,0.8);
-\draw[dashed] (0,0.8) -- (0.6,0.8);
-\node at (0.6,-0.12) {$\kappa_X$};
-\node at (-0.14,0.8) {$\kappa$};
-\draw (0.25,0) arc (0:53.13:0.25);
-\node at (0.33,0.12) {$\theta_2$};
-\node at (0,-1.55) {\small \shortstack{$E_g=E_0/\kappa_X$ \\ $p_g=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
-\end{scope}
-
-% composition arrow
-\draw[->,thick] (1.3,0.6) -- (1.9,0.6);
-\node at (1.6,0.77) {\small compose};
-\end{tikzpicture}
-\end{center}
-
-\begin{table}[h]
-\centering
-
-\begin{tabular}{|c|c|}\hline
-\multicolumn{2}{|c|}{\( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$}\\
-\hline
-\textbf{Algebraic Form} & \textbf{Trigonometric Form} \\\hline
- $\beta=v/c$&$\beta=cos(\theta_1)$\\\hline
- $\kappa=\sqrt{R_s/r}$&$\kappa=sin(\theta_2)$\\\hline
-
-$\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) = \sin(\arccos(\beta))$\\
-\hline
-$\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) = \cos(\arcsin(\kappa))$\\
-\hline
- $p=E_0/c \cdot \beta/\beta_Y$&$p=E_0/c \cdot \cot(\theta_1) $\\
- \hline
- $p_g=E_0/c \cdot \kappa/\kappa_X$&$p_g=E_0/c \cdot \tan(\theta_2)$\\\hline
- $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
- $\tau_Y = \sqrt{1-\tau^2}$&$\tau_Y = \sqrt{1-\tau^2}$\\\hline
- 
- $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\ \hline
-\end{tabular}
-\caption{Unified representation of relativistic and gravitational effects for closed systems.}
-\end{table}
-
+In this and following sections we will demonstrate that RG's relational projections ($\kappa$, $\beta$) are ontologically and operationally independent from mass $M$ and gravitational constant $G$. We will show that $R_s$ as a system scale, derived directly from the phase interactions of light, and all observational phenomenon of orbital systems are generated as the unavoidable consequences of Relational Geometry.
 
 \begin{theorem}[Spectroscopic Phase Shift]
 The geometric projection $\kappa^2$ of a closed system is strictly determined by the operationally measurable gravitational redshift $z_\kappa$ via the identity:
@@ -2214,11 +2150,11 @@ This identity demonstrates that the optical signal contains the complete informa
 \end{proof}
 
 
-\section{Relational Origin}
+\subsection{Relational Origin}
 \hypertarget{sec:relation_origin}{}\label{sec:relation_origin}
 
 
-\subsection{of Kepler's Third Law}
+\subsubsection{of Kepler's Third Law}
 \hypertarget{sec:orbital_prop}{}\label{sec:orbital_prop}
 
 The Keplerian proportionality $a \propto T^{2/3}$ is a direct algebraic consequence of the energetic equilibrium between the 1-DOF directional kinematic carrier ($S^1$) and the 2-DOF omnidirectional potential carrier ($S^2$). The derivation strictly utilizes dimensionless ratios and absolute geometric scale, eliminating dependence on classical mass and the empirical gravitational constant.
@@ -2252,7 +2188,7 @@ Rearranging to isolate the semi-major axis $a$ gives the exact closed-form relat
 \end{equation}
 
 
-\subsection{of Vis-Viva}
+\subsubsection{of Vis-Viva}
 \hypertarget{sec:vis-viva}{}\label{sec:vis-viva}
 
 In elliptical systems, the global closure theorem $\kappa^2 = 2\beta^2$ is conserved across the entire orbital cycle, while local phase variations manifest as an internal ``breathing'' of relational projections. We now derive the exact conservation law governing this local dynamic distribution.
@@ -2291,7 +2227,7 @@ This geometric invariant replaces the descriptive Newtonian Vis-Viva equation ($
 \end{remark}
 
 
-\subsection{of Angular Momentum Conservation}
+\subsubsection{of Angular Momentum Conservation}
 \hypertarget{sec:angular_momentum}{}\label{sec:angular_momentum}
 
 The conservation of specific angular momentum $h$ is derived as a phase-independent structural invariant of the relational balance.
@@ -2323,7 +2259,7 @@ Substituting the invariant ratio $\frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt
 Since $R_s$, $e$, and $\beta$ are global invariants, $h$ does not depend on phase $o$. Angular momentum is thus the manifestation of the fixed structural exchange rate between the $S^2$ and the $S^1$ carriers and there projections.
 \end{proof}
 
-\subsection{of Eccentricity}
+\subsubsection{of Eccentricity}
 \hypertarget{sec:rel_ecc}{}\label{sec:rel_ecc}
 
 Eccentricity is a measure of the projectional deviation from the circular equilibrium state ($\delta=1$).
@@ -2417,7 +2353,7 @@ $$\text{SPACETIME} \equiv \text{ENERGY}$$
 \end{tcolorbox}
 
 
-\subsection{of Orbital Precession as Phase Accumulation} 
+\subsubsection{of Orbital Precession as Phase Accumulation} 
 \hypertarget{sec:precession_law}{}\label{sec:precession_law}
 
 In standard General Relativity, orbital precession is derived via perturbative methods and Taylor expansions of the Schwarzschild metric. In WILL Relational Geometry, precession is derived strictly from the exact algebraic accumulation of the internal phase difference over a closed geometric cycle, without differential approximations.
@@ -2481,7 +2417,7 @@ Furthermore, mapping this simplified shift strictly to periapsis ($p$) observabl
 \end{equation}
 This demonstrates that the classical post-Newtonian perturbative results emerge naturally as first-order ablations of the exact, non-linear relational phase geometry. 
 
-\subsection{of the Dynamic Event Horizon}
+\subsubsection{of the Dynamic Event Horizon}
 \hypertarget{sec:dynamic_horizon_closure}{}\label{sec:dynamic_horizon}
 
 In classical literature, the event horizon is often heuristically treated as an escape-velocity boundary where spacetime curvature becomes infinitely steep. In RG, the horizon emerges strictly as the limit of geometric precessional invariant, representing the ultimate topological closure of a trajectory.
@@ -2513,7 +2449,7 @@ Closed Algebraic System of \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf
 \end{tcolorbox}
 
 
-\subsection{of Gravitational Deflection and Lensing}
+\subsubsection{of Gravitational Deflection and Lensing}
 \hypertarget{sec:grav_optics}{}\label{sec:grav_optics}
 
 In General Relativity, the deflection of light is obtained by integrating the null geodesic equations over a curved spacetime manifold, often relying on weak-field approximations and Taylor expansions. Within WILL Relational Geometry (RG), we reject both the background manifold and the use of mathematical approximations as non-operational ontological artifacts. 
@@ -2618,7 +2554,7 @@ To reveal the underlying gradient without altering the exact equation, we examin
 The properties of the lens - convergence ($\kappa_{\text{lens}}$), shear ($\gamma$), and magnification ($\mu$) - are the components of the 2D Jacobian matrix of the deflection field $\vec{\alpha}(\vec{\theta})$. Because the physics of the phase-buffer $\beta_Y$ is fundamentally woven into the exact definition of $\Delta\varphi_{\text{unified}}$, no manual "weighting" of shear or convergence is required. The optical mapping emerges naturally from the pure algebraic closure of the $S^1$ and $S^2$ relational carriers.
 \end{tcolorbox}
 
-\subsection{of Parameterization and the Fundamental Primitives}
+\subsubsection{of Parameterization and the Fundamental Primitives}
 \hypertarget{sec:relational_parameterization}{}\label{sec:relational_parameterization}
 
 \begin{theorem}[Relational Parameterization]
@@ -2762,7 +2698,7 @@ Recommendation: \href{https://www.desmos.com/calculator/mjen4ms452}{DESMOS} \\
 \end{tcolorbox}
 
 
-\section{Algebraic Determination of Absolute System Scale}
+\subsection{Algebraic Determination of Absolute System Scale}
 \hypertarget{sec:absolute_scale}{}\label{sec:absolute_scale}
 
 A classical critique posits that because $R_s$ can be equated to $\frac{2GM}{c^2}$, this derivation is a superficial algebraic reparameterization of Newtonian mechanics. This objection reverses the causal and ontological hierarchy.
@@ -2771,7 +2707,7 @@ The terms $G$ and $M$ are epistemologically secondary composites. They function 
 
 The derivation isolates true dynamic proportionality using exclusively operational observables (chronometric phase $T$) and intrinsic geometric scaling ($a$, $R_s$). Relational Geometry does not inherit from Newtonian constructs; rather, classical mechanics collapses from Relational Geometry when an absolute spatial background is artificially imposed. $R_s$ does not conceal mass; rather, classical mass is an anthropocentric proxy for the invariant geometric boundary $R_s$.
 
-\subsection{Method A: Optical Phase Projection (Angular Radius)}
+\subsubsection{Method A: Optical Phase Projection (Angular Radius)}
 \hypertarget{eq:optical_phase}{}\label{eq:optical_phase}
 
 
@@ -2814,7 +2750,7 @@ We now derive algebraic formulas for the system scale $R_s$ using three distinct
 \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. equations and definitions}
 \end{tcolorbox}
 
-\subsection{Method B: Differential (Two-Point Method)}
+\subsubsection{Method B: Differential (Two-Point Method)}
 
 This method is suitable when the orbital period is unknown, but the trajectory can be traced geometrically.
 
@@ -2861,7 +2797,7 @@ R_s = \frac{\beta_1^2 - \beta_2^2}{\frac{r_2-r_1}{r_1 r_2}} = \frac{r_1 r_2}{r_2
 This formula extracts the "mass" scale purely from geometric gradients.
 \end{proof}
 
-\subsection{Method C: Geometric Resonance (Balance Point Method)}
+\subsubsection{Method C: Geometric Resonance (Balance Point Method)}
 
 At the specific orbital phase $O_o = \arccos(-e)$, the system passes through its geometric balance point where the instantaneous radius $r$ equals the semi-major axis $a$. At this unique phase, the closure condition $\kappa^2 = 2\beta^2$ is satisfied instantaneously.
 
@@ -2917,7 +2853,7 @@ This unit-less factor in brackets is:
 A unique way to separate gravitational part from the light signal.
 \end{remark}
 
-\subsection{Method D: Instantaneous (Arbitrary Phase Method)}
+\subsubsection{Method D: Instantaneous (Arbitrary Phase Method)}
 
 Most generally, if the orbital geometry ($a$) is known, the scale $R_s$ can be derived from a \textbf{single epoch} observation at any arbitrary radius $r_o$.
 
@@ -3027,7 +2963,7 @@ All formulas are:
 The operational input is always $\tau = 1/[(1+z_{\kappa})(1+z_{\beta})]$, a dimensionless quantity directly measurable from spectroscopy. This demonstrates that WILL RG formulas are empirically grounded and do not rely on hidden assumptions about gravitational constants.
 
 
-\section{Rotational Systems (Kerr Without Metric)}
+\subsection{Rotational Systems (Kerr Without Metric)}
 \hypertarget{sec:Kerr}{}\label{sec:Kerr}
 
 \subsubsection*{Contextual Bounds}
@@ -3195,7 +3131,7 @@ Mathematics dictates that if two formalisms enforce identical fundamental symmet
 
 
 
-\section{Time and Phase Evolution (work in progress)}
+\subsection{Time and Phase Evolution (work in progress)}
 \hypertarget{sec:time_phase}{}\label{sec:time_phase}
 
 In strictly empirical terms, RG refrains from ontological speculation regarding an absolute, continuous background flow of time. Instead, time is strictly operationalized through measurement: it is the physically recorded accumulation of cyclic oscillations from a local reference clock relative to the geometric phase evolution of the observed system.
