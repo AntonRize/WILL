@@ -135,12 +135,12 @@ $z_{\beta o}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $o$) \\
 
 
 \subsection*{Global System Parameters (Fixed for the Orbit)}
-$\kappa = \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)} =\sqrt{4W}=\sqrt{2(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})}=$
-$=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})}=\sqrt{1-(1+z_{\kappa})^{-2}}=\kappa_R^2 \left(\frac{I_t}{T}\right)^{\frac{2}{3}}=\kappa_{o}^{2}\cdot\eta_{o}$ (potential projection at semi-major axis)\\
+$\kappa =\sin(\theta_2)=\sqrt{1-(1+z_{\kappa})^{-2}}= \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{2}\left(\frac{\pi R_{s}}{Tc}\right)^{\frac{1}{3}}=\sqrt{\kappa_{p}^{2}(1-e)} =\sqrt{4W}=\sqrt{2(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})}=$
+$=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{Wo}(O_{o})^{2}})}=\kappa_R^2 (\frac{I_t}{T})^{\frac{2}{3}}=\sqrt{\kappa_{o}^{2}\cdot\eta_{o}}$ (potential projection at semi-major axis)\\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}=\frac{1}{(1+z_{\kappa})}$ (potential phase factor) \\
-$\kappa_R=\sqrt{\frac{\kappa^{2}}{\sin\left(\theta_{R}\right)}}=\sqrt{\frac{R_{s}}{\frac{T}{2\pi}c\beta\sin\left(\theta_{R}\right)}}$ (potential projection at the surface) \\
-$\beta = \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \sqrt{2W}=\frac{4\pi^{2}a^{2}}{T^{2}c^{2}}=\left(\frac{R_{s}}{\frac{T}{\pi} c}\right)^{\frac{2}{3}}=\sqrt{(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})} =\sqrt{\frac{\kappa_{p}^{2}}{2}(1-e)}=$
-$=\sqrt{\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot\left(1+\left(\frac{1}{\delta_{o}(o)}-1\right)\right)}=\beta_{o}(o)\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}=\sqrt{1-(1+z_{\beta})^{-2}}$ (kinetic projection on semi major axis) \\
+$\kappa_R=\sqrt{\frac{\kappa^{2}}{\sin\left(\theta_{R}\right)}}=\sqrt{\frac{R_{s}}{\frac{T}{2\pi}c\beta\sin\left(\theta_{R}\right)}}$ (potential projection at the surface of ) \\
+$\beta =\cos(\theta_1)=\sqrt{1-(1+z_{\beta})^{-2}}= \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \sqrt{2W}=\frac{2\pi a}{Tc}=(\frac{\pi R_{s}}{Tc})^{\frac{1}{3}}=\sqrt{(\kappa_{o}(o)^{2}-\beta_{o}(o)^{2})} =\sqrt{\frac{\kappa_{p}^{2}}{2}(1-e)}$
+$=\sqrt{\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2}\cdot\left(1+\left(\frac{1}{\delta_{o}(o)}-1\right)\right)}=\beta_{o}(o)\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(o)}}$ (kinetic projection on semi major axis) \\
 $\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (kinetic phase factor) \\
 $\beta_{int}=\frac{\beta}{\sqrt{1-e^2}}$ (interior kinetic projection) \\
 $\tau = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\
@@ -155,7 +155,7 @@ $W=\frac{\beta^{2}}{2}=\frac{1}{2}(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{1}{4}\kap
 $\Delta\phi=\frac{2\pi\cdot\tau_{Y}^{2}}{1-e_{\alpha}^{2}}=\frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}}$ (precession of perihelion per orbit) \\
 $h_{W}=r_{o}(o)\beta_{T}(o)c=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}=R_s c \frac{\sqrt{1-e^2}}{2\beta}$ ( invariant angular momentum) \\
 $\omega=\frac{\beta c}{a}=\frac{c}{R_{s}}2\beta^{3}$ (angular frequency) \\
-$T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi~r_{o}(O_{o})}{\beta_{o}(O_{o})c}=\frac{\pi R_{s}}{c\beta^{3}}=\frac{\pi R_{\epsilon}}{2\sqrt{2}c}W^{-\frac{3}{2}}$ (orbital period) \\
+$T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{\pi R_{s}}{c\beta^{3}}$ (orbital period) \\
 $\Delta\varphi = 2 \arcsin( \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2 - \kappa_p^2 (1 + \beta_p^2)} )$ (gravitational deflection)\\
 $\Delta\gamma = 2 \arcsin( \frac{\kappa_p^2}{\kappa_{Xp}^2} ) $ (light deflection)\\
 
@@ -174,7 +174,7 @@ $\zeta=(1-e^{2})^{\frac{3}{2}}\cdot(\int_{0}^{o}(1+e\cdot\cos(\theta))^{-2}d\the
 $r_{p} = a(1-e)=\frac{R_s}{\kappa_p^2}$ (radius at perihelion) \\
 $\kappa_{p} = \kappa\sqrt{\frac{1}{1-e}} = \sqrt{\frac{2\beta^2}{1-e}}=Q_{p}\sqrt{\frac{2}{3+e}}$ (potential projection at perihelion) \\
 $\kappa_{Xp} = \sqrt{1-\kappa_{p}^2} $  (potential phase projection at perihelion)
-$\beta_{p} = \frac{V_{p}}{c} = \beta\ \sqrt{\frac{1+e}{1-e}}=\frac{\kappa_{p}}{\sqrt{2\delta_{p}}}= \frac{\kappa_{p}}{\sqrt{2}}\sqrt{1+e}$ (kinetic projection at perihelion) \\
+$\beta_{p} = \frac{V_{p}}{c} = \beta\ \sqrt{\frac{1+e}{1-e}}=\frac{r_{p}\omega_{o}\left(0\right)}{c}= \frac{\kappa_{p}}{\sqrt{2}}\sqrt{1+e}$ (kinetic projection at perihelion) \\
 $\delta_p = \frac{\kappa_{p}^2}{2\beta_{p}^2 }= \frac{1}{1+e}$ (closure factor at perihelion) \\
 $Q_{p} = \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}}$  (relational shift at perihelion) \\
 
@@ -205,15 +205,16 @@ $\Delta_o=\frac{\tau_{Y}^{2}\cdot o}{1-e^{2}}$   (precession of perihelion at ph
 
 \subsection*{Orbital Phase Invariants}
 
-\begin{tcolorbox}[colback=white, colframe=black, title=The Decryption Invariant]
+\begin{tcolorbox}[colback=white, colframe=black, title=Holographic Decryption Invariant]
 \begin{equation}
 Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2
 \end{equation}
 \end{tcolorbox}
-$W=\frac{1}{2}(\kappa_{o}^{2}-\beta_{o}^{2})$ \\
+
+$\beta^2=(\kappa_{o}^{2}-\beta_{o}^{2})$ \\
 $h_{W}=r_{o}^{2} \cdot \omega_{o}$ \\
 $\frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt{1-e^2}}{2\beta}$ \\
-$\beta_{T}\ ^{2}\eta_{o}^{2}=\beta^{2}(1-e^{2})$ \\
+$\beta_{T}(o) ^{2}\eta_{o}^{2}=\beta^{2}(1-e^{2})$ \\
 
 
 \subsection*{Relational Geometry (WILL)} 
@@ -237,7 +238,7 @@ $Z_{rawmin}=Z_{sys}(\pi-\omega_{i})(1+K_{i}(-1+e\cos\omega_{i}))$ \\
 $O_{oi}=(O_{o}+\omega_{i})$ \\
 $Z_{sys}(-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}+2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1+e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
 $Z_{sys}(\pi-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}-2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1-e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
-
+$Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2$ (Holographic Decryption Invariant) \\
 
 
 \section*{Background Free Parametric Equations for the Observed Orbit}
@@ -881,36 +882,45 @@ To reveal the underlying gradient without altering the exact equation, we examin
 The properties of the lens - convergence ($\kappa_{\text{lens}}$), shear ($\gamma$), and magnification ($\mu$) - are the components of the 2D Jacobian matrix of the deflection field $\vec{\alpha}(\vec{\theta})$. Because the physics of the phase-buffer $\beta_Y$ is fundamentally woven into the exact definition of $\Delta\varphi_{\text{unified}}$, no manual "weighting" of shear or convergence is required. The optical mapping emerges naturally from the pure algebraic closure of the $S^1$ and $S^2$ relational carriers.
 \end{tcolorbox}
 
+
+
 \subsection{of Parameterization and the Fundamental Primitives}
 \hypertarget{sec:relational_parameterization}{}\label{sec:relational_parameterization}
 
 \begin{theorem}[Relational Parameterization]
-The complete structural and dynamical parameterization of any closed orbital system — specifically its geometric shape ($e$, eccentricity), secular phase shift ($\Delta\varphi$, orbital precession), critical scale ($R_s$, Schwarzschild radius), and global scale ($a$, semi-major axis) — are strictly determined by the algebraic relations of its dimensionless spectroscopic and chronometric observables. The derivation requires no independent mass parameter ($M$), gravitational constant ($G$), or a priori spatial metric.
+The complete structural and dynamical parameterization of any closed orbital system - specifically its geometric shape ($e$ - eccentricity), secular phase shift ($\Delta\varphi$ - orbital precession), critical scale ($R_s$ - Schwarzschild radius), and global scale ($a$ - semi-major axis) - are strictly determined by the algebraic relations of its dimensionless spectroscopic and chronometric observables. The derivation requires no independent mass parameter ($M$), gravitational constant ($G$), or a priori spatial metric and deferential or tensor formalisms.
 \end{theorem}
 
+\[
+\boxed{\textbf{Direct algebraic derivation via spectroscopic and chronometric ratios.}} 
+\]
+
 \begin{proof}
-The proof is constructive and algebraically closed. It generalizes to any bound orbital system. We demonstrate this using the Mercury-Sun system as an operational test case.  
+The proof is constructive and algebraically closed. It generalizes to any bound orbital system. We  demonstrate this using the Mercury-Sun system as an operational test case and Jupiter-Sun as confirmation test.  
 All governing equations are derived exclusively from the internal topology of the WILL relational carriers ($S^1$, $S^2$), strictly bypassing Newtonian mechanics, Special Relativity, or General Relativity. 
-The derivation is executed using only four dimensionless, epistemologically direct observables ($e_{obs}, \theta_{\odot}, T_M/T_{\oplus}, z_{sun}$):
+The derivation is executed using only four dimensionless, epistemologically direct observables ($e, \theta, T_{ratio}, z_{sun}$):
 
 \textbf{INPUTS (Cross-Cultural Invariants)} \\
 The following inputs are strict dimensionless ratios. They represent direct physical observables that remain identical for any observer in the Universe, regardless of local unit systems (meters/seconds) or theoretical paradigms.
-
-
-
 
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|l|c|p{8cm}|}
 \hline
-\textbf{Parameter} & \textbf{Value} & \textbf{Direct Observational Method} \\ \hline
-$\theta_{\odot}$ & $0.0046524 \text{ rad}$& \textbf{Visual Size:} The angular radius of the central body in the sky. \cite{Meftah2014}\\ \hline
-$T_M / T_{\oplus}$ & $0.2408$ & \textbf{Cycle Ratio:} The observed system's full orbital period divided by the observer's local orbital period. \cite{NASA_Planetary}\\ \hline
-$e_{obs}$ & $0.2056$ & \textbf{Visual Kinematics:} Derived directly from the ratio of the planet's fastest ($\omega_{max}$) and slowest ($\omega_{min}$) apparent angular speeds: $e = \frac{\sqrt{\omega_{max}/\omega_{min}} - 1}{\sqrt{\omega_{max}/\omega_{min}} + 1}$ \cite{JPL_DE430}.\\ \hline
-$z_{sun}$ & $2.1224 \times 10^{-6}$& \textbf{Spectroscopic Tension:} The raw fractional frequency shift of light ($1 - \nu_{obs}/\nu_{emit}$). Defined strictly as an optical geometric observable, independent of mass or Newtonian constants \cite{Gonzalez2020}.\\ \hline
+\textbf{Parameter} & \textbf{Value} & \textbf{Direct Observational Method} \\\hline
+ \multicolumn{3}{|c|}{Sun's physical observables}\\\hline 
+$\theta_{\odot}$ & $0.0046524 \text{ rad}$& \textbf{Visual Size:} The angular radius of the central body in the sky. \cite{Meftah2014}\\\hline
+ $z_{sun}$ & $2.1224 \times 10^{-6}$&\textbf{Spectroscopic Tension:} The raw fractional frequency shift of light ($1 - \nu_{obs}/\nu_{emit}$). Defined strictly as an optical geometric observable, independent of mass or Newtonian constants \cite{Gonzalez2020}.\\\hline
+ \multicolumn{3}{|c|}{Mercurye's physical observables}\\\hline
+$T_{\mathrm{ratioM}} =T_M / T_{\oplus}$& $0.2408$ & \textbf{Cycle Ratio:} The observed system's full orbital period divided by the observer's local orbital period. \cite{NASA_Planetary}\\ \hline
+$e_{M}$& $0.2056$ & \textbf{Visual Kinematics:} Derived directly from the ratio of the planet's fastest ($\omega_{max}$) and slowest ($\omega_{min}$) apparent angular speeds: $e = \frac{\sqrt{\omega_{max}/\omega_{min}} - 1}{\sqrt{\omega_{max}/\omega_{min}} + 1}$ \cite{JPL_DE430}.\\ \hline
+\multicolumn{3}{|c|}{Jupiter's physical observables}\\ \hline
+$T_{\mathrm{ratio}J} = T_J / T_{\oplus}$ & $11.862$ & \textbf{Cycle Ratio:} The full Jovian orbital period measured against the observer's local (Earth) orbital period — a purely temporal, clock-based observable requiring no unit conversion or gravitational constant \cite{NASA_RadioJOVE_JupiterFactSheet}.\\ \hline
+ $e_J$ & $0.04839266$ &\textbf{Visual Kinematics:} Derived directly from the ratio of Jupiter's fastest ($\omega_{max}$) and slowest ($\omega_{min}$) apparent angular speeds along its orbit: $e = \frac{\sqrt{\omega_{max}/\omega_{min}} - 1}{\sqrt{\omega_{max}/\omega_{min}} + 1}$ \cite{NASA_RadioJOVE_JupiterFactSheet}.\\\hline
 \end{tabular}
 \end{table}
+
 
 \vspace{0.5cm}
 \textbf{Algebraic Derivation}
@@ -918,7 +928,7 @@ $z_{sun}$ & $2.1224 \times 10^{-6}$& \textbf{Spectroscopic Tension:} The raw fra
 \textbf{1. Relational Scale Factor} \\
 The ratio of the Sun's radius to the planet's perihelion distance is derived entirely from visual size and cycle ratios:
 \[
-    R_{ratio} = \frac{\theta_{\odot}}{(T_M / T_{\oplus})^{2/3} \cdot (1-e_{obs})} \approx 0.0151290
+    R_{ratio} = \frac{\theta_{\odot}}{(T_M / T_{\oplus})^{2/3} \cdot (1-e_{M})} \approx 0.0151290
 \]
 
 \textbf{2. Potential Projection (at perihelion)} \\
@@ -930,19 +940,20 @@ Translating the spectral shift at the Sun's surface ($z_{sun}$) to the potential
 \textbf{3. Kinematic Projection (at perihelion)} \\
 Deriving orbital kinematics strictly from the potential and eccentricity (\ref{sec:rel_ecc}), requiring no Doppler or radar data:
 \[
-    \beta_p^2 = \frac{\kappa_p^2}{2}(1+e_{obs}) \approx 3.8712 \times 10^{-8}
+    \beta_p^2 = \frac{\kappa_p^2}{2}(1+e_{M}) \approx 3.8712 \times 10^{-8}
 \]
 
 \textbf{4. Global Orbital Invariants} \\
-Extracting the system's global projections via the invariant binding energy $W = \frac{1}{2}(\kappa_p^2 - \beta_p^2)$ (\ref{sec:energy-symmetry}):
+Extracting the system's global kinetic projection $(\beta )$ via the invariant binding energy $\beta^2=\kappa_p^2 - \beta_p^2$  (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry}{via Energy-Symmetry Law sec:energy-symmetry}):
 \[
-    \beta^2 = 2W \approx 2.5508 \times 10^{-8} \quad \text{and} \quad \kappa^2 = 4W \approx 5.1016 \times 10^{-8}
+    \beta^2 =  \approx 2.5508 \times 10^{-8} \quad \text{and} \quad \kappa^2 = 2\beta^2 \approx 5.1016 \times 10^{-8}
 \]
+                                                                    (\href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{via Closure theorem thm:closure} ).
 
 \textbf{5. Exact Orbital Precession} \\
 The secular phase shift emerges (\ref{sec:precession_law}) from the accumulation of the relational state divergence ($\tau_{Y}^2 = 1 - (1-\kappa^2)(1-\beta^2)$) over a full cycle:
 \[
-    \Delta\varphi = \frac{2\pi \cdot \tau_{Y}^2}{1-e_{obs}^2} \approx 5.0203 \times 10^{-7} \text{ rad/orbit}
+    \Delta\varphi = \frac{2\pi \cdot \tau_{Y}^2}{1-e_{M}^2} \approx 5.0203 \times 10^{-7} \text{ rad/orbit}
 \]
 Converting this pure geometric phase shift to standard observational units yields \textbf{43.015 arcsec/century}, perfectly matching the observed precession of Mercury.
 
@@ -972,13 +983,13 @@ This variance is strictly within the observational uncertainty limits of the inp
 \]
 \vspace{0.5cm}
 \textbf{Universality of the Framework: The Jovian Extension} \\
-To rigorously demonstrate that this parameterization is not a localized artifact of the Mercury-Sun proximity, but a universal geometric property of bound systems, we apply the exact same algebraic chain to Jupiter. We replace the inputs with Jupiter's chronometric cycle and eccentricity, keeping the central reference invariants ($\theta_{\odot}$, $z_{sun}$, $T_{\oplus}$) strictly identical.
+To rigorously demonstrate that this parameterization is not a localized artifact of the Mercury-Sun proximity, but a universal geometric property of bound systems, we apply the exact same algebraic chain to Jupiter. We replace the inputs with Jupiter to Earth orbital periods ratios ($T_{ratioJ}$) and Jupiter's eccentricity ($e_J$), keeping the central reference invariants ($\theta_{\odot}$, $z_{sun}$, $T_{\oplus}$) strictly identical.
 
 \textbf{Jovian Inputs:}
 \begin{itemize}[noitemsep]
     \item $T_J = 4332.589 \text{ days}$ \cite{NASA_RadioJOVE_JupiterFactSheet}
     \item $e_J = 0.04839266$ \cite{NASA_RadioJOVE_JupiterFactSheet}
-    \item $T_{ratioJ} = T_J / T_{\oplus} \approx 11.862$
+    \item $T_{ratioJ} = T_J / T_{\oplus} \approx 11.862$  \cite{NASA_RadioJOVE_JupiterFactSheet}
 \end{itemize}
 
 \textbf{1. Global Potential Projection ($\kappa_J$)} \\
@@ -996,31 +1007,29 @@ Expanding the algebraic chain utilizing Jupiter's specific kinematic projection 
     R_{sRGJ} \approx 2955.41 \text{ m}
 \]
 
-\textbf{3. Jovian Semi-major Axis ($a_J$)} \\
+\subsection*{Jovian Orbital Recovery}
 Translating the recovered systemic scale to the spatial scale of Jupiter's orbit:
 \[
     a_J = \frac{R_{sRGJ}}{\kappa_J^2} \approx 7.7827 \times 10^{11} \text{ m}
 \]
-Standard observed value $a_{JDATA} = 778.57 \times 10^9 \text{ m}$ \cite{NASA_RadioJOVE_JupiterFactSheet}.
+Observed value $a_{JDATA} = 778.57 \times 10^9 \text{ m}$.
 \[
     \text{Discrepancy} = \frac{|a_{JDATA} - a_J|}{a_{JDATA}} \times 100 \approx 0.038\%
 \]
 
-The extraction of the central Schwarzschild radius ($R_s$) and the local geometric scale ($a$) remains perfectly invariant and algebraically closed, proving that the full system geometry can be holographically reconstructed regardless of which planet's dimensional "shadow" ($T, e$) is utilized as the observational lens.
-
-
-\textbf{9. Conclusion} \\
-The logical chain is complete and algebraically closed. All fundamental parameters of the gravitational system are recovered precisely without the use of mass ($M$), the gravitational constant ($G$), a metric manifold, differential formalism, or the postulation of an external flow of time.
+The reconstruction of the Schwarzschild radius ($R_s$) and the orbital scale ($a$) from disparate chronometric cycles ($T, e$) demonstrates that there's a constant direct invariant relation between:
+\begin{itemize}
+    \item \textbf{potential } geometry ($\kappa^2$ -  \textbf{"spacetime structure"})
+    \item and system's \textbf{kinetic} ($\beta^2$- \textbf{"energy dynamics"}) 
+both seen as relational measure of  state difference, rooting directly from \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying}{foundational unification principle $\boxed{\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}}$ (pr:unifying}).
+\end{itemize}
 \end{proof}
+\section*{Conclusion}
+All major parameters of gravitational systems are recovered through algebraic closure without mass ($M$), gravitational constant ($G$), metric manifold, differential formalism, or external temporal flow.
 
-\[
-\boxed{\textbf{No differential formalism. No metric space. Just light frequency shift red vs. blue.}} 
-\]
-
-\begin{corollary}[Epistemic Mandate and Ontological Redundancy]
-In information theory and formal logic, if a parameter is strictly absent from the complete algebraic generative chain of a system, its reintroduction constitutes an epistemic violation. Because the full structural and dynamical parameterization ($e$, $\Delta\varphi$, $R_s$, $a$) is algebraically closed using only directly measurable dimensionless ratios ($e_{obs}, \theta_{\odot}, T_M/T_{\oplus}, z_{sun}$) and derived relational projections ($\kappa, \beta$), the variables $G$ and $M$ possess zero independent predictive power. They are not fundamental primitives. Their retention is required exclusively for the conversion of pure relational geometry into legacy units of kilograms.
+\begin{corollary}[Epistemic Mandate and Parameter Parsimony]
+If a system's generative chain is algebraically complete without a specific parameter, that parameter is an emergent scaling constant rather than a fundamental primitive. Because the structural and dynamical states ($e, \Delta\varphi, R_s, a$) are closed using only dimensionless spectroscopic and chronometric ratios ($e, \theta_{\odot}, T_{ratio}, z_{sun}$), the variables $G$ and $M$ function as translation factors for legacy unit systems. Their retention is required exclusively for mapping invariant relational geometry onto the kilogram-based convention without increasing the system's predictive capacity.
 \end{corollary}
-
 
 \begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Test it yourself]
 Recommendation: \href{https://www.desmos.com/calculator/mjen4ms452}{DESMOS} \\
@@ -1045,7 +1054,7 @@ The derivation utilizes the following empirical data:
 \subsection{Structural Parameters}
 The Schwarzschild radii and the Sun-Earth distance are defined as:
 \begin{align}
-    R_{sS} &= \frac{T_E}{\pi} c \left( \sqrt{ \frac{ \left(1 - \frac{1}{(1+z_{\odot})^2}\right) \sin(\theta_{\odot}) }{2} } \right)^3 \\
+    R_{sS} &= \frac{T_{E}}{\pi}c\left(\sqrt{\frac{1}{2}\left(1-\frac{1}{(1+z_{\odot})^{2}}\right)\sin(\theta_{\odot})}\right)^{3} \\
     R_{sE} &= \frac{T_m}{\pi} c \left(\frac{2\pi R_{m}}{T_{m}c}\right)^3 \\
     R_{E} &= \frac{R_{sS}}{\left(1 - \frac{1}{(1+z_{\odot})^2}\right) \sin(\theta_{\odot})}
 \end{align}
