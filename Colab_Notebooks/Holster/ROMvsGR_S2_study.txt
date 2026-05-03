@@ -1,0 +1,498 @@
+
+GR:
+
+
+"""
+GR 1PN Fit for S2 – Compatible with WILL Methodology
+------------------------------------------------------
+9 free parameters (same as WILL):
+  a_as, e, i, ω0, Ω, P, T0, V0, K
+
+Omitted to match WILL:
+  - No Shapiro delay
+  - Single‑step Rømer delay (same as WILL)
+  - No gravitational lensing
+
+Precession: secular 1PN advance Δω/orbit = 6π (K/c)² / sin²i
+Derived (post‑fit): M_BH, R0
+"""
+
+import numpy as np
+import pandas as pd
+from scipy.optimize import minimize
+import matplotlib.pyplot as plt
+
+# ----------------------------------------------------------------------
+# Constants (SI & convenient units)
+# ----------------------------------------------------------------------
+C_KMS = 299792.458          # km/s
+DAY_SEC = 86400.0
+ARCSEC_TO_RAD = np.pi / (180.0 * 3600.0)
+
+# ----------------------------------------------------------------------
+# Load data (same as WILL)
+# ----------------------------------------------------------------------
+URL_ASTRO = 'https://raw.githubusercontent.com/AntonRize/WILL/main/DATA/aav8137_data_s2.csv'
+URL_RV    = 'https://raw.githubusercontent.com/AntonRize/WILL/main/DATA/S0-2_DataS1_full.csv'
+
+df_astro = pd.read_csv(URL_ASTRO).sort_values('mjd')
+df_rv    = pd.read_csv(URL_RV).sort_values('MJD')
+
+t_astro = df_astro['mjd'].values
+x_obs, x_err = df_astro['x'].values, df_astro['xerr'].values
+y_obs, y_err = df_astro['y'].values, df_astro['yerr'].values
+
+t_rv   = df_rv['MJD'].values
+rv_obs, rv_err = df_rv['RV_km_s'].values, df_rv['sigma_km_s'].values
+
+# ----------------------------------------------------------------------
+# Kepler solver
+# ----------------------------------------------------------------------
+def solve_kepler(M, e):
+    E = M + e * np.sin(M)
+    for _ in range(20):
+        E = E - (E - e * np.sin(E) - M) / (1.0 - e * np.cos(E))
+    return E
+
+def true_anomaly(mjd, T0, P, e):
+    """MJD -> true anomaly (rad)"""
+    M = 2.0 * np.pi * (mjd - T0) / P
+    orbits = np.floor(M / (2.0 * np.pi))
+    M_mod = M % (2.0 * np.pi)
+    E_mod = solve_kepler(M_mod, e)
+    nu_mod = 2.0 * np.arctan2(np.sqrt(1.0 + e) * np.sin(E_mod / 2.0),
+                              np.sqrt(1.0 - e) * np.cos(E_mod / 2.0))
+    return orbits * 2.0 * np.pi + (nu_mod % (2.0 * np.pi))
+
+# ----------------------------------------------------------------------
+# GR model (9 parameters, single‑step Rømer, no Shapiro/lensing)
+# ----------------------------------------------------------------------
+def gr_model_9params(params, mjd_astro, mjd_rv):
+    a_as, e, i, omega0, Omega, P, T0, V0, K = params
+
+    # ----- derived physical scale from kinematics (same as WILL algebra) -----
+    # a_km from K (semi‑amplitude in km/s)
+    a_km = (K * P * DAY_SEC * np.sqrt(1.0 - e**2)) / (2.0 * np.pi * np.sin(i))
+    # GM from Kepler's 3rd law
+    n = 2.0 * np.pi / (P * DAY_SEC)          # mean motion (rad/s)
+    GM = n**2 * a_km**3                      # m³/s², with a_km in km -> 1e9 m³/s²
+    GM_mks = GM * 1e9                        # convert to m³/s²
+    c_ms = C_KMS * 1000.0
+
+    # ----- 1PN secular precession (derived from K and i) -----
+    # Δω per orbit = 6π (K/c)² / sin²i
+    delta_omega_per_orbit = (6.0 * np.pi * (K / C_KMS)**2) / np.sin(i)**2
+    omega_dot = delta_omega_per_orbit / P    # advance per day
+
+    # ----- Helper to compute Rømer‑corrected state (single‑step, as WILL) -----
+    def compute_state(mjd):
+        # Step 1: estimate emission time using instantaneous z
+        nu0 = true_anomaly(mjd, T0, P, e)
+        omega_t = omega0 + omega_dot * (mjd - T0)
+        r0 = a_km * (1.0 - e**2) / (1.0 + e * np.cos(nu0))
+        z0 = r0 * np.sin(i) * np.sin(nu0 + omega_t)
+        t_emit = mjd - z0 / (C_KMS * DAY_SEC)
+
+        # Step 2: recompute state at this single‑step emission time
+        nu = true_anomaly(t_emit, T0, P, e)
+        omega_t = omega0 + omega_dot * (t_emit - T0)
+        r = a_km * (1.0 - e**2) / (1.0 + e * np.cos(nu))
+        z = r * np.sin(i) * np.sin(nu + omega_t)
+
+        # in‑plane coordinates
+        x_orb_km = r * np.cos(nu)
+        y_orb_km = r * np.sin(nu)
+        return x_orb_km, y_orb_km, z, r, nu, omega_t
+
+    # ----- Astrometry -----
+    x_mod = np.array([])
+    y_mod = np.array([])
+    if len(mjd_astro) > 0:
+        states = [compute_state(t) for t in mjd_astro]
+        x_orb_arr = np.array([s[0] for s in states])
+        y_orb_arr = np.array([s[1] for s in states])
+        omega_arr = np.array([s[5] for s in states])
+
+        # projection onto sky
+        cos_Om, sin_Om = np.cos(Omega), np.sin(Omega)
+        cos_om, sin_om = np.cos(omega_arr), np.sin(omega_arr)
+        cos_i = np.cos(i)
+
+        A = cos_Om * cos_om - sin_Om * sin_om * cos_i
+        B = sin_Om * cos_om + cos_Om * sin_om * cos_i
+        F = -cos_Om * sin_om - sin_Om * cos_om * cos_i
+        G = -sin_Om * sin_om + cos_Om * cos_om * cos_i
+
+        x_sky_km = B * x_orb_arr + G * y_orb_arr
+        y_sky_km = A * x_orb_arr + F * y_orb_arr
+
+        # Scale: a_km (km) -> a_as (arcsec) -> pc, distance derived post‑fit
+        # We need a scale factor km per arcsec at unknown distance;
+        # we use the fitted a_as to set the scale: scale = a_km / a_as
+        scale_km_per_as = a_km / a_as
+        x_mod = x_sky_km / scale_km_per_as
+        y_mod = y_sky_km / scale_km_per_as
+
+    # ----- Radial velocity -----
+    rv_mod = np.array([])
+    if len(mjd_rv) > 0:
+        states_rv = [compute_state(t) for t in mjd_rv]
+        r_arr = np.array([s[3] for s in states_rv])
+        nu_arr = np.array([s[4] for s in states_rv])
+        omega_arr = np.array([s[5] for s in states_rv])
+
+        # classical Keplerian component
+        v_rad_kepler = K * (np.cos(nu_arr + omega_arr) + e * np.cos(omega_arr))
+
+        # GR 1PN redshift (identical to WILL relational redshift)
+        v2 = GM * (2.0 / r_arr - 1.0 / a_km)   # units: km²/s²
+        z_grav = GM / (r_arr * c_ms**2 * 1e-6)  # dimensionless, GM in km³/s²? careful units
+        # GM is in km³/s² (since a_km in km, n in rad/s). v² in km²/s².
+        # z_grav = GM / (r * c^2)  (GM in km³/s², c in km/s => c^2 in km²/s²)
+        z_grav = GM / (r_arr * C_KMS**2)
+        z_td   = 0.5 * v2 / C_KMS**2
+        redshift_km_s = C_KMS * (z_grav + z_td)
+
+        rv_mod = V0 + v_rad_kepler + redshift_km_s
+
+    return x_mod, y_mod, rv_mod
+
+# ----------------------------------------------------------------------
+# Objective
+# ----------------------------------------------------------------------
+def chi2(params):
+    x_m, y_m, rv_m = gr_model_9params(params, t_astro, t_rv)
+    chi2_ast = np.sum(((x_obs - x_m) / x_err)**2 + ((y_obs - y_m) / y_err)**2)
+    chi2_rv = np.sum(((rv_obs - rv_m) / rv_err)**2)
+    return chi2_ast + chi2_rv
+
+# ----------------------------------------------------------------------
+# Fit
+# ----------------------------------------------------------------------
+# initial guess (close to known values)
+p0 = [0.124, 0.885, 2.36, 1.15, 3.98, 5860.0, 58258.0, -15.0, 3100.0]
+bounds = [
+    (0.10, 0.15),           # a_as
+    (0.80, 0.95),           # e
+    (0.0, np.pi),           # i
+    (0.0, 2*np.pi),         # ω0
+    (0.0, 2*np.pi),         # Ω
+    (5800, 5950),           # P (days)
+    (58100, 58400),         # T0 (MJD)
+    (-200, 200),            # V0 (km/s)
+    (1000, 5000)            # K (km/s)
+]
+
+print("Optimising GR 1PN model (9 parameters, matched methodology)...")
+res_nm = minimize(chi2, p0, bounds=bounds, method='Nelder-Mead',
+                  options={'maxiter': 25000})
+res = minimize(chi2, res_nm.x, bounds=bounds, method='L-BFGS-B')
+
+# ----------------------------------------------------------------------
+# Post‑fit derivation
+# ----------------------------------------------------------------------
+a_as, e, i, omega0, Omega, P, T0, V0, K = res.x
+a_km = (K * P * DAY_SEC * np.sqrt(1.0 - e**2)) / (2.0 * np.pi * np.sin(i))
+n = 2.0 * np.pi / (P * DAY_SEC)
+GM = n**2 * a_km**3    # km³/s²
+M_kg = GM * 1e9 / 6.67430e-11   # convert to SI mass
+M_Msun = M_kg / 1.98847e30
+delta_omega = (6.0 * np.pi * (K / C_KMS)**2) / np.sin(i)**2
+# distance: R0 (pc) = a_km / (a_as * ARCSEC_TO_RAD) / (pc per km)
+pc_per_km = 1.0 / 3.085677581e13
+R0_pc = (a_km / (a_as * ARCSEC_TO_RAD)) * pc_per_km
+
+print("\n" + "="*65)
+print("GR 1PN FIT (9 parameters, no Shapiro/lensing)")
+print("="*65)
+print(f"χ² = {res.fun:.2f}")
+print("-"*65)
+print(f"a (arcsec)          = {a_as:.6f}")
+print(f"e                   = {e:.6f}")
+print(f"i (rad)             = {i:.6f}")
+print(f"ω₀ (rad)            = {omega0:.6f}")
+print(f"Ω (rad)             = {Omega:.6f}")
+print(f"P (days)            = {P:.4f}")
+print(f"T₀ (MJD)            = {T0:.4f}")
+print(f"V₀ (km/s)           = {V0:.4f}")
+print(f"K (km/s)            = {K:.4f}")
+print(f"Δω/orbit (rad)      = {delta_omega:.6f}")
+print("-"*65)
+print("DERIVED PHYSICAL QUANTITIES:")
+print(f"M_BH (10⁶ M☉)       = {M_Msun/1e6:.4f}")
+print(f"R₀ (pc)             = {R0_pc:.2f}")
+print("="*65)
+
+
+
+
+OUTPUT:
+Optimising GR 1PN model (9 parameters, matched methodology)...
+
+=================================================================
+GR 1PN FIT (9 parameters, no Shapiro/lensing)
+=================================================================
+χ² = 800.81
+-----------------------------------------------------------------
+a (arcsec)          = 0.124488
+e                   = 0.887826
+i (rad)             = 2.370695
+ω₀ (rad)            = 1.160650
+Ω (rad)             = 3.987842
+P (days)            = 5862.5978
+T₀ (MJD)            = 58257.6592
+V₀ (km/s)           = -15.0196
+K (km/s)            = 2894.4022
+Δω/orbit (rad)      = 0.003619
+-----------------------------------------------------------------
+DERIVED PHYSICAL QUANTITIES:
+M_BH (10⁶ M☉)       = 4.2430
+R₀ (pc)             = 8274.84
+=================================================================
+
+
+
+
+
+
+
+
+
+WILL RG:
+
+
+"""
+WILL Relational Geometry: S2 Orbital Parametrization (R.O.M. Framework)
+Author: Leibniz Partner & Anton Rize
+Version: 1.4 (Strict Relational with Rømer Delay & Relational Redshift)
+
+SCIENTIFIC STATEMENT:
+Orbital dynamics and strong-field precession are not the result of masses
+moving through curved background spacetime. In WILL Relational Geometry,
+the exact trajectory and scale of the S2 system emerge purely from the
+algebraic closure of its relational phase projections (kappa^2 = 2*beta^2).
+"""
+
+import numpy as np
+import pandas as pd
+from scipy.optimize import minimize
+import matplotlib.pyplot as plt
+
+# --- 1. GLOBAL CONSTANTS ---
+C_KMS = 299792.458
+AU_KM = 149597870.7
+MSUN_GM = (1.32712440018e20 / (C_KMS*1000)**2) / 1000
+
+# --- 2. DATA LOADING (Raw URLs) ---
+URL_ASTRO = 'https://raw.githubusercontent.com/AntonRize/WILL/main/DATA/aav8137_data_s2.csv'
+URL_RV = 'https://raw.githubusercontent.com/AntonRize/WILL/main/DATA/S0-2_DataS1_full.csv'
+
+print(">>> Loading raw data from GitHub...")
+df_astro = pd.read_csv(URL_ASTRO).sort_values('mjd')
+df_rv = pd.read_csv(URL_RV).sort_values('MJD')
+
+m_a = df_astro['mjd'].values
+x_obs, x_err = df_astro['x'].values, df_astro['xerr'].values
+y_obs, y_err = df_astro['y'].values, df_astro['yerr'].values
+
+m_r = df_rv['MJD'].values
+rv_obs, rv_err = df_rv['RV_km_s'].values, df_rv['sigma_km_s'].values
+
+# --- 3. RELATIONAL ALGORITHMS ---
+
+def solve_kepler(M, e):
+    E = np.copy(M)
+    for _ in range(50):
+        E = E - (E - e * np.sin(E) - M) / (1 - e * np.cos(E))
+    return E
+
+def get_nu(mjd, T0, P, e):
+    M = 2 * np.pi * (mjd - T0) / P
+    orbits = np.floor(M / (2 * np.pi))
+    M_mod = M % (2 * np.pi)
+    E_mod = solve_kepler(M_mod, e)
+    nu_mod = 2 * np.arctan2(np.sqrt(1 + e) * np.sin(E_mod / 2), np.sqrt(1 - e) * np.cos(E_mod / 2))
+    return orbits * 2 * np.pi + (nu_mod % (2 * np.pi))
+
+def will_model_strict(params, mjd_a, mjd_r):
+    a_as, e, i, omega, Omega, P, T0, V0, K = params
+
+    # [ALGEBRAIC LOCK & SCALE]
+    beta_int = (K / C_KMS) / np.sin(i)
+    beta_sq = (beta_int**2) * (1 - e**2)
+    tau_Y_sq = 3 * beta_sq - 2 * (beta_sq**2)
+    f_prec = tau_Y_sq / (1 - e**2)
+
+    beta = np.sqrt(beta_sq)
+    T_sec = P * 86400
+    Rs_km = (T_sec * C_KMS * (beta**3)) / np.pi
+    a_km = Rs_km / (2 * beta_sq)
+    scale_km_per_as = a_km / a_as
+
+    # --- ASTROMETRY WITH ROMER DELAY ---
+    nu_a_0 = get_nu(mjd_a, T0, P, e)
+    w_shift_a_0 = f_prec * nu_a_0
+    r_O_0 = a_as * (1 - e**2) / (1 + e * np.cos(nu_a_0 - w_shift_a_0))
+    z_km_a = r_O_0 * scale_km_per_as * np.sin(i) * np.sin(nu_a_0 + omega + w_shift_a_0)
+
+    t_emit_a = mjd_a - z_km_a / (C_KMS * 86400)
+
+    nu_a = get_nu(t_emit_a, T0, P, e)
+    w_shift_a = f_prec * nu_a
+    r_O = a_as * (1 - e**2) / (1 + e * np.cos(nu_a - w_shift_a))
+    x_orb = r_O * np.cos(nu_a)
+    y_orb = r_O * np.sin(nu_a)
+
+    A = np.cos(Omega)*np.cos(omega) - np.sin(Omega)*np.sin(omega)*np.cos(i)
+    B = np.sin(Omega)*np.cos(omega) + np.cos(Omega)*np.sin(omega)*np.cos(i)
+    F = -np.cos(Omega)*np.sin(omega) - np.sin(Omega)*np.cos(omega)*np.cos(i)
+    G = -np.sin(Omega)*np.sin(omega) + np.cos(Omega)*np.cos(omega)*np.cos(i)
+
+    x_sky = B * x_orb + G * y_orb
+    y_sky = A * x_orb + F * y_orb
+
+    # --- RADIAL VELOCITY WITH ROMER & RELATIONAL REDSHIFT ---
+    rv_pred = np.array([])
+    if len(mjd_r) > 0:
+        nu_r_0 = get_nu(mjd_r, T0, P, e)
+        w_shift_r_0 = f_prec * nu_r_0
+        r_O_r_0 = a_as * (1 - e**2) / (1 + e * np.cos(nu_r_0 - w_shift_r_0))
+        z_km_r = r_O_r_0 * scale_km_per_as * np.sin(i) * np.sin(nu_r_0 + omega + w_shift_r_0)
+
+        t_emit_r = mjd_r - z_km_r / (C_KMS * 86400)
+
+        nu_r = get_nu(t_emit_r, T0, P, e)
+        w_shift_r = f_prec * nu_r
+        eff_w = omega + w_shift_r
+
+        # 1. Classical Doppler z-projection
+        vz_classical = K * (np.cos(nu_r + eff_w) + e * np.cos(eff_w))
+
+        # 2. WILL Relational Redshift (Z_sys)
+        r_km_r = a_km * (1 - e**2) / (1 + e * np.cos(nu_r - w_shift_r))
+        kappa_o_sq = Rs_km / r_km_r
+        beta_o_sq = kappa_o_sq - beta_sq
+        v_relational = C_KMS * (kappa_o_sq + beta_o_sq) / 2
+
+        rv_pred = V0 + vz_classical + v_relational
+
+    return x_sky, y_sky, rv_pred, beta_sq, f_prec
+
+def objective(p):
+    xs, ys, rv, _, _ = will_model_strict(p, m_a, m_r)
+    return np.sum(((x_obs-xs)/x_err)**2) + np.sum(((y_obs-ys)/y_err)**2) + np.sum(((rv_obs-rv)/rv_err)**2)
+
+# --- 4. EXECUTE OPTIMIZATION ---
+# Widened bounds to prevent trapping
+p0 = [0.124, 0.885, 2.36, 1.15, 3.98, 5860, 58258, -10.0, 3000]
+bounds = [(0.10, 0.15), (0.80, 0.95), (0, np.pi), (0, 2*np.pi), (0, 2*np.pi),
+          (5800, 5950), (58100, 58400), (-200, 200), (1000, 5000)]
+
+print(">>> Phase 1: Global search (Nelder-Mead)...")
+res_nm = minimize(objective, p0, bounds=bounds, method='Nelder-Mead', options={'maxiter': 25000})
+
+print(">>> Phase 2: Precision refinement (L-BFGS-B)...")
+res = minimize(objective, res_nm.x, bounds=bounds, method='L-BFGS-B')
+
+# --- 5. POST-FIT RELATIONAL DERIVATION ---
+a_as, e, i, omega, Omega, P_days, T0, V0, K = res.x
+chi2_val = res.fun
+_, _, _, beta_sq, f_prec = will_model_strict(res.x, np.array([T0]), np.array([]))
+
+beta = np.sqrt(beta_sq)
+T_sec = P_days * 86400
+Rs_km = (T_sec * C_KMS * (beta**3)) / np.pi
+a_km = Rs_km / (2 * beta_sq)
+a_au = a_km / AU_KM
+R0_pc = (a_km / a_as) / 3.08567758e13 * (180*3600/np.pi)
+Mass_Msun = (Rs_km / 2) / MSUN_GM
+
+# --- 6. SCIENTIFIC OUTPUT ---
+print("\n" + "="*65)
+print("WILL RELATIONAL GEOMETRY: FULL OPTICAL + ROMER SOLUTION")
+print("="*65)
+print(f"Fit Quality (Chi-Squared):       {chi2_val:.4f}")
+print(f"Number of Observables:           {len(x_obs)*2 + len(rv_obs)}")
+print("-" * 65)
+print(f"Relational Beta (beta):          {beta:.8f}")
+print(f"Angular Semi-major Axis (a_as):  {a_as:.6f} arcsec")
+print(f"Eccentricity (e):                {e:.6f}")
+print(f"Inclination (i):                 {i:.6f} rad")
+print(f"Argument of Periapsis (omega):   {omega:.6f} rad")
+print(f"Period (T):                      {P_days:.4f} days")
+print(f"Derived Precession (f_prec):     {f_prec:.8f}")
+print(f"Systemic Velocity (V0):          {V0:.4f} km/s")
+print("-" * 65)
+print("DERIVED PHYSICAL PARAMETERS (FROM T and BETA ONLY):")
+print(f"Schwarzschild Radius (Rs):       {Rs_km:.2f} km")
+print(f"Semi-major Axis (a):             {a_au:.6f} AU")
+print(f"Distance to Sgr A* (R0):         {R0_pc:.2f} pc")
+print("-" * 65)
+print(f"Final Calculated Mass (M):       {Mass_Msun/1e6:.4f} Million M_sun")
+print("="*65)
+
+# --- 7. PLOTTING ---
+m_dense = np.linspace(min(m_a.min(), m_r.min()), max(m_a.max(), m_r.max()) + 500, 2000)
+xs_d, ys_d, rv_d, _, _ = will_model_strict(res.x, m_dense, m_dense)
+
+plt.figure(figsize=(15, 6))
+
+plt.subplot(1, 2, 1)
+plt.errorbar(x_obs, y_obs, xerr=x_err, yerr=y_err, fmt='k.', alpha=0.3, label='Data')
+plt.plot(xs_d, ys_d, 'r-', label='WILL RG (Precessing)')
+plt.gca().invert_xaxis()
+plt.xlabel('RA Offset (arcsec)')
+plt.ylabel('Dec Offset (arcsec)')
+plt.title('S2 Astrometry: Relational Rosette')
+plt.legend()
+plt.grid(True, alpha=0.2)
+
+plt.subplot(1, 2, 2)
+plt.errorbar(m_r, rv_obs, yerr=rv_err, fmt='k.', alpha=0.3, label='Data')
+plt.plot(m_dense, rv_d, 'r-', label='WILL RG Model')
+plt.xlabel('Time (MJD)')
+plt.ylabel('Radial Velocity (km/s)')
+plt.title('S2 Spectroscopy: Z-phase Shift')
+plt.legend()
+plt.grid(True, alpha=0.2)
+
+plt.tight_layout()
+plt.show()
+
+
+
+OUTPUT:
+
+>>> Loading raw data from GitHub...
+>>> Phase 1: Global search (Nelder-Mead)...
+>>> Phase 2: Precision refinement (L-BFGS-B)...
+
+=================================================================
+WILL RELATIONAL GEOMETRY: FULL OPTICAL + ROMER SOLUTION
+=================================================================
+Fit Quality (Chi-Squared):       727.2044
+Number of Observables:           174
+-----------------------------------------------------------------
+Relational Beta (beta):          0.00642627
+Angular Semi-major Axis (a_as):  0.124120 arcsec
+Eccentricity (e):                0.887171
+Inclination (i):                 2.377080 rad
+Argument of Periapsis (omega):   1.162905 rad
+Period (T):                      5862.4861 days
+Derived Precession (f_prec):     0.00058183
+Systemic Velocity (V0):          -15.5462 km/s
+-----------------------------------------------------------------
+DERIVED PHYSICAL PARAMETERS (FROM T and BETA ONLY):
+Schwarzschild Radius (Rs):       12827524.71 km
+Semi-major Axis (a):             1038.173191 AU
+Distance to Sgr A* (R0):         8364.24 pc
+-----------------------------------------------------------------
+Final Calculated Mass (M):       4.3435 Million M_sun
+=================================================================
+
+
+
+
+
+
+
