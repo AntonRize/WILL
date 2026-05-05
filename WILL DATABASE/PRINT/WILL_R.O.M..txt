@@ -234,7 +234,7 @@ $\frac{r_{a}}{r_{p}}= \frac{\delta_{a}}{\delta_{p}} = \frac{1+e}{1-e}=\frac{\bet
 
 \subsection*{Observer dependant} 
 $Z_{raw}(o)=(1+\beta_{int}(\cos(o+\omega_{i})+e\cos(\omega_{i}))\sin(i))\ Z_{sys}(o)$ (raw light shift including the line of site Doppler at phase o) \\
-$\beta_{los}(o)=\frac{\beta}{\sqrt{1-e^{2}}}(\cos(o+\omega_{i})+e\cos(\omega_{i}))\sin(i)$  (line of site light shift) \\
+$\beta_{z}(o)=\frac{\beta}{\sqrt{1-e^{2}}}(\cos(o+\omega_{i})+e\cos(\omega_{i}))\sin(i)$  (line of site light shift) \\
 $i=$ (orbital inclination in relation to line of site and orbital plane)  \\
 $\omega_{i}=$ (phase turn or argument of periapsis) \\
 $K_{i}=\frac{\beta}{\sqrt{1-e^{2}}}\sin(i)=\beta_{int}\sin(i)$  (semi-amplitude invariant) \\
@@ -331,6 +331,11 @@ Computation time (Google Colab) & $\sim$7 min & $\sim$3 sec \\ \hline
 \noindent
 The improvement in $\chi^2$ ($\Delta\chi^2 = 73.6$) is achieved without any additional adjustable parameters.  The derived distance and central mass are consistent with recent independent measurements by the GRAVITY and Keck collaborations.
 
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Google Colab Notebook]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROMvsGR_S2_study.ipynb}{ROM vs GR S2 study.ipynb}
+\end{tcolorbox}
+
+
 \subsection*{Discussion}
 The WILL RG model provides a statistically better description of the S2 data than the standard 1PN parametrisation with the same parameter count.  A detailed diagnostic decomposition (Section~\ref{sec:diagnostic}) reveals that the entire improvement is due to the phase‑coupled treatment of the pericentre advance ($\omega_{\rm shift} \propto \nu$), which replaces the usual time‑linear advance.  This parametrisation emerges naturally from the relational closure condition and is not an \emph{ad hoc} modification.
 
@@ -391,6 +396,13 @@ The instantaneous radius and the Rømer delay are evaluated with the shifted arg
 
 \paragraph{Why the improvement is global.}
 Because the substitution $t \to \nu$ in the precession phase affects the entire timing model, the correction is not localised near pericentre.  It produces a slight but coherent shift of every predicted observables (astrometric positions and radial velocities) towards the measured values, exactly the uniform residual improvement observed in the diagnostic plots (Fig.~\ref{fig:diagnostic}).  Over the 24-year data set containing 174 observables, this small systematic adjustment accumulates to the $\Delta\chi^2 \approx -74$ seen in the fit.
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Full MCMC Analysis]
+\href{https://willrg.com/MCMC_S2.html}{https://willrg.com/MCMC S2.html}
+\end{tcolorbox}
+
+\textbf{The MCMC transforms a single optimizer result into a statistical statement:}
+Across the full 9-dimensional parameter space, the $\nu$-coupled precession parametrization fits 174 S2 observables better by $\Delta \chi^2\approx74$ than the time-linear parametrization, with no additional free parameters. This analysis show that this is not a fluke of the starting point or optimization algorithm.
 
 \subsection{Implications for Relational Geometry and for Standard Gravity}
 
@@ -588,11 +600,11 @@ This identity demonstrates that the optical signal contains the complete informa
 \end{proof}
 
 
-\section{Relational Origin}
+\section{Relational Origin of:}
 \hypertarget{sec:relation_origin}{}\label{sec:relation_origin}
 
 
-\subsection{of Kepler's Third Law}
+\subsection{Kepler's Third Law}
 \hypertarget{sec:orbital_prop}{}\label{sec:orbital_prop}
 
 The Keplerian proportionality $a \propto T^{2/3}$ is a direct algebraic consequence of the energetic equilibrium between the 1-DOF directional kinematic carrier ($S^1$) and the 2-DOF omnidirectional potential carrier ($S^2$). The derivation strictly utilizes dimensionless ratios and absolute geometric scale, eliminating dependence on classical mass and the empirical gravitational constant.
@@ -626,7 +638,7 @@ Rearranging to isolate the semi-major axis $a$ gives the exact closed-form relat
 \end{equation}
 
 
-\subsection{of Vis-Viva}
+\subsection{Vis-Viva}
 \hypertarget{sec:vis-viva}{}\label{sec:vis-viva}
 
 In elliptical systems, the global closure theorem $\kappa^2 = 2\beta^2$ is conserved across the entire orbital cycle, while local phase variations manifest as an internal ``breathing'' of relational projections. We now derive the exact conservation law governing this local dynamic distribution.
@@ -665,7 +677,7 @@ This geometric invariant replaces the descriptive Newtonian Vis-Viva equation ($
 \end{remark}
 
 
-\subsection{of Angular Momentum Conservation}
+\subsection{Angular Momentum Conservation}
 \hypertarget{sec:angular_momentum}{}\label{sec:angular_momentum}
 
 The conservation of specific angular momentum $h$ is derived as a phase-independent structural invariant of the relational balance.
@@ -697,7 +709,7 @@ Substituting the invariant ratio $\frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt
 Since $R_s$, $e$, and $\beta$ are global invariants, $h$ does not depend on phase $o$. Angular momentum is thus the manifestation of the fixed structural exchange rate between the $S^2$ and the $S^1$ carriers and there projections.
 \end{proof}
 
-\subsection{of Eccentricity}
+\subsection{Eccentricity}
 \hypertarget{sec:rel_ecc}{}\label{sec:rel_ecc}
 
 Eccentricity is a measure of the projectional deviation from the circular equilibrium state ($\delta=1$).
@@ -791,13 +803,13 @@ $$\text{SPACETIME} \equiv \text{ENERGY}$$
 \end{tcolorbox}
 
 
-\subsection{of Orbital Precession as Phase Accumulation} 
+\subsection{Orbital Precession as Phase Accumulation} 
 \hypertarget{sec:precession_law}{}\label{sec:precession_law}
 
 In standard General Relativity, orbital precession is derived via perturbative methods and Taylor expansions of the Schwarzschild metric. In WILL Relational Geometry, precession is derived strictly from the exact algebraic accumulation of the internal phase difference over a closed geometric cycle, without differential approximations.
 
 \begin{theorem}[Precession Law]
-The secular angular shift (precession) $\Delta\varphi$ per closed orbit is the strict geometric projection of the system's relational state difference $\tau_{Y}$ normalized by the orbital shape factor $(1-e^2)$.
+The secular angular shift (precession) $\Delta\varphi$ per closed orbit is the strict geometric projection of the system's relational phase difference $\tau_{Y}$ normalized by the orbital shape factor $(1-e^2)$.
 \end{theorem}
 
 \begin{proof}
@@ -856,7 +868,7 @@ Furthermore, mapping this simplified shift strictly to periapsis ($p$) observabl
 \end{equation}
 This demonstrates that the classical post-Newtonian perturbative results emerge naturally as first-order ablations of the exact, non-linear relational phase geometry. 
 
-\subsection{of the Dynamic Event Horizon}
+\subsection{Dynamic Event Horizon}
 \hypertarget{sec:dynamic_horizon_closure}{}\label{sec:dynamic_horizon}
 
 In classical literature, the event horizon is often heuristically treated as an escape-velocity boundary where spacetime curvature becomes infinitely steep. In RG, the horizon emerges strictly as the limit of geometric precessional invariant, representing the ultimate topological closure of a trajectory.
@@ -879,7 +891,7 @@ For a perfectly circular orbit ($e = 0$) at this causal limit, the precession ev
 \end{equation}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Event Horizon]
-\textbf{An orbital precession of  $\Delta \varphi  = 2\pi$ radians per revolution implies that the argument of periapsis shifts by a full circle during a single orbit. Consequently, the orbital progression continuously folds onto itself perfectly, creating a closed, self-intersecting locus where forward orbital motion mathematically nullifies itself. This provides a novel interpretation of the event horizon phenomena not as a "point of infinite density" in an external container-like spacetime, but the unitary topological closure of the relational trajectory itself.}
+\textbf{An orbital precession of  $\Delta \varphi  = 2\pi$ radians per revolution implies that the periapsis shifts by a full circle during a single orbit. Consequently, the orbital progression continuously folds onto itself perfectly, creating a closed, self-intersecting locus where forward orbital motion mathematically nullifies itself. This provides a novel interpretation of the event horizon phenomena not as a "point of infinite density" in an external container-like spacetime, but the unitary topological closure of the relational trajectory itself.}
 \end{tcolorbox}
 
 
@@ -888,7 +900,7 @@ Closed Algebraic System of \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf
 \end{tcolorbox}
 
 
-\subsection{of Gravitational Deflection and Lensing}
+\subsection{Gravitational Deflection and Lensing}
 \hypertarget{sec:grav_optics}{}\label{sec:grav_optics}
 
 In General Relativity, the deflection of light is obtained by integrating the null geodesic equations over a curved spacetime manifold, often relying on weak-field approximations and Taylor expansions. Within WILL Relational Geometry (RG), we reject both the background manifold and the use of mathematical approximations as non-operational ontological artifacts. 
@@ -947,8 +959,8 @@ Colab: \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/C
     \item \textbf{Photonic Limit ($\beta_p = 1$):} The phase buffer is completely exhausted ($\Gamma = 1$). Substituting $\beta_p = 1$ yields $e = \frac{2}{\kappa_p^2(2)} - 1 = \frac{1}{\kappa_p^2} - 1 = \frac{\kappa_{Xp}^2}{\kappa_p^2}$. The equation resolves perfectly into the exact light deflection identity: $\Delta\varphi = 2 \arcsin ( \frac{\kappa_p^2}{\kappa_{Xp}^2} )$.
 \end{itemize}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Elimination of the "Massless" Myth]
-This formulation suggests that light and massive bodies do not require separate ontological categories or distinct dynamical laws. In RG, the photonic state the topological limit ($\beta \to 1$, $\beta_Y \to 0$) of the universal phase buffer. The historical factor of 2 in gravitational lensing is not an anomaly of null geodesics in curved background spacetime, but the inevitable geometric consequence of this exhausted phase capacity."
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+This formulation suggests that light and massive bodies do not require separate ontological categories or distinct dynamical laws. In RG, the photonic state the topological limit ($\beta \to 1$, $\beta_Y \to 0$) of the phase buffer. The historical factor of 2 in gravitational lensing might not be an anomaly of null geodesics in curved background spacetime, but the inevitable geometric consequence of this exhausted phase capacity."
 \end{tcolorbox}
 
 \subsubsection*{Gravitational Lensing and the Einstein Ring}
@@ -995,7 +1007,7 @@ The properties of the lens - convergence ($\kappa_{\text{lens}}$), shear ($\gamm
 
 
 
-\subsection{of Parameterization and the Fundamental Primitives}
+\section{Relational Parameterization and the Fundamental Primitives}
 \hypertarget{sec:relational_parameterization}{}\label{sec:relational_parameterization}
 
 \begin{theorem}[Relational Parameterization]
@@ -1196,9 +1208,6 @@ R_s = \frac{T c}{\pi} \beta^{3}
 
 We now derive algebraic formulas for the system scale $R_s$ using three distinct observational methods. These derivations rely strictly on the \textbf{Conservation of the Energy Invariant $W$}, replacing the need for Newtonian force laws.
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Closed Algebraical System of R.O.M. Equations]
-\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. equations and definitions}
-\end{tcolorbox}
 
 \subsection{Method B: Differential (Two-Point Method)}
 
