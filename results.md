@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Documents & Key Results"
-description: "Download WILL Relational Geometry research papers, appendices, and technical documents. Key results in unified field theory, galactic rotation curves without dark matter, gravitational redshift, and orbital mechanics."
+description: "Download WILL Relational Geometry Open Research papers, appendices, technical documents and all reproducible python scripts. Key results are covering domains from classical to Relational Orbital Mechanics (R.O.M.), background free and ontologically minimal Cosmology to fully deterministic and algebraic Relational Quantum Mechanics"
 ---
 
 <style>
@@ -166,12 +166,11 @@ description: "Download WILL Relational Geometry research papers, appendices, and
 
 <!-- ── Part I ── -->
 <div class="doc-card part1">
-  <h3>Part I: Relativistic Foundations</h3>
+  <h3>Part I: Relational Geometry</h3>
   <p class="summary">
-    A relational rediscovery of Special and General Relativity from the
-    SPACETIME&nbsp;&equiv;&nbsp;ENERGY principle. Derives Lorentz factors,
-    energy-momentum relations, Schwarzschild geometry, and Einstein field
-    equations using only two dimensionless projections: \(\beta\)&nbsp;(kinematic)
+    A background free relational theoretical foundation that recovers Special and General Relativity as its limit cases. Derives Lorentz factors,
+    energy-momentum relations. Minkowski and Schwarzschild metric intervals revealed as Pythagorean identities, and Einstein field
+    equation in its relational form derived from two dimensionless projections: \(\beta\)&nbsp;(kinematic)
     and \(\kappa\)&nbsp;(potential) &mdash; without metrics, tensors, or free
     parameters.
   </p>
@@ -184,7 +183,7 @@ description: "Download WILL Relational Geometry research papers, appendices, and
     <li>Closed-form Relational Orbital Mechanics without \(G\), mass,
       or differential formalism</li>
   </ul>
-  <p class="meta">69 pages &middot; Complete</p>
+  <p class="meta">40 pages &middot; Complete</p>
   <div class="doc-actions">
     <a href="/documents/WILL_RG_I.pdf" target="_blank" class="btn-open">
       Open PDF
