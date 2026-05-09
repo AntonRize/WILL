@@ -259,7 +259,7 @@ description: "Download WILL Relational Geometry research papers, appendices, and
 
 <!-- ═══════════════════════ SUPPLEMENTARY ═══════════════════════ -->
 <h2 class="text-2xl font-bold text-white" style="border:none; margin-bottom:1.25rem;">
-  Supplementary Documents
+  WILL RG Part I: Supplementary Documents
 </h2>
 
 
@@ -276,12 +276,12 @@ description: "Download WILL Relational Geometry research papers, appendices, and
 
   <div class="supp-card">
     <div>
-      <h4>Substantialism vs. Relationalism</h4>
-      <p>Mathematical complexity is the symptom of philosophical negligence.</p>
+      <h4>Holographic Decoder</h4>
+      <p>Breaking the M sin(i) degeneracy.</p>
     </div>
     <div class="supp-actions">
-      <a href="/documents/WILL_RG_Substantialism_vs._Relationalism.pdf" target="_blank" class="supp-link">Open</a>
-      <a href="/documents/WILL_RG_Substantialism_vs._Relationalism.pdf" download class="supp-link">Download</a>
+      <a href="/documents/Holographic_Decoder.pdf" target="_blank" class="supp-link">Open</a>
+      <a href="/documents/Holographic_Decoder.pdf" download class="supp-link">Download</a>
     </div>
   </div>
 
