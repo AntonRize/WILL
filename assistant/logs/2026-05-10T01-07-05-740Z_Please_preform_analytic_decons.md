@@ -254,3 +254,7 @@ The term "$\pm 4\beta_{\text{orb}}\beta_{\text{spin}}$" is indeed the *algebraic
 This demonstration shows that WILL RG, with its radically different foundational ontology, is capable of reproducing precise relativistic results using a simpler, algebraically closed system.
 
 Given that WILL RG successfully reproduces the precise numerical values for the Kerr event horizons through an algebraic and parameter-free methodology, what experimental design would you propose to exploit the *ontological* difference between GR's spacetime torsion and WILL RG's phase superposition to detect a qualitative deviation, rather than just a quantitative agreement in an existing observation?
+
+**User:** You didnt calculate the frame-dragging effect so you can not say that +-4beta... term gives the same result as GR. Please preform the same analytical test for the frame-dragging effect
+
+**Assistant:** Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com.
