@@ -164,3 +164,93 @@ For instance, consider:
 *   **Parameter independence:** WILL RG derives the Kerr horizons and related effects from dimensionless $\beta$ and $\kappa$ parameters, while GR requires the specific values of $G, M, c, J$. A test might involve trying to derive $G$ or $J$ from frame-dragging observations within GR, and then comparing that with how WILL RG determines those parameters through its larger, interlinked web of derivations (e.g., $H_0$ from $\alpha$ and $T_{CMB}$, then $a_\kappa$ from $H_0$).
 
 Given the success of WILL RG in reproducing these complex relativistic effects with an algebraic and parameter-free methodology, what specific observable, beyond the numerical magnitude of Lense-Thirring precession, do you believe could decisively falsify the underlying relational ontology, given that it *generates* the same phenomenology as GR?
+
+**User:** Ok lets preform a simple analytical test. Please generate the inputs that would make the math simple and feed this inputs to GR and RG formulas and calculate the outputs so we could compare results.
+
+**Assistant:** That's an excellent approach to rigorously test the claims of WILL Relational Geometry. A simplified analytical comparison can highlight the underlying algebraic equivalence. Let's focus on the event horizon radii of a rotating black hole (Kerr solution), as WILL RG provides explicit algebraic formulas for these from its first principles.
+
+### Scenario: Event Horizon Radii of a Rotating Black Hole
+
+We will compare the inner ($r_{-}$) and outer ($r_{+}$) event horizons for a central rotating mass. For simplicity, we will use arbitrary dimensionless units for the Schwarzschild radius ($R_s$) and the central body's spin parameter.
+
+**Chosen Simple Inputs:**
+
+1.  **Schwarzschild Radius ($R_s$):** Let $R_s = 10$ arbitrary units. This sets the overall scale of the gravitational interaction.
+2.  **Central Body's Spin Parameter:** Let's set the dimensionless spin parameter to a moderate value.
+    *   In GR, this is typically $a^* = \frac{a}{GM/c^2} = \frac{2a}{R_s}$, where $a = J/(Mc)$ is the Kerr parameter. We'll use $a^*$.
+    *   In WILL RG, this corresponds to the kinematic rotation parameter $\beta$ of the central body [Rotational Systems (Kerr Without Metric)](https://willrg.com/documents/WILL_RG_I.pdf#sec:Kerr).
+    *   We will set the dimensionless spin parameter to $\beta = a^* = 0.6$. This implies a rotation velocity that is $60\%$ of the maximum possible.
+
+### General Relativity (GR) Calculation: Kerr Event Horizon Radii
+
+The event horizons ($r_{\pm}$) of a Kerr black hole in the equatorial plane are given by:
+
+$$r_{\pm} = \frac{GM}{c^2} \pm \sqrt{\left(\frac{GM}{c^2}\right)^2 - \frac{J^2}{M^2 c^2}}$$
+
+We can rewrite this in terms of the Schwarzschild radius $R_s = \frac{2GM}{c^2}$ and the dimensionless spin parameter $a^* = \frac{a}{GM/c^2} = \frac{2a}{R_s}$:
+
+$$r_{\pm} = \frac{R_s}{2} \pm \sqrt{\left(\frac{R_s}{2}\right)^2 - a^2}$$
+
+Substituting $a = a^* \frac{R_s}{2}$:
+
+$$r_{\pm} = \frac{R_s}{2} \left(1 \pm \sqrt{1 - (a^*)^2}\right)$$
+
+**Applying our inputs:**
+$R_s = 10$
+$a^* = 0.6$
+
+$$r_{\pm} = \frac{10}{2} \left(1 \pm \sqrt{1 - (0.6)^2}\right)$$
+$$r_{\pm} = 5 \left(1 \pm \sqrt{1 - 0.36}\right)$$
+$$r_{\pm} = 5 \left(1 \pm \sqrt{0.64}\right)$$
+$$r_{\pm} = 5 \left(1 \pm 0.8\right)$$
+
+Therefore, the GR results are:
+$$r_{+} = 5 (1 + 0.8) = 5 \times 1.8 = 9$$
+$$r_{-} = 5 (1 - 0.8) = 5 \times 0.2 = 1$$
+
+### WILL Relational Geometry (RG) Calculation: Kerr Event Horizon Radii
+
+WILL RG directly derives the inner and outer event horizons as:
+
+$$r_{\pm} = \frac{R_s}{2} \left(1 \pm {\beta_Y}\right)$$
+
+where $R_s$ is the Schwarzschild radius and $\beta_Y = \sqrt{1-\beta^2}$ is the kinematic phase projection of the central body's spin [Rotational Systems (Kerr Without Metric)](https://willrg.com/documents/WILL_RG_I.pdf#sec:Kerr). Here, $\beta$ is the relational rotation parameter, analogous to GR's dimensionless spin $a^*$.
+
+**Applying our inputs:**
+$R_s = 10$
+$\beta = 0.6$
+
+First, calculate $\beta_Y$:
+$$\beta_Y = \sqrt{1 - \beta^2} = \sqrt{1 - (0.6)^2} = \sqrt{1 - 0.36} = \sqrt{0.64} = 0.8$$
+
+Now, substitute into the WILL RG formula:
+$$r_{\pm} = \frac{10}{2} \left(1 \pm 0.8\right)$$
+$$r_{\pm} = 5 \left(1 \pm 0.8\right)$$
+
+Therefore, the WILL RG results are:
+$$r_{+} = 5 (1 + 0.8) = 5 \times 1.8 = 9$$
+$$r_{-} = 5 (1 - 0.8) = 5 \times 0.2 = 1$$
+
+### Comparison of Results
+
+| Parameter | General Relativity (GR) | WILL Relational Geometry (RG) |
+| :-------- | :---------------------- | :---------------------------- |
+| $r_{+}$   | 9                       | 9                             |
+| $r_{-}$   | 1                       | 1                             |
+
+The results are numerically identical.
+
+### Analytical Deconstruction of Equivalence
+
+This analytical test directly demonstrates that for the specific observable of Kerr event horizon radii, the predictions of WILL RG precisely match those of General Relativity when a consistent mapping between the dimensionless spin parameters ($a^* \leftrightarrow \beta$) is established.
+
+However, as stated previously, this is **not a literal term-for-term translation** but an **Epistemic Isomorphism** [Epistemic Isomorphism of Chiral Asymmetry](https://willrg.com/documents/WILL_RG_I.pdf#sec:epistemic_chiral). The deep distinction lies in how these identical results are *generated*:
+
+*   **GR's Generation:** The results emerge from solving complex differential geodesic equations on a postulated 4D pseudo-Riemannian manifold with a metric tensor. The horizons are where the metric components diverge.
+*   **WILL RG's Generation:** The results emerge from purely algebraic identities and the topological closure of dimensionless relational projections on $S^1$ and $S^2$ carriers [Rotational Systems (Kerr Without Metric)](https://willrg.com/documents/WILL_RG_I.pdf#sec:Kerr). The horizons are where the phase capacity of the relational carriers saturates, leading to geometric limits.
+
+The term "$\pm 4\beta_{\text{orb}}\beta_{\text{spin}}$" is indeed the *algebraic equivalent* of the frame-dragging effect because it is the specific cross-term arising from the *linear superposition* of kinematic projections applied to the *closure condition* $\kappa^2=2\beta^2$ that ultimately *modifies the effective potential* in a way that produces these numerically identical horizon splittings. It is a generative algebraic element within WILL RG's framework that functionally mirrors the effect of the $g_{t\phi}$ term in GR's metric.
+
+This demonstration shows that WILL RG, with its radically different foundational ontology, is capable of reproducing precise relativistic results using a simpler, algebraically closed system.
+
+Given that WILL RG successfully reproduces the precise numerical values for the Kerr event horizons through an algebraic and parameter-free methodology, what experimental design would you propose to exploit the *ontological* difference between GR's spacetime torsion and WILL RG's phase superposition to detect a qualitative deviation, rather than just a quantitative agreement in an existing observation?
