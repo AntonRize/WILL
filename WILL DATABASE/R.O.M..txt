@@ -159,7 +159,7 @@ $ R_{sys} =a \cdot \sin(\theta_{sys}) $ (system's central body's physical radius
 $m_{0}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}$ (mass parameter) \\
 $t=\frac{a}{c}$(temporal scale of the system) \\
 $\beta^{2}=(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{\kappa_{p}^{2}}{2}(1-e)=(\kappa_{o}(o)^{2}-\frac{\kappa_{o}(o)^{2}}{2\delta_{o}(o)})=\frac{R_s}{2a}=(\frac{R_{s}}{T\cdot c}\pi)^{\frac{2}{3}}$ (energy invariant - binding energy) \\
-$\Delta\phi=\frac{2\pi\cdot\tau_{Y}^{2}}{1-e_{\alpha}^{2}}=\frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}}$ (precession of perihelion per orbit) \\
+$\Delta\phi=\frac{2\pi\cdot\tau_{Y}^{2}}{1-e^{2}}=\frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}}=\frac{3\pi R_{s}}{a(1-e^{2})}-\frac{\pi R_{s}^{2}}{a^{2}(1-e^{2})}$ (precession of perihelion per orbit) \\
 $h_{W}=r_{o}(o)\beta_{T}(o)c=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}=R_s c \frac{\sqrt{1-e^2}}{2\beta}$ ( invariant angular momentum) \\
 $\omega=\frac{\beta c}{a}=\frac{c}{R_{s}}2\beta^{3}$ (angular frequency) \\
 $T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{\pi R_{s}}{c\beta^{3}}$ (orbital period) \\
@@ -274,7 +274,7 @@ $y_{orb} = r(o) \sin(o + \omega_i)$ \\
 Instead of starting from the long chain of derivations and build our way to empirical testing, we will revers this order for our readers and will show the results first and then the way how we get them. By doing so we expect immediate engagement from the reader instead of the long and slow build up. Let us know if this upside down order succeed or fail in this little social experiment within this paper.
 
 \noindent
-We apply the Relational Orbital Mechanics (R.O.M.) framework to the 24-year astrometric and radial‑velocity dataset of the S2 star orbiting the Galactic Centre (Sgr~A*).  The dataset contains 174 raw observables (sky positions and line‑of‑sight velocities) and provides a sensitive test of the geometric closure condition $\kappa^2=2\beta^2$ in a strong‑field regime.
+We apply the Relational Orbital Mechanics (R.O.M.) framework to the 24-year astrometric and radial‑velocity dataset of the S2 star orbiting the Galactic Centre (Sgr~A*).  The dataset contains 174 raw observables (sky positions and line‑of‑sight velocities) and provides a sensitive test of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{geometric closure condition $\kappa^2=2\beta^2$} in a strong‑field regime.
 
 \subsection*{Methodology}
 
@@ -410,7 +410,7 @@ Across the full 9-dimensional parameter space, the $\nu$-coupled precession para
 \subsection*{Implications for Relational Geometry and for Standard Gravity}
 
 \begin{itemize}
-    \item \textbf{WILL RG is empirically preferred.}  The relational closure condition $\kappa^2=2\beta^2$ naturally leads to the $\nu$‑dependent phase shift.  No additional postulates, no knowledge of mass or $G$, and no background spacetime metric are required. These results indicate that the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{relational projection‑closure} approach naturally leads to an empirically preferred orbital model without requiring additional degrees of freedom.
+    \item \textbf{WILL RG is empirically preferred.}  The \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{relational closure condition $\kappa^2=2\beta^2$} naturally leads to the $\nu$‑dependent phase shift.  No additional postulates, no knowledge of mass or $G$, and no background spacetime metric are required. These results indicate that the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{relational projection‑closure} approach naturally leads to an empirically preferred orbital model without requiring additional degrees of freedom.
 
     \item \textbf{Improved modeling tool.}  Even within the framework of General Relativity, replacing the constant $\dot\omega$ with a $\nu$‑proportional advance (while keeping the same 1PN secular magnitude) is a more faithful realisation of the relativistic orbit.  The present data strongly favour this re‑parametrisation.  Future high‑precision monitoring of S2 and similar stars should adopt this method to obtain unbiased estimates of the central mass and distance.
 
@@ -645,7 +645,7 @@ Rearranging to isolate the semi-major axis $a$ gives the exact closed-form relat
 \subsection{Vis-Viva}
 \hypertarget{sec:vis-viva}{}\label{sec:vis-viva}
 
-In elliptical systems, the global closure theorem $\kappa^2 = 2\beta^2$ is conserved across the entire orbital cycle, while local phase variations manifest as an internal ``breathing'' of relational projections. We now derive the exact conservation law governing this local dynamic distribution.
+In elliptical systems, the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{ global closure theorem $\kappa^2 = 2\beta^2$} is conserved across the entire orbital cycle, while local phase variations manifest as an internal ``breathing'' of relational projections. We now derive the exact conservation law governing this local dynamic distribution.
 
 \begin{proposition}[Global Kinetic Amplitude]
 The difference between the square of the local potential projection $\kappa_o^2(o)$ and the square of the local kinetic projection $\beta_o^2(o)$ is a global binding invariant kinetic amplitude equal to $\beta^2$.
@@ -845,32 +845,8 @@ The system accumulates this state mismatch over the full cycle ($2\pi$). The tot
 \end{proof}
 
 \begin{remark}[Epistemic Purity]
-This derivation contrast with the complex integration of perturbed differential equations reviling the exact algebraic evaluation of the relational phase. The cross-coupling term $\kappa^2\beta^2$ distinct RG from just approximation and structurally complete the exact invariant topology.
+This derivation contrast with the complex integration of perturbed differential equations reviling the exact algebraic evaluation of the relational phase. The cross-coupling term $\kappa^2\beta^2$ distinct RG from just approximation and structurally complete the exact invariant topology (full mathematical prove \ref{sec:mercury}).
 \end{remark}
-
-\subsubsection*{Legacy Translation: Recovering the General Relativity Approximation}
-
-To demonstrate structural compatibility with historical models, we can intentionally ablate our exact formula to see what happens when the pure geometry is truncated. 
-
-If we drop the higher-order geometric cross-coupling term ($\kappa^2\beta^2 \to 0$), we isolate the primary operational observable $Q^2$. This yields the simplified precession law:
-\begin{equation}
-\Delta\varphi \simeq \frac{2\pi\,Q^{2}}{1-e^{2}}.
-\end{equation}
-
-Substituting $Q^2$, we recover the standard classical form purely algebraically. By selecting the semi-major axis $a$ as the reference scale, the closure condition ($\kappa^2=2\beta^2$) defines the specific distribution of the invariant Schwarzschild scale $R_s$:
-\[
-\kappa^2(a) = \frac{R_s}{a}, \qquad \beta^2(a) = \frac{R_s}{2a}.
-\]
-Substituting these into the definition of the relational shift norm $Q^2 = \beta^2 + \kappa^2$ yields $Q^2 = \frac{3R_s}{2a}$. Inserting this back into our ablated equation perfectly recovers the standard GR differential approximation:
-\begin{equation}
-\Delta\varphi \simeq \frac{2\pi}{1-e^2} \left( \frac{3R_s}{2a} \right) \equiv \frac{3\pi R_s}{a(1-e^2)}.
-\end{equation}
-
-Furthermore, mapping this simplified shift strictly to periapsis ($p$) observables using the geometric identity $(1+e) = 2\beta_p^2/\kappa_p^2$ yields the direct operational ratio:
-\begin{equation}
-\Delta\varphi \simeq \frac{3\pi}{2} \frac{\kappa_p^4}{\beta_p^2}
-\end{equation}
-This demonstrates that the classical post-Newtonian perturbative results emerge naturally as first-order ablations of the exact, non-linear relational phase geometry. 
 
 \subsection{Dynamic Event Horizon}
 \hypertarget{sec:dynamic_horizon_closure}{}\label{sec:dynamic_horizon}
@@ -882,7 +858,7 @@ Using the exact relational phase accumulation law (derived in \ref{sec:precessio
 \Delta \varphi  = \frac{2\pi \cdot \tau_{Y}^2}{1-e^2} = \frac{2\pi (1 - \tau^2)}{1-e^2}
 \end{equation}
 
-For a massive system under total energetic closure ($\kappa^2 = 2\beta^2$), consider the \textbf{Dynamic Horizon} state where the potential projection reaches absolute saturation ($\kappa^2 = 1$). By the closure rule, the kinematic projection is $\beta^2 = \frac{1}{2}$. 
+For a massive system under total \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{energetic closure ($\kappa^2 = 2\beta^2$)}, consider the \textbf{Dynamic Horizon} state where the potential projection reaches absolute saturation ($\kappa^2 = 1$). By the closure rule, the kinematic projection is $\beta^2 = \frac{1}{2}$. 
 
 At this limit, the gravitational phase component collapses ($\kappa_X = \sqrt{1-1} = 0$), causing the entire internal causal structure of the system to vanish:
 \begin{equation}
@@ -1004,6 +980,93 @@ To reveal the underlying gradient without altering the exact equation, we examin
 The properties of the lens - convergence ($\kappa_{\text{lens}}$), shear ($\gamma$), and magnification ($\mu$) - are the components of the 2D Jacobian matrix of the deflection field $\vec{\alpha}(\vec{\theta})$. Because the physics of the phase-buffer $\beta_Y$ is fundamentally woven into the exact definition of $\Delta\varphi_{\text{unified}}$, no manual "weighting" of shear or convergence is required. The optical mapping emerges naturally from the pure algebraic closure of the $S^1$ and $S^2$ relational carriers.
 \end{tcolorbox}
 
+
+\section{Mercury's Precession: GR as First-Order Approximation of RG}
+\hypertarget{sec:mercury}{}\label{sec:mercury}
+
+\subsection{Statement of the Verification Problem}
+
+The standard first-order post-Newtonian expression for the perihelion advance of a bound two-body orbit is
+\begin{equation}
+\Delta\varphi_{\mathrm{GR}} \;=\; \frac{3\pi\,R_{s}}{a\,(1-e^{2})} ,
+\label{eq:dphi-GR}
+\end{equation}
+with $a$ the semi-major axis, $e$ the eccentricity, and $R_{s} = 2GM/c^{2}$ the Schwarzschild scale of the central body.
+
+WILL Relational Geometry (WILL~RG) expresses the secular angular shift per closed orbit as the strict geometric accumulation of the system's phase divergence from the rest origin:
+\begin{equation}
+\Delta\varphi_{\mathrm{RG}} \;=\; \frac{2\pi\,\tau_{Y}^{2}}{1-e^{2}} , \qquad \tau_{Y}^{2} \;\equiv\; 1 - \tau^{2} \;=\; 1 - (1-\beta^{2})(1-\kappa^{2}) \;=\; \beta^{2} + \kappa^{2} - \beta^{2}\kappa^{2} ,
+\label{eq:dphi-RG}
+\end{equation}
+evaluated at the orbital reference scale (semi-major axis $a$), where the closure condition $\beta^{2}(a) = \kappa^{2}(a)/2$ and the field relation $\kappa^{2}(a) = R_{s}/a$ hold.
+
+The question addressed in this section is whether \eqref{eq:dphi-GR} is the leading-order content of \eqref{eq:dphi-RG} in the small parameter $R_{s}/a$. The structure of \eqref{eq:dphi-RG} suggests an even stronger statement than in the time-dilation case (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps}{sec:earth-gps}): the GR formula should be recoverable by removing a single explicit term --- the cross-coupling $\beta^{2}\kappa^{2}$ --- from $\tau_{Y}^{2}$, with the residual being exactly $-2\pi\,\beta^{2}\kappa^{2}/(1-e^{2})$.
+
+\subsection{Methodology}
+
+The verification is split into two independent parts, both executed in a single public notebook (Section~\ref{sec:repro-precession}).
+
+\paragraph{Part I --- symbolic identity.} The exact WILL~RG precession is expressed in closed form by substituting the closure condition $\beta^{2} = \kappa^{2}/2$ and $\kappa^{2} = R_{s}/a$ into \eqref{eq:dphi-RG}. The result is simplified algebraically and subtracted from \eqref{eq:dphi-GR}. The algebraic identity between the residual and the analytically predicted second-order term $-2\pi\,\beta^{2}\kappa^{2}/(1-e^{2})\big|_{a}$ is verified using \texttt{sympy.simplify}. As an independent cross-check, \eqref{eq:dphi-RG} is Taylor-expanded in a bookkeeping parameter $\varepsilon$ that scales $R_{s}$, and the first-order coefficient is compared with \eqref{eq:dphi-GR}.
+
+\paragraph{Part II --- numerical comparison.} Both \eqref{eq:dphi-GR} and \eqref{eq:dphi-RG} are evaluated with 40-digit precision arithmetic (\texttt{mpmath}, \texttt{mp.dps = 40}) using Mercury's J2000 orbital elements: $a = 5.7909050 \times 10^{10}\,\mathrm{m}$, $e = 0.20563593$, orbital period $T = 87.9691\,\mathrm{d}$, $GM_{\odot} = 1.32712440018 \times 10^{20}\,\mathrm{m^{3}\,s^{-2}}$, $c = 299{,}792{,}458\,\mathrm{m\,s^{-1}}$, giving $R_{s}^{\odot} = 2953.25\,\mathrm{m}$. Per-orbit values are converted to arcseconds per Julian century using $36{,}525\,\mathrm{d}/T$ orbits per century. The numerical discrepancy $\Delta\varphi_{\mathrm{RG}} - \Delta\varphi_{\mathrm{GR}}$ is compared with the analytically predicted second-order correction obtained in Part~I.
+
+\subsection{Results}
+
+\paragraph{Symbolic.} Substituting the closure and field relations into \eqref{eq:dphi-RG} yields the closed-form WILL~RG precession
+\begin{equation}
+\Delta\varphi_{\mathrm{RG}} \;=\; \frac{3\pi\,R_{s}}{a\,(1-e^{2})} \;-\; \frac{\pi\,R_{s}^{2}}{a^{2}\,(1-e^{2})} .
+\label{eq:dphi-RG-closed}
+\end{equation}
+The first term is identically \eqref{eq:dphi-GR}. The algebraic difference is therefore
+\begin{equation}
+\Delta\varphi_{\mathrm{RG}} - \Delta\varphi_{\mathrm{GR}} \;=\; -\,\frac{\pi\,R_{s}^{2}}{a^{2}\,(1-e^{2})} \;\equiv\; -\,\frac{2\pi\,\beta^{2}\kappa^{2}}{1-e^{2}}\bigg|_{a} .
+\label{eq:dphi-residual}
+\end{equation}
+The identity $\bigl[\Delta\varphi_{\mathrm{RG}} - \Delta\varphi_{\mathrm{GR}}\bigr] - \bigl[-2\pi\,\beta^{2}\kappa^{2}/(1-e^{2})\bigr]\big|_{a} = 0$ vanishes identically in $(R_{s}, a, e)$. The Taylor expansion of \eqref{eq:dphi-RG} in $R_{s}/a$ reproduces \eqref{eq:dphi-GR} at first order with zero residual.
+
+\paragraph{Structural observation.} In the time-dilation case the GR additive formula was the linear coefficient of a Taylor expansion of a multiplicative $\tau$-ratio. In the present case the correspondence is more direct: the GR first-order PN precession formula coincides exactly with the WILL~RG expression \emph{after a single explicit cancellation}, namely $\beta^{2}\kappa^{2} \to 0$ in $\tau_{Y}^{2} = 1 - (1-\beta^{2})(1-\kappa^{2})$. The omitted term encodes the second-order coupling between the kinematic $S^{1}$ and gravitational $S^{2}$ projection carriers of the WILL framework.
+
+\paragraph{Numerical.} With Mercury's parameters listed above:
+
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+quantity & value \\
+\hline
+$\Delta\varphi_{\mathrm{RG}}$ \quad (exact, per orbit)              & $5.01867565337 \times 10^{-7}$ rad \\\hline
+$\Delta\varphi_{\mathrm{GR}}$ \quad (first-order PN, per orbit)     & $5.01867573869 \times 10^{-7}$ rad \\\hline
+$\Delta\varphi_{\mathrm{RG}} - \Delta\varphi_{\mathrm{GR}}$ \quad (per orbit) & $-8.531 \times 10^{-15}$ rad \\\hline
+$-\pi R_{s}^{2}/[a^{2}(1-e^{2})]$ \quad (predicted, per orbit)      & $-8.531 \times 10^{-15}$ rad \\\hline
+residual                                                            & $\sim 10^{-41}$ rad \\
+\hline
+$\Delta\varphi_{\mathrm{RG}}$ \quad (per century)                   & $42.9807844914''$ \\\hline
+$\Delta\varphi_{\mathrm{GR}}$ \quad (per century)                   & $42.9807852220''$ \\\hline
+$\Delta\varphi_{\mathrm{RG}} - \Delta\varphi_{\mathrm{GR}}$ \quad (per century) & $-7.306 \times 10^{-7}\,''$ \\
+\hline
+\end{tabular}
+\end{center}
+
+The numerical discrepancy $\Delta\varphi_{\mathrm{RG}} - \Delta\varphi_{\mathrm{GR}}$ matches the analytically derived second-order term \eqref{eq:dphi-residual} to within the limit set by the 40-digit floating-point arithmetic. The relative magnitude of the term omitted by the first-order GR formula is $\sim 1.7 \times 10^{-8}$ of the total precession.
+
+\subsection{Interpretation}
+
+Equation~\eqref{eq:dphi-RG-closed} establishes that the standard first-order post-Newtonian formula \eqref{eq:dphi-GR} is the leading-order content of the WILL~RG exact expression \eqref{eq:dphi-RG} in $R_{s}/a$, and that the omitted contribution is exactly the cross-coupling term $-2\pi\,\beta^{2}\kappa^{2}/(1-e^{2})$ at the semi-major axis. This is an algebraic identity in $(R_{s}, a, e)$, not a numerical near-match.
+
+For Mercury, the second-order term in \eqref{eq:dphi-RG-closed} contributes at the level of $-7.3 \times 10^{-7}\,''$\,century$^{-1}$, i.e.\ $\sim 1.7 \times 10^{-8}$ of the total precession of $\approx 42.98''$\,century$^{-1}$. This deviation is well below the current precision of perihelion measurements and does not, by itself, constitute a distinguishing observation between the two formulations in the Solar System regime. The sign of the correction is fixed: WILL~RG predicts a slightly smaller precession than the first-order post-Newtonian formula.
+
+The scope of the present statement is restricted to the relation between the WILL~RG closed-form expression \eqref{eq:dphi-RG} and the \emph{first-order post-Newtonian} GR precession formula \eqref{eq:dphi-GR}. A comparison against fully non-linear geodesic integration in the exact Schwarzschild geometry --- which itself receives positive-definite corrections beyond the leading $3\pi R_{s}/[a(1-e^{2})]$ term --- is a separate calculation and is not addressed in this section.
+
+\subsection{Reproducibility}
+\label{sec:repro-precession}
+
+The complete symbolic and numerical verification reported in this section is contained in a single public Google Colab notebook, comprising the two scripts used to produce \eqref{eq:dphi-RG-closed}, \eqref{eq:dphi-residual}, and the numerical table above:
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= Colab Notebook]
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Mercury_precession_RG_1st_order=GR.ipynb}{Mercury precession RG 1st order=GR.ipynb}
+\end{tcolorbox}
+
+The notebook has no external dependencies beyond \texttt{sympy} and \texttt{mpmath} and is self-contained. All input parameters are listed explicitly in the numerical script; any change in $a$, $e$, or $GM_{\odot}$ rescales both $\Delta\varphi_{\mathrm{RG}}$ and $\Delta\varphi_{\mathrm{GR}}$ consistently and does not affect the symbolic identity \eqref{eq:dphi-residual}.
 
 
 \section{Relational Parameterization and the Fundamental Primitives}
