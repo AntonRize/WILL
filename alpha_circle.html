@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WILL RG: Phase Space Geometry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', system-ui, sans-serif; }
+        canvas { display: block; }
+        .slider-container { display: flex; flex-direction: column; gap: 0.5rem; }
+        input[type=range] { width: 100%; cursor: pointer; accent-color: #38bdf8; }
+        .data-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #334155; }
+        .data-label { color: #94a3b8; font-size: 0.875rem; }
+        .data-value { font-family: monospace; font-size: 1rem; font-weight: 600; }
+        .math-text { font-family: 'Times New Roman', serif; font-style: italic; }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row h-screen">
+
+    <!-- Canvas Area -->
+    <div class="flex-1 relative flex justify-center items-center p-4">
+        <canvas id="geometryCanvas"></canvas>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="w-full md:w-96 bg-slate-800 border-l border-slate-700 p-6 flex flex-col gap-6 overflow-y-auto shadow-2xl z-10">
+        <div>
+            <h1 class="text-2xl font-bold text-sky-400 mb-1">WILL Relational Geometry</h1>
+            <p class="text-sm text-slate-400">Topological Extraction of the Fine Structure Constant</p>
+        </div>
+
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+            <div class="slider-container">
+                <label for="alphaSlider" class="flex justify-between font-semibold">
+                    <span>Kinematic Projection (<span class="math-text">α</span>)</span>
+                    <span id="alphaDisplay" class="text-sky-400 font-mono">0.500</span>
+                </label>
+                <input type="range" id="alphaSlider" min="0" max="1" step="0.001" value="0.5">
+                <p class="text-xs text-slate-500 mt-1">Slide to observe how the interaction strength deforms the phase structure on the S¹ manifold.</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+            <h2 class="text-sm uppercase tracking-wider text-slate-500 font-bold mb-2">Geometric Projections</h2>
+            
+            <div class="data-row">
+                <span class="data-label">Total Topological Scale (<span class="math-text">ν_C</span>)</span>
+                <span class="data-value text-slate-100">1.0000</span>
+            </div>
+            
+            <div class="data-row">
+                <span class="data-label border-l-2 border-sky-400 pl-2">Kinematic Capacity (<span class="math-text">ν_C · α</span>)</span>
+                <span class="data-value text-sky-400" id="kinDisplay">0.5000</span>
+            </div>
+            
+            <div class="data-row">
+                <span class="data-label border-l-2 border-indigo-400 pl-2">Structural Phase (<span class="math-text">ν_C√(1-α²)</span>)</span>
+                <span class="data-value text-indigo-400" id="phaseDisplay">0.8660</span>
+            </div>
+
+            <div class="data-row bg-slate-900/50 -mx-2 px-2 py-3 rounded">
+                <span class="data-label border-l-2 border-rose-500 pl-2 text-rose-400 font-bold">Lyman Limit Deficit (<span class="math-text">ν_L∞</span>)</span>
+                <span class="data-value text-rose-500 text-lg" id="nuLDisplay">0.1340</span>
+            </div>
+        </div>
+
+        <div class="mt-auto pt-6 text-xs text-slate-400 leading-relaxed space-y-3 border-t border-slate-700">
+            <p><strong>Geometry of Emission:</strong> The Lyman limit frequency (<span class="text-rose-400">ν_L∞</span>) is not a separate constant. It is strictly the <em>sagitta</em> (the geometric gap) on the vertical phase axis.</p>
+            <p>By extracting this observable gap, the fundamental projection <span class="math-text">α</span> is derived via the Pythagorean root, eliminating the need for empirical mass parameters.</p>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('geometryCanvas');
+        const ctx = canvas.getContext('2d');
+        const slider = document.getElementById('alphaSlider');
+        
+        // Displays
+        const alphaDisplay = document.getElementById('alphaDisplay');
+        const kinDisplay = document.getElementById('kinDisplay');
+        const phaseDisplay = document.getElementById('phaseDisplay');
+        const nuLDisplay = document.getElementById('nuLDisplay');
+
+        let alpha = 0.5;
+
+        function resizeCanvas() {
+            const parent = canvas.parentElement;
+            canvas.width = parent.clientWidth;
+            canvas.height = parent.clientHeight;
+            draw();
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        slider.addEventListener('input', (e) => {
+            alpha = parseFloat(e.target.value);
+            updateMath();
+            draw();
+        });
+
+        function updateMath() {
+            const kin = alpha;
+            const phase = Math.sqrt(1 - alpha * alpha);
+            const nuL = 1 - phase;
+
+            alphaDisplay.innerText = alpha.toFixed(4);
+            kinDisplay.innerText = kin.toFixed(4);
+            phaseDisplay.innerText = phase.toFixed(4);
+            nuLDisplay.innerText = nuL.toFixed(4);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Configuration
+            const R = Math.min(canvas.width, canvas.height) * 0.35; // Radius representing ν_C
+            const cx = canvas.width / 2 - R/2;
+            const cy = canvas.height / 2 + R/2 + 20;
+
+            const kin = alpha * R;
+            const phase = Math.sqrt(1 - alpha * alpha) * R;
+            const nuL = R - phase;
+
+            // Draw Grid
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            for(let i=0; i<canvas.width; i+=40) { ctx.moveTo(i, 0); ctx.lineTo(i, canvas.height); }
+            for(let i=0; i<canvas.height; i+=40) { ctx.moveTo(0, i); ctx.lineTo(canvas.width, i); }
+            ctx.stroke();
+
+            // Axes
+            ctx.strokeStyle = '#475569';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            // X axis
+            ctx.moveTo(cx - 50, cy);
+            ctx.lineTo(cx + R + 100, cy);
+            // Y axis
+            ctx.moveTo(cx, cy + 50);
+            ctx.lineTo(cx, cy - R - 100);
+            ctx.stroke();
+
+            // S1 Manifold Arc (The Circle)
+            ctx.beginPath();
+            ctx.arc(cx, cy, R, 0, -Math.PI/2, true);
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([5, 5]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw Projection Triangle
+            const px = cx + kin;
+            const py = cy - phase;
+
+            // 1. Hypotenuse (Total Capacity ν_C)
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(px, py);
+            ctx.strokeStyle = '#94a3b8';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // 2. Kinematic Projection (X-axis)
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(px, cy);
+            ctx.strokeStyle = '#38bdf8'; // Sky blue
+            ctx.lineWidth = 4;
+            ctx.stroke();
+
+            // 3. Phase Projection (Y-axis)
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(cx, py);
+            ctx.strokeStyle = '#818cf8'; // Indigo
+            ctx.lineWidth = 4;
+            ctx.stroke();
+
+            // Draw connecting projection lines (dotted)
+            ctx.beginPath();
+            ctx.moveTo(px, py);
+            ctx.lineTo(px, cy);
+            ctx.lineTo(cx, py);
+            ctx.lineTo(px, py);
+            ctx.strokeStyle = '#475569';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 4]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // 4. The Sagitta / Emitted Photon (ν_L∞)
+            ctx.beginPath();
+            ctx.moveTo(cx, py);
+            ctx.lineTo(cx, cy - R);
+            ctx.strokeStyle = '#f43f5e'; // Rose
+            ctx.lineWidth = 6;
+            ctx.stroke();
+
+            // Draw Points
+            function drawPoint(x, y, color) {
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, Math.PI*2);
+                ctx.fillStyle = color;
+                ctx.fill();
+            }
+            drawPoint(cx, cy, '#cbd5e1'); // Origin
+            drawPoint(px, py, '#cbd5e1'); // State Point
+            drawPoint(cx, py, '#818cf8'); // Phase projection point
+            drawPoint(px, cy, '#38bdf8'); // Kinematic projection point
+            drawPoint(cx, cy - R, '#f43f5e'); // Top of circle
+
+            // Labels
+            ctx.font = 'italic 16px "Times New Roman", serif';
+            ctx.fillStyle = '#cbd5e1';
+            
+            // Hypotenuse label
+            ctx.fillText('ν_C (Total Capacity)', cx + kin/2 + 10, cy - phase/2);
+            
+            // X-axis label
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillText('α · ν_C (Kinematic)', cx + kin/2 - 40, cy + 25);
+            
+            // Y-axis Phase label
+            ctx.fillStyle = '#818cf8';
+            ctx.textAlign = 'right';
+            ctx.fillText('Phase Structure', cx - 15, cy - phase/2);
+            
+            // Sagitta label (Lyman Limit)
+            ctx.fillStyle = '#f43f5e';
+            ctx.font = 'italic bold 18px "Times New Roman", serif';
+            ctx.fillText('ν_L∞', cx - 15, cy - R + (nuL/2) + 5);
+
+            // Arc for Angle theta
+            const angle = Math.asin(alpha);
+            ctx.beginPath();
+            ctx.arc(cx, cy, 40, 0, -angle, true);
+            ctx.strokeStyle = '#64748b';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        // Initialize
+        updateMath();
+        resizeCanvas();
+    </script>
+</body>
+</html>
