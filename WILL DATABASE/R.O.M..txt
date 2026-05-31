@@ -142,7 +142,7 @@ $z_{\beta o}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $O$) \\
 
 \subsection*{Global System Parameters (Fixed for the Orbit)}
 $\kappa =\sin(\theta_2)=\sqrt{1-(1+z_{\kappa})^{-2}}= \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{2}(\frac{\pi R_{s}}{Tc})^{\frac{1}{3}}=\sqrt{\kappa_{p}^{2}(1-e)}=\sqrt{2(\kappa_{o}(O)^{2}-\beta_{o}(O)^{2})}=$
-$\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{o}(O_{o})^{2}})}=\kappa_R^2 (\frac{I_t}{T})^{\frac{2}{3}}=\sqrt{\kappa_{o}^{2}\cdot\eta_{o}}$ (potential projection at semi-major axis)\\
+$\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})}=\kappa_R^2 (\frac{I_t}{T})^{\frac{2}{3}}=\sqrt{\kappa_{o}^{2}\cdot\eta_{o}}$ (potential projection at semi-major axis)\\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}=\frac{1}{(1+z_{\kappa})}$ (potential phase factor) \\
 $\kappa_R=\sqrt{\frac{\kappa^{2}}{\sin(\theta_{R})}}=\sqrt{\frac{R_{s}}{\frac{T}{2\pi}c\beta\sin(\theta_{R})}}$ (potential projection at the surface of ) \\
 $\beta =\cos(\theta_1)=\sqrt{1-(1+z_{\beta})^{-2}}= \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \frac{2\pi a}{Tc}=(\frac{\pi R_{s}}{Tc})^{\frac{1}{3}}=\sqrt{(\kappa_{o}(O)^{2}-\beta_{o}(O)^{2})} =\sqrt{\frac{\kappa_{p}^{2}}{2}(1-e)}
@@ -152,7 +152,7 @@ $\beta_{int}=\frac{\beta}{\sqrt{1-e^2}}$ (interior kinetic projection) \\
 $\tau = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\
 $\tau_{Y}=\sqrt{1-\tau^2}=\sqrt{3\beta^{2}-2\beta^{4}}$ (relational spacetime phase factor) \\
 $Q=\sqrt{\kappa^2+\beta^2}=\sqrt{\frac{3}{2}}\ \kappa=\sqrt{3}\ \beta$ (total relational shift (magnitude of state difference)) \\
-$R_{s} = \kappa_{o}(O)^{2} r_o(O)= \frac{Tc}{\pi}\beta^3=\frac{8\pi^{2}a^{3}}{T^{2}c^{2}}=\frac{\Delta_{to}(O)}{\zeta(O)}\kappa^{2}\beta c=\frac{r_{1} r_{2}}{r_{2} - r_{1}}(\beta_{1}^{2} - \beta_{2}^{2})=\frac{a}{2}(3-\sqrt{1+8\tau_{o}(O_{o})^{2}})=\frac{r_{o}(O)}{2(2a-r_{o}(O))}(4a-r_{o}(O)-\sqrt{(4a-r_{o}(O))^{2}-8a(2a-r_{o}(O))(1-\tau_{o}(O)^{2})}) = \frac{2GM}{c^{2}}$ (Schwarzschild radius - system scale) \\
+$R_{s} = \kappa_{o}(O)^{2} r_o(O)= \frac{Tc}{\pi}\beta^3=\frac{8\pi^{2}a^{3}}{T^{2}c^{2}}=\frac{\Delta_{to}(O)}{\zeta(O)}\kappa^{2}\beta c=\frac{r_{1} r_{2}}{r_{2} - r_{1}}(\beta_{1}^{2} - \beta_{2}^{2})=\frac{a}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})=\frac{r_{o}(O)}{2(2a-r_{o}(O))}(4a-r_{o}(O)-\sqrt{(4a-r_{o}(O))^{2}-8a(2a-r_{o}(O))(1-\tau_{o}(O)^{2})}) = \frac{2GM}{c^{2}}$ (Schwarzschild radius - system scale) \\
 $a=\frac{R_{s}}{\kappa^{2}}=\frac{T\beta c}{2\pi}=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e~cos(O)}}=\frac{\Delta_{to}(O)}{\zeta}\beta c=\frac{Tc\beta^{3}}{2\pi(\frac{K_{i}}{\ \sin(i)})^{2}(1-e^{2})}=\frac{\ \sqrt{1-e^{2}}}{2\pi\sin(i)}K_{i}Tc=\frac{R_{sys}}{\sin(\theta_{sys})}$ (semi-major axis) \\
 $ R_{sys} =a \cdot \sin(\theta_{sys}) $ (system's central body's physical radius) \\
 $m_{0}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}$ (mass parameter) \\
@@ -233,8 +233,8 @@ $\beta_{T}(O) ^{2}\eta_{o}^{2}=\beta^{2}(1-e^{2})$ \\
 $\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical)  \\
 $\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical) \\
 $\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational shift amplitude at phase $O$) \\
-$O_{oA} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos(1-\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}})=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (ascending orbital balance point where $a=r$ and $\kappa_o^2=2\beta_o^2$ are true) \\
-$O_{oD} = 2\pi-\arccos(-e)$ (descending orbital balance point where $a=r$ and $\kappa_o^2=2\beta_o^2$ are true) \\
+$B_{a} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos(1-\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}})=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (ascending orbital balance point where $a=r$ and $\kappa_o^2=2\beta_o^2$ are true) \\
+$B_{d} = 2\pi-\arccos(-e)$ (descending orbital balance point where $a=r$ and $\kappa_o^2=2\beta_o^2$ are true) \\
 
 \subsection*{Structural-Dynamical Equivalence}
 $\frac{r_{a}}{r_{p}}= \frac{\delta_{a}}{\delta_{p}} = \frac{1+e}{1-e}=\frac{\beta_{p}}  {\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (remarkable equivalence of structural ($\kappa$ on $S^2$ carrier) and dynamical ($\beta$ on $S^1$ carrier) symmetry suggesting once again that $SPACETIME \equiv ENERGY$) \\
@@ -249,7 +249,7 @@ $\omega_{i}=$ (phase turn or argument of periapsis) \\
 $K_{i}=\frac{\beta}{\sqrt{1-e^{2}}}\sin(i)=\beta_{int}\sin(i)$  (semi-amplitude invariant) \\
 $Z_{rawmax}=Z_{sys}(-\omega_{i})(1+K_{i}(1+e\cos\omega_{i}))$ \\
 $Z_{rawmin}=Z_{sys}(\pi-\omega_{i})(1+K_{i}(-1+e\cos\omega_{i}))$ \\
-$O_{oi}=(O_{o}+\omega_{i})$ \\
+$O_{oi}=(B_{a}+\omega_{i})$ \\
 $Z_{sys}(-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}+2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1+e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
 $Z_{sys}(\pi-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}-2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1-e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
 $Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2$ (Holographic Decryption Invariant) \\
@@ -987,7 +987,7 @@ The properties of the lens - convergence ($\kappa_{\text{lens}}$), shear ($\gamm
 \end{tcolorbox}
 
 
-\section{Mercury's Precession: GR as First-Order Approximation of RG}
+\section{Mercury's Precession: GR 1PN as First-Order Approximation of RG}
 \hypertarget{sec:mercury}{}\label{sec:mercury}
 
 \subsection{Statement of the Verification Problem}
@@ -1380,7 +1380,12 @@ This formula extracts the "mass" scale purely from geometric gradients.
 
 \subsection{Method C: Geometric Resonance (Balance Point Method)}
 
-At the specific orbital phase $O_o = \arccos(-e)$, the system passes through its geometric balance point where the instantaneous radius $r$ equals the semi-major axis $a$. At this unique phase, the closure condition $\kappa_o^2=2\beta_o^2$ is satisfied.
+Using one of two orbital balance points: 
+\begin{itemize}
+    \item Ascending: $B_a = \arccos(-e)$,
+    \item Descending $B_d = 2\pi-\arccos(-e)$,
+\end{itemize}
+when the system passes through its geometric balance points the instantaneous radius $r$ equals the semi-major axis $a$. At this unique phases, the closure condition $\kappa_o^2=2\beta_o^2$ is satisfied.
 
 \begin{theorem}[Balance Point Formula]
 \hypertarget{thm:balance_point}{}\label{thm:balance_point}
@@ -1388,11 +1393,11 @@ Given the geometric scale $a$ and the total light signal $\tau$ measured at the 
 \hypertarget{eq:Rs_balance}{}\label{eq:Rs_balance}
 \begin{equation}
 \boxed{
-R_s = \frac{a}{2}(3 - \sqrt{1 + 8\tau^2(O_o)}).
+R_s = \frac{a}{2}(3 - \sqrt{1 + 8\tau^2(B_a)}).
 }
 \end{equation}
 \end{theorem}
-$O_{o} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos(1-\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}})=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (orbital balance point where $\kappa_o^2=2\beta_o^2$ is true) 
+$B_{a} = \arccos(1-\delta^{-1}) = \arccos(-e)=\arccos(1-\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}})=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (orbital balance point where $\kappa_o^2=2\beta_o^2$ is true) 
 
 \begin{proof}
 \textbf{Step 1: Spacetime Factor Expansion.}
@@ -1429,7 +1434,7 @@ For stable orbits, we must select the negative root.
 \begin{remark}[Light Separation]
 This unit-less factor in brackets is:
 \begin{itemize}
-    \item \textbf{Potential projection at semi-major axis}:  $ \kappa^2=\frac{1}{2}(3 - \sqrt{1 + 8\tau^2(O_o)} )$
+    \item \textbf{Potential projection at semi-major axis}:  $ \kappa^2=\frac{1}{2}(3 - \sqrt{1 + 8\tau^2(B_a)} )$
 \end{itemize}
 A unique way to separate gravitational part from the light signal.
 \end{remark}
@@ -1640,15 +1645,15 @@ The composite kinematic projection $\beta_{\Sigma}$ is defined as:
 where the $(+)$ sign denotes co-rotating (prograde) relational motion, and the $(-)$ sign denotes counter-rotating (retrograde) relational motion.
 
 \subsubsection*{The Algebraic Symmetry Breaker (Cross-Term)}
-Substituting the composite projection into the fundamental relational energy invariant $W = \frac{1}{2}(\kappa^2 - \beta_{\Sigma}^2)$, we obtain the expanded state balance:
+Substituting the composite projection into the relational orbital invariant energy projection $\beta^2 = (\kappa^2 - \beta_{\Sigma}^2)$, we obtain the expanded state balance:
 \begin{equation}
-W = \frac{1}{2}[ \kappa^2 - (\beta_{\text{orb}} \pm \beta_{\text{spin}})^2 ]
+\beta^2= [ \kappa^2 - (\beta_{\text{orb}} \pm \beta_{\text{spin}})^2 ]
 \end{equation}
 \begin{equation}
-W = \frac{1}{2}[ \kappa^2 - (\beta_{\text{orb}}^2 \pm 2\beta_{\text{orb}}\beta_{\text{spin}} + \beta_{\text{spin}}^2) ]
+\beta^2= [ \kappa^2 - (\beta_{\text{orb}}^2 \pm 2\beta_{\text{orb}}\beta_{\text{spin}} + \beta_{\text{spin}}^2) ]
 \end{equation}
 
-The emergent cross-term $\pm 2\beta_{\text{orb}}\beta_{\text{spin}}$ is the exact algebraic equivalent of the frame-dragging effect. It enforces a chiral split in the required gravitational projection $\kappa^2$ to maintain the invariant $W$:
+The emergent cross-term $\pm 2\beta_{\text{orb}}\beta_{\text{spin}}$ is the exact algebraic equivalent of the frame-dragging effect. It enforces a chiral split in the required gravitational projection $\kappa^2$ to maintain the invariant $\beta^2$:
 \begin{itemize}
     \item \textbf{Prograde Orbits ($+$):} The cross-term increases the total subtracted kinetic budget, requiring a deeper gravitational projection (larger $\kappa^2$, hence smaller $r$) to maintain closure.
     \item \textbf{Retrograde Orbits ($-$):} The cross-term decreases the total kinetic budget, requiring a shallower gravitational projection (smaller $\kappa^2$, hence larger $r$).
