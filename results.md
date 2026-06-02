@@ -196,7 +196,7 @@ description: "Download WILL Relational Geometry Open Research papers, appendices
 
 <!-- ── Part II ── -->
 <div class="doc-card part2">
-  <h3>Part II: Cosmological Dark Sector</h3>
+  <h3>Part II: Relational Cosmology</h3>
   <p class="summary">
     Applies Relational Geometry to cosmology and galactic dynamics.
     With zero free parameters, builds an unbroken derivation chain from
