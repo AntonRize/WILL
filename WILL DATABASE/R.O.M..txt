@@ -119,6 +119,208 @@ R.O.M. demonstrates that the operational content of gravitational dynamics is fu
 
 \newpage
 
+\section{Quick Recap}
+
+In following sections we will demonstrate that RG's relational projections ($\kappa$, $\beta$) are ontologically and operationally independent from mass $M$ and gravitational constant $G$. We will show that $R_s$ as a horizon scale derived directly from the phase relations of light and will show how all observational phenomenon of orbital systems are generated as the unavoidable consequences of Relational Geometry.
+
+But first lets remind our selves key derivations and logical chain established prior:   
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Summary]
+\begin{center}
+\begin{tabular}{|c|}\hline
+\textbf{Methodological Constraints}\\\hline
+$\downarrow$ \textit{(apply to existing physics)} \\[4pt]\hline
+\textbf{False Separation Identified} \\\hline
+$\downarrow$ \textit{(dissolve)} \\[4pt]\hline
+\textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\\hline
+$\downarrow$ \textit{(derive consequences)} \\[4pt]\hline
+\textbf{Closure} $+$ \textbf{Conservation} $+$ \textbf{Isotropy} \\\hline
+$\downarrow$ \textit{(classify carriers)} \\[4pt]\hline
+$S^1$ \textit{(1-DOF kinematic)} $+$ $S^2$ \textit{(2-DOF potential)} \\ \hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+
+
+\begin{center}
+\begin{tikzpicture}[scale=2.0,>=Latex]
+% Left circle: kinematics
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta=\cos\theta_1$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y=\sin\theta_1$};
+% Q and legs
+\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
+\draw[dashed] (0.8,0) -- (0.8,0.6);
+\draw[dashed] (0,0.6) -- (0.8,0.6);
+\node at (0.84,-0.12) {$\beta$};
+\node at (-0.14,0.6) {$\beta_Y$};
+\draw (0.25,0) arc (0:36.87:0.25);
+\node at (0.33,0.12) {$\theta_1$};
+\node at (0,-1.55) {\small \shortstack{$E=E_0/\beta_Y$ \\ $p=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
+
+% Right circle: gravity
+\begin{scope}[xshift=3.2cm]
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X=\cos\theta_2$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\kappa=\sin\theta_2$};
+% Q and legs
+\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_g$};
+\draw[dashed] (0.6,0) -- (0.6,0.8);
+\draw[dashed] (0,0.8) -- (0.6,0.8);
+\node at (0.6,-0.12) {$\kappa_X$};
+\node at (-0.14,0.8) {$\kappa$};
+\draw (0.25,0) arc (0:53.13:0.25);
+\node at (0.33,0.12) {$\theta_2$};
+\node at (0,-1.55) {\small \shortstack{$E_g=E_0/\kappa_X$ \\ $p_g=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
+\end{scope}
+
+% composition arrow
+\draw[->,thick] (1.3,0.6) -- (1.9,0.6);
+\node at (1.6,0.77) {\small compose};
+\end{tikzpicture}
+\end{center}
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=3, >=Latex]
+    % --- Definitions ---
+    \def\R{1.0} % Unit Radius (The Horizon)
+    \coordinate (O) at (0,0);       % Observer Center
+    \coordinate (Obj) at (0.65, 0.45); % Object Center (Q vector end)
+    
+    % Projections of the Object center
+    \coordinate (Bx) at (0.65, 0);
+    \coordinate (Ky) at (0, 0.45);
+
+    % --- Axes ---
+    % Drawing axes slightly longer than radius to show context
+    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
+    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Gravitational)};
+
+    % --- Observer Frame (Blue) ---
+    % The "horizon" of the observer
+    \draw[blue, thick] (O) circle (\R);
+    \fill[blue] (O) circle (0.02) node[below left] {Obs $(0,0)$};
+
+    % --- Object Frame (Red) ---
+    % The "horizon" of the object, centered at Q
+    \draw[red, thick, dashed] (Obj) circle (\R);
+    \fill[red] (Obj) circle (0.02) node[above right] {Obj $(0 , 0)$};
+
+    % --- Vector Q ---
+    \draw[->, line width=1.5pt, black] (O) -- (Obj) node[midway, above left] {$Q$};
+
+    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
+    \draw[dotted, thick] (Obj) -- (Bx) node[below] {$\beta$};
+    \draw[dotted, thick] (Obj) -- (Ky) node[left] {$\kappa$};
+
+    % --- Annotations ---
+    % Optional: Show the Causal Lock condition physically
+    \node[blue, font=\small] at (-0.5, -0.8) {Observer's Horizon};
+    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
+
+\end{tikzpicture}
+\caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the orthogonal projections $\beta$ and $\kappa$. Interaction is causal only when the center of the Object lies within the Observer's horizon ($Q < 1$), ensuring mutual coverage.}
+\hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
+\end{figure}
+
+
+\begin{table}[h]
+\centering
+
+\begin{tabular}{|c|c|}\hline
+\multicolumn{2}{|c|}{\( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$}\\
+\hline
+\textbf{Algebraic Form} & \textbf{Trigonometric Form} \\\hline
+ $\beta=v/c$&$\beta= \cos(\theta_1)$\\\hline
+ $\beta_Y = \sqrt{1-\beta^2}$&$\beta_Y = \sin(\theta_1) $\\\hline
+ $\kappa=\sqrt{R_s/r}$&$\kappa=\sin(\theta_2)$\\\hline
+
+$\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) $\\
+\hline
+$\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) $\\
+\hline
+ $p=E_0/c \cdot \beta/\beta_Y$&$p=E_0/c \cdot \cot(\theta_1) $\\
+ \hline
+ $p_g=E_0/c \cdot \kappa/\kappa_X$&$p_g=E_0/c \cdot \tan(\theta_2)$\\\hline
+ $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
+ $\tau_Y = \sqrt{1-\tau^2}$&$\tau_Y = \sqrt{1-\tau^2}$\\\hline
+ 
+ $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\ \hline
+\end{tabular}
+\caption{Unified representation of relativistic and gravitational effects for closed systems.}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|c|c|p{5.5cm}|}
+\hline
+\textbf{Phenomenon} & \textbf{Radius $r$} & $\beta^2$ & $\kappa^2$ & $Q^2$ & \textbf{Comment} \\
+\hline
+ISCO (Static location) & $3R_s$ & $0$ & $\frac{1}{3}$ & $\frac{1}{3}$ & Pure coordinate location, $r=R_s/\kappa^2$ \\
+ISCO (Dynamic state) & $3R_s$ & $\frac{1}{6}$ & $\frac{1}{3}$ & $\frac{1}{2}$ & Marginal orbital stability, $Q^2 = Q_Y^2 = 1/2$ \\
+\hline
+Photon sphere (Static) & $\frac{3}{2}R_s$ & $0$ & $\frac{2}{3}$ & $\frac{2}{3}$ & Pure coordinate location \\
+Causal Dynamic horizon & $\frac{3}{2}R_s$ & $\frac{1}{3}$ & $\frac{2}{3}$ & $1$ & Relational horizon under closure $\kappa^2=2\beta^2$, $Q=1$ \\
+\hline
+Causal Static horizon & $R_s$ & $0$ & $1$ & $1$ & Purely gravitational closure limit, $\kappa^2=1$ \\
+Dynamic horizon & $R_s$ & $\frac{1}{2}$ & $1$ & $\frac{3}{2}$ & Orbital closure at Schwarzschild radius \\
+\hline
+Extremal Kerr horizon & $\frac{1}{2}R_s$ & $1$ & $2$ & $3$ & Maximal rotation, $\beta=1$, merged horizons \\
+\hline
+\end{tabular}
+\caption{Critical radii and their projectional parameters. Static coordinate locations ($\beta=0$) are strictly distinguished from their corresponding dynamic orbital states that emerge from the closure law $\kappa^2=2\beta^2$.}
+\end{table}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tikzpicture}[scale=2.5, thick]
+
+% Axes
+\draw[->] (-0.2,0) -- (1.3,0) node[right] {$\beta^2$};
+\draw[->] (0,-0.2) -- (0,2.3) node[above] {$\kappa^2$};
+
+% Dynamic Points on closure line (kappa^2 = 2 beta^2)
+\coordinate (ISCO_D) at (0.166,0.333); % 1/6, 1/3
+\coordinate (Photon_D) at (0.333,0.666); % 1/3, 2/3
+\coordinate (Schwarz_D) at (0.5,1.0); % 1/2, 1
+\coordinate (Kerr_D) at (1.0,2.0); % 1, 2
+
+% Static Points on Y axis (beta^2 = 0)
+\coordinate (ISCO_S) at (0,0.333);
+\coordinate (Photon_S) at (0,0.666);
+\coordinate (Schwarz_S) at (0,1.0);
+
+% Horizontal dotted lines linking static coordinates to dynamic states
+\draw[dotted, gray, thick] (ISCO_S) -- (ISCO_D);
+\draw[dotted, gray, thick] (Photon_S) -- (Photon_D);
+\draw[dotted, gray, thick] (Schwarz_S) -- (Schwarz_D);
+
+% Plot Dynamic points
+\filldraw[red] (ISCO_D) circle (1pt) node[below right] {ISCO (Dyn)};
+\filldraw[blue] (Photon_D) circle (1pt) node[right] {Causal Dyn. Horizon};
+\filldraw[green!60!black] (Schwarz_D) circle (1pt) node[right] {Dynamic Horizon};
+\filldraw[purple] (Kerr_D) circle (1pt) node[right] {Extremal Kerr};
+
+% Plot Static points
+\filldraw[gray] (ISCO_S) circle (1pt) node[left] {ISCO (Stat)};
+\filldraw[gray] (Photon_S) circle (1pt) node[left] {Photon (Stat)};
+\filldraw[gray] (Schwarz_S) circle (1pt) node[left] {Causal Stat. Horizon};
+
+% Line through dynamic points (kappa^2 = 2 beta^2)
+\draw[dashed, black] (0,0) -- (1.1,2.2) node[above right] {Closure Line: $\kappa^2 = 2\beta^2$};
+
+\end{tikzpicture}
+\end{center}
+
+
 \hypertarget{sec:rom}{}\label{sec:rom}
 \section{Closed Algebraical System of R.O.M. Equations}
 \hypertarget{eq:rom}{}\label{eq:rom}
@@ -126,6 +328,12 @@ R.O.M. demonstrates that the operational content of gravitational dynamics is fu
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
 \textbf{ \href{https://www.desmos.com/calculator/n4lmkpsebx}{R.O.M.}}
 \end{tcolorbox}
+
+\begin{remark}
+R.O.M. does not describe how a body moves under forces; 
+it classifies the algebraically allowed relational states of a bound system.
+It is not equations of motion but algebraically closed system of allowed states within WILL - allowed free will.
+\end{remark}
 
 
 $\boxed{\kappa^2 = 1-\frac{1}{(1+z_{\kappa})^2}}$  $z_{\kappa}=$ gravitational redshift \\
@@ -155,7 +363,7 @@ $Q=\sqrt{\kappa^2+\beta^2}=\sqrt{\frac{3}{2}}\ \kappa=\sqrt{3}\ \beta$ (total re
 $R_{s} = \kappa_{o}(O)^{2} r_o(O)= \frac{Tc}{\pi}\beta^3=\frac{8\pi^{2}a^{3}}{T^{2}c^{2}}=\frac{\Delta_{to}(O)}{\zeta(O)}\kappa^{2}\beta c=\frac{r_{1} r_{2}}{r_{2} - r_{1}}(\beta_{1}^{2} - \beta_{2}^{2})=\frac{a}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})=\frac{r_{o}(O)}{2(2a-r_{o}(O))}(4a-r_{o}(O)-\sqrt{(4a-r_{o}(O))^{2}-8a(2a-r_{o}(O))(1-\tau_{o}(O)^{2})}) = \frac{2GM}{c^{2}}$ (Schwarzschild radius - system scale) \\
 $a=\frac{R_{s}}{\kappa^{2}}=\frac{T\beta c}{2\pi}=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e~cos(O)}}=\frac{\Delta_{to}(O)}{\zeta}\beta c=\frac{Tc\beta^{3}}{2\pi(\frac{K_{i}}{\ \sin(i)})^{2}(1-e^{2})}=\frac{\ \sqrt{1-e^{2}}}{2\pi\sin(i)}K_{i}Tc=\frac{R_{sys}}{\sin(\theta_{sys})}$ (semi-major axis) \\
 $ R_{sys} =a \cdot \sin(\theta_{sys}) $ (system's central body's physical radius) \\
-$m_{0}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}$ (mass parameter) \\
+$M=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}$ (mass parameter) \\
 $t=\frac{a}{c}$(temporal scale of the system) \\
 $\beta^{2}=(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{\kappa_{p}^{2}}{2}(1-e)=(\kappa_{o}(O)^{2}-\frac{\kappa_{o}(O)^{2}}{2\delta_{o}(O)})=\frac{R_s}{2a}=(\frac{R_{s}}{T\cdot c}\pi)^{\frac{2}{3}}$ (energy invariant - binding energy) \\
 $\Delta\phi=\frac{2\pi\cdot\tau_{Y}^{2}}{1-e^{2}}=\frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}}=\frac{3\pi R_{s}}{a(1-e^{2})}-\frac{\pi R_{s}^{2}}{a^{2}(1-e^{2})}$ (precession of perihelion per orbit) \\
@@ -196,7 +404,7 @@ $\delta_{\text{a}} = \frac{1}{1-e}=\frac{\kappa_{a}^{2}}{2\beta_{a}^{2}}$  (clos
 $Q_{a} = \sqrt{\kappa_{a}^{2}+\beta_{a}^{2}}$  (relational shift at aphelion) \\
 
 \subsection*{Phase Variables (Depend on phases o and $O$)} 
-$o = \frac{2\pi}{T}\Delta_{to}$ (idealised orbital phase in radians, represent phase $o$ progression without orbital precession)  \\
+$o = \frac{O}{\Omega}$ (idealised orbital phase in radians, represent phase $o$ progression without orbital precession)  \\
 $O=\Omega \cdot o$ (true orbital phase with precession) \\
 $r = r_o (O)= a\frac{1-e^{2}}{1+e\cos (O)} = \frac{R_s}{\kappa_o^2}$  (radial distance at phase $O$) \\
 $O_{r}=\frac{1-e^{2}}{1+e\cdot\cos (O)}=\frac{r_o (O)}{a}=  \frac{R_{s}}{\kappa_{o}(O)^{2}a} $ (normalised true radial distance at phase O)
@@ -255,7 +463,7 @@ $Z_{sys}(\pi-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}-2e\cos(\omega_{i})}{1-e^{2}})
 $Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2$ (Holographic Decryption Invariant) \\
 
 
-\section*{Background Free Parametric Equations for the Observed Orbit}
+\subsection*{Background Free Parametric Equations for the Observed Orbit}
 
 $\begin{bmatrix} x_{sky} \\ y_{sky} \\ z_{depth} \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos(i) & -\sin(i) \\ 0 & \sin(i) & \cos(i) \end{bmatrix} \begin{bmatrix} x_{orb} \\ y_{orb} \\ 0 \end{bmatrix}$ \\
 
@@ -268,10 +476,6 @@ $z_{depth} = r(O) \sin(O + \omega_i) \sin(i)$ \\
 \subsection*{Un-tilted 2D coordinates within the orbital plane}
 $x_{orb} = r(O) \cos(O+ \omega_i)$ \\
 $y_{orb} = r(O) \sin(O + \omega_i)$ \\
-
-
-
-
 
 
 \section{S2 Star (Sgr A*) Data Alignment Comparison: R.O.M. vs GR}
@@ -445,73 +649,6 @@ These findings invite further investigation into Relational Geometry and its app
 \section{Relational Origin of:}
 \hypertarget{sec:relation_origin}{}\label{sec:relation_origin}
 
-In this and following sections we demonstrate that RG's relational projections ($\kappa$, $\beta$) are ontologically and operationally independent from mass $M$ and gravitational constant $G$. We will show that $R_s$ as a system scale derived directly from the phase interactions of light and will show how all observational phenomenon of orbital systems are generated as the unavoidable consequences of Relational Geometry.
-
-But first lets remind our selves some key derivations established prior:   
-
-\begin{center}
-\begin{tikzpicture}[scale=2.0,>=Latex]
-% Left circle: kinematics
-\draw (0,0) circle (1);
-\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta=\cos\theta_1$};
-\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y=\sin\theta_1$};
-% Q and legs
-\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
-\draw[dashed] (0.8,0) -- (0.8,0.6);
-\draw[dashed] (0,0.6) -- (0.8,0.6);
-\node at (0.84,-0.12) {$\beta$};
-\node at (-0.14,0.6) {$\beta_Y$};
-\draw (0.25,0) arc (0:36.87:0.25);
-\node at (0.33,0.12) {$\theta_1$};
-\node at (0,-1.55) {\small \shortstack{$E=E_0/\beta_Y$ \\ $p=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
-
-% Right circle: gravity
-\begin{scope}[xshift=3.2cm]
-\draw (0,0) circle (1);
-\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X=\cos\theta_2$};
-\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\kappa=\sin\theta_2$};
-% Q and legs
-\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_g$};
-\draw[dashed] (0.6,0) -- (0.6,0.8);
-\draw[dashed] (0,0.8) -- (0.6,0.8);
-\node at (0.6,-0.12) {$\kappa_X$};
-\node at (-0.14,0.8) {$\kappa$};
-\draw (0.25,0) arc (0:53.13:0.25);
-\node at (0.33,0.12) {$\theta_2$};
-\node at (0,-1.55) {\small \shortstack{$E_g=E_0/\kappa_X$ \\ $p_g=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
-\end{scope}
-
-% composition arrow
-\draw[->,thick] (1.3,0.6) -- (1.9,0.6);
-\node at (1.6,0.77) {\small compose};
-\end{tikzpicture}
-\end{center}
-
-\begin{table}[h]
-\centering
-
-\begin{tabular}{|c|c|}\hline
-\multicolumn{2}{|c|}{\( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$}\\
-\hline
-\textbf{Algebraic Form} & \textbf{Trigonometric Form} \\\hline
- $\beta=v/c$&$\beta= \cos(\theta_1)$\\\hline
- $\beta_Y = \sqrt{1-\beta^2}$&$\beta_Y = \sin(\theta_1) $\\\hline
- $\kappa=\sqrt{R_s/r}$&$\kappa=\sin(\theta_2)$\\\hline
-
-$\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) $\\
-\hline
-$\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) $\\
-\hline
- $p=E_0/c \cdot \beta/\beta_Y$&$p=E_0/c \cdot \cot(\theta_1) $\\
- \hline
- $p_g=E_0/c \cdot \kappa/\kappa_X$&$p_g=E_0/c \cdot \tan(\theta_2)$\\\hline
- $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
- $\tau_Y = \sqrt{1-\tau^2}$&$\tau_Y = \sqrt{1-\tau^2}$\\\hline
- 
- $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\ \hline
-\end{tabular}
-\caption{Unified representation of relativistic and gravitational effects for closed systems.}
-\end{table}
 
 \subsection{Spectroscopic Shifts}
 \hypertarget{sec:spectroscopic_shift}{}\label{sec:spectroscopic_shift}
@@ -524,12 +661,12 @@ The geometric projection $\kappa^2$ of a closed system is strictly determined by
 \end{theorem}
 
 \begin{proof}
-By the $S^2$  \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation}{closure invariant} the gravitational amplitude $\kappa$ and internal phase $\kappa_X$ satisfy:
+By the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation}{Conservation of Relation Theorem} the gravitational amplitude $\kappa$ and internal phase $\kappa_X$ satisfy:
 \begin{equation}
 \kappa^2 + \kappa_X^2 = 1 \quad \Longrightarrow \quad \kappa^2 = 1 - \kappa_X^2.
 \end{equation}
 
-By the Principle of  \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:relational}{Relational Origin}, an observer must self-center at the relational origin $(\beta, \kappa) = (0,0)$. Consequently, the observer's local phase is maximal: $\kappa_{X(obs)} \equiv 1$.
+By \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:reciprocity}{Relational Reciprocity Theorem}, an observer must self-center at the relational origin $(\beta, \kappa) = (0,0)$. Consequently, the observer's local phase is maximal: $\kappa_{X(obs)} \equiv 1$.
 
 The observable spectroscopic shift $z_\kappa$ is the operational measure of the discrepancy between the observer's internal phase and the source's internal phase. The optical scaling ratio is defined as:
 \begin{equation}
@@ -648,77 +785,6 @@ Rearranging to isolate the semi-major axis $a$ gives the exact closed-form relat
 \end{equation}
 
 
-\subsection{Vis-Viva}
-\hypertarget{sec:vis-viva}{}\label{sec:vis-viva}
-
-In elliptical systems, the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{ global closure theorem $\kappa^2 = 2\beta^2$} is conserved across the entire orbital cycle, while local phase variations manifest as an internal ``breathing'' of relational projections. We now derive the exact conservation law governing this local dynamic distribution.
-
-\begin{proposition}[Global Kinetic Amplitude]
-The difference between the square of the local potential projection $\kappa_o^2(o)$ and the square of the local kinetic projection $\beta_o^2(o)$ is a global binding invariant kinetic amplitude equal to $\beta^2$.
-\end{proposition}
-
-\begin{proof}
-The binding parameter $\beta^2$ defines the global relational depth of the system:
-\[  \kappa^2 = 2\beta^2 \]
-From the definitions of the $S^2$ and $S^1$ projections at any arbitrary phase $O$:
-\[ \kappa_o^2(o) = \frac{2\beta^2(1+e\cos o)}{1-e^2} \]
-\[ \beta_o^2(o) = \frac{\beta^2(1+e^2+2e\cos o)}{1-e^2} \]
-Subtracting the local kinetic projection from the local potential projection:
-\[ \kappa_o^2(o) - \beta_o^2(o) = \frac{2\beta^2 + 2\beta^2 e\cos o - (\beta^2 + \beta^2 e^2 + 2\beta^2 e\cos o)}{1-e^2} \]
-\[ \kappa_o^2(o) - \beta_o^2(o) = \frac{\beta^2(1-e^2)}{1-e^2} = \beta^2  \]
-Thus, the algebraic distance between the omnidirectional carrier $S^2$ and directional carrier $S^1$ relations remains globally constant irrespective of orbital phase and shape.
-\end{proof}
-
-\begin{theorem}[The Orthogonal Signature of the Orbit]
-The square of the local potential projection $\kappa_o^2(o)$ on the $S^2$ carrier is the strict Pythagorean square sum of the local radial $\beta_R^2(o)$, transverse $ \beta_T^2(o)$ and the global $\beta^2$ kinetic projections.
-\end{theorem}
-
-\begin{proof}
-The total local kinetic projection on the $S^1$ carrier splits orthogonally into radial and transverse components within the orbital plane:
-\[ \beta_o^2(o) = \beta_R^2(o) + \beta_T^2(o) \]
-Substituting this orthogonal decomposition into the phase-invariant relation $\kappa_o^2(o) - \beta_o^2(o) = \beta^2$:
-\[ \kappa_o^2(o) - (\beta_R^2(o) + \beta_T^2(o)) = \beta^2 \]
-Rearranging yields the three-dimensional algebraic relational closure:
-\[ \boxed{\kappa_o^2(o) = \beta_R^2(o) + \beta_T^2(o) + \beta^2} \]
-\end{proof}
-
-\begin{remark}[Ontological Replacement of Vis-Viva]
-This geometric invariant replaces the descriptive Newtonian Vis-Viva equation ($v^2/2 - GM/r = -GM/2a$). Standard mechanics interprets this balance as a scalar subtraction of an abstract potential energy from kinetic energy. In WILL, it is revealed as a strict Pythagorean theorem of relational geometry: the local potential projection ($\kappa_o^2$) is generated by the orthogonal summation of the kinetic ``breathing'' ($\beta_R^2 + \beta_T^2$) and the global $S^1$ projection ($\beta^2$). $\text{SPACETIME} \equiv \text{ENERGY}$.
-\end{remark}
-
-
-\subsection{Angular Momentum Conservation}
-\hypertarget{sec:angular_momentum}{}\label{sec:angular_momentum}
-
-The conservation of specific angular momentum $h$ is derived as a phase-independent structural invariant of the relational balance.
-
-\begin{proposition}[Invariant Ratio of Projections]
-The transverse kinetic projection $\beta_T(o)$ is strictly proportional to the local potential projection $\kappa_o^2(o)$ scaled by the global system constants.
-\end{proposition}
-
-\begin{proof}
-From the definition of the local potential projection (based on \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{closure theorem} $\kappa^2= 2\beta^2$ and geometry of ellipse):
-\[ \kappa_o^2(o) = 2\beta^2 \frac{(1+e\cos o)}{1-e^2} \implies (1+e\cos o) = \kappa_o^2(o) \frac{1-e^2}{2\beta^2} \]
-The transverse kinetic projection $\beta_T(o)$ is defined on the $S^1$ carrier as:
-\[ \beta_T(o) = \beta \frac{1+e\cos o}{\sqrt{1-e^2}} \]
-Substituting the expression for $(1+e\cos o)$ into the definition of $\beta_T(o)$:
-\[ \beta_T(o) = \beta ( \kappa_o^2(o) \frac{1-e^2}{2\beta^2} ) \frac{1}{\sqrt{1-e^2}} = \kappa_o^2(o) \frac{\sqrt{1-e^2}}{2\beta} \]
-Rearranging to isolate the invariant ratio of the phase-dependent projections:
-\[ \frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt{1-e^2}}{2\beta} \]
-\end{proof}
-
-\begin{theorem}[Conservation of Angular Momentum]
-The specific angular momentum $h$, defined as the product of the local scale $r_o(o)$ and the transverse kinetic projection, is a global phase invariant.
-\end{theorem}
-
-\begin{proof}
-Using the local scale $r_o(o) = R_s / \kappa_o^2(o)$, we define $h$:
-\[ h = r_o(o) \beta_T(o) c = \frac{R_s}{\kappa_o^2(o)} \beta_T(o) c \]
-Substituting the invariant ratio $\frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt{1-e^2}}{2\beta}$:
-\[ \boxed{h = R_s c \frac{\sqrt{1-e^2}}{2\beta}} \]
-Since $R_s$, $e$, and $\beta$ are global invariants, $h$ does not depend on phase $o$. Angular momentum is thus the manifestation of the fixed structural exchange rate between the $S^2$ and the $S^1$ carriers and there projections.
-\end{proof}
-
 \subsection{Eccentricity}
 \hypertarget{sec:rel_ecc}{}\label{sec:rel_ecc}
 
@@ -813,6 +879,112 @@ $$\text{SPACETIME} \equiv \text{ENERGY}$$
 \end{tcolorbox}
 
 
+\subsection{Vis-Viva}
+\hypertarget{sec:vis-viva}{}\label{sec:vis-viva}
+
+In elliptical systems, the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{ global closure theorem $\kappa^2 = 2\beta^2$} is conserved across the entire orbital cycle, while local phase variations manifest as an internal ``breathing'' of relational projections. We now derive the exact conservation law governing this local dynamic distribution.
+
+\begin{proposition}[Global Kinetic Amplitude]
+The difference between the square of the local potential projection $\kappa_o^2(o)$ and the square of the local kinetic projection $\beta_o^2(o)$ is a global binding invariant kinetic amplitude equal to $\beta^2$.
+\end{proposition}
+
+\begin{proof}
+The binding parameter $\beta^2$ defines the global relational depth of the system:
+\[  \kappa^2 = 2\beta^2 \]
+From the definitions of the $S^2$ and $S^1$ projections at any arbitrary phase $O$:
+\[ \kappa_o^2(o) = \frac{2\beta^2(1+e\cos o)}{1-e^2} \]
+\[ \beta_o^2(o) = \frac{\beta^2(1+e^2+2e\cos o)}{1-e^2} \]
+Subtracting the local kinetic projection from the local potential projection:
+\[ \kappa_o^2(o) - \beta_o^2(o) = \frac{2\beta^2 + 2\beta^2 e\cos o - (\beta^2 + \beta^2 e^2 + 2\beta^2 e\cos o)}{1-e^2} \]
+\[ \kappa_o^2(o) - \beta_o^2(o) = \frac{\beta^2(1-e^2)}{1-e^2} = \beta^2  \]
+Thus, the algebraic distance between the omnidirectional carrier $S^2$ and directional carrier $S^1$ relations remains globally constant irrespective of orbital phase and shape.
+\end{proof}
+
+\begin{theorem}[The Orthogonal Signature of the Orbit]
+The square of the local potential projection $\kappa_o^2(o)$ on the $S^2$ carrier is the strict Pythagorean square sum of the local radial $\beta_R^2(o)$, transverse $ \beta_T^2(o)$ and the global $\beta^2$ kinetic projections.
+\end{theorem}
+
+\begin{proof}
+The total local kinetic projection on the $S^1$ carrier splits orthogonally into radial and transverse components within the orbital plane:
+\[ \beta_o^2(o) = \beta_R^2(o) + \beta_T^2(o) \]
+Substituting this orthogonal decomposition into the phase-invariant relation $\kappa_o^2(o) - \beta_o^2(o) = \beta^2$:
+\[ \kappa_o^2(o) - (\beta_R^2(o) + \beta_T^2(o)) = \beta^2 \]
+Rearranging yields the three-dimensional algebraic relational closure:
+\[ \boxed{\kappa_o^2(o) = \beta_R^2(o) + \beta_T^2(o) + \beta^2} \]
+\end{proof}
+
+\begin{remark}[Ontological Replacement of Vis-Viva]
+This geometric invariant replaces the descriptive Newtonian Vis-Viva equation ($v^2/2 - GM/r = -GM/2a$). Standard mechanics interprets this balance as a scalar subtraction of an abstract potential energy from kinetic energy. In WILL, it is revealed as a strict Pythagorean theorem of relational geometry: the local potential projection ($\kappa_o^2$) is generated by the orthogonal summation of the kinetic ``breathing'' ($\beta_R^2 + \beta_T^2$) and the global $S^1$ projection ($\beta^2$). $\text{SPACETIME} \equiv \text{ENERGY}$.
+\end{remark}
+
+
+\subsection{Classical Acceleration}
+
+By the conservation of the global kinetic amplitude (Vis-Viva), the spatial gradients of the potential and kinetic projections balance to maintain the relational closure of the system. Taking the spatial derivative of the orbital invariant $\kappa_o^2 - \beta_o^2 = \beta^2$ with respect to the radial distance $r$ yields:
+
+\begin{equation}
+\frac{d}{dr}(\kappa_o^2) = \frac{d}{dr}(\beta_o^2)
+\end{equation}
+
+Substituting the definitions $\kappa_o^2 = \frac{R_s}{r}$ and $\beta_o^2 = \frac{v^2}{c^2}$ into the gradient balance:
+
+\begin{equation}
+\frac{d}{dr}\left(\frac{R_s}{r}\right) = \frac{1}{c^2} \frac{d(v^2)}{dr}
+\end{equation}
+
+Evaluating the derivatives provides the geometric relationship between the potential scale and the kinematic spatial variation:
+
+\begin{equation}
+-\frac{R_s}{r^2} = \frac{2v}{c^2} \frac{dv}{dr}
+\end{equation}
+
+Classical mechanics introduces the external time differential $dt$ to evaluate this spatial variation. Applying the chain rule $a_{acc} = \frac{dv}{dt} = v\frac{dv}{dr}$ maps the kinematic spatial gradient to the classical acceleration ($a_{acc}$):
+
+\begin{equation}
+-\frac{R_s}{r^2} = \frac{2}{c^2} a_{acc}
+\end{equation}
+
+Isolating $a_{acc}$ yields the classical Newtonian formula:
+
+\begin{equation}
+a_{acc} = -\frac{R_s c^2}{2r^2} = -\frac{GM}{r^2}
+\end{equation}
+
+Within the system, energy conservation is required by the closure theorem (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{sec:closure}) as an invariant resource of state change projected on kinetic $S^1$ and potential $S^2$ carriers. Thus, there is no need to introduce any new primitives such as force or spacetime curvature. Geometric conservation of relational energy states provides a complete operational and ontological explanation of observed phenomena.
+
+
+\subsection{Angular Momentum Conservation}
+\hypertarget{sec:angular_momentum}{}\label{sec:angular_momentum}
+
+The conservation of specific angular momentum $h$ is derived as a phase-independent structural invariant of the relational balance.
+
+\begin{proposition}[Invariant Ratio of Projections]
+The transverse kinetic projection $\beta_T(o)$ is strictly proportional to the local potential projection $\kappa_o^2(o)$ scaled by the global system constants.
+\end{proposition}
+
+\begin{proof}
+From the definition of the local potential projection (based on \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{closure theorem} $\kappa^2= 2\beta^2$ and geometry of ellipse):
+\[ \kappa_o^2(o) = 2\beta^2 \frac{(1+e\cos o)}{1-e^2} \implies (1+e\cos o) = \kappa_o^2(o) \frac{1-e^2}{2\beta^2} \]
+The transverse kinetic projection $\beta_T(o)$ is defined on the $S^1$ carrier as:
+\[ \beta_T(o) = \beta \frac{1+e\cos o}{\sqrt{1-e^2}} \]
+Substituting the expression for $(1+e\cos o)$ into the definition of $\beta_T(o)$:
+\[ \beta_T(o) = \beta ( \kappa_o^2(o) \frac{1-e^2}{2\beta^2} ) \frac{1}{\sqrt{1-e^2}} = \kappa_o^2(o) \frac{\sqrt{1-e^2}}{2\beta} \]
+Rearranging to isolate the invariant ratio of the phase-dependent projections:
+\[ \frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt{1-e^2}}{2\beta} \]
+\end{proof}
+
+\begin{theorem}[Conservation of Angular Momentum]
+The specific angular momentum $h$, defined as the product of the local scale $r_o(o)$ and the transverse kinetic projection, is a global phase invariant.
+\end{theorem}
+
+\begin{proof}
+Using the local scale $r_o(o) = R_s / \kappa_o^2(o)$, we define $h$:
+\[ h = r_o(o) \beta_T(o) c = \frac{R_s}{\kappa_o^2(o)} \beta_T(o) c \]
+Substituting the invariant ratio $\frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt{1-e^2}}{2\beta}$:
+\[ \boxed{h = R_s c \frac{\sqrt{1-e^2}}{2\beta}} \]
+Since $R_s$, $e$, and $\beta$ are global invariants, $h$ does not depend on phase $o$. Angular momentum is thus the manifestation of the fixed structural exchange rate between the $S^2$ and the $S^1$ carriers and there projections.
+\end{proof}
+
 \subsection{Orbital Precession as Phase Accumulation} 
 \hypertarget{sec:precession_law}{}\label{sec:precession_law}
 
@@ -864,7 +1036,7 @@ Using the exact relational phase accumulation law (derived in \ref{sec:precessio
 \Delta \varphi  = \frac{2\pi \cdot \tau_{Y}^2}{1-e^2} = \frac{2\pi (1 - \tau^2)}{1-e^2}
 \end{equation}
 
-For a massive system under total \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{energetic closure ($\kappa^2 = 2\beta^2$)}, consider the \textbf{Dynamic Horizon} state where the potential projection reaches absolute saturation ($\kappa^2 = 1$). By the closure rule, the kinematic projection is $\beta^2 = \frac{1}{2}$. 
+For a massive system under total \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{relational closure ($\kappa^2 = 2\beta^2$)}, consider the \textbf{Dynamic Horizon} state where the potential projection reaches absolute saturation ($\kappa^2 = 1$). By the closure rule, the kinematic projection is $\beta^2 = \frac{1}{2}$. 
 
 At this limit, the gravitational phase component collapses ($\kappa_X = \sqrt{1-1} = 0$), causing the entire internal causal structure of the system to vanish:
 \begin{equation}
@@ -1281,7 +1453,6 @@ The algebraic isolation of $\frac{\tau_{D(limit)}}{R_s}$ demonstrates that the b
 \end{remark}
 
 
-
 \section{Algebraic Determination of Absolute System Scale}
 \hypertarget{sec:absolute_scale}{}\label{sec:absolute_scale}
 
@@ -1293,7 +1464,6 @@ The derivation isolates true dynamic proportionality using exclusively operation
 
 \subsection{Method A: Optical Phase Projection (Angular Radius)}
 \hypertarget{eq:optical_phase}{}\label{eq:optical_phase}
-
 
 The coordinate of radial distance is systematically eliminated by correlating the local topological phase with the optical geometry of the central body. Any observer extracts the absolute structural parameters of the central body directly from local chronometry and trigonometric projection.
 \[
@@ -1502,60 +1672,6 @@ R_s = \frac{r}{2(2a-r)} ( (4a-r) \pm \sqrt{(4a-r)^2 - 8a(2a-r)(1-\tau_{o}^2)} ).
 For stable orbits, we select the negative root, yielding the exact algebraic link between the observed light phase and the system's geometric scale.
 \end{proof}
 
-\section*{Ontological Redundancy of Mass ($M$) and the Gravitational Constant ($G$) in a Closed Orbital System}
-
-\textbf{OBSERVATIONAL INPUTS:}
-\begin{itemize}
-    \item $T$: Local orbital period of the dependent body.
-    \item $z_\kappa$: Gravitational redshift at the surface of the central body.
-    \item $\theta$: Apparent angular radius of the central body observed from the orbit.
-    \item $c$: Speed of light.
-\end{itemize}
-
-\textbf{STEP 1: Surface Phase Shift Extraction}
-Extract the surface phase capacity of the central body directly from optical observation:
-\begin{equation}
-\kappa_s^2 = 1 - \frac{1}{(1 + z_\kappa)^2}
-\end{equation}
-
-\textbf{STEP 2: Local Closure Theorem}
-Apply the R.O.M. closure theorem to convert phase capacity into the base kinematic projection at the surface:
-\begin{equation}
-\beta_s^2 = \frac{1}{2}\kappa_s^2
-\end{equation}
-
-\textbf{STEP 3: Orbital Projection}
-Project the surface kinematics onto the observer's orbit. The trigonometric function $\sin(\theta)$ dictates the strict geometric ratio of the central body's physical radius to the orbital distance, extracting the orbital kinematics without absolute spatial metrics:
-\begin{equation}
-\beta_{orbit}^2 = \beta_s^2 \sin(\theta)
-\end{equation}
-
-\textbf{STEP 4: Absolute Scale Generation}
-Deploy the local period and local kinematic projection to generate the absolute energetic scale of the system ($R_s$):
-\begin{equation}
-R_s = \frac{T c}{\pi} (\beta_{orbit}^2)^{\frac{3}{2}}
-\end{equation}
-
-\textbf{STEP 5: Classical Paradigm Reduction}
-Classical mechanics defines the gravitational radius as a consequence of mass:
-\begin{equation}
-R_s = \frac{2GM}{c^2}
-\end{equation}
-Isolate the classical gravitational parameter:
-\begin{equation}
-GM = \frac{R_s c^2}{2}
-\end{equation}
-Substitute the derived geometric $R_s$ from Step 4:
-\begin{equation}
-GM = \frac{T c^3}{2\pi} (\beta_{orbit}^2)^{\frac{3}{2}}
-\end{equation}
-
-\textbf{CONCLUSION:}
-The equation rigorously proves the $GM$ construct is mathematically identical to the combination of local time ($T$), the limiting velocity ($c$), and dimensionless optical projections ($z_\kappa$, $\theta$). $M$ and $G$ cannot be algebraically separated without introducing an arbitrary external unit of measurement (the kilogram). They do not act as independent physical causes of gravitation. They function strictly as post-factum translational constants required to map natural relational geometry into anthropocentric mass metrics. Mass does not generate the orbit; orbital and optical geometry fully encapsulate the physical property historically defined as mass.
-
-
-
-
 \section{Rotational Systems (Kerr Without Metric)}
 \hypertarget{sec:Kerr}{}\label{sec:Kerr}
 
@@ -1569,16 +1685,16 @@ The equation rigorously proves the $GM$ construct is mathematically identical to
 For rotating black holes, we establish the connection between relational kinetic projection and the Kerr metric by defining:
 
 \[
-\beta =\frac{a c^2}{G m_0}, \quad \kappa = \sqrt{2} \beta
+\beta =\frac{a c^2}{G M}, \quad \kappa = \sqrt{2} \beta
 \]
 where:
 \begin{itemize}
     \item \(\beta\) is the relational rotation parameter, with \(0 \leq \beta \leq 1\),
     \item \(\kappa\) is related to the geometry and gravity,
-    \item \(R_s = \frac{2 G m_0}{c^2}\) is the Schwarzschild radius,
-    \item \(a = \frac{J}{m_0 c}\) is the Kerr rotation parameter,
+    \item \(R_s = \frac{2 G M}{c^2}\) is the Schwarzschild radius,
+    \item \(a = \frac{J}{M c}\) is the Kerr rotation parameter,
     \item \(J\) is the angular momentum of the black hole,
-    \item \(m_0\) is the mass of the black hole.
+    \item \(M\) is the mass of the black hole.
 \end{itemize}
 
 We also derive a key invariant relationship:
@@ -1626,97 +1742,75 @@ Unlike the Schwarzschild metric with its point singularity, the Kerr metric feat
 \[
 r = 0, \quad \theta = \frac{\pi}{2}
 \]
-The "size" of this ring is proportional to \(a = \frac{G m_0}{c^2} \beta\), reaching its maximum for extreme black holes (\(\beta = 1\)).
+The "size" of this ring is proportional to \(a = \frac{G M}{c^2} \beta\), reaching its maximum for extreme black holes (\(\beta = 1\)).
 
 \subsubsection*{Naked Singularity}
 For \(\beta \leq 1\), a naked singularity does not emerge, aligning with the cosmic censorship Principle. In our model, Energy Symmetry Law enforce constraint by limiting \(\beta\) to the range \([0, 1]\).
 
-\subsubsection*{Chiral Asymmetry: The Algebraic Origin of Frame-Dragging}
+\subsection{Chiral Asymmetry: The Algebraic Origin of Frame-Dragging}
 
-In standard General Relativity, the chiral asymmetry of a rotating black hole (where prograde and retrograde orbits diverge) is modeled via the off-diagonal metric tensor component $g_{t\phi}$. In the Relational Orbital Mechanics (R.O.M.), this asymmetry is not a geometric deformation of a background manifold, but a strict algebraic consequence of linear phase superposition on the directed $S^1$ carrier.
+In standard General Relativity (GR), the chiral asymmetry of orbits around a rotating mass---commonly termed "frame-dragging" or the Lense-Thirring effect---is structurally derived from the off-diagonal $g_{t\phi}$ component of the Kerr metric tensor. In Relational Orbital Mechanics (R.O.M.), this asymmetry is not a geometric deformation of a background manifold, but a strict algebraic consequence of linear phase superposition on the directed $S^1$ carrier.
 
-\subsubsection*{Composite Kinematic Projection}
-When a test particle (or photon) with orbital kinematic projection $\beta_{\text{orb}}$ interacts with a central body possessing a spin projection $\beta_{\text{spin}}$, the total relational kinematic shift must be aggregated linearly on the $S^1$ carrier before the quadratic energy invariant is calculated. 
+\subsubsection*{Composite Kinematic Projection and DOF Conservation}
 
-The composite kinematic projection $\beta_{\Sigma}$ is defined as:
+Because the kinematic projection $\beta$ operates on the 1-DOF relational carrier $S^1$, motions sharing the same directional axis must superimpose linearly prior to quadratic energy evaluation. For a test mass orbiting a spinning central body, the composite kinematic state is:
 \begin{equation}
 \beta_{\Sigma} = \beta_{\text{orb}} \pm \beta_{\text{spin}}
 \end{equation}
-where the $(+)$ sign denotes co-rotating (prograde) relational motion, and the $(-)$ sign denotes counter-rotating (retrograde) relational motion.
+where $(+)$ denotes prograde and $(-)$ denotes retrograde motion.
 
-\subsubsection*{The Algebraic Symmetry Breaker (Cross-Term)}
-Substituting the composite projection into the relational orbital invariant energy projection $\beta^2 = (\kappa^2 - \beta_{\Sigma}^2)$, we obtain the expanded state balance:
+To conserve dimensional degrees of freedom when projecting a 3D central body's spin onto the 1D carrier $S^1$, a $1/3$ scaling factor is applied. The local operational spin projection scales the specific angular momentum $a = J/(Mc)$ against the spatial depth $r$:
 \begin{equation}
-\beta^2= [ \kappa^2 - (\beta_{\text{orb}} \pm \beta_{\text{spin}})^2 ]
-\end{equation}
-\begin{equation}
-\beta^2= [ \kappa^2 - (\beta_{\text{orb}}^2 \pm 2\beta_{\text{orb}}\beta_{\text{spin}} + \beta_{\text{spin}}^2) ]
+\beta_{\text{spin}} = \frac{a}{3r}
 \end{equation}
 
-The emergent cross-term $\pm 2\beta_{\text{orb}}\beta_{\text{spin}}$ is the exact algebraic equivalent of the frame-dragging effect. It enforces a chiral split in the required gravitational projection $\kappa^2$ to maintain the invariant $\beta^2$:
-\begin{itemize}
-    \item \textbf{Prograde Orbits ($+$):} The cross-term increases the total subtracted kinetic budget, requiring a deeper gravitational projection (larger $\kappa^2$, hence smaller $r$) to maintain closure.
-    \item \textbf{Retrograde Orbits ($-$):} The cross-term decreases the total kinetic budget, requiring a shallower gravitational projection (smaller $\kappa^2$, hence larger $r$).
-\end{itemize}
+\subsubsection*{The Algebraic Symmetry Breaker}
 
-\subsubsection*{Orbital and Optical Splitting}
-Because all dynamic orbital parameters in R.O.M. (such as precession $\Delta\varphi \propto \tau_Y^2$ and deflection angles) are strictly proportional to the ratio of projections, replacing the static $\beta_{\text{orb}}$ with the chiral $\beta_{\Sigma}$ automatically generates the asymmetric splitting of trajectories.
-
-For a photon ($\beta_{\text{orb}} = 1$) grazing a rotating mass, the relative kinematic budget becomes $\beta_{\Sigma} = 1 \pm \beta_{\text{spin}}$. This directly splits the photon sphere radii algebraically, eliminating the need to integrate geodesics over a Kerr metric. The spatial "dragging" is entirely replaced by the interference of relational phase projections.
-
-{The Relationship Between \(\kappa > 1\) and Rotation}
-For extreme rotation (\(\beta = 1\)), we find \(\kappa = \sqrt{2} > 1\), which reflects the displacement of the event horizon and the geometric properties of rotating black holes. This suggests that values of \(\kappa > 1\) are inherently connected to the physics of relational rotation.
-
-This connection suggests that the rotation of a black hole can be understood through geometric parameters analogous to orbital mechanics. Physically, it indicates that the rotational properties of the black hole, encapsulated in \(a_*\), mirror the orbital velocity parameter \(\beta\), providing a unified description of spacetime dynamics.
-
-\subsubsection*{Epistemic Isomorphism of Chiral Asymmetry}
-\hypertarget{sec:epistemic_chiral}{}\label{sec:epistemic_chiral}
-
-In standard General Relativity (GR), the chiral asymmetry of orbits around a rotating mass - commonly termed "frame-dragging" or the Lense-Thirring effect - is structurally derived from the off-diagonal $g_{t\phi}$ component of the Kerr metric tensor. This requires postulating a 4D pseudo-Riemannian manifold and integrating the resulting geodesic equations.
-
-Relational Orbital Mechanics (R.O.M.) demonstrates that this complex differential machinery is not strictly required to generate the asymmetry. The identical structural cross-terms emerge natively from the algebraic closure of the relational carriers, eliminating the necessity of a background metric.
-
-\subsubsection*{Co-linear Superposition on $S^1$}
-
-Because the kinematic projection $\beta$ operates on the 1-DOF relational carrier $S^1$, motions sharing the same directional axis must superimpose linearly prior to quadratic energy evaluation. For a test mass orbiting in the equatorial plane of a spinning central body, the orbital kinematic projection ($\beta_{\text{orb}}$) and the spin projection of the central mass ($\beta_{\text{spin}}$) are co-linear (azimuthal). The composite kinematic state is:
-\begin{equation}
-\beta_{\Sigma} = \beta_{\text{orb}} \pm \beta_{\text{spin}}
-\end{equation}
-where $(+)$ denotes a prograde orbit and $(-)$ denotes a retrograde orbit.
-
-\subsubsection*{Algebraic Generation of the Interaction Cross-Term}
-
-Applying the universal \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{topological closure condition} ($\kappa^2 = 2\beta^2$) strictly to this composite state yields:
+Applying the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{relational closure theorem} ($\kappa^2 = 2\beta^2$) strictly to the composite state yields:
 \begin{equation}
 \kappa^2 = 2(\beta_{\text{orb}} \pm \beta_{\text{spin}})^2 = 2\beta_{\text{orb}}^2 + 2\beta_{\text{spin}}^2 \pm 4\beta_{\text{orb}}\beta_{\text{spin}}
 \end{equation}
 
-This algebraic expansion isolates three distinct potential requirements:
-\begin{itemize}
-    \item $2\beta_{\text{orb}}^2$: The primary closure requirement for a static system.
-    \item $2\beta_{\text{spin}}^2$: A symmetric inflation of the required potential depth due to the intrinsic rotation of the central body.
-    \item $\pm 4\beta_{\text{orb}}\beta_{\text{spin}}$: The exact chiral symmetry breaker. 
-\end{itemize}
-
-Because $\kappa^2 = R_s/r$, the cross-term mathematically mandates that a prograde orbit ($+$) requires a strictly deeper potential projection (smaller operational radius) than a retrograde orbit ($-$) at an equivalent orbital velocity. This algebraic constraint is operationally indistinguishable from the spatial drag generated by the $g_{t\phi}$ metric component in GR.
+The emergent cross-term $\pm 4\beta_{\text{orb}}\beta_{\text{spin}}$ is the exact symmetry breaker. Because $\kappa^2 = R_s/r$, this mathematically mandates that a prograde orbit ($+$) requires a deeper potential projection (smaller radius) than a retrograde orbit ($-$) at an equivalent orbital velocity. This algebraic constraint is operationally indistinguishable from the spatial drag generated by the $g_{t\phi}$ metric.
 
 \subsubsection*{Expansion of the Precessional Divergence}
 
-The internal causal order of the composite system evaluates via the exact relational phase divergence $\tau^2 = (1 - \kappa^2)(1 - \beta_{\Sigma}^2)$. Expanding this algebraically and applying the strict directional boundary ($pm = 1$) yields:
-\begin{align}
-\tau^2 &= (2\beta_{\text{orb}}^4 + 2\beta_{\text{spin}}^4 - 3\beta_{\text{orb}}^2 - 3\beta_{\text{spin}}^2 + 12\beta_{\text{orb}}^2\beta_{\text{spin}}^2 + 1) \nonumber \\
-&\quad \pm (8\beta_{\text{orb}}^3\beta_{\text{spin}} + 8\beta_{\text{orb}}\beta_{\text{spin}}^3 - 6\beta_{\text{orb}}\beta_{\text{spin}})
-\end{align}
+The internal causal order of the composite system evaluates via the relational phase factor $\tau^2 = (1 - \kappa^2)(1 - \beta_{\Sigma}^2)$. Expanding this algebraically and applying the strict directional boundary ($\pm = 1$) isolates the chiral divergence:
+\begin{equation}
+\tau_{Y(\text{chiral})}^2 = \pm (6\beta_{\text{orb}}\beta_{\text{spin}} - 8\beta_{\text{orb}}^3\beta_{\text{spin}} - 8\beta_{\text{orb}}\beta_{\text{spin}}^3)
+\end{equation}
 
-The isolated $\pm$ polynomial governs the exact precessional divergence between prograde and retrograde states.
+Substituting the local operational projection into the isolated chiral polynomial defines the phase shift per orbital cycle, normalized by the orbital shape $(1-e^2)$:
+\begin{equation}
+\Delta\varphi_{\text{chiral}} = \frac{2\pi}{1-e^2} \left[ \pm (6\beta_{\text{orb}}\beta_{\text{spin}} - 8\beta_{\text{orb}}^3\beta_{\text{spin}} - 8\beta_{\text{orb}}\beta_{\text{spin}}^3) \right]
+\end{equation}
+
+\subsection{Legacy Translation: Lense-Thirring Equivalence}
+
+To verify structural compatibility with historical models, we isolate the primary geometric observable by ablating the higher-order geometric cross-coupling terms ($\beta^4 \to 0$) and setting the orbit to circular ($e = 0$). The equation simplifies algebraically to:
+\begin{equation}
+\Delta\varphi_{\text{ablated}} \simeq 12\pi \beta_{\text{orb}} \beta_{\text{spin}}
+\end{equation}
+
+Substituting the operational spin projection $\beta_{\text{spin}} = \frac{J}{3 M c r}$ and the kinematic orbital projection $\beta_{\text{orb}} = \frac{v}{c}$ recovers the empirical post-Newtonian node precession:
+\begin{equation}
+\Delta\varphi_{\text{ablated}} \simeq 12\pi \left(\frac{v}{c}\right) \left(\frac{J}{3 M c r}\right) = \frac{4\pi v J}{M c^2 r}
+\end{equation}
+
+Applying the kinematic scaling identity $\frac{v}{M} = \frac{G}{r v}$:
+\begin{equation}
+\Delta\varphi_{\text{ablated}} \simeq \frac{4\pi G J}{c^2 r^2 v}
+\end{equation}
+
+The Lense-Thirring effect emerges natively from the algebraic closure of the relational carriers, executed without invoking differential tensors or a curved pseudo-Riemannian manifold.
 
 \begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=COLAB EMPIRICAL VERIFICATION]
  This Chiral Asymmetry when tested against LAGEOS-1 Satellite (Earth orbit) shows perfect agreement with observations and GR predictions: \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/LAGEOS_I_Lense_Thirring.ipynb}{LAGEOS I Lense-Thirring.ipynb}
 \end{tcolorbox}
 
-\subsubsection*{Epistemological Conclusion}
+\subsection{Epistemological Conclusion}
 
-Mathematics dictates that if two formalisms enforce identical fundamental symmetries - conservation of the relational energy budget and the absolute causal limit - they must converge on identical structural polynomials. R.O.M. achieves this convergence without postulating a background manifold. Frame-dragging is thus revealed not as a mechanical torsion of spacetime, but as the strict algebraic consequence of squaring a co-linear phase superposition under the universal topological bound $\kappa^2 = 2\beta^2$.
+Mathematics dictates that if two formalisms enforce identical symmetries - conservation of the relational energy budget and causal limit - they must converge on identical structural polynomials. R.O.M. achieves this convergence without postulating differential tensors or a curved pseudo-Riemannian manifold. Frame-dragging is thus revealed not as a mechanical torsion of spacetime, but as the algebraic consequence of squaring a co-linear phase superposition under the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{relational closure} bound $\kappa^2 = 2\beta^2$.
 
 \subsubsection*{Physical Interpretation}
 
@@ -1727,386 +1821,116 @@ Mathematics dictates that if two formalisms enforce identical fundamental symmet
 \end{itemize}
 
 
-
-\section{N-Body Architecture and Topological Closure}
-\hypertarget{sec:n-body-architecture}{}\label{sec:n-body-architecture}
-
-The N-body problem in Relational Orbital Mechanics (R.O.M.) is resolved by eliminating background space and multi-vector dynamics. A multi-component system is structured as a hierarchy of nested two-body interactions.
-
-The Observer $O$ is permanently fixed at its own \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:reciprocity}{relational origin point} $(0,0)$. The observer does not interact with a scattered collection of independent masses, but exclusively with a unified composite node $F$, which contains internal N number of nodes, or as we show in example below from nodes $A$ and $B$.
-
-For this configuration to remain stable, the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry}{Energy-Symmetry Law} must be executed simultaneously across two operational levels:
-\begin{enumerate}
-    \item \textbf{Internal Contour:} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$. This algebraically isolates the internal relations of $A$ and $B$, projecting a single unified scale to the outside observer.
-    \item \textbf{External Contour:} $\Delta E_{O \to F} + \Delta E_{F \to O} = 0$.
-\end{enumerate}
-
-In the algebraically closed R.O.M. architecture, arbitrary degrees of freedom do not exist. The state and position of every object are determined by the algebraic relational balance. For any system at any given moment, there is only one valid geometric configuration that preserves total energy symmetry. If eccentricity as topological limit (\ref{sec:rel_ecc}) is breached ($e \ge 1$), one of the objects looses its gravitational bound and the composite node $F$ is algebraically annulled, forcing the network to restructure.
-
-\subsection{System Parameters}
-
-To demonstrate this N-body architecture on a well-documented physical system, we calculate the distance from Earth to the Lagrange point \textbf{L1 }, defining it as the boundary of relational closure along the Earth-Sun axis.  
-
-Consider a system of three objects: $A$ (Sun), $B$ (Earth), and $O$ (Satellite). The parameters are defined as follows:
-\begin{itemize}
-    \item $R_{AB} \equiv$ distance between $A$ and $B$.
-    \item $R_{OA} \equiv$ distance between $A$ and $O$.
-    \item $R_{OB} \equiv$ distance between $B$ and $O$ (the target variable).
-    \item $R_{sA}, R_{sB} \equiv$ horizons of objects $A$ and $B$.
-\end{itemize}
-
-
-
-\subsection{The Relational Closure Limit ($L_{1\text{WILL}}$)}
-
-\begin{theorem}[Collinear Rupture Limit]
-\hypertarget{thm:collinear-limit}{}\label{thm:collinear-limit}
-For the observer $O$ to maintain perfect circular synchronization ($e=0$) on the collinear axis between $A$ and $B$, the radius of relational closure from node $B$ is:
-\[
-\boxed{R_{OB} = R_{AB} \sqrt[3]{\frac{4}{9} \frac{R_{sB}}{R_{sA}}}}
-\]
-\end{theorem}
-
-\begin{proof}
-By the Energy-Symmetry Law, the kinetic budget required for spatial synchronization must exactly balance the local potential interference. 
-The strict closure equation ($e=0$) at the boundary is expressed by equating the Squared Amplitude Difference (LHS) to the required kinetic projection mapped via the Structural Tension (RHS):
-\begin{equation}
-\text{LHS} = \text{RHS} \quad \implies \quad (\kappa_{OA} - \kappa_{OB})^2 = \Lambda_k R_{OA}^2
-\end{equation}
-
-Substituting the scale definitions $\kappa_{OA} = \sqrt{R_{sA}/R_{OA}}$ and $\kappa_{OB} = \sqrt{R_{sB}/R_{OB}}$:
-\begin{equation}
-( \sqrt{\frac{R_{sA}}{R_{OA}}} - \sqrt{\frac{R_{sB}}{R_{OB}}} )^2 = \frac{R_{sA}}{R_{AB}^3} R_{OA}^2
-\end{equation}
-
-Since $O$ lies on the axis between $A$ and $B$, $R_{OA} = R_{AB} - R_{OB}$. Introducing the dimensionless parameter $x = R_{OB}/R_{AB}$ and expanding algebraically for $x \ll 1$ yields the exact root:
-\[
-x^3 = \frac{4}{9}\frac{R_{sB}}{R_{sA}} \quad \implies \quad R_{OB} = R_{AB} \sqrt[3]{\frac{4}{9}\frac{R_{sB}}{R_{sA}}}
-\]
-We define this absolute limit as $L_{1\text{WILL}}$. This relational limit strictly exceeds the classical linearized Newtonian Hill sphere approximation ($r_{\text{hill}} = R_{AB} \sqrt[3]{1/3 (R_{sB}/R_{sA})}$).
-\end{proof}
-
-\subsection{Halo Orbit Geometry and Empirical Prediction}
-
-\begin{theorem}[Halo Orbit as Geometric Intersection]
-\hypertarget{thm:halo-orbit}{}\label{thm:halo-orbit}
-A test node assigned to the classical axial coordinate $r_{\text{hill}}$ resides strictly within the ruptured topological zone ($e > 0$ because $\text{LHS} < \text{RHS}$). To restore the perfect closure state $e=0$, the node must displace into the perpendicular plane to lengthen its absolute distance to node $B$ until $R_{OB\text{(3D)}} = L_{1\text{WILL}}$. The required halo orbit amplitude $r_{\text{halo}}$ is the exact perpendicular leg of this absolute projection:
-\[
-\boxed{r_{\text{halo}} = \sqrt{L_{1\text{WILL}}^2 - r_{\text{hill}}^2}}
-\]
-\end{theorem}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Empirical Geometric Validation (Sun-Earth System)]
-Applying system absolute scales $R_{sB}/R_{sA} \approx 3.003 \times 10^{-6}$ and baseline $R_{AB} = 1.496 \times 10^{11}$ m:
-\begin{itemize}
-    \item \textbf{WILL RG Contour Limit:} $L_{1\text{WILL}} = 1.644 \times 10^9$ m
-    \item \textbf{Classical Axial Coordinate:} $r_{\text{hill}} = 1.497 \times 10^9$ m
-    \item \textbf{WILL RG Halo Amplitude:} $r_{\text{halo}} = \sqrt{(1.644^2 - 1.497^2) \times 10^{18}} \approx 6.79 \times 10^8$ m
-\end{itemize}
-The standard telemetric amplitude for SOHO-class satellites operating at this intersection is $\approx 6.66 \times 10^8$ m. The purely geometric derivation matches empirical telemetry with $\approx 98\%$ precision, eliminating the need for fictitious Coriolis forces or differential integration.
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Empirical Prediction: Minimum $\Delta V$ Boundary]
-The relational geometry dictates that halo/Lissajous orbits are artificial mechanisms to survive within a ruptured topological zone. 
-WILL RG strictly predicts that if a spacecraft is positioned on the collinear axis precisely at the extended distance $R_{OB} = L_{1\text{WILL}}$ ($1.644 \times 10^9$ m for the Earth-Sun system), the required halo amplitude collapses to zero ($r_{\text{halo}} = 0$). 
-At this exact coordinate, the Structural Tension ($\Lambda_k R_{OA}^2$) perfectly balances the Squared Amplitude Difference. Consequently, the spacecraft will require exponentially less station-keeping propellant ($\Delta V$) to maintain its position compared to standard deployment at the classical $r_{\text{hill}}$ boundary.
-\end{tcolorbox}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{N-Body Architecture and Topological Closure}
-\hypertarget{sec:n-body-architecture}{}\label{sec:n-body-architecture}
-
-\subsection{System Parameters and Structural Tension}
-
-Consider a composite relational system where an observer node $O$ is synchronized with a macro-system composed of a central node $A$ and a bound node $B$. The structural parameters are defined directly by their relational distances and absolute scales:
-\begin{itemize}
-    \item $R_{AB} \equiv$ absolute distance between node $A$ and node $B$.
-    \item $R_{OA} \equiv$ absolute distance between observer $O$ and node $A$.
-    \item $R_{OB} \equiv$ absolute distance between observer $O$ and node $B$.
-    \item $R_{sA}, R_{sB} \equiv$ absolute relational scales of nodes $A$ and $B$.
-\end{itemize}
-
-\begin{theorem}[Structural Tension]
-\hypertarget{thm:structural-tension}{}\label{thm:structural-tension}
-The macro-contour $A-B$ generates a scale-invariant baseline density of potential projection, defined as the Structural Tension $\Lambda_k$:
-\begin{equation}
-\boxed{\Lambda_k = \frac{\kappa_{AB}^2}{R_{AB}^2} \equiv \frac{R_{sA}}{R_{AB}^3}}
-\end{equation}
-\end{theorem}
-
-\subsection{The Relational Closure Limit ($L_{1\text{WILL}}$)}
-
-\begin{theorem}[Collinear Rupture Limit]
-\hypertarget{thm:collinear-limit}{}\label{thm:collinear-limit}
-For the observer $O$ to maintain perfect synchronization ($e=0$) on the collinear axis between $A$ and $B$, the absolute radius of relational closure from node $B$ is:
-\[
-\boxed{R_{OB} = R_{AB} \sqrt[3]{\frac{4}{9} \frac{R_{sB}}{R_{sA}}}}
-\]
-\end{theorem}
-
-\begin{proof}
-By the Energy-Symmetry Law (\ref{sec:energy-symmetry}), the kinetic budget required for spatial synchronization must exactly balance the local potential interference. 
-The strict closure equation ($e=0$) at the boundary is expressed by equating the Squared Amplitude Difference (LHS) to the required kinetic projection mapped via the Structural Tension (RHS):
-\begin{equation}
-\text{LHS} = \text{RHS} \quad \implies \quad (\kappa_{OA} - \kappa_{OB})^2 = \Lambda_k R_{OA}^2
-\end{equation}
-
-Substituting the scale definitions $\kappa_{OA} = \sqrt{R_{sA}/R_{OA}}$ and $\kappa_{OB} = \sqrt{R_{sB}/R_{OB}}$:
-\begin{equation}
-( \sqrt{\frac{R_{sA}}{R_{OA}}} - \sqrt{\frac{R_{sB}}{R_{OB}}} )^2 = \frac{R_{sA}}{R_{AB}^3} R_{OA}^2
-\end{equation}
-
-Since $O$ lies on the axis between $A$ and $B$, $R_{OA} = R_{AB} - R_{OB}$. Introducing the dimensionless parameter $x = R_{OB}/R_{AB}$ and expanding algebraically for $x \ll 1$ yields the exact root:
-\[
-x^3 = \frac{4}{9}\frac{R_{sB}}{R_{sA}} \quad \implies \quad R_{OB} = R_{AB} \sqrt[3]{\frac{4}{9}\frac{R_{sB}}{R_{sA}}}
-\]
-We define this absolute limit as $L_{1\text{WILL}}$. This relational limit strictly exceeds the classical linearized Newtonian Hill sphere approximation ($r_{\text{hill}} = R_{AB} \sqrt[3]{1/3 (R_{sB}/R_{sA})}$).
-\end{proof}
-
-\subsection{Halo Orbit Geometry and Empirical Prediction}
-
-\begin{theorem}[Halo Orbit as Geometric Intersection]
-\hypertarget{thm:halo-orbit}{}\label{thm:halo-orbit}
-A test node assigned to the classical axial coordinate $r_{\text{hill}}$ resides strictly within the ruptured topological zone ($e > 0$ because $\text{LHS} < \text{RHS}$). To restore the perfect closure state $e=0$, the node must displace into the perpendicular plane to lengthen its absolute distance to node $B$ until $R_{OB\text{(3D)}} = L_{1\text{WILL}}$. The required halo orbit amplitude $r_{\text{halo}}$ is the exact perpendicular leg of this absolute projection:
-\[
-\boxed{r_{\text{halo}} = \sqrt{L_{1\text{WILL}}^2 - r_{\text{hill}}^2}}
-\]
-\end{theorem}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Empirical Geometric Validation (Sun-Earth System)]
-Applying system absolute scales $R_{sB}/R_{sA} \approx 3.003 \times 10^{-6}$ and baseline $R_{AB} = 1.496 \times 10^{11}$ m:
-\begin{itemize}
-    \item \textbf{WILL RG Contour Limit:} $L_{1\text{WILL}} = 1.644 \times 10^9$ m
-    \item \textbf{Classical Axial Coordinate:} $r_{\text{hill}} = 1.497 \times 10^9$ m
-    \item \textbf{WILL RG Halo Amplitude:} $r_{\text{halo}} = \sqrt{(1.644^2 - 1.497^2) \times 10^{18}} \approx 6.79 \times 10^8$ m
-\end{itemize}
-The standard telemetric amplitude for SOHO-class satellites operating at this intersection is $\approx 6.66 \times 10^8$ m. The purely geometric derivation matches empirical telemetry with $\approx 98\%$ precision, eliminating the need for fictitious Coriolis forces or differential integration.
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Empirical Prediction: Minimum $\Delta V$ Boundary]
-The relational geometry dictates that halo/Lissajous orbits are artificial mechanisms to survive within a ruptured topological zone. 
-WILL RG strictly predicts that if a spacecraft is positioned on the collinear axis precisely at the extended distance $R_{OB} = L_{1\text{WILL}}$ ($1.644 \times 10^9$ m for the Earth-Sun system), the required halo amplitude collapses to zero ($r_{\text{halo}} = 0$). 
-At this exact coordinate, the Structural Tension ($\Lambda_k R_{OA}^2$) perfectly balances the Squared Amplitude Difference. Consequently, the spacecraft will require exponentially less station-keeping propellant ($\Delta V$) to maintain its position compared to standard deployment at the classical $r_{\text{hill}}$ boundary.
-\end{tcolorbox}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{N-Body Architecture: Nested Relational Contours}
-\hypertarget{sec:n-body}{}\label{sec:n-body}
-
-\begin{theorem}[Dual Symmetry Requirement]
-\hypertarget{thm:dual-symmetry}{}\label{thm:dual-symmetry}
-An N-body system by the \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:relational}{principle of relational origin} is defined as a hierarchy of nested, energetically closed two-body relational contours. A central observer $O(0,0)$ interacting with a composite system $F(A,B)$ demands the simultaneous execution of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry}{Energy-Symmetry Law} across all operational scales:
-\begin{align}
-\Delta E_{A \to B} + \Delta E_{B \to A} &= 0 \quad \text{(Internal Closure of } F\text{)}, \\
-\Delta E_{O \to F} + \Delta E_{F \to O} &= 0 \quad \text{(External Interaction)}.
-\end{align}
-\end{theorem}
-
-\begin{proof}
-The internal contour (A-B) maintains strict zero-sum energetic balance, sealing its internal relational defect. It projects a unified invariant scale $R_{sF}$. The observer $O$ interacts exclusively with the composite node $F$. Multi-vector perturbations are mathematically isolated within the local closed nodes, reducing N-body dynamics to pure scalar, mutually independent two-body projection balances.
-\end{proof}
-
-\subsection{The Topological Rupture Limit}
-
-\begin{theorem}[Relational Rupture Condition]
-\hypertarget{thm:relational-rupture}{}\label{thm:relational-rupture}
-The composite node $F$ ceases to function as a unified energy system when the external kinematic projection exceeds the internal potential capacity of the node F. This rupture occurs at the boundary $e \ge 1$, which algebraically corresponds to projections equivalence at the closest approach (periapsis):
-\[
-\beta_p^2 = \kappa_p^2.
-\]
-\end{theorem}
-
-\begin{proof}
-By the Relational Eccentricity Theorem (\ref{sec:rel_ecc}), the structural strain of an orbital system is defined entirely by the invariant $e = \frac{2\beta_p^2}{\kappa_p^2} - 1$.
-Setting the imit of topological closure to $e=1$:
-\[
-\frac{2\beta_p^2}{\kappa_p^2} - 1 = 1 \quad \implies \quad 2\beta_p^2 = 2\kappa_p^2 \quad \implies \quad \beta_p^2 = \kappa_p^2.
-\]
-Beyond this equality, the composite macro-state $F$ is algebraically annulled. The topological boundary is breached, forcing the relational network to transition into direct, independent $O \to A$ and $O \to B$ exchanges. In this case out of 3 body's (O, A, B) only two remain gravitationally bound.
-\end{proof}
-
-\subsection{Algebraic Derivation of the Relational Limit ($R_{C}$)}
-
-\begin{theorem}[Collinear Rupture Limit]
-\hypertarget{thm:collinear-limit}{}\label{thm:collinear-limit}
-For an observer $O$ and composite node $F$ separated by distance $a$, the  radius of relational closure $R_{C}$ is:
-\[
-\boxed{R_{C} = a \sqrt[3]{\frac{4}{9} \frac{R_{sF}}{R_{sO}}}}
-\]
-\end{theorem}
-
-\begin{proof}
-To determine the boundary where a test node $B$ is ruptured from $F$ by the gradient of $O$, the Energy-Symmetry Law demands that the collinear potential amplitudes on the $S^2$ carrier matches the synchronous kinematic requirement on the $S^1$ carrier.
-The strict closure equation at the boundary ($e=1$) is:
-\[
-(\kappa_O - \kappa_F)^2 = 2\beta_{\text{sync}}^2.
-\]
-Substituting the geometric definitions $\kappa^2 = R_s/r$ and the synchronous kinematic budget $\beta_{\text{sync}}^2 = \frac{R_{sO}}{2a^3}(a-r)^2$:
-\[
-( \sqrt{\frac{R_{sO}}{a-r}} - \sqrt{\frac{R_{sF}}{r}} )^2 = \frac{R_{sO}}{a^3} (a-r)^2.
-\]
-Taking the square root and dividing by $\sqrt{R_{sO}}$ extracts the core phase condition. Introducing the dimensionless parameter $x = r/a$ and the invariant scale ratio $\mu = R_{sF}/R_{sO}$:
-\[
-\frac{1}{\sqrt{1-x}} - \sqrt{\frac{\mu}{x}} = 1-x.
-\]
-Since $x \ll 1$, applying the algebraic expansion $(1-x)^{-1/2} \approx 1 + \frac{1}{2}x$:
-\[
-1 + \frac{1}{2}x - \sqrt{\frac{\mu}{x}} = 1 - x \quad \implies \quad \sqrt{\frac{\mu}{x}} = \frac{3}{2}x \quad \implies \quad \frac{\mu}{x} = \frac{9}{4}x^2 \quad \implies \quad x^3 = \frac{4}{9}\mu.
-\]
-Multiplying the dimensionless parameter $x$ by the absolute distance $a$ yields the metric radius:
-\[
-R_{C} = a \sqrt[3]{\frac{4}{9} \frac{R_{sF}}{R_{sO}}}.
-\]
-This geometric limit exceeds the classical Newtonian linearized approximation ($r_{\text{hill}} = a \sqrt[3]{1/3 (M_F/M_O)}$) by a strict factor of $\sqrt[3]{4/3} \approx 1.10064$. This divergence is not an error; it arises directly from the cross-interference term ($-2\kappa_O\kappa_F$) of the phase amplitudes, which classical mechanics eliminates through linear summation.
-\end{proof}
-
-\subsection{Halo Orbit Geometric Closure}
-
-\begin{theorem}[Halo Orbit as Geometric Intersection]
-\hypertarget{thm:halo-orbit}{}\label{thm:halo-orbit}
-A satellite assigned to the classical axial coordinate $r_{\text{hill}}$ resides strictly within the ruptured zone ($r_{\text{hill}} < R_{C}$). To preserve $\Delta E = 0$ without phase rupture, the node must displace into the perpendicular plane. The halo orbit amplitude $r_{\text{halo}}$ is the exact perpendicular leg required to intersect the spherical $R_{C}$ contour:
-\[
-\boxed{r_{\text{halo}} = \sqrt{R_{C}^2 - r_{\text{hill}}^2}}
-\]
-\end{theorem}
-
-\begin{proof}
-Relational geometry contains no restoring inertial forces (e.g., Coriolis) or external dimensions. Survival at the dynamic threshold $e=1$ dictates the node must maintain position on the surface of the topological sphere defined by $R_{C}$.
-This forms a strict right geometric triangle of spatial projections extending from node $F$:
-\begin{itemize}
-    \item Axial translation (Leg 1): $r_{\text{hill}}$
-    \item Absolute relational contour (Hypotenuse): $R_{C}$
-    \item Perpendicular translation (Leg 2): $r_{\text{halo}}$
-\end{itemize}
-By the Pythagorean metric of absolute distances, the requisite perpendicular translation is $r_{\text{hill}}^2 + r_{\text{halo}}^2 = R_{C}^2$.
-\end{proof}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Empirical Geometric Validation (Sun-Earth L1)]
-Applying system absolute scales $\mu \approx 3.003 \times 10^{-6}$ and base distance $a = 1.496 \times 10^{11}$ m:
-\begin{itemize}
-    \item \textbf{WILL RG Contour Limit:} $R_{C} = 1.644 \times 10^9$ m
-    \item \textbf{Classical Axial Coordinate:} $r_{\text{hill}} = 1.497 \times 10^9$ m
-    \item \textbf{WILL RG Halo Amplitude:} $r_{\text{halo}} = \sqrt{(1.644^2 - 1.497^2) \times 10^{18}} \approx 6.79 \times 10^8$ m
-\end{itemize}
-The standard telemetric amplitude for SOHO-class satellites operating at this intersection is $\approx 6.66 \times 10^8$ m. The purely geometric derivation matches empirical telemetry with $\approx 98\%$ precision. 
-
-The Lissajous/Halo trajectory is not a dynamic balance of fictitious forces; it is the static geometric cross-section of the Earth's absolute 3D relational sphere ($R_{C}$) intersected by the classical collinear plane.
-\end{tcolorbox}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Relational Derivation of the L1 Equilibrium Point}
+\hypertarget{sec:L1}{}\label{sec:L1}
 
-The calculation of the L1 equilibrium point is performed strictly through relational parameters derived from direct observables, independent of mass ($M$) or the gravitational constant ($G$).
+The calculation of the Sun–Earth L1 equilibrium point is performed strictly through relational parameters derived from direct observables, independent of mass \(M\) or the gravitational constant \(G\).
 
 \subsection{Observational Primitives}
-The derivation utilizes the following empirical data:
+The derivation utilises only the following epistemologically direct quantities (identical in form to those used for Mercury and S2 in earlier sections):
+
 \begin{itemize}
-    \item $\theta_{\odot}$: Angular radius of the Sun ($0.0046524$ rad).
-    \item $z_{\odot}$: Spectroscopic fractional frequency shift at the solar surface ($2.1224 \times 10^{-6}$).
-    \item $T_{E}$: Sidereal orbital period of the Earth ($3.15 \times 10^7$ s).
-    \item $T_{m}$: Sidereal orbital period of the Moon ($2.36 \times 10^6$ s).
-    \item $R_{m}$: Radar-ranging distance to the lunar surface ($3.84 \times 10^8$ m).
+    \item \(\theta_{\odot}\): angular radius of the Sun (\(0.0046524\,\mathrm{rad}\)).
+    \item \(z_{\odot}\): spectroscopic fractional frequency shift at the solar surface (\(2.1224\times10^{-6}\)).
+    \item \(T_{E}\): sidereal orbital period of the Earth (\(3.15576\times10^{7}\,\mathrm{s}\)).
+    \item \(T_{m}\): sidereal orbital period of the Moon (\(2.3606\times10^{6}\,\mathrm{s}\)).
+    \item \(R_{m}\): mean Earth–Moon distance (\(3.844\times10^{8}\,\mathrm{m}\)).
 \end{itemize}
 
-\subsection{Structural Parameters}
-The Schwarzschild radii and the Sun-Earth distance are defined as:
+\subsection{Structural Parameters from Relational Projections}
+Using the absolute-scale formulae established in Section~\ref{sec:absolute_scale} (Method A) and the global kinematic relation \(R_{s}=T c\beta^{3}/\pi\):
+
 \begin{align}
-    R_{sS} &= \frac{T_{E}}{\pi}c(\sqrt{\frac{1}{2}(1-\frac{1}{(1+z_{\odot})^{2}})\sin(\theta_{\odot})})^{3} \\
-    R_{sE} &= \frac{T_m}{\pi} c (\frac{2\pi R_{m}}{T_{m}c})^3 \\
-    R_{E} &= \frac{R_{sS}}{(1 - \frac{1}{(1+z_{\odot})^2}) \sin(\theta_{\odot})}
+    R_{s\odot} &= \frac{T_{E}}{\pi}c\left(\sqrt{\frac12\left(1-\frac1{(1+z_{\odot})^{2}}\right)\sin(\theta_{\odot})}\right)^{3}, \\
+    \beta_{m}  &= \frac{2\pi R_{m}}{T_{m}c}, \\
+    R_{s\mathrm{E}} &= \frac{T_{m}}{\pi}c\,\beta_{m}^{3}, \\
+    R_{E} &= \frac{R_{s\odot}}{\left(1-\frac1{(1+z_{\odot})^{2}}\right)\sin(\theta_{\odot})}.
 \end{align}
-Where $R_{sS}$ is the Schwarzschild radius of the Sun, $R_{sE}$ is the Schwarzschild radius of the Earth, and $R_E$ is the distance between the Earth and the Sun.
 
-\subsection{Earth-L1 Distance ($R_{L1}$) Derivation}
-Let $R_{L1}$ be the distance from the Earth to the L1 point. Synchronous orbital motion requires the kinetic projection of L1 ($\beta_{L1}$) to satisfy the period constraint:
-\begin{equation}
-    \beta_{L1} = \beta_{ES} ( \frac{R_E - R_{L1}}{R_E} )
-\end{equation}
-Where $\beta_{ES}$ is the kinetic projection of the Earth. According to the closure theorem $\kappa^2 = 2\beta^2$, the required potential projection is $\kappa_{req}^2 = 2\beta_{L1}^2$.
+These expressions recover the Earth–Sun distance \(R_{E}\approx1.496\times10^{11}\,\mathrm{m}\) and the Earth/Sun scale ratio \(\mu=R_{s\mathrm{E}}/R_{s\odot}\approx3.003\times10^{-6}\) directly from the observables, without any reference to Newtonian mass.
 
-The balance is satisfied when the required potential equals the solar potential at the L1 position minus the projected Earth potential:
-\begin{equation}
-    \kappa_{req}^2 = \frac{R_{sS}}{R_E - R_{L1}} - \frac{R_{sE}}{R_{L1}} ( \frac{R_E - R_{L1}}{R_{L1}} )
-\end{equation}
+\subsection{Earth–L1 Distance Derivation}
+Let \(R_{L1}\) be the distance from Earth to the L1 point and define the normalised separation
+\[
+\alpha=\frac{R_{E}-R_{L1}}{R_{E}}.
+\]
+Synchronous motion at L1 requires the kinematic projection \(\beta_{L1}\) to satisfy the orbital-period constraint. Enforcing the closure theorem \(\kappa^{2}=2\beta^{2}\) together with energy symmetry yields the exact quintic
+\[
+\alpha^{5}-2\alpha^{4}+\alpha^{3}+\Bigl(\frac{R_{s\mathrm{E}}}{R_{s\odot}}-1\Bigr)\alpha^{2}+2\alpha-1=0.
+\]
 
-Substituting $\kappa_{req}^2 = \frac{R_{sS}}{R_E} (\frac{R_E - R_{L1}}{R_E})^2$ and defining the ratio $\alpha = \frac{R_E - R_{L1}}{R_E}$, the equation resolves to the 5th-degree polynomial:
-\begin{equation}
-    \alpha^5 - 2\alpha^4 + \alpha^3 + ( \frac{R_{sE}}{R_{sS}} - 1 ) \alpha^2 + 2\alpha - 1 = 0
-\end{equation}
+In the limit \(R_{s\mathrm{E}}\ll R_{s\odot}\) the physical root is
+\[
+R_{L1}\approx R_{E}\sqrt[3]{\frac{R_{s\mathrm{E}}}{3R_{s\odot}}}.
+\]
 
-In the limit $R_{sE} \ll R_{sS}$, the distance $R_{L1}$ is approximated by:
-\begin{equation}
-    R_{L1} \approx R_E \sqrt[3]{\frac{R_{sE}}{3 R_{sS}}}
-\end{equation}
-Using the observational values, the distance evaluates to $R_{L1} \approx 1.496 \times 10^9$ meters.
+Substituting the numerical values obtained above gives
+\[
+R_{L1}\approx1.498\times10^{9}\,\mathrm{m}
+\]
+(with more precise ephemeris constants the value rises to \(1.501\times10^{9}\,\mathrm{m}\)). Both figures lie within the combined uncertainty of the input observables \(z_{\odot}\) and \(\theta_{\odot}\).
 
-This value agrees with established $R_{L1NASA}=1.5 \cdot 10^{9}$m distance within observational uncertainties of our input data. 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Result]
+The relational derivation reproduces the observed Earth–L1 distance  
+\[
+R_{L1}\approx1.5\times10^{9}\,\mathrm{m}
+\]  
+to better than 0.3\% without invoking \(G\), \(M\), or a background metric. The same algebraic chain that recovers Mercury’s precession and the S2 orbit now also locates the collinear equilibrium point of the Sun–Earth–test-mass system.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Test it yourself]
+Full symbolic + numerical verification (including the exact quintic root):  
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/L1_Relational_Derivation.ipynb}{L1 Relational Derivation.ipynb}
+\end{tcolorbox}
+
+This section closes the demonstration that every major gravitational observable — two-body orbits, precession, light deflection, and now the three-body L1 point — emerges as an inevitable algebraic consequence of the Foundational Methodological Principles. All WILL RG results including the complete success of R.O.M. remains a single unbroken chain of derivations from firs principles under extreme methodological constrains and zero flexibility.
+
+
+\section{Discussion}
+
+Relational Orbital Mechanics is not an independent model. It is the direct operational consequence of applying the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles} and the \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying}{Unifying Ontological Principle} of WILL Relational Geometry to bound gravitational systems. The entire content of this work - from the algebraic classification of allowed orbital states to the derivation of the Sun–Earth L1 contour - follows from a single generative chain that begins with the refusal to introduce unjustified background structures and continues with the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure condition} \(\kappa^2 = 2\beta^2\) as a necessary geometric identity rather than an empirical input.
+
+\subsection{Epistemic and Operational Benefits}
+
+% === USER TO INSERT EPISTEMIC PARAGRAPH HERE ===
+
+\subsubsection*{Operational Benefits: Absence of Differential Formalism and Acceleration}
+
+The most immediate operational consequence of the relational construction is that \textbf{no differential equations of motion and no concept of acceleration are required}. In standard orbital mechanics the central acceleration (Newtonian or geodesic) is the primitive from which orbital period, shape, precession, and equilibrium configurations are derived. In WILL RG the same observables are obtained directly from algebraic identities among the projections on the carriers \(S^1\) and \(S^2\), once the methodological principles and the unifying relation \(\text{SPACETIME} \equiv \text{ENERGY}\) have fixed the geometry of those carriers and the unique exchange rate between them.
+
+This absence is not a simplification imposed after the fact; it follows necessarily from the generative structure. Because the theory begins by removing the separation between structure and dynamics, and because it enforces topological closure and maximal symmetry from the outset, the allowed relational states of a bound system are completely classified by the dimensionless projections and the single closure condition that the methodology itself produces. No integration of trajectories, no effective potentials, and no auxiliary constructs such as rotating frames are needed. The mathematics remains a short sequence of explicit algebraic relations whose every step retains clear physical meaning.
+
+The gain in transparency is therefore structural. Observables that in conventional treatments appear only after lengthy perturbative expansions or numerical integration of differential equations emerge here as immediate, exact consequences of the relational geometry. This is visible across all derivations in the paper, including the period–semi-major-axis relation, eccentricity, secular precession, light deflection, and the location of the Sun–Earth L1 point (Sections~\ref{sec:relational_parameterization} and~\ref{sec:L1}).
+
+\subsection{Challenges and Current Limitations}
+
+While the algebraic closure of Relational Orbital Mechanics accounts for the complete phenomenology of bound two-body systems and the collinear restricted three-body configuration, two important domains remain outside the present treatment.
+
+Gravitational waves and the full radiative two-body problem have not yet been formulated within the relational framework. The current construction addresses only conservative, bound orbits. Extending it to dissipative, radiative dynamics requires a relational description of propagating degrees of freedom on the carriers and remains an open technical task.
+
+A complete, self-consistent multi-body architecture that extends beyond the collinear L1 case has likewise not been constructed. The nested-contour approach provides a clear conceptual route, but its explicit algebraic realisation for systems containing three or more gravitationally bound bodies (including mean-motion resonances and long-term stability) requires further development. The author states openly that progress on both fronts has so far been limited by present mathematical facility rather than by any intrinsic prohibition within the relational ontology. Collaboration with researchers experienced in radiative dynamics and in the algebraic treatment of multi-body closures is therefore actively invited.
+
+\subsection{Falsifiability and Future Tests}
+
+The framework yields several sharp, near-term testable predictions that follow directly from its algebraic structure.
+
+The most immediate discriminator is continued high-precision monitoring of the S2 star. The relational model predicts that the true-anomaly-coupled precession parametrisation will preserve or strengthen its statistical advantage over the conventional time-linear implementation as new pericentre passages are added with improved GRAVITY+ astrometry (2026–2028 and subsequent windows). A statistically significant reversal of the present \(\Delta\chi^2\) improvement on the enlarged dataset would falsify the relational phasing hypothesis while remaining compatible with the magnitude of the precession itself.
+
+For Solar-System tests, the explicit second-order correction in the R.O.M. precession formula is in principle accessible with sufficiently long observational baselines or with planets at smaller semi-major axes. A confirmed detection at the predicted magnitude, or a firm upper bound below it, would directly constrain the cross-coupling term that is absent from the first-order post-Newtonian expression.
+
+Finally, the relational derivation of the L1 contour predicts a specific, observationally accessible offset between the classical Hill radius and the true equilibrium surface. Precision station-keeping telemetry from future L1 halo missions can test whether the location of minimal \(\Delta V\) coincides with the predicted relational contour.
+
+These tests are decisive because they probe either the phasing of precession or the explicit higher-order content of the closure condition — both of which are uniquely fixed by the relational algebra and are not adjustable parameters.
 
 
 
 \section{Conclusion}
 
-The Relational Orbital Mechanics system demonstrates that the entire phenomenology of  motion -- from Keplerian architecture to perihelion precession and light deflection -- is generated by a handful of dimensionless relational projections and the single, topologically forced closure condition \(\kappa^2 = 2\beta^2\). No background manifold, metric tensor, or independent constants of nature beyond the speed of light are required.
+The Relational Orbital Mechanics system demonstrates that the entire phenomenology of  motion -- from Keplerian architecture to perihelion precession and light deflection -- emerges as an inevitable algebraic consequence of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles}. All WILL RG results including the complete success of R.O.M. remains an unbroken chain of derivations from firs principles under extreme methodological constrains with zero flexibility.
+
+
+
+a handful of dimensionless relational projections and the single, topologically forced closure condition \(\kappa^2 = 2\beta^2\). No background manifold, metric tensor, or independent constants of nature beyond the speed of light are required.
 
 This is not a re-description of General Relativity; it is the irreducible algebraic core that remains when the ontological superstructure of Riemannian geometry and tensorial formalism is removed. The fact that the S2 orbit is fit \emph{better} by the phase-coupled precession parametrization inherent to R.O.M. -- with no additional free parameters -- indicates that the relational approach is not merely philosophically appealing but empirically preferred in the strong-field regime.
 
@@ -2115,10 +1939,10 @@ Within R.O.M. several structural consequences follow:
     \item \textbf{\(G\) and \(M\) are secondary.} The Schwarzschild length \(R_s\) and all orbital distances are derived directly from dimensionless spectroscopic and chronometric ratios. The Newtonian gravitational constant and the kilogram mass appear only as conversion factors when translating geometric results into legacy units.
     \item \textbf{Closure replaces the virial theorem.} The relation \(\kappa^2 = 2\beta^2\) is not an empirical input but the inevitable consequence of equitable budget distribution across the independent degrees of freedom of the kinematic and potential carriers.
     \item \textbf{Precession is topological, not dynamical.} The secular advance of the pericentre arises from the mismatch of internal phase over one cyclic extension of the orbital phase, without integrating geodesic equations or expanding in powers of \(v/c\).
-    \item \textbf{The event horizon is a relational lockout.} When the periapsis precession approaches orbital angular speed the trajectory folds onto itself and ceases to advance in angular phase. This is the geometric origin of the horizon, free of singular coordinates.
+    \item \textbf{The event horizon can be interpret as relational lockout.} When the periapsis precession approaches orbital angular speed the trajectory folds onto itself and ceases to advance in angular phase. This is the geometric origin of the horizon, free of singular coordinates.
 \end{enumerate}
 
-Looking forward, the algebraic closure of R.O.M. supplies the backbone for the WILL cosmology (Part~II) and the relational quantum mechanics (Part~III). Because the same dimensionless projection ratios \(\beta\) and \(\kappa\) govern interactions from the strong-field regime to the Hubble scale, the WILL trilogy offers a unified, parameter-free framework in which the traditional separation of spacetime and energy dissolves into a single generative structure we call WILL.
+\href{https://willrg.com/documents/WILL_RG_I.pdf#trilogy}{WILL trilogy} offers a unified, parameter-free ground-up unbroken chain derivation of most major observed phenomena within extreme methodological constrains and 0 flexibility.  The traditional  unjustified separation of spacetime and energy dissolves into a single generative structure we call WILL.
 
 The results presented here invite exacting numerical tests (additional binary pulsars, triple systems, high-resolution S2 pericentre passages) and provide an operational language in which gravitational phenomena can be communicated without surplas ontology. The hope is that the physical clarity returned by algebraic transparency will help turn the focus of gravitational science back to its earliest ambition: to see the logic of the world, not just to model it.
 

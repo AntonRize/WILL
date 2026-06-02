@@ -153,10 +153,10 @@ description: "Download WILL Relational Geometry Open Research papers, appendices
   </h1>
   <p class="mt-3 text-lg text-gray-400 font-light" style="max-width:750px;">
     The complete WILL Relational Geometry research in three parts.
-    All results derive from the single principle
-    <strong style="color:#e5e7eb;">SPACETIME &equiv; ENERGY</strong>
-    and the closure condition&nbsp;\(\kappa^{2}=2\beta^{2}\),
-    without free parameters.
+    All results derive from the foundational methodological principles
+    <strong style="color:#e5e7eb;">Epistemic Hygiene</strong>
+    <strong style="color:#e5e7eb;">Ontological Minimalism</strong>
+    <strong style="color:#e5e7eb;">Relational Origin</strong>
   </p>
 </div>
 
