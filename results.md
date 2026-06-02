@@ -1,8 +1,9 @@
 ---
----
+
 layout: default
 title: "Documents & Key Results"
 description: "Download WILL Relational Geometry Open Research papers, appendices, technical documents and all reproducible python scripts."
+
 ---
 
 <style>
