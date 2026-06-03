@@ -121,7 +121,7 @@ description: "Download WILL Relational Geometry Open Research papers, appendices
 }
 </style>
 
-<!-- Hero (keep as is) -->
+<!-- ═══════════════════════ HERO (keep as is) ═══════════════════════ -->
 <div class="border-b border-gray-700 pb-6 mb-8">
   <h1 class="text-4xl font-extrabold tracking-tight text-white" style="border:none; margin-top:0;">
     Research Documents
@@ -135,49 +135,19 @@ description: "Download WILL Relational Geometry Open Research papers, appendices
   </p>
 </div>
 
-<!-- ═════════════ COMPACT PART HEADERS ═════════════ -->
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 3rem;">
+<!-- ═══════════════════════ PART I ═══════════════════════ -->
+<h2 class="text-2xl font-bold text-white mb-4" style="border:none; color:#60a5fa;">
+  Part I: Relational Geometry
+</h2>
 
-  <!-- Part I Header -->
-  <div class="doc-card part1">
-    <h3>Part I: Relational Geometry</h3>
-    <p class="summary">Foundational ontology and derivation of Special & General Relativity as limit cases of relational geometry.</p>
-    <a href="#part1-documents" class="btn-open" style="display:inline-block; margin-top:0.75rem; padding:0.4rem 1rem; font-size:0.85rem;">
-      Browse Documents ↓
-    </a>
-  </div>
-
-  <!-- Part II Header -->
-  <div class="doc-card part2">
-    <h3>Part II: Relational Cosmology</h3>
-    <p class="summary">Application of Relational Geometry to galactic dynamics and cosmology across 20 orders of magnitude.</p>
-    <a href="#part2-documents" class="btn-open" style="display:inline-block; margin-top:0.75rem; padding:0.4rem 1rem; font-size:0.85rem; background:#7e22ce;">
-      Browse Documents ↓
-    </a>
-  </div>
-
-  <!-- Part III Header -->
-  <div class="doc-card part3">
-    <h3>Part III: Relational Quantum Mechanics</h3>
-    <p class="summary">Derivation of quantum structure from geometric and topological closure alone.</p>
-    <a href="#part3-documents" class="btn-open" style="display:inline-block; margin-top:0.75rem; padding:0.4rem 1rem; font-size:0.85rem; background:#15803d;">
-      Browse Documents ↓
-    </a>
-  </div>
-
-</div>
-
-<!-- ═════════════ PART I DOCUMENTS ═════════════ -->
-<h2 id="part1-documents" class="text-2xl font-bold text-white mb-4" style="border:none;">Part I: Relational Geometry</h2>
-
-<div class="document-grid">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
 
   <!-- Main Paper -->
-  <div class="document-item main">
+  <div class="document-item" style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.08);">
     <h4>WILL Part I: Relational Geometry</h4>
-    <p>Core foundational paper. Derives SR & GR as special cases of relational geometry from first principles.</p>
+    <p>Core foundational paper. Derives SR &amp; GR as special cases of relational geometry from first principles.</p>
     <div class="document-actions">
-      <a href="/documents/WILL_RG_I.pdf" target="_blank" class="btn-main">Open PDF</a>
+      <a href="/documents/WILL_RG_I.pdf" target="_blank" class="btn-main" style="background:#2563eb;">Open PDF</a>
       <a href="/documents/WILL_RG_I.pdf" download class="btn-supplement">Download</a>
     </div>
   </div>
@@ -185,9 +155,9 @@ description: "Download WILL Relational Geometry Open Research papers, appendices
   <!-- R.O.M. -->
   <div class="document-item">
     <h4>R.O.M. — Relational Orbital Mechanics</h4>
-    <p>Closed algebraic system for bound gravitational orbits. No differential equations or acceleration term required.</p>
+    <p>Closed algebraic system for bound gravitational systems. Recovering all major orbital phenomena. No differential equations or acceleration term required.</p>
     <div class="document-actions">
-      <a href="/documents/WILL_RG_R.O.M..pdf" target="_blank" class="btn-main">Open PDF</a>
+      <a href="/documents/WILL_RG_R.O.M..pdf" target="_blank" class="btn-main" style="background:#2563eb;">Open PDF</a>
       <a href="/documents/WILL_RG_R.O.M..pdf" download class="btn-supplement">Download</a>
     </div>
   </div>
@@ -195,38 +165,53 @@ description: "Download WILL Relational Geometry Open Research papers, appendices
   <!-- Holographic Decoder -->
   <div class="document-item">
     <h4>Holographic Decoder</h4>
-    <p>Breaks the \(M \sin i\) degeneracy in radial velocity and astrometric data using relational invariants.</p>
+    <p>Breaks the \(M \sin i\) degeneracy in radial velocity data using relational invariants.</p>
     <div class="document-actions">
-      <a href="/documents/Holographic_Decoder.pdf" target="_blank" class="btn-main">Open PDF</a>
+      <a href="/documents/Holographic_Decoder.pdf" target="_blank" class="btn-main" style="background:#2563eb;">Open PDF</a>
       <a href="/documents/Holographic_Decoder.pdf" download class="btn-supplement">Download</a>
     </div>
   </div>
 
 </div>
 
-<!-- ═════════════ PART II DOCUMENTS ═════════════ -->
-<h2 id="part2-documents" class="text-2xl font-bold text-white mt-10 mb-4" style="border:none;">Part II: Relational Cosmology</h2>
+<!-- ═══════════════════════ PART II ═══════════════════════ -->
+<h2 class="text-2xl font-bold text-white mb-4" style="border:none; color:#c084fc;">
+  Part II: Relational Cosmology
+</h2>
 
-<div class="document-grid">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
+
   <div class="document-item" style="border-color: #8e44ad; background: rgba(142, 68, 173, 0.08);">
-    <h4 style="color:#c084fc;">Main Paper — In Active Development</h4>
-    <p>Full cosmological derivation including Hubble parameter, supernova residuals, CMB spectrum, and galactic rotation curves from first principles.</p>
-    <p style="color:#9ca3af; font-size:0.85rem; margin-top:0.5rem;">Expected: 2026 Q3</p>
+    <h4>WILL Part II: Relational Cosmology</h4>
+    <p>Application of Relational Geometry to galactic dynamics and cosmology across 20 orders of magnitude. Replaces dark sector with transparent geometric ontology.</p>
+    <div class="document-actions">
+      <a href="/documents/WILL_RG_II.pdf" target="_blank" class="btn-main" style="background:#7e22ce;">Open PDF</a>
+      <a href="/documents/WILL_RG_II.pdf" download class="btn-supplement">Download</a>
+    </div>
+    <p style="margin-top:0.5rem; font-size:0.85rem; color:#a78bfa;">In active development</p>
   </div>
+
 </div>
 
-<!-- ═════════════ PART III DOCUMENTS ═════════════ -->
-<h2 id="part3-documents" class="text-2xl font-bold text-white mt-10 mb-4" style="border:none;">Part III: Relational Quantum Mechanics</h2>
+<!-- ═══════════════════════ PART III ═══════════════════════ -->
+<h2 class="text-2xl font-bold text-white mb-4" style="border:none; color:#4ade80;">
+  Part III: Relational Quantum Mechanics
+</h2>
 
-<div class="document-grid">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+
   <div class="document-item" style="border-color: #15803d; background: rgba(21, 128, 61, 0.08);">
-    <h4 style="color:#4ade80;">Main Paper — In Active Development</h4>
-    <p>Derivation of the hydrogen atom, fine structure, and spin from geometric closure on the relational carriers.</p>
-    <p style="color:#9ca3af; font-size:0.85rem; margin-top:0.5rem;">Expected: 2026 Q4</p>
+    <h4>WILL Part III: Relational Quantum Mechanics</h4>
+    <p>Derivation of quantum structure (hydrogen atom, fine structure, spin) from closure on the relational carriers.</p>
+    <div class="document-actions">
+      <a href="/documents/WILL_RG_III.pdf" target="_blank" class="btn-main" style="background:#15803d;">Open PDF</a>
+      <a href="/documents/WILL_RG_III.pdf" download class="btn-supplement">Download</a>
+    </div>
+    <p style="margin-top:0.5rem; font-size:0.85rem; color:#4ade80;">In active development</p>
   </div>
+
 </div>
 
-<!-- Notebooks + Explore Further sections stay exactly as they are -->
 
 
 <!-- ═══════════════════════ NOTEBOOKS ═══════════════════════ -->
