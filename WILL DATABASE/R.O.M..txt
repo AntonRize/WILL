@@ -107,7 +107,7 @@ From the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:kappabeta}{dimensi
 
 The results are tested against the full 24-year astrometric and radial-velocity dataset of the S2 star around Sgr~A*. Using the same parameters as a standard General Relativity 1PN model, the R.O.M. parametrization -- which couples the pericentre advance to the true anomaly rather than to coordinate time -- achieves a \(\Delta\chi^2 \approx -74\) improvement. All orbital scales are extracted from the dimensionless observables alone.
 
-R.O.M. demonstrates that the operational content of gravitational dynamics is fully captured by the algebra of relational projections. The construct serves as a rigorous, empirical realization of the foundational principles derived in WILL Part I: Relational Geometry. As an Open Research all data and calculation tools are publicly available at \href{https://willrg.com/}{willrg.com} and \href{https://github.com/AntonRize/WILL}{https://github.com/AntonRize/WILL}.
+R.O.M. demonstrates that the operational content of gravitational dynamics is fully captured by the algebra of relational projections. The construct serves as a rigorous, empirical realization of the foundational methodological principles established in \href{https://willrg.com/documents/WILL_RG_I.pdf}{WILL Part I Relational Geometry}. As an Open Research all data and calculation tools are publicly available at \href{https://willrg.com/}{willrg.com} and \href{https://github.com/AntonRize/WILL}{https://github.com/AntonRize/WILL}.
 \end{abstract}
 
 \newpage
@@ -125,20 +125,26 @@ In following sections we will demonstrate that RG's relational projections ($\ka
 
 But first lets remind our selves key derivations and logical chain established prior:   
 
-
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Summary]
 \begin{center}
 \begin{tabular}{|c|}\hline
 \textbf{Methodological Constraints}\\\hline
-$\downarrow$ \textit{(apply to existing physics)} \\[4pt]\hline
-\textbf{False Separation Identified} \\\hline
-$\downarrow$ \textit{(dissolve)} \\[4pt]\hline
+$\downarrow$ \textit{(apply to existing physics)}\\[4pt]\hline
+\textbf{False Separation:}  $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
+\quad+\quad
+\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\\hline
+$\downarrow$ \textit{(by Relational Origin Principle no backround allowed)}\\[4pt]\hline
 \textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\\hline
 $\downarrow$ \textit{(derive consequences)} \\[4pt]\hline
 \textbf{Closure} $+$ \textbf{Conservation} $+$ \textbf{Isotropy} \\\hline
-$\downarrow$ \textit{(classify carriers)} \\[4pt]\hline
-$S^1$ \textit{(1-DOF kinematic)} $+$ $S^2$ \textit{(2-DOF potential)} \\ \hline
-\end{tabular}
+$\downarrow$ \textit{(derive primal relational carriers)}\\[4pt]\hline
+$S^1$ \textit{(1-DOF kinematic)} $+$ $S^2$ \textit{(2-DOF potential)} \\\hline
+$\downarrow$ \textit{(By Duality of Relation Lemma)}\\\hline
+\textbf{Conservation of Relation}  $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\\hline 
+$\downarrow$ \textit{(only available distinguishing property)}\\\hline
+DOF ratio = 2:1 exchange rate\\\hline
+$\downarrow$ \textit{(By DOF-Indifference Lemma: equal quadratic weight to each independent DOF)}\\\hline
+$\kappa^2=2\beta^2$  $\equiv$  $\underbrace{1 \text{Amplitude}^2}_{\text{on $S^2$}} = \underbrace{2 \text{Amplitude}^2}_{\text{on $S^1$}}$\\ \hline\end{tabular}
 \end{center}
 \end{tcolorbox}
 
@@ -227,29 +233,27 @@ $S^1$ \textit{(1-DOF kinematic)} $+$ $S^2$ \textit{(2-DOF potential)} \\ \hline
 \hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
 \end{figure}
 
-
 \begin{table}[h]
 \centering
-
 \begin{tabular}{|c|c|}\hline
-\multicolumn{2}{|c|}{\( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$}\\
+\multicolumn{2}{|c|}{\( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$,  $a=\text{semi-major axis}$}\\
 \hline
 \textbf{Algebraic Form} & \textbf{Trigonometric Form} \\\hline
- $\beta=v/c$&$\beta= \cos(\theta_1)$\\\hline
- $\beta_Y = \sqrt{1-\beta^2}$&$\beta_Y = \sin(\theta_1) $\\\hline
- $\kappa=\sqrt{R_s/r}$&$\kappa=\sin(\theta_2)$\\\hline
+ $\beta=v/c$&$\beta=\cos(\theta_1)$\\\hline
+ $\kappa=\sqrt{R_s/a}$&$\kappa=\sin(\theta_2)$\\\hline
 
-$\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) $\\
+$\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1)$\\
 \hline
-$\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) $\\
+$\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
 \hline
  $p=E_0/c \cdot \beta/\beta_Y$&$p=E_0/c \cdot \cot(\theta_1) $\\
  \hline
  $p_g=E_0/c \cdot \kappa/\kappa_X$&$p_g=E_0/c \cdot \tan(\theta_2)$\\\hline
  $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
- $\tau_Y = \sqrt{1-\tau^2}$&$\tau_Y = \sqrt{1-\tau^2}$\\\hline
+ $\tau_Y =\sqrt{1-\tau^2}$ &$\tau_Y =\sqrt{1-\tau^2}$\\\hline
  
- $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\ \hline
+ $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\\hline
+ $  Q_Y = \sqrt{1-Q^2} = \sqrt{1-\kappa^2-\beta^2} = \sqrt{1-3\beta^2}  $&$Q_Y = \sqrt{1 - 3\cos^2(\theta_1)}$\\ \hline
 \end{tabular}
 \caption{Unified representation of relativistic and gravitational effects for closed systems.}
 \end{table}
@@ -263,13 +267,13 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2) $\\
 \hline
 \textbf{Phenomenon} & \textbf{Radius $r$} & $\beta^2$ & $\kappa^2$ & $Q^2$ & \textbf{Comment} \\
 \hline
-ISCO (Static location) & $3R_s$ & $0$ & $\frac{1}{3}$ & $\frac{1}{3}$ & Pure coordinate location, $r=R_s/\kappa^2$ \\
+ISCO (Static location) & $3R_s$ & $0$ & $\frac{1}{3}$ & $\frac{1}{3}$ & Pure coordinate location, $r=R_s/\kappa^2$ \\\hline
 ISCO (Dynamic state) & $3R_s$ & $\frac{1}{6}$ & $\frac{1}{3}$ & $\frac{1}{2}$ & Marginal orbital stability, $Q^2 = Q_Y^2 = 1/2$ \\
 \hline
-Photon sphere (Static) & $\frac{3}{2}R_s$ & $0$ & $\frac{2}{3}$ & $\frac{2}{3}$ & Pure coordinate location \\
+Photon sphere (Static) & $\frac{3}{2}R_s$ & $0$ & $\frac{2}{3}$ & $\frac{2}{3}$ & Pure coordinate location \\\hline
 Causal Dynamic horizon & $\frac{3}{2}R_s$ & $\frac{1}{3}$ & $\frac{2}{3}$ & $1$ & Relational horizon under closure $\kappa^2=2\beta^2$, $Q=1$ \\
 \hline
-Causal Static horizon & $R_s$ & $0$ & $1$ & $1$ & Purely gravitational closure limit, $\kappa^2=1$ \\
+Causal Static horizon & $R_s$ & $0$ & $1$ & $1$ & Purely gravitational closure limit, $\kappa^2=1$ \\\hline
 Dynamic horizon & $R_s$ & $\frac{1}{2}$ & $1$ & $\frac{3}{2}$ & Orbital closure at Schwarzschild radius \\
 \hline
 Extremal Kerr horizon & $\frac{1}{2}R_s$ & $1$ & $2$ & $3$ & Maximal rotation, $\beta=1$, merged horizons \\
@@ -349,29 +353,29 @@ $z_{\beta o}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $O$) \\
 
 
 \subsection*{Global System Parameters (Fixed for the Orbit)}
-$\kappa =\sin(\theta_2)=\sqrt{1-(1+z_{\kappa})^{-2}}= \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{2}(\frac{\pi R_{s}}{Tc})^{\frac{1}{3}}=\sqrt{\kappa_{p}^{2}(1-e)}=\sqrt{2(\kappa_{o}(O)^{2}-\beta_{o}(O)^{2})}=$
-$\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})}=\kappa_R^2 (\frac{I_t}{T})^{\frac{2}{3}}=\sqrt{\kappa_{o}^{2}\cdot\eta_{o}}$ (potential projection at semi-major axis)\\
+$\kappa =\sin(\theta_2)=\beta\sqrt{2}=\sqrt{1-(1+z_{\kappa})^{-2}}= \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)}=\sqrt{2(\kappa_{o}^{2}-\beta_{o}^{2})}=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})}=\kappa_R^2 (\frac{\tau_D}{T})^{\frac{2}{3}}=\sqrt{\kappa_{o}^{2}\cdot\eta_{o}}$ (potential projection at semi-major axis)\\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}=\frac{1}{(1+z_{\kappa})}$ (potential phase factor) \\
 $\kappa_R=\sqrt{\frac{\kappa^{2}}{\sin(\theta_{R})}}=\sqrt{\frac{R_{s}}{\frac{T}{2\pi}c\beta\sin(\theta_{R})}}$ (potential projection at the surface of ) \\
-$\beta =\cos(\theta_1)=\sqrt{1-(1+z_{\beta})^{-2}}= \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \frac{2\pi a}{Tc}=(\frac{\pi R_{s}}{Tc})^{\frac{1}{3}}=\sqrt{(\kappa_{o}(O)^{2}-\beta_{o}(O)^{2})} =\sqrt{\frac{\kappa_{p}^{2}}{2}(1-e)}
-=\beta_{o}(O)\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}=\sqrt{\beta_{sys}^2 \cdot \sin(\theta_{sys}})$ (kinetic projection on semi major axis) \\
+$\beta =\cos(\theta_1)=\sqrt{1-(1+z_{\beta})^{-2}}= \frac{\kappa}{\sqrt{2}} = \beta_{p}\sqrt{\frac{1-e}{1+e}} = \frac{2\pi a}{Tc}=(\frac{\pi R_{s}}{Tc})^{\frac{1}{3}}=\sqrt{(\kappa_{o}^{2}-\beta_{o}^{2})} =\sqrt{\frac{\kappa_{p}^{2}}{2}(1-e)}
+=\beta_{o}\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}=\sqrt{\beta_{sys}^2 \cdot \sin(\theta_{sys}})$ (kinetic projection on semi major axis) \\
 $\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (kinetic phase factor) \\
 $\beta_{int}=\frac{\beta}{\sqrt{1-e^2}}$ (interior kinetic projection) \\
 $\tau = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\
 $\tau_{Y}=\sqrt{1-\tau^2}=\sqrt{3\beta^{2}-2\beta^{4}}$ (relational spacetime phase factor) \\
 $Q=\sqrt{\kappa^2+\beta^2}=\sqrt{\frac{3}{2}}\ \kappa=\sqrt{3}\ \beta$ (total relational shift (magnitude of state difference)) \\
-$R_{s} = \kappa_{o}(O)^{2} r_o(O)= \frac{Tc}{\pi}\beta^3=\frac{8\pi^{2}a^{3}}{T^{2}c^{2}}=\frac{\Delta_{to}(O)}{\zeta(O)}\kappa^{2}\beta c=\frac{r_{1} r_{2}}{r_{2} - r_{1}}(\beta_{1}^{2} - \beta_{2}^{2})=\frac{a}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})=\frac{r_{o}(O)}{2(2a-r_{o}(O))}(4a-r_{o}(O)-\sqrt{(4a-r_{o}(O))^{2}-8a(2a-r_{o}(O))(1-\tau_{o}(O)^{2})}) = \frac{2GM}{c^{2}}$ (Schwarzschild radius - system scale) \\
+$R_{s} = \kappa_{o}^{2} r_o= \frac{Tc}{\pi}\beta^3=\frac{8\pi^{2}a^{3}}{T^{2}c^{2}}=\frac{\Delta_{to}}{\zeta(O)}\kappa^{2}\beta c=\frac{r_{1} r_{2}}{r_{2} - r_{1}}(\beta_{1}^{2} - \beta_{2}^{2})=\frac{a}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})=\frac{r_{o}}{2(2a-r_{o}}(4a-r_{o}-\sqrt{(4a-r_{o}^{2}-8a(2a-r_{o}(1-\tau_{o}^{2})}) = \frac{2GM}{c^{2}}$ (Schwarzschild radius - system scale) \\
 $a=\frac{R_{s}}{\kappa^{2}}=\frac{T\beta c}{2\pi}=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e~cos(O)}}=\frac{\Delta_{to}(O)}{\zeta}\beta c=\frac{Tc\beta^{3}}{2\pi(\frac{K_{i}}{\ \sin(i)})^{2}(1-e^{2})}=\frac{\ \sqrt{1-e^{2}}}{2\pi\sin(i)}K_{i}Tc=\frac{R_{sys}}{\sin(\theta_{sys})}$ (semi-major axis) \\
 $ R_{sys} =a \cdot \sin(\theta_{sys}) $ (system's central body's physical radius) \\
 $M=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}$ (mass parameter) \\
 $t=\frac{a}{c}$(temporal scale of the system) \\
-$\beta^{2}=(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{\kappa_{p}^{2}}{2}(1-e)=(\kappa_{o}(O)^{2}-\frac{\kappa_{o}(O)^{2}}{2\delta_{o}(O)})=\frac{R_s}{2a}=(\frac{R_{s}}{T\cdot c}\pi)^{\frac{2}{3}}$ (energy invariant - binding energy) \\
+$\beta^{2}=(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{\kappa_{p}^{2}}{2}(1-e)=(\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2\delta_{o}})=\frac{R_s}{2a}=(\frac{R_{s}}{T\cdot c}\pi)^{\frac{2}{3}}$ (energy invariant - binding energy) \\
 $\Delta\phi=\frac{2\pi\cdot\tau_{Y}^{2}}{1-e^{2}}=\frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}}=\frac{3\pi R_{s}}{a(1-e^{2})}-\frac{\pi R_{s}^{2}}{a^{2}(1-e^{2})}$ (precession of perihelion per orbit) \\
 $\Omega_{\phi}=\frac{\tau_{Y}^{2}}{1-e^{2}}=\frac{3\beta^{2}-2\beta^{4}}{1-e^{2}}$   (precession of perihelion per phase radian) \\
 $\Omega=1-\Omega_{\phi}=\frac{O}{o}$  (constant ratio between idealised phase o and true precessing  phase O) \\
 $h_{W}=r_{o}(O)\beta_{T}(O)c=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}=R_s c \frac{\sqrt{1-e^2}}{2\beta}$ ( invariant angular momentum) \\
 $\omega=\frac{\beta c}{a}=\frac{c}{R_{s}}2\beta^{3}$ (angular frequency) \\
 $T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{\pi R_{s}}{c\beta^{3}}=\frac{\Delta_{to}}{\zeta_o}2\pi$ (orbital period) \\
+$\tau_D = T \sin(\theta_{sys})^{\frac{3}{2}}=\frac{2\pi R_{sur}}{\beta_{sur}c}=\sqrt{\frac{\pi}{G\rho}}$   (Time-density invariant where $R_{ser}$ and $\beta_{ser}$  determent by the distance from center to the surface of central body and $\theta_{sys}=$ angular radius) \\
 $\Delta\varphi = 2 \arcsin( \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2 - \kappa_p^2 (1 + \beta_p^2)} )$ (gravitational deflection)\\
 $\Delta\gamma = 2 \arcsin( \frac{\kappa_p^2}{\kappa_{Xp}^2} ) $ (light deflection)\\
 
@@ -382,14 +386,14 @@ $e_{Y}=\sqrt{1-e^{2}}$ (eccentricity's orthogonal value) \\
 $e_{X}=\frac{1+e}{1-e}=\frac{r_{a}}{r_{p}}=\frac{\delta_{a}}{\delta_{p}}=\frac{\beta_{p}}{\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (shape factor, still looks like magic to me) \\
 
 \subsection*{Time-phase}
-$\omega_{o}(O)=\frac{\beta\cdot c}{a}\cdot\frac{(1+e\cdot cos(O))^{2}}{(1-e^{2})^{\frac{3}{2}}}$ (angular frequency at phase o) \\
-$\Delta_{to} (O) = \int_{0}^{O}\frac{1}{\omega_{\theta}(\theta)}\,d\theta =\frac{a}{\beta c}\zeta= \frac{T}{2\pi}\zeta=\frac{R_{s}\zeta}{2\beta^{3}c}$  (time duration of given phase interval) \\
-$\zeta(O)=(1-e^{2})^{\frac{3}{2}}\cdot(\int_{0}^{O}(1+e\cdot\cos(\theta))^{-2}d\theta)=\frac{1}{\sqrt{1-e^{2}}}\int_{0}^{O}(\frac{t_{o}(\theta)}{t})^{2}d\theta=\frac{2\pi\Delta_{t}}{T}$ (Temporal Phase interval) \\
+$\omega_{o}=\frac{\beta\cdot c}{a}\cdot\frac{(1+e\cdot cos(O))^{2}}{(1-e^{2})^{\frac{3}{2}}}$ (angular frequency at phase o) \\
+$\Delta_{to}  = \int_{0}^{O}\frac{1}{\omega_{\theta}(\theta)}\,d\theta =\frac{a}{\beta c}\zeta= \frac{T}{2\pi}\zeta=\frac{R_{s}\zeta}{2\beta^{3}c}$  (time duration of given phase interval) \\
+$\zeta=(1-e^{2})^{\frac{3}{2}}\cdot(\int_{0}^{O}(1+e\cdot\cos(\theta))^{-2}d\theta)=\frac{1}{\sqrt{1-e^{2}}}\int_{0}^{O}(\frac{t_{o}(\theta)}{t})^{2}d\theta=\frac{2\pi\Delta_{t}}{T}$ (Temporal Phase interval) \\
 $\zeta(<\pi)=2\arctan(\frac{\sin(\frac{O}{2})}{e_{X}^{\frac{1}{2}}\cos(\frac{O}{2})})-\frac{e\cdot e_{Y}\sin(O)}{1+e\cos(O)}$  (Temporal Phase interval on ascending orbit from $0$ to $\pi$) \\
 $\zeta(>\pi)=2\arctan(\frac{\sin(\frac{O}{2})}{e_{X}^{\frac{1}{2}}\cos(\frac{O}{2})})-\frac{e\cdot e_{Y}\sin(O)}{1+e\cos(O)}+2\pi$  (Temporal Phase interval on descending orbit from  $\pi$ to $0$)\\
 
 \subsection*{Perihelion Relations} 
-$r_{p} = a(1-e)=\frac{R_s}{\kappa_p^2}=\sqrt{((1-e)\cdot a \cdot \cos(\Omega_{O}o))^{2}+((1-e)\cdot a \cdot \sin(\Omega_{O}o))^{2}}$ (radius at perihelion) \\
+$r_{p} = a(1-e)=\frac{R_s}{\kappa_p^2}=\sqrt{((1-e)\cdot a \cdot \cos(O))^{2}+((1-e)\cdot a \cdot \sin(O))^{2}}$ (radius at perihelion) \\
 $\kappa_{p} = \kappa\sqrt{\frac{1}{1-e}} = \sqrt{\frac{2\beta^2}{1-e}}=Q_{p}\sqrt{\frac{2}{3+e}}$ (potential projection at perihelion) \\
 $\kappa_{Xp} = \sqrt{1-\kappa_{p}^2} $  (potential phase projection at perihelion)
 $\beta_{p} = \frac{V_{p}}{c} = \beta\ \sqrt{\frac{1+e}{1-e}}=\frac{r_{p}\omega_{o}(0)}{c}= \frac{\kappa_{p}}{\sqrt{2}}\sqrt{1+e}$ (kinetic projection at perihelion) \\
@@ -410,16 +414,16 @@ $r = r_o (O)= a\frac{1-e^{2}}{1+e\cos (O)} = \frac{R_s}{\kappa_o^2}$  (radial di
 $O_{r}=\frac{1-e^{2}}{1+e\cdot\cos (O)}=\frac{r_o (O)}{a}=  \frac{R_{s}}{\kappa_{o}(O)^{2}a} $ (normalised true radial distance at phase O)
 $\kappa_{o} =\sqrt{\beta_R(O)^2 + \beta_T(O)^2 + \beta^2}= \sqrt{\frac{R_{s}}{r_o}} = \sqrt{1-(1+z_{\kappa o}(O))^{-2}} =\kappa_{p}\sqrt{\frac{1+e\cos (O)}{1+e}}=\sqrt{\beta^{2}+\beta_{o}^{2}}=\sqrt{\kappa_{surface}^2 \cdot \sin(\theta_{o})}$ (local potential at the true phase $O$) \\
 $\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=(z_{\kappa o}(O)+1)^{-1}$   (gravitational phase factor at phase $O$) \\
-$\beta_{o}(O) =\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}{\sqrt{1-e^{2}}}= \sqrt{\kappa_{o}^{2}-\beta^2}=\frac{\kappa_{o}(O)}{\sqrt{2 \delta_{o}(O)\ }}=\sqrt{\frac{\kappa_{o}(O)^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(O)}{\ \ 1+e\cdot\cos(O)}}=\sqrt{\frac{R_{s}}{r_{o}(O)}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o}(O))^{-2}}$ (kinetic projection at the true phase O)\\
-$\beta_{R}(O)=\beta\ \frac{e\sin (O)}{\sqrt{1-e^{2\ }}}=\sqrt{\beta_{o}(O)^{2}-\beta_{T}(O)^{2}}=\sqrt{((1-(1+z_{\kappa o}(O))^{-2})-\beta^2)-\frac{r_{o}(O)^{2}\omega_{o}(O)^{2}}{c^{2}}}$  (radial kinetic projection at phase o) \\
-$\beta_{T}(O)=\frac{r_{o}(O)\omega_{o}(O)}{c}=\beta\frac{1+e\cos(O)}{\sqrt{1-e^{2}}}=\kappa_o^2 \frac{\sqrt{1-e^2}}{2\beta}$  (transverse kinetic projection at phase o) \\
+$\beta_{o} =\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}{\sqrt{1-e^{2}}}= \sqrt{\kappa_{o}^{2}-\beta^2}=\frac{\kappa_{o}(O)}{\sqrt{2 \delta_{o}(O)\ }}=\sqrt{\frac{\kappa_{o}(O)^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(O)}{\ \ 1+e\cdot\cos(O)}}=\sqrt{\frac{R_{s}}{r_{o}(O)}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o}(O))^{-2}}$ (kinetic projection at the true phase O)\\
+$\beta_{R}=\beta\ \frac{e\sin (O)}{\sqrt{1-e^{2\ }}}=\sqrt{\beta_{o}(O)^{2}-\beta_{T}(O)^{2}}=\sqrt{((1-(1+z_{\kappa o}(O))^{-2})-\beta^2)-\frac{r_{o}(O)^{2}\omega_{o}(O)^{2}}{c^{2}}}$  (radial kinetic projection at phase O) \\
+$\beta_{T}=\frac{r_{o}(O)\omega_{o}(O)}{c}=\beta\frac{1+e\cos(O)}{\sqrt{1-e^{2}}}=\kappa_o^2 \frac{\sqrt{1-e^2}}{2\beta}$  (transverse kinetic projection at phase O) \\
 $\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{\beta o}(O)+1)^{-1}$    (relativistic phase factor at phase $O$) \\
 $\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $O$) \\
 $Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift at phase $O$) \\
 $\omega_o = a\beta c\frac{e_{Y}}{r_{o}^{2}} = \frac{\beta c}{a}\frac{(1+e\cos o)^{2}}{(1-e^{2})^{3/2}}$ (angular speed at phase $O$) \\
 $\eta_{o} = \frac{r}{a}=2-\frac{2\beta_{o}^{2}}{\kappa_{o}^{2}}$  (phase scale amplitude at phase) \\
 $\tau_o=\kappa_{Xo}(O)\cdot\beta_{Yo}(O)= Z_{sys}(O)^{-1}$ (phase spacetime factor at phase O) \\
-$\tau_{Yo}=\sqrt{1-\tau_{o}^2}$  (amplitude spacetime factor at phase) \\
+$\tau_{Yo}=\sqrt{1-\tau_{o}^2}$  (amplitude spacetime factor at phase O) \\
 $t_o=\frac{ r_o}{c}$ (light time scale at phase) \\
 
 
@@ -457,7 +461,7 @@ $\omega_{i}=$ (phase turn or argument of periapsis) \\
 $K_{i}=\frac{\beta}{\sqrt{1-e^{2}}}\sin(i)=\beta_{int}\sin(i)$  (semi-amplitude invariant) \\
 $Z_{rawmax}=Z_{sys}(-\omega_{i})(1+K_{i}(1+e\cos\omega_{i}))$ \\
 $Z_{rawmin}=Z_{sys}(\pi-\omega_{i})(1+K_{i}(-1+e\cos\omega_{i}))$ \\
-$O_{oi}=(B_{a}+\omega_{i})$ \\
+$B_{ai}=(B_{a}+\omega_{i})$ \\
 $Z_{sys}(-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}+2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1+e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
 $Z_{sys}(\pi-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}-2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1-e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
 $Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2$ (Holographic Decryption Invariant) \\
@@ -478,17 +482,16 @@ $x_{orb} = r(O) \cos(O+ \omega_i)$ \\
 $y_{orb} = r(O) \sin(O + \omega_i)$ \\
 
 
-\section{S2 Star (Sgr A*) Data Alignment Comparison: R.O.M. vs GR}
+\section{S2 Star (Sgr A*) Data Alignment Comparison: RG vs GR}
 \hypertarget{sec:S2test}{}\label{sec:S2test}
 
-Instead of starting from the long chain of derivations and build our way to empirical testing, we will revers this order for our readers and will show the results first and then the way how we get them. By doing so we expect immediate engagement from the reader instead of the long and slow build up. Let us know if this upside down order succeed or fail in this little social experiment within this paper.
-
+Instead of starting from a long chain of derivations and building our way to empirical testing, we reverse this order to present the results first, followed by their methodological derivation.  
 \noindent
-We apply the Relational Orbital Mechanics (R.O.M.) framework to the 24-year astrometric and radial‑velocity dataset of the S2 star orbiting the Galactic Centre (Sgr~A*).  The dataset contains 174 raw observables (sky positions and line‑of‑sight velocities) and provides a sensitive test of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{geometric closure condition $\kappa^2=2\beta^2$} in a strong‑field regime.
+We apply the Relational Orbital Mechanics (R.O.M.) to the 24-year astrometric and radial‑velocity dataset of the S2 star orbiting the Galactic Centre (Sgr~A*).  The dataset contains 174 raw observables (sky positions and line‑of‑sight velocities) and provides a sensitive test of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure theorem $\kappa^2=2\beta^2$} in a strong‑field regime.
 
 \subsection*{Methodology}
 
-In the WILL RG model, the Keplerian orbital elements are supplemented by two relational features:
+In WILL RG the Keplerian orbital elements are supplemented by two relational features:
 \begin{itemize}
     \item The secular pericentre advance per orbital cycle is not a free parameter but is \textbf{algebraically locked} to the velocity amplitude $\beta$ via the closure invariant:
     \begin{equation}
@@ -496,12 +499,16 @@ In the WILL RG model, the Keplerian orbital elements are supplemented by two rel
         \qquad \beta = \frac{K}{c\,\sin i}\sqrt{1-e^2}.
         \label{eq:fprec}
     \end{equation}
-    \item The relativistic contribution to the radial velocity is described by the \textit{relational redshift}
+\item The relativistic contribution to the radial velocity is determined by the internal phase structure:
     \begin{equation}
-        Z_{\rm sys} = \frac{c}{2}\bigl(\kappa_o^2 + \beta_o^2\bigr),
+        Z_{\rm sys} = \frac{1}{\tau_o} = \frac{1}{\sqrt{1 - \kappa_o^2}\sqrt{1 - \beta_o^2}},
     \end{equation}
-    where $\kappa_o^2 = R_s/r$ is the potential projection at the instantaneous orbital radius and $\beta_o^2 = \kappa_o^2 - \beta^2$ follows from the energy invariant.
+    where $\kappa_o^2 = R_s/r$ is the local potential projection and $\beta_o^2 = \kappa_o^2 - \beta^2$ is the local kinetic projection. The total raw spectroscopic shift incorporates the directional kinematic projection $\beta_z$ via linear phase superposition:
+    \begin{equation}
+        Z_{\rm raw} = (1 + \beta_z) Z_{\rm sys}.
+    \end{equation}
 \end{itemize}
+
 The Rømer (light‑travel time) delay is included as a single‑step correction.  The whole model contains \textbf{nine free parameters}: the angular semi‑major axis $a_{\rm as}$, eccentricity $e$, inclination $i$, argument of pericentre $\omega$, longitude of ascending node $\Omega$, orbital period $P$, epoch of pericentre passage $T_0$, systemic velocity $V_0$, and the radial‑velocity semi‑amplitude $K$.
 
 For a fair comparison, we construct a General Relativity 1PN model with the \textbf{same nine parameters}.  The pericentre advance is fixed by the standard 1PN formula
@@ -1892,7 +1899,7 @@ Relational Orbital Mechanics is not an independent model. It is the direct opera
 
 \subsection{Epistemic and Operational Benefits}
 
-% === USER TO INSERT EPISTEMIC PARAGRAPH HERE ===
+% ===  INSERT EPISTEMIC PARAGRAPH HERE ===
 
 \subsubsection*{Operational Benefits: Absence of Differential Formalism and Acceleration}
 
@@ -1927,10 +1934,6 @@ These tests are decisive because they probe either the phasing of precession or 
 \section{Conclusion}
 
 The Relational Orbital Mechanics system demonstrates that the entire phenomenology of  motion -- from Keplerian architecture to perihelion precession and light deflection -- emerges as an inevitable algebraic consequence of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles}. All WILL RG results including the complete success of R.O.M. remains an unbroken chain of derivations from firs principles under extreme methodological constrains with zero flexibility.
-
-
-
-a handful of dimensionless relational projections and the single, topologically forced closure condition \(\kappa^2 = 2\beta^2\). No background manifold, metric tensor, or independent constants of nature beyond the speed of light are required.
 
 This is not a re-description of General Relativity; it is the irreducible algebraic core that remains when the ontological superstructure of Riemannian geometry and tensorial formalism is removed. The fact that the S2 orbit is fit \emph{better} by the phase-coupled precession parametrization inherent to R.O.M. -- with no additional free parameters -- indicates that the relational approach is not merely philosophically appealing but empirically preferred in the strong-field regime.
 

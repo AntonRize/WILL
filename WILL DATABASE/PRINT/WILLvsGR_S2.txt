@@ -1,15 +1,7 @@
-
-
 """
-WILL Relational Geometry: S2 Orbital Parametrization (R.O.M. Framework)
-Author: Leibniz Partner & Anton Rize
-Version: 1.4 (Strict Relational with Rømer Delay & Relational Redshift)
-
-SCIENTIFIC STATEMENT:
-Orbital dynamics and strong-field precession are not the result of masses
-moving through curved background spacetime. In WILL Relational Geometry,
-the exact trajectory and scale of the S2 system emerge purely from the
-algebraic closure of its relational phase projections (kappa^2 = 2*beta^2).
+WILL Relational Geometry: S2 Relational Orbital Mechanics (R.O.M.)
+Author: Anton Rize
+Version: 1.5 (Exact Multiplicative Phase Interference Pipeline)
 """
 
 import numpy as np
@@ -54,15 +46,17 @@ def get_nu(mjd, T0, P, e):
     return orbits * 2 * np.pi + (nu_mod % (2 * np.pi))
 
 def will_model_strict(params, mjd_a, mjd_r):
-    a_as, e, i, omega, Omega, P, T0, V0, K = params
+    a_as, e, i, omega, Omega_node, P, T0, V0, K = params
 
     # [ALGEBRAIC LOCK & SCALE]
     beta_int = (K / C_KMS) / np.sin(i)
     beta_sq = (beta_int**2) * (1 - e**2)
-    tau_Y_sq = 3 * beta_sq - 2 * (beta_sq**2)
-    f_prec = tau_Y_sq / (1 - e**2)
-
     beta = np.sqrt(beta_sq)
+
+    tau_Y_sq = 3 * beta_sq - 2 * (beta_sq**2)
+    Omega_factor = 1.0 - (tau_Y_sq / (1 - e**2))
+    f_prec = 1.0 - Omega_factor
+
     T_sec = P * 86400
     Rs_km = (T_sec * C_KMS * (beta**3)) / np.pi
     a_km = Rs_km / (2 * beta_sq)
@@ -70,50 +64,66 @@ def will_model_strict(params, mjd_a, mjd_r):
 
     # --- ASTROMETRY WITH ROMER DELAY ---
     nu_a_0 = get_nu(mjd_a, T0, P, e)
+    O_phase_a_0 = nu_a_0 * Omega_factor
     w_shift_a_0 = f_prec * nu_a_0
-    r_O_0 = a_as * (1 - e**2) / (1 + e * np.cos(nu_a_0 - w_shift_a_0))
+
+    r_O_0 = a_as * (1 - e**2) / (1 + e * np.cos(O_phase_a_0))
     z_km_a = r_O_0 * scale_km_per_as * np.sin(i) * np.sin(nu_a_0 + omega + w_shift_a_0)
 
     t_emit_a = mjd_a - z_km_a / (C_KMS * 86400)
 
     nu_a = get_nu(t_emit_a, T0, P, e)
-    w_shift_a = f_prec * nu_a
-    r_O = a_as * (1 - e**2) / (1 + e * np.cos(nu_a - w_shift_a))
+    O_phase_a = nu_a * Omega_factor
+    r_O = a_as * (1 - e**2) / (1 + e * np.cos(O_phase_a))
+
     x_orb = r_O * np.cos(nu_a)
     y_orb = r_O * np.sin(nu_a)
 
-    A = np.cos(Omega)*np.cos(omega) - np.sin(Omega)*np.sin(omega)*np.cos(i)
-    B = np.sin(Omega)*np.cos(omega) + np.cos(Omega)*np.sin(omega)*np.cos(i)
-    F = -np.cos(Omega)*np.sin(omega) - np.sin(Omega)*np.cos(omega)*np.cos(i)
-    G = -np.sin(Omega)*np.sin(omega) + np.cos(Omega)*np.cos(omega)*np.cos(i)
+    A = np.cos(Omega_node)*np.cos(omega) - np.sin(Omega_node)*np.sin(omega)*np.cos(i)
+    B = np.sin(Omega_node)*np.cos(omega) + np.cos(Omega_node)*np.sin(omega)*np.cos(i)
+    F = -np.cos(Omega_node)*np.sin(omega) - np.sin(Omega_node)*np.cos(omega)*np.cos(i)
+    G = -np.sin(Omega_node)*np.sin(omega) + np.cos(Omega_node)*np.cos(omega)*np.cos(i)
 
     x_sky = B * x_orb + G * y_orb
     y_sky = A * x_orb + F * y_orb
 
-    # --- RADIAL VELOCITY WITH ROMER & RELATIONAL REDSHIFT ---
+    # --- EXACT MULTIPLICATIVE RADIAL VELOCITY PIPELINE ---
     rv_pred = np.array([])
     if len(mjd_r) > 0:
         nu_r_0 = get_nu(mjd_r, T0, P, e)
+        O_phase_r_0 = nu_r_0 * Omega_factor
         w_shift_r_0 = f_prec * nu_r_0
-        r_O_r_0 = a_as * (1 - e**2) / (1 + e * np.cos(nu_r_0 - w_shift_r_0))
+
+        r_O_r_0 = a_as * (1 - e**2) / (1 + e * np.cos(O_phase_r_0))
         z_km_r = r_O_r_0 * scale_km_per_as * np.sin(i) * np.sin(nu_r_0 + omega + w_shift_r_0)
 
         t_emit_r = mjd_r - z_km_r / (C_KMS * 86400)
 
-        nu_r = get_nu(t_emit_r, T0, P, e)
-        w_shift_r = f_prec * nu_r
-        eff_w = omega + w_shift_r
+        # Generative phase (o)
+        o_phase = get_nu(t_emit_r, T0, P, e)
+        # Spatial phase (O = Omega * o)
+        O_phase = o_phase * Omega_factor
 
-        # 1. Classical Doppler z-projection
-        vz_classical = K * (np.cos(nu_r + eff_w) + e * np.cos(eff_w))
+        # 1. Kinematic Projection (Directional S1)
+        beta_z = (beta / np.sqrt(1 - e**2)) * (np.cos(O_phase + omega) + e * np.cos(omega)) * np.sin(i)
 
-        # 2. WILL Relational Redshift (Z_sys)
-        r_km_r = a_km * (1 - e**2) / (1 + e * np.cos(nu_r - w_shift_r))
+        # 2. Local Geometric Projections (Structural S2)
+        r_km_r = a_km * (1 - e**2) / (1 + e * np.cos(O_phase))
         kappa_o_sq = Rs_km / r_km_r
         beta_o_sq = kappa_o_sq - beta_sq
-        v_relational = C_KMS * (kappa_o_sq + beta_o_sq) / 2
 
-        rv_pred = V0 + vz_classical + v_relational
+        # 3. Exact Relational Phase (Internal Causal Order)
+        tau_o = np.sqrt(1 - kappa_o_sq) * np.sqrt(1 - beta_o_sq)
+        Z_sys = 1.0 / tau_o
+
+        # 4. Unified Multiplicative Interference
+        Z_raw = (1.0 + beta_z) * Z_sys
+        beta_sys = V0 / C_KMS
+        Z_obs = (1.0 + beta_sys) * Z_raw
+
+        # 5. Final Observable Extraction
+        z_total = Z_obs - 1.0
+        rv_pred = C_KMS * z_total
 
     return x_sky, y_sky, rv_pred, beta_sq, f_prec
 
@@ -134,7 +144,7 @@ print(">>> Phase 2: Precision refinement (L-BFGS-B)...")
 res = minimize(objective, res_nm.x, bounds=bounds, method='L-BFGS-B')
 
 # --- 5. POST-FIT RELATIONAL DERIVATION ---
-a_as, e, i, omega, Omega, P_days, T0, V0, K = res.x
+a_as, e, i, omega, Omega_node, P_days, T0, V0, K = res.x
 chi2_val = res.fun
 _, _, _, beta_sq, f_prec = will_model_strict(res.x, np.array([T0]), np.array([]))
 
@@ -191,7 +201,7 @@ plt.errorbar(m_r, rv_obs, yerr=rv_err, fmt='k.', alpha=0.3, label='Data')
 plt.plot(m_dense, rv_d, 'r-', label='WILL RG Model')
 plt.xlabel('Time (MJD)')
 plt.ylabel('Radial Velocity (km/s)')
-plt.title('S2 Spectroscopy: Z-phase Shift')
+plt.title('S2 Spectroscopy: Exact Z-phase Shift')
 plt.legend()
 plt.grid(True, alpha=0.2)
 print("Full WILL parameters:", res.x)
@@ -201,32 +211,8 @@ plt.show()
 
 
 
-OUTPUT:
-=================================================================
-WILL RELATIONAL GEOMETRY: FULL OPTICAL + ROMER SOLUTION
-=================================================================
-Fit Quality (Chi-Squared):       727.2044
-Number of Observables:           174
------------------------------------------------------------------
-Relational Beta (beta):          0.00642627
-Angular Semi-major Axis (a_as):  0.124120 arcsec
-Eccentricity (e):                0.887171
-Inclination (i):                 2.377080 rad
-Argument of Periapsis (omega):   1.162905 rad
-Period (T):                      5862.4861 days
-Derived Precession (f_prec):     0.00058183
-Systemic Velocity (V0):          -15.5462 km/s
------------------------------------------------------------------
-DERIVED PHYSICAL PARAMETERS (FROM T and BETA ONLY):
-Schwarzschild Radius (Rs):       12827524.71 km
-Semi-major Axis (a):             1038.173191 AU
-Distance to Sgr A* (R0):         8364.24 pc
------------------------------------------------------------------
-Final Calculated Mass (M):       4.3435 Million M_sun
-=================================================================
-Full WILL parameters: [ 1.24120447e-01  8.87171396e-01  2.37707988e+00  1.16290521e+00
-  3.99528582e+00  5.86248607e+03  5.82577869e+04 -1.55461583e+01
-  2.88992587e+03]
+
+
 
 
 
@@ -455,34 +441,6 @@ print(f"R₀ (pc)             = {R0_pc:.2f}")
 print("="*65)
 
 
-OUTPUT:
-=================================================================
-GR 1PN FIT (9 parameters, no Shapiro/lensing)
-=================================================================
-χ² = 800.81
------------------------------------------------------------------
-a (arcsec)          = 0.124488
-e                   = 0.887826
-i (rad)             = 2.370695
-ω₀ (rad)            = 1.160650
-Ω (rad)             = 3.987842
-P (days)            = 5862.5978
-T₀ (MJD)            = 58257.6592
-V₀ (km/s)           = -15.0196
-K (km/s)            = 2894.4022
-Δω/orbit (rad)      = 0.003619
------------------------------------------------------------------
-DERIVED PHYSICAL QUANTITIES:
-M_BH (10⁶ M☉)       = 4.2430
-R₀ (pc)             = 8274.84
-=================================================================
-
-
-
-
-
-
-
 
 
 
@@ -647,27 +605,6 @@ print(f"Derived R0:                      {R0_pc:.2f} pc")
 print(f"Derived Mass:                    {Mass_Msun/1e6:.4f} Million M_sun")
 print("="*65)
 
-OUTPUT:
->>> Fitting Hybrid (WILL geometry + GR 1PN precession)...
 
-=================================================================
-HYBRID MODEL: WILL geometry + GR 1PN precession magnitude
-=================================================================
-Fit Quality (Chi-Squared):       727.2036
------------------------------------------------------------------
-Precession f_prec (GR 1PN):      0.00058185
-Relational Beta (beta):          0.00642627
-Angular Semi-major Axis (a_as):  0.124120 arcsec
-Eccentricity (e):                0.887171
-Inclination (i):                 2.377080 rad
-Argument of Periapsis (omega):   1.162905 rad
-Period (T):                      5862.4861 days
-Systemic Velocity (V0):          -15.5461 km/s
-K:                               2889.9256 km/s
------------------------------------------------------------------
-Derived Rs:                      12827530.83 km
-Derived a:                       1038.173356 AU
-Derived R0:                      8364.24 pc
-Derived Mass:                    4.3435 Million M_sun
-=================================================================
+
 
