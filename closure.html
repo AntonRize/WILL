@@ -1,11 +1,8 @@
-
 ---
-
 layout: default
 title: "closure"
 permalink: /closure.html
 description: "Interactive map tracing the derivation from first principles to the geometric exchange rate. Click any node to navigate directly to its corresponding definition in the WILL Part I Open Research paper."
-
 ---
 
 
@@ -61,7 +58,7 @@ description: "Interactive map tracing the derivation from first principles to th
         
         /* Force SVG to respect intrinsic dimensions */
         .mermaid svg {
-            min-width: 900px;
+            min-width: 1100px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -86,9 +83,9 @@ description: "Interactive map tracing the derivation from first principles to th
             },
             flowchart: {
                 curve: 'basis',
-                nodeSpacing: 50,
-                rankSpacing: 70,
-                useMaxWidth: false /* Prevents unreadable compression */
+                nodeSpacing: 40,
+                rankSpacing: 80,
+                useMaxWidth: false
             }
         });
     </script>
@@ -112,56 +109,76 @@ description: "Interactive map tracing the derivation from first principles to th
             classDef theorem fill:#171717,stroke:#52525b,stroke-width:1px,color:#fafafa,rx:4px,ry:4px;
             classDef final fill:#2e1010,stroke:#991b1b,stroke-width:2px,color:#fee2e2,font-weight:bold,rx:6px,ry:6px;
 
-            E1[Principle: Epistemic Hygiene]:::principle
-            E2[Principle: Relational Origin]:::principle
-            
+            subgraph Tier1 [STAGE I: THE 4 FOUNDATIONAL METHODOLOGICAL PRINCIPLES]
+                E1[Principle: Epistemic Hygiene]:::principle
+                E2[Principle: Relational Origin]:::principle
+                E3[Principle: Ontological Minimalism]:::principle
+                E4[Principle: Mathematical Transparency]:::principle
+                %% Invisible links force rank alignment so they stay strictly at the top
+                E1 ~~~ E2 ~~~ E3 ~~~ E4
+            end
+            style Tier1 fill:transparent,stroke:#334155,stroke-width:1px,stroke-dasharray: 5 5,color:#9ca3af
+
             L1[Lemma: False Separation]:::lemma
             P1[Unifying Principle: SPACETIME ≡ ENERGY]:::principle
             
             T1[Theorem: Relational Closure]:::theorem
             T2[Theorem: Relational Invariance]:::theorem
             T3[Theorem: Relational Isotropy]:::theorem
-            P2[Principle: Mathematical Transparency]:::principle
             
-            T4[Theorem: Minimal Relational Carriers]:::theorem
+            T4[Theorem: Minimal Relational Carriers S¹ & S²]:::theorem
             L2[Lemma: Duality of Relation]:::lemma
             T5[Theorem: Conservation of Relation]:::theorem
             
             L3[Lemma: DOF-Indifference]:::lemma
-            F1[Theorem: Closure]:::final
+            F1[Closure Theorem: κ² = 2β²]:::final
 
+            %% Logical Flow
             E1 --> L1
             E2 --> L1
+            
             L1 --> P1
+            E2 --> P1
             
             P1 --> T1
             P1 --> T2
             P1 --> T3
             
             T1 --> T4
-            T2 --> T4
             T3 --> T4
-            P2 --> T4
+            E3 --> T4
+            E4 --> T4
             
-            T4 --> L2
+            P1 --> L2
+            E2 --> L2
+            
+            T4 --> T5
             L2 --> T5
             
-            T5 --> L3
-            T4 --> L3
+            T3 --> L3
+            E3 --> L3
             
+            T4 --> F1
+            T5 --> F1
             L3 --> F1
 
+            %% Hyperlink Mapping
             click E1 "https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic" "Execute proof definition" _blank
             click E2 "https://willrg.com/documents/WILL_RG_I.pdf#pr:relational" "Execute proof definition" _blank
+            click E3 "https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism" "Execute proof definition" _blank
+            click E4 "https://willrg.com/documents/WILL_RG_I.pdf#pr:Mathematical" "Execute proof definition" _blank
+            
             click L1 "https://willrg.com/documents/WILL_RG_I.pdf#lem:false-separation" "Execute proof definition" _blank
             click P1 "https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying" "Execute proof definition" _blank
+            
             click T1 "https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure" "Execute proof definition" _blank
             click T2 "https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_invariance" "Execute proof definition" _blank
             click T3 "https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy" "Execute proof definition" _blank
-            click P2 "https://willrg.com/documents/WILL_RG_I.pdf#pr:Mathematical" "Execute proof definition" _blank
+            
             click T4 "https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers" "Execute proof definition" _blank
             click L2 "https://willrg.com/documents/WILL_RG_I.pdf#lem:duality" "Execute proof definition" _blank
             click T5 "https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation" "Execute proof definition" _blank
+            
             click L3 "https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference" "Execute proof definition" _blank
             click F1 "https://willrg.com/documents/WILL_RG_I.pdf#thm:Closure" "Execute proof definition" _blank
         </pre>
