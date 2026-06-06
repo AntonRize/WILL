@@ -14,7 +14,6 @@ description: "Interactive map tracing the derivation from first principles to th
     <title>WILL RG - Logos Map</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -28,7 +27,6 @@ description: "Interactive map tracing the derivation from first principles to th
             padding: 0;
         }
 
-        /* Node Interaction */
         .node {
             cursor: pointer !important;
         }
@@ -40,28 +38,27 @@ description: "Interactive map tracing the derivation from first principles to th
             filter: brightness(1.4);
         }
 
-        /* Enforce Native Resolution & Scrolling */
+        /* Container forced to handle overflow and prevent squishing */
         .diagram-container {
             width: 100%;
-            overflow: auto;
+            max-width: 100vw;
+            overflow-x: auto;
             background-color: #0a0a0a;
-            border: 1px solid #1f2937;
-            border-radius: 0.5rem;
-            padding: 2rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            /* Grid background representing phase space */
+            border-top: 1px solid #1f2937;
+            border-bottom: 1px solid #1f2937;
+            padding: 3rem;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
             background-size: 40px 40px;
             background-image: 
                 linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
         }
         
-        /* Force SVG to respect intrinsic dimensions */
-        .mermaid svg {
-            min-width: 1100px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
+        /* Force SVG to a minimum width so it physically cannot overlap nodes */
+        .mermaid {
+            min-width: 1400px;
+            display: flex;
+            justify-content: center;
         }
     </style>
 
@@ -83,16 +80,15 @@ description: "Interactive map tracing the derivation from first principles to th
             },
             flowchart: {
                 curve: 'basis',
-                nodeSpacing: 40,
-                rankSpacing: 80,
-                useMaxWidth: false
+                nodeSpacing: 60,
+                rankSpacing: 80
             }
         });
     </script>
 </head>
-<body class="min-h-screen flex flex-col items-center py-12 px-4 sm:px-8">
+<body class="min-h-screen flex flex-col items-center py-12">
 
-    <header class="text-center max-w-4xl mb-10">
+    <header class="text-center max-w-4xl mb-10 px-4">
         <h1 class="text-3xl font-light tracking-widest text-white mb-4 uppercase border-b border-gray-800 pb-4">
             Logos Map
         </h1>
@@ -101,8 +97,8 @@ description: "Interactive map tracing the derivation from first principles to th
         </p>
     </header>
 
-    <main class="w-full max-w-6xl diagram-container">
-        <pre class="mermaid">
+    <main class="diagram-container">
+        <div class="mermaid">
             graph TD
             classDef principle fill:#0f172a,stroke:#334155,stroke-width:1px,color:#f8fafc,rx:4px,ry:4px;
             classDef lemma fill:#1c1917,stroke:#44403c,stroke-width:1px,color:#f5f5f5,rx:4px,ry:4px;
@@ -114,8 +110,6 @@ description: "Interactive map tracing the derivation from first principles to th
                 E2[Principle: Relational Origin]:::principle
                 E3[Principle: Ontological Minimalism]:::principle
                 E4[Principle: Mathematical Transparency]:::principle
-                %% Invisible links force rank alignment so they stay strictly at the top
-                E1 ~~~ E2 ~~~ E3 ~~~ E4
             end
             style Tier1 fill:transparent,stroke:#334155,stroke-width:1px,stroke-dasharray: 5 5,color:#9ca3af
 
@@ -133,7 +127,7 @@ description: "Interactive map tracing the derivation from first principles to th
             L3[Lemma: DOF-Indifference]:::lemma
             F1[Closure Theorem: κ² = 2β²]:::final
 
-            %% Logical Flow
+            %% Clean downstream routing
             E1 --> L1
             E2 --> L1
             
@@ -162,7 +156,7 @@ description: "Interactive map tracing the derivation from first principles to th
             T5 --> F1
             L3 --> F1
 
-            %% Hyperlink Mapping
+            %% Clickable targets
             click E1 "https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic" "Execute proof definition" _blank
             click E2 "https://willrg.com/documents/WILL_RG_I.pdf#pr:relational" "Execute proof definition" _blank
             click E3 "https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism" "Execute proof definition" _blank
@@ -181,7 +175,7 @@ description: "Interactive map tracing the derivation from first principles to th
             
             click L3 "https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference" "Execute proof definition" _blank
             click F1 "https://willrg.com/documents/WILL_RG_I.pdf#thm:Closure" "Execute proof definition" _blank
-        </pre>
+        </div>
     </main>
 
 </body>
