@@ -50,7 +50,7 @@ $$E_{\mathrm{loc}} = \frac{E_0}{\beta_Y\,\kappa_X} = \frac{E_0}{\sqrt{(1-\beta^{
 
 With momentum identified as the horizontal projection $$p \equiv E\beta$$ and mass as the rest-energy invariant $$m \equiv E_0$$, the relativistic energy–momentum relation is recovered as a closure identity of the $$S^{1}$$ carrier:
 
-$$E^{2} = (pc)^{2} + (mc^{2})^{2}$$
+$$E^{2} = (pc)^{2} + (mc^{2})^{2} = \left(E_{0}\frac{\beta}{\beta_{Y}}\right)^{2}+\left(E_{0}\right)^{2}$$
 
 **Result:** recovered as a geometric identity — the standard special-relativistic result with no separate spacetime postulate.
 
