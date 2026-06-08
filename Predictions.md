@@ -642,6 +642,221 @@ $$m_{e} = \frac{1}{\pi\sqrt{2}} \left( \frac{H_0 (\alpha \hbar c)^2}{G c^3} \rig
 
 <!-- ===== QUANTUM MECHANICAL PREDICTIONS — PART III — TO BE ADDED NEXT ===== -->
 
+## Quantum Mechanical Predictions — Part III
+
+### Geometric Origin of the de Broglie Relation
+
+On the $S^1$ kinematic manifold of WILL RG, momentum and wavelength are inversely related via the horizontal ($\beta$) and vertical ($\beta_Y$) projections. The product $p\lambda$ is constant and independent of the dynamic state.
+
+$$p = \frac{E_0}{c}\frac{\beta}{\beta_Y}, \qquad \lambda = \Lambda_0\frac{\beta_Y}{\beta} \quad \implies \quad p\lambda = \frac{E_0}{c}\Lambda_0 = h$$
+
+**Result:** The standard de Broglie relation ($p\lambda = h$) is derived strictly as a geometric identity. The constant $\hbar$ emerges specifically as the *calibration invariant* translating dimensionless $S^1$ phase into SI units of action.
+
+*Source: Part III — "Geometric Origin of the de Broglie Relation"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#calibration)
+
+---
+
+### Topological Quantization & Angular Momentum
+
+For a stable bound state, the relational geometry must be topologically closed. The phase projection must complete an integer number of full rotations ($n$) around the orbital circumference.
+
+$$n \lambda_n = 2\pi r_n, \qquad p_n r_n = n\hbar$$
+
+**Result:** The principal quantum number $n$ is identified as the topological winding number. The quantization of angular momentum emerges as a geometric necessity for a closed $S^1$ carrier, completely replacing the need for an external physical postulate.
+
+*Source: Part III — "The Principle of Geometric Closure in Quantum Systems"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#pr:closure) · [Interactive Lab](https://willrg.com/quantazation.html)
+
+---
+
+### The Electromagnetic Critical Radius ($R_q$)
+
+Because WILL RG removes the ontological separation between "field" and "geometry", electrostatic saturation must mirror gravitational saturation at the Schwarzschild horizon. $R_q$ is the intrinsic scale where potential energy saturation equals half the rest energy ($|U| = \frac{1}{2}E_0$).
+
+$$R_q = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2}$$
+
+**Result:** Defines the true point of energetic saturation for the electron's potential field, operating as the electromagnetic analogue to the Schwarzschild radius.
+
+*Source: Part III — "The Universal Scale Principle and Relational Projections"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#pr:scale)
+
+---
+
+### Derivation of Atomic Structure (Bohr Radius)
+
+The stable states of the hydrogen atom are constrained by the simultaneous solution of three geometric principles: Topological Closure ($\beta_q^2 \approx \frac{n^2\hbar^2}{m_e^2 c^2 r_n^2}$), the Scale Principle ($\kappa_q^2 = \frac{R_q}{r_n}$), and Geometric Closure ($\kappa_q^2 = 2\beta_q^2$).
+
+$$a_0 = r_1 = \frac{4\pi\varepsilon_0 \hbar^2}{m_e e^2}, \qquad E_n = -\frac{m_e e^4}{8 \varepsilon_0^2 n^2 h^2}$$
+
+**Result:** Recovers the standard Bohr radius and the exact base hydrogen energy levels ($13.605$ eV) directly from the intersection of geometric limits, achieved entirely without classical force analogues or wave mechanics.
+
+*Source: Part III — "Derivation of Atomic Structure from First Principles"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure)
+
+---
+
+### The Geometric Origin of the Fine Structure Constant ($\alpha$)
+
+The fine-structure constant $\alpha$ is identified analytically as the unique kinematic projection compatible with the geometric closure of a charged fermion.
+
+$$\beta_1^2 = \frac{1}{2} \frac{R_q}{a_0} = \left( \frac{e^2}{4\pi\varepsilon_0 \hbar c} \right)^2 \quad \implies \quad \alpha \equiv \beta_1$$
+
+**Result:** $\alpha$ ceases to be an empirical parameter of electromagnetism and is derived exactly as the kinetic projection ($\beta_1$) of the electron in the ground state of the hydrogen atom.
+
+*Source: Part III — "The Geometric Origin of the Fine Structure Constant"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha)
+
+---
+
+### Emergence of Quantized Energy Levels
+
+The total relativistic energy of a stable bound state is given by the virial relation, a consequence of the geometric closure condition ($\kappa_q^2 = 2\beta_q^2$), yielding $E_n = -K_n$. Substituting $\beta_q = \alpha/n$ isolates the energy purely in terms of geometry.
+
+$$E_n = -\frac{1}{2} m_e c^2 \left(\frac{\alpha}{n}\right)^2 = -\frac{\alpha^2 m_e c^2}{2n^2}$$
+
+**Result:** The quantized energy spectrum is derived exclusively as a geometric projection scaling inversely with the square of the topological winding number.
+
+*Source: Part III — "Emergence of Quantized Energy Levels"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha)
+
+---
+
+### Spectral Lines and Rydberg Formula
+
+The emitted photon's energy correlates to the difference between stationary energy configurations. Applying Planck's relation yields the spectral formula directly from the geometric energy levels.
+
+$$\frac{1}{\lambda} = R_H \left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right)$$
+
+**Result:** The computed spectral lines structurally match the experimental wavelengths (e.g., the $3 \to 2$ transition yields $656.34$ nm computed vs $656.3$ nm experimental).
+
+*Source: Part III — "Spectral Lines and Rydberg Formula"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha)
+
+---
+
+### Unified Relativistic Energy Formula (Sommerfeld-Dirac)
+
+By treating the interaction coupling ($Z\alpha$) as a projection on a Pythagorean phase space triangle alongside the structural projection ($k'$), the geometry of the angular quantum number undergoes a deterministic relativistic shift.
+
+$$n_{eff} = (n - k) + \sqrt{k^2 - (Z\alpha)^2}, \qquad E_{n,j} = \frac{m_e c^2}{\sqrt{1 + \left(\frac{Z\alpha}{n_{eff}}\right)^2}}$$
+
+**Result:** Derives the exact Sommerfeld-Dirac fine structure energy formula. Physical reality is modeled via closed geometric triangles on the $S^1$ carrier, fully replacing the need for differential wave equations or abstract spinors.
+
+*Source: Part III — "The Relational Geometry of Angular Phase Space"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#thm:unified-energy)
+
+---
+
+### Spin as Topological Chirality and Pauli Exclusion
+
+A closed energy flow on the $S^1$ manifold possesses exactly two non-deformable winding directions (chiralities) relative to the $S^2$ surface normal. Applying the Identity of Indiscernibles, two flows with identical spatial geometric states must differ by chirality to remain distinct entities.
+
+**Result:** "Spin" $1/2$ is identified physically as Topological Chirality (Right-Handed $\circlearrowright$ vs. Left-Handed $\circlearrowleft$). The Pauli Exclusion Principle and valence chemistry emerge deterministically from the geometric necessity to pair opposite chiralities within a shared structural envelope.
+
+*Source: Part III — "The Geometric Origin of Spin and Exclusion"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:spin-exclusion)
+
+---
+
+### The Schrödinger Equation as Ontological Collapse
+
+The Schrödinger equation arises as the algebraic shadow of fusing two distinct amplitude–phase manifolds $(\beta,\kappa)$ into a single complex energetic amplitude $\psi \equiv \beta + J\kappa$, where $J$ is the generator of orthogonal rotation.
+
+$$\Bigl(-\frac{\hbar^2}{2m}\,\Delta_{\text{disc}} + V\Bigr)\psi = \mathcal{E}\psi$$
+
+**Result:** The complex unit $i$ ($J$) is identified as the algebraic signature of the fused duality between the potential and kinematic manifolds. The stationary Schrödinger equation emerges as the continuum limit of the discrete relational closure condition.
+
+*Source: Part III — "The Schrödinger Equation as the Result of Ontological Collapse"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:schrodinger)
+
+---
+
+### Geometric Origin of the Uncertainty Principle
+
+Because the phase must close after $n$ windings, the smallest physically distinguishable phase increment is bounded by the minimal phase grain $\Delta\theta \ge 2\pi/n$. Evaluating the orthogonal projections ($\beta_X, \beta_Y$) on the $S^1$ circle structurally bounds their physical measurement.
+
+$$\Delta\beta_X\, \Delta\beta_Y \;\geq\; \tfrac{1}{2} |\sin 2\theta|\, \left(\frac{2\pi}{n}\right)^{\!2} \quad \implies \quad \Delta x \cdot \Delta p \approx \hbar$$
+
+**Result:** Heisenberg's Uncertainty Principle is derived strictly as a topological and algebraic identity of a closed projection, without invoking probabilistic interpretations or external measurement axioms. $\hbar$ is a conversion artifact for translating topological closure into SI units.
+
+*Source: Part III — "Geometric Origin of the Uncertainty Principle"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:geometric_uncertainty)
+
+---
+
+### Unified Relational Geometry: Gravity versus Electromagnetism
+
+The projectional balance $\kappa^2 + \beta^2 = Q^2$ governs both gravitational orbits ($R_s$) and electromagnetic quantum orbits ($R_q$). 
+
+$$r = \frac{R_{s}}{\kappa^{2}} \quad \text{(Gravity)} \qquad \longleftrightarrow \qquad r_{n} = \frac{Z_{e}\,R_q}{\kappa_{q}^{2}} \quad \text{(Quantum)}$$
+
+**Result:** Demonstrates that WILL RG naturally unites gravitational and atomic physics under the exact same algebraic geometry, replacing $R_s \mapsto R_q$ and $\kappa^2 \mapsto \kappa_q^2$.
+
+*Source: Part III — "Unified Relational Geometry: Gravity versus Electromagnetism"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:grvsqm)
+
+---
+
+### Topological Resolution of Atomic Collapse
+
+In classical frameworks, an electron radiating energy should spiral into the nucleus ($r \to 0$). In WILL RG, the topological winding number $n$ counts complete phase rotations. A value of $n=0$ represents the absence of any closed energetic projection.
+
+$$r_n \to 0 \implies \lambda_n \to 0 \implies p_n \to \infty$$
+
+**Result:** Resolves the classical paradox algebraically. The ground state ($n=1$) represents the minimal topologically permissible projection. The electron cannot "collapse" into the nucleus because its existence as a bound system is identical to the existence of a non-zero winding number.
+
+*Source: Part III — "Why the Electron Does Not Collapse into the Nucleus"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:electron)
+
+---
+
+### Decoherence from Pre-Interaction Events (Empirical Validation)
+
+Interference is permitted only in systems that are not energetically bound via interaction with any external object. Measurement enforces mutual energetic closure ($\Delta E_{A \to C} + \Delta E_{C \to A} = 0$), forcing the system into a definite energetic configuration.
+
+**Result:** Explains the destruction of interference patterns without "observer consciousness". This aligns perfectly with empirical tests: $C_{60}$ molecules show interference in vacuum but lose it when heated ($T > 3000 K$) due to thermal IR emission. Electrons in atmospheric air (mean free path $\sim 4\mu m$) exhibit zero interference due to high probability of pre-interaction energy leakage.
+
+*Source: Part III — "Hypothesis: Energy Symmetry as the Origin of Decoherence" & "Empirical Validation"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:decoherence)
+
+---
+
+### Resolution of Quantum Paradoxes: Entanglement
+
+Entangled particles are not distinct entities signaling each other, but projections of a single phase network ($S_{AB}$) defined by a global topological constraint.
+
+$$\Phi_{\text{total}} = \phi_A + \phi_B = 2\pi n_{\text{total}} \quad \implies \quad \delta\phi_A + \delta\phi_B = 0$$
+
+**Result:** Resolves Bell's Theorem violations deterministically. The correlations were never separable; interaction with particle $A$ constrains the global topology, instantaneously resolving $B$ via relational bookkeeping, not superluminal signaling.
+
+*Source: Part III — "Entanglement as Shared Phase Origin" & "The Geometric Resolution of Quantum Paradoxes"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:entanglement)
+
+---
+
+### Resolution of Quantum Paradoxes: Delayed Choice (Quantum Eraser)
+
+For a photon ($\beta=1$), the phase projection is zero ($\beta_Y = 0$), resulting in a null spacetime interval ($ds^2=0$, $d\tau=0$). 
+
+**Result:** Retrocausality is an illusion. In the reference frame of the light, the emission event, mirrors, and detectors exist at a single point of causal contact. The configuration of the detectors acts as a boundary condition of a single topological network at the "moment" of emission, with zero flight time.
+
+*Source: Part III — "Resolution of the 'Delayed Choice' Paradox (Quantum Eraser)"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:qmparadoxes)
+
+---
+
+### Resolution of Quantum Paradoxes: Interaction-Free Measurement (Bomb Tester)
+
+The Elitzur-Vaidman bomb tester paradox is resolved by analyzing the topology of the phase network rather than counterfactual particles.
+
+**Result:** The physical presence of the bomb changes the global topology of the interferometer from a Closed Loop (where destructive interference forbids energy flow to the dark detector) to an Open Fork. The system detects the bomb because the bomb's presence altered the geometry of the phase space, making energy transfer geometrically permissible.
+
+*Source: Part III — "Resolution of Interaction-Free Measurement (Bomb Tester)"*
+**Links:** [Derivation (Part III)](https://willrg.com/documents/WILL_RG_III.pdf#sec:qmparadoxes)
+
+---
+
 ## Interactive Labs
 
 Run the predictions yourself. Each lab links to its derivation above and includes a clear falsifiability clause.
