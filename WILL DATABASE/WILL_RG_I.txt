@@ -30,6 +30,12 @@
 % --- START OF FOOTER SECTION ---
 \usepackage{fancyhdr}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+\hypersetup{
+  pdftitle={WILL Part I: Relational Geometry},
+  pdfauthor={Anton Rize},
+  pdfsubject={Relational Geometry -- background-free derivation of GR},
+  pdfkeywords={relational geometry, general relativity, spacetime-energy equivalence, generative physics}
+}
 \usepackage[numbers]{natbib}   % Required for numeric citations like [1]
 
 % Activate the fancy page style
@@ -86,7 +92,7 @@
 \title{\textbf{WILL Part I} \\
 \textit{Relational Geometry}}
 \author{Anton Rize \\ antonrize@willrg.com \\
-\thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}{DOI: 10.5281/zenodo.17115270}}
+\thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}}
 
 
 \date{October 2025}
@@ -106,16 +112,16 @@ This paper, the first in the \textbf{WILL Trilogy:}
 The transition from \textit{descriptive} to \textit{generative} physics: instead of introducing laws to model observations, we derive them as necessary consequences of methodological principles - turning physics from a catalogue of phenomena into the logical unfolding of inevitable geometrical constraints. 
 
  Without metrics, tensors, or free parameters, we reproduce Lorentz factors, the energy-momentum relation, Minkowski and Schwarzschild metric intervals and Einstein field equations via the dimensionless projections of state difference $\beta$ (kinematic) and $\kappa$ (potential). All known GR critical surfaces (photon sphere, ISCO, horizons) emerge as simple fractions of $(\kappa,\beta)$.
- 
-\textbf{\textit{WILL Part~I} offers new perspective to several long-standing problems, including:}
+
+ \textbf{\textit{WILL Part~I} offers new perspectives on several long-standing problems, including:}
 
 \begin{itemize}
-    \item Full derivation of \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:rom}{R.O.M.} (Algebraically closed \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:rom}{Relational Orbital Mechanics}),
-    \item \textbf{Resolution of GR singularities} (via naturally bounded $\rho_{\max}=\frac{c^{2}}{8\pi G r^{2}}$\ref{sec:no_singularities}),
-    \item \textbf{Derivation of the equivalence principle} (from the common channel of rest-invariant state (\ref{cor:massinvariance}) scaling\ref{thm:equivalence}), 
+    \item \textbf{Derivation of \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:rom}{Relational Orbital Mechanics}} (Algebraically closed system of equation),
+    \item \textbf{Resolution of GR singularities} (via naturally bounded $\rho_{\max}=\frac{c^{2}}{8\pi G r^{2}}$ (\ref{sec:no_singularities})),
+    \item \textbf{Derivation of the equivalence principle} (from the common channel of rest-invariant state (\ref{cor:massinvariance}) scaling (\ref{thm:equivalence})),
     \item \textbf{Removal of local energy density ambiguity} $\rho=\frac{\kappa^{2}c^{2}}{8\pi G r^{2}}$ (\ref{lem:norm_id}), 
     \item \textbf{Revelation of a clear relational symmetry between kinematic and potential} projections (\ref{sec:projections_symmetry}),
-    \item \textbf{Establishment of a computationally simpler and ontologically consistent foundation} for subsequent papers on cosmology (\href{https://willrg.com/documents/WILL_RG_II.pdf}{Part~II}) and quantum mechanics (\href{https://willrg.com/documents/WILL_RG_III.pdf}{Part~III}).
+    \item \textbf{Establishment of a computationally simpler and ontologically consistent foundation} (for subsequent papers on cosmology (\href{https://willrg.com/documents/WILL_RG_II.pdf}{Part~II}) and quantum mechanics (\href{https://willrg.com/documents/WILL_RG_III.pdf}{Part~III})).
 \end{itemize}
 \end{abstract}
 
@@ -182,7 +188,7 @@ Take the words as written and ontology as derived, without smuggling external co
 
 The standard formulation of General Relativity relies on the concept of a pre-existing, container-like spacetime that then gets “filled” with fields and matter.
 
-The standard derivation of the Einstein field equations begins with the Einstein-Hilbert action, which is built upon the metric as the fundamental variable. This metric is defined on a smooth manifold that is assumed to exist \textit{a priori}. This manifold, even without a metric, carries topological and differential structure - an absolute scaffold. This constitutes surplus ontology because it introduces an entity (the manifold) that is not derived neither observed. 
+Derivation of the Einstein field equations begins with the Einstein-Hilbert action, which is built upon the metric as the fundamental variable. This metric is defined on a smooth manifold that is assumed to exist \textit{a priori}. This manifold, even without a metric, carries topological and differential structure - an absolute scaffold. This constitutes surplus ontology because it introduces an entity (the manifold) that is not derived neither observed. 
 
 The stress-energy tensor is derived from the variation of the matter Lagrangian with respect to the metric. This assumes that energy is a property of matter fields that can be localized in spacetime. However, this localization is frame-dependent (via the equivalence principle) and leads to well-known problems such as the non-uniqueness of the gravitational energy-momentum pseudotensor. Energy is treated as an absolute property of matter rather than a relational measure. This remains as metaphysical speculation in the heart of modern physics. 
 
@@ -352,7 +358,7 @@ In classical and relativistic mechanics, this derived invariant measure of chang
 
 \begin{theorem}[Relational Isotropy]
 \hypertarget{thm:isotropy}{}\label{thm:isotropy}
-Within a background-free relational system, no spatial direction or coordinate can be \emph{a priori} privileged. Therefore, the fundamental geometry encoding the conserved relational resource (energy) must be maximally symmetric (isotropic).
+Within a background-free relational system, no spatial direction or coordinate can be \emph{a priori} privileged. Therefore, the geometry encoding the conserved relational resource (energy) must be maximally symmetric (isotropic).
 \end{theorem}
 
 \begin{proof}[Proof by Relational Origin]
@@ -394,7 +400,7 @@ To avoid the artifact of Lemma~\ref{lem:false-separation}, the structural arena 
 This is not introduced as a new ontological entity but as a Principle with 
 \emph{negative ontological weight}: it removes the hidden unjustified separation 
 between "structure" and "dynamics." Spacetime is not a "container" but 
-fundamental relational energy structure.
+relational energy structure.
 \end{principle}
 
 \begin{remark}[Auditability]
@@ -814,6 +820,10 @@ and the phase becomes the time ratio $\beta_Y = d\tau/dt$. Substituting both int
 \begin{equation}
 \frac{dx^2 + dy^2 + dz^2}{c^2\, dt^2} + \left(\frac{d\tau}{dt}\right)^{\!2} = 1 ,
 \end{equation}
+multiplying both sides by $c^2 dt^2$:
+$$\frac{dx^2 + dy^2 + dz^2}{c^2 dt^2} + \left( \frac{d\tau}{dt} \right)^2 = 1
+\quad \overset{\times c^2 dt^2}{\longrightarrow} \quad
+dx^2 + dy^2 + dz^2 + c^2 d\tau^2 = c^2 dt^2$$
 and clearing the posited denominator $c^2 dt^2$ returns
 \begin{equation}
 c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2 .
@@ -826,7 +836,7 @@ This is the Minkowski interval exactly. The legacy translation mapping is theref
 \end{itemize}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence: the Interval is the Inflated Form]
-The Minkowski interval is recovered without remainder --- but only after four substantival structures (a container, three spatial coordinates, an autonomously flowing time, and a coordinate reference scale) have been appended to $\beta^2+\beta_Y^2=1$. Not one of these is demanded by the relations; each is surplus ontology. The Lorentz factor $\gamma = 1/\beta_Y = 1/\sin\theta_1$ and kinematic time dilation ($\beta_Y < 1$) are accordingly not deformations of a spatial fabric but a phase rotation on the unit circle $S^1$. The interval carries strictly more structure than the relation it encodes; the relation, not the interval, is the irreducible fundamental primitive.
+The Minkowski interval is recovered without remainder --- but only after four substantival structures (a container, three spatial coordinates, an autonomously flowing time, and a coordinate reference scale) have been appended to $\beta^2+\beta_Y^2=1$. Not one of these is demanded by the relations; each is surplus ontology. The Lorentz factor $\gamma = 1/\beta_Y = 1/\sin\theta_1$ and kinematic time dilation ($\beta_Y < 1$) are accordingly not deformations of a spatial fabric but a phase rotation on the unit circle $S^1$. The interval carries more structure than the relation it encodes; the relation, not the interval, is the irreducible fundamental primitive.
 \end{tcolorbox}
 
 
@@ -1155,31 +1165,6 @@ Explicitly,
 \]
 \end{remark}
 
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Summary]
-\begin{center}
-\begin{tabular}{|c|}\hline
-\textbf{Methodological Constraints}\\\hline
-$\downarrow$ \textit{(apply to existing physics)} \\[4pt]\hline
-\textbf{False Separation:}  $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
-\quad+\quad
-\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\\hline
-$\downarrow$ \textit{(by Relational Origin Principle no background allowed)}\\[4pt]\hline
-\textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\\hline
-$\downarrow$ \textit{(derive consequences)} \\[4pt]\hline
-\textbf{Closure} $+$ \textbf{Conservation} $+$ \textbf{Isotropy} \\\hline
-$\downarrow$ \textit{(derive primal relational carriers)}\\[4pt]\hline
-$S^1$ \textit{(1-DOF kinematic)} $+$ $S^2$ \textit{(2-DOF potential)} \\\hline
-$\downarrow$ \textit{(By Duality of Relation Lemma)}\\\hline
-\textbf{Conservation of Relation}  $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\\hline 
-$\downarrow$ \textit{(only available distinguishing property)}\\\hline
-DOF ratio = 2:1 exchange rate\\\hline
-$\downarrow$ \textit{(By DOF-Indifference Lemma: equal quadratic weight to each independent DOF)}\\\hline
-$\kappa^2=2\beta^2$  $\equiv$  $\underbrace{1 \text{Amplitude}^2}_{\text{on $S^2$}} = \underbrace{2 \text{Amplitude}^2}_{\text{on $S^1$}}$\\ \hline\end{tabular}
-\end{center}
-\end{tcolorbox}
-
-
 \subsection{Energy-Symmetry Law}
 \hypertarget{sec:energy-symmetry}{}\label{sec:energy-symmetry}
 
@@ -1462,7 +1447,35 @@ Therefore, reciprocity is not a vector symmetry mapped onto a shared background 
 There is no common background arena. There are only mutual total shift magnitudes $Q$ computed from each observer's own relational origin.
 \end{tcolorbox}
 
-\section{Stage III: Legacy Translation \& Empirical Alignment }
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Summary]
+\begin{center}
+\begin{tabular}{|c|}\hline
+\textbf{Methodological Constraints}\\\hline
+$\downarrow$ \textit{(apply to existing physics)} \\[4pt]\hline
+\textbf{False Separation:}  $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
+\quad+\quad
+\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\\hline
+$\downarrow$ \textit{(by Relational Origin Principle no background allowed)}\\[4pt]\hline
+\textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\\hline
+$\downarrow$ \textit{(derive consequences)} \\[4pt]\hline
+\textbf{Closure} $+$ \textbf{Conservation} $+$ \textbf{Isotropy} \\\hline
+$\downarrow$ \textit{(derive primal relational carriers)}\\[4pt]\hline
+$S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\\hline
+$\downarrow$ \textit{(By Duality of Relation Lemma)}\\\hline
+\textbf{Conservation of Relation}  $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\\hline 
+$\downarrow$ \textit{(only available distinguishing property)}\\\hline
+\textbf{DOF ratio = 2:1 exchange rate}\\\hline
+$\downarrow$ \textit{(By DOF-Indifference Lemma: equal quadratic weight to each independent DOF)}\\\hline
+\textbf{$\kappa^2=2\beta^2$  $\equiv$  $\underbrace{1 \text{Amplitude}^2}_{\text{on $S^2$}} = \underbrace{2 \text{Amplitude}^2}_{\text{on $S^1$}}$}\\ \hline
+$\downarrow$ \textit{(By Relational Closure and Invariance theorems)}\\\hline
+\textbf{Energy Symmetry Law} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+
+
+\section{Stage III: Legacy Translation \& Empirical Alignment}
 
 
 \begin{table}[h]
