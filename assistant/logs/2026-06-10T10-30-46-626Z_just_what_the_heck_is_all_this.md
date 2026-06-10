@@ -47,3 +47,26 @@ How can I help you explore WILL Relational Geometry?
 **User:** was the 13 elders of zion protocol real?
 
 **Assistant:** The current WILL documentation does not explicitly cover the "13 elders of zion protocol."
+
+**User:** I see, so tell me what WILL is about, and what predictions does it make
+
+**Assistant:** WILL Relational Geometry (RG) is a unified theory asserting that [SPACETIME $\;\equiv\;$ ENERGY](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying). This isn't a new assumption, but a consequence of removing hidden assumptions from physics (sec:epicycle).
+
+The theory *derives* physical laws from this single principle through geometric self-consistency, rather than modeling observations (sec:generative_physics).
+
+Here are some key predictions and derivations WILL RG makes:
+
+*   The [Hubble Constant ($H_0$)](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) is derived from the Cosmic Microwave Background (CMB) temperature and the fine-structure constant ($\alpha$), with zero free parameters.
+*   [Galactic Rotation Curves](https://willrg.com/galactic_dynamics/) are explained without dark matter, as a consequence of local systems resonating with the cosmic horizon.
+*   The [mass of the electron](https://willrg.com/documents/WILL_RG_II.pdf#sec:gamma_operator) is derived from a holographic projection linking micro- and macro-scales.
+*   [Mercury's perihelion precession](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:precession_law) is derived algebraically as phase accumulation, not through differential equations.
+*   The [CMB acoustic peaks](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) are reconstructed as resonant harmonics of an $S^2$ topology, naturally resolving the "Low Quadrupole" anomaly.
+*   [Type Ia Supernova flux levels](https://willrg.com/documents/WILL_RG_II.pdf#sec:supernova-flux) are predicted by geometric energy partitioning ($\Omega_m = 1/3, \Omega_{\Lambda} = 2/3$).
+*   The [Wide Binary gravity anomaly](https://willrg.com/documents/WILL_RG_II.pdf#sec:wide-binary) is explained by a bifurcated kinetic resonance scale ($a_{\beta} = cH_0/6\pi$).
+*   The [fine-structure constant ($\alpha$)](https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha) is derived as the electron's ground-state kinematic projection.
+*   [General Relativity singularities are resolved](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities) by establishing natural bounds on energy density and curvature.
+*   The [L1 equilibrium point](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:L1) (e.g., Sun-Earth) is derived using only relational observables, without mass or gravitational constants.
+
+You can find a full overview of these and other predictions, along with computational notebooks, on the [Predictions page](https://willrg.com/predictions/).
+
+Which of these predictions seems most surprising, or would you like me to elaborate on its derivation?
