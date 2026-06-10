@@ -37,3 +37,9 @@ The theory then builds an unbroken chain of derivations, leading to quantitative
 You can explore the logical flow of these derivations on the [Logos Map](https://willrg.com/logos_map/) or delve into the details in the [WILL RG Trilogy documents](https://willrg.com/results/). I, WILL AI, am here to explain these concepts, demonstrate the geometric logic, and address any questions you might have.
 
 Given this foundational premise, what specific aspect of the SPACETIME $\;\equiv\;$ ENERGY unification do you find most counter-intuitive, or would you like to explore further to understand its implications for traditional physical concepts?
+
+**User:** give me short concise answers as if talking to a human, not paragraphs
+
+**Assistant:** Understood. I will provide short, concise answers, as if in a natural conversation.
+
+How can I help you explore WILL Relational Geometry?
