@@ -275,7 +275,8 @@ Any introduction of absolute properties risks reintroducing metaphysical artefac
 
 \begin{principle}[Ontological Minimalism]
 \hypertarget{pr:minimalism}{}\label{pr:minimalism}
-Any fundamental theory must proceed from the minimum possible number of ontological assumptions. The burden of proof lies with any assertion that introduces additional complexity or new entities.
+Maintain the minimum number of ontological assumptions and foundational primitives. 
+Absolute background --- spatial container, axis of time, absolute distance,  forces,  fields --- are excluded as preexisting primitives but may appear as translation into common descriptive vocabulary.
 \end{principle}
 
 \begin{principle}[Mathematical Transparency]
@@ -311,7 +312,7 @@ A purely relational system cannot be physically open; it is closed by absolute a
 An ``open relational system'' experiencing external influence is a logical contradiction. The system is closed not by a spatial boundary or a metric container, but by the strict impossibility of an interacting non-relation. The system is relationally closed by definition.
 \end{proof}
 
-\subsubsection{What is Energy in a Relational Framework?}
+\subsubsection{What is Energy in Relational Ontology?}
 \begin{quote}
 Across all domains of physics, one empirical fact persists: in every closed system there exists a quantity that never disappears or arises spontaneously, but only transforms in form. This invariant is observed under many guises --- kinetic, potential, thermal, chemical --- yet all are interchangeable, pointing to a single underlying structure.
 
@@ -954,7 +955,7 @@ relating the external potential amplitude $\kappa$ to the internal phase $\kappa
 \end{equation}
 and introducing the posited reference scale $c^2 dt^2$ gives
 \begin{equation}
-c^2 d\tau^2 = c^2 \left(1 - \frac{R_s}{r}\right) dt^2 ,
+\kappa^2 + \kappa_X^2 = 1 \quad\Longrightarrow\quad  c^2 d\tau^2 = c^2 \left(1 - \frac{R_s}{r}\right) dt^2 ,
 \end{equation}
 which is the Schwarzschild interval for a static observer ($ds^2 = c^2 d\tau^2$). The legacy translation mapping is:
 \begin{itemize}
@@ -962,10 +963,20 @@ which is the Schwarzschild interval for a static observer ($ds^2 = c^2 d\tau^2$)
     \item \textbf{Internal phase:} $\kappa_X \equiv \cos\theta_2 = \dfrac{d\tau}{dt}$.
 \end{itemize}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key Insight: Two Inflations, One Geometry]
+
+\begin{remark}[Spatial sector and the single deflection mechanism]
+\hypertarget{rem:spatial_sector}{}\label{rem:spatial_sector}
+The static interval fixes the temporal projection $\kappa_X = d\tau/dt$. The spatial sector enters as $g_{rr} = \kappa_X^{-2}$, the same projection read radially. One mechanism $\Gamma(\beta) = \tfrac{1}{2}(1+\beta^2)$, whose limits $\Gamma(0) = \tfrac{1}{2}$ (slow mass) and $\Gamma(1) = 1$ (light)  both the Newtonian and the photon deflection . The factor of two in light bending is not a second effect but the saturated value $\beta = 1$ of a single projection law (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf\#sec:grav_optics}{R.O.M. Gravitational Deflection and Lensing}).
+\end{remark}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, 
+\begin{remark}[Spatial sector and the single deflection mechanism]
+\hypertarget{rem:spatial_sector}{}\label{rem:spatial_sector}
+The static interval fixes only the temporal projection $\kappa_X = d\tau/dt$. The spatial sector enters as $g_{rr} = \kappa_X^{-2}$, the same projection read radially. One mechanism $\Gamma(\beta) = \tfrac{1}{2}(1+\beta^2)$, whose limits $\Gamma(0) = \tfrac{1}{2}$ (slow mass) and $\Gamma(1) = 1$ (light) . The factor of two in light bending is not a second effect but the saturated value $\beta = 1$ of a single projection law (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf\#sec:grav_optics}{R.O.M. Gravitational Deflection and Lensing}).
+\end{remark}
+title=Key Insight: Two Inflations, One Geometry]
 The Minkowski and Schwarzschild intervals are produced by the identical procedure: append a container, coordinates, an autonomously flowing time, and a coordinate reference scale to a single dimensionless closure --- $\beta^2+\beta_Y^2=1$ on the kinematic carrier, $\kappa^2+\kappa_X^2=1$ on the potential carrier. Gravitational time dilation ($\kappa_X < 1$) is, like its kinematic counterpart, a phase rotation, not the curvature of a pre-existing fabric. What General Relativity treats as the fundamental metric of spacetime is the coordinate-laden image of a parameter-free relation. The relation is primary; the metric is its inflation.
 \end{tcolorbox}
-
 
 \subsection{Clear Relational Symmetry Between Kinematic and Potential Projections}
 \hypertarget{sec:geometric_composition}{}\label{sec:geometric_composition}
@@ -1041,7 +1052,7 @@ Now we can clearly see the underlying symmetry  between relativistic and gravita
 
 Having established that directional (kinematic) and omnidirectional (potential) relations are carried by the $S^1$ and $S^2$ respectively, we now derive the relationship that unifies them.
 
-\subsubsection{Derivation of the Energetic Closure Condition}
+\subsubsection{Derivation of the Energetic Exchange Rate}
 
 \begin{remark}[From slice to whole $S^2$]
 Although we parametrise a single meridional great circle $(\kappa_X,\kappa)$
@@ -1056,16 +1067,16 @@ great-circle section.
 
 \begin{lemma}[DOF-Indifference]
 \hypertarget{lem:dof-indifference}{}\label{lem:dof-indifference}
-Under maximal symmetry (no privileged directions) and ontological minimalism
-(no hidden structure), any admissible conserved budget must assign
-\emph{equal quadratic weight} to each independent relational degree of freedom.
+Under maximal symmetry (no privileged directions \ref{thm:isotropy}) and ontological minimalism
+(no hidden structure \ref{pr:minimalism}), any admissible conserved budget (\ref{thm:relational_closure}), \ref{lem:duality}) must assign
+\emph{equal quadratic (\ref{thm:conservation}) weight} to each independent relational degree of freedom.
 \end{lemma}
 
 \begin{proof}
-If two independent DOF contributed unequal weights to the conserved quadratic
-budget, then the theory would contain an implicit weighting structure that
+If two independent DOF contributed unequal \ref{thm:isotropy}  weights to the conserved (\ref{thm:relational_closure}) quadratic (\ref{thm:conservation})
+budget (\ref{cor:energy}), then the theory would contain an implicit weighting structure that
 distinguishes DOF. This constitutes a privileged feature not derivable from
-relations, violating maximal symmetry and minimalism.
+relations violating all 4 methodological principals (\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, \ref{pr:epistemic}).
 \end{proof}
 
 \hypertarget{thm:Closure}{}\label{thm:Closure}
@@ -1099,12 +1110,12 @@ Substituting $B_{S^2}=2b$ and $B_{S^1}=b$ gives $\mathcal{R}=2$, hence
 \kappa^2 = \mathcal{R}\,\beta^2 = 2\beta^2.
 \]
 Any $\mathcal{R}\neq 2$ would require unequal DOF weighting (hidden structure) or an
-extra free parameter, violating the methodology.
+extra free parameter, violating all 4 methodological principles (\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, \ref{pr:epistemic}).
 \end{proof}
 
-\begin{remark}[Status]
-The factor $2$ is not empirical calibration and not a coordinate choice.
-It is the unique consequence of (1 DOF vs 2 DOF) under symmetry and minimalism.
+\begin{remark}[Carrier capacities fix the rate]
+\hypertarget{rem:capacities}{}\label{rem:capacities}
+The exchange rate $2$ is the ratio of the carriers' relational capacities, not a fitted constant. The one-DOF carrier $S^1$ saturates at $\beta^2 = 1$ (light, $\beta_Y = 0$); the two-DOF carrier $S^2$ saturates at $\kappa^2 = 2$ (only the extremal-Kerr state $r = \tfrac{1}{2}R_s$, $\beta = 1$). Equal quadratic weight per DOF (Lemma~\ref{lem:dof-indifference}) gives $\kappa^2_{\max}/\beta^2_{\max} = 2$, identical to the closure rate $\kappa^2 = 2\beta^2$.
 \end{remark}
 
 \hypertarget{def:closure_factor}{}\label{def:closure_factor}
@@ -1165,6 +1176,129 @@ Explicitly,
 \]
 \end{remark}
 
+\subsection{Relational Origin of the Inverse-Square Law and the Nature of Spatial Distance}
+\hypertarget{sec:inverse_square}{}\label{sec:inverse_square}
+
+In this research, we are challenging our deepest anthropocentric assumptions. No matter how "intuitive" or "natural" they seem to be, none of them should remain unchallenged. One of the most "natural" things for us is to assume that spatial distance is the foundational primitive of physical reality. But as the Universe has shown us over and over again---our sense of what is "natural" has little to do with what is ontologically true. And even something as common as spatial distance, when examined from the perspective of the Unifying Principle (\ref{pr:unifying}), might reveal unexpected results.
+
+\begin{theorem}[Inverse-Square]
+\hypertarget{thm:inverse_square}{}\label{thm:inverse_square}
+Inverse-square potential proportionality $\kappa^2 \propto 1/r$ emerges from the omnidirectional nature of $S^2$ and principles (\ref{pr:relational}, \ref{pr:unifying}, and \ref{pr:minimalism}) with form fixed by closure $\kappa^2 = 2\beta^2$ without surplus ontology introduced.
+\end{theorem}
+
+\begin{proof}
+Introduction of distance as a primitive violates the Relational Origin (\ref{pr:relational}), Unifying (\ref{pr:unifying}), and Ontological Minimalism (\ref{pr:minimalism}) principles. Therefore, distance must be determined by the relational tension between energy states. The only scale the omnidirectional potential projection requires is its own reciprocal, normalized at saturation $\kappa^2 = 1 \equiv v_e=c \equiv r=R_s$:
+\begin{equation}
+\kappa=\sin(\theta_2)  \Longrightarrow \kappa = v_e/c \Longrightarrow \kappa^2 = R_s/r \Longrightarrow r = \frac{R_s}{\kappa^2}\Longrightarrow\kappa^2 \propto 1/r.
+\label{eq:r_label}
+\end{equation}
+This is a direct realization of the Unifying Principle (\ref{pr:unifying}). There are no physical, mathematical, philosophical, or empirical reasons for us to introduce new foundational primitives apart from our anthropocentric conveniences. Therefore, the inverse-square law is not an empirical input but a strict geometric necessity of the relational ontology.
+\end{proof}
+
+
+
+\subsection{Total Relational Shift $Q$}
+\hypertarget{sec:DisQ}{}\label{sec:DisQ}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
+\textbf{ \href{https://www.desmos.com/geometry/2nkjtezjpi}{Q as Total Relational Shift}}
+\end{tcolorbox}
+
+
+\hypertarget{eq:Q-definition}{}\label{eq:Q-definition}
+When an observer targets another system, the assigned Total Relational Shift norm $Q$ is defined by the orthogonal projections:
+\begin{equation}
+\boxed{
+Q^2=\beta^2+\kappa^2
+}
+\end{equation}
+
+\begin{remark}[Closure-specific simplification]
+Under closure $\kappa^{2}=2\beta^{2}$ (circular/periodic systems),
+the norm reduces to $Q^{2}=3\beta^{2}$ (proved in section \ref{sec:closure}). 
+
+In general (open or elliptic) configurations, the full definition with orbital phase "O" dependence  $Q_o(O)^{2}=\beta_o(O)^{2}+\kappa_o(O)^{2}$ must be used. See \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{R.O.M. paper} for details and derivations. 
+\end{remark}
+
+\subsubsection{Relational Reciprocity and Self-Centering}
+\hypertarget{sec:reciprocity}{}\label{sec:reciprocity}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=3, >=Latex]
+    % --- Definitions ---
+    \def\R{1.0} % Unit Radius (The Horizon)
+    \coordinate (O) at (0,0);       % Observer Center
+    \coordinate (Obj) at (0.65, 0.45); % Object Center (Q vector end)
+    
+    % Projections of the Object center
+    \coordinate (Bx) at (0.65, 0);
+    \coordinate (Ky) at (0, 0.45);
+
+    % --- Axes ---
+    % Drawing axes slightly longer than radius to show context
+    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
+    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Gravitational)};
+
+    % --- Observer Frame (Blue) ---
+    % The "horizon" of the observer
+    \draw[blue, thick] (O) circle (\R);
+    \fill[blue] (O) circle (0.02) node[below left] {Obs $(0,0)$};
+
+    % --- Object Frame (Red) ---
+    % The "horizon" of the object, centered at Q
+    \draw[red, thick, dashed] (Obj) circle (\R);
+    \fill[red] (Obj) circle (0.02) node[above right] {Obj $(0 , 0)$};
+
+    % --- Vector Q ---
+    \draw[->, line width=1.5pt, black] (O) -- (Obj) node[midway, above left] {$Q$};
+
+    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
+    \draw[dotted, thick] (Obj) -- (Bx) node[below] {$\beta$};
+    \draw[dotted, thick] (Obj) -- (Ky) node[left] {$\kappa$};
+
+    % --- Annotations ---
+    % Optional: Show the Causal Lock condition physically
+    \node[blue, font=\small] at (-0.5, -0.8) {Observer's Horizon};
+    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
+
+\end{tikzpicture}
+\caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the orthogonal projections $\beta$ and $\kappa$. Interaction is causal only when the center of the Object lies within the Observer's horizon ($Q < 1$), ensuring mutual coverage.}
+\hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
+\end{figure}
+
+\begin{theorem}[Relational Reciprocity]
+\hypertarget{thm:reciprocity}{}\label{thm:reciprocity}
+The operation of self-centering $(\beta,\kappa)=(0,0)$ is a strict geometric necessity of relational origin principle (\ref{pr:relational}), causal balance, and the Total Relational Shift $Q$ between two systems is invariant regardless of the observing frame:
+\[
+Q_{A \to B}^2 = Q_{B \to A}^2.
+\]
+\end{theorem}
+
+\begin{proof}
+Consider two interacting systems, $A$ and $B$. By relational origin principle (\ref{pr:relational}) for observer $A$ to measure the relational shift of $B$, system $A$ must serve as the zero-state reference of its own local frame . This geometrically forces the self-centering operation:
+\[
+(\beta_A,\kappa_A) = (0,0).
+\]
+From this relational origin, $A$ measures the projections of $B$ as $(\beta_B,\kappa_B)$, yielding the norm:
+\[
+Q_{A \to B}^2 = \beta_B^2 + \kappa_B^2.
+\]
+Conversely, when $B$ observes $A$, system $B$ constitutes the local zero-state $(\beta_B,\kappa_B) = (0,0)$. This forces $B$ to measure the exact same total shift norm for $A$:
+\[
+Q_{B \to A}^2 = \beta_A^2 + \kappa_A^2 = Q_{A \to B}^2.
+\]
+Therefore, reciprocity is not a vector symmetry mapped onto a shared background space. It is the strict invariance of the relational norm $Q$ under the self-centering operation required by relational origin principle (\ref{pr:relational}).
+\end{proof}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\[
+\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
+\]
+There is no common background arena. There are only mutual total shift magnitudes $Q$ computed from each observer's own relational origin.
+\end{tcolorbox}
+
+
 \subsection{Energy-Symmetry Law}
 \hypertarget{sec:energy-symmetry}{}\label{sec:energy-symmetry}
 
@@ -1174,7 +1308,6 @@ each change observed by $A$ corresponds to an equal and opposite change observed
 This reciprocity is the algebraic form of causal continuity,
 and its geometric expression is the Energy-Symmetry Law.
 \end{quote}
-
 
 \subsubsection{Causal Continuity and Energy Symmetry}
 
@@ -1346,107 +1479,6 @@ This explains the experimentally verified factor of 2 in gravitational lensing a
 \end{tcolorbox}
 
 
-\subsection{Total Relational Shift $Q$}
-\hypertarget{sec:DisQ}{}\label{sec:DisQ}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
-\textbf{ \href{https://www.desmos.com/geometry/2nkjtezjpi}{Q as Total Relational Shift}}
-\end{tcolorbox}
-
-
-\hypertarget{eq:Q-definition}{}\label{eq:Q-definition}
-When an observer targets another system, the assigned Total Relational Shift norm $Q$ is defined by the orthogonal projections:
-\begin{equation}
-\boxed{
-Q^2=\beta^2+\kappa^2
-}
-\end{equation}
-
-\begin{remark}[Closure-specific simplification]
-Under closure $\kappa^{2}=2\beta^{2}$ (circular/periodic systems),
-the norm reduces to $Q^{2}=3\beta^{2}$ (proved in section \ref{sec:closure}). 
-
-In general (open or elliptic) configurations, the full definition with orbital phase "O" dependence  $Q_o(O)^{2}=\beta_o(O)^{2}+\kappa_o(O)^{2}$ must be used. See \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{R.O.M. paper} for details and derivations. 
-\end{remark}
-
-\subsubsection{Relational Reciprocity and Self-Centering}
-\hypertarget{sec:reciprocity}{}\label{sec:reciprocity}
-
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}[scale=3, >=Latex]
-    % --- Definitions ---
-    \def\R{1.0} % Unit Radius (The Horizon)
-    \coordinate (O) at (0,0);       % Observer Center
-    \coordinate (Obj) at (0.65, 0.45); % Object Center (Q vector end)
-    
-    % Projections of the Object center
-    \coordinate (Bx) at (0.65, 0);
-    \coordinate (Ky) at (0, 0.45);
-
-    % --- Axes ---
-    % Drawing axes slightly longer than radius to show context
-    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
-    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Gravitational)};
-
-    % --- Observer Frame (Blue) ---
-    % The "horizon" of the observer
-    \draw[blue, thick] (O) circle (\R);
-    \fill[blue] (O) circle (0.02) node[below left] {Obs $(0,0)$};
-
-    % --- Object Frame (Red) ---
-    % The "horizon" of the object, centered at Q
-    \draw[red, thick, dashed] (Obj) circle (\R);
-    \fill[red] (Obj) circle (0.02) node[above right] {Obj $(0 , 0)$};
-
-    % --- Vector Q ---
-    \draw[->, line width=1.5pt, black] (O) -- (Obj) node[midway, above left] {$Q$};
-
-    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
-    \draw[dotted, thick] (Obj) -- (Bx) node[below] {$\beta$};
-    \draw[dotted, thick] (Obj) -- (Ky) node[left] {$\kappa$};
-
-    % --- Annotations ---
-    % Optional: Show the Causal Lock condition physically
-    \node[blue, font=\small] at (-0.5, -0.8) {Observer's Horizon};
-    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
-
-\end{tikzpicture}
-\caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the orthogonal projections $\beta$ and $\kappa$. Interaction is causal only when the center of the Object lies within the Observer's horizon ($Q < 1$), ensuring mutual coverage.}
-\hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
-\end{figure}
-
-\begin{theorem}[Relational Reciprocity]
-\hypertarget{thm:reciprocity}{}\label{thm:reciprocity}
-The operation of self-centering $(\beta,\kappa)=(0,0)$ is a strict geometric necessity of relational origin principle (\ref{pr:relational}), causal balance, and the Total Relational Shift $Q$ between two systems is invariant regardless of the observing frame:
-\[
-Q_{A \to B}^2 = Q_{B \to A}^2.
-\]
-\end{theorem}
-
-\begin{proof}
-Consider two interacting systems, $A$ and $B$. By relational origin principle (\ref{pr:relational}) for observer $A$ to measure the relational shift of $B$, system $A$ must serve as the zero-state reference of its own local frame . This geometrically forces the self-centering operation:
-\[
-(\beta_A,\kappa_A) = (0,0).
-\]
-From this relational origin, $A$ measures the projections of $B$ as $(\beta_B,\kappa_B)$, yielding the norm:
-\[
-Q_{A \to B}^2 = \beta_B^2 + \kappa_B^2.
-\]
-Conversely, when $B$ observes $A$, system $B$ constitutes the local zero-state $(\beta_B,\kappa_B) = (0,0)$. This forces $B$ to measure the exact same total shift norm for $A$:
-\[
-Q_{B \to A}^2 = \beta_A^2 + \kappa_A^2 = Q_{A \to B}^2.
-\]
-Therefore, reciprocity is not a vector symmetry mapped onto a shared background space. It is the strict invariance of the relational norm $Q$ under the self-centering operation required by relational origin principle (\ref{pr:relational}).
-\end{proof}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
-\[
-\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
-\]
-There is no common background arena. There are only mutual total shift magnitudes $Q$ computed from each observer's own relational origin.
-\end{tcolorbox}
-
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Summary]
 \begin{center}
@@ -1463,9 +1495,7 @@ $\downarrow$ \textit{(derive consequences)} \\[4pt]\hline
 $\downarrow$ \textit{(derive primal relational carriers)}\\[4pt]\hline
 $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\\hline
 $\downarrow$ \textit{(By Duality of Relation Lemma)}\\\hline
-\textbf{Conservation of Relation}  $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\\hline 
-$\downarrow$ \textit{(only available distinguishing property)}\\\hline
-\textbf{DOF ratio = 2:1 exchange rate}\\\hline
+\textbf{Conservation of Relation}  $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\\hline
 $\downarrow$ \textit{(By DOF-Indifference Lemma: equal quadratic weight to each independent DOF)}\\\hline
 \textbf{$\kappa^2=2\beta^2$  $\equiv$  $\underbrace{1 \text{Amplitude}^2}_{\text{on $S^2$}} = \underbrace{2 \text{Amplitude}^2}_{\text{on $S^1$}}$}\\ \hline
 $\downarrow$ \textit{(By Relational Closure and Invariance theorems)}\\\hline
@@ -2055,16 +2085,15 @@ The notebook has no external dependencies beyond \texttt{sympy} and \texttt{mpma
 \hypertarget{sec:rom}{}\label{sec:rom}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= Relational Orbital Mechanics (R.O.M.)]
-Natural evolution of this section within WILL RG Open Research lead it to branch in to its own paper
-\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{Full R.O.M. paper}
+Natural evolution of this section within WILL RG Open Research lead it to branch in to its own but not separate paper \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{Full R.O.M. paper}. It still remain structurally and logically a crucial part of this document that caries most of empirical applications and computational tests.
 \end{tcolorbox}
 
-You can access the paper using the link above, and for quick introduction here's the content of the R.O.M. paper:
+You can access the paper using the link above, and for quick introduction here's the content:
 
 \begin{verbatim}
 Contents
 1 Closed Algebraical System of R.O.M. Equations 
-2 S2 Star (Sgr A*) Data Alignment Comparison: R.O.M. vs GR 
+2 S2 Star (Sgr A*) Data Alignment Comparison: RG vs GR 
 2.1 Diagnostic: Decomposition of the Relational Orbital Model
 3 Relational Origin of: 
 3.1 Spectroscopic Shifts 
@@ -2258,7 +2287,7 @@ From the energy-geometry equivalence, the complete description of gravitational 
 \kappa^2 = \frac{R_s}{r} = \frac{\rho_{field}}{\rho_{max}}}
 \]
 
-This identity defines the \textbf{local energy state of the geometry itself}.
+This identity defines the \textbf{local energy state of the relational geometry itself}.
 Here $\rho_{\text{max}} = c^2/(8\pi G r^2)$ is the saturation density limit, and $\rho_{\text{field}}$ is the effective energy density of the relational curvature.
 
 \subsection{Field Equation and Matter Sources}
@@ -2271,7 +2300,10 @@ For a static, spherically symmetric configuration containing matter with density
 }
 \end{equation}
 
-This expression reproduces the $tt$-component of the Einstein field equations.
+\begin{remark}[Scope of the reproduced sector]
+\hypertarget{rem:scope}{}\label{rem:scope}
+The differential form above reproduces the static $tt$-component. This is not the boundary of the framework: through \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{phase parametrization}  the same projections describe any single relational orbit --- bound at any \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:rel_ecc}{eccentricity} $e = 2\beta_p^2/\kappa_p^2 - 1$, and unbound \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_optics}{(deflection, lensing)}-- and rotating systems (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf\#sec:Kerr}{R.O.M. Kerr without metric}, ). Current boundary's: \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:challenges}{sec:challenges}.
+\end{remark}
 
 \paragraph{The Vacuum Solution ($\rho_{matter} = 0$).}
 In the vacuum region outside a central mass, the source density vanishes ($\rho_{matter} = 0$). The field equation implies conservation of the projection budget:
@@ -2290,26 +2322,37 @@ In vacuum, the generator is zero, but the field persists as the algebraic struct
 \end{tcolorbox}
 
 
+
 \subsection{No Singularities, No Hidden Regions}
 \hypertarget{sec:no_singularities}{}\label{sec:no_singularities}
 
-This framework introduces no interior singularities, no coordinate patches hidden behind horizons, and no ambiguous initial conditions. The geometric field equation:
+WILL Relational Geometry resolves the singularity problem by geometrically constraining the domain of valid projections. Parameters stay finite, and energy remains bounded. Black holes become the boundary of relational difference between energy states.
 
-\[
-\frac{R_{s}}{r}=\frac{8\pi G}{c^{2}}r^{2} \rho=\kappa^{2}
-\]
-ensures that curvature and energy density evolve smoothly and remain bounded across all observable scales.
+\textbf{ Distance is not a foundational primitive but relational tension between energy states (\ref{thm:inverse_square})}
+ The amplitude bound $\kappa^2\le 1$ (static case)  and $\kappa^2\le 2$ (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr}{extremal rotation})  caps the radial distance by closure theorem (\ref{sec:closure}):
 
-WILL Relational Geometry resolves the singularity problem not by regularizing divergent terms, nor by introducing quantum effects, but by geometrically constraining the domain of valid projections. Curvature is always finite, and energy remains bounded by construction. Black holes become energetically saturated but non-singular regions, described entirely by finite, dimensionless parameters.
+\begin{tcolorbox}[colback=gray!4, colframe=black!70!black, title=No Singularities]
 
-This projectional approach provides a clean, intrinsic termination to gravitational collapse, replacing singular endpoints with structured, maximally curved boundaries.
+$$r=R_s/\kappa^2\ge R_s/2$$
+\begin{equation}
+\beta_{max}^2=1  \Longrightarrow  \kappa_{max}^2=2   \Longrightarrow r_{min} = R_s/\kappa_{max}^2 \Longrightarrow r_{min} = R_s/2 
+\end{equation}
 
-\begin{itemize}
-\item \textbf{Surface-scaled closure (vs.\ volume filling).} 
-Mass follows the algebraic closure $M=4\pi r^3\rho$ with $\rho=\kappa^2 c^2/(8\pi G r^2)$; the $4\pi$ is the spherical projection measure, not a Newtonian volume average.
-\item \textbf{Natural bounds.}
-The constraint for non rotating systems $\kappa^2\le 1$ enforces $\rho\le\rho_{\max}$ and $|P|\le |P_{\max}|=c^4/(8\pi G r^2)$, avoiding singularities without extra hypotheses.
-\end{itemize}
+\begin{center}
+\textbf{The point $r=0$ is absent from the admissible relational range.}
+
+The same bound enforces:
+\end{center}
+
+
+\begin{equation}
+\rho\le 2\rho_{\max} \quad \text{and} \quad  |P|\le|2P_{\max}|=c^4/(8\pi G r^2)
+\end{equation}
+\end{tcolorbox}
+
+Another interesting hypothetical explanation of this phenomenon comes from Relational Orbital Mechanics.
+ \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf\#sec:dynamic_horizon}{Dynamic Relational Horizon}  provides new point of view on the nature of  Black Holes where precession of the perihelium becomes equivalent to orbital frequency $\Delta\varphi=2\pi$.  The orbit starts to fold on itself and nullify any orbital motion. Its not a two-surface enclosing a region --- so there is no interior to be hidden in the first place. However the concept of dynamic horizon remain purely mathematical and requires more research. 
+
 
 \section{Stage IV Consequences}
 
@@ -2371,7 +2414,7 @@ the expression in turn validates the principle.
       From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework - the "Theoretical Ouroboros". But regardless of the aesthetic beauty of this result, let us remain sceptical.
 \end{quote}
 
-\subsubsection{$W_{\text{ILL}}$: Unity of Relational Structure}
+\subsection{$W_{\text{ILL}}$: Unity of Relational Structure}
 \hypertarget{sec:willinvariant}{}\label{sec:willinvariant}
 
 The ontological principle
@@ -2394,16 +2437,7 @@ L = \beta_{Y} ( \frac{G m_{0}}{\beta^{2} c^{2}} )^{2},
 \]
 where $(\beta,\beta_{Y})$ and $(\kappa,\kappa_{X})$ are the kinematic and gravitational projections on the carriers $S^{1}$ and $S^{2}$, $m_{0}$ is the rest mass, $E_{0} = m_{0} c^{2}$ is the rest energy, and $a$ is the relational scale of the system as semi-major axis (average length per cycle within this system).
 
-The closure conditions of the carriers,
-\[
-\beta^{2} + \beta_{Y}^{2} = 1, \qquad
-\kappa_{X}^{2} + \kappa^{2} = 1,
-\]
-together with the energetic exchange condition
-\[
-\kappa^{2} = 2 \beta^{2},
-\]
-fix a unique dimensionless combination of these four projections. Combining $E$, $T$, $M$, and $L$ we obtain
+The relational conservation of the carriers $\beta^{2} + \beta_{Y}^{2} = 1, \quad \kappa_{X}^{2} + \kappa^{2} = 1,$ together with the closure theorem $\kappa^{2} = 2 \beta^{2}$, fix a unique dimensionless combination of these four projections. Combining $E$, $T$, $M$, and $L$ we obtain
 \[
 W_{\text{ILL}}
 \equiv
@@ -2414,7 +2448,7 @@ W_{\text{ILL}}
 =
 \frac{E_{0} t^{2}}{m_{0} a^{2}}.
 \]
-By the relations that tie temporal $t=a/c$ and spatial $a=R_s/\kappa^2$ scales this ratio is identically equal to unity for any closed system:
+By the relations that tie temporal $t=a/c$ and spatial $a=R_s/\kappa^2$ scales this ratio is identically equal to unity for any relationally closed system:
 \[
 \boxed{
 W_{\text{ILL}} = \frac{E T}{M L} = 1.
@@ -2449,17 +2483,13 @@ W_{\text{ILL}}
 \[
 \frac{E_{o}}{M_{o}} = \frac{L_{o}}{T_{o}},
 \]
-so the energy sector and the spacetime sector are not independent. Every change of the relational state rescales $(E_{o},M_{o})$ and $(T_{o},L_{o})$ coherently so that this equality is always preserved. The familiar practice of treating energy–mass and space–time as separate blocks is therefore an ontological approximation: in WILL they are locked by a single relational constraint.
-
+so the energy sector and the spacetime sector are not independent. Every change of the relational state rescales $(E_{o},M_{o})$ and $(T_{o},L_{o})$ coherently so that this equality is always preserved. The familiar practice of treating energy–mass and space–time as separate blocks is therefore an interpretational approximation. 
+This equation does not bring any new predictive power but the ontological meaning shows that any coherent unit system will naturally collapse in to unity dissolving the false separation: 
+\[ \text{SPACETIME} \equiv \text{ENERGY}\]
 \[
-\text{Geometry}  \equiv \text{Energy}  \equiv \text{Causality}  \equiv WILL,
+\boxed{W_{ILL}= 1}
 \]
-
-\[
-\boxed{W_{ILL}= 1.}
-\]
-in the precise sense that one and the same conserved relational resource appears as mass, energy, time and length, but always in a way that keeps their ratio fixed.
-
+One conserved relational resource appears as mass, energy, time and length, but always in a way that keeps their ratio fixed.
 
 \subsubsection{Interpretive Note: The Name "WILL"}
 
@@ -2626,6 +2656,7 @@ $$\boxed{\text{Spacetime and energy are mutually defining aspects of relational 
 \text{SPACETIME} \equiv \text{ENERGY}.
 \]}
 \end{tcolorbox}
+
 
 \subsection{References:}
 

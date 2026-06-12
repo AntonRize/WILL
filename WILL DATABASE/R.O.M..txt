@@ -378,7 +378,7 @@ $\Omega_{\phi}=\frac{\tau_{Y}^{2}}{1-e^{2}}=\frac{3\beta^{2}-2\beta^{4}}{1-e^{2}
 $\Omega=1-\Omega_{\phi}=\frac{O}{o}$  (constant ratio between idealised phase o and true precessing  phase O) \\
 $h_{W}=r_{o}(O)\beta_{T}(O)c=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}=R_s c \frac{\sqrt{1-e^2}}{2\beta}$ ( invariant angular momentum) \\
 $\omega=\frac{\beta c}{a}=\frac{c}{R_{s}}2\beta^{3}$ (angular frequency) \\
-$T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{\pi R_{s}}{c\beta^{3}}=\frac{\Delta_{to}}{\zeta_o}2\pi$ (orbital period) \\
+$T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{\pi R_{s}}{\beta^{3}c}=\frac{2\pi\sqrt{2}R_{s}}{\kappa^{3}c}=\frac{2\pi \Delta_{to}}{\zeta_o}$ (orbital period) \\
 $\tau_D = T \sin(\theta_{sys})^{\frac{3}{2}}=\frac{2\pi R_{sur}}{\beta_{sur}c}=\sqrt{\frac{\pi}{G\rho}}$   (Time-density invariant where $R_{ser}$ and $\beta_{ser}$  determent by the distance from center to the surface of central body and $\theta_{sys}=$ angular radius) \\
 $\Delta\varphi = 2 \arcsin( \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2 - \kappa_p^2 (1 + \beta_p^2)} )$ (gravitational deflection)\\
 $\Delta\gamma = 2 \arcsin( \frac{\kappa_p^2}{\kappa_{Xp}^2} ) $ (light deflection)\\
@@ -484,177 +484,6 @@ $z_{depth} = r(O) \sin(O + \omega_i) \sin(i)$ \\
 \subsection*{Un-tilted 2D coordinates within the orbital plane}
 $x_{orb} = r(O) \cos(O+ \omega_i)$ \\
 $y_{orb} = r(O) \sin(O + \omega_i)$ \\
-
-
-\section{S2 Star (Sgr A*) Data Alignment Comparison: RG vs GR}
-\hypertarget{sec:S2test}{}\label{sec:S2test}
-
-Instead of starting from a long chain of derivations and building our way to empirical testing, we reverse this order to present the results first, followed by their methodological derivation.  
-\noindent
-We apply the Relational Orbital Mechanics (R.O.M.) to the 24-year astrometric and radial‑velocity dataset of the S2 star orbiting the Galactic Centre (Sgr~A*).  The dataset contains 174 raw observables (sky positions and line‑of‑sight velocities) and provides a sensitive test of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure theorem $\kappa^2=2\beta^2$} in a strong‑field regime.
-
-\subsection*{Methodology}
-
-In WILL RG the Keplerian orbital elements are supplemented by two relational features:
-\begin{itemize}
-    \item The secular pericentre advance per orbital cycle is not a free parameter but is \textbf{algebraically locked} to the velocity amplitude $\beta$ via the closure invariant:
-    \begin{equation}
-        f_{\rm prec} = \frac{3\beta^2 - 2\beta^4}{1-e^2},
-        \qquad \beta = \frac{K}{c\,\sin i}\sqrt{1-e^2}.
-        \label{eq:fprec}
-    \end{equation}
-\item The relativistic contribution to the radial velocity is determined by the internal phase structure:
-    \begin{equation}
-        Z_{\rm sys} = \frac{1}{\tau_o} = \frac{1}{\sqrt{1 - \kappa_o^2}\sqrt{1 - \beta_o^2}},
-    \end{equation}
-    where $\kappa_o^2 = R_s/r$ is the local potential projection and $\beta_o^2 = \kappa_o^2 - \beta^2$ is the local kinetic projection. The total raw spectroscopic shift incorporates the directional kinematic projection $\beta_z$ via linear phase superposition:
-    \begin{equation}
-        Z_{\rm raw} = (1 + \beta_z) Z_{\rm sys}.
-    \end{equation}
-\end{itemize}
-
-The Rømer (light‑travel time) delay is included as a single‑step correction.  The whole model contains \textbf{nine free parameters}: the angular semi‑major axis $a_{\rm as}$, eccentricity $e$, inclination $i$, argument of pericentre $\omega$, longitude of ascending node $\Omega$, orbital period $P$, epoch of pericentre passage $T_0$, systemic velocity $V_0$, and the radial‑velocity semi‑amplitude $K$.
-
-For a fair comparison, we construct a General Relativity 1PN model with the \textbf{same nine parameters}.  The pericentre advance is fixed by the standard 1PN formula
-\begin{equation}
-    \Delta\omega_{\rm 1PN} = \frac{6\pi GM}{c^2 a(1-e^2)},
-\end{equation}
-which, once expressed through the Keplerian observables $K,P,e,i$, becomes a deterministic function of the fitted parameters with no additional degrees of freedom.  The relativistic redshift in the GR model consists of the gravitational and transverse‑Doppler terms.  The Rømer delay is implemented identically in both models.  The input data, error model, and optimisation algorithm are exactly the same for both fits.
-
-\subsection*{System scale without $G$}
-In the WILL framework the Schwarzschild radius $R_s$ is not obtained from a separately measured mass and Newton’s constant, but is derived directly from the orbital period and the relational phase $\beta$:
-\begin{equation}
-    R_s = \frac{T\,c\,\beta^3}{\pi}, \qquad
-    a   = \frac{R_s}{2\beta^2}.
-\end{equation}
-Thus the entire physical scale of the system follows from dimensionless chronometric and spectroscopic ratios; $G$ and the central mass appear only as \emph{a posteriori} conversion factors to legacy units.
-
-\subsection*{Results}
-Table~\ref{tab:S2_comparison} summarises the best‑fit parameters and the fit quality for both models.  The WILL RG model achieves a $\chi^2$ of $727.20$, compared to $800.81$ for the GR 1PN model with the same number of free parameters.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|c|}
-\hline
-\textbf{Metric / Parameter} & \textbf{GR 1PN (9 par.)} & \textbf{WILL RG (9 par.)} \\ \hline
-Fit Quality ($\chi^2$) & 800.81 & 727.20 \\ \hline
-Relational Beta ($\beta$) & --- & 0.00642627 \\ \hline
-Eccentricity ($e$) & 0.887826 & 0.887171 \\ \hline
-Inclination $i$ (rad) & 2.3707 & 2.3771 \\ \hline
-Period $P$ (days) & 5862.60 & 5862.49 \\ \hline
-Derived $R_{s}$ (km) & --- & $1.2828\times10^{7}$ \\ \hline
-Derived Mass ($10^{6}\,M_{\odot}$) & 4.24 & 4.34 \\ \hline
-Derived Distance $R_{0}$ (pc) & 8275 & 8364 \\ \hline
-Free precession parameters & 0 & 0 \\ \hline
-Computation time (Google Colab) & $\sim$7 min & $\sim$3 sec \\ \hline
-\end{tabular}
-\caption{Comparison of the GR 1PN and WILL RG orbital solutions for S2. Both models have nine free parameters; the pericentre advance is fully determined by the fitted Keplerian elements in each case.}
-\label{tab:S2_comparison}
-\end{table}
-
-\noindent
-The improvement in $\chi^2$ ($\Delta\chi^2 = 73.6$) is achieved without any additional adjustable parameters.  The derived distance and central mass are consistent with recent independent measurements by the GRAVITY and Keck collaborations.
-
-\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Google Colab Notebook]
-\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROMvsGR_S2_study.ipynb}{ROM vs GR S2 study.ipynb}
-\end{tcolorbox}
-
-
-\subsection*{Discussion}
-The WILL RG model provides a statistically better description of the S2 data than the standard 1PN parametrisation with the same parameter count.  A detailed diagnostic decomposition (Section~\ref{sec:S2diagnostic}) reveals that the entire improvement is due to the phase‑coupled treatment of the pericentre advance ($\omega_{\rm shift} \propto \nu$), which replaces the usual time‑linear advance.  This parametrisation emerges naturally from the relational closure condition and is not an \emph{ad hoc} modification.
-
-The autonomous derivation of the system scale $R_s$ directly from the orbital period and the dimensionless $\beta$ illustrates that, for a purely gravitational two‑body problem, the separation into $G$ and $M$ is unnecessary; the phenomenology is fully encoded in the geometric length $R_s$.  This does not invalidate the use of $G$ and mass in other domains of physics, but it demonstrates that orbital dynamics can be formulated in a self‑contained, operationally minimal way.
-
-Viewed as a purely kinematic refinement, the WILL parametrisation can be adopted within any relativistic orbit‑fitting code without altering the underlying predictions of General Relativity.  The computational speed (roughly 140 times faster than numerical integration of geodesic equations) makes it particularly suitable for large surveys and real‑time monitoring.
-
-
-\subsection{Diagnostic: Decomposition of the Relational Orbital Model}
-\hypertarget{sec:S2diagnostic}{}\label{sec:S2diagnostic}
-
-In order to identify the precise origin of the substantial $\chi^2$ improvement of the WILL RG fit over the standard GR 1PN fit (727.2 versus 800.8 for the S2 star), we performed a modular decomposition of the orbital model.  The goal was to isolate which aspect of the relational framework – the precession law, the redshift formula, or the geometric parametrisation – is responsible for the better agreement with observations.
-
-\subsection*{Methodology}
-
-We constructed a series of controlled numerical experiments using exactly the same data set, error model, and optimisation procedure as in the main S2 analysis (Section~\ref{sec:S2test}).
-
-\begin{enumerate}
-    \item \textbf{Modular precession and redshift}: A generic model was built that can independently select
-    \begin{itemize}
-        \item the precession advance rule: GR 1PN, GR 2PN, or WILL relational ($\tau_Y^2/(1-e^2)$);
-        \item the relativistic redshift formula: GR 1PN (gravitational $+$ transverse Doppler) or WILL relational ($\frac{c}{2}(\kappa_o^2+\beta_o^2)$).
-    \end{itemize}
-    The number of free parameters remained nine in every combination, exactly as in the original fits.
-    \item \textbf{Discovery of the parametrisation mismatch}: All combinations that employed a standard \emph{time‑linear} advance of the argument of periapsis ($\omega(t) = \omega_0 + \dot\omega\,(t-T_0)$) gave $\chi^2 \approx 801$, regardless of whether the precession magnitude or the redshift were taken from GR or from WILL. Only the original WILL model, which uses a \emph{true‑anomaly‑dependent} precession phase, reached $\chi^2 = 727$.
-    \item \textbf{Hybrid model}: To test whether the improved fit stems from the WILL precession \emph{magnitude} or from the WILL \emph{method of phasing the precession}, we built a hybrid that retains the exact geometric machinery of the WILL orbital model – in particular the phase shift $\omega_{\rm shift} = f_{\rm prec}\,\nu$ applied inside the radial equation and the Rømer delay – but replaces the WILL closure value $f_{\rm prec}= \tau_Y^2/(1-e^2)$ with the GR 1PN equivalent $f_{\rm prec}=3\,(K/c)^2/\sin^2 i$.
-\end{enumerate}
-
-\subsection*{Key Result}
-
-The hybrid model achieved
-\[
-\chi^2_{\rm hybrid}=727.20,
-\]
-identical to the full WILL RG fit and significantly better than the standard GR 1PN fit ($\chi^2=800.81$).  The precession magnitudes are numerically almost indistinguishable for S2:
-\[
-f_{\rm prec}^{\rm WILL}=0.00058183,\qquad
-f_{\rm prec}^{\rm GR\,1PN}=0.00058185 .
-\]
-Thus the entire $\chi^2$ improvement is due to the parametrisation of the precession, not its magnitude.
-
-\subsection*{Interpretation: Phase‑coupled versus time‑linear precession}
-
-\paragraph{Standard GR implementation.}
-In conventional post‑Newtonian orbit fitting, the secular precession is modelled as a constant angular velocity:
-\[
-\omega(t) = \omega_0 + \dot\omega\,(t - T_0),
-\qquad \dot\omega = \frac{\Delta\omega_{\rm 1PN}}{P}.
-\]
-The true anomaly $\nu$ is computed from a Kepler equation that assumes the periapsis is fixed at the reference epoch $T_0$.  Over an eccentric orbit, the true anomaly advances non‑uniformly with time, so a constant $\dot\omega$ introduces a small but systematic phase error between the instantaneous orbital position and the intended precession state.
-
-\paragraph{WILL parametrisation.}
-The WILL RG model ties the precession directly to the accumulated true anomaly:
-\[
-\omega_{\rm shift} = f_{\rm prec}\,\nu .
-\]
-The instantaneous radius and the Rømer delay are evaluated with the shifted argument $(\nu - \omega_{\rm shift})$, which rigidly rotates the whole ellipse by an angle that is synchronised with the orbital motion.  No separate time‑linear advance of $\omega$ is imposed; the rotation is a function of the orbital phase itself.  This coupling ensures that the pericentre direction is always correctly positioned for the instantaneous true anomaly.
-
-\paragraph{Why the improvement is global.}
-Because the substitution $t \to \nu$ in the precession phase affects the entire timing model, the correction is not localised near pericentre.  It produces a slight but coherent shift of every predicted observables (astrometric positions and radial velocities) towards the measured values, exactly the uniform residual improvement observed in the  \href{https://willrg.com/MCMC_S2.html}{diagnostic plots}.  Over the 24-year data set containing 174 observables, this small systematic adjustment accumulates to the $\Delta\chi^2 \approx -74$ seen in the fit.
-
-\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Full MCMC Analysis]
-\href{https://willrg.com/MCMC_S2.html}{https://willrg.com/MCMC S2.html}
-\end{tcolorbox}
-
-\textbf{The MCMC transforms a single optimizer result into a statistical statement:}
-Across the full 9-dimensional parameter space, the $\nu$-coupled precession parametrization fits 174 S2 observables better by $\Delta \chi^2\approx74$ than the time-linear parametrization, with no additional free parameters. This analysis show that this is not a fluke of the starting point or optimization algorithm.
-
-\subsection*{Implications for Relational Geometry and for Standard Gravity}
-
-\begin{itemize}
-    \item \textbf{WILL RG is empirically preferred.}  The \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{relational closure condition $\kappa^2=2\beta^2$} naturally leads to the $\nu$‑dependent phase shift.  No additional postulates, no knowledge of mass or $G$, and no background spacetime metric are required. These results indicate that the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{relational projection‑closure} approach naturally leads to an empirically preferred orbital model without requiring additional degrees of freedom.
-
-    \item \textbf{Improved modeling tool.}  Even within the framework of General Relativity, replacing the constant $\dot\omega$ with a $\nu$‑proportional advance (while keeping the same 1PN secular magnitude) is a more faithful realisation of the relativistic orbit.  The present data strongly favour this re‑parametrisation.  Future high‑precision monitoring of S2 and similar stars should adopt this method to obtain unbiased estimates of the central mass and distance.
-
-    \item \textbf{Ontological parsimony.}  WILL RG derives the same empirical performance without invoking $G$, $M$, spacetime curvature, or tensor calculus.  It shows that all relevant observables can be extracted from the pure geometric closure of dimensionless projections ratios. It illustrate that for orbital dynamics the separation into G and M is unnecessary; the phenomenology is entirely encoded in the critical length ($R_s$). This does not rule out the necessity of G when connecting gravity to other domains of physics yet, but it clarifies the operational minimalism that Relational Geometry affords.
-\end{itemize}
-
-\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Summary of the Diagnostic Investigation]
-\begin{itemize}
-    \item The $\chi^2$ advantage of the WILL RG model is caused entirely by its \emph{phase‑coupled} treatment of precession ($\omega_{\rm shift} \propto \nu$), not by the specific value of the precession magnitude nor by the relational redshift alone.
-    \item The standard GR time‑linear implementation introduces a subtle but statistically significant systematic error in the modelled orbit.
-    \item The WILL Relational Geometry automatically yields the superior parametrisation because it derives all dynamics from internal relations, avoiding the artificial separation of space and time and energy that leads to a time‑linear approximation.
-\end{itemize}
-\end{tcolorbox}
-
-\subsection*{Conclusion}
-
-The modular analysis isolates the source of the improved fit to the \textsc{Will} RG framework's phase-coupled treatment of pericentre advance. When the same GR 1PN secular advance is applied with a true-anomaly-dependent phasing, the model achieves the same $\chi^{2}$ as the full \textsc{Will} fit, significantly better than the standard time-linear implementation.
-
-This indicates that the \textsc{Will}-derived parametrisation -- which follows directly from the closure of dimensionless relational projections -- offers a more accurate empirical description of the S2 system. The analysis further demonstrates that, within the orbital domain, the critical scale $R_{s}$ and all geometrical observables can be obtained without recourse to $G$ or a kilogram mass.
-
-These findings invite further investigation into Relational Geometry and its applications to the empirical structure of strong-field systems.
-
-
 
 
 \section{Relational Origin of:}
@@ -1818,21 +1647,215 @@ Applying the kinematic scaling identity $\frac{v}{M} = \frac{G}{r v}$:
 
 The Lense-Thirring effect emerges natively from the algebraic closure of the relational carriers, executed without invoking differential tensors or a curved pseudo-Riemannian manifold.
 
-\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=COLAB EMPIRICAL VERIFICATION]
+\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=COLAB Empirical Verification]
  This Chiral Asymmetry when tested against LAGEOS-1 Satellite (Earth orbit) shows perfect agreement with observations and GR predictions: \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/LAGEOS_I_Lense_Thirring.ipynb}{LAGEOS I Lense-Thirring.ipynb}
 \end{tcolorbox}
 
 \subsection{Epistemological Conclusion}
 
-Mathematics dictates that if two formalisms enforce identical symmetries - conservation of the relational energy budget and causal limit - they must converge on identical structural polynomials. R.O.M. achieves this convergence without postulating differential tensors or a curved pseudo-Riemannian manifold. Frame-dragging is thus revealed not as a mechanical torsion of spacetime, but as the algebraic consequence of squaring a co-linear phase superposition under the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{relational closure} bound $\kappa^2 = 2\beta^2$.
+ To generate chiral orbital asymmetry (frame-dragging), exact General Relativity must postulate a pseudo-Riemannian manifold with an off-diagonal metric tensor component, $g_{t\phi}$, to induce spatial torsion. R.O.M. reproduces the identical physical symmetry and precessional kinematics algebraically. Enforcing the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{relational closure theorem} onto the composite one-dimensional carrier $\beta_{\Sigma} = \beta_{\text{orb}} \pm \beta_{\text{spin}}$ yields the necessary quadratic expansion. The emergent cross-term:
+\begin{equation}
+\pm 4\beta_{\text{orb}}\beta_{\text{spin}} \label{eq:chiral-cross-term}
+\end{equation}
+mathematically mandates the chiral divergence. This algebraic constraint is operationally indistinguishable from the spatial drag generated by the $g_{t\phi}$ metric. The geometric deformation of a background spacetime is therefore mathematically obsolete. The dimensional container and its differential tensors are eradicated from the ontology. 
 
-\subsubsection*{Physical Interpretation}
 
+\section{S2 Star (Sgr A*) Data Alignment Comparison: RG vs GR}
+\hypertarget{sec:S2test}{}\label{sec:S2test}
+
+Instead of starting from a long chain of derivations and building our way to empirical testing, we reverse this order to present the results first, followed by their methodological derivation.  
+\noindent
+We apply the Relational Orbital Mechanics (R.O.M.) to the 24-year astrometric and radial‑velocity dataset of the S2 star orbiting the Galactic Centre (Sgr~A*).  The dataset contains 174 raw observables (sky positions and line‑of‑sight velocities) and provides a sensitive test of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure theorem $\kappa^2=2\beta^2$} in a strong‑field regime.
+
+\subsection*{Methodology}
+
+In WILL RG the Keplerian orbital elements are supplemented by two relational features:
 \begin{itemize}
-  \item \textbf{No need for pre-existing spacetime} - geometry emerges from energy distributions.
-  \item \textbf{All parameters} are dimensionless and directly derived from the speed of light as finite resource.
-  \item \textbf{Scale invariance:} The same structure applies from Planck-scale objects to galactic black holes.
+    \item The secular pericentre advance per orbital cycle is not a free parameter but is \textbf{algebraically locked} to the velocity amplitude $\beta$ via the closure invariant:
+    \begin{equation}
+        f_{\rm prec} = \frac{3\beta^2 - 2\beta^4}{1-e^2},
+        \qquad \beta = \frac{K}{c\,\sin i}\sqrt{1-e^2}.
+        \label{eq:fprec}
+    \end{equation}
+\item The relativistic contribution to the radial velocity is determined by the internal phase structure:
+    \begin{equation}
+        Z_{\rm sys} = \frac{1}{\tau_o} = \frac{1}{\sqrt{1 - \kappa_o^2}\sqrt{1 - \beta_o^2}},
+    \end{equation}
+    where $\kappa_o^2 = R_s/r$ is the local potential projection and $\beta_o^2 = \kappa_o^2 - \beta^2$ is the local kinetic projection. The total raw spectroscopic shift incorporates the directional kinematic projection $\beta_z$ via linear phase superposition:
+    \begin{equation}
+        Z_{\rm raw} = (1 + \beta_z) Z_{\rm sys}.
+    \end{equation}
 \end{itemize}
+
+The Rømer (light‑travel time) delay is included as a single‑step correction.  The whole model contains \textbf{nine free parameters}: the angular semi‑major axis $a_{\rm as}$, eccentricity $e$, inclination $i$, argument of pericentre $\omega$, longitude of ascending node $\Omega$, orbital period $P$, epoch of pericentre passage $T_0$, systemic velocity $V_0$, and the radial‑velocity semi‑amplitude $K$.
+
+For a fair comparison, we construct a General Relativity 1PN model with the \textbf{same nine parameters}.  The pericentre advance is fixed by the standard 1PN formula
+\begin{equation}
+    \Delta\omega_{\rm 1PN} = \frac{6\pi GM}{c^2 a(1-e^2)},
+\end{equation}
+which, once expressed through the Keplerian observables $K,P,e,i$, becomes a deterministic function of the fitted parameters with no additional degrees of freedom.  The relativistic redshift in the GR model consists of the gravitational and transverse‑Doppler terms.  The Rømer delay is implemented identically in both models.  The input data, error model, and optimisation algorithm are exactly the same for both fits.
+
+\subsection*{System scale without $G$}
+In the WILL framework the Schwarzschild radius $R_s$ is not obtained from a separately measured mass and Newton’s constant, but is derived directly from the orbital period and the relational phase $\beta$:
+\begin{equation}
+    R_s = \frac{T\,c\,\beta^3}{\pi}, \qquad
+    a   = \frac{R_s}{2\beta^2}.
+\end{equation}
+Thus the entire physical scale of the system follows from dimensionless chronometric and spectroscopic ratios; $G$ and the central mass appear only as \emph{a posteriori} conversion factors to legacy units.
+
+\subsection*{Results}
+Table~\ref{tab:S2_comparison} summarises the best‑fit parameters and the fit quality for both models.  The WILL RG model achieves a $\chi^2$ of $727.20$, compared to $800.81$ for the GR 1PN model with the same number of free parameters.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Metric / Parameter} & \textbf{GR 1PN (9 par.)} & \textbf{WILL RG (9 par.)} \\ \hline
+Fit Quality ($\chi^2$) & 800.81 & 727.20 \\ \hline
+Relational Beta ($\beta$) & --- & 0.00642627 \\ \hline
+Eccentricity ($e$) & 0.887826 & 0.887171 \\ \hline
+Inclination $i$ (rad) & 2.3707 & 2.3771 \\ \hline
+Period $P$ (days) & 5862.60 & 5862.49 \\ \hline
+Derived $R_{s}$ (km) & --- & $1.2828\times10^{7}$ \\ \hline
+Derived Mass ($10^{6}\,M_{\odot}$) & 4.24 & 4.34 \\ \hline
+Derived Distance $R_{0}$ (pc) & 8275 & 8364 \\ \hline
+Free precession parameters & 0 & 0 \\ \hline
+Computation time (Google Colab) & $\sim$7 min & $\sim$3 sec \\ \hline
+\end{tabular}
+\caption{Comparison of the GR 1PN and WILL RG orbital solutions for S2. Both models have nine free parameters; the pericentre advance is fully determined by the fitted Keplerian elements in each case.}
+\label{tab:S2_comparison}
+\end{table}
+
+\noindent
+The improvement in $\chi^2$ ($\Delta\chi^2 = 73.6$) is achieved without any additional adjustable parameters.  The derived distance and central mass are consistent with recent independent measurements by the GRAVITY and Keck collaborations.
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Google Colab Notebook]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROMvsGR_S2_study.ipynb}{ROM vs GR S2 study.ipynb}
+\end{tcolorbox}
+
+
+\subsection{Diagnostic: Decomposition of the Relational Orbital Model}
+\hypertarget{sec:S2diagnostic}{}\label{sec:S2diagnostic}
+
+In order to identify the precise origin of the substantial $\chi^2$ improvement of the WILL RG fit over the standard GR 1PN fit (727.2 versus 800.8 for the S2 star), we performed a modular decomposition of the orbital model.  The goal was to isolate which aspect of the relational framework – the precession law, the redshift formula, or the geometric parametrisation – is responsible for the better agreement with observations.
+
+
+\subsection*{Methodology}
+
+We constructed a series of controlled numerical experiments using exactly the same data set, error model, and optimisation procedure as in the main S2 analysis (Section~\ref{sec:S2test}).
+
+\begin{enumerate}
+    \item \textbf{Modular precession and redshift}: A generic model was built that can independently select
+    \begin{itemize}
+        \item the precession advance rule: GR 1PN, GR 2PN, or WILL relational ($\tau_Y^2/(1-e^2)$);
+        \item the relativistic redshift formula: GR 1PN (gravitational $+$ transverse Doppler) or WILL relational ($\frac{c}{2}(\kappa_o^2+\beta_o^2)$).
+    \end{itemize}
+    The number of free parameters remained nine in every combination, exactly as in the original fits.
+    \item \textbf{Discovery of the parametrisation mismatch}: All combinations that employed a standard \emph{time‑linear} advance of the argument of periapsis ($\omega(t) = \omega_0 + \dot\omega\,(t-T_0)$) gave $\chi^2 \approx 801$, regardless of whether the precession magnitude or the redshift were taken from GR or from WILL. Only the original WILL model, which uses a \emph{true‑anomaly‑dependent} precession phase, reached $\chi^2 = 727$.
+    \item \textbf{Hybrid model}: To test whether the improved fit stems from the WILL precession \emph{magnitude} or from the WILL \emph{method of phasing the precession}, we built a hybrid that retains the exact geometric machinery of the WILL orbital model – in particular the phase shift $\omega_{\rm shift} = f_{\rm prec}\, O$ applied inside the radial equation and the Rømer delay – but replaces the WILL closure value $f_{\rm prec}= \tau_Y^2/(1-e^2)$ with the GR 1PN equivalent $f_{\rm prec}=3\,(K/c)^2/\sin^2 i$.
+\end{enumerate}
+
+\subsection*{Key Result}
+
+The hybrid model achieved
+\[
+\chi^2_{\rm hybrid}=727.20,
+\]
+identical to the full WILL RG fit and significantly better than the standard GR 1PN fit ($\chi^2=800.81$).  The precession magnitudes are numerically almost indistinguishable for S2:
+\[
+f_{\rm prec}^{\rm WILL}=0.00058183,\qquad
+f_{\rm prec}^{\rm GR\,1PN}=0.00058185 .
+\]
+Thus the entire $\chi^2$ improvement is due to the parametrisation of the precession, not its magnitude.
+
+\subsection*{Interpretation: Phase‑coupled versus time‑linear precession}
+
+\paragraph{Standard GR implementation.}
+In conventional post‑Newtonian orbit fitting, the secular precession is modelled as a constant angular velocity:
+\[
+\omega(t) = \omega_0 + \dot\omega\,(t - T_0),
+\qquad \dot\omega = \frac{\Delta\omega_{\rm 1PN}}{P}.
+\]
+The true anomaly $ O$ is computed from a Kepler equation that assumes the periapsis is fixed at the reference epoch $T_0$.  Over an eccentric orbit, the true anomaly advances non‑uniformly with time, so a constant $\dot\omega$ introduces a small but systematic phase error between the instantaneous orbital position and the intended precession state.
+
+\paragraph{WILL parametrisation.}
+The WILL RG model ties the precession directly to the accumulated true anomaly:
+\[
+\omega_{\rm shift} = f_{\rm prec}\, O .
+\]
+The instantaneous radius and the Rømer delay are evaluated with the shifted argument $( O - \omega_{\rm shift})$, which rigidly rotates the whole ellipse by an angle that is synchronised with the orbital motion.  No separate time‑linear advance of $\omega$ is imposed; the rotation is a function of the orbital phase itself.  This coupling ensures that the pericentre direction is always correctly positioned for the instantaneous true anomaly.
+
+\paragraph{Why the improvement is global.}
+Because the substitution $t \to  O$ in the precession phase affects the entire timing model, the correction is not localised near pericentre.  It produces a slight but coherent shift of every predicted observables (astrometric positions and radial velocities) towards the measured values, exactly the uniform residual improvement observed in the  \href{https://willrg.com/MCMC_S2.html}{diagnostic plots}.  Over the 24-year data set containing 174 observables, this small systematic adjustment accumulates to the $\Delta\chi^2 \approx -74$ seen in the fit.
+
+\begin{tcolorbox}[colback=gray!5,colframe=black!80!black,title=Full MCMC Analysis]
+\href{https://willrg.com/MCMC_S2.html}{https://willrg.com/MCMC S2.html}
+\end{tcolorbox}
+
+\textbf{The MCMC transforms a single optimizer result into a statistical statement:}
+Across the full 9-dimensional parameter space, the $ O$-coupled precession parametrization fits 174 S2 observables better by $\Delta \chi^2\approx74$ than the time-linear parametrization, with no additional free parameters. This analysis show that this is not a fluke of the starting point or optimization algorithm.
+
+\subsection{Geometric Incompatibility of Phase Parameterization}
+\hypertarget{sec:gr-incompatibility}{}\label{sec:gr-incompatibility}
+
+General Relativity cannot structurally integrate the relational phase $O$ as the fundamental dynamical parameter without collapsing its pseudo-Riemannian axioms. The empirical advantage of the phase-coupled orbital geometry cannot be subsumed by the standard geodesic equation via coordinate transformation.
+
+In a pseudo-Riemannian manifold, the invariant interval defines the affine parameter $\tau$:
+\begin{equation}
+d\tau^2 = -\frac{1}{c^2} g_{\mu\nu} dx^\mu dx^\nu \label{eq:invariant-interval}
+\end{equation}
+Orbital dynamics are strictly governed by the affine geodesic equation:
+\begin{equation}
+\frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{d\tau} \frac{dx^\beta}{d\tau} = 0 \label{eq:affine-geodesic}
+\end{equation}
+Introduce a monotonically increasing relational phase parameter $O = O(\tau)$. Applying the chain rule to the derivatives yields the non-affine transformation:
+\begin{equation}
+\frac{dx^\mu}{d\tau} = \frac{dx^\mu}{dO} \frac{dO}{d\tau} \label{eq:chain-velocity}
+\end{equation}
+\begin{equation}
+\frac{d^2x^\mu}{d\tau^2} = \left(\frac{dO}{d\tau}\right)^2 \frac{d^2x^\mu}{dO^2} + \frac{d^2O}{d\tau^2} \frac{dx^\mu}{dO} \label{eq:chain-acceleration}
+\end{equation}
+Substituting (\ref{eq:chain-velocity}) and (\ref{eq:chain-acceleration}) into (\ref{eq:affine-geodesic}) and isolating the second derivative with respect to $O$ produces the non-affine geodesic equation:
+\begin{equation}
+\frac{d^2x^\mu}{dO^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{dO} \frac{dx^\beta}{dO} = -f(O) \frac{dx^\mu}{dO} \label{eq:non-affine-geodesic}
+\end{equation}
+where the parameterization constraint $f(O)$ is defined as:
+\begin{equation}
+f(O) = \frac{d^2O/d\tau^2}{(dO/d\tau)^2} \label{eq:f-constraint}
+\end{equation}
+The term $-f(O) (dx^\mu/dO)$ is strictly proportional to the tangent vector. The spatial geometry of the invariant spacetime trajectory remains unaltered. The affine geometric form (\ref{eq:affine-geodesic}) is conserved exclusively if $f(O) = 0$, necessitating:
+\begin{equation}
+O = a\tau + b \label{eq:affine-condition}
+\end{equation}
+The relational phase $O$ is dynamically generated from the local ratio of dimensionless projections ($\kappa$, $\beta$). Consequently, $dO/d\tau$ is non-constant, dictating $f(O) \neq 0$.
+
+This establishes a strict mathematical dichotomy:
+1. If $O$ functions purely as a non-affine coordinate relabeling (diffeomorphism), the physical curve in spacetime remains identical to the standard General Relativity trajectory. An identical geometric curve produces an identical empirical output.
+2. If $O$ operates as an independent dynamic generator that modifies the physical trajectory to yield the observed orbital closure, the trajectory is no longer the solution to (\ref{eq:affine-geodesic}). 
+
+Severing the equations of motion from the affine parameter $\tau$ decouples the trajectory from the metric interval (\ref{eq:invariant-interval}). The Christoffel symbols $\Gamma^\mu_{\alpha\beta}$ lose their differential grounding. While the First Post-Newtonian (1PN) approximation can mimic the parameter $O$ through algebraic curve-fitting upon a fixed background, full General Relativity cannot natively execute phase-driven mechanics without discarding the pseudo-Riemannian manifold. In simple words GR would have to become RG to fully adopt this method. 
+
+
+\subsection*{Discussion}
+
+The WILL RG model provides a statistically better description of the S2 data than the standard 1PN parametrisation with the same parameter count.  The phase‑coupled treatment of the pericentre advance ($\omega_{\rm shift} \propto  O$), which replaces the usual time‑linear advance is the source of  the improvement.  This parametrisation emerges naturally from the relational closure condition and is not an \emph{ad hoc} modification.
+General Relativity can not adopt this improvement due to ontological and mathematical incompatibility. 
+
+The autonomous derivation of the system scale $R_s$ directly from the orbital period and the dimensionless $\beta$ illustrates that, for a purely gravitational two‑body problem, the separation into $G$ and $M$ is unnecessary; the phenomenology is fully encoded in the geometric length $R_s$.  This does not invalidate the use of $G$ and mass in other domains of physics, but it demonstrates that orbital dynamics can be formulated in a self‑contained, operationally minimal way.
+
+The computational speed (roughly 140 times faster than numerical integration of geodesic equations) makes it particularly suitable for large surveys and real‑time monitoring.
+
+
+\subsection{Conclusion: Methodological Baseline and Ontological Parsimony}
+\label{sec:s2-methodological-baseline}
+
+The measured empirical advantage of $\Delta\chi^2 \approx -74$ establishes the structural efficiency of the relational phase parameterization over the standard First Post-Newtonian (1PN) approximation. General Relativity relies on truncated perturbative expansions to approximate non-linear orbital dynamics in this regime. In contrast, Relational Orbital Mechanics (R.O.M.) executes the exact non-linear dynamics natively via direct dimensionless phase coupling, eliminating the requirement for polynomial truncation and artificial temporal delays.
+
+If standard General Relativity attempts to surpass the 1PN limit to match this non-linear trajectory, it must mathematically rely on the pseudo-Riemannian manifold. However, the non-affine derivation (\ref{sec:gr-incompatibility}) demonstrates that the relational phase mechanism cannot be structurally integrated into the affine geodesic equation. 
+
+Therefore, R.O.M. achieves superior empirical fidelity entirely algebraically. The precessional kinematics of the S2 orbit are fully executed through the algebraic superposition of dimensionless kinetic and potential projections. The dimensional spacetime container and its differential tensors are rendered mathematically obsolete for orbital mechanics.
+
+These findings invite further investigation into Relational Geometry and its applications to the empirical structure of strong-field systems.
 
 
 \section{Relational Derivation of the L1 Equilibrium Point}
@@ -1918,6 +1941,7 @@ This absence is not a simplification imposed after the fact; it follows necessar
 The gain in transparency is therefore structural. Observables that in conventional treatments appear only after lengthy perturbative expansions or numerical integration of differential equations emerge here as immediate, exact consequences of the relational geometry. This is visible across all derivations in the paper, including the period–semi-major-axis relation, eccentricity, secular precession, light deflection, and the location of the Sun–Earth L1 point (Sections~\ref{sec:relational_parameterization} and~\ref{sec:L1}).
 
 \subsection{Challenges and Current Limitations}
+\hypertarget{sec:challenges}{}\label{sec:challenges}
 
 While the algebraic closure of Relational Orbital Mechanics accounts for the complete phenomenology of bound two-body systems and the collinear restricted three-body configuration, two important domains remain outside the present treatment.
 
