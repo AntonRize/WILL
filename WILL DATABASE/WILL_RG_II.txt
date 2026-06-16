@@ -418,66 +418,37 @@ Using the input $T_0 = 2.7255$ K:
     \rho_{\gamma} \approx 4.64495\times10^{-31}  \, \text{kg/m}^3
 \end{equation}
 
-\subsection{Step 2: Maximal Structural Density ($\rho_{max}$)}
-\hypertarget{sec:rho_max}{}\label{sec:rho_max}
-\textit{Objective:} Calculate the saturation structural density of the system.
 
-\begin{lemma}[Dynamical Normalization]
-\hypertarget{lem:rho_tot}{}\label{lem:rho_tot}
 
-In the \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:norm_id}{Normalization Identity} (derived in WILL RG I), the ratio $\kappa^2 = \rho/\rho_{max}$ was derived for a static gravitational configuration, where the energy resides entirely in the potential carrier ($S^2$). We now extend this to a dynamical, energy-closed system where both \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers}{carriers} are active.
+\subsection{Step 2: Maximal Structural Density}
 
-In WILL RG, the saturation density $\rho_{max}(r) = c^2/(8\pi G r^2)$ is a state of maximal state difference from observer at there relational origin ($\beta=0, \kappa=0$). It represents the maximal energy capacity per unit carrier projection:
-\begin{itemize}
-    \item For the potential carrier ($S^2$): $\kappa^2 = \rho_{pot}/\rho_{max}$, as established.
-    \item For the kinetic carrier ($S^1$): $\beta^2 = \rho_{kin}/\rho_{max}$, by the same geometric construction - the kinetic projection $\beta^2$ measures the fraction of the systems capacity occupied by kinetic energy.
-\end{itemize}
+From the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{Closure Theorem} we have the invariant relation \(\kappa^2 = 2\beta^2\). The total relational shift of the system is therefore
+\[
+Q^2 = \kappa^2 + \beta^2 = 3\beta^2.
+\]
 
-Both projections are normalized against the same $\rho_{max}$, there is one system, and both carriers project onto it.
+For the photon gas we identify the kinematic projection with the ground-state value established in Part III:
+\[
+\beta \equiv \alpha.
+\]
+It follows that
+\[
+Q^2 = 3\alpha^2.
+\]
 
-Therefore, the total energy density of a closed dynamical system, expressed as a ratio, is given by the full Relational Shift $Q^2$:
-\begin{equation}
-    \boxed{Q^2 = \kappa^2 + \beta^2 = \frac{\rho_{total}}{\rho_{max}}}
-\end{equation}
-\end{lemma}
+Photons are intrinsically kinetic and do not possess a rest frame; they constitute a dynamical component of the Universe's total energy density distributed across both relational carriers. Consequently, the radiation energy density \(\rho_\gamma\) is normalized by the full relational shift:
+\[
+\rho_\gamma = Q^2 \rho_{\max} = 3\alpha^2 \rho_{\max}.
+\]
+Solving for the saturation density gives
+\[
+\boxed{\rho_{\max} = \frac{\rho_\gamma}{3\alpha^2}}.
+\]
 
-\begin{proof}[Relational Shift]
-At the Global Horizon ($r = c/H_0$),  projections are saturated by definition of horizon. This  gives $\beta^2 = 1$ and $\kappa^2 = 2$. The corresponding densities are:
-\begin{align}
-    \rho_{\beta}  &= \beta^2 \cdot \rho_{max} = 1 \times \frac{c^2}{8\pi G r^2} \approx 2.908 \times 10^{-27} \, \text{kg/m}^3, \\
-    \rho_{\kappa} &= \kappa^2 \cdot \rho_{max} = 2 \times \frac{c^2}{8\pi G r^2} \approx 5.815 \times 10^{-27} \, \text{kg/m}^3.
-\end{align}
-Their sum yields:
-\begin{equation}
-    \rho_{\beta} + \rho_{\kappa} = 3\rho_{max} = Q^2 \rho_{max},
-\end{equation}
-confirming the identity $Q^2 = (\rho_{\beta} + \rho_{\kappa})/\rho_{max} = 3$ at the horizon, consistent with $\kappa^2 + \beta^2 = 2 + 1 = 3$.
-\end{proof}
-
-\subsubsection{Application to the Electromagnetic Ground State}
-
-The geometric identity $\alpha \equiv \beta_1$ (derived in \href{https://willrg.com/documents/WILL_RG_III.pdf#eq:beta=alpha}{WILL RG III}) defines the kinematic projection of the electromagnetic vacuum. Combined with the Closure Condition ($\kappa^2 = 2\beta^2$), this fixes both carrier projections of the EM ground state:
-\begin{equation}
-    \beta_{EM}^2 = \alpha^2, \qquad \kappa_{EM}^2 = 2\alpha^2.
-\end{equation}
-
-Since the photon field is a dynamical, energy-closed configuration - not a static potential - its total energy density occupies both carriers simultaneously. Applying the Dynamical Normalization (Lemma~\ref{lem:rho_tot}):
-
-\begin{equation}
-    \frac{\rho_{\gamma}}{\rho_{max}} = Q_{EM}^2 = \kappa_{EM}^2 + \beta_{EM}^2 = 2\alpha^2 + \alpha^2 = 3\alpha^2
-\end{equation}
-
-Rearranging for $\rho_{max}$:
-\begin{equation}
-    \boxed{\rho_{max} = \frac{\rho_{\gamma}}{3\alpha^2}}
-\end{equation}
-
-Using $\alpha \approx 7.297 \times 10^{-3}$ (where $\alpha^2 \approx 5.325 \times 10^{-5}$):
-\begin{equation}
-    \rho_{max} \approx \frac{4.645 \times 10^{-31}}{3 \cdot 5.325 \times 10^{-5}} \approx 2.9075 \times 10^{-27} \, \text{kg/m}^3
-\end{equation}
-
-This value is in agreement with cosmological expectations ($\rho_{crit} \approx 9.5 \times 10^{-27}$ kg/m$^3$; $\rho_{max} \approx \rho_{crit}/3$), providing a Machian connection between the microphysical constant $\alpha$ and the macroscopic geometry.
+Using the observed CMB temperature \(T_0 = 2.7255\) K we obtain \(\rho_\gamma \approx 4.645 \times 10^{-31}\) kg m\(^{-3}\). With \(\alpha \approx 7.297 \times 10^{-3}\) this yields
+\[
+\rho_{\max} \approx 2.9075 \times 10^{-27} \text{ kg m}^{-3}.
+\]
 
 \subsection{Step 3: The Hubble Parameter ($H_0$)}
 \textit{Objective:} Convert the saturation density into the frequency parameter.
