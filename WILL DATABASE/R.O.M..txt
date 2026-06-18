@@ -375,7 +375,7 @@ $\beta^{2}=(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{\kappa_{p}^{2}}{2}(1-e)=(\kappa_
 $\Delta\phi=\frac{2\pi\cdot\tau_{Y}^{2}}{1-e^{2}}=\frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}}=\frac{3\pi R_{s}}{a(1-e^{2})}-\frac{\pi R_{s}^{2}}{a^{2}(1-e^{2})}$ (precession of perihelion per orbit) \\
 $\Omega_{\phi}=\frac{\tau_{Y}^{2}}{1-e^{2}}=\frac{3\beta^{2}-2\beta^{4}}{1-e^{2}}$   (precession of perihelion per phase radian) \\
 $\Omega=1-\Omega_{\phi}=\frac{O}{o}$  (constant ratio between idealised phase o and true precessing  phase O) \\
-$h_{W}=r_{o}(O)\beta_{T}(O)c=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}=R_s c \frac{\sqrt{1-e^2}}{2\beta}$ ( invariant angular momentum) \\
+$h_{W}=\frac{\kappa^{2}}{\kappa_{o}^{2}}\cdot\beta_{T}\cdot a\cdot c=r_{o} \cdot \beta_{T} \cdot c=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}=R_s c \frac{\sqrt{1-e^2}}{2\beta}$ ( invariant angular momentum) \\
 $\omega=\frac{\beta c}{a}=\frac{c}{R_{s}}2\beta^{3}$ (angular frequency) \\
 $T=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{\pi R_{s}}{\beta^{3}c}=\frac{2\pi\sqrt{2}R_{s}}{\kappa^{3}c}=\frac{2\pi \Delta_{to}}{\zeta_o}$ (orbital period) \\
 $\tau_D = T \sin(\theta_{sys})^{\frac{3}{2}}=\frac{2\pi R_{sur}}{\beta_{sur}c}=\sqrt{\frac{\pi}{G\rho}}$   (Time-density invariant where $R_{ser}$ and $\beta_{ser}$  determent by the distance from center to the surface of central body and $\theta_{sys}=$ angular radius) \\
@@ -1042,8 +1042,8 @@ The properties of the lens - convergence ($\kappa_{\text{lens}}$), shear ($\gamm
 \end{tcolorbox}
 
 
-\subsection{Schwarzschild Metric Interval}
-\hypertarget{sec:GR_interval}{}\label{sec:GR_interval}
+\subsection{Schwarzschild Metric}
+\hypertarget{sec:Schwarzschild}{}\label{sec:Schwarzschild}
 
 Schwarzschild metric interval is the coordinate-inflated projection of the potential phase $\kappa_{Xo}$ and kinematic amplitudes $\beta_R, \beta_T$. The fundamental primitive is the dimensionless algebraic composition of the relational state. Metric recovered by appending substantival posits.
 
@@ -1072,6 +1072,10 @@ This specific linear combination directly reproduces the three metric coefficien
 \end{equation}
 
 The 4D pseudo-Riemannian metric tensor $g_{\mu\nu}$ carries more ontological structure than the relations it encodes. The irreducible primitive here remains the structure of dimensionless relational projections.
+
+\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Colab Sympy Verification]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Schwarzschild_metric_sympy.ipynb}{Schwarzschild metric sympy.ipynb}
+\end{tcolorbox}
 
 
 \section{Relational Parameterization and the Fundamental Primitives}
@@ -1614,6 +1618,10 @@ Substituting the local operational projection into the isolated chiral polynomia
 \Delta\varphi_{\text{chiral}} = \frac{2\pi}{1-e^2} [ \pm (6\beta_{\text{orb}}\beta_{\text{spin}} - 8\beta_{\text{orb}}^3\beta_{\text{spin}} - 8\beta_{\text{orb}}\beta_{\text{spin}}^3) ]
 \end{equation}
 
+\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Colab Sympy Verification]
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Kerr_sympy.ipynb}{Kerr sympy.ipynb}
+\end{tcolorbox}
+
 \subsection{Legacy Translation: Lense-Thirring Equivalence}
 
 To verify structural compatibility with historical models, we isolate the primary geometric observable by ablating the higher-order geometric cross-coupling terms ($\beta^4 \to 0$) and setting the orbit to circular ($e = 0$). The equation simplifies algebraically to:
@@ -1871,61 +1879,6 @@ Full symbolic + numerical verification (including the exact quintic root):
 This section closes the demonstration that all major gravitational observable - two-body orbits, precession, light deflection, and now the three-body L1 point - emerges as an inevitable algebraic consequence of the Foundational Methodological Principles. 
 
 
-\section{Discussion}
-
-All WILL RG results including the success of R.O.M. remains a single unbroken generative chain of derivations from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{methodological constrains} with zero flexibility. 
-Relational Orbital Mechanics is not an independent model. It is the direct operational consequence of applying the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles} to bound gravitational systems.
-
-\subsection{Epistemic and Operational Benefits}
-
-% ===  INSERT EPISTEMIC PARAGRAPH HERE ===
-
-\subsubsection*{Operational Benefits: Absence of Differential Formalism and Acceleration}
-
-The most immediate operational consequence of the relational construction is that \textbf{no differential equations of motion and no concept of acceleration are required}. In standard orbital mechanics the central acceleration (Newtonian or geodesic) is the primitive from which orbital period, shape, precession, and equilibrium configurations are derived. In WILL RG the same observables are obtained directly from algebraic identities among the projections on the carriers \(S^1\) and \(S^2\), once the methodological principles and the unifying principle \(\text{SPACETIME} \equiv \text{ENERGY}\) have fixed the geometry of those carriers and the unique exchange rate between them.
-
-This absence is not a simplification imposed after the fact; it follows necessarily from the generative structure. Because the theory begins by removing the separation between structure and dynamics, and because it enforces topological closure and maximal symmetry from the outset, the allowed relational states of a bound system are completely classified by the dimensionless projections and the single closure condition that the methodology itself produces. No integration of trajectories, no effective potentials, and no auxiliary constructs such as rotating frames are needed. The mathematics remains a short sequence of explicit algebraic relations whose every step retains clear physical meaning.
-
-The gain in transparency is therefore structural. Observables that in conventional treatments appear only after lengthy perturbative expansions or numerical integration of differential equations emerge here as immediate, exact consequences of the relational geometry. This is visible across all derivations in the paper, including the period–semi-major-axis relation, eccentricity, secular precession, light deflection, and the location of the Sun–Earth L1 point (Sections~\ref{sec:relational_parameterization} and~\ref{sec:L1}).
-
-\subsection{Challenges and Current Limitations}
-\hypertarget{sec:challenges}{}\label{sec:challenges}
-
-While the algebraic closure of Relational Orbital Mechanics accounts for the complete phenomenology of bound two-body systems and the collinear restricted three-body configuration, two important domains remain outside the present treatment.
-
-Gravitational waves and the full radiative two-body problem have not yet been formulated within the relational framework. The current construction addresses only conservative, bound orbits. Extending it to dissipative, radiative dynamics requires a relational description of propagating degrees of freedom on the carriers and remains an open technical task.
-
-A complete, self-consistent multi-body architecture that extends beyond the collinear L1 case has likewise not been constructed. The nested-contour approach provides a clear conceptual route, but its explicit algebraic realisation for systems containing three or more gravitationally bound bodies (including mean-motion resonances and long-term stability) requires further development. The author states openly that progress on both fronts has so far been limited by present mathematical facility rather than by any intrinsic prohibition within the relational ontology. Collaboration with researchers experienced in radiative dynamics and in the algebraic treatment of multi-body closures is therefore actively invited.
-
-\subsection{Falsifiability and Future Tests}
-
-The framework yields several sharp, near-term testable predictions that follow directly from its algebraic structure.
-
-The most immediate discriminator is continued high-precision monitoring of the S2 star. The relational model predicts that the true-anomaly-coupled precession parametrisation will preserve or strengthen its statistical advantage over the conventional time-linear implementation as new pericentre passages are added with improved GRAVITY+ astrometry (2026–2028 and subsequent windows). A statistically significant reversal of the present \(\Delta\chi^2\) improvement on the enlarged dataset would falsify the relational phasing hypothesis while remaining compatible with the magnitude of the precession itself.
-
-For Solar-System tests, the explicit second-order correction in the R.O.M. precession formula is in principle accessible with sufficiently long observational baselines or with planets at smaller semi-major axes. A confirmed detection at the predicted magnitude, or a firm upper bound below it, would directly constrain the cross-coupling term that is absent from the first-order post-Newtonian expression.
-
-These tests are decisive because they probe either the phasing of precession or the explicit higher-order content of the closure theorem -- both of which are uniquely fixed by the relational algebra and are not adjustable parameters.
-
-
-
-\section{Conclusion}
-
-The Relational Orbital Mechanics system demonstrates that the entire phenomenology of  motion -- from Keplerian architecture to perihelion precession and light deflection -- emerges as an inevitable algebraic consequence of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles}. All WILL RG results including the complete success of R.O.M. remains an unbroken chain of derivations from firs principles under extreme methodological constrains with zero flexibility.
-
-This is not a re-description of General Relativity; it is the irreducible algebraic core that remains when the ontological superstructure of Riemannian geometry and tensorial formalism is removed. The S2 orbit fit and Mercury's precession clearly show that RG is not the subset of GR but separate model with radically cleaner and lighter ontological baggage. Future more accurate astronomical data will be able to definitively show which ontology the empirical data gives preference to.
-
-Within R.O.M. several structural consequences follow:
-\begin{enumerate}
-    \item \textbf{\(G\) and \(M\) are secondary.} The Schwarzschild length \(R_s\) and all orbital distances are derived directly from dimensionless spectroscopic and chronometric ratios. The Newtonian gravitational constant and the kilogram mass appear only as conversion factors when translating geometric results into legacy units.
-    \item \textbf{Closure replaces the virial theorem.} The relation \(\kappa^2 = 2\beta^2\) is not an empirical input but the inevitable consequence of equitable budget distribution across the independent degrees of freedom of the kinematic and potential carriers.
-    \item \textbf{Precession is topological, not dynamical.} The secular advance of the pericentre arises from the mismatch of internal phase over one cyclic extension of the orbital phase, without integrating geodesic equations or expanding in powers of \(v/c\).
-    \item \textbf{The event horizon can be interpret as relational lockout.} When the periapsis precession approaches orbital angular speed the trajectory folds onto itself and ceases to advance in angular phase. This is the geometric origin of the horizon, free of singular coordinates.
-\end{enumerate}
-
-\href{https://willrg.com/documents/WILL_RG_I.pdf#trilogy}{WILL trilogy} offers a unified, parameter-free ground-up unbroken chain derivation of most major observed phenomena within extreme methodological constrains and 0 flexibility.  The traditional  unjustified separation of spacetime and energy dissolves into a single generative structure we call WILL.
-
-The results presented here invite exacting numerical tests (additional binary pulsars, triple systems, high-resolution S2 pericentre passages) and provide an operational language in which gravitational phenomena can be communicated without surplus ontology. The hope is that this physical clarity returned by \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:mathematical}{mathematical transparency}  principle will help turn the focus of gravitational science back to its earliest ambition: to see the logic of the world, not just to model it.
-
+Proceed to next section of WILL Relational Geometry paper: \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{\bf{Density, Mass, and Pressure}} 
 
 \end{document}
