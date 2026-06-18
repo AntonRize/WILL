@@ -2,7 +2,7 @@
 
 layout: default
 title: "Documents & Key Results"
-description: "Download WILL Relational Geometry Open Research papers, appendices, technical documents and all reproducible python scripts."
+description: "Download WILL Relational Geometry Open Research papers, appendices, technical documents and all reproducible python scripts. Key results are covering domains from classical to Relational Orbital Mechanics (R.O.M.), background free and ontologically minimal Cosmology to fully deterministic and algebraic Relational Quantum Mechanics"
 
 ---
 
