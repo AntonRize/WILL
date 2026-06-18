@@ -1062,67 +1062,58 @@ degrees of freedom even when calculations are carried out on a representative
 great-circle section.
 \end{remark}
 
-\subsubsection{Uniqueness of the Exchange Rate (No Hidden Weighting)}
-
-\begin{lemma}[DOF-Indifference]
-\hypertarget{lem:dof-indifference}{}\label{lem:dof-indifference}
-Under maximal symmetry (no privileged directions \ref{thm:isotropy}) and ontological minimalism
-(no hidden structure \ref{pr:minimalism}), any admissible conserved budget (\ref{thm:relational_closure}), \ref{lem:duality}) must assign
-\emph{equal quadratic (\ref{thm:conservation}) weight} to each independent relational degree of freedom.
-\end{lemma}
-
-\begin{proof}
-If two independent DOF contributed unequal \ref{thm:isotropy}  weights to the conserved (\ref{thm:relational_closure}) quadratic (\ref{thm:conservation})
-budget (\ref{cor:energy}), then the theory would contain an implicit weighting structure that
-distinguishes DOF. This constitutes a privileged feature not derivable from
-relations violating all 4 methodological principals (\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, \ref{pr:epistemic}).
-\end{proof}
-
-\hypertarget{thm:Closure}{}\label{thm:Closure}
-\begin{theorem}[Closure]
-\hypertarget{thm:closure}{}\label{thm:closure}
-
-In relationally closed system (Relational Closure Theorem \ref{thm:relational_closure}) $S^1$ (1 DOF)  and $S^2$ (2 DOF) carriers are projected shadows of state configurations. Energy as invariant resource of state transformations is redistributed between this carriers (Relational Invariance Theorem \ref{thm:relational_invariance}). The exchange rate between there squared amplitudes is determent by DOF ratio of the carriers. There fore any relationally closed system must globally satisfy the closure theorem in order to remain self-consistent. There for globally:
-\[
-  \underbrace{1 \text{Amplitude}^2}_{\text{on $S^2$}} = \underbrace{2 \text{Amplitude}^2}_{\text{on $S^1$}}
-\]
-\[
-\boxed{\kappa^2 = 2\beta^2.}
-\]
-\end{theorem}
-
-\begin{proof}
-Let $b$ denote the conserved quadratic budget associated with a single
-independent DOF. By Lemma~\ref{lem:dof-indifference}, each DOF must contribute
-the same amount $b$. It must scale there squared amplitudes as external interactions (the agency of change)  dictated by Conservation Theorem (\ref{thm:conservation}) $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$
-
-The carrier $S^1$ has $1$ DOF, so its amplitude quadratic budget is $B_{S^1}=1\cdot b$.
-The carrier $S^2$ has $2$ DOF, so its amplitude quadratic budget is $B_{S^2}=2\cdot b$.
-
-An exchange rate is precisely the statement that the omnidirectional budget is
-a fixed multiple of the directional budget:
-\[
-B_{S^2} = \mathcal{R}\, B_{S^1}.
-\]
-Substituting $B_{S^2}=2b$ and $B_{S^1}=b$ gives $\mathcal{R}=2$. By Conservation Theorem (\ref{thm:conservation})  hence
-\[
-\kappa^2 = \mathcal{R}\,\beta^2 = 2\beta^2
-\]
-\[
-  \underbrace{1 \text{Amplitude}^2}_{\text{on $S^2$}} = \underbrace{2 \text{Amplitude}^2}_{\text{on $S^1$}}
-\]
-\[
-\boxed{\kappa^2 = 2\beta^2.}
-\]
-
-Any $\mathcal{R}\neq 2$ would require unequal DOF weighting (hidden structure) or an
-extra free parameter, violating all 4 methodological principles (\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, \ref{pr:epistemic}).
-\end{proof}
-
 \begin{remark}[Carrier capacities fix the rate]
 \hypertarget{rem:capacities}{}\label{rem:capacities}
 The exchange rate $2$ is the ratio of the carriers' relational capacities, not a fitted constant. The one-DOF carrier $S^1$ saturates at $\beta^2 = 1$ (light, $\beta_Y = 0$); the two-DOF carrier $S^2$ saturates at $\kappa^2 = 2$ (only the extremal-Kerr state $r = \tfrac{1}{2}R_s$, $\beta = 1$). Equal quadratic weight per DOF (Lemma~\ref{lem:dof-indifference}) gives $\kappa^2_{\max}/\beta^2_{\max} = 2$, identical to the closure rate $\kappa^2 = 2\beta^2$.
 \end{remark}
+
+\subsubsection{Uniqueness of the Exchange Rate (No Hidden Weighting)}
+
+\begin{lemma}[DOF-Indifference]
+\hypertarget{lem:dof-indifference}{}\label{lem:dof-indifference}
+Under maximal symmetry (no privileged directions, Theorem~\ref{thm:isotropy}) and ontological minimalism (no hidden structure, Principle~\ref{pr:minimalism}), any admissible conserved quadratic budget must assign \emph{equal weight per independent relational degree of freedom}. This is the unique apportionment that introduces no additional parameters or distinctions beyond the carriers' degrees of freedom themselves.
+\end{lemma}
+
+\begin{proof}
+The conserved quadratic budget is a single scalar resource with no intrinsic scale. The only information available to apportion it is the number of independent relational degrees of freedom of each carrier. Any fixed ratio other than direct proportionality to the DOF count would require an extra rule that distinguishes the carriers on grounds other than their DOF. Such a rule would constitute hidden structure, violating all 4 methodological principles (\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, \ref{pr:epistemic}).. Therefore, each independent DOF must receive identical quadratic weight \(b\).
+\end{proof}
+
+\begin{theorem}[Closure]
+\hypertarget{thm:closure}{}\label{thm:closure}
+In a relationally closed system, the kinematic carrier \(S^1\) (1 DOF) and the potential carrier \(S^2\) (2 DOF) exchange the conserved quadratic budget in proportion to their degrees of freedom. Consequently, any relationally closed system must satisfy
+\[
+\boxed{\kappa^2 = 2\beta^2}
+\]
+globally.
+\end{theorem}
+
+\begin{proof}
+Let \(b\) be the conserved quadratic budget associated with one independent degree of freedom. By Lemma~\ref{lem:dof-indifference}, every DOF receives exactly this amount \(b\).
+
+The kinematic carrier \(S^1\) possesses one degree of freedom, so its total amplitude budget is
+\[
+B_{S^1} = 1 \cdot b = b.
+\]
+
+The potential carrier \(S^2\) possesses two degrees of freedom. Even when calculations are performed on a single meridional great-circle section for algebraic convenience, \(\kappa^2\) represents the \emph{total} omnidirectional budget of the full \(S^2\) carrier. Its amplitude budget is therefore
+\[
+B_{S^2} = 2 \cdot b.
+\]
+
+An exchange rate \(\mathcal{R}\) is defined by the requirement that the omnidirectional budget is a fixed multiple of the directional budget:
+\[
+B_{S^2} = \mathcal{R} \, B_{S^1}.
+\]
+Substituting the expressions above immediately yields \(\mathcal{R} = 2\). By the conservation of the quadratic budget on each carrier (Theorem~\ref{thm:conservation}),
+\[
+\kappa^2 = \mathcal{R} \beta^2 = 2\beta^2.
+\]
+
+Any exchange rate other than \(\mathcal{R} = 2\) would require either unequal weighting of degrees of freedom or an additional free parameter, both of which are forbidden by the four methodological principles (Principles~\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, and \ref{pr:epistemic}).
+\[
+  \underbrace{1 \text{Amplitude}^2}_{\text{on $S^2$}} = \underbrace{2 \text{Amplitude}^2}_{\text{on $S^1$}}
+\]
+\end{proof}
 
 \hypertarget{def:closure_factor}{}\label{def:closure_factor}
 \begin{definition}[Closure Factor]
@@ -1144,10 +1135,7 @@ When all channels are included, closure is restored.
 The exchange rate between the kinematic and gravitational projections corresponds to the ratio of their relational dimensions.  
 This purely geometric constant (\(2\)) replaces the empirical proportionalities of classical dynamics.
 It is the relational origin of the \textbf{virial theorem}:  
-the kinetic and potential aspects of WILL maintain closure through the invariant ratio
-\[
-\boxed{\kappa^2 = 2\beta^2.}
-\]
+the kinetic and potential aspects of WILL maintain closure through the invariant DOF ratio.
 \end{remark}
 
 \paragraph{Illustrative Examples.}
@@ -2550,7 +2538,7 @@ the Cosmos does not possess "will" - yet through WILL, it manifests All that Is.
 \subsection{From the 1PN Lagrangian to R.O.M.: A Falsifiable Closed‑Form Alternative}
 \hypertarget{sec:1PN_to_ROM}{}\label{sec:1PN_to_ROM}
 
-Having shown in section "Two‑Point Origin of the Lagrangian and Hamiltonian"  (\ref{sec:LH}) that the Lagrangian and Hamiltonian are artefacts of forcing $  r_A = r_B  $, we now demonstrate that the relational ontology supplies a complete, non-perturbative replacement. Starting from the standard 1PN Lagrangian only as a reference point, we translate it into the dimensionless projections $  \beta  $, $  \kappa  $ and impose the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure (thm:closure)} \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:condition}{condition (cor:condition)} that follows from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{methodological principals (sec:foundational)} of Relational Geometry.
+Having shown in section "Two‑Point Origin of the Lagrangian and Hamiltonian"  (\ref{sec:LH}) that the Lagrangian and Hamiltonian are artefacts of forcing $  r_A = r_B  $, we now demonstrate that the relational ontology supplies a complete, non-perturbative replacement. Starting from the standard 1PN Lagrangian only as a reference point, we translate it into the dimensionless projections $  \beta  $, $  \kappa  $ and impose the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure (thm:closure)} \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:condition}{condition (cor:condition)} that follows from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{methodological principles (sec:foundational)} of Relational Geometry.
 
 In standard celestial mechanics the relativistic two‑body problem is treated by appending post‑Newtonian (PN) corrections to the Newtonian Lagrangian or Hamiltonian.  The equations of motion are then solved perturbatively, and observables such as the periastron advance emerge as power series in \(v/c\) and \(GM/rc^{2}\).  The complexity grows combinatorially with each PN order.
 
