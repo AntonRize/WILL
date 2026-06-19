@@ -1852,27 +1852,37 @@ which is the Newtonian Hamiltonian.  The sign change reflects the switch from a 
 \subsubsection{Summary}
 
 
-\begin{center}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|m{0.45\textwidth}|m{0.45\textwidth}|}
-\hline
-\centering\textbf{Two‑point relational form} & 
-\centering\arraybackslash\textbf{Collapsed single‑point form} \\
-\hline
-\centering$\displaystyle \Delta E_{A \to B}
-   = \tfrac12(\kappa_A^{2} - \kappa_B^{2})
-   + \tfrac12(\beta_B^{2} - \beta_A^{2})$ &
-\centering\arraybackslash$\begin{array}{l}
-     \text{Lagrangian: } L = \tfrac12 m v^{2} + \dfrac{GMm}{r} \\[6pt]
-     \text{Hamiltonian: } H = \tfrac12 m v^{2} - \dfrac{GMm}{r}
-   \end{array}$ \\\hline
-\multicolumn{2}{|m{0.93\textwidth}|}{\centering\textbf{The collapse is performed by identifying}
-\(r_A = r_B = r\) \textbf{and then appending an ad‑hoc potential function.
-The two‑point law contains the full energy balance without the need for a
-separate potential.}} \\\hline
-\end{tabular}
-\end{center}
 
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\small
+\begin{tabular}{|p{0.46\textwidth}|p{0.46\textwidth}|}
+\hline
+\textbf{Two-point relational form} & \textbf{Collapsed single-point form} \\
+\hline
+\[
+\Delta E_{A \to B}
+= \tfrac12(\kappa_A^2 - \kappa_B^2)
++ \tfrac12(\beta_B^2 - \beta_A^2)
+\]
+&
+\[
+\begin{aligned}
+L &= \tfrac12 m v^2 + \dfrac{GMm}{r} \\
+H &= \tfrac12 m v^2 - \dfrac{GMm}{r}
+\end{aligned}
+\]
+\\
+\hline
+\multicolumn{2}{|p{0.93\textwidth}|}{\centering
+\textbf{The collapse is performed by identifying } \(r_A=r_B=r\)
+\textbf{ and then appending an ad-hoc potential function. The two-point law contains the full energy balance without the need for a separate potential.}
+} \\
+\hline
+\end{tabular}
+\caption{Two-point relational law versus collapsed single-point form.}
+\end{table}
 
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key insight]
@@ -2548,7 +2558,7 @@ This section gives an explicit, step‑by‑step mapping from the standard 1PN L
 
 \subsubsection{The standard 1PN test‑mass Lagrangian}
 
-For a test particle of mass \(m\) moving in the field of a central mass \(M\), the Lagrangian in harmonic coordinates, expanded to first post‑Newtonian order and divided by \(m\), is
+For a test particle of mass \(m\) moving in the field of a central mass \(M\), the Lagrangian in harmonic coordinates, expanded to first post‑Newtonian order and divided by \(m\), is \label{eq:1PN-Lagrangian}
 \begin{equation}
 L \;=\; -c^{2}
       + \frac{1}{2}v^{2}
@@ -2557,25 +2567,24 @@ L \;=\; -c^{2}
       + \frac{3}{2c^{2}}\frac{GM}{r}v^{2}
       - \frac{1}{2c^{2}}\Bigl(\frac{GM}{r}\Bigr)^{\!2}
       + \mathcal{O}(c^{-4}) .
-\label{eq:1PN-Lagrangian}
 \end{equation}
-The terms are, in order: rest energy, Newtonian kinetic and potential energy, the first relativistic correction to kinetic energy, the kinetic‑potential coupling, and the non‑linear correction to the potential. From this Lagrangian one derives equations of motion and integrates them perturbatively to obtain, for example, the periastron advance
+The terms are, in order: rest energy, Newtonian kinetic and potential energy, the first relativistic correction to kinetic energy, the kinetic‑potential coupling, and the non‑linear correction to the potential. From this Lagrangian one derives equations of motion and integrates them perturbatively to obtain, for example, the periastron advance \label{eq:1PN-advance}
 \[
 \Delta\varphi_{\rm 1PN} \;=\; \frac{3\pi R_{s}}{a(1-e^{2})},
 \qquad R_{s}= \frac{2GM}{c^{2}} .
-\label{eq:1PN-advance}
+
 \]
 
 \subsubsection{Translation into R.O.M. projections}
 
-\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{R.O.M.} operates with two dimensionless, frame‑invariant projections that are directly measurable from spectroscopic and astrometric data (\ref{sec:spectroscopic_shift}) without invoking \(G\) or \(M\).
-\label{eq:kappa-def}
+\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{R.O.M.} operates with two dimensionless, frame‑invariant projections that are directly measurable from spectroscopic and astrometric data \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:spectroscopic_shift}{sec:spectroscopic shift} without invoking \(G\) or \(M\).
+\label{eq:kappa-def}  \label{eq:beta-def}
 \begin{align}
-\beta      &\equiv \frac{v}{c} , \label{eq:beta-def}\\
+\beta      &\equiv \frac{v}{c} , \\
 \kappa^{2} &\equiv \frac{R_{s}}{r} .
 \end{align}
 In terms of these projections, the Newtonian potential term becomes \(\displaystyle \frac{GM}{r} = \frac{1}{2}c^{2}\kappa^{2}\). Switching to units 
-\(c=1\) for brevity, the 1PN Lagrangian rewrites as 
+\(c=1\) for brevity, the 1PN Lagrangian rewrites as \label{eq:L-in-beta-kappa}
 \begin{equation}
 L \;=\; \frac{1}{2}\beta^{2}
       + \frac{1}{2}\kappa^{2}
@@ -2583,16 +2592,14 @@ L \;=\; \frac{1}{2}\beta^{2}
       + \frac{3}{4}\kappa^{2}\beta^{2}
       - \frac{1}{8}\kappa^{4}
       + \mathcal{O}(\beta^{6}) .
-\label{eq:L-in-beta-kappa}
 \end{equation}
 This expression is still a perturbative expansion; the true trajectory must be obtained by varying the Lagrangian and solving differential equations.
 
 \subsubsection{The R.O.M. closure condition and why the Lagrangian is no longer required.}
 
-The foundational role of  \textbf{closure theorem} (\ref{thm:closure}):  For any relationally closed the amplitudes \(\beta\) and \(\kappa\) are not independent but satisfy closure condition (\ref{cor:condition}):
+The foundational role of  \textbf{closure theorem} (\ref{thm:closure}):  For any relationally closed the amplitudes \(\beta\) and \(\kappa\) are not independent but satisfy closure condition (\ref{cor:condition}): \label{eq:closure}
 \begin{equation}
 \boxed{\;\kappa^{2} = 2\beta^{2}\;} .
-\label{eq:closure}
 \end{equation}
 This relation follows from the equal distribution of the total conserved relational resource among the independent degrees of freedom of the kinematic carrier \(S^{1}\) (1 DOF) and the potential carrier \(S^{2}\) (2 DOF).
 Closure is not an equation of motion; it is a global structural constraint that every admissible orbit must fulfil.
@@ -2602,37 +2609,33 @@ Once closure is imposed, the Lagrangian is no longer required.  The permissible 
 
 \subsubsection{The R.O.M. algebraic system (exact within the relational framework)}
 
-For an elliptical orbit with eccentricity \(e\) and semi‑major axis \(a\), R.O.M. yields the following closed‑form relations (true anomaly \(O\)):
+For an elliptical orbit with eccentricity \(e\) and semi‑major axis \(a\), R.O.M. yields the following closed‑form relations (true anomaly \(O\)): 
 
 \begin{itemize}
-\item \textbf{Keplerian architecture (exact, not just Newtonian):}
+\item \textbf{Keplerian architecture (exact, not just Newtonian):} \label{eq:rom-kepler}
 \begin{align}
 \frac{R_{s}}{a} &= 2\beta^{2}
 \quad\Longrightarrow\quad
 a = \frac{R_{s}}{2\beta^{2}},
 \qquad
 T \;=\; \frac{2\pi a}{\beta c} = \frac{\pi R_{s}}{\beta^{3}c} .
-\label{eq:rom-kepler}
 \end{align}
-\item \textbf{Orbital shape (the same ellipse, but with a precessing \(O\)):}
+\item \textbf{Orbital shape (the same ellipse, but with a precessing \(O\)):} \label{eq:rom-ellipse}
 \begin{equation}
 r(O) \;=\; \frac{a(1-e^{2})}{1 + e\cos O} .
-\label{eq:rom-ellipse}
 \end{equation}
-\item \textbf{Periastron precession per orbit (exact R.O.M. expression):}
+\item \textbf{Periastron precession per orbit (exact R.O.M. expression):} \label{eq:rom-precession}
 \begin{equation}
 \Delta\varphi_{\rm ROM}
    \;=\; \frac{2\pi\,\tau_{Y}^{2}}{1-e^{2}}
    \;=\; \frac{2\pi\bigl(3\beta^{2} - 2\beta^{4}\bigr)}{1-e^{2}} .
-\label{eq:rom-precession}
 \end{equation}
 \item \textbf{Time evolution (the same Kepler integral, with the period
-           from \eqref{eq:rom-kepler}):}
+           from \eqref{eq:rom-kepler}):} \label{eq:rom-time}
 \begin{equation}
 t(O) \;=\; \frac{T}{2\pi}\,\zeta(O),\qquad
 \zeta(O) = \frac{1}{\sqrt{1-e^{2}}}\int_{0}^{O}
           \frac{d\theta}{(1+e\cos\theta)^{2}} .
-\label{eq:rom-time}
 \end{equation}
 \end{itemize}
 
@@ -2645,8 +2648,7 @@ equivalent form
 \begin{equation}
 \Delta\varphi_{\rm ROM}
    \;=\; \frac{3\pi R_{s}}{a(1-e^{2})}
-         \;-\; \frac{\pi R_{s}^{2}}{a^{2}(1-e^{2})} .
-\label{eq:ROM-precession-expanded}
+         \;-\; \frac{\pi R_{s}^{2}}{a^{2}(1-e^{2})}.
 \end{equation}
 The first term is exactly the GR 1PN advance \eqref{eq:1PN-advance}.  Thus, at first post‑Newtonian order R.O.M. and GR coincide perfectly---the 1PN Lagrangian is therefore the leading‑order content of the R.O.M. algebraic system.
 
@@ -2664,29 +2666,47 @@ confirm this prediction or rule out the R.O.M. closure law.
 
 \subsubsection{Summary of the mapping}
 
-\begin{center}
+\begin{table}[htbp]
+\centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|m{0.45\textwidth}|m{0.45\textwidth}|}
+\small
+\begin{tabular}{|p{0.46\textwidth}|p{0.46\textwidth}|}
 \hline
-\centering\textbf{1PN Lagrangian (harmonic coordinates)} &
-\centering\arraybackslash\textbf{R.O.M. algebraic system} \\\hline
-\centering$\displaystyle L = -c^{2} + \frac12 v^{2} + \frac{GM}{r}
-      + \frac{v^{4}}{8c^{2}}
-      + \frac{3}{2c^{2}}\frac{GM}{r}v^{2}
-      - \frac{1}{2c^{2}}\Bigl(\frac{GM}{r}\Bigr)^{2} + \dots$ &
-\centering\arraybackslash$\begin{array}{l}
-  \kappa^{2} = \dfrac{R_{s}}{r},\quad \beta = \dfrac{v}{c} \\[6pt]
-  \text{Closure: } \kappa^{2} = 2\beta^{2} \\[6pt]
-  \text{Orbit: } r(O) = \dfrac{a(1-e^{2})}{1+e\cos O},\quad a = \dfrac{R_{s}}{2\beta^{2}} \\[6pt]
-  \text{Precession: } \Delta\varphi_{\rm ROM} = \dfrac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}} \\[6pt]
-  \text{Time: } t(O) = \dfrac{T}{2\pi}\zeta(O),\quad T = \dfrac{\pi R_{s}}{\beta^{3}c}
-\end{array}$ \\\hline
-\multicolumn{2}{|m{0.93\textwidth}|}{\centering\textbf{Connection:} The GR 1PN advance 
-is the leading term of \(\Delta\varphi_{\rm ROM}\); the R.O.M. expression adds a 
-specific \(\mathcal{O}(\beta^{4})\) correction that differs from GR 2PN and provides 
-a falsifiable signature of the relational framework.} \\\hline
+\textbf{1PN Lagrangian (harmonic coordinates)} &
+\textbf{R.O.M. algebraic system} \\
+\hline
+\[
+L = -c^{2} + \frac12 v^{2} + \frac{GM}{r}
++ \frac{v^{4}}{8c^{2}}
++ \frac{3}{2c^{2}}\frac{GM}{r}v^{2}
+- \frac{1}{2c^{2}}\Bigl(\frac{GM}{r}\Bigr)^{2}
++ \dots
+\]
+&
+\[
+\begin{aligned}
+\kappa^{2} &= \frac{R_{s}}{r}, \quad \beta = \frac{v}{c} \\
+\text{Closure: } \kappa^{2} &= 2\beta^{2} \\
+\text{Orbit: } r(O) &= \frac{a(1-e^{2})}{1+e\cos O},
+\quad a = \frac{R_{s}}{2\beta^{2}} \\
+\text{Precession: } \Delta\varphi_{\mathrm{ROM}}
+&= \frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}} \\
+\text{Time: } t(O) &= \frac{T}{2\pi}\zeta(O),
+\quad T = \frac{\pi R_{s}}{\beta^{3}c}
+\end{aligned}
+\]
+\\
+\hline
+\multicolumn{2}{|p{\textwidth}|}{\centering
+\textbf{Connection:} The GR 1PN advance is the leading term of
+\(\Delta\varphi_{\mathrm{ROM}}\); the R.O.M. expression adds a specific
+\(\mathcal{O}(\beta^{4})\) correction that differs from GR 2PN and provides a
+falsifiable signature of the relational framework.
+} \\
+\hline
 \end{tabular}
-\end{center}
+\end{table}
+
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key takeaway]
 The 1PN Lagrangian is a truncated series in the small parameters
@@ -2715,7 +2735,7 @@ The most immediate operational consequence of the relational construction is tha
 
 This absence is not a simplification imposed after the fact; it follows necessarily from the generative structure. Because the theory begins by removing the separation between structure and dynamics, and because it enforces topological closure and maximal symmetry from the outset, the allowed relational states of a bound system are completely classified by the dimensionless projections and the single closure condition that the methodology itself produces. No integration of trajectories, no effective potentials, and no auxiliary constructs such as rotating frames are needed. The mathematics remains a short sequence of explicit algebraic relations whose every step retains clear physical meaning.
 
-The gain in transparency is therefore structural. Observables that in conventional treatments appear only after lengthy perturbative expansions or numerical integration of differential equations emerge here as immediate, exact consequences of the relational geometry. This is visible across all derivations in the paper, including the period–semi-major-axis relation, eccentricity, secular precession, light deflection, and the location of the Sun–Earth L1 point (Sections~\ref{sec:relational_parameterization} and~\ref{sec:L1}).
+The gain in transparency is therefore structural. Observables that in conventional treatments appear only after lengthy perturbative expansions or numerical integration of differential equations emerge here as immediate, exact consequences of the relational geometry. This is visible across all derivations in the paper, including the period–semi-major-axis relation, eccentricity, secular precession, light deflection, and the location of the Sun–Earth L1 point (Sections \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization}{Relational Parameterization} and \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:L1}{Sun–Earth L1 point}).
 
 
 
