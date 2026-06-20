@@ -177,7 +177,7 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         const [sysPrompt,setSysPrompt]=useState('');
         const [ks,setKs]=useState('loading');
         const [engagementLevel, setEngagementLevel] = useState(null);
-        const [selectedModel, setSelectedModel] = useState('gemini'); // gemini or minimax
+        const [selectedModel, setSelectedModel] = useState('minimax'); // gemini or minimax
 
         const sessionIdRef = useRef(new Date().toISOString().replace(/[:.]/g, '-'));
         const sessionNamedRef = useRef(false);
