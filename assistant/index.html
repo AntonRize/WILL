@@ -77,6 +77,49 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         margin-top: 6px;
         text-align: right;
     }
+
+    /* Reasoning ("Thinking") panel — streamed chain-of-thought, collapsed by default */
+    .reasoning-panel {
+        margin-bottom: 8px;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-radius: 10px;
+        background: rgba(15, 23, 42, 0.5);
+        max-width: 85%;
+    }
+    .reasoning-panel summary {
+        cursor: pointer;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        color: #94a3b8;
+        user-select: none;
+        list-style: none;
+        outline: none;
+    }
+    .reasoning-panel summary::-webkit-details-marker { display: none; }
+    .reasoning-panel summary::before { content: '▸ '; color: #64748b; }
+    .reasoning-panel[open] summary::before { content: '▾ '; }
+    .reasoning-content {
+        padding: 0 12px 10px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: #7c8aa0;
+        white-space: pre-wrap;
+        word-break: break-word;
+        max-height: 320px;
+        overflow-y: auto;
+    }
+    /* Blinking caret shown while tokens are still streaming in */
+    .stream-caret {
+        display: inline-block;
+        width: 7px;
+        height: 1em;
+        background: #22d3ee;
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: will-blink 1s steps(2) infinite;
+    }
+    @keyframes will-blink { 50% { opacity: 0; } }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
@@ -95,6 +138,16 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
     const CORE = `β (beta)=v/c · κ (kappa)=vₑ/c · κ²=2β²`;
     const PROXY = 'https://proxy-flame-seven.vercel.app/api/gemini';
     const LOG_API = 'https://proxy-flame-seven.vercel.app/api/save_log';
+
+    // Model registry. selectedModel keys map to: the proxy token (forceModel),
+    // the button label, and the "powered by" indicator line.
+    // forceModel === null  -> proxy default path (Gemini, with Nemotron fallback)
+    // forceModel === 'nemotron' -> proxy manual path (Nemotron streaming)
+    const MODELS = {
+        gemini:   { label: 'Gemini 2.5 Flash', force: null,        info: 'Powered by Gemini 2.5 Flash' },
+        nemotron: { label: 'Nemotron 550B',    force: 'nemotron',  info: 'Powered by Nemotron 550B' }
+    };
+
     const QUICK = {
         'beta':  'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
         'β':     'β (beta) is the kinematic projection $v / c$. Together with κ it obeys $\\kappa^2 = 2 \\beta^2$.',
@@ -162,22 +215,137 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         });
     }
 
-    function askGemini(prompt, forceModel){
-        const body = {prompt};
-        if(forceModel) body.forceModel = forceModel;
-        return fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
-            .then(r=>r.text())
-            .then(t=>{let d;try{d=JSON.parse(t);}catch{throw new Error(t);}if(!d.reply)throw new Error(d.error||'Proxy');return d.reply;});
+    /* ── Unified model call ──
+       The proxy can answer in TWO shapes for the SAME endpoint:
+         • application/json            -> Gemini (non-streaming) -> { reply, ... }
+         • text/event-stream (SSE)     -> Nemotron via OpenRouter (streaming)
+       We detect the shape from Content-Type and handle both. For the streaming
+       shape we parse OpenRouter chunks, separating reasoning tokens from answer
+       tokens, and invoke callbacks so the UI can update live. */
+    async function askModel(prompt, forceModel, handlers) {
+        handlers = handlers || {};
+        const onText = handlers.onText || function(){};
+        const onReasoning = handlers.onReasoning || function(){};
+
+        const body = { prompt };
+        if (forceModel) body.forceModel = forceModel;
+
+        const res = await fetch(PROXY, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+
+        const ct = (res.headers.get('content-type') || '').toLowerCase();
+
+        // ---- Non-streaming JSON path (Gemini, or any JSON error envelope) ----
+        if (ct.indexOf('text/event-stream') === -1) {
+            const t = await res.text();
+            let d;
+            try { d = JSON.parse(t); }
+            catch (e) { throw new Error(t || ('HTTP ' + res.status)); }
+            if (d.error) {
+                throw new Error(typeof d.error === 'string' ? d.error : JSON.stringify(d.error));
+            }
+            if (typeof d.reply !== 'string') {
+                throw new Error('Malformed proxy response (no reply).');
+            }
+            return { text: d.reply, reasoning: '' };
+        }
+
+        // ---- Streaming SSE path (OpenRouter chunks forwarded by the proxy) ----
+        if (!res.ok) {
+            const t = await res.text().catch(function(){ return ''; });
+            throw new Error(t || ('HTTP ' + res.status));
+        }
+        if (!res.body || !res.body.getReader) {
+            throw new Error('Streaming not supported by this browser.');
+        }
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        let text = '';
+        let reasoning = '';
+
+        // Pull one reasoning delta out of an OpenRouter delta object.
+        function extractReasoning(delta) {
+            let r = '';
+            if (typeof delta.reasoning === 'string') r += delta.reasoning;
+            if (Array.isArray(delta.reasoning_details)) {
+                for (const rd of delta.reasoning_details) {
+                    if (rd && typeof rd.text === 'string') r += rd.text;
+                    else if (rd && typeof rd.content === 'string') r += rd.content;
+                }
+            }
+            return r;
+        }
+
+        // Handle one complete SSE line. Returns true when [DONE] is seen.
+        function handleLine(rawLine) {
+            const line = rawLine.replace(/\r$/, '').trim();
+            if (!line || line.charAt(0) === ':') return false;   // blank or keepalive comment
+            if (line.indexOf('data:') !== 0) return false;
+            const dataStr = line.slice(5).trim();
+            if (dataStr === '[DONE]') return true;
+            let json;
+            try { json = JSON.parse(dataStr); }
+            catch (e) { return false; }                          // ignore non-JSON / partials
+            if (json.error) {
+                const m = typeof json.error === 'string'
+                    ? json.error
+                    : (json.error.message || JSON.stringify(json.error));
+                throw new Error(m);
+            }
+            const choice = json.choices && json.choices[0];
+            const delta = (choice && choice.delta) || {};
+            const r = extractReasoning(delta);
+            if (r) { reasoning += r; onReasoning(reasoning); }
+            if (typeof delta.content === 'string' && delta.content) {
+                text += delta.content; onText(text);
+            }
+            return false;
+        }
+
+        let done = false;
+        while (!done) {
+            const chunk = await reader.read();
+            if (chunk.done) break;
+            buffer += decoder.decode(chunk.value, { stream: true });
+            let nl;
+            while ((nl = buffer.indexOf('\n')) !== -1) {
+                const line = buffer.slice(0, nl);
+                buffer = buffer.slice(nl + 1);
+                if (handleLine(line)) { done = true; break; }
+            }
+        }
+        // Flush any trailing line with no final newline.
+        if (!done && buffer) handleLine(buffer);
+
+        return { text: text, reasoning: reasoning };
     }
 
-    const isRu=s=>/[\u0400-\u04FF]/i.test(s);
+    const isRu=s=>/[Ѐ-ӿ]/i.test(s);
+
+    /* Collapsible "Thinking" disclosure for reasoning tokens. */
+    function ReasoningPanel(props) {
+        if (!props.text) return null;
+        return React.createElement('details', {
+                className: 'reasoning-panel',
+                open: !!props.open
+            },
+            React.createElement('summary', null, props.streaming ? 'Thinking…' : 'Show reasoning'),
+            React.createElement('div', { className: 'reasoning-content' }, props.text)
+        );
+    }
 
     function App(){
         const [kb,setKb]=useState('');
         const [sysPrompt,setSysPrompt]=useState('');
         const [ks,setKs]=useState('loading');
         const [engagementLevel, setEngagementLevel] = useState(null);
-        const [selectedModel, setSelectedModel] = useState('gemini'); // gemini or minimax
+        const [selectedModel, setSelectedModel] = useState('gemini'); // 'gemini' | 'nemotron'
+        const [streaming, setStreaming] = useState(null); // {text, reasoning} while a stream is live
 
         const sessionIdRef = useRef(new Date().toISOString().replace(/[:.]/g, '-'));
         const sessionNamedRef = useRef(false);
@@ -207,14 +375,21 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
                 .catch(()=>setKs('error'));
         },[]);
 
+        // Typeset math whenever a COMMITTED message is added (not on every stream token).
         useEffect(()=>{
             endRef.current?.scrollIntoView({behavior:'smooth'});
             typesetMath();
         },[log]);
 
-        const push=(txt,user=false,raw=txt,modelInfo=null)=>{
+        // While streaming, keep the view pinned to the bottom but DON'T re-run MathJax
+        // on every token (too expensive); LaTeX is typeset once the message commits.
+        useEffect(()=>{
+            if (streaming) endRef.current?.scrollIntoView({behavior:'smooth'});
+        },[streaming]);
+
+        const push=(txt,user=false,raw=txt,modelInfo=null,reasoning='')=>{
             const content=user?txt:renderMarkdownWithLatex(txt);
-            const entry={id:Date.now()+Math.random(),txt:content,user,raw,modelInfo};
+            const entry={id:Date.now()+Math.random(),txt:content,user,raw,modelInfo,reasoning};
             logRef.current=[...logRef.current,entry];
             setLog(logRef.current);
         };
@@ -276,7 +451,16 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
             }
 
             setBusy(true);
+            setStreaming(null);
             const lang = isRu(q) ? 'Russian' : 'English';
+
+            const model = MODELS[selectedModel] || MODELS.gemini;
+            const forceModel = model.force;
+            const modelInfo = model.info;
+
+            // Mutable accumulator so onText / onReasoning don't clobber each other.
+            const streamId = Date.now() + Math.random();
+            const acc = { text: '', reasoning: '' };
 
             try {
                 const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
@@ -300,17 +484,18 @@ Answer in ${lang}. Use Markdown. Follow the <CITATION_PROTOCOL> strictly for all
 ${q}
 </USER_QUESTION>`;
 
-                const forceModel = selectedModel === 'minimax' ? 'minimax' : null;
-                const ans = await askGemini(fullPrompt, forceModel);
+                const result = await askModel(fullPrompt, forceModel, {
+                    onText: (t) => { acc.text = t; setStreaming({ id: streamId, text: acc.text, reasoning: acc.reasoning }); },
+                    onReasoning: (r) => { acc.reasoning = r; setStreaming({ id: streamId, text: acc.text, reasoning: acc.reasoning }); }
+                });
 
-                const modelInfo = selectedModel === 'gemini' 
-                    ? 'Powered by Gemini 2.5 Flash' 
-                    : 'Using Qwen 3.6 Plus — Manual mode';
-
-                push(ans, false, ans, modelInfo);
+                setStreaming(null);
+                const finalText = (result.text && result.text.trim()) ? result.text : '*(The model returned an empty response. Please try again.)*';
+                push(finalText, false, result.text || '', modelInfo, result.reasoning || '');
                 sendLog();
 
             } catch (e) {
+                setStreaming(null);
                 let friendlyError;
                 const errorMessage = String(e.message || '');
 
@@ -345,6 +530,7 @@ ${q}
                         },m.txt)
                         :
                         React.createElement('div',{className:'max-w-[85%]'},
+                            React.createElement(ReasoningPanel,{text:m.reasoning,streaming:false,open:false}),
                             React.createElement('div',{
                                 className:`ai-message-bubble p-4 rounded-2xl bg-slate-700/80 text-slate-100 ${m.isWelcome?'border border-cyan-500/40':''}`,
                                 dangerouslySetInnerHTML:{__html:m.txt}
@@ -352,7 +538,21 @@ ${q}
                             m.modelInfo && React.createElement('div',{className:'model-indicator'}, m.modelInfo)
                         )
                     )),
-                    busy&&React.createElement('div',{className:'flex justify-start'},
+
+                    /* Live streaming bubble (Nemotron tokens as they arrive) */
+                    streaming && React.createElement('div',{className:'flex justify-start'},
+                        React.createElement('div',{className:'max-w-[85%]'},
+                            React.createElement(ReasoningPanel,{text:streaming.reasoning,streaming:true,open:true}),
+                            React.createElement('div',{
+                                className:'ai-message-bubble p-4 rounded-2xl bg-slate-700/80 text-slate-100',
+                                dangerouslySetInnerHTML:{__html: renderMarkdownWithLatex(streaming.text || '') }
+                            }),
+                            React.createElement('span',{className:'stream-caret'})
+                        )
+                    ),
+
+                    /* Waiting indicator: shown only before the first token arrives */
+                    busy && !streaming && React.createElement('div',{className:'flex justify-start'},
                         React.createElement('div',{className:'p-4 rounded-2xl bg-slate-700/80 text-slate-300'},
                             React.createElement('span',{className:'inline-flex gap-1'},
                                 React.createElement('span',{className:'animate-bounce',style:{animationDelay:'0ms'}},'·'),
@@ -366,7 +566,7 @@ ${q}
             ),
 
             React.createElement('div',{className:'flex-shrink-0 border-t border-slate-700/50 bg-gray-900/80 backdrop-blur-sm px-4 md:px-8 lg:px-16 py-3'},
-                !engagementLevel ? 
+                !engagementLevel ?
                 React.createElement('div', {className: 'max-w-4xl mx-auto flex flex-col items-center justify-center gap-3 py-2'},
                     React.createElement('div', {className: 'text-slate-300 text-sm font-semibold'}, 'Select Mathematical Engagement Level:'),
                     React.createElement('div', {className: 'flex flex-wrap justify-center gap-3'},
@@ -381,11 +581,11 @@ ${q}
                         React.createElement('button',{
                             onClick: () => setSelectedModel('gemini'),
                             className: `model-btn ${selectedModel === 'gemini' ? 'active' : ''}`
-                        }, 'Gemini 2.5 Flash'),
+                        }, MODELS.gemini.label),
                         React.createElement('button',{
-                            onClick: () => setSelectedModel('minimax'),
-                            className: `model-btn ${selectedModel === 'minimax' ? 'active' : ''}`
-                        }, 'Qwen 3.6 Plus')
+                            onClick: () => setSelectedModel('nemotron'),
+                            className: `model-btn ${selectedModel === 'nemotron' ? 'active' : ''}`
+                        }, MODELS.nemotron.label)
                     ),
                     React.createElement('div',{className:'flex gap-2 items-end'},
                         React.createElement('textarea',{
@@ -407,5 +607,36 @@ ${q}
         );
     }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+    /* ── Error boundary ──
+       A render-time exception must never leave the page blank again: show a
+       readable message (and log to console) instead of an empty #root. */
+    class ErrorBoundary extends React.Component {
+        constructor(props){ super(props); this.state = { err: null }; }
+        static getDerivedStateFromError(err){ return { err }; }
+        componentDidCatch(err, info){ console.error('WILL-AI render error:', err, info); }
+        render(){
+            if (this.state.err) {
+                return React.createElement('div',{
+                    style:{padding:'24px',color:'#fca5a5',fontFamily:'monospace',whiteSpace:'pre-wrap',lineHeight:1.5}
+                },
+                'WILL-AI failed to render:\n' + (this.state.err.message || String(this.state.err)) +
+                '\n\nPlease reload the page. If this keeps happening, email antonrize@willrg.com.');
+            }
+            return this.props.children;
+        }
+    }
+
+    (function mount(){
+        const rootEl = document.getElementById('root');
+        if (!rootEl) return;
+        if (!window.React || !window.ReactDOM || !window.marked) {
+            rootEl.innerHTML = '<div style="padding:24px;color:#fca5a5;font-family:monospace">'
+                + 'Failed to load required libraries (React / marked) from the CDN.<br>'
+                + 'Please check your connection and reload the page.</div>';
+            return;
+        }
+        ReactDOM.createRoot(rootEl).render(
+            React.createElement(ErrorBoundary, null, React.createElement(App))
+        );
+    })();
 </script>
