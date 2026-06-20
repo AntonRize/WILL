@@ -1,0 +1,530 @@
+\documentclass[10pt, a4paper]{article}
+% --- Encoding and language ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[warn]{textcomp}
+    
+
+
+
+% --- Page geometry ---
+\usepackage{geometry}
+\geometry{a4paper, left=15mm, right=15mm, top=20mm, bottom=20mm}
+
+% --- Math and fonts ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}      % For proof environment
+
+% --- Figures and tables ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}    
+\usepackage{enumitem}
+\usepackage{float}
+
+
+% --- START OF FOOTER SECTION ---
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+\usepackage[numbers]{natbib}   % Required for numeric citations like [1]
+
+% Activate the fancy page style
+\pagestyle{fancy}
+
+% Clear default headers and footers
+\fancyhf{} 
+
+% Remove the horizontal line in the header (optional, keeps it clean)
+\renewcommand{\headrulewidth}{0pt}
+
+% Remove the horizontal line in the footer (optional, set to 0.4pt if you want a line)
+\renewcommand{\footrulewidth}{0pt} 
+
+% Left Footer: Website Link (Small text)
+\lfoot{\scriptsize \href{https://willrg.com}{https://willrg.com}}
+
+% Center Footer: Page Number
+\cfoot{\scriptsize \thepage}
+
+% Right Footer: Zenodo DOI (Small text)
+\rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
+
+% --- HANDLING THE FIRST PAGE (TITLE PAGE) ---
+% By default, \maketitle resets the style to 'plain'. 
+% This code redefines 'plain' to match your custom footer so it appears on page 1 too.
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \lfoot{\scriptsize \href{https://willrg.com}{https://willrg.com}}
+  \cfoot{\scriptsize \thepage}
+  \rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
+}
+% --- END OF FOOTER SECTION ---
+
+% --- TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{shapes, positioning, arrows.meta, calc}
+
+% --- tcolorbox for styled theorems ---
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{principle}[theorem]{Principle}
+
+% --- Metadata ---
+\title{\textbf{WILL} \\
+\textit{Unfolding The Holographic Nature of Gravitational Systems: Braking $M \sin i$ Degeneracy}}
+\author{Anton Rize \\ antonrize@willrg.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}}
+
+
+\date{October 2025}
+
+\begin{document}
+
+\maketitle 
+
+
+
+\begin{abstract} 
+Yet to be written
+\end{abstract}
+
+
+\newpage
+
+
+
+
+
+
+\section{Unfolding The Holographic Nature of Gravitational Systems: Braking $M \sin i$ Degeneracy}
+\hypertarget{sec:M_sin(i)}{}\label{sec:M_sin(i)}
+
+\subsection{The 130-Year Limitation}
+For more than a century, radial-velocity and astrometric orbital analyses have been limited by the \textbf{$M \sin i$} (or equivalently $\beta \sin i$) degeneracy. The observed velocity semi-amplitude $K$ only constrains the product
+\[
+K = \frac{\beta_{\rm int} \sin i}{\sqrt{1-e^2}},
+\]
+leaving an infinite family of physically distinct $(\beta, i)$ pairs consistent with the data. This degeneracy has been the principal obstacle to model-independent mass and inclination determination in exoplanet, binary, and Galactic-center studies.
+
+
+By deriving Relational Orbital Mechanics (R.O.M. \ref{sec:rom}) RG sidesteps this degeneracy at the algebraic level by introducing two independent higher-order kinematic invariants that depend on $\beta$ (or $\beta_{\rm int}$) alone, without reference to the observer's inclination $i$.
+
+\subsection{The Interior Kinematic Projection}
+We define the \textbf{interior kinematic projection} (the projection that appears in all relativistic invariants) as
+\[
+\beta_{\rm int} \equiv \frac{\beta}{\sqrt{1-e^2}}.
+\]
+This is the natural variable once the elliptical geometry is accounted for. All higher-order effects now depend strictly on powers of $\beta_{\rm int}$.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=ROM]
+
+Please follow this link to see all \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. equations and definitions}
+
+\href{https://www.desmos.com/calculator/lpjawsn19f}{DESMOS: https://www.desmos.com/calculator/lpjawsn19f}
+\end{tcolorbox}
+
+\subsection{Non-Linear Relational Invariants}
+R.O.M. supplies two independent constraints that are quadratic (or higher) in $\beta_{\rm int}$:
+
+\begin{theorem}[Decoupling of $\beta$ and $i$]
+The classical linear amplitude $K \propto \beta_{\rm int} \sin i$ is supplemented by two exact, non-linear structural constraints:
+\begin{enumerate}
+    \item \textbf{Exact Precessional Phase Shift} (from total relational state divergence):
+    \[
+    \Delta\varphi = \frac{2\pi\tau_{Y}^2}{1-e^2}=\frac{2\pi(3\beta^2 - 2\beta^4)}{1-e^2}.
+    \]
+    \item \textbf{Systemic Transverse Baseline} $Z_{\rm sys}(\phi)$ (the invariant baseline that modulates the raw observable redshift $Z_{\rm raw}$, arising from the exact product of the kinematic and potential projections).
+\end{enumerate}
+Both constraints depend strictly on the unprojected base state $\beta^2$ (and orbital phase), entirely independent of the observer's line-of-sight inclination $i$.
+\end{theorem}
+
+\begin{proof}
+The exact precession law follows directly from the accumulation of the total relational state divergence $\tau_Y^2 \equiv 1 - \tau^2$. By enforcing the system's geometric closure condition ($\kappa^2 = 2\beta^2$), the exact phase mismatch evaluates to $\tau_Y^2 = 3\beta^2 - 2\beta^4$. The cross-coupling term $-2\beta^4$ represents the exact, non-linear interaction between the directional and omnidirectional carriers.
+
+Concurrently, the raw spectroscopic observable $Z_{\rm raw}$ intrinsically contains the line-of-sight Doppler shift modulated by the geometric baseline $Z_{\rm sys}$. Neither the exact precession divergence $\tau_Y^2$ nor the invariant $Z_{\rm sys}$ carries a factor of $\sin i$. Therefore, when the raw observable $Z_{\rm raw}$ is fitted without ablation, $\beta$ is algebraically isolated independently of the linear amplitude $K$. The inclination $i$ is then uniquely recovered from
+\[
+\sin i = \frac{K \sqrt{1-e^2}}{\beta_{\rm int}}.
+\]
+\end{proof}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Operational Summary]
+The degeneracy is not fundamental; it is an artifact of truncating the kinematic description to its first-order linear term. R.O.M. restores the full non-linear structure of the relational carriers and renders $\beta$ and $i$ separately measurable from a single dataset.
+\end{tcolorbox}
+
+
+\subsection{Analytical Extraction of the Inclination Angle: The Decryption Invariant}
+\hypertarget{sec:analytical_sini}{}\label{sec:analytical_sini}
+
+While Bayesian MCMC provides a robust statistical mapping of the probability ridge (Section \ref{sec:mcmc_s02}), the Relational Orbital Mechanics (R.O.M.) allows for a strict, closed-form algebraic resolution of the $M \sin i$ degeneracy. By evaluating the raw observational shifts at the exact orbital extrema, the inclination angle $i$ can be completely isolated and extracted.
+
+
+\subsubsection{The Observer Equations at Extrema}
+
+The raw spectroscopic shift observed by a telescope, $Z_{raw}(o)$, is the product of the line-of-sight Doppler projection and the systemic transverse baseline $Z_{sys}(o)$. The extrema of the radial velocity occur at phases $o_{i1} = -\omega_i$ (maximum redshift) and $o_{i2} = \pi - \omega_i$ (minimum redshift/maximum blue shift).
+
+Utilizing the relational energy invariant $\kappa_o(o)^2 - \beta_o(o)^2 = \beta^2$, we eliminate the gravitational projection $\kappa_o$ entirely. Because $Z_{sys}(o) = 1/\tau(o)$, the systemic spacetime phase factors at the extrema, $\tau(-\omega_i)$ and $\tau(\pi-\omega_i)$, become strict functions of the global kinematic projection $\beta$, eccentricity $e$, and the argument of periapsis $\omega_i$:
+
+\begin{align}
+\tau(-\omega_i) &= \sqrt{1 - 2\beta^2\frac{1+e\cos\omega_i}{1-e^2}} \sqrt{1 - \beta^2\frac{1+e^2+2e\cos\omega_i}{1-e^2}} \\
+\tau(\pi-\omega_i) &= \sqrt{1 - 2\beta^2\frac{1-e\cos\omega_i}{1-e^2}} \sqrt{1 - \beta^2\frac{1+e^2-2e\cos\omega_i}{1-e^2}}
+\end{align}
+
+The observed raw extrema can then be written linearly with respect to the classical semi-amplitude invariant $K_i = \frac{\beta\sin i}{\sqrt{1-e^2}}$:
+\label{eq:zmax}
+\[
+\begin{align}
+Z_{raw}(-\omega_i) \cdot \tau(-\omega_i) &= 1 + K_i(1+e\cos\omega_i)  \\
+Z_{raw}(\pi-\omega_i) \cdot \tau(\pi-\omega_i) &= 1 - K_i(1-e\cos\omega_i) \label{eq:zmin}
+\end{align}
+\]
+\subsubsection{Algebraic Decoupling of $\beta$ and $i$}
+
+To break the degeneracy, we isolate the inclination-dependent term. Subtracting Equation \ref{eq:zmin} from Equation \ref{eq:zmax} yields  twice the semi-amplitude:
+\begin{equation}
+2K_i = Z_{raw}(-\omega_i) \tau(-\omega_i) - Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) \label{eq:2Ki}
+\end{equation}
+
+Adding the two equations yields:
+\begin{equation}
+Z_{raw}(-\omega_i) \tau(-\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) = 2 + 2K_i e\cos\omega_i
+\end{equation}
+
+Substituting $2K_i$ from Equation \ref{eq:2Ki} into this sum and grouping the $Z_{raw}$ terms isolates the fundamental \textbf{Decryption Invariant}:
+
+\hypertarget{eq:decryption_invariant}{}\label{eq:decryption_invariant}
+\begin{tcolorbox}[colback=white, colframe=black, title=The Decryption Invariant]
+\begin{equation}
+Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2
+\end{equation}
+\end{tcolorbox}
+
+
+This equation contains the raw observational signals, the known geometry ($e$), and the internal R.O.M. variables ($\beta, \omega_i$) locked inside the $\tau$ functions. Crucially, \textbf{the inclination angle $i$ has been strictly eliminated}. This proves analytically that the true kinematic projection $\beta$ is determined entirely by the asymmetry of the transverse baselines at the extrema, independent of the observer's viewing angle.
+
+\subsubsection{Analytical Extraction of $\sin i$}
+
+Once $\beta$ and $\omega_i$ are constrained via Equation \ref{eq:decryption_invariant} (and verified via the balance phase $O_o$), the true orbital inclination is trivially extracted by substituting the definition of $K_i$ back into Equation \ref{eq:2Ki}:
+
+\begin{equation}
+\boxed{\sin i = \frac{\sqrt{1-e^2}}{2\beta} \left[ Z_{raw}(-\omega_i) \tau(-\omega_i) - Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) \right]}
+\end{equation}
+
+\subsubsection{Numerical Verification: S0-2 Extrema Synthesis}
+
+To verify this architecture, a forward-synthesis and reverse-extraction test was performed using the empirically established parameters of the S0-2 star (GRAVITY Collaboration: $e = 0.88466$, $\omega_i = 66.13^\circ$, $\beta = 0.00645$, $i = 134.0^\circ$). 
+
+Forward synthesis generates the exact transverse spacetime factors $\tau(-\omega_i) = 0.999501$ and $\tau(\pi-\omega_i) = 0.999775$, yielding the raw spectroscopic extrema:
+\begin{itemize}
+    \item $Z_{raw}(-\omega_i) = 1.014019$
+    \item $Z_{raw}(\pi-\omega_i) = 0.993834$
+\end{itemize}
+
+Evaluating the Decryption Invariant (Equation \ref{eq:decryption_invariant}) with these values yields exactly $2.000000$, confirming absolute algebraic closure. Applying the extraction equation directly outputs $\sin i = 0.71931$, which immediately returns the true inclination $i = 133.99^\circ$. 
+
+
+
+\subsection{Algebraic Isolation of the Balance Nodes}
+\hypertarget{sec:balance_nodes}{}\label{sec:balance_nodes}
+
+To algebraically close the system and extract the global kinematic invariant $\beta$ independently of the Decryption Invariant at the extrema, we require a second operational constraint. This constraint is derived from the true anomalies where the line-of-sight kinetic projection vanishes.
+
+\begin{definition}[Balance Phases]
+The balance phases $o_{b1}$ and $o_{b2}$ are the orbital true anomalies where the radial velocity relative to the observer is exactly zero ($\beta_{los} = 0$). At these nodes, the raw observed shift is strictly identical to the underlying systemic transverse baseline:
+\begin{equation}
+Z_{raw}(o_{b1,2}) = Z_{sys}(o_{b1,2}) = \frac{1}{\tau(o_{b1,2})}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Geometric State at Balance Nodes]
+At the balance phases, the complex phase-dependent kinetic and potential projections factorize into exact polynomials of the argument of periapsis $\omega_i$, producing a perfect square for the local kinetic projection.
+\end{theorem}
+
+\begin{proof}
+The condition $\beta_{los} = 0$ requires the geometric term to vanish:
+\[ \cos(o_b + \omega_i) + e\cos\omega_i = 0 \]
+Let $u = o_b + \omega_i$. Then $\cos u = -e\cos\omega_i$ and $\sin u = \pm \sqrt{1 - e^2\cos^2\omega_i}$.
+We define the geometric node parameter $\Theta_i$ as the strict limit of this orthogonality:
+\begin{equation}
+\Theta_i \equiv \sqrt{1 - e^2\cos^2\omega_i}
+\end{equation}
+Applying the cosine difference identity $\cos o_b = \cos(u - \omega_i)$:
+\[ \cos o_{b1,2} = -e\cos^2\omega_i \pm \Theta_i\sin\omega_i \]
+
+We substitute this strictly into the phase factor $(1 + e\cos o_b)$ for the $S^2$ potential projection:
+\[ 1 + e\cos o_{b1,2} = 1 - e^2\cos^2\omega_i \pm e\Theta_i\sin\omega_i \]
+Recognizing that $1 - e^2\cos^2\omega_i = \Theta_i^2$, we extract the exact factorization:
+\begin{equation}
+1 + e\cos o_{b1,2} = \Theta_i(\Theta_i \pm e\sin\omega_i)
+\end{equation}
+
+Substituting this into the local potential projection $\kappa_o^2$:
+\begin{equation}
+\kappa_{ob1,2}^2 = \frac{2\beta^2}{1-e^2} \Theta_i(\Theta_i \pm e\sin\omega_i)
+\end{equation}
+
+Next, we evaluate the phase factor for the $S^1$ local kinetic projection $(1 + e^2 + 2e\cos o_b)$:
+\[ 1 + e^2 + 2e\cos o_{b1,2} = 1 + e^2 - 2e^2\cos^2\omega_i \pm 2e\Theta_i\sin\omega_i \]
+This expression algebraically collapses into a perfect geometric square:
+\[ \Theta_i^2 + e^2\sin^2\omega_i \pm 2e\Theta_i\sin\omega_i = (\Theta_i \pm e\sin\omega_i)^2 \]
+
+Substituting this into the local kinetic projection $\beta_o^2$:
+\begin{equation}
+\beta_{ob1,2}^2 = \frac{\beta^2}{1-e^2} (\Theta_i \pm e\sin\omega_i)^2
+\end{equation}
+\end{proof}
+
+\begin{theorem}[The Nodal Invariant System]
+The measurement of $Z_{raw}$ at the two balance nodes provides two algebraically exact equations that depend exclusively on $\beta$, $e$, and $\omega_i$, devoid of trigonometric variables of the true anomaly $o$.
+\end{theorem}
+
+\begin{proof}
+By substituting the exact node projections into the systemic baseline relation $Z_{raw}(o_b) = [ (1-\kappa_{ob}^2)(1-\beta_{ob}^2) ]^{-1/2}$, we obtain the fully isolated system:
+\label{eq:node2}
+\begin{align}
+Z_{raw}(o_{b1})^{-2} &= \left( 1 - \frac{2\beta^2 \Theta_i(\Theta_i + e\sin\omega_i)}{1-e^2} \right) \left( 1 - \frac{\beta^2 (\Theta_i + e\sin\omega_i)^2}{1-e^2} \right) \label{eq:node1} \\
+Z_{raw}(o_{b2})^{-2} &= \left( 1 - \frac{2\beta^2 \Theta_i(\Theta_i - e\sin\omega_i)}{1-e^2} \right) \left( 1 - \frac{\beta^2 (\Theta_i - e\sin\omega_i)^2}{1-e^2} \right) 
+\end{align}
+Coupled with the Decryption Invariant (Equation \ref{eq:decryption_invariant}), these non-linear constraints form a mathematically closed system. The parameters $\beta$ and $\omega_i$ are thereby uniquely determined directly from the observational dataset points, completely bypassing the $M \sin i$ degeneracy.
+\end{proof}
+
+
+
+
+\begin{remark}[Epistemological Proof vs. Empirical Extraction]
+While the Decryption Invariant (Equation \ref{eq:decryption_invariant}) provides the rigorous epistemological proof that the classical $M \sin i$ degeneracy is not a fundamental law of physics, its direct algebraic application is inherently bounded by instrumental limitations. 
+
+Because the baseline asymmetry $(\tau(-\omega_i) - \tau(\pi-\omega_i))$ scales strictly as $\mathcal{O}(\beta^2)$ (e.g., $\approx 2.7 \times 10^{-4}$ for the S0-2 system), the algebraic inversion is hypersensitive to spectrographic noise. Any instrumental fluctuation or finite-sampling interpolation error at the exact extrema ($Z_{raw}(-\omega_i)$ and $Z_{raw}(\pi-\omega_i)$) will be mathematically amplified by the inversion matrix.
+
+Therefore, the algebraic and statistical methods must operate in strict symbiosis. The algebraic system (Section \ref{sec:analytical_sini}) provides the exact topological initial locus, instantly dispatching the optimizer to the correct degeneracy ridge. The Bayesian MCMC framework (Section \ref{sec:mcmc_s02}) then takes over, integrating the continuous phase curve to suppress instrumental noise and establish robust empirical confidence intervals.
+\end{remark}
+
+
+\subsection{Autonomous 1D Extraction and the Information Boundary}
+\hypertarget{sec:autonomous_1d_extraction}{}\label{sec:autonomous_1d_extraction}
+
+To definitively prove that the $M \sin i$ degeneracy is algebraically penetrable without external 3D geometric priors, the Relational Orbital Mechanics (R.O.M.) framework was deployed in a fully autonomous, zero-hardcode configuration utilizing strictly 1D radial velocity (RV) data.
+
+\subsubsection{The Relational Chronological Scout}
+
+Classical Keplerian algorithms fail to accurately determine the time of periapsis ($T_{peri}$) in high-eccentricity relativistic orbits due to the intrinsic asymmetry introduced by Light Travel Time (R\o{}mer delay) and the systemic relational redshift ($Z_{sys}$). Imposing a symmetric Keplerian template on an asymmetric empirical signal forces the optimizer to artificially shift the temporal axis to minimize residuals, resulting in a chronological error margin that collapses the relational phase alignment.
+
+To eliminate this artifact, the framework employs a \textbf{Relational Time-Scout}. The global timeline (orbital period $P$ and base $T_{peri}$) is locked by evaluating the unconstrained 7D parameter space directly through the complete non-linear R.O.M. geometry:
+\begin{equation}
+Z_{model}(t) = Z_{sys}(\beta, e, o) \cdot [1 + \beta_{los}(i, e, \omega, o)] \cdot (1 + v_{z0}/c)
+\end{equation}
+While the amplitude components ($\beta, \sin i$) remain heavily correlated at this unrefined stage, the chronological phase of the extreme kinematic gradient (the RV "needle") is topologically rigid. The scout isolates the exact macroscopic temporal skeleton independent of the geometric degeneracy.
+
+\subsubsection{6D Holographic Micro-Relaxation}
+
+With the macroscopic period $P$ rigidly locked, the framework transitions to a 6D Bayesian MCMC mapping. The periapsis time $T_{peri}$ is permitted a tight micro-relaxation window ($\pm 1.5$ days) to achieve hour-scale precision. 
+
+The optimizer maps the probability ridge defined by the tension between the classical macroscopic amplitude $K$ and the microscopic $\mathcal{O}(\beta^2)$ relational invariants. The algorithm autonomously localizes the true geometric intersection, yielding $\beta \approx 0.00617$ and an inclination of $i \approx 46.24^\circ$. The strict convergence of the inclination angle confirms the successful holographic extraction of the 3D orbital plane exclusively from 1D spectrographic projections.
+
+\subsubsection{The Shannon Boundary and Instrumental Limits}
+
+While the autonomous 1D extraction successfully shatters the mathematical illusion of the $\beta \sin i$ degeneracy, the resulting absolute scale determination reveals a strict epistemological boundary imposed by hardware limitations.
+
+The extracted system mass from the 1D dataset evaluates to $M \approx 3.84 \times 10^6 M_\odot$, reflecting an approximate $10\%$ deviation from the 3D astrometric consensus ($M \approx 4.29 \times 10^6 M_\odot$). This deviation is not a manifestation of theoretical error, but a direct consequence of the instrumental Signal-to-Noise Ratio (SNR). 
+
+The relational redshift $Z_{sys}$, which dictates the geometric decoupling, carries an amplitude of approximately $200$ km/s near periapsis. The empirical spectrographic data (e.g., SINFONI/KECK) contains intrinsic dispersion limits of $\sigma_{RV} \approx 10-20$ km/s. 
+\begin{equation}
+\text{SNR} = \frac{\Delta Z_{sys} \cdot c}{\sigma_{RV}} \approx 10 \sim 20
+\end{equation}
+Within this noise floor, the 1D phase profile possesses statistical compliance. The optimizer algebraically minimizes $\chi^2$ by slightly suppressing the kinematic projection ($\beta$) and compensating through the systemic background drift ($v_{z0}$). 
+
+\begin{tcolorbox}[colback=white, colframe=black, title=Epistemological Conclusion]
+The autonomous 1D execution proves that the topological degeneracy is fundamentally broken by R.O.M. However, resolving the absolute mass to sub-percent precision requires surpassing the Shannon entropy of the spectrographic noise. To achieve this, the 1D relational logic must be anchored to 3D astrometric coordinates, forcing a unique topological intersection that neutralizes instrumental variance.
+\end{tcolorbox}
+
+
+\subsection{Empirical Validation: Bayesian MCMC Analysis on S0-2 Data}
+\hypertarget{sec:mcmc_s02}{}\label{sec:mcmc_s02}
+
+To strictly test the resolution quantitatively, a full 5-dimensional Bayesian Markov Chain Monte Carlo (MCMC) analysis was performed on the 82 radial-velocity measurements of the S0-2 star. The parameter space was mapped across a 5D posterior: $p(\beta, i, v_{z0}, e, \omega_0 | \text{data})$.
+
+An affine-invariant ensemble sampler (\textit{emcee}) was utilized with 50 walkers to compare two models:
+\begin{itemize}
+    \item \textbf{Full R.O.M.}: Includes both $Z_{\rm sys}$ and precession ($\beta_{\rm int}^2$ invariants).
+    \item \textbf{Ablated model}: Classical Keplerian RV only (no $Z_{\rm sys}$, no precession).
+\end{itemize}
+
+\subsubsection{Ablation Study Results}
+
+Table \ref{tab:mcmc_results}  demonstrates that the classical (ablated) RV model is fundamentally under-determined with respect to the true physical states relations, whereas the Full R.O.M. successfully encompasses the independently verified GRAVITY Collaboration parameters within its 95\% confidence interval (CI).
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Full R.O.M.} & \textbf{Ablated} & \textbf{GRAVITY} & \textbf{In 95\%} \\\hline
+ & \textbf{(Median $\pm 1\sigma$)} & \textbf{(Median)} & \textbf{Ref.} & \textbf{CI?} \\
+\hline
+$\beta$ (Kinematic) & $0.00597^{+0.00108}_{-0.00078}$ & $0.00477$ & $0.00645$ & \textbf{YES} \\
+\hline
+$i$ (Inclination) & $130.8^{+9.6^\circ}_{-11.7^\circ}$& $105.8^\circ$ & $134.0^\circ$ & \textbf{YES} \\
+\hline
+$v_{z0}$ (Drift) & $-18.2^{+4.5}_{-6.5}$ km/s & $-2.2$ km/s & $-20.0$ km/s & \textbf{YES} \\
+\hline
+$e$ (Eccentricity) & $0.88501 \pm 0.00038$ & $0.88496$ & $0.88466$ & \textbf{YES} \\
+\hline
+$\omega_0$ (Periapsis) & $65.99^{+0.63^\circ}_{-0.39^\circ}$& $64.43^\circ$ & $66.13^\circ$ & \textbf{YES} \\
+\hline
+\end{tabular}
+\caption{MCMC marginal posteriors for S0-2. The Ablated model fails to capture the true parameters for $\beta$, $i$, and $v_{z0}$, confirming that classical RV analysis is strictly degenerate without geometric invariants.}
+\label{tab:mcmc_results}
+\end{table}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Detailed Analysis]
+\href{https://willrg.com/msini_test}{https://willrg.com/msini test}
+\end{tcolorbox}
+
+
+\subsubsection{Topology of the Posterior and the Degeneracy Ridge}
+
+While R.O.M. successfully localizes the physical truth, the MCMC mapping reveals that the $\beta-i$ degeneracy is not reduced to a singular point constraint, but rather narrowed to a well-defined topological ridge. 
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Model} & \textbf{corr($\beta$, $i$)} & \textbf{$\beta$ width} & \textbf{$i$ width} \\
+\hline
+Full R.O.M. & +0.971 & 31\% & 21.3$^\circ$ \\
+\hline
+Ablated (classical) & +0.811 & 12\% & 29.3$^\circ$ \\
+\hline
+Full R.O.M. + $v_{z0}$ prior & +0.978 & 20\% & 12.8$^\circ$ \\
+\hline
+\end{tabular}
+\caption{Quantitative degeneracy metrics. The Full R.O.M. correctly positions the degeneracy ridge, while the ablated model displaces it entirely into non-physical parameter space. Column widths refer to 68\% credible intervals.}
+\end{table}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/beta_i_comparison.ipynb}{Beta i comparison.ipynb}
+\end{tcolorbox}
+
+Because the invariant constraints (precession and $Z_{\rm sys}$) both scale strictly as $\sim \beta^2$, they manifest as phase-differentiated signals of the same geometric order. This overdetermines the system, effectively moving the probability ridge to intersect the physically true values, but preserves a narrow $1\sigma$ distribution width due to the instrumental noise floor.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{img/beta_i_comparison.png}
+\caption{Direct comparison of the $\beta$--$i$ marginal posteriors. Left: Full R.O.M. (blue) — the degeneracy ridge is correctly centred on the true values. Right: Ablated model (orange) — the ridge is displaced and the true values lie outside the 95\% contour.}
+\end{figure}
+
+\subsubsection{Independent Validation via Background Drift ($v_{z0}$)}
+
+The behaviour of the background drift $v_{z0}$ serves as an independent diagnostic. In the Full model, $v_{z0}$ accurately converges to $-18.2 \pm 5.5$ km/s, exhibiting a strong physical anti-correlation with the kinematic projection ($r(\beta, v_{z0}) = -0.851$). Higher theoretical values of $\beta$ generate a stronger $Z_{\rm sys}$ baseline shift, forcing the optimizer to correctly adjust the background velocity. 
+
+In the Ablated model, this anti-correlation vanishes ($r = +0.031$), and $v_{z0}$ collapses to an absurd $-2.2$ km/s. This proves that $Z_{\rm sys}$ is an active, physically requisite invariant in the orbital data.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{img/corner_full_rom.png}
+\caption{Full 5D Posterior mapping for S0-2 demonstrating the correctly positioned probability ridge.}
+\end{figure}
+
+\subsection{Independent Validation via Synthetic 1PN Data}
+\hypertarget{sec:synthetic_validation}{}\label{sec:synthetic_validation}
+
+To rigorously eliminate observational bias and prove that the algebraic decoupling of $\beta$ and $i$ is not an artefact of the specific S0-2 dataset or instrumental noise profile, the R.O.M. framework was subjected to a strict blind \textit{in silico} experiment.
+
+\subsubsection{Data Generation and Observational Strategy}
+
+A synthetic radial velocity dataset was generated using a standard 1st Post-Newtonian (1PN) Keplerian engine. The true parameters were randomly seeded, simulating a highly eccentric test mass ($e > 0.9$) orbiting a supermassive black hole. 
+
+Crucially, the generative model utilized the classical additive approximations for relativistic effects:
+\begin{equation}
+v_{\text{rel\_shift}} = c \left( \frac{GM}{rc^2} + \frac{v_{\text{orb}}^2}{2c^2} \right),
+\end{equation}
+and injected a realistic Gaussian noise profile of $\sigma = 3.0$ km/s. To simulate a realistic observational campaign (e.g., the GRAVITY Collaboration), the epoch sampling included sparse background monitoring and dense sampling around two consecutive periapsis passages to capture the accumulated precessional shift.
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Holographic Decoder]
+Web Application: \href{https://willrg.com/decoder/}{https://willrg.com/decoder/}
+\end{tcolorbox}
+
+\subsubsection{Three-Stage Algebraic Extraction}
+
+The recovery algorithm operated blindly, utilizing only the exact geometric constraints of R.O.M. without any reference to $M$ or $G$. The optimization was driven entirely by the unified phase observable:
+\begin{equation}
+Z_{\text{sys}} = \frac{1}{\sqrt{1 - \beta_o^2}\sqrt{1 - \kappa_o^2}},
+\end{equation}
+coupled with the exact continuous precessional divergence $\tau_Y^2 = 3\beta^2 - 2\beta^4$ per radian of true anomaly.
+
+To avoid topological traps, a physics-first, three-stage extraction architecture was employed:
+\begin{enumerate}
+    \item \textbf{Global Keplerian Scout:} An unconstrained differential evolution scan isolated the geometric timing (Period $P$, eccentricity $e$, and epoch $T_{\text{peri}}$).
+    \item \textbf{R.O.M. Global Sniper:} The algorithm isolated the macroscopic amplitude $K \propto \beta \sin i$, breaking the $i$ vs $180^\circ - i$ projection symmetry by folding the domain to $[0, \pi/2]$.
+    \item \textbf{MCMC Bayesian Mapping:} A 32-walker ensemble mapped the residual probability ridge to extract the final parameters.
+\end{enumerate}
+
+\subsubsection{Blind Test Results}
+
+The R.O.M. framework successfully isolated the physical truth, breaking the $\beta \sin i$ degeneracy purely through the structural imposition of the $S^1$ and $S^2$ relational carrier constraints.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+  \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_HOLOGRAPHIC_REALITY_DECODER.ipynb}{HOLOGRAPHIC REALITY DECODER}
+\end{tcolorbox}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Parameter} & \textbf{True (Hidden 1PN Data)} & \textbf{R.O.M. MCMC Median} & \textbf{Deviation} \\
+\hline
+Period (yrs) & $12.006$ & $12.006$ & $0.00\%$ \\\hline
+Eccentricity ($e$) & $0.93636$ & $0.93625$ & $\sim 0.01\%$ \\\hline
+Inclination ($i$ folded) & $32.57^\circ$ & $33.43^\circ$ & $0.86^\circ$ \\\hline
+Background Drift ($v_{z0}$) & $9.55$ km/s & $10.73$ km/s & $1.18$ km/s \\
+\hline
+\end{tabular}
+\caption{Strict blind test recovery results ($\sigma = 3.0$ km/s). The R.O.M. algorithm cleanly separates the inclination $i$ from the kinematic projection $\beta$ without prior mass constraints.}
+\label{tab:synthetic_blind_test}
+\end{table}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Methodological Confirmation]
+The extraction of the true inclination angle $i$ from 1D radial synthetic data confirms that the $\beta-i$ degeneracy is strictly broken by the non-linear mathematical structure of the R.O.M. invariants. The framework explicitly maps 1D observables back to their complete 3D generative geometry.
+
+Furthermore, the sub-degree residual deviation in $i$ and $v_{z0}$ highlights the epistemological friction between the two paradigms: the generative 1PN model lacked the exact $-2\beta^4$ cross-coupling term, which the R.O.M. extractor mathematically compensated for by structurally redistributing the missing energetic geometry into the background drift and inclination.
+\end{tcolorbox}
+
+
+This confirms that the classical $M \sin i$ degeneracy is algebraically penetrable without external metric priors or assumptions regarding the mass.
+
+\begin{tcolorbox}[colback=white, colframe=black, title=Comparative Epistemology ROM vs PPK]
+Comparative Epistemology: R.O.M. vs. Parameterized Post-Keplerian Formalism
+\href{https://willrg.com/documents/ROMvsPPK.pdf#sec:ROMvsPPK}{https://willrg.com/documents/ROMvsPPK.pdf-sec:ROMvsPPK}
+\end{tcolorbox}
+
+\section{Challenges}
+
+Yet to be written
+
+\subsection{Conclusion}
+
+The classical $M \sin i$ degeneracy is not a fundamental limitation of orbital mechanics. It is an artifact of an incomplete, linearized description of the kinematic projection.By moving beyond first-order approximations and restoring the full non-linear structure of the relational carriers $S^1$ and $S^2$, RG provides two independent quadratic invariants ($\Delta\phi \propto \beta_{\rm int}^2$ and $Z_{\rm sys} \propto \beta^2$) that operationally decouple $\beta$ from $i$. The true inclination is then uniquely recovered from the classical linear amplitude. 
+This result provides an exact algebraic resolution to a 130-year theoretical degeneracy, transforming what was previously considered an intractable physical ambiguity into a straightforward problem of instrumental signal-to-noise resolution. The Bayesian analysis provides rigorous statistical confirmation that, wherever observational precision permits, the degeneracy ridge is correctly positioned to isolate the independently verified physical truth.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Implication]
+Degeneracies are not inherent features of Nature; they are symptoms of incomplete structural description. When the full relational geometry is restored, apparent ambiguities dissolve into algebraic necessity.\end{tcolorbox}
+
+
+\end{document}

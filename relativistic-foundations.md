@@ -2,7 +2,7 @@
 layout: default
 title: "Relativistic Foundations"
 permalink: /relativistic-foundations/
-description: "Complete derivation of Special and General Relativity from a single geometric principle. WILL framework unifies spacetime structure and energy on the unit circle."
+description: "An accessible, layered entry point to WILL Relational Geometry. From a single principle — SPACETIME ≡ ENERGY — Special and General Relativity, the Minkowski and Schwarzschild intervals, the equivalence principle, and orbital mechanics are derived as geometric identities of two relational carriers, with zero free parameters."
 ---
 
 
@@ -93,6 +93,20 @@ description: "Complete derivation of Special and General Relativity from a singl
 .will-hero-summary::-webkit-details-marker { display: none; }
 /* Keep container spacing consistent (reuse your existing container class) */
 .hero-details { margin-top: 0.5rem; }
+
+/* Placeholder block for house-style slides to be inserted later */
+.slide-placeholder {
+  border: 2px dashed rgba(6,182,212,0.45);
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: #22d3ee;
+  background: repeating-linear-gradient(45deg, rgba(6,182,212,0.03), rgba(6,182,212,0.03) 12px, rgba(6,182,212,0.06) 12px, rgba(6,182,212,0.06) 24px);
+  margin: 1.5rem auto;
+  max-width: 64rem;
+  font-weight: 600;
+}
+.slide-placeholder .ph-sub { display:block; margin-top:0.5rem; font-size:0.85rem; color:#94a3b8; font-weight:400; }
 </style>
  
 
@@ -122,13 +136,21 @@ description: "Complete derivation of Special and General Relativity from a singl
 
 <div class="my-8 text-center max-w-4xl mx-auto">
     <p class="text-lg text-gray-400 italic leading-relaxed">
-        This page transparently demonstrates how the laws of Special and General Relativity inevitably arise from a single principle of reduction, pure logic, and geometry. By revealing their fundamental essence, it offers elegant solutions to many long-standing problems in physics. Through simple and clear numerical calculations of well-known phenomena, this narrative will show not only that the Universe is, at its core, incredibly elegant and simple, but also that fundamental physics is accessible to any dedicated seeker, regardless of their level of mathematical <strong class="text-white">perversion</strong>.
+        This is the entry point to WILL Relational Geometry. It shows, step by step, how Special and General Relativity — and even the Minkowski and Schwarzschild "spacetime intervals" themselves — arise from a <strong class="text-white">single principle</strong>, pure logic, and geometry, with no free parameters to tune. The page is built in two layers: a plain-language narrative anyone can follow, and <strong class="text-white">expandable formal derivations</strong> for readers who want the full proofs. Read the narrative top to bottom for the story; open the dropdowns wherever you want the rigorous version.
     </p>
+</div>
+
+<div class="max-w-4xl mx-auto my-6 p-4 rounded-xl border border-gray-700 bg-gray-800/40 text-gray-300 text-base leading-relaxed">
+    This document is <strong class="text-white">Part I of the WILL Trilogy</strong>:
+    <strong class="text-white">Part I — Relational Geometry</strong> (this foundation: relativity and gravity),
+    <a href="https://willrg.com/results/" class="text-cyan-400 hover:text-white">Part II — Relational Cosmology</a>, and
+    <a href="https://willrg.com/results/" class="text-cyan-400 hover:text-white">Part III — Relational Quantum Mechanics</a>.
+    Orbital applications live in the companion paper <a href="https://willrg.com/results/" class="text-cyan-400 hover:text-white">R.O.M. — Relational Orbital Mechanics</a>.
 </div>
 
 ---
 
-For full mathematical derivations:  
+For full mathematical derivations:  
 
 [WILL RG Papers](https://willrg.com/results/)
 
@@ -145,15 +167,20 @@ For questions and curiosity:
 <details class="video-dropdown-container">  
   <summary class="will-hero-summary">▶ Quick Glossary: Key Terms & Concepts</summary>  
   <div class="hero-details">  
-    <p><strong>Beta (β):</strong>  The kinetic <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>. Representing the ratio of an object's velocity to the universal rate of change (β = v/c). It quantifies how much of the "speed of change" is perceived as motion through space relative to observer. Not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.</p>  
-    <p><strong>Kappa (κ):</strong>  The potential <abbr title="mapping of one quantity onto another axis or dimension">projection</abbr>. It measures how deeply an object is situated within a gravitational field, relative to an observer, and asociated with <abbr title="The speed object has to move to escape the gravitational field">escape velocity</abbr>  (κ = v_e/c). It indicates proximity to an event horizon, at κ = 1 object has to move with the speed of light (c) in order to escape gravity (event horizon). Not an intrinsic property of an object but rather a measure of the differences between states, perceived from the perspective of an observer.</p>  
-    <p><strong>Universal rate of channge (c):</strong> Another name for the speed of light, viewed here as the fundamental, <abbr title="a quantity that remains unchanged under transformations">invariant</abbr> tempo of change in the universe. It is not merely the speed of light but the constant rate at which all energetic interactions and transformations occur, speed limit for any change or information transfer.</p>  
-    <p><strong>Epistemological Hygiene:</strong> The principle of removing all unnecessary assumptions when building a theory, using only what’s logically required (nothing extraneous).</p>  
-    <p><strong>Event Horizon:</strong> The boundary around a black hole beyond which nothing can escape. (At this “point of no return,” the escape velocity equals the speed of light.)</p>  
-    <p><strong>Photon Sphere:</strong> A region near a black hole (about 1.5 times the Schwarzschild radius) where light can orbit in a circle if moving tangentially. It's an unstable orbit – light can fall in or escape if perturbed.</p>  
-    <p><strong>Critical Density:</strong> The maximum energy density that can can be packed into a given radius, dependent on central mass and the distance from it center. It increases closer to a central mass but never becomes infinite, thus preventing the formation of infinite densities (singularities).</p>  
-    <p><strong>Singularity:</strong> A point of infinite density where conventional physics breaks down. Standard GR predicts singularities (e.g. inside black holes); WILL Geometry avoids them by enforcing a finite critical density.</p>  
-    <p><strong>Energy–<abbr title="a property of a system that remains unchanged under transformations">symmetry</abbr> Law:</strong> The rule that energy differences always balance out between perspectives. If one observer sees a gain, another sees an equal loss — preventing any “free” energy or causality violations (this also ensures a universal speed limit).</p>  
+    <p><strong>Projection:</strong> The mapping of one relational quantity onto an axis. In WILL, every physical quantity is a projection of a single conserved resource, seen from a chosen observer.</p>
+    <p><strong>Beta (β):</strong> The kinematic <abbr title="mapping of one quantity onto an axis">projection</abbr> (amplitude). The ratio of an object's velocity to the universal rate of change, β = v/c. Not a property an object "has," but a measure of the difference between states as seen by an observer.</p>  
+    <p><strong>Kappa (κ):</strong> The potential (gravitational) <abbr title="mapping of one quantity onto an axis">projection</abbr> (amplitude). It measures how deeply an object sits in a gravitational field, κ = v_e/c = √(R_s/r), and is fixed operationally by the measured gravitational redshift. At κ = 1 the escape velocity equals c (the horizon).</p>  
+    <p><strong>Phase (β_Y, κ_X):</strong> The complementary "internal" projection on each carrier. It governs proper time and proper length. Phase = 1 means undisturbed internal flow (rest); Phase → 0 means internal time freezes (light-speed / horizon). The historical Lorentz factor is γ = 1/β_Y.</p>
+    <p><strong>Relational carriers (S¹, S²):</strong> The two minimal closed shapes — the circle S¹ (one direction) and the sphere S² (all directions) — that carry the conserved resource. <strong>They are not shapes in space</strong>; space and time are labels we attach to them.</p>
+    <p><strong>Closure (κ² = 2β²):</strong> The fixed "exchange rate" between the gravitational and kinematic projections in any closed system. It is the relational origin of the virial theorem.</p>
+    <p><strong>Total Relational Shift (Q):</strong> The combined state difference an observer assigns to another system, Q² = β² + κ². Interaction is causal only when Q < 1.</p>
+    <p><strong>Relational spacetime factor (τ):</strong> τ = β_Y · κ_X, the single quantity actually read out by spectroscopy (the inverse of the measured redshift product). Time dilation, redshift, and precession are all expressions of τ.</p>
+    <p><strong>Inflation (of an interval):</strong> The process of recovering a legacy metric (Minkowski, Schwarzschild) by <em>adding</em> a container, coordinates, an external time, and a reference scale to a single closure relation. The metric is the "inflated" image; the relation is primary.</p>
+    <p><strong>Universal rate of change (c):</strong> The speed of light, viewed here as the invariant tempo of all change — the limit of any transformation or information transfer.</p>  
+    <p><strong>W_ILL invariant:</strong> The dimensionless identity W_ILL = E·T / (M·L) = 1, showing energy, mass, time and length are coherent projections of one resource, not independent quantities.</p>
+    <p><strong>Event Horizon:</strong> The boundary where escape velocity equals c (κ = 1, r = R_s). The "point of no return."</p>  
+    <p><strong>Singularity:</strong> A point of infinite density. WILL forbids it: density is bounded by a finite ρ_max and the point r = 0 is simply absent from the admissible range.</p>  
+    <p><strong>Epistemic Hygiene:</strong> Building a theory by <em>removing</em> unjustified assumptions, keeping only what logic and geometry require — nothing extraneous.</p>  
   </div>  
 </details>
 
@@ -163,99 +190,206 @@ For questions and curiosity:
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/1_WILL-Relational-Geometry.png" alt="WILL: Relational Geometry - How to Construct Reality out of One Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
-            This page explores a foundational model of physics built from a single principle. Instead of describing observed phenomena with external laws, it <strong class="text-white">generates the laws of physics</strong> as an inevitable consequence of that principle.
+            This page explores a foundational model of physics built from a single principle. Instead of describing observed phenomena with external laws, it <strong class="text-white">generates the laws of physics</strong> as an inevitable consequence of that principle. This is the shift from <em>descriptive</em> physics (write down laws that fit what we see) to <em>generative</em> physics (show why nothing else was possible).
         </p>
     </div>
 </div>
 
 ---
 
-<div class="mb-12">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/2_Methodological-Pillars.png" alt="Methodological Pillars: Epistemic Hygiene, Strict Relationalism, Zero Free Parameters" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <p>
-            To construct a theory from a single idea without introducing new postulates requires an uncompromising methodology. These pillars serve as the logical rules that guide the entire framework, ensuring no hidden assumptions or arbitrary constants are smuggled in.
-        </p>
-    </div>
-</div>
+<!-- ════════════════════════════ STAGE 0 ════════════════════════════ -->
 
----
+<div class="text-center my-10">
+    <span class="text-sm font-bold tracking-[0.3em] text-cyan-400">STAGE 0</span>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">The Last Geocentric Epicycle</h2>
+</div>
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/3_Breakthroughs-Delete-Not-Add.png" alt="Historical Breakthroughs in Physics by Deleting Separations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
-            This approach follows a powerful historical pattern. The greatest leaps in physics have consistently come not from adding new entities, but from <strong class="text-white">removing a false separation</strong>. Just as Copernicus removed the Earth/cosmos divide and Einstein unified space and time, this framework targets the final, unexamined split in modern physics.
+            The greatest leaps in physics have come not from adding new entities, but from <strong class="text-white">removing a false separation</strong>. Copernicus removed the Earth/cosmos divide. Newton removed the split between terrestrial and celestial law. Maxwell merged electricity and magnetism. Einstein unified space and time. Each step widened the relational circle and <em>reduced</em> the number of unexplained primitives.
         </p>
     </div>
 </div>
-
----
 
 <div id="1W" class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/4_False-Separation-as-Ontological-Blind-Spot.png" alt="The False Separation Between Structure and Dynamics" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
-            The contemporary split is between the <strong class="text-white">structure</strong> of the universe (a fixed stage, or manifold) and the <strong class="text-white">dynamics</strong> that unfold upon it (fields and energy). This separation is not an empirical discovery but an implicit assumption—an "unpaid ontological debt". By removing it, we are forced to identify geometry and energy as two aspects of a single entity.
+            One separation survived all of this pruning. Every modern theory — SR, GR, QFT, the Standard Model, ΛCDM — is written with a two-part syntax: a fixed <strong class="text-white">structure</strong> (a manifold plus a metric) <em>plus</em> the <strong class="text-white">dynamics</strong> (fields and constants) that play out upon it. No experiment demands this duplication; it is kept only because the resulting equations happen to fit. It is an unexamined assumption — an "unpaid ontological debt."
         </p>
+
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Why no experiment actually establishes the split</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300">
+                <p>Every standard "test" is an internal consistency check of a formalism that already assumes two substances — never positive evidence for the separation itself:</p>
+                <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
+                    <li><strong>Local energy conservation</strong> is verified only <em>after</em> the metric is declared fixed; no experiment varies the volume of empty space and checks the books.</li>
+                    <li><strong>Universality of free fall</strong> tests <span class="font-mono">m_i = m_g</span> numerically — not the claim that inertia lives <em>in</em> the object rather than in a geometric scaling relation.</li>
+                    <li><strong>Gravitational-wave polarizations</strong> test spin content, not ontology.</li>
+                    <li><strong>Casimir / Lamb shifts</strong> measure <em>differences</em> of vacuum energy between two geometries; the absolute bulk term is explicitly subtracted away.</li>
+                </ul>
+                <p class="mt-4">Until an experiment varies the amount of space while holding everything else fixed, the spacetime–energy separation remains an unevidenced metaphysical postulate.</p>
+            </div>
+        </details>
+
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>The spacetime–energy split is the last geocentric epicycle in physics.</p>
+        </div>
     </div>
 </div>
 
 ---
+
+<!-- ════════════════════════════ STAGE I ════════════════════════════ -->
+
+<div class="text-center my-10">
+    <span class="text-sm font-bold tracking-[0.3em] text-cyan-400">STAGE I</span>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Ontological Construction — The Primitives</h2>
+</div>
+
+<div class="mb-12">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/2_Methodological-Pillars.png" alt="Methodological Principles: Epistemic Hygiene, Relational Origin, Ontological Minimalism, Mathematical Transparency" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            To build a theory from one idea without smuggling in new postulates, we need an uncompromising method. The whole framework rests on <strong class="text-white">four methodological principles</strong>. They are not claims about reality — they are rules of logical and epistemic purity, and everything else is forced to follow from them.
+        </p>
+        <div class="grid md:grid-cols-2 gap-4 mt-6">
+            <div class="border-l-4 border-cyan-500/50 pl-4 py-2 bg-gray-800/30 rounded-r-lg">
+                <h4 class="font-semibold text-white">1. Epistemic Hygiene</h4>
+                <p class="text-base">Derive physics by <em>removing</em> hidden assumptions, never by adding postulates. Zero free parameters — by construction.</p>
+            </div>
+            <div class="border-l-4 border-cyan-500/50 pl-4 py-2 bg-gray-800/30 rounded-r-lg">
+                <h4 class="font-semibold text-white">2. Relational Origin</h4>
+                <p class="text-base">Every physical quantity is defined only by its relations. No absolute properties.</p>
+            </div>
+            <div class="border-l-4 border-cyan-500/50 pl-4 py-2 bg-gray-800/30 rounded-r-lg">
+                <h4 class="font-semibold text-white">3. Ontological Minimalism</h4>
+                <p class="text-base">Keep the fewest possible primitives. No background container, no absolute time, no a-priori forces or fields.</p>
+            </div>
+            <div class="border-l-4 border-cyan-500/50 pl-4 py-2 bg-gray-800/30 rounded-r-lg">
+                <h4 class="font-semibold text-white">4. Mathematical Transparency</h4>
+                <p class="text-base">Every symbol maps to exactly one physical idea. Number of symbols = number of independent physical ideas.</p>
+            </div>
+        </div>
+        <p class="mt-4 text-base text-gray-400 italic">Note: "zero free parameters" is a <em>consequence</em> of these principles, not a separate pillar. The flow chart of every derivation is the <a href="https://willrg.com/logos_map/" class="text-cyan-400 hover:text-white">Logos Map</a>.</p>
+    </div>
+</div>
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/5_Energy-in-the-Relational-Framework.png" alt="Defining Energy as Conserved, Relational, Causal, and Manifested as Change" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
-            Energy is the relational measure of difference between possible states, conserved in any closed whole.
-          It is not an intrinsic property of an object, but comparative structure between states (and observers), always manifesting as transformation.
+            From these four principles, three results about the foundational core follow immediately. They are the load-bearing theorems of the entire framework.
         </p>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Theorem: Relational Closure</h4>
+            <p>A purely relational system cannot be geometrically open. Any interaction with a supposed "outside" is itself a relation — and the moment it acts, it is part of the system. An open relational system is a contradiction; the system is closed by logical necessity, not by a wall.</p>
+        </div>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Theorem: Relational Invariance → the definition of Energy</h4>
+            <p>In a closed system where change occurs, any change must be balanced by a complementary change elsewhere. There must therefore exist a conserved measure of change. That invariant is what we historically call <strong>energy</strong>. Stripped of substance, energy is revealed as the bookkeeping of causality itself.</p>
+            <p class="text-center mt-3 text-white font-semibold">Energy is the invariant relational measure of state transformation within a closed system.</p>
+        </div>
+
+        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
+            <h4 class="font-semibold text-white">Theorem: Relational Isotropy</h4>
+            <p>With no background grid, no direction can be privileged in advance. The geometry that carries the conserved resource must therefore be maximally symmetric.</p>
+        </div>
+
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Formal proofs (Closure, Invariance, Isotropy)</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300 space-y-4">
+                <p><strong>Relational Closure (proof by analytic tautology).</strong> (1) Quantities are defined only by relations. (2) If an external entity interacts with the system, that interaction is itself a relation. (3) As the relation forms, it is integrated into the system. Hence an "interacting non-relation" is impossible; the system is closed by definition.</p>
+                <p><strong>Relational Invariance (proof by structural necessity).</strong> States change (empirical). The system is closed (above). A change cannot vanish into a void or emerge from one, so it must be balanced by a complementary change. Therefore a conserved quantitative measure of change must exist — "energy."</p>
+                <p><strong>Relational Isotropy (proof by relational origin).</strong> There is no absolute grid. Direction only manifests as a specific interaction. Assigning an intrinsic privileged axis to the unmeasured resource is unobservable surplus ontology (pure gauge). Hence the carrier must be strictly isotropic.</p>
+            </div>
+        </details>
     </div>
 </div>
 
----
+<div class="mb-20">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h3 class="text-2xl font-bold text-white text-center mb-6">The Unifying Principle</h3>
+        <p>
+            Treating "structure" as separate from "dynamics" always smuggles in a background container that no phenomenon requires. Removing that illicit separation forces structure and dynamics to be two aspects of one entity. This is a principle with <em>negative</em> ontological weight: it does not add, it subtracts.
+        </p>
+        <div class="font-mono text-2xl bg-cyan-900/30 border border-cyan-500/50 p-6 rounded-lg my-6 text-center text-white">
+            <p>SPACETIME ≡ ENERGY</p>
+        </div>
+        <p>
+            We give the single unified relational structure a name: <strong class="text-white">WILL ≡ SPACE–TIME–ENERGY</strong>. Every physically meaningful quantity is a relational feature of WILL. This principle is foundational but <em>testable</em>: it must survive both a geometric audit (internal logical consequences) and an empirical audit (agreement with data). The rest of this page is that audit.
+        </p>
+
+        <div class="overflow-x-auto mt-6">
+            <table class="w-full text-left border-collapse text-base">
+                <thead>
+                    <tr class="bg-gray-800">
+                        <th class="p-3 border border-gray-600">Picture of reality</th>
+                        <th class="p-3 border border-gray-600 text-center">Irreducible primitives</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-gray-800/50">
+                        <td class="p-3 border border-gray-600">Substantival: container + content (spacetime <em>and</em> energy/matter)</td>
+                        <td class="p-3 border border-gray-600 text-center font-mono">≥ 2</td>
+                    </tr>
+                    <tr class="bg-gray-800/50">
+                        <td class="p-3 border border-gray-600">Relational: WILL (one self-relating structure)</td>
+                        <td class="p-3 border border-gray-600 text-center font-mono text-cyan-400">1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>Heat ≡ motion. Electricity ≡ magnetism. Space ≡ time. And now: Spacetime ≡ Energy.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════ STAGE II ════════════════════════════ -->
+
+<div class="text-center my-10">
+    <span class="text-sm font-bold tracking-[0.3em] text-cyan-400">STAGE II</span>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Geometric Derivation</h2>
+    <p class="text-gray-400 mt-2 max-w-3xl mx-auto">From one principle to the carriers of reality, and from the carriers to Special and General Relativity.</p>
+</div>
 
 <div class="mb-12">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/6_Key-Constraints-on-the-Relational-Structure.png" alt="Key Constraints from the Unifying Principle: Closure, Conservation, Isotropy" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <p>
-            These three constraints—<strong class="text-white">Closure, Conservation, and Isotropy</strong>—are immediate, unavoidable consequences of a universe built from a single, self-contained principle. The next crucial question is: what mathematical forms can possibly satisfy all these rigid requirements at once?
+            Three constraints — <strong class="text-white">Closure, Conservation, and Isotropy</strong> — are unavoidable for a universe built from a single self-contained principle. The next question is purely mathematical: what shapes can satisfy all three at once, while introducing no arbitrary numbers?
         </p>
     </div>
 </div>
 
----
-
 <div id="2W" class="mb-12">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Two-Minimal-Relational-Carriers.png" alt="The Circle (S¹) for Directional relations and the Sphere (S²) for Omnidirectional relations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/7_Two-Minimal-Relational-Carriers.png" alt="The Circle (S¹) for directional relations and the Sphere (S²) for omnidirectional relations" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <p>
+            The answer is forced. A <strong class="text-white">directional</strong> relation (one degree of freedom) that cannot leak must close into a loop — and the only parameter-free, maximally symmetric loop is the circle <strong class="text-white">\(S^1\)</strong>. An <strong class="text-white">omnidirectional</strong> relation (two degrees of freedom) that is closed and isotropic can only be the sphere <strong class="text-white">\(S^2\)</strong>. No free integers, no preferred axes: just these two.
+        </p>
 
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Lemma: Closure</h4>
-            <p>Under Principle 4.1 (\(\text{SPACETIME} \equiv \text{ENERGY}\)), WILL is self-contained: there is no external reservoir into or from which the relational resource can flow.</p>
+        <details class="video-dropdown-container mt-6">
+            <summary class="will-hero-summary">▶ Formal derivation of the carriers</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300 space-y-3">
+                <p><strong>1-DOF (kinematic).</strong> The minimal non-trivial relation is a sequence of transformations. Closure forces it into a loop. A discrete loop (a cyclic group of \(n\) states) would require choosing an arbitrary integer \(n\), which Mathematical Transparency forbids — so the continuum limit is forced. Isotropy then leaves a unique object: the continuous circle \(S^1\).</p>
+                <p><strong>2-DOF (potential).</strong> The next relation is the omnidirectional distribution of the resource from a point, requiring a 2D carrier. Any discrete tiling smuggles in arbitrary parameters, forcing a continuous 2-carrier; closure makes it compact; maximal symmetry eliminates every anisotropic surface (e.g. the torus, which has preferred axes), leaving a unique object: the 2-sphere \(S^2\).</p>
+            </div>
+        </details>
+
+        <div class="border-l-4 border-red-500/60 pl-4 py-2 my-6 bg-red-900/10 rounded-r-lg">
+            <h4 class="font-semibold text-white">Warning: the spatial-container fallacy</h4>
+            <p class="text-base">\(S^1\) and \(S^2\) are <strong>not</strong> shapes embedded in space. Do not picture a ring or a sphere expanding through a void. They are abstract relational carriers encoding closure, conservation and isotropy. Spatial distance \(r\) and time are labels observers attach to these patterns — the projection dictates the space, not the other way around.</p>
         </div>
 
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Lemma: Conservation</h4>
-            <p>Within WILL, the total relational "transformation resource" (energy) is conserved.</p>
-        </div>
-
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Lemma: Isotropy from Background-Free Relationality</h4>
-            <p>If no external background is allowed, then no direction can be a priori privileged. Thus the admissible relational geometry of WILL must be maximally symmetric.</p>
-        </div>
-
-        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
-            <h4 class="font-semibold text-white">Theorem: Minimal Relational Carriers of the Conserved Resource</h4>
-            <p>The only closed, maximally symmetric manifolds that can serve as minimal carriers of the conserved relational resource are:</p>
-            <ol class="list-decimal list-inside ml-4 mt-2">
-                <li><strong class="text-white">\(S^1\)</strong> for <em>directional</em> (one-degree-of-freedom) relational transformation;</li>
-                <li><strong class="text-white">\(S^2\)</strong> for <em>omnidirectional</em> (central, all-directions-equivalent) relational transformation.</li>
-            </ol>
-        </div>
-         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p>S¹ and S² are not spacetime geometries, but relational manifolds.</p>
+        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>\(S^1\) and \(S^2\) are not spacetime geometries, but relational manifolds.</p>
         </div>
     </div>
 </div>
@@ -264,9 +398,9 @@ For questions and curiosity:
 
 <div id="3W" class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/8_Kinetic-Energy-b-projection-on-S.png" alt="Diagram of the Beta projection on the S¹ unit circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    
+
     <details class="video-dropdown-container mt-6">  
-      <summary class="will-hero-summary">▶ Show Interactive Graph: Kinetic projection β on the Circle S¹ (Desmos)</summary>  
+      <summary class="will-hero-summary">▶ Interactive graph: Kinetic projection β on the circle S¹ (Desmos)</summary>  
       <div class="geometry-container hero-details">  
         <div class="desmos-container">  
           <iframe src="https://www.desmos.com/geometry/6k1um2qbzm" width="100%" height="500" frameborder="0"></iframe>  
@@ -275,133 +409,84 @@ For questions and curiosity:
     </details>
 
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <h3 class="text-2xl font-bold text-white mb-4">The Duality of Transformation</h3>
-        
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Lemma: Duality of Evolution</h4>
-            <p>The identification of spacetime with energy and its transformations necessitates two complementary relational measures:</p>
-            <ol class="list-decimal list-inside ml-4 mt-2">
-                <li>the <strong>extent</strong> of transformation (external displacement), and</li>
-                <li>the <strong>sequence</strong> of transformation (internal order).</li>
-            </ol>
-        </div>
-        <div class="pl-4 my-4">
-            <h4 class="font-semibold text-white">Proof</h4>
-            <p>Any complete description of transformation must specify both what changes and how that change is internally ordered. The circle \(S^1\) provides the minimal geometry enforcing such complementarity: its orthogonal projections furnish precisely two non-redundant coordinates.</p>
-        </div>
-
-        <p class="mt-6">We define these orthogonal projections as follows:</p>
+        <h3 class="text-2xl font-bold text-white mb-4">Amplitude and Phase: the duality of every state</h3>
+        <p>
+            Any complete description of change must say <em>both</em> what changes and how that change is internally ordered. A single number cannot carry both, so each carrier splits a state into two orthogonal projections:
+        </p>
         <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
-            <li><strong>The Amplitude Component (\(\beta\)):</strong> This projection represents the <em>relational measure</em> between the system and the observer. It corresponds to the <em>extent</em> of transformation, which manifests physically as momentum.</li>
-            <li><strong>The Phase Component (\(\beta_Y\)):</strong> This projection represents the <em>internal structure</em> of a system. It governs the intrinsic scale of its proper space and proper time units. A value of \(\beta_Y=1\) represents a complete and undisturbed manifestation of this internal structure, a state we identify as rest.</li>
+            <li><strong>Amplitude (\(\beta\)):</strong> the <em>external</em> shift from the observer's rest frame — what we measure as momentum. In legacy units, \(\beta = v/c\).</li>
+            <li><strong>Phase (\(\beta_Y\)):</strong> the <em>internal</em> ordering — proper time and proper length. \(\beta_Y=1\) is rest (full internal flow); \(\beta_Y=0\) is light-speed (internal time frozen).</li>
         </ul>
 
-        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Conservation Law of Relational Transformation</h3>
-
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Theorem: Conservation Law of Relational Transformation</h4>
-            <p>The orthogonal components of transformation (\(\beta,\beta_Y\)) are bound by the closure relation:</p>
-            <p class="text-center text-2xl font-mono my-4">\(\beta^2 + \beta_Y^2 = 1\)</p>
-        </div>
-        <div class="pl-4 my-4">
-            <h4 class="font-semibold text-white">Proof</h4>
-            <p>Since \(S^1\) is closed, every point on the circle is constrained by the Pythagorean identity of its projections. This closure enforces conservation across all processes.</p>
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Conservation of Relation (closure)</h4>
+            <p>Because each state is a point on a unit carrier, amplitude and phase obey a single Pythagorean budget:</p>
+            <p class="text-center text-2xl font-mono my-3">\(\beta^2 + \beta_Y^2 = 1 \qquad \kappa^2 + \kappa_X^2 = 1\)</p>
         </div>
 
-        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Consequence: Relativistic Effects</h3>
+        <p>
+            This one constraint <em>is</em> relativity. Spend more of the budget on external amplitude \(\beta\), and the internal phase \(\beta_Y\) must shrink — proper time dilates and proper length contracts. Time dilation is not a clock "slowing down"; it is a <strong class="text-white">phase rotation</strong> on the unit circle.
+        </p>
 
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Proposition: Physical Interpretation: Relativistic Effects</h4>
-            <p>The conservation law implies that any redistribution between the orthogonal components (\(\beta,\beta_Y\)) manifests physically as the relativistic effects of time dilation and length contraction.</p>
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Rest energy, mass, and the energy–momentum relation</h3>
+        <p>
+            Total energy projects onto both axes, \(E_X=E\beta\) and \(E_Y=E\beta_Y\). Because an object's internal structure is defined only in relation to itself (where \(\beta=0,\ \beta_Y=1\)), the vertical projection is <em>invariant</em>:
+        </p>
+        <p class="text-center text-xl font-mono my-3">\(E\,\beta_Y = E_0 \quad\Longrightarrow\quad E = \dfrac{E_0}{\beta_Y} = \dfrac{E_0}{\sqrt{1-\beta^2}}\)</p>
+        <p>The historical Lorentz factor is simply \(\gamma = 1/\beta_Y\). With \(c=1\), the invariant rest energy <em>is</em> the mass: \(E_0 = m\). Mass is not an independent substance but the rest-energy invariant, expressed in kilograms.</p>
+
+        <details class="video-dropdown-container mt-4">  
+          <summary class="will-hero-summary">▶ Interactive graph: the Energy–Momentum Triangle (Desmos)</summary>  
+          <div class="geometry-container hero-details">  
+            <div class="desmos-container">  
+              <iframe src="https://www.desmos.com/geometry/mbkzikthkh" width="100%" height="500" frameborder="0"></iframe>  
+            </div>  
+          </div>  
+        </details>
+
+        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
+            <h4 class="font-semibold text-white">Energy–Momentum Relation</h4>
+            <p>Identifying momentum with the horizontal projection \(p \equiv E\beta\) and \(m=E_0\), closure gives the standard relation as a pure geometric identity:</p>
+            <p class="text-center text-xl font-mono my-2">\(E^{2} = p^{2} + m^{2} \quad\Longrightarrow\quad E^{2} = (pc)^{2} + (mc^{2})^{2}\)</p>
         </div>
-        <div class="pl-4 my-4">
-            <h4 class="font-semibold text-white">Proof</h4>
-            <p>The components satisfy \(\beta^2 + \beta_Y^2 = 1\). An increase in the relational displacement \(\beta\) enforces a decrease in the internal measure \(\beta_Y\). This reduction of \(\beta_Y\) corresponds to dilation of proper time and contraction of proper length, while the growth of \(\beta\) represents momentum. Thus the relativistic trade-off is the direct physical expression of the geometric closure of \(S^1\).</p>
-        </div> 
 
         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p>The geometry of spacetime is the shadow cast by the geometry of relations.</p>
+            <p>\(E^{2}=(pc)^{2}+(mc^{2})^{2}\) is just the Pythagorean identity of \(S^1\).</p>
         </div>
     </div>
 </div>
 
 ---
 
+<!-- NEW SECTION: Minkowski interval as inflation of S¹ closure -->
 <div class="mb-20">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/9_Energy-Momentum-Identity-on-S.png" alt="Energy Momentum Identity on the S¹ Circle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
 
+<!-- SLIDE PLACEHOLDER: "Minkowski Interval as Inflation of the S¹ Closure" -->
+<div class="slide-placeholder">
+    [ Slide placeholder — “Minkowski Interval as the Inflation of S¹ Closure” ]
+    <span class="ph-sub">Suggested visual: the circle β²+β_Y²=1 on the left; arrows adding the four “posits” (container, x/y/z, external time t, reference scale c²dt²); the Minkowski interval c²dτ²=c²dt²−dx²−dy²−dz² emerging on the right.</span>
+</div>
 
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: The Energy-Momentum Triangle (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/mbkzikthkh" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
+<div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+    <h2 class="text-3xl font-bold text-white text-center mb-6">The Minkowski Interval Is the Inflated Form of S¹ Closure</h2>
+    <p>
+        In textbook Special Relativity, the Minkowski interval is the starting point — the fundamental metric of a 4D background. WILL reverses the order. The primitive object is the dimensionless closure \(\beta^2+\beta_Y^2=1\), which contains no coordinates, no container, and no external time. The famous interval is what that relation <em>becomes</em> once four substantival posits are <strong class="text-white">added</strong> — none of which the relation itself requires.
+    </p>
 
-
-    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <h2 class="text-3xl font-bold text-white text-center mb-6">Kinetic Energy Projection on \(S^1\)</h2>
-        <p>Since \(S^{1}\) encodes one-dimensional displacement, the total energy \(E\) of the system must project consistently onto both axes:</p>
-        <p class="text-center text-xl font-mono my-4">\(E_{X} = E \beta_{X}, \qquad E_{Y} = E \beta_{Y}\)</p>
-
-        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
-            <h4 class="font-semibold text-white">Theorem: Invariant Projection of Rest Energy</h4>
-            <p>For any state (\(\beta, \beta_Y\)) on the relational circle, the vertical projection of the total energy is invariant:</p>
-            <p class="text-center text-xl font-mono my-2">\(E \beta_Y = E_0\)</p>
-        </div>
-        <div class="pl-4 my-4">
-            <h4 class="font-semibold text-white">Proof</h4>
-            <p>When \(\beta=0\), closure enforces \(\beta_Y=1\), yielding \(E=E_0\). Since closure applies for all \(\theta_1\), the vertical projection \(E\beta_Y\) remains equal to this rest value in every state.</p>
-        </div>
-
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Corollary: Total Energy Relation</h4>
-            <p>From the theorem it follows that:</p>
-            <p class="text-center text-xl font-mono my-2">\(E = \frac{E_0}{\beta_Y} = \frac{E_0}{\sqrt{1-\beta^2}}\)</p>
-        </div>
-        
-        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p>The historical Lorentz factor is the reciprocal of \(\beta_Y\): \(\gamma\) = 1/\(\beta_Y\).</p>
-        </div>
-
-        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Rest Energy and Mass Equivalence</h3>
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Corollary: Rest Energy and Mass Equivalence</h4>
-            <p>Within the normalization \(c=1\), the invariant rest energy equals mass:</p>
-            <p class="text-center text-xl font-mono my-2">\(E_{0} = m\)</p>
-        </div>
-        <div class="pl-4 my-4">
-            <h4 class="font-semibold text-white">Proof</h4>
-            <p>From the invariant projection \(E\beta_Y = E_0\) and closure of \(S^1\), no additional scaling parameter is required. Hence the conventional bookkeeping identities \(E_0 = mc^2\) or \(m = E_0/c^2\) reduce to tautologies. Mass is therefore not independent, but the rest-energy invariant itself.</p>
-        </div>
-
-        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p>Mass is the invariant projection of total rest energy.</p>
-        </div>
-        
-        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Energy–Momentum Relation</h3>
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Proposition: Horizontal Projection as Momentum</h4>
-            <p>On the relational circle, the unique relational measure of displacement from rest is the horizontal projection \(E\beta\); hence:</p>
-            <p class="text-center text-xl font-mono my-2">\(p \equiv E\beta \quad (c=1)\)</p>
-        </div>
-        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
-            <h4 class="font-semibold text-white">Corollary: Energy–Momentum Relation</h4>
-            <p>With \(p\) identified by the proposition and \(m=E_0\), the closure identity yields:</p>
-            <p class="text-center text-xl font-mono my-2">\(E^{2} = p^{2} + m^{2} \quad (c=1)\)</p>
-            <p>Equivalently, upon restoring \(c\):</p>
-            <p class="text-center text-xl font-mono my-2">\(E^{2} = (pc)^{2} + (mc^{2})^{2}\)</p>
-        </div>
-        <div class="pl-4 my-4">
-            <h4 class="font-semibold text-white">Proof</h4>
-            <p>By closure, \((E\beta)^2 + (E\beta_Y)^2 = E^2\). Substituting \(p=E\beta\) and \(m=E_0\) proves the claim. Restoring \(c\) is dimensional bookkeeping: \(p\mapsto pc\) and \(m\mapsto mc^{2}\), while \(E\) remains \(E\), yielding the standard form.</p>
-        </div>
-        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p>The relation \(E^{2}=p^{2}+m^{2}\) is the geometric identity of \(S^1\).</p>
-        </div>
+    <div class="grid md:grid-cols-2 gap-3 my-6 text-base">
+        <div class="border-l-4 border-gray-600 pl-4 py-2 bg-gray-800/30">(i) a <strong>container</strong>: the relation is declared to unfold <em>within</em> a pre-existing space.</div>
+        <div class="border-l-4 border-gray-600 pl-4 py-2 bg-gray-800/30">(ii) <strong>spatial coordinates</strong> \(x,y,z\) imposed to localize the amplitude.</div>
+        <div class="border-l-4 border-gray-600 pl-4 py-2 bg-gray-800/30">(iii) an <strong>externally flowing time</strong> \(t\), demoting the phase to \(\beta_Y \equiv d\tau/dt\).</div>
+        <div class="border-l-4 border-gray-600 pl-4 py-2 bg-gray-800/30">(iv) a <strong>reference scale</strong> \(c^2 dt^2\) to measure the budget against.</div>
     </div>
+
+    <p>Substituting \(\beta^2 = (dx^2+dy^2+dz^2)/(c^2dt^2)\) and \(\beta_Y = d\tau/dt\) into the closure and clearing the denominator returns the Minkowski interval <em>exactly</em>:</p>
+    <p class="text-center text-xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2\)</p>
+
+    <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+        <p>The interval carries more structure than the relation it encodes. The relation is fundamental; the metric is its inflation.</p>
+    </div>
+</div>
 </div>
 
 ---
@@ -410,8 +495,15 @@ For questions and curiosity:
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/10_Potential-Energy-k-projection-on-S.png" alt="Diagram of the Kappa projection on the S² unit sphere" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
 
-        <details class="video-dropdown-container">  
-            <summary class="will-hero-summary">▶ Show Interactive Graph: Potential Energy projection on S² (Desmos)</summary>  
+        <h2 class="text-3xl font-bold text-white text-center mb-6">Gravity: the Potential Projection κ on S²</h2>
+        <p>
+            Everything above repeats on the sphere. The amplitude \(\kappa = v_e/c = \sqrt{R_s/r}\) measures gravitational depth (\(\kappa=1\) is the horizon), and the phase \(\kappa_X\) governs gravitational time and length. Crucially, \(\kappa\) is not a theoretical abstraction: it is fixed directly by the <strong class="text-white">measured gravitational redshift</strong>, with no need for mass or Newton's constant —
+        </p>
+        <p class="text-center text-xl font-mono my-3">\(\kappa^2 = 1 - \dfrac{1}{(1+z_\kappa)^2}\)</p>
+        <p>The same trade-off as before — more amplitude \(\kappa\), less phase \(\kappa_X\) — is what we observe as gravitational time dilation. Curved spacetime is the shadow cast by this conserved relation.</p>
+
+        <details class="video-dropdown-container mt-4">  
+            <summary class="will-hero-summary">▶ Interactive graph: Potential projection κ on S² (Desmos)</summary>  
             <div class="geometry-container hero-details">  
                 <div class="desmos-container">  
                     <iframe src="https://www.desmos.com/geometry/lsjhnc2e9x" width="100%" height="500" frameborder="0"></iframe>  
@@ -419,192 +511,75 @@ For questions and curiosity:
             </div>  
         </details>
 
-        <p class="mt-6">
-            With both the kinetic (SR on \(S^1\)) and potential (GR on \(S^2\)) projections defined, we can now compose them. This composition reveals how WILL Geometry derives one of General Relativity's core postulates—the Equivalence Principle—not as an axiom, but as a structural necessity.
+        <details class="video-dropdown-container mt-4">
+            <summary class="will-hero-summary">▶ Gravitational tangent formulation (the dual of momentum)</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300">
+                <p>With \(\kappa=\sin\theta_2\), define the gravitational total energy and momentum:</p>
+                <p class="text-center text-lg font-mono my-3">\(E_g = \dfrac{E_0}{\kappa_X},\quad \kappa_X=\sqrt{1-\kappa^2}, \qquad p_g = (E_0/c)\tan\theta_2\)</p>
+                <p>yielding the exact gravitational analogue \(E_g^2 = (p_g c)^2 + (mc^2)^2\). Kinematic momentum \(p\) and gravitational momentum \(p_g\) are dual projections: \(\beta=\cos\theta_1 \leftrightarrow \kappa=\sin\theta_2\), \(\ \cot\theta_1 \leftrightarrow \tan\theta_2\).</p>
+            </div>
+        </details>
+    </div>
+</div>
+
+<!-- NEW SECTION: Schwarzschild interval as inflation of S² closure -->
+<div class="mb-20">
+
+<!-- SLIDE PLACEHOLDER: "Schwarzschild Interval as Inflation of the S² Closure" -->
+<div class="slide-placeholder">
+    [ Slide placeholder — “Schwarzschild Interval as the Inflation of S² Closure” ]
+    <span class="ph-sub">Suggested visual: the sphere closure κ²+κ_X²=1 on the left; adding the posits (container around a body, static observer, external time, κ²≡R_s/r with G, M); the static Schwarzschild interval c²dτ²=c²(1−R_s/r)dt² on the right. Parallel layout to the Minkowski slide.</span>
+</div>
+
+<div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+    <h2 class="text-3xl font-bold text-white text-center mb-6">The Schwarzschild Interval Is the Inflated Form of S² Closure</h2>
+    <p>
+        The gravitational construction is strictly parallel. Start from \(\kappa^2+\kappa_X^2=1\). Append a container around a central body, hold the observer static, posit an externally flowing time so that \(\kappa_X \equiv d\tau/dt\), and localize the amplitude as \(\kappa^2 \equiv R_s/r\) (which is what first introduces a radial coordinate \(r\) together with the legacy constants \(G\) and \(M\) via \(R_s = 2GM/c^2\)). The closure then yields the Schwarzschild time component exactly:
+    </p>
+    <p class="text-center text-xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(c^2 d\tau^2 = c^2\left(1 - \dfrac{R_s}{r}\right) dt^2\)</p>
+    <p class="text-base text-gray-400 italic">
+        Note: \(\kappa\) is the primitive; \(r\), \(G\) and \(M\) are coordinate-and-unit artifacts attached to it. In R.O.M., gravitational systems are described fully <em>without</em> \(G\) and <em>without</em> \(M\) — confirming the projection, not \(R_s/r\), is irreducible.
+    </p>
+</div>
+</div>
+
+<div class="mb-12">
+    <div class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed">
+        <h3 class="text-2xl font-bold text-white text-center mb-4">Where distance comes from</h3>
+        <p>
+            Because \(\kappa^2\) is read off from redshift alone, "distance" is not a primitive either. Normalizing the scale at saturation (\(\kappa^2=1 \equiv r=R_s\)), spatial distance emerges as the <em>reciprocal</em> of the potential projection — which is exactly the inverse-square law, derived rather than assumed:
         </p>
-
-        <details class="video-dropdown-container mt-6">
-            <summary class="will-hero-summary">▶ Show Formal Derivation of Potential Energy Projection</summary>
-            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                <p>Analogous to \(S^1\), the relational geometry of the sphere, \(S^2\), provides orthogonal projections for two aspects of omnidirectional transformation. We define them as follows:</p>
-                <ul class="list-disc list-inside ml-4 mt-2 space-y-2">
-                    <li><strong>The Amplitude Component (\(\kappa\)):</strong> The <em>relational gravitational measure</em>. A value of \(\kappa=1\) corresponds to the event horizon.</li>
-                    <li><strong>The Phase Component (\(\kappa_X\)):</strong> This projection governs the intrinsic scale of proper length and time units.</li>
-                </ul>
-                <p class="mt-4">These components are bound by the conservation law of the closed system:</p>
-                <p class="text-center text-xl font-mono my-4">\(\kappa_X^2 + \kappa^2 = 1\)</p>
-                <h4 class="text-xl font-bold text-white mt-6 mb-2">Consequence: Gravitational Effects</h4>
-                <p>The redistribution of the budget between the Phase and Amplitude components produces the effects of General Relativity. An increase in the relational measure (\(\kappa\)) requires a decrease in the measure of the internal structure (\(\kappa_X\)). This geometric trade-off is observed physically as gravitational time corrections.</p>
-
-                <h4 class="text-xl font-bold text-white mt-6 mb-2">Gravitational Tangent Formulation</h4>
-                <p>Just as the relativistic energy-momentum relation is expressed via \(\beta = \cos\theta_{1}\), its gravitational analogue follows from \(\kappa = \sin\theta_{2}\). We define the gravitational energy and momentum:</p>
-                <p class="text-center text-xl font-mono my-4">\(E_{g} = \frac{E_{0}}{\kappa_{X}}\) where \(\kappa_{X} = \sqrt{1 - \kappa^{2}}\)</p>
-                <p class="text-center text-xl font-mono my-4">\(p_g = E_{0}/c \cdot \tan\theta_{2}\)</p>
-                <p>This yields the gravitational energy relation: \(E_{g}^{2} = p_g^{2} + E_{0}^{2}\).</p>
-
-                <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4">
-                    <p>\(\beta = \cos\theta_{1}, \qquad \kappa = \sin\theta_{2}\)</p>
-                    <p class="mt-2">\(\cot\theta_{1} \longleftrightarrow \tan\theta_{2}\)</p>
-                    <p class="mt-2 text-base text-gray-300 font-normal">Kinematic momentum \(p\) and gravitational momentum \(p_g\) are dual projections, expressed through complementary trigonometric forms.</p>
-                </div>
-            </div> </details>
-
-        <div class="mt-10">
-            <h3 class="text-2xl font-bold text-white text-center mb-6">Clear Relational Symmetry Between Projections</h3>
-            
-            <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/s1-s2-composition.png" alt="Composition of S1 and S2 projections" class="w-full max-w-2xl mx-auto rounded-lg my-6 bg-white p-2">
-
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse mt-4 text-base">
-                    <thead>
-                        <tr class="bg-gray-800">
-                            <th colspan="2" class="p-3 text-center border border-gray-600">
-                                <p>\(\beta=\beta_X, \quad \kappa=\kappa_Y, \quad \theta_1= \arccos(\beta), \quad \theta_2 = \arcsin(\kappa)\)</p>
-                                <p class="mt-1 font-bold text-cyan-400">\(\kappa^2 = 2\beta^2\)</p>
-                            </th>
-                        </tr>
-                        <tr class="bg-gray-700">
-                            <th class="p-2 border border-gray-600">Algebraic Form</th>
-                            <th class="p-2 border border-gray-600">Trigonometric Form</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-gray-800/50">
-                            <td class="p-2 border border-gray-600 font-mono">\(1/\beta_Y= \frac{1}{\sqrt{1-\beta^2}}\)</td>
-                            <td class="p-2 border border-gray-600 font-mono">\(1/\sin(\theta_1) = 1/\sin(\arccos(\beta))\)</td>
-                        </tr>
-                         <tr class="bg-gray-800/50">
-                            <td class="p-2 border border-gray-600 font-mono">\(1/\kappa_X = \frac{1}{\sqrt{1-\kappa^2}}\)</td>
-                            <td class="p-2 border border-gray-600 font-mono">\(1/\cos(\theta_2) = 1/\cos(\arcsin(\kappa))\)</td>
-                        </tr>
-                        <tr class="bg-gray-800/50">
-                            <td class="p-2 border border-gray-600 font-mono">\(\beta_Y = \sqrt{1-\beta^2}\)</td>
-                            <td class="p-2 border border-gray-600 font-mono">\(\sin(\theta_1) = \sin(\arccos(\beta))\)</td>
-                        </tr>
-                        <tr class="bg-gray-800/50">
-                            <td class="p-2 border border-gray-600 font-mono">\(\kappa_X = \sqrt{1-\kappa^2}\)</td>
-                            <td class="p-2 border border-gray-600 font-mono">\(\cos(\theta_2) = \cos(\arcsin(\kappa))\)</td>
-                        </tr>
-                        <tr class="bg-gray-800/50">
-                            <td class="p-2 border border-gray-600 font-mono">\(p=E_0\beta/\beta_Y\)</td>
-                            <td class="p-2 border border-gray-600 font-mono">\(p=E_0\cot(\theta_1)\)</td>
-                        </tr>
-                        <tr class="bg-gray-800/50">
-                            <td class="p-2 border border-gray-600 font-mono">\(p_g=E_0\kappa/\kappa_X\)</td>
-                            <td class="p-2 border border-gray-600 font-mono">\(p_g=E_0 \tan(\theta_2)\)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h4 class="text-xl font-bold text-white mt-8 mb-4">The Combined Energy Parameter \(Q\)</h4>
-            <p>The total energy projection parameter unifies both aspects, describing the combined effects of relativity and gravity.</p>
-            <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg mt-4 space-y-2">
-                <p>\(Q = \sqrt{\kappa^2 + \beta^2}\)</p>
-                <p>\(Q^{2} = 3\beta^2 = \frac{3}{2}\kappa^2 = \frac{3R_s}{2r}\)</p>
-                <p>\(Q_t = \sqrt{1-Q^2} = \sqrt{1-3\beta^2} = \sqrt{1-\frac{3}{2}\kappa^2}\)</p>
-                <p>\(Q_r = \frac{1}{Q_t}\)</p>
-            </div>
-
-            <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-                <p>Relativistic (\(\beta\)) and gravitational (\(\kappa\)) modes are dual aspects of one energy-transformation constraint.</p>
-            </div>
+        <p class="text-center text-xl font-mono my-3">\(\kappa^2 = \dfrac{R_s}{r} \quad\Longrightarrow\quad r = \dfrac{R_s}{\kappa^2} \quad\Longrightarrow\quad \kappa^2 \propto \dfrac{1}{r}\)</p>
+        <div class="mt-4 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>Two intervals, one procedure. Minkowski and Schwarzschild are coordinate-laden images of the same parameter-free closure.</p>
         </div>
     </div>
 </div>
 
 ---
 
-  <div class="mb-20">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/11-Equivalence-Principle-as-Derived-Identity.png" alt="Derivation of the Equivalence Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/12_Topological-Ratio-k-b-2.png" alt="The ratio of degrees of freedom between S² and S¹ giving κ²=2β²" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <h2 class="text-3xl font-bold text-white text-center mb-6">Equivalence Principle as a Derived Identity</h2>
+        <h2 class="text-3xl font-bold text-white text-center mb-6">The Exchange Rate: κ² = 2β²</h2>
         <p>
-            In General Relativity, the Einstein Equivalence Principle is introduced as an independent postulate: \(m_g \equiv m_i\). Within WILL Geometry, no such axiom is required.
+            A single conserved resource needs a self-consistent "exchange rate" between its kinetic and potential modes. That rate is not fitted — it is fixed by the carriers' degrees of freedom. The kinematic carrier \(S^1\) has one degree of freedom; the potential carrier \(S^2\) has two. With no hidden structure allowed, each independent degree of freedom must carry <strong class="text-white">equal quadratic weight</strong> (the DOF-Indifference Lemma). The ratio of budgets is therefore exactly 2:
         </p>
-        <p class="mt-4">
-            Composing the independent stretches from the kinematic (\(1/\beta_Y\)) and gravitational (\(1/\kappa_X\)) projections gives the total local energy:
+        <p class="text-center text-2xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(\kappa^2 = 2\beta^2\)</p>
+
+        <p class="text-base text-gray-400 italic">
+            This supersedes any "solid-angle" picture: the factor 2 is the ratio of <em>degrees of freedom</em> (2 for \(S^2\), 1 for \(S^1\)), the same reason the carriers saturate at \(\beta^2=1\) (light) and \(\kappa^2=2\) (extremal rotation). This is the relational origin of the <strong class="text-white">virial theorem</strong>.
         </p>
-        <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg my-4 text-center">
-             <p>\(E_{\text{loc}} = \frac{E_0}{\beta_Y \cdot \kappa_X} = \frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}\)</p>
-        </div>
-        <p>
-            The inertial (\(\tilde p\)) and gravitational (\(\tilde p_g\)) projections share the same operational scale, governed by an identical effective mass factor, \(m_{\text{eff}}\). Hence, the equality is not assumed but is forced by the structure:
-        </p>
-        <div class="font-mono text-xl bg-cyan-900/30 border border-cyan-500/50 p-4 rounded-lg my-4 text-center">
-            <p>\(m_g \equiv m_i = m_{\text{eff}}\)</p>
-        </div>
 
         <div class="border-l-4 border-gray-600 pl-4 py-2 my-6">
-            <h4 class="font-semibold text-white">Remark on Eötvös-type precision</h4>
-            <p>In WILL, the only invariant is \(E_0\), and the effective response is the universal stretch factor \(1/(\beta_Y\kappa_X)\). Since this factor depends solely on geometry and not on the composition of the test body, the universality of free fall follows by construction. What GR postulates, WILL reproduces as structural necessity.</p>
+            <h4 class="font-semibold text-white">The closure factor δ — a diagnostic for open vs closed systems</h4>
+            <p>Define \(\delta \equiv \dfrac{\kappa^2}{2\beta^2}\). For circular orbits \(\delta = 1\) exactly. For elliptical orbits \(\delta\) breathes around the cycle but averages to 1 (\(\langle\delta\rangle_{\text{cycle}}=1\)) — the system stays closed. For a <em>radiating</em> binary, counting only orbital motion gives \(\delta \neq 1\); the defect measures exactly the energy leaving through gravitational waves. Include that channel and closure is restored.</p>
         </div>
-        
-        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p><strong>What GR posits as a postulate, WILL delivers as an unavoidable consequence.</strong></p>
-        </div>
-
-        <p class="mt-10">
-            This derived equivalence is a profound consequence of composing the two projections. The framework's consistency, however, demands an even deeper connection: a precise 'exchange rate' that must exist between the kinetic and potential modes themselves.
-        </p>
-    </div>
-</div>
-
---- 
-
-<div id="4W" class="mb-20">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/12_Topological-Ratio-k-b-2.png" alt="The topological ratio of S² to S¹ resulting in k²/β² = 2" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    
-    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <h2 class="text-3xl font-bold text-white text-center mb-6">Unification of Projections: The Geometric Exchange Rate</h2>
-        <p>
-            The Principle of a unified relational resource (Energy) requires a self-consistent "exchange rate" between its kinetic and potential modes. This rate is not an arbitrary parameter but is dictated by the intrinsic geometry of the relations themselves.
-        </p>
-
-        <h4 class="text-xl font-bold text-white mt-6 mb-2">1. The Ratio of Relational Degrees of Freedom</h4>
-        <p>
-            An omnidirectional spherical relation (\(\kappa^2\) on \(S^2\)) requires two degrees of freedom (2D), while a directional circular relation (\(\beta^2\) on \(S^1\)) requires only one (1D). The intrinsic ratio is therefore 2. This is formally expressed as the ratio of their total solid angles:
-        </p>
-        <p class="text-center text-xl font-mono my-4">\(\frac{\text{Total Closure of } S^2}{\text{Total Closure of } S^1} = \frac{4\pi}{2\pi} = 2\)</p>
-
-        <h4 class="text-xl font-bold text-white mt-6 mb-2">2. The Quadratic Nature of Energetic Realization</h4>
-        <p>
-            Energy is fundamentally quadratic in nature. The energetic significance of a state is proportional not to the amplitude of a projection (\(\beta\), \(\kappa\)), but to its <strong>square</strong> (\(\beta^2\), \(\kappa^2\)).
-        </p>
-
-        <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
-            <h4 class="font-semibold text-white">Proposition: Energetic Closure Criterion</h4>
-            <p>In closed regimes, the unique quadratic balance compatible with directional (\(S^1\)) vs omnidirectional (\(S^2\)) resource splitting is:</p>
-            <p class="text-center text-xl font-mono my-2">\(\kappa^2=2\beta^2\)</p>
-        </div>
-
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-6">
-            <h4 class="font-semibold text-white">The Principle as a Diagnostic Invariant</h4>
-            <p>The relation \(\kappa^2 = 2\beta^2\) holds if the system is energetically closed (e.g., circular orbits). In open systems, its violation can be used to determine the magnitude of energy flow through unaccounted-for channels. When all channels are included, the equality is restored.</p>
-        </div>
-        
-        <details class="video-dropdown-container mt-6">
-            <summary class="will-hero-summary">▶ Show Illustrative Examples</summary>
-            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                <ul class="list-disc list-inside space-y-4">
-                    <li>
-                        <strong>Circular Orbit (Closed Subsystem):</strong> For a test body in a perfectly circular orbit, the condition \(\kappa^2 = 2\beta^2\) is exactly fulfilled. The system is energetically closed, and the equality signals full closure.
-                    </li>
-                    <li>
-                        <strong>Radiating Binary (Open Subsystem):</strong> For a binary system emitting gravitational waves, considering only orbital mechanics will show a violation of \(\kappa^2 = 2\beta^2\). This reveals the magnitude of energy flow through the unaccounted-for gravitational wave channel. When this channel is included in the balance, the equality holds again.
-                    </li>
-                </ul>
-            </div>
-        </details>
 
         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p><strong>Geometric Distribution (\(\kappa^2\)) ≡ Kinetic Distribution (\(\beta^2\)) × 2</strong></p>
+            <p><strong>Geometric distribution (κ²) ≡ 2 × kinetic distribution (β²).</strong></p>
         </div>
-
-        <p class="mt-10">
-            This topological ratio is the fundamental 'exchange rate' for energy within any closed system. It allows us to unify both kinetic and potential projections into a single, combined vector that describes the total energetic state of an object.
-        </p>
     </div>
 </div>
 
@@ -613,32 +588,23 @@ For questions and curiosity:
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/13_Total-Projection-as-Vector-on-b-k-plane.png" alt="Total Projection Q as a vector on the Beta-Kappa plane" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <h2 class="text-3xl font-bold text-white text-center mb-6">The Total Projection Parameter Q</h2>
+        <h2 class="text-3xl font-bold text-white text-center mb-6">The Total Relational Shift Q</h2>
 
-<details class="video-dropdown-container">  
-  <summary class="will-hero-summary">▶ Show Interactive Graph: Q Circle (Desmos)</summary>  
-  <div class="geometry-container hero-details">  
-    <div class="desmos-container">  
-      <iframe src="https://www.desmos.com/geometry/2nkjtezjpi" width="100%" height="500" frameborder="0"></iframe>  
-    </div>  
-  </div>  
-</details>
-
-
+        <details class="video-dropdown-container">  
+          <summary class="will-hero-summary">▶ Interactive graph: the Q circle (Desmos)</summary>  
+          <div class="geometry-container hero-details">  
+            <div class="desmos-container">  
+              <iframe src="https://www.desmos.com/geometry/2nkjtezjpi" width="100%" height="500" frameborder="0"></iframe>  
+            </div>  
+          </div>  
+        </details>
 
         <p>
-            The combined effects of the kinetic (\(\beta\)) and potential (\(\kappa\)) projections are unified into a single vector, \(Q\), representing the system's total projection budget.
+            When an observer targets another system, the combined kinematic and gravitational difference is one vector \(Q\):
         </p>
-        <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg mt-4 space-y-2">
-            <p>\(Q = \sqrt{\kappa^2 + \beta^2}\)</p>
-            <p>\(Q^{2} = 3\beta^2 = \frac{3}{2}\kappa^2\)</p>
-            <p>\(Q_t = \sqrt{1-Q^2}\)</p>
-        </div>
-        <p class="mt-4">
-            This parameter describes the total energetic state of a closed system. Its boundary condition, \(Q=1\), corresponds to a critical state of the system—the photon sphere, where the geometry reaches its null-circumnavigation limit.
-        </p>
-         <p class="mt-10">
-            While the \(Q\) parameter describes the static geometric state of a system, transformations <em>between</em> states are governed by the framework's core dynamical rule: the Energy-Symmetry Law.
+        <p class="text-center text-xl font-mono my-3">\(Q^2 = \beta^2 + \kappa^2 \qquad (\text{closed systems: } Q^2 = 3\beta^2)\)</p>
+        <p>
+            \(Q\) is genuinely <em>relational</em>: each observer sits at their own origin \((\beta,\kappa)=(0,0)\), so both parties assign the same shift to each other, \(Q_{A\to B} = Q_{B\to A}\). There is no shared background arena — only mutual shifts measured from each origin. Interaction is causal precisely when the other system's center lies within one's horizon, \(Q < 1\). At \(Q=1\) the budget is exhausted: the photon-sphere / null-circumnavigation limit.
         </p>
     </div>
 </div>
@@ -647,36 +613,18 @@ For questions and curiosity:
 
 ## Energy as a Relation — What κ and β Actually Mean
 
-### Key Principle:
-
 **Energy isn't something objects "have" — it's a measure of differences between states.**
 
-When we drop anthropocentric distortions, a clear and intuitive picture emerges:
-- Physical parameters like energy, speed, and gravitational potential don't belong to objects.
-- Instead, they represent how we, as observers, measure differences from our own point of view.
-    
+When we drop anthropocentric distortions, a clear and intuitive picture emerges. Physical parameters like energy, speed, and gravitational depth don't belong to objects; they describe how we, as observers, measure differences from our own point of view. In this relational view, your perspective is always the reference frame. You are always at zero, and everything else is described by how it differs from your state:
 
-In this relational view, your perspective is always the reference frame. You are always at zero. Everything else is described by how it differs from your state:
-- **β (Beta)** is not an intrinsic property of a moving object. It is a measure of how much of the universal "speed of change" you see as motion through space, relative to yourself.
-- **κ (Kappa)** doesn't describe an object's "stored" gravitational energy. It measures how deeply an object sits in a gravitational field, as seen from your position. It's your personal "ruler" for gravitational depth.
-    
+- **β (Beta)** is not an intrinsic property of a moving object. It is how much of the universal "speed of change" you see as motion through space, relative to yourself.
+- **κ (Kappa)** doesn't describe an object's "stored" gravitational energy. It measures how deeply an object sits in a gravitational field, as seen from your position — your personal ruler for gravitational depth.
 
-Think of κ and β as your own relational measuring tools:
-- **β** is how far along your "motion ruler" you project another object's state.   
-- **κ** is how deep into your "gravity well" you see another object's state.
-    
-Energy thus emerges naturally:
-- Energy is simply the capacity to move between states — it's not possessed, but relationally defined. 
-- Saying "the object's energy" always implicitly means "the object's energy as measured from your perspective."
-    
-Here's a simple analogy:
-> Imagine standing on a train platform. A train passes by rapidly: to you, it has significant kinetic energy. But if you jump onto the train, it instantly becomes stationary relative to you. Its kinetic energy is now zero — because your frame of reference shifted. The energy didn't vanish; your perspective changed.
+Energy then emerges naturally: it is the capacity to move between states, not a possession. Saying "the object's energy" always implicitly means "the object's energy *as measured from your perspective*."
 
-**Bottom line:**
+> Imagine standing on a train platform. A passing train has significant kinetic energy to you. Jump aboard, and that same train is instantly at rest — its kinetic energy is now zero. The energy didn't vanish; your frame of reference shifted.
 
-- Energy, κ, and β aren't hidden intrinsic qualities; they're your personal, relational measurements.
-    
-- All physics boils down to describing how things differ from your chosen point of view. No more, no less.
+**Bottom line:** energy, κ, and β aren't hidden intrinsic qualities. They're your personal, relational measurements. All physics boils down to describing how things differ from your chosen point of view — no more, no less.
 
 ---
 
@@ -685,118 +633,225 @@ Here's a simple analogy:
     
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">The Energy-Symmetry Law</h2>
+        <p>
+            Every transformation is bidirectional: a change observed by \(A\) corresponds to an equal and opposite change observed by \(B\). This is causal continuity in algebraic form — the dynamical heart of the framework.
+        </p>
 
         <div class="border-l-4 border-cyan-500/50 pl-4 py-2 my-6 bg-gray-800/30 rounded-r-lg">
             <h4 class="font-semibold text-white">Theorem: Energy Symmetry</h4>
-            <p>The specific energy differences (per unit of rest energy) perceived by two observers for a transition between their states balance according to the Energy-Symmetry Law:</p>
+            <p>The specific energy differences (per unit rest energy) for a transition between two states balance to zero:</p>
             <p class="text-center text-xl font-mono my-2">\(\Delta E_{A \to B} + \Delta E_{B \to A} = 0\)</p>
         </div>
-        <div class="pl-4 my-4">
-            <h4 class="font-semibold text-white">Proof</h4>
-            <p>Consider observer A at rest (\(\beta_A=0\)) on a surface with potential \(\kappa_A\), and observer B in an orbit with potential \(\kappa_B\) and velocity \(\beta_B\). The total specific energy for the transition \(A \to B\) is the sum of the change in potential and kinetic energy budgets:</p>
-            <p class="text-center text-xl font-mono my-4">\(\Delta E_{A \to B} = \frac{1}{2}\left((\kappa_A^2 - \kappa_B^2) + \beta_B^2\right)\)</p>
-            <p>From B's perspective, the transition \(B \to A\) yields:</p>
-            <p class="text-center text-xl font-mono my-4">\(\Delta E_{B \to A} = \frac{1}{2}\left((\kappa_B^2 - \kappa_A^2) - \beta_B^2\right)\)</p>
-            <p>Summing these transfers gives \(\Delta E_{A \to B} + \Delta E_{B \to A} = 0\). No net energy is created or destroyed in a closed cycle of transitions.</p>
-        </div>
 
-        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Universal Speed Limit as a Consequence</h3>
-        <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Theorem: Universal Speed Limit</h4>
-            <p>The universal speed limit (\(v \leq c\)) emerges from the requirement of energetic symmetry.</p>
-        </div>
-        <div class="pl-4 my-4">
-            <h4 class="font-semibold text-white">Proof</h4>
-            <p>Assume an object could exceed the speed of light, implying \(\beta > 1\). The energy transfer required, \(\Delta E_{A \to B}\), would become arbitrarily large. Consequently, no finite physical process could provide a balancing reverse transfer, \(\Delta E_{B \to A}\), that would sum to zero. The fundamental symmetry would be broken. Therefore, the condition \(\beta \leq 1\) is an intrinsic requirement for maintaining the causal and energetic consistency of the relational universe.</p>
-        </div>
-
-        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-6">Single-Axis Energy Transfer and the Nature of Light</h3>
-         <div class="border-l-4 border-gray-600 pl-4 py-2 my-4">
-            <h4 class="font-semibold text-white">Theorem: Single-Axis Transformation Principle</h4>
-            <p>For light, the kinematic projection reaches its full extent: \(\beta = 1 \Rightarrow \beta_Y = 0\). All transformation of the relational energy occurs along a single orthogonal axis.</p>
-        </div>
-        <div class="pl-4 my-4">
-            <h4 class="font-semibold text-white">Proof</h4>
-            <p>For massive systems, the energy exchange is distributed between two orthogonal projections. For light, \(\beta_Y = 0\), so the complementary projection disappears. The full relational resource is realized on a single projection. Therefore, the specific energy potential for light is not halved but complete, \(\Phi_\gamma = \kappa^2 c^2\), while for a massive body it remains partitioned, \(\Phi_{\text{mass}} = \frac{1}{2}\kappa^2 c^2\). This explains why light experiences a geometric effect exactly twice that of a massive particle in the same field.</p>
-        </div>
-
-        <details class="video-dropdown-container mt-6">
-            <summary class="will-hero-summary">▶ Show Simplification for Closed Orbits</summary>
-            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                <p>When the closure condition for stable orbits (\(\kappa^2 = 2\beta^2\)) is applied, the general law simplifies.</p>
-                <ul class="list-disc list-inside space-y-4 mt-4">
-                    <li>
-                        <strong>Surface-to-Orbit Transfer:</strong> The specific energy balance is given by:<br>
-                        <span class="block text-center font-mono text-lg my-2">\(\frac{E_{A \to B}}{E_{0B}} = \frac{1}{2}(\kappa_A^2 - \beta_B^2)\)</span>
-                    </li>
-                    <li>
-                        <strong>Orbit-to-Orbit Transfer:</strong> The balance reduces further, with the potential terms cancelling out completely:<br>
-                        <span class="block text-center font-mono text-lg my-2">\(\frac{E_{A \to B}}{E_{0B}} = \frac{1}{2}(\beta_A^2 - \beta_B^2)\)</span>
-                    </li>
-                </ul>
+        <details class="video-dropdown-container mt-4">
+            <summary class="will-hero-summary">▶ Proof and the meaning of the ½ factor</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300 space-y-3">
+                <p>For \(A\) at rest on a surface (\(\beta_A=0\), depth \(\kappa_A\)) and \(B\) in orbit (\(\kappa_B,\beta_B\)), each transition is the sum of the changes in the potential and kinetic budgets:</p>
+                <p class="text-center font-mono">\(\Delta E_{A\to B} = \tfrac12(\kappa_A^2-\kappa_B^2) + \tfrac12(\beta_B^2-\beta_A^2)\)</p>
+                <p>The reverse transition flips every sign, so the two sum to zero. The factor \(\tfrac12\) is not arbitrary: energy is quadratic in the projections, and using amplitudes alone (\(\beta^2\), \(\kappa^2\)) means working with half of each carrier's budget. Hence \(K/E_0 = \tfrac12\beta^2\) and \(U/E_0 \propto -\tfrac12\kappa^2\).</p>
             </div>
         </details>
-        
+
+        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-4">Two consequences: a speed limit, and the nature of light</h3>
+        <p>
+            <strong class="text-white">The speed limit \(v \le c\) is built in.</strong> If \(\beta>1\), the kinetic budget \(\tfrac12\beta^2\) and the required transfer grow without bound — no finite reverse transfer could balance it, and the symmetry would break. So \(\beta \le 1\) is a requirement of causal consistency, not a separate postulate.
+        </p>
+        <p>
+            <strong class="text-white">Light is the single-axis limit.</strong> For light \(\beta=1\Rightarrow\beta_Y=0\): the internal phase vanishes, there is no rest frame, and the entire resource sits on one axis. This removes the \(\tfrac12\) partitioning, so the gravitational effect on light is exactly <strong>twice</strong> that on a massive body (\(\Phi_\gamma=\kappa^2c^2\) vs \(\Phi_{\text{mass}}=\tfrac12\kappa^2c^2\)) — the observed factor of 2 in light deflection and the Shapiro delay, with no weak-field expansion.
+        </p>
+
         <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
             <p><strong>Causality is a built-in feature of Relational Geometry.</strong></p>
         </div>
     </div>
 </div>
 
+<!-- ════════════════════════════ STAGE III ════════════════════════════ -->
+
+<div class="text-center my-10">
+    <span class="text-sm font-bold tracking-[0.3em] text-cyan-400">STAGE III</span>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Legacy Translation &amp; Empirical Alignment</h2>
+    <p class="text-gray-400 mt-2 max-w-3xl mx-auto">Recovering the familiar machinery of physics as special cases — then testing the framework against real data.</p>
+</div>
+
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/11-Equivalence-Principle-as-Derived-Identity.png" alt="Derivation of the Equivalence Principle" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">The Equivalence Principle as a Derived Identity</h2>
+        <p>
+            In General Relativity, \(m_g \equiv m_i\) is an independent postulate. In WILL it is unavoidable. Both the kinematic and gravitational projections rescale the same invariant rest energy \(E_0\), so composing the two stretches gives one local energy scale:
+        </p>
+        <p class="text-center text-xl font-mono my-3">\(E_{\text{loc}} = \dfrac{E_0}{\beta_Y\,\kappa_X} = \dfrac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}} = \dfrac{E_0}{\tau}\)</p>
+        <p>
+            The inertial and gravitational responses share a single effective mass \(m_{\text{eff}} = E_0/(\tau c^2)\), because every internal energy channel scales by the same factor \(1/\tau\). Their ratios cancel in every observable — which is exactly composition-independent free fall (Eötvös universality). Hence:
+        </p>
+        <div class="font-mono text-xl bg-cyan-900/30 border border-cyan-500/50 p-4 rounded-lg my-4 text-center">
+            <p>\(m_g \equiv m_i \equiv m_{\text{eff}}\)</p>
+        </div>
+        <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>What GR posits as a postulate, WILL delivers as a corollary.</strong></p>
+        </div>
+    </div>
+</div>
+
+---
+
+<!-- NEW SECTION: Ontological collapses -->
+<div class="mb-20">
+
+<!-- SLIDE PLACEHOLDER: "Ontological Collapses: Lagrangian, Hamiltonian, Newton III, Einstein-Hilbert" -->
+<div class="slide-placeholder">
+    [ Slide placeholder — “Four Ontological Collapses of the Two-Point Law” ]
+    <span class="ph-sub">Suggested visual: the two-point Energy-Symmetry Law ΔE(A→B)+ΔE(B→A)=0 at the top, collapsing (by forcing r_A=r_B into a single point) into four legacy objects: Lagrangian L, Hamiltonian H, Newton’s third law F_AB=−F_BA, and the Einstein–Hilbert action S_EH.</span>
+</div>
+
+<div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+    <h2 class="text-3xl font-bold text-white text-center mb-6">Four Pillars of Physics as "Collapses" of One Law</h2>
+    <p>
+        The two-point Energy-Symmetry Law is more fundamental than the standard tools of mechanics. Each of those tools appears when you <strong class="text-white">collapse</strong> the two-point relation \(A\leftrightarrow B\) onto a single point — forcing \(r_A=r_B=r\) and then re-introducing, by hand, the very structure that the collapse discarded.
+    </p>
+
+    <details class="video-dropdown-container mt-4">
+        <summary class="will-hero-summary">▶ Lagrangian &amp; Hamiltonian</summary>
+        <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300">
+            <p>Collapsing \(\Delta E_{A\to B}=\tfrac12(\kappa_A^2-\kappa_B^2)+\tfrac12(\beta_B^2-\beta_A^2)\) to one point and appending an ad-hoc potential function reproduces \(L=\tfrac12 mv^2+\tfrac{GMm}{r}\) and \(H=\tfrac12 mv^2-\tfrac{GMm}{r}\). The two-point law already contains the full energy balance — no separate potential, force law, or action is required.</p>
+        </div>
+    </details>
+    <details class="video-dropdown-container mt-3">
+        <summary class="will-hero-summary">▶ Newton's Third Law</summary>
+        <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300">
+            <p>Once the budget is collapsed into a potential \(U(\vec r)\) that — to stay empirical — can depend only on the relative separation \(\vec r=\vec r_B-\vec r_A\), the chain rule gives \(\vec F_{AB}=-\nabla U\) and \(\vec F_{BA}=+\nabla U\). So \(\vec F_{AB}=-\vec F_{BA}\): equal-and-opposite forces are the mathematical signature of any causally balanced, background-independent system.</p>
+        </div>
+    </details>
+    <details class="video-dropdown-container mt-3">
+        <summary class="will-hero-summary">▶ Einstein–Hilbert Action</summary>
+        <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300">
+            <p>The action \(S_{EH}=\frac{1}{16\pi G}\int R\sqrt{-g}\,d^4x\) compresses relational tension into a local curvature scalar on a posited smooth manifold. Its pieces map directly onto the relational structure: the 4-volume \(\int\sqrt{-g}\,d^4x \to\) carrier closure \(\kappa^2+\kappa_X^2=1\); the Ricci scalar \(R \to \kappa^2,\beta^2\); and the variational search \(\delta S=0 \to\) the Energy-Symmetry Law \(\Delta E_{A\to B}+\Delta E_{B\to A}=0\).</p>
+        </div>
+    </details>
+
+    <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+        <p>The Lagrangian, Hamiltonian, Newton's third law and the Einstein–Hilbert action are not fundamental — they are single-point shadows of one two-point law.</p>
+    </div>
+</div>
+</div>
+
 ---
 
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/15_Structural-Dynamics.png" alt="Structural Dynamics" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-        <h2 class="text-3xl font-bold text-white text-center mb-6">Beyond Differential Formalism: Structural Dynamics</h2>
+        <h2 class="text-3xl font-bold text-white text-center mb-6">No Equations of Motion: Structural Dynamics</h2>
         <p>
-            The system is not described by differential equations of motion evolving <em>in</em> time. Instead, its transformation is dictated by a closed network of algebraic relations that enforce a perpetually balanced configuration. What we perceive as "dynamics" is this ordered succession of balanced states.
+            Because structure and dynamics are one, the system is not described by differential equations evolving <em>in</em> time. Its allowed states are fixed by a closed network of algebraic relations. What we perceive as "dynamics" is the ordered succession of these balanced configurations — and a natural time scale \(t_d = r/c\) emerges from the geometry itself.
         </p>
-        <div class="mt-6 text-center text-xl font-bold text-cyan-400 tracking-wider border-2 border-cyan-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+        <div class="mt-4 text-center text-xl font-bold text-cyan-400 tracking-wider border-2 border-cyan-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
             <p>Time does not drive change — change defines time.</p>
         </div>
-
-        <h3 class="text-2xl font-bold text-white mt-10 mb-6">Time as an Emergent Property</h3>
-        <p>
-            In this framework, time is not a fundamental entity but a derived concept tied to changes in the system's geometry. Similar to time dilation, time intervals here are defined by the transformations of geometric parameters like \(r\) and \(\kappa\). A natural time scale arises from the geometry as \(t_{d} = r/c\). This intrinsic time scale encapsulates the system's dynamics without invoking an independent time variable.
-        </p>
-
-        <h3 class="text-2xl font-bold text-white mt-10 mb-6">Algebraic Closure and Structural Causality</h3>
-        <p>
-            Physical dynamics emerges from a set of algebraically closed invariants. Each parameter participates in a self-consistent configuration of relational constraints. Changing any one parameter necessitates a coordinated shift in all others to maintain validity. The following set of relations expresses this minimal algebraic closure:
-        </p>
+        <p class="mt-6">The minimal algebraic closure for a bound system is just:</p>
         <div class="font-mono text-lg bg-gray-900/50 p-6 rounded-lg my-6 text-center space-y-2">
-            <p>\(\kappa^2 = 2 \beta^2\)</p>
-            <p>\(r \cdot \kappa^2 = R_s \quad \text{where} \quad R_s = \frac{2G m_0}{c^2}\)</p>
-            <p>\(\rho = \frac{\kappa^2 c^2}{8\pi Gr^2}\)</p>
-            <p>\(m_0 = 4\pi r^3 \cdot \rho\)</p>
+            <p>\(\kappa^2 = 2\beta^2\)</p>
+            <p>\(r\,\kappa^2 = R_s, \quad R_s = \dfrac{2Gm_0}{c^2}\)</p>
+            <p>\(\rho = \dfrac{\kappa^2 c^2}{8\pi G r^2}, \qquad m_0 = 4\pi r^3 \rho\)</p>
         </div>
-        
         <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/structural-dynamics-diagram.png" alt="Diagram of algebraic closure in WILL Geometry" class="w-full max-w-2xl mx-auto rounded-lg my-6">
+        <p class="text-base text-gray-400 italic text-center">Change any one parameter and all the others must shift together to keep the configuration valid. There is exactly one balanced state at each moment.</p>
+    </div>
+</div>
 
-        <details class="video-dropdown-container mt-6">
-            <summary class="will-hero-summary">▶ Show Comparison with Classical Dynamics</summary>
-            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                <h4 class="text-xl font-bold text-white mb-4">Why There Are No Equations of Motion</h4>
-                <p>Classical physics formulates dynamics through differential equations (Lagrangians, variational principles), assuming a continuum of paths where nature selects one by minimizing action. WILL Geometry begins from a different premise: there is no "space" of possible paths and no "freedom to vary." The system does not evolve through time; it defines time through its structure. There is only one valid configuration at any moment: the one where all projectional constraints are satisfied.</p>
+---
+
+<div class="mb-20">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/18_Empirical-Validation.png" alt="Empirical Validation of WILL Geometry" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
+    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+    <h2 class="text-3xl font-bold text-white text-center mb-6">Grounding the Vision in Reality</h2>
+    <p>
+        A theory born of pure logic must reflect the real world. WILL reproduces the established successes of relativity — and, in several cases, shows that the standard formula is the <em>first-order approximation</em> of an exact relational expression.
+    </p>
+
+    <div class="mt-10">
+        <h3 class="text-2xl font-bold text-white mb-2">GPS satellites — and why GR is RG to first order</h3>
+        <p>The daily clock offset between GPS satellites and the ground combines kinematic (SR) and gravitational (GR) effects into one relational factor \(\tau=\beta_Y\kappa_X\). RG composes the two effects <em>multiplicatively</em>; the textbook formula <em>adds</em> them. The addition is exactly the first-order Taylor expansion of the RG ratio — verified symbolically and to 40-digit precision.</p>
+        <details class="video-dropdown-container mt-4">  
+            <summary class="will-hero-summary">▶ Interactive graph: Earth–GPS (Desmos)</summary>  
+            <div class="geometry-container hero-details">  
+                <div class="desmos-container">  
+                    <iframe src="https://www.desmos.com/geometry/v6nrtv4vyx" width="100%" height="500" frameborder="0"></iframe>  
+                </div>  
+            </div>  
+        </details>
+        <details class="video-dropdown-container mt-3">
+            <summary class="will-hero-summary">▶ The numbers: RG (exact) vs GR (first order)</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300">
+                <p>RG expresses the shift as an exact ratio of projection invariants, \(\Delta t_{\text{RG}} = \left(1 - \tau_E/\tau_{\text{GPS}}\right)D\,M\):</p>
+                <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-3 space-y-1 overflow-x-auto">
+                    <p>\(\Delta t_{\text{RG}}\ (\text{exact}) = 38.5421472752\ \mu s/\text{day}\)</p>
+                    <p>\(\Delta t_{\text{GR}}\ (\text{1st order}) = 38.5421472451\ \mu s/\text{day}\)</p>
+                    <p>difference \(= 3.0\times10^{-8}\ \mu s/\text{day}\) — the second-order \(\beta^2\kappa^2\) cross-term</p>
+                </div>
+                <p class="mt-3">The additive GR formula is recovered as the unique leading-order content of the multiplicative RG ratio. The cross-term is the genuine discriminator; it only becomes large when \(\beta^2\) or \(\kappa^2\) approach unity (strong fields).</p>
             </div>
         </details>
+    </div>
 
-        <details class="video-dropdown-container mt-6">
-            <summary class="will-hero-summary">▶ Show a Numerical Example</summary>
-            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                <h4 class="text-xl font-bold text-white mb-4">Accretion onto a Black Hole</h4>
-                <p>Consider a black hole of \(10 M_\odot\) accreting mass. Let \(\kappa = 0.1\). The initial radius is \(r = R_s/\kappa^2 = 2.95 \times 10^6\) m, and the time scale is \(t_d = r/c \approx 9.83\) ms. As it accretes mass to \(10.1 M_\odot\), its \(R_s\) increases. Assuming \(\kappa\) remains constant, the radius \(r\) and the time scale \(t_d\) adjust accordingly to \(2.98 \times 10^6\) m and \(9.93\) ms. This increase in \(t_d\) reflects the system's evolution, driven solely by the changing geometry without differential equations.</p>
+    <div class="mt-10">
+        <h3 class="text-2xl font-bold text-white mb-2">Mercury's precession — as phase accumulation</h3>
+        <p>The anomalous precession is recovered not by expanding field equations, but as the accumulation of relational phase divergence \(\tau_Y^2\) over one orbit, normalized by the shape factor \(1-e^2\). Again the GR result is the first-order piece of the exact expression.</p>
+        <details class="video-dropdown-container mt-4">  
+            <summary class="will-hero-summary">▶ Interactive graph: Sun–Mercury (Desmos)</summary>  
+            <div class="geometry-container hero-details">  
+                <div class="desmos-container">  
+                    <iframe src="https://www.desmos.com/calculator/wimnrykbvy" width="100%" height="500" frameborder="0"></iframe>  
+                </div>  
+            </div>  
+        </details>
+        <details class="video-dropdown-container mt-3">
+            <summary class="will-hero-summary">▶ The exact precession formula and its GR limit</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300">
+                <p>The relational precession per orbit is exact:</p>
+                <p class="text-center font-mono my-2">\(\Delta\phi = \dfrac{2\pi\,\tau_Y^2}{1-e^2} = \dfrac{2\pi(3\beta^2 - 2\beta^4)}{1-e^2} = \underbrace{\dfrac{3\pi R_s}{a(1-e^2)}}_{\text{GR 1PN}} - \underbrace{\dfrac{\pi R_s^2}{a^2(1-e^2)}}_{\text{RG correction}}\)</p>
+                <p>For Mercury this gives \(\Delta\phi \approx 5.0209\times10^{-7}\) rad/orbit \(= 43''\)/century, matching the observed value to machine precision; the \(R_s^2\) correction is far below current resolution but is a sharp, parameter-free prediction.</p>
             </div>
         </details>
-        
-        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p><strong>Dynamics is the ordered succession of balanced configurations.</strong></p>
-        </div>
+    </div>
 
-        <p class="mt-10">
-            This principle of structural dynamics culminates in the framework's central equation, which unifies geometry and energy density into a single, profound statement.
+    <div class="mt-10">
+        <h3 class="text-2xl font-bold text-white mb-2">Critical orbits (ISCO &amp; photon sphere)</h3>
+        <p>Every GR critical surface emerges from simple symmetries of the projection budget \(Q\) — no geodesic equations.</p>
+        <details class="video-dropdown-container mt-4">
+            <summary class="will-hero-summary">▶ Derivation of the critical radii (and the static/dynamic distinction)</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300 space-y-3">
+                <p><strong>Photon sphere</strong> is maximum saturation, \(Q=1\). With \(Q^2=\kappa^2+\beta^2\) and \(\kappa^2=2\beta^2\): \(3\beta^2=1\), so \(\kappa^2=2/3\) and \(r_{ps}=R_s/(2/3)=1.5\,R_s\). (At \(\theta_1=\theta_2=54.7^\circ\), the "magic angle.")</p>
+                <p><strong>ISCO</strong> is marginal stability, \(Q=Q_t\Rightarrow Q^2=1/2\). Then \(\kappa^2=1/3\) and \(r_{isco}=R_s/(1/3)=3\,R_s\).</p>
+                <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/ISCO-diagram.png" alt="Diagram of ISCO in WILL RG" class="w-full max-w-2xl mx-auto rounded-lg my-4">
+                <p class="text-sm text-gray-400">RG distinguishes a static coordinate location (\(\beta=0\)) from the dynamic orbital state on the closure line \(\kappa^2=2\beta^2\) — a distinction invisible to the single-number GR radius.</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="mt-12 text-center text-lg font-semibold text-green-400 tracking-wider border-2 border-green-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+        <p><strong>SPACETIME ≡ ENERGY: one principle defines both the structure and the symmetry of reality.</strong></p>
+    </div>
+    </div>
+</div>
+
+---
+
+<div class="mb-20">
+    <div class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">From Foundations to Orbits: R.O.M.</h2>
+        <p>
+            Applying these same projections to bound gravitational systems gives <strong class="text-white">Relational Orbital Mechanics (R.O.M.)</strong> — a closed algebraic system that classifies the allowed states of an orbit with no differential equations, no acceleration term, and (remarkably) no \(G\) or \(M\). From the projections and the closure \(\kappa^2=2\beta^2\) alone, R.O.M. derives:
+        </p>
+        <ul class="list-disc list-inside ml-4 mt-2 space-y-1 text-base">
+            <li>Kepler's Third Law (\(a^3 = \tfrac{R_s c^2}{8\pi^2}T^2\)), the vis-viva relation, conservation of angular momentum, and eccentricity — all as Pythagorean invariants;</li>
+            <li>orbital precession as phase accumulation (Mercury, and the S2 star at Sgr A*);</li>
+            <li>gravitational deflection and lensing from the energy-symmetry law directly;</li>
+            <li>rotational systems (Kerr without a metric), frame-dragging, and the Sun–Earth L1 point;</li>
+            <li>system scale (\(R_s\)) from spectroscopic and chronometric observables, bypassing mass entirely.</li>
+        </ul>
+        <p class="mt-4">
+            R.O.M. is not a separate model — it is the operational consequence of the same principles. See the <a href="https://willrg.com/results/" class="text-cyan-400 hover:text-white">R.O.M. paper</a> and the <a href="https://willrg.com/predictions/" class="text-cyan-400 hover:text-white">predictions</a>.
         </p>
     </div>
 </div>
@@ -805,220 +860,172 @@ Here's a simple analogy:
 
 <div id="5W" class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/16_Unified-Field-Equation.png" alt="The Unified Field Equation" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-
-
-
-    
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">The Unified Field Equation</h2>
         <p>
-            From the energy-geometry equivalence, the complete description of gravitational phenomena reduces to a single algebraic relation. This equation expresses the core identity: the ratio of geometric scales equals the ratio of energy densities.
+            All of gravitational physics reduces to a single algebraic identity: the ratio of geometric scales equals the ratio of energy densities.
         </p>
         <div class="font-mono text-xl bg-cyan-900/30 border border-cyan-500/50 p-6 rounded-lg my-6 text-center">
-            <p>\(\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{\text{max}}}\)</p>
+            <p>\(\kappa^2 = \dfrac{R_s}{r} = \dfrac{\rho}{\rho_{\text{max}}}\)</p>
         </div>
-        <p>
-            This single algebraic relation is the unified field equation of WILL Geometry. It ensures that curvature and energy density evolve smoothly and remain bounded, resolving the singularity problem by geometrically constraining the domain of valid projections.
-        </p>
 
-        <details class="video-dropdown-container mt-6">
-            <summary class="will-hero-summary">▶ Show Formal Derivation of Energy Density</summary>
-            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                <h4 class="text-xl font-bold text-white mb-4">Geometric Foundation</h4>
-                <p>From the projective analysis, the fundamental invariant is \(\kappa^2 = R_s/r\), where \(R_s = 2Gm_0/c^2\).</p>
-                
-                <h4 class="text-xl font-bold text-white mt-6 mb-4">Derivation of Energy Density (\(\rho\))</h4>
-                <p>Starting from the geometric relation \(m_0 = \frac{\kappa^2 c^2 r}{2G}\), we associate \(m_0\) with a volumetric proxy \(r^3\). Because the potential projection \(\kappa\) is distributed over a 2D spherical manifold (\(S^2\)), the expression must be normalized over the unit-sphere area \(4\pi\). This yields the physical energy density:</p>
-                <p class="text-center text-xl font-mono my-4">\(\rho = \frac{1}{4\pi}\left(\frac{\kappa^2 c^2}{2G r^2}\right) = \frac{\kappa^2c^2}{8\pi G r^2}\)</p>
-                
-                <h4 class="text-xl font-bold text-white mt-6 mb-4">Maximal Density (\(\rho_{\text{max}}\))</h4>
-                <p>At the horizon condition, \(\kappa^2 = 1\), the maximal observable energy density at radius \(r\) is reached:</p>
-                <p class="text-center text-xl font-mono my-4">\(\rho_{\text{max}} = \frac{c^2}{8\pi G r^2}\)</p>
-                <p>Thus, the fundamental identification is \(\kappa^2 = \rho/\rho_{\text{max}}\).</p>
+        <details class="video-dropdown-container mt-4">
+            <summary class="will-hero-summary">▶ Where the density and its bound come from</summary>
+            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg text-gray-300">
+                <p>From \(m_0=\kappa^2 c^2 r/2G\), associating mass with a volumetric proxy and normalizing the potential over the unit-sphere area \(4\pi\) gives the local energy density, and the horizon condition \(\kappa^2=1\) gives its maximum:</p>
+                <p class="text-center font-mono my-2">\(\rho = \dfrac{\kappa^2 c^2}{8\pi G r^2}, \qquad \rho_{\text{max}} = \dfrac{c^2}{8\pi G r^2}\)</p>
+                <p>Hence \(\kappa^2 = \rho/\rho_{\text{max}}\).</p>
             </div>
         </details>
-        
-        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p><strong>No Singularities:</strong> The constraint \(\kappa^2 \le 1\) naturally prevents infinite curvature.</p>
-        </div>
 
-        <p class="mt-10">
-            This equation closes the theoretical loop, demonstrating that the framework's foundational principle is proven as the inevitable consequence of its own geometric consistency—a concept best visualized as the Theoretical Ouroboros.
+        <h3 class="text-2xl font-bold text-white text-center mt-10 mb-4">No singularities, no hidden regions</h3>
+        <p>
+            Because density is capped at a finite \(\rho_{\text{max}}=c^2/8\pi G r^2\), infinite density is impossible. The static horizon sits at \(\kappa^2=1\ (r=R_s)\); even the extreme rotating limit only reaches \(r=R_s/2\). The point \(r=0\) is simply <strong class="text-white">absent</strong> from the admissible relational range — singularities are excluded by construction, not patched over.
         </p>
+        <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>Density is bounded; the point r = 0 does not exist.</strong></p>
+        </div>
     </div>
 </div>
 
----
+<!-- ════════════════════════════ STAGE IV ════════════════════════════ -->
+
+<div class="text-center my-10">
+    <span class="text-sm font-bold tracking-[0.3em] text-cyan-400">STAGE IV</span>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Consequences &amp; Direct Applications</h2>
+</div>
 
 <div class="mb-20">
     <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/17_Theoretical-Ouroboros.png" alt="The Theoretical Ouroboros" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    
     <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
         <h2 class="text-3xl font-bold text-white text-center mb-6">The Theoretical Ouroboros</h2>
         <p>
-            The Unified Field Equation closes the theoretical loop. The single foundational principle, through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. 
+            We began with one principle, <span class="font-mono">SPACETIME ≡ ENERGY</span>. Through pure geometry it generated the carriers, the projections, and the laws — and those laws produced a field equation that says exactly the same thing we started with: the ratio of geometric scales equals the ratio of energy densities.
         </p>
-        <p class="mt-4">
-             The initial principle \(\text{SPACETIME} \equiv \text{ENERGY}\) logically derives the geometry and physical laws, and these derived laws then loop back to intrinsically define and prove the self-consistency of the initial idea.
-        </p>
-
-        <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-            <p><strong>The WILL framework exhibits perfect logical closure: the fundamental principle is proven as the inevitable consequence of geometric consistency.</strong></p>
+        <div class="font-mono text-lg bg-gray-900/50 p-4 rounded-lg my-4 text-center space-y-2 text-white">
+            <p>SPACETIME ≡ ENERGY \(\;\Longrightarrow\;\) \(\kappa^2 = \dfrac{R_s}{r} = \dfrac{\rho}{\rho_{\text{max}}}\) \(\;\Longrightarrow\;\) SPACETIME ≡ ENERGY</p>
         </div>
-
-        <p class="mt-10">
-            This logical closure is elegant, but a physical theory is only as strong as its empirical predictions. The final step is to ground this abstract framework in real-world, measurable phenomena.
-        </p>
+        <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p><strong>The principle is proven as the inevitable consequence of its own geometric consistency.</strong></p>
+        </div>
+        <p class="mt-6 text-center text-gray-400 italic">From an epistemological standpoint this is the crown of any framework — the principle generates its own expression, and the expression validates the principle. But let us remain sceptical, and keep testing.</p>
     </div>
 </div>
 
 ---
 
+<!-- NEW SECTION: W_ILL = 1 invariant -->
 <div class="mb-20">
-    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/18_Empirical-Validation.png" alt="Empirical Validation of WILL Geometry" class="w-full max-w-5xl mx-auto rounded-lg border-2 border-gray-700/50 shadow-2xl">
-    
-    <div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
-    <h2 class="text-3xl font-bold text-white text-center mb-6">Grounding the Vision in Reality</h2>
+
+<!-- SLIDE PLACEHOLDER: "W_ILL = E·T / (M·L) = 1" -->
+<div class="slide-placeholder">
+    [ Slide placeholder — “W_ILL = E·T / (M·L) = 1, the Unity invariant” ]
+    <span class="ph-sub">Suggested visual: the four projections (Energy E, Mass M, Time T, Length L) as faces of one structure, combining into the dimensionless ratio E·T/(M·L) that collapses to exactly 1 for every energy, scale and phase.</span>
+</div>
+
+<div class="max-w-4xl mx-auto mt-8 text-gray-300 text-lg leading-relaxed">
+    <h2 class="text-3xl font-bold text-white text-center mb-6">W<sub>ILL</sub> = 1 — the Unity of Everything</h2>
     <p>
-        A theory born of pure logic must find its reflection in the workings of the real world. WILL Relational Geometry passes rigorous experimental and observational tests, reproducing the successes of standard physics from deeper, more unified first principles.
+        If there is really only one relational resource, then mass, energy, time and length cannot be independent — they are four projections of the same structure. Combining them in the one dimensionless way the carriers permit gives an invariant that is identically 1 for any closed system, at every energy, every scale, and every orbital phase:
+    </p>
+    <div class="font-mono text-2xl bg-cyan-900/30 border border-cyan-500/50 p-6 rounded-lg my-6 text-center">
+        <p>\(W_{\text{ILL}} = \dfrac{E\,T}{M\,L} = 1\)</p>
+    </div>
+    <p>
+        All dimensionful constants cancel automatically — the value is fixed by the geometry of the carriers, not by a choice of units. Equivalently \(E/M = L/T\): the energy sector and the spacetime sector are locked together. Treating energy–mass and space–time as separate blocks is an interpretational approximation; the unity \(W_{\text{ILL}}=1\) is the precise statement that <span class="font-mono">SPACETIME ≡ ENERGY</span>.
     </p>
 
-    <div class="mt-10">
-        <h3 class="text-2xl font-bold text-white mb-2">Critical Orbits (ISCO & Photon Sphere)</h3>
-        <p>All known GR critical surfaces emerge naturally from the geometric equilibrium of the \(\beta\) and \(\kappa\) projections, without solving geodesic equations.</p>
-        <details class="video-dropdown-container mt-4">
-            <summary class="will-hero-summary">▶ Show Derivation of Critical Orbits</summary>
-            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                <h2 class="text-3xl font-bold text-white text-center mb-6">Geometric Prediction of Photon Sphere and ISCO</h2>
-                <p class="text-center">
-                    Critical orbital radii emerge not from solving complex geodesic equations, but as direct consequences of fundamental symmetries within the projection budget \(Q\).
-                </p>
-
-                <div class="mt-8">
-                    <h3 class="text-2xl font-bold text-white mb-4">1. Photon Sphere from the Principle of Maximum Projection (\(Q=1\))</h3>
-                    <p>The Photon Sphere represents a state of maximum geometric saturation, where the entire projection budget is exhausted. This is expressed by the symmetry condition:</p>
-                    <p class="text-center text-xl font-mono my-4">\(Q = 1 \implies Q^2 = 1\)</p>
-                    <p>Using the system's definitions (\(Q^2 = \kappa^2 + \beta^2\)) and the universal law for closed systems (\(\kappa^2 = 2\beta^2\)), we solve:</p>
-                    <div class="font-mono text-lg bg-gray-900/70 p-4 rounded-lg my-4 space-y-2">
-                        <p>\(2\beta^2 + \beta^2 = 1 \implies 3\beta^2 = 1 \implies \beta^2 = \frac{1}{3}\)</p>
-                        <p>\(\kappa^2 = 2\beta^2 = \frac{2}{3}\)</p>
-                    </div>
-                    <p>From the definition \(r = R_s / \kappa^2\), we derive the physical radius:</p>
-                    <p class="text-center text-xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(r_{ps} = \frac{R_s}{2/3} = 1.5 R_s\)</p>
-                </div>
-
-                <div class="mt-12">
-                    <h3 class="text-2xl font-bold text-white mb-4">2. ISCO from the Principle of Equilibrium (\(Q=Q_t\))</h3>
-                    <p>The Innermost Stable Circular Orbit (ISCO) represents a state of perfect equilibrium, where the "used" projection budget (\(Q\)) equals the "complementary" budget (\(Q_t=\sqrt{1-Q^{2}}\)). This symmetry of marginal stability is expressed as:</p>
-                    <p class="text-center text-xl font-mono my-4">\(Q = Q_t \implies Q^2 = Q_t^2\)</p>
-                    <p>Using the definition \(Q_t^2 = 1 - Q^2\), we solve for \(Q^2\):</p>
-                    <div class="font-mono text-lg bg-gray-900/70 p-4 rounded-lg my-4 space-y-2">
-                        <p>\(Q^2 = 1 - Q^2 \implies 2Q^2 = 1 \implies Q^2 = \frac{1}{2}\)</p>
-                    </div>
-                    <p>Again, using the system's law (\(\kappa^2 = 2\beta^2\)) and definitions (\(Q^2 = \kappa^2 + \beta^2\)), we solve:</p>
-                    <div class="font-mono text-lg bg-gray-900/70 p-4 rounded-lg my-4 space-y-2">
-                        <p>\(2\beta^2 + \beta^2 = \frac{1}{2} \implies 3\beta^2 = \frac{1}{2} \implies \beta^2 = \frac{1}{6}\)</p>
-                        <p>\(\kappa^2 = 2\beta^2 = \frac{1}{3}\)</p>
-                    </div>
-                    <p>From \(r = R_s / \kappa^2\), we derive the physical radius:</p>
-                    <p class="text-center text-xl font-mono my-4 bg-cyan-900/30 border border-cyan-500/50 p-3 rounded-lg">\(r_{isco} = \frac{R_s}{1/3} = 3 R_s\)</p>
-                </div>
-                <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/ISCO-diagram.png" alt="Diagram of ISCO in WILL RG" class="w-full max-w-2xl mx-auto rounded-lg my-6">
-                <div class="mt-12">
-                    <div class="mt-8 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-                        <p><strong>While the radii are known from GR, their emergence from two distinct, symmetries (\(Q=1\) and \(Q=Q_t\)) reinforces the explanatory power of Relational Geometry.</strong></p>
-                    </div>
-                </div>
-            </div> </details>
-    </div>
-
-    <div class="mt-10">
-        <h3 class="text-2xl font-bold text-white mb-2">GPS Satellites</h3>
-        <p>The model correctly predicts the empirically measured time correction by unifying kinetic (SR) and gravitational (GR) effects into a single calculation.</p>
-        <details class="video-dropdown-container">  
-            <summary class="will-hero-summary">▶ Show Interactive Graph: Earth GPS (Desmos)</summary>  
-            <div class="geometry-container hero-details">  
-                <div class="desmos-container">  
-                    <iframe src="https://www.desmos.com/geometry/v6nrtv4vyx" width="100%" height="500" frameborder="0"></iframe>  
-                </div>  
+    <details class="video-dropdown-container mt-4">  
+        <summary class="will-hero-summary">▶ Interactive: deriving W_ILL = 1 (Desmos)</summary>  
+        <div class="geometry-container hero-details">  
+            <div class="desmos-container">  
+                <iframe src="https://www.desmos.com/calculator/wswnhckrru" width="100%" height="500" frameborder="0"></iframe>  
             </div>  
-        </details>
-        <details class="video-dropdown-container mt-4">
-            <summary class="will-hero-summary">▶ Show Full Calculation for GPS Time Shift</summary>
-            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                <p>Using the combined time factor \(\tau = \beta_Y \cdot \kappa_X\), we calculate the daily relativistic offset between GPS satellite clocks and Earth-based clocks.</p>
-                <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-4 space-y-1 overflow-x-auto">
-                    <p>\(\beta_{GPS} = 0.0000129... \Rightarrow \beta_{YGPS} = 0.999999999917\)</p>
-                    <p>\(\kappa_{GPS} = 0.0000182... \Rightarrow \kappa_{XGPS} = 0.999999999833\)</p>
-                    <p>\(\tau_{GPS} = \kappa_{XGPS} \cdot \beta_{YGPS} = 0.99999999975\)</p>
-                    <hr class="border-gray-600 my-2">
-                    <p>\(\kappa_{Earth} = 0.0000373... \Rightarrow \kappa_{XEarth} = 0.999999999304\)</p>
-                    <p>\(\tau_{Earth} = \kappa_{XEarth} \cdot 1 = 0.999999999304\)</p>
-                    <hr class="border-gray-600 my-2">
-                    <p class="text-white font-bold">\(\Delta \tau = (1-\frac{\tau_{Earth}}{\tau_{GPS}}) \cdot 86400 \cdot 10^6\)</p>
-                    <p class="text-cyan-400 font-bold">\(\Delta \tau \approx 38.52 \text{ µs/day}\)</p>
-                </div>
-                <p class="mt-4">This result exactly matches the empirical time correction required for GPS synchronization and confirms the Energy-Symmetry Law using real-world data.</p>
-            </div>
-        </details>
+        </div>  
+    </details>
+
+    <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+        <p><strong>W<sub>ILL</sub> is not the unit of something — but the Unity of Everything.</strong></p>
     </div>
-
-    <div class="mt-10">
-        <h3 class="text-2xl font-bold text-white mb-2">Mercury Precession</h3>
-        <p>The theory computes the anomalous precession of Mercury’s orbit, matching the observed data with machine-level precision.</p>
-        
-
-    <details class="video-dropdown-container mb-6">  
-                  <summary class="will-hero-summary">▶ Show Interactive Graph: Sun–Mercury (Desmos)</summary>  
-                  <div class="geometry-container hero-details">  
-                    <div class="desmos-container">  
-                      <iframe src="https://www.desmos.com/calculator/wimnrykbvy" width="100%" height="500" frameborder="0"></iframe>  
-                    </div>  
-                  </div>  
-                </details>
-
-
-        <details class="video-dropdown-container mt-4">
-            <summary class="will-hero-summary">▶ Show Full Calculation for Mercury's Precession</summary>
-            <div class="hero-details text-left p-4 md:p-6 bg-gray-900/50 rounded-lg">
-                
-            
-
-                <p>The precession is calculated from the combined energy parameter \(Q^2\) and orbital eccentricity \(e\).</p>
-                <div class="font-mono text-sm bg-gray-900/70 p-4 rounded-lg mt-4 space-y-1 overflow-x-auto">
-                    <p>\(\kappa_{Merc} = 0.000225...\)</p>
-                    <p>\(\beta_{Merc} = 0.000159...\)</p>
-                    <p>\(Q_{Merc}^2 = 3 \beta_{Merc}^2 = 7.653... \times 10^{-8}\)</p>
-                    <hr class="border-gray-600 my-2">
-                    <p class="text-white font-bold">\(\Delta\phi_{WILL} = \frac{2\pi Q_{Merc}^{2}}{(1-e_{Merc}^{2})} = 5.02087... \times 10^{-7}\) radians</p>
-                    <p class="text-white font-bold">\(\Delta\phi_{GR} = \frac{3\pi R_{Ssun}}{a_{Merc} (1 - e_{Merc}^{2})} = 5.02087... \times 10^{-7}\) radians</p>
-                    <hr class="border-gray-600 my-2">
-                    <p class="text-cyan-400 font-bold">Relative Difference: \(< 10^{-9}\) %</p>
-                </div>
-                <p class="mt-4">The negligible difference confirms that WILL Geometry reproduces the observed relativistic precession of Mercury to within machine accuracy.</p>
-            </div>
-        </details>
-    </div>
-    
-    <div class="mt-12 text-center text-lg font-semibold text-green-400 tracking-wider border-2 border-green-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
-        <p><strong>SPACETIME ≡ ENERGY: One principle defines the structure and the symmetry of reality.</strong></p>
-    </div>
+</div>
 </div>
 
 <div class="max-w-4xl mx-auto my-12 text-center">
     <h3 class="text-xl font-bold text-white">The Name "WILL"</h3>
     <p class="mt-2 text-base text-gray-400">
-        The name Will reflects both the harmonious unity between structure and dynamics and a subtle irony towards the <abbr title="the idea that the Universe must allow conscious observers to exist, so the laws of physics appear fine-tuned for life">anthropic principle</abbr>, which often intertwines human existence with the causality of the universe. This model stands as a testament to the universal laws of physics, transcending any anthropocentric framework.
+        <strong>WILL</strong> stands for <strong>SPACE–TIME–ENERGY</strong>. It is both a shorthand and a quiet irony toward the <abbr title="the idea that the laws of physics appear fine-tuned to allow conscious observers">anthropic principle</abbr>: the cosmos does not possess "will," yet through WILL it manifests all that is. The universe is not a stage where energy acts through time upon space, but a single self-balancing structure whose internal distinctions generate every phenomenon.
     </p>
-  
 </div>
+
+---
+
+<div class="mb-16">
+    <img src="{{ site.baseurl }}/images/SLIDES-tinyPNG/3_Breakthroughs-Delete-Not-Add.png" alt="From descriptive to generative physics" class="hidden">
+    <div class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">From Descriptive to Generative Physics</h2>
+        <p>The deepest shift is not a new equation but a new role for physical law. Standard physics observes phenomena and then writes laws to describe them. WILL inverts this: the laws are <em>generated</em> as the only self-consistent possibility.</p>
+        <div class="overflow-x-auto mt-6">
+            <table class="w-full text-left border-collapse text-base">
+                <thead>
+                    <tr class="bg-gray-700">
+                        <th class="p-3 border border-gray-600">Descriptive physics (standard)</th>
+                        <th class="p-3 border border-gray-600">Generative physics (WILL)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-gray-800/50">
+                        <td class="p-3 border border-gray-600">Phenomena are observed, then summarized into empirical laws.</td>
+                        <td class="p-3 border border-gray-600">Laws emerge as inevitable consequences of relational geometry.</td>
+                    </tr>
+                    <tr class="bg-gray-800/50">
+                        <td class="p-3 border border-gray-600">Laws are assumptions introduced to model reality.</td>
+                        <td class="p-3 border border-gray-600">Laws are identities enforced by geometric self-consistency.</td>
+                    </tr>
+                    <tr class="bg-gray-800/50">
+                        <td class="p-3 border border-gray-600">Space and time are external backgrounds.</td>
+                        <td class="p-3 border border-gray-600">Space and time are projections of energy relations.</td>
+                    </tr>
+                    <tr class="bg-gray-800/50">
+                        <td class="p-3 border border-gray-600">Goal: describe what is observed.</td>
+                        <td class="p-3 border border-gray-600">Goal: show why nothing else is possible.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+---
+
+<div class="mb-16">
+    <div class="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">Honest Limits &amp; How to Falsify This</h2>
+        <p>
+            This is open research, and rigor cuts both ways. The framework has clear current limits and sharp, near-term tests.
+        </p>
+        <div class="grid md:grid-cols-2 gap-4 mt-6 text-base">
+            <div class="border-l-4 border-gray-500 pl-4 py-2 bg-gray-800/30 rounded-r-lg">
+                <h4 class="font-semibold text-white">Current limitations</h4>
+                <p>Gravitational waves and the full radiative two-body problem are not yet formulated relationally — only conservative, bound orbits are covered. A complete multi-body architecture beyond the collinear L1 case is still open. The author states these are limits of present mathematical facility, not prohibitions of the ontology, and invites collaboration.</p>
+            </div>
+            <div class="border-l-4 border-cyan-500/50 pl-4 py-2 bg-gray-800/30 rounded-r-lg">
+                <h4 class="font-semibold text-white">Decisive near-term tests</h4>
+                <p>The strongest discriminator is high-precision monitoring of the S2 star at Sgr A*: RG predicts a true-anomaly-coupled precession phasing that should keep its statistical edge over the time-linear form as GRAVITY+ adds pericentre passages (2026–2028). A reversal would falsify the phasing hypothesis. The explicit second-order precession term is a further parameter-free target.</p>
+            </div>
+        </div>
+        <div class="mt-6 text-center text-lg font-semibold text-yellow-300 tracking-wider border-2 border-yellow-500/30 bg-gray-800/50 rounded-xl p-4 inline-block mx-auto block">
+            <p>These tests probe quantities uniquely fixed by the relational algebra — not adjustable parameters.</p>
+        </div>
+    </div>
+</div>
+
 <div class="text-center py-12">
     <h2 class="text-3xl font-bold text-white">The World as a Projection</h2>
     <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
-        This exploration is only the beginning. The model has been extended to cover cosmology and quantum mechanics, with further results and detailed applications available below. The core idea remains: energy does not exist <em>in</em> spacetime—it <em>creates</em> spacetime by its projection.
+        This page is only Part I. The same projections extend to cosmology (Part II) and quantum mechanics (Part III), and into the full orbital toolkit of R.O.M. The core idea remains: energy does not exist <em>in</em> spacetime — it <em>creates</em> spacetime by its projection.
     </p>
     <div class="mt-10 flex justify-center items-center flex-wrap gap-6 md:gap-10">
-        <a href="{{ site.baseurl }}/results/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Documents & Results</a>
+        <a href="{{ site.baseurl }}/results/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Documents &amp; Results</a>
         <a href="{{ site.baseurl }}/predictions/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Testable Predictions</a>
         <a href="{{ site.baseurl }}/WILL-AI/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Ask WILL AI</a>
         <a href="{{ site.baseurl }}/help/" class="text-cyan-400 hover:text-white text-lg font-semibold transition-colors duration-300">Help This Research</a>
@@ -1055,3 +1062,6 @@ observer.observe(document.body, { childList: true, subtree: true });
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <script src="{{ site.baseurl }}/assets/tutor.js"></script>
+
+
+
