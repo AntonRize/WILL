@@ -1,6 +1,6 @@
 // api/gemini.js — Vercel proxy: Gemini (default, non-streaming) with
-// Nemotron-via-OpenRouter (streaming, with reasoning) as the manual model and
-// as the automatic fallback when Gemini is unavailable.
+// Nemotron-via-OpenRouter (streaming) as the manual model and as the
+// automatic fallback when Gemini is unavailable.
 //
 // Request body: { prompt: string, forceModel?: string }
 //   • forceModel falsy or 'gemini'  -> Gemini first, Nemotron stream on failure
@@ -97,14 +97,14 @@ export default async function handler(req, res) {
   const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY;
 
   // ============================================
-  // MANUAL MODE: Nemotron (streaming + reasoning)
+  // MANUAL MODE: Nemotron streaming
   // Triggered by any non-default forceModel value.
   // ============================================
   if (forceModel && forceModel !== 'gemini') {
     if (!OPENROUTER_KEY) {
       return res.status(500).json({ error: 'OPENROUTER_API_KEY is not configured' });
     }
-    console.log('🔧 [MANUAL] Streaming Nemotron with reasoning');
+    console.log('[MANUAL] Streaming Nemotron');
     return streamNemotron(res, prompt, OPENROUTER_KEY);
   }
 
@@ -128,7 +128,7 @@ export default async function handler(req, res) {
     if (geminiRes.ok) {
       const data = await geminiRes.json();
       const reply = data.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
-      console.log('✅ [GEMINI 2.5 FLASH] Request served');
+      console.log('[GEMINI 2.5 FLASH] Request served');
       return res.status(200).json({ reply, model: GEMINI_MODEL, mode: 'auto' });
     }
 
@@ -150,7 +150,7 @@ export default async function handler(req, res) {
       return res.status(429).json({ error: 'Gemini failed and no OpenRouter key configured.' });
     }
 
-    console.log('🔄 [AUTO FALLBACK] Gemini → Nemotron streaming');
+    console.log('[AUTO FALLBACK] Gemini -> Nemotron streaming');
     return streamNemotron(res, prompt, OPENROUTER_KEY);
 
   } catch (e) {

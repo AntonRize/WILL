@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  {% seo %}
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    .section {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .big-title {
+      font-size: 2.75rem;
+      line-height: 1.05;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: #f1f5f9;
+    }
+
+    @media (min-width: 640px) {
+      .big-title {
+        font-size: 3.5rem;
+      }
+    }
+
+    .small-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.015em;
+    }
+
+    .chat-entry {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 20px;
+      padding: 2rem 2rem;
+    }
+
+    .level-btn {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.5);
+      font-size: 0.95rem;
+    }
+
+    .level-btn:hover {
+      border-color: #22d3ee;
+      background: rgba(34, 211, 238, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .chat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  {% include header.html %}
+
+  <main class="max-w-3xl mx-auto px-5 sm:px-6 pt-14 sm:pt-16 pb-20">
+
+    <!-- Hero Section -->
+    <div id="hero" class="section text-center mb-14 sm:mb-16">
+      <h1 class="big-title mb-4">
+        WILL Relational Geometry
+      </h1>
+      <p class="small-sub">
+        Background independent • No SpaceTime Container Assumed
+      </p>
+    </div>
+
+    <!-- Open Research -->
+    <div id="open-research" class="section text-center mb-16 sm:mb-20">
+      <h1 class="big-title mb-4">
+        Open Research
+      </h1>
+      <p class="small-sub">
+        Independent • Public Access • Transparent • Foundations of Physics
+      </p>
+    </div>
+
+    <!-- WILL AI Entry -->
+    <div id="will-ai" class="section max-w-xl mx-auto">
+      <div class="chat-entry">
+        <div class="mb-5">
+          <div class="chat-label mb-2">WILL AI</div>
+          <p class="text-[17px] text-slate-200">Hi, I am WILL AI.</p>
+          <p class="text-slate-400 mt-1.5 text-[15px]">To begin, please select your preferred level of mathematical engagement.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <a href="/will-ai/?level=Humble%20thinker"
+             class="level-btn text-center px-5 py-3.5 rounded-2xl font-medium text-indigo-200">
+            Humble thinker
+          </a>
+          <a href="/will-ai/?level=Curious%20student"
+             class="level-btn text-center px-5 py-3.5 rounded-2xl font-medium text-cyan-200">
+            Curious student
+          </a>
+          <a href="/will-ai/?level=Rigorous%20physicist"
+             class="level-btn text-center px-5 py-3.5 rounded-2xl font-medium text-emerald-200">
+            Rigorous physicist
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  {% include footer.html %}
+
+  <script>
+    function initAnimations() {
+      const sections = document.querySelectorAll('.section');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 450);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      sections.forEach(section => observer.observe(section));
+    }
+
+    window.onload = function() {
+      initAnimations();
+    };
+  </script>
+</body>
+</html>
