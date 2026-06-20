@@ -162,20 +162,16 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         });
     }
 
-    // Streaming following OpenRouter docs pattern as closely as possible
+    // Streaming following OpenRouter docs pattern
     async function askNemotronStream(prompt, onChunk) {
         const response = await fetch(PROXY, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                prompt: prompt,
-                forceModel: 'qwen3.6'
-            })
+            body: JSON.stringify({ prompt, forceModel: 'qwen3.6' })
         });
 
         if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(errorText);
+            throw new Error(await response.text());
         }
 
         const reader = response.body.getReader();
@@ -187,51 +183,39 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
             if (done) break;
 
             const chunkText = decoder.decode(value, { stream: true });
-
-            // Parse SSE format
             const lines = chunkText.split('\n');
+
             for (const line of lines) {
                 if (line.startsWith('data: ')) {
                     const dataStr = line.slice(6).trim();
-                    if (dataStr === '[DONE]') continue;
-                    if (!dataStr) continue;
+                    if (!dataStr || dataStr === '[DONE]') continue;
 
                     try {
                         const data = JSON.parse(dataStr);
-
-                        // Exact pattern from docs
                         const content = data.choices?.[0]?.delta?.content || '';
                         if (content) {
                             fullText += content;
                             onChunk(content);
                         }
-
-                        // Capture reasoning tokens from final chunk (as per docs)
                         if (data.usage?.reasoningTokens) {
-                            console.log('Reasoning tokens used:', data.usage.reasoningTokens);
+                            console.log('Reasoning tokens:', data.usage.reasoningTokens);
                         }
                     } catch (e) {
-                        // Ignore parse errors on partial chunks
                         continue;
                     }
                 }
             }
         }
-
         return fullText;
     }
 
-    // Simple non-streaming for Gemini
     async function askGemini(prompt) {
         const res = await fetch(PROXY, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt })
         });
-        if (!res.ok) {
-            const txt = await res.text();
-            throw new Error(txt);
-        }
+        if (!res.ok) throw new Error(await res.text());
         const data = await res.json();
         return data.reply || '';
     }
@@ -302,13 +286,9 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         function sendLog() {
             const payload = {
                 sessionId: sessionIdRef.current,
-                log: logRef.current.map(m => ({ user: m.user, raw: m.raw, isWelcome: !!m.isWelcome }))
+                log: logRef.current.map(m => ({ user: m.user, raw: m.raw, isWelcome: !!m.isWelcome }));
             };
-            fetch(LOG_API, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            }).catch(() => {});
+            fetch(LOG_API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
         }
 
         useEffect(() => {
@@ -317,7 +297,7 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
                 if (msgs.length === 0) return;
                 const payload = {
                     sessionId: sessionIdRef.current,
-                    log: logRef.current.map(m => ({ user: m.user, raw: m.raw, isWelcome: !!m.isWelcome }))
+                    log: logRef.current.map(m => ({ user: m.user, raw: m.raw, isWelcome: !!m.isWelcome }));
                 };
                 navigator.sendBeacon(LOG_API, new Blob([JSON.stringify(payload)], { type: 'application/json' }));
             };
@@ -359,6 +339,7 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
             const isNemotron = selectedModel === 'minimax';
             const modelLabel = isNemotron ? 'Nemotron 550B (reasoning)' : 'Gemini 2.5 Flash';
             const aiMessageId = push('', false, '', modelLabel);
+            let accumulatedText = '';
 
             try {
                 const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
@@ -383,21 +364,18 @@ ${q}
 </USER_QUESTION>`;
 
                 if (isNemotron) {
-                    // Nemotron - following OpenRouter docs pattern
                     await askNemotronStream(fullPrompt, (chunk) => {
-                        updateMessage(aiMessageId, accumulatedText + chunk); // Note: accumulatedText needs to be managed
+                        accumulatedText += chunk;
+                        updateMessage(aiMessageId, accumulatedText);
                     });
                 } else {
-                    // Gemini - simple non-streaming
                     const ans = await askGemini(fullPrompt);
                     updateMessage(aiMessageId, ans);
                 }
 
                 sendLog();
-
             } catch (e) {
-                let friendlyError = String(e.message || 'Unknown error');
-                updateMessage(aiMessageId, friendlyError);
+                updateMessage(aiMessageId, String(e.message || 'Error'));
                 sendLog();
             }
             setBusy(false);
