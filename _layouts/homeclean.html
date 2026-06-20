@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  {% seo %}
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    .big-title {
+      font-size: 3.25rem;
+      line-height: 1.05;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: #f1f5f9;
+    }
+
+    .small-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      line-height: 1.1;
+      font-weight: 300;
+      color: #f1f5f9;
+    }
+
+    .level-btn {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .level-btn:hover {
+      border-color: #22d3ee;
+      background-color: rgba(34, 211, 238, 0.08);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  {% include header.html %}
+
+  <main class="max-w-3xl mx-auto px-6 pt-20 pb-24">
+
+    <!-- Hero / Main Title -->
+    <div class="text-center mb-16">
+      <h1 class="big-title mb-3">
+        WILL Relational Geometry
+      </h1>
+      <p class="small-sub">
+        Background independent • No SpaceTime Container Assumed
+      </p>
+    </div>
+
+    <!-- Open Research -->
+    <div class="text-center mb-20">
+      <h1 class="big-title mb-3">
+        Open Research
+      </h1>
+      <p class="small-sub">
+        Independent • Public Access • Transparent • Foundations of Physics
+      </p>
+    </div>
+
+    <!-- WILL AI Entry -->
+    <div class="max-w-xl mx-auto text-center">
+      <div class="mb-8">
+        <h2 class="text-xl font-medium text-slate-200 mb-2">WILL AI</h2>
+        <p class="text-slate-400">Hi, I am WILL AI.</p>
+        <p class="text-slate-400 mt-1">To begin, please select your preferred level of mathematical engagement.</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <a href="/will-ai/?level=Humble%20thinker"
+           class="level-btn px-6 py-3 rounded-xl text-sm font-medium text-indigo-200 bg-indigo-950/40 hover:bg-indigo-950/60 border border-indigo-800/60">
+          Humble thinker
+        </a>
+        <a href="/will-ai/?level=Curious%20student"
+           class="level-btn px-6 py-3 rounded-xl text-sm font-medium text-cyan-200 bg-cyan-950/40 hover:bg-cyan-950/60 border border-cyan-800/60">
+          Curious student
+        </a>
+        <a href="/will-ai/?level=Rigorous%20physicist"
+           class="level-btn px-6 py-3 rounded-xl text-sm font-medium text-emerald-200 bg-emerald-950/40 hover:bg-emerald-950/60 border border-emerald-800/60">
+          Rigorous physicist
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  {% include footer.html %}
+</body>
+</html>
