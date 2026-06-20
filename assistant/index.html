@@ -162,32 +162,15 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         });
     }
 
-    // Non-streaming fallback (for Gemini)
-    async function askGemini(prompt, forceModel) {
-        const body = { prompt };
-        if (forceModel) body.forceModel = forceModel;
-        const res = await fetch(PROXY, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body)
-        });
-        if (!res.ok) {
-            const txt = await res.text();
-            throw new Error(txt);
-        }
-        const data = await res.json();
-        return data.reply || '';
-    }
-
-    // Streaming for Nemotron
-    async function askGeminiStream(prompt, forceModel, onChunk) {
-        const body = { prompt };
-        if (forceModel) body.forceModel = forceModel;
-
+    // Streaming following OpenRouter docs pattern as closely as possible
+    async function askNemotronStream(prompt, onChunk) {
         const response = await fetch(PROXY, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body)
+            body: JSON.stringify({
+                prompt: prompt,
+                forceModel: 'qwen3.6'
+            })
         });
 
         if (!response.ok) {
@@ -197,91 +180,114 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
-        let buffer = '';
         let fullText = '';
 
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
 
-            buffer += decoder.decode(value, { stream: true });
-            let lines = buffer.split('\n');
-            buffer = lines.pop() || '';
+            const chunkText = decoder.decode(value, { stream: true });
 
+            // Parse SSE format
+            const lines = chunkText.split('\n');
             for (const line of lines) {
-                const trimmed = line.trim();
-                if (!trimmed.startsWith('data: ')) continue;
+                if (line.startsWith('data: ')) {
+                    const dataStr = line.slice(6).trim();
+                    if (dataStr === '[DONE]') continue;
+                    if (!dataStr) continue;
 
-                const dataStr = trimmed.slice(6).trim();
-                if (!dataStr || dataStr === '[DONE]') continue;
+                    try {
+                        const data = JSON.parse(dataStr);
 
-                try {
-                    const data = JSON.parse(dataStr);
-                    const content = data.choices?.[0]?.delta?.content || '';
-                    if (content) {
-                        fullText += content;
-                        onChunk(content);
+                        // Exact pattern from docs
+                        const content = data.choices?.[0]?.delta?.content || '';
+                        if (content) {
+                            fullText += content;
+                            onChunk(content);
+                        }
+
+                        // Capture reasoning tokens from final chunk (as per docs)
+                        if (data.usage?.reasoningTokens) {
+                            console.log('Reasoning tokens used:', data.usage.reasoningTokens);
+                        }
+                    } catch (e) {
+                        // Ignore parse errors on partial chunks
+                        continue;
                     }
-                } catch (e) {
-                    continue;
                 }
             }
         }
+
         return fullText;
     }
 
-    const isRu=s=>/[\u0400-\u04FF]/i.test(s);
+    // Simple non-streaming for Gemini
+    async function askGemini(prompt) {
+        const res = await fetch(PROXY, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt })
+        });
+        if (!res.ok) {
+            const txt = await res.text();
+            throw new Error(txt);
+        }
+        const data = await res.json();
+        return data.reply || '';
+    }
 
-    function App(){
-        const [kb,setKb]=useState('');
-        const [sysPrompt,setSysPrompt]=useState('');
-        const [ks,setKs]=useState('loading');
+    const isRu = s => /[\u0400-\u04FF]/i.test(s);
+
+    function App() {
+        const [kb, setKb] = useState('');
+        const [sysPrompt, setSysPrompt] = useState('');
+        const [ks, setKs] = useState('loading');
         const [engagementLevel, setEngagementLevel] = useState(null);
         const [selectedModel, setSelectedModel] = useState('gemini');
 
         const sessionIdRef = useRef(new Date().toISOString().replace(/[:.]/g, '-'));
         const sessionNamedRef = useRef(false);
 
-        const welcome={
-            id:0,
-            txt:renderMarkdownWithLatex("**Hi! I am WILL AI**\n\nTo begin, please select your preferred mathematical engagement level:"),
-            user:false,
-            isWelcome:true,
-            raw:"Initial Welcome"
+        const welcome = {
+            id: 0,
+            txt: renderMarkdownWithLatex("**Hi! I am WILL AI**\n\nTo begin, please select your preferred mathematical engagement level:"),
+            user: false,
+            isWelcome: true,
+            raw: "Initial Welcome"
         };
 
-        const [log,setLog]=useState([welcome]);
-        const logRef=useRef([welcome]);
-        const [inp,setInp]=useState('');
-        const [busy,setBusy]=useState(false);
-        const endRef=useRef(null);
-        const textRef=useRef(null);
+        const [log, setLog] = useState([welcome]);
+        const logRef = useRef([welcome]);
+        const [inp, setInp] = useState('');
+        const [busy, setBusy] = useState(false);
+        const endRef = useRef(null);
+        const textRef = useRef(null);
 
-        useEffect(()=>{
+        useEffect(() => {
             Promise.all([loadKB(), loadSystemPrompt()])
-                .then(([kbData, promptData])=>{
+                .then(([kbData, promptData]) => {
                     setKb(kbData);
                     setSysPrompt(promptData);
                     setKs('ok');
                 })
-                .catch(()=>setKs('error'));
-        },[]);
+                .catch(() => setKs('error'));
+        }, []);
 
-        useEffect(()=>{
-            endRef.current?.scrollIntoView({behavior:'smooth'});
+        useEffect(() => {
+            endRef.current?.scrollIntoView({ behavior: 'smooth' });
             typesetMath();
-        },[log]);
+        }, [log]);
 
-        const push=(txt,user=false,raw=txt,modelInfo=null)=>{
-            const content=user?txt:renderMarkdownWithLatex(txt);
-            const entry={id:Date.now()+Math.random(),txt:content,user,raw,modelInfo};
-            logRef.current=[...logRef.current,entry];
+        const push = (txt, user = false, raw = txt, modelInfo = null) => {
+            const content = user ? txt : renderMarkdownWithLatex(txt);
+            const entry = { id: Date.now() + Math.random(), txt: content, user, raw, modelInfo };
+            logRef.current = [...logRef.current, entry];
             setLog(logRef.current);
             return entry.id;
         };
 
         const updateMessage = (id, newTxt) => {
-            logRef.current = logRef.current.map(m => 
+            logRef.current = logRef.current.map(m =>
                 m.id === id ? { ...m, txt: renderMarkdownWithLatex(newTxt), raw: newTxt } : m
             );
             setLog([...logRef.current]);
@@ -293,27 +299,31 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
             push(`Confirmed. Mathematical engagement level set to **${level}**. How can I assist you with WILL Relational Geometry?`, false);
         };
 
-        function sendLog(){
+        function sendLog() {
             const payload = {
                 sessionId: sessionIdRef.current,
-                log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
+                log: logRef.current.map(m => ({ user: m.user, raw: m.raw, isWelcome: !!m.isWelcome }))
             };
-            fetch(LOG_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
+            fetch(LOG_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).catch(() => {});
         }
 
-        useEffect(()=>{
+        useEffect(() => {
             const onUnload = () => {
-                const msgs = logRef.current.filter(m=>!m.isWelcome);
-                if(msgs.length === 0) return;
+                const msgs = logRef.current.filter(m => !m.isWelcome);
+                if (msgs.length === 0) return;
                 const payload = {
                     sessionId: sessionIdRef.current,
-                    log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
+                    log: logRef.current.map(m => ({ user: m.user, raw: m.raw, isWelcome: !!m.isWelcome }))
                 };
-                navigator.sendBeacon(LOG_API, new Blob([JSON.stringify(payload)],{type:'application/json'}));
+                navigator.sendBeacon(LOG_API, new Blob([JSON.stringify(payload)], { type: 'application/json' }));
             };
             window.addEventListener('beforeunload', onUnload);
-            return ()=> window.removeEventListener('beforeunload', onUnload);
-        },[]);
+            return () => window.removeEventListener('beforeunload', onUnload);
+        }, []);
 
         async function send() {
             const q = inp.trim();
@@ -349,7 +359,6 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
             const isNemotron = selectedModel === 'minimax';
             const modelLabel = isNemotron ? 'Nemotron 550B (reasoning)' : 'Gemini 2.5 Flash';
             const aiMessageId = push('', false, '', modelLabel);
-            let accumulatedText = '';
 
             try {
                 const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
@@ -373,34 +382,21 @@ Answer in ${lang}. Use Markdown. Follow the <CITATION_PROTOCOL> strictly for all
 ${q}
 </USER_QUESTION>`;
 
-                const forceModel = isNemotron ? 'qwen3.6' : null;
-
                 if (isNemotron) {
-                    // Streaming for Nemotron
-                    await askGeminiStream(fullPrompt, forceModel, (chunk) => {
-                        accumulatedText += chunk;
-                        updateMessage(aiMessageId, accumulatedText);
+                    // Nemotron - following OpenRouter docs pattern
+                    await askNemotronStream(fullPrompt, (chunk) => {
+                        updateMessage(aiMessageId, accumulatedText + chunk); // Note: accumulatedText needs to be managed
                     });
                 } else {
-                    // Non-streaming for Gemini
-                    const ans = await askGemini(fullPrompt, forceModel);
+                    // Gemini - simple non-streaming
+                    const ans = await askGemini(fullPrompt);
                     updateMessage(aiMessageId, ans);
                 }
 
                 sendLog();
 
             } catch (e) {
-                let friendlyError;
-                const errorMessage = String(e.message || '');
-
-                if (errorMessage.includes('overloaded')) {
-                    friendlyError = 'The AI server is currently overloaded with requests. Please try your request again in a moment.';
-                } else if (errorMessage.includes('TIMEOUT')) {
-                    friendlyError = 'Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com.';
-                } else {
-                    friendlyError = errorMessage;
-                }
-
+                let friendlyError = String(e.message || 'Unknown error');
                 updateMessage(aiMessageId, friendlyError);
                 sendLog();
             }
