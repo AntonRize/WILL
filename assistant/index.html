@@ -162,7 +162,24 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         });
     }
 
-    // Robust streaming parser for OpenRouter (handles reasoning + content)
+    // Non-streaming fallback (for Gemini)
+    async function askGemini(prompt, forceModel) {
+        const body = { prompt };
+        if (forceModel) body.forceModel = forceModel;
+        const res = await fetch(PROXY, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+        if (!res.ok) {
+            const txt = await res.text();
+            throw new Error(txt);
+        }
+        const data = await res.json();
+        return data.reply || '';
+    }
+
+    // Streaming for Nemotron
     async function askGeminiStream(prompt, forceModel, onChunk) {
         const body = { prompt };
         if (forceModel) body.forceModel = forceModel;
@@ -182,17 +199,14 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         const decoder = new TextDecoder();
         let buffer = '';
         let fullText = '';
-        let reasoningText = '';
 
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
 
             buffer += decoder.decode(value, { stream: true });
-
-            // Process complete lines
             let lines = buffer.split('\n');
-            buffer = lines.pop() || ''; // keep incomplete line in buffer
+            buffer = lines.pop() || '';
 
             for (const line of lines) {
                 const trimmed = line.trim();
@@ -203,38 +217,16 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
 
                 try {
                     const data = JSON.parse(dataStr);
-
-                    // Extract normal content
                     const content = data.choices?.[0]?.delta?.content || '';
                     if (content) {
                         fullText += content;
                         onChunk(content);
                     }
-
-                    // Extract reasoning if present (comes in delta.reasoning or final usage)
-                    const reasoningDelta = data.choices?.[0]?.delta?.reasoning || '';
-                    if (reasoningDelta) {
-                        reasoningText += reasoningDelta;
-                    }
-
-                    // Capture final reasoning tokens from usage
-                    if (data.usage?.reasoningTokens) {
-                        console.log('Reasoning tokens used:', data.usage.reasoningTokens);
-                    }
-
                 } catch (e) {
-                    // Ignore malformed JSON chunks (common during streaming)
                     continue;
                 }
             }
         }
-
-        // If we collected reasoning, we can optionally append it at the end
-        if (reasoningText) {
-            console.log('Full reasoning captured:', reasoningText);
-            // For now we keep it in console. You can later show it in the UI if desired.
-        }
-
         return fullText;
     }
 
@@ -354,7 +346,9 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
             setBusy(true);
             const lang = isRu(q) ? 'Russian' : 'English';
 
-            const aiMessageId = push('', false, '', 'Nemotron 550B (reasoning)');
+            const isNemotron = selectedModel === 'minimax';
+            const modelLabel = isNemotron ? 'Nemotron 550B (reasoning)' : 'Gemini 2.5 Flash';
+            const aiMessageId = push('', false, '', modelLabel);
             let accumulatedText = '';
 
             try {
@@ -379,12 +373,19 @@ Answer in ${lang}. Use Markdown. Follow the <CITATION_PROTOCOL> strictly for all
 ${q}
 </USER_QUESTION>`;
 
-                const forceModel = selectedModel === 'minimax' ? 'qwen3.6' : null;
+                const forceModel = isNemotron ? 'qwen3.6' : null;
 
-                await askGeminiStream(fullPrompt, forceModel, (chunk) => {
-                    accumulatedText += chunk;
-                    updateMessage(aiMessageId, accumulatedText);
-                });
+                if (isNemotron) {
+                    // Streaming for Nemotron
+                    await askGeminiStream(fullPrompt, forceModel, (chunk) => {
+                        accumulatedText += chunk;
+                        updateMessage(aiMessageId, accumulatedText);
+                    });
+                } else {
+                    // Non-streaming for Gemini
+                    const ans = await askGemini(fullPrompt, forceModel);
+                    updateMessage(aiMessageId, ans);
+                }
 
                 sendLog();
 
