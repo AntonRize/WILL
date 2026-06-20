@@ -225,6 +225,23 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
             push(`Confirmed. Mathematical engagement level set to **${level}**. How can I assist you with WILL Relational Geometry?`, false);
         };
 
+// ↓FIRST LINE OF THE REDIRECT BUTTON↓
+        useEffect(() => {
+            if (engagementLevel) return;
+
+            const params = new URLSearchParams(window.location.search);
+            const levelParam = params.get('level');
+
+            if (levelParam) {
+                const validLevels = ['Humble thinker', 'Curious student', 'Rigorous physicist'];
+                if (validLevels.includes(levelParam)) {
+                    handleLevelSelection(levelParam);
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
+        }, []);
+// ↑LAST LINE OF THE REDIRECT BUTTON↑
+
         function sendLog(){
             const payload = {
                 sessionId: sessionIdRef.current,
@@ -235,7 +252,7 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
 
         useEffect(()=>{
             const onUnload = () => {
-                const msgs = logRef.current.filter(m=>!m.isWelcome);
+                const msgs = logRef.current.filter(m=>!m.isWelcome));
                 if(msgs.length === 0) return;
                 const payload = {
                     sessionId: sessionIdRef.current,
