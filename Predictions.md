@@ -78,11 +78,16 @@ The standard additive post-Newtonian formula is exactly the first-order Taylor c
 
 ### Resolution of Gravitational Singularities
 
-Translating the potential projection into a volumetric density gives a geometry-derived upper bound on energy density, reached precisely at the horizon condition $$\kappa^{2}=1$$:
+WILL Relational Geometry resolves the singularity problem by naturally constraining the valid range of radial distance. Minimal radial distance is kept at $r_{min}=R_s/2$ by the fundamental invariance of  light speed limit. Parameters stay finite, and energy remains bounded. Black holes become the boundary of relational difference between energy states.
+**Distance is not a foundational primitive but relational tension between energy states.**
 
-$$\rho(r) = \frac{\kappa^{2} c^{2}}{8\pi G r^{2}}, \qquad \rho_{\max} = \frac{c^{2}}{8\pi G r^{2}}$$
+$$\beta_{max}^2=1  \Longrightarrow  \kappa_{max}^2=2   \Longrightarrow r_{min} = R_s/\kappa_{max}^2 \Longrightarrow r_{min} = R_s/2$$
 
-**Result:** $$\kappa^{2}\le 1 \Rightarrow \rho \le \rho_{\max}$$ — black holes become energetically saturated, non-singular regions; curvature stays finite without quantum regularization.
+**The point $r=0$ is absent from the admissible relational range.**
+
+The same bound enforces:
+$$\rho\le 2\rho_{\max} \quad \text{and} \quad  |P|\le|2P_{\max}|=c^4/(8\pi G r^2)$$
+
 
 *Source: Part I — "No Singularities, No Hidden Regions"*
 
