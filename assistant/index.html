@@ -177,7 +177,7 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         const [sysPrompt,setSysPrompt]=useState('');
         const [ks,setKs]=useState('loading');
         const [engagementLevel, setEngagementLevel] = useState(null);
-        const [selectedModel, setSelectedModel] = useState('minimax'); // gemini or minimax
+        const [selectedModel, setSelectedModel] = useState('gemini'); // gemini or minimax
 
         const sessionIdRef = useRef(new Date().toISOString().replace(/[:.]/g, '-'));
         const sessionNamedRef = useRef(false);
@@ -300,7 +300,7 @@ Answer in ${lang}. Use Markdown. Follow the <CITATION_PROTOCOL> strictly for all
 ${q}
 </USER_QUESTION>`;
 
-                const forceModel = selectedModel === 'minimax' ? 'minimax' : null;
+                const forceModel = selectedModel === 'minimax' ? 'qwen3.6' : null;
                 const ans = await askGemini(fullPrompt, forceModel);
 
                 const modelInfo = selectedModel === 'gemini' 
