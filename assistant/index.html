@@ -305,7 +305,7 @@ ${q}
 
                 const modelInfo = selectedModel === 'gemini' 
                     ? 'Powered by Gemini 2.5 Flash' 
-                    : 'Using Qwen 3.6 Plus — Manual mode';
+                    : 'Nemotron 550B (reasoning)';
 
                 push(ans, false, ans, modelInfo);
                 sendLog();
@@ -385,7 +385,7 @@ ${q}
                         React.createElement('button',{
                             onClick: () => setSelectedModel('minimax'),
                             className: `model-btn ${selectedModel === 'minimax' ? 'active' : ''}`
-                        }, 'Qwen 3.6 Plus')
+                        }, 'Nemotron 550B')
                     ),
                     React.createElement('div',{className:'flex gap-2 items-end'},
                         React.createElement('textarea',{
