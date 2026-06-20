@@ -27,8 +27,8 @@
 
     .section {
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(24px);
+      transition: all 2.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .section.visible {
       opacity: 1;
@@ -36,11 +36,17 @@
     }
 
     .big-title {
-      font-size: 3.5rem;
+      font-size: 2.75rem;
       line-height: 1.05;
       font-weight: 300;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.02em;
       color: #f1f5f9;
+    }
+
+    @media (min-width: 640px) {
+      .big-title {
+        font-size: 3.5rem;
+      }
     }
 
     .small-sub {
@@ -54,13 +60,14 @@
       background: rgba(15, 23, 42, 0.6);
       border: 1px solid rgba(148, 163, 184, 0.15);
       border-radius: 20px;
-      padding: 2rem 2.25rem;
+      padding: 2rem 2rem;
     }
 
     .level-btn {
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(148, 163, 184, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.35);
       background: rgba(15, 23, 42, 0.5);
+      font-size: 0.95rem;
     }
 
     .level-btn:hover {
@@ -70,8 +77,8 @@
     }
 
     .chat-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
       font-weight: 500;
@@ -82,10 +89,10 @@
 <body class="antialiased">
   {% include header.html %}
 
-  <main class="max-w-3xl mx-auto px-6 pt-16 pb-24">
+  <main class="max-w-3xl mx-auto px-5 sm:px-6 pt-14 sm:pt-16 pb-20">
 
     <!-- Hero Section -->
-    <div id="hero" class="section text-center mb-20">
+    <div id="hero" class="section text-center mb-14 sm:mb-16">
       <h1 class="big-title mb-4">
         WILL Relational Geometry
       </h1>
@@ -95,7 +102,7 @@
     </div>
 
     <!-- Open Research -->
-    <div id="open-research" class="section text-center mb-20">
+    <div id="open-research" class="section text-center mb-16 sm:mb-20">
       <h1 class="big-title mb-4">
         Open Research
       </h1>
@@ -107,26 +114,23 @@
     <!-- WILL AI Entry -->
     <div id="will-ai" class="section max-w-xl mx-auto">
       <div class="chat-entry">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="chat-label">WILL AI</div>
+        <div class="mb-5">
+          <div class="chat-label mb-2">WILL AI</div>
+          <p class="text-[17px] text-slate-200">Hi, I am WILL AI.</p>
+          <p class="text-slate-400 mt-1.5 text-[15px]">To begin, please select your preferred level of mathematical engagement.</p>
         </div>
 
-        <div class="mb-6">
-          <p class="text-lg text-slate-200">Hi, I am WILL AI.</p>
-          <p class="text-slate-400 mt-2">To begin, please select your preferred level of mathematical engagement.</p>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <a href="/will-ai/?level=Humble%20thinker"
-             class="level-btn flex-1 text-center px-6 py-3.5 rounded-2xl text-sm font-medium text-indigo-200">
+             class="level-btn text-center px-5 py-3.5 rounded-2xl font-medium text-indigo-200">
             Humble thinker
           </a>
           <a href="/will-ai/?level=Curious%20student"
-             class="level-btn flex-1 text-center px-6 py-3.5 rounded-2xl text-sm font-medium text-cyan-200">
+             class="level-btn text-center px-5 py-3.5 rounded-2xl font-medium text-cyan-200">
             Curious student
           </a>
           <a href="/will-ai/?level=Rigorous%20physicist"
-             class="level-btn flex-1 text-center px-6 py-3.5 rounded-2xl text-sm font-medium text-emerald-200">
+             class="level-btn text-center px-5 py-3.5 rounded-2xl font-medium text-emerald-200">
             Rigorous physicist
           </a>
         </div>
@@ -138,7 +142,6 @@
   {% include footer.html %}
 
   <script>
-    // Subtle staggered appearance animation
     function initAnimations() {
       const sections = document.querySelectorAll('.section');
       
@@ -147,15 +150,13 @@
           if (entry.isIntersecting) {
             setTimeout(() => {
               entry.target.classList.add('visible');
-            }, index * 120);
+            }, index * 450);
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.15 });
 
-      sections.forEach(section => {
-        observer.observe(section);
-      });
+      sections.forEach(section => observer.observe(section));
     }
 
     window.onload = function() {
