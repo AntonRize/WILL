@@ -173,83 +173,49 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
     const isRu=s=>/[\u0400-\u04FF]/i.test(s);
 
     function App(){
-        // ↓START OF HOMEPAGE LEVEL PRESELECTION LOGIC↓
-        const getInitialEngagementLevel = () => {
-            const params = new URLSearchParams(window.location.search);
-            const level = params.get('level');
-            const validLevels = ['Humble thinker', 'Curious student', 'Rigorous physicist'];
-            return validLevels.includes(level) ? level : null;
-        };
-
-        const initialLevel = getInitialEngagementLevel();
-        // ↑END OF HOMEPAGE LEVEL PRESELECTION LOGIC↑
-
         const [kb,setKb]=useState('');
         const [sysPrompt,setSysPrompt]=useState('');
         const [ks,setKs]=useState('loading');
-        const [engagementLevel, setEngagementLevel] = useState(initialLevel);
-        const [selectedModel, setSelectedModel] = useState('gemini');
+        const [engagementLevel, setEngagementLevel] = useState(null);
+        const [selectedModel, setSelectedModel] = useState('gemini'); // gemini or minimax
 
         const sessionIdRef = useRef(new Date().toISOString().replace(/[:.]/g, '-'));
         const sessionNamedRef = useRef(false);
 
-        // ↓START OF HOMEPAGE LEVEL PRESELECTION LOGIC↓
-        const getInitialLog = () => {
-            const welcome = {
-                id: 0,
-                txt: renderMarkdownWithLatex("**Hi! I am WILL AI**\n\nTo begin, please select your preferred mathematical engagement level:"),
-                user: false,
-                isWelcome: true,
-                raw: "Initial Welcome"
-            };
-
-            if (!initialLevel) return [welcome];
-
-            const selectionMsg = {
-                id: 1,
-                txt: renderMarkdownWithLatex(initialLevel),
-                user: true,
-                raw: initialLevel
-            };
-
-            const confirmationMsg = {
-                id: 2,
-                txt: renderMarkdownWithLatex(`Confirmed. Mathematical engagement level set to **${initialLevel}**. How can I assist you with WILL Relational Geometry?`),
-                user: false,
-                raw: `Confirmed. Mathematical engagement level set to **${initialLevel}**. How can I assist you with WILL Relational Geometry?`
-            };
-
-            return [welcome, selectionMsg, confirmationMsg];
+        const welcome={
+            id:0,
+            txt:renderMarkdownWithLatex("**Hi! I am WILL AI**\n\nTo begin, please select your preferred mathematical engagement level:"),
+            user:false,
+            isWelcome:true,
+            raw:"Initial Welcome"
         };
-        // ↑END OF HOMEPAGE LEVEL PRESELECTION LOGIC↑
 
-        const [log, setLog] = useState(getInitialLog());
-        const logRef = useRef(getInitialLog());
+        const [log,setLog]=useState([welcome]);
+        const logRef=useRef([welcome]);
+        const [inp,setInp]=useState('');
+        const [busy,setBusy]=useState(false);
+        const endRef=useRef(null);
+        const textRef=useRef(null);
 
-        const [inp, setInp] = useState('');
-        const [busy, setBusy] = useState(false);
-        const endRef = useRef(null);
-        const textRef = useRef(null);
-
-        useEffect(() => {
+        useEffect(()=>{
             Promise.all([loadKB(), loadSystemPrompt()])
-                .then(([kbData, promptData]) => {
+                .then(([kbData, promptData])=>{
                     setKb(kbData);
                     setSysPrompt(promptData);
                     setKs('ok');
                 })
-                .catch(() => setKs('error'));
-        }, []);
+                .catch(()=>setKs('error'));
+        },[]);
 
-        useEffect(() => {
-            endRef.current?.scrollIntoView({ behavior: 'smooth' });
+        useEffect(()=>{
+            endRef.current?.scrollIntoView({behavior:'smooth'});
             typesetMath();
-        }, [log]);
+        },[log]);
 
-        const push = (txt, user = false, raw = txt, modelInfo = null) => {
-            const content = user ? txt : renderMarkdownWithLatex(txt);
-            const entry = { id: Date.now() + Math.random(), txt: content, user, raw, modelInfo };
-            logRef.current = [...logRef.current, entry];
+        const push=(txt,user=false,raw=txt,modelInfo=null)=>{
+            const content=user?txt:renderMarkdownWithLatex(txt);
+            const entry={id:Date.now()+Math.random(),txt:content,user,raw,modelInfo};
+            logRef.current=[...logRef.current,entry];
             setLog(logRef.current);
         };
 
@@ -259,27 +225,27 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
             push(`Confirmed. Mathematical engagement level set to **${level}**. How can I assist you with WILL Relational Geometry?`, false);
         };
 
-        function sendLog() {
+        function sendLog(){
             const payload = {
                 sessionId: sessionIdRef.current,
-                log: logRef.current.map(m => ({ user: m.user, raw: m.raw, isWelcome: !!m.isWelcome }))
+                log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
             };
-            fetch(LOG_API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
+            fetch(LOG_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
         }
 
-        useEffect(() => {
+        useEffect(()=>{
             const onUnload = () => {
-                const msgs = logRef.current.filter(m => !m.isWelcome);
-                if (msgs.length === 0) return;
+                const msgs = logRef.current.filter(m=>!m.isWelcome);
+                if(msgs.length === 0) return;
                 const payload = {
                     sessionId: sessionIdRef.current,
-                    log: logRef.current.map(m => ({ user: m.user, raw: m.raw, isWelcome: !!m.isWelcome }))
+                    log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
                 };
-                navigator.sendBeacon(LOG_API, new Blob([JSON.stringify(payload)], { type: 'application/json' }));
+                navigator.sendBeacon(LOG_API, new Blob([JSON.stringify(payload)],{type:'application/json'}));
             };
             window.addEventListener('beforeunload', onUnload);
-            return () => window.removeEventListener('beforeunload', onUnload);
-        }, []);
+            return ()=> window.removeEventListener('beforeunload', onUnload);
+        },[]);
 
         async function send() {
             const q = inp.trim();
@@ -363,78 +329,78 @@ ${q}
         }
 
         /* ── Render ── */
-        return React.createElement('div', { className: 'flex flex-col h-full' },
+        return React.createElement('div',{className:'flex flex-col h-full'},
 
-            ks !== 'ok' && React.createElement('div', { className: 'text-center text-xs text-yellow-400 py-1 flex-shrink-0' },
-                ks === 'loading' ? 'Knowledge base loading…' : 'KB error (check console)'
+            ks!=='ok' && React.createElement('div',{className:'text-center text-xs text-yellow-400 py-1 flex-shrink-0'},
+                ks==='loading'?'Knowledge base loading…':'KB error (check console)'
             ),
 
-            React.createElement('div', { className: 'flex-1 min-h-0 overflow-y-auto px-4 md:px-8 lg:px-16 py-4' },
-                React.createElement('div', { className: 'max-w-4xl mx-auto space-y-4' },
-                    log.map(m => React.createElement('div', { key: m.id, className: `flex ${m.user ? 'justify-end' : 'justify-start'}` },
-                        m.user ?
-                        React.createElement('div', {
-                            className: 'max-w-[85%] p-3 rounded-2xl bg-cyan-700 text-white',
-                            style: { whiteSpace: 'pre-wrap' }
-                        }, m.txt)
+            React.createElement('div',{className:'flex-1 min-h-0 overflow-y-auto px-4 md:px-8 lg:px-16 py-4'},
+                React.createElement('div',{className:'max-w-4xl mx-auto space-y-4'},
+                    log.map(m=>React.createElement('div',{key:m.id,className:`flex ${m.user?'justify-end':'justify-start'}`},
+                        m.user?
+                        React.createElement('div',{
+                            className:'max-w-[85%] p-3 rounded-2xl bg-cyan-700 text-white',
+                            style:{whiteSpace:'pre-wrap'}
+                        },m.txt)
                         :
-                        React.createElement('div', { className: 'max-w-[85%]' },
-                            React.createElement('div', {
-                                className: `ai-message-bubble p-4 rounded-2xl bg-slate-700/80 text-slate-100 ${m.isWelcome ? 'border border-cyan-500/40' : ''}`,
-                                dangerouslySetInnerHTML: { __html: m.txt }
+                        React.createElement('div',{className:'max-w-[85%]'},
+                            React.createElement('div',{
+                                className:`ai-message-bubble p-4 rounded-2xl bg-slate-700/80 text-slate-100 ${m.isWelcome?'border border-cyan-500/40':''}`,
+                                dangerouslySetInnerHTML:{__html:m.txt}
                             }),
-                            m.modelInfo && React.createElement('div', { className: 'model-indicator' }, m.modelInfo)
+                            m.modelInfo && React.createElement('div',{className:'model-indicator'}, m.modelInfo)
                         )
                     )),
-                    busy && React.createElement('div', { className: 'flex justify-start' },
-                        React.createElement('div', { className: 'p-4 rounded-2xl bg-slate-700/80 text-slate-300' },
-                            React.createElement('span', { className: 'inline-flex gap-1' },
-                                React.createElement('span', { className: 'animate-bounce', style: { animationDelay: '0ms' } }, '·'),
-                                React.createElement('span', { className: 'animate-bounce', style: { animationDelay: '150ms' } }, '·'),
-                                React.createElement('span', { className: 'animate-bounce', style: { animationDelay: '300ms' } }, '·')
+                    busy&&React.createElement('div',{className:'flex justify-start'},
+                        React.createElement('div',{className:'p-4 rounded-2xl bg-slate-700/80 text-slate-300'},
+                            React.createElement('span',{className:'inline-flex gap-1'},
+                                React.createElement('span',{className:'animate-bounce',style:{animationDelay:'0ms'}},'·'),
+                                React.createElement('span',{className:'animate-bounce',style:{animationDelay:'150ms'}},'·'),
+                                React.createElement('span',{className:'animate-bounce',style:{animationDelay:'300ms'}},'·')
                             )
                         )
                     ),
-                    React.createElement('div', { ref: endRef })
+                    React.createElement('div',{ref:endRef})
                 )
             ),
 
-            React.createElement('div', { className: 'flex-shrink-0 border-t border-slate-700/50 bg-gray-900/80 backdrop-blur-sm px-4 md:px-8 lg:px-16 py-3' },
-                !engagementLevel ?
-                React.createElement('div', { className: 'max-w-4xl mx-auto flex flex-col items-center justify-center gap-3 py-2' },
-                    React.createElement('div', { className: 'text-slate-300 text-sm font-semibold' }, 'Select Mathematical Engagement Level:'),
-                    React.createElement('div', { className: 'flex flex-wrap justify-center gap-3' },
-                        React.createElement('button', { onClick: () => handleLevelSelection('Humble thinker'), className: 'px-4 py-2 bg-indigo-900/50 hover:bg-indigo-800 text-indigo-200 rounded-lg border border-indigo-700 transition' }, 'Humble thinker'),
-                        React.createElement('button', { onClick: () => handleLevelSelection('Curious student'), className: 'px-4 py-2 bg-cyan-900/50 hover:bg-cyan-800 text-cyan-200 rounded-lg border border-cyan-700 transition' }, 'Curious student'),
-                        React.createElement('button', { onClick: () => handleLevelSelection('Rigorous physicist'), className: 'px-4 py-2 bg-emerald-900/50 hover:bg-emerald-800 text-emerald-200 rounded-lg border border-emerald-700 transition' }, 'Rigorous physicist')
+            React.createElement('div',{className:'flex-shrink-0 border-t border-slate-700/50 bg-gray-900/80 backdrop-blur-sm px-4 md:px-8 lg:px-16 py-3'},
+                !engagementLevel ? 
+                React.createElement('div', {className: 'max-w-4xl mx-auto flex flex-col items-center justify-center gap-3 py-2'},
+                    React.createElement('div', {className: 'text-slate-300 text-sm font-semibold'}, 'Select Mathematical Engagement Level:'),
+                    React.createElement('div', {className: 'flex flex-wrap justify-center gap-3'},
+                        React.createElement('button', {onClick: () => handleLevelSelection('Humble thinker'), className: 'px-4 py-2 bg-indigo-900/50 hover:bg-indigo-800 text-indigo-200 rounded-lg border border-indigo-700 transition'}, 'Humble thinker'),
+                        React.createElement('button', {onClick: () => handleLevelSelection('Curious student'), className: 'px-4 py-2 bg-cyan-900/50 hover:bg-cyan-800 text-cyan-200 rounded-lg border border-cyan-700 transition'}, 'Curious student'),
+                        React.createElement('button', {onClick: () => handleLevelSelection('Rigorous physicist'), className: 'px-4 py-2 bg-emerald-900/50 hover:bg-emerald-800 text-emerald-200 rounded-lg border border-emerald-700 transition'}, 'Rigorous physicist')
                     )
                 )
                 :
-                React.createElement('div', { className: 'max-w-4xl mx-auto' },
-                    React.createElement('div', { className: 'model-switcher' },
-                        React.createElement('button', {
+                React.createElement('div',{className:'max-w-4xl mx-auto'},
+                    React.createElement('div',{className:'model-switcher'},
+                        React.createElement('button',{
                             onClick: () => setSelectedModel('gemini'),
                             className: `model-btn ${selectedModel === 'gemini' ? 'active' : ''}`
                         }, 'Gemini 2.5 Flash'),
-                        React.createElement('button', {
+                        React.createElement('button',{
                             onClick: () => setSelectedModel('minimax'),
                             className: `model-btn ${selectedModel === 'minimax' ? 'active' : ''}`
                         }, 'Qwen 3.6 Plus')
                     ),
-                    React.createElement('div', { className: 'flex gap-2 items-end' },
-                        React.createElement('textarea', {
-                            id: 'will-ai-input',
-                            name: 'will-ai-input',
-                            ref: textRef,
-                            className: 'flex-1 resize-none bg-slate-800 text-slate-50 text-[16px] rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
-                            rows: 1, value: inp, placeholder: `Ask about WILL Geometry (${engagementLevel})…`,
-                            onInput: e => { setInp(e.target.value); e.target.style.height = 'auto'; e.target.style.height = Math.min(e.target.scrollHeight, 160) + 'px'; },
-                            onKeyDown: e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }
+                    React.createElement('div',{className:'flex gap-2 items-end'},
+                        React.createElement('textarea',{
+                            id:'will-ai-input',
+                            name:'will-ai-input',
+                            ref:textRef,
+                            className:'flex-1 resize-none bg-slate-800 text-slate-50 text-[16px] rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 max-h-40',
+                            rows:1,value:inp,placeholder:`Ask about WILL Geometry (${engagementLevel})…`,
+                            onInput:e=>{setInp(e.target.value);e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,160)+'px';},
+                            onKeyDown:e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
                         }),
-                        React.createElement('button', {
-                            className: 'px-5 py-3 shrink-0 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors disabled:opacity-40 disabled:hover:bg-cyan-600',
-                            disabled: !inp.trim() || busy, onClick: send
-                        }, 'Send')
+                        React.createElement('button',{
+                            className:'px-5 py-3 shrink-0 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors disabled:opacity-40 disabled:hover:bg-cyan-600',
+                            disabled:!inp.trim()||busy,onClick:send
+                        },'Send')
                     )
                 )
             )
