@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -25,11 +25,21 @@
       color: var(--text);
     }
 
+    .section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .big-title {
-      font-size: 3.25rem;
+      font-size: 3.5rem;
       line-height: 1.05;
       font-weight: 300;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       color: #f1f5f9;
     }
 
@@ -37,25 +47,34 @@
       font-size: 0.95rem;
       color: var(--muted);
       font-weight: 300;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.015em;
     }
 
-    .section-title {
-      font-size: 2.25rem;
-      line-height: 1.1;
-      font-weight: 300;
-      color: #f1f5f9;
+    .chat-entry {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 20px;
+      padding: 2rem 2.25rem;
     }
 
     .level-btn {
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(148, 163, 184, 0.25);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: rgba(15, 23, 42, 0.5);
     }
 
     .level-btn:hover {
       border-color: #22d3ee;
-      background-color: rgba(34, 211, 238, 0.08);
-      transform: translateY(-1px);
+      background: rgba(34, 211, 238, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .chat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
     }
   </style>
 </head>
@@ -63,11 +82,11 @@
 <body class="antialiased">
   {% include header.html %}
 
-  <main class="max-w-3xl mx-auto px-6 pt-20 pb-24">
+  <main class="max-w-3xl mx-auto px-6 pt-16 pb-24">
 
-    <!-- Hero / Main Title -->
-    <div class="text-center mb-16">
-      <h1 class="big-title mb-3">
+    <!-- Hero Section -->
+    <div id="hero" class="section text-center mb-20">
+      <h1 class="big-title mb-4">
         WILL Relational Geometry
       </h1>
       <p class="small-sub">
@@ -76,8 +95,8 @@
     </div>
 
     <!-- Open Research -->
-    <div class="text-center mb-20">
-      <h1 class="big-title mb-3">
+    <div id="open-research" class="section text-center mb-20">
+      <h1 class="big-title mb-4">
         Open Research
       </h1>
       <p class="small-sub">
@@ -86,31 +105,62 @@
     </div>
 
     <!-- WILL AI Entry -->
-    <div class="max-w-xl mx-auto text-center">
-      <div class="mb-8">
-        <h2 class="text-xl font-medium text-slate-200 mb-2">WILL AI</h2>
-        <p class="text-slate-400">Hi, I am WILL AI.</p>
-        <p class="text-slate-400 mt-1">To begin, please select your preferred level of mathematical engagement.</p>
-      </div>
+    <div id="will-ai" class="section max-w-xl mx-auto">
+      <div class="chat-entry">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="chat-label">WILL AI</div>
+        </div>
 
-      <div class="flex flex-col sm:flex-row justify-center gap-3">
-        <a href="/will-ai/?level=Humble%20thinker"
-           class="level-btn px-6 py-3 rounded-xl text-sm font-medium text-indigo-200 bg-indigo-950/40 hover:bg-indigo-950/60 border border-indigo-800/60">
-          Humble thinker
-        </a>
-        <a href="/will-ai/?level=Curious%20student"
-           class="level-btn px-6 py-3 rounded-xl text-sm font-medium text-cyan-200 bg-cyan-950/40 hover:bg-cyan-950/60 border border-cyan-800/60">
-          Curious student
-        </a>
-        <a href="/will-ai/?level=Rigorous%20physicist"
-           class="level-btn px-6 py-3 rounded-xl text-sm font-medium text-emerald-200 bg-emerald-950/40 hover:bg-emerald-950/60 border border-emerald-800/60">
-          Rigorous physicist
-        </a>
+        <div class="mb-6">
+          <p class="text-lg text-slate-200">Hi, I am WILL AI.</p>
+          <p class="text-slate-400 mt-2">To begin, please select your preferred level of mathematical engagement.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/will-ai/?level=Humble%20thinker"
+             class="level-btn flex-1 text-center px-6 py-3.5 rounded-2xl text-sm font-medium text-indigo-200">
+            Humble thinker
+          </a>
+          <a href="/will-ai/?level=Curious%20student"
+             class="level-btn flex-1 text-center px-6 py-3.5 rounded-2xl text-sm font-medium text-cyan-200">
+            Curious student
+          </a>
+          <a href="/will-ai/?level=Rigorous%20physicist"
+             class="level-btn flex-1 text-center px-6 py-3.5 rounded-2xl text-sm font-medium text-emerald-200">
+            Rigorous physicist
+          </a>
+        </div>
       </div>
     </div>
 
   </main>
 
   {% include footer.html %}
+
+  <script>
+    // Subtle staggered appearance animation
+    function initAnimations() {
+      const sections = document.querySelectorAll('.section');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 120);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    }
+
+    window.onload = function() {
+      initAnimations();
+    };
+  </script>
 </body>
 </html>
