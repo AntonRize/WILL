@@ -145,7 +145,7 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
     // forceModel === 'nemotron' -> proxy manual path (Nemotron streaming)
     const MODELS = {
         gemini:   { label: 'Gemini 2.5 Flash', force: null,        info: 'Powered by Gemini 2.5 Flash' },
-        nemotron: { label: 'Nemotron 550B',    force: 'nemotron',  info: 'Powered by Nemotron 550B' }
+        nemotron: { label: 'Nemotron 120B',    force: 'nemotron',  info: 'Powered by Nemotron 120B' }
     };
 
     const QUICK = {
@@ -490,24 +490,15 @@ ${q}
                 });
 
                 setStreaming(null);
-                const finalText = (result.text && result.text.trim()) ? result.text : '*(The model returned an empty response. Please try again.)*';
+                const finalText = (result.text && result.text.trim()) ? result.text : '*(No text received from the model — it may be busy or unavailable. Try again, or switch model.)*';
                 push(finalText, false, result.text || '', modelInfo, result.reasoning || '');
                 sendLog();
 
             } catch (e) {
                 setStreaming(null);
-                let friendlyError;
-                const errorMessage = String(e.message || '');
-
-                if (errorMessage.includes('overloaded')) {
-                    friendlyError = 'The AI server is currently overloaded with requests. Please try your request again in a moment.';
-                } else if (errorMessage.includes('TIMEOUT')) {
-                    friendlyError = 'Your request is very complex and the AI took too long to think. You can try asking the same question again or try simplifying it a little or even better - you can ask Anton Rize antonrize@willrg.com.';
-                } else {
-                    friendlyError = errorMessage;
-                }
-
-                push(friendlyError, false, friendlyError);
+                // Show the real, raw error — no friendly rewriting.
+                const errorMessage = String(e.message || 'Unknown error');
+                push('**Error:** ' + errorMessage, false, errorMessage);
                 sendLog();
             }
             setBusy(false);
