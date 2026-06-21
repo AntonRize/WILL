@@ -381,7 +381,7 @@ Here $$\kappa$$ is the primitive; $$r$$, $$G$$ and $$M$$ are coordinate-and-unit
 
 ### Closure: the relational origin of the virial theorem
 
-![The exchange rate κ²=2β² from the ratio of degrees of freedom]({{ site.baseurl }}/images/SLIDES-tinyPNG/12_Topological-Ratio-k-b-2.png){: .slide}
+![The exchange rate κ²=2β² from the ratio of degrees of freedom]({{ site.baseurl }}/images/relativistic-foundations/Relational_Geometry_-_Slide_7.png){: .slide}
 
 The exchange rate between the potential and kinematic projections of a closed system is the ratio of the carriers' degrees of freedom. Under maximal symmetry and ontological minimalism, each independent degree of freedom carries equal quadratic weight; $$S^2$$ has two degrees of freedom and $$S^1$$ has one, so the rate is $$2$$:
 
@@ -420,7 +420,7 @@ $$Q$$ is genuinely relational: each observer sits at their own origin $$(\beta, 
 
 ### The Energy-Symmetry Law
 
-![The Energy-Symmetry Law]({{ site.baseurl }}/images/SLIDES-tinyPNG/14_Energy-Symmetry-Law.png){: .slide}
+![The Energy-Symmetry Law]({{ site.baseurl }}/images/relativistic-foundations/Relational_Geometry_-_Slide_8.png){: .slide}
 
 Every transformation is bidirectional: a change observed by $$A$$ corresponds to an equal and opposite change observed by $$B$$. This is causal continuity in algebraic form.
 
@@ -714,6 +714,8 @@ The principle is proven as the inevitable consequence of its own geometric consi
 <p class="paper-ref" markdown="span">Full text: [Part I — Theoretical Ouroboros](https://willrg.com/documents/WILL_RG_I.pdf#sec:ouroboros).</p>
 
 ### $$W_{ILL} = 1$$ — the unity of the projections
+
+![WILL Invariant]({{ site.baseurl }}/images/relativistic-foundations/Relational_Geometry_-_Slide_13.png){: .slide}
 
 <div class="placeholder" markdown="block">
 [ Slide placeholder — "W_ILL = E·T / (M·L) = 1, the unity invariant" ]
