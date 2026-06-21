@@ -1,4 +1,10 @@
 // /assets/tutor.js
+//
+// Contextual "explain the highlighted text" tutor for the WILL RG pages.
+// It mirrors the main WILL-AI assistant (assistant/index.html): same knowledge
+// base, same proxy, same SYSTEM_PROMPT.txt — but WITHOUT the mathematical
+// engagement protocol (no engagement-level gate, no user-profiling, no Socratic
+// counter-interrogation). The user highlights text and gets a direct explanation.
 
 (function () {
     // Check if React and ReactDOM are loaded
@@ -10,48 +16,113 @@
     const { useState, useEffect, useRef } = React;
     const { createRoot } = ReactDOM;
 
-    // --- Configuration ---
-    const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/AntonRize/WILL/main/';
+    // --- Configuration (kept in sync with assistant/index.html) ---
+    const REPO_BASE = 'https://raw.githubusercontent.com/AntonRize/WILL/main/';
+    // Current knowledge-base documents (these replace the old, renamed files).
     const KNOWLEDGE_BASE_FILES = [
-        'WILL%20DATABASE/WILL-PART-I.txt',
-        'WILL%20DATABASE/WILL-APENDIX-I.txt',
-        'WILL%20DATABASE/WILL-PART-II-COSMO.txt',
-        'WILL%20DATABASE/WILL-PART-III-QM.txt',
+        'WILL DATABASE/WILL_RG_I.txt',
+        'WILL DATABASE/R.O.M..txt',
+        'WILL DATABASE/WILL_RG_II.txt',
+        'WILL DATABASE/WILL_RG_III.txt',
     ];
+    const SYSTEM_PROMPT_FILE = 'assistant/SYSTEM_PROMPT.txt';
     const PROXY_URL = 'https://proxy-flame-seven.vercel.app/api/gemini';
 
+    // Tutor-specific framing. Replaces the assistant's engagement-level <USER_PROFILE>.
+    const TUTOR_CONTEXT = `
+<TUTOR_CONTEXT>
+- Your Role: You are WILL AI acting as a friendly, embedded "contextual tutor".
+- Your Task: Explain the exact text the user highlighted on the page, clearly and accurately, using the WILL Relational Geometry framework's own logic.
+- Current Page: https://willrg.com/relativistic-foundations/
+- Input: the user provides the highlighted text in <SELECTED_TEXT> and may provide the nearest heading in <CONTEXT>. Keep your answer directly relevant to that selection.
+- Audience: assume a curious reader who may be new to the framework. Explain at an accessible level first, then add rigor if they ask.
+- DO NOT ask the user to choose a "mathematical engagement level", DO NOT interrogate them about their background or where they found the site, and DO NOT end your answer with a mandatory challenge question. Simply help them understand the selected text.
+</TUTOR_CONTEXT>`;
+
+    // Remove the "mathematical engagement" machinery from the shared system prompt:
+    //   <USER_PROFILING_PROTOCOL> ... </USER_PROFILING_PROTOCOL>   (background survey)
+    //   <ENGAGEMENT_PROTOCOL>     ... </ENGAGEMENT_PROTOCOL>       (Socratic counter-interrogation)
+    const stripEngagementProtocol = (prompt) =>
+        prompt
+            .replace(/<USER_PROFILING_PROTOCOL>[\s\S]*?<\/USER_PROFILING_PROTOCOL>\s*/g, '')
+            .replace(/<ENGAGEMENT_PROTOCOL>[\s\S]*?<\/ENGAGEMENT_PROTOCOL>\s*/g, '');
+
+    // Minimal fallback prompt, used only if SYSTEM_PROMPT.txt cannot be fetched,
+    // so a single network hiccup never disables the tutor entirely.
+    const FALLBACK_SYSTEM_PROMPT = `<SYSTEM_INSTRUCTIONS>
+You are WILL AI, the research assistant for WILL Relational Geometry (RG).
+Explain concepts clearly from the framework's own logic. Cite the knowledge base when relevant using full https://willrg.com/documents/ links. Use Markdown; write all math in LaTeX ($...$ inline, $$...$$ display). Keep answers short and sharp. If a topic is not in the knowledge base, say so rather than inventing it.
+</SYSTEM_INSTRUCTIONS>`;
+
     // --- Helper Functions ---
-    const loadKnowledgeBase = () => {
-        return Promise.all(
+    const loadKnowledgeBase = () =>
+        Promise.all(
             KNOWLEDGE_BASE_FILES.map(file =>
-                fetch(GITHUB_BASE_URL + file).then(res => {
-                    if (!res.ok) throw new Error(`Failed to fetch KB: ${res.status}`);
+                fetch(REPO_BASE + file).then(res => {
+                    if (!res.ok) throw new Error(`Failed to fetch KB (${file}): ${res.status}`);
                     return res.text();
-                })
+                }).then(text => `<SOURCE_DOCUMENT: ${file}>\n${text}\n</SOURCE_DOCUMENT>`)
             )
         ).then(texts => texts.join('\n\n'));
-    };
 
-    const askGemini = (prompt) => {
-        return fetch(PROXY_URL, {
+    const loadSystemPrompt = () =>
+        fetch(REPO_BASE + SYSTEM_PROMPT_FILE)
+            .then(res => {
+                if (!res.ok) throw new Error(`Prompt fetch ${res.status}`);
+                return res.text();
+            })
+            .then(stripEngagementProtocol)
+            .catch(err => {
+                console.warn('Tutor: falling back to built-in system prompt —', err);
+                return FALLBACK_SYSTEM_PROMPT;
+            });
+
+    const askGemini = (prompt) =>
+        fetch(PROXY_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt }),
         })
         .then(res => res.text())
         .then(text => {
-            try {
-                const data = JSON.parse(text);
-                if (!data.reply) throw new Error(data.error || 'Proxy error');
-                return data.reply;
-            } catch (e) {
-                throw new Error(text);
-            }
+            let data;
+            try { data = JSON.parse(text); }
+            catch (e) { throw new Error(text || 'Proxy error'); }
+            if (data.error) throw new Error(typeof data.error === 'string' ? data.error : JSON.stringify(data.error));
+            if (typeof data.reply !== 'string') throw new Error('Malformed proxy response (no reply).');
+            return data.reply;
         });
+
+    // Markdown + LaTeX rendering (mirrors assistant/index.html so equations render).
+    const renderMarkdownWithLatex = (text) => {
+        const placeholders = [];
+        let idx = 0;
+        const protect = (re) => {
+            text = text.replace(re, (m) => {
+                const ph = '\x00MATH' + (idx++) + '\x00';
+                placeholders.push({ ph, val: m });
+                return ph;
+            });
+        };
+        protect(/\$\$([\s\S]*?)\$\$/g);
+        protect(/\$([^\$\n]+?)\$/g);
+        protect(/\\\[([\s\S]*?)\\\]/g);
+        protect(/\\\(([\s\S]*?)\\\)/g);
+
+        let html = marked.parse(text);
+        html = html.replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
+        for (const { ph, val } of placeholders) html = html.replace(ph, val);
+        return html;
+    };
+
+    const typesetMath = () => {
+        if (window.MathJax && MathJax.typesetPromise) {
+            MathJax.typesetPromise().catch(err => console.warn('MathJax typeset error:', err));
+        }
     };
 
     // --- React Component ---
-    const TutorWidget = ({ kb, kbStatus }) => {
+    const TutorWidget = ({ kb, sysPrompt, kbStatus }) => {
         const [isOpen, setIsOpen] = useState(false);
         const [log, setLog] = useState([]);
         const [busy, setBusy] = useState(false);
@@ -67,7 +138,7 @@
                         id: Date.now(),
                         user: false,
                         isWelcome: true,
-                        html: marked.parse(`I will explain the following selected text:\n\n> *${text.trim()}*`),
+                        html: renderMarkdownWithLatex(`I will explain the following selected text:\n\n> *${text.trim()}*`),
                     };
                     setLog([welcomeMessage]);
                     initialTextRef.current = { text, context };
@@ -76,7 +147,7 @@
             };
             return () => { delete window.WILL_TUTOR; };
         }, []);
-        
+
         useEffect(() => {
             if (isOpen && initialTextRef.current) {
                 const { text, context } = initialTextRef.current;
@@ -88,11 +159,13 @@
         useEffect(() => {
             endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
             logRef.current = log;
+            typesetMath(); // render any LaTeX in freshly added messages
         }, [log]);
 
         const sendQuery = async (queryText, context = '', isFirstQuery = false) => {
-            if (!queryText || busy || kbStatus !== 'ok') {
-                if (kbStatus !== 'ok') pushMessage('Knowledge base is not available. Please try again later.', false);
+            if (!queryText || busy) return;
+            if (kbStatus !== 'ok') {
+                pushMessage('Knowledge base is still loading. Please try again in a moment.', false);
                 return;
             }
 
@@ -101,27 +174,31 @@
             setBusy(true);
 
             try {
-                const conversation = logRef.current.filter(m => !m.isWelcome).map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`).join('\n');
-                const systemPrompt = `
-<SYSTEM_INSTRUCTIONS>
-<TUTOR_CONTEXT>
-- Your Role: You are a helpful, expert 'Contextual Tutor'.
-- Your Task: Your primary goal is to help a user understand a piece of text they have highlighted on a webpage about a new physics framework called WILL Geometry.
-- Current Page: The user is currently reading this page: https://willrg.com/relativistic-foundations/
-- User Input: The user will provide the text they selected ('<SELECTED_TEXT>') and may provide the surrounding context ('<CONTEXT>'). Your explanation must be directly related to this input.
-</TUTOR_CONTEXT>
-<RULES_OF_INTELLECTUAL_CONDUCT>
-<PRIMARY_TUTORING_DIRECTIVE>
-Your primary goal is to explain the selected text clearly and accurately *from the perspective of the WILL Geometry framework*. Assume the user is a student trying to understand the material as it is presented on the page. Your first response should be dedicated to explaining the concept within the theory's own logic. Avoid introducing external criticism, alternative theories, or skeptical remarks unless the user specifically asks for a comparison or a critique in a follow-up question.
-</PRIMARY_TUTORING_DIRECTIVE>
-3. Understand the Foundational Principle: When evaluating the framework's central principle (SPACETIME ≡ ENERGY), you must understand that it is presented not as a new postulate, but as the direct consequence of removing a hidden assumption from physics — the separation of "structure" (spacetime) and "dynamics" (energy). The framework's goal is to demonstrate that all of physics can be derived logically from this single act of methodological hygiene. Your analysis must focus on the validity of the logical steps that follow this removal, not on the principle as an arbitrary axiom.
-</RULES_OF_INTELLECTUAL_CONDUCT>
-<FORMATTING_RULES>
-You MUST format your entire response using Markdown. Separate all paragraphs with a double line break. Never wrap your entire response in a code block.
-</FORMATTING_RULES>
-</SYSTEM_INSTRUCTIONS>`;
-                const userQuestion = isFirstQuery ? `<CONTEXT>${context}</CONTEXT>\n<SELECTED_TEXT>${queryText}</SELECTED_TEXT>` : queryText;
-                const fullPrompt = `${systemPrompt}\n<KNOWLEDGE_BASE>\n${kb}\n</KNOWLEDGE_BASE>\n<CONVERSATION_HISTORY>\n${conversation}\n</CONVERSATION_HISTORY>\n\nAnswer in English. Use Markdown. The user's request is below.\n<USER_QUESTION>\n${userQuestion}\n</USER_QUESTION>`;
+                const conversation = logRef.current
+                    .filter(m => !m.isWelcome)
+                    .map(m => `${m.user ? 'User' : 'Assistant'}: ${m.raw}`)
+                    .join('\n');
+
+                const userQuestion = isFirstQuery
+                    ? `<CONTEXT>${context}</CONTEXT>\n<SELECTED_TEXT>${queryText}</SELECTED_TEXT>`
+                    : queryText;
+
+                const fullPrompt = `${sysPrompt}
+
+${TUTOR_CONTEXT}
+
+<KNOWLEDGE_BASE>
+${kb}
+</KNOWLEDGE_BASE>
+<CONVERSATION_HISTORY>
+${conversation}
+</CONVERSATION_HISTORY>
+
+Answer in English. Use Markdown and LaTeX for math. Follow the <CITATION_PROTOCOL> for any references. The user's request is below.
+<USER_QUESTION>
+${userQuestion}
+</USER_QUESTION>`;
+
                 const response = await askGemini(fullPrompt);
                 pushMessage(response, false);
             } catch (e) {
@@ -129,17 +206,17 @@ You MUST format your entire response using Markdown. Separate all paragraphs wit
             }
             setBusy(false);
         };
-        
+
         const pushMessage = (text, isUser) => {
             const newMessage = {
                 id: Date.now() + Math.random(),
                 user: isUser,
                 raw: text,
-                html: isUser ? text : marked.parse(text),
+                html: isUser ? text : renderMarkdownWithLatex(text),
             };
             setLog(prevLog => [...prevLog, newMessage]);
         };
-        
+
         const handleSend = () => sendQuery(inputValue.trim());
 
         if (!isOpen) return null;
@@ -153,7 +230,8 @@ You MUST format your entire response using Markdown. Separate all paragraphs wit
                 React.createElement('div', { className: "flex-1 overflow-y-auto space-y-4 pr-2" },
                     log.map(m => React.createElement('div', { key: m.id, className: `flex ${m.user ? 'justify-end' : 'justify-start'}` },
                         React.createElement('div', {
-                            className: `max-w-[85%] p-3 rounded-lg ${m.user ? 'bg-cyan-700 text-white' : 'bg-slate-700'}`,
+                            className: `max-w-[85%] p-3 rounded-lg ai-message-bubble ${m.user ? 'bg-cyan-700 text-white' : 'bg-slate-700'}`,
+                            style: m.user ? { whiteSpace: 'pre-wrap' } : undefined,
                             dangerouslySetInnerHTML: { __html: m.html }
                         })
                     )),
@@ -178,16 +256,19 @@ You MUST format your entire response using Markdown. Separate all paragraphs wit
 
     const App = () => {
         const [kb, setKb] = useState(null);
+        const [sysPrompt, setSysPrompt] = useState('');
         const [kbStatus, setKbStatus] = useState('loading');
 
         useEffect(() => {
-            loadKnowledgeBase().then(data => { setKb(data); setKbStatus('ok'); }).catch(error => { console.error(error); setKbStatus('error'); });
+            Promise.all([loadKnowledgeBase(), loadSystemPrompt()])
+                .then(([kbData, promptData]) => { setKb(kbData); setSysPrompt(promptData); setKbStatus('ok'); })
+                .catch(error => { console.error(error); setKbStatus('error'); });
         }, []);
 
         return React.createElement('div', null,
             kbStatus === 'loading' && React.createElement('div', { className: "fixed top-2 right-2 text-xs text-yellow-400" }, "KB loading…"),
             kbStatus === 'error' && React.createElement('div', { className: "fixed top-2 right-2 text-xs text-red-500" }, "KB error"),
-            React.createElement(TutorWidget, { kb, kbStatus })
+            React.createElement(TutorWidget, { kb, sysPrompt, kbStatus })
         );
     };
 

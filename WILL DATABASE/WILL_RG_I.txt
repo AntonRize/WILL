@@ -87,6 +87,13 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{principle}[theorem]{Principle}
+\makeatletter
+\long\def\@opargbegintheorem#1#2[#3]#4{%
+  \item[\textbf{#1 #2\ifxempty{#3}{}{ (#3)}}\quad]%
+  \leavevmode\par
+  #4
+}
+\makeatother
 
 % --- Metadata ---
 \title{\textbf{WILL} \\
@@ -263,24 +270,28 @@ The philosophical reasoning behind these constraints probably deserves its own d
 
 \begin{principle}[Epistemic Hygiene]
 \hypertarget{pr:epistemic}{}\label{pr:epistemic}
+\leavevmode
  \emph{Epistemic Hygiene as Refusal to Import Unjustified Assumptions.}
  This line of reasoning derive physics by \textbf{removing hidden assumptions}, rather than introducing new postulates. This construction is deliberate and contains zero free parameters.  This is not a simplification - it is a deliberate epistemic constraint. No assumptions are introduced and no constructs are retained unless they are geometrically or energetically necessary.
 \end{principle}
 
 \begin{principle}[Relational Origin]
 \hypertarget{pr:relational}{}\label{pr:relational}
+\leavevmode
  \emph{All physical quantities must be defined by their relations.} 
 Any introduction of absolute properties risks reintroducing metaphysical artefacts and contradicts the foundational insight of relationalism.
 \end{principle}
 
 \begin{principle}[Ontological Minimalism]
 \hypertarget{pr:minimalism}{}\label{pr:minimalism}
+\leavevmode
 Maintain the minimum number of ontological assumptions and foundational primitives. 
 Absolute background --- spatial container, axis of time, absolute distance,  forces,  fields --- are excluded as preexisting primitives but may appear as translation into common descriptive vocabulary.
 \end{principle}
 
 \begin{principle}[Mathematical Transparency]
 \hypertarget{pr:mathematical}{}\label{pr:mathematical}
+\leavevmode
 \begin{enumerate}
     \item Every  mathematical phrase, operational choice, or identity carries its own ontological  statement. 
     \item Each mathematical object must correspond to explicitly identifiable relation between observers with transparent ontological origin.
@@ -300,10 +311,12 @@ This foundational methodological  principles lead us to the core of Relational G
 
 \begin{theorem}[Relational Closure]
 \hypertarget{thm:relational_closure}{}\label{thm:relational_closure}
+\leavevmode
 A purely relational system cannot be geometrically open; Any stable, self-contained system must be described by a closed and self-consistent relational geometry. Its geometry is closed by absolute analytic necessity. 
 \end{theorem}
 
 \begin{proof}[Proof by Analytic Tautology]
+\leavevmode
 \begin{enumerate}
     \item \textbf{Premise 1 (Relational Origin):} Within RG Physical quantities are defined exclusively by their relations (Principle \ref{pr:relational}).
     \item \textbf{Premise 2 (Interaction as Integration):} If a hypothetical ``outside'' entity or boundary were to physically interact with the system, that interaction itself constitutes a relation.
@@ -323,10 +336,12 @@ Moreover, this quantity provides continuity of causality. If it changes in one p
 
 \begin{theorem}[Relational Invariance]
 \hypertarget{thm:relational_invariance}{}\label{thm:relational_invariance}
+\leavevmode
 Within relationally closed system without an external background, the existence of change  necessitates the existence of conserved invariant measure of change.  Because the system is closed any change must be perfectly balanced by a complementary change elsewhere in the system conserving the total transformations.
 \end{theorem}
 
 \begin{proof}[Proof by Structural Necessity]
+\leavevmode
 \begin{enumerate}
     \item \textbf{Premise 1 (Relational Origin):} Physical quantities are defined exclusively by their relations (Principle \ref{pr:relational}).
     \item \textbf{Premise 2 (Empirical Change):} States undergo observable change.
@@ -338,6 +353,7 @@ Therefore, within this closed relational network, there must exist an invariant 
 
 \begin{corollary}[Historical Note on Energy]
 \hypertarget{cor:energy}{}\label{cor:energy}
+\leavevmode
 In classical and relativistic mechanics, this derived invariant measure of change is assigned the historical label ``Energy''. By proving this invariance geometrically, we strip ``Energy'' of its substantialist properties (as a ``substance'' or ``thing'') and reveal its origin as the necessary measure of change and bookkeeping of causality.
 \end{corollary}
 
@@ -359,10 +375,12 @@ In classical and relativistic mechanics, this derived invariant measure of chang
 
 \begin{theorem}[Relational Isotropy]
 \hypertarget{thm:isotropy}{}\label{thm:isotropy}
+\leavevmode
 Within a background-free relational system, no spatial direction or coordinate can be \emph{a priori} privileged. Therefore, the geometry encoding the conserved relational resource (energy) must be maximally symmetric (isotropic).
 \end{theorem}
 
 \begin{proof}[Proof by Relational Origin]
+\leavevmode
 \begin{enumerate}
     \item \textbf{Premise 1 (Absence of a Grid):} As established by Theorem \ref{thm:relational_closure}  (Relational Closure), the relational system possesses no external container, absolute metric tensor, or underlying coordinate grid.
     \item \textbf{Premise 2 (Direction requires Relation):} Under the Principle of Relational Origin (Principle \ref{pr:relational}), ``direction'' or ``orientation'' cannot exist in a void; it only physically manifests as a specific interaction or measurement between defined participants. 
@@ -379,15 +397,18 @@ Any attempt to treat \emph{``spacetime structure''} as separate from \emph{``dyn
 
 \begin{lemma}[False Separation]
 \hypertarget{lem:false-separation}{}\label{lem:false-separation}
+\leavevmode
 Any model that treats processes as unfolding \emph{within} an independent background necessarily assigns to that background structural features (metric, orientation, or frame) not derivable from the relations among the processes themselves. Such a background constitutes an \emph{extraneous absolute}.
 \end{lemma}
 
 \begin{proof}
+\leavevmode
 Suppose an independent background exists. Then at least one of its structural attributes - metric relations, a preferred orientation, or a class of inertial frames - remains fixed regardless of inter-process data. This attribute is not relationally inferred but posited a priori. It thereby violates the relational closure principle: it introduces a non-relational absolute external to the system. Hence the separation is illicit.  
 \end{proof}
 
 \begin{corollary}[Structure--Dynamics Coincidence]
 \hypertarget{cor:coincidence}{}\label{cor:coincidence}
+\leavevmode
 Without introducing new primitives ~\ref{lem:false-separation}, we should see structure and dynamics as a single ontological element. The structural arena and the dynamical content must be identified: structure is dynamics,  energy is spacetime.
 \end{corollary}
 
@@ -395,6 +416,7 @@ This leads us to principle with \emph{negative ontological weight}: it reduces t
 
 \begin{principle}[Unifying Ontological Principle]
 \hypertarget{pr:unifying}{}\label{pr:unifying}
+\leavevmode
 \[
 \boxed{\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}}
 \]
@@ -405,6 +427,7 @@ No background container permitted.
 
 \begin{definition}[WILL]
 \hypertarget{def:will}{}\label{def:will}
+\leavevmode
 \emph{$ \textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY} $} is the technical term we use for the unified relational structure determined by Unifying Principle \ref{pr:unifying}. All physically meaningful quantities are relational features of WILL.
 \end{definition}
 
@@ -437,6 +460,7 @@ $\textbf{SPACETIME} \equiv \textbf{ENERGY}$ applies the identical operation.
 
 
 \begin{remark}[Auditability]
+\leavevmode
 Principle~\ref{pr:unifying} is foundational but testable: it is subject to:
 (i) geometric audit (internal logical consequences) and 
 (ii) empirical audit (agreement with empirical data).
@@ -479,6 +503,7 @@ All references to ``carriers'' within WILL RG open research are to be read in th
 
 \begin{theorem}[Minimal Relational Carriers of the Conserved Energy Resource]
 \hypertarget{thm:carriers}{}\label{thm:carriers}
+\leavevmode
 The minimal relational carriers satisfying Closure, Conservation, Maximal Symmetry, and Mathematical Transparency are:
     \begin{enumerate}[label=(\alph*)]
         \item $S^1$ for directional (Kinematic) relational transformation;
@@ -487,6 +512,7 @@ The minimal relational carriers satisfying Closure, Conservation, Maximal Symmet
 \end{theorem}
 
 \begin{proof}
+\leavevmode
 The proof classifies the minimal types of relations and applies the derived geometric constraints:
 
 \begin{enumerate}[label=(\alph*)]
@@ -552,6 +578,7 @@ The manifestation of any system is distributed between its internal (Phase) and 
 
 \begin{lemma}[Duality of Relation]
 \hypertarget{lem:duality}{}\label{lem:duality}
+\leavevmode
 By Relational Origin Principle (\ref{pr:relational}) the identification of spacetime with energy and its transformations necessitates two complementary relational measures:
 \begin{enumerate}
     \item the \textbf{amplitude} of transformation (external shift), and
@@ -560,12 +587,14 @@ By Relational Origin Principle (\ref{pr:relational}) the identification of space
 \end{lemma}
 
 \begin{proof}
+\leavevmode
 By Principle of Relational Origin (\ref{pr:relational}) any complete description of transformation must specify both what changes and how that change is internally ordered. A single measure cannot capture both. The Relational Carriers $S^1$ and $S^2$ provide the minimal geometry enforcing such complementarity: their orthogonal projections furnish precisely two non-redundant, coupled axis.
 \end{proof}
 
 The orthogonal decomposition of the relational carriers $S^1$ and $S^2$ reveals a functional duality. Physical state is a combination of two projections:
 
 \begin{definition}[The Amplitude Projection (External Interaction)]
+\leavevmode
 Denoted by $\beta$ (kinematic) and $\kappa$ (potential).
 This component measures the \textit{extent of external relation}. It manifests as momentum or potential intensity. Physically, it represents the system's relational ``shift'' from the \textbf{Observer's Relational Origin} (the rest frame).
 \[
@@ -574,6 +603,7 @@ This component measures the \textit{extent of external relation}. It manifests a
 \end{definition}
 
 \begin{definition}[The Phase Projection (Internal Evolution)]
+\leavevmode
 Denoted by $\beta_Y$ and $\kappa_X$.
 This component measures the \textit{internal ordering}. It governs the intrinsic scale of proper time and proper length. A Phase of 1 represents maximal internal flow (rest), while a Phase of 0 represents the collapse of internal causality (light-speed/event horizon).
     \[
@@ -583,12 +613,14 @@ This component measures the \textit{internal ordering}. It governs the intrinsic
 
 \begin{theorem}[Conservation of Relation]
 \hypertarget{thm:conservation}{}\label{thm:conservation}
+\leavevmode
 For both kinematic ($S^1$) and potential ($S^2$) modes, the sum of the squared Amplitude and squared Phase is strictly invariant:
 \begin{equation}
 \underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1
 \end{equation}
 \end{theorem}
 \begin{proof}
+\leavevmode
 By Theorem~\ref{thm:carriers}, the conserved relational resource is carried by the maximally symmetric geometries $S^1$ and $S^2$. Normalizing the total conserved resource to unity (1), any physical state corresponds to a point on these carriers. The algebraic identity of orthogonal projections on a unit circle and sphere dictates that the sum of their squares must equal the squared radius. Therefore, the parameters satisfy $\beta^2 + \beta_Y^2 = 1$ and $\kappa^2 + \kappa_X^2 = 1$, encoding the finite, closed relational budget.
 \end{proof}
 
@@ -617,12 +649,14 @@ are \emph{translations} into descriptive vocabulary.
 
 \begin{proposition}[Physical Interpretation: Relativistic Effects]
 \hypertarget{prop:relativity}{}\label{prop:relativity}
+\leavevmode
 The conservation law of Theorem~\ref{thm:conservation} implies that any redistribution between the orthogonal components manifests physically as the relativistic effects of time dilation and length contraction.
 \end{proposition}
 
 \begin{proof}
+\leavevmode
 By Theorem~\ref{thm:conservation}, the components satisfy $\beta^2 + \beta_Y^2 = 1$ and $\kappa^2 + \kappa_X^2 = 1$. 
-An increase in Amplitude ($\beta, \kappa$) strictly enforces a geometric decrease in Phase measure ($\beta_Y, \kappa_X$). 
+An increase in Amplitude ($\beta, \kappa$) enforces a geometric decrease in Phase measure ($\beta_Y, \kappa_X$). 
 This necessary reduction of $\beta_Y$ and $\kappa_X$ corresponds precisely to the dilation of proper time and the contraction of proper length, while the growth of $\beta$ and $\kappa$ represents momentum or potential depth. Thus, the kinematic and potential trade-off is the direct, un-parameterized physical expression of the geometric closure of the $S^1$ and $S^2$ carriers.  
 \end{proof}
 
@@ -642,10 +676,12 @@ Spatial distance is derived as the operational inverse of relational phase capac
 
 \begin{theorem}[Inverse-Square]
 \hypertarget{thm:inverse_square}{}\label{thm:inverse_square}
+\leavevmode
 The inverse-square potential proportionality $\kappa^2 \propto 1/r$ is a geometric necessity of the $S^2$ carrier's relational capacity, determined without spatial primitives.
 \end{theorem}
 
 \begin{proof}
+\leavevmode
 By the \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:spectroscopic_shift}{Spectroscopic Phase Shift Theorem}, the potential projection $\kappa^2$ is operationally extracted entirely from the dimensionless phase tension ($z_\kappa$), independent of spatial parameters. Distance must therefore be defined exclusively by the relational tension between energy states.
 
 Normalizing the absolute geometric scale at saturation ($\kappa^2 = 1 \equiv r=R_s$), spatial distance $r$ emerges as the reciprocal measure of the omnidirectional projection amplitude on $S^2$:
@@ -677,7 +713,7 @@ The manifestation of any system is distributed between its internal (Phase) and 
 
 
 Since $S^{1}$ encodes one-dimensional shift, the total energy $E$ of the system 
-must project consistently onto both axes:
+must project consistently onto both external and internal axes:
 \[
 E^2=E_{X}^2+E_{Y}^2
 \]
@@ -696,27 +732,28 @@ E_{Y} = E \beta_{Y}.
 
 \begin{theorem}[Invariant Projection of Rest Energy]
 \hypertarget{thm:restenergy}{}\label{thm:restenergy}
-For any state $(\beta,\beta_Y)$ on the relational circle $S^1$, the total energy $E$ must scale such that its vertical projection remains constant and equal to the rest energy $E_0$.
+\leavevmode
+For any state $(\beta,\beta_Y)$ on the relational circle $S^1$, the total energy $E$ must scale such that its internal projection remains constant and equal to the rest energy state $E_0$.
 \[
 E \beta_Y = E_0.
 \]
 \end{theorem}
 
 \begin{proof}
-Let the total energy $E$ be distributed on the relational carrier $S^1$ with projections $\beta$ (kinematic amplitude) and $\beta_Y$ (internal phase).
-\[
-E_Y = E \cdot \beta_Y
-\]
- By Principle \ref{pr:relational} (Relational Origin), the internal structure of an object  (its rest energy $E_0$) is defined solely by relations internal to itself. Therefore, it must be invariant under changes in its relation to an external observer.  In relation to itself kinematic projection is always ($\beta=0 \Longrightarrow \beta_Y=1$).   Therefore:
-\[
-\boxed{E_{Y} \equiv E_0}
-\]
-where $E_0$ is the energy measured in the frame where the system is at rest ($\beta=0, \beta_Y=1$).
-Thus, geometric consistency requires the vertical leg to be fixed:
-\[
-E \beta_Y = E_0 \quad \Longrightarrow \quad E = \frac{E_0}{\beta_Y}.
-\]
-The "hypotenuse" (Total Energy $E$) is therefore not a fixed-length vector that rotates (which would reduce $E_Y$), but a scalable relational magnitude that grows to preserve the invariant vertical leg $E_0$ against the closure constraint $\beta_Y = \sqrt{1-\beta^2}$.
+\leavevmode
+By the Relational Origin Principle (\ref{pr:relational}) and Conservation Theorem (\ref{thm:conservation}), a system's internal energy measured in its own rest frame ($\beta = 0 \implies \beta_Y = 1$) is its rest energy, $E_0$. For another frame $B$ observing system $A$, if $A$ is in relative motion ($\beta > 0$), the total energy $E$ differs, but the internal energy $E_Y$ must remain an invariant property of $A$. To preserve this invariant and agree on measurements, frame $B$ must measure $A$'s internal phase projection as identical to the rest energy:
+\begin{equation}
+    E_{Y_{B \leftarrow A}} = E_{Y_{A \leftarrow A}} = E_0.
+\end{equation}
+Therefore, the internal energy $E_Y$ measured externally by any frame remains constant and equivalent to the rest energy:
+\begin{equation}
+    E_Y \equiv E_0,
+\end{equation}
+where $E_0$ is the energy measured in the frame where the system is at rest ($\beta = 0,\, \beta_Y = 1$). Geometric consistency therefore requires the vertical leg to be fixed:
+
+\begin{equation}
+    E_Y = E\beta_Y = E_0 \implies E = \frac{E_0}{\beta_Y}.
+\end{equation}
 \end{proof}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
@@ -727,13 +764,15 @@ The "hypotenuse" (Total Energy $E$) is therefore not a fixed-length vector that 
 
 \begin{corollary}[Rest Energy and Mass Equivalence]
 \hypertarget{cor:restmass}{}\label{cor:restmass}
-This geometry does not require kilograms as units or mass as a concept. Within the normalization $c=1$, the invariant rest energy $E_0$ can be expressed as human-convention-driven parameter of mass in kilograms:
-\[
-E_{0} = m.
-\]
+\leavevmode
+This geometry does not require mass as an independent concept. The invariant rest energy $E_0$ is numerically identical to mass $m$ in natural units ($c = 1$), and is simply expressed in anthropocentric units (kilograms) via the conventional identity:
+\begin{equation}
+    E_0 = mc^2.
+\end{equation}
 \end{corollary}
 
 \begin{proof}
+\leavevmode
 From the invariant projection $E\beta_Y = E_0$ and closure of $S^1$, no additional scaling parameter is required. 
 Hence the conventional bookkeeping identities $E_0 = mc^2$ or $m = E_0/c^2$ reduce to tautologies. 
 Mass is therefore not independent, but the rest-energy invariant itself.  
@@ -748,6 +787,7 @@ Mass is therefore not independent, but the rest-energy invariant itself.
 
 \begin{proposition}[Horizontal Projection as Momentum]
 \hypertarget{prop:momentum}{}\label{prop:momentum}
+\leavevmode
 On the relational circle, the unique linear geometric projection measure of external amplitude from rest is the horizontal projection  $E_X=E\beta$; 
 hence
 \[
@@ -756,6 +796,7 @@ p \equiv E_X \equiv  E\beta \quad (c=1).
 \end{proposition}
 
 \begin{proof}
+\leavevmode
 The rest state is $(\beta,\beta_Y)=(0,1)$. A shift measure must (i) vanish at rest, (ii) grow monotonically with $|\beta|$, and (iii) flip sign under $\beta\mapsto -\beta$. The only relational candidate satisfying (i)-(iii) is the horizontal projection $E_X=E\beta$. Thus the identification is necessary and unique within methodological constraints.  
 \end{proof}
 
@@ -767,6 +808,7 @@ The rest state is $(\beta,\beta_Y)=(0,1)$. A shift measure must (i) vanish at re
 
 \begin{corollary}[Energy--Momentum Relation]
 \hypertarget{cor:energymomentum}{}\label{cor:energymomentum}
+\leavevmode
 With $p$ identified by Proposition~\ref{prop:momentum} and $m=E_0$, the closure identity yields
 \[
 E^{2} = p^{2} + m^{2} \quad (c=1).
@@ -777,10 +819,12 @@ E^{2} = (pc)^{2} + (mc^{2})^{2}.
 \]
 \end{corollary}
 
-
 \begin{proof}
-By closure, $(E\beta)^2 + (E\beta_Y)^2 = E^2$. Substituting $p=E\beta$ and $m=E_0$ proves the claim. 
-Restoring $c$ is dimensional bookkeeping: $p\mapsto pc$ and $m\mapsto mc^{2}$, while $E$ remains $E$, yielding the standard form. 
+\leavevmode
+By Conservation Theorem (\ref{thm:conservation}), $(E\beta)^2 + (E\beta_Y)^2 = E^2$. 
+Substituting $p=E\beta$ and $m=E_0$ proves the claim. 
+Restoring $c$ is dimensional bookkeeping:
+$p\mapsto pc$ and $m\mapsto mc^{2}$, while $E$ remains $E$, yielding the standard form. 
 \end{proof}
 
 \begin{remark}[Geometric Forms]
@@ -789,16 +833,15 @@ The same identity may be expressed explicitly in terms of circle coordinates:
 E^{2} = (\tfrac{\beta}{\beta_Y}E_0)^{2} + E_0^{2}
 = \bigl(\cot(\theta_{1})\,E_{0}\bigr)^{2} + E_{0}^{2}.
 \]
-These are equivalent renderings 
-of the same geometric necessity.
+These are equivalent renderings of the same geometric necessity.
 \end{remark}
 
 \begin{remark}[Units sanity check - bookkeeping]
-Using $\beta = v/c$, the identification $p \equiv E\beta$ gives
-\[
-pc = E\,\frac{v}{c}\quad\Longrightarrow\quad p = \frac{E\,v}{c^{2}}.
-\]
-With $E=\frac{1}{\beta_Y} mc^{2}=\gamma mc^{2}$ this reduces to $p=\frac{\beta}{\beta_Y}mc=\gamma m v$, the standard relativistic momentum. No new parameters are introduced.
+In natural units ($c = 1$), the identification is $p \equiv E\beta$. Restoring $c$ via dimensional bookkeeping ($p \mapsto pc$) yields:
+\begin{equation}
+    pc = E\beta = \frac{E}{c}v \implies p = \frac{E}{c^2}v.
+\end{equation}
+With $E = \gamma mc^2$, this reduces to $p = \gamma mv$, the standard relativistic momentum. No new parameters are introduced.
 \end{remark}
 
 \begin{table}[h]
@@ -808,7 +851,7 @@ With $E=\frac{1}{\beta_Y} mc^{2}=\gamma mc^{2}$ this reduces to $p=\frac{\beta}{
 \hline
 \textbf{Algebraic Form} & \textbf{Trigonometric Form} \\
 \hline
-$\beta= v/c =  \sqrt{1-\beta_Y{^2}}$& $\beta = cos(\theta_1)$\\
+$\beta= v/c =  \sqrt{1-\beta_Y{^2}}$& $\beta = \cos(\theta_1)$\\
 \hline
 $\beta_Y = \sqrt{1-(v/c)^2}=\sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) $\\\hline
 \end{tabular}
@@ -1480,6 +1523,11 @@ This explains the experimentally verified factor of 2 in gravitational lensing a
 
 
 
+
+\section{Stage III: Legacy Translation \& Empirical Alignment}
+
+
+
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Summary]
 \begin{center}
 \begin{tabular}{|c|}\hline
@@ -1504,8 +1552,6 @@ $\downarrow$ \textit{(By Relational Closure and Invariance theorems)}\\\hline
 \end{tcolorbox}
 
 
-
-\section{Stage III: Legacy Translation \& Empirical Alignment}
 
 
 \begin{table}[h]
@@ -2722,6 +2768,15 @@ mathematically transparent and eliminates the need for perturbative
 expansions altogether.
 \end{tcolorbox}
 
+
+
+\subsection{\textbf{Methodology comparison of General Relativity (GR) with WILL Relational Geometry (R.O.M.)}}
+
+ \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Webpage Link]
+\begin{center}
+    \href{https://willrg.com/methodology/}{https://willrg.com/methodology/}
+\end{center}.
+\end{tcolorbox}
 
 
 \subsection{Discussion}
