@@ -22,6 +22,9 @@ description: "A friendly entrance to WILL Relational Geometry (Part I) and Relat
 /* Gray note / remark */
 .note { border-left:4px solid rgba(107,114,128,0.7); background:rgba(31,41,55,0.3); border-radius:0 10px 10px 0; padding:0.7rem 1.2rem; margin:1.1rem 0; font-size:0.97rem; color:#cbd5e1; }
 
+/* Numbered "do it yourself" steps box */
+.steps { border:1px solid rgba(34,211,238,0.35); background:rgba(8,51,68,0.25); border-radius:10px; padding:0.6rem 1.4rem; margin:1.3rem 0; }
+
 /* Paper reference line */
 .paper-ref { font-size:0.92rem; color:#94a3b8; border-top:1px solid rgba(148,163,184,0.2); margin-top:0.6rem; padding-top:0.5rem; }
 .paper-ref a { color:#22d3ee; }
@@ -32,10 +35,6 @@ description: "A friendly entrance to WILL Relational Geometry (Part I) and Relat
 .hero-details { margin-top:0.5rem; }
 .video-dropdown-container { margin:1.5rem 0; }
 .desmos-container iframe { width:100%; border:0; border-radius:10px; }
-
-/* Slide placeholder */
-.placeholder { border:2px dashed rgba(6,182,212,0.45); border-radius:12px; padding:2rem 1.5rem; text-align:center; color:#22d3ee; background:repeating-linear-gradient(45deg, rgba(6,182,212,0.03), rgba(6,182,212,0.03) 12px, rgba(6,182,212,0.06) 12px, rgba(6,182,212,0.06) 24px); margin:1.5rem auto; max-width:64rem; font-weight:600; }
-.placeholder .sub { display:block; margin-top:0.5rem; font-size:0.85rem; color:#94a3b8; font-weight:400; }
 </style>
 
 # WILL Part I: Relational Geometry &amp; R.O.M.
@@ -95,9 +94,9 @@ Instead of describing observed phenomena with externally added laws, this model 
 
 ## Stage 0 — The Last Geocentric Epicycle
 
-![Breakthroughs in physics delete a false separation rather than adding entities]({{ site.baseurl }}/images/SLIDES-tinyPNG/3_Breakthroughs-Delete-Not-Add.png){: .slide}
-
 Every standard theory — SR, GR, QFT, the Standard Model, ΛCDM — is written with a two-part syntax: a fixed **structure** (a manifold plus a metric) *plus* the **dynamics** (fields and constants) that play out upon it. No observation demands this duplication; it is kept only because the resulting Lagrangians work *inside* the split. So the split is not an empirical discovery — it is an unjustified ontological commitment.
+
+![Breakthroughs in physics delete a false separation rather than adding entities]({{ site.baseurl }}/images/SLIDES-tinyPNG/3_Breakthroughs-Delete-Not-Add.png){: .slide}
 
 History keeps making the same move: it removes a false separation rather than adding entities. Copernicus deleted the Earth/cosmos divide; Newton, the terrestrial/celestial split; Maxwell, electricity/magnetism; Einstein, space/time. Each step widened the relational circle and reduced the number of unexplained primitives. The spacetime–energy split is the one survivor of that pruning.
 
@@ -325,10 +324,7 @@ $$E^2 = p^2 + m^2 \quad\Longrightarrow\quad E^2 = (pc)^2 + (mc^2)^2$$
 
 ### The Minkowski interval is the inflated form of $$S^1$$ closure
 
-<div class="placeholder" markdown="block">
-[ Slide placeholder — "Minkowski interval as the inflation of S¹ closure" ]
-<span class="sub">Suggested visual: the circle β²+β_Y²=1 on the left; the four "posits" (container; x,y,z; external time t; reference scale c²dt²) appended; the Minkowski interval emerging on the right.</span>
-</div>
+![Minkowski interval as the inflation of S¹ closure]({{ site.baseurl }}/images/relativistic-foundations/WILL_Relational_Geometry_-_Slide_6.png){: .slide}
 
 In textbook Special Relativity the Minkowski interval is the starting point. WILL reverses the order: the primitive is the dimensionless closure $$\beta^2 + \beta_Y^2 = 1$$, which contains no coordinates, no container, no external time. The interval is what that relation *becomes* once four substantival posits are **added** — a container; spatial coordinates $$x, y, z$$; an externally flowing time $$t$$ (demoting the phase to $$\beta_Y \equiv d\tau/dt$$); and a reference scale $$c^2 dt^2$$. Substituting $$\beta^2 = (dx^2+dy^2+dz^2)/(c^2 dt^2)$$ and $$\beta_Y = d\tau/dt$$ into closure returns the interval exactly:
 
@@ -363,11 +359,6 @@ With $$\kappa = \sin\theta_2$$, define the gravitational total energy and moment
 </details>
 
 ### The Schwarzschild interval is the inflated form of $$S^2$$ closure
-
-<div class="placeholder" markdown="block">
-[ Slide placeholder — "Schwarzschild interval as the inflation of S² closure" ]
-<span class="sub">Suggested visual: the sphere closure κ²+κ_X²=1 on the left; posits (container around a body; static observer; external time; κ²≡R_s/r with G, M) appended; the static Schwarzschild interval on the right. Parallel to the Minkowski slide.</span>
-</div>
 
 Strictly parallel. Start from $$\kappa^2 + \kappa_X^2 = 1$$. Append a container around a central body, hold the observer static, posit an externally flowing time so $$\kappa_X \equiv d\tau/dt$$, and localize the amplitude as $$\kappa^2 \equiv R_s/r$$ — which is what first introduces the radial coordinate $$r$$ and the legacy constants $$G, M$$ via $$R_s = 2GM/c^2$$. Closure then yields the Schwarzschild time component exactly:
 
@@ -452,9 +443,9 @@ Causality is a built-in feature of Relational Geometry.
 
 <p class="paper-ref" markdown="span">Full text: [Part I — Energy-Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry) · [Single-Axis Transfer and the Nature of Light](https://willrg.com/documents/WILL_RG_I.pdf#sec:nature_of_light).</p>
 
-## Stage III — Legacy Translation &amp; Empirical Alignment
+## Stage III — Legacy Translation: recovering the known machinery
 
-The familiar machinery of physics now appears as special cases — and then the full algebra of orbits, confronted with real data.
+Before testing anything against data, watch the familiar tools of physics reappear as special cases of the relations above.
 
 ### The equivalence principle as a derived identity
 
@@ -470,10 +461,7 @@ The inertial and gravitational responses share one effective mass $$m_{\text{eff
 
 ### Classical mechanics as collapses of the two-point law
 
-<div class="placeholder" markdown="block">
-[ Slide placeholder — "Four ontological collapses of the two-point law" ]
-<span class="sub">Suggested visual: the two-point Energy-Symmetry Law collapsing (by forcing r_A = r_B onto one point) into the Lagrangian, Hamiltonian, Newton's third law, and the Einstein–Hilbert action.</span>
-</div>
+![Four ontological collapses of the two-point law]({{ site.baseurl }}/images/relativistic-foundations/WILL_Relational_Geometry_-_Slide_10%20%281%29.png){: .slide}
 
 The two-point Energy-Symmetry Law is more fundamental than the standard tools of mechanics. Each appears when the two-point relation $$A \leftrightarrow B$$ is collapsed onto a single point — forcing $$r_A = r_B = r$$ and then re-introducing, by hand, the structure the collapse discarded.
 
@@ -510,46 +498,13 @@ The Lagrangian, Hamiltonian, Newton's third law and the Einstein–Hilbert actio
 
 <p class="paper-ref" markdown="span">Full text: [Part I — Two-Point Origin of the Lagrangian and Hamiltonian](https://willrg.com/documents/WILL_RG_I.pdf#sec:classical).</p>
 
-### Earth–GPS: standard GR as the first-order approximation of RG
-
-The daily clock offset between GPS satellites and the ground combines kinematic (SR) and gravitational (GR) effects into one relational factor $$\tau = \beta_Y\kappa_X$$. RG composes them *multiplicatively*; the textbook formula *adds* them. The additive form is exactly the first-order Taylor coefficient of the RG ratio — proved symbolically and to 40-digit precision.
-
-<details class="video-dropdown-container">
-<summary class="will-summary">▶ Interactive graph: Earth–GPS (Desmos)</summary>
-<div class="hero-details desmos-container">
-<iframe src="https://www.desmos.com/geometry/v6nrtv4vyx" width="100%" height="500" frameborder="0"></iframe>
-</div>
-</details>
-
-<details class="video-dropdown-container">
-<summary class="will-summary">▶ The numbers: RG (exact) vs GR (first order)</summary>
-<div class="hero-details" markdown="block">
-
-RG expresses the shift as the exact ratio $$\Delta t_{\text{RG}} = (1 - \tau_E/\tau_{\text{GPS}})\,D\,M$$:
-
-- $$\Delta t_{\text{RG}}$$ (exact) $$= 38.5421472752\ \mu s/\text{day}$$
-- $$\Delta t_{\text{GR}}$$ (first order) $$= 38.5421472451\ \mu s/\text{day}$$
-- difference $$= 3.0\times10^{-8}\ \mu s/\text{day}$$ — the second-order $$\beta^2\kappa^2$$ cross-term
-
-The additive GR formula is the unique leading-order content of the multiplicative RG ratio; the cross-term is the genuine discriminator, becoming relevant only as $$\beta^2$$ or $$\kappa^2$$ approach unity.
-
-</div>
-</details>
-
-<p class="paper-ref" markdown="span">Full text and notebook: [Part I — Earth–GPS System](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps).</p>
-
----
-
 ## Relational Orbital Mechanics (R.O.M.)
+
+![Relational Orbital Mechanics]({{ site.baseurl }}/images/relativistic-foundations/Relational_Orbital_Mechanics.png){: .slide}
 
 R.O.M. is not a separate paper — it is the operational payoff of the same principles applied to bound gravitating systems. It is a closed algebraic system that classifies the allowed relational states of an orbit with **no differential equations, no acceleration term, no $$G$$ and no $$M$$**. Everything below derives from $$\beta$$, $$\kappa$$ and closure $$\kappa^2 = 2\beta^2$$.
 
 <p class="paper-ref" markdown="span">Full paper: [R.O.M. — Relational Orbital Mechanics](https://willrg.com/documents/WILL_RG_R.O.M..pdf) · interactive: [R.O.M. Desmos](https://www.desmos.com/calculator/n4lmkpsebx).</p>
-
-<div class="placeholder" markdown="block">
-[ Slide placeholder — "The closed algebraic system of R.O.M." ]
-<span class="sub">Suggested visual: the core registry — observables (z_κ, z_β, e, θ, T) feeding β, κ, closure κ²=2β², and out the other side R_s, a, Δφ, ρ — as one closed loop with no G or M entering.</span>
-</div>
 
 R.O.M. does not describe how a body moves under forces; it classifies the algebraically allowed relational states of a bound system. The whole system is generated from two operational inputs — the gravitational redshift $$z_\kappa$$ and the transverse Doppler shift $$z_\beta$$ — together with the closure law. The core registry:
 
@@ -600,28 +555,102 @@ Newtonian limit ($$\beta_p \ll 1$$): $$\Delta\varphi \approx \kappa_p^2/\beta_p^
 
 <p class="paper-ref" markdown="span">[R.O.M. — Gravitational Deflection and Lensing](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_optics)</p>
 
-### Reconstructing a system's scale from observations alone
-
-<div class="placeholder" markdown="block">
-[ Slide placeholder — "Absolute scale from dimensionless observables (no G, no M)" ]
-<span class="sub">Suggested visual: four observables (e, θ_⊙, T_ratio, z_sun) → algebraic chain → R_s, a, r_p, precession for Mercury, with the recovered R_s matching 2GM/c² to 0.05%; Jupiter as the universality check.</span>
-</div>
-
-One of the most striking results in R.O.M.: the complete structural and dynamical parameterization of a bound system — eccentricity $$e$$, precession $$\Delta\varphi$$, Schwarzschild scale $$R_s$$, and semi-major axis $$a$$ — is fixed by four dimensionless, cross-cultural observables alone: the eccentricity $$e$$, the central body's angular radius $$\theta_\odot$$, the orbital cycle ratio $$T/T_\oplus$$, and the surface redshift $$z_{\rm sun}$$. No mass, no gravitational constant, no metric enters the chain.
-
-For **Mercury**, those four numbers yield $$R_{s,\rm RG} \approx 2954.8\,\text{m}$$ (GR gives $$2GM_\odot/c^2 \approx 2953.33\,\text{m}$$, a $$0.0476\%$$ difference, within the uncertainty of $$z_{\rm sun}$$ and $$\theta_\odot$$), $$a \approx 5.7923\times10^{10}\,\text{m}$$, $$r_p \approx 4.6014\times10^{10}\,\text{m}$$, and a precession of **43.015″/century** — all without $$M$$ or $$G$$. Applying the identical chain to **Jupiter** (changing only its period ratio and eccentricity) recovers $$a_J$$ to $$0.038\%$$, showing this is a universal geometric property of bound systems, not an artefact of the Mercury–Sun proximity.
-
-The corollary is exact: because $$e, \Delta\varphi, R_s, a$$ all close using only dimensionless ratios, $$G$$ and $$M$$ are translation factors for legacy units, not fundamental primitives. $$R_s$$ is the primary geometric invariant; classical mass is the anthropocentric proxy for it.
-
-<p class="paper-ref" markdown="span">Full derivation + notebook: [R.O.M. — Relational Parameterization and the Fundamental Primitives](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization).</p>
-
-### More of the same algebra
-
 **Time-density invariant and the absolute scale.** The invariant $$\tau_D = T\sin(\theta)^{3/2} = \sqrt{\pi/G\rho}$$ fixes the central density from period and angular radius alone, and at the horizon gives the universal constant $$\tau_{D(\rm limit)}/R_s = 2\sqrt{2}\,\pi/c$$. Four independent algebraic routes (optical-phase, two-point differential, geometric-resonance, instantaneous) determine the absolute system scale $$R_s$$ from observables, none of them passing through $$2GM/c^2$$. ([R.O.M. — Time-Density Invariant](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:time-density) · [Absolute Scale, Methods A–D](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:absolute_scale))
 
 **Rotation: Kerr without a metric.** Setting $$\beta = ac^2/GM$$ and $$\kappa = \sqrt{2}\,\beta$$, the relational carriers reproduce the Kerr structure algebraically: inner/outer horizons $$r_\pm = \tfrac{R_s}{2}(1 \pm \beta_Y)$$, merging at the extremal limit $$\beta = 1$$ to $$r_{\min} = \tfrac12 R_s$$, the ergosphere $$r_{\rm ergo} = \tfrac{R_s}{2}(1 + \sqrt{1 - \beta^2\cos^2\theta})$$, and a ring singularity. No naked singularity emerges for $$\beta \le 1$$ — cosmic censorship is enforced directly by the Energy-Symmetry Law bounding $$\beta \in [0, 1]$$. ([R.O.M. — Kerr Without Metric](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr))
 
 **Frame-dragging as a chiral algebraic asymmetry.** What GR derives from the off-diagonal $$g_{t\phi}$$ metric component, R.O.M. obtains from linear phase superposition on the directed $$S^1$$ carrier: the composite $$\beta_\Sigma = \beta_{\rm orb} \pm \beta_{\rm spin}$$ under closure produces the symmetry-breaking cross-term $$\pm 4\beta_{\rm orb}\beta_{\rm spin}$$, mandating that prograde orbits sit deeper than retrograde. Ablating higher-order terms recovers the post-Newtonian Lense–Thirring node precession exactly; tested against LAGEOS-1 it agrees with observation and GR. ([R.O.M. — Chiral Asymmetry / Frame-Dragging](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:chiral))
+
+## Density, the field equation, and no singularities
+
+![The unified geometric field equation]({{ site.baseurl }}/images/SLIDES-tinyPNG/16_Unified-Field-Equation.png){: .slide}
+
+Normalizing the potential projection over the unit-sphere area gives the local energy density and its bound at saturation:
+
+$$\rho = \frac{\kappa^2 c^2}{8\pi G r^2}, \qquad \rho_{\text{max}} = \frac{c^2}{8\pi G r^2}$$
+
+so all of gravitational physics reduces to a single algebraic identity — the ratio of geometric scales equals the ratio of energy densities:
+
+<div class="keybox" markdown="block">
+$$\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{\text{max}}}$$
+</div>
+
+Because density is capped at a finite $$\rho_{\text{max}}$$, infinite density is impossible. The static horizon sits at $$\kappa^2 = 1$$ ($$r = R_s$$); even the extremal rotating limit only reaches $$r = R_s/2$$. The point $$r = 0$$ is simply **absent** from the admissible relational range — singularities are excluded by construction, not patched over.
+
+<div class="insight" markdown="block">
+Density is bounded; the point $$r = 0$$ does not exist.
+</div>
+
+<p class="paper-ref" markdown="span">Full text: [Part I — Density, Mass, and Pressure](https://willrg.com/documents/WILL_RG_I.pdf#sec:density) · [No Singularities, No Hidden Regions](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities).</p>
+
+## Empirical Alignment — the framework against reality
+
+Everything to this point was geometry and logic. Now the same projections meet measured data. In several cases the standard formula turns out to be the *first-order approximation* of an exact relational expression.
+
+### Earth–GPS: standard GR as the first-order approximation of RG
+
+The daily clock offset between GPS satellites and the ground combines kinematic (SR) and gravitational (GR) effects into one relational factor $$\tau = \beta_Y\kappa_X$$. RG composes them *multiplicatively*; the textbook formula *adds* them. The additive form is exactly the first-order Taylor coefficient of the RG ratio — proved symbolically and to 40-digit precision.
+
+<details class="video-dropdown-container">
+<summary class="will-summary">▶ Interactive graph: Earth–GPS (Desmos)</summary>
+<div class="hero-details desmos-container">
+<iframe src="https://www.desmos.com/geometry/v6nrtv4vyx" width="100%" height="500" frameborder="0"></iframe>
+</div>
+</details>
+
+<details class="video-dropdown-container">
+<summary class="will-summary">▶ The numbers: RG (exact) vs GR (first order)</summary>
+<div class="hero-details" markdown="block">
+
+RG expresses the shift as the exact ratio $$\Delta t_{\text{RG}} = (1 - \tau_E/\tau_{\text{GPS}})\,D\,M$$:
+
+- $$\Delta t_{\text{RG}}$$ (exact) $$= 38.5421472752\ \mu s/\text{day}$$
+- $$\Delta t_{\text{GR}}$$ (first order) $$= 38.5421472451\ \mu s/\text{day}$$
+- difference $$= 3.0\times10^{-8}\ \mu s/\text{day}$$ — the second-order $$\beta^2\kappa^2$$ cross-term
+
+The additive GR formula is the unique leading-order content of the multiplicative RG ratio; the cross-term is the genuine discriminator, becoming relevant only as $$\beta^2$$ or $$\kappa^2$$ approach unity.
+
+</div>
+</details>
+
+<p class="paper-ref" markdown="span">Full text and notebook: [Part I — Earth–GPS System](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps).</p>
+
+### Reconstructing the Solar System from observations alone
+
+![Reconstructing absolute scale from four dimensionless observations]({{ site.baseurl }}/images/relativistic-foundations/WILL_Relational_Geometry_-_Slide_12.png){: .slide}
+
+This is the centrepiece. Take four numbers any observer can measure — no rulers laid out in space, no mass, no gravitational constant — and rebuild the entire Mercury–Sun system: its absolute scale, its orbit, and its 43″/century precession. The inputs are pure ratios:
+
+- the Sun's angular radius in the sky, $$\theta_\odot = 0.0046524$$ rad
+- the Sun's surface redshift, $$z_{\rm sun} = 2.1224\times10^{-6}$$
+- Mercury's orbital-period ratio to Earth, $$T_M/T_\oplus = 0.2408$$
+- Mercury's eccentricity, $$e_M = 0.2056$$
+
+The chain is short enough to follow by hand:
+
+<div class="steps" markdown="block">
+
+1. **Scale ratio:** $$\;R_{ratio} = \dfrac{\theta_\odot}{(T_M/T_\oplus)^{2/3}\,(1 - e_M)} \approx 0.0151290$$
+2. **Potential at perihelion:** $$\;\kappa_p^2 = \left[1 - \dfrac{1}{(1+z_{\rm sun})^2}\right] R_{ratio} \approx 6.4219\times10^{-8}$$
+3. **Kinetic at perihelion:** $$\;\beta_p^2 = \dfrac{\kappa_p^2}{2}(1 + e_M) \approx 3.8712\times10^{-8}$$
+4. **Global invariants:** $$\;\beta^2 = \kappa_p^2 - \beta_p^2 \approx 2.5508\times10^{-8}, \quad \kappa^2 = 2\beta^2$$
+5. **Precession:** $$\;\Delta\varphi = \dfrac{2\pi\,\tau_Y^2}{1 - e_M^2} \approx 5.0203\times10^{-7}\ \text{rad/orbit} = \mathbf{43.015''/century}$$
+6. **Absolute scale:** $$\;R_s = \dfrac{T_M\,c\,\beta^3}{\pi} \approx 2954.8\ \text{m}$$ &nbsp;(GR: $$2GM_\odot/c^2 \approx 2953.33$$ m — a $$0.05\%$$ difference)
+7. **Orbit:** $$\;a = \dfrac{R_s}{\kappa^2} \approx 5.792\times10^{10}\ \text{m}, \quad r_p = \dfrac{R_s}{\kappa_p^2} \approx 4.601\times10^{10}\ \text{m}$$
+
+</div>
+
+Every standard value of the Mercury–Sun system, recovered from four dimensionless observations. The same chain, with only Jupiter's period ratio and eccentricity swapped in, rebuilds Jupiter's orbit to $$0.038\%$$ — so this is a universal property of bound systems, not a quirk of Mercury. $$G$$ and $$M$$ never enter except as the final unit conversion; $$R_s$$ is the primary geometric invariant, and classical mass is the anthropocentric proxy for it.
+
+<div class="insight" markdown="block">
+You don't need a PhD to follow this — it's a handful of ratios and square roots. The best way to believe it is to do it yourself.
+</div>
+
+<div class="keybox" markdown="block">
+**Reproduce it yourself** → [Interactive Desmos: rebuild the Solar System from ratios](https://www.desmos.com/calculator/mjen4ms452) · [Colab notebook](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Mercury-Sun_Relational_Parameterization.ipynb)
+</div>
+
+<p class="paper-ref" markdown="span">Full derivation: [R.O.M. — Relational Parameterization and the Fundamental Primitives](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization).</p>
 
 ### Mercury's precession: GR 1PN as the first-order approximation of RG
 
@@ -667,35 +696,11 @@ At current precision, R.O.M. is observationally equivalent to GR, reached from a
 
 <p class="paper-ref" markdown="span">Full analysis + reproduction: [R.O.M. — S2 Star (Sgr A*) Against General Relativity and Instrumental Systematics](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:S2test).</p>
 
-### The three-body L1 point, from observables alone
+### The three-body L1 point, from observations alone
 
 The same algebraic chain locates the Sun–Earth L1 equilibrium point without $$G$$, $$M$$ or a metric. Enforcing closure and energy symmetry on the synchronous-motion condition yields an exact quintic in the normalised separation $$\alpha = (R_E - R_{L1})/R_E$$, whose physical root reproduces the observed Earth–L1 distance $$R_{L1} \approx 1.5\times10^9\,\text{m}$$ to better than $$0.3\%$$. The chain that recovers Mercury's precession and the S2 orbit also fixes a collinear three-body equilibrium.
 
 <p class="paper-ref" markdown="span">Full derivation + notebook: [R.O.M. — Relational Derivation of the L1 Equilibrium Point](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:L1).</p>
-
----
-
-## Density, the field equation, and no singularities
-
-![The unified geometric field equation]({{ site.baseurl }}/images/SLIDES-tinyPNG/16_Unified-Field-Equation.png){: .slide}
-
-Normalizing the potential projection over the unit-sphere area gives the local energy density and its bound at saturation:
-
-$$\rho = \frac{\kappa^2 c^2}{8\pi G r^2}, \qquad \rho_{\text{max}} = \frac{c^2}{8\pi G r^2}$$
-
-so all of gravitational physics reduces to a single algebraic identity — the ratio of geometric scales equals the ratio of energy densities:
-
-<div class="keybox" markdown="block">
-$$\kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{\text{max}}}$$
-</div>
-
-Because density is capped at a finite $$\rho_{\text{max}}$$, infinite density is impossible. The static horizon sits at $$\kappa^2 = 1$$ ($$r = R_s$$); even the extremal rotating limit only reaches $$r = R_s/2$$. The point $$r = 0$$ is simply **absent** from the admissible relational range — singularities are excluded by construction, not patched over.
-
-<div class="insight" markdown="block">
-Density is bounded; the point $$r = 0$$ does not exist.
-</div>
-
-<p class="paper-ref" markdown="span">Full text: [Part I — Density, Mass, and Pressure](https://willrg.com/documents/WILL_RG_I.pdf#sec:density) · [No Singularities, No Hidden Regions](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities).</p>
 
 ## Stage IV — Consequences &amp; Direct Applications
 
@@ -709,18 +714,13 @@ The single principle, through pure geometry, generated the carriers, the project
 SPACETIME ≡ ENERGY $$\;\Longrightarrow\;$$ $$\kappa^2 = \dfrac{R_s}{r} = \dfrac{\rho}{\rho_{\text{max}}}$$ $$\;\Longrightarrow\;$$ SPACETIME ≡ ENERGY
 </div>
 
-The principle is proven as the inevitable consequence of its own geometric consistency. Beautiful as that is, the test stays empirical — which is why R.O.M. above meets data, not only logic.
+The principle is proven as the inevitable consequence of its own geometric consistency. Beautiful as that is, the test stays empirical — which is why the section above meets data, not only logic.
 
 <p class="paper-ref" markdown="span">Full text: [Part I — Theoretical Ouroboros](https://willrg.com/documents/WILL_RG_I.pdf#sec:ouroboros).</p>
 
 ### $$W_{ILL} = 1$$ — the unity of the projections
 
-![WILL Invariant]({{ site.baseurl }}/images/relativistic-foundations/Relational_Geometry_-_Slide_13.png){: .slide}
-
-<div class="placeholder" markdown="block">
-[ Slide placeholder — "W_ILL = E·T / (M·L) = 1, the unity invariant" ]
-<span class="sub">Suggested visual: the four projections (Energy E, Mass M, Time T, Length L) as faces of one structure, combining into the dimensionless ratio E·T/(M·L) that collapses to exactly 1 for every energy, scale and phase.</span>
-</div>
+![The WILL invariant]({{ site.baseurl }}/images/relativistic-foundations/Relational_Geometry_-_Slide_13.png){: .slide}
 
 If there is one relational resource, then mass, energy, time and length are not independent — they are four correlated projections of the same structure. Combining them in the one dimensionless way the carriers permit gives an invariant identically equal to 1 for any closed system, at every energy, scale and orbital phase:
 
@@ -729,6 +729,10 @@ $$W_{ILL} = \frac{E\,T}{M\,L} = 1$$
 </div>
 
 All dimensionful constants cancel automatically; the value is fixed by the geometry of the carriers, not by a choice of units. Equivalently $$E/M = L/T$$: the energy sector and the spacetime sector are locked together. Treating energy–mass and space–time as separate blocks is an interpretational approximation; $$W_{ILL} = 1$$ is the precise statement that spacetime ≡ energy.
+
+<div class="insight" markdown="block">
+**WILL is not the unit of something — but the Unity of Everything.**
+</div>
 
 <details class="video-dropdown-container">
 <summary class="will-summary">▶ Interactive: deriving W_ILL = 1 (Desmos)</summary>
@@ -744,6 +748,8 @@ All dimensionful constants cancel automatically; the value is fixed by the geome
 **WILL** stands for **SPACE–TIME–ENERGY** — both a shorthand and a quiet irony toward the anthropic principle. The universe is not a stage where energy acts through time upon space, but a single self-balancing structure whose internal distinctions generate every phenomenon. The cosmos does not possess "will"; yet through WILL it manifests all that is.
 
 ### From descriptive to generative physics
+
+![From descriptive to generative physics]({{ site.baseurl }}/images/relativistic-foundations/WILL_Relational_Geometry_-_Slide_14.png){: .slide}
 
 The deepest shift is not a new equation but a new role for physical law. Standard physics observes phenomena and then writes laws to describe them. WILL inverts this: the laws are *generated* as the only self-consistent possibility.
 
@@ -781,7 +787,7 @@ The entire phenomenology of motion — Keplerian architecture, perihelion preces
 
 ---
 
-## The World as a Projection
+## This is Just a Beginning
 
 This is Part I, with R.O.M. The same projections extend to cosmology (Part II) and quantum mechanics (Part III). The core remains: energy does not exist *in* spacetime — it *creates* spacetime by its projection.
 
@@ -815,7 +821,3 @@ observer.observe(document.body, { childList: true, subtree: true });
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <script src="{{ site.baseurl }}/assets/tutor.js"></script>
-
-
-
-
