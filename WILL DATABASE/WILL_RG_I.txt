@@ -1631,7 +1631,6 @@ The historical factor $\frac{1}{2}$ in classical kinetic and potential energy fo
 
 This demonstrates that the Keplerian total energy is a direct linear projection of a deeper relational structure. The difference of squared amplitudes ($\beta^2 - \kappa^2$) emerges invariantly from the closed geometry of the carriers. The structure of the energy relation is a direct consequence of the relational closure of $S^1$ and $S^2$.
 
-
 \subsection{Two‑Point Origin of the Lagrangian and Hamiltonian}
 \hypertarget{sec:LH}{}\label{sec:LH}
 
@@ -1639,7 +1638,7 @@ In the standard formulation of mechanics, the Lagrangian \(L = T - V\) and the H
 \[
 \Delta E_{A \to B} + \Delta E_{B \to A} = 0 ,
 \]
-where the specific energy (per unit rest energy) perceived by an observer at state \(A\) for a transition to state \(B\) is determined by the difference in their total phase ratios:
+where the specific energy (per unit rest energy) perceived by an observer at state \(A\) for a transition to state \(B\) is determined by the difference in their total phase scaling:
 \begin{equation}
 \boxed{\;
 \Delta E_{A \to B}
@@ -1652,7 +1651,11 @@ Here $\beta = v/c$ is the kinematic projection on the carrier $S^{1}$ and $\kapp
 
 \subsubsection{The linearized relational limit}
 
-To connect with legacy mechanics, we examine the weak-field, low-velocity regime ($\beta \ll 1, \kappa \ll 1$). The Taylor expansion of the phase ratio yields $\frac{\kappa_X}{\beta_Y} \approx 1 - \frac{1}{2}\kappa^2 + \frac{1}{2}\beta^2$. Substituting this into the two-point law (Eq. \ref{eq:two_point_energy}), the constant $1$ cancels, leaving the linearized specific energy transfer:
+To connect with legacy mechanics, we examine the weak-field, low-velocity regime ($\beta \ll 1, \kappa \ll 1$). The Taylor expansion of the phase ratio yields $\frac{\kappa_X}{\beta_Y} \approx 1 - \frac{1}{2}\kappa^2 + \frac{1}{2}\beta^2$. Substituting this into the two-point law (Eq. \ref{eq:two_point_energy}) gives:
+\[
+\Delta E_{A \to B} \approx \left(1 - \tfrac12\kappa_B^2 + \tfrac12\beta_B^2\right) - \left(1 - \tfrac12\kappa_A^2 + \tfrac12\beta_A^2\right).
+\]
+The constant $1$ cancels out, leaving the linearized specific energy transfer:
 \begin{equation}
 \Delta E_{A \to B} \approx \tfrac12\bigl(\kappa_A^{2} - \kappa_B^{2}\bigr)
    + \tfrac12\bigl(\beta_B^{2} - \beta_A^{2}\bigr).
@@ -1662,11 +1665,11 @@ The factor $\tfrac12$ appears here as the first-order Taylor coefficient of the 
 
 \subsubsection{First ontological collapse: the Newtonian Hamiltonian}
 
-The standard Newtonian Hamiltonian is obtained by the \textbf{first ontological violation}: the two distinct points $A$ and $B$ are forced to coincide into a single coordinate system, and the reference point $A$ is pushed to infinity where $\kappa_A = 0$ and $\beta_A = 0$. 
+The standard Newtonian Hamiltonian is obtained by the first ontological violation. By the Principle of Relational Reciprocity (\ref{thm:reciprocity}), an observer self-centers at their own relational origin, meaning observer $A$ measures their own state as $\kappa_A = 0$ and $\beta_A = 0$. (Legacy physics interprets this self-centered zero-state as placing the reference frame at "infinity"). 
 
-Applying this collapse to Eq. \eqref{eq:linearized_two_point}, the transition becomes a property of a single state $B$:
+Applying this self-centered zero-state to the linearized two-point law (Eq. \ref{eq:linearized_two_point}), the transition collapses into a property of a single state $B$:
 \[
-E \approx \tfrac12\beta^{2} - \tfrac12\kappa^{2}.
+E \approx \tfrac12\beta_B^{2} - \tfrac12\kappa_B^{2}.
 \]
 Multiplying by $mc^2$ and substituting the legacy definitions of $\beta$ and $\kappa$ gives:
 \[
@@ -1674,21 +1677,17 @@ H \;=\; \tfrac12 m v^{2} \;-\; \frac{GMm}{r} ,
 \]
 which is the Newtonian Hamiltonian. The potential information, which belongs to the two-point difference, is artificially reassigned to a single point via an externally postulated potential function $V(r) = -GMm/r$.
 
-\subsubsection{Second ontological collapse: the Lagrangian}
+\subsubsection{Second ontological collapse: the Newtonian Lagrangian}
 
-If one starts from the same linearized two-point law (Eq. \ref{eq:linearized_two_point}) but chooses a fixed reference state $A$ (e.g., the surface of the central body) and holds it constant, the energy transfer to a variable state $B$ is:
+If one starts from the same linearized two-point law but enforces the second ontological violation --- forcing the two distinct points to occupy the same spatial coordinate, $r_A = r_B = r$ --- the relational structure collapses further. Setting $\kappa_A^2 = \kappa^2(r)$ and $\beta_A = 0$ while keeping $\beta_B = \beta$, the linearized equation becomes:
 \[
-\Delta E_{A \to B} \approx \tfrac12\kappa_A^{2} - \tfrac12\kappa_B^{2} + \tfrac12\beta_B^{2}.
+\Delta E_{A \to B} \approx \tfrac12\bigl(\kappa^{2}(r) - \kappa^{2}(r)\bigr) + \tfrac12\beta^{2} = \tfrac12\beta^{2}.
 \]
-Multiplying by $mc^2$ yields:
+The potential information completely vanishes from the relational ledger. To recover a dynamical equation, legacy mechanics must separately postulate an external potential energy function $V(r)$ and add it ad-hoc to the kinetic term. Assigning the opposite sign convention to this ad-hoc potential yields the Newtonian Lagrangian:
 \[
-mc^2 \Delta E_{A \to B} \approx \tfrac12 m v^{2} + \tfrac12 m c^{2} \kappa_A^2 - \frac{GMm}{r}.
+L \;=\; \tfrac12 m v^{2} \;+\; \frac{GMm}{r}.
 \]
-Interpreting the kinetic term and the variable potential term as the Lagrangian (with the constant surface potential $\tfrac12 m c^{2} \kappa_A^2$ dropped as an irrelevant offset) recovers the familiar form:
-\[
-L \;=\; \tfrac12 m v^{2} \;+\; \frac{GMm}{r} .
-\]
-The sign change in the potential term reflects the switch from an infinity-referenced ledger (Hamiltonian) to a surface-referenced ledger (Lagrangian). Both conventions are contained within the single two-point phase ratio law; their appearance depends entirely on the choice of reference collapse.
+Both the Hamiltonian and the Lagrangian are revealed as single-point artifacts of collapsing the true two-point phase ratio law.
 
 \subsubsection{Summary}
 
@@ -1715,7 +1714,7 @@ H &= \tfrac12 m v^2 - \dfrac{GMm}{r}
 \\
 \hline
 \multicolumn{2}{|p{0.93\textwidth}|}{\centering
-\textbf{The collapse is performed by Taylor linearizing the phase ratio (introducing the $\frac12$) and identifying a fixed reference point as an absolute coordinate. The two-point phase ratio contains the full energy balance without the need for a separate potential.}
+\textbf{The collapse is performed by Taylor linearizing the phase ratio (introducing the $\frac12$), applying the self-centered origin (Hamiltonian), and identifying $r_A=r_B$ (Lagrangian). The two-point phase ratio contains the full energy balance without the need for a separate potential.}
 } \\
 \hline
 \end{tabular}
@@ -1728,16 +1727,13 @@ The Lagrangian and Hamiltonian are linearized artifacts of the single‑point co
 
 
 \begin{remark}[Mathematical Status: Groupoid vs. Group]
-From a category-theoretic perspective, the relational transitions $\Delta E_{A \to B}$ form a \textbf{Groupoid} structure, where operations are defined only between specific connected states.
-Standard field theories (Hamiltonian/Lagrangian) rely on the collapse of this structure into a \textbf{Group} acting on a global manifold (Quotienting).
-Thus, the relational Energy-Symmetry Law operates at the Groupoid level, prior to the reduction into global field theories.
+From a category-theoretic perspective, the relational transitions $\Delta E_{A \to B}$ form a \textbf{Groupoid} structure, where operations are defined only between specific connected states. Standard field theories (Hamiltonian/Lagrangian) rely on the collapse of this structure into a \textbf{Group} acting on a global manifold (quotienting the state space). Thus, the relational Energy-Symmetry Law operates at the Groupoid level, prior to the reduction into global field theories.
 \end{remark}
 
 \begin{quotation}
 \textbf{Legacy Dictionary (for conventional formalisms).}  
 
-Within RG, all physical content is expressed purely in terms of relational projections $\beta$ and $\kappa$ on $S^1$ and $S^2$.  
-For readers accustomed to standard frameworks, the following translation rules may help:  
+Within RG, all physical content is expressed purely in terms of relational projections $\beta$ and $\kappa$ on $S^1$ and $S^2$. For readers accustomed to standard frameworks, the following translation rules apply:
 
 1. \emph{General Relativity (metric form):}  
 \[
@@ -1747,52 +1743,37 @@ For readers accustomed to standard frameworks, the following translation rules m
 \]
 
 2. \emph{Canonical mechanics (Lagrangian/Hamiltonian):}  
-Quantities such as $p_i=\partial L/\partial \dot q^i$ do not belong to the ontology of RG.  
-They arise only after collapsing the two-point relational law into a one-point formalism.  
-They are secondary derived quantities arising after the two-point relational structure is reduced to a local single-point formalism. 
+Quantities such as $p_i=\partial L/\partial \dot q^i$ do not belong to the ontology of RG. They are secondary derived quantities arising only after collapsing the two-point relational structure into a local single-point formalism. 
 
-Here the symbol $\hat{=}$ denotes not an ontological identity, 
-but a pragmatic dictionary entry for translation into legacy notation.  
+Here the symbol $\hat{=}$ denotes a pragmatic dictionary entry for translation into legacy notation, rather than an ontological identity.
 \end{quotation}
-
 
 \subsubsection{Third Ontological Collapse: Newton's Third Law}
 
-We now demonstrate that Newton's Third Law, like the Lagrangian and Hamiltonian,
-emerges as a limiting case of RG. It arises as a necessary mathematical consequence of the same ontological collapse - forcing a two-point relational law into a single-point, instantaneous formalism.
+We now demonstrate that Newton's Third Law, like the Lagrangian and Hamiltonian, emerges as a limiting case of RG. It arises as a necessary mathematical consequence of the same ontological collapse --- forcing a two-point relational law into a single-point, instantaneous formalism.
 
 \hypertarget{thm:third_law}{}\label{thm:third_law}
-\begin{theorem}[Newton's Third Law as a Single-Point Limit ]
-The Energy--Symmetry Law ($\Delta E_{A \to B} + \Delta E_{B \to A} = 0$)
-mathematically necessitates Newton's Third Law ($\vec{F}_{AB} = - \vec{F}_{BA}$)
-in the classical, non-relativistic limit where the two-point relational
-energy budget is collapsed into a single-point potential function $U(\vec{r})$.
+\begin{theorem}[Newton's Third Law as a Single-Point Limit]
+The Energy--Symmetry Law ($\Delta E_{A \to B} + \Delta E_{B \to A} = 0$) mathematically necessitates Newton's Third Law ($\vec{F}_{AB} = - \vec{F}_{BA}$) in the classical, non-relativistic limit where the two-point relational energy budget is collapsed into a single-point potential function $U(\vec{r})$.
 \end{theorem}
 
 \begin{proof}
-We begin with the Energy--Symmetry Law (Section~\ref{sec:energy-symmetry}), 
-the principle of causal balance for state transitions:
+We begin with the Energy--Symmetry Law (Section~\ref{sec:energy-symmetry}), the principle of causal balance for state transitions:
 \[
 \Delta E_{A \to B} + \Delta E_{B \to A} = 0.
 \]
-In the classical, non-relativistic limit, this two-point relational law is 
-"ontologically collapsed" into a single-point potential energy function, $U$.
-This function is assumed to depend only on the relative positions of the two 
-interacting entities, $A$ and $B$:
+In the classical limit, this two-point relational law is ontologically collapsed into a single-point potential energy function, $U$. This function is assumed to depend only on the relative positions of the two interacting entities, $A$ and $B$:
 \[
 U = U(\vec{r}) \quad \text{where} \quad \vec{r} = \vec{r}_B - \vec{r}_A.
 \]
-This $U(\vec{r})$ is the classical approximation of the system's relational energy ledger.
-In this collapsed formalism, the force $\vec{F}$ is defined as the negative 
-gradient of this potential.
+This $U(\vec{r})$ is the classical approximation of the system's relational energy ledger. In this collapsed formalism, the force $\vec{F}$ is defined as the negative gradient of this potential.
 
 \paragraph{(1) Force on $B$ by $A$ ($\vec{F}_{AB}$):}
 This force is found by taking the gradient with respect to $B$'s coordinates:
 \begin{align}
 \vec{F}_{AB} &= - \nabla_B U(\vec{r}_B - \vec{r}_A) \\
-% Use chain rule: dU/dr * dr/dr_B
-&= - ( \frac{d U}{d \vec{r}} ) \cdot ( \frac{\partial \vec{r}}{\partial \vec{r}_B} ) \\
-&= - \nabla U(\vec{r}) \cdot (\mathbf{I}) \\
+&= - \frac{d U}{d \vec{r}} \cdot \frac{\partial \vec{r}}{\partial \vec{r}_B} \\
+&= - \nabla U(\vec{r}) \cdot \mathbf{I} \\
 &= - \nabla U(\vec{r})
 \end{align}
 
@@ -1800,8 +1781,7 @@ This force is found by taking the gradient with respect to $B$'s coordinates:
 This force is found by taking the gradient with respect to $A$'s coordinates:
 \begin{align}
 \vec{F}_{BA} &= - \nabla_A U(\vec{r}_B - \vec{r}_A) \\
-% Use chain rule: dU/dr * dr/dr_A
-&= - ( \frac{d U}{d \vec{r}} ) \cdot ( \frac{\partial \vec{r}}{\partial \vec{r}_A} ) \\
+&= - \frac{d U}{d \vec{r}} \cdot \frac{\partial \vec{r}}{\partial \vec{r}_A} \\
 &= - \nabla U(\vec{r}) \cdot (-\mathbf{I}) \\
 &= + \nabla U(\vec{r})
 \end{align}
@@ -1815,26 +1795,23 @@ Therefore, within the single-point collapsed formalism:
 \[
 \boxed{ \vec{F}_{AB} = - \vec{F}_{BA} }
 \]
-This completes the proof. Since all physical observations are strictly relative, embedding the energy budget within an absolute spatial container ($\vec{r}_A, \vec{r}_B$) introduces unobservable parameters, which strictly violates the principle of Epistemic Hygiene. To remain empirically grounded, the collapsed potential $U$ must depend exclusively on the measurable physical relation $\vec{r}_B - \vec{r}_A$. Consequently, the principle of equal and opposite forces emerges not as an empirical axiom of mechanics, but as the mathematical signature of any causally balanced, background-independent system $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$.
+This completes the proof. Since all physical observations are relational (\ref{pr:relational}), embedding the energy budget within an absolute spatial container ($\vec{r}_A, \vec{r}_B$) introduces unobservable parameters, violating Epistemic Hygiene (\ref{pr:epistemic}). To remain empirically grounded, the collapsed potential $U$ must depend exclusively on the measurable physical relation $\vec{r}_B - \vec{r}_A$. Consequently, the law of equal and opposite forces emerges as the mathematical signature of any causally bound, background-independent system $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$.
 \end{proof}
 
 \subsubsection{Fourth Ontological Collapse: The Einstein-Hilbert Action ($S_{EH}$)}
 
-The Einstein-Hilbert action ($S_{EH} = \frac{1}{16\pi G} \int R \sqrt{-g} \, d^4x$) represents a reduction of relational connections between states into localized coordinate points. Standard tensor calculus employs the limit $dx \to 0$ to compress relational tension into the local Ricci scalar ($R$). This operation necessitates the postulation of a smooth background manifold and the application of the Principle of Stationary Action ($\delta S_{EH} = 0$) to maintain global equilibrium across arbitrary coordinates.
+The Einstein-Hilbert action ($S_{EH} = \frac{1}{16\pi G} \int R \sqrt{-g} \, d^4x$) represents the final reduction of relational connections between states into localized coordinate points. Standard tensor calculus employs the limit $dx \to 0$ to compress relational tension into the local Ricci scalar ($R$). This operation necessitates the postulation of a smooth background manifold and the application of the Principle of Stationary Action ($\delta S_{EH} = 0$) to maintain global equilibrium across arbitrary coordinates.
 
 \subsubsection{Components Mapping}
 
 \begin{itemize}
-    \item \textbf{Global 4D Volume} ($\int \sqrt{-g} \, d^4x \to 1$): Instead of summation over a background manifold, relational capacity in RG is bound by the carriers  $\kappa^2 + \kappa_X^2 = 1$ and $\beta^2 + \beta_Y^2 = 1$(\ref{thm:conservation}). 
-    \item \textbf{The Ricci Scalar} ($R \to \kappa^2, \beta^2$): Differential approximation replaced with relational projections.
-    \item \textbf{The Variational Search} ($\delta S = 0 \to \Delta E_{A \to B} + \Delta E_{B \to A} = 0$): Reduced to the Law of Energy Symmetry ($\Delta E_{A \to B} + \Delta E_{B \to A} = 0$) (\ref{sec:energy-symmetry}).
+    \item \textbf{Global 4D Volume} ($\int \sqrt{-g} \, d^4x \to 1$): Instead of an integration over a background manifold, the total relational capacity in RG is bound by the unitary closure of the carriers: $\kappa^2 + \kappa_X^2 = 1$ and $\beta^2 + \beta_Y^2 = 1$ (\ref{thm:conservation}). 
+    \item \textbf{The Ricci Scalar} ($R \to \kappa^2, \beta^2$): The differential approximation of spacetime curvature is replaced directly by the finite, dimensionless relational projections.
+    \item \textbf{The Variational Search} ($\delta S = 0 \to \Delta E_{A \to B} + \Delta E_{B \to A} = 0$): The continuous minimization of the action integral is the continuum shadow of the Energy-Symmetry Law. Requiring $\delta S = 0$ over a manifold is mathematically equivalent to requiring $\Delta E = 0$ for all local transitions, ensuring the global relational ledger balances perfectly.
 \end{itemize}
 
-\subsubsection*{\textbf{Empirical Grounding}} of the action ($S_{EH}$) manifests in gravitational light deflection via the addition of a curved spatial metric ($g_{rr}$). RG achieves the identical empirical result without introducing new ontological primitives: \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_optics}{(Gravitational Deflection and Lensing)}. 
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Philosophical Consequences]
-\href{https://willrg.com/documents/WILL_RG_Substantialism_vs._Relationalism.pdf}{Substantialism vs. Relationalism}
-\end{tcolorbox}
+\subsubsection*{\textbf{Empirical Grounding}}
+The empirical necessity of the action ($S_{EH}$) manifests in phenomena such as gravitational light deflection, which legacy physics derives via the addition of a curved spatial metric ($g_{rr}$). RG achieves the identical empirical result without introducing new ontological primitives, deriving it directly from the $S^2$ carrier geometry: \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_optics}{(Gravitational Deflection and Lensing)}.
 
 
 \subsection{Earth--GPS System: Standard GR as First-Order Approximation of RG}
@@ -2071,7 +2048,7 @@ M = 4\pi r^3 \rho,
 which closes the consistency loop between the geometric and density-based formulations.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos Project]
-\textbf{ \href{https://www.desmos.com/calculator/9js8jndn5c}{Derivation of Density and Pressure }}
+\textbf{ \href{https://www.desmos.com/calculator/9js8jndn5c}{Derivation of Density}}
 \end{tcolorbox}
 
 \subsubsection{Pressure as Surface Curvature Gradient}
@@ -2562,20 +2539,20 @@ expansions altogether.
 
 \subsection{Discussion}
 
-All WILL RG results including the success of R.O.M. remains a single unbroken generative chain of derivations from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{methodological constrains} with zero flexibility. 
-Relational Orbital Mechanics is not an independent model. It is the direct operational consequence of applying the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles} to bound gravitational systems.
+All WILL RG results, including the success of R.O.M., remain a single unbroken generative chain of derivations from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{methodological constraints} with zero flexibility. 
+Relational Orbital Mechanics functions as the direct operational consequence of applying the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles} to bound gravitational systems.
 
 \subsubsection{Epistemic and Operational Benefits}
 
-% ===  INSERT EPISTEMIC PARAGRAPH HERE ===
+WILL RG enforces epistemic hygiene by operating exclusively on dimensionless, operationally defined observables. By replacing the absolute background manifold with the topological closure of the $S^1$ and $S^2$ carriers, the framework eliminates surplus ontology—absolute space, absolute time, and independent mass. Every parameter in the algebraic chain ($\beta, \kappa, e, T, z$) maps directly to a measurable spectroscopic or chronometric quantity. Consequently, the theory achieves maximum ontological parsimony: it posits only what is structurally necessary to close the relational ledger, stripping away all metaphysical artifacts inherited from classical continuum mechanics.
 
 \subsubsection*{Operational Benefits: Absence of Differential Formalism and Acceleration}
 
-The most immediate operational consequence of the relational construction is that \textbf{no differential equations of motion and no concept of acceleration are required}. In standard orbital mechanics the central acceleration (Newtonian or geodesic) is the primitive from which orbital period, shape, precession, and equilibrium configurations are derived. In WILL RG the same observables are obtained directly from algebraic identities among the projections on the carriers \(S^1\) and \(S^2\), once the methodological principles and the unifying principle \(\text{SPACETIME} \equiv \text{ENERGY}\) have fixed the geometry of those carriers and the unique exchange rate between them.
+The most immediate operational consequence of the relational construction is the absence of differential equations of motion and the concept of acceleration. In standard orbital mechanics the central acceleration (Newtonian or geodesic) is the primitive from which orbital period, shape, precession, and equilibrium configurations are derived. In WILL RG the same observables are obtained directly from algebraic identities among the projections on the carriers \(S^1\) and \(S^2\), once the methodological principles and the unifying principle \(\text{SPACETIME} \equiv \text{ENERGY}\) have fixed the geometry of those carriers and the unique exchange rate between them.
 
-This absence is not a simplification imposed after the fact; it follows necessarily from the generative structure. Because the theory begins by removing the separation between structure and dynamics, and because it enforces topological closure and maximal symmetry from the outset, the allowed relational states of a bound system are completely classified by the dimensionless projections and the single closure condition that the methodology itself produces. No integration of trajectories, no effective potentials, and no auxiliary constructs such as rotating frames are needed. The mathematics remains a short sequence of explicit algebraic relations whose every step retains clear physical meaning.
+This absence operates as a necessary consequence of the generative structure. Because the theory begins by removing the separation between structure and dynamics, and because it enforces topological closure and maximal symmetry from the outset, the allowed relational states of a bound system are completely classified by the dimensionless projections and the single closure condition that the methodology itself produces. The mathematics requires no integration of trajectories, no effective potentials, and no auxiliary constructs such as rotating frames. It remains a short sequence of explicit algebraic relations whose every step retains clear physical meaning.
 
-The gain in transparency is therefore structural. Observables that in conventional treatments appear only after lengthy perturbative expansions or numerical integration of differential equations emerge here as immediate, exact consequences of the relational geometry. This is visible across all derivations in the paper, including the period–semi-major-axis relation, eccentricity, secular precession, light deflection, and the location of the Sun–Earth L1 point (Sections \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization}{Relational Parameterization} and \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:L1}{Sun–Earth L1 point}).
+The gain in transparency is therefore structural. Observables that in conventional treatments appear only after lengthy perturbative expansions or numerical integration of differential equations emerge here as immediate, closed-form consequences of the relational geometry. This is visible across all derivations in the paper, including the period–semi-major-axis relation, eccentricity, secular precession, light deflection, and the location of the Sun–Earth L1 point (Sections \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization}{Relational Parameterization} and \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:L1}{Sun–Earth L1 point}).
 
 
 
@@ -2589,15 +2566,13 @@ In conventional physics the methodology follows a descriptive paradigm:
     \item Mathematical formalisms are constructed to \emph{describe} these regularities.  
 \end{enumerate}
 
-Thus, physical laws are always introduced as external assumptions that model what is seen.  
-Even in General Relativity, where geometry plays the central role, the equivalence principle and the metric postulate are still external inputs.
+Thus, physical laws enter as external assumptions that model what is seen.  
+Even in General Relativity, where geometry plays the central role, the equivalence principle and the metric postulate remain external inputs.
 
-RG inverts this paradigm. Laws are not added on top of observations;  
-they are \emph{generated} as inevitable consequences of relational geometry:
+RG inverts this paradigm. Laws are generated as inevitable consequences of relational geometry:
 \begin{itemize}
-    \item There are no independent axioms such as ``inertial mass equals gravitational mass.''  
-    \item Such relations appear automatically as algebraic identities enforced by the geometry.  
-    \item What classical physics calls ``laws of nature'' are secondary shadows of the single relational principle:
+    \item Concepts such as ``inertial mass equals gravitational mass'' emerge automatically as algebraic identities enforced by the geometry.  
+    \item What classical physics calls ``laws of nature'' serve as secondary shadows of the single relational principle:
     \[
        \text{SPACETIME} \;\equiv\; \text{ENERGY}.
     \]
@@ -2651,18 +2626,18 @@ Goal: \emph{show why nothing else is possible}. \\
 Frequency shift = combination of kinetic (SR) and gravitational (GR) effects. &
 Single symmetric law: 
 \(\tau=\beta_Y\cdot\kappa_X\), 
-\(E_{\text{loc}}=\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}\)\(= \frac{E_{\text{loc}}}{\tau} \)  
+\(E_{\text{loc}}=\frac{E_0}{\sqrt{(1-\beta^2)(1-\kappa^2)}}=\frac{E_{\text{loc}}}{\tau}\)  
 38.52 $\mu$s/day
 verified directly with GPS satellites.\\
 \hline
 \textbf{Photon sphere, ISCO, horizons} &
 Derived by solving geodesic equations in Schwarzschild metric. &
-Critical radii emerge from simple symmetry's (Photon sphere: \(\theta_1=\theta_2=54.73^{\circ}  \quad \text{(''magic angle'')}\)  \(Q^2=\kappa^2+\beta^2=1 \). 
-ISCO: \(Q = Q_Y\),\\
+Critical radii emerge from simple symmetries (Photon sphere: \(\theta_1=\theta_2=54.73^{\circ}  \quad \text{(''magic angle'')}\)  \(Q^2=\kappa^2+\beta^2=1 \). 
+ISCO: \(Q^2 = Q_Y^2 = 1/2\)).\\
 \hline
 \textbf{Mercury's perihelion precession} &
 Complex expansion of Einstein field equations. &
-Same number obtained from RG with $\Delta\varphi=\frac{2\pi \cdot \tau_{Y}^2}{1-e^2}=43''$/century.  Using simple algebra.\\
+Same number obtained from RG with $\Delta\varphi=\frac{2\pi \cdot \tau_{Y}^2}{1-e^2}=43''$/century. Using simple algebra.\\
 \hline
 \textbf{Cosmological redshift} &
 Photon "loses energy" as universe expands. &
@@ -2675,14 +2650,14 @@ Arises naturally as \(\Lambda = 2/3r^2\). No extra entities required. (More deta
 \hline
 \textbf{Singularities} &
 Predicted in black holes and big bang (\(\rho \to \infty\)). &
-Forbidden: density bounded by \(\rho_{\max} = c^2/(8\pi G r^2)\). \\
+Structurally absent: density bounded by \(\rho_{\max} = c^2/(8\pi G r^2)\). \\
 \hline
 \textbf{Local gravitational energy} &
-"Cannot be localized" (only ADM/Bondi at infinity). &
+Indirectly localized at infinity (ADM/Bondi). &
 Directly measurable via \(\kappa\), e.g. from light deflection angle or red shift.\\
 \hline
 \textbf{Unification with QM} &
-No natural unification in GR framework. &
+Absent in standard GR framework. &
 Same projectional law applies from microscopic $\alpha = \beta_1$ (QM) to cosmic $\kappa^2=\Omega_{\Lambda}$ (GR, COSMO) scales.  (Details in WILL PART II and III)\\
 \hline
 \end{tabular}
@@ -2694,9 +2669,9 @@ Same projectional law applies from microscopic $\alpha = \beta_1$ (QM) to cosmic
 \hypertarget{sec:challenges}{}\label{sec:challenges}
 
 
-Gravitational waves and the full radiative two-body problem have not yet been formulated within the relational framework. The current construction addresses only conservative, bound orbits. Extending it to dissipative, radiative dynamics requires a relational description of propagating degrees of freedom on the carriers and remains an open technical task.
+Gravitational waves and the full radiative two-body problem remain to be formulated within the relational framework. The current construction addresses only conservative, bound orbits. Extending it to dissipative, radiative dynamics requires a relational description of propagating degrees of freedom on the carriers and remains an open technical task.
 
-A complete, self-consistent multi-body architecture that extends beyond the collinear L1 case has likewise not been constructed. The nested-contour approach provides a clear conceptual route, but its explicit algebraic realisation for systems containing three or more gravitationally bound bodies (including mean-motion resonances and long-term stability) requires further development. The author states openly that progress on both fronts has so far been limited by present mathematical facility rather than by any intrinsic prohibition within the relational ontology. Collaboration with researchers experienced in radiative dynamics and in the algebraic treatment of multi-body closures is therefore actively invited.
+A complete, self-consistent multi-body architecture that extends beyond the collinear L1 case awaits explicit algebraic realisation. The nested-contour approach provides a clear conceptual route, but its explicit mathematical formulation for systems containing three or more gravitationally bound bodies (including mean-motion resonances and long-term stability) requires further development. The author states openly that progress on both fronts has so far been limited by present mathematical facility rather than by any intrinsic prohibition within the relational ontology. Collaboration with researchers experienced in radiative dynamics and in the algebraic treatment of multi-body closures is therefore actively invited.
 
 \subsection{Falsifiability and Future Tests}
 
@@ -2704,30 +2679,29 @@ The framework yields several sharp, near-term testable predictions that follow d
 
 The most immediate discriminator is continued high-precision monitoring of the S2 star. The relational model predicts that the true-anomaly-coupled precession parametrisation will preserve or strengthen its statistical advantage over the conventional time-linear implementation as new pericentre passages are added with improved GRAVITY+ astrometry (2026–2028 and subsequent windows). A statistically significant reversal of the present \(\Delta\chi^2\) improvement on the enlarged dataset would falsify the relational phasing hypothesis while remaining compatible with the magnitude of the precession itself.
 
-For Solar-System tests, the explicit second-order correction in the RG. precession formula is in principle accessible with sufficiently long observational baselines or with planets at smaller semi-major axes. A confirmed detection at the predicted magnitude, or a firm upper bound below it, would directly constrain the cross-coupling term that is absent from the first-order post-Newtonian expression.
+For Solar-System tests, the explicit second-order correction in the RG precession formula is in principle accessible with sufficiently long observational baselines or with planets at smaller semi-major axes. A confirmed detection at the predicted magnitude, or a firm upper bound below it, would directly constrain the cross-coupling term that is absent from the first-order post-Newtonian expression.
 
-These tests are decisive because they probe either the phasing of precession or the explicit higher-order content of the closure theorem -- both of which are uniquely fixed by the relational algebra and are not adjustable parameters.
+These tests are decisive because they probe either the phasing of precession or the explicit higher-order content of the closure theorem -- both of which are uniquely fixed by the relational algebra and function as non-adjustable parameters.
 
 
 \subsection{Conclusion}
 
-Relational Geometry demonstrates that the entire phenomenology of  motion -- from Keplerian architecture to perihelion precession and light deflection -- emerges as an inevitable algebraic consequence of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles}. All WILL RG results including the complete success of R.O.M. remains an unbroken chain of derivations from firs principles under extreme methodological constrains with zero flexibility.
+Relational Geometry demonstrates that the entire phenomenology of motion -- from Keplerian architecture to perihelion precession and light deflection -- emerges as an inevitable algebraic consequence of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles}. All WILL RG results, including the complete success of R.O.M., remain an unbroken chain of derivations from first principles under extreme methodological constraints with zero flexibility.
 
-This is not a re-description of General Relativity; it is the irreducible algebraic core that remains when the ontological superstructure of Riemannian geometry and tensorial formalism is removed. The S2 orbit fit and Mercury's precession clearly show that RG is not the subset of GR but separate model with radically cleaner and lighter ontological baggage. Future more accurate astronomical data will be able to definitively show which ontology the empirical data gives preference to.
+This operates as the irreducible algebraic core that remains when the ontological superstructure of Riemannian geometry and tensorial formalism is removed. The S2 orbit fit and Mercury's precession clearly show that RG functions as a distinct model with radically cleaner and lighter ontological baggage. Future, more accurate astronomical data will definitively show which ontology the empirical data prefers.
 
 Within RG several structural consequences follow:
 \begin{enumerate}
-    \item \textbf{\(G\) and \(M\) are secondary.} The Schwarzschild length \(R_s\) and all orbital distances are derived directly from dimensionless spectroscopic and chronometric ratios. The Newtonian gravitational constant and the kilogram mass appear only as conversion factors when translating geometric results into legacy units.
-    \item \textbf{Derivation of Metrics from Relational Geometry.} The Minkowski, Schwarzschild and Kerr metrics and there intervals --- revealed not as fundamental postulates of a 4D manifold, but as the Pythagorean identities of the relational carriers $S^1$ and $S^2$. Relativistic effects---such as time dilation and length contraction---emerge naturally as geometric rotations between external interaction (Amplitude) and internal existence (Phase).
-    \item \textbf{Closure replaces the virial theorem.} The relation \(\kappa^2 = 2\beta^2\) is not an empirical input but the inevitable consequence of equitable capacity distribution across the independent degrees of freedom of the kinematic and potential carriers.
-    \item \textbf{Precession is topological, not dynamical.} The secular advance of the pericentre arises from the mismatch of internal phase over one cyclic extension of the orbital phase, without integrating geodesic equations or expanding in powers of \(v/c\).
-    \item \textbf{Singularity's are avoided} by naturally constraining the valid range of radial distance. 
-\textbf{The point $r=0$ is absent from the admissible relational range.}
-\item \href{https://willrg.com/documents/WILL_RG_I.pdf#trilogy}{WILL trilogy} offers a unified, parameter-free ground-up unbroken chain derivation of most major observed phenomena within extreme methodological constrains and 0 flexibility.  The traditional  unjustified separation of spacetime and energy dissolves into a single generative structure we call WILL. \end{enumerate}
+    \item \textbf{\(G\) and \(M\) are secondary.} The Schwarzschild length \(R_s\) and all orbital distances are derived directly from dimensionless spectroscopic and chronometric ratios. The Newtonian gravitational constant and the kilogram mass serve strictly as conversion factors when translating geometric results into legacy units.
+    \item \textbf{Derivation of Metrics from Relational Geometry.} The Minkowski, Schwarzschild, and Kerr metrics and their intervals are revealed as the Pythagorean identities of the relational carriers $S^1$ and $S^2$. Relativistic effects---such as time dilation and length contraction---emerge naturally as geometric rotations between external interaction (Amplitude) and internal existence (Phase).
+    \item \textbf{Closure replaces the virial theorem.} The relation \(\kappa^2 = 2\beta^2\) emerges as the inevitable consequence of equitable capacity distribution across the independent degrees of freedom of the kinematic and potential carriers.
+    \item \textbf{Precession is topological, rather than dynamical.} The secular advance of the pericentre arises from the mismatch of internal phase over one cyclic extension of the orbital phase, bypassing the integration of geodesic equations or expansion in powers of \(v/c\).
+    \item \textbf{Singularities are avoided} by naturally constraining the valid range of radial distance. \textbf{The point $r=0$ remains absent from the admissible relational range.}
+    \item \href{https://willrg.com/documents/WILL_RG_I.pdf#trilogy}{WILL trilogy} offers a unified, parameter-free ground-up unbroken chain derivation of most major observed phenomena within extreme methodological constraints and zero flexibility.  The traditional unjustified separation of spacetime and energy dissolves into a single generative structure we call WILL. \end{enumerate}
 
 
 The results presented here invite exacting numerical tests (additional binary pulsars, triple systems, high-resolution S2 pericentre passages) and provide an operational language in which gravitational phenomena can be communicated without surplus ontology. 
-The hope is that this physical and mathematical clarity returned by RG's \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{methodology} will help turn the focus of physical science back to its earliest ambition: to understand the Universe, not just to model it.
+The hope is that this physical and mathematical clarity returned by RG's \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{methodology} will help turn the focus of physical science back to its earliest ambition: to understand the Universe, rather than just to model it.
 
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Final Summary]
