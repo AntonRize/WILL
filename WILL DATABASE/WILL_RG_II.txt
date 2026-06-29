@@ -485,7 +485,7 @@ Colab: \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/C
 \section{Galactic Dynamics: The Resonant Horizon}
 \hypertarget{sec:galactic-dynamics}{}\label{sec:galactic-dynamics}
 
-We derive galactic dynamics  from the principle that \textbf{Spacetime $\equiv$ Energy}. In RG, \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:inverse_square}{"distance" is not a spatial separation in a void}, but a difference in energy configurations. Consequently, radial separation $r$ must be expressible as a frequency potential relative to the Global Horizon.
+We derive galactic dynamics  from the principle that \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying}{\textbf{Spacetime $\equiv$ Energy}.} In RG, \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:inverse_square}{"distance" is not a spatial separation in a void}, but a difference in energy configurations. Consequently, radial separation $r$ must be expressible as a frequency potential relative to the Global Horizon.
 
 \subsection{The Fundamental Tone ($f_0$)}
 Since the Universe is a topologically closed system with a causal horizon $R_H = c/H_0$, it possesses a minimum energy state corresponding to the fundamental standing wave (The Fundamental Tone):
@@ -497,26 +497,27 @@ This frequency establishes the minimal energy floor for any interaction in the c
 a_{Mach} = f_0 c = \frac{H_0 c}{2\pi} \approx 1.05 \times 10^{-10} \, \mathrm{m/s^2}.
 \end{equation}
 
-\subsection{Bifurcation of Resonance: Structural vs. Kinetic}
+\subsection{Bifurcation of Resonance: Topological Coupling}
 
-Recall the total relational shift established in WILL Part I:
+Recall the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:DisQ}{total relational shift} established in WILL Part I:
 \begin{equation}
 Q^2 = \kappa^2 + \beta^2 = 3\beta^2 = \frac{3}{2}\kappa^2
 \end{equation}
+The assignment of the topological carrier connecting a local system to the Global Horizon is dictated by the \textbf{Degrees of Freedom (DOF) of the relational link}:
+
 \begin{enumerate}
-    \item \textbf{Galaxies} are physically realised as continuous potential fields (fluids/structure). Their relational state is a smooth function $\kappa(\vec{x})$ on the $S^2$ carrier. Hence, they couple to the horizon via the \textbf{Structural Channel} with weight $\Omega_{p o t} = \frac{\kappa^{2}}{Q^{2}} = \frac{2}{3}$.
-\begin{equation}
+    \item \textbf{Galaxies (2-DOF Link):} A galaxy is physically realized as an omnidirectional network of relational links. This constitutes a 2-DOF shell-like $S^2$ phase surface. By the \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference}{DOF-Indifference Lemma}, galaxies couple to the horizon via the \textbf{Structural Channel} with weight $\Omega_{pot} = \frac{\kappa^{2}}{Q^{2}} = \frac{2}{3}$ (\ref{def:rel_weight}).
+    \begin{equation}
     a_{\kappa} = \Omega_{pot} \cdot a_{Mach} = \frac{2}{3} \frac{cH_0}{2\pi} = \frac{cH_0}{3\pi} \approx 0.70 \times 10^{-10} \, \mathrm{m/s^2}
     \end{equation}
-    \item \textbf{Binaries} are discrete orbital systems (point masses). Their relational state is a periodic function $\beta(\theta)$ (where $\theta$ is the orbital phase) on the $S^1$ carrier. Hence, they couple via the \textbf{Kinetic Channel} with weight $\Omega_{k i n} = \frac{\beta^{2}}{Q^{2}} = \frac{1}{3}$.
+    
+    \item \textbf{Wide Binaries (1-DOF Link):} A wide binary is a two-body relational system whose is defined by there state difference. The two stars interact via relative kinetic difference. This constitutes a 1-DOF relational link. By the  \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference}{DOF-Indifference Lemma},  binaries couple via the \textbf{Kinetic Channel} with weight $\Omega_{kin} = \frac{\beta^{2}}{Q^{2}} = \frac{1}{3}$.
     \begin{equation}
     a_{\beta} = \Omega_{kin} \cdot a_{Mach} = \frac{1}{3} \frac{cH_0}{2\pi} = \frac{cH_0}{6\pi} \approx 0.35 \times 10^{-10} \, \mathrm{m/s^2}
     \end{equation}
 \end{enumerate}
 
-This assignment is  enforced by the algebraic closure condition $\kappa^2 = 2\beta^2$. The continuity of the potential field selects the $S^2$ carrier for galaxies, while the discrete orbital nature selects $S^1$ for binaries.
-
-Consequently, the resulting acceleration scales $a_\kappa = cH_0/3\pi$ and $a_\beta = cH_0/6\pi$ are \textbf{topological invariants} of the theory. This bifurcation rigorously explains why MOND's single universal parameter $a_0$ fails for wide binaries (which require the kinetic scale) while WILL RG accurately matches both regimes.
+The resulting acceleration scales $a_\kappa = cH_0/3\pi$ and $a_\beta = cH_0/6\pi$ are \textbf{topological invariants} of WILL. 
 
 \subsection{Geometric Scale Coupling (The Resonant Bridge)}
 
@@ -2190,16 +2191,18 @@ Since the energetic projection ($\Gamma_E$) and the spatial topological unwrappi
     \boxed{ \Gamma = \Gamma_E \cdot \Gamma_T = \frac{1}{\pi\sqrt{2}} }
 \end{equation}
 
-\paragraph{4. The Geometric Mach Equation and Dimensional Resolution ($\Gamma^3$).}
-To map the internal curvature intensity onto the linear universal axis, we formulate the \textbf{Geometric Mach Equation}:
+4. The Geometric Mach Equation and Dimensional Resolution ($\Gamma^3$)
+
+To map the internal curvature intensity onto the linear universal axis, we formulate the **Geometric Mach Equation**. Equating the raw geometric ratios yields a scalar imbalance regarding the mass term:
+
+$$\mathcal{R}_{int} \propto m_e^{-2}, \qquad \mathcal{R}_{ext} \propto m_e^1$$
+
+Isolating the mass variable between the internal and external invariants results in a cubed mass term ($m_e^3$). As established in WILL Part I (Translating RG to Conventional Density), "mass" is not a fundamental 1D relational scalar, but a legacy 3D translation artifact implicitly encoding volumetric dependence.
+
+The term $m_e^3$ therefore behaves as a 3D volumetric capacity. To extract the fundamental 1D linear relational projection of the particle ($m_e$) from this 3D artifact, the holographic operator $\Gamma$ must be applied to all three internal spatial degrees of freedom. The complete dimensional resolution dictates that the internal ratio is scaled by the cubed operator ($\Gamma^3$) to enforce geometric equilibrium with the 1D external horizon:
 \hypertarget{eq:mach_geo}{}\label{eq:mach_geo}
-\begin{equation}
-    \boxed{ \mathcal{R}_{int} \cdot \Gamma^3 = \mathcal{R}_{ext} }
-\end{equation}
-In Equation (\ref{eq:mach_geo}), the Internal Capacity Ratio $\mathcal{R}_{int}$ incorporates the mass term squared in the denominator ($m_e^{-2}$). As established in \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{Part I section density} (Translating RG to Conventional Density), mass is not a fundamental scalar but a 3D translation artifact implicitly encoding a volumetric dependence ($1/r^3$). 
 
-Because $\mathcal{R}_{int}$ operates as a volumetric capacity metric, mapping it onto the 1D linear horizon ratio ($\mathcal{R}_{ext}$) creates a dimensional mismatch. To enforce geometric equilibrium, the 1D filter $\Gamma$ must be applied across all three spatial dimensions embedded within the mass artifact. The operator is  cubed ($\Gamma^3$), successfully unpacking the 3D-mass variable into a 1D relational length without empirical fitting parameters.
-
+$$\boxed{ \mathcal{R}_{int} \cdot \Gamma^3 = \mathcal{R}_{ext} }$$
 \subsection{Derivation}
 
 Substituting the definitions into Eq. (\ref{eq:mach_geo}):
@@ -2253,7 +2256,6 @@ This completes the Theoretical Ouroboros:
 \end{enumerate}
 Provided evidence strongly suggests that the Universe is a single, resonant, self-defining geometric relational unity.
 
-
 \section{General Discussion}
 
 The analysis presented in this work yields three structurally significant results that challenge the foundations of the Standard Model ($\Lambda$CDM) and standard Modified Gravity (MOND):
@@ -2272,7 +2274,7 @@ Unlike phenomenological models that fit acceleration scales ($a_0$) to minimize 
 
 Epistemological test of any physical theory is the independence of its observables. In standard $\Lambda$CDM cosmology, the Hubble parameter $H_0$ and the acoustic scale $\ell_{peak}$ are coupled variables; they are derived from a multi-parameter fit where altering $H_0$ shifts the angular diameter distance, forcing a recalibration of matter densities ($\Omega_m, \Omega_{\Lambda}$) to maintain consistency with the CMB spectrum.
 
-In WILL Relational Geometry, we observe a strict \textbf{Orthogonal Decoupling} of these parameters. The derivations presented in this paper proceed along two mathematically disjoint paths, yet converge on the same observational reality (Planck 2018).
+In WILL Relational Geometry, we observe \textbf{Orthogonal Decoupling} of these parameters. The derivations presented in this paper proceed along two mathematically disjoint paths, yet converge on the same observational reality (near Planck 2018).
 
 \subsection{Path A: The Thermodynamic Limit ($H_0$)}
 The expansion rate $H_0$ is derived (\ref{sec:deriving-H0}) as a limit of \textbf{Energy Saturation}. It relies on thermodynamic input:
@@ -2297,7 +2299,7 @@ Crucially, the calculation of the acoustic peak does not require knowledge of th
     \boxed{\frac{\partial H_0}{\partial \ell_{peak}} = 0}
 \end{equation}
 
-The fact that two independent derivation paths - one thermodynamic and one topological - yield results matching high-precision empirical data ($\delta \approx 1.0\%$ for $H_0$, $\delta \approx 0.004\%$ for $\ell$) constitutes a strong argument for the generative WILL RG.
+The fact that two independent derivation paths - one thermodynamic and one topological - yield results matching high-precision empirical data ($\delta \approx 1.0\%$ for $H_0$, $\delta \approx 0.004\%$ for $\ell$) constitutes a strong argument for the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:generative_physics}{generative physics} of WILL RG.
 
 \subsection{Sensitivity Analysis: The Major Constraints on Dark Matter}
 WILL RG allows us to perform a precise sensitivity analysis regarding the mass content of the Universe. The acoustic peak position is determined by the inertial loading of the vacuum tension:
@@ -2305,7 +2307,7 @@ WILL RG allows us to perform a precise sensitivity analysis regarding the mass c
     \ell_{observed} = \ell_{vac} \cdot \sqrt{\frac{\Omega_{\Lambda}}{\Omega_{\Lambda} + \Omega_{load}}}
 \end{equation}
 
-We compare two scenarios: one containing only BBN-derived Baryons (WILL RG), and one including the standard Dark Matter halo ($\Lambda$CDM).
+We compare two scenarios: one containing only BBN-derived Baryons (WILL RG), and one including the standard Dark Matter ($\Lambda$CDM).
 
 \begin{table}[H]
 \centering
