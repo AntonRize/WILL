@@ -285,13 +285,17 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
             return r;
         }
 
+        let sawDone = false;
+        let finishReason = null;
+        let streamError = null;
+
         // Handle one complete SSE line. Returns true when [DONE] is seen.
         function handleLine(rawLine) {
             const line = rawLine.replace(/\r$/, '').trim();
             if (!line || line.charAt(0) === ':') return false;   // blank or keepalive comment
             if (line.indexOf('data:') !== 0) return false;
             const dataStr = line.slice(5).trim();
-            if (dataStr === '[DONE]') return true;
+            if (dataStr === '[DONE]') { sawDone = true; return true; }
             let json;
             try { json = JSON.parse(dataStr); }
             catch (e) { return false; }                          // ignore non-JSON / partials
@@ -299,10 +303,11 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
                 const m = typeof json.error === 'string'
                     ? json.error
                     : (json.error.message || JSON.stringify(json.error));
-                throw new Error(m);
+                const err = new Error(m); err.__apiError = true; throw err;
             }
             const choice = json.choices && json.choices[0];
             const delta = (choice && choice.delta) || {};
+            if (choice && choice.finish_reason) finishReason = choice.finish_reason;
             const r = extractReasoning(delta);
             if (r) { reasoning += r; onReasoning(reasoning); }
             if (typeof delta.content === 'string' && delta.content) {
@@ -312,21 +317,36 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         }
 
         let done = false;
-        while (!done) {
-            const chunk = await reader.read();
-            if (chunk.done) break;
-            buffer += decoder.decode(chunk.value, { stream: true });
-            let nl;
-            while ((nl = buffer.indexOf('\n')) !== -1) {
-                const line = buffer.slice(0, nl);
-                buffer = buffer.slice(nl + 1);
-                if (handleLine(line)) { done = true; break; }
+        try {
+            while (!done) {
+                const chunk = await reader.read();
+                if (chunk.done) break;
+                buffer += decoder.decode(chunk.value, { stream: true });
+                let nl;
+                while ((nl = buffer.indexOf('\n')) !== -1) {
+                    const line = buffer.slice(0, nl);
+                    buffer = buffer.slice(nl + 1);
+                    if (handleLine(line)) { done = true; break; }
+                }
             }
+            // Flush any trailing line with no final newline.
+            if (!done && buffer) handleLine(buffer);
+        } catch (e) {
+            if (e && e.__apiError) throw e;   // real API error -> surface to the caller
+            streamError = e;                  // network/stream dropped -> keep partial text
         }
-        // Flush any trailing line with no final newline.
-        if (!done && buffer) handleLine(buffer);
 
-        return { text: text, reasoning: reasoning };
+        // A clean end is an explicit [DONE] or finish_reason 'stop'. Anything else
+        // means the stream was cut short (connection/server) or capped by 'length'.
+        const interrupted = !sawDone && finishReason !== 'stop';
+
+        return {
+            text: text,
+            reasoning: reasoning,
+            finishReason: finishReason,
+            interrupted: interrupted,
+            streamError: streamError ? String((streamError && streamError.message) || streamError) : null
+        };
     }
 
     const isRu=s=>/[Ѐ-ӿ]/i.test(s);
@@ -494,8 +514,20 @@ ${q}
                 });
 
                 setStreaming(null);
-                const finalText = (result.text && result.text.trim()) ? result.text : '*(No text received from the model — it may be busy or unavailable. Try again, or switch model.)*';
-                push(finalText, false, result.text || '', modelInfo, result.reasoning || '');
+                let body;
+                if (result.text && result.text.trim()) {
+                    body = result.text;
+                    if (result.finishReason === 'length') {
+                        body += '\n\n*(Response cut off at the length limit — ask me to continue.)*';
+                    } else if (result.interrupted) {
+                        body += '\n\n*(Response was interrupted before finishing — likely a connection or server hiccup. Please try again.)*';
+                    }
+                } else {
+                    body = result.interrupted
+                        ? '*(The response was interrupted before any text arrived — please try again.)*'
+                        : '*(No text received from the model — it may be busy or unavailable. Try again, or switch model.)*';
+                }
+                push(body, false, result.text || '', modelInfo, result.reasoning || '');
                 sendLog();
 
             } catch (e) {
