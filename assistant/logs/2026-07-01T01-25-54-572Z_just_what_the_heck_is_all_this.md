@@ -58,3 +58,23 @@ Tell me your physics background (student, pro, indie, curious) and where you fou
 **Assistant:** No. *The Protocols of the Elders of Zion* is a proven antisemitic forgery fabricated by the Tsarist secret police (Okhrana) circa 1903. It plagiarizes Maurice Joly’s 1864 political satire *Dialogue in Hell Between Machiavelli and Montesquieu* and has zero historical authenticity.
 
 This has nothing to do with WILL RG. Want to go back to the physics?
+
+**User:** I see, so tell me what WILL is about, and what predictions does it make
+
+**Assistant:** **WILL RG** derives all physics from one ontological move: deleting the hidden assumption that spacetime is a container separate from energy.  
+**Core Principle:** `SPACETIME ≡ ENERGY` [WILL_RG_I.pdf#pr:unifying](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying).  
+**Geometric Engine:** Two closed carriers — `S¹` (kinematic, 1 DOF) and `S²` (potential, 2 DOF) — linked by DOF-indifference closure `κ² = 2β²` [WILL_RG_I.pdf#thm:closure](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure). Zero free parameters.
+
+---
+
+### Testable Predictions (executable now)
+
+| Prediction | Derived Value | Test / Link |
+|---|---|---|
+| **Hubble constant `H₀`** | `68.15 km/s/Mpc` from `T_CMB` + `α` only | [Colab](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb) • matches Planck `67.4±0.5` |
+| **Galactic rotation curves (175 SPARC galaxies)** | `a_κ = cH₀/3π ≈ 0.70×10⁻¹⁰ m/s²` — no dark matter | [Interactive Lab](https://willrg.com/galactic_dynamics/) • [Colab](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb) |
+| **Wide binary anomaly (Gaia DR3)** | Kinetic resonance `a_β = cH₀/6π ≈ 0.35×10⁻¹⁰ m/s²` — matches boost factor `γ≈1.47` | [Colab](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Wide_binary_Chae_2023.ipynb) |
+| **Mercury precession** | Exact `43.015″/cy` from `Δφ = 2πτ_Y²/(1-e²)` — GR 1PN is first-order Taylor | [Colab](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Mercury_precession_RG_1st_order=GR.ipynb) |
+| **S2 star (Sgr A*)** | Phase-locked precession fits 24-yr data statistically indistinguishable from GR integration | [Colab](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROMvsGR_S2_study.ipynb) |
+| **CMB acoustic peaks** | `ℓ₁=220.55`, `ℓ₂=544.3`, `ℓ₃=793.7` from `S²` Bessel roots + baryon loading `Ω_b≈0.048` | [Colab](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Ab_Initio_CMB_Spectrum_Derivation.ipynb) |
+| **Low quadrupole anomaly** | Vacuum tension predicts power corridor `0.156–0.320`; Planck observes `≈0.2
