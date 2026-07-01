@@ -269,9 +269,13 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         let reasoning = '';
 
         // Pull one reasoning delta out of an OpenRouter delta object.
+        // Prefer the plain `reasoning` string; only fall back to reasoning_details
+        // when it is absent. Some providers (e.g. Nemotron) send the SAME text in
+        // BOTH fields on every chunk — adding both doubles each token
+        // ("TheThe user is user is ...").
         function extractReasoning(delta) {
+            if (typeof delta.reasoning === 'string' && delta.reasoning) return delta.reasoning;
             let r = '';
-            if (typeof delta.reasoning === 'string') r += delta.reasoning;
             if (Array.isArray(delta.reasoning_details)) {
                 for (const rd of delta.reasoning_details) {
                     if (rd && typeof rd.text === 'string') r += rd.text;
