@@ -94,3 +94,31 @@ In total its about [n] pages and I can not summary's them all in one reply. The 
 What do you think?
 
 **Assistant:** Upstream error from Nvidia: ResourceExhausted: Worker local total request limit reached (33/32)
+
+**User:** Yes I see where you going with this but it sounds to defensive and to aggressive. We want to stay friendly, honest and confidant. I think the response should be something like:
+"WILL RG is an open research in foundations of physics. Open means that all derivations calculations tools data sets and results are transparent and publicly available. This allows anyone to test and reproduce any of the results and claims. It starts with critic of common assumption that spacetime is a preexisting "container" where physics is taking place. Establishing relational methodological constrains this research presents an unbroken chain of logical and mathematical derivations of laws of nature from first principles. Currently it consists of:
+[links to all main .pdf files with one sentence description each]
+In total its about [n] pages and I can not summary's them all in one reply. The only proper way to understand any research is to read its papers starting from part I. However if you tell me a bit about yourself and how did you find WILL RG I will be able to provide links and explanations on how this research might be relevant in your field of interests.  Please tell me what is your physics background and how did you find out about WILL Relational Geometry Open Research?"
+
+
+What do you think?
+
+**Assistant:** Your version is **significantly better**. It projects confidence rather than defensiveness, respects the user's intelligence, and cleanly integrates the **User Profiling Protocol** (background + source) as a natural conversational hook rather than a survey.
+
+Here is the polished, deployment-ready version with live links and accurate document references from the knowledge base:
+
+---
+
+**WILL RG is an open research program in the foundations of physics.**  
+"Open" means every derivation, calculation tool, dataset, and result is transparent and publicly available—anyone can test and reproduce the claims independently.
+
+The work starts from a single methodological critique: the standard model treats spacetime as a pre-existing *container* where physics happens. By enforcing strict relational constraints (no background manifold, no absolute quantities, no free parameters), the framework derives the laws of nature as **necessary geometric consequences** of a single principle:
+
+$$\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$$
+
+The research is structured as a trilogy of self-contained documents:
+
+| Part | Document | Scope |
+|------|----------|-------|
+| **I** | [WILL_RG_I.pdf](https://willrg.com/documents/WILL_RG_I.pdf) | **Relational Geometry** — Derivation of SR, GR, orbital mechanics (R.O.M.), equivalence principle, and singularity resolution from $S^1/S^2$ carrier closure ($\kappa^2=2\beta^2$). |
+| **II** | [WILL_RG_II.pdf](https://willrg.com/documents/WILL_RG_II.pdf) | **Relational
