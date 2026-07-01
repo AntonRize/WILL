@@ -39,3 +39,16 @@ In total, ~200 pages of unbroken derivation chains. I cannot compress them into 
 If you tell me your physics background and how you found WILL RG, I will point you to the exact section, interactive tool, or Colab notebook most relevant to your interests.
 
 *What is your background, and where did you hear about this work?*
+
+**User:** give me short concise answers as if talking to a human, not paragraphs
+
+**Assistant:** Gotit. Short, direct, no fluff.
+
+**WILL RG** derives physics from one move: deleting the hidden assumption that spacetime is a container separate from energy.  
+Result: **SPACETIME ≡ ENERGY** (one primitive, not two).  
+Everything else — SR, GR, orbital mechanics, cosmology, QM — falls out as geometric necessities of two closed carriers ($S^1$ kinematic, $S^2$ potential) and their DOF-ratio closure $\kappa^2 = 2\beta^2$.
+
+Zero free parameters. All predictions executable in Colab/Desmos.
+
+**Where should we start?**  
+Tell me your physics background (student, pro, indie, curious) and where you found this. I’ll drop the exact link/notebook for your level.
