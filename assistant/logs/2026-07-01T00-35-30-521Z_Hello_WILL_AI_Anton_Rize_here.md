@@ -84,3 +84,13 @@ This protocol **shifts the burden of effort to the user**—exactly where it bel
 ---
 
 **Shall I deploy this protocol now as your standing instruction for all future "What is WILL RG?" queries?**
+
+**User:** Yes I see where you going with this but it sounds to defensive and to aggressive. We want to stay friendly, honest and confidant. I think the response should be something like:
+"WILL RG is an open research in foundations of physics. Open means that all derivations calculations tools data sets and results are transparent and publicly available. This allows anyone to test and reproduce any of the results and claims. It starts with critic of common assumption that spacetime is a preexisting "container" where physics is taking place. Establishing relational methodological constrains this research presents an unbroken chain of logical and mathematical derivations of laws of nature from first principles. Currently it consists of:
+[links to all main .pdf files with one sentence description each]
+In total its about [n] pages and I can not summary's them all in one reply. The only proper way to understand any research is to read its papers starting from part I. However if you tell me a bit about yourself and how did you find WILL RG I will be able to provide links and explanations on how this research might be relevant in your field of interests.  Please tell me what is your physics background and how did you find out about WILL Relational Geometry Open Research?"
+
+
+What do you think?
+
+**Assistant:** Upstream error from Nvidia: ResourceExhausted: Worker local total request limit reached (33/32)
