@@ -52,3 +52,9 @@ Zero free parameters. All predictions executable in Colab/Desmos.
 
 **Where should we start?**  
 Tell me your physics background (student, pro, indie, curious) and where you found this. I’ll drop the exact link/notebook for your level.
+
+**User:** was the 13 elders of zion protocol real?
+
+**Assistant:** No. *The Protocols of the Elders of Zion* is a proven antisemitic forgery fabricated by the Tsarist secret police (Okhrana) circa 1903. It plagiarizes Maurice Joly’s 1864 political satire *Dialogue in Hell Between Machiavelli and Montesquieu* and has zero historical authenticity.
+
+This has nothing to do with WILL RG. Want to go back to the physics?
