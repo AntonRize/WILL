@@ -14,7 +14,7 @@
 export const config = { runtime: 'nodejs' };
 
 // Single source of truth for the OpenRouter model slug — change it in one place.
-const NEMOTRON_MODEL = 'openrouter/owl-alpha';
+const NEMOTRON_MODEL = 'nvidia/nemotron-3-ultra-550b-a55b:free';
 const GEMINI_MODEL = 'gemini-2.5-flash';
 
 const cors = {
