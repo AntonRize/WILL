@@ -101,3 +101,33 @@ The **kinematic projections** $\beta_R = (dr)/(c\,dt)$, $\beta_T = (r\,d\phi)/(c
 
 **Question for you:**  
 Given that the interval is recovered *exactly* without ever postulating a manifold or a metric tensor, what mathematical necessity remains for the background container in your ontology?
+
+**User:** In your previous response, you defined the primitive variable κ ≡ √(R_s/r) and called it a `parameter-free geometric necessity.' To a theoretical physicist, this looks like circular logic, because R_s = 2GM/c^2 contains the exact gravitational parameters you claim to derive later.
+
+If your theory is truly background-free and parameter-free, you must derive κ \textit{before} introducing R_s, M, G, or r.
+
+Please provide the exact mathematical derivation of κ from first principles. How does pure, parameter-free relational geometry force the existence of a variable that scales exactly as √(R_s/r) without using G, M, or r as inputs?
+
+**Assistant:** The charge of circularity is precise and correct *if* one reads the legacy translation ($\kappa^2 = R_s/r$) as the definition. In WILL RG, it is not. $\kappa$ is derived **before** $R_s$, $r$, $G$, or $M$ exist in the theory.
+
+Here is the strict derivation chain from the <KNOWLEDGE_BASE>.
+
+---
+
+### 1. The Primitive: Amplitude on $S^2$ (No $r$, No $G$, No $M$)
+By the **Minimal Relational Carriers Theorem** ([thm:carriers](https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers)), the omnidirectional (potential) degree of freedom is carried by the unique boundaryless, maximally symmetric 2-DOF topology: the 2-sphere $S^2$.
+
+By the **Duality of Relation Lemma** ([lem:duality](https://willrg.com/documents/WILL_RG_I.pdf#lem:duality)), a state on $S^2$ requires two orthogonal projections:
+*   **Amplitude** (external relational depth): $\kappa \equiv \sin\theta_2$
+*   **Phase** (internal structural rate): $\kappa_X \equiv \cos\theta_2$
+
+By the **Conservation Theorem** ([thm:conservation](https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation)), the geometry of the unit carrier enforces:
+$$
+\kappa^2 + \kappa_X^2 = 1 \tag{1}
+$$
+**At this stage, $\kappa$ is a pure dimensionless geometric variable ($\sin\theta_2$). No spatial coordinates, no mass, no constants.**
+
+---
+
+### 2. Operational Extraction: $\kappa$ from Spectroscopy (No $r$, No $G$, No $M$)
+The **Spectroscopic Phase Shift Theorem** (R.O.M. [
