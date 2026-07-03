@@ -131,3 +131,12 @@ $$
 
 ### 2. Operational Extraction: $\kappa$ from Spectroscopy (No $r$, No $G$, No $M$)
 The **Spectroscopic Phase Shift Theorem** (R.O.M. [
+
+**User:** In your previous response, you defined the primitive variable κ ≡ √(R_s/r) and called it a `parameter-free geometric necessity.' To a theoretical physicist, this looks like circular logic, because R_s = 2GM/c^2 contains the exact gravitational parameters you claim to derive later.
+
+If your theory is truly background-free and parameter-free, you must derive κ \textit{before} introducing R_s, M, G, or r.
+
+Please provide the exact mathematical derivation of κ from first principles. How does pure, parameter-free relational geometry force the existence of a variable that scales exactly as √(R_s/r) without using G, M, or r as inputs?
+
+**Assistant:** **Protocol 5 Triggered: Hidden Premise Detected.**
+Your objection is valid *if* $\kappa \equiv \sqrt{R_s/r}$ is taken as the definition. In
