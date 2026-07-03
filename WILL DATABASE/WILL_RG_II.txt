@@ -1,15 +1,17 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[10pt, a4paper]{article}
 
 % --- Encoding and language ---
-\usepackage[T2A]{fontenc}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[warn]{textcomp}
-\usepackage{float}
+    
+
+
 
 % --- Page geometry ---
 \usepackage{geometry}
-\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+\geometry{a4paper, left=15mm, right=15mm, top=20mm, bottom=20mm}
 
 % --- Math and fonts ---
 \usepackage{amsmath}
@@ -22,13 +24,19 @@
 \usepackage{booktabs}
 \usepackage{tabularx}    
 \usepackage{enumitem}
+\usepackage{float}
 
 
 % --- START OF FOOTER SECTION ---
 \usepackage{fancyhdr}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
-\usepackage{natbib}
-
+\hypersetup{
+  pdftitle={WILL II: Relational Cosmology and Galactic Dynamics},
+  pdfauthor={Anton Rize},
+  pdfsubject={Relational Cosmology and Galactic Rotation Curves prediction, wide binaries, no darck matter, no darck energy, derivation of Hubble constant from first principles},
+  pdfkeywords={relational geometry, general relativity, spacetime, energy, derivation of Hubble constant, Cosmology and Galactic Rotation Curves prediction, wide binaries, no darck matter, no darck energy, Mach principle}
+}
+\usepackage[numbers]{natbib}   % Required for numeric citations like [1]
 
 % Activate the fancy page style
 \pagestyle{fancy}
@@ -79,12 +87,21 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{principle}[theorem]{Principle}
+\makeatletter
+\long\def\@opargbegintheorem#1#2[#3]#4{%
+  \item[\textbf{#1 #2\ifxempty{#3}{}{ (#3)}}\quad]%
+  \leavevmode\par
+  #4
+}
+\makeatother
 
 % --- Metadata ---
 \title{\textbf{WILL II} \\
- \textit{Relational Cosmology and Galactic Dynamics}}
-\author{Anton Rize \\  antonrize@willrg.com}
+\textit{Relational Cosmology and Galactic Dynamics}}
+\author{Anton Rize \\ antonrize@willrg.com \\
+\thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}}
 \date{January 2026}
+
 
 \begin{document}
 
@@ -117,41 +134,42 @@ These are only few results achieved by RG in macro scale domain.  They showing t
 \newpage
 
 
-\section{Stage I: Galactic Dynamics}
+\section{Main Results Established in \href{https://willrg.com/documents/WILL_RG_I.pdf}{WILL RG Part I} (Recap)}
 
 After we established a strong foundation for Relational Geometry we will apply this framework to galactic dynamics. But first lets refresh our memory.
 
 
-\subsection{Main Results Established in \href{https://willrg.com/documents/WILL_RG_I.pdf}{WILL RG Part I} (Recap)}
-
-
-
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Summary]
 \begin{center}
-\begin{tabular}{|c|}\hline
-\textbf{Methodological Constraints}\\\hline
-$\downarrow$ \textit{(apply to existing physics)} \\[4pt]\hline
-\textbf{False Separation:}  $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
+\begin{tabular}{|c|}
+\hline
+$\downarrow$\textit{Methodological Constraints}$\downarrow$\\[2pt]\hline
+\textbf{Relational:} \textbf{Closure} $+$ \textbf{Conservation} $+$ \textbf{Isotropy} \textbf{Theorems.}\\\hline
+$\downarrow$ \textit{(apply to existing physics)}$\downarrow$\\[4pt]\hline
+\textbf{Two Primitives:}   $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
 \quad+\quad
-\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\\hline
-$\downarrow$ \textit{(by Relational Origin Principle no background allowed)}\\[4pt]\hline
-\textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\\hline
-$\downarrow$ \textit{(derive consequences)} \\[4pt]\hline
-\textbf{Closure} $+$ \textbf{Conservation} $+$ \textbf{Isotropy} \\\hline
-$\downarrow$ \textit{(derive primal relational carriers)}\\[4pt]\hline
-$S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\\hline
-$\downarrow$ \textit{(By Duality of Relation Lemma)}\\\hline
-\textbf{Conservation of Relation}  $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\\hline 
-$\downarrow$ \textit{(only available distinguishing property)}\\\hline
-\textbf{DOF ratio = 2:1 exchange rate}\\\hline
-$\downarrow$ \textit{(By DOF-Indifference Lemma: equal quadratic weight to each independent DOF)}\\\hline
-\textbf{$\kappa^2=2\beta^2$  $\equiv$  $\underbrace{1 \text{Amplitude}^2}_{\text{on $S^2$}} = \underbrace{2 \text{Amplitude}^2}_{\text{on $S^1$}}$}\\ \hline
-$\downarrow$ \textit{(By Relational Closure and Invariance theorems)}\\\hline
-\textbf{Energy Symmetry Law} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline\end{tabular}
+\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[4pt]\hline
+$\downarrow$ \textit{(Ontological reduction by Relational Origin Principle no background allowed)}$\downarrow$\\[4pt]\hline
+\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ \textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\[2pt]\hline
+$\downarrow$ \textit{(by Closure $+$ Conservation $+$ Isotropy Theorems derive primal relational carriers)}$\downarrow$\\[4pt]\hline
+$S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hline
+$\downarrow$ \textit{(By Duality of Relation Lemma)}$\downarrow$\\[4pt]\hline
+\textbf{Relational Coservation:} $\downarrow$  $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$  $\downarrow$\\\hline
+$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic}}$ on $S^1$ and $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential}}$ on $S^2$\\[4pt]\hline
+$\downarrow$ \textit{(By Conservation Theorem)}$\downarrow$\\[4pt]\hline
+\textbf{Minkowski interval:} $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}} \Longrightarrow \underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\\hline
+\textbf{Schwarzschild interval:} $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}} \Longrightarrow \underbrace{c^2 d\tau^2 = c^2 \left(1 - \frac{R_s}{r}\right) dt^2}_{\text{mathematical scaffolding}}$\\[6pt]\hline
+$\downarrow$ \textit{(By DOF-Indifference Lemma: equal quadratic weight to each independent DOF)}$\downarrow$\\[4pt]\hline
+  \textbf{Closure Theorem:} $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$ $\equiv$  \textbf{$\kappa^2 = 2\beta^2$}\\[4pt]\hline
+$\downarrow$ \textit{(By Relational Closure and Invariance theorems)}$\downarrow$\\[4pt]\hline
+\textbf{Energy Symmetry Law:} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
+$\Delta E_{A \to B} = E_0 \!\left(\dfrac{\kappa_{X,B}}{\beta_{Y,B}} - \dfrac{\kappa_{X,A}}{\beta_{Y,A}}\right)$;    $\Delta E_{B \to A} = E_0 \!\left(\dfrac{\kappa_{X,A}}{\beta_{Y,A}} - \dfrac{\kappa_{X,B}}{\beta_{Y,B}}\right)$\\[4pt]\hline
+$\downarrow$ \textit{(check the requaered energy to close the ledger at boundaries)}$\downarrow$\\[4pt]\hline
+\textbf{Speed of light:}  $\beta \to 1$ $\rightarrow$ $\beta_Y \to 0$ $\rightarrow$ $E_{\text{loc}} = E_0 \frac{\kappa_X}{0} \to \infty$ $\rightarrow$ \textbf{requires $\infty$ energy;}\\\hline
+\textbf{Event Horizon:}  $\kappa \to 1$ $\rightarrow$ $\kappa_X \to 0$ $\rightarrow$ $E_{\text{loc}} = E_0 \frac{0}{\beta_Y} \to 0$ $\rightarrow$ \textbf{requires $0$ energy.}\\ \hline
+\end{tabular}
 \end{center}
 \end{tcolorbox}
-
-
 
 
 Standard cosmological models operate on a descriptive paradigm, fitting dynamical laws (Lagrangians) onto a pre-existing spacetime manifold. We adopt a  \textbf{generative} approach based on the \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying}{foundational principle established in WILL Relational Geometry (Part I)}:
@@ -266,8 +284,8 @@ The\textbf{ Kinematic Relational Weight} of the total shift is: $\Omega_{kin} = 
 \begin{tikzpicture}[scale=3, >=Latex]
     % --- Definitions ---
     \def\R{1.0} % Unit Radius (The Horizon)
-    \coordinate (O) at (0,0);       % Observer Center
-    \coordinate (Obj) at (0.65, 0.45); % Object Center (Q vector end)
+    \coordinate (A) at (0,0);       % Observer Center
+    \coordinate (B) at (0.65, 0.45); % Object Center (Q vector end)
     
     % Projections of the Object center
     \coordinate (Bx) at (0.65, 0);
@@ -276,37 +294,44 @@ The\textbf{ Kinematic Relational Weight} of the total shift is: $\Omega_{kin} = 
     % --- Axes ---
     % Drawing axes slightly longer than radius to show context
     \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
-    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Gravitational)};
+    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Potential)};
 
     % --- Observer Frame (Blue) ---
     % The "horizon" of the observer
-    \draw[blue, thick] (O) circle (\R);
-    \fill[blue] (O) circle (0.02) node[below left] {Obs $(0,0)$};
+    \draw[blue, thick] (A) circle (\R);
+    \fill[blue] (A) circle (0.02) node[below left] {A $(0,0)$};
 
     % --- Object Frame (Red) ---
     % The "horizon" of the object, centered at Q
-    \draw[red, thick, dashed] (Obj) circle (\R);
-    \fill[red] (Obj) circle (0.02) node[above right] {Obj $(0 , 0)$};
+    \draw[red, thick, dashed] (B) circle (\R);
+    \fill[red] (B) circle (0.02) node[above right] {B $(0 , 0)$};
 
     % --- Vector Q ---
-    \draw[->, line width=1.5pt, black] (O) -- (Obj) node[midway, above left] {$Q$};
+    \draw[->, line width=1.5pt, black] (A) -- (B) node[midway, above left] {$Q$};
 
     % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
-    \draw[dotted, thick] (Obj) -- (Bx) node[below] {$\beta$};
-    \draw[dotted, thick] (Obj) -- (Ky) node[left] {$\kappa$};
+    \draw[dotted, thick] (B) -- (Bx) node[below] {$\beta$};
+    \draw[dotted, thick] (B) -- (Ky) node[left] {$\kappa$};
 
     % --- Annotations ---
     % Optional: Show the Causal Lock condition physically
-    \node[blue, font=\small] at (-0.5, -0.8) {Observer's Horizon};
+    \node[blue, font=\small] at (-0.5, -0.8) {A's Horizon};
     \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
 
 \end{tikzpicture}
-\caption{\textbf{Relational Self-Centering.} The relational shift $Q$ is defined by the orthogonal projections $\beta$ and $\kappa$. Interaction is causal only when the center of the Object lies within the Observer's horizon ($Q < 1$), ensuring mutual coverage.}
+\caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the amplitude projections $\beta$ and $\kappa$. Interaction is causal only when the relational origin (0, 0) of B lies within A's horizon ($Q < 1$), ensuring mutual coverage.}
 \hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
 \end{figure}
 
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\[
+\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
+\]
+There is no common background arena. Mutual total shift magnitudes $Q$ computed from each observer's own relational origin.
+\end{tcolorbox}
 
+\section{Stage I: Galactic Dynamics}
 
 \section{The Necessity of Global Resonance}
 \hypertarget{sec:tone}{}\label{sec:tone}
@@ -2247,7 +2272,7 @@ Using the value of $H_0$ derived in Part II from the CMB temperature ($H_0 \appr
 \end{itemize}
 
 \subsection{Conclusion}
-This result confirms that the electron's mass is the consequence of a holographic equilibrium. The intrinsic curvature intensity of the particle, when projected from its closed topology onto the linear universe via $\Gamma^3$, exactly balances the scale of the cosmic horizon. 
+This result suggest that the electron's mass is the consequence of a holographic equilibrium. The intrinsic curvature intensity of the particle, when projected from its closed topology onto the linear universe via $\Gamma^3$, exactly balances the scale of the cosmic horizon. 
 
 This completes the Theoretical Ouroboros:
 \begin{enumerate}

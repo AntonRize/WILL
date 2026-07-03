@@ -1,15 +1,17 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[10pt, a4paper]{article}
 
 % --- Encoding and language ---
-\usepackage[T2A]{fontenc}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[warn]{textcomp}
+    
+
 
 
 % --- Page geometry ---
 \usepackage{geometry}
-\geometry{a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm}
+\geometry{a4paper, left=15mm, right=15mm, top=20mm, bottom=20mm}
 
 % --- Math and fonts ---
 \usepackage{amsmath}
@@ -22,13 +24,19 @@
 \usepackage{booktabs}
 \usepackage{tabularx}    
 \usepackage{enumitem}
+\usepackage{float}
 
 
 % --- START OF FOOTER SECTION ---
 \usepackage{fancyhdr}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
-\usepackage{natbib}
-
+\hypersetup{
+  pdftitle={WILL III: Relational Quantum Mechanics},
+  pdfauthor={Anton Rize},
+  pdfsubject={Relational Quantum Mechanics, derivation from first principles},
+  pdfkeywords={relational geometry, quantum mechanics, general relativity, spacetime, energy, theoretical physics, Mach principle}
+}
+\usepackage[numbers]{natbib}   % Required for numeric citations like [1]
 
 % Activate the fancy page style
 \pagestyle{fancy}
@@ -43,7 +51,7 @@
 \renewcommand{\footrulewidth}{0pt} 
 
 % Left Footer: Website Link (Small text)
-\lfoot{\scriptsize \href{https://willrg.com}{www.willrg.com}}
+\lfoot{\scriptsize \href{https://willrg.com}{https://willrg.com}}
 
 % Center Footer: Page Number
 \cfoot{\scriptsize \thepage}
@@ -58,7 +66,7 @@
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
-  \lfoot{\scriptsize \href{https://willrg.com}{www.willrg.com}}
+  \lfoot{\scriptsize \href{https://willrg.com}{https://willrg.com}}
   \cfoot{\scriptsize \thepage}
   \rfoot{\scriptsize \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}
 }
@@ -79,12 +87,21 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{principle}[theorem]{Principle}
+\makeatletter
+\long\def\@opargbegintheorem#1#2[#3]#4{%
+  \item[\textbf{#1 #2\ifxempty{#3}{}{ (#3)}}\quad]%
+  \leavevmode\par
+  #4
+}
+\makeatother
 
 % --- Metadata ---
 \title{\textbf{WILL III} \\
- \textit{Relational Quantum Mechanics}}
-\author{Anton Rize \\ antonrize@willrg.com \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}}}
+\textit{Relational Quantum Mechanics}}
+\author{Anton Rize \\ antonrize@willrg.com \\
+\thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}}
 \date{October 2025}
+
 
 \begin{document}
 
@@ -100,6 +117,226 @@ This paper, the third in the WILL series, applies the principles of Relational G
 
 \tableofcontents
 \newpage
+
+\section{Quick Recap}
+
+Lets refresh our memory on foundation that we build in \href{https://willrg.com/documents/WILL_RG_I.pdf}{WILL Part I:}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Summary]
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+$\downarrow$\textit{Methodological Constraints}$\downarrow$\\[2pt]\hline
+\textbf{Relational:} \textbf{Closure} $+$ \textbf{Conservation} $+$ \textbf{Isotropy} \textbf{Theorems.}\\\hline
+$\downarrow$ \textit{(apply to existing physics)}$\downarrow$\\[4pt]\hline
+\textbf{Two Primitives:}   $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
+\quad+\quad
+\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[4pt]\hline
+$\downarrow$ \textit{(Ontological reduction by Relational Origin Principle no background allowed)}$\downarrow$\\[4pt]\hline
+\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ \textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\[2pt]\hline
+$\downarrow$ \textit{(by Closure $+$ Conservation $+$ Isotropy Theorems derive primal relational carriers)}$\downarrow$\\[4pt]\hline
+$S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hline
+$\downarrow$ \textit{(By Duality of Relation Lemma)}$\downarrow$\\[4pt]\hline
+\textbf{Relational Coservation:} $\downarrow$  $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$  $\downarrow$\\\hline
+$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic}}$ on $S^1$ and $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential}}$ on $S^2$\\[4pt]\hline
+$\downarrow$ \textit{(By Conservation Theorem)}$\downarrow$\\[4pt]\hline
+\textbf{Minkowski interval:} $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}} \Longrightarrow \underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\\hline
+\textbf{Schwarzschild interval:} $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}} \Longrightarrow \underbrace{c^2 d\tau^2 = c^2 \left(1 - \frac{R_s}{r}\right) dt^2}_{\text{mathematical scaffolding}}$\\[6pt]\hline
+$\downarrow$ \textit{(By DOF-Indifference Lemma: equal quadratic weight to each independent DOF)}$\downarrow$\\[4pt]\hline
+  \textbf{Closure Theorem:} $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$ $\equiv$  \textbf{$\kappa^2 = 2\beta^2$}\\[4pt]\hline
+$\downarrow$ \textit{(By Relational Closure and Invariance theorems)}$\downarrow$\\[4pt]\hline
+\textbf{Energy Symmetry Law:} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
+$\Delta E_{A \to B} = E_0 \!\left(\dfrac{\kappa_{X,B}}{\beta_{Y,B}} - \dfrac{\kappa_{X,A}}{\beta_{Y,A}}\right)$;    $\Delta E_{B \to A} = E_0 \!\left(\dfrac{\kappa_{X,A}}{\beta_{Y,A}} - \dfrac{\kappa_{X,B}}{\beta_{Y,B}}\right)$\\[4pt]\hline
+$\downarrow$ \textit{(check the requaered energy to close the ledger at boundaries)}$\downarrow$\\[4pt]\hline
+\textbf{Speed of light:}  $\beta \to 1$ $\rightarrow$ $\beta_Y \to 0$ $\rightarrow$ $E_{\text{loc}} = E_0 \frac{\kappa_X}{0} \to \infty$ $\rightarrow$ \textbf{requires $\infty$ energy;}\\\hline
+\textbf{Event Horizon:}  $\kappa \to 1$ $\rightarrow$ $\kappa_X \to 0$ $\rightarrow$ $E_{\text{loc}} = E_0 \frac{0}{\beta_Y} \to 0$ $\rightarrow$ \textbf{requires $0$ energy.}\\ \hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+
+
+\begin{center}
+\begin{tikzpicture}[scale=2.0,>=Latex]
+% Left circle: kinematics
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta=\cos\theta_1$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y=\sin\theta_1$};
+% Q and legs
+\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
+\draw[dashed] (0.8,0) -- (0.8,0.6);
+\draw[dashed] (0,0.6) -- (0.8,0.6);
+\node at (0.84,-0.12) {$\beta$};
+\node at (-0.14,0.6) {$\beta_Y$};
+\draw (0.25,0) arc (0:36.87:0.25);
+\node at (0.33,0.12) {$\theta_1$};
+\node at (0,-1.55) {\small \shortstack{$E=E_0/\beta_Y$ \\ $p=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
+
+% Right circle: gravity
+\begin{scope}[xshift=3.2cm]
+\draw (0,0) circle (1);
+\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X=\cos\theta_2$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\kappa=\sin\theta_2$};
+% Q and legs
+\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_g$};
+\draw[dashed] (0.6,0) -- (0.6,0.8);
+\draw[dashed] (0,0.8) -- (0.6,0.8);
+\node at (0.6,-0.12) {$\kappa_X$};
+\node at (-0.14,0.8) {$\kappa$};
+\draw (0.25,0) arc (0:53.13:0.25);
+\node at (0.33,0.12) {$\theta_2$};
+\node at (0,-1.55) {\small \shortstack{$E_g=E_0/\kappa_X$ \\ $p_g=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
+\end{scope}
+
+% composition arrow
+\draw[->,thick] (1.3,0.6) -- (1.9,0.6);
+\node at (1.6,0.77) {\small compose};
+\end{tikzpicture}
+\end{center}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}\hline
+\multicolumn{2}{|c|}{\( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$,  $a=\text{semi-major axis}$}\\
+\hline
+\textbf{Algebraic Form} & \textbf{Trigonometric Form} \\\hline
+ $\beta=v/c$&$\beta=\cos(\theta_1)$\\\hline
+ $\kappa=\sqrt{R_s/a}$&$\kappa=\sin(\theta_2)$\\\hline
+
+$\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1)$\\
+\hline
+$\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
+\hline
+ $p=E_0/c \cdot \beta/\beta_Y$&$p=E_0/c \cdot \cot(\theta_1) $\\
+ \hline
+ $p_g=E_0/c \cdot \kappa/\kappa_X$&$p_g=E_0/c \cdot \tan(\theta_2)$\\\hline
+ $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
+ $\tau_Y =\sqrt{1-\tau^2}$ &$\tau_Y =\sqrt{1-\tau^2}$\\\hline
+ 
+ $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\\hline
+ $  Q_Y = \sqrt{1-Q^2} = \sqrt{1-\kappa^2-\beta^2} = \sqrt{1-3\beta^2}  $&$Q_Y = \sqrt{1 - 3\cos^2(\theta_1)}$\\ \hline
+\end{tabular}
+\caption{Unified representation of relativistic and gravitational effects for closed systems.}
+\end{table}
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=3, >=Latex]
+    % --- Definitions ---
+    \def\R{1.0} % Unit Radius (The Horizon)
+    \coordinate (A) at (0,0);       % Observer Center
+    \coordinate (B) at (0.65, 0.45); % Object Center (Q vector end)
+    
+    % Projections of the Object center
+    \coordinate (Bx) at (0.65, 0);
+    \coordinate (Ky) at (0, 0.45);
+
+    % --- Axes ---
+    % Drawing axes slightly longer than radius to show context
+    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
+    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Potential)};
+
+    % --- Observer Frame (Blue) ---
+    % The "horizon" of the observer
+    \draw[blue, thick] (A) circle (\R);
+    \fill[blue] (A) circle (0.02) node[below left] {A $(0,0)$};
+
+    % --- Object Frame (Red) ---
+    % The "horizon" of the object, centered at Q
+    \draw[red, thick, dashed] (B) circle (\R);
+    \fill[red] (B) circle (0.02) node[above right] {B $(0 , 0)$};
+
+    % --- Vector Q ---
+    \draw[->, line width=1.5pt, black] (A) -- (B) node[midway, above left] {$Q$};
+
+    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
+    \draw[dotted, thick] (B) -- (Bx) node[below] {$\beta$};
+    \draw[dotted, thick] (B) -- (Ky) node[left] {$\kappa$};
+
+    % --- Annotations ---
+    % Optional: Show the Causal Lock condition physically
+    \node[blue, font=\small] at (-0.5, -0.8) {A's Horizon};
+    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
+
+\end{tikzpicture}
+\caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the amplitude projections $\beta$ and $\kappa$. Interaction is causal only when the relational origin (0, 0) of B lies within A's horizon ($Q < 1$), ensuring mutual coverage.}
+\hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
+\end{figure}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+\[
+\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
+\]
+There is no common background arena. Mutual total shift magnitudes $Q$ computed from each observer's own relational origin.
+\end{tcolorbox}
+
+\begin{table}[h]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|c|c|p{5.5cm}|}
+\hline
+\textbf{Phenomenon} & \textbf{Radius $r$} & $\beta^2$ & $\kappa^2$ & $Q^2$ & \textbf{Comment} \\
+\hline
+ISCO (Static location) & $3R_s$ & $0$ & $\frac{1}{3}$ & $\frac{1}{3}$ & Pure coordinate location, $r=R_s/\kappa^2$ \\\hline
+ISCO (Dynamic state) & $3R_s$ & $\frac{1}{6}$ & $\frac{1}{3}$ & $\frac{1}{2}$ & Marginal orbital stability, $Q^2 = Q_Y^2 = 1/2$ \\
+\hline
+Photon sphere (Static) & $\frac{3}{2}R_s$ & $0$ & $\frac{2}{3}$ & $\frac{2}{3}$ & Pure coordinate location \\\hline
+Causal Dynamic horizon & $\frac{3}{2}R_s$ & $\frac{1}{3}$ & $\frac{2}{3}$ & $1$ & Relational horizon under closure $\kappa^2=2\beta^2$, $Q=1$ \\
+\hline
+Causal Static horizon & $R_s$ & $0$ & $1$ & $1$ & Purely gravitational closure limit, $\kappa^2=1$ \\\hline
+Dynamic horizon & $R_s$ & $\frac{1}{2}$ & $1$ & $\frac{3}{2}$ & Orbital closure at Schwarzschild radius \\
+\hline
+Extremal Kerr horizon & $\frac{1}{2}R_s$ & $1$ & $2$ & $3$ & Maximal rotation, $\beta=1$, merged horizons \\
+\hline
+\end{tabular}
+\caption{Critical radii and their projectional parameters. Static coordinate locations ($\beta=0$) are strictly distinguished from their corresponding dynamic orbital states that emerge from the closure law $\kappa^2=2\beta^2$.}
+\end{table}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tikzpicture}[scale=2.5, thick]
+
+% Axes
+\draw[->] (-0.2,0) -- (1.3,0) node[right] {$\beta^2$};
+\draw[->] (0,-0.2) -- (0,2.3) node[above] {$\kappa^2$};
+
+% Dynamic Points on closure line (kappa^2 = 2 beta^2)
+\coordinate (ISCO_D) at (0.166,0.333); % 1/6, 1/3
+\coordinate (Photon_D) at (0.333,0.666); % 1/3, 2/3
+\coordinate (Schwarz_D) at (0.5,1.0); % 1/2, 1
+\coordinate (Kerr_D) at (1.0,2.0); % 1, 2
+
+% Static Points on Y axis (beta^2 = 0)
+\coordinate (ISCO_S) at (0,0.333);
+\coordinate (Photon_S) at (0,0.666);
+\coordinate (Schwarz_S) at (0,1.0);
+
+% Horizontal dotted lines linking static coordinates to dynamic states
+\draw[dotted, gray, thick] (ISCO_S) -- (ISCO_D);
+\draw[dotted, gray, thick] (Photon_S) -- (Photon_D);
+\draw[dotted, gray, thick] (Schwarz_S) -- (Schwarz_D);
+
+% Plot Dynamic points
+\filldraw[red] (ISCO_D) circle (1pt) node[below right] {ISCO (Dyn)};
+\filldraw[blue] (Photon_D) circle (1pt) node[right] {Causal Dyn. Horizon};
+\filldraw[green!60!black] (Schwarz_D) circle (1pt) node[right] {Dynamic Horizon};
+\filldraw[purple] (Kerr_D) circle (1pt) node[right] {Extremal Kerr};
+
+% Plot Static points
+\filldraw[gray] (ISCO_S) circle (1pt) node[left] {ISCO (Stat)};
+\filldraw[gray] (Photon_S) circle (1pt) node[left] {Photon (Stat)};
+\filldraw[gray] (Schwarz_S) circle (1pt) node[left] {Causal Stat. Horizon};
+
+% Line through dynamic points (kappa^2 = 2 beta^2)
+\draw[dashed, black] (0,0) -- (1.1,2.2) node[above right] {Closure Line: $\kappa^2 = 2\beta^2$};
+
+\end{tikzpicture}
+\end{center}
 
 
 \section{Geometric Origin of the de Broglie Relation }
@@ -268,29 +505,6 @@ The  length scale of the atom, the Bohr radius $a_0$, emerges not from a force b
 \end{corollary}
 
 
-\subsection{Calculation of Energy Levels}
-The total energy of the electron is the sum of its kinetic and potential energies:
-\begin{equation}
-    E_n = K_n + U_n = \frac{p_n^2}{2 m_e} - \frac{e^2}{4\pi \varepsilon_0 r_n}.
-\end{equation}
-Using the expression for \( p_n^2 \) from equation (6):
-\begin{equation}
-    E_n = \frac{1}{2} \frac{m_e e^2}{4\pi \varepsilon_0 r_n} - \frac{e^2}{4\pi \varepsilon_0 r_n} = -\frac{1}{2} \frac{e^2}{4\pi \varepsilon_0 r_n}.
-\end{equation}
-Substituting \( r_n = n^2 a_0 \):
-\begin{equation}
-    E_n = -\frac{1}{2} \frac{e^2}{4\pi \varepsilon_0 n^2 a_0}.
-\end{equation}
-Since \( a_0 = \frac{4\pi \varepsilon_0 \hbar^2}{m_e e^2} \), we have:
-\begin{equation}
-    E_n = -\frac{m_e e^4}{8 \varepsilon_0^2 n^2 h^2}.
-\end{equation}
-This is the standard expression for the energy levels in the hydrogen atom.
-
-\begin{equation}
-    E_n = -\frac{m_e e^4}{8 (2 \pi\varepsilon_0)^2 n^2 \hbar^2}=13.6056931396 \, eV \quad (CODATA; \text{match table}) .
-\end{equation}
-
 \section{The Geometric Origin of the Fine Structure Constant}
 \hypertarget{sec:alpha}{}\label{sec:alpha}
 
@@ -385,6 +599,29 @@ Transition & Computed \( \lambda \) (nm) & Experimental \( \lambda \) (nm) \\ \h
 \caption{Computed and experimental spectral lines.}
 \end{table}
 
+
+\subsection{Calculation of Energy Levels}
+The total energy of the electron is the sum of its kinetic and potential energies:
+\begin{equation}
+    E_n = K_n + U_n = \frac{p_n^2}{2 m_e} - \frac{e^2}{4\pi \varepsilon_0 r_n}.
+\end{equation}
+Using the expression for \( p_n^2 \) from equation (6):
+\begin{equation}
+    E_n = \frac{1}{2} \frac{m_e e^2}{4\pi \varepsilon_0 r_n} - \frac{e^2}{4\pi \varepsilon_0 r_n} = -\frac{1}{2} \frac{e^2}{4\pi \varepsilon_0 r_n}.
+\end{equation}
+Substituting \( r_n = n^2 a_0 \):
+\begin{equation}
+    E_n = -\frac{1}{2} \frac{e^2}{4\pi \varepsilon_0 n^2 a_0}.
+\end{equation}
+Since \( a_0 = \frac{4\pi \varepsilon_0 \hbar^2}{m_e e^2} \), we have:
+\begin{equation}
+    E_n = -\frac{m_e e^4}{8 \varepsilon_0^2 n^2 h^2}.
+\end{equation}
+This is the standard expression for the energy levels in the hydrogen atom.
+
+\begin{equation}
+    E_n = -\frac{m_e e^4}{8 (2 \pi\varepsilon_0)^2 n^2 \hbar^2}=13.6056931396 \, eV \quad (CODATA; \text{match table}) .
+\end{equation}
 
 
 \section{The Unified State as a Geometric Equilibrium}
@@ -617,7 +854,7 @@ Differentiation gives $2\kappa\,\delta\kappa - 4\beta\,\delta\beta = 0$,
 expressing compensatory exchange between potential and kinematic projections.
 \end{proof}
 
-\subsection*{II. The Second Ontological Collapse}
+\subsection*{II. The Fifth Ontological Collapse}
 
 \begin{definition}[Collapse of Dual Projections]
 The \textbf{second ontological collapse} identifies the two projection circles under a single complex representation:
