@@ -1530,6 +1530,128 @@ R_s = \frac{r}{2(2a-r)} \left( (4a-r) \pm \sqrt{(4a-r)^2 - 8a(2a-r)(1-\tau_{o}^2
 For stable orbits, we select the negative root, yielding the algebraic link between the observed light phase and the system's geometric scale.
 \end{proof}
 
+\section{Fully Unitless Formulation: The Intrinsic Relational Core}
+\hypertarget{sec:unitless_core}{}\label{sec:unitless_core}
+
+The preceding sections recover every orbital parameter from dimensionless observables and translate the scale into metres only at the end. This section makes that separation exact and exhaustive. The claim is structural: the closed R.O.M. system factorizes into a \emph{fully solved dimensionless core} and a \emph{one-parameter scale map}. Units, and the constants $c$ and $G$ that service them, belong exclusively to the map. A civilisation with different rulers, clocks, calendars and mathematical conventions solves the identical core and obtains the identical pure numbers; only the final labelling differs. Physical law operates before — and independently of — anthropocentric units, metrics and scales.
+
+\begin{theorem}[Factorization of R.O.M.]
+\hypertarget{thm:factorization}{}\label{thm:factorization}
+Every quantity $X$ of the closed R.O.M. system (\ref{eq:rom}) factorizes as
+\[
+\boxed{X \;=\; \hat{X}(\beta, e;\, O;\, i, \omega_i;\, \kappa_R)\;\cdot\; S_X(R_s;\, c,\, G)}
+\]
+where $\hat{X}$ is a closed-form pure number determined entirely by dimensionless relational inputs, and $S_X$ is a monomial scale factor depending only on the quantity class:
+\begin{center}
+\begin{tabular}{|l|c||l|c|}\hline
+\textbf{Quantity class} & $S_X$ & \textbf{Quantity class} & $S_X$ \\\hline
+projections, shifts, angles, phases & $1$ & frequency & $c/R_s$ \\\hline
+length & $R_s$ & specific angular momentum & $R_s\,c$ \\\hline
+time & $R_s/c$ & mass & $c^2 R_s/G$ \\\hline
+velocity & $c$ & density & $c^2/(G R_s^2)$ \\\hline
+\end{tabular}
+\end{center}
+No dimensional constant enters any $\hat{X}$.
+\end{theorem}
+
+\begin{proof}
+Constructive, by inspection of the closed set (\ref{eq:rom}): each dimensional relation of the system is already written as a pure-number coefficient multiplying one of the monomials above (e.g. $a = \kappa^{-2}\cdot R_s$, $T = \pi\beta^{-3}\cdot R_s/c$, $M = \frac{1}{2}\cdot c^2 R_s/G$, $\rho = \frac{\kappa^6}{8\pi}\cdot c^2/(G R_s^2)$), and every dimensionless relation contains no monomial at all. The factorization is verified computationally to $50$ digits in the companion notebook: the dimensional pipeline (SI formulas with explicit $c$, $G$) and the unitless-core-then-scale pipeline agree on every quantity for anchors spanning $R_s \in [10^{-15}, 10^{26}]\,$m, while randomly rescaling $c$ and $G$ leaves the core bit-identical and moves the outputs by exactly the predicted monomials.
+\end{proof}
+
+\subsection{Irreducible Primitives and the Intrinsic State}
+
+The dimensionless core rests on four primitives, all of them relational statements about the carriers $S^1$ and $S^2$ — no unit, no metric, no dimensional constant is among them:
+\begin{enumerate}[noitemsep]
+    \item \textbf{$S^1$ kinematic carrier:} $\beta^2 + \beta_Y^2 = 1$;
+    \item \textbf{$S^2$ potential carrier:} $\kappa^2 + \kappa_X^2 = 1$;
+    \item \textbf{Closure Theorem:} $\kappa^2 = 2\beta^2$;
+    \item \textbf{Energy Symmetry Law:} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$, whose orbital form is the global invariant $\beta^2 = \kappa_o^2 - \beta_o^2$.
+\end{enumerate}
+
+\begin{definition}[Intrinsic State]
+\hypertarget{def:intrinsic_state}{}\label{def:intrinsic_state}
+The intrinsic state of a bound system is the pair of pure numbers $(\beta, e)$. It fixes every global invariant of the orbit. Local and observed quantities require only additional pure numbers: the phase coordinate $O$, the orientation angles $(i, \omega_i)$, and — for surface-linked outputs $R_{sur}$, $\tau_D$, $\theta_{sur}$ — the central body's surface projection $\kappa_R$.
+\end{definition}
+
+\begin{theorem}[Input Counting]
+\hypertarget{thm:input_counting}{}\label{thm:input_counting}
+The complete parameterization of a bound system requires exactly:
+\emph{two} pure numbers $(\beta, e)$ for the global state; \emph{one} phase coordinate $O$ per local state; \emph{two} angles $(i, \omega_i)$ for observer projection; and \emph{at most one} dimensional anchor — a single clock or ruler reading — if and only if outputs are to be expressed in local units. $c$ enters only as the conversion between the observer's time unit and length unit; $G$ enters only as the conversion of geometric mass into the kilogram convention. Neither appears upstream of the anchor.
+\end{theorem}
+
+\subsection{The Normalized System ($R_s = 1$, $c = 1$)}
+
+Setting $R_s = 1$, $c = 1$ eliminates the scale map entirely; the hatted quantities below \emph{are} the solved system. Lengths are read in units of $R_s$, times in units of $R_s/c$.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|l|c||l|c|}\hline
+\textbf{Global} & \textbf{Value} & \textbf{Global} & \textbf{Value} \\\hline
+semi-major axis & $\hat{a} = \dfrac{1}{\kappa^2} = \dfrac{1}{2\beta^2}$ & orbital period & $\hat{T} = \dfrac{\pi}{\beta^3}$ \\\hline
+perihelion, aphelion & $\hat{r}_{p,a} = \dfrac{1 \mp e}{2\beta^2}$ & angular frequency & $\hat{\omega} = 2\beta^3$ \\\hline
+angular momentum & $\hat{h} = \dfrac{\sqrt{1-e^2}}{2\beta}$ & precession per orbit & $\Delta\phi = \dfrac{2\pi(3\beta^2 - 2\beta^4)}{1-e^2}$ \\\hline
+relational density & $\hat{\rho} = \dfrac{\kappa^6}{8\pi} = \dfrac{\beta^6}{\pi}$ & density bound & $\hat{\rho}_{max} = \dfrac{\kappa^4}{8\pi}$ \\\hline
+mass parameter & $\hat{M} = \dfrac{1}{2}$ & time-density invariant & $\hat{\tau}_D = \dfrac{2\sqrt{2}\,\pi}{\kappa_R^3}$ \\\hline
+\textbf{Phase (at $O$)} & \textbf{Value} & \textbf{Phase (at $O$)} & \textbf{Value} \\\hline
+radial distance & $\hat{r}_o = \dfrac{\eta_o}{2\beta^2}$ & local potential & $\kappa_o^2 = \dfrac{1}{\hat{r}_o}$ \\\hline
+local frequency & $\hat{\omega}_o = \dfrac{2\beta^3 (1+e\cos O)^2}{(1-e^2)^{3/2}}$ & phase duration & $\hat{\Delta}_{to} = \dfrac{\zeta(O)}{2\beta^3}$ \\\hline
+\end{tabular}
+\end{center}
+
+\begin{corollary}[Universal Geometric Mass]
+\hypertarget{cor:mass_half}{}\label{cor:mass_half}
+In its own geometric units every bound system has the same mass, $\hat{M} = \frac{1}{2}$. Mass is not a property of the relational state at all: it is the scale itself, $M = \frac{1}{2}\, c^2 R_s / G$ — the anchor $R_s$ dressed in the kilogram convention. This sharpens the \hyperlink{sec:absolute_scale}{Epistemic Mandate}: the "mass parameter" carries zero relational information beyond the system scale.
+\end{corollary}
+
+\begin{remark}
+The normalization also exposes the Closure Theorem as an algebraic tautology of the normalized state ($\beta^2 = 1/(2\hat{a}) = \kappa^2/2$), and the Universal Horizon Constant as the pure number $\hat{\tau}_{D(limit)} = 2\sqrt{2}\,\pi$ at $\kappa_R \to 1$.
+\end{remark}
+
+\subsection{Observational Input Channels}
+
+The intrinsic pair $(\beta, e)$ is reachable through algebraically independent menus of direct observables. All entries are pure ratios — frequency ratios, angle ratios, angular-speed ratios, cycle-count ratios — identical for any observer regardless of local units ("cross-cultural invariants").
+
+\begin{center}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|l|l|}\hline
+\multicolumn{2}{|c|}{\textbf{$e$-channel (orbit shape) — any one:}} \\\hline
+E1 apparent angular speeds & $e = \dfrac{\sqrt{\omega_{max}/\omega_{min}} - 1}{\sqrt{\omega_{max}/\omega_{min}} + 1}$ \\\hline
+E2 apsidal Doppler pair & $e = \dfrac{\beta_p - \beta_a}{\beta_p + \beta_a}$ \\\hline
+E3 apsidal sky-angle ratio & $e = \dfrac{r_a/r_p - 1}{r_a/r_p + 1}$ \\\hline
+E4 balance-point phase & $e = -\cos B_a$ \\\hline
+\multicolumn{2}{|c|}{\textbf{$\beta$-channel (orbit depth) — any one:}} \\\hline
+B1 transverse Doppler at $a$ & $\beta^2 = 1 - (1+z_{\beta})^{-2}$ \\\hline
+B2 gravitational redshift at $a$ & $\beta^2 = \frac{1}{2}\left(1 - (1+z_{\kappa})^{-2}\right)$ \\\hline
+B3 combined shift $Z_{sys} = 1/\tau$ & $\beta^2 = \frac{1}{4}\left(3 - \sqrt{1 + 8\,Z_{sys}^{-2}}\right)$ \\\hline
+B4 apsidal Doppler pair & $\beta = \sqrt{\beta_p \beta_a}$ \\\hline
+B5 two-point (vis-viva) & $\beta^2 = \dfrac{(\beta_1^2 - \beta_2^2)\,(r_2/r_1)}{r_2/r_1 - 1} - \beta_1^2$ \\\hline
+B6 surface channel & $\beta^2 = \frac{1}{2}\left(1 - (1+z_{surf})^{-2}\right)\sin\theta_{obs}$ \\\hline
+\end{tabular}
+\end{center}
+
+Channels B3 and E4 exploit the balance points: at $B_a = \arccos(-e)$ the measured light signal $\tau(B_a)$ equals the global $\tau$, so a single spectroscopic reading there yields $\kappa^2 = \frac{1}{2}\left(3 - \sqrt{1+8\tau^2}\right)$ (\hyperlink{thm:balance_point}{Balance Point Theorem}) while the phase location itself yields $e$.
+
+\subsection{Operational Algorithm}
+
+\begin{enumerate}[noitemsep]
+    \item[\textbf{Stage 0}] \textbf{Measure pure ratios.} Select one $e$-channel and one $\beta$-channel observable set from the menus above (plus $\kappa_R$ via $z_{surf}$ if surface outputs are wanted). No unit is recorded.
+    \item[\textbf{Stage 1}] \textbf{Invert to the intrinsic state} $(\beta, e)$.
+    \item[\textbf{Stage 2}] \textbf{Solve the global block:} $\kappa, \kappa_X, \beta_Y, \tau, \tau_Y, Q, \hat{a}, \hat{r}_p, \hat{r}_a, \kappa_p, \beta_p, \kappa_a, \beta_a, \delta_p, \delta_a, e_X, e_Y, \Delta\phi, \Omega, \hat{T}, \hat{\omega}, \hat{h}, B_a, B_d, \hat{\rho}, \hat{M} = \frac{1}{2}$ — all closed-form pure numbers.
+    \item[\textbf{Stage 3}] \textbf{Phase-resolve} at any $O$: $\eta_o, \hat{r}_o, \kappa_o, \beta_o, \beta_R, \beta_T, \delta_o, Q_o, \hat{\omega}_o, \tau_o, Z_{sys}(O), \zeta(O), \hat{\Delta}_{to}$.
+    \item[\textbf{Stage 4}] \textbf{Observer-project} with $(i, \omega_i)$: $K_i, \beta_z, Z_{raw}$, sky-plane parametric orbit — still pure numbers (sky lengths in units of $\hat{a}$).
+    \item[\textbf{Stage 5}] \textbf{(Optional) Inject one anchor.} A single dimensional reading — chronometric $T$ giving $R_s = T c \beta^3/\pi$, or astrometric $r_p$ giving $R_s = r_p \kappa_p^2$ — scales the entire solved system: lengths $\times R_s$, times $\times R_s/c$, frequencies $\times c/R_s$, mass $= \frac{1}{2} c^2 R_s/G$. The system was already solved at Stage 2; this stage only names the answers in local units.
+\end{enumerate}
+
+\begin{corollary}[Cross-Cultural Invariance]
+\hypertarget{cor:cross_cultural}{}\label{cor:cross_cultural}
+Two civilisations with incommensurable rulers, clocks and mass conventions, observing the same bound system through any of the channels above, compute identical intrinsic states, identical $\hat{X}$ for every quantity, and identical dimensionless predictions ($\Delta\phi$ per orbit, $Z_{sys}$, $e$, phase timings $\zeta$). They disagree only on Stage 5 labels, and their labels are related by exact unit conversion. The physical content of R.O.M. is therefore invariant not merely under coordinate changes, but under the choice of metrology itself.
+\end{corollary}
+
+\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Test it yourself: unitless closure, scale-map commutation, alien units, Mercury \& Jupiter]
+COLAB: \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_UNITLESS_TEST.ipynb}{ROM\_UNITLESS\_TEST.ipynb} — 50-digit verification: intrinsic identity battery, dimensional-vs-unitless commutation across $41$ orders of magnitude in $R_s$, unit-system invariance including randomly generated alien units, $c$/$G$ scrambling, ten observational routes converging on one state, and the Mercury/Jupiter parameterization executed unitlessly with the anchor injected last. \\
+DESMOS: interactive dimensionless R.O.M. solver — paste-ready code in \texttt{WILL DATABASE/ROM\_UNITLESS\_DESMOS.txt} (repository).
+\end{tcolorbox}
+
 \section{Rotational Systems (Kerr Without Metric)}
 \hypertarget{sec:Kerr}{}\label{sec:Kerr}
 

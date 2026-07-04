@@ -1,0 +1,607 @@
+---
+name: latex-to-desmos
+description: >
+  Convert LaTeX physics/math derivations into interactive Desmos calculator projects.
+  Use this skill whenever the user wants to translate LaTeX equations into Desmos code,
+  create a Desmos dashboard from a derivation, make equations interactive in Desmos,
+  or produce pasteable Desmos text-format code from mathematical notation.
+  Also trigger when the user mentions "Desmos project", "Desmos dashboard",
+  "interactive derivation", "paste into Desmos", or asks to visualize a derivation
+  on a unit circle or geometric carrier. If the user provides LaTeX code and wants
+  it turned into something verifiable/interactive, this skill applies.
+  Trigger even if the user just says "put this in Desmos" or "make this a Desmos thing".
+  This skill handles the WILL RG Desmos protocol but works for any LaTeX-to-Desmos task.
+---
+
+# LaTeX to Desmos Translator
+
+You are translating LaTeX derivations into ready-to-paste Desmos calculator text code. The goal is **methodological transparency**: anyone can open the Desmos project, move a slider, and verify every step of the derivation themselves.
+
+## What You're Producing
+
+A single block of plain text that, when pasted into a blank Desmos project (via the Desmos text import), creates a fully functional interactive dashboard. The output is NOT LaTeX, NOT JavaScript, NOT JSON — it's Desmos's own text serialization format.
+
+## CRITICAL: Desmos Text Format Syntax
+
+Desmos's text parser is **extremely brittle**. A single syntax error will cause the ENTIRE project to fail to import — Desmos will reject the whole file, not just the broken line. Every rule below has been validated by testing against the actual parser.
+
+### The `cross` Keyword — Scientific Notation ONLY
+
+`cross` is the Desmos text-format word for the × symbol. It is ONLY used for scientific notation: `number cross 10^exponent`.
+
+**Correct:**
+```
+G=6.6743 cross 10^-11@{color:"#388c46"}
+sigma_SB=5.6703744296 cross 10^-8@{color:"#000000"}
+c=2.99792458 cross 10^8@{color:"#388c46"}
+```
+
+**WRONG — these will break the parser:**
+```
+G=6.6743cross 10^-11          ← missing space before cross
+G=6.6743 cross 10^{-11}       ← curly braces around exponent
+M=5 cross M_sun                ← cross between variables (use * instead)
+M=5*M_sun                      ← this is correct
+```
+
+### NEVER Put `cross` Inside Slider Values
+
+The slider `min`/`max` fields cannot parse `cross`. Constants defined with scientific notation should either:
+- Have NO slider at all (just `@{color:"#hex"}`)
+- Or use the raw decimal if a slider is truly needed
+
+**Correct:**
+```
+G=6.6743 cross 10^-11@{color:"#388c46"}
+c=299792458@{color:"#2d70b3",slider:@{min:299792458,max:299792458}}
+```
+
+**WRONG — will break:**
+```
+G=6.6743 cross 10^-11@{color:"#388c46",slider:@{min:6.6743 cross 10^-11,max:6.6743 cross 10^-11}}
+```
+
+The pattern: if a constant's value uses `cross`, just give it a color, no slider. If a constant's value is a plain number (like `c=299792458`), it can have a locked slider.
+
+### Exponents: Never Use Curly Braces
+
+Desmos text format uses plain `^` without LaTeX-style braces:
+```
+10^-11     ✓
+10^30      ✓
+10^{-11}   ✗ — curly braces break the parser
+10^{30}    ✗ — same problem
+```
+
+### Settings Block — Viewport Must Be Multi-line, Always Lock
+
+The viewport properties must each be on their own line. **Always include `lockViewport:true`** to prevent accidental panning/zooming that could displace readout labels and visualization elements:
+```
+settings@{
+  randomSeed:"09e9618da30ef21669a3ee2d0e12e878",
+  viewport:@{
+    xmin:-1.83,
+    xmax:3.44,
+    ymin:-1.18,
+    ymax:2.0,
+  },
+  showGrid:false,
+  showXAxis:false,
+  showYAxis:false,
+  lockViewport:true,
+}
+```
+
+Do NOT put viewport on a single line. Do NOT use `showGrid:true` — the grid is on by default, so either use `showGrid:false` or omit it entirely.
+
+### Folders — No Spaces Before Quote
+
+```
+folder"INPUTS"{        ✓
+folder "INPUTS" {      ✗
+```
+
+### Points and Labels — NEVER Wrap in Quotes
+
+This is the single most common error. Coordinate points with `@{...}` attributes are executable Desmos expressions. They produce visible, draggable, labeled points on the graph. If you wrap them in quote marks, they become inert text comments — invisible and non-functional.
+
+**Correct — this creates a visible labeled point:**
+```
+(1,6)@{
+  color:"#000000",
+  points:@{opacity:0.5,size:2},
+  label:@{text:"T₀ = 2.725 K",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+```
+
+**Correct — a readout panel with multiple value labels:**
+```
+(0,4)@{
+  color:"#c74440",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"M = ${M} M☉",size:1,orientation:"default",angle:0,editableMode:"NONE"},
+}
+
+(0,3)@{
+  color:"#c74440",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"R_s = ${R_s} m",size:1,orientation:"default",angle:0,editableMode:"NONE"},
+}
+```
+
+**WRONG — wrapping in quotes turns expressions into dead text:**
+```
+"(1,6)@{
+  color:\"#000000\",
+  points:@{opacity:0.5,size:2},
+  label:@{text:\"T₀ = 2.725 K\",size:1,orientation:\"right\",angle:0,editableMode:\"NONE\"},
+}"
+```
+
+The telltale sign you've made this error: you see `\"` (escaped quotes) inside an expression block. Real Desmos expressions use unescaped `"` because they're not inside a string. If you're escaping quotes, STOP — you've wrapped the expression in a string. Remove the outer quotes and un-escape the inner ones.
+
+### Variable Definitions — No Spaces Around `=`
+
+```
+R_s=(2*G*m_0)/c^2@{color:"#6042a6"}     ✓
+R_s = (2*G*m_0)/c^2@{color:"#6042a6"}   ✗
+```
+
+### Variable Names — Desmos Parses Character-by-Character
+
+Desmos treats each character in a variable name literally. A multi-character name without a subscript underscore is parsed as a PRODUCT of individual variables. This is one of the most dangerous errors because Desmos will silently accept it but compute the wrong thing.
+
+**CRITICAL — these are NOT the same:**
+```
+dphi       ✗ — Desmos reads this as d × p × h × i (four separate variables multiplied)
+Delta_phi  ✓ — Desmos reads this as Δ (the variable Delta) with subscript phi
+d_phi      ✓ — Desmos reads this as d with subscript phi (single variable)
+```
+
+**More examples:**
+```
+dphi_alt    ✗ — Desmos reads as d × p × h × i_{alt} — completely wrong
+Delta_phi   ✓ — single variable Δ_phi
+prec_as     ✗ — Desmos reads as p × r × e × c_{as} — wrong
+P_arcsec    ✓ — single variable P with subscript arcsec
+```
+
+The rule: every Desmos variable must be either (a) a single character (`e`, `c`, `W`, `G`), (b) a recognized Greek letter name (`kappa`, `beta`, `Delta`, `theta`, `alpha`, `rho`, `sigma`, `omega`, `pi`), or (c) any of the above followed by `_subscript`. Multi-character ASCII names without an underscore are always parsed as multiplication.
+
+### Subscripts — Single Level Only, Plain Text
+
+Desmos supports ONE level of subscript per variable. You cannot nest subscripts (double underscores).
+
+```
+m_0       ✓       R_s        ✓       rho_max      ✓
+H_0       ✓       R_skm      ✓       H_0kmsMpc    ✓
+R_s_km    ✗ — double subscript, Desmos will misparse
+H_0_SI    ✗ — double subscript, same problem
+m_{\text{0}}   ✗ — LaTeX syntax, will break
+```
+
+When you need a compound subscript, merge everything into a single subscript token: `R_skm` (not `R_s_km`), `H_0kmsMpc` (not `H_0_kmsMpc`), `V_bGsun` (not `V_b_Gsun`). Look at the reference examples — they consistently use this pattern.
+
+### Greek Letters for Physics Projections — MANDATORY
+
+The relational projection parameters κ (kappa) and β (beta) must ALWAYS be defined using their Greek letter names in Desmos: `kappa`, `beta`. Never use ASCII substitutes like `K`, `B`, `K_p`, `B_p` for these quantities.
+
+**Correct:**
+```
+kappa_p=sqrt((1-1/(1+z_sun)^2)*R_ratio)@{color:"#c74440"}
+beta_p=sqrt((kappa_p^2/2)*(1+e_obs))@{color:"#2d70b3"}
+```
+
+**WRONG:**
+```
+K_p=(1-1/(1+z_sun)^2)*R_ratio@{color:"#c74440"}    ← K_p is not κ_p
+B_p=(K_p/2)*(1+e_obs)@{color:"#2d70b3"}             ← B_p is not β_p
+```
+
+This applies to all Greek-letter physics variables. If the LaTeX uses `\kappa`, `\beta`, `\alpha`, `\rho`, `\theta`, `\sigma`, `\omega`, `\Delta` — the Desmos variable MUST use the corresponding Greek name: `kappa`, `beta`, `alpha`, `rho`, `theta`, `sigma`, `omega`, `Delta`.
+
+### Global vs Local Projection Naming
+
+When a derivation has both local (e.g., perihelion) and global projections, use clean naming:
+- **Local projections** — subscripted: `kappa_p`, `beta_p` (at perihelion), `kappa_a`, `beta_a` (at aphelion)
+- **Global projections** — bare Greek names: `kappa`, `beta` (no `_orb`, `_g`, `_global` suffixes)
+
+Always define BOTH global projections explicitly when the derivation includes the orbital invariant W:
+```
+beta=sqrt(2*W)@{color:"#2d70b3"}
+kappa=sqrt(4*W)@{color:"#6042a6"}
+```
+
+### Squared Definitions — Always Define the Base Variable
+
+LaTeX derivations often present equations for squared quantities (e.g., `\kappa_p^2 = ...`, `\beta_p^2 = ...`). In Desmos, you must define the **base variable** (not the square), because Desmos requires left-hand sides to be simple variable assignments.
+
+**When LaTeX gives you a squared definition:**
+```latex
+\kappa_p^2 = \left(1 - \frac{1}{(1+z_{sun})^2}\right) \cdot R_{ratio}
+```
+
+**Define the base variable with sqrt on the right-hand side:**
+```
+kappa_p=sqrt((1-1/(1+z_sun)^2)*R_ratio)@{color:"#c74440"}
+```
+
+**Then use the correct power wherever the variable appears in subsequent equations:**
+```
+Delta_phi=(3*pi/2)*kappa_p^4/beta_p^2@{color:"#c74440"}
+```
+
+This ensures dimensional/algebraic consistency. If the LaTeX says `κ_p^2`, define `kappa_p` (the unsquared root) and use `kappa_p^2` in expressions that need the squared value, `kappa_p^4` where the fourth power appears, etc.
+
+### Comments / Notes
+
+Bare quoted strings (not expressions) become non-mathematical notes:
+```
+"Calculate Schwarzschild radius"
+"Line one\nLine two\nhttps://some-link.com"
+```
+
+Notes can have attributes:
+```
+"Feel free to experiment with the slider"@{pinned:true}
+```
+
+### Duplicate Definition Workaround
+
+When you need to verify an already-defined variable (consistency check), wrap the left side in `sqrt(…^2)`:
+```
+sqrt(m_0^2)=(kappa^2*c^2*r)/(2*G)@{color:"#2d70b3"}
+```
+
+### Implicit Equations
+
+Desmos supports implicit equations (variable on both sides):
+```
+kappa^2=R_s/r@{color:"#c74440"}
+(2*pi)/omega=T@{color:"#000000"}
+```
+
+### Animation Sliders
+
+```
+t_anim=3.777@{
+  color:"#c74440",
+  hidden:true,
+  slider:@{
+    playing:true,
+    loopMode:"LOOP_FORWARD",
+    period:15000,
+    min:0,
+    max:6.283185307179586,
+  },
+}
+```
+
+### onClick Actions — Reset Buttons for ALL Interactive Elements
+
+Points can have click actions. **Include a clickable reset button for EVERY interactive element** — not just parameter sliders, but also animation phase variables, time parameters, etc. Users who explore need a way to snap back to canonical values or restart animations.
+
+```
+(0,2)@{
+  color:"#388c46",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"NONE"},
+  label:@{text:"↺ set e = 0.2056",size:1,orientation:"default",angle:0,editableMode:"NONE"},
+  onClick:e_obs->0.2056,
+  clickDescription:"",
+}
+```
+
+**Reset animation phase to zero:**
+```
+(-2.67,1.41)@{
+  color:"#388c46",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"NONE"},
+  label:@{text:"↺ set t = 0",size:1,orientation:"default",angle:0,editableMode:"NONE"},
+  onClick:o->0,
+  clickDescription:"",
+}
+```
+
+Use "↺ set X = value" phrasing (not "restore"). Place reset buttons in the VISUALIZATION folder, near the readout panel.
+
+### In-Graph Draggable Slider Points
+
+For interactive parameters, create a **draggable point directly on the graph** using `drag:"X"`. This gives the user a spatial, visual way to control the parameter without relying on the sidebar slider alone.
+
+```
+(e_obs,-2)@{
+  color:"#2d70b3",
+  hidden:true,
+  points:@{size:8,drag:"X"},
+  label:@{
+    text:"⟸ e = ${\\e_obs} ⟹",
+    size:1,
+    orientation:"right",
+    angle:0,
+    outline:false,
+    editableMode:"NONE",
+  },
+}
+```
+
+The `drag:"X"` constrains the point to horizontal movement. The x-coordinate is bound to the variable (`e_obs`), so dragging the point changes the variable. Use Unicode arrows (`⟸ ⟹`) to indicate drag direction.
+
+### Folder Attributes
+
+Folders can have attributes after the closing brace:
+```
+folder"VISUAL"{
+  ...
+}@{collapsed:true}
+```
+
+Or with id/secret:
+```
+folder"geometry"{
+}@{id:"geo_folder",secret:true}
+```
+
+## Dashboard Structure
+
+Generate code in this exact order:
+
+### A. Settings Block
+Use the multi-line viewport format. Always include `lockViewport:true`. Use `showGrid:false`, `showXAxis:false`, `showYAxis:false` for geometric/orbital dashboards.
+
+### B. Title + Interactivity Notice
+A quoted string with the derivation name and source links, followed by a note signaling interactivity:
+```
+"WILL RG: Derivation Title \nhttps://source-link"
+"THIS IS INTERACTIVE GRAPH"
+```
+
+The `"THIS IS INTERACTIVE GRAPH"` note is mandatory — it immediately signals to the viewer that this is not a static diagram.
+
+### C. INPUTS Folder — Always Collapsed
+All base constants and the primary interactive slider(s). **Collapse this folder** with `}@{collapsed:true}`.
+
+For constants with plain numeric values — use locked sliders (min=max=value):
+```
+c=299792458@{color:"#2d70b3",slider:@{min:299792458,max:299792458}}
+```
+
+For constants with scientific notation — color only, NO slider:
+```
+G=6.6743 cross 10^-11@{color:"#388c46"}
+sigma_SB=5.6703744296 cross 10^-8@{color:"#000000"}
+```
+
+For the main interactive variable — free slider with range:
+```
+kappa=0.604@{color:"#2d70b3",slider:@{min:0,max:1}}
+```
+
+For locked constants that need a slider for user visibility — use raw decimal:
+```
+z_sun=0.0000021223999999999998@{
+  color:"#388c46",
+  slider:@{
+    min:0.0000021223999999999998,
+    max:0.0000021223999999999998,
+    step:0.0000021223999999999998,
+  },
+}
+```
+
+### D. OUTPUTS Folder — Always Collapsed
+The derivation steps, in order. **Collapse this folder** with `}@{collapsed:true}`. Each step gets:
+1. A descriptive note (quoted string) providing epistemic/conceptual context, with source links
+2. The equation itself
+
+**CRITICAL: Description notes must NOT duplicate the equation.** The next cell already IS the equation — repeating it in the note is redundant noise. Instead, the note should provide epistemic context, conceptual explanation, or methodological reasoning that helps the reader understand WHY this step exists and WHAT it means physically.
+
+**BAD — duplicates the equation:**
+```
+"Step 2: Potential Projection at Perihelion
+K_p = kappa_p^2 = (1 - 1/(1+z_sun)^2) * R_ratio"
+```
+
+**GOOD — provides epistemic/conceptual context:**
+```
+"Step 2: Potential Projection (at perihelion)
+Translating the surface spectral shift to the potential projection at perihelion using the derived scale factor"
+```
+
+**Include reference/standard values in descriptions** where known, so users can verify the derivation produces correct results:
+```
+"Step 4b: Converting the pure geometric phase shift to standard observational units (arcseconds per century). Observed value is ≈ 43 "
+"Step 6: Semi-major axis in meters derived from global potential projection and absolute system scale.\nStandard value ≈ 5.79×10^10 m "
+```
+
+**Extend the derivation beyond the LaTeX** when additional quantities can be algebraically recovered from the existing chain. If the derivation produces R_s and κ², derive a = R_s/κ² (semi-major axis). If it produces R_s and κ_p², derive r_p = R_s/κ_p² (perihelion radius). The principle: extract EVERY recoverable physical quantity.
+
+**End OUTPUTS with an epistemic conclusion note** summarizing what was demonstrated:
+```
+"All major gravitational system parameters recovered without use of mass, gravitational constant G, metric manifold, differential formalism, postulation of 'container-space' and external flow of time."
+```
+
+Keep the logical chain clear — someone reading top to bottom should follow the derivation.
+
+### E. CONSISTENCY Folder — Always Collapsed
+Self-consistency checks. **Collapse this folder** with `}@{collapsed:true}`. Use the `sqrt(x^2)` workaround for re-deriving already-defined variables. Include ratio checks that should evaluate to 1.0 or other expected values.
+
+**CRITICAL: Consistency checks must use algebraically independent paths.** Do NOT simply rearrange the same formula — that's a trivial identity, not a real check. Instead, derive the same result via a structurally different algebraic route.
+
+**BAD — trivial rearrangement (not a real consistency check):**
+```
+"Alternative precession formula"
+Delta_alt=(3*pi*kappa_p^2)/(1+e_obs)@{color:"#388c46"}
+```
+This is just `3πκ²/(1+e) = (3π/2)·κ⁴/β²` rewritten — it's the same formula rearranged.
+
+**GOOD — algebraically independent path via the Q parameter:**
+```
+Q=sqrt(kappa^2+beta^2)@{color:"#6042a6"}
+Delta_alt=(2*pi*Q^2)/(1-e_obs^2)@{color:"#388c46"}
+```
+This uses the total relational shift Q (a structurally different combination of projections) to arrive at the same precession value via a different algebraic route.
+
+### F. VISUALIZATION Folder — Always Collapsed
+This is where the derivation becomes geometric and interactive. **Collapse** with `}@{collapsed:true}`. The graph area is the primary user interface — users interact with the visualization, not the expression panel.
+
+**Choose the visualization style based on the derivation:**
+
+For **relational geometry / unit-circle derivations**:
+- Unit circle: `x^2+y^2=1@{color:"#000000"}`
+- Projections, named points, polygons, line segments
+
+For **orbital mechanics derivations** — use **animated polar coordinates**:
+- Phase animation parameter: `o=0@{...slider:@{playing:true,loopMode:"PLAY_INDEFINITELY",max:167.24}...}`
+- Orbit in polar form (focus at origin): `r=(1-e_obs^2)/(1+e_obs*cos(theta-omega_shift))@{color:"#000000",lines:@{width:1.5,style:"DASHED"}}`
+- Accumulating precession (exaggerated for visibility): `omega_shift=((Delta_phi*o)/(2*pi))*1000000`
+- Perihelion point tracks precession:
+  ```
+  D_pX=(1-e_obs)*cos(omega_shift)@{color:"#000000"}
+  D_pY=(1-e_obs)*sin(omega_shift)@{color:"#c74440"}
+  P_pshift=(D_pX,D_pY)@{color:"#c74440",label:@{text:"Perihelion",...}}
+  ```
+- Time readout: `t=(o/(2*pi))*T_ratio` with floating label "t = ${t} Earth years"
+- Orbital cycle counter: `O_cycle=o/(2*pi)` with floating label
+
+**NEVER use static implicit ellipses** (e.g., `(x-e)^2+y^2/(1-e^2)=1`) for orbital mechanics. The polar form `r=a(1-e²)/(1+e·cos(θ))` with the focus at the origin is physically correct and enables dynamic precession visualization.
+
+**Always include in VISUALIZATION:**
+- Hidden points with `drag:"XY"` for floating text labels
+- Live variable interpolation in label text (see syntax below)
+- Named point variables (e.g., `D_k=(0,kappa)`) for geometric constructions
+- **In-graph draggable slider point(s)** with `drag:"X"` for every interactive parameter
+- **Reset button(s)** (`onClick:var->value`) for every interactive element (sliders AND animation phases)
+- **Epistemic conclusion** rendered as floating text labels on the graph itself
+- **Readout panel** showing all key computed values
+
+### Readout Panel Styling
+
+All readout labels should use **`#000000` (black)** for a clean, uniform appearance. Do NOT color-code readout labels to match their source equations — that creates visual noise. Reserve colors for the structural visualization elements (orbit, points, vectors).
+
+### Label Variable Interpolation — Unicode + Backslash Rules
+
+Inside label `text:` fields, live values use `${...}` syntax. Greek letters and subscripted variables need a backslash `\` prefix inside the interpolation braces.
+
+**For readout labels in VISUALIZATION, use Unicode symbols** for the display text (left side of `=`) for clearer, more professional visualization. Use the Desmos interpolation syntax (with backslash) only inside `${...}` for the live value.
+
+**Correct — Unicode display + Desmos interpolation:**
+```
+label:@{text:"κₚ = ${\\kappa_p}",size:1,editableMode:"NONE"}
+label:@{text:"βₚ = ${\\beta_p}",size:1,editableMode:"NONE"}
+label:@{text:"Δφ = ${\\Delta_phi} rad/orbit",size:1,editableMode:"NONE"}
+label:@{text:"ρ_max = ${\\rho_{max}} kg/m³",size:1,editableMode:"NONE"}
+```
+
+**WRONG — using Desmos variable syntax for display text:**
+```
+label:@{text:"kappa_p = ${\\kappa_p}",size:1,...}    ← ugly, use κₚ instead
+label:@{text:"K_p = ${\\K_p}",size:1,...}             ← wrong variable AND wrong display
+```
+
+Common Unicode symbols for readout labels:
+- κ (kappa), β (beta), α (alpha), ρ (rho), θ (theta), σ (sigma), ω (omega), Δ (Delta), π (pi)
+- Subscript digits: ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉
+- Subscript letters: ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ
+- Superscripts: ² ³ ⁴ ⁻¹
+- Other: ☉ (Sun), ⊕ (Earth), ≈, →, ↺, ⟸, ⟹
+
+**Interpolation rules (inside `${...}`):**
+```
+label:@{text:"κ = ${\\kappa}",size:1,editableMode:"NONE"}         ✓ Greek letter
+label:@{text:"ρ_γ = ${\\rho_{gamma}} kg/m^3",size:1,...}          ✓ Greek + subscript
+label:@{text:"P_max = ${P_{max}} Pa",size:1,...}                   ✓ ASCII + subscript
+```
+
+**WRONG:**
+```
+label:@{text:"ρ_γ = ${rho_gamma}",  ...}   ← missing backslash, Desmos won't interpolate
+label:@{text:"ρ = ${rho}",  ...}            ← same problem
+```
+
+The rule: if the variable name is a Greek letter or has subscripts, use `${\varname}` with a `\` before the name. Plain ASCII single-character variables like `${M}`, `${r}`, `${g}` work without the backslash, but it never hurts to include it.
+
+## Translation Logic
+
+1. **Parse the derivation structure.** Identify inputs (constants), sequential steps, and final result.
+
+2. **Map LaTeX symbols to Desmos variables.** Greek letters (`kappa`, `alpha`, `beta`, `rho`, `sigma`, `theta`, `pi`, `omega`, `Delta`) are typed as-is in Desmos. ALWAYS preserve the Greek identity — never substitute ASCII placeholders (`K` for κ, `B` for β, etc.). For label display, use Unicode (`κ`, `β`) with `${\\kappa}` for interpolation.
+
+3. **Handle squared definitions correctly.** When LaTeX defines a squared quantity (e.g., `κ_p^2 = ...`), define the BASE variable in Desmos using sqrt: `kappa_p=sqrt(...)`. Then use the appropriate power (`kappa_p^2`, `kappa_p^4`) in downstream equations.
+
+4. **Use clean naming for global vs local projections.** Bare `kappa`, `beta` for global projections; `kappa_p`, `beta_p` for local (perihelion). No `_orb`, `_g`, `_global` suffixes — they add clutter.
+
+5. **Respect the derivation's causal chain.** If κ is the independent variable, everything downstream must derive from it.
+
+6. **Every equation in the LaTeX should appear in OUTPUTS.** Don't skip intermediate results.
+
+7. **Extend beyond the LaTeX.** Identify ALL additional physical quantities recoverable from the derivation chain and include them (e.g., semi-major axis, perihelion radius, orbital period). Include standard/reference values in descriptions for verification.
+
+8. **Add descriptive notes before each equation** — epistemic context with reference values, not equation duplication.
+
+9. **Include source links in notes** (append `\nhttps://url` to the note string).
+
+10. **All variables must be defined before use.** If an equation references a variable that hasn't been assigned yet, either define it first or restructure the derivation order.
+
+11. **Include reset buttons for ALL interactive elements** — parameter sliders AND animation phases.
+
+12. **Include in-graph draggable slider points** for every interactive parameter.
+
+13. **Use algebraically independent paths for consistency checks** — never trivial rearrangements.
+
+## Color Palette
+
+- `#2d70b3` — blue (primary variables, projections, in-graph sliders)
+- `#c74440` — red (key results, κ-related)
+- `#388c46` — green (consistency checks, secondary, reset buttons)
+- `#6042a6` — purple (derived quantities, animation parameters)
+- `#000000` — black (unit circle, structural elements, notes, ALL readout labels)
+- `#ffa500` / `#ffd700` — orange/gold (special markers like Sun, named bodies)
+
+## Output Format
+
+Produce the complete Desmos text code as a single code block. No preamble, no explanation before it — just the code. After the code block, optionally add a brief note about what the main slider controls.
+
+## Pre-Output Checklist
+
+Before delivering the code, mentally verify:
+- [ ] No `cross` inside any `slider:@{min:...,max:...}` value
+- [ ] No curly braces in exponents (`10^-11` not `10^{-11}`)
+- [ ] Every `cross` has a space before it and after it
+- [ ] No coordinate expressions wrapped in quote marks
+- [ ] Viewport is multi-line (each property on its own line)
+- [ ] No `showGrid:true` (use `showGrid:false` or omit)
+- [ ] `lockViewport:true` is present in settings
+- [ ] `"THIS IS INTERACTIVE GRAPH"` note follows the title
+- [ ] ALL folders have `@{collapsed:true}`
+- [ ] Every referenced variable is defined before use
+- [ ] `cross` only appears in `number cross 10^exponent` patterns
+- [ ] No double subscripts in variable names (`R_skm` not `R_s_km`)
+- [ ] Label interpolation uses `\` for Greek/subscripted vars (`${\\rho_{gamma}}` not `${rho_gamma}`)
+- [ ] No unnecessary `@{pinned:true}` on note strings (use sparingly)
+- [ ] κ and β (and all Greek physics variables) use Greek letter names, not ASCII substitutes
+- [ ] Global projections use bare names (`kappa`, `beta`), local use subscripts (`kappa_p`, `beta_p`)
+- [ ] Squared LaTeX definitions are converted to base-variable definitions with `sqrt(...)` on RHS
+- [ ] Description notes provide epistemic context, NOT equation duplication
+- [ ] Description notes include reference/standard values where known
+- [ ] Multi-character variable names are valid Desmos identifiers (Greek name or single char + subscript), not accidental multiplication
+- [ ] VISUALIZATION readout labels use Unicode symbols (κₚ, βₚ, Δφ) for display text
+- [ ] ALL readout labels use `#000000` (black) — no per-variable coloring
+- [ ] Every interactive slider has an in-graph draggable point (`drag:"X"`)
+- [ ] Every interactive element (sliders AND animations) has a clickable reset button (`onClick:var->value`)
+- [ ] Orbital mechanics use polar form `r=(1-e^2)/(1+e*cos(theta-shift))`, NOT static implicit ellipses
+- [ ] Orbital visualizations are animated (phase parameter with `playing:true`)
+- [ ] Derivation includes ALL recoverable quantities (semi-major axis, perihelion radius, etc.)
+- [ ] Epistemic conclusion appears both in OUTPUTS and as floating text on the graph
+- [ ] Consistency checks use algebraically independent paths, not trivial rearrangements
+
+## Reference Examples
+
+Two complete worked examples (LaTeX input → Desmos output) are bundled in `references/`. These are KNOWN WORKING — they have been pasted into Desmos and verified. Consult them for exact syntax patterns:
+- `references/example_h0_and_solar.md` — H₀ derivation + Solar rotation velocity (animation, parametric curves)
+- `references/example_density_pressure.md` — Density & Pressure derivation (unit-circle S² carrier)
+
+When in doubt about syntax, copy the pattern exactly from these references.

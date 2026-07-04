@@ -1,0 +1,445 @@
+settings@{
+  randomSeed:"7c1e2a90b4f3d8e6a5c2b1d0e9f84a3b",
+  viewport:@{
+    xmin:-2.7,
+    xmax:7.4,
+    ymin:-2.9,
+    ymax:2.9,
+  },
+  showGrid:false,
+  showXAxis:false,
+  showYAxis:false,
+  lockViewport:true,
+}
+
+"WILL RG — R.O.M. FULLY UNITLESS SOLVER \nThe closed relational system solved in pure numbers; units injected last.\nhttps://willrg.com"
+
+"THIS IS INTERACTIVE GRAPH"
+
+"HOW TO: (1) set the intrinsic state (β, e) with the sliders or drag the blue in-graph points; (2) read every global and phase quantity in the readout columns — all pure numbers, R_s=1, c=1; (3) open SCALE INJECTION and type YOUR measured period T_obs to name the system in metres and kilograms; (4) open CONSISTENCY — every entry equals 1 identically, at any slider position. Defaults reproduce the reference case of the Unitless R.O.M. document: â=50, r̂ₚ=25, r̂ₐ=75, T̂=1000π. For Mercury type: β=0.00015971, e=0.2056, T_obs=7600521.6."
+
+folder"INPUTS — intrinsic state (pure numbers)"{
+"The entire bound system is fixed by TWO dimensionless numbers: the global kinetic projection β and the eccentricity e. Keep 2β²/(1−e) below 1 (perihelion above the horizon) — beyond it the algebra itself declares the state unphysical and the phase factors go undefined."
+beta=0.1@{color:"#2d70b3",slider:@{min:0.0001,max:0.35,step:0.0001}}
+e_obs=0.5@{color:"#2d70b3",slider:@{min:0,max:0.9,step:0.001}}
+"Animation: o is the accumulating true phase (10 orbits per loop). X_prec exaggerates the drawn precession for slow orbits — set 1 for the physical rate (default β=0.1 is relativistic enough to see it directly)."
+o=0@{
+  color:"#6042a6",
+  hidden:true,
+  slider:@{
+    playing:true,
+    loopMode:"LOOP_FORWARD",
+    period:40000,
+    min:0,
+    max:62.832,
+  },
+}
+X_prec=1@{color:"#6042a6",slider:@{min:1,max:200,step:1}}
+"Observer orientation — needed only for the sky-projected outputs: inclination i and argument of periapsis ω_i."
+i_obs=0.5@{color:"#388c46",slider:@{min:0,max:1.5708,step:0.001}}
+omega_i=0.4@{color:"#388c46",slider:@{min:0,max:6.2832,step:0.001}}
+}@{collapsed:true}
+
+folder"GLOBAL INVARIANTS (units: R_s=1, c=1)"{
+"Closure Theorem κ²=2β²: the S² potential projection is fixed by the S¹ kinematic projection — one number rules both carriers.\nhttps://willrg.com"
+kappa=sqrt(2)*beta@{color:"#c74440"}
+kappa_X=sqrt(1-kappa^2)@{color:"#c74440"}
+beta_Y=sqrt(1-beta^2)@{color:"#2d70b3"}
+"Relational spacetime factor τ=κ_X·β_Y, its phase factor, and the total relational shift Q — the complete spectroscopic identity of the state."
+tau=kappa_X*beta_Y@{color:"#6042a6"}
+tau_Y=sqrt(1-tau^2)@{color:"#6042a6"}
+Q=sqrt(3)*beta@{color:"#6042a6"}
+Z_sys=1/tau@{color:"#6042a6"}
+z_k=1/kappa_X-1@{color:"#6042a6"}
+z_b=1/beta_Y-1@{color:"#6042a6"}
+"Eccentricity geometry: orthogonal value, shape factor, interior kinetic projection."
+e_Y=sqrt(1-e_obs^2)@{color:"#2d70b3"}
+e_X=(1+e_obs)/(1-e_obs)@{color:"#2d70b3"}
+beta_int=beta/e_Y@{color:"#2d70b3"}
+"Geometric scale: space is the inverted shadow of the potential projection. Default check: â=50, r̂ₚ=25, r̂ₐ=75."
+a_n=1/kappa^2@{color:"#c74440"}
+r_pn=a_n*(1-e_obs)@{color:"#c74440"}
+r_an=a_n*(1+e_obs)@{color:"#c74440"}
+"Apsidal projections and closure factors — the structural-dynamical equivalence chain r_a/r_p = δ_a/δ_p = β_p/β_a = κ_p²/κ_a² lives here."
+kappa_p=kappa/sqrt(1-e_obs)@{color:"#c74440"}
+beta_p=beta*sqrt(e_X)@{color:"#2d70b3"}
+kappa_a=kappa/sqrt(1+e_obs)@{color:"#c74440"}
+beta_a=beta/sqrt(e_X)@{color:"#2d70b3"}
+delta_p=1/(1+e_obs)@{color:"#6042a6"}
+delta_a=1/(1-e_obs)@{color:"#6042a6"}
+"Temporal structure: period T̂=π/β³ (default 1000π ≈ 3141.6), frequency ω̂=2β³, invariant angular momentum ĥ=√(1−e²)/(2β). Time needs no external clock — it is phase mechanics of the S¹ carrier."
+T_n=pi/beta^3@{color:"#6042a6"}
+omega_n=2*beta^3@{color:"#6042a6"}
+h_n=e_Y/(2*beta)@{color:"#6042a6"}
+"Exact second-order precession per orbit and per phase radian. Default check: Δφ=(149/1875)π ≈ 0.24965 rad/orbit."
+Delta_phi=2*pi*(3*beta^2-2*beta^4)/(1-e_obs^2)@{color:"#c74440"}
+s_prec=Delta_phi/(2*pi)@{color:"#c74440"}
+"Balance points: the two phases where r=a exactly and the local closure κₒ²=2βₒ² holds — the orbit crosses the green unit circle there."
+B_a=arccos(-e_obs)@{color:"#388c46"}
+B_d=2*pi-arccos(-e_obs)@{color:"#388c46"}
+"Relational density (units c²/(G·R_s²)=1) and the universal geometric mass: M̂=1/2 for EVERY bound system in the Universe. Mass is not a property of the state — it is the scale."
+rho_n=kappa^6/(8*pi)@{color:"#6042a6"}
+M_n=0.5@{color:"#000000"}
+}@{collapsed:true}
+
+folder"PHASE STATE (at true phase O = mod(o, 2π))"{
+O_m=mod(o,2*pi)@{color:"#6042a6"}
+"Normalised radius η=r/a, radius in horizon units r̂=â·η, local potential κₒ²=1/r̂ — distance IS inverse potential."
+eta_o=(1-e_obs^2)/(1+e_obs*cos(O_m))@{color:"#c74440"}
+r_on=a_n*eta_o@{color:"#c74440"}
+kappa_o=sqrt(1/r_on)@{color:"#c74440"}
+kappa_Xo=sqrt(1-kappa_o^2)@{color:"#c74440"}
+"Local kinematics from the binding-energy invariant β²=κₒ²−βₒ² (orbital form of the Energy Symmetry Law), split into radial and transverse projections."
+beta_o=sqrt(kappa_o^2-beta^2)@{color:"#2d70b3"}
+beta_Yo=sqrt(1-beta_o^2)@{color:"#2d70b3"}
+beta_T=beta*(1+e_obs*cos(O_m))/e_Y@{color:"#2d70b3"}
+beta_R=beta*e_obs*sin(O_m)/e_Y@{color:"#2d70b3"}
+"Local closure factor, local relational shift, local frequency, phase spacetime factor and combined shift 1/τₒ."
+delta_o=kappa_o^2/(2*beta_o^2)@{color:"#6042a6"}
+Q_o=sqrt(kappa_o^2+beta_o^2)@{color:"#6042a6"}
+omega_on=2*beta^3*(1+e_obs*cos(O_m))^2/e_Y^3@{color:"#6042a6"}
+tau_o=kappa_Xo*beta_Yo@{color:"#6042a6"}
+Z_o=1/tau_o@{color:"#6042a6"}
+"Temporal phase interval ζ (mean-anomaly analog) — closed form, continuous over the full orbit via the two-argument arctan; phase duration and elapsed fraction of the period t/T=ζ/(2π)."
+zeta_o=2*arctan(sin(O_m/2),sqrt(e_X)*cos(O_m/2))-e_obs*e_Y*sin(O_m)/(1+e_obs*cos(O_m))@{color:"#388c46"}
+Delta_ton=zeta_o/(2*beta^3)@{color:"#388c46"}
+t_frac=zeta_o/(2*pi)@{color:"#388c46"}
+}@{collapsed:true}
+
+folder"OBSERVER PROJECTION"{
+"What an external astronomer records: semi-amplitude invariant K_i, line-of-sight shift β_z, and the raw light shift Z_raw — still pure numbers."
+K_i=beta_int*sin(i_obs)@{color:"#388c46"}
+beta_z=beta_int*(cos(O_m+omega_i)+e_obs*cos(omega_i))*sin(i_obs)@{color:"#388c46"}
+Z_raw=(1+beta_z)*Z_o@{color:"#388c46"}
+}@{collapsed:true}
+
+folder"CONSISTENCY (independent paths — every value = 1)"{
+"C₁ binding energy: the difference κₒ²−βₒ² recomputed at the CURRENT animated phase against the global β² — the Energy Symmetry Law holding live."
+C_1=(kappa_o^2-beta_o^2)/beta^2@{color:"#388c46"}
+"C₂ angular momentum: local r̂²·ω̂ₒ against the global invariant ĥ — a structurally different route through the phase variables."
+C_2=r_on^2*omega_on/h_n@{color:"#388c46"}
+"C₃ closure factor: projection form δₒ=κₒ²/(2βₒ²) against the independent trigonometric form (1+e·cosO)/(1+e²+2e·cosO)."
+C_3=delta_o*(1+e_obs^2+2*e_obs*cos(O_m))/(1+e_obs*cos(O_m))@{color:"#388c46"}
+"C₄ Balance Point Theorem: κ² recovered from the light signal τ at r=a through the quadratic (3−√(1+8τ²))/2 — Method C of the Absolute Scale section."
+C_4=(3-sqrt(1+8*tau^2))/(2*kappa^2)@{color:"#388c46"}
+"C₅ Holographic Decryption Invariant: the two-phase ledger closes to exactly 2 for ANY orientation (i, ω_i) — computed here from scratch at the phases −ω_i and π−ω_i."
+c_w=cos(omega_i)@{color:"#388c46"}
+eta_1=(1-e_obs^2)/(1+e_obs*c_w)@{color:"#388c46"}
+kappa_1=sqrt(1/(a_n*eta_1))@{color:"#388c46"}
+beta_1=sqrt(kappa_1^2-beta^2)@{color:"#388c46"}
+tau_1=sqrt((1-kappa_1^2)*(1-beta_1^2))@{color:"#388c46"}
+eta_2=(1-e_obs^2)/(1-e_obs*c_w)@{color:"#388c46"}
+kappa_2=sqrt(1/(a_n*eta_2))@{color:"#388c46"}
+beta_2=sqrt(kappa_2^2-beta^2)@{color:"#388c46"}
+tau_2=sqrt((1-kappa_2^2)*(1-beta_2^2))@{color:"#388c46"}
+Z_r1=(1+K_i*(1+e_obs*c_w))/tau_1@{color:"#388c46"}
+Z_r2=(1+K_i*(-1+e_obs*c_w))/tau_2@{color:"#388c46"}
+C_5=(Z_r1*tau_1*(1-e_obs*c_w)+Z_r2*tau_2*(1+e_obs*c_w))/2@{color:"#388c46"}
+"C₆ route equivalence: the global β recovered as the geometric mean of the apsidal Doppler pair — observational channel B4."
+C_6=sqrt(beta_p*beta_a)/beta@{color:"#388c46"}
+"C₇ balance symmetry of the temporal phase: Bₐ−ζ(Bₐ) = ζ(B_d)−B_d."
+zeta_A=2*arctan(sin(B_a/2),sqrt(e_X)*cos(B_a/2))-e_obs*e_Y*sin(B_a)/(1+e_obs*cos(B_a))@{color:"#388c46"}
+zeta_D=2*arctan(sin(B_d/2),sqrt(e_X)*cos(B_d/2))-e_obs*e_Y*sin(B_d)/(1+e_obs*cos(B_d))@{color:"#388c46"}
+C_7=(B_a-zeta_A)/(zeta_D-B_d)@{color:"#388c46"}
+"C₈ Method D (single-epoch scale recovery): R̂ₛ reconstructed from (â, r̂ₒ, τₒ) at the CURRENT phase must equal exactly 1 — the Arbitrary Phase Theorem live."
+C_8=r_on*(4*a_n-r_on-sqrt((4*a_n-r_on)^2-8*a_n*(2*a_n-r_on)*(1-tau_o^2)))/(2*(2*a_n-r_on))@{color:"#388c46"}
+}@{collapsed:true}
+
+folder"SCALE INJECTION — units enter here and ONLY here"{
+"STAGE 5 (optional): ONE clock reading names the scale. T_obs is the measured orbital period in the observer's own time unit (seconds). Default 10⁶π s reproduces the worked example of the Unitless R.O.M. document: R_s=10³c ≈ 3×10¹¹ m. For Mercury type T_obs=7600521.6 together with β=0.00015971, e=0.2056 in INPUTS — this returns R_s ≈ 2955 m, a ≈ 5.79×10¹⁰ m, Δφ ≈ 43″/century."
+T_obs=3141592.653589793@{color:"#000000",slider:@{min:1,max:100000000}}
+"c and G are unit-translation factors of the observer's civilisation, not physics inputs: c converts the local time unit into the local length unit; G converts geometric mass into kilograms."
+c=299792458@{color:"#2d70b3",slider:@{min:299792458,max:299792458}}
+G=6.6743 cross 10^-11@{color:"#388c46"}
+"Absolute system scale in metres — the ONLY place a dimensional quantity is created. GR reference for the Sun: 2953.33 m."
+R_s=T_obs*c*beta^3/pi@{color:"#c74440"}
+"Every length is its pure number times R_s."
+a_m=R_s*a_n@{color:"#c74440"}
+r_pm=R_s*r_pn@{color:"#c74440"}
+r_am=R_s*r_an@{color:"#c74440"}
+"Precession translated into anthropocentric bookkeeping (arcseconds per Julian century; 3155760000 s = 100 yr)."
+P_arcsec=Delta_phi*(180/pi)*3600*3155760000/T_obs@{color:"#c74440"}
+"G appears in this single line — dressing the geometric mass M̂=1/2 in the kilogram convention."
+M_kg=R_s*c^2/(2*G)@{color:"#c74440"}
+}@{collapsed:true}
+
+folder"VISUALIZATION"{
+"Orbit drawn in units of the semi-major axis (η=r/a): the green dotted unit circle IS r=a, so the orbit crosses it exactly at the balance points. The osculating ellipse precesses at the exact relational rate s_prec (×X_prec)."
+w_sh=s_prec*o*X_prec@{color:"#6042a6"}
+eta_b=(1-e_obs^2)/(1+e_obs*cos(o))@{color:"#6042a6"}
+r=(1-e_obs^2)/(1+e_obs*cos(theta-w_sh))@{color:"#000000",lines:@{width:1.5,style:"DASHED"}}
+x^2+y^2=1@{color:"#388c46",lines:@{width:1,style:"DOTTED"}}
+x^2+y^2<=kappa^4@{color:"#ffa500"}
+(0,0)@{
+  color:"#ffa500",
+  points:@{opacity:1,size:7},
+  label:@{text:"central body",size:0.8,orientation:"below",angle:0,editableMode:"NONE"},
+}
+P_b=(eta_b*cos(o+w_sh),eta_b*sin(o+w_sh))@{
+  color:"#2d70b3",
+  points:@{opacity:1,size:8},
+  label:@{text:"body",size:0.8,orientation:"above",angle:0,editableMode:"NONE"},
+}
+P_p=((1-e_obs)*cos(w_sh),(1-e_obs)*sin(w_sh))@{
+  color:"#c74440",
+  points:@{opacity:1,size:5},
+  label:@{text:"perihelion",size:0.8,orientation:"below",angle:0,editableMode:"NONE"},
+}
+P_A=(cos(B_a+w_sh),sin(B_a+w_sh))@{
+  color:"#388c46",
+  points:@{opacity:1,size:5},
+  label:@{text:"Bₐ (r=a)",size:0.8,orientation:"above",angle:0,editableMode:"NONE"},
+}
+P_D=(cos(B_d+w_sh),sin(B_d+w_sh))@{
+  color:"#388c46",
+  points:@{opacity:1,size:5},
+  label:@{text:"B_d (r=a)",size:0.8,orientation:"below",angle:0,editableMode:"NONE"},
+}
+"— readout column: PHASE —"
+(2.55,2.55)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"— PHASE at O (pure numbers) —",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,2.15)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"O = ${O_{m}} rad",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,1.8)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"r/a = ${\eta_{o}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,1.45)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"r̂ = ${r_{on}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,1.1)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"κₒ = ${\kappa_{o}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,0.75)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"βₒ = ${\beta_{o}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,0.4)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"β_T = ${\beta_{T}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,0.05)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"β_R = ${\beta_{R}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,-0.3)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"ζ = ${\zeta_{o}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,-0.65)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"t/T = ${t_{frac}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,-1.0)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"Z(O) = ${Z_{o}}   Z_raw = ${Z_{raw}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+"— readout column: GLOBAL —"
+(4.95,2.55)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"— GLOBAL (R_s=1, c=1) —",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,2.15)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"β = ${\beta}   e = ${e_{obs}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,1.8)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"κ = ${\kappa}   Q = ${Q}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,1.45)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"â = ${a_{n}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,1.1)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"r̂ₚ = ${r_{pn}}   r̂ₐ = ${r_{an}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,0.75)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"T̂ = ${T_{n}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,0.4)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"ĥ = ${h_{n}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,0.05)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"Δφ = ${\Delta_{phi}} rad/orbit",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,-0.3)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"M̂ = 1/2 (every system)",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+"— readout column: UNITS —"
+(4.95,-0.85)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"— UNITS (Stage 5 only) —",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,-1.25)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"R_s = ${R_{s}} m",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,-1.6)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"a = ${a_{m}} m",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,-1.95)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"M = ${M_{kg}} kg",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(4.95,-2.3)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"Δφ = ${P_{arcsec}} ″/century",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+"— readout column: CONSISTENCY —"
+(2.55,-1.55)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"— CONSISTENCY (= 1) —",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,-1.95)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"C₁ = ${C_{1}}   C₅ = ${C_{5}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(2.55,-2.3)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"C₈ = ${C_{8}}",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+"— in-graph sliders and reset buttons —"
+y=-2.2{0<=x<=0.9}@{color:"#2d70b3",lines:@{width:1,opacity:0.4}}
+(e_obs,-2.2)@{
+  color:"#2d70b3",
+  hidden:true,
+  points:@{size:8,drag:"X"},
+  label:@{text:"⟸ e = ${e_{obs}} ⟹",size:1,orientation:"right",angle:0,outline:false,editableMode:"NONE"},
+}
+y=-2.45{0<=x<=0.35}@{color:"#2d70b3",lines:@{width:1,opacity:0.4}}
+(beta,-2.45)@{
+  color:"#2d70b3",
+  hidden:true,
+  points:@{size:8,drag:"X"},
+  label:@{text:"⟸ β = ${\beta} ⟹",size:1,orientation:"right",angle:0,outline:false,editableMode:"NONE"},
+}
+(1.6,-2.2)@{
+  color:"#388c46",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"NONE"},
+  label:@{text:"↺ set e = 0.5",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+  onClick:e_obs->0.5,
+  clickDescription:"",
+}
+(1.6,-2.45)@{
+  color:"#388c46",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"NONE"},
+  label:@{text:"↺ set β = 0.1",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+  onClick:beta->0.1,
+  clickDescription:"",
+}
+(-0.6,-2.7)@{
+  color:"#388c46",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"NONE"},
+  label:@{text:"↺ set o = 0",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+  onClick:o->0,
+  clickDescription:"",
+}
+(0.6,-2.7)@{
+  color:"#388c46",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"NONE"},
+  label:@{text:"↺ set X_prec = 1",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+  onClick:X_prec->1,
+  clickDescription:"",
+}
+(2.55,-2.7)@{
+  color:"#388c46",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"NONE"},
+  label:@{text:"↺ set i = 0.5",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+  onClick:i_obs->0.5,
+  clickDescription:"",
+}
+(4.0,-2.7)@{
+  color:"#388c46",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"NONE"},
+  label:@{text:"↺ set ω_i = 0.4",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+  onClick:omega_i->0.4,
+  clickDescription:"",
+}
+(-2.5,2.7)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"R.O.M. UNITLESS: the whole orbit from two pure numbers (β, e)",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+(-2.5,-2.9)@{
+  color:"#000000",
+  hidden:true,
+  points:@{opacity:0.9,size:9,drag:"XY"},
+  label:@{text:"The system is solved before any unit exists — units are the epilogue, not the physics.",size:1,orientation:"right",angle:0,editableMode:"NONE"},
+}
+}@{collapsed:true}
