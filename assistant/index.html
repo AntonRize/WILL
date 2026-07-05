@@ -427,7 +427,7 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
         function sendLog(){
             const payload = {
                 sessionId: sessionIdRef.current,
-                log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
+                log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome, model:m.modelInfo||null}))
             };
             fetch(LOG_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
         }
@@ -438,7 +438,7 @@ description: " Interactive AI chat for physics research. Ask WILL-AI about Relat
                 if(msgs.length === 0) return;
                 const payload = {
                     sessionId: sessionIdRef.current,
-                    log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome}))
+                    log: logRef.current.map(m=>({user:m.user, raw:m.raw, isWelcome:!!m.isWelcome, model:m.modelInfo||null}))
                 };
                 navigator.sendBeacon(LOG_API, new Blob([JSON.stringify(payload)],{type:'application/json'}));
             };

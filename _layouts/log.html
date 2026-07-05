@@ -289,7 +289,7 @@ MathJax = {
 
             // Check if this element starts a new user or assistant turn
             var userMatch = html.match(/^<strong>User:<\/strong>\s*/i);
-            var assistantMatch = html.match(/^<strong>Assistant:<\/strong>\s*/i);
+            var assistantMatch = html.match(/^<strong>Assistant(?:\s*\([^)]*\))?:<\/strong>\s*/i);
 
             if (userMatch) {
                 flushCurrent();
@@ -297,7 +297,7 @@ MathJax = {
                 current = { role: 'user', html: content ? '<p>' + content + '</p>' : '' };
             } else if (assistantMatch) {
                 flushCurrent();
-                var content = html.replace(/^<strong>Assistant:<\/strong>\s*/i, '').trim();
+                var content = html.replace(/^<strong>Assistant(?:\s*\([^)]*\))?:<\/strong>\s*/i, '').trim();
                 // Check for error JSON
                 if (content.match(/\{[\s\S]*"error"[\s\S]*\}/)) {
                     current = { role: 'error', html: content ? '<p>' + content + '</p>' : '' };

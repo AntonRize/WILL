@@ -59,7 +59,13 @@ export default async function handler(req, res) {
       '---',
       '',
     ]
-      .concat(messages.map(m => `**${m.user ? 'User' : 'Assistant'}:** ${m.raw || ''}`))
+      .concat(messages.map(m => {
+        // Record which AI produced each assistant message, e.g.
+        // "**Assistant (Powered by Gemini 2.5 Flash):** ...". User lines unchanged.
+        if (m.user) return `**User:** ${m.raw || ''}`;
+        const tag = m.model ? ` (${m.model})` : '';
+        return `**Assistant${tag}:** ${m.raw || ''}`;
+      }))
       .join('\n\n');
 
     const path = `assistant/logs/${sessionId.replace(/[:.]/g, '-')}.md`;
