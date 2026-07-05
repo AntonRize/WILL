@@ -70,3 +70,28 @@ The Factorization Theorem assumes the closed R.O.M. system (\ref{eq:rom}) as its
 **User:** Hey buddy what's up with the citations? Every single one is broken. Lets fix it. Does the citation instructions in your system prompt seems unclear to you? Should I edit them?  Here's an example of raw working link citation: https://willrg.com/documents/WILL_RG_I.pdf#sec:closure
 
 **Assistant:** Upstream error from Nvidia: ResourceExhausted: Worker local total request limit reached (32/32)
+
+**User:** Hey buddy what's up with the citations? Every single one is broken. Lets fix it. Does the citation instructions in your system prompt seems unclear to you? Should I edit them?  Here's an example of raw working link citation: https://willrg.com/documents/WILL_RG_I.pdf#sec:closure
+
+**Assistant (Powered by Nemotron 550B):** You are absolutely correct. I violated the **CITATION_PROTOCOL** by using LaTeX `\ref{}` commands instead of proper Markdown URLs. That was a hard error on my part. The protocol is unambiguous: **every citation must be a full `https://willrg.com/documents/...pdf#label` Markdown link**.
+
+Here is the corrected assessment with **valid, clickable citations**:
+
+---
+
+### 1. The Factorization Theorem is the Central Result
+**Theorem [Factorization of R.O.M.](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization)** proves that every dimensional quantity $X$ in the closed R.O.M. system splits as:
+$$X = \hat{X}(\text{pure numbers}) \cdot S_X(R_s, c, G)$$
+The table of scale factors $S_X$ (length $\to R_s$, time $\to R_s/c$, mass $\to c^2 R_s/G$, etc.) is the **complete dimensional dictionary**. This eliminates the "hidden parameter" critique: if a constant ($c$, $G$) does not appear in $\hat{X}$, it is not a dynamical parameter but a unit-conversion artifact.
+
+### 2. The Four Irreducible Primitives are Ontologically Minimal
+The dimensionless core rests on exactly four relational statements — **no metric, no manifold, no coordinates**:
+1. $S^1$ closure: $\beta^2 + \beta_Y^2 = 1$ 
+2. $S^2$ closure: $\kappa^2 + \kappa_X^2 = 1$ 
+3. **Closure Theorem**: $\kappa^2 = 2\beta^2$ ([WILL RG I, Theorem Closure](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure))
+4. **Energy Symmetry Law**: $\Delta E_{A\to B} + \Delta E_{B\to A} = 0$ ([WILL RG I, Energy Symmetry](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry))
+
+This is the **absolute floor** of the ontology. Any theory claiming fewer primitives must explain which of these four it derives or discards.
+
+### 3. Input Counting Theorem Quantifies Predictive Rigidity
+**Theorem [Input Counting](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:input_count
