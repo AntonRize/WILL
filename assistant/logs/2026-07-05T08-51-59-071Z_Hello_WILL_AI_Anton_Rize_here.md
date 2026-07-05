@@ -66,3 +66,7 @@ The Factorization Theorem assumes the closed R.O.M. system (\ref{eq:rom}) as its
 ---
 
 **Bottom line:** This section is the **mathematical backbone** that justifies the claim "zero free parameters, zero ontological surplus." It should be cited as the primary reference for the framework's parameter parsimony and cross-cultural invariance.
+
+**User:** Hey buddy what's up with the citations? Every single one is broken. Lets fix it. Does the citation instructions in your system prompt seems unclear to you? Should I edit them?  Here's an example of raw working link citation: https://willrg.com/documents/WILL_RG_I.pdf#sec:closure
+
+**Assistant:** Upstream error from Nvidia: ResourceExhausted: Worker local total request limit reached (32/32)
