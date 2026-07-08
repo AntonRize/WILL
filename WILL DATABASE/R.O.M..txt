@@ -11,7 +11,7 @@
 
 % --- Page geometry ---
 \usepackage{geometry}
-\geometry{a4paper, left=15mm, right=15mm, top=20mm, bottom=20mm}
+\geometry{a4paper, left=12mm, right=12mm, top=11mm, bottom=15mm}
 
 % --- Math and fonts ---
 \usepackage{amsmath}
@@ -114,8 +114,6 @@ R.O.M. demonstrates that the operational content of gravitational dynamics is fu
 
 
 
-\newpage
-
 \section{Quick Recap}
 
 In following sections we will demonstrate that RG's relational projections ($\kappa$, $\beta$) are ontologically and operationally independent from mass $M$ and gravitational constant $G$. We will show that $R_s$ as a horizon scale derived directly from the phase relations of light and will show how all observational phenomenon of orbital systems are generated as the unavoidable consequences of Relational Geometry.
@@ -123,63 +121,68 @@ In following sections we will demonstrate that RG's relational projections ($\ka
 But first lets remind our selves key derivations and logical chain established prior:   
 
 
+
 \newpage
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Map]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Derivation Chain Map]
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|>{\centering\arraybackslash}p{0.88\textwidth}|}
 \hline
-$\downarrow$ \textit{Methodological Constraints} $\downarrow$\\[2pt]\hline
+\textbf{Methodological constraints:} \\[2pt]\hline
+$\downarrow$(\textit{Epistemic Hygiene}$+$\textit{Relational Origin}$+$\textit{Ontological Minimalism}$+$\textit{Math Transparency})$\downarrow$\\[2pt]\hline
 \textbf{Closure} $+$ \textbf{Causal Continuity} $+$ \textbf{Isotropy Theorems}\\\hline
 $\downarrow$ \textit{(apply to existing physics)} $\downarrow$\\\hline
-\textbf{Two Primitives:}
-$\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
-\quad+\quad
-\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
+\textbf{Two Primitives:} $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}\quad+\quad \underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
 $\downarrow$ \textit{(Ontological reduction by Relational Origin Principle --- no background allowed)} $\downarrow$\\\hline
-\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ \textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\[2pt]\hline
+\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$\\[2pt]\hline
 $\downarrow$ \textit{(by Closure $+$ Causal Continuity $+$ Isotropy Theorems: derive primal relational carriers)} $\downarrow$\\\hline
 $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hline
 $\downarrow$ \textit{(by Duality of Relation Lemma)} $\downarrow$\\\hline
-\textbf{Relational Conservation:}
-$\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
+\textbf{Relational Conservation:} $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
 $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic}}$ on $S^1$ and  $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential}}$ on $S^2$\\[8pt]\hline
 $\downarrow$ \textit{(by Conservation Theorem)} $\downarrow$\\\hline
 \textbf{Minkowski interval:}
-$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$
-$\Longrightarrow$
-$\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
+$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
 \textbf{Schwarzschild interval:}
-$\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$
-$\Longrightarrow$
-$\underbrace{c^2 d\tau^2 = c^2\!\left(1 - \dfrac{R_s}{r}\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
+$\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2\!(1 - (R_s/r))dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
 $\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
 \textbf{Closure Theorem:}
 $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$
 $\equiv\quad\kappa^2 = 2\beta^2$\\[8pt]\hline
 $\downarrow$ \textit{(by Relational Closure and Invariance Theorems)} $\downarrow$\\\hline
-\textbf{Energy Symmetry Law:}\quad $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
-$\Delta E_{A \to B} = E_0\!\left(\dfrac{\kappa_{X,B}}{\beta_{Y,B}} - \dfrac{\kappa_{X,A}}{\beta_{Y,A}}\right)$;
-$\Delta E_{B \to A} = E_0\!\left(\dfrac{\kappa_{X,A}}{\beta_{Y,A}} - \dfrac{\kappa_{X,B}}{\beta_{Y,B}}\right)$\\[10pt]\hline
+\textbf{Energy Symmetry Law:} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
+$\Delta E_{A \to B} = E_0\!(\kappa_{X,B}/{\beta_{Y,B}} - \kappa_{X,A}/\beta_{Y,A})$;
+$\Delta E_{B \to A} = E_0\!(\kappa_{X,A}/{\beta_{Y,A}} - \kappa_{X,B}/\beta_{Y,B})$\\[10pt]\hline
 $\downarrow$ \textit{(check the required energy to close the ledger at boundaries)} $\downarrow$\\\hline
 \textbf{Speed of light:}
 $\beta \to 1 \;\rightarrow\; \beta_Y \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\,\dfrac{\kappa_X}{0} \to \infty
+E_{\mathrm{loc}} = E_0 \cdot \kappa_X/0 \to \infty
 \;\rightarrow\;$ \textbf{requires $\infty$ energy}\\[8pt]\hline
 \textbf{Event Horizon:}
 $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\,\dfrac{0}{\beta_Y} \to 0
+E_{\mathrm{loc}} = E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt]\hline
 $\downarrow$ \textit{(by Unified Relational Scaling Lemma)} $\downarrow$\\\hline
 \textbf{Equivalence Principle}
 $\boxed{m_g \equiv m_i \equiv m = E_0/c^2}$\\\hline
 $\downarrow$ \textit{(by collapsing two-point Energy Symmetry Law into a single-point approximation)} $\downarrow$\\\hline
-\textbf{Classical, Lagrangian and Hamiltonian Mechanics}\\\hline
+\textbf{Classical, Lagrangian and Hamiltonian Mechanics} \\
+$\underbrace{ \Delta E_{A \to B} + \Delta E_{B \to A} = 0}_{\text{exact symmetry law}}$ $\approx$ $\underbrace{\tfrac12\bigl(\kappa_A^{2} - \kappa_B^{2}\bigr) + \tfrac12\bigl(\beta_B^{2} - \beta_A^{2}\bigr)}_{\text{first order  approximation}}$ $\approx\underbrace{T \pm V}_{\text{ontological collaps}}$\\\hline
 $\downarrow$ \textit{(apply RG to orbital mechanics)} $\downarrow$\\\hline
-\textbf{Relational Orbital Mechanics (R.O.M.): a closed algebraic system of equations}\\ \hline
+\textbf{Relational Orbital Mechanics $\boxed{\text{R.O.M.}}$: a closed algebraic system of equations}\\\hline
+$\downarrow$ \textit{(by Inverse Square, Closure and Causal Continuity Theorems)} $\downarrow$\\\hline
+\textbf{No Singularities:} $\beta_{\max}^2 = 1 \;\rightarrow\; \kappa_{\max}^2 = 2 \;\rightarrow\;
+r_{\min} = R_s/\kappa_{\max}^2 \;\rightarrow\; r_{\min} = R_s/2$\\
+\textbf{The point $r = 0$ is absent from the admissible relational range}\\\hline
+$\downarrow$ \textit{(apply 2D to 3D translation interfaces)} $\downarrow$\\\hline
+\textbf{Geometric Field Equation}  $\boxed{\kappa^2 =R_s/r = \rho_{\mathrm{field}}/\rho_{\max}}$\\[10pt]\hline
+$\downarrow$ \textit{(The ratio of spacetime geometry $R_s/r$ equals the ratio of energy densities $\rho/\rho_{\max}$)} $\downarrow$\\[10pt]\hline
+ $\downarrow$ \textbf{Theoretical Ouroboros} $\downarrow$\\\hline
+$\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$ $\Leftrightarrow$ $\boxed{\text{SPACETIME GEOMETRY} \equiv  \text{ENERGY DENSITY}}$\\\hline
 \end{tabular}
 \end{center}
 \end{tcolorbox}
+
 
 
 
@@ -201,7 +204,7 @@ $\downarrow$ \textit{(apply RG to orbital mechanics)} $\downarrow$\\\hline
 \node at (0.33,0.12) {$\theta_1$};
 \node at (0,-1.55) {\small \shortstack{$E=E_0/\beta_Y$ \\ $p=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
 
-% Right circle: gravity
+% Right circle: potential
 \begin{scope}[xshift=3.2cm]
 \draw (0,0) circle (1);
 \draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X=\cos\theta_2$};
@@ -255,10 +258,10 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
 \begin{tikzpicture}[scale=3, >=Latex]
     % --- Definitions ---
     \def\R{1.0} % Unit Radius (The Horizon)
-    \coordinate (A) at (0,0);       % Observer Center
-    \coordinate (B) at (0.65, 0.45); % Object Center (Q vector end)
+    \coordinate (A) at (0,0);       % A Center
+    \coordinate (B) at (0.65, 0.45); % B Center (Q end)
     
-    % Projections of the Object center
+    % Projections of the B center
     \coordinate (Bx) at (0.65, 0);
     \coordinate (Ky) at (0, 0.45);
 
@@ -267,17 +270,17 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
     \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
     \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Potential)};
 
-    % --- Observer Frame (Blue) ---
-    % The "horizon" of the observer
+    % --- A Frame (Blue) ---
+    % The "horizon" of the A
     \draw[blue, thick] (A) circle (\R);
     \fill[blue] (A) circle (0.02) node[below left] {A $(0,0)$};
 
-    % --- Object Frame (Red) ---
-    % The "horizon" of the object, centered at Q
+    % --- B Frame (Red) ---
+    % The "horizon" of the B, centered at Q
     \draw[red, thick, dashed] (B) circle (\R);
     \fill[red] (B) circle (0.02) node[above right] {B $(0 , 0)$};
 
-    % --- Vector Q ---
+    % --- Q ---
     \draw[->, line width=1.5pt, black] (A) -- (B) node[midway, above left] {$Q$};
 
     % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
@@ -416,7 +419,7 @@ $\beta_{int}=\frac{\beta}{\sqrt{1-e^2}}$ (interior kinetic projection) \\
 $\tau = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\
 $\tau_{Y}=\sqrt{1-\tau^2}=\sqrt{3\beta^{2}-2\beta^{4}}$ (relational spacetime phase factor) \\
 $Q=\sqrt{\kappa^2+\beta^2}=\sqrt{\frac{3}{2}}\ \kappa=\sqrt{3}\ \beta$ (total relational shift (magnitude of state difference)) \\
-$R_{s} = \kappa_{o}^{2} r_o= \frac{Tc}{\pi}\beta^3=\frac{8\pi^{2}a^{3}}{T^{2}c^{2}}=\frac{\Delta_{to}}{\zeta(O)}\kappa^{2}\beta c=\frac{r_{1} r_{2}}{r_{2} - r_{1}}(\beta_{1}^{2} - \beta_{2}^{2})=\frac{a}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})=\frac{r_{o}}{2(2a-r_{o})}(4a-r_{o}-((4a-r_{o}^{2}-8a(2a-r_{o}(1-\tau_{o}^{2})))^{1/2} = \frac{2GM}{c^{2}}$ (Schwarzschild radius - system scale) \\
+$R_{s} = \kappa_{o}^{2} r_o= \frac{Tc}{\pi}\beta^3=\frac{8\pi^{2}a^{3}}{T^{2}c^{2}}=\frac{\Delta_{to}}{\zeta(O)}\kappa^{2}\beta c=\frac{r_{1} r_{2}}{r_{2} - r_{1}}(\beta_{1}^{2} - \beta_{2}^{2})=\frac{a}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})=\frac{r_{o}}{2(2a-r_{o})}(4a-r_{o}-((4a-r_{o})^{2}-8a(2a-r_{o})\ (1-\tau_{o}^{2}))^{\frac{1}{2}}) = \frac{2GM}{c^{2}}$ (Schwarzschild radius - system scale) \\
 $a=\frac{R_{s}}{\kappa^{2}}=\frac{T\beta c}{2\pi}=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e~cos(O)}}=\frac{\Delta_{to}(O)}{\zeta}\beta c=\frac{Tc\beta^{3}}{2\pi(\frac{K_{i}}{\ \sin(i)})^{2}(1-e^{2})}=\frac{\ \sqrt{1-e^{2}}}{2\pi\sin(i)}K_{i}Tc=\frac{R_{sys}}{\sin(\theta_{sys})}$ (semi-major axis) \\
 $ R_{sur} =a \cdot \sin(\theta_{sur}) $ (system's central body's physical radius) \\
 $M=\frac{Tc^{3}\beta^{3}}{2\pi G}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}$ (mass parameter) \\
@@ -1119,7 +1122,7 @@ The relational projections map to the posited coordinate functions:
 
 This specific linear combination directly reproduces the three metric coefficients of the Schwarzschild interval under the coordinate identifications above. Applying scale reference $c^2 dt^2$ to recover the Schwarzschild interval:
 \begin{equation}
--ds^2 = c^2 \left(1 - \frac{R_s}{r}\right) dt^2 - \left(1 - \frac{R_s}{r}\right)^{-1} dr^2 - r^2 d\phi^2
+-ds^2 = c^2 (1 - \frac{R_s}{r}) dt^2 - (1 - \frac{R_s}{r})^{-1} dr^2 - r^2 d\phi^2
 \end{equation}
 
 The 4D pseudo-Riemannian metric tensor $g_{\mu\nu}$ carries more ontological structure than the relations it encodes. The irreducible primitive here remains the structure of dimensionless relational projections $\kappa_X^2+\kappa^2=1$.
@@ -1182,18 +1185,19 @@ The example intrinsic pair $(\beta, e)$ is reachable through algebraically indep
 E1 apparent angular speeds & $e = \dfrac{\sqrt{\omega_{max}/\omega_{min}} - 1}{\sqrt{\omega_{max}/\omega_{min}} + 1}$ \\\hline
 E2 apsidal Doppler pair & $e = \dfrac{\beta_p - \beta_a}{\beta_p + \beta_a}$ \\\hline
 E3 apsidal sky-angle ratio & $e = \dfrac{r_a/r_p - 1}{r_a/r_p + 1}$ \\\hline
-E4 balance-point phase & $e = -\cos (B_a)$\\\hline
+E4 balance-point phase & $e = -\cos (B_a)$\\
+ E5 projections only&$e = \frac{2\beta_p^2}{\kappa_p^2}-1=1-\frac{2\beta_a^2}{\kappa_a^2}$\\\hline\hline
 \multicolumn{2}{|c|}{\textbf{$\beta$-channel (orbit depth) — any one:}} \\\hline
 B1 transverse Doppler at $a$ & $\beta^2 = 1 - (1+z_{\beta})^{-2}$ \\\hline
-B2 gravitational redshift at $a$ & $\beta^2 = \frac{1}{2}\left(1 - (1+z_{\kappa})^{-2}\right)$ \\\hline
+B2 gravitational redshift at $a$ & $\beta^2 = \frac{1}{2}(1 - (1+z_{\kappa})^{-2})$ \\\hline
 B3 combined shift $Z_{sys} = 1/\tau$ & $\beta^2 = \frac{1}{4}(3-\sqrt{1+8\cdot Z_{sys}(B_{a,d})^{-2}})$\\\hline
 B4 apsidal Doppler pair & $\beta = \sqrt{\beta_p \beta_a}$ \\\hline
 B5 two-point (vis-viva) & $\beta^2 = \dfrac{(\beta_1^2 - \beta_2^2)\,(r_2/r_1)}{r_2/r_1 - 1} - \beta_1^2$ \\\hline
-B6 surface channel & $\beta^2 = \frac{1}{2}\left(1 - (1+z_{surf})^{-2}\right)\sin\theta_{obs}$ \\\hline
+B6 surface channel & $\beta^2 = \frac{1}{2}(1 - (1+z_{surf})^{-2})\sin\theta_{obs}$ \\\hline
 \end{tabular}
 \end{center}
 
-Channels B3 and E4 exploit the balance points: at $B_a = \arccos(-e)$ the measured light signal $\tau(B_a)$ equals the global $\tau$, so a single spectroscopic reading there yields $\kappa^2 = \frac{1}{2}\left(3 - \sqrt{1+8\tau^2}\right)$ (\ref{thm:balance_point}{Balance Point Theorem}) while the phase location itself yields $e$.
+Channels B3 and E4 exploit the balance points: at $B_a = \arccos(-e)$ the measured light signal $\tau(B_a)$ equals the global $\tau$, so a single spectroscopic reading there yields $\kappa^2 = \frac{1}{2}(3 - \sqrt{1+8\tau^2})$ (\ref{thm:balance_point}{Balance Point Theorem}) while the phase location itself yields $e$.
 
 \subsection{Operational Algorithm}
 
@@ -1480,7 +1484,7 @@ Substituting the field identity $\kappa^2 = R_s/r$:
 \end{equation}
 Factoring out the scale parameter $R_s$:
 \begin{equation}
-R_s \left( \frac{r_2 - r_1}{r_1 r_2} \right) = \beta_1^2 - \beta_2^2.
+R_s ( \frac{r_2 - r_1}{r_1 r_2} ) = \beta_1^2 - \beta_2^2.
 \end{equation}
 Solving for $R_s$:
 \begin{equation}
@@ -1573,13 +1577,13 @@ We express the local kinematic intensity $\beta_o^2$ at arbitrary radius $r$ in 
 \end{equation}
 Substituting $\kappa_o^2 = R_s/r$:
 \begin{equation}
-\beta_o^2 = R_s \left( \frac{1}{r} - \frac{1}{2a} \right).
+\beta_o^2 = R_s ( \frac{1}{r} - \frac{1}{2a} ).
 \end{equation}
 
 \textbf{Step 2: Constraint via Observables.}
 We substitute the expressions for $\kappa_o^2$ and $\beta_o^2$ into the observable constraint $\tau_{o}^2 = (1-\kappa_o^2)(1-\beta_o^2)$:
 \begin{equation}
-\tau_{o}^2 = \left(1 - \frac{R_s}{r}\right)\left(1 - R_s \left[ \frac{1}{r} - \frac{1}{2a} \right] \right).
+\tau_{o}^2 = (1 - \frac{R_s}{r})(1 - R_s [ \frac{1}{r} - \frac{1}{2a} ] ).
 \end{equation}
 Let $A = \frac{1}{r}$ and $B = \frac{1}{r} - \frac{1}{2a}$. The equation becomes:
 \begin{equation}
@@ -1593,7 +1597,7 @@ Rearranging into quadratic form:
 \textbf{Step 3: Coefficient Expansion.}
 We compute the coefficients explicitly:
 \begin{align}
-AB &= \frac{1}{r}\left(\frac{2a-r}{2ar}\right) = \frac{2a-r}{2ar^2} \\
+AB &= \frac{1}{r}(\frac{2a-r}{2ar}) = \frac{2a-r}{2ar^2} \\
 A+B &= \frac{1}{r} + \frac{2a-r}{2ar} = \frac{2a + 2a - r}{2ar} = \frac{4a-r}{2ar}
 \end{align}
 Multiplying the entire quadratic equation by $2ar^2$ to clear denominators:
@@ -1608,7 +1612,7 @@ R_s = \frac{r(4a-r) \pm \sqrt{r^2(4a-r)^2 - 4(2a-r)(2ar^2)(1-\tau_{o}^2)}}{2(2a-
 \end{equation}
 Factoring out $r^2$ from the radical term $\sqrt{r^2 (...)} = r\sqrt{(...)}$:
 \begin{equation}
-R_s = \frac{r}{2(2a-r)} \left( (4a-r) \pm \sqrt{(4a-r)^2 - 8a(2a-r)(1-\tau_{o}^2)} \right).
+R_s = \frac{r}{2(2a-r)} ( (4a-r) \pm \sqrt{(4a-r)^2 - 8a(2a-r)(1-\tau_{o}^2)} ).
 \end{equation}
 For stable orbits, we select the negative root, yielding the algebraic link between the observed light phase and the system's geometric scale.
 \end{proof}

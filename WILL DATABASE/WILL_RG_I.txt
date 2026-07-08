@@ -11,7 +11,7 @@
 
 % --- Page geometry ---
 \usepackage{geometry}
-\geometry{a4paper, left=15mm, right=15mm, top=20mm, bottom=20mm}
+\geometry{a4paper, left=12mm, right=12mm, top=11mm, bottom=15mm}
 
 % --- Math and fonts ---
 \usepackage{amsmath}
@@ -48,7 +48,7 @@
 \renewcommand{\headrulewidth}{0pt}
 
 % Remove the horizontal line in the footer (optional, set to 0.4pt if you want a line)
-\renewcommand{\footrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0.4pt} 
 
 % Left Footer: Website Link (Small text)
 \lfoot{\scriptsize \href{https://willrg.com}{https://willrg.com}}
@@ -75,6 +75,15 @@
 % --- TikZ ---
 \usepackage{tikz}
 \usetikzlibrary{shapes, positioning, arrows.meta, calc}
+
+
+\usepackage{graphicx}
+
+\newcommand{\ouroboros}{%
+  \raisebox{-0.3ex}{\includegraphics[height=1.8ex]{img/Gemini_Generated_Image_bb1oz3bb1oz3bb1o.png}}%
+}
+
+
 
 % --- tcolorbox for styled theorems ---
 \usepackage[most]{tcolorbox}
@@ -153,10 +162,10 @@ Regardless of your decision, I wish you to find what you are seeking.
 \tableofcontents
 
 
-.
 
 
-.
+
+
 
 
 
@@ -164,76 +173,70 @@ Regardless of your decision, I wish you to find what you are seeking.
 "There is no such thing as an empty space, i.e., a space without field. . . . Space-time does not claim existence on its own, but only as a structural quality of the field."
 
 
-\noindent\textit{--- Albert Einstein, Relativity: The Special and the General Theory} (Appendix V: "Relativity and the Problem of Space"), 1952 edition, Methuen (London), p.~155; based on earlier 1920 additions.
+\noindent\textit{--- Albert Einstein, }.
 \end{tcolorbox}
 
+
 \newpage
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Map]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Derivation Chain Map]
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|>{\centering\arraybackslash}p{0.88\textwidth}|}
 \hline
-$\downarrow$ \textit{Methodological Constraints} $\downarrow$\\[2pt]\hline
+\textbf{Methodological constraints:} \\[2pt]\hline
+$\downarrow$(\textit{Epistemic Hygiene}$+$\textit{Relational Origin}$+$\textit{Ontological Minimalism}$+$\textit{Math Transparency})$\downarrow$\\[2pt]\hline
 \textbf{Closure} $+$ \textbf{Causal Continuity} $+$ \textbf{Isotropy Theorems}\\\hline
 $\downarrow$ \textit{(apply to existing physics)} $\downarrow$\\\hline
-\textbf{Two Primitives:}\quad
-$\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
-\quad+\quad
-\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
+\textbf{Two Primitives:} $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}\quad+\quad \underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
 $\downarrow$ \textit{(Ontological reduction by Relational Origin Principle --- no background allowed)} $\downarrow$\\\hline
-\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ \textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\[2pt]\hline
+\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$\\[2pt]\hline
 $\downarrow$ \textit{(by Closure $+$ Causal Continuity $+$ Isotropy Theorems: derive primal relational carriers)} $\downarrow$\\\hline
 $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hline
 $\downarrow$ \textit{(by Duality of Relation Lemma)} $\downarrow$\\\hline
-\textbf{Relational Conservation:}\quad
-$\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
+\textbf{Relational Conservation:} $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
 $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic}}$ on $S^1$ and  $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential}}$ on $S^2$\\[8pt]\hline
 $\downarrow$ \textit{(by Conservation Theorem)} $\downarrow$\\\hline
-\textbf{Minkowski interval:}\quad
-$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$
-$\Longrightarrow$
-$\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
-\textbf{Schwarzschild interval:}\quad
-$\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$
-$\Longrightarrow$
-$\underbrace{c^2 d\tau^2 = c^2\!\left(1 - \dfrac{R_s}{r}\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
+\textbf{Minkowski interval:}
+$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
+\textbf{Schwarzschild interval:}
+$\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2\!\left(1 - (R_s/r)\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
 $\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
-\textbf{Closure Theorem:}\quad
+\textbf{Closure Theorem:}
 $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$
 $\equiv\quad\kappa^2 = 2\beta^2$\\[8pt]\hline
 $\downarrow$ \textit{(by Relational Closure and Invariance Theorems)} $\downarrow$\\\hline
-\textbf{Energy Symmetry Law:}\quad $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
-$\Delta E_{A \to B} = E_0\!\left(\dfrac{\kappa_{X,B}}{\beta_{Y,B}} - \dfrac{\kappa_{X,A}}{\beta_{Y,A}}\right)$;\qquad
-$\Delta E_{B \to A} = E_0\!\left(\dfrac{\kappa_{X,A}}{\beta_{Y,A}} - \dfrac{\kappa_{X,B}}{\beta_{Y,B}}\right)$\\[10pt]\hline
+\textbf{Energy Symmetry Law:} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
+$\Delta E_{A \to B} = E_0\!\left(\kappa_{X,B}/{\beta_{Y,B}} - \kappa_{X,A}/\beta_{Y,A}\right)$;
+$\Delta E_{B \to A} = E_0\!\left(\kappa_{X,A}/{\beta_{Y,A}} - \kappa_{X,B}/\beta_{Y,B}\right)$\\[10pt]\hline
 $\downarrow$ \textit{(check the required energy to close the ledger at boundaries)} $\downarrow$\\\hline
-\textbf{Speed of light:}\quad
+\textbf{Speed of light:}
 $\beta \to 1 \;\rightarrow\; \beta_Y \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\,\dfrac{\kappa_X}{0} \to \infty
+E_{\mathrm{loc}} = E_0 \cdot \kappa_X/0 \to \infty
 \;\rightarrow\;$ \textbf{requires $\infty$ energy}\\[8pt]\hline
-\textbf{Event Horizon:}\quad
+\textbf{Event Horizon:}
 $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\,\dfrac{0}{\beta_Y} \to 0
+E_{\mathrm{loc}} = E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt]\hline
 $\downarrow$ \textit{(by Unified Relational Scaling Lemma)} $\downarrow$\\\hline
-\textbf{Equivalence Principle}\quad
+\textbf{Equivalence Principle}
 $\boxed{m_g \equiv m_i \equiv m = E_0/c^2}$\\\hline
 $\downarrow$ \textit{(by collapsing two-point Energy Symmetry Law into a single-point approximation)} $\downarrow$\\\hline
-\textbf{Classical, Lagrangian and Hamiltonian Mechanics}\\\hline
+\textbf{Classical, Lagrangian and Hamiltonian Mechanics} \\
+$\underbrace{ \Delta E_{A \to B} + \Delta E_{B \to A} = 0}_{\text{exact symmetry law}}$ $\approx$ $\underbrace{\tfrac12\bigl(\kappa_A^{2} - \kappa_B^{2}\bigr) + \tfrac12\bigl(\beta_B^{2} - \beta_A^{2}\bigr)}_{\text{first order  approximation}}$ $\approx\underbrace{T \pm V}_{\text{ontological collaps}}$\\\hline
 $\downarrow$ \textit{(apply RG to orbital mechanics)} $\downarrow$\\\hline
-\textbf{Relational Orbital Mechanics (R.O.M.): a closed algebraic system of equations}\\\hline
+\textbf{Relational Orbital Mechanics $\boxed{\text{R.O.M.}}$: a closed algebraic system of equations}\\\hline
 $\downarrow$ \textit{(by Inverse Square, Closure and Causal Continuity Theorems)} $\downarrow$\\\hline
-\textbf{No Singularities:}\quad
-$\beta_{\max}^2 = 1 \;\Longrightarrow\; \kappa_{\max}^2 = 2 \;\Longrightarrow\;
-r_{\min} = R_s/\kappa_{\max}^2 \;\Longrightarrow\; r_{\min} = R_s/2$\\
+\textbf{No Singularities:} $\beta_{\max}^2 = 1 \;\rightarrow\; \kappa_{\max}^2 = 2 \;\rightarrow\;
+r_{\min} = R_s/\kappa_{\max}^2 \;\rightarrow\; r_{\min} = R_s/2$\\
 \textbf{The point $r = 0$ is absent from the admissible relational range}\\\hline
 $\downarrow$ \textit{(apply 2D to 3D translation interfaces)} $\downarrow$\\\hline
-\textbf{Geometric Field Equation}  $\boxed{\kappa^2 = \dfrac{R_s}{r} = \dfrac{\rho_{\mathrm{field}}}{\rho_{\max}}}$\\[10pt]\hline
-$\downarrow$ \textit{(The ratio of geometric scales $\dfrac{R_s}{r}$ equals the ratio of energy densities $\dfrac{\rho}{\rho_{\max}}$)} $\downarrow$\\[10pt]\hline
-$\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$\\ $\downarrow\;\uparrow$  \textbf{Theoretical Ouroboros}   $\downarrow\;\uparrow$\\ $\boxed{\text{SPACETIME GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}}$\\\hline
+\textbf{Geometric Field Equation}  $\boxed{\kappa^2 =R_s/r = \rho_{\mathrm{field}}/\rho_{\max}}$\\[10pt]\hline
+$\downarrow$ \textit{(The ratio of spacetime geometry $R_s/r$ equals the ratio of energy densities $\rho/\rho_{\max}$)} $\downarrow$\\[10pt]\hline
+ $\downarrow$ \textbf{Theoretical Ouroboros} $\downarrow$\\\hline
+$\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$ $\Leftrightarrow$ $\boxed{\text{SPACETIME GEOMETRY} \equiv  \text{ENERGY DENSITY}}$\\\hline
 \end{tabular}
 \end{center}
 \end{tcolorbox}
-
 
 
 
@@ -717,30 +720,26 @@ This necessary reduction of $\beta_Y$ and $\kappa_X$ corresponds precisely to th
 This identifies Relativistic and Gravitational Time Dilation not as a mysterious ``slowing down'' of clocks, but as geometric \textbf{phase rotation}. As a system invests more of its relational existence into external Amplitude ($\beta$ or $\kappa$), it necessarily withdraws from its internal Phase ($\beta_Y$ or $\kappa_X$), changing the rate of its proper time evolution.
 
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Map]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Derivation Chain Map]
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|>{\centering\arraybackslash}p{0.88\textwidth}|}
 \hline
-$\downarrow$ \textit{Methodological Constraints} $\downarrow$\\[2pt]\hline
+\textbf{Methodological constraints:} \\[2pt]\hline
+$\downarrow$(\textit{Epistemic Hygiene}$+$\textit{Relational Origin}$+$\textit{Ontological Minimalism}$+$\textit{Math Transparency})$\downarrow$\\[2pt]\hline
 \textbf{Closure} $+$ \textbf{Causal Continuity} $+$ \textbf{Isotropy Theorems}\\\hline
 $\downarrow$ \textit{(apply to existing physics)} $\downarrow$\\\hline
-\textbf{Two Primitives:}
-$\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
-\quad+\quad
-\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
+\textbf{Two Primitives:} $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}\quad+\quad \underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
 $\downarrow$ \textit{(Ontological reduction by Relational Origin Principle --- no background allowed)} $\downarrow$\\\hline
-\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ \textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\[2pt]\hline
+\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$\\[2pt]\hline
 $\downarrow$ \textit{(by Closure $+$ Causal Continuity $+$ Isotropy Theorems: derive primal relational carriers)} $\downarrow$\\\hline
 $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hline
 $\downarrow$ \textit{(by Duality of Relation Lemma)} $\downarrow$\\\hline
-\textbf{Relational Conservation:}
-$\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
-$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic}}$ on $S^1$ and  $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential}}$ on $S^2$\\[8pt] \hline
+\textbf{Relational Conservation:} $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
+$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic}}$ on $S^1$ and  $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential}}$ on $S^2$\\[8pt]\hline
 \end{tabular}
 \end{center}
 \end{tcolorbox}
-
 
 
 
@@ -750,7 +749,7 @@ $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic}}$ on $S^1$ and  $\underb
 Spatial distance is derived as the operational inverse of relational phase capacity. Treating distance as an \emph{a priori} foundational primitive violates the principles of Relational Origin (\ref{pr:relational}) and Ontological Minimalism (\ref{pr:minimalism}).
 
 \begin{theorem}[Inverse-Square]
-\hypertarget{thm:inverse_square}{}\label{thm:inverse_square}
+\hypertarget{thm:inverse-square}{}\label{thm:inverse-square}
 \leavevmode
 The inverse-square potential proportionality $\kappa^2 \propto 1/r$ is a geometric necessity of the $S^2$ carrier's relational capacity, determined without spatial primitives.
 \end{theorem}
@@ -965,15 +964,13 @@ $$\frac{dx^2 + dy^2 + dz^2}{c^2 dt^2} + \left( \frac{d\tau}{dt} \right)^2 = 1
 \quad \overset{\times c^2 dt^2}{\longrightarrow} \quad
 dx^2 + dy^2 + dz^2 + c^2 d\tau^2 = c^2 dt^2$$
 and clearing the posited denominator $c^2 dt^2$ returns
-\begin{equation}
-\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}} \quad \Longrightarrow \quad \underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}} .
-\end{equation}
 
-This is the Minkowski interval exactly. The legacy translation mapping is therefore:
-\begin{itemize}
-    \item \textbf{Kinematic amplitude:} $\beta \equiv \cos\theta_1 = \dfrac{v}{c}$;
-    \item \textbf{Internal phase:} $\beta_Y \equiv \sin\theta_1 = \dfrac{d\tau}{dt} = \dfrac{1}{\gamma}$.
-\end{itemize}
+\textbf{Minkowski interval:}
+\begin{center}
+    $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$
+\end{center}
+
+This is the Minkowski interval exactly. Shown as an inflation of simple relational conservation.
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Epistemological Consequence: the Interval is the Inflated Form]
 The Minkowski interval is recovered without remainder --- but only after four substantival structures (a container, three spatial coordinates, an autonomously flowing time, and a coordinate reference scale) have been appended to $\beta^2+\beta_Y^2=1$. Not one of these is demanded by the relations; each is surplus ontology. The Lorentz factor $\gamma = 1/\beta_Y = 1/\sin\theta_1$ and kinematic time dilation ($\beta_Y < 1$) are accordingly not deformations of a spatial fabric but a phase rotation on the unit circle $S^1$. The interval carries more structure than the relation it encodes; the relation, not the interval, is the irreducible fundamental primitive.
@@ -1102,14 +1099,14 @@ relating the external potential amplitude $\kappa$ to the internal phase $\kappa
 \left(\frac{d\tau}{dt}\right)^{\!2} = 1 - \frac{R_s}{r} ,
 \end{equation}
 and introducing the posited reference scale $c^2 dt^2$ gives
-\begin{equation}
-\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}} \quad\Longrightarrow\quad  \underbrace{c^2 d\tau^2 = c^2 \left(1 - \frac{R_s}{r}\right) dt^2}_{\text{mathematical scaffolding}},
-\end{equation}
-which is the Schwarzschild interval for a static observer ($ds^2 = c^2 d\tau^2$). The legacy translation mapping is:
-\begin{itemize}
-    \item \textbf{Potential amplitude:} $\kappa \equiv \sin\theta_2 = \sqrt{\dfrac{R_s}{r}}$;
-    \item \textbf{Internal phase:} $\kappa_X \equiv \cos\theta_2 = \sqrt{1-\kappa^2} = \dfrac{d\tau}{dt}$.
-\end{itemize}
+
+\textbf{Schwarzschild interval:}
+\begin{center}
+    $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$ \quad  + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2 \left(1 - \frac{R_s}{r}\right) dt^2}_{\text{mathematical scaffolding}}$,
+\end{center}
+
+which is the Schwarzschild interval for a static observer ($ds^2 = c^2 d\tau^2$). 
+
 
 \begin{remark}[Full derivation]
 \hypertarget{rem:spatial_sector}{}\label{rem:spatial_sector}
@@ -1439,12 +1436,18 @@ The total local energy ledger is scaled by the ratio of the potential phase to t
 
 \begin{equation} \lim_{\beta_Y \to 0} E_{\mathrm{loc}} \to \infty \quad \text{and} \quad \lim_{\kappa_X \to 0} E_{\mathrm{loc}} \to 0 \end{equation}
 
-\textbf{Kinematic Phase Exhaustion ($S^1$):}
+\textbf{Kinematic Phase Exhaustion ($S^1$) Speed of light:}
+$\beta \to 1 \;\rightarrow\; \beta_Y \to 0 \;\rightarrow\;
+E_{\mathrm{loc}} = E_0 \cdot \kappa_X/0 \to \infty
+\;\rightarrow\;$ \textbf{requires $\infty$ energy}
 As a system distributes its Global Transformation Tempo increasingly into external kinematic interaction, the amplitude $\beta$ approaches 1. To maintain the carrier's closure, the internal kinematic phase approaches exhaustion: $\beta_Y \to 0$. 
 The local energy scaling diverges: $E_{\text{loc}} = E_0 \frac{\kappa_X}{0} \to \infty$. 
 To preserve the Energy-Symmetry Law, the balancing reverse transition must supply an infinite relational counter-transfer. Because finite physical systems possess finite relational capacity, an infinite counterpart is structurally unattainable. The ledger cannot be closed. Therefore, $\beta_Y = 0$ constitutes a strict causal horizon---the Universal Rate of Change limit ($v = c$)---where energetic symmetry prohibits further amplitude growth.
 
-\textbf{Potential Phase Exhaustion ($S^2$):}
+\textbf{Potential Phase Exhaustion ($S^2$) Event Horizon:}
+$\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
+E_{\mathrm{loc}} = E_0\cdot 0/\beta_Y \to 0
+\;\rightarrow\;$ \textbf{requires $0$ energy}
 As a system distributes its Global Tempo increasingly into external potential depth, the amplitude $\kappa$ approaches 1. The internal potential phase approaches exhaustion: $\kappa_X \to 0$.
 The local energy scaling collapses: $E_{\text{loc}} = E_0 \frac{0}{\beta_Y} \to 0$.
 To preserve the Energy-Symmetry Law, any transition across this boundary requires a counterpart with zero energy capacity to balance the ledger. Consequently, no finite, non-zero transformation can symmetrically cross this threshold. The point $\kappa_X = 0$ constitutes the relational causal horizon (the Schwarzschild radius), where the internal phase ledger is fully depleted into external potential amplitude, isolating the system from finite causal interactions.
@@ -1458,60 +1461,58 @@ Thus, the universal speed limit and the Event Horizon emerge identically as the 
 \textbf{Causality} is an \textbf{inevitable} feature of \textbf{Relational Geometry}.
 \end{tcolorbox}
 
-
-\section{Stage III: Legacy Translation \& Empirical Alignment}
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Map]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Derivation Chain Map]
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|>{\centering\arraybackslash}p{0.88\textwidth}|}
 \hline
-$\downarrow$ \textit{Methodological Constraints} $\downarrow$\\[2pt]\hline
+\textbf{Methodological constraints:} \\[2pt]\hline
+$\downarrow$(\textit{Epistemic Hygiene}$+$\textit{Relational Origin}$+$\textit{Ontological Minimalism}$+$\textit{Math Transparency})$\downarrow$\\[2pt]\hline
 \textbf{Closure} $+$ \textbf{Causal Continuity} $+$ \textbf{Isotropy Theorems}\\\hline
 $\downarrow$ \textit{(apply to existing physics)} $\downarrow$\\\hline
-\textbf{Two Primitives:}
-$\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
-\quad+\quad
-\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
+\textbf{Two Primitives:} $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}\quad+\quad \underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
 $\downarrow$ \textit{(Ontological reduction by Relational Origin Principle --- no background allowed)} $\downarrow$\\\hline
-\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ \textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\[2pt]\hline
+\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$\\[2pt]\hline
 $\downarrow$ \textit{(by Closure $+$ Causal Continuity $+$ Isotropy Theorems: derive primal relational carriers)} $\downarrow$\\\hline
 $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hline
 $\downarrow$ \textit{(by Duality of Relation Lemma)} $\downarrow$\\\hline
-\textbf{Relational Conservation:}
-$\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
+\textbf{Relational Conservation:} $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
 $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic}}$ on $S^1$ and  $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential}}$ on $S^2$\\[8pt]\hline
 $\downarrow$ \textit{(by Conservation Theorem)} $\downarrow$\\\hline
 \textbf{Minkowski interval:}
-$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$
-$\Longrightarrow$
-$\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
+$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
 \textbf{Schwarzschild interval:}
-$\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$
-$\Longrightarrow$
-$\underbrace{c^2 d\tau^2 = c^2\!\left(1 - \dfrac{R_s}{r}\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
+$\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2\!\left(1 - (R_s/r)\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
 $\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
 \textbf{Closure Theorem:}
 $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$
 $\equiv\quad\kappa^2 = 2\beta^2$\\[8pt]\hline
 $\downarrow$ \textit{(by Relational Closure and Invariance Theorems)} $\downarrow$\\\hline
-\textbf{Energy Symmetry Law:}\quad $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
-$\Delta E_{A \to B} = E_0\!\left(\dfrac{\kappa_{X,B}}{\beta_{Y,B}} - \dfrac{\kappa_{X,A}}{\beta_{Y,A}}\right)$;
-$\Delta E_{B \to A} = E_0\!\left(\dfrac{\kappa_{X,A}}{\beta_{Y,A}} - \dfrac{\kappa_{X,B}}{\beta_{Y,B}}\right)$\\[10pt]\hline
+\textbf{Energy Symmetry Law:} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
+$\Delta E_{A \to B} = E_0\!\left(\kappa_{X,B}/{\beta_{Y,B}} - \kappa_{X,A}/\beta_{Y,A}\right)$;
+$\Delta E_{B \to A} = E_0\!\left(\kappa_{X,A}/{\beta_{Y,A}} - \kappa_{X,B}/\beta_{Y,B}\right)$\\[10pt]\hline
 $\downarrow$ \textit{(check the required energy to close the ledger at boundaries)} $\downarrow$\\\hline
 \textbf{Speed of light:}
 $\beta \to 1 \;\rightarrow\; \beta_Y \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\,\dfrac{\kappa_X}{0} \to \infty
+E_{\mathrm{loc}} = E_0 \cdot \kappa_X/0 \to \infty
 \;\rightarrow\;$ \textbf{requires $\infty$ energy}\\[8pt]\hline
 \textbf{Event Horizon:}
 $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\,\dfrac{0}{\beta_Y} \to 0
+E_{\mathrm{loc}} = E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt] \hline
 \end{tabular}
 \end{center}
 \end{tcolorbox}
 
+
+
+
+
+
+
+
+
+\section{Stage III: Legacy Translation \& Empirical Alignment}
 
 
 \begin{table}[h]
@@ -1543,7 +1544,6 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
 \textbf{The familiar SR and GR factors emerge here as projections of the same conserved resource. 
 Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate "effects" but dual aspects of one energy-transformation constraint revealing their unified origin.}
 \end{tcolorbox}
-
 
 \begin{table}[h]
 \centering
@@ -1695,7 +1695,7 @@ yielding composition-independent matter-wave interference patterns.
 \textbf{In WILL, the equivalence of inertial and gravitational mass follows necessarily from the phase ratio scaling of the relational geometry. What General Relativity posits as a postulate, WILL reveals as a corollary.}
 \end{tcolorbox}
 
-\subsection{Classical Mechanics}
+\subsection{Classical Mechanics as Collapsed Two-Point Relational Ontology }
 \hypertarget{sec:classical}{}\label{sec:classical}
 
 \subsubsection{The Phase Scaling and the Classical $\frac{1}{2}$}
@@ -1723,8 +1723,8 @@ The historical factor $\frac{1}{2}$ in classical kinetic and potential energy fo
 
 This demonstrates that the Keplerian total energy is a direct linear projection of a deeper relational structure. The difference of squared amplitudes ($\beta^2 - \kappa^2$) emerges invariantly from the closed geometry of the carriers. The structure of the energy relation is a direct consequence of the relational closure of $S^1$ and $S^2$.
 
-\subsection{Two‑Point Origin of the Lagrangian and Hamiltonian}
-\hypertarget{sec:LH}{}\label{sec:LH}
+\subsubsection{Lagrangian and Hamiltonian}
+\hypertarget{sec:LH}{}\label
 
 In the standard formulation of mechanics, the Lagrangian \(L = T - V\) and the Hamiltonian \(H = T + V\) are treated as fundamental functions of a single configuration point \(\mathbf{r}\). Relational Geometry reveals that both are linearized limits of a deeper two‑point energy balance: the \textbf{Energy‑Symmetry Law}
 \[
@@ -1755,7 +1755,7 @@ The constant $1$ cancels out, leaving the linearized specific energy transfer:
 \end{equation}
 The factor $\tfrac12$ appears here as the first-order Taylor coefficient of the inverse-phase scaling. 
 
-\subsubsection{First ontological collapse: the Newtonian Hamiltonian}
+\subsubsection*{Hamiltonian}
 
 The standard Newtonian Hamiltonian is obtained by the first ontological violation. By the Principle of Relational Reciprocity (\ref{thm:reciprocity}), an observer self-centers at their own relational origin, meaning observer $A$ measures their own state as $\kappa_A = 0$ and $\beta_A = 0$. (Legacy physics interprets this self-centered zero-state as placing the reference frame at "infinity"). 
 
@@ -1769,7 +1769,7 @@ H \;=\; \tfrac12 m v^{2} \;-\; \frac{GMm}{r} ,
 \]
 which is the Newtonian Hamiltonian. The potential information, which belongs to the two-point difference, is artificially reassigned to a single point via an externally postulated potential function $V(r) = -GMm/r$.
 
-\subsubsection{Second ontological collapse: the Newtonian Lagrangian}
+\subsubsection*{Lagrangian}
 
 If one starts from the same linearized two-point law but enforces the second ontological violation --- forcing the two distinct points to occupy the same spatial coordinate, $r_A = r_B = r$ --- the relational structure collapses further. Setting $\kappa_A^2 = \kappa^2(r)$ and $\beta_A = 0$ while keeping $\beta_B = \beta$, the linearized equation becomes:
 \[
@@ -1815,6 +1815,9 @@ H &= \tfrac12 m v^2 - \dfrac{GMm}{r}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key insight]
 The Lagrangian and Hamiltonian are linearized artifacts of the single‑point collapse of the two‑point Energy‑Symmetry Law. In the relational framework, all dynamical information is encoded in the dimensionless phase ratio $\kappa_X / \beta_Y$ and its geometric closure. No potential function, no force law, and no action principle are required as foundational primitives.
+\begin{center}
+$\underbrace{ \Delta E_{A \to B} + \Delta E_{B \to A} = 0}_{\text{exact symmetry law}}$ $\approx$ $\underbrace{\tfrac12\bigl(\kappa_A^{2} - \kappa_B^{2}\bigr) + \tfrac12\bigl(\beta_B^{2} - \beta_A^{2}\bigr)}_{\text{first order  approximation}}$ $\approx\underbrace{T \pm V}_{\text{ontological collaps}}$
+\end{center}
 \end{tcolorbox}
 
 
@@ -1840,7 +1843,7 @@ Quantities such as $p_i=\partial L/\partial \dot q^i$ do not belong to the ontol
 Here the symbol $\hat{=}$ denotes a pragmatic dictionary entry for translation into legacy notation, rather than an ontological identity.
 \end{quotation}
 
-\subsubsection{Third Ontological Collapse: Newton's Third Law}
+\subsubsection{Newton's Third Law}
 
 We now demonstrate that Newton's Third Law, like the Lagrangian and Hamiltonian, emerges as a limiting case of RG. It arises as a necessary mathematical consequence of the same ontological collapse --- forcing a two-point relational law into a single-point, instantaneous formalism.
 
@@ -1890,7 +1893,7 @@ Therefore, within the single-point collapsed formalism:
 This completes the proof. Since all physical observations are relational (\ref{pr:relational}), embedding the energy budget within an absolute spatial container ($\vec{r}_A, \vec{r}_B$) introduces unobservable parameters, violating Epistemic Hygiene (\ref{pr:epistemic}). To remain empirically grounded, the collapsed potential $U$ must depend exclusively on the measurable physical relation $\vec{r}_B - \vec{r}_A$. Consequently, the law of equal and opposite forces emerges as the mathematical signature of any causally bound, background-independent system $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$.
 \end{proof}
 
-\subsubsection{Fourth Ontological Collapse: The Einstein-Hilbert Action ($S_{EH}$)}
+\subsubsection{The Einstein-Hilbert Action ($S_{EH}$)}
 
 The Einstein-Hilbert action ($S_{EH} = \frac{1}{16\pi G} \int R \sqrt{-g} \, d^4x$) represents the final reduction of relational connections between states into localized coordinate points. Standard tensor calculus employs the limit $dx \to 0$ to compress relational tension into the local Ricci scalar ($R$). This operation necessitates the postulation of a smooth background manifold and the application of the Principle of Stationary Action ($\delta S_{EH} = 0$) to maintain global equilibrium across arbitrary coordinates.
 
@@ -1903,14 +1906,14 @@ The Einstein-Hilbert action ($S_{EH} = \frac{1}{16\pi G} \int R \sqrt{-g} \, d^4
 \end{itemize}
 
 \begin{itemize}
-    \item \textbf{\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:translation}{The full mapping is provided in R.O.M. addition. }}
+    \item \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:translation}{\textbf{The full mapping is provided in R.O.M. addition.}}
 \end{itemize}
 
 \subsubsection*{\textbf{Empirical Grounding}}
 The empirical necessity of the action ($S_{EH}$) manifests in phenomena such as gravitational light deflection, which legacy physics derives via the addition of a curved spatial metric ($g_{rr}$). RG achieves the identical empirical result without introducing new ontological primitives, deriving it directly from the $S^2$ carrier geometry: \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_optics}{(Gravitational Deflection and Lensing)}.
 
 
-\subsection{Earth--GPS System: Standard GR as First-Order Approximation of RG}
+\subsection{Earth--GPS System: Standard GR 1PN as First-Order Approximation of RG}
 \hypertarget{sec:earth-gps}{}\label{sec:earth-gps} 
 
 We made lots of derivations and daring claims. Its time to put them to the test.  For our first tests we will use the standard Earth - GPS satellite system to challenge theorems and lemmas:
@@ -2067,16 +2070,22 @@ Relational Orbital Mechanics as algebraically closed system of equations develop
 \subsubsection{Derivation of Density}  
 \hypertarget{sec:density}{}\label{sec:density}
 
-\paragraph{Translating RG (2D) to Conventional Density (3D).}
-In RG $\kappa^2$ is the 2D parameter defined in the relational carrier $S^2$ . In conventional physics, the source term is volumetric density $\rho$, a 3D concept defined by the "cultural artifact" (a Newtonian "cannonball" model) of mass-per-volume .
+\paragraph{Translating RG (2DOF) to Conventional Density (3D).}
+In conventional physics, the source term is volumetric density $\rho$, a 3D concept forced by the "container assumption" --- the same \textbf{\emph{bi-variable}} syntax:
+$\underbrace{\text{fixed manifold + metric}}_{\text{structure}}\quad +\quad \underbrace{\text{fields + constants}}_{\text{dynamics}}$ we explicitly rejecting with
+\textbf{Unifying Ontological Principle:} $\boxed{\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}}$  (\ref{pr:unifying}).
 
-To compare with measurements that are historically expressed in 3D terms, we need to bridge our 2D theory with 3D units that empirical data is using. We must create a "translation interface". We do this by adopting the conventional (Newtonian) definition of density, $\rho \propto M/r^3$, as our "translation target".
+We need to bridge 2DOF $S^2$- based projection $\kappa$ with Newtonian "cannonball-like" model of mass-per-volume.
+We must create a "translation interface" by adopting the conventional units of density, $\rho \propto M/r^3$, as our "translation target".
 
-From the projective analysis established in the previous sections:
-\[
-\kappa^2 = \frac{R_s}{r},
-\]
-where $\kappa$ emerges from the energy projection on the area of unit sphere $S^2$, and $R_s = 2GM/c^2$ links to the mass scale factor $M = E_0/c^2$.
+As shown in \textbf{Inverse-Square Theorem} (\ref{thm:inverse-square}) 
+\textbf{Distance is not a foundational primitive} but relational tension between energy states:
+
+\begin{center}  
+$r \propto \frac{1}{\kappa^2}$ when historical units applied and rearranged to solve for $\kappa^2$ this maps to $\frac{R_s}{r}=\kappa^2$,
+\end{center}
+
+where $\kappa$ is the primitive energy projection on the area of unit sphere $S^2$ relational carrier, and in legacy units $R_s = 2GM/c^2$ links to the mass scale factor $M = E_0/c^2$.
 
 This leads to mass definition:
 \[
@@ -2086,17 +2095,14 @@ To translate this into a volumetric density, we first adopt the conventional 3D 
 \[
 \frac{M}{r^3} = \frac{\kappa^2 c^2}{2G r^2}
 \]
-This expression, however, is incomplete. Our $\kappa^2$ "lives" on the 2D surface $S^2$ (which corresponds to $4\pi$), while the $r^3$ proxy assumes a 3D volume (which corresponds to $4\pi/3$). To correctly normalise the 2D parameter $\kappa^2$ against the 3D volume, we must apply the geometric normalization factor of the $S^2$ carrier by dividing by the area of the sphere, which is $1/4\pi$ (we explicitly reject the Newtonian volume integration ($4\pi/3$) in favor of the $S^2$ carrier's geometric surface ($4\pi$). This enforces the relational principle that structural capacity scales exclusively via the 2D spherical boundary of interaction, not by filling an assumed 3D volumetric container).
-
-This normalization is the necessary geometric step to interface the 2D relational carrier ($S^2$) with the 3D legacy definition of density:
+This expression, however, is incomplete. Our $\kappa^2$ "lives" on the 2D surface $S^2$ (which corresponds to $4\pi$), while the $r^3$ proxy assumes a 3D volume (which corresponds to $4\pi/3$). For correct normalisation we dividing $\kappa^2$ by the area of its carrier $1/4\pi$ (we explicitly reject the Newtonian volume integration ($4\pi/3$) in favor of the $S^2$ carrier's geometric surface. This enforces that structural capacity scales via the 2DOF $S^2$ boundary, not by filling an assumed 3D volumetric container). 
 \[
 \rho = \frac{1}{4\pi}( \frac{\kappa^2 c^2}{2G r^2} )
 \]
 \[
 \rho = \frac{\kappa^2c^2}{8\pi G r^2}
 \]
-$$\text{Local Density} \propto \text{Relational Potential Projection}$$
-
+$$\text{Local Density} \propto \text{Relational Potential Projection $\kappa^2$}$$
 \paragraph{Maximal Density.}
 At $\kappa^2 = 1$ (the horizon condition (for non rotating systems), $r=R_s$), this density reaches its natural bound, $\rho_{\max}$:
 \[
@@ -2254,7 +2260,7 @@ In vacuum, the generator is zero, but the field persists as the algebraic struct
 
 WILL Relational Geometry resolves the singularity problem by naturally constraining the valid range of radial distance. Minimal radial distance is kept at $r_{min}=R_s/2$ by the fundamental invariance of  light speed limit. Parameters stay finite, and energy remains bounded. Black holes become the boundary of relational difference between energy states.
 
-\textbf{ Distance is not a foundational primitive but relational tension between energy states (\ref{thm:inverse_square})}
+\textbf{Distance is not a foundational primitive but relational tension between energy states (\ref{thm:inverse-square})}
  The amplitude bound $\kappa^2\le 1$ (static case)  and $\kappa^2\le 2$ (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr}{extremal rotation})  caps the radial distance by closure theorem (\ref{sec:closure}):
 
 
@@ -2283,71 +2289,66 @@ Another interesting hypothetical explanation of this phenomenon comes from Relat
 
 
 \newpage
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Logical Chain Map]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Derivation Chain Map]
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|>{\centering\arraybackslash}p{0.88\textwidth}|}
 \hline
-$\downarrow$ \textit{Methodological Constraints} $\downarrow$\\[2pt]\hline
+\textbf{Methodological constraints:} \\[2pt]\hline
+$\downarrow$(\textit{Epistemic Hygiene}$+$\textit{Relational Origin}$+$\textit{Ontological Minimalism}$+$\textit{Math Transparency})$\downarrow$\\[2pt]\hline
 \textbf{Closure} $+$ \textbf{Causal Continuity} $+$ \textbf{Isotropy Theorems}\\\hline
 $\downarrow$ \textit{(apply to existing physics)} $\downarrow$\\\hline
-\textbf{Two Primitives:}
-$\underbrace{\text{fixed manifold + metric}}_{\text{structure}}
-\quad+\quad
-\underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
+\textbf{Two Primitives:} $\underbrace{\text{fixed manifold + metric}}_{\text{structure}}\quad+\quad \underbrace{\text{fields + constants}}_{\text{dynamics}}$\\[8pt]\hline
 $\downarrow$ \textit{(Ontological reduction by Relational Origin Principle --- no background allowed)} $\downarrow$\\\hline
-\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ \textbf{SPACETIME} $\equiv$ \textbf{ENERGY}\\[2pt]\hline
+\textbf{One Primitive:} \emph{\textbf{WILL} $\equiv$ \textbf{SPACE-TIME-ENERGY}} $\Longrightarrow$ $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$\\[2pt]\hline
 $\downarrow$ \textit{(by Closure $+$ Causal Continuity $+$ Isotropy Theorems: derive primal relational carriers)} $\downarrow$\\\hline
 $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hline
 $\downarrow$ \textit{(by Duality of Relation Lemma)} $\downarrow$\\\hline
-\textbf{Relational Conservation:}
-$\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
+\textbf{Relational Conservation:} $\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$\\[10pt]\hline
 $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic}}$ on $S^1$ and  $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential}}$ on $S^2$\\[8pt]\hline
 $\downarrow$ \textit{(by Conservation Theorem)} $\downarrow$\\\hline
 \textbf{Minkowski interval:}
-$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$
-$\Longrightarrow$
-$\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
+$\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
 \textbf{Schwarzschild interval:}
-$\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$
-$\Longrightarrow$
-$\underbrace{c^2 d\tau^2 = c^2\!\left(1 - \dfrac{R_s}{r}\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
+$\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2\!\left(1 - (R_s/r)\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
 $\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
 \textbf{Closure Theorem:}
 $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$
 $\equiv\quad\kappa^2 = 2\beta^2$\\[8pt]\hline
 $\downarrow$ \textit{(by Relational Closure and Invariance Theorems)} $\downarrow$\\\hline
-\textbf{Energy Symmetry Law:}\quad $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
-$\Delta E_{A \to B} = E_0\!\left(\dfrac{\kappa_{X,B}}{\beta_{Y,B}} - \dfrac{\kappa_{X,A}}{\beta_{Y,A}}\right)$;
-$\Delta E_{B \to A} = E_0\!\left(\dfrac{\kappa_{X,A}}{\beta_{Y,A}} - \dfrac{\kappa_{X,B}}{\beta_{Y,B}}\right)$\\[10pt]\hline
+\textbf{Energy Symmetry Law:} $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$\\\hline
+$\Delta E_{A \to B} = E_0\!\left(\kappa_{X,B}/{\beta_{Y,B}} - \kappa_{X,A}/\beta_{Y,A}\right)$;
+$\Delta E_{B \to A} = E_0\!\left(\kappa_{X,A}/{\beta_{Y,A}} - \kappa_{X,B}/\beta_{Y,B}\right)$\\[10pt]\hline
 $\downarrow$ \textit{(check the required energy to close the ledger at boundaries)} $\downarrow$\\\hline
 \textbf{Speed of light:}
 $\beta \to 1 \;\rightarrow\; \beta_Y \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\,\dfrac{\kappa_X}{0} \to \infty
+E_{\mathrm{loc}} = E_0 \cdot \kappa_X/0 \to \infty
 \;\rightarrow\;$ \textbf{requires $\infty$ energy}\\[8pt]\hline
 \textbf{Event Horizon:}
 $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\,\dfrac{0}{\beta_Y} \to 0
+E_{\mathrm{loc}} = E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt]\hline
 $\downarrow$ \textit{(by Unified Relational Scaling Lemma)} $\downarrow$\\\hline
 \textbf{Equivalence Principle}
 $\boxed{m_g \equiv m_i \equiv m = E_0/c^2}$\\\hline
 $\downarrow$ \textit{(by collapsing two-point Energy Symmetry Law into a single-point approximation)} $\downarrow$\\\hline
-\textbf{Classical, Lagrangian and Hamiltonian Mechanics}\\\hline
+\textbf{Classical, Lagrangian and Hamiltonian Mechanics} \\
+$\underbrace{ \Delta E_{A \to B} + \Delta E_{B \to A} = 0}_{\text{exact symmetry law}}$ $\approx$ $\underbrace{\tfrac12\bigl(\kappa_A^{2} - \kappa_B^{2}\bigr) + \tfrac12\bigl(\beta_B^{2} - \beta_A^{2}\bigr)}_{\text{first order  approximation}}$ $\approx\underbrace{T \pm V}_{\text{ontological collaps}}$\\\hline
 $\downarrow$ \textit{(apply RG to orbital mechanics)} $\downarrow$\\\hline
-\textbf{Relational Orbital Mechanics (R.O.M.): a closed algebraic system of equations}\\\hline
+\textbf{Relational Orbital Mechanics $\boxed{\text{R.O.M.}}$: a closed algebraic system of equations}\\\hline
 $\downarrow$ \textit{(by Inverse Square, Closure and Causal Continuity Theorems)} $\downarrow$\\\hline
-\textbf{No Singularities:}
-$\beta_{\max}^2 = 1 \;\Longrightarrow\; \kappa_{\max}^2 = 2 \;\Longrightarrow\;
-r_{\min} = R_s/\kappa_{\max}^2 \;\Longrightarrow\; r_{\min} = R_s/2$\\
+\textbf{No Singularities:} $\beta_{\max}^2 = 1 \;\rightarrow\; \kappa_{\max}^2 = 2 \;\rightarrow\;
+r_{\min} = R_s/\kappa_{\max}^2 \;\rightarrow\; r_{\min} = R_s/2$\\
 \textbf{The point $r = 0$ is absent from the admissible relational range}\\\hline
 $\downarrow$ \textit{(apply 2D to 3D translation interfaces)} $\downarrow$\\\hline
-\textbf{Geometric Field Equation}  $\boxed{\kappa^2 = \dfrac{R_s}{r} = \dfrac{\rho_{\mathrm{field}}}{\rho_{\max}}}$\\[10pt]\hline
-$\downarrow$ \textit{(The ratio of geometric scales $\dfrac{R_s}{r}$ equals the ratio of energy densities $\dfrac{\rho}{\rho_{\max}}$)} $\downarrow$\\[10pt]\hline
-$\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$\\ $\downarrow\;\uparrow$  \textbf{Theoretical Ouroboros}   $\downarrow\;\uparrow$\\ $\boxed{\text{SPACETIME GEOMETRY} \equiv \text{ENERGY DISTRIBUTION}}$\\\hline
+\textbf{Geometric Field Equation}  $\boxed{\kappa^2 =R_s/r = \rho_{\mathrm{field}}/\rho_{\max}}$\\[10pt]\hline
+$\downarrow$ \textit{(The ratio of spacetime geometry $R_s/r$ equals the ratio of energy densities $\rho/\rho_{\max}$)} $\downarrow$\\[10pt]\hline
+ $\downarrow$ \textbf{Theoretical Ouroboros} $\downarrow$\\\hline
+$\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$ $\Leftrightarrow$ $\boxed{\text{SPACETIME GEOMETRY} \equiv  \text{ENERGY DENSITY}}$\\\hline
 \end{tabular}
 \end{center}
 \end{tcolorbox}
+
 
 
 \section{Stage IV Consequences and Direct Applications}
@@ -2362,7 +2363,7 @@ Field Equation $\Longleftrightarrow$ Ontological Principle
 
 
 \hypertarget{eq:unified_identity}{}\label{eq:unified_identity}
-We have shown that this single Ontological Principle  (\ref{pr:unifying}), through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with \(\text{SPACETIME} \equiv \text{ENERGY}\), from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and spacetime, proving the self-consistency of the initial idea.
+We have shown that Unifying Ontological Principle  (\ref{pr:unifying}), through pure geometric reasoning, necessarily leads to an equation which mathematically expresses the very same equivalence we began with. We started with \(\text{SPACETIME} \equiv \text{ENERGY}\), from which geometry and physical laws are logically derived, and these derived laws then loop back to intrinsically define and limit the very nature of energy and spacetime, proving the self-consistency of the initial idea.
 
 \[
 \boxed{
@@ -2408,7 +2409,7 @@ the expression in turn validates the principle.
 \end{tcolorbox}
 
 \begin{quote}
-      From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework - the "Theoretical Ouroboros". But regardless of the aesthetic beauty of this result, let us remain sceptical.
+From a philosophical and epistemological point of view, this can be considered the crown achievement of any theoretical framework - the "Theoretical Ouroboros". But regardless of the aesthetic beauty of this result, let us remain sceptical.
 \end{quote}
 
 \subsection{$W_{\text{ILL}}$: Unity of Relational Structure}
@@ -2922,6 +2923,7 @@ The hope is that this physical and mathematical clarity returned by RG's \href{h
 \bibitem{Gonzalez2020} Gonzalez Hernandez, J.I., et al. (2020). \textit{Astron. Astrophys.} \textbf{643}, A146.
 
 \bibitem{NASA_RadioJOVE_JupiterFactSheet} NASA Radio JOVE Project, \emph{Jupiter Fact Sheet}.\url{https://radiojove.gsfc.nasa.gov/education/jupiter/basics/jfacts.htm}, 13 July 2000.
+{Relativity: The Special and the General Theory} (Appendix V: "Relativity and the Problem of Space"), 1952 edition, Methuen (London), p.~155; based on earlier 1920 additions}
 
 \end{thebibliography}
  
