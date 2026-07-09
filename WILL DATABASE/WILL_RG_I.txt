@@ -1913,106 +1913,6 @@ The Einstein-Hilbert action ($S_{EH} = \frac{1}{16\pi G} \int R \sqrt{-g} \, d^4
 The empirical necessity of the action ($S_{EH}$) manifests in phenomena such as gravitational light deflection, which legacy physics derives via the addition of a curved spatial metric ($g_{rr}$). RG achieves the identical empirical result without introducing new ontological primitives, deriving it directly from the $S^2$ carrier geometry: \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_optics}{(Gravitational Deflection and Lensing)}.
 
 
-\subsection{Earth--GPS System: Standard GR 1PN as First-Order Approximation of RG}
-\hypertarget{sec:earth-gps}{}\label{sec:earth-gps} 
-
-We made lots of derivations and daring claims. Its time to put them to the test.  For our first tests we will use the standard Earth - GPS satellite system to challenge theorems and lemmas:
-(\ref{thm:relational_closure}; \ref{cor:energy}; \ref{lem:duality}; \ref{thm:conservation}; \ref{prop:relativity}; \ref{thm:restenergy}; \ref{thm:equivalenceor:massinvariance}; \ref{prop:momentum}; \ref{thm:closure}; \ref{sec:energy-symmetry}; \ref{sec:willinvariant}; \ref{sec:LH}; \ref{thm:third_law})
-
-\subsubsection{Statement of the Verification Problem}
-
-The standard post-Newtonian expression for the secular time shift between a clock on the Earth's surface and a clock on a circular GPS orbit, accumulated over one solar day, is
-\begin{equation}
-\Delta t_{\mathrm{GR}} \;=\; \left( \frac{\Phi_{\mathrm{GPS}} - \Phi_{E}}{c^{2}} \;-\; \frac{v_{\mathrm{GPS}}^{2} - v_{E}^{2}}{2\,c^{2}} \right) D \, M ,
-\label{eq:dt-GR}
-\end{equation}
-with $D = 86{,}400\,\mathrm{s}$, $M = 10^{6}$, $\Phi(r) = -GM_{\oplus}/r$, $v_{E} = 2\pi R_{E}/D$, and $v_{\mathrm{GPS}} = \sqrt{GM_{\oplus}/r_{\mathrm{GPS}}}$.
-
-WILL Relational Geometry (WILL~RG) expresses the same time shift as an exact algebraic ratio of two-carrier projection invariants $\tau \equiv \sqrt{1-\kappa^{2}}\,\sqrt{1-\beta^{2}}$:
-\begin{equation}
-\Delta t_{\mathrm{RG}} \;=\; \left( 1 \;-\; \frac{\sqrt{1-\kappa_{E}^{2}}\,\sqrt{1-\beta_{E}^{2}}}{\sqrt{1-\kappa_{\mathrm{GPS}}^{2}}\,\sqrt{1-\beta_{\mathrm{GPS}}^{2}}} \right) D \, M ,
-\label{eq:dt-RG}
-\end{equation}
-where $\kappa^{2}(r) = 2GM_{\oplus}/(rc^{2})$, $\beta^{2} = v^{2}/c^{2}$, and the orbital closure condition $\beta_{\mathrm{GPS}}^{2} = \kappa_{\mathrm{GPS}}^{2}/2$ holds for circular motion.
-
-The question addressed in this section is whether \eqref{eq:dt-GR} is the leading-order Taylor expansion of \eqref{eq:dt-RG} in the small parameters $\kappa^{2}$ and $\beta^{2}$. If so, the algebraic difference of the two coefficients must vanish identically at first order, and the residual at finite values of the small parameters must reproduce the analytically derived second-order correction.
-
-\subsubsection{Methodology}
-
-The verification is split into two independent parts, both executed in a single public notebook (Section~\ref{sec:repro}).
-
-\paragraph{Part I --- symbolic identity.} Introduce the dimensionless geometric ratio $\rho \equiv R_{E}/r_{\mathrm{GPS}}$, which is treated as a finite (order-unity) parameter and is \emph{not} expanded. The exact WILL~RG shift coefficient is then
-\begin{equation}
-\delta_{\mathrm{RG}}(\kappa_{E}^{2}, \beta_{E}^{2}, \rho) \;=\; 1 - \frac{\sqrt{(1-\kappa_{E}^{2})(1-\beta_{E}^{2})}}{\sqrt{(1-\kappa_{E}^{2}\rho)(1-\kappa_{E}^{2}\rho/2)}} .
-\label{eq:delta-RG}
-\end{equation}
-A single bookkeeping parameter $\varepsilon$ is introduced via $\kappa_{E}^{2} \to \varepsilon\,\kappa_{E}^{2}$, $\beta_{E}^{2} \to \varepsilon\,\beta_{E}^{2}$, and the Taylor series of \eqref{eq:delta-RG} is computed to second order in $\varepsilon$ using \texttt{sympy.series}. The first-order coefficient $\delta_{\mathrm{RG}}^{(1)}$ is then subtracted from the dimensionless form of the GR coefficient $\delta_{\mathrm{GR}}$ obtained from \eqref{eq:dt-GR} under the substitutions $\Phi/c^{2} = -\kappa^{2}/2$ and $v^{2}/c^{2} = \beta^{2}$. The result is simplified algebraically.
-
-\paragraph{Part II --- numerical comparison.} Both \eqref{eq:dt-GR} and \eqref{eq:dt-RG} are evaluated with 40-digit precision arithmetic (\texttt{mpmath}, \texttt{mp.dps = 40}) using a single set of input parameters: $c = 299{,}792{,}458\,\mathrm{m\,s^{-1}}$, $GM_{\oplus} = 3.986004418 \times 10^{14}\,\mathrm{m^{3}\,s^{-2}}$, $R_{E} = 6{,}378{,}137\,\mathrm{m}$, $r_{\mathrm{GPS}} = 26{,}561{,}750\,\mathrm{m}$, $D = 86{,}400\,\mathrm{s}$. The closure residual $\beta_{\mathrm{GPS}}^{2} - \kappa_{\mathrm{GPS}}^{2}/2$ is monitored as a numerical consistency check. The numerical discrepancy $\Delta t_{\mathrm{RG}} - \Delta t_{\mathrm{GR}}$ is then compared with the analytically predicted second-order correction $\delta_{\mathrm{RG}}^{(2)}\,D\,M$ obtained from Part~I.
-
-\subsubsection{Results}
-
-\paragraph{Symbolic.} The first-order Taylor coefficient of the WILL~RG shift, expressed in $\kappa_{E}^{2}$, $\beta_{E}^{2}$, and the geometric ratio $\rho$, is
-\begin{equation}
-\delta_{\mathrm{RG}}^{(1)} \;=\; \frac{\kappa_{E}^{2}}{2} \;+\; \frac{\beta_{E}^{2}}{2} \;-\; \frac{3\,\kappa_{E}^{2}\,\rho}{4} .
-\label{eq:delta-RG-1}
-\end{equation}
-The GR coefficient, expressed in the same variables, is
-\begin{equation}
-\delta_{\mathrm{GR}} \;=\; \frac{\kappa_{E}^{2}}{2} \;+\; \frac{\beta_{E}^{2}}{2} \;-\; \frac{3\,\kappa_{E}^{2}\,\rho}{4} .
-\label{eq:delta-GR}
-\end{equation}
-The algebraic difference $\delta_{\mathrm{RG}}^{(1)} - \delta_{\mathrm{GR}}$ vanishes identically.
-
-The second-order content of \eqref{eq:delta-RG}, which is absent from the additive GR formula \eqref{eq:dt-GR}, is
-\begin{equation}
-\delta_{\mathrm{RG}}^{(2)} \;=\; \frac{\kappa_{E}^{4}}{8} \;+\; \frac{\beta_{E}^{4}}{8} \;-\; \frac{\beta_{E}^{2}\,\kappa_{E}^{2}}{4} \;+\; \frac{3\,\kappa_{E}^{4}\,\rho}{8} \;-\; \frac{19\,\kappa_{E}^{4}\,\rho^{2}}{32} \;+\; \frac{3\,\beta_{E}^{2}\,\kappa_{E}^{2}\,\rho}{8} .
-\label{eq:delta-RG-2}
-\end{equation}
-Three structural features of \eqref{eq:delta-RG-2} have no analogue in any rearrangement of the additive GR sum~\eqref{eq:dt-GR}: (i)~the pure quadratic contributions $\kappa_{E}^{4}/8$ and $\beta_{E}^{4}/8$ arising from higher-order expansion of $\sqrt{1-x}$; (ii)~the cross-term $-\beta_{E}^{2}\kappa_{E}^{2}/4$, which originates from the multiplicative coupling of the gravitational and kinematic projection factors within $\tau_{E}/\tau_{\mathrm{GPS}}$; and (iii)~the $\rho^{2}$ contribution, which encodes nonlinear dependence on the relative depth of the gravitational well.
-
-\paragraph{Numerical.} With the parameter set listed above:
-
-\begin{center}
-\begin{tabular}{|l|r|}
-\hline
-quantity & value [$\mu$s\,day$^{-1}$] \\
-\hline
-$\Delta t_{\mathrm{RG}}$ \quad (exact)              & $38.5421472752$ \\\hline
-$\Delta t_{\mathrm{GR}}$ \quad (first order)         & $38.5421472451$ \\\hline
-$\Delta t_{\mathrm{RG}} - \Delta t_{\mathrm{GR}}$    & $3.017 \times 10^{-8}$ \\\hline
-$\delta_{\mathrm{RG}}^{(2)} \cdot D\,M$ \;(predicted) & $3.017 \times 10^{-8}$ \\\hline
-residual                                              & $\sim 10^{-17}$ \\
-\hline
-\end{tabular}
-\end{center}
-
-The numerical discrepancy $\Delta t_{\mathrm{RG}} - \Delta t_{\mathrm{GR}}$ matches the analytically derived second-order correction $\delta_{\mathrm{RG}}^{(2)}\,D\,M$ to within the limit set by the 40-digit floating-point arithmetic. The closure residual $\beta_{\mathrm{GPS}}^{2} - \kappa_{\mathrm{GPS}}^{2}/2$ vanishes to $\sim 10^{-50}$. The relative magnitude of the term omitted by the GR additive formula is $\sim 7.8 \times 10^{-10}$ of the total shift.
-
-\subsubsection{Interpretation}
-
-Equations~\eqref{eq:delta-RG-1}--\eqref{eq:delta-GR} establish that the additive post-Newtonian formula~\eqref{eq:dt-GR} coincides exactly with the linear Taylor coefficient of the WILL~RG exact algebraic ratio~\eqref{eq:dt-RG}. This is an algebraic identity in $(\kappa_{E}^{2}, \beta_{E}^{2}, \rho)$, not a numerical near-match: the additive sum-of-corrections structure of \eqref{eq:dt-GR} is recovered as the unique leading-order content of the multiplicative ratio $\tau_{E}/\tau_{\mathrm{GPS}}$.
-
-For the Earth--GPS configuration, the second-order term \eqref{eq:delta-RG-2} contributes at the level of $\sim 3 \times 10^{-8}\,\mu\mathrm{s\,day}^{-1}$, i.e.\ $\sim 8 \times 10^{-10}$ of the total accumulated shift. This is below the present precision of operational GPS clock comparisons and does not, by itself, constitute a distinguishing observation between the two formulations in this regime. The structural difference between an additive and a multiplicative composition of projection factors --- in particular the presence of the $\beta^{2}\kappa^{2}$ cross-term in \eqref{eq:delta-RG-2} --- becomes quantitatively relevant only when $\kappa^{2}$ or $\beta^{2}$ approach order unity.
-
-The scope of the present statement is restricted to the relation between the WILL~RG closed-form expression~\eqref{eq:dt-RG} and the \emph{additive post-Newtonian} form of the GR time-dilation formula \eqref{eq:dt-GR}. A comparison against fully non-linear geodesic integration in the exact Schwarzschild geometry combined with special-relativistic kinematics for the rotating Earth surface is a separate computation and is not addressed in this section.
-
-\subsubsection{Reproducibility}
-\label{sec:repro}
-
-The complete symbolic and numerical verification reported in this section is contained in a single public Google Colab notebook, comprising the two scripts used to produce \eqref{eq:delta-RG-1}, \eqref{eq:delta-RG-2}, and the numerical table above:
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= Desmos project]
- \href{https://www.desmos.com/geometry/gfe2jpfh1g}{Earth-GPS time, energy symmetry and WILL invariant test}
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= Colab Notebook]
- \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Earth_GPS_1st_order_RG=GR.ipynb}{Earth-GPS 1st order RG=GR.ipynb}
-\end{tcolorbox}
-
-The notebook has no external dependencies beyond \texttt{sympy} and \texttt{mpmath} and is self-contained. All input parameters are listed explicitly in the numerical script; any change in $r_{\mathrm{GPS}}$, $R_{E}$, or $GM_{\oplus}$ rescales both $\Delta t_{\mathrm{RG}}$ and $\Delta t_{\mathrm{GR}}$ consistently and does not affect the symbolic identity $\delta_{\mathrm{RG}}^{(1)} \equiv \delta_{\mathrm{GR}}$.
-
-
 \subsection{Relational Orbital Mechanics (R.O.M.)}
 \hypertarget{sec:rom}{}\label{sec:rom}
 
@@ -2024,7 +1924,7 @@ This closed algebraic system recovers the leading contributions to perihelion pr
 
 High-precision validation shows that all 66 multi-form identities are internally consistent to 50 significant digits and that the leading terms match the corresponding post-Newtonian expansions of general relativity. Higher-order differences remain below the sensitivity of current observations, including those of the S2 star.
 
-Complete phase-resolved orbits and system scales are recovered directly from spectroscopic and chronometric observables, with \(G\) and \(M\) entering only as unit-conversion factors. Key features of Kerr geometry follow algebraically from the same closure relation. Gravitational waves and the radiative two-body problem remain to be formulated within the relational framework.
+Complete phase-resolved orbits and system scales are recovered directly from spectroscopic and chronometric observables, with \(G\) and \(M\) entering only as unit-conversion factors. Key features of Kerr geometry follow algebraically from the same closure relation. Gravitational waves and the radiative two-body problem remain to be formulated within the relational ontology.
 
 
 \textbf{Within R.O.M. we reveal relational origin of:}
@@ -2041,7 +1941,7 @@ Complete phase-resolved orbits and system scales are recovered directly from spe
     \item Gravitational Deflection and Lensing
     \item Schwarzschild metric
     \item Kerr metric
-    \item Algebraic Determination of Absolute System Scale
+    \item Algebraic Determination of System Scale
 \end{itemize}
 
 \textbf{We tested this closed algebraical system on:}
@@ -2519,172 +2419,108 @@ the Cosmos does not possess "will" - yet through WILL, it manifests All that Is.
 \end{tcolorbox}
 
 
-\subsection{From the 1PN Lagrangian to R.O.M.: A Falsifiable Closed‑Form Alternative}
-\hypertarget{sec:1PN_to_ROM}{}\label{sec:1PN_to_ROM}
 
-Having shown in section "Two‑Point Origin of the Lagrangian and Hamiltonian"  (\ref{sec:LH}) that the Lagrangian and Hamiltonian are artefacts of forcing $  r_A = r_B  $, we now demonstrate that the relational ontology supplies a complete, non-perturbative replacement. Starting from the standard 1PN Lagrangian only as a reference point, we translate it into the dimensionless projections $  \beta  $, $  \kappa  $ and impose the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure (thm:closure)} \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:condition}{condition (cor:condition)} that follows from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{methodological principles (sec:foundational)} of Relational Geometry.
+\subsection{Earth--GPS System: Standard GR 1PN as First-Order Approximation of RG}
+\hypertarget{sec:earth-gps}{}\label{sec:earth-gps} 
 
-In standard celestial mechanics the relativistic two‑body problem is treated by appending post‑Newtonian (PN) corrections to the Newtonian Lagrangian or Hamiltonian.  The equations of motion are then solved perturbatively, and observables such as the periastron advance emerge as power series in \(v/c\) and \(GM/rc^{2}\).  The complexity grows combinatorially with each PN order.
+We made lots of derivations and daring claims. Its time to put them to the test.  For our first tests we will use the standard Earth - GPS satellite system to challenge theorems and lemmas:
+(\ref{thm:relational_closure}; \ref{cor:energy}; \ref{lem:duality}; \ref{thm:conservation}; \ref{prop:relativity}; \ref{thm:restenergy}; \ref{thm:equivalenceor:massinvariance}; \ref{prop:momentum}; \ref{thm:closure}; \ref{sec:energy-symmetry}; \ref{sec:willinvariant}; \ref{sec:LH}; \ref{thm:third_law})
 
-Relational Geometry replaces this entire perturbative machinery by a \emph{finite} set of dimensionless algebraic relations that classify the allowed bound states of a two‑body system.  These relations are not a truncated series; they are exact consequences of the closure of the underlying relational carriers.  Importantly, R.O.M. is \emph{not} a re‑summation of the GR PN expansion.  It yields a closed‑form periastron advance that agrees with GR at first post‑Newtonian order but differs at second and higher orders --- a deviation that is currently below observational thresholds and thus provides a sharp, falsifiable prediction.
+\subsubsection{Statement of the Verification Problem}
 
-This section gives an explicit, step‑by‑step mapping from the standard 1PN Lagrangian to the R.O.M. algebraic system and highlights exactly where the two methods coincide and where they diverge.
-
-\subsubsection{The standard 1PN test‑mass Lagrangian}
-
-For a test particle of mass \(m\) moving in the field of a central mass \(M\), the Lagrangian in harmonic coordinates, expanded to first post‑Newtonian order and divided by \(m\), is \label{eq:1PN-Lagrangian}
+The standard post-Newtonian expression for the secular time shift between a clock on the Earth's surface and a clock on a circular GPS orbit, accumulated over one solar day, is
 \begin{equation}
-L \;=\; -c^{2}
-      + \frac{1}{2}v^{2}
-      + \frac{GM}{r}
-      + \frac{1}{8c^{2}}v^{4}
-      + \frac{3}{2c^{2}}\frac{GM}{r}v^{2}
-      - \frac{1}{2c^{2}}\Bigl(\frac{GM}{r}\Bigr)^{\!2}
-      + \mathcal{O}(c^{-4}) .
+\Delta t_{\mathrm{GR}} \;=\; \left( \frac{\Phi_{\mathrm{GPS}} - \Phi_{E}}{c^{2}} \;-\; \frac{v_{\mathrm{GPS}}^{2} - v_{E}^{2}}{2\,c^{2}} \right) D \, M ,
+\label{eq:dt-GR}
 \end{equation}
-The terms are, in order: rest energy, Newtonian kinetic and potential energy, the first relativistic correction to kinetic energy, the kinetic‑potential coupling, and the non‑linear correction to the potential. From this Lagrangian one derives equations of motion and integrates them perturbatively to obtain, for example, the periastron advance \label{eq:1PN-advance}
-\[
-\Delta\varphi_{\rm 1PN} \;=\; \frac{3\pi R_{s}}{a(1-e^{2})},
-\qquad R_{s}= \frac{2GM}{c^{2}} .
+with $D = 86{,}400\,\mathrm{s}$, $M = 10^{6}$, $\Phi(r) = -GM_{\oplus}/r$, $v_{E} = 2\pi R_{E}/D$, and $v_{\mathrm{GPS}} = \sqrt{GM_{\oplus}/r_{\mathrm{GPS}}}$.
 
-\]
-
-\subsubsection{Translation into R.O.M. projections}
-
-\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{R.O.M.} operates with two dimensionless, frame‑invariant projections that are directly measurable from spectroscopic and astrometric data \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:spectroscopic_shift}{sec:spectroscopic shift} without invoking \(G\) or \(M\).
-\label{eq:kappa-def}  \label{eq:beta-def}
-\begin{align}
-\beta      &\equiv \frac{v}{c} , \\
-\kappa^{2} &\equiv \frac{R_{s}}{r} .
-\end{align}
-In terms of these projections, the Newtonian potential term becomes \(\displaystyle \frac{GM}{r} = \frac{1}{2}c^{2}\kappa^{2}\). Switching to units 
-\(c=1\) for brevity, the 1PN Lagrangian rewrites as \label{eq:L-in-beta-kappa}
+WILL Relational Geometry (WILL~RG) expresses the same time shift as an exact algebraic ratio of two-carrier projection invariants $\tau \equiv \sqrt{1-\kappa^{2}}\,\sqrt{1-\beta^{2}}$:
 \begin{equation}
-L \;=\; \frac{1}{2}\beta^{2}
-      + \frac{1}{2}\kappa^{2}
-      + \frac{1}{8}\beta^{4}
-      + \frac{3}{4}\kappa^{2}\beta^{2}
-      - \frac{1}{8}\kappa^{4}
-      + \mathcal{O}(\beta^{6}) .
+\Delta t_{\mathrm{RG}} \;=\; \left( 1 \;-\; \frac{\sqrt{1-\kappa_{E}^{2}}\,\sqrt{1-\beta_{E}^{2}}}{\sqrt{1-\kappa_{\mathrm{GPS}}^{2}}\,\sqrt{1-\beta_{\mathrm{GPS}}^{2}}} \right) D \, M ,
+\label{eq:dt-RG}
 \end{equation}
-This expression is still a perturbative expansion; the true trajectory must be obtained by varying the Lagrangian and solving differential equations.
+where $\kappa^{2}(r) = 2GM_{\oplus}/(rc^{2})$, $\beta^{2} = v^{2}/c^{2}$, and the orbital closure condition $\beta_{\mathrm{GPS}}^{2} = \kappa_{\mathrm{GPS}}^{2}/2$ holds for circular motion.
 
-\subsubsection{The R.O.M. closure condition and why the Lagrangian is no longer required.}
+The question addressed in this section is whether \eqref{eq:dt-GR} is the leading-order Taylor expansion of \eqref{eq:dt-RG} in the small parameters $\kappa^{2}$ and $\beta^{2}$. If so, the algebraic difference of the two coefficients must vanish identically at first order, and the residual at finite values of the small parameters must reproduce the analytically derived second-order correction.
 
-The foundational role of  \textbf{closure theorem} (\ref{thm:closure}):  For any relationally closed the amplitudes \(\beta\) and \(\kappa\) are not independent but satisfy closure condition (\ref{cor:condition}): \label{eq:closure}
+\subsubsection{Methodology}
+
+The verification is split into two independent parts, both executed in a single public notebook (Section~\ref{sec:repro}).
+
+\paragraph{Part I --- symbolic identity.} Introduce the dimensionless geometric ratio $\rho \equiv R_{E}/r_{\mathrm{GPS}}$, which is treated as a finite (order-unity) parameter and is \emph{not} expanded. The exact WILL~RG shift coefficient is then
 \begin{equation}
-\boxed{\;\kappa^{2} = 2\beta^{2}\;} .
+\delta_{\mathrm{RG}}(\kappa_{E}^{2}, \beta_{E}^{2}, \rho) \;=\; 1 - \frac{\sqrt{(1-\kappa_{E}^{2})(1-\beta_{E}^{2})}}{\sqrt{(1-\kappa_{E}^{2}\rho)(1-\kappa_{E}^{2}\rho/2)}} .
+\label{eq:delta-RG}
 \end{equation}
-This relation follows from the equal distribution of the total conserved relational resource among the independent degrees of freedom of the kinematic carrier \(S^{1}\) (1 DOF) and the potential carrier \(S^{2}\) (2 DOF).
-Closure is not an equation of motion; it is a global structural constraint that every admissible orbit must fulfil.
+A single bookkeeping parameter $\varepsilon$ is introduced via $\kappa_{E}^{2} \to \varepsilon\,\kappa_{E}^{2}$, $\beta_{E}^{2} \to \varepsilon\,\beta_{E}^{2}$, and the Taylor series of \eqref{eq:delta-RG} is computed to second order in $\varepsilon$ using \texttt{sympy.series}. The first-order coefficient $\delta_{\mathrm{RG}}^{(1)}$ is then subtracted from the dimensionless form of the GR coefficient $\delta_{\mathrm{GR}}$ obtained from \eqref{eq:dt-GR} under the substitutions $\Phi/c^{2} = -\kappa^{2}/2$ and $v^{2}/c^{2} = \beta^{2}$. The result is simplified algebraically.
 
-Once closure is imposed, the Lagrangian is no longer required.  The permissible orbital states are completely determined by the algebraic consequences of \eqref{eq:closure} together with two further invariants that are already implicit in the Newtonian two‑body problem (the conservation of the relational binding energy
-\(\beta^{2} = \kappa_{o}^{2}-\beta_{o}^{2}\) and of the angular momentum \(h = r_{o}\beta_{T}c\)).  The result is a closed system of finite, exact identities.
+\paragraph{Part II --- numerical comparison.} Both \eqref{eq:dt-GR} and \eqref{eq:dt-RG} are evaluated with 40-digit precision arithmetic (\texttt{mpmath}, \texttt{mp.dps = 40}) using a single set of input parameters: $c = 299{,}792{,}458\,\mathrm{m\,s^{-1}}$, $GM_{\oplus} = 3.986004418 \times 10^{14}\,\mathrm{m^{3}\,s^{-2}}$, $R_{E} = 6{,}378{,}137\,\mathrm{m}$, $r_{\mathrm{GPS}} = 26{,}561{,}750\,\mathrm{m}$, $D = 86{,}400\,\mathrm{s}$. The closure residual $\beta_{\mathrm{GPS}}^{2} - \kappa_{\mathrm{GPS}}^{2}/2$ is monitored as a numerical consistency check. The numerical discrepancy $\Delta t_{\mathrm{RG}} - \Delta t_{\mathrm{GR}}$ is then compared with the analytically predicted second-order correction $\delta_{\mathrm{RG}}^{(2)}\,D\,M$ obtained from Part~I.
 
-\subsubsection{The R.O.M. algebraic system (exact within the relational framework)}
+\subsubsection{Results}
 
-For an elliptical orbit with eccentricity \(e\) and semi‑major axis \(a\), R.O.M. yields the following closed‑form relations (true anomaly \(O\)): 
-
-\begin{itemize}
-\item \textbf{Keplerian architecture (exact, not just Newtonian):} \label{eq:rom-kepler}
-\begin{align}
-\frac{R_{s}}{a} &= 2\beta^{2}
-\quad\Longrightarrow\quad
-a = \frac{R_{s}}{2\beta^{2}},
-\qquad
-T \;=\; \frac{2\pi a}{\beta c} = \frac{\pi R_{s}}{\beta^{3}c} .
-\end{align}
-\item \textbf{Orbital shape (the same ellipse, but with a precessing \(O\)):} \label{eq:rom-ellipse}
+\paragraph{Symbolic.} The first-order Taylor coefficient of the WILL~RG shift, expressed in $\kappa_{E}^{2}$, $\beta_{E}^{2}$, and the geometric ratio $\rho$, is
 \begin{equation}
-r(O) \;=\; \frac{a(1-e^{2})}{1 + e\cos O} .
+\delta_{\mathrm{RG}}^{(1)} \;=\; \frac{\kappa_{E}^{2}}{2} \;+\; \frac{\beta_{E}^{2}}{2} \;-\; \frac{3\,\kappa_{E}^{2}\,\rho}{4} .
+\label{eq:delta-RG-1}
 \end{equation}
-\item \textbf{Periastron precession per orbit (exact R.O.M. expression):} \label{eq:rom-precession}
+The GR coefficient, expressed in the same variables, is
 \begin{equation}
-\Delta\varphi_{\rm ROM}
-   \;=\; \frac{2\pi\,\tau_{Y}^{2}}{1-e^{2}}
-   \;=\; \frac{2\pi\bigl(3\beta^{2} - 2\beta^{4}\bigr)}{1-e^{2}} .
+\delta_{\mathrm{GR}} \;=\; \frac{\kappa_{E}^{2}}{2} \;+\; \frac{\beta_{E}^{2}}{2} \;-\; \frac{3\,\kappa_{E}^{2}\,\rho}{4} .
+\label{eq:delta-GR}
 \end{equation}
-\item \textbf{Time evolution (the same Kepler integral, with the period
-           from \eqref{eq:rom-kepler}):} \label{eq:rom-time}
+The algebraic difference $\delta_{\mathrm{RG}}^{(1)} - \delta_{\mathrm{GR}}$ vanishes identically.
+
+The second-order content of \eqref{eq:delta-RG}, which is absent from the additive GR formula \eqref{eq:dt-GR}, is
 \begin{equation}
-t(O) \;=\; \frac{T}{2\pi}\,\zeta(O),\qquad
-\zeta(O) = \frac{1}{\sqrt{1-e^{2}}}\int_{0}^{O}
-          \frac{d\theta}{(1+e\cos\theta)^{2}} .
+\delta_{\mathrm{RG}}^{(2)} \;=\; \frac{\kappa_{E}^{4}}{8} \;+\; \frac{\beta_{E}^{4}}{8} \;-\; \frac{\beta_{E}^{2}\,\kappa_{E}^{2}}{4} \;+\; \frac{3\,\kappa_{E}^{4}\,\rho}{8} \;-\; \frac{19\,\kappa_{E}^{4}\,\rho^{2}}{32} \;+\; \frac{3\,\beta_{E}^{2}\,\kappa_{E}^{2}\,\rho}{8} .
+\label{eq:delta-RG-2}
 \end{equation}
-\end{itemize}
+Three structural features of \eqref{eq:delta-RG-2} have no analogue in any rearrangement of the additive GR sum~\eqref{eq:dt-GR}: (i)~the pure quadratic contributions $\kappa_{E}^{4}/8$ and $\beta_{E}^{4}/8$ arising from higher-order expansion of $\sqrt{1-x}$; (ii)~the cross-term $-\beta_{E}^{2}\kappa_{E}^{2}/4$, which originates from the multiplicative coupling of the gravitational and kinematic projection factors within $\tau_{E}/\tau_{\mathrm{GPS}}$; and (iii)~the $\rho^{2}$ contribution, which encodes nonlinear dependence on the relative depth of the gravitational well.
 
-These relations are algebraically exact within R.O.M.; they contain no free parameters and no perturbative approximations.  The only departure from Newtonian mechanics is the precession formula \eqref{eq:rom-precession}.
+\paragraph{Numerical.} With the parameter set listed above:
 
-\subsubsection{Connection to the 1PN Lagrangian and the point of departure from GR}
-
-Substituting \(\kappa^{2} = R_{s}/a\) and the closure condition \(\beta^{2} = \kappa^{2}/2\) into \eqref{eq:rom-precession} yields the
-equivalent form
-\begin{equation}
-\Delta\varphi_{\rm ROM}
-   \;=\; \frac{3\pi R_{s}}{a(1-e^{2})}
-         \;-\; \frac{\pi R_{s}^{2}}{a^{2}(1-e^{2})}.
-\end{equation}
-The first term is exactly the GR 1PN advance \eqref{eq:1PN-advance}.  Thus, at first post‑Newtonian order R.O.M. and GR coincide perfectly---the 1PN Lagrangian is therefore the leading‑order content of the R.O.M. algebraic system.
-
-The second term, \(-\pi R_{s}^{2}/[a^{2}(1-e^{2})]\), is the R.O.M. correction at \(\mathcal{O}(\beta^{4})\).  It is \emph{not} equal to the standard GR 2PN periastron advance; it constitutes a specific, built‑in prediction of the relational framework.  For Mercury this deviation is \(-7.3\times10^{-7}\) arcseconds per century, roughly \(10^{-8}\) of the total precession and far below current measurement precision.  In stronger fields (e.g., the Galactic Centre S‑stars, binary pulsars) the difference will become proportionally larger and will eventually be tested by accurate enough observations.
-
-\begin{tcolorbox}[colback=blue!5, colframe=black!80!black, title=Falsifiability]
-R.O.M. does \emph{not} claim to reproduce the full infinite PN series of GR. Instead, it offers a mathematically transparent alternative: a single, closed‑form algebraic expression for the periastron advance that agrees with
-GR at 1PN but makes a definite, non‑adjustable prediction at 2PN and beyond. Future high‑precision measurements of periastron precession (e.g., from GRAVITY+ observations of S2, or from binary pulsar timing) will either confirm this prediction or rule out the R.O.M. closure law.
-\end{tcolorbox}
-
-\subsubsection{Summary of the mapping}
-
-\begin{table}[htbp]
-\centering
-\renewcommand{\arraystretch}{1.4}
-\small
-\begin{tabular}{|p{0.46\textwidth}|p{0.46\textwidth}|}
+\begin{center}
+\begin{tabular}{|l|r|}
 \hline
-\textbf{1PN Lagrangian (harmonic coordinates)} &
-\textbf{R.O.M. algebraic system} \\
+quantity & value [$\mu$s\,day$^{-1}$] \\
 \hline
-\[
-L = -c^{2} + \frac12 v^{2} + \frac{GM}{r}
-+ \frac{v^{4}}{8c^{2}}
-+ \frac{3}{2c^{2}}\frac{GM}{r}v^{2}
-- \frac{1}{2c^{2}}\Bigl(\frac{GM}{r}\Bigr)^{2}
-+ \dots
-\]
-&
-\[
-\begin{aligned}
-\kappa^{2} &= \frac{R_{s}}{r}, \quad \beta = \frac{v}{c} \\
-\text{Closure: } \kappa^{2} &= 2\beta^{2} \\
-\text{Orbit: } r(O) &= \frac{a(1-e^{2})}{1+e\cos O},
-\quad a = \frac{R_{s}}{2\beta^{2}} \\
-\text{Precession: } \Delta\varphi_{\mathrm{ROM}}
-&= \frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}} \\
-\text{Time: } t(O) &= \frac{T}{2\pi}\zeta(O),
-\quad T = \frac{\pi R_{s}}{\beta^{3}c}
-\end{aligned}
-\]
-\\
-\hline
-\multicolumn{2}{|p{\textwidth}|}{\centering
-\textbf{Connection:} The GR 1PN advance is the leading term of
-\(\Delta\varphi_{\mathrm{ROM}}\); the R.O.M. expression adds a specific
-\(\mathcal{O}(\beta^{4})\) correction that differs from GR 2PN and provides a
-falsifiable signature of the relational framework.
-} \\
+$\Delta t_{\mathrm{RG}}$ \quad (exact)              & $38.5421472752$ \\\hline
+$\Delta t_{\mathrm{GR}}$ \quad (first order)         & $38.5421472451$ \\\hline
+$\Delta t_{\mathrm{RG}} - \Delta t_{\mathrm{GR}}$    & $3.017 \times 10^{-8}$ \\\hline
+$\delta_{\mathrm{RG}}^{(2)} \cdot D\,M$ \;(predicted) & $3.017 \times 10^{-8}$ \\\hline
+residual                                              & $\sim 10^{-17}$ \\
 \hline
 \end{tabular}
-\end{table}
+\end{center}
 
+The numerical discrepancy $\Delta t_{\mathrm{RG}} - \Delta t_{\mathrm{GR}}$ matches the analytically derived second-order correction $\delta_{\mathrm{RG}}^{(2)}\,D\,M$ to within the limit set by the 40-digit floating-point arithmetic. The closure residual $\beta_{\mathrm{GPS}}^{2} - \kappa_{\mathrm{GPS}}^{2}/2$ vanishes to $\sim 10^{-50}$. The relative magnitude of the term omitted by the GR additive formula is $\sim 7.8 \times 10^{-10}$ of the total shift.
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key takeaway]
-The 1PN Lagrangian is a truncated series in the small parameters \(\beta^{2}\) and \(\kappa^{2}\).  R.O.M. replaces it with a finite
-algebraic system that is exact within the relational ontology, contains no free parameters, and matches GR at leading order while making a definite, testable prediction at the next order.  The mapping is mathematically transparent and eliminates the need for perturbative expansions altogether.
+\subsubsection{Interpretation}
+
+Equations~\eqref{eq:delta-RG-1}--\eqref{eq:delta-GR} establish that the additive post-Newtonian formula~\eqref{eq:dt-GR} coincides exactly with the linear Taylor coefficient of the WILL~RG exact algebraic ratio~\eqref{eq:dt-RG}. This is an algebraic identity in $(\kappa_{E}^{2}, \beta_{E}^{2}, \rho)$, not a numerical near-match: the additive sum-of-corrections structure of \eqref{eq:dt-GR} is recovered as the unique leading-order content of the multiplicative ratio $\tau_{E}/\tau_{\mathrm{GPS}}$.
+
+For the Earth--GPS configuration, the second-order term \eqref{eq:delta-RG-2} contributes at the level of $\sim 3 \times 10^{-8}\,\mu\mathrm{s\,day}^{-1}$, i.e.\ $\sim 8 \times 10^{-10}$ of the total accumulated shift. This is below the present precision of operational GPS clock comparisons and does not, by itself, constitute a distinguishing observation between the two formulations in this regime. The structural difference between an additive and a multiplicative composition of projection factors --- in particular the presence of the $\beta^{2}\kappa^{2}$ cross-term in \eqref{eq:delta-RG-2} --- becomes quantitatively relevant only when $\kappa^{2}$ or $\beta^{2}$ approach order unity.
+
+The scope of the present statement is restricted to the relation between the WILL~RG closed-form expression~\eqref{eq:dt-RG} and the \emph{additive post-Newtonian} form of the GR time-dilation formula \eqref{eq:dt-GR}. A comparison against fully non-linear geodesic integration in the exact Schwarzschild geometry combined with special-relativistic kinematics for the rotating Earth surface is a separate computation and is not addressed in this section.
+
+\subsubsection{Reproducibility}
+\label{sec:repro}
+
+The complete symbolic and numerical verification reported in this section is contained in a single public Google Colab notebook, comprising the two scripts used to produce \eqref{eq:delta-RG-1}, \eqref{eq:delta-RG-2}, and the numerical table above:
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= Desmos project]
+ \href{https://www.desmos.com/geometry/gfe2jpfh1g}{Earth-GPS time, energy symmetry and WILL invariant test}
 \end{tcolorbox}
 
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= Colab Notebook]
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Earth_GPS_1st_order_RG=GR.ipynb}{Earth-GPS 1st order RG=GR.ipynb}
+\end{tcolorbox}
+
+The notebook has no external dependencies beyond \texttt{sympy} and \texttt{mpmath} and is self-contained. All input parameters are listed explicitly in the numerical script; any change in $r_{\mathrm{GPS}}$, $R_{E}$, or $GM_{\oplus}$ rescales both $\Delta t_{\mathrm{RG}}$ and $\Delta t_{\mathrm{GR}}$ consistently and does not affect the symbolic identity $\delta_{\mathrm{RG}}^{(1)} \equiv \delta_{\mathrm{GR}}$.
 
 
-\subsection{\textbf{Methodology comparison of General Relativity (GR) with WILL Relational Geometry (R.O.M.)}}
+\subsection{Methodology comparison of General Relativity (GR) with WILL Relational Geometry (RG) and (R.O.M.)}
 
  \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Webpage Link]
 \begin{center}
@@ -2843,21 +2679,26 @@ The gain in transparency is therefore structural. Observables that in convention
 
 
 
+\subsubsection{Predictions, Falsifiability, Future Tests and Transparency}
+
+We believe that \textbf{complete methodological transparency} is the future of science. We adopting and actively  promoting the \textbf{Open Research} philosophy among academia and independent research. With global information accessibility predictions can be published alongside with data and computational tools making them easy to reproduce for anyone in just couple of clicks. This philosophy cultivates \textbf{scientific research as international open collaboration} driven by shared curiosity and admiration of scientific method.
+
+\textbf{WILL RG Trilogy} (\ref{trilogy}) makes a vast amount of sharp, parameter-free predictions in 3 main domains of physics (\href{https://willrg.com/documents/WILL_RG_I.pdf}{Relativity}, \href{https://willrg.com/documents/WILL_RG_II.pdf}{Cosmology}, \href{https://willrg.com/documents/WILL_RG_III.pdf#}{Q.M.}) across more then 20 orders of magnitude that can be tested within close to medium time frame with improved observational precision. 
+Constantly growing list of predictions along with all computational tools and data is published at \textbf{WILL RG live website:} \href{https://willrg.com/predictions/}{https://willrg.com/predictions/}. Additionally the complete research development history and its current live progress is fully accessible in our \textbf{public github repository:} \href{https://github.com/AntonRize/WILL}{https://github.com/AntonRize/WILL}.
+
+The most direct test comes from continued high-precision monitoring of the S2 star. Current GRAVITY data are statistically consistent with both RG and GR. Future pericentre passages will deliver significantly higher astrometric precision. These observations will probe the detailed phasing of the apsidal advance and the magnitude of higher-order corrections, allowing a direct comparison between the exact algebraic predictions of RG and the corresponding GR results. Specifically the difference in second order precession term \(\mathcal{O}(\beta^4)\). 
+
+The higher-order correction is fixed directly by the closure relation. It contain no free parameters. A detection at the predicted level, or a sufficiently tight upper limit below it, would therefore test the relational model itself.
+
+
 \subsubsection{Challenges and Current Limitations}
 \hypertarget{sec:challenges}{}\label{sec:challenges}
-
 
 Gravitational waves and the full radiative two-body problem remain to be formulated within the relational framework. The current construction addresses only conservative, bound orbits. Extending it to dissipative, radiative dynamics requires a relational description of propagating degrees of freedom on the carriers and remains an open technical task.
 
 A complete, self-consistent multi-body architecture that extends beyond the collinear L1 case awaits explicit algebraic realisation. The nested-contour approach provides a clear conceptual route, but its explicit mathematical formulation for systems containing three or more gravitationally bound bodies (including mean-motion resonances and long-term stability) requires further development. The author states openly that progress on both fronts has so far been limited by present mathematical facility rather than by any intrinsic prohibition within the relational ontology. Collaboration with researchers experienced in radiative dynamics and in the algebraic treatment of multi-body closures is therefore actively invited.
 
-\subsubsection{Falsifiability and Future Tests}
 
-Relational Orbital Mechanics makes several sharp, parameter-free predictions that can be tested with improved observational precision.
-
-The most direct test comes from continued high-precision monitoring of the S2 star. Current GRAVITY data are statistically consistent with both RG and GR. Future pericentre passages will deliver significantly higher astrometric precision. These observations will probe the detailed phasing of the apsidal advance and the magnitude of higher-order corrections, allowing a direct comparison between the exact algebraic predictions of RG and the corresponding GR results. Specifically the difference in second order precession term \(\mathcal{O}(\beta^4)\). 
-
-The higher-order correction is fixed directly by the closure relation. It contain no free parameters. A detection at the predicted level, or a sufficiently tight upper limit below it, would therefore test the relational model itself.
 
 \subsection{Conclusion}
 
@@ -2868,7 +2709,7 @@ This operates as the irreducible algebraic core that remains when the ontologica
 Within RG several structural consequences follow:
 \begin{enumerate}
     \item \textbf{\(G\) and \(M\) are secondary.} The Schwarzschild length \(R_s\) and all orbital distances are derived directly from dimensionless spectroscopic and chronometric ratios. The Newtonian gravitational constant and the kilogram mass serve strictly as conversion factors when translating geometric results into legacy units.
-    \item \textbf{Derivation of Metrics from Relational Geometry.} The Minkowski, Schwarzschild, and Kerr metrics and their intervals are revealed as the Pythagorean identities of the relational carriers $S^1$ and $S^2$. Relativistic effects---such as time dilation and length contraction---emerge naturally as geometric rotations between external interaction (Amplitude) and internal existence (Phase).
+    \item \textbf{Derivation of Metrics from Relational Geometry.} The Minkowski, Schwarzschild, and Kerr metrics and their intervals are revealed as the Pythagorean identities of the relational carriers $S^1$ and $S^2$. Relativistic effects---such as time dilation and length contraction --- emerge naturally as geometric rotations between external (Amplitude) and internal (Phase).
     \item \textbf{Closure replaces the virial theorem.} The relation \(\kappa^2 = 2\beta^2\) emerges as the inevitable consequence of equitable capacity distribution across the independent degrees of freedom of the kinematic and potential carriers.
     \item \textbf{Precession is topological, rather than dynamical.} The secular advance of the pericentre arises from the mismatch of internal phase over one cyclic extension of the orbital phase, bypassing the integration of geodesic equations or expansion in powers of \(v/c\).
     \item \textbf{Singularities are avoided} by naturally constraining the valid range of radial distance. \textbf{The point $r=0$ remains absent from the admissible relational range.}

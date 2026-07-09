@@ -1,3 +1,4 @@
+```markdown
 ---
 layout: default
 title: "RGvsGR"
@@ -9,6 +10,28 @@ description: "Methodology comparison of General Relativity (GR) with WILL Relati
 
 ---
 
+### 0. Foundational Primitives
+
+**Primitives of General Relativity**
+1. A differentiable manifold (the spacetime background/container).
+2. A pseudo-Riemannian metric tensor $g_{\mu\nu}$ defined on that manifold.
+3. A stress-energy tensor $T_{\mu\nu}$ representing matter/energy as an independent entity.
+4. The gravitational constant $G$ and the speed of light $c$ as fundamental coupling constants.
+5. The Einstein Field Equations (a postulated dynamical law linking the geometry to the energy).
+6. The Equivalence Principle (a postulated axiom linking inertial and gravitational mass).
+
+**Primitives of Relational Geometry**
+1. Methodological constraints (epistemic, relational, minimalism, mathematical). *Not statements about the nature of reality, but strict rules of logical and epistemic purity.*
+
+> **A Note on Methodology vs. Ontology**
+> It may be objected that the foundational principles constitute axioms, thereby contradicting the claim of *zero assumptions*. This objection conflates *methodological constraints* with *ontological axioms*. 
+>
+> Under the strictures of the Scientific Method, the burden of proof rests exclusively on the claimant asserting an absolute existence. Refusing to import unobserved absolutes (such as a background container or intrinsic properties) is not an assumption; it is the default epistemic stance --- the null hypothesis. 
+>
+> These principles function as rules of logical engagement to prevent the introduction of surplus ontology. To challenge them is to attempt to justify the importation of unsubstantiated metaphysical postulates, which contradicts the empirical foundation of physics.
+
+---
+
 ### 1. The Foundation: Tensor Calculus vs. Dimensionless Algebra
 
 **Standard GR (The Metric Approach):**
@@ -17,16 +40,16 @@ GR begins by assuming a 4D pseudo-Riemannian manifold. To describe a gravitation
 2. Calculate Christoffel symbols: $\Gamma^\lambda_{\mu\nu} = \frac{1}{2} g^{\lambda\sigma} (\partial_\mu g_{\nu\sigma} + \partial_\nu g_{\mu\sigma} - \partial_\sigma g_{\mu\nu})$.
 3. Calculate the Riemann and Ricci tensors to ensure the field equations $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ are satisfied.
 4. To find motion, you must solve the Geodesic Equation:
-   $$ \frac{d^2x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{d\tau} \frac{dx^\beta}{d\tau} = 0 $$
+$$\frac{d^2x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{d\tau} \frac{dx^\beta}{d\tau} = 0$$
 This yields a system of coupled, non-linear differential equations that **cannot be solved analytically** for general orbits. 
 
 **R.O.M. (The Relational Approach):**
 R.O.M. discards the manifold, the metric, and the coordinate grid. It begins with two pure, dimensionless ratios mapped to topological carriers:
-*   Kinematic projection: $\beta = v/c$ (on $S^1$)
-*   Potential projection: $\kappa^2 = R_s/r$ (on $S^2$)
+* Kinematic projection: $\beta = v/c$ (on $S^1$)
+* Potential projection: $\kappa^2 = R_s/r$ (on $S^2$)
 
 The only "law" governing their interaction is the algebraic closure theorem:
-$$ \kappa^2 = 2\beta^2 $$
+$$\kappa^2 = 2\beta^2$$
 There are no differential equations. The dynamics are classified entirely by finite algebraic identities and trigonometric projections.
 
 ---
@@ -48,10 +71,9 @@ R.O.M. treats precession not as a dynamical perturbation of a trajectory, but as
 2. The phase divergence from rest ($\tau=1$) is: $\tau_Y^2 = 1 - \tau^2$.
 3. Expand this algebraically: $\tau_Y^2 = \beta^2 + \kappa^2 - \beta^2\kappa^2$.
 4. Accumulate this divergence over one orbit ($2\pi$), normalized by the shape ($1-e^2$):
-   $$ \Delta\varphi = \frac{2\pi \tau_Y^2}{1-e^2} $$
-**The Complexity Difference:** 
-*   GR requires solving differential equations and truncating infinite series. 
-*   R.O.M. requires expanding a binomial product and evaluating it once. Furthermore, R.O.M.'s formula is **exact and non-perturbative**. The cross-term $-\beta^2\kappa^2$ immediately provides the exact 2PN correction ($-\pi R_s^2 / [a^2(1-e^2)]$) with zero extra computational effort, whereas in GR, calculating the 2PN term requires pages of tensor calculus.
+$$\Delta\varphi = \frac{2\pi \tau_Y^2}{1-e^2}$$
+**The Complexity Difference:** * GR requires solving differential equations and truncating infinite series. 
+* R.O.M. requires expanding a binomial product and evaluating it once. Furthermore, R.O.M.'s formula is **exact and non-perturbative**. The cross-term $-\beta^2\kappa^2$ immediately provides the exact 2PN correction ($-\pi R_s^2 / [a^2(1-e^2)]$) with zero extra computational effort, whereas in GR, calculating the 2PN term requires pages of tensor calculus.
 
 ---
 
@@ -70,10 +92,9 @@ To get strong-field lensing (near a black hole), one must numerically integrate 
 2. By the unified interaction gradient theorem, this means the phase buffer is depleted, so the partitioning factor $\Gamma \to 1$.
 3. Define the geometric shape parameter (eccentricity) of the light trajectory directly from the projections: $e_\gamma = \frac{\kappa_{Xp}^2}{\kappa_p^2}$.
 4. The deflection is a pure trigonometric extraction from the trajectory shape:
-   $$ \Delta\gamma = 2 \arcsin\left( \frac{\kappa_p^2}{\kappa_{Xp}^2} \right) $$
-**The Complexity Difference:** 
-*   GR changes the underlying physics (switching from timelike to null geodesics) and requires integration to infinity.
-*   R.O.M. uses the *exact same algebraic formula* for a slow-moving asteroid and a photon. It simply dials the kinematic projection $\beta$ to 1. The strong-field limit requires no numerical integration; it is just evaluating an arcsine function.
+$$\Delta\gamma = 2 \arcsin\left( \frac{\kappa_p^2}{\kappa_{Xp}^2} \right)$$
+**The Complexity Difference:** * GR changes the underlying physics (switching from timelike to null geodesics) and requires integration to infinity.
+* R.O.M. uses the *exact same algebraic formula* for a slow-moving asteroid and a photon. It simply dials the kinematic projection $\beta$ to 1. The strong-field limit requires no numerical integration; it is just evaluating an arcsine function.
 
 ---
 
@@ -92,8 +113,8 @@ R.O.M. operates entirely on "cross-cultural invariants"—dimensionless ratios t
 1. Measure the system's visual angular size ($\theta$), the spectroscopic redshift ($z$), and the orbital period ratio ($T$).
 2. Use the Holographic Chronometry Invariant: $R_s = \frac{T c}{\pi} \beta^3$, where $\beta$ is extracted purely from the redshift $z$ and eccentricity $e$.
 **The Complexity Difference:**
-*   Standard physics uses an anthropocentric, historically arbitrary constant ($G$) and an unobservable bulk property ($M$) to define a system.
-*   R.O.M. extracts the absolute geometric scale ($R_s$) directly from the topology of light and time. $M$ and $G$ are treated as "translation factors" used only at the very end to convert the result into kilograms for human physicists, dissolving entirely from the foundational math.
+* Standard physics uses an anthropocentric, historically arbitrary constant ($G$) and an unobservable bulk property ($M$) to define a system.
+* R.O.M. extracts the absolute geometric scale ($R_s$) directly from the topology of light and time. $M$ and $G$ are treated as "translation factors" used only at the very end to convert the result into kilograms for human physicists, dissolving entirely from the foundational math.
 
 ---
 
@@ -114,3 +135,5 @@ The table below summarizes the philosophical and mathematical leap:
 The standard GR methodology is like calculating the area under a complex curve by dividing it into infinite infinitesimal rectangles (Calculus). R.O.M. is like realizing the curve is actually just a circle, and using $\pi r^2$ to find the area instantly (Algebra/Geometry).
 
 By shifting the focus from *how things move through a container* to *the difference in relational states between observers*, WILL R.O.M. has essentially bypassed the need for calculus in gravitational mechanics. This doesn't make GR "wrong"—GR is clearly a highly successful first-order approximation of this deeper geometry—but it does suggest that the physics community has been using a sledgehammer (differential tensors) to crack a nut that naturally yields to a simple algebraic wrench.
+
+```
