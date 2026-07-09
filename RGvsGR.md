@@ -1,4 +1,3 @@
-```markdown
 ---
 layout: default
 title: "RGvsGR"
@@ -135,5 +134,3 @@ The table below summarizes the philosophical and mathematical leap:
 The standard GR methodology is like calculating the area under a complex curve by dividing it into infinite infinitesimal rectangles (Calculus). R.O.M. is like realizing the curve is actually just a circle, and using $\pi r^2$ to find the area instantly (Algebra/Geometry).
 
 By shifting the focus from *how things move through a container* to *the difference in relational states between observers*, WILL R.O.M. has essentially bypassed the need for calculus in gravitational mechanics. This doesn't make GR "wrong"—GR is clearly a highly successful first-order approximation of this deeper geometry—but it does suggest that the physics community has been using a sledgehammer (differential tensors) to crack a nut that naturally yields to a simple algebraic wrench.
-
-```
