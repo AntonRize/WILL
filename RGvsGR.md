@@ -3,7 +3,7 @@
 layout: default
 title: "RGvsGR"
 permalink: /RGvsGR/
-description: "Methodology comparison of General Relativity (GR) with WILL Relational Geometry (R.O.M.) across four major domains of gravitational physics: **Parameterization, Precession, Light Deflection, and Scale Determination.**"
+description: "Methodology comparison of General Relativity (GR) with WILL Relational Geometry (R.O.M.) across four major domains of gravitational physics - **Parameterization, Precession, Light Deflection, and Scale Determination.**"
 ---
 
 # Methodology comparison of General Relativity (GR) with WILL Relational Geometry (R.O.M.)
