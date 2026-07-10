@@ -309,3 +309,34 @@ In WILL Relational Geometry:
 So, while your intuition that $p$ relates directly to energy in WILL RG is correct, it's more precise to say that $p$ is the *kinematic component* of the total energy, describing its external manifestation.
 
 Given that momentum is an emergent projection of energy, how does this framework account for situations where energy (e.g., thermal energy) doesn't appear as direct momentum?
+
+**User:** i am trying to understand p as the projection factor at the amplitude. on the phase dimension, the mass m is the factor. and we know E = m*c^2*\gamma. when we project E to the amplitude: we get m*c*c*\gamma * v/c = \gamma*m*c*v. since c is constant, so \gamma*m*v is the projection factor are we looking for. right?
+
+**Assistant (Powered by Gemini 2.5 Flash):** You're articulating a good understanding of how energy and momentum are related through projections in WILL Relational Geometry (RG), but let's refine a couple of points for precision within the framework.
+
+1.  **Momentum as Energy Projection on Amplitude:**
+    You are absolutely correct. [Momentum ($p$) is fundamentally defined as the horizontal projection of the total energy ($E$) onto the kinematic amplitude ($\beta$) on the $S^1$ relational carrier](https://willrg.com/documents/WILL_RG_I.pdf#prop:momentum). In natural units ($c=1$), this is $p \equiv E\beta$.
+
+2.  **Role of Mass ($m$) on the Phase Dimension:**
+    This is where we need a slight clarification. On the phase dimension, specifically the kinematic phase ($\beta_Y$), what is constant and invariant is the **rest energy ($E_0$)**.
+    As stated in the [Invariant Projection of Rest Energy](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy), the total energy $E$ scales such that its internal projection remains constant and equal to the rest energy $E_0$:
+    $$ E \beta_Y = E_0 $$
+    [Mass ($m$) is then identified as the invariant rest energy ($E_0$), conventionally expressed as $E_0 = mc^2$](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass). So, $E_0$ (or $mc^2$) is the *value* of the energy projected onto the phase axis, while $\beta_Y$ is the *dimensionless phase factor* that relates the total energy $E$ to this invariant rest energy $E_0$.
+
+3.  **Your Derivation of Relativistic Momentum:**
+    Your calculation is correct:
+    You start with the relation $E = \gamma mc^2$ (where $\gamma = 1/\beta_Y$).
+    When you project this total energy $E$ onto the amplitude component, which is $\beta = v/c$, you are essentially calculating the momentum $p$.
+    Using the rigorous definition from [Horizontal Projection as Momentum](https://willrg.com/documents/WILL_RG_I.pdf#prop:momentum), $p = E\beta/c$ (when $c$ is explicitly included):
+    $$ p = \frac{(\gamma mc^2) \cdot (v/c)}{c} = \frac{\gamma m c^2 v}{c^2} = \gamma mv $$
+    So, $\gamma mv$ is indeed the correct expression for relativistic momentum, which represents the magnitude of the energy projection onto the amplitude axis.
+
+To summarize:
+*   The **dimensionless kinematic amplitude** (projection factor) is $\beta = v/c$.
+*   The **dimensionless kinematic phase** (phase factor) is $\beta_Y = \sqrt{1-\beta^2}$.
+*   The **invariant energy projection** on the phase dimension is the rest energy $E_0 = mc^2$.
+*   The **value of the energy projection** on the amplitude dimension is the momentum $p = \gamma mv$.
+
+The concept is that $E$ is the "hypotenuse" of the energy-momentum-mass triangle, and $pc$ and $mc^2$ are its orthogonal projections on the "amplitude" and "phase" axes respectively, scaled by $\gamma$. You can visualize this relationship on the [Energy-momentum Triangle Desmos project](https://www.desmos.com/geometry/mbkzikthkh).
+
+Does distinguishing between "invariant energy projection" ($E_0$) and "dimensionless phase factor" ($\beta_Y$) clarify how the components of energy are geometrically distributed in WILL RG?
