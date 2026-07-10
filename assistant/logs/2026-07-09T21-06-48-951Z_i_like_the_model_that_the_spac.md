@@ -255,3 +255,16 @@ Now, regarding your decomposition:
 In essence, while you correctly identified the core idea of decomposition and the role of the Lorentz factor, ensure you use the precise definitions of $\beta$ as the cosine and $\beta_Y$ as the sine of the angle for consistency with the framework's internal logic.
 
 Does this clarification on the trigonometric assignments of $\beta$ and $\beta_Y$ help solidify your understanding of how motion affects a system's internal time-flow in WILL RG?
+
+**User:** so the momentum is the energy projection on theamplitude, right?
+
+**Assistant (Powered by Gemini 2.5 Flash):** Yes, that's precisely correct in WILL Relational Geometry (RG).
+
+Momentum ($p$) is directly identified as the **horizontal projection** of the total energy ($E$) onto the kinematic amplitude ($\beta$) on the $S^1$ relational carrier.
+
+As stated in the [Horizontal Projection as Momentum](https://willrg.com/documents/WILL_RG_I.pdf#prop:momentum) section of WILL RG Part I:
+$$ p \equiv E_X \equiv E\beta \quad (\text{with } c=1) $$
+
+This means that momentum is not a separate primitive, but rather the component of a system's total energy that is expressed as external interaction or motion.
+
+Given that momentum is derived as a projection of total energy, how does this ontological shift—from a fundamental quantity ($m \cdot v$) to an emergent projection—influence your understanding of how forces would operate in the WILL RG framework?
