@@ -25,7 +25,7 @@ description: "Methodology comparison of General Relativity (GR) with WILL Relati
 <br>
 **Primitives of Relational Geometry**
 
-1. Methodological constraints (epistemic, relational, minimalism, mathematical). *Not statements about the nature of reality, but strict rules of logical and epistemic purity.*
+1. Methodological constraints (Epistemic Hygiene, Relational Origin, Ontological Minimalism, Mathematical Transparency). *Not statements about the nature of reality, but strict rules of logical and epistemic purity.*
 
 <br>
 > **A Note on Methodology vs. Ontology**
