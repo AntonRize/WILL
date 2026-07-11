@@ -673,3 +673,47 @@ This is a crucial distinction from the total observed energy:
 Therefore, while your total energy appears relative to different observers, the fundamental "mass" or "rest energy" content of the object itself remains constant.
 
 How does the invariance of mass (as rest energy) reconcile with the dynamic, relational nature of total energy, particularly when considering the [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry)?
+
+**User:** but why people says if a object acclerates, it's mass inreases?
+
+**Assistant (Powered by Gemini 2.5 Flash):** The statement "mass increases with velocity" is a **historical interpretation** (the concept of "relativistic mass") that WILL Relational Geometry (RG) and modern fundamental physics explicitly reject.
+
+Here is why that phrasing exists and why it is incorrect in the WILL RG ontology:
+
+### 1. The Historical Artifact: "Relativistic Mass"
+In early formulations of Special Relativity, physicists wanted to preserve the Newtonian form of momentum $p = mv$. Since the correct relativistic momentum is $p = \gamma m v$, they defined a velocity-dependent **"relativistic mass"** $m_{rel} = \gamma m$.
+*   They then said: "Mass increases with velocity."
+*   This allowed them to write $p = m_{rel} v$ and (incorrectly) $F = m_{rel} a$.
+
+### 2. WILL RG: Mass is the Invariant Rest Energy ($E_0$)
+In WILL RG, mass is **not** a variable that changes with motion. As derived in [Rest Energy and Mass Equivalence](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass) and the [Invariant Projection of Rest Energy](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy):
+
+*   **Mass ($m$)** is strictly identified with the **invariant rest energy** $E_0$: $E_0 = mc^2$.
+*   $E_0$ is the internal projection of the system's energy when it is at rest ($\beta=0, \beta_Y=1$).
+*   The [Conservation of Relation](https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation) ($\beta^2 + \beta_Y^2 = 1$) dictates that the *internal structure* of the system (its rest energy $E_0$) remains constant regardless of its external motion ($\beta$).
+
+### 3. What *Actually* Increases: Total Energy and Momentum
+When an object accelerates (increases its kinematic amplitude $\beta$), its **total observed energy** $E_{loc}$ and **momentum** $p$ increase, but its **mass ($m$)** does not.
+
+From [Kinetic Energy Projection $\beta$ on $S^1$](https://willrg.com/documents/WILL_RG_I.pdf#sec:kinetic) and [Horizontal Projection as Momentum](https://willrg.com/documents/WILL_RG_I.pdf#prop:momentum):
+*   **Total Energy:** $E = \frac{E_0}{\beta_Y} = \gamma E_0 = \gamma mc^2$ (Increases with $\beta$).
+*   **Momentum:** $p = E\beta = \gamma mv$ (Increases with $\beta$).
+*   **Mass:** $m = E_0/c^2$ (Constant).
+
+The factor $\gamma$ (the Lorentz factor) is the geometric scaling factor $1/\beta_Y$ required to keep the invariant rest energy $E_0$ projected onto the internal phase axis while the external amplitude $\beta$ grows. It belongs to the **kinematic projection**, not the invariant mass.
+
+### 4. Why the Confusion Persists
+People say "mass increases" because:
+1.  **Pedagogical Inertia:** Older textbooks taught "relativistic mass."
+2.  **Misattribution:** The increase in *inertia* (resistance to further acceleration) and *total energy* is mistakenly attributed to a change in the intrinsic "amount of stuff" (mass), rather than the geometric projection of the *same* invariant rest energy onto a different relational state.
+
+### Summary in WILL RG Terms
+| Quantity | Symbol | Behavior with Velocity ($\beta \uparrow$) | Origin |
+| :--- | :--- | :--- | :--- |
+| **Rest Energy / Mass** | $E_0, m$ | **Invariant (Constant)** | Internal Phase Projection ($\beta_Y=1$ at rest) |
+| **Total Energy** | $E$ | **Increases** ($\gamma E_0$) | Scaling to preserve $E\beta_Y = E_0$ |
+| **Momentum** | $p$ | **Increases** ($\gamma mv$) | Horizontal Projection $E\beta$ |
+
+The "increase" is entirely in the **relational energy projections** (Amplitude), not in the **invariant internal capacity** (Mass/Rest Energy).
+
+Does this distinction between *invariant internal capacity* (mass) and *relative external projection* (energy/momentum) resolve the confusion?
