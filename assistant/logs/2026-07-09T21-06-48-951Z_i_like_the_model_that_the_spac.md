@@ -653,3 +653,23 @@ Here's how WILL RG explains the relativity of energy:
 Therefore, the energy observed is not a fixed, absolute value, but a dynamically determined projection of the object's invariant internal capacity ($E_0$) scaled by the relational phases between the object and the observer.
 
 How does the knowledge that total energy is relative, but rest energy is invariant, clarify the statement that "SPACETIME $\equiv$ ENERGY" within WILL RG?
+
+**User:** so, that means the object's mass is also relative?
+
+**Assistant (Powered by Gemini 2.5 Flash):** No, in WILL Relational Geometry (RG), the object's **mass is *not* relative; it is an invariant**.
+
+This is a crucial distinction from the total observed energy:
+
+1.  **Mass as Invariant Rest Energy ($E_0$):**
+    As stated in [Rest Energy and Mass Equivalence](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass) in WILL RG Part I, mass ($m$) is fundamentally identified with the **invariant rest energy ($E_0$)** of a system. It is simply $E_0$ expressed in anthropocentric units (kilograms) via the conventional identity:
+    $$ E_0 = mc^2 $$
+    The framework explicitly calls mass "the invariant projection of total rest energy expressed in anthropocentric units of kilograms" ([Summary: Mass is the invariant projection of total rest energy](https://willrg.com/documents/WILL_RG_I.pdf#sec:kinetic)).
+
+2.  **Relativity of Total Observed Energy ($E_{\text{loc}}$):**
+    The total observed energy $E_{\text{loc}} = E_0 \frac{\kappa_X}{\beta_Y}$ is indeed relative because it is the invariant rest energy ($E_0$) *scaled* by the relational phase factors ($\kappa_X$ and $\beta_Y$) that depend on the relative motion and potential between the object and the observer.
+    *   $E_0$ (and thus $m$) is the **intrinsic internal capacity** of the object, which does not change based on who is observing it or how fast they are moving.
+    *   The factors $\kappa_X$ and $\beta_Y$ are dimensionless projections that describe the *relationship* between the observer and the object, causing the total observed energy to be relative.
+
+Therefore, while your total energy appears relative to different observers, the fundamental "mass" or "rest energy" content of the object itself remains constant.
+
+How does the invariance of mass (as rest energy) reconcile with the dynamic, relational nature of total energy, particularly when considering the [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry)?
