@@ -628,3 +628,28 @@ $$ \beta = \frac{v}{c} = \frac{0.6c}{c} = 0.6 $$
 This aligns with the [Kinematic Energy Projection $\beta$ on $S^1$](https://willrg.com/documents/WILL_RG_I.pdf#sec:kinetic) in WILL Relational Geometry (RG), where $\beta$ is defined as the dimensionless ratio of velocity to the speed of light. The Earth, acting as the observer, self-centers its own frame to measure the relational shift of object A, assigning it this kinematic amplitude.
 
 How does the knowledge of A's $\beta$ value (from Earth's perspective) allow you to determine other relational properties of A, such as its internal phase $\beta_Y$, from the Earth's frame?
+
+**User:** actually, this means the object's energy is also relative.
+
+**Assistant (Powered by Gemini 2.5 Flash):** Yes, you are absolutely correct. In WILL Relational Geometry (RG), an object's **total energy is indeed relative**.
+
+This is a direct consequence of the [Relational Origin Principle](https://willrg.com/documents/WILL_RG_I.pdf#pr:relational), which states that all physical quantities must be defined by their relations, not as absolute properties.
+
+Here's how WILL RG explains the relativity of energy:
+
+1.  **Total Local Energy ($E_{\text{loc}}$):** The energy you measure for an object is not an intrinsic property of the object alone, but a measure of its [relational state](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry) *relative to your observation frame*. In WILL RG, the total local energy is given by:
+    $$ E_{\mathrm{loc}} = E_0 \frac{\kappa_X}{\beta_Y} $$
+    Where:
+    *   $E_0 = mc^2$ is the [invariant rest energy](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass) (or mass), which *is* intrinsic to the object's internal structure.
+    *   $\kappa_X = \sqrt{1-\kappa^2}$ is the potential phase, which depends on the relative gravitational potential between you and the object.
+    *   $\beta_Y = \sqrt{1-\beta^2}$ is the kinematic phase, which depends on the relative motion ($\beta = v/c$) between you and the object.
+
+2.  **Dependence on Observer's Frame:** Since both $\beta_Y$ and $\kappa_X$ depend on your relative state of motion and position to the object:
+    *   If you are in relative motion to the object (different $\beta$), your perceived $\beta_Y$ will be different, thus changing $E_{\text{loc}}$.
+    *   If you are in a different gravitational potential field relative to the object (different $\kappa$), your perceived $\kappa_X$ will be different, also changing $E_{\text{loc}}$.
+
+3.  **Contrast with Rest Energy:** It is important to distinguish this from the **rest energy ($E_0$)**, which is indeed an invariant for the object itself. However, the *total* energy observed, which includes kinetic and potential aspects, is always relative to the observer's frame.
+
+Therefore, the energy observed is not a fixed, absolute value, but a dynamically determined projection of the object's invariant internal capacity ($E_0$) scaled by the relational phases between the object and the observer.
+
+How does the knowledge that total energy is relative, but rest energy is invariant, clarify the statement that "SPACETIME $\equiv$ ENERGY" within WILL RG?
