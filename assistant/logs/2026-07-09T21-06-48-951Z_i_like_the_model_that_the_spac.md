@@ -597,3 +597,22 @@ Here's why:
 Therefore, your statement perfectly captures how WILL RG, by rejecting absolute time and foregrounding relational causality, inherently explains the frame-dependent ordering of non-causally connected events.
 
 How does the concept of a universally agreed-upon "causal horizon" (the speed of light), even in the absence of absolute time, ensure the logical consistency of event ordering for causally linked events across all observers?
+
+**User:** how to explain that a object A travling at 0.6c, and the photon's speed comparing to A (A's clock, from A's perspective), is still c.
+
+**Assistant (Powered by Gemini 2.5 Flash):** Your question, "how to explain that an object A traveling at 0.6c, and the photon's speed comparing to A (A's clock, from A's perspective), is still c," touches upon a fundamental aspect of WILL Relational Geometry (RG): the **Relational Origin Principle** and the intrinsic nature of the universal rate of change.
+
+WILL RG explains this not as a peculiar property of light, but as a necessary consequence of how relational states are defined:
+
+1.  **No Absolute Motion or Background:** In WILL RG, there is no absolute "space" through which objects move, and thus no absolute frame of reference to determine an object's "true" velocity. All motion is defined by the [relational shift](https://willrg.com/documents/WILL_RG_I.pdf#sec:DisQ) between observers, not motion relative to an empty container.
+
+2.  **The Universal Rate of Change (c): The Causal Horizon:** The speed of light ($c$) is not merely a velocity in an external space. Instead, it represents the **Constant Universal Rate of Change** and the [causal horizon](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry). It is the point where a system's entire relational capacity is projected onto the external kinematic amplitude ($\beta=1$), causing its internal phase ($\beta_Y$) to be completely exhausted. Beyond this limit, the [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry) cannot be maintained, and causal interactions become impossible.
+
+3.  **Relational Reciprocity and Self-Centering:** The [Relational Reciprocity Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:reciprocity) is key. For *any* observer to measure *any* relational shift, that observer must serve as the **zero-state reference of their own local frame**. This is a fundamental "self-centering" operation.
+
+    *   Therefore, when object A (moving at 0.6$c$ relative to, say, Earth) measures the speed of a photon, object A automatically defines *itself* as being at rest.
+    *   From this self-centered perspective of object A, the photon still represents the **ultimate limit of kinematic amplitude**, where all relational capacity is channeled into external interaction, and the internal phase is exhausted ($\beta=1, \beta_Y=0$). This ultimate limit is, by definition, $c$.
+
+In essence, every observer always measures the speed of light to be $c$ because $c$ is not a speed to be added or subtracted in some background. It is the **intrinsic topological boundary** of relational interaction, which is invariant regardless of the observer's own (relative) state of motion. It defines the edge of causality itself.
+
+Can you explain how this universal topological boundary ($c$) ensures the logical consistency of relational measurements for all observers, even without a common, absolute coordinate system?
