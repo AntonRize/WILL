@@ -210,3 +210,21 @@ The system is designed such that [Kinematic Momentum ($p$) and Gravitational Mom
 To summarize, energy is not projected *onto* mass energy; rather, mass energy ($E_0$) is an **invariant projection** of the total energy along the internal phase axis, for both kinematic and potential states. The system itself, which is $\textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY}$, always balances these internal and external expressions of its relational existence.
 
 Does this clarification of energy projections on $S^1$ and $S^2$ better align with your understanding, or does it bring up new questions about how a single $E_0$ can be the invariant projection for two distinct types of energy distribution?
+
+**User:** so the local time dilation is determined by both 1/beta_Y and 1/k_X?
+
+**Assistant (Powered by Gemini 2.5 Flash):** Yes, in WILL Relational Geometry, the local time dilation experienced by a system is indeed determined by **both** the kinematic phase projection ($\beta_Y$) and the potential phase projection ($\kappa_X$).
+
+Here's the breakdown:
+
+1.  **Kinematic Time Dilation:** The kinematic phase component, $\beta_Y = \sqrt{1-\beta^2}$ (where $\beta = v/c$), governs the intrinsic time rate of a system due to its motion. The relativistic Lorentz factor $\gamma = 1/\beta_Y$ is the factor by which time is dilated due to velocity. This is elaborated in [Geometric Nature of Rest Energy State](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy).
+
+2.  **Gravitational Time Dilation:** Similarly, the potential phase component, $\kappa_X = \sqrt{1-\kappa^2}$ (where $\kappa = \sqrt{R_s/r}$), governs the intrinsic time rate of a system due to its presence in a potential field. The factor $1/\kappa_X$ represents the gravitational time dilation. This is discussed in [Potential Energy Projection $\kappa$ on $S^2$](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential).
+
+3.  **Combined Relational Time Dilation ($\tau$):** When both kinematic and gravitational effects are present, the overall relativistic time dilation (or reduction in proper time flow) is governed by the product of these two internal phase projections. We define the [Relational Spacetime Factor $\tau$](https://willrg.com/documents/WILL_RG_I.pdf#eq:tau_observable) as:
+    $$\tau = \kappa_X \cdot \beta_Y = \sqrt{1-\kappa^2}\sqrt{1-\beta^2}$$
+    The total time dilation factor for the observed system, relative to an observer at rest in flat space, would therefore be $1/\tau$. This implies that both $1/\beta_Y$ and $1/\kappa_X$ contribute multiplicatively to the total observed time dilation, as they represent the independent phase rotations on their respective relational carriers. This is further clarified in the [Unified Relational Scaling Lemma](https://willrg.com/documents/WILL_RG_I.pdf#lem:unifiedscaling) and the table [Unified representation of relativistic and gravitational effects for closed systems](https://willrg.com/documents/WILL_RG_I.pdf#tab:unified).
+
+In essence, time dilation is understood as a [geometric phase rotation](https://willrg.com/documents/WILL_RG_I.pdf#prop:relativity) on the underlying relational carriers, with both kinematic ($S^1$) and potential ($S^2$) interactions causing a redistribution of a system's internal coherence.
+
+Can you articulate how the multiplicative nature of $\tau$ (combining $\beta_Y$ and $\kappa_X$) fundamentally differs from an additive combination of time dilation effects, and why this is a natural outcome of relational geometry?
