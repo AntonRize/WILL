@@ -474,3 +474,22 @@ It reaches a stable state ($\beta = \text{constant}$) only if it enters a **circ
 **In WILL RG terms:** The object doesn't stop at $\beta = \kappa/\sqrt{2}$ because that equality is the definition of a **closed loop** on the relational carriers. A radial plunge is an **open spiral** on the $S^2$ carrier—it cannot close on itself without angular momentum to provide the second degree of freedom.
 
 Does this distinction between the *equilibrium condition* (Closure) and the *dynamic conservation law* (Energy Symmetry) clarify why the acceleration continues?
+
+**User:** this is great. so you reject the theory that the spacetime around the earth is flowing inward to the center of the earth.
+
+**Assistant (Powered by Gemini 2.5 Flash):** Yes. Categorically.
+
+In WILL Relational Geometry, the "river model" (spacetime as a flowing medium) is a **Category Error**. It reifies the *coordinate scaffolding* of General Relativity as a physical substance.
+
+**The WILL RG rejection rests on three structural necessities:**
+
+1.  **No Background Container (Relational Origin):** "Flowing" implies a medium moving relative to a background reference frame. The [Relational Origin Principle](https://willrg.com/documents/WILL_RG_I.pdf#pr:relational) forbids any absolute background. There is no "riverbed" for spacetime to flow through.
+2.  **Spacetime ≡ Energy (Unifying Principle):** Spacetime is not a *container* that flows; it *is* the relational tension of energy states ([Principle](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying)). The "inward flow" velocity $v = \sqrt{2GM/r}$ in the river model is merely the Newtonian escape velocity. In WILL RG, this is the **Potential Projection $\kappa$** ([Sec. Potential](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential)), a dimensionless measure of relational depth on the $S^2$ carrier—not a velocity of a substance.
+3.  **Metrics are "Coordinate Inflation":** The Schwarzschild interval (and the Gullstrand-Painlevé "flow" coordinates) are derived in WILL RG as **inflationary scaffolding** appended to the primitive closure $\kappa^2 + \kappa_X^2 = 1$ ([Schwarzschild Inflation](https://willrg.com/documents/WILL_RG_I.pdf#sec:GR_interval)). The "flow" is a coordinate artifact of the chosen slicing, not an ontological property of the relational geometry.
+
+**The "Spatial Container Fallacy" Warning is explicit:**
+> *"$S^1$ and $S^2$ are strictly not to be interpreted as physical geometries embedded in a spacetime container. Do not visualise a sphere or a ring expanding through a 3D void."* ([Warning Box](https://willrg.com/documents/WILL_RG_I.pdf#rem:nonspatial))
+
+The "inward flow" is a visualization of the **gradient of the potential projection $\kappa$** ($d\kappa/dr$), which drives the kinematic projection $\beta$ via the [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) ($\kappa^2 = 2\beta^2$). It is a *relational balancing act*, not a fluid dynamic.
+
+**Can you formulate the "acceleration of gravity" $g$ purely as the radial derivative of the closure condition $d(\kappa^2)/dr$ without invoking a flowing medium or a metric tensor?**
