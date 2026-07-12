@@ -375,3 +375,51 @@ In WILL RG (relationalism), the **relational configuration** $( \kappa, \beta )$
 ---
 
 **Can you describe the fan-object interaction *only* as a rotation of the total system's dimensionless projections $(\kappa, \beta)$ on $S^1 \times S^2$, without ever using the words "transfer," "possess," or "substance"?**
+
+**User:** why the object around earth tends to fall to earth, but not to fly away from the earth?
+
+**Assistant (Powered by Gemini 2.5 Flash):** In WILL Relational Geometry, "falling" is not caused by a force pulling the object down. It is the **necessary geometric consequence** of the system evolving to satisfy the [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) ($\kappa^2 = 2\beta^2$) and the [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry) within the relational topology of the $S^2$ carrier.
+
+Here is the step-by-step geometric logic:
+
+### 1. The Potential Gradient Defines "Direction"
+On the [Potential Carrier $S^2$](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential), the projection $\kappa = \sqrt{R_s/r}$ increases as the radial distance $r$ decreases (moving toward Earth).
+*   **Toward Earth:** $\kappa \uparrow$ (Potential projection deepens).
+*   **Away from Earth:** $\kappa \downarrow$ (Potential projection shallows).
+
+By the [Inverse-Square Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square), spatial distance $r$ is *defined* as the reciprocal of $\kappa^2$. There is no independent "space" to move through; there is only the relational parameter $\kappa$.
+
+### 2. Closure Requires Kinematic Compensation
+For a bound, stable system, the [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) mandates:
+$$ \kappa^2 = 2\beta^2 $$
+This means the kinematic projection $\beta$ (velocity) is **geometrically locked** to the potential projection $\kappa$.
+*   If $\kappa$ **increases** (object moves toward Earth), $\beta$ **must increase** to maintain the ratio.
+*   If $\kappa$ **decreases** (object moves away), $\beta$ **must decrease**.
+
+### 3. "Falling" is the Release of Potential into Kinematic
+When an object is released near Earth (at some $\kappa_{initial}$), the system is not in its equilibrium closure state for that radius if it has zero initial velocity ($\beta=0$).
+*   The geometry *requires* $\beta = \kappa/\sqrt{2}$.
+*   To satisfy this, the system **must** rotate its state on the $S^1$ carrier, increasing $\beta$ from 0 toward the required value.
+*   This geometric rotation ($\beta \uparrow \implies \beta_Y \downarrow$) **is** the acceleration we observe as "falling." The potential projection ($\kappa$) is effectively "cashing out" into kinematic projection ($\beta$).
+
+### 4. "Flying Away" Requires an Impossible Input
+For the object to fly *away* from Earth ($\kappa \downarrow$):
+*   Closure demands $\beta \downarrow$ (the object must slow down).
+*   But if the object is already at rest or moving slowly ($\beta \approx 0$), it **cannot** decrease $\beta$ further (it cannot go below 0).
+*   To move away, the system would need to *supply* the kinematic projection $\beta$ required to "pay for" the decrease in $\kappa$ (converting kinetic energy into potential depth).
+*   Without an external driver (a "push" providing the necessary $\beta$), the relational ledger cannot close for a trajectory where $\kappa$ decreases. The geometry has no pathway for it.
+
+### 5. Energy Symmetry Enforces the Gradient
+The [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry) ($\Delta E_{A \to B} + \Delta E_{B \to A} = 0$) dictates that transitions must balance the phase ratio $E = E_0 \kappa_X / \beta_Y$.
+*   Moving toward Earth ($\kappa \uparrow, \kappa_X \downarrow$) increases the local energy scaling $E_{loc}$.
+*   The system evolves "downhill" in terms of the phase ratio—toward the configuration where the relational ledger balances with the *available* projections.
+*   Moving away would require the system to *generate* a higher phase ratio (lower $E_{loc}$) from nothing, violating the zero-sum symmetry of the closed system.
+
+---
+
+**Summary:**
+The object falls **toward** Earth because that direction ($\kappa \uparrow$) allows the system to satisfy its geometric closure constraint ($\kappa^2 = 2\beta^2$) by *generating* the required kinematic projection ($\beta$) from the potential gradient.
+
+It does not fly **away** because that direction ($\kappa \downarrow$) would require *consuming* kinematic projection ($\beta \downarrow$) which the object does not possess (it is already at minimum $\beta=0$). In a relational geometry, you cannot "move" to a state that violates the closure identity of your carriers.
+
+**Can you describe the "upward" trajectory not as a motion through space, but as a specific sequence of projection rotations $(\kappa, \beta)$ on $S^2 \times S^1$ that fails the Closure Theorem $\kappa^2 = 2\beta^2$ at the initial condition $\beta=0$?**
