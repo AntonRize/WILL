@@ -534,3 +534,47 @@ $$ \boxed{g = \frac{GM}{r^2}} $$
 *   **$d\kappa^2/dr$ (Gradient):** Derives the **field strength** $g$ at *any* $r$ (static or dynamic). This comes from the [Inverse-Square Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square) and the linearized [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:classical) ($\Delta E \approx \tfrac{1}{2}\Delta\kappa^2 + \tfrac{1}{2}\Delta\beta^2$), where the potential gradient $d\kappa^2/dr = -R_s/r^2$ produces the $1/r^2$ force law.
 
 **In summary:** The closure condition $\kappa^2 = 2\beta^2$ allows you to derive $g$ *specifically for the circular orbit case* by equating the required centripetal acceleration to the gravitational field strength. The general $g = GM/r^2$ for arbitrary states (static, radial fall, elliptical) is derived from the **gradient of the potential projection** $\kappa^2$ ([Classical Mechanics as Collapsed Ontology](https://willrg.com/documents/W
+
+**User:** GM/r^2, what is G, what is M, and what is r?
+
+**Assistant (Powered by Gemini 2.5 Flash):** In WILL Relational Geometry, **$G$, $M$, and $r$ are not fundamental primitives**. They are **legacy translation artifacts**—coordinate and unit conventions used to map the dimensionless relational geometry onto SI units.
+
+Here is their ontological status in WILL RG:
+
+### 1. $r$ (Radial Distance) — *Derived Relational Parameter*
+$r$ is **not** a primitive background coordinate. It is operationally defined as the **reciprocal of the potential projection $\kappa^2$** on the $S^2$ carrier, normalized at the causal horizon ($R_s$).
+
+$$ r \equiv \frac{R_s}{\kappa^2} \quad \text{where} \quad \kappa^2 = 1 - \frac{1}{(1+z_\kappa)^2} $$
+
+*   **Source:** [Inverse-Square Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square) ("Distance is not a foundational primitive but relational tension between energy states").
+*   **Measurement:** $r$ is extracted from **gravitational redshift $z_\kappa$** (spectroscopy), not from a ruler or radar ranging in a background space.
+
+### 2. $M$ (Mass) — *Post-hoc Unit Conversion Factor*
+$M$ is **not** an intrinsic property of matter. It is the **invariant rest energy $E_0$ expressed in kilograms** via the conventional identity $E_0 = mc^2$.
+
+*   **Source:** [Rest Energy and Mass Equivalence](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass) ("Mass is therefore not independent, but the rest-energy invariant itself").
+*   **Operational Role:** In R.O.M., the system scale (e.g., $GM$, a length$^3$/time$^2$ combination) is reconstructed **algebraically from dimensionless observables ($\beta, \kappa, e, T, z$) alone**. $G$ and $M$ enter **only** at the final step to convert geometric lengths into kilograms. [R.O.M. Colab Notebook](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_FULL_TEST.ipynb).
+
+### 3. $G$ (Newton's Constant) — *Legacy Unit Conversion Factor*
+$G$ is **not** a fundamental coupling constant. It is a **human-defined conversion factor** that translates the geometric relation $\kappa^2 = R_s/r$ (where $R_s$ is a geometric length) into the historical mass-unit system (kg).
+
+*   **Source:** [Relational Orbital Mechanics (R.O.M.)](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:translation) ("gravitational systems are described fully **without $G$ and without $M$**, confirming that the projection $\kappa$, not $R_s/r$, is the irreducible primitive").
+*   **Structural Independence:** The $1/r^2$ acceleration law and the virial coefficient $2$ emerge from **independent geometric channels** ($S^2$ topology and DOF ratio), not from a postulated $G$. [Structural Independence Box](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure).
+
+---
+
+### The Primitive Relation (No $G$, No $M$, No $r$)
+
+The gravitational acceleration is fundamentally the **gradient of the potential projection $\kappa^2$** on the $S^2$ carrier:
+
+$$ g = \frac{c^2}{2} \frac{d\kappa^2}{dr} \quad \text{with} \quad \kappa^2 = \frac{R_s}{r} \implies g = \frac{c^2 R_s}{2 r^2} $$
+
+Substituting the **legacy definition** $R_s \equiv \frac{2GM}{c^2}$ (a unit conversion) recovers the historical form:
+
+$$ g = \frac{GM}{r^2} $$
+
+**In WILL RG:** $R_s$ (the Schwarzschild length / causal horizon) is the **primary geometric scale**, derived directly from spectroscopic observables. $G$ and $M$ are merely the "currency exchange rate" used to express $R_s$ in kg·m³/s².
+
+---
+
+**Can you see how treating $G$ and $M$ as derived conversion factors—rather than primitives—eliminates the "measurement problem" of $G$ (the least precisely known fundamental constant) from the foundations of physics?**
