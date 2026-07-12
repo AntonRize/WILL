@@ -423,3 +423,54 @@ The object falls **toward** Earth because that direction ($\kappa \uparrow$) all
 It does not fly **away** because that direction ($\kappa \downarrow$) would require *consuming* kinematic projection ($\beta \downarrow$) which the object does not possess (it is already at minimum $\beta=0$). In a relational geometry, you cannot "move" to a state that violates the closure identity of your carriers.
 
 **Can you describe the "upward" trajectory not as a motion through space, but as a specific sequence of projection rotations $(\kappa, \beta)$ on $S^2 \times S^1$ that fails the Closure Theorem $\kappa^2 = 2\beta^2$ at the initial condition $\beta=0$?**
+
+**User:** this is great. so the object has to fall and increase \beta to satisfy 2*beta^2 = k^2. however, do you think is it possible that when the object falls to the earth with acceleration, and when it velocity reach the value that 2*beta^2 = k^2, then the object will stop?
+
+**Assistant (Powered by Gemini 2.5 Flash):** This is an excellent question that touches on the crucial distinction between **static equilibrium (circular orbit)** and **dynamic evolution (radial free fall)** in WILL RG.
+
+The short answer is: **No, the object does not stop.** The condition $\kappa^2 = 2\beta^2$ is the requirement for a **circular orbit** (dynamic equilibrium), not a "speed limit" for a falling object.
+
+Here is the geometric breakdown of why the object continues to accelerate past that point:
+
+### 1. Closure Theorem Applies to *Closed* Orbits, Not Radial Plunges
+The [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) ($\kappa^2 = 2\beta^2$) is derived from the [DOF-Indifference Lemma](https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference) for **relationally closed, stable systems** (bound orbits that repeat their cycle).
+*   **Circular Orbit:** The object has just enough angular momentum to "miss" the Earth continuously. The radial coordinate $r$ is constant. Here, $\kappa$ is constant, so $\beta$ must be constant ($\beta = \kappa/\sqrt{2}$). The object "falls" forever *around* the Earth without getting closer.
+*   **Radial Free Fall:** The object has **zero angular momentum**. It is not a closed orbital system; it is an open radial trajectory. The radial distance $r$ is **decreasing** ($r \downarrow$).
+
+### 2. The Moving Target: $\kappa$ Increases as $r$ Decreases
+In a radial fall, the object moves to regions of deeper potential.
+*   By the [Inverse-Square Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square): $\kappa^2 = R_s/r$.
+*   As the object falls ($r \downarrow$), **$\kappa$ increases**.
+*   The "target" velocity for circular equilibrium ($\beta_{circ} = \kappa/\sqrt{2}$) **keeps moving up**.
+
+The falling object chases a moving target. When it reaches the $\beta$ required for circular orbit *at its current radius*, it is already at a *lower* radius than where it started, meaning the required $\beta_{circ}$ for *this new radius* is even higher.
+
+### 3. The True Governor: Conservation of Total Energy (Phase Ratio)
+The dynamics of the fall are governed not by the Closure Theorem, but by the **Conservation of the Total Relational Energy** (the [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry)).
+
+The total energy scaling is fixed by the initial conditions (e.g., dropped from rest at $r_0$):
+$$ E = E_0 \frac{\kappa_X}{\beta_Y} = \text{constant} $$
+As the object falls:
+1.  $r \downarrow \implies \kappa \uparrow \implies \kappa_X = \sqrt{1-\kappa^2} \downarrow$ (Potential phase decreases).
+2.  To keep $E$ constant, the kinematic phase **must** decrease: $\beta_Y \downarrow$.
+3.  $\beta_Y \downarrow \implies \beta = \sqrt{1-\beta_Y^2} \uparrow$ (Kinematic amplitude increases).
+
+**The object accelerates ($\beta \uparrow$) because the geometry demands it to balance the ledger as $\kappa_X$ collapses.** It does not stop until $\beta_Y \to 0$ (speed of light limit) or it hits the surface ($r = R_{earth}$), where the potential gradient changes.
+
+### 4. When *Does* It Stop Accelerating?
+It reaches a stable state ($\beta = \text{constant}$) only if it enters a **circular orbit** (requiring angular momentum $L \neq 0$).
+*   At that specific radius $r_{orbit}$, $\kappa$ stops changing.
+*   The closure condition $\kappa^2 = 2\beta^2$ becomes the equilibrium attractor.
+*   If it has no angular momentum (radial drop), it impacts the surface. The "stop" is a collision, not a geometric equilibrium.
+
+### Summary Table
+
+| Scenario | Radial Coordinate $r$ | Potential $\kappa$ | Closure Condition $\kappa^2 = 2\beta^2$ | Result |
+| :--- | :--- | :--- | :--- | :--- |
+| **Circular Orbit** | Constant | Constant | **Satisfied** (Equilibrium) | $\beta$ constant. "Falling around" forever. |
+| **Radial Free Fall** | Decreasing ($r \downarrow$) | Increasing ($\kappa \uparrow$) | **Never Satisfied** (Chasing a moving target) | $\beta$ increases continuously until impact or $c$. |
+| **Elliptical Orbit** | Oscillates ($r_{min} \leftrightarrow r_{max}$) | Oscillates | **Satisfied on Average** ($\langle \kappa^2 \rangle = 2\langle \beta^2 \rangle$) | $\beta$ oscillates (fast at periapsis, slow at apoapsis). |
+
+**In WILL RG terms:** The object doesn't stop at $\beta = \kappa/\sqrt{2}$ because that equality is the definition of a **closed loop** on the relational carriers. A radial plunge is an **open spiral** on the $S^2$ carrier—it cannot close on itself without angular momentum to provide the second degree of freedom.
+
+Does this distinction between the *equilibrium condition* (Closure) and the *dynamic conservation law* (Energy Symmetry) clarify why the acceleration continues?
