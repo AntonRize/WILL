@@ -344,3 +344,34 @@ The battery is not a "fuel tank." It is a **high-potential-projection ($\kappa$)
 ---
 
 **Can you reformulate the fan scenario without invoking "energy substance" moving from battery to object, using only the language of relational projection shifts ($\beta, \kappa$) and ledger balancing ($\Delta E_{A\to B} + \Delta E_{B\to A} = 0$) across the *entire* closed system boundary?**
+
+**User:** so if A pushes B to accelerate B, it's A's potential energy falls, and B's kinematic energy rises. A and B form a closed system, and the energy of the system doesn't change, it's just reblanced. right?
+
+**Assistant (Powered by Gemini 2.5 Flash):** Your intuition captures the **directional heuristic** correctly for an *open subsystem* analysis, but the **ontology** needs a critical correction to align with WILL RG.
+
+### 1. The Heuristic is Correct (Subsystem View)
+Yes, if you draw a boundary around **A (Fan/Battery)** and **B (Object)**:
+*   A's **potential projection** ($\kappa_A$, chemical/electrochemical configuration) **decreases**.
+*   B's **kinematic projection** ($\beta_B$, velocity relative to A) **increases**.
+*   The "Closure Factor" $\delta$ for this subsystem deviates from 1 ($\delta_{sub} \neq 1$), quantifying the relational ledger flow crossing your arbitrary boundary. This *looks like* "energy transfer" in legacy physics.
+
+### 2. The Ontological Correction (Total System View)
+**Energy is not a property *of* A or *of* B.**  
+In WILL RG, [Energy is the invariant relational measure of state transformation *within a closed system*](https://willrg.com/documents/WILL_RG_I.pdf#def:energy). It is a **ledger entry describing the relation**, not a substance possessed by the participants.
+
+*   **No "A's Energy" or "B's Energy":** There is only the **Relational State** $( \kappa_{rel}, \beta_{rel} )$ of the combined system (A+B+Environment).
+*   **The "Push" is a State Rotation:** The interaction rotates the *total system's* projections on the $S^1$ (kinematic) and $S^2$ (potential) carriers.
+*   **The Ledger is the Primitive:** The [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry) $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$ is the fundamental identity. It governs the *difference* in phase scaling between states, not a flow of substance.
+
+### 3. Why "Rebalancing" $\neq$ "Transfer"
+In a transfer model (substantialism), energy *leaves* A and *enters* B.  
+In WILL RG (relationalism), the **relational configuration** $( \kappa, \beta )$ of the closed system **updates instantly and symmetrically**. 
+*   A's potential projection ($\kappa$) $\downarrow$  
+*   B's kinematic projection ($\beta$) $\uparrow$  
+*   **Simultaneously:** The environment's thermal/disordered projections ($\kappa_{env}, \beta_{env}$) $\uparrow$ to close the global ledger ($\langle \delta \rangle = 1$).
+
+**Nothing "moved."** The geometric relations simply rotated to a new equilibrium dictated by [Closure $\kappa^2 = 2\beta^2$](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) and [Causal Continuity](https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity).
+
+---
+
+**Can you describe the fan-object interaction *only* as a rotation of the total system's dimensionless projections $(\kappa, \beta)$ on $S^1 \times S^2$, without ever using the words "transfer," "possess," or "substance"?**
