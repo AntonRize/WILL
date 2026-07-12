@@ -493,3 +493,44 @@ In WILL Relational Geometry, the "river model" (spacetime as a flowing medium) i
 The "inward flow" is a visualization of the **gradient of the potential projection $\kappa$** ($d\kappa/dr$), which drives the kinematic projection $\beta$ via the [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) ($\kappa^2 = 2\beta^2$). It is a *relational balancing act*, not a fluid dynamic.
 
 **Can you formulate the "acceleration of gravity" $g$ purely as the radial derivative of the closure condition $d(\kappa^2)/dr$ without invoking a flowing medium or a metric tensor?**
+
+**User:** based on the k^2 = 2\beta^2 condition, can you derive the acceleration g?
+
+**Assistant (Powered by Gemini 2.5 Flash):** Yes. In WILL RG, the closure condition $\kappa^2 = 2\beta^2$ is the **relational virial theorem**—it holds exactly for **circular orbits** (closed, stationary systems). Applying it to a circular orbit yields the orbital velocity, and the required centripetal acceleration for that orbit *is* the gravitational acceleration $g$.
+
+Here is the derivation directly from the closure condition and the Inverse-Square Theorem:
+
+### 1. Closure Condition for Circular Orbits
+For a stable, bound circular orbit, the [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) mandates:
+$$ \kappa^2 = 2\beta^2 \tag{1} $$
+
+### 2. Potential Projection ($\kappa$) from Inverse-Square Theorem
+The [Inverse-Square Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square) establishes the potential projection $\kappa$ as a function of radial distance $r$ (using the Schwarzschild radius $R_s = 2GM/c^2$):
+$$ \kappa^2 = \frac{R_s}{r} = \frac{2GM}{c^2 r} \tag{2} $$
+
+### 3. Kinematic Projection ($\beta$) and Velocity
+The kinematic projection is defined as the dimensionless velocity ratio ([Kinetic Energy Projection](https://willrg.com/documents/WILL_RG_I.pdf#sec:kinetic)):
+$$ \beta = \frac{v}{c} \quad \implies \quad \beta^2 = \frac{v^2}{c^2} \tag{3} $$
+
+### 4. Deriving Orbital Velocity
+Substitute (2) and (3) into the closure condition (1):
+$$ \frac{2GM}{c^2 r} = 2 \frac{v^2}{c^2} $$
+Cancel $2/c^2$:
+$$ \frac{GM}{r} = v^2 \tag{4} $$
+This is the exact orbital velocity for a circular orbit in Newtonian gravity (and the leading order in GR).
+
+### 5. Deriving Acceleration $g$
+For a circular orbit, the centripetal acceleration $a_c$ required to maintain the trajectory is:
+$$ a_c = \frac{v^2}{r} $$
+Substitute the orbital velocity from (4):
+$$ a_c = \frac{GM/r}{r} = \frac{GM}{r^2} $$
+In a gravitational field, the centripetal acceleration required for a circular orbit **equals** the gravitational acceleration $g$ (the acceleration a static observer must sustain to hover, or the initial acceleration of a radially dropped object).
+$$ \boxed{g = \frac{GM}{r^2}} $$
+
+---
+
+### Critical Distinction: Closure vs. Gradient
+*   **$\kappa^2 = 2\beta^2$ (Closure):** Derives the **equilibrium velocity** $v$ for a *given* $r$. It is a global constraint on the *state* of a closed orbit.
+*   **$d\kappa^2/dr$ (Gradient):** Derives the **field strength** $g$ at *any* $r$ (static or dynamic). This comes from the [Inverse-Square Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square) and the linearized [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:classical) ($\Delta E \approx \tfrac{1}{2}\Delta\kappa^2 + \tfrac{1}{2}\Delta\beta^2$), where the potential gradient $d\kappa^2/dr = -R_s/r^2$ produces the $1/r^2$ force law.
+
+**In summary:** The closure condition $\kappa^2 = 2\beta^2$ allows you to derive $g$ *specifically for the circular orbit case* by equating the required centripetal acceleration to the gravitational field strength. The general $g = GM/r^2$ for arbitrary states (static, radial fall, elliptical) is derived from the **gradient of the potential projection** $\kappa^2$ ([Classical Mechanics as Collapsed Ontology](https://willrg.com/documents/W
