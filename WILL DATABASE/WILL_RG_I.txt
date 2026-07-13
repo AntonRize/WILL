@@ -207,11 +207,11 @@ $\Delta E_{B \to A} = E_0\!\left(\kappa_{X,A}/{\beta_{Y,A}} - \kappa_{X,B}/\beta
 $\downarrow$ \textit{(check the required energy to close the ledger at boundaries)} $\downarrow$\\\hline
 \textbf{Speed of light:}
 $\beta \to 1 \;\rightarrow\; \beta_Y \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0 \cdot \kappa_X/0 \to \infty
+E = E_0 \cdot \kappa_X/0 \to \infty
 \;\rightarrow\;$ \textbf{requires $\infty$ energy}\\[8pt]\hline
 \textbf{Event Horizon:}
 $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\cdot 0/\beta_Y \to 0
+E = E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt]\hline
 $\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
 \textbf{Closure Theorem:}
@@ -1009,43 +1009,45 @@ $$
 The manifestation of any system is distributed between its internal (Phase) and relational (Amplitude) aspects.
 
 
-Since $S^{1}$ encodes one-dimensional shift, the total energy $E$ of the system 
+Since $S^{1}$ encodes one-dimensional shift, the total energy $E_{\beta}$ of the system 
 must project consistently onto both external and internal axes:
 \[
-E^2=E_{X}^2+E_{Y}^2
+E_{\beta}^2=E_{X}^2+E_{Y}^2
 \]
 where
 \[
-E_{X} = E \beta, 
+E_{X} = E_{\beta} \beta, 
 \qquad 
-E_{Y} = E \beta_{Y}.
+E_{Y} = E_{\beta} \beta_{Y}.
 \]
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Desmos project]
 \textbf{ \href{https://www.desmos.com/geometry/6k1um2qbzm}{Kinetic projection $\beta$ on the $S^1$ carrier}}
 \end{tcolorbox}
 
-\subsubsection{Geometric Nature of Rest Energy State}
+\subsubsection*{Geometric Nature of Rest Energy State}
 
 \begin{theorem}[Invariant Projection of Rest Energy]
 \hypertarget{thm:restenergy}{}\label{thm:restenergy}
 \leavevmode
-For any state $(\beta,\beta_Y)$ on the relational circle $S^1$, the total energy $E$ must scale such that its internal projection remains constant and equal to the rest energy state $E_0$.
+For any state $(\beta,\beta_Y)$ on the relational circle $S^1$, the total energy $E_{\beta}$ must scale such that its internal projection remains constant and equal to the rest energy state $E_0$.
 \[
-E \beta_Y = E_0.
+E_{\beta} \beta_Y = E_0.
 \]
 \end{theorem}
 
 \begin{proof}
 \leavevmode
-By the Relational Origin Principle (\ref{pr:relational}), the internal structure of system $A$ is determined by its rest frame ($\beta = 0, \beta_Y = 1$) as the rest energy $E_0$. When an external frame $B$ observes system $A$ in relative motion ($\beta > 0$), the geometric closure of the $S^1$ carrier necessitates a phase rotation ($\beta_Y < 1$). If the total observed energy $E$ remained static ($E = E_0$), the projected internal energy $E_Y = E \beta_Y$ would decrease, implying that relative observation physically diminishes the internal causality of the observed system. This violates the structural integrity of the relation. To maintain the invariant internal reality of system $A$ across all reference frames, the internal projection measured by $B$ must perfectly equate to the rest state:$$E_Y = E \beta_Y = E_0$$Geometric consistency therefore dictates that the total energy $E$ scales to compensate for the phase parameter:$$E = \frac{E_0}{\beta_Y}$$
+By the Relational Origin Principle (\ref{pr:relational}), the internal structure of system $A$ is determined by its rest frame ($\beta = 0, \beta_Y = 1$) as the rest energy $E_0$. When an external frame $B$ observes system $A$ in relative motion ($\beta > 0$), the geometric closure of the $S^1$ carrier necessitates a phase rotation ($\beta_Y < 1$). If the total observed energy $E$ remained static ($E = E_0$), the projected internal energy $E_Y = E_{\beta} \beta_Y$ would decrease, implying that relative observation physically diminishes the internal causality of the observed system. This violates the structural integrity of the relation. To maintain the invariant internal reality of system $A$ across all reference frames, the internal projection measured by $B$ must perfectly equate to the rest state:
+$$E_Y = E_{\beta} \beta_Y = E_0$$
+Geometric consistency therefore dictates that the total energy $E_{\beta}$ scales to compensate for the phase parameter:$$E_{\beta} = \frac{E_0}{\beta_Y}$$
 \end{proof}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary:]
 \textbf{The historical Lorentz factor $\gamma$ is the reciprocal of $\beta_Y$.  $\gamma =  1/\beta_Y$}
 \end{tcolorbox}
 
-\subsubsection{The Geometric and Historical Nature of Mass}
+\subsubsection*{The Geometric and Historical Nature of Mass}
 
 \begin{corollary}[Rest Energy and Mass Equivalence]
 \hypertarget{cor:restmass}{}\label{cor:restmass}
@@ -1058,7 +1060,7 @@ This geometry does not require mass as an independent concept. The invariant res
 
 \begin{proof}
 \leavevmode
-From the invariant projection $E\beta_Y = E_0$ and closure of $S^1$, no additional scaling parameter is required. 
+From the invariant projection $E_{\beta}\beta_Y = E_0$ and closure of $S^1$, no additional scaling parameter is required. 
 Hence the conventional bookkeeping identities $E_0 = mc^2$ or $m = E_0/c^2$ reduce to tautologies. 
 Mass is therefore not independent, but the rest-energy invariant itself.  
 \end{proof}
@@ -1068,21 +1070,21 @@ Mass is therefore not independent, but the rest-energy invariant itself.
 \textbf{Mass is the invariant projection of total rest energy expressed in anthropocentric units of kilograms.}
 \end{tcolorbox}
 
-\subsubsection{Energy--Momentum Relation}
+\subsubsection*{Energy--Momentum Relation}
 
 \begin{proposition}[Horizontal Projection as Momentum]
 \hypertarget{prop:momentum}{}\label{prop:momentum}
 \leavevmode
-On the relational circle, the unique linear geometric projection measure of external amplitude from rest is the horizontal projection  $E_X=E\beta$; 
+On the relational circle, the unique linear geometric projection measure of external amplitude from rest is the horizontal projection  $E_X=E_{\beta}\beta$; 
 hence
 \[
-p \equiv E_X \equiv  E\beta \quad (c=1).
+p_{\beta} \equiv E_X \equiv  E_{\beta}\beta \quad (c=1).
 \]
 \end{proposition}
 
 \begin{proof}
 \leavevmode
-The rest state is $(\beta,\beta_Y)=(0,1)$. A shift measure must (i) vanish at rest, (ii) grow monotonically with $|\beta|$, and (iii) flip sign under $\beta\mapsto -\beta$. The only relational candidate satisfying (i)-(iii) is the horizontal projection $E_X=E\beta$. Thus the identification is necessary and unique within methodological constraints.  
+The rest state is $(\beta,\beta_Y)=(0,1)$. A shift measure must (i) vanish at rest, (ii) grow monotonically with $|\beta|$, and (iii) flip sign under $\beta\mapsto -\beta$. The only relational candidate satisfying (i)-(iii) is the horizontal projection $E_X=E_{\beta}\beta$. Thus the identification is necessary and unique within methodological constraints.  
 \end{proof}
 
 
@@ -1096,37 +1098,37 @@ The rest state is $(\beta,\beta_Y)=(0,1)$. A shift measure must (i) vanish at re
 \leavevmode
 With $p$ identified by Proposition~\ref{prop:momentum} and $m=E_0$, the closure identity yields
 \[
-E^{2} = p^{2} + m^{2} \quad (c=1).
+E_{\beta}^{2} = p_{\beta}^{2} + m^{2} \quad (c=1).
 \]
 Equivalently, upon restoring $c$,
 \[
-E^{2} = (pc)^{2} + (mc^{2})^{2}.
+E_{\beta}^{2} = (p_{\beta}c)^{2} + (mc^{2})^{2}.
 \]
 \end{corollary}
 
 \begin{proof}
 \leavevmode
-By Conservation Theorem (\ref{thm:conservation}), $(E\beta)^2 + (E\beta_Y)^2 = E^2$. 
-Substituting $p=E\beta$ and $m=E_0$ proves the claim. 
+By Conservation Theorem (\ref{thm:conservation}), $(E_{\beta}\beta)^2 + (E_{\beta}\beta_Y)^2 = E_{\beta}^2$. 
+Substituting $p=E_{\beta}\beta$ and $m=E_0$ proves the claim. 
 Restoring $c$ is dimensional bookkeeping:
-$p\mapsto pc$ and $m\mapsto mc^{2}$, while $E$ remains $E$, yielding the standard form. 
+$p\mapsto pc$ and $m\mapsto mc^{2}$, while $E_{\beta}$ remains $E_{\beta}$, yielding the standard form. 
 \end{proof}
 
 \begin{remark}[Geometric Forms]
 The same identity may be expressed explicitly in terms of circle coordinates:
 \[
-E^{2} = (\tfrac{\beta}{\beta_Y}E_0)^{2} + E_0^{2}
+E_{\beta}^{2} = (\tfrac{\beta}{\beta_Y}E_0)^{2} + E_0^{2}
 = \bigl(\cot(\theta_{1})\,E_{0}\bigr)^{2} + E_{0}^{2}.
 \]
 These are equivalent renderings of the same geometric necessity.
 \end{remark}
 
 \begin{remark}[Units sanity check - bookkeeping]
-In natural units ($c = 1$), the identification is $p \equiv E\beta$. Restoring $c$ via dimensional bookkeeping ($p \mapsto pc$) yields:
+In natural units ($c = 1$), the identification is $p_{\beta} \equiv E_{\beta}\beta$. Restoring $c$ via dimensional bookkeeping ($p \mapsto pc$) yields:
 \begin{equation}
-    pc = E\beta = \frac{E}{c}v \implies p = \frac{E}{c^2}v.
+    p_{\beta}c = E_{\beta}\beta = \frac{E_{\beta}}{c}v \implies p = \frac{E_{\beta}}{c^2}v.
 \end{equation}
-With $E = \gamma mc^2$, this reduces to $p = \gamma mv$, the standard relativistic momentum. No new parameters are introduced.
+With $E_{\beta} = \gamma mc^2$, this reduces to $p_{\beta} = \gamma mv$, the standard relativistic momentum. No new parameters are introduced.
 \end{remark}
 
 \begin{table}[h]
@@ -1147,7 +1149,7 @@ $\beta_Y = \sqrt{1-(v/c)^2}=\sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) $\\\hli
 \textbf{The energy--momentum relation $E^{2} = (pc)^{2} + (mc^{2})^{2}$ is a geometric identity of $S^1$ carrier.}
 \end{tcolorbox}
 
-\subsection{Minkowski Interval as Inflation of the $S^1$ Closure}
+\subsubsection{Minkowski Interval as Inflation of the $S^1$ Closure}
 \hypertarget{sec:SR_interval}{}\label{sec:SR_interval}
 
 In legacy Special Relativity the Minkowski interval is posited as the physical metric of a 4D background manifold. We reverse the order of explanation. The primitive object is the dimensionless kinematic closure on the relational carrier $S^1$ (Theorem~\ref{thm:conservation}):
@@ -1221,28 +1223,28 @@ The additive closure $\kappa_X^2 + \kappa^2 = 1$ holds for static systems; rotat
 \end{tcolorbox}
 
 \begin{quote}
-    \subsubsection{Potential Meridional Section of $S^2$}
+    \subsubsection*{Potential Meridional Section of $S^2$}
 By isotropy, the omnidirectional carrier is $S^2$, but any radially symmetric exchange reduces to a great-circle meridional section. We therefore work on a unit great circle of $S^2$ with the parameterization
 $(\kappa_X,\kappa)=(\cos\theta_2,\sin\theta_2)$.
 \end{quote}
 
-\subsubsection{Consequence: Gravitational Effects}
+\subsubsection*{Consequence: Gravitational Effects}
 
 The redistribution of the relational ledger between the Phase and Amplitude components directly produces the effects of General Relativity. An increase in the relational amplitude measure ($\kappa$, gravitational potential) strictly necessitates a geometric decrease in the measure of the internal structure ($\kappa_X$). This geometric trade-off is observed physically as gravitational length contraction and time dilation. Thus, the curved geometry of spacetime is merely the shadow cast by the geometry of conserved relations.
 
 
-\subsubsection{Gravitational Tangent Formulation}
+\subsubsection*{Gravitational Tangent Formulation}
 
 Just as the relativistic energy--momentum relation can be expressed in terms of the kinematic projection 
 $\beta = v/c$, we may construct its gravitational analogue using the potential projection $\kappa = v_{e}/c$, where $v_{e}$ is the Newtonian escape velocity at radius $r$. 
 
 In the kinematic case, with $\beta = \cos\theta_{1}$, the energy relation can be written as
 \begin{equation}
-    E^{2} = \bigl(\cot\theta_{1}\,E_{0}\bigr)^{2} + E_{0}^{2},
+    E_{\beta}^{2} = \bigl(\cot\theta_{1}\,E_{0}\bigr)^{2} + E_{0}^{2},
 \end{equation}
 so that the relativistic momentum is expressed as
 \begin{equation}
-    p = (E_{0}/c)\cot\theta_{1}.
+    p_{\beta} = (E_{0}/c)\cot\theta_{1}.
 \end{equation}
 
 In full geometric symmetry, the gravitational case follows from $\kappa = \sin\theta_{2}$. 
@@ -1288,7 +1290,7 @@ projections of the closed relational geometry, expressed through complementary
 trigonometric forms.
 \end{tcolorbox}
 
-\subsection{Schwarzschild Interval as Inflation of the $S^2$ Closure}
+\subsubsection{Schwarzschild Interval as Inflation of the $S^2$ Closure}
 \hypertarget{sec:GR_interval}{}\label{sec:GR_interval}
 
 The gravitational construction is strictly parallel to kinetic. The primitive object is the dimensionless potential closure on the relational carrier $S^2$ (Theorem~\ref{thm:conservation}):
@@ -1355,14 +1357,14 @@ The Minkowski and Schwarzschild intervals are produced by the identical procedur
 \draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta=\cos\theta_1$};
 \draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y=\sin\theta_1$};
 % Q and legs
-\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
+\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E_{\beta}$};
 \draw[dashed] (0.8,0) -- (0.8,0.6);
 \draw[dashed] (0,0.6) -- (0.8,0.6);
 \node at (0.84,-0.12) {$\beta$};
 \node at (-0.14,0.6) {$\beta_Y$};
 \draw (0.25,0) arc (0:36.87:0.25);
 \node at (0.33,0.12) {$\theta_1$};
-\node[align=center] at (0,-1.55) {\small $E=E_0/\beta_Y$\\$p=E_0\beta/\beta_Y=E_0\cot\theta_1$};
+\node[align=center] at (0,-1.55) {\small $E_{\beta}=E_0/\beta_Y$\\$p=E_0\beta/\beta_Y=E_0\cot\theta_1$};
 
 % Right circle: gravity
 \begin{scope}[xshift=3.2cm]
@@ -1392,11 +1394,11 @@ On the unit kinematic circle ($S^1$) we parameterize
 \]
 so that the invariant internal phase projection reads
 \[
-E\,\beta_Y=E_0   \Longrightarrow    \quad 
-\boxed{\,E=\dfrac{E_0}{\beta_Y}=\dfrac{E_0}{\sin\theta_1}\,},\qquad
-p= \frac{E}{c}\,\beta=\dfrac{E_0\,\beta}{\beta_Y}=E_0\cot\theta_1,
+E_{\beta}\,\beta_Y=E_0   \Longrightarrow    \quad 
+\boxed{\,E_{\beta}=\dfrac{E_0}{\beta_Y}=\dfrac{E_0}{\sin\theta_1}\,},\qquad
+p_{\beta}= \frac{E_{\beta}}{c}\,\beta=\dfrac{E_0\,\beta}{\beta_Y}=E_0\cot\theta_1,
 \]
-and therefore \(E^2=(pc)^2+E_0^2\).
+and therefore \(E_{\beta}^2=(p_{\beta}c)^2+E_0^2\).
 
 On the unit potential 2-sphere ($S^2$) we parameterize
 \[
@@ -1408,7 +1410,7 @@ E_{\kappa}\,\kappa_X=E_0  \Longrightarrow \quad
 \boxed{\,E_{\kappa}=\dfrac{E_0}{\kappa_X}=\dfrac{E_0}{\cos\theta_2}\,},\qquad
 p_{\kappa}=E_{\kappa}\,\kappa=\dfrac{E_0\,\kappa}{\kappa_X}=E_0\tan\theta_2,
 \]
-and therefore \(E_{\kappa}^2=p_{\kappa}^2+E_0^2\).
+and therefore \(E_{\kappa}^2=(p_{\kappa}c)^2+E_0^2\).
 
 Now we can clearly see the underlying symmetry  between relativistic and gravitational factors that can be expressed in unified algebraic and trigonometric forms, as shown in Table \ref{tab:unified}.
 \begin{table}[h]
@@ -1424,7 +1426,7 @@ $\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1)$\\
 \hline
 $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
 \hline
- $p=E_0/c \cdot \beta/\beta_Y$&$p=E_0/c \cdot \cot(\theta_1) $\\
+ $p_{\beta}=E_0/c \cdot \beta/\beta_Y$&$p_{\beta}=E_0/c \cdot \cot(\theta_1) $\\
  \hline
  $p_{\kappa}=E_0/c \cdot \kappa/\kappa_X$&$p_{\kappa}=E_0/c \cdot \tan(\theta_2)$\\\hline
  $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
@@ -1443,7 +1445,7 @@ Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate "effe
 
 
 
-\subsection{ Energy Symmetry and Causal Continuity}
+\subsection{Energy Symmetry and Causal Continuity}
 \hypertarget{sec:energy-symmetry}{}\label{sec:energy-symmetry} 
 
 \subsubsection{Three Relational Energy Quantities}
@@ -1508,24 +1510,24 @@ In relational ontology this limits emerge from the requirement of energetic symm
 \begin{proof}
 The unit radius of the kinetic carrier $S^1$ and the potential carrier $S^2$ represents the Constant Universal Rate of Change --- the Global Tempo of Transformations. The closure identities $\beta^2 + \beta_Y^2 = 1$ and $\kappa^2 + \kappa_X^2 = 1$ dictate the distribution of this constant rate between the amplitude (external interaction) and the phase (internal existence). 
 
-The total local energy ledger is scaled by the ratio of the potential phase to the kinematic phase: $E_{\text{loc}} = E_0 \frac{\kappa_X}{\beta_Y}$. The Energy-Symmetry Law $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$ requires that any transition between states possesses a finite, symmetric counter-transition to close the ledger.
+The total local energy ledger is scaled by the ratio of the potential phase to the kinematic phase: $E = E_0 \frac{\kappa_X}{\beta_Y}$. The Energy-Symmetry Law $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$ requires that any transition between states possesses a finite, symmetric counter-transition to close the ledger.
 
-\begin{equation} \lim_{\beta_Y \to 0} E_{\mathrm{loc}} \to \infty \quad \text{and} \quad \lim_{\kappa_X \to 0} E_{\mathrm{loc}} \to 0 \end{equation}
+\begin{equation} \lim_{\beta_Y \to 0} E \to \infty \quad \text{and} \quad \lim_{\kappa_X \to 0} E \to 0 \end{equation}
 
 \textbf{Kinematic Phase Exhaustion ($S^1$) Speed of light:}\\
 $\beta \to 1 \;\rightarrow\; \beta_Y \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0 \cdot \kappa_X/0 \to \infty
+E = E_0 \cdot \kappa_X/0 \to \infty
 \;\rightarrow\;$ \textbf{requires $\infty$ energy}\\
 As a system distributes its Global Transformation Tempo increasingly into external kinematic interaction, the amplitude $\beta$ approaches 1. To maintain the carrier's closure, the internal kinematic phase approaches exhaustion: $\beta_Y \to 0$. \\
-The local energy scaling diverges: $E_{\text{loc}} = E_0 \frac{\kappa_X}{0} \to \infty$. \\
+The local energy scaling diverges: $E = E_0 \frac{\kappa_X}{0} \to \infty$. \\
 To preserve the Energy-Symmetry Law, the balancing reverse transition must supply an infinite relational counter-transfer. Because finite physical systems possess finite relational capacity, an infinite counterpart is structurally unattainable. The ledger cannot be closed. Therefore, $\beta_Y = 0$ constitutes a strict causal horizon---the Universal Rate of Change limit ($v = c$)---where energetic symmetry prohibits further amplitude growth.
 
 \textbf{Potential Phase Exhaustion ($S^2$) Event Horizon:}\\
 $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\cdot 0/\beta_Y \to 0
+E= E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\
 As a system distributes its Global Tempo increasingly into external potential depth, the amplitude $\kappa$ approaches 1. The internal potential phase approaches exhaustion: $\kappa_X \to 0$.\\
-The local energy scaling collapses: $E_{\text{loc}} = E_0 \frac{0}{\beta_Y} \to 0$.\\
+The local energy scaling collapses: $E = E_0 \frac{0}{\beta_Y} \to 0$.\\
 To preserve the Energy-Symmetry Law, any transition across this boundary requires a counterpart with zero energy capacity to balance the ledger. Consequently, no finite, non-zero transformation can symmetrically cross this threshold. The point $\kappa_X = 0$ constitutes the relational causal horizon (the Schwarzschild radius), where the internal phase ledger is fully depleted into external potential amplitude, isolating the system from finite causal interactions.
 
 Thus, the universal speed limit and the Event Horizon emerge identically as the necessary causal horizons of Relational Geometry, enforcing the invariant symmetry of the energy ledger against phase exhaustion.
@@ -1543,13 +1545,13 @@ Thus, the universal speed limit and the Event Horizon emerge identically as the 
 
 Having established that directional (kinematic) and omnidirectional (potential) relations are carried by the $S^1$ and $S^2$ respectively, we now derive the relationship that unifies them.
 
-\subsubsection{Derivation of the Energetic Exchange Rate}
+\subsubsection*{Derivation of the Energetic Exchange Rate}
 
 \begin{remark}[From slice to whole $S^2$]
 Although we parametrise a single meridional great circle $(\kappa_X,\kappa)$ for algebraic convenience, the amplitude $\kappa^2$ denotes the \emph{total active omnidirectional ledger} over the $S^2$ carrier. The exchange-rate factor $2$ reflects that $S^2$ has two independent relational degrees of freedom even when calculations are carried out on a representative great-circle section.
 \end{remark}
 
-\subsubsection{Uniqueness of the Exchange Rate (No Hidden Weighting)}
+\subsubsection*{Uniqueness of the Exchange Rate (No Hidden Weighting)}
 
 \begin{lemma}[DOF-Indifference]
 \hypertarget{lem:dof-indifference}{}\label{lem:dof-indifference}
@@ -1668,11 +1670,11 @@ $\Delta E_{B \to A} = E_0\!\left(\kappa_{X,A}/{\beta_{Y,A}} - \kappa_{X,B}/\beta
 $\downarrow$ \textit{(check the required energy to close the ledger at boundaries)} $\downarrow$\\\hline
 \textbf{Speed of light:}
 $\beta \to 1 \;\rightarrow\; \beta_Y \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0 \cdot \kappa_X/0 \to \infty
+E=E_0 \cdot \kappa_X/0 \to \infty
 \;\rightarrow\;$ \textbf{requires $\infty$ energy}\\[8pt]\hline
 \textbf{Event Horizon:}
 $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\cdot 0/\beta_Y \to 0
+E= E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt]\hline
 $\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
 \textbf{Closure Theorem:}
@@ -1868,7 +1870,7 @@ The excess energy (the kinetic and potential ledgers) per unit rest energy is th
 The historical factor $\frac{1}{2}$ in classical kinetic and potential energy formulas is the first-order Taylor coefficient of the phase ratio $\kappa_X / \beta_Y$. Newtonian physics emerges as the linear approximation of the relational phase ratio. Classical mechanics captures the first-order, a testament to its empirical adequacy in the weak-field regime.
 \end{tcolorbox}
 
-\subsubsection{Physical Interpretation}
+\subsubsection*{Physical Interpretation}
 
 This demonstrates that the Keplerian total energy is a direct linear projection of a deeper relational structure. The difference of squared amplitudes ($\beta^2 - \kappa^2$) emerges invariantly from the closed geometry of the carriers. The structure of the energy relation is a direct consequence of the relational closure of $S^1$ and $S^2$.
 
@@ -1890,7 +1892,7 @@ where the specific energy (per unit rest energy) perceived by an observer at sta
 \end{equation}
 Here $\beta = v/c$ is the kinematic projection on the carrier $S^{1}$ and $\kappa^{2} = R_{s}/r$ is the potential projection on the carrier $S^{2}$. 
 
-\subsubsection{The linearized relational limit}
+\subsubsection*{The linearized relational limit}
 
 To connect with legacy mechanics, we examine the weak-field, low-velocity regime ($\beta \ll 1, \kappa \ll 1$). The Taylor expansion of the phase ratio yields $\frac{\kappa_X}{\beta_Y} \approx 1 - \frac{1}{2}\kappa^2 + \frac{1}{2}\beta^2$. Substituting this into the two-point law (Eq. \ref{eq:two_point_energy}) gives:
 \[
@@ -1930,7 +1932,7 @@ L \;=\; \tfrac12 m v^{2} \;+\; \frac{GMm}{r}.
 \]
 Both the Hamiltonian and the Lagrangian are revealed as single-point artifacts of collapsing the true two-point phase ratio law.
 
-\subsubsection{Summary}
+\subsubsection*{Summary}
 
 \begin{table}[htbp]
 \centering
@@ -2242,7 +2244,7 @@ Pressure in WILL is the intrinsic surface tension of energy-geometry, saturating
 The negative pressure is not an exotic substance but the geometric tension required to maintain self-consistency when $\kappa^2$ varies radially. It's the relational analogue of surface tension in a soap bubble.
 \end{tcolorbox}
 
-\subsection{Unified Geometric Field Equation}
+\subsection{Unified Relational Field Equation}
 \hypertarget{eq:unified_field}{}\label{eq:unified_field}
 
 From the energy-geometry equivalence, the complete description of gravitational phenomena reduces to a single algebraic relation linking the geometric scale to the energy density ratio:
@@ -2255,7 +2257,7 @@ From the energy-geometry equivalence, the complete description of gravitational 
 This identity defines the \textbf{local energy state of the relational geometry itself}.
 Here $\rho_{\text{max}} = c^2/(8\pi G r^2)$ is the saturation density limit, and $\rho_{\text{field}}$ is the effective energy density of the relational curvature.
 
-\subsection{Field Equation and Matter Sources}
+\subsubsection*{Field Equation and Matter Sources}
 
 For a static, spherically symmetric configuration containing matter with density $\rho_{\text{matter}}(r)$, the relationship is governed by the differential accumulation of the potential:
 \hypertarget{eq:will_field_diff}{}\label{eq:will_field_diff}
@@ -2288,7 +2290,7 @@ In vacuum, the generator is zero, but the field persists as the algebraic struct
 
 
 
-\subsection{No Singularities, No Hidden Regions}
+\subsection{No Singularities Within Admissible Relational Range}
 \hypertarget{sec:no_singularities}{}\label{sec:no_singularities}
 
 WILL Relational Geometry resolves the singularity problem by naturally constraining the valid range of radial distance. Minimal radial distance is kept at $r_{min}=R_s/2$ by the fundamental invariance of  light speed limit. Parameters stay finite, and energy remains bounded. Black holes become the boundary of relational difference between energy states.
@@ -2351,11 +2353,11 @@ $\Delta E_{B \to A} = E_0\!\left(\kappa_{X,A}/{\beta_{Y,A}} - \kappa_{X,B}/\beta
 $\downarrow$ \textit{(check the required energy to close the ledger at boundaries)} $\downarrow$\\\hline
 \textbf{Speed of light:}
 $\beta \to 1 \;\rightarrow\; \beta_Y \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0 \cdot \kappa_X/0 \to \infty
+E=E_0 \cdot \kappa_X/0 \to \infty
 \;\rightarrow\;$ \textbf{requires $\infty$ energy}\\[8pt]\hline
 \textbf{Event Horizon:}
 $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
-E_{\mathrm{loc}} = E_0\cdot 0/\beta_Y \to 0
+E=E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt]\hline
 $\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
 \textbf{Closure Theorem:}
@@ -2523,7 +2525,7 @@ This equation does not bring any new predictive power but the ontological meanin
 \]
 One conserved relational resource appears as mass, energy, time and length, but always in a way that keeps their ratio fixed.
 
-\subsubsection{Interpretive Note: The Name "WILL"}
+\subsubsection*{Interpretive Note: The Name "WILL"}
 
 The term \textbf{WILL} stands for \textbf{SPACE-TIME-ENERGY}.  
 It is both a formal shorthand and a philosophical statement:  
@@ -2558,7 +2560,7 @@ the Cosmos does not possess "will" - yet through WILL, it manifests All that Is.
 We made lots of derivations and daring claims. Its time to put them to the test.  For our first tests we will use the standard Earth - GPS satellite system to challenge theorems and lemmas:
 (\ref{thm:relational_closure}; \ref{cor:energy}; \ref{lem:duality}; \ref{thm:conservation}; \ref{prop:relativity}; \ref{thm:restenergy}; \ref{thm:equivalenceor:massinvariance}; \ref{prop:momentum}; \ref{thm:closure}; \ref{sec:energy-symmetry}; \ref{sec:willinvariant}; \ref{sec:LH}; \ref{thm:third_law})
 
-\subsubsection{Statement of the Verification Problem}
+\subsubsection*{Statement of the Verification Problem}
 
 The standard post-Newtonian expression for the secular time shift between a clock on the Earth's surface and a clock on a circular GPS orbit, accumulated over one solar day, is
 \begin{equation}
@@ -2576,7 +2578,7 @@ where $\kappa^{2}(r) = 2GM_{\oplus}/(rc^{2})$, $\beta^{2} = v^{2}/c^{2}$, and th
 
 The question addressed in this section is whether \eqref{eq:dt-GR} is the leading-order Taylor expansion of \eqref{eq:dt-RG} in the small parameters $\kappa^{2}$ and $\beta^{2}$. If so, the algebraic difference of the two coefficients must vanish identically at first order, and the residual at finite values of the small parameters must reproduce the analytically derived second-order correction.
 
-\subsubsection{Methodology}
+\subsubsection*{Methodology}
 
 The verification is split into two independent parts, both executed in a single public notebook (Section~\ref{sec:repro}).
 
@@ -2589,7 +2591,7 @@ A single bookkeeping parameter $\varepsilon$ is introduced via $\kappa_{E}^{2} \
 
 \paragraph{Part II --- numerical comparison.} Both \eqref{eq:dt-GR} and \eqref{eq:dt-RG} are evaluated with 40-digit precision arithmetic (\texttt{mpmath}, \texttt{mp.dps = 40}) using a single set of input parameters: $c = 299{,}792{,}458\,\mathrm{m\,s^{-1}}$, $GM_{\oplus} = 3.986004418 \times 10^{14}\,\mathrm{m^{3}\,s^{-2}}$, $R_{E} = 6{,}378{,}137\,\mathrm{m}$, $r_{\mathrm{GPS}} = 26{,}561{,}750\,\mathrm{m}$, $D = 86{,}400\,\mathrm{s}$. The closure residual $\beta_{\mathrm{GPS}}^{2} - \kappa_{\mathrm{GPS}}^{2}/2$ is monitored as a numerical consistency check. The numerical discrepancy $\Delta t_{\mathrm{RG}} - \Delta t_{\mathrm{GR}}$ is then compared with the analytically predicted second-order correction $\delta_{\mathrm{RG}}^{(2)}\,D\,M$ obtained from Part~I.
 
-\subsubsection{Results}
+\subsubsection*{Results}
 
 \paragraph{Symbolic.} The first-order Taylor coefficient of the WILL~RG shift, expressed in $\kappa_{E}^{2}$, $\beta_{E}^{2}$, and the geometric ratio $\rho$, is
 \begin{equation}
@@ -2628,7 +2630,7 @@ residual                                              & $\sim 10^{-17}$ \\
 
 The numerical discrepancy $\Delta t_{\mathrm{RG}} - \Delta t_{\mathrm{GR}}$ matches the analytically derived second-order correction $\delta_{\mathrm{RG}}^{(2)}\,D\,M$ to within the limit set by the 40-digit floating-point arithmetic. The closure residual $\beta_{\mathrm{GPS}}^{2} - \kappa_{\mathrm{GPS}}^{2}/2$ vanishes to $\sim 10^{-50}$. The relative magnitude of the term omitted by the GR additive formula is $\sim 7.8 \times 10^{-10}$ of the total shift.
 
-\subsubsection{Interpretation}
+\subsubsection*{Interpretation}
 
 Equations~\eqref{eq:delta-RG-1}--\eqref{eq:delta-GR} establish that the additive post-Newtonian formula~\eqref{eq:dt-GR} coincides exactly with the linear Taylor coefficient of the WILL~RG exact algebraic ratio~\eqref{eq:dt-RG}. This is an algebraic identity in $(\kappa_{E}^{2}, \beta_{E}^{2}, \rho)$, not a numerical near-match: the additive sum-of-corrections structure of \eqref{eq:dt-GR} is recovered as the unique leading-order content of the multiplicative ratio $\tau_{E}/\tau_{\mathrm{GPS}}$.
 
@@ -2636,7 +2638,7 @@ For the Earth--GPS configuration, the second-order term \eqref{eq:delta-RG-2} co
 
 The scope of the present statement is restricted to the relation between the WILL~RG closed-form expression~\eqref{eq:dt-RG} and the \emph{additive post-Newtonian} form of the GR time-dilation formula \eqref{eq:dt-GR}. A comparison against fully non-linear geodesic integration in the exact Schwarzschild geometry combined with special-relativistic kinematics for the rotating Earth surface is a separate computation and is not addressed in this section.
 
-\subsubsection{Reproducibility}
+\subsubsection*{Reproducibility}
 \label{sec:repro}
 
 The complete symbolic and numerical verification reported in this section is contained in a single public Google Colab notebook, comprising the two scripts used to produce \eqref{eq:delta-RG-1}, \eqref{eq:delta-RG-2}, and the numerical table above:
@@ -2650,16 +2652,6 @@ The complete symbolic and numerical verification reported in this section is con
 \end{tcolorbox}
 
 The notebook has no external dependencies beyond \texttt{sympy} and \texttt{mpmath} and is self-contained. All input parameters are listed explicitly in the numerical script; any change in $r_{\mathrm{GPS}}$, $R_{E}$, or $GM_{\oplus}$ rescales both $\Delta t_{\mathrm{RG}}$ and $\Delta t_{\mathrm{GR}}$ consistently and does not affect the symbolic identity $\delta_{\mathrm{RG}}^{(1)} \equiv \delta_{\mathrm{GR}}$.
-
-
-\subsection{Methodology comparison of General Relativity (GR) with WILL Relational Geometry (RG) and (R.O.M.)}
-
- \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Webpage Link]
-\begin{center}
-    \href{https://willrg.com/RGvsGR/}{https://willrg.com/RGvsGR/}
-\end{center}.
-\end{tcolorbox}
-
 
 
 \subsection{Ontological Shift: From Descriptive to Generative Physics}
@@ -2718,6 +2710,15 @@ Goal: \emph{show why nothing else is possible}. \\
 \caption{Ontological contrast between standard descriptive physics and the generative paradigm of WILL Relational Geometry.}
 \end{table}
 
+\subsubsection{Methodology comparison of GR with RG}
+
+ \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Webpage Link]
+\begin{center}
+    \href{https://willrg.com/RGvsGR/}{https://willrg.com/RGvsGR/}
+\end{center}.
+\end{tcolorbox}
+
+
 \hypertarget{tab:GRvsRG}{}\label{tab:GRvsRG}
 \begin{table}[H]
 \centering
@@ -2768,12 +2769,14 @@ Same projectional law applies from microscopic $\alpha = \beta_1$ (QM) to cosmic
 \caption{Classical GR results vs. WILL RG outcomes. Known effects are recovered by simpler symmetric laws, while new predictions eliminate singularities and explain cosmology without dark entities.}
 \end{table}
 
+
+
 \subsection{Discussion}
 
 All WILL RG results, including the success of R.O.M., remain a single unbroken generative chain of derivations from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{methodological constraints} with zero flexibility. 
 Relational Orbital Mechanics functions as the direct operational consequence of applying the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles} to bound gravitational systems.
 
-\subsubsection{Epistemic Benefits}
+\subsubsection*{Epistemic Benefits}
 
 WILL RG enforces epistemic hygiene by operating exclusively on dimensionless, operationally defined observables. By replacing the absolute background manifold with the topological closure of the $S^1$ and $S^2$ carriers, the framework eliminates surplus ontology --- absolute space, absolute time, and independent mass. Every parameter in the algebraic chain ($\beta, \kappa, e, T, z$) maps directly to a measurable spectroscopic or chronometric quantity. Consequently, the theory achieves maximum ontological parsimony: it posits only what is structurally necessary to close the relational ledger, stripping away all metaphysical artifacts inherited from classical continuum mechanics. The contrast in numbers of required ontological primitives speaks for itself:
 
@@ -2802,7 +2805,7 @@ These principles function as rules of logical engagement to prevent the introduc
 \end{tcolorbox}
 
 
-\subsubsection{Operational Benefits: Eradication of Differential Formalism}
+\subsubsection*{Operational Benefits: Eradication of Differential Formalism}
 
 The operational consequence of the relational construction is the eradication of differential equations of motion and central acceleration as foundational primitives. 
 
