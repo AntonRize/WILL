@@ -203,14 +203,14 @@ $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$ $\Leftrightarrow$ $\boxed{\text{
 \draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta=\cos\theta_1$};
 \draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y=\sin\theta_1$};
 % Q and legs
-\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E$};
+\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E_{\beta}$};
 \draw[dashed] (0.8,0) -- (0.8,0.6);
 \draw[dashed] (0,0.6) -- (0.8,0.6);
 \node at (0.84,-0.12) {$\beta$};
 \node at (-0.14,0.6) {$\beta_Y$};
 \draw (0.25,0) arc (0:36.87:0.25);
 \node at (0.33,0.12) {$\theta_1$};
-\node at (0,-1.55) {\small \shortstack{$E=E_0/\beta_Y$ \\ $p=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
+\node at (0,-1.55) {\small \shortstack{$E_{\beta}=E_0/\beta_Y$ \\ $p_{\beta}=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
 
 % Right circle: potential
 \begin{scope}[xshift=3.2cm]
@@ -218,14 +218,14 @@ $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$ $\Leftrightarrow$ $\boxed{\text{
 \draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X=\cos\theta_2$};
 \draw[->] (0,-1.2) -- (0,1.2) node[above] {$\kappa=\sin\theta_2$};
 % Q and legs
-\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_g$};
+\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_{\kappa}$};
 \draw[dashed] (0.6,0) -- (0.6,0.8);
 \draw[dashed] (0,0.8) -- (0.6,0.8);
 \node at (0.6,-0.12) {$\kappa_X$};
 \node at (-0.14,0.8) {$\kappa$};
 \draw (0.25,0) arc (0:53.13:0.25);
 \node at (0.33,0.12) {$\theta_2$};
-\node at (0,-1.55) {\small \shortstack{$E_g=E_0/\kappa_X$ \\ $p_g=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
+\node at (0,-1.55) {\small \shortstack{$E_{\kappa}=E_0/\kappa_X$ \\ $p_{\kappa}=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
 \end{scope}
 
 % composition arrow
@@ -248,9 +248,9 @@ $\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1)$\\
 \hline
 $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
 \hline
- $p=E_0/c \cdot \beta/\beta_Y$&$p=E_0/c \cdot \cot(\theta_1) $\\
+ $p_{\beta}=E_0/c \cdot \beta/\beta_Y$&$p_{\beta}=E_0/c \cdot \cot(\theta_1) $\\
  \hline
- $p_g=E_0/c \cdot \kappa/\kappa_X$&$p_g=E_0/c \cdot \tan(\theta_2)$\\\hline
+ $p_{\kappa}=E_0/c \cdot \kappa/\kappa_X$&$p_{\kappa}=E_0/c \cdot \tan(\theta_2)$\\\hline
  $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
  $\tau_Y =\sqrt{1-\tau^2}$ &$\tau_Y =\sqrt{1-\tau^2}$\\\hline
  
