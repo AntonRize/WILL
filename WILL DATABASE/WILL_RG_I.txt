@@ -712,33 +712,26 @@ Q^2=\beta^2+\kappa^2
 For systems governed by the relational closure $\kappa^{2}=2\beta^{2}$ (derived in Sec.~\ref{sec:closure}), the total shift reduces algebraically to $Q^{2}=3\beta^{2}$. In elliptic configurations, the phase-dependent summation $Q_o(O)^{2}=\beta_o(O)^{2}+\kappa_o(O)^{2}$ must be used. See \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{R.O.M. addition} for phase resolution.
 \end{remark}
 
-\begin{theorem}[Relational Reciprocity]
-\hypertarget{thm:reciprocity}{}\label{thm:reciprocity}
-The operation of self-centering $(\beta,\kappa)=(0,0)$ is a geometric necessity of the Relational Origin Principle (\ref{pr:relational}) and causal balance. The Total Relational Shift $Q$ between two systems is invariant regardless of the observing frame:
-\[
-Q_{A \to B}^2 = Q_{B \to A}^2.
-\]
-\end{theorem}
 
-\begin{proof}
-Consider two interacting systems, $A$ and $B$. By the Relational Origin Principle (\ref{pr:relational}), for observer $A$ to measure the relational shift of $B$, observer $A$ must serve as the zero-state reference of its own frame. This geometrically forces the self-centering operation:
-\[
-(\beta_A,\kappa_A) = (0,0).
-\]
-From this ground state, $A$ measures the relational projections of $B$ as $(\beta_B,\kappa_B)$, yielding the total shift:
-\[
-Q_{A \to B}^2 = \beta_B^2 + \kappa_B^2.
-\]
-Conversely, when $B$ observes $A$, system $B$ becomes the necessary measurement benchmark, forcing the zero-state $(\beta_B,\kappa_B) = (0,0)$. From this ground state, $B$ measures $A$ at the same projection magnitudes, yielding:
-\[
-Q_{B \to A}^2 = \beta_A^2 + \kappa_A^2.
-\]
-Both are sharing relational state difference:
-\[
-Q_{A \to B}^2 = Q_{B \to A}^2.
-\]
-Reciprocity is the geometric invariance of the total shift magnitude $Q$ forced by the required self-centering operation of the observer.
-\end{proof}
+\subsubsection{Relational Reciprocity and Self-Centering}
+\hypertarget{sec:reciprocity}{}\label{sec:reciprocity}
+
+\begin{remark}[The mutuality premise]
+The relation between two systems $A$ and $B$ is characterized by a shared
+amplitude pair $(\beta_{\mathrm{rel}},\kappa_{\mathrm{rel}})$ whose magnitudes
+are invariant under exchange of observer and observed. This is \emph{not} an
+extra postulate but a corollary of results already established:
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{Kinematic part.} $|\beta_{\mathrm{rel}}| = v/c$ is the
+    relative speed. By the $S^1$ closure (Sec.~\ref{sec:kinetic}) relative
+    velocities are reciprocal, so $A$ measures $B$ at $+\beta_{\mathrm{rel}}$
+    and $B$ measures $A$ at $-\beta_{\mathrm{rel}}$ (the sign encodes
+    direction and is squared away).
+    \item \textbf{Potential part.} $\kappa_{\mathrm{rel}}^2 = R_s/r$ depends
+    only on the mutual separation $r$ between $A$ and $B$, hence is identical
+    for both observers.
+\end{enumerate}
+\end{remark}
 
 \subsubsection{Relational Reciprocity and Self-Centering}
 \hypertarget{sec:reciprocity}{}\label{sec:reciprocity}
@@ -787,11 +780,42 @@ Reciprocity is the geometric invariance of the total shift magnitude $Q$ forced 
 \hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
 \end{figure}
 
+
+\begin{theorem}[Relational Reciprocity]
+\hypertarget{thm:reciprocity}{}\label{thm:reciprocity}
+ The Systems Total Relational Shift $Q$ is invariant regardless of the observing frame:
+\[
+Q_{A \to B}^2 = Q_{B \to A}^2.
+\]
+\end{theorem}
+
+\begin{proof}
+By Causal Continuity Theorem (\ref{thm:causal_continuity}) any change must be perfectly balanced by a complementary change elsewhere in the system.
+Consider two interacting frames, $A$ and $B$. By the Relational Origin Principle (\ref{pr:relational}) both sharing the mutual amplitude pair $(\beta,\kappa)$ of magnitudes fixed by the mutuality premise. For $A$ to measure the relational shift of $B$, observer $A$ must serve as the zero-state reference of its own frame. This geometrically forces the self-centering operation:
+\[
+(\beta_A,\kappa_A) = (0,0).
+\]
+From this ground state, $A$ measures the relational projections of $B$ as $(\beta_B,\kappa_B)$, yielding the total shift:
+\[
+Q_{A \to B}^2 = \beta_B^2 + \kappa_B^2.
+\]
+Conversely, when $B$ observes $A$, system $B$ becomes the necessary measurement benchmark, forcing the zero-state $(\beta_B,\kappa_B) = (0,0)$. From this ground state, $B$ measures $A$ at the same projection magnitudes, yielding:
+\[
+Q_{B \to A}^2 = \beta_A^2 + \kappa_A^2.
+\]
+Projections are not intrinsic property's of A or B but shared relational state difference between them. Both are therefore equal by construction of the shared pair:
+\[
+Q_{A \to B}^2 = Q_{B \to A}^2.
+\]
+The operation of self-centering $(\beta,\kappa)=(0,0)$ is a geometric necessity of the Relational Origin Principle (\ref{pr:relational}) and Causal Continuity Theorem (\ref{thm:causal_continuity}). Reciprocity is thus the invariance of the relational shift $Q$ under the self-centering operation, holding because the underlying amplitudes are mutual rather than frame-private.
+\end{proof}
+
+
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
 \[
 \boxed{\text{Relational reciprocity} \;=\; \text{invariance of the shift $Q$ under self--centering}.}
 \]
-There is no common background arena. There are only mutual total shift magnitudes $Q$ computed from each observer's own relational origin.
+There is no common background arena. There are only mutual total shift magnitudes $Q$ computed from each observer's own relational origin, and those magnitudes are shared by the pair.
 \end{tcolorbox}
 
 \subsection{Phase Projections as Spectroscopic Shifts}
@@ -1683,13 +1707,6 @@ $\equiv\quad\kappa^2 = 2\beta^2$\\\hline
 \end{tabular}
 \end{center}
 \end{tcolorbox}
-
-
-
-
-
-
-
 
 
 
