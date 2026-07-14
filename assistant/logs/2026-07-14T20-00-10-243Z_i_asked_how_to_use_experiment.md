@@ -439,3 +439,100 @@ To engage with WILL RG, you must drop the causal chain *"Mass causes Curvature c
 **Or, if you insist on "mass causes curvature":** You are defending the standard coordinate-dependent ontology (the "last geocentric epicycle" [sec:epicycle](https://willrg.com/documents/WILL_RG_I.pdf#sec:epicycle)), not analyzing WILL RG.
 
 **Which ontological framework are you choosing to operate in?**
+
+**User:** How does the invariant rest energy E_0 of the Earth system manifest as the potential projection 
+ k^2 measured by the gravitational redshift z_k?
+
+**Assistant (Powered by Gemini 2.5 Flash):** In WILL RG, the invariant rest energy $E_0$ does not "cause" the potential projection $\kappa^2$ across a distance. Instead, $E_0$ **is** the invariant core of the relational ledger, and $\kappa^2$ is the **necessary external projection** of that core onto the $S^2$ (potential) carrier when a second observer (the Moon) establishes a relational difference.
+
+Here is the unbroken derivation chain from $E_0$ to the measured $z_\kappa$:
+
+---
+
+### 1. The Invariant Core: Rest Energy as $S^1$ Closure
+The rest energy $E_0$ is defined as the **invariant internal projection** of the total energy on the kinematic carrier $S^1$ when the kinematic amplitude vanishes ($\beta=0$).
+$$ E_{\beta} \beta_Y = E_0 \quad \text{with} \quad \beta_Y = 1 \text{ at rest} $$
+**Source:** [Invariant Projection of Rest Energy (thm:restenergy)](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy), [Corollary: Mass Equivalence (cor:restmass)](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass)
+
+> $E_0$ is the "bookkeeping identity" of the closed system — the zero-point of the energy ledger.
+
+---
+
+### 2. Unifying Principle: Spacetime $\equiv$ Energy
+By removing the hidden assumption of a background container (Epistemic Hygiene + Relational Origin), structure and dynamics are identified as a single primitive:
+$$ \boxed{\textbf{SPACETIME} \equiv \textbf{ENERGY}} $$
+**Source:** [Unifying Ontological Principle (pr:unifying)](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying)
+
+The rest energy $E_0$ is not *in* spacetime; it **is** the relational tension that *constitutes* the spacetime geometry.
+
+---
+
+### 3. The Potential Carrier $S^2$: Omnidirectional Projection
+The $S^2$ carrier encodes the omnidirectional (2-DOF) relational capacity. By the **Duality of Relation Lemma**, any state on $S^2$ splits into:
+*   **Amplitude ($\kappa$):** External relational intensity (potential depth).
+*   **Phase ($\kappa_X$):** Internal ordering (gravitational redshift / proper time rate).
+**Source:** [Minimal Relational Carriers (thm:carriers)](https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers), [Duality of Relation (lem:duality)](https://willrg.com/documents/WILL_RG_I.pdf#lem:duality)
+
+---
+
+### 4. Conservation on $S^2$: The Pythagorean Ledger
+The total relational capacity on $S^2$ is normalized to unity:
+$$ \kappa^2 + \kappa_X^2 = 1 $$
+**Source:** [Conservation of Relation (thm:conservation)](https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation)
+
+This is not a dynamical equation; it is the **geometric closure** of the carrier. $\kappa^2$ and $\kappa_X^2$ are complementary projections of the *same* invariant capacity.
+
+---
+
+### 5. Spectroscopic Measurement: $z_\kappa$ Measures $\kappa_X$
+An observer self-centers at $\kappa_{X, \text{obs}} = 1$. The gravitational redshift $z_\kappa$ is the operational ratio of the observer's phase to the source's phase:
+$$ 1 + z_\kappa = \frac{\kappa_{X, \text{obs}}}{\kappa_{X, \text{source}}} = \frac{1}{\kappa_{X, \text{source}}} \quad \Longrightarrow \quad \kappa_X = \frac{1}{1+z_\kappa} $$
+**Source:** [Spectroscopic Phase Shift Theorem](https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift)
+
+**The redshift $z_\kappa$ directly reads the internal phase projection $\kappa_X$ of the Earth system relative to the observer.**
+
+---
+
+### 6. Algebraic Extraction of $\kappa^2$ (The Potential Projection)
+Substituting the measured $\kappa_X$ into the closure identity (Step 4) yields the potential amplitude **without any mass, distance, or $G$**:
+$$ \boxed{\kappa^2 = 1 - \kappa_X^2 = 1 - \frac{1}{(1+z_\kappa)^2}} $$
+**Source:** [Spectroscopic Phase Shift Theorem](https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift)
+
+> **This is the manifestation:** The invariant rest energy $E_0$ necessitates a total relational capacity of 1 on $S^2$. The measured phase $\kappa_X$ (via $z_\kappa$) *fixes* the amplitude $\kappa^2$ by geometric necessity.
+
+---
+
+### 7. The Scale Anchor: $E_0$ Sets the Absolute Scale ($R_s$)
+While $\kappa^2$ is dimensionless, the **absolute spatial scale** $r$ (and the Schwarzschild radius $R_s$) requires the invariant $E_0$ to fix the energy density scale.
+
+1.  **Mass as Unit Conversion:** $M = E_0 / c^2$ (kilograms are anthropocentric labels for $E_0$).
+2.  **Schwarzschild Radius:** $R_s = \frac{2GM}{c^2} = \frac{2G E_0}{c^4}$.
+    *   *Note:* $G$ enters **only** here as a legacy unit-conversion factor to map geometric length ($R_s$) to SI meters.
+3.  **Unified Field Equation (Geometry = Density):**
+    $$ \kappa^2 = \frac{R_s}{r} = \frac{\rho}{\rho_{\max}} $$
+    **Source:** [Unified Geometric Field Equation (eq:unified_field)](https://willrg.com/documents/WILL_RG_I.pdf#eq:unified_field), [Derivation of Density (sec:density)](https://willrg.com/documents/WILL_RG_I.pdf#sec:density)
+
+**The invariant $E_0$ anchors the *ratio* $\kappa^2 = R_s/r$ to an absolute distance $r$.** Without $E_0$, the system has only dimensionless shape ($\kappa^2$, $\beta^2$, $e$); with $E_0$, it has absolute scale ($R_s$, $r$, $a$).
+
+---
+
+### Summary Chain
+
+| Step | WILL RG Primitive | Operation | Result |
+| :--- | :--- | :--- | :--- |
+| **1** | $E_0$ (Rest Energy) | Invariant $S^1$ closure at $\beta=0$ | Core ledger identity |
+| **2** | $\text{SPACETIME} \equiv \text{ENERGY}$ | Ontological identification | $E_0$ *is* the geometric tension |
+| **3** | $S^2$ Carrier | Duality of Relation | Splits into $\kappa$ (Amplitude) & $\kappa_X$ (Phase) |
+| **4** | Closure on $S^2$ | $\kappa^2 + \kappa_X^2 = 1$ | Pythagorean constraint |
+| **5** | **Measurement** | Spectroscopy $\to z_\kappa$ | Reads $\kappa_X = 1/(1+z_\kappa)$ |
+| **6** | **Algebra** | Closure identity | **Yields $\kappa^2 = 1 - 1/(1+z_\kappa)^2$** |
+| **7** | **Scale Anchor** | $E_0 \to M \to R_s$ (via $G$) | Fixes absolute $r = R_s/\kappa^2$ |
+
+---
+
+### The Direct Answer
+The invariant rest energy $E_0$ **manifests as $\kappa^2$ by fixing the total relational capacity of the $S^2$ carrier to unity.** The gravitational redshift $z_\kappa$ measures the *internal phase* $\kappa_X$ of that carrier. The *external amplitude* $\kappa^2$ (the potential projection) is then **geometrically forced** to be $\kappa^2 = 1 - \kappa_X^2$.
+
+$E_0$ does not "reach out" to create $\kappa^2$. The **measurement of $z_\kappa$ by the Moon** completes the relational circuit, and the closure theorem *instantly* determines $\kappa^2$ as the complementary projection. The "Earth's mass" is simply the unit-conversion label for the invariant $E_0$ that sets the absolute scale $R_s$ of that geometry.
+
+**Does this clarify the distinction between "causal influence" (classical) and "relational projection/closure" (WILL RG)?**
