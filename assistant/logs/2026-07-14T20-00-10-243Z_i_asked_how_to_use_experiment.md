@@ -281,3 +281,63 @@ In **WILL Relational Geometry**, this entire structure is **not fundamental**. T
 WILL RG derives the **same orbital phenomena** (Kepler's laws, vis-viva, precession, $R_s$) from **dimensionless relational projections** $\beta = v/c$, $\kappa^2 = R_s/r$ on the carriers $S^1, S^2$, linked by the closure theorem $\kappa^2 = 2\beta^2$ — **without $G$, $M$, or differential equations**. See [R.O.M., sec:orbital_prop](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:orbital_prop) and [sec:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization).
 
 The Newtonian formulas above are the **linearized, single-point collapse** of the two-point Energy Symmetry Law $\Delta E_{A\to B} + \Delta E_{B\to A} = 0$ [WILL RG I, sec:classical](https://willrg.com/documents/WILL_RG_I.pdf#sec:classical).
+
+**User:** in WILL RG, we get \kappa through experiments (redshift), and then we know \beta = \kappa/\sqrt(2), then got v = \beta * c.
+
+**Assistant (Powered by Gemini 2.5 Flash):** **Yes, your logic is exactly correct for a closed, bound system.** This is the core operational chain of WILL Relational Geometry.
+
+Here is the step-by-step validation with citations:
+
+---
+
+### 1. $\kappa$ from Experiment (Spectroscopic Phase Shift)
+The gravitational redshift $z_\kappa$ is the **direct observable**. The potential projection $\kappa$ is algebraically extracted without $G$, $M$, or $r$:
+$$
+\boxed{\kappa^2 = 1 - \frac{1}{(1+z_\kappa)^2}}
+$$
+**Source:** [Spectroscopic Phase Shift Theorem, WILL RG I](https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift)
+
+---
+
+### 2. $\beta$ from Closure Theorem (No Free Parameters)
+For any **relationally closed system** (bound orbit in equilibrium), the degrees of freedom of the carriers $S^1$ (1 DOF) and $S^2$ (2 DOF) enforce the exchange rate:
+$$
+\boxed{\kappa^2 = 2\beta^2 \quad \Longrightarrow \quad \beta = \frac{\kappa}{\sqrt{2}}}
+$$
+**Source:** [Closure Theorem (thm:closure), WILL RG I](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) — derived from [DOF-Indifference Lemma](https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference).
+
+> **Critical Nuance:** This $\beta$ is the **global invariant kinetic projection** (the system's binding energy $\beta^2 = \langle \beta_o^2 \rangle$), constant over the orbit. The *instantaneous* kinetic projection $\beta_o$ varies with orbital phase (vis-viva), but the global $\beta$ is fixed by closure.
+
+---
+
+### 3. Velocity from Kinematic Projection Definition
+The kinematic projection $\beta$ is defined as the dimensionless velocity ratio:
+$$
+\boxed{\beta = \frac{v}{c} \quad \Longrightarrow \quad v = \beta \, c}
+$$
+**Source:** [Kinetic Energy Projection on $S^1$, WILL RG I](https://willrg.com/documents/WILL_RG_I.pdf#sec:kinetic) — "The Amplitude Component ($\beta=\cos(\theta_1)=v/c$)".
+
+---
+
+### Summary Chain
+$$
+\text{Measure } z_\kappa \;\xrightarrow{\text{Theorem}}\; \kappa \;\xrightarrow{\kappa^2=2\beta^2}\; \beta \;\xrightarrow{\beta=v/c}\; v
+$$
+
+**This replaces the Newtonian chain:**
+$$
+\text{Measure } r, T \;\xrightarrow{\text{Kepler}}\; GM \;\xrightarrow{v=\sqrt{GM/r}}\; v
+$$
+
+In WILL RG, **$G$ and $M$ never appear**. The system's dynamic state ($v$) is locked to its potential state ($\kappa$) by the topological closure of the relational carriers.
+
+---
+
+### Experimental Verification (Earth–GPS)
+This exact chain was tested on the Earth–GPS system in [WILL RG I, sec:earth-gps](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps):
+- $\kappa_{\text{GPS}}$ derived from gravitational redshift $z_\kappa$.
+- $\beta_{\text{GPS}}$ predicted via closure $\beta = \kappa/\sqrt{2}$.
+- $v = \beta c$ matches orbital velocity to $\mathcal{O}(10^{-10})$.
+- **Colab:** [Earth_GPS_1st_order_RG=GR.ipynb](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Earth_GPS_1st_order_RG=GR.ipynb)
+
+**Your understanding is precise.** The closure theorem $\kappa^2 = 2\beta^2$ is the engine that converts a *static* potential measurement (redshift) into a *dynamic* velocity prediction without any dynamical postulate.
