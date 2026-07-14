@@ -1131,3 +1131,38 @@ Here's how this condition explains the Moon's stable orbit:
 The entire phenomenology of orbital motion is derived as an algebraic consequence of these principles in [Relational Orbital Mechanics (R.O.M.)](https://willrg.com/documents/WILL_RG_R.O.M..pdf).
 
 If the Moon's orbit is a continuous geometric equilibrium described by $\kappa^2 = 2\beta^2$, how would this framework interpret an orbital perturbation (e.g., from a passing asteroid) without invoking external "forces"?
+
+**User:** so, if we know the moon's mass, we know E_0; if we know the distance from moon to the earth, we know p_\kappa?
+
+**Assistant (Powered by Gemini 2.5 Flash):** That's a good way to frame the question, bringing together the concepts you've learned. Let's clarify the precise relationships within WILL Relational Geometry (RG):
+
+1.  **Moon's Mass and $E_0$:**
+    *   Yes, you are correct. If you know the Moon's mass ($M$), you know its [**Rest Energy ($E_0$)**](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass) through the fundamental identity:
+        $$ E_0 = Mc^2 $$
+    *   In WILL RG, $M$ is not a primitive property but rather the invariant rest energy $E_0$ expressed in conventional units (kilograms). $E_0$ is the actual geometric invariant representing the Moon's unchanging internal structure.
+
+2.  **Distance and $p_\kappa$:**
+    *   This is where we need a slight adjustment in the causal chain for WILL RG. Knowing the distance ($r$) to the Earth does **not directly give you $p_\kappa$**.
+    *   Instead, the **distance ($r$) determines the potential projection ($\kappa$)**. As defined by the [Inverse-Square Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square):
+        $$ \kappa^2 = \frac{R_s}{r} $$
+        Here, $R_s$ (the Schwarzschild radius) is the fundamental geometric scale of the central body. Critically, $\kappa$ is derived from spectroscopic observables (gravitational redshift $z_\kappa$) rather than $r$ being a primitive input.
+    *   Once you have $\kappa$ (and thus $\kappa_X = \sqrt{1-\kappa^2}$), **then** you can calculate the [gravitational momentum ($p_\kappa$)](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential) using the Moon's rest energy ($E_0$):
+        $$ p_\kappa = \frac{E_0}{c} \frac{\kappa}{\kappa_X} $$
+        (after restoring $c$ for dimensional consistency).
+
+### **Summary of the Causal Chain in WILL RG:**
+
+The flow of information is from dimensionless observables to relational parameters, and then to derived quantities in legacy units:
+
+1.  **Observable Input:** Gravitational redshift ($z_\kappa$) (a dimensionless ratio).
+2.  **Derive Potential Projection:** From $z_\kappa$, you calculate $\kappa$ (dimensionless):
+    $$ \kappa^2 = 1 - \frac{1}{(1+z_\kappa)^2} $$
+    ([Spectroscopic Phase Shift Theorem](https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift)).
+3.  **Derive Distance (Legacy Translation):** From $\kappa$, you can infer $r$ using the geometric scale $R_s$ (which is itself derived from observables, but historically linked to $GM$):
+    $$ r = \frac{R_s}{\kappa^2} $$
+    ([Inverse-Square Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square)).
+4.  **Gravitational Momentum (Derived):** With $\kappa$ and $E_0$, you calculate $p_\kappa$.
+
+So, while $M$ and $r$ are the familiar Newtonian parameters, in WILL RG, they are ultimately **derived quantities or translation artifacts** that map the deeper, dimensionless relational geometry ($E_0$, $\kappa$) onto our conventional unit systems. The primary inputs are always dimensionless ratios.
+
+Can you describe how this sequence—from dimensionless observation to derived legacy units—fundamentally changes the role of "measurement" in WILL RG compared to classical physics, where $M$ and $r$ might be considered direct measurements?
