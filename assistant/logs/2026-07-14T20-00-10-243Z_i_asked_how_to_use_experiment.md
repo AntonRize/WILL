@@ -536,3 +536,76 @@ The invariant rest energy $E_0$ **manifests as $\kappa^2$ by fixing the total re
 $E_0$ does not "reach out" to create $\kappa^2$. The **measurement of $z_\kappa$ by the Moon** completes the relational circuit, and the closure theorem *instantly* determines $\kappa^2$ as the complementary projection. The "Earth's mass" is simply the unit-conversion label for the invariant $E_0$ that sets the absolute scale $R_s$ of that geometry.
 
 **Does this clarify the distinction between "causal influence" (classical) and "relational projection/closure" (WILL RG)?**
+
+**User:** so, when do calculation, you still use G, but G depends on r, right?
+
+**Assistant (Powered by Gemini 2.5 Flash):** **Your question assumes a premise that WILL RG explicitly rejects: that $G$ is a dynamical variable depending on $r$.**
+
+> **Contraband Detected:** *"$G$ depends on $r$."*
+
+In WILL RG, **$G$ is a fixed, universal conversion constant** (legacy unit factor), not a dynamical field. It never depends on $r$, $\kappa$, or the system state.
+
+---
+
+### The Strict Role of $G$ in WILL RG
+
+#### 1. The Relational Core is $G$-Free
+The **entire closed algebraic system** (R.O.M.) operates in a **dimensionless, unitless core** ($\hat{X}$). 
+*   Closure: $\kappa^2 = 2\beta^2$ (no $G$)
+*   Vis-viva: $\kappa_o^2 - \beta_o^2 = \beta^2$ (no $G$)
+*   Precession: $\Delta\varphi = 2\pi \tau_Y^2 / (1-e^2)$ (no $G$)
+*   Orbital shape, eccentricity, phase, redshift, time-dilation — **all derived without $G$**.
+
+**Source:** [R.O.M., Theorem: Factorization of R.O.M. (thm:factorization)](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization) — "No dimensional constant enters any $\hat{X}$."
+
+---
+
+#### 2. $G$ Enters Only at Stage 5: Unit Translation
+After the dimensionless state $(\beta, \kappa, e, \dots)$ is fully solved, **one anchor** (e.g., orbital period $T$ in seconds) is injected to fix the absolute scale $R_s$ in meters. 
+
+The scale map $S_X$ for each quantity class is:
+
+| Quantity Class | Scale Factor $S_X$ | Role of $G$ |
+| :--- | :--- | :--- |
+| **Length / Radius** | $R_s$ | **None** ($R_s$ set by $T, c, \beta$) |
+| **Time** | $R_s/c$ | **None** |
+| **Velocity** | $c$ | **None** |
+| **Mass** | $R_s c^2 / G$ | **Only here: converts geometric length $R_s$ to kg** |
+| **Density** | $c^2 / (G R_s)$ | **Only here: converts geometric density to kg/m³** |
+
+**Source:** [R.O.M., sec:unitless_core, Table of Scale Factors](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:unitless_core)
+
+---
+
+#### 3. $G$ is Constant; $\kappa^2$ Carries the $r$-Dependence
+The spatial variation is carried entirely by the **potential projection** $\kappa^2$:
+$$ \kappa^2 = \frac{R_s}{r} $$
+*   $R_s$ = constant geometric scale (set by $E_0$).
+*   $r$ = variable relational distance.
+*   $G$ = **constant** conversion factor ($6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$).
+
+**Example (Density):**
+$$ \rho(r) = \frac{\kappa^2 c^2}{8\pi G r^2} = \underbrace{\frac{R_s c^2}{8\pi G}}_{\text{constant } \rho_{\max} R_s^2} \frac{1}{r^3} $$
+The $1/r^3$ scaling comes from $\kappa^2 \propto 1/r$, **not** from $G(r)$.
+
+**Source:** [WILL RG I, Derivation of Density (sec:density)](https://willrg.com/documents/WILL_RG_I.pdf#sec:density), [Unified Field Equation (eq:unified_field)](https://willrg.com/documents/WILL_RG_I.pdf#eq:unified_field)
+
+---
+
+### Summary
+
+| Statement | WILL RG Verdict |
+| :--- | :--- |
+| "$G$ depends on $r$" | **False.** $G$ is a fixed anthropic conversion constant. |
+| "Geometry depends on $r$" | **True.** $\kappa^2 = R_s/r$ encodes the relational distance. |
+| "Calculations use $G$" | **Only at the final step** to print answers in kg/m/s. The physics is solved in $\hat{X}$ without it. |
+
+---
+
+### Operational Proof
+Run the [R.O.M. Unitless Test Colab](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_UNITLESS_TEST.ipynb). It verifies:
+1.  The intrinsic core $\hat{X}$ is identical across **41 orders of magnitude** in $R_s$.
+2.  $G$ and $c$ are **scrambled randomly** — the dimensionless predictions ($\Delta\varphi$, $z_\kappa$, $e$, $\tau$) **do not change**.
+3.  Only the Stage 5 labels (kg, m, s) change.
+
+**$G$ is a human unit convention, not a physical field.**
