@@ -996,3 +996,26 @@ The consistent visualization in WILL RG is of **two distinct right triangles tha
 These two triangles are conceptually joined along the common $E_0$ vertical axis, demonstrating the unification while preserving the distinct nature and dimensionality of their underlying relational carriers.
 
 What benefit would a single 3D geometric shape like a tetrahedron provide for describing these relationships, given that the fundamental relational carriers ($S^1$ and $S^2$) are abstract and lower-dimensional?
+
+**User:** why the potential energy stay in S^2, which two degree of freedom defines that
+
+**Assistant (Powered by Gemini 2.5 Flash):** In WILL Relational Geometry (RG), potential energy is assigned to the $S^2$ carrier as a direct consequence of rigorous methodological constraints and topological classification, not as an arbitrary postulate.
+
+Here's why potential energy "stays" in $S^2$ and what its two degrees of freedom (DOFs) define:
+
+1.  **Nature of Potential Energy:** Potential energy, in a relational sense, describes the capacity for omnidirectional interaction or distribution of a system's influence from a central point. Think of how gravity acts equally in all directions around a mass.
+
+2.  **Derivation of Minimal Relational Carriers:** The framework applies strict principles—such as [Relational Closure](https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure), [Causal Continuity (Conservation)](https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity), and [Relational Isotropy (Maximal Symmetry)](https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy)—to derive the minimal topological structures that can carry the Universe's energy ledger. This process, detailed in [Minimal Relational Carriers of the Conserved Relational Capacity](https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers), yields exactly two such carriers:
+    *   $S^1$ (circle): for 1-DOF, directional (kinematic) transformations.
+    *   $S^2$ (sphere): for 2-DOF, omnidirectional (potential) transformations.
+
+3.  **Two Degrees of Freedom of $S^2$ (Omnidirectional Potential):**
+    The $S^2$ carrier provides the minimal structure for omnidirectional interactions without needing an external background. Its two degrees of freedom represent:
+    *   **Distribution over an orientable surface:** The first DOF allows for the spread of influence over a surface. The spherical topology ensures this distribution is maximally symmetric and closed (no leakage of influence into an external void, adhering to [Relational Closure](https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure)).
+    *   **Oriented Relation:** The second DOF defines an oriented relation, crucial for distinguishing between "inward" (attractive) and "outward" (repulsive) potentials. This orientability is essential for [Causal Continuity](https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity) and ensures that opposite directions are physically distinct, not identified.
+
+4.  **No Higher-Dimensional Carriers:** Higher-dimensional spheres ($S^n$ for $n \ge 3$) are excluded because they would introduce additional, unobserved categories of macroscopic relations, violating [Ontological Minimalism](https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism) and [Mathematical Transparency](https://willrg.com/documents/WILL_RG_I.pdf#pr:mathematical). The observable categories of "directional shift" and "omnidirectional distribution" are fully captured by $S^1$ and $S^2$.
+
+It's critical to remember that $S^2$ is an **abstract, algebraic phase space**, not a physical sphere embedded in a 3D void. It has no physical surface area or volume. The spatial distance ($r$) and the notion of a field emerge as descriptive labels for these underlying algebraic phase patterns. This is explicitly stated in the [WARNING: The Spatial Container Fallacy](https://willrg.com/documents/WILL_RG_I.pdf#rem:nonspatial).
+
+Does this explanation of how $S^2$ topologically supports the concept of omnidirectional potential energy clarify its role compared to a classical force field in 3D space?
