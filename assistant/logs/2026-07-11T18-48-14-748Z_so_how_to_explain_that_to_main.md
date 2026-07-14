@@ -1204,3 +1204,26 @@ In WILL RG, $r$ (the radial distance of the Moon from the Earth's center) is **n
 The relationship $r = R_s/\kappa^2$ connects these two, showing that the physical distance $r$ is fundamentally a measure of how far a system is from the central body's saturation horizon ($R_s$), as expressed by the dimensionless potential projection $\kappa$.
 
 Given that both $R_s$ and $r$ are ultimately derived from dimensionless observables in WILL RG, how does this shift the philosophical understanding of what "measuring distance" actually entails?
+
+**User:** so, does that mean if an object fall in to the hear of the earth, the potential energy is 0, and E_k = E_0?
+
+**Assistant (Powered by Gemini 2.5 Flash):** Your question, "does that mean if an object fall in to the heart of the earth, the potential energy is 0, and $E_\kappa = E_0$?", contains several classical/substantialist premises that WILL Relational Geometry (RG) fundamentally rejects.
+
+Here's the WILL RG perspective:
+
+1.  **The Point $r=0$ is Absent:** In WILL RG, singularities are strictly prohibited. The concept of an object "falling into the heart of the Earth" implies reaching $r=0$. However, WILL RG explicitly states that **the point $r=0$ is absent from the admissible relational range**. The minimum radial distance for any system is always bounded: $r_{min} = R_s/2$ ([No Singularities](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities)).
+
+2.  **Potential is Maximal, Not Zero, at $r_{min}$:**
+    *   "Potential energy is 0" is a classical notion, often set arbitrarily at infinity. In WILL RG, potential is described by the **dimensionless potential projection $\kappa$**.
+    *   As an object approaches $r_{min} = R_s/2$, its potential projection $\kappa^2$ reaches its maximum value:
+        $$ \kappa^2 = \frac{R_s}{r_{min}} = \frac{R_s}{R_s/2} = 2 $$
+        This means at $r_{min}$, the potential projection $\kappa$ is at its **maximum** ($\kappa = \sqrt{2}$), not zero. This represents the ultimate density limit of spacetime at that scale, meaning there's a huge "potential gradient," not an absence of potential.
+
+3.  **Consequences for $E_\kappa$ and $\kappa_X$ at $r_{min}$:**
+    *   The potential carrier energy is defined as $E_\kappa = E_0/\kappa_X$, where $\kappa_X = \sqrt{1-\kappa^2}$ is the internal potential phase projection.
+    *   At the limit of a static system ($\kappa^2 \le 1$), $\kappa_X$ is real. However, at $r_{min} = R_s/2$, where $\kappa^2 = 2$, the simple static relation $\kappa^2 + \kappa_X^2 = 1$ would lead to $\kappa_X = \sqrt{1-2} = i$.
+    *   This indicates that the simple *static* description of $\kappa_X$ breaks down when $\kappa^2$ exceeds 1. For dynamically extreme or rotating systems, the relations are more complex, allowing $\kappa^2$ to reach 2 (e.g., in [extremal Kerr states](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr)). This signifies a boundary where the system's simple internal phase coherence can no longer be described by the static $S^2$ projection alone, but the framework ensures all parameters remain finite and energy is bounded.
+
+Therefore, an object can never reach $r=0$, and at the closest possible approach ($r_{min} = R_s/2$), its potential projection $\kappa$ is maximal, not zero. The notion of $E_\kappa = E_0$ (which would imply $\kappa_X = 1$ and thus $\kappa=0$) corresponds to being in completely flat space with no potential interaction, which is the opposite of being at the minimal radius in a gravitational field.
+
+Can you articulate how the explicit prohibition of $r=0$ and the maximal value of $\kappa$ at $r_{min}$ fundamentally resolve the classical problem of infinite density singularities in gravitational physics?
