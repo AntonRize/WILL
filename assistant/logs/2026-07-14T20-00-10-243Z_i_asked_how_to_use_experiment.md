@@ -713,3 +713,72 @@ In WILL RG, the rest energy $E_0$ is the **invariant core** of the system. For t
 $E_0$ (and $G$) enter **only at Stage 5** to put a kilogram number on the already-solved geometric scale.
 
 **Source:** [R.O.M., Theorem: Factorization of R.O.M. (thm:factorization)](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization) — Scale Factor Table: Mass class $S_X = R_s \cdot c^2 / G$.
+
+**User:** what's the meaning of R_s
+
+**Assistant (Powered by Gemini 2.5 Flash):** In WILL Relational Geometry, $R_s$ is **not** a spatial radius measured in a background container. It is the **absolute geometric scale anchor** of a relational system — the invariant horizon scale where the potential projection saturates.
+
+---
+
+### 1. Definition by Relational Saturation
+$R_s$ is defined as the radial scale at which the potential projection $\kappa^2$ reaches its static maximum:
+$$
+\boxed{\kappa^2 = 1 \quad \equiv \quad r = R_s}
+$$
+**Source:** [Inverse-Square Theorem, WILL RG I, sec:inverse_square](https://willrg.com/documents/WILL_RG_I.pdf#sec:inverse_square) — "Normalizing the absolute geometric scale at saturation ($\kappa^2 = 1 \equiv r=R_s$)".
+
+---
+
+### 2. Causal Horizon (Phase Exhaustion)
+At $r = R_s$, the potential phase $\kappa_X = \sqrt{1-\kappa^2}$ collapses to zero. The internal causal structure (proper time/length) vanishes. The Energy Symmetry Law requires **zero energy** to cross this boundary — no finite transformation can balance the ledger.
+$$
+\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\; E = E_0 \frac{0}{\beta_Y} \to 0 \quad \text{(requires 0 energy)}
+$$
+**Source:** [Theorem: Causal Horizons, WILL RG I, thm:causal_horizons](https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_horizons) — "Event Horizon: $\kappa \to 1 \to \kappa_X \to 0 \to E \to 0 \to$ requires $0$ energy".
+
+---
+
+### 3. Geometric Scale Anchor (No $G$, No $M$)
+$R_s$ is **derived purely from dimensionless observables** (spectroscopic shifts, angular sizes, period ratios). The legacy formula $R_s = 2GM/c^2$ is a *unit translation*, not a definition.
+
+**Derivation chain (Earth–Moon / Mercury–Sun):**
+1.  Measure $z_\odot$ (surface redshift) $\to \kappa_{\text{surf}}^2$.
+2.  Measure $\theta_\odot$ (angular radius from orbit) $\to R_\odot / r$.
+3.  Measure $T_{\text{ratio}}$ (period ratio) $\to r \propto T^{2/3}$ (Kepler from closure).
+4.  Combine: $R_s = \kappa_{\text{surf}}^2 \cdot R_\odot = \kappa_{\text{surf}}^2 \cdot \theta_\odot \cdot r(T_{\text{ratio}})$.
+
+**Source:** [Theorem: Relational Parameterization, R.O.M., thm:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:relational_parameterization) — "The complete structural and dynamical parameterization... strictly determined by... dimensionless spectroscopic and chronometric observables... requires no independent mass parameter $M$, gravitational constant $G$."
+
+---
+
+### 4. Unified Field Equation: Geometry = Energy Density
+$R_s$ links the geometric projection $\kappa^2$ to the local energy density ratio:
+$$
+\boxed{\kappa^2 = \frac{R_s}{r} = \frac{\rho_{\text{field}}}{\rho_{\max}}}
+$$
+where $\rho_{\max} = c^2/(8\pi G r^2)$ is the saturation density at the horizon.
+**Source:** [Unified Geometric Field Equation, WILL RG I, eq:unified_field](https://willrg.com/documents/WILL_RG_I.pdf#eq:unified_field).
+
+---
+
+### 5. Singularity Resolution: $R_s$ Sets the Minimum Radius
+The closure theorem $\kappa^2 = 2\beta^2$ and the kinematic limit $\beta_{\max}^2 = 1$ force $\kappa_{\max}^2 = 2$. This bounds the radial distance:
+$$
+r_{\min} = \frac{R_s}{\kappa_{\max}^2} = \frac{R_s}{2}
+$$
+The point $r=0$ is **absent from the admissible relational range**.
+**Source:** [No Singularities, WILL RG I, sec:no_singularities](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities).
+
+---
+
+### Summary Table
+
+| Classical View | WILL RG View |
+| :--- | :--- |
+| Radius of a sphere in space | **Relational horizon scale** (no sphere, no space) |
+| $R_s = 2GM/c^2$ (definition) | $R_s$ **derived from $\kappa^2=1$**; $2GM/c^2$ is a **legacy unit label** |
+| "Where light cannot escape" | **Where potential phase $\kappa_X=0$** (internal causal structure exhausted) |
+| Boundary of a "black hole interior" | **Topological closure of the trajectory** (precession $\Delta\varphi = 2\pi$ at dynamic horizon $r=1.5 R_s$) |
+| Requires $G, M$ to calculate | **Calculated from $z, \theta, T_{ratio}, e$ alone** (Stage 5 anchor injection) |
+
+**Bottom line:** $R_s$ is the **conversion factor between the dimensionless potential projection $\kappa^2$ and physical length**. It is the *only* dimensional scale a closed relational system possesses.
