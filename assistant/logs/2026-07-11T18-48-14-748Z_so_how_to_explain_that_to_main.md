@@ -678,3 +678,34 @@ So, when an object falls, or a planet orbits, it's not a "force" doing the work.
 ---
 
 Does thinking about energy as a "ledger of relations" and mass as an "invariant internal rhythm" change how you view these concepts compared to traditional physics?
+
+**User:** if the total energy is E, then E*\beta = E_v, E*\beta_Y = E_0, right? E_v is the energy projected on the velocity dimension.
+
+**Assistant (Powered by Gemini 2.5 Flash):** That's a very insightful way to think about the projections, and you're mostly on the right track! Let's clarify the precise terminology and interpretation in WILL Relational Geometry (RG).
+
+You are correct that the total energy $E$ of a system is intimately connected with its kinematic projections on the $S^1$ carrier.
+
+1.  **Invariant Rest Energy ($E_0$)**:
+    *   Yes, you are exactly right: $E \beta_Y = E_0$. This is stated directly in the [Invariant Projection of Rest Energy Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy).
+    *   In WILL RG, $E_0$ (the rest energy, equivalent to mass $m=E_0/c^2$) is the **invariant internal projection** of the total energy, maintained across different states of motion. The factor $\beta_Y$ (the kinematic phase component) represents the proportion of the total energy that manifests as this internal ordering or "proper time." Thus, as a system moves faster (higher $\beta$), its $\beta_Y$ decreases, and its total observed energy $E$ must increase ($E = E_0/\beta_Y$) to keep $E_0$ constant.
+
+2.  **Kinematic Amplitude Projection ($E\beta$):**
+    *   The term $E \beta$ does represent the energy projected onto the "velocity dimension" or the external kinematic interaction.
+    *   However, in WILL RG, we specifically identify this quantity as **momentum ($p$)**, not $E_v$. As stated in [Horizontal Projection as Momentum](https://willrg.com/documents/WILL_RG_I.pdf#prop:momentum), $p \equiv E\beta$ (in natural units where $c=1$).
+    *   So, while conceptually it is energy associated with velocity, its formal identity is momentum.
+
+### Summary of Kinematic Projections on $S^1$:
+
+For a system with total energy $E$:
+
+*   The total energy $E$ is distributed between its external (amplitude) and internal (phase) aspects according to the closure identity $\beta^2 + \beta_Y^2 = 1$ ([Conservation of Relation](https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation)).
+*   **External Interaction (Amplitude):** The projection $E\beta$ is identified as the system's **momentum ($p$)**.
+*   **Internal Existence (Phase):** The projection $E\beta_Y$ is identified as the system's **invariant rest energy ($E_0$)**.
+
+These two projections ($p$ and $E_0$) then form the geometric [energy-momentum relation](https://willrg.com/documents/WILL_RG_I.pdf#cor:energymomentum):
+
+$$ E^2 = (pc)^2 + (mc^2)^2 $$
+
+This confirms the physical reality of the $S^1$ carrier as the geometric origin of special relativistic dynamics.
+
+Does this distinction—identifying $E\beta$ specifically as momentum rather than a generic "velocity energy"—clarify the roles of $\beta$ and $\beta_Y$ within the kinematic energy ledger?
