@@ -677,3 +677,39 @@ It appears **only in Stage 5** to translate the geometric scale $R_s$ (meters) i
 | Property | $c$ | $G$ |
 | :--- | :--- | :--- |
 | **Ontological Weight** | **Primitive** (Carrier Radius = Global Tempo) | **Zero** (
+
+**User:** R_s = 2GE_0/c^4, this E_0 is the resting energy of the earth, right?
+
+**Assistant (Powered by Gemini 2.5 Flash):** **Yes, exactly.**
+
+In WILL RG, the rest energy $E_0$ is the **invariant core** of the system. For the Earth–Moon system (or any bound system with a dominant central body), $E_0$ is the rest energy of that central body (the Earth).
+
+### The Algebraic Chain
+
+1.  **Rest Energy Definition** (Invariant $S^1$ closure at $\beta=0$):
+    $$ E_0 = m c^2 $$
+    **Source:** [Corollary: Rest Energy and Mass Equivalence (cor:restmass)](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass)
+
+2.  **Legacy Schwarzschild Radius** (Unit translation):
+    $$ R_s = \frac{2GM}{c^2} $$
+    **Source:** [Derivation of Density (sec:density)](https://willrg.com/documents/WILL_RG_I.pdf#sec:density) — "in legacy units $R_s = 2GM/c^2$ links to the mass scale factor $M = E_0/c^2$."
+
+3.  **Substitution** ($M = E_0/c^2$):
+    $$ R_s = \frac{2G}{c^2} \left( \frac{E_0}{c^2} \right) = \frac{2 G E_0}{c^4} $$
+
+---
+
+### Ontological Status in WILL RG
+
+| Symbol | Role in WILL RG |
+| :--- | :--- |
+| **$E_0$** | **Primitive.** The invariant rest energy of the system (the "bookkeeping identity" of the closed relational ledger). |
+| **$M$** | **Derived label.** $M = E_0/c^2$ (kilograms are anthropocentric units for $E_0$). |
+| **$G$** | **Legacy conversion constant.** Appears **only** to translate geometric length $R_s$ (meters) into the kilogram convention. |
+| **$R_s$** | **Geometric scale anchor.** The absolute relational horizon scale ($\kappa^2=1$). |
+
+**Critical Distinction:** In the **Relational Core (Stages 1–4)**, $R_s$ is derived **without $G$ or $E_0$** — purely from dimensionless observables ($\beta, \kappa, e, T_{ratio}, z, \theta$). See [Relational Parameterization (thm:relational_parameterization)](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:relational_parameterization).
+
+$E_0$ (and $G$) enter **only at Stage 5** to put a kilogram number on the already-solved geometric scale.
+
+**Source:** [R.O.M., Theorem: Factorization of R.O.M. (thm:factorization)](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization) — Scale Factor Table: Mass class $S_X = R_s \cdot c^2 / G$.
