@@ -837,3 +837,43 @@ $E_0$ is the **numerator** in the scaling law. It is the fixed point. The horizo
 | $\kappa_X=0 \implies E_0 \to 0$ (mass becomes 0) | **FALSE.** Category error. $E_0$ is the invariant numerator. |
 
 **The horizon is not where mass vanishes; it is where the *relational visibility* (energy scaling) of that mass vanishes.**
+
+**User:** I feel you didnt use symbol properly. If E_0 is resting energy, then E\betta = E_0/\beta_Y, and E_\kappa = E_0/\kappa_X, right?
+
+**Assistant (Powered by Gemini 2.5 Flash):** **You are exactly correct.** The notation in the source documents defines three distinct carrier energies, and your formulas match the definitions precisely.
+
+---
+
+### 1. Kinematic Carrier Energy ($E_{\beta}$)
+From the **Invariant Projection of Rest Energy** on $S^1$ ($\beta=0 \Rightarrow \beta_Y=1$):
+$$ E_{\beta} \beta_Y = E_0 \quad \Longrightarrow \quad \boxed{E_{\beta} = \frac{E_0}{\beta_Y}} $$
+**Source:** [Theorem: Invariant Projection of Rest Energy (thm:restenergy)](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy), [Three Relational Energy Quantities (sec:energy_quantities)](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy_quantities)
+
+---
+
+### 2. Potential Carrier Energy ($E_{\kappa}$)
+From the **analogous invariant projection** on $S^2$ ($\kappa=0 \Rightarrow \kappa_X=1$):
+$$ E_{\kappa} \kappa_X = E_0 \quad \Longrightarrow \quad \boxed{E_{\kappa} = \frac{E_0}{\kappa_X}} $$
+**Source:** [Three Relational Energy Quantities (sec:energy_quantities)](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy_quantities) — "From the analogous invariant projection... $E_{\kappa}\,\kappa_X = E_0$, so $E_{\kappa} = E_0/\kappa_X$."
+
+---
+
+### 3. Relational Total Energy ($E$) — The Conserved Ledger Quantity
+When **both carriers are active**, the single conserved energy balanced by the **Energy Symmetry Law** ($\Delta E_{A\to B} + \Delta E_{B\to A} = 0$) is the phase-ratio scaling:
+$$ \boxed{E = E_0 \frac{\kappa_X}{\beta_Y} = \kappa_X \cdot E_{\beta} = \frac{E_0 \cdot E_{\beta}}{E_{\kappa}}} $$
+**Source:** [Three Relational Energy Quantities (sec:energy_quantities)](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy_quantities) — "The three are related by $E = E_0\,\kappa_X/\beta_Y = \kappa_X \cdot E_{\beta} = E_0 \cdot E_{\beta}/E_{\kappa}$..."
+
+---
+
+### Summary Table (WILL RG I, sec:energy_quantities)
+
+| Symbol | Name | Formula | Limit $\kappa\to 1$ ($\kappa_X\to 0$) | Limit $\beta\to 1$ ($\beta_Y\to 0$) |
+| :--- | :--- | :--- | :--- | :--- |
+| **$E_0$** | Invariant Rest Energy | $mc^2$ | **Constant** | **Constant** |
+| **$E_{\beta}$** | Kinematic Carrier Energy | $E_0 / \beta_Y$ | $E_0$ (finite) | $\to \infty$ |
+| **$E_{\kappa}$** | Potential Carrier Energy | $E_0 / \kappa_X$ | $\to \infty$ | $E_0$ (finite) |
+| **$E$** | **Relational Total Energy** | $E_0 \frac{\kappa_X}{\beta_Y}$ | **$\to 0$** | $\to \infty$ |
+
+**My previous answer contrasted $E_0$ (invariant) vs $E$ (relational total).** You are right to insist on the carrier energies $E_{\beta}$ and $E_{\kappa}$ — they are the **intermediate structural projections** that make the geometry explicit.
+
+Thank you for the precision check. The notation is strict in the source: $E_{\beta}, E_{\kappa}$ are carrier boosts; $E$ is the relational observable.
