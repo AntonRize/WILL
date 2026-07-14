@@ -89,3 +89,114 @@ If you want to **test this yourself**, you can:
 **User:** can you derive gravitational redshift z_k now?
 
 **Assistant (Powered by Gemini 2.5 Flash):** 
+
+**User:** can you derive gravitational redshift z_k now?
+
+**Assistant (Powered by Gemini 2.5 Flash):** I will derive the gravitational redshift $z_\kappa$ for the Earth–Moon system using **strictly the relational parameterization chain** from [R.O.M., sec:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization) (Theorem [thm:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:relational_parameterization)). 
+
+The derivation follows the exact same algebraic logic used for Mercury and Jupiter, but the Earth–Moon system requires a **Moon-based angular observable** (or LLR phase data) to close the dimensionless chain without a dimensional anchor.
+
+---
+
+### 1. Target Observable: Spectroscopic Phase Shift Theorem
+From [WILL RG I, sec:spectroscopic_shift](https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift), the gravitational redshift is **not a fit parameter** but an algebraic identity of the potential phase projection $\kappa_X$:
+
+$$
+\boxed{1 + z_\kappa = \frac{1}{\kappa_X} = \frac{1}{\sqrt{1-\kappa^2}} \quad \Longleftrightarrow \quad \kappa^2 = 1 - \frac{1}{(1+z_\kappa)^2}}
+$$
+
+For a **Moon $\to$ Earth** measurement (source = Moon, observer = Earth self-centered at $\kappa_{X,\text{Earth}}=1$):
+$$
+z_\kappa^{\text{Moon}\to\text{Earth}} = \frac{1}{\sqrt{1-\kappa_{\text{Moon}}^2}} - 1, \qquad \kappa_{\text{Moon}}^2 = \frac{R_{s\oplus}}{r_{\text{Moon}}}
+$$
+
+For **Earth $\to$ Moon** (source = Earth surface, observer = Moon):
+$$
+z_\kappa^{\text{Earth}\to\text{Moon}} = \frac{1}{\sqrt{1-\kappa_{\oplus\text{surf}}^2}} - 1, \qquad \kappa_{\oplus\text{surf}}^2 = \frac{R_{s\oplus}}{R_\oplus}
+$$
+
+We derive $\kappa_{\text{Moon}}^2$ (the Moon's orbital potential projection) from dimensionless observables.
+
+---
+
+### 2. Relational Parameterization Chain (Symbolic)
+
+The chain requires **four dimensionless, cross-cultural invariants** for the Earth–Moon system ([R.O.M., Table in sec:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization)):
+
+| Input | Symbol | Physical Meaning | Measurability |
+|-------|--------|------------------|---------------|
+| **Central body surface redshift** | $z_\oplus$ | Earth's spectroscopic tension at surface | **Measurable on Earth** (clock comparison) |
+| **Central body angular radius from satellite** | $\theta_\oplus = R_\oplus / r_{\text{Moon}}$ | Earth's visual size from Moon | **Requires Moon-based observer** or **LLR phase decoding** |
+| **Orbital period ratio** | $T_{\text{ratio}} = T_{\text{Moon}} / T_{\text{ref}}$ | Moon's cycle vs. reference cycle around Earth | **Requires a 2nd Earth satellite** (e.g., GPS, LAGEOS) |
+| **Orbital eccentricity** | $e_{\text{Moon}}$ | Shape from angular speed ratio | **Measurable from Earth** ($\omega_{\max}/\omega_{\min}$) |
+
+#### Step 1: Relational Scale Factor (Earth radius / Moon periapsis)
+From the Mercury/Jupiter derivation ([R.O.M., sec:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization)):
+$$
+R_{\text{ratio}} = \frac{\theta_\oplus}{(T_{\text{ratio}})^{2/3} \cdot (1-e_{\text{Moon}})} \equiv \frac{R_\oplus}{r_p}
+$$
+*Derivation:* $\theta_\oplus = R_\oplus/r_{\text{Moon}}$ (at current phase), Kepler's 3rd law from closure gives $r \propto T^{2/3}$, and $r_p = a(1-e)$.
+
+#### Step 2: Potential Projection at Moon's Periapsis
+Translating the central body's surface tension ($z_\oplus$) to the Moon's periapsis using the scale factor:
+$$
+\kappa_p^2 = \underbrace{\left(1 - \frac{1}{(1+z_\oplus)^2}\right)}_{\kappa_{\oplus\text{surf}}^2 = R_{s\oplus}/R_\oplus} \cdot \underbrace{R_{\text{ratio}}}_{R_\oplus/r_p} = \frac{R_{s\oplus}}{r_p}
+$$
+
+#### Step 3: Global Orbital Invariants (Closure Theorem)
+From [WILL RG I, thm:closure](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) $\kappa^2 = 2\beta^2$ and vis-viva invariant $\beta^2 = \kappa_p^2 - \beta_p^2$:
+$$
+\beta_p^2 = \frac{\kappa_p^2}{2}(1+e_{\text{Moon}}), \qquad 
+\beta^2 = \kappa_p^2 - \beta_p^2 = \frac{\kappa_p^2}{2}(1-e_{\text{Moon}}), \qquad
+\kappa^2 = 2\beta^2 = \kappa_p^2(1-e_{\text{Moon}})
+$$
+
+#### Step 4: Potential Projection at Moon's Current Phase ($O$)
+$$
+\kappa_{\text{Moon}}^2(O) = \frac{\kappa_p^2(1+e_{\text{Moon}})}{1+e_{\text{Moon}}\cos O} = \frac{\kappa^2(1+e_{\text{Moon}})}{(1-e_{\text{Moon}})(1+e_{\text{Moon}}\cos O)}
+$$
+At the semi-major axis ($O$ such that $\cos O = -e$): $\kappa^2 = R_{s\oplus}/a$.
+
+---
+
+### 3. Required Observables for Earth–Moon (Current Status)
+
+| Observable | Value (Legacy) | WILL RG Status |
+|------------|----------------|----------------|
+| $z_\oplus$ (Earth surface redshift) | $\approx 6.95 \times 10^{-10}$ | **Measurable on Earth** (optical clocks) |
+| $e_{\text{Moon}}$ | $0.0549$ | **Measurable from Earth** ($\omega_{\max}/\omega_{\min}$) |
+| $T_{\text{Moon}}$ | $27.3217$ days | **Measurable from Earth** |
+| $T_{\text{ref}}$ (2nd Earth satellite) | GPS: $0.5$ sidereal days | **Measurable** (GPS, LAGEOS, LARES) |
+| $\theta_\oplus = R_\oplus / r_{\text{Moon}}$ | $\approx 0.0166$ rad | **NOT directly measurable from Earth** |
+
+**The Missing Link:** $\theta_\oplus$ (Earth's angular radius as seen from the Moon) cannot be measured from Earth. It requires:
+1.  A **Moon-based observer** (lander/orbiter camera), **OR**
+2.  **Lunar Laser Ranging (LLR) 1D phase stream** decoded by the [Holographic Decoder](https://willrg.com/decoder/) which reconstructs $R_s$ and $r$ from dimensionless phase shifts alone ([WILL RG I, sec:operational](https://willrg.com/documents/WILL_RG_I.pdf#thm:operational)).
+
+> **The current WILL documentation does not explicitly cover a dedicated Earth–Moon $\theta_\oplus$ measurement protocol.** The trilogy derives Mercury/Sun and Jupiter/Sun using $\theta_\odot$ (Sun's angular radius from Earth), which *is* measurable from Earth. For Earth–Moon, the geometry is inverted.
+
+---
+
+### 4. Workaround: Use GPS as the "Reference Satellite" to Eliminate $\theta_\oplus$
+
+If we use a **GPS satellite** as the reference body ($T_{\text{ref}} = T_{\text{GPS}}$), we can form a **purely Earth-based dimensionless chain**:
+
+1.  **GPS orbit is fully solved** from Earth-surface observables ([WILL RG I, sec:earth-gps](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps)):
+    - Earth surface $z_\oplus$, $R_\oplus$ (via $\theta_\odot$? No, $R_\oplus$ needs units... wait)
+    - Actually, the Earth-GPS verification in [WILL RG I](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps) **uses legacy $GM_\oplus$, $R_\oplus$, $r_{\text{GPS}}$ as inputs** to verify the RG formula. It does *not* derive $R_s$ dimensionlessly there.
+
+2.  **True dimensionless derivation for GPS** requires $\theta_\oplus^{\text{GPS}} = R_\oplus / r_{\text{GPS}}$ (Earth's angular size from GPS). **This is measurable from GPS satellites** (Earth limb imaging).
+
+3.  **Once GPS is solved dimensionlessly**, we get $\kappa_{\text{GPS}}^2 = R_{s\oplus}/r_{\text{GPS}}$ and $R_{s\oplus}$ in geometric units.
+
+4.  **Moon's $\kappa^2$ follows from period ratio:**
+    $$
+    \frac{\kappa_{\text{Moon}}^2}{\kappa_{\text{GPS}}^2} = \frac{r_{\text{GPS}}}{r_{\text{Moon}}} = \left(\frac{T_{\text{GPS}}}{T_{\text{Moon}}}\right)^{2/3}
+    $$
+    (from Kepler's 3rd law derived from closure [R.O.M., sec:orbital_prop](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:orbital_prop)).
+
+**This chain closes without $\theta_\oplus^{\text{Moon}}$**, using only:
+- $z_\oplus$ (Earth surface)
+- $\theta_\oplus^{\text{GPS}}$ (Earth from GPS — measurable from GPS)
+- $T_{\text{GPS}}$, $T_{\text{Moon}}$ (periods — measurable from Earth)
+- $e_{\text{Moon
