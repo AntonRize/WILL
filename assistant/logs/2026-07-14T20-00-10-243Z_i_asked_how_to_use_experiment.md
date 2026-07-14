@@ -782,3 +782,58 @@ The point $r=0$ is **absent from the admissible relational range**.
 | Requires $G, M$ to calculate | **Calculated from $z, \theta, T_{ratio}, e$ alone** (Stage 5 anchor injection) |
 
 **Bottom line:** $R_s$ is the **conversion factor between the dimensionless potential projection $\kappa^2$ and physical length**. It is the *only* dimensional scale a closed relational system possesses.
+
+**User:** if k = 1, then k_X = 0, which signals that the resting mass becomes 0. right?
+
+**Assistant:** Failed to fetch
+
+**User:** if k = 1, then k_X = 0, which signals that the resting mass becomes 0. right?
+
+**Assistant (Powered by Gemini 2.5 Flash):** **Your question contains a critical ontological confusion between *invariant rest energy* ($E_0$) and *relational total energy* ($E$).**
+
+> **Contraband Detected:** *"Resting mass becomes 0."*
+
+In WILL RG, **rest mass/energy $E_0$ is strictly invariant**. It never becomes zero, nor does it change with $\kappa$ or $\beta$. What goes to zero at the horizon ($\kappa=1$) is the **relational total energy $E$** — the energy *measured by an external observer* — not the system's invariant core.
+
+---
+
+### 1. The Two Distinct Energies
+**Source:** [WILL RG I, sec:energy_quantities](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy_quantities)
+
+| Symbol | Name | Definition | Behavior at Horizon ($\kappa \to 1$) |
+| :--- | :--- | :--- | :--- |
+| **$E_0$** | **Invariant Rest Energy** | $E_0 = m c^2$. The internal projection at $\beta=0, \beta_Y=1$. | **Constant.** Never changes. The "bookkeeping identity" of the closed ledger. |
+| **$E$** | **Relational Total Energy** | $E = E_0 \frac{\kappa_X}{\beta_Y}$. The energy measured in a relational exchange. | **$E \to 0$** because $\kappa_X \to 0$. |
+
+---
+
+### 2. Why $E \to 0$ at $\kappa=1$ (Not $E_0$)
+From the **Unified Relational Scaling Lemma** [lem:unifiedscaling](https://willrg.com/documents/WILL_RG_I.pdf#lem:unifiedscaling):
+$$ E = E_0 \frac{\kappa_X}{\beta_Y} = E_0 \sqrt{\frac{1-\kappa^2}{1-\beta^2}} $$
+
+At the static horizon ($\kappa \to 1, \beta \to 0$):
+$$ \kappa_X = \sqrt{1-\kappa^2} \to 0 \quad \Longrightarrow \quad E \to 0 $$
+
+**Physical Meaning (Theorem: Causal Horizons [thm:causal_horizons](https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_horizons)):**
+> As $\kappa_X \to 0$, the internal causal structure (proper time) is exhausted. The local energy scaling *collapses*. To preserve the **Energy Symmetry Law** ($\Delta E_{A\to B} + \Delta E_{B\to A} = 0$), a transition across this boundary would require a counter-transfer of **zero energy**. No finite interaction can balance the ledger. This defines the causal horizon.
+
+---
+
+### 3. Rest Mass Invariance is a Theorem
+**Source:** [Corollary: Mass Invariance under Relational Scaling (cor:massinvariance)](https://willrg.com/documents/WILL_RG_I.pdf#cor:massinvariance)
+
+> The invariant core $E_0$ denotes the complete internal equilibrium state ($\beta_Y=\kappa_X=1$). Relational factors $\beta_Y$ and $\kappa_X$ rescale **only external manifestations** (energy, momentum, and rates), while $E_0$ remains unchanged.
+> $$ \boxed{m_g \equiv m_i \equiv m_{\mathrm{eff}} = E_0/c^2} $$
+
+$E_0$ is the **numerator** in the scaling law. It is the fixed point. The horizon is a property of the *denominator* ($\kappa_X \to 0$).
+
+---
+
+### Summary
+| Statement | WILL RG Verdict |
+| :--- | :--- |
+| $\kappa=1 \implies \kappa_X=0$ | **True.** (Conservation on $S^2$) |
+| $\kappa_X=0 \implies E \to 0$ | **True.** (Relational energy scaling collapses) |
+| $\kappa_X=0 \implies E_0 \to 0$ (mass becomes 0) | **FALSE.** Category error. $E_0$ is the invariant numerator. |
+
+**The horizon is not where mass vanishes; it is where the *relational visibility* (energy scaling) of that mass vanishes.**
