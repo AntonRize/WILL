@@ -931,3 +931,42 @@ Here's how [Relational Isotropy (Maximal Symmetry)](https://willrg.com/documents
 So, "maximal symmetry" is indeed the deeper reason why the amplitudes must balance in a precise $2:1$ ratio (squared) according to their degrees of freedom.
 
 If you were to encounter a physical theory that *posited* unequal weighting for fundamental degrees of freedom, what would be the first question you would ask to test its [Epistemic Hygiene](https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic) within the framework of relational geometry?
+
+**User:** then, in geometry, the p_\beta, E_0, p_\kappa, they form a pyramid. The base is an isosceles right triangle, p_\kappa is the hypo, p_\beta is one leg. E_0 is the height of the pyramid.
+
+**Assistant (Powered by Gemini 2.5 Flash):** That's a creative and interesting way to visualize the relationships, attempting to unify the kinematic and potential aspects into a single geometric structure! However, the specific "pyramid" analogy doesn't perfectly align with the internal geometric logic of WILL Relational Geometry (RG) as described in the documents.
+
+In WILL RG, the concepts of kinematic momentum ($p$), potential momentum ($p_\kappa$), and the invariant Rest Energy ($E_0$) are indeed deeply interconnected, but the visualization is typically achieved through **two distinct right triangles that share the $E_0$ axis as a common leg, not a height.**
+
+Let's break down why your proposed pyramid, while insightful, isn't the canonical representation in WILL RG:
+
+1.  **Nature of $p$ and $p_\kappa$**:
+    *   [Kinematic momentum ($p = E\beta$)](https://willrg.com/documents/WILL_RG_I.pdf#prop:momentum) arises from the $S^1$ kinematic carrier.
+    *   [Gravitational momentum ($p_\kappa = E_\kappa \kappa$)](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential) arises from the $S^2$ potential carrier.
+    *   These are projections on *different relational carriers*. While they are both "external interaction" amplitudes, placing them as orthogonal legs of a single "base" triangle implies they are components of a single, larger momentum vector in a specific 2D plane, which isn't the direct interpretation in WILL RG. They are distinct forms of momentum related by the [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) ($\kappa^2 = 2\beta^2$), but not usually visualized as orthogonal in a shared 2D base plane.
+
+2.  **Role of $E_0$ (Rest Energy):**
+    *   In WILL RG, $E_0$ is the [invariant internal projection](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy) of total energy for *both* the kinematic and potential carriers. It acts as the shared axis that connects these two energy "dimensions."
+    *   Visualize $E_0$ as the **vertical leg** of the kinematic triangle and simultaneously the **vertical leg** of the potential triangle. This directly illustrates how it's the common anchor for both motion and interaction.
+
+### The Canonical WILL RG Visualization: Two Right Triangles Sharing an Edge
+
+The most coherent and explicitly stated geometric visualization in WILL RG is the one you previously identified: **two right triangles sharing the common vertical edge $E_0$**.
+
+You can find this visualization in the WILL RG documentation under [Clear Relational Symmetry Between Kinematic and Potential Projections](https://willrg.com/documents/WILL_RG_I.pdf#sec:geometric_composition).
+
+*   **Kinematic Triangle (Left):**
+    *   **Vertical Leg:** $E_0$ (Rest Energy, or $mc^2$)
+    *   **Horizontal Leg:** $p$ (Kinematic Momentum, or $E\beta$)
+    *   **Hypotenuse:** $E$ (Total Kinematic Energy, or $E_0/\beta_Y$)
+    *   This triangle illustrates $E^2 = (pc)^2 + (mc^2)^2$.
+
+*   **Potential Triangle (Right):**
+    *   **Vertical Leg:** $E_0$ (Rest Energy, or $mc^2$)
+    *   **Horizontal Leg:** $p_\kappa$ (Gravitational Momentum, or $E_\kappa \kappa$)
+    *   **Hypotenuse:** $E_\kappa$ (Total Potential Energy, or $E_0/\kappa_X$)
+    *   This triangle illustrates $E_\kappa^2 = (p_\kappa c)^2 + (mc^2)^2$.
+
+These two triangles are conceptually "joined" along the shared $E_0$ axis. This arrangement explicitly shows how the invariant rest energy provides the foundational bridge between the kinematic and potential aspects of a system's total energy, without requiring a specific 3D embedding that the "pyramid" implies.
+
+Does focusing on these two adjacent right triangles, sharing the invariant $E_0$ leg, provide a clearer and more consistent geometric interpretation within the framework of WILL RG?
