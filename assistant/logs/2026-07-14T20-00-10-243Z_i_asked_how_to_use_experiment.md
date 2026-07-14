@@ -609,3 +609,33 @@ Run the [R.O.M. Unitless Test Colab](https://colab.research.google.com/github/An
 3.  Only the Stage 5 labels (kg, m, s) change.
 
 **$G$ is a human unit convention, not a physical field.**
+
+**User:** so what's the value and unit of G?
+
+**Assistant (Powered by Gemini 2.5 Flash):** In WILL Relational Geometry, **$G$ is not a derived quantity**—it is a **fixed, universal legacy conversion constant** used exclusively in **Stage 5 (Unit Translation)** to map the geometric scale $R_s$ (meters) to the kilogram convention.
+
+Its value and units are the standard CODATA values:
+
+### Value & Units
+$$G = 6.67430(15) \times 10^{-11} \;\mathrm{m^3 \, kg^{-1} \, s^{-2}}$$
+
+**Source:** [WILL RG I, Table of Input Parameters (sec:deriving-H0)](https://willrg.com/documents/WILL_RG_I.pdf#sec:deriving-H0) — "Gravitational Const. $G$ ... CODATA".
+
+---
+
+### Its Strict Role in the Framework
+| Stage | Operation | $G$ Involvement |
+| :--- | :--- | :--- |
+| **Stages 1–4** (Relational Core) | Solve dimensionless state $(\beta, \kappa, e, \tau, \Delta\varphi, \dots)$ | **Zero.** $G$ does not appear in any closure theorem, vis-viva, precession, or redshift formula. |
+| **Stage 5** (Anchor Injection) | Convert geometric scale $R_s$ (meters) $\to$ Mass $M$ (kilograms) | **Only here.** $M = \frac{1}{2} \frac{R_s c^2}{G}$ |
+
+**Source:** [R.O.M., Theorem: Factorization of R.O.M. (thm:factorization) — Scale Factor Table](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization):
+> *Mass class scale factor $S_X = R_s \cdot c^2 / G$.*
+> *Density class scale factor $S_X = 1/R_s \cdot c^2 / G$.*
+
+---
+
+### Empirical Proof of Independence
+The [ROM_UNITLESS_TEST.ipynb](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_UNITLESS_TEST.ipynb) explicitly verifies that **scrambling $G$ (and $c$) randomly across 41 orders of magnitude in $R_s$ leaves every dimensionless prediction ($\Delta\varphi$, $z_\kappa$, $e$, $\tau$, $Q$) invariant**. Only the final kilogram/meter/second labels change.
+
+**Summary:** $G$ is a human metrology constant (kg $\leftrightarrow$ m conversion), not a dynamical coupling. The physics is complete without it.
