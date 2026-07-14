@@ -200,3 +200,84 @@ If we use a **GPS satellite** as the reference body ($T_{\text{ref}} = T_{\text{
 - $\theta_\oplus^{\text{GPS}}$ (Earth from GPS — measurable from GPS)
 - $T_{\text{GPS}}$, $T_{\text{Moon}}$ (periods — measurable from Earth)
 - $e_{\text{Moon
+
+**User:** in newtonian physics, what's the formula to describe the moon orbiting around the earth?
+
+**Assistant (Powered by Gemini 2.5 Flash):** In Newtonian physics, the Moon's orbit around Earth is described by **Newton's Law of Universal Gravitation** combined with **Newton's Second Law of Motion**. The gravitational force provides the necessary centripetal acceleration for orbital motion.
+
+### 1. Fundamental Force Law
+$$
+\vec{F} = -G \frac{M_\oplus M_{\text{Moon}}}{r^2} \hat{r}
+$$
+Where:
+- $G \approx 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$ (Gravitational constant)
+- $M_\oplus \approx 5.972 \times 10^{24} \, \text{kg}$ (Earth mass)
+- $M_{\text{Moon}} \approx 7.342 \times 10^{22} \, \text{kg}$ (Moon mass)
+- $r$ = instantaneous Earth–Moon distance
+- $\hat{r
+
+**User:** in newtonian physics, what's the formula to describe the moon orbiting around the earth?
+
+**Assistant:** Failed to fetch
+
+**User:** in newtonian physics, what's the formula to describe the moon orbiting around the earth?
+
+**Assistant (Powered by Gemini 2.5 Flash):** In Newtonian physics, the Moon's motion is described by **two coupled equations**:
+
+---
+
+### 1. Gravitational Force (Newton's Law of Universal Gravitation)
+$$
+\vec{F} = -G \frac{M_\oplus M_{\text{Moon}}}{r^2} \, \hat{r}
+$$
+- $G \approx 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$
+- $M_\oplus \approx 5.972 \times 10^{24} \, \text{kg}$ (Earth mass)
+- $M_{\text{Moon}} \approx 7.342 \times 10^{22} \, \text{kg}$ (Moon mass)
+- $r$ = instantaneous Earth–Moon distance
+- $\hat{r}$ = unit vector from Moon to Earth
+
+---
+
+### 2. Equation of Motion (Newton's Second Law)
+$$
+M_{\text{Moon}} \, \ddot{\vec{r}} = \vec{F}
+\quad \Longrightarrow \quad
+\ddot{\vec{r}} = -G M_\oplus \frac{\hat{r}}{r^2}
+$$
+*(The Moon's mass cancels — the **equivalence principle** is built in as $m_i = m_g$.)*
+
+---
+
+### 3. Orbital Solution (Keplerian Ellipse)
+The solution is a conic section. For the bound Moon–Earth system:
+$$
+r(\theta) = \frac{a(1-e^2)}{1 + e \cos \theta}
+$$
+with orbital elements:
+| Parameter | Value (approx.) |
+|-----------|-----------------|
+| Semi-major axis $a$ | $3.844 \times 10^8 \, \text{m}$ |
+| Eccentricity $e$ | $0.0549$ |
+| Period $T$ | $27.32 \, \text{days}$ |
+| Mean motion $n = 2\pi/T$ | $2.66 \times 10^{-6} \, \text{rad/s}$ |
+
+---
+
+### 4. Kepler's Third Law (System Scale)
+$$
+T^2 = \frac{4\pi^2}{G M_\oplus} a^3
+\quad \Longrightarrow \quad
+G M_\oplus = \frac{4\pi^2 a^3}{T^2} \approx 3.986 \times 10^{14} \, \text{m}^3/\text{s}^2
+$$
+
+---
+
+### Ontological Note (WILL RG Perspective)
+In **WILL Relational Geometry**, this entire structure is **not fundamental**. The Newtonian framework assumes:
+- Absolute space & time (background container)
+- Force as a causal primitive
+- Mass $M$ and $G$ as independent constants
+
+WILL RG derives the **same orbital phenomena** (Kepler's laws, vis-viva, precession, $R_s$) from **dimensionless relational projections** $\beta = v/c$, $\kappa^2 = R_s/r$ on the carriers $S^1, S^2$, linked by the closure theorem $\kappa^2 = 2\beta^2$ — **without $G$, $M$, or differential equations**. See [R.O.M., sec:orbital_prop](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:orbital_prop) and [sec:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization).
+
+The Newtonian formulas above are the **linearized, single-point collapse** of the two-point Energy Symmetry Law $\Delta E_{A\to B} + \Delta E_{B\to A} = 0$ [WILL RG I, sec:classical](https://willrg.com/documents/WILL_RG_I.pdf#sec:classical).
