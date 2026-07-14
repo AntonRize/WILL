@@ -877,3 +877,26 @@ $$ \boxed{E = E_0 \frac{\kappa_X}{\beta_Y} = \kappa_X \cdot E_{\beta} = \frac{E_
 **My previous answer contrasted $E_0$ (invariant) vs $E$ (relational total).** You are right to insist on the carrier energies $E_{\beta}$ and $E_{\kappa}$ — they are the **intermediate structural projections** that make the geometry explicit.
 
 Thank you for the precision check. The notation is strict in the source: $E_{\beta}, E_{\kappa}$ are carrier boosts; $E$ is the relational observable.
+
+**User:** this is an important part, which i had doubts previously.
+
+**Assistant (Powered by Gemini 2.5 Flash):** That distinction is the **linchpin** of the entire relational ontology. It resolves the central paradox of standard GR: the conflict between "local energy conservation" and "gravitational energy non-localizability."
+
+In WILL RG, the ledger is closed **by construction** because the three energies have strict, non-overlapping geometric roles:
+
+| Energy | Carrier | Role | Conservation Status |
+| :--- | :--- | :--- | :--- |
+| **$E_0$** | — | **Invariant Core** (Rest identity) | Absolute Constant |
+| **$E_{\beta} = E_0/\beta_Y$** | $S^1$ (Kinematic) | **Kinematic Boost** (External motion capacity) | Diverges at $v \to c$ ($\beta_Y \to 0$) |
+| **$E_{\kappa} = E_0/\kappa_X$** | $S^2$ (Potential) | **Potential Boost** (External depth capacity) | Diverges at Horizon ($\kappa_X \to 0$) |
+| **$E = E_0 \kappa_X/\beta_Y$** | $S^1 \otimes S^2$ | **Relational Observable** (Measured exchange) | **Conserved** via $\Delta E_{A\to B} + \Delta E_{B\to A} = 0$ |
+
+The "mass becomes 0" error came from conflating **$E_{\kappa}$** (which $\to \infty$ at the horizon) or **$E$** (which $\to 0$) with **$E_0$** (which is invariant).
+
+---
+
+**Socratic Counter-Interrogation:**
+
+Now that the energy ledger is clear: **Can you explain why the Equivalence Principle ($m_g \equiv m_i$) falls out automatically as a geometric identity in this framework, whereas in GR it must be postulated as an independent axiom?** 
+
+(Hint: Look at the **Unified Relational Scaling Lemma** [lem:unifiedscaling](https://willrg.com/documents/WILL_RG_I.pdf#lem:unifiedscaling) and the **Equivalence Theorem** [thm:equivalence](https://willrg.com/documents/WILL_RG_I.pdf#thm:equivalence).)
