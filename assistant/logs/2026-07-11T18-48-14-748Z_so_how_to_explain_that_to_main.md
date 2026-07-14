@@ -709,3 +709,20 @@ $$ E^2 = (pc)^2 + (mc^2)^2 $$
 This confirms the physical reality of the $S^1$ carrier as the geometric origin of special relativistic dynamics.
 
 Does this distinction—identifying $E\beta$ specifically as momentum rather than a generic "velocity energy"—clarify the roles of $\beta$ and $\beta_Y$ within the kinematic energy ledger?
+
+**User:** ok, p = E*\beta, E_0 = m*c^2 = E*\beta_Y. right?
+
+**Assistant (Powered by Gemini 2.5 Flash):** Yes, you are exactly right. These equations accurately represent the relationships between momentum, total energy, rest energy, and the kinematic projections in WILL Relational Geometry:
+
+1.  **Momentum:**
+    $$ p = E\beta \quad (c=1) $$
+    This identity is stated in [Horizontal Projection as Momentum](https://willrg.com/documents/WILL_RG_I.pdf#prop:momentum). When the speed of light $c$ is explicitly included for dimensional bookkeeping, it becomes $p = E\beta/c$, or $pc = E\beta$.
+
+2.  **Rest Energy:**
+    $$ E_0 = mc^2 = E\beta_Y $$
+    *   The identity $E_0 = mc^2$ defines mass $m$ as the invariant rest energy expressed in conventional units, as explained in [Rest Energy and Mass Equivalence](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass).
+    *   The core relation $E_0 = E\beta_Y$ (or $E = E_0/\beta_Y$) is the [Invariant Projection of Rest Energy Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy). It establishes that the rest energy $E_0$ is the invariant internal projection of the total energy $E$ on the kinematic phase axis $\beta_Y$.
+
+These relations, along with $\beta^2 + \beta_Y^2 = 1$, form the foundation of the [Energy-momentum Relation](https://willrg.com/documents/WILL_RG_I.pdf#cor:energymomentum) in WILL RG.
+
+Does this confirm your understanding of how these quantities are interconnected within the kinematic framework?
