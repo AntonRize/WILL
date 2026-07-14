@@ -81,3 +81,7 @@ If you want to **test this yourself**, you can:
 3.  Run the [Earth-GPS Colab](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Earth_GPS_1st_order_RG=GR.ipynb) and adapt the input parameters ($R_s$, orbital radius, period) to the Earth–Moon system.
 
 **Would you like me to derive the expected $z_\kappa$ value for the Moon using only the relational observables (orbital parameterization method from [R.O.M., sec:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization))?**
+
+**User:** yes
+
+**Assistant (Powered by Gemini 2.5 Flash):** I will derive the expected gravitational redshift $z_\kappa$ for the Earth–Moon system using **only the relational observables** and the algebraic parameterization chain established in [R.O.M., sec:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization) (Theorem [thm:relational_parameterization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:relational_parameterization)). This is the exact same chain used to derive Mercury's precession and the S
