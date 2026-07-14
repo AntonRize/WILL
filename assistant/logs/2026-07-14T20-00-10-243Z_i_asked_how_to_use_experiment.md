@@ -639,3 +639,41 @@ $$G = 6.67430(15) \times 10^{-11} \;\mathrm{m^3 \, kg^{-1} \, s^{-2}}$$
 The [ROM_UNITLESS_TEST.ipynb](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_UNITLESS_TEST.ipynb) explicitly verifies that **scrambling $G$ (and $c$) randomly across 41 orders of magnitude in $R_s$ leaves every dimensionless prediction ($\Delta\varphi$, $z_\kappa$, $e$, $\tau$, $Q$) invariant**. Only the final kilogram/meter/second labels change.
 
 **Summary:** $G$ is a human metrology constant (kg $\leftrightarrow$ m conversion), not a dynamical coupling. The physics is complete without it.
+
+**User:** i see, G is a constant like c.
+
+**Assistant (Powered by Gemini 2.5 Flash):** **Yes and no.** They are both *numerical constants* in the SI system, but their **ontological status in WILL RG is fundamentally different**.
+
+---
+
+### 1. $c$ — **Structural Primitive (The Global Tempo)**
+$c$ is the **unit radius of the relational carriers $S^1$ and $S^2$**.  
+It represents the **Constant Universal Rate of Change** — the maximum conversion rate between internal phase ($\beta_Y, \kappa_X$) and external amplitude ($\beta, \kappa$).
+
+*   **Role:** Sets the scale of the dimensionless projections ($\beta = v/c$, $\kappa = v_e/c$).
+*   **Origin:** Derived from the **closure of the carriers** (phase exhaustion $\beta_Y \to 0$ or $\kappa_X \to 0$ defines the causal horizon).
+*   **Stage:** **Stages 1–4 (Relational Core).** The dimensionless geometry $\hat{X}$ is built on $c=1$ (natural units). $c$ is the "speed limit" because it is the **geometric boundary of the carrier**.
+
+> **Source:** [WILL RG I, sec:carriers](https://willrg.com/documents/WILL_RG_I.pdf#sec:carriers) — "The unit radius of kinetic and potential carriers represents the Constant Universal Rate of Change, the Global Tempo of Transformations."
+> **Source:** [WILL RG I, thm:causal_horizons](https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_horizons) — Speed of light / Event Horizon = Phase Exhaustion.
+
+---
+
+### 2. $G$ — **Legacy Unit Conversion (Anthropic Metrology)**
+$G$ is **not** a structural parameter of the relational geometry.  
+It appears **only in Stage 5** to translate the geometric scale $R_s$ (meters) into the **kilogram convention** (kg).
+
+*   **Role:** $M = \frac{1}{2} \frac{R_s c^2}{G}$ — converts geometric length to SI mass.
+*   **Origin:** Historical artifact of measuring inertia in kg and force in Newtons.
+*   **Stage:** **Stage 5 only (Unit Translation).** The dimensionless core $\hat{X}$ is completely $G$-free.
+
+> **Source:** [R.O.M., thm:factorization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization) — Scale Factor Table: $G$ appears **only** in Mass ($R_s c^2/G$) and Density ($c^2/(G R_s)$) classes.
+> **Source:** [ROM_UNITLESS_TEST.ipynb](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_UNITLESS_TEST.ipynb) — Scrambling $G$ randomly changes *only* the final kg/m/s labels, **never** the dimensionless predictions ($\Delta\varphi, z_\kappa, e, \tau$).
+
+---
+
+### Summary Table
+
+| Property | $c$ | $G$ |
+| :--- | :--- | :--- |
+| **Ontological Weight** | **Primitive** (Carrier Radius = Global Tempo) | **Zero** (
