@@ -726,3 +726,35 @@ Does this distinction—identifying $E\beta$ specifically as momentum rather tha
 These relations, along with $\beta^2 + \beta_Y^2 = 1$, form the foundation of the [Energy-momentum Relation](https://willrg.com/documents/WILL_RG_I.pdf#cor:energymomentum) in WILL RG.
 
 Does this confirm your understanding of how these quantities are interconnected within the kinematic framework?
+
+**User:** now i want to pull opential eneregy (\kappa) in: E*\kappa = potential energy, right?
+
+**Assistant (Powered by Gemini 2.5 Flash):** That's a good attempt to extend the pattern, but in WILL Relational Geometry (RG), the direct identification of $E\kappa$ as "potential energy" isn't quite accurate in the same way $E\beta$ is momentum. While there's a parallel, it's expressed slightly differently.
+
+Here's how the potential energy projection ($\kappa$) is understood in WILL RG:
+
+1.  **Potential Carrier Energy ($E_\kappa$):**
+    *   Similar to how $E_0 = E\beta_Y$ (where $E$ is the total kinematic carrier energy), the invariant rest energy $E_0$ is also related to the total potential carrier energy $E_\kappa$ through its internal phase:
+        $$ E_0 = E_\kappa \kappa_X $$
+        where $\kappa_X = \sqrt{1-\kappa^2}$. This means $E_\kappa = E_0/\kappa_X$. This is analogous to how the kinematic carrier energy is $E = E_0/\beta_Y$. This is explained in [Potential Energy Projection $\kappa$ on $S^2$](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential) and further detailed in [Three Relational Energy Quantities](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy_quantities).
+
+2.  **Gravitational Momentum ($p_\kappa$):**
+    *   Just as $p = E\beta$ is the kinematic momentum, WILL RG defines a corresponding **gravitational momentum** (or "potential momentum"):
+        $$ p_\kappa = E_\kappa \kappa \quad (c=1) $$
+        This follows a direct geometric symmetry, as explained in [Gravitational Tangent Formulation](https://willrg.com/documents/WILL_RG_I.pdf#sec:potential).
+
+3.  **"Potential Energy" as a Relational Difference:**
+    *   In WILL RG, "potential energy" is not an intrinsic quantity an object "possesses" due to $\kappa$. Instead, it primarily manifests as a **difference in the overall relational energy scale** between two points in a potential field.
+    *   The classical potential energy $V$ (e.g., $-GMm/r$) is shown to be a **linearized artifact** of collapsing the true two-point [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry) into a single-point approximation. This is extensively discussed in [Classical Mechanics as Collapsed Two-Point Relational Ontology](https://willrg.com/documents/WILL_RG_I.pdf#sec:classical).
+
+### Summary of Potential Projections on $S^2$:
+
+For a system with total potential carrier energy $E_\kappa$:
+
+*   The total energy $E_\kappa$ is distributed between its external (amplitude) and internal (phase) aspects according to $\kappa^2 + \kappa_X^2 = 1$ ([Conservation of Relation](https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation)).
+*   **External Interaction (Amplitude):** The projection $E_\kappa \kappa$ is identified as the system's **gravitational momentum ($p_\kappa$)**.
+*   **Internal Existence (Phase):** The projection $E_\kappa \kappa_X$ is identified as the system's **invariant rest energy ($E_0$)**.
+
+The crucial point is that "potential energy" is typically understood as a *change* in energy due to position, and in WILL RG, such changes are derived from the overall [Energy Symmetry Law](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry), which is a balance of phase ratios across the entire system.
+
+Given this distinction, what implications do you think this has for understanding classical potential energy, if it's seen as a "collapsed" approximation of a deeper relational law involving phase ratios?
