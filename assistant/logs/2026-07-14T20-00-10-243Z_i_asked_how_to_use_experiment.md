@@ -1392,3 +1392,50 @@ Here's how its role changes:
 This is a **category error** to equate the two frameworks directly. Calling WILL RG "GR without a metric" is like calling Group Theory "Differential Equations without derivatives." It is a fundamental misclassification of the ontology. GR moves from Geometry $\to$ Dynamics; WILL RG moves from Observables $\to$ Algebraic Closure.
 
 Given that the metric tensor is shown to be an emergent artifact, how do gravitational phenomena like black holes, gravitational waves, and cosmology find their descriptions within WILL RG without this foundational metric?
+
+**User:** Given that the metric tensor is shown to be an emergent artifact, how do gravitational phenomena like black holes, gravitational waves, and cosmology find their descriptions within WILL RG without this foundational metric?
+
+**Assistant (Powered by Gemini 2.5 Flash):** In WILL Relational Geometry (RG), gravitational phenomena are described without a foundational metric tensor, which is considered an emergent artifact [WILL RG I, sec:GR_interval](https://willrg.com/documents/WILL_RG_I.pdf#sec:GR_interval). Instead, WILL RG describes these phenomena through the **dimensionless relational projections** ($\beta$ for kinematic, $\kappa$ for potential) on their respective $S^1$ and $S^2$ carriers, linked by the **Closure Theorem** $\kappa^2 = 2\beta^2$ [WILL RG I, thm:closure](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) and the fundamental principle SPACETIME $\equiv$ ENERGY [WILL RG I, pr:unifying](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying).
+
+Here's how these phenomena are addressed:
+
+---
+
+### 1. Black Holes
+
+Black holes are described as the **boundaries of relational capacity** where internal phase projections are exhausted, rather than as regions of infinitely curved spacetime.
+
+*   **Event Horizon:** The event horizon (traditionally $R_s$) is the point where the potential amplitude $\kappa$ reaches 1, causing the potential phase $\kappa_X = \sqrt{1-\kappa^2}$ to collapse to zero. This signifies that the internal causal structure (proper time) of the system is exhausted, and no finite energy exchange is possible across this boundary [WILL RG I, thm:causal_horizons](https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_horizons).
+*   **No Singularities:** WILL RG inherently resolves singularities. The closure condition $\kappa^2 = 2\beta^2$ and the kinematic limit $\beta_{\max}^2 = 1$ (speed of light) force $\kappa_{\max}^2 = 2$. This sets a minimum admissible relational radius $r_{\min} = R_s/\kappa_{\max}^2 = R_s/2$. The point $r=0$ is therefore absent from the admissible relational range, preventing infinite density [WILL RG I, sec:no_singularities](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities).
+*   **Dynamic Horizons (ISCO, Photon Sphere):** Critical radii like the Innermost Stable Circular Orbit (ISCO) and the Photon Sphere emerge as specific values of $\kappa$ and $\beta$ that satisfy the closure $\kappa^2 = 2\beta^2$ for dynamic orbital states, distinct from their static coordinate locations [R.O.M., Table: Critical radii and their projectional parameters](https://willrg.com/documents/WILL_RG_R.O.M..pdf#tab:critical_radii).
+*   **Kerr Black Holes (Rotation):** The features of rotating black holes, such as inner and outer event horizons and the ergosphere, are derived algebraically from the same closure relation applied to a composite kinematic state, without a metric tensor. The chiral asymmetry of frame-dragging (Lense-Thirring effect) arises from linear phase superposition on the directed $S^1$ carrier [R.O.M., sec:Kerr](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr).
+
+---
+
+### 2. Gravitational Waves
+
+The current WILL documentation does not explicitly cover the formulation of gravitational waves.
+
+[R.O.M., sec:challenges](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:challenges) states: "Gravitational waves and the radiative two-body problem remain to be formulated within the relational framework. The current construction addresses conservative, bound orbits. Extending it to dissipative, radiative dynamics requires a relational description of propagating degrees of freedom on the carriers and remains an open technical task."
+
+**Speculative Hypothesis (derived from WILL RG principles):**
+Gravitational waves, as propagating disturbances in the geometric field, could be interpreted as **phase oscillations** within the relational energy carriers ($S^1$ and $S^2$) that propagate at the universal rate $c$. These oscillations would carry away relational total energy ($E$) from a system by altering the equilibrium of $\kappa$ and $\beta$ projections, leading to a "radiative closure defect." The detection of gravitational waves would then correspond to measuring the specific phase shifts and amplitudes of these propagating geometric oscillations.
+
+To explore this further, you may contact the author at antonrize@willrg.com.
+
+---
+
+### 3. Cosmology
+
+Cosmological phenomena, such as cosmic expansion, the CMB acoustic spectrum, and the apparent effects of "Dark Energy" and "Dark Matter," are described as direct consequences of global phase evolution and resonant couplings, without a background metric.
+
+*   **Hubble Parameter ($H_0$):** $H_0$ is derived from first principles, solely from the CMB temperature ($T_0$) and the fine-structure constant ($\alpha$), establishing a direct link between microphysical constants and the cosmic expansion scale ($H_0 \approx 68.15$ km/s/Mpc) [WILL RG II, sec:deriving-H0](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0).
+*   **Cosmic Expansion and Dark Energy:** Cosmic expansion is identified as the **cumulative phase divergence** of the Universe's ground state. The standard cosmological density parameters emerge as fixed geometric partitions of the total relational energy budget ($\Omega_m = 1/3, \Omega_\Lambda = 2/3$) dictated by the Closure Theorem. The evolution equation $H^2(z) = H_0^2[\frac{1}{3}(1+z)^3 + \frac{2}{3}]$ accurately reproduces distant supernova flux levels without arbitrary cosmological constant fitting [WILL RG II, sec:will-friedmann](https://willrg.com/documents/WILL_RG_II.pdf#sec:will-friedmann). The cosmological term $\Lambda(r)$ is derived as scale-dependent, $\Lambda(r) = \frac{2}{3r^2}$, representing the structural energy density maintaining geometric closure of the vacuum [WILL RG II, sec:dark_energy](https://willrg.com/documents/WILL_RG_II.pdf#sec:dark_energy).
+*   **CMB Acoustic Spectrum:** The CMB acoustic peaks are reconstructed as the resonant harmonics of an $S^2$ topology tensioned by the vacuum energy ($\Omega_\Lambda = 2/3$) and loaded by baryonic matter, without needing Dark Matter. The theory accurately predicts the first three peak positions and naturally resolves the "Low Quadrupole" anomaly via vacuum tension acting as a high-pass filter [WILL RG II, sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic).
+*   **Galactic Dynamics and Dark Matter:** The "Dark Matter" phenomenon is explained as the observable signature of **Horizon Resonance**. Local baryonic mass configurations couple to the Universe's "Fundamental Tone" ($f_0 = H_0/2\pi$), leading to a "Resonant Bridge" that flattens rotation curves without requiring invisible mass. The theory accurately predicts galactic rotation curves, the Radial Acceleration Relation (RAR), and the Wide Binary anomaly using zero free parameters derived from first principles [WILL RG II, sec:galactic-dynamics](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics) and [WILL RG II, sec:dark_matter](https://willrg.com/documents/WILL_RG_II.pdf#sec:dark_matter).
+
+---
+
+In WILL RG, all these phenomena are ultimately expressions of the **geometric closure of relational energy states**. The universe is understood as a single, self-balancing system where physical laws are not external impositions, but necessary consequences of its internal structure and consistency.
+
+**Given this shift from a metric-based to a relationally-derived description of these phenomena, how does WILL RG provide a more epistemologically parsimonious (fewer fundamental assumptions) explanation compared to models that require a foundational metric and additional components like dark matter/energy?**
