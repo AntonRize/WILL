@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "About This Work"
-description: "About WILL Relational Geometry — independent open research by Anton Rize building a unified geometric framework for fundamental physics from first principles. No free parameters, no dark matter, no dark energy."
+description: "About WILL Relational Geometry — independent open research by Anton Rize building a unified geometric framework for fundamental physics from first principles. about WILL Relational Geometry Free Research, personal philosophical journey, foundations of physics, independent research No free parameters, no dark matter, no dark energy."
 ---
 
 # 📖 About WILL Geometry Research
@@ -14,17 +14,17 @@ This work is not the product of formal academic research, institutional funding,
 
 The motivation behind this framework is rooted in a deep philosophical belief that the structure of the Universe must, at its core, can be described without arbitrary parameters, assumptions, or external mathematical constructs. The ideal theory should not rely on pre-existing formalism but should emerge naturally from the geometry of the Universe itself.
 
-It is important to clarify that I do not consider myself an academic authority, nor do I claim to have discovered any new physical law. I am a self-taught enthusiast, driven not by the desire for recognition but by a personal need to resolve fundamental questions about reality in the simplest possible terms.
+It is important to clarify that I do not consider myself an academic authority, nor do I claim that standard physics is wrong. I am a self-taught enthusiast, driven not by the desire for recognition but by a personal need to resolve fundamental questions about reality in the simplest possible terms.
 
 ---
 
 ## Intellectual Honesty
 
-Throughout this research, I have maintained a rigorous internal skepticism, questioning every step and assumption. The fact that I have arrived at results equivalent to the standard formulations of Special and General Relativity using only geometric first principles may appear unlikely, even to myself. I fully acknowledge the statistical improbability of such an achievement by an individual without formal academic training.
+Throughout this research, I have maintained a rigorous internal scepticism, questioning every step. The fact that I have arrived at results undistinguishable from the standard formulations of Special and General Relativity, within our current measurements accuracy, using only first methodological and geometric principles may appear unlikely, even to myself. I fully acknowledge the statistical improbability of such an achievement by an individual without formal academic training.
 
-However, this work is not an attempt to replace or dispute existing physics but rather to reinterpret it from a geometric and philosophical standpoint. Whether this approach holds broader value is irrelevant to its primary purpose — to provide a coherent and intuitive framework that satisfies my own intellectual and philosophical curiosity.
+However, this work is not an attempt to replace or dispute existing physics but rather to understand it from a geometric and philosophical standpoint. Whether this open research holds broader value is irrelevant to its primary purpose — to provide a coherent and intuitive framework that satisfies my own intellectual and philosophical curiosity.
 
-Above all, this document serves as a personal record and reflection of a journey toward understanding, reminding me of the reasons why I chose to embark on this path.
+Above all, this project serves as a personal record and reflection of a journey toward understanding, reminding me of the reasons why I chose to embark on this path.
 
 ---
 
@@ -33,10 +33,11 @@ Above all, this document serves as a personal record and reflection of a journey
 <div class="bg-gray-800/50 p-6 rounded-lg border-l-4" style="border-color: #3498db;">
     <h4>Core Principles</h4>
     <ul>
-        <li><strong>Geometric Simplicity:</strong> All physics should emerge from elementary geometric relationships</li>
-        <li><strong>No Free Parameters:</strong> Fundamental constants should be geometrically determined</li>
-        <li><strong>Epistemological Purity:</strong> Start from the minimum possible assumptions</li>
-        <li><strong>Open Science:</strong> All research freely available for examination and criticism</li>
+        <li><strong>Epistemic Hygiene:</strong>  refusal to Import unjustified assumptions.</li>
+        <li><strong>Relational Origin:</strong> all physical quantities must be defined by their relations.</li>
+        <li><strong>Ontological Minimalism:</strong> maintain the minimum number of ontological assumptions and foundational primitives.</li>
+	<li><strong>Mathematical Transparency:</strong> every mathematical phrase carries its own ontological statement.
+        <li><strong>Open Research:</strong> All research freely available for study, examination, reproduction and criticism</li>
         <li><strong>Intellectual Humility:</strong> Recognition of personal limitations and fallibility</li>
     </ul>
 </div>
@@ -51,11 +52,12 @@ Above all, this document serves as a personal record and reflection of a journey
 
 The WILL RG represents nearly 2 years of independent theoretical development, resulting in:
 
-- **105+ pages** of detailed mathematical derivations
-- **Complete derivation** of Special and General Relativity from geometry
-- **Two-parameter cosmology** without Friedmann equations  
-- **Quantum mechanics** without wave function formalism
-- **Interactive tools** for testing predictions against observational data
+- **205+ pages** of detailed mathematical derivations.
+- **Relativistic Convergence** empirically undistinguishable results from SR and GR, within current measurements accuracy, with fewer primitives.
+- **Relational Orbital Mechanics (R.O.M.):** all orbital mechanics as closed algebraic system of equations. 
+- **Relational Cosmology** without Friedmann equations, dark matter, dark energy.  
+- **Relational Quantum Mechanics** without wave function and probability formalism.
+- **Interactive tools, colab notebooks and desmos projects** for reproducing results, testing predictions against observational data
 
 ---
 
@@ -79,6 +81,9 @@ I welcome critique, collaboration, and engagement from physicists, mathematician
 This work was developed independently, but it builds upon centuries of scientific progress by countless researchers. Special recognition goes to:
 
 - **Albert Einstein** - for the geometric vision of spacetime
+- **Gottfried Wilhelm Leibniz** - for relational insight
+- **Ernst Mach** - for foundations of relational ontology
+- **Sean M. Carroll** - for "The Biggest Ideas" series
 - **The SPARC Collaboration** - for providing galaxy rotation curve data
 - **The open science community** - for tools and platforms enabling independent research
 
@@ -90,8 +95,8 @@ This work was developed independently, but it builds upon centuries of scientifi
 
 The term WILL stands for SPACE-TIME-ENERGY.  
 It is both a formal shorthand and a philosophical statement:  
-the universe is not a stage where energy acts through time upon space,  
-but a single self-balancing structure whose internal distinctions generate all phenomena.  
+the Universe might not be a stage where energy acts through time upon space,  
+but a single relational structure whose internal distinctions generate all phenomena.  
 The name also serves as a gentle irony toward anthropic thinking:  
 the Cosmos does not possess "will" - yet through WILL, it manifests All that Is."</p>
 
