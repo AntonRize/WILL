@@ -36,9 +36,9 @@ Above all, this project serves as a personal record and reflection of a journey 
         <li><strong>Epistemic Hygiene:</strong>  refusal to Import unjustified assumptions.</li>
         <li><strong>Relational Origin:</strong> all physical quantities must be defined by their relations.</li>
         <li><strong>Ontological Minimalism:</strong> maintain the minimum number of ontological assumptions and foundational primitives.</li>
-	<li><strong>Mathematical Transparency:</strong> every mathematical phrase carries its own ontological statement.
-        <li><strong>Open Research:</strong> All research freely available for study, examination, reproduction and criticism</li>
-        <li><strong>Intellectual Humility:</strong> Recognition of personal limitations and fallibility</li>
+	<li><strong>Mathematical Transparency:</strong> every mathematical phrase carries its own ontological statement.</li>
+        <li><strong>Open Research:</strong> All research freely available for study, examination, reproduction and criticism.</li>
+        <li><strong>Intellectual Humility:</strong> Recognition of personal limitations and fallibility.</li>
     </ul>
 </div>
 
