@@ -1284,3 +1284,11 @@ If you'd like to delve deeper, I can guide you to specific areas:
 *   **Specific Applications:** Test galactic rotation curves against the [SPARC dataset](https://willrg.com/galactic_dynamics/) or explore the [Holographic Decoder](https://willrg.com/decoder/) for extracting metric information from 1D radial velocity data.
 
 To help me calibrate future discussions even better, I'm curious—where did you first hear about WILL RG?
+
+**User:** i just search online about spacetime. i have been constantly learning relativity. one day i found a youtube video. that has link to  WILL docs.
+
+**Assistant:** Failed to fetch
+
+**User:** i just search online about spacetime. i have been constantly learning relativity. one day i found a youtube video. that has link to  WILL docs.
+
+**Assistant:** Failed to fetch
