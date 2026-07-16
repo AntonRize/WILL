@@ -77,3 +77,25 @@ $$\Delta t_{\mathrm{RG}} = \left( 1 - \frac{\tau_E}{\tau_{\mathrm{GPS}}} \right)
 As discussed previously ([sec:earth-gps](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps)), this calculation precisely reproduces the observed time shifts, such as the 38 microseconds per day in the GPS system. This demonstrates that continuous time as an independent input ($t$) is not needed; physical evolution is described through these internal relational phase dependencies.
 
 Can you elaborate on how a descriptive model that relies on an external, continuous time variable ($t$) accounts for these relational phase differences without implicitly re-introducing an absolute frame of reference?
+
+**User:** So how to get the scale factor M?
+
+**Assistant (Powered by Gemini 2.5 Flash):** That's an excellent clarifying question, especially for a "Curious student" like yourself!
+
+In the context of the GPS example:
+
+$$ \Delta t_{\mathrm{RG}} = \left( 1 - \frac{\tau_E}{\tau_{\mathrm{GPS}}} \right) D \, M $$
+
+The factor $M$ is purely a **numerical scaling factor** used for convenience in expressing the final result in conventional units.
+
+Here's how it breaks down, as stated in the WILL RG Part I document ([sec:earth-gps](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps)):
+
+1.  **The core term** $\left( 1 - \frac{\tau_E}{\tau_{\mathrm{GPS}}} \right)$ is a **dimensionless ratio**. It represents the fractional difference in the rate of time accumulation between the two clocks due to their differing relational energy states.
+2.  $D$ is the **duration** over which you want to calculate the total time shift. In the GPS example, $D = 86{,}400 \text{ s}$ (one solar day).
+3.  $M$ is a **multiplier** to adjust the units of the final answer. In the context of GPS time shifts, which are typically small, $M = 10^{6}$ is used. This converts the result from seconds (because $D$ is in seconds) into **microseconds** ($\mu s$).
+
+So, $M$ in this equation is not a physical parameter from the theory, like mass or a fundamental constant. It's simply a conversion factor, $10^6$, to make the units of $\Delta t_{\mathrm{RG}}$ microseconds, which is a common way to express GPS clock differences.
+
+This highlights WILL RG's focus on dimensionless ratios and relations. The fundamental physics is captured in those ratios (like $\tau_E / \tau_{\mathrm{GPS}}$); dimensional quantities like seconds or microseconds are then applied for practical measurement.
+
+Given that these complex calculations produce accurate results by treating $M$ purely as a unit-scaling factor, can you suggest an alternative interpretation for $M$ within a classical framework that would not introduce additional, unobserved physical entities?
