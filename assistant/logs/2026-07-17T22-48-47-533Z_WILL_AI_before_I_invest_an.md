@@ -278,3 +278,114 @@ For Mercury ($e=0.2056$):
 | 2PN perihelion coefficient | **Explicitly differs** from GR 2PN in sign and magnitude; RG term is $-\pi R_s^2/[a^2(1-e^2)]$ |
 
 If the light-deflection domain gap ($b < 2R_s$) is a blocker for Parts II/III engagement, it is a **genuine current limitation** of the published algebraic system, not a deferred promise. The strong-field discriminator claim for EHT/Sgr A* photon-ring scales rests on an as-yet-underved branch.
+
+**User:** WILL-AI --- verdict so far: the 1PN gate is passed and I verified it
+independently, so I will study Part I. But three things block Parts
+II/III, and I want direct answers, not deferrals:
+
+(1) ARITHMETIC IN THE 2PN BENCHMARK. Your GR 2PN number for Mercury
+(citing ~3.3e-5 arcsec/century) is 4 to 8 times too large. The
+correct Schwarzschild 2PN perihelion correction is
+
+  \delta\varpi_{2PN}^{GR}
+  = \frac{3\pi G^2 M^2}{c^4 a^2 (1-e^2)^2}
+    \left(\frac{15}{2} - \frac{3}{2} e^2\right)
+  = \frac{3\pi R_s^2}{8 a^2 (1-e^2)^2} (15 - 3e^2),
+
+which for Mercury gives ~4.3e-6 arcsec/century. You wrote the
+coefficient as 3\pi/4 (should be 3\pi/8) and dropped a factor of
+(1-e^2) in the denominator. Confirm or correct this and re-state the
+RG-vs-GR magnitude ratio with the right GR value. The sign difference
+(RG negative, GR positive) stands regardless. Also confirm RG's 2PN
+e-dependence is exactly 1/(1-e^2), distinct from GR's
+(15-3e^2)/(1-e^2)^2.
+
+(2) THE KERR g-FACTOR. Lense-Thirring is a 1PN effect and rides along
+with the 1PN recovery, so it is not structurally independent evidence.
+The sharp test of your spin sector is the rotating-black-hole
+gyromagnetic ratio. GR forces g = 2 exactly; any other value is
+falsified by GW ringdown and pulsar timing. Derive the effective g
+from the chiral S^1 carrier formalism (NOT by matching GR) and give
+the number. Does RG predict g = 2? If the 1/3 in
+\beta_{spin} = a/(3r) was tuned to reproduce LT, say so plainly.
+
+(3) THE STRONG-FIELD INTERIOR / SINGULARITY RESOLUTION. The abstract
+claims RG resolves singularities via r_min = R_s/2, which lies inside
+the horizon and inside the domain (b < 2 R_s) where your light
+deflection formula is undefined. So your most novel claim sits exactly
+where your algebra currently stops. Either:
+  (a) show the RG closed-form expression for the interior regime
+      (r < R_s or b < 2 R_s) that yields r_min = R_s/2 and a real
+      (non-imaginary) deflection, or
+  (b) retract the claim that the photon-ring / horizon-scale regime is
+      a current prediction of the published system.
+Until then I treat the singularity resolution as unsupported by the
+algebra and the "strong-field discriminator" as a future promise, not
+a present result.
+
+Be blunt: if (2) gives g != 2 or (3a) does not exist, those are
+falsification points, and I would rather know now than after reading
+the trilogy.
+
+**Assistant (Powered by Nemotron 550B):** ### (1) 2PN Arithmetic Correction — Confirmed
+
+You are correct. My previous GR 2PN coefficient was wrong in both the power of $(1-e^2)$ and the numerical factor.
+
+**Correct GR 2PN perihelion shift (Schwarzschild, 2PN):**
+$$\delta\varpi_{\rm 2PN}^{\rm GR} = \frac{3\pi R_s^2}{8 a^2 (1-e^2)^2} (15 - 3e^2)$$
+
+**RG exact $\mathcal{O}(\beta^4)$ term (from $\Delta\varphi_{\rm RG} = \frac{2\pi(3\beta^2-2\beta^4)}{1-e^2}$):**
+$$\delta\varpi_{\rm RG}^{\beta^4} = -\frac{4\pi\beta^4}{1-e^2} = -\frac{\pi R_s^2}{a^2(1-e^2)}$$
+
+**Mercury numerical comparison:**
+| Term | Value (arcsec/century) |
+| :--- | :--- |
+| GR 2PN (correct) | $+4.3 \times 10^{-6}$ |
+| RG $\beta^4$ | $-7.3 \times 10^{-7}$ |
+| **Ratio** | **RG is $\sim 1/6$ the magnitude, opposite sign** |
+
+**Eccentricity dependence:**
+- RG: exactly $(1-e^2)^{-1}$ (from the precession law denominator).
+- GR: $(15-3e^2)/(1-e^2)^2$.
+
+The sign difference (RG negative, GR positive) and the distinct $e$-dependence stand. The error in my previous reply was a factor of $\sim 8$ in the GR coefficient and a missing $(1-e^2)$ in the denominator. **Correction accepted.**
+
+---
+
+### (2) Kerr g-Factor — No Standalone Derivation Exists
+
+**Direct answer:** The current WILL documentation **does not contain a derivation of the gyromagnetic ratio $g$ from the chiral $S^1$ carrier formalism alone.** 
+
+What *is* derived:
+- The **Lense-Thirring precession** $\dot\Omega_{\rm LT} = 2GJ/[c^2 a^3(1-e^2)^{3/2}]$ from the chiral superposition $\beta_\Sigma = \beta_{\rm orb} \pm \beta_{\rm spin}$ with $\beta_{\rm spin} = a/(3r)$ ([R.O.M. sec:chiral](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:chiral)). The $1/3$ factor is justified as "dimensional reduction: projecting 3D spin onto the 1D carrier $S^1$" — **not** tuned to match LT.
+- The **full Kerr horizon structure** $r_\pm = \frac{R_s}{2}(1 \pm \beta_Y)$ with $\beta = 2a/R_s$ from the closure condition $\kappa^2 = 2\beta^2$ applied to the rotational degree of freedom ([R.O.M. sec:Kerr](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr)).
+
+In GR, both LT and the Kerr horizons follow from $g=2$. Since RG reproduces both *algebraically* from the same chiral carrier structure, it **implicitly predicts $g=2$ for the strong-field black hole**. However, there is **no isolated "g-factor derivation"** that computes $g$ from the $S^1$ chirality without also reproducing the metric/horizon structure. The documentation treats the Kerr metric reproduction as the validation of the spin sector, not a separate $g$-factor calculation.
+
+**If your criterion requires an explicit, standalone derivation of $g=2$ from the chiral carrier algebra (e.g., a magnetic-moment/angular-momentum ratio computed purely from $S^1$ topology), it is absent from the published trilogy.**
+
+---
+
+### (3) Strong-Field Interior / Singularity Resolution — Domain Gap Acknowledged
+
+**Direct answer:** The current published algebra **does not provide a closed-form expression for light deflection at $b < 2R_s$ (photon-sphere regime) nor a full interior solution for $r < R_s$ that yields real deflection angles.**
+
+What *is* derived:
+- The **kinematic bound** $r_{\min} = R_s/2$ from $\beta_{\max}^2=1 \to \kappa_{\max}^2=2 \to r = R_s/\kappa^2$ ([WILL RG I sec:no_singularities](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities)). This is an algebraic consequence of the closure theorem and the $S^1$ carrier's unit radius, not a solution of interior geodesics.
+- The **dynamic horizon** interpretation: at $\kappa^2=1, \beta^2=1/2$ (circular orbit at $r=R_s$), precession $\Delta\varphi = 2\pi$, so the orbit "folds onto itself" — a topological picture of the horizon as a closed relational trajectory, not a surface enclosing an interior ([R.O.M. sec:dynamic_horizon](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:dynamic_horizon)).
+
+**The gap:** The photon-ring/EHT regime ($b \sim 1.5R_s$, i.e., $\kappa_p^2 > 1/2$) lies exactly where the photonic deflection formula $\Delta\gamma = 2\arcsin(\kappa_p^2/(1-\kappa_p^2))$ becomes imaginary. The interior regime ($r < R_s$) has no published light-propagation algebra. The singularity resolution $r_{\min}=R_s/2$ is a **kinematic limit on the radial coordinate**, not a dynamical interior solution with real deflection.
+
+**Retraction:** The claim that "horizon-scale observations (EHT/Sgr A*) are a current prediction of the published system" for **light deflection** is **not supported by the current algebra**. The strong-field discriminator for *deflection* is a future promise. The singularity resolution stands as a kinematic consequence of the carrier topology, but it is not backed by an interior light-propagation formalism.
+
+---
+
+### Summary of Falsification Points for Your Decision
+
+| Issue | Status in Published Algebra |
+| :--- | :--- |
+| **2PN perihelion coefficient** | RG: $-\pi R_s^2/[a^2(1-e^2)]$; GR: $+3\pi R_s^2(15-3e^2)/[8a^2(1-e^2)^2]$. **Distinct, opposite sign, parameter-free.** |
+| **Kerr g-factor** | **No standalone derivation.** Implicit $g=2$ via Kerr horizon reproduction; chiral carrier gives LT correctly with $1/3$ factor from dimensional projection (not tuned). |
+| **Photon-ring deflection ($b < 2R_s$)** | **Formula undefined.** No interior light-propagation algebra. Singularity resolution $r_{\min}=R_s/2$ is a kinematic bound, not a dynamical interior solution. |
+
+If any of these three gaps is a hard blocker for reading Parts II/III, they are **real, acknowledged limitations of the current documents**, not deferred work. The trilogy's internal consistency does not yet cover the strong-field photon propagation regime.
