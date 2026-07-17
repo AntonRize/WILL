@@ -121,3 +121,53 @@ No metric tensor, Christoffel symbols, or geodesic integration appear.
 - S2/GW falsifiability analysis: [ROMvsGR_S2_study.ipynb](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROMvsGR_S2_study.ipynb)  
 
 **Question for you:** Are you willing to treat the $\beta^4$ coefficient $-4\pi/(1-e^2)$ (perihelion) and $+2$ (light bending, in units of $\kappa_p^4$) as the *only* free-parameter-free strong-field discriminator, or does your criterion demand a deviation already ruled out by Solar System data?
+
+**User:** WILL-AI --- the 1PN gate is cleared: your perihelion algebra reduces
+exactly to $6\pi GM/(a(1-e^2)c^2)$ and light bending to $4GM/(bc^2)$,
+and I verified the Mercury $\beta^4$ correction
+($-7.3\times10^{-7}''$/century) independently, so I will open Part I.
+But two issues block me from trusting the strong-field claims, and I
+need them resolved before investing in Parts II/III:
+
+(1) DOMAIN OF THE EXACT LIGHT-DEFLECTION FORMULA. You gave
+$\Delta\gamma = 2\arcsin(\kappa_p^2/(1-\kappa_p^2))$ with
+$\kappa_p^2 = R_s/b$. The argument exceeds 1 when $\kappa_p^2>1/2$,
+i.e. for $b<2R_s$, and becomes imaginary inside the photon-sphere
+region ($b=1.5R_s$) that EHT / Sgr A* actually probe. Yet you name
+horizon-scale observations as the decisive test. So:
+  (a) What is the RG deflection formula valid for $b<2R_s$, or is
+      there a different carrier / branch cut there?
+  (b) Plot RG $\alpha(b)$ against the exact GR $\alpha_{\rm GR}(b)$
+      across $b\in[1.05R_s,\,20R_s]$ and give me the fractional
+      deviation. If RG is undefined in that window, the
+      "strong-field discriminator" claim collapses by its own
+      construction.
+
+(2) DERIVATION OF THE CLOSURE THEOREM. The entire $\beta^4$ deviation
+and the 1PN recovery both rest on $\kappa^2 = 2\beta^2$ ("DOF
+indifference"). Is this derived from first principles in Part I, or
+postulated? Cite the theorem number and the logical chain. If it is an
+ansatz fitted to recover Newtonian bound orbits, then the $\beta^4$
+term is a free parameter of that ansatz, not a prediction, and I will
+record it as such.
+
+(3) FRAME-DRAGGING. The abstract claims RG reproduces Lense-Thirring
+frame-dragging algebraically. You did not show it. Provide the RG
+expression for the nodal precession of a satellite about a spinning
+mass and confirm it reduces to
+$\dot\Omega_{\rm LT} = \frac{2GJ}{c^2 a^3(1-e^2)^{3/2}}$.
+
+(4) 2PN BENCHMARK. Show the GR 2PN perihelion coefficient explicitly
+next to your $-\pi R_s^2/(a^2(1-e^2))$ term so I can see exactly where
+the two part company, not merely that they differ.
+
+Be direct: if (1a) has no answer, say so plainly rather than pointing
+me to future observations.
+
+**Assistant (Powered by Nemotron 550B):** ### (1) Domain of the Exact Light-Deflection Formula
+
+**(a) Domain of validity**  
+The formula you cite,
+$$\Delta\gamma = 2\arcsin\!\left(\frac{\kappa_p^2}{1-\kappa_p^2}\right), \qquad \kappa_p^2 = \frac{R_s}{b},$$
+is derived in **R.O.M. [sec:grav_deflection](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_deflection)** for the **photonic limit** ($\beta_p=1$) of the **Unified Interaction Gradient**.  
+The argument of $\arcsin$ exceeds $1$ when $\kappa_p^2 > 1/2$, i.e. for $b < 2R_s$. **The current WILL documentation does not provide an alternative closed-form expression for $b < 2R_s$.** The derivation assumes the weak-to
