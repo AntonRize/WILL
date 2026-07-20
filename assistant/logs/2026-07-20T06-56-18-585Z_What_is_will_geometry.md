@@ -19,3 +19,7 @@ user_agent: "Mozilla/5.0 (iPhone; CPU iPhone OS 26_5_2 like Mac OS X) AppleWebKi
 **User:** What is will geometry
 
 **Assistant (Powered by Nemotron 550B):** 
+
+**User:** What is will geometry
+
+**Assistant:** Upstream error from Nvidia: ResourceExhausted: Worker local total request limit reached (117/32)
