@@ -1,0 +1,252 @@
+# ==========================================
+# R.O.M. HOLOGRAPHIC DECODER: S0-2 EMPIRICAL DATA
+# Pure Algebraic Exact Inversion with Deterministic Rømer Un-Warp
+# ==========================================
+ 
+import numpy as np
+import pandas as pd
+from scipy.optimize import differential_evolution, root_scalar
+import warnings
+warnings.filterwarnings('ignore')
+
+# ---------------------------------------------------------
+# CONSTANTS
+# ---------------------------------------------------------
+C_KMS = 299792.458
+
+# ---------------------------------------------------------
+# 0. LOAD EMPIRICAL DATA
+# ---------------------------------------------------------
+print("Loading empirical dataset (LSR-corrected)...")
+df = pd.read_csv('https://raw.githubusercontent.com/AntonRize/WILL/refs/heads/main/DATA/S0-2_DataS1_full.csv')
+df.columns = df.columns.str.strip()
+
+t_obs = df['MJD'].values
+vz_obs = df['RV_km_s'].values
+sigma_vz = df['sigma_km_s'].values
+
+Z_obs = 1.0 + (vz_obs / C_KMS)
+sigma_Z = sigma_vz / C_KMS
+
+# ---------------------------------------------------------
+# 1. R.O.M. STRICT RELATIONAL GEOMETRY ENGINE
+# ---------------------------------------------------------
+def get_idealised_phase_o(t_array, t_peri, T_period, e):
+    zeta_target = (2 * np.pi / T_period) * (t_array - t_peri)
+    orbit_counts = np.floor(zeta_target / (2 * np.pi))
+    z_tar = zeta_target % (2 * np.pi)
+    
+    e_X = (1 + e) / (1 - e)
+    e_Y = np.sqrt(1 - e**2)
+    
+    o = z_tar.copy()
+    
+    for _ in range(25):
+        term1 = 2 * np.arctan2(np.sin(o / 2), np.sqrt(e_X) * np.cos(o / 2))
+        term1 = term1 % (2 * np.pi)
+        term2 = (e * e_Y * np.sin(o)) / (1 + e * np.cos(o))
+        
+        zeta_current = term1 - term2
+        error = zeta_current - z_tar
+        
+        if np.max(np.abs(error)) < 1e-12:
+            break
+            
+        derivative = (e_Y**3) / ((1 + e * np.cos(o))**2)
+        o = o - error / derivative
+        
+    return o + orbit_counts * 2 * np.pi
+
+def generate_z_raw_will(o_unwrapped, beta, i_inc, beta_z0, e, omega_i):
+    Omega_phi = (3 * beta**2 - 2 * beta**4) / (1 - e**2)
+    Omega = 1.0 - Omega_phi
+    
+    O_unwrapped = Omega * o_unwrapped
+    O = O_unwrapped % (2 * np.pi)
+    e_Y = np.sqrt(1 - e**2)
+
+    beta_int = beta / e_Y
+    beta_z = beta_int * (np.cos(O + omega_i) + e * np.cos(omega_i)) * np.sin(i_inc)
+
+    beta_o_sq = (beta**2) * (1 + e**2 + 2 * e * np.cos(O)) / (1 - e**2)
+    kappa_o_sq = 2 * (beta**2) * (1 + e * np.cos(O)) / (1 - e**2)
+
+    if np.any(beta_o_sq >= 1.0) or np.any(kappa_o_sq >= 1.0):
+        return np.full_like(O, np.nan)
+
+    Z_sys = (1 - beta_o_sq)**(-0.5) * (1 - kappa_o_sq)**(-0.5)
+    
+    return Z_sys * (1 + beta_z) * (1 + beta_z0)
+
+# ---------------------------------------------------------
+# 2. STAGE 1: MACROSCOPIC SCOUT (RIGID APPARENT TIMELINE)
+# ---------------------------------------------------------
+def scout_objective(params):
+    beta, i_inc, vz0_c, e, omega, P, t_peri = params
+    try:
+        o_unwrapped = get_idealised_phase_o(t_obs, t_peri, P, e)
+        Z_model = generate_z_raw_will(o_unwrapped, beta, i_inc, vz0_c, e, omega)
+        if np.any(np.isnan(Z_model)): return 1e10
+        return np.sum(((Z_obs - Z_model) / sigma_Z)**2)
+    except:
+        return 1e10
+
+bounds_scout = [
+    (0.003, 0.015), 
+    (0.0, np.pi/2), 
+    (-100.0/C_KMS, 0.0), 
+    (0.80, 0.95), 
+    (0.0, 2*np.pi),
+    (15.5 * 365.25, 16.5 * 365.25), 
+    (58240.0, 58270.0)
+]
+
+print("\nSTAGE 1: Macroscopic Scout (Extracting Apparent Skeleton)...")
+res_scout = differential_evolution(scout_objective, bounds_scout, strategy='best1bin', maxiter=1000, popsize=30, tol=1e-3, seed=42)
+
+beta_s1, i_s1, vz0_c_s1, e_s1, omega_s1, P_s1, t_peri_apparent = res_scout.x
+e_Y_s1 = np.sqrt(1 - e_s1**2)
+K_macro_rel = (beta_s1 / e_Y_s1) * np.sin(i_s1)
+vz0_s1 = vz0_c_s1 * C_KMS
+
+print(f"-> Apparent Skeleton Locked: P = {P_s1/365.25:.4f} yrs, Apparent T_peri = {t_peri_apparent:.3f} MJD")
+
+# ---------------------------------------------------------
+# 3. STAGE 1.5: ALGEBRAIC RØMER UN-WARP
+# ---------------------------------------------------------
+print("\nSTAGE 1.5: Algebraic Rømer Un-Warping (Extracting True Intrinsic Timeline)...")
+
+# Calculate exact intrinsic Time of Periapsis (O = 0)
+delay_frac_peri = (K_macro_rel * (1 - e_s1**2)**1.5) / (2 * np.pi * (1 + e_s1)) * np.sin(omega_s1)
+t_peri_true = t_peri_apparent - (delay_frac_peri * P_s1)
+
+print(f"-> Intrinsic T_peri Extracted: {t_peri_true:.3f} MJD (Shift: {-(delay_frac_peri * P_s1):.3f} days)")
+
+# Iterative solver to un-warp Earth observation times (t_obs) to True Emission times (t_emit)
+Omega_phi_s1 = (3 * beta_s1**2 - 2 * beta_s1**4) / (1 - e_s1**2)
+Omega_s1 = 1.0 - Omega_phi_s1
+
+t_emit_array = t_obs.copy()
+for _ in range(5):
+    o_id_temp = get_idealised_phase_o(t_emit_array, t_peri_true, P_s1, e_s1)
+    O_temp = (Omega_s1 * o_id_temp) % (2 * np.pi)
+    
+    # The pure WILL RG algebraic Rømer delay fraction
+    delay_fraction = (K_macro_rel * (1 - e_s1**2)**1.5) / (2 * np.pi * (1 + e_s1 * np.cos(O_temp))) * np.sin(O_temp + omega_s1)
+    t_emit_array = t_obs - (delay_fraction * P_s1)
+
+# ---------------------------------------------------------
+# 4. STAGE 2: HOLOGRAPHIC ALGEBRAIC DECRYPTION
+# ---------------------------------------------------------
+print("\nSTAGE 2: Algebraic Decryption (Solving Exact Kinetic Scale)...")
+
+beta_min_limit = K_macro_rel * e_Y_s1
+
+# Generate precise precessing phases (O) using the intrinsic emission timeline
+o_unwrapped_emit = get_idealised_phase_o(t_emit_array, t_peri_true, P_s1, e_s1)
+O_wrapped_emit = (Omega_s1 * o_unwrapped_emit) % (2 * np.pi)
+
+phase_max_red = (2 * np.pi - omega_s1) % (2 * np.pi)
+phase_max_blue = (np.pi - omega_s1) % (2 * np.pi)
+
+def extract_empirical_extremum(target_phase, z_array, O_array, is_max=True, smooth_window=5):
+    diffs = np.abs(O_array - target_phase)
+    diffs = np.minimum(diffs, 2*np.pi - diffs)
+    closest_idx = np.argsort(diffs)[:smooth_window]
+    
+    if is_max:
+        return np.max(z_array[closest_idx])
+    else:
+        return np.min(z_array[closest_idx])
+
+beta_alg = None
+for window in [5, 7, 9]:
+    Z_max_emp = extract_empirical_extremum(phase_max_red, Z_obs, O_wrapped_emit, is_max=True, smooth_window=window)
+    Z_min_emp = extract_empirical_extremum(phase_max_blue, Z_obs, O_wrapped_emit, is_max=False, smooth_window=window)
+
+    def decryption_invariant_residual(beta):
+        if beta <= beta_min_limit or beta > 0.05: return 1e9
+
+        K_sq1 = 2 * beta**2 * (1 + e_s1 * np.cos(omega_s1)) / (1 - e_s1**2)
+        B_sq1 = beta**2 * (1 + e_s1**2 + 2 * e_s1 * np.cos(omega_s1)) / (1 - e_s1**2)
+        tau1 = np.sqrt(1 - K_sq1) * np.sqrt(1 - B_sq1)
+
+        K_sq2 = 2 * beta**2 * (1 - e_s1 * np.cos(omega_s1)) / (1 - e_s1**2)
+        B_sq2 = beta**2 * (1 + e_s1**2 - 2 * e_s1 * np.cos(omega_s1)) / (1 - e_s1**2)
+        tau2 = np.sqrt(1 - K_sq2) * np.sqrt(1 - B_sq2)
+
+        inv = Z_max_emp * tau1 * (1 - e_s1 * np.cos(omega_s1)) + Z_min_emp * tau2 * (1 + e_s1 * np.cos(omega_s1))
+        return inv - 2.0
+
+    try:
+        res_root = root_scalar(decryption_invariant_residual, bracket=[beta_min_limit + 1e-6, 0.03], method='brentq')
+        beta_alg = res_root.root
+        break
+    except ValueError:
+        continue
+
+if beta_alg is None:
+    raise ValueError("Empirical noise violates relational invariant capacity. Run halted.")
+
+sin_i_alg = (K_macro_rel * e_Y_s1) / beta_alg
+i_alg = np.arcsin(np.clip(sin_i_alg, 0.0, 1.0))
+print(f"-> Algebraic Root Confirmed: beta = {beta_alg:.6f}, i = {np.degrees(i_alg):.2f} deg")
+
+# ---------------------------------------------------------
+# 5. PHYSICAL CALCULATIONS & FINAL OUTPUT
+# ---------------------------------------------------------
+delta_phi_will_alg = (2 * np.pi * (3 * beta_alg**2 - 2 * beta_alg**4)) / (1 - e_s1**2)
+precession_deg_per_orbit = np.degrees(delta_phi_will_alg)
+
+T_sec = P_s1 * 24 * 3600
+Rs = T_sec * C_KMS * (beta_alg**3) / np.pi
+a = Rs / (2 * (beta_alg**2))
+m_rec = (Rs * 1000 * C_KMS**2 * 1e6) / (2 * 6.6743e-11) / 1.98847e30
+
+print(f"\n{'='*65}")
+print("=== R.O.M. PURE ALGEBRAIC RECOVERY (RØMER CORRECTED) ===")
+print(f"{'='*65}")
+print(f"Period (P):               {P_s1/365.25:.4f} yrs")
+print(f"True Intrinsic T_p:       {t_peri_true:.3f} MJD")
+print(f"Eccentricity (e):         {e_s1:.5f}")
+print(f"Arg of Periapsis (w0):    {np.degrees(omega_s1) % 360:.2f} deg")
+print(f"Internal Precession:      {precession_deg_per_orbit:.3f} deg/orbit")
+print("-" * 65)
+print(f"Global Kin. Proj (beta):  {beta_alg:.6f}")
+print(f"Inclination (i_extracted):{np.degrees(i_alg):.2f} deg")
+print(f"Background Drift (v_z0):  {vz0_s1:.2f} km/s")
+print("-" * 65)
+print(f"Schwarzschild Radius:     {Rs:.2f} km")
+print(f"Semi-major axis (a):      {a:.2e} km")
+print(f"Calculated Mass (M_sun):  {m_rec:,.2f}")
+print(f"{'='*65}")
+
+OUTPUT:
+Loading empirical dataset (LSR-corrected)...
+
+STAGE 1: Macroscopic Scout (Extracting Apparent Skeleton)...
+-> Apparent Skeleton Locked: P = 16.0658 yrs, Apparent T_peri = 58259.694 MJD
+
+STAGE 1.5: Algebraic Rømer Un-Warping (Extracting True Intrinsic Timeline)...
+-> Intrinsic T_peri Extracted: 58259.195 MJD (Shift: -0.499 days)
+
+STAGE 2: Algebraic Decryption (Solving Exact Kinetic Scale)...
+-> Algebraic Root Confirmed: beta = 0.006260, i = 48.99 deg
+
+=================================================================
+=== R.O.M. PURE ALGEBRAIC RECOVERY (RØMER CORRECTED) ===
+=================================================================
+Period (P):               16.0658 yrs
+True Intrinsic T_p:       58259.195 MJD
+Eccentricity (e):         0.87694
+Arg of Periapsis (w0):    66.81 deg
+Internal Precession:      0.183 deg/orbit
+-----------------------------------------------------------------
+Global Kin. Proj (beta):  0.006260
+Inclination (i_extracted):48.99 deg
+Background Drift (v_z0):  -24.92 km/s
+-----------------------------------------------------------------
+Schwarzschild Radius:     11869332.40 km
+Semi-major axis (a):      1.51e+11 km
+Calculated Mass (M_sun):  4,018,953.08
+=================================================================

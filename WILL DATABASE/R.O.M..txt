@@ -432,15 +432,15 @@ $z_{\beta o}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $O$) \\
 
 
 \subsection*{Global Unit-Free System Parameters (Fixed for the Orbit)}
-$\kappa =\sin(\theta_2)=\beta\sqrt{2}=\sqrt{1-(1+z_{\kappa})^{-2}}= \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)}=\sqrt{2(\kappa_{o}^{2}-\beta_{o}^{2})}=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})}=\kappa_R^2 (\frac{\tau_D}{T})^{\frac{2}{3}}=\kappa_{R}^{2}\sin(\theta_{sur})^{\frac{3}{2}}=\sqrt{\kappa_{o}^{2}\cdot\eta_{o}}$ (potential projection at semi-major axis)\\
+$\kappa =\sin(\theta_2)=\beta\sqrt{2}=\sqrt{1-(1+z_{\kappa})^{-2}}= \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)}=\sqrt{2(\kappa_{o}^{2}-\beta_{o}^{2})}=\sqrt{\frac{2\cdot a\cdot g}{c^{2}}}=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})}=\kappa_R^2 (\frac{\tau_D}{T})^{\frac{2}{3}}=\kappa_{R}^{2}\sin(\theta_{sur})^{\frac{3}{2}}=\sqrt{\kappa_{o}^{2}\cdot\eta_{o}}$ (potential projection at semi-major axis)\\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}=\frac{1}{(1+z_{\kappa})}$ (potential phase factor) \\
 $\kappa_R=\sqrt{\frac{\kappa^{2}}{\sin(\theta_{sur})}}=\sqrt{\frac{R_{s}}{\frac{T}{2\pi}c\beta\sin(\theta_{sur})}}$ (potential projection at the surface of central body) \\
 $\beta =\cos(\theta_1)=\sqrt{1-(1+z_{\beta})^{-2}}= \frac{\kappa}{\sqrt{2}} = \beta_{p}e_{X}^{-\frac{1}{2}} = \frac{2\pi a}{Tc}=(\frac{\pi R_{s}}{Tc})^{\frac{1}{3}}=\sqrt{(\kappa_{o}^{2}-\beta_{o}^{2})} =\sqrt{\frac{\kappa_{p}^{2}}{2}(1-e)}
 =\beta_{o}\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}=\sqrt{\beta_{sys}^2 \cdot \sin(\theta_{sys})}$ (global kinetic projection (invariant transverse baseline defining the system's circular equilibrium state and semi-major axis)) \\
 $\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (kinetic phase factor) \\
 $\beta_{int}=\frac{\beta}{e_Y}$ (interior kinetic projection) \\
-$\tau = \kappa_{X}\beta_{Y}$ (relational spacetime factor) \\
-$\tau_{Y}=\sqrt{1-\tau^2}=\sqrt{3\beta^{2}-2\beta^{4}}$ (relational spacetime phase factor) \\
+$\tau = \kappa_{X}\beta_{Y}=\sqrt{\left(1-\kappa^{2}\right)\cdot\left(1-\beta^{2}\right)}$ (relational spacetime factor) \\
+$\tau_{Y}=\sqrt{1-\tau^2}=\sqrt{3\beta^{2}-2\beta^{4}}=\sqrt{\kappa^{2}+\beta^{2}-\kappa^{2}\beta^{2}}$ (relational spacetime phase factor) \\
 $Q=\sqrt{\kappa^2+\beta^2}=\sqrt{\frac{3}{2}}\ \kappa=\sqrt{3}\ \beta$ (total relational shift (magnitude of state difference)) \\
 $\beta^{2}=(\kappa_{o}^{2}-\beta_{o}^{2})=\frac{\kappa_{p}^{2}}{2}(1-e)=(\kappa_{o}^{2}-\frac{\kappa_{o}^{2}}{2\delta_{o}})=\frac{R_s}{2a}=(\frac{R_{s}}{T\cdot c}\pi)^{\frac{2}{3}}$ (energy invariant - binding energy) \\
 $\Delta\phi=\frac{2\pi\cdot\tau_{Y}^{2}}{1-e^{2}}=\frac{2\pi(3\beta^{2}-2\beta^{4})}{1-e^{2}}=\frac{3\pi R_{s}}{a(1-e^{2})}-\frac{\pi R_{s}^{2}}{a^{2}(1-e^{2})}$ (precession of perihelion per orbit) \\
@@ -450,7 +450,7 @@ $\Delta\varphi = 2 \arcsin( \frac{\kappa_p^2 (1 + \beta_p^2)}{2\beta_p^2 - \kapp
 $\Delta\gamma = 2 \arcsin( \frac{\kappa_p^2}{\kappa_{Xp}^2} ) $ (light deflection)\\
 
 \subsection*{Global Unit-Full System Parameters}
-$R_{s} = \kappa_{o}^{2} \cdot r_o= \frac{Tc}{\pi}\beta^3=\frac{8\pi^{2}a^{3}}{T^{2}c^{2}}=\frac{\Delta_{to}}{\zeta(O)}\kappa^{2}\beta c=\frac{r_{1} r_{2}}{r_{2} - r_{1}}(\beta_{1}^{2} - \beta_{2}^{2})=\frac{a}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})=\frac{r_{o}}{2(2a-r_{o})}(4a-r_{o}-((4a-r_{o})^{2}-8a(2a-r_{o})\ (1-\tau_{o}^{2}))^{\frac{1}{2}}) = \frac{2GM}{c^{2}}$ (Schwarzschild radius - system scale) \\
+$R_{s} = \frac{\beta^3}{\pi} \cdot Tc=\frac{\beta_{sur}^{3}}{\pi}\cdot\ \tau_{D}c=\kappa_{o}^{2} \cdot r_o=\frac{\kappa^{2}}{\zeta}\beta \cdot \Delta_{to}c= \frac{8\pi^{2}a^{3}}{T^{2}c^{2}}=\frac{r_{1} r_{2}}{r_{2} - r_{1}}(\beta_{1}^{2} - \beta_{2}^{2})=\frac{a}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})=\frac{r_{o}}{2(2a-r_{o})}(4a-r_{o}-((4a-r_{o})^{2}-8a(2a-r_{o})\ (1-\tau_{o}^{2}))^{\frac{1}{2}}) = \frac{2GM}{c^{2}}$ (Schwarzschild radius - system scale) \\
 $E_0=\frac{1}{2}\ \cdot\ R_{s}\frac{c^{4}}{G}$ (rest energy) \\
 $E=\frac{\kappa_{X}}{2\beta_{Y}}\cdot R_{s}\frac{c^{4}}{G}$ (total relational energy scaled by kinetic and potential projections) \\
 $E_{\beta}=\frac{1}{2\beta_Y}\cdot R_{s}\frac{c^{4}}{G}$ (energy on $S^1$ relational carrier) \\
@@ -458,16 +458,18 @@ $E_{\kappa}=\frac{1}{2\kappa_X}\cdot R_{s}\frac{c^{4}}{G}$ (energy on $S^2$ rela
 $p_{\beta}=\frac{\beta}{2\beta_Y }\cdot R_{s}\frac{c^{2}}{G}$ (kinetic momentum) \\
 $p_{\kappa}= \frac{\kappa}{2\kappa_X }\cdot R_{s}\frac{c^{2}}{G}$ (potential momentum) \\
 $a=\frac{1}{\kappa^{2}} \cdot R_{s}=\frac{T\beta c}{2\pi}=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e~cos(O)}}=\frac{\Delta_{to}(O)}{\zeta}\beta c=\frac{Tc\beta^{3}}{2\pi(\frac{K_{i}}{\ \sin(i)})^{2}(1-e^{2})}=\frac{\ \sqrt{1-e^{2}}}{2\pi\sin(i)}K_{i}Tc=\frac{R_{sys}}{\sin(\theta_{sys})}$ (semi-major axis) \\
-$ R_{sur} =\frac{\sin(\theta_{sur})}{\kappa^2} \cdot R_s=a \cdot \sin(\theta_{sur}) $ (system's central body's physical radius) \\
-$t=\frac{a}{c}$(temporal scale of the system) \\
 $h_{W}=\frac{e_Y}{2\beta}\cdot R_s c =\frac{\kappa^{2}}{\kappa_{o}^{2}}\cdot\beta_{T}\cdot a\cdot c=r_{o} \cdot \beta_{T} \cdot c=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}$ ( invariant angular momentum) \\
 $\omega=2\beta^{3} \cdot \frac{c}{R_{s}}=\frac{\beta c}{a}$ (angular frequency) \\
-$T=\frac{\pi }{\beta^{3}} \cdot \frac{R_{s}}{c}=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi\sqrt{2}R_{s}}{\kappa^{3}c}=\frac{2\pi \Delta_{to}}{\zeta_o}$ (orbital period) \\
-$\tau_D = \frac{\pi \sin(\theta_{sys})^{\frac{3}{2}}}{\beta^3} \cdot \frac{R_s}{c}= T \sin(\theta_{sys})^{\frac{3}{2}}=\frac{2\pi R_{sur}}{\beta_{sur}c}=\sqrt{\frac{\pi}{G\rho}}$   (Time-density invariant where $R_{sur}$ and $\beta_{sur}$  determined by the distance from center to the surface of central body and $\theta_{sys}=$ angular radius) \\
-$g=\beta^{2}\kappa^{2}\cdot\frac{c^{2}}{R_{s}}=\frac{\beta^{2}c^{2}}{a}=\frac{GM}{a^2}$ (gravitational acceleration) \\
+$T=\frac{\pi }{\beta^{3}} \cdot \frac{R_{s}}{c}=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi\sqrt{2}R_{s}}{\kappa^{3}c}=\frac{2\pi \Delta_{to}}{\zeta}$ (orbital period) \\
+$\tau_D = \frac{\pi \sin(\theta_{sur})^{\frac{3}{2}}}{\beta^3} \cdot \frac{R_s}{c}= T \sin(\theta_{sur})^{\frac{3}{2}}=\frac{2\pi R_{sur}}{\beta_{sur}c}=\sqrt{\frac{\pi}{G \cdot\rho_{sur}(R_{sur})}}$   (time-density invariant where $R_{sur}$ and $\beta_{sur}$  determined by the distance from center to the surface of central body and $\theta_{sur}=$ angular radius) \\
+$g=\frac{\kappa^{4}}{2}\cdot\frac{c^{2}}{R_{s}}=\frac{\kappa^{2}c^{2}}{2a}=\frac{GM}{a^2}$ (gravitational acceleration) \\
 $M=\frac{1}{2} \cdot \frac{R_s c^2}{G}=\frac{Tc^{3}\beta^{3}}{2\pi G}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}$ (mass parameter) \\
-$\rho= \frac{\kappa^6}{8\pi} \cdot \frac{c^2}{G R_s^2}=\frac{\kappa^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot a^{2}}$ (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{relational density}) \\
+$\rho= \frac{\kappa^6}{8\pi} \cdot \frac{c^2}{G R_s^2}=\frac{1}{8\pi}(\frac{z_{k}(z_{k}+2)}{(1+z_{k})^{2}})^{3}\cdot\frac{c^{2}}{G\cdot R_{s}^{2}}=\frac{\kappa^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot a^{2}}$ (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{relational density}) \\
+$\rho_{sur}=\frac{\kappa_{sur}^{6}}{8\pi}\cdot\frac{c^{2}}{GR_{s}^{2}}=\frac{\pi}{G\cdot\tau_{D}^{2}}=\frac{\kappa_{sur}^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot R_{sur}^{2}}$  (relational density of the central body within ($R_{sur}$) its physical radius) \\
 $\rho_{max}= \frac{1}{8\pi} \cdot \frac{c^2}{G R_s^2}$ (maximal density at the horizon (for non-rotating systems), $\kappa^2=1 \equiv r=R_s$; density reaches its natural bound) \\
+$ R_{sur} =\frac{\sin(\theta_{sur})}{\kappa^2} \cdot R_s=a \cdot \sin(\theta_{sur})=\sqrt[3]{\frac{\pi a^{3}}{GT^{2}\rho(R_{sur})}} $ (system's central body's physical radius) \\
+$t=\frac{1}{\kappa^{2}}\cdot\frac{R_{s}}{c}=\frac{a}{c}$(temporal radius of the system) \\
+
 
 \subsection*{Eccentricity Relations}
 $e=\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1=1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}=\frac{1}{\delta_{p}}-1=\frac{r_{a}-r_{p}}{r_{p}+r_{a}}=1-\eta_{o}(0)=\eta_{o}(\pi)-1$ (eccentricity derived from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure theorem}) \\
@@ -490,7 +492,7 @@ $\beta_{p} = \frac{V_{p}}{c} = \beta\ \cdot e_X^{1/2}=\beta_{a}\cdot e_{X}=\frac
 $\delta_p = \frac{\kappa_{p}^2}{2\beta_{p}^2 }= \frac{1}{1+e}$ (closure factor at perihelion) \\
 $Q_{p} = \sqrt{\kappa_{p}^{2}+\beta_{p}^{2}}$  (relational shift at perihelion) \\
 
-$r_{p} = \frac{1}{\kappa_p^2} \cdot R_s=a(1-e)=\sqrt{((1-e)\cdot a \cdot \cos(O))^{2}+((1-e)\cdot a \cdot \sin(O))^{2}}$ (radius at perihelion) \\
+$r_{p} = \frac{1}{\kappa_p^2} \cdot R_s=a(1-e)$ (radius at perihelion) \\
 
 \subsection*{Aphelion Relations} 
 $\beta_{a}= \beta \cdot e_{X}^{-1/2} = \beta_{p}\cdot e_{X}^{-1} $  (kinetic projection at aphelion) \\
@@ -504,18 +506,18 @@ $r_a= \frac{1}{\kappa_a^2} \cdot R_s=a(1+e)$ (radius at aphelion)  \\
 $o = \frac{O}{\Omega}$ (idealised orbital phase in radians, represent phase $o$ progression without orbital precession)  \\
 $O=\Omega \cdot o =o-\Omega_{\phi}o$ (true orbital phase with precession) \\
 $\eta_{o} =\frac{1-e^{2}}{1+e\cdot\cos (O)}=\frac{r_o }{a}=  \frac{R_{s}}{\kappa_{o}^{2}a} = 2-\frac{2\beta_{o}^{2}}{\kappa_{o}^{2}} $ (normalised true radial distance at phase O) \\
-$\kappa_{o} =\sqrt{\beta_R^2 + \beta_T^2 + \beta^2}= \sqrt{\frac{R_{s}}{r_o}} = \sqrt{1-(1+z_{\kappa o})^{-2}} =\kappa_{p}\sqrt{\frac{1+e\cos (O)}{1+e}}=\sqrt{\beta^{2}+\beta_{o}^{2}}=\sqrt{\kappa_{sur}^2 \cdot \sin(\theta_{sur,o})}$ (local potential at the phase $O$) \\
+$\kappa_{o} =\kappa\cdot\sqrt{\frac{1+e\cdot\cos(O)}{1-e^{2}}}=\sqrt{\beta_R^2 + \beta_T^2 + \beta^2}= \sqrt{\frac{R_{s}}{r_o}} = \sqrt{1-(1+z_{\kappa o})^{-2}} =\kappa_{p}\sqrt{\frac{1+e\cos (O)}{1+e}}=\kappa\ \cdot\eta_{o}^{-\frac{1}{2}}=\sqrt{\beta^{2}+\beta_{o}^{2}}=\sqrt{\kappa_{sur}^2 \cdot \sin(\theta_{sur,o})}$ (local potential at the phase $O$) \\
 $\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=(z_{\kappa o}+1)^{-1}$   (gravitational phase factor at phase $O$) \\
 $\beta_{o}=\sqrt{\beta_{R}^{2}+\beta_{T}^{2}}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}{\sqrt{1-e^{2}}}= \sqrt{\kappa_{o}^{2}-\beta^2}=\frac{\kappa_{o}}{\sqrt{2 \delta_{o}\ }}=\sqrt{\frac{\kappa_{o}^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(O)}{\ \ 1+e\cdot\cos(O)}}=\sqrt{\frac{R_{s}}{r_{o}}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o})^{-2}}$  (Instantaneous translational kinetic projection at phase $O$)\\
 $\beta_{R}=\beta\ \frac{e\sin (O)}{\sqrt{1-e^{2\ }}}=\sqrt{\beta_{o}^{2}-\beta_{T}^{2}}$  (Instantaneous radial kinetic projection (Line-of-sight speed) at phase $O$) \\
 $\beta_{T}=\frac{r_{o}\omega_{o}}{c}=\beta\frac{1+e\cos(O)}{\sqrt{1-e^{2}}}=\kappa_o^2 \frac{\sqrt{1-e^2}}{2\beta}=\frac{R_{s}\sqrt{1-e^{2}}}{r_{o}2\beta}$  (Instantaneous transverse kinetic projection (Orthogonal sideways speed) at phase $O$) \\
 $\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{\beta o}+1)^{-1}$    (relativistic phase factor at phase $O$) \\
-$\delta_{o} = \frac{1+e\cos o}{1+e^{2}+2e\cos o} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $O$) \\
+$\delta_{o} = \frac{1+e\cos (O)}{1+e^{2}+2e\cos (O)} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $O$) \\
 $Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift at phase $O$) \\
 $\tau_o=\kappa_{Xo}\cdot\beta_{Yo}= Z_{sys,o}^{-1}$ (phase spacetime factor at phase O) \\
 $\tau_{Yo}=\sqrt{1-\tau_{o}^2}$  (amplitude spacetime factor at phase O) \\
 
-$r = r_o=  \frac{1}{\kappa_o^2} \cdot R_s=a\frac{1-e^{2}}{1+e\cos (O)} = \frac{R_s}{\kappa_o^2}=a \eta_{o}$  (radial distance at phase $O$) \\
+$r = r_o=  \frac{1}{\kappa_o^2} \cdot R_s=a\frac{1-e^{2}}{1+e\cos (O)} =\frac{T}{2\pi}\cdot\beta c\cdot\frac{1-e^{2}}{1+e\cdot\cos(O)}= a \cdot \eta_{o}$  (radial distance at phase $O$) \\
 $t_o=\frac{1}{\kappa_o^2} \cdot \frac{R_s}{c}=\frac{ r_o}{c}$ (light time scale at phase) \\
 
 
@@ -533,7 +535,7 @@ $\beta^{2}-\beta_{o}^{2}=\kappa^{2}-\kappa_{o}^{2}$  \\
 $\frac{\beta_T}{\kappa_o^2} = \frac{e_Y}{2\beta}$ \\
 $\beta_{T} ^{2}\eta_{o}^{2}=\beta^{2}(1-e^{2})$ \\
 $B_{a}-\zeta(B_{a})=\zeta(B_{d})-B_{d}$ \\
-$\frac{Z_{raw}\left(-\omega_{i}\right)}{Z_{sys}\left(-\omega_{i}\right)}=1+K_{i}\left(1+e_{c}\cdot\cos\left(\omega_{i}\right)\right)$ \\
+$\frac{Z_{raw}\left(-\omega_{i}\right)}{Z_{sys}\left(-\omega_{i}\right)}=1+K_{i}\left(1+e\cdot\cos\left(\omega_{i}\right)\right)$ \\
 
 \subsection*{Relational Geometry (WILL)} 
 $\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical)  \\
@@ -549,7 +551,7 @@ $\frac{r_{a}}{r_{p}}= \frac{\delta_{a}}{\delta_{p}} = \frac{1+e}{1-e}=\frac{\bet
 
 
 \subsection*{Observer dependent}
-$\theta_{sur}(r)=\arcsin(\frac{R_{sur}}{r})$ (angular radius of central body viewed from distance r) \\
+$\theta_{sur}(r)=\arcsin(\frac{R_{sur}}{r})=\sqrt[3]{\frac{\pi}{\rho(R_{sur})GT^{2}}}$ (angular radius of central body viewed from distance r) \\
 $Z_{raw}(O)=(1+\beta_{int}(\cos(O+\omega_{i})+e\cos(\omega_{i}))\sin(i))\ Z_{sys}(O)$ (raw light shift including the line of sight Doppler at phase o) \\
 $\beta_{z}(O)=\frac{\beta}{\sqrt{1-e^{2}}}(\cos(O+\omega_{i})+e\cos(\omega_{i}))\sin(i)$  (line of sight light shift) \\
 $i=$ (orbital inclination in relation to line of sight and orbital plane)  \\
@@ -1120,15 +1122,15 @@ The example intrinsic pair $(\beta, e)$ is reachable through algebraically indep
 E1 apparent angular speeds & $e = \dfrac{\sqrt{\omega_{max}/\omega_{min}} - 1}{\sqrt{\omega_{max}/\omega_{min}} + 1}$ \\\hline
 E2 apsidal Doppler pair & $e = \dfrac{\beta_p - \beta_a}{\beta_p + \beta_a}$ \\\hline
 E3 apsidal sky-angle ratio & $e = \dfrac{r_a/r_p - 1}{r_a/r_p + 1}$ \\\hline
-E4 balance-point phase & $e = -\cos (B_a)$\\
- E5 projections only&$e = \frac{2\beta_p^2}{\kappa_p^2}-1=1-\frac{2\beta_a^2}{\kappa_a^2}$\\\hline\hline
+E4 balance-point phase & $e = -\cos (B_a)$\\\hline
+ E5 projections only&$e = \frac{2\beta_p^2}{\kappa_p^2}-1=1-\frac{2\beta_a^2}{\kappa_a^2}$\\\hline
 \multicolumn{2}{|c|}{\textbf{$\beta$-channel (orbit depth) — any one:}} \\\hline
 B1 transverse Doppler at $a$ & $\beta^2 = 1 - (1+z_{\beta})^{-2}$ \\\hline
 B2 gravitational redshift at $a$ & $\beta^2 = \frac{1}{2}(1 - (1+z_{\kappa})^{-2})$ \\\hline
 B3 combined shift $Z_{sys} = 1/\tau$ & $\beta^2 = \frac{1}{4}(3-\sqrt{1+8\cdot Z_{sys}(B_{a,d})^{-2}})$\\\hline
 B4 apsidal Doppler pair & $\beta = \sqrt{\beta_p \beta_a}$ \\\hline
 B5 two-point (vis-viva) & $\beta^2 = \dfrac{(\beta_1^2 - \beta_2^2)\,(r_2/r_1)}{r_2/r_1 - 1} - \beta_1^2$ \\\hline
-B6 surface channel & $\beta^2 = \frac{1}{2}(1 - (1+z_{surf})^{-2})\sin\theta_{obs}$ \\\hline
+B6 surface channel & $\beta^2 = \frac{1}{2}(1 - (1+z_{surf})^{-2})\sin\theta_{obs}$ \\
 \end{tabular}
 \end{center}
 

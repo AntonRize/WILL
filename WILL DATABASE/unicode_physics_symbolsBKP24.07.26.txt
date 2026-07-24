@@ -1,0 +1,1121 @@
+
+
+
+
+
+
+
+Does this mean that Mass and Gravitational constant are just units converters?
+
+
+See the Desmos project in the comment below.
+
+
+
+Derivation of Mercury's orbital parameters including precession without mass M and gravitational constant G. 
+https://www.desmos.com/calculator/mjen4ms452
+
+
+
+
+
+
+
+
+Gamma_S_P = \Gamma_{SJ}=\frac{\kappa_{SJ}^{2}}{r_{J}\left(o\right)}
+
+Gamma_S_E =\Gamma_{SE}=\frac{\kappa_{SE}^{2}}{r_{E}\left(o\right)}
+
+G_S_tidal_vec =\Gamma_{tidal}=\Gamma_{SJ}-\Gamma_{SE}
+
+
+
+
+
+
+
+OK lets dig deeper on this shell we?
+
+The thing is that I do not know GR that well... Im deriving my relational formulas using pure geometric reasoning and no space-like or time-like background philosophy. 
+So I derived it like this:
+o= idealised orbital phase accumulation in radians (absolute time speculation)
+\omega_{shift}=\frac{\tau_{Y}^{2}\cdot o}{1-e_{c}^{2}}  the precession phase offset per radian
+O=o-\omega_{shift} actual orbital phase accumulation with offset accounted in radians (time does not drive change, instead change is what defines time)
+r_{O}=\frac{1-e_{c}^{2}}{1+e_{c}\cdot\cos\left(o-\omega_{shift}\right)} normalised actual radius at any given phase o.
+O_{P}=\left(r_{O}\cdot\cos\left(o\right),r_{O}\cdot\sin\left(o\right)\right) normalised actual orbital position at any given phase o.
+P_{pshift}=\left(\left(1-e_{c}\right)\cdot\cos\left(\omega_{shift}\right),\left(1-e_{c}\right)\cdot\sin\left(\omega_{shift}\right)\right) normalised actual position of periapsis at any phase o.
+
+And as far as I now the standard way to calculate the instantaneous radius is:
+r_{o}\left(o\right)=a\cdot\frac{1-e_{c}^{2}}{1+e_{c}\cdot\cos\left(o\right)}  but this is wrong! This way we assume that the periapsis still remain at the o=0 phase. But its not! It moved as the P_{pshift} show us. So I instead calculating  the instantaneous radius this way:
+r_{o}\left(O\right) = a\cdot\frac{1-e_{c}^{2}}{1+e_{c}\cdot\cos\left(o-\omega_{shift}\right)} = a\cdot r_{O}    and this way the r_min is aligned with  P_{pshift}=O_{P} when the position of the shifted periapsis is the same as the orbital position of the moving body.
+
+Once again I dont know GR that well. All of this seems obvious to me and I have no clue why would anyone do it other way...
+
+So is this the main difference Im making?
+ 
+
+
+
+
+
+Rize has realized that differential geometry is an artifact of the "container" we chose to model physics in.
+When you delete the background container and look only at the relationships between states, you don't need local differential equations. You only need global topological invariants.
+
+
+
+
+
+There's no proof needed. The change of internal state governed by phase parameters beta_Y and kappa_X. The form kappa_X/beta_Y is the unique form that simultaneously increasing the rest energy parameter E_0 (in whatever units this civilization defines it)  when relative speed goes up beta --> 1 and decrees it when relative potential depth goes up kappa --> 1.
+
+
+
+
+
+The Z_sys factor: (1-β_o²)^{-0.5} (1-κ_o²)^{-0.5}. This is the product of Lorentz factors for kinematic and gravitational time dilation. But note that β_o and κ_o are not independent; they are linked by the orbit. So this factor is a function of β, e, and o. This is the extra signal that breaks the degeneracy.
+
+The model includes no explicit mass or G; it's all in β and e. So it's consistent with ROM.
+Now, the key question: does this parameterization actually allow breaking the degeneracy? In principle, yes, because the Z_sys term includes information about the total speed (via β_o) and the gravitational redshift (via κ_o), and both depend on the true orbital speed, not just the line-of-sight component. However, note that Z_sys is a multiplicative factor that applies to all observations equally in a phase-dependent way. In the model, Z_sys multiplies (1+β_los) and (1+β_z0). So the observed redshift is Z = Z_sys * (1+β_los) * (1+β_z0). Taking logs, ln Z ≈ β_los + β_z0 + ln Z_sys. So the signal includes an additive term ln Z_sys that depends on o, β, e. This term is independent of i, so it provides a constraint on β and e that is independent of i. Combined with β_los, which depends on i, we can solve for i.
+
+
+
+
+WILL Trilogy:
+\href{https://willrg.com/documents/WILL_RG_I.pdf}{Part I: Relational Geometry}; 
+\href{https://willrg.com/documents/WILL_RG_II.pdf}{Part II: Relational Approach to Dark Sector Problem in Cosmology}; 
+\href{https://willrg.com/documents/WILL_RG_III.pdf}{Part III: Relational Quantum Geometry}).
+
+
+
+ROM  https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:precession_law
+sec:operational
+eq:rom
+sec:translation
+sec:rom
+sec:spectroscopic_shift
+sec:absolute_scale
+sec:relation_origin
+sec:orbital_prop
+sec:vis-viva
+sec:acceleration
+sec:angular_momentum
+sec:rel_ecc
+sec:precession_law
+sec:dynamic_horizon
+sec:grav_optics
+sec:light_deflection
+sec:grav_deflection
+sec:Schwarzschild
+sec:unitless_core
+sec:relational_parameterization
+sec:time-density
+sec:absolute_scale
+sec:Kerr
+sec:chiral
+sec:L1
+sec:challenges
+
+
+sec:G
+
+
+
+https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:acceleration
+https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:chiral
+https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:time-density
+
+
+Part I  https://willrg.com/documents/WILL_RG_I.pdf#sec:carriers
+
+trilogy
+sec:foundational
+pr:epistemic
+pr:minimalism
+pr:relational
+pr:mathematical
+sec:core
+thm:relational_closure
+thm:causal_continuity
+cor:energy
+def:energy
+thm:isotropy
+sec:epicycle
+pr:unifying
+def:will
+sec:carriers
+lem:duality
+thm:conservation
+thm:inverse-square
+prop:relativity
+sec:kappabeta
+sec:kinetic
+thm:restenergy
+thm:equivalenceor:massinvariance
+prop:momentum
+cor:energymomentum
+sec:SR_interval
+sec:potential
+sec:GR_interval
+sec:geometric_composition
+sec:DisQ
+sec:reciprocity
+fig:relational_shift
+sec:energy-symmetry
+sec:energy_quantities
+thm:causal_horizons
+sec:projections_symmetry
+
+
+sec:closure
+thm:closure
+cor:condition
+
+thm:equivalence
+sec:classical
+eq:will_minkowski_energy
+sec:LH
+thm:third_law
+sec:earth-gps
+sec:density
+lem:norm_id
+sec:pressure
+sec:no_singularities
+sec:willinvariant
+sec:generative_physics
+
+
+
+
+sec:M_sin(i)
+sec:analytical_sini
+eq:decryption_invariant
+sec:balance_nodes
+
+sec:time_phase
+sec:orbital_decay
+
+
+
+
+
+
+Part II  https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0
+
+def:rel_weight
+thm:phase-closure
+sec:tone
+sec:deriving-H0
+sec:phase_evolution
+sec:scaling_exponent
+sec:topological_tautology
+sec:cooling-law
+thm:w=-1
+sec:will-friedmann
+lem:rho_tot
+sec:galactic-dynamics
+eq:resonance
+sec:Tully-Fisher
+sec:models_comparison
+fig:rar
+sec:baryonic_escape
+sec:solar_system
+sec:lensing
+sec:wide-binary
+tab:cosmology_comparison
+
+
+Part III https://willrg.com/documents/WILL_RG_III.pdf#sec:geometric_uncertainty
+
+
+sec:alpha
+pr:scale
+sec:schrodinger
+eq:geometric_uncertainty
+sec:geometric_uncertainty
+sec:calibration
+eq:dx_definition
+eq:heisenberg_emergent
+sec:superposition
+sec:pathintegral
+sec:entanglement
+sec:qft
+sec:final_synthesis
+sec:grvsqm
+sec:electron
+sec:decoherence
+sec:qmparadoxes
+
+
+
+
+
+SPACETIME⟺ENERGY
+
+
+photons experience the unpartitioned geometric potential
+
+
+Unicode Physics Symbols Reference
+=================================
+         WILL≡SPACE-TIME-ENERGY 
+
+∵    SPACETIME ≡ ENERGY                    \frac{E}{M}\ =\frac{L}{T}
+               ⇓
+∴ ECCENTRICITY ≡ ENERGY BALLANCE 
+              OR (not sure what sign is correct for them...)
+∴ ECCENTRICITY ∝ ENERGY BALLANCE 
+  
+$$\text{ECCENTRICITY} \equiv \text{CLOSURE DEFECT}$$
+
+$$e_c \equiv \frac{1}{\delta} - 1$$
+
+
+
+SPACETIME ≡ ENERGY
+  ↓ (logical necessity)
+Closure + Conservation + Isotropy
+  ↓ (classification theorem)
+S¹ (1DOF) and S² (2DOF) as unique carriers
+  ↓ (only available distinguishing property)
+DOF ratio = 2:1
+  ↓ (quadratic conservation of relations)
+κ² = 2β²
+
+ E₀=m₀c²
+
+\(\text{SPACETIME} \equiv \text{ENERGY}\).
+
+κ (kappa), β (beta), α (alpha), ρ (rho), θ (theta), σ (sigma), ω (omega), Δ (Delta), π (pi)
+Subscript digits: ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉
+Subscript letters: ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ
+Superscripts: ² ³ ⁴ ⁻¹
+Other: ☉ (Sun), ⊕ (Earth), ≈, →, ↺
+        
+\approx
+
+
+
+
+
+
+ΔE_{A→B} + ΔE_{B→A} = 0.
+
+ΔE_{A→B} = ½(κ_A² − κ_B²) + ½(β_B² − β_A²)
+
+β = 1 ⇒ βᵧ = 0:  Light has no rest frame.
+
+L = ½ m v² + (GMm)/r ⇔ ½ m c² (β² + κ²)
+H = ½ m v² − (GMm)/r ⇔ ½ m c² (β² − κ²)
+
+
+ρ = (κ² c²)/(8 π G r²) = κ² · ρₘₐₓ
+
+ρₘₐₓ =  c²/(8 π G r²)  ⇒ when κ²= 1  
+
+⇒
+⇔
+
+Rₛ = (2 G m₀)/(c²)
+
+ SPACETIME≡ENERGY ⇔ Rₛ/r=κ²=ρ/ρₘₐₓ
+
+
+r^3∝t^2   volume ∝ time^2 
+r∝t^2/3   length ∝ time^2/3
+∝
+≈
+≠
+∝
+≠
+S¹    — One-dimensional sphere (unit circle), Unicode: S¹
+S²
+θ₁    — Theta 1, Unicode: θ₁
+θ₂    — Theta 2, Unicode: θ₂
+Rₛ    — Schwarzschild radius, Unicode: Rₛ
+β_Y   — Beta sub Y, Unicode: β_Y
+κ_X   — Kappa sub X, Unicode: κ_X
+γ = 1 / √(1 − β²)
+κₓ
+βᵧ=√(1-(v/c)²)
+τ=βᵧκₓ
+τᵧ²
+κₚ
+βₚ
+rₚ
+β₀(o)
+κ₀(o)
+o₀
+Q²
+E₀
+Eₓ
+Eᵧ
+×
+∝
+κₓ=√(1-Rₛ/r)
+κₓ² = -gₜₜ
+Qₜ
+1/κₓ² = gᵣᵣ
+c²
+(p²c² + E₀²)²
+E = √(p²c² + E₀²)
+
+E = √(p²c² + E₀²)
+β² = v²/c²
+κ² = 2β²
+β = v/c
+κ = v_e/c
+WILL_RG_I=50K tokens
+WILL_RG_II=35K tokens
+WILL_RG_III=21K tokens
+
+
+
+
+
+Stage I: 4 links (pr:epistemic, pr:minimalism, pr:relational, pr:Mathematical)
+Stage II: 2 links (def:energy, pr:unifying)
+Stage III: 5 links (lem:closure, thm:carriers, lem:duality, thm:Closure, lem:dof-indifference)
+Stage IV: 4 links (thm:restenergy, cor:energymomentum, thm:equivalence, prop:relativity)
+Stage V: 5 links (sec:DisQ, fig:relational_shift, sec:energy-symmetry, pr:self_cen, def:energy)
+Stage VI: 3 links (GRvsRG, sec:general_consequence x2)
+Stage VII: 3 links (sec:rom, sec:rel_ecc, eq:precession_law)
+Stage VIII: 3 links (sec:density x2, subsec:pressure)
+Stage IX: 2 links (eq:unified_field, sec:No Singularities)
+Stage X: 3 links (sec:willinvariant, sec:ouroboros x2)
+
+
+
+
+
+
+
+
+1. Gravitational Redshift at the surface of the sun (R_sun) (obtain via spectroscopy) [math]z_{sun}=2.1224\cdot10^{-6}[/math]
+
+2. Ratio between R_sun and r_p (Mercury radius at perihelium) R_ratio=R_sun/r_p from astrometric data. No absolute scales needed. [math]R_{ratio}=0.0151235185169[/math]
+
+3. \beta_{p}=0.000196736103348  Mercury's kinetic projection beta_p at perihelium  unitless ( transverse Doppler shift, obtained via spectroscopy or radio signal.)
+
+THATS ALL OUR INPUTS
+if gravitation is the curvature of 4D spacetime induce by mass, then mass and G has to be primary parameters. But in my calculation they are unphysical unmeasurable redundant values:
+
+
+
+
+
+[math]\kappa_{p}=\sqrt{\left(1-\left(1+z_{sun}\right)^{-2}\right)\cdot R_{ratio}}=0.000253369506895[/math]
+[math]\Delta_{precession}=\frac{3\cdot\pi}{2}\cdot\frac{\kappa_{p}^{4}}{\beta_{p}^{2}}=5.0175347157\times10^{-7}[/math]
+after units conversion we getting 42.9710621566 arcsec/100years
+
+
+
+
+
+
+
+
+∴
+
+
+∀  FOR ALL 
+∃  THERE EXISTS
+∄ THERE DOES NOT EXIST , 
+∴ THEREFORE 
+∵  BECAUSE 
+∎ END OF PROOF ,
+ ¬ NOT SIGN , 
+∧ LOGICAL AND
+ ∨ LOGICAL OR
+ ⊼  NAND
+ ⊻ XOR
+
+true
+⊨ ⊭
+
+assertion
+⊦ ⊬
+
+models, forces
+⊧ ⊩ ⊮
+
+
+
+Geometry
+divides
+∣ ∤ ⫮
+
+⌅ ⌆ , ℓ , ⫛
+
+Ratio, proportion
+∝ ∶ ∷ ∺
+
+Parallel
+∥ ∦ ⫲ ⫳ ⋕ ⧣ ⧤ ⧥ ⦷
+
+perpendicular
+⟂ ⫡ ⦹
+
+Right angle
+⦜ ∟ ⊾ ⦝ ⊿
+
+Angles
+∠ ⦞ ⦟
+
+⦢ ⦤ ⦦
+⦣ ⦥ ⦧
+
+∡ ⦨ ⦪ ⦬ ⦮
+⦛ ⦩ ⦫ ⦭ ⦯
+
+⦓ ⦕
+⦔ ⦖
+
+Spherical angle
+∢ ⦠ ⦡
+
+⟀
+
+⌳ ⌯
+
+⌔ ⌓
+
+
+➕ ➖ ✖ ➗ 🟰
+
+🄋 ➀ ➁ ➂ ➃ ➄ ➅ ➆ ➇ ➈ ➉
+
+
+δ 𝛅 𝛿 𝜹 𝝳 𝞭 Δ 𝚫 𝛥 𝜟 𝝙 𝞓
+
+√ ∛ ∜
+
+∑ ∫ ∮ , ∂ ′ ″
+
+⊕ ⊗ ⊙
+
+α β δ ε θ λ μ π φ ψ Ω 
+
+
+⌅ ⌆ ∝ ∶ ∷ ∥ ∦ ⟂ ⦜ ∠ ∡
+
+⌈ ⌉ , ⌊ ⌋ , ⟨ ⟩
+
+⊘ ⨸ ⦼
+∿
+
+
+
+
+
+
+
+WILL Relational Geometry Open Research focuses on exploring fundamental space, time, and energy through geometric principles, sharing philosophical and mathematical insights. The site presents research-style content, documents, and results related to relational orbital mechanics, galactic dynamics, and related AI tools for open, transparent scientific inquiry.
+
+
+
+
+
+
+Stage	Node	#nameddest= target
+I	Epistemic Hygiene	pr:epistemic
+I	Ontological Minimalism	pr:minimalism
+I	Relational Origin	pr:relational
+I	Math Transparency	pr:Mathematical
+II	Definition 1.6: Energy	def:energy
+II	Principle 2.3: The Identity	pr:unifying
+III	Derived Constraints	lem:closure
+III	Theorem 3.4: Carriers	thm:carriers
+III	Lemma 6.1: Duality	lem:duality
+III	Thm 6.2 & 11.1: Conservation	thm:Closure
+III	Theorem 10.2: Energetic Closure	lem:dof-indifference
+IV	Thm 7.2: Invariant Mass	thm:restenergy
+IV	Corollary 7.3: E-p relation	cor:energymomentum
+IV	Theorem 12.2: Unified Scaling	thm:equivalence
+IV	Reference Table	prop:relativity
+V	Sec 10: Relational Displacement	sec:DisQ
+V	Self-Centering Diagram	fig:relational_shift
+V	Theorem 14.1: Energy-Symmetry	sec:energy-symmetry
+V	Self-Centering Principle	pr:self_cen
+V	Explicit Transition Cost	def:energy
+VI	Bad Philosophy panel	GRvsRG
+VI	Good Philosophy panel	sec:general_consequence
+VI	General Conclusion	sec:general_consequence
+VII	R.O.M.	sec:rom
+VII	Geometric Eccentricity sec:rel_ecc and also change the displayed definition from e=\frac{1}{\delta_p^2} - 1 on to e = \frac{2\beta_p^2}{\kappa_p^2}-1=\frac{1}{\delta_p} - 1 .
+VII	Universal Precession Law	eq:precession_law
+VIII	Translation Interface	sec:density
+VIII	Density Identity	sec:density
+VIII	Intrinsic Pressure	 subsec:pressure
+IX	Unified Field Equation	eq:unified_field
+IX	Natural Bounds	sec:No Singularities
+X	W_ILL Invariant	sec:willinvariant
+X	Theoretical Ouroboros	sec:ouroboros
+X	Final Node	sec:ouroboros
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I got
+\\Delta_{arccenture}=\\Delta_{arcseconds}N_{orbits}=42.9710621566
+
+NO MASS NO G NO c DERIVATION the ONLY inputs I used are:
+
+1. \beta_{p}=0.000196736103348 - Mercury's kinetic projection at perihelium unitless (obtained via Doppler spectroscopy or radio signal etc...)
+
+2. z_{sun}=2.1224\\cdot10^{-6} - Gravitational Redshift at the surface (R_sun) of the sun (obtain via spectroscopy)
+
+3. R_{ratio}=0.0151235185169 - Ratio between R_sun and r_p (Mercury radius at perihelium) R_ratio=R_sun/r_p from astrometric data. No absolute scales needed.
+
+Outputs:
+
+\kappa_{p}=\sqrt{\left(1-\left(1+z_{sun}\right)^{-2}\right)R_{ratio}}=0.000253369506895
+
+\Delta_{precession}=\frac{3\pi}{2}\ \frac{\kappa_{p}^{4}}{\beta_{p}^{2}}=5.0175347157\times10^{-7}
+
+\Delta_{arcsec100Y}=\Delta_{precession}206264.806247\frac{365.25}{87.969}\cdot100=42.9710621566
+
+That's it!
+
+e_{predicted}=\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1=0.205839299443
+
+
+Have you seen methods like this before?
+
+
+
+
+
+ Я сейчас восстанавливаю полную  логику расчётов:
+
+
+
+Руками задаются:
+
+e_c
+
+beta
+
+o
+
+Всё остальное зависит от этих троих:
+
+
+
+\beta_{o}\left(o\right)=\sqrt{\kappa_{o}\left(o\right)^{2}-\beta^{2}}
+
+\kappa_{o}\left(o\right)=\kappa_{p}\cdot\sqrt{\frac{1+e_{c}\cdot\cos\left(o\right)}{1+e_{c}}}
+
+\kappa_{p}=\frac{\kappa}{\sqrt{1-e_{c}}}
+
+\kappa=\beta\sqrt{2}
+
+Z_{sys}\left(o\right)=\left(1+z_{o}\left(o\right)\right)\left(1+z_{Do}\left(o\right)\right)
+
+z_{o}\left(o\right)=\frac{1}{\kappa_{Xo}\left(o\right)}-1
+
+\kappa_{Xo}\left(o\right)=\sqrt{1-\kappa_{o}\left(o\right)^{2}}
+
+z_{Do}\left(o\right)=\frac{1}{\beta_{Yo}\left(o\right)}-1
+
+\beta_{Yo}\left(o\right)=\sqrt{1-\beta_{o}\left(o\right)^{2}}
+
+\tau_{Wo}\left(o\right)=\kappa_{Xo}\left(o\right)\cdot\beta_{Yo}\left(o\right)
+
+
+
+
+
+
+
+\section*{R.O.M. Exact Solution for Eccentricity (e)}
+
+\subsection*{1. Define Observables from $Z_{sys}$ Inputs}
+Using the provided phase variable equations:
+$$ \tau_{Wo}(o) = Z_{sys}(o)^{-1} $$
+$$ Q_o(o)^2 \approx 1 - \tau_{Wo}(o)^2 = 1 - \frac{1}{Z_{sys}(o)^2} $$
+
+We define the observed Relational Shift depth at Pericenter ($o=0$) and Apocenter ($o=\pi$):
+$$ \Delta Q^2_{peri} = 1 - \frac{1}{Z_{sys}(0)^2} $$
+$$ \Delta Q^2_{apo} = 1 - \frac{1}{Z_{sys}(\pi)^2} $$
+
+\subsection*{2. Calculate System Contrast Ratio ($\mathcal{R}$)}
+We define the ratio $\mathcal{R}$ which eliminates the mass parameter $\kappa_p$:
+$$ \mathcal{R} = \frac{\Delta Q^2_{peri}}{\Delta Q^2_{apo}} $$
+
+Substituting the R.O.M. constants definitions:
+$$ Q_p^2 = \kappa_p^2 \left( \frac{3+e}{2} \right) $$
+$$ Q_a^2 = \kappa_p^2 \left( \frac{(1-e)(3-e)}{2(1+e)} \right) $$
+
+The algebraic relation for the ratio becomes:
+$$ \mathcal{R} = \frac{(3+e)(1+e)}{(1-e)(3-e)} $$
+
+\subsection*{3. Solve for Eccentricity ($e$)}
+Solving the quadratic equation derived from $\mathcal{R}$:
+$$ e^2 - 4e\left(\frac{\mathcal{R}+1}{\mathcal{R}-1}\right) + 3 = 0 $$
+
+Let auxiliary term $H = \frac{\mathcal{R}+1}{\mathcal{R}-1}$. The strictly derived solution for stable orbit ($e < 1$) is:
+
+$$ \boxed{ e = 2H - \sqrt{4H^2 - 3} } $$
+
+\subsection*{4. Solve for Potential Parameter ($\kappa_p$)}
+Once $e$ is found, we recover the global scaling parameter $\kappa_p$ from the Pericenter data:
+
+$$ \boxed{ \kappa_p = \sqrt{ \frac{2 \cdot \Delta Q^2_{peri}}{3+e} } } $$
+
+
+
+
+
+
+
+
+
+
+
+Unicode: Greek Alphabet α β γ
+
+
+
+Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω
+
+α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω
+
+Bold
+𝚨 𝚩 𝚪 𝚫 𝚬 𝚭 𝚮 𝚯 𝚰 𝚱 𝚲 𝚳 𝚴 𝚵 𝚶 𝚷 𝚸 𝚺 𝚻 𝚼 𝚽 𝚾 𝚿 𝛀
+
+𝛂 𝛃 𝛄 𝛅 𝛆 𝛇 𝛈 𝛉 𝛊 𝛋 𝛌 𝛍 𝛎 𝛏 𝛐 𝛑 𝛒 𝛔 𝛕 𝛖 𝛗 𝛘 𝛙 𝛚
+
+Italic
+𝛢 𝛣 𝛤 𝛥 𝛦 𝛧 𝛨 𝛩 𝛪 𝛫 𝛬 𝛭 𝛮 𝛯 𝛰 𝛱 𝛲 𝛴 𝛵 𝛶 𝛷 𝛸 𝛹 𝛺
+
+𝛼 𝛽 𝛾 𝛿 𝜀 𝜁 𝜂 𝜃 𝜄 𝜅 𝜆 𝜇 𝜈 𝜉 𝜊 𝜋 𝜌 𝜎 𝜏 𝜐 𝜑 𝜒 𝜓 𝜔
+
+Bold Italic
+𝜜 𝜝 𝜞 𝜟 𝜠 𝜡 𝜢 𝜣 𝜤 𝜥 𝜦 𝜧 𝜨 𝜩 𝜪 𝜫 𝜬 𝜮 𝜯 𝜰 𝜱 𝜲 𝜳 𝜴
+
+𝜶 𝜷 𝜸 𝜹 𝜺 𝜻 𝜼 𝜽 𝜾 𝜿 𝝀 𝝁 𝝂 𝝃 𝝄 𝝅 𝝆 𝝈 𝝉 𝝊 𝝋 𝝌 𝝍 𝝎
+
+Sans-Serif Bold
+𝝖 𝝗 𝝘 𝝙 𝝚 𝝛 𝝜 𝝝 𝝞 𝝟 𝝠 𝝡 𝝢 𝝣 𝝤 𝝥 𝝦 𝝨 𝝩 𝝪 𝝫 𝝬 𝝭 𝝮
+
+𝝰 𝝱 𝝲 𝝳 𝝴 𝝵 𝝶 𝝷 𝝸 𝝹 𝝺 𝝻 𝝼 𝝽 𝝾 𝝿 𝞀 𝞂 𝞃 𝞄 𝞅 𝞆 𝞇 𝞈
+
+Sans-Serif Bold Italic
+𝞐 𝞑 𝞒 𝞓 𝞔 𝞕 𝞖 𝞗 𝞘 𝞙 𝞚 𝞛 𝞜 𝞝 𝞞 𝞟 𝞠 𝞢 𝞣 𝞤 𝞥 𝞦 𝞧 𝞨
+
+𝞪 𝞫 𝞬 𝞭 𝞮 𝞯 𝞰 𝞱 𝞲 𝞳 𝞴 𝞵 𝞶 𝞷 𝞸 𝞹 𝞺 𝞼 𝞽 𝞾 𝞿 𝟀 𝟁 𝟂
+
+
+
+Α Alpha
+Β Beta
+Γ Gamma
+Δ Delta
+Ε Epsilon
+Ζ Zeta
+Η Eta
+Θ Theta
+Ι Iota
+Κ Kappa
+Λ Lambda
+Μ Mu
+Ν Nu
+Ξ Xi
+Ο Omicron
+Π Pi
+Ρ Rho
+Σ Sigma
+Τ Tau
+Υ Upsilon
+Φ Phi
+Χ Chi
+Ψ Psi
+Ω Omega
+
+\nu
+
+α alpha
+β beta
+γ gamma
+δ delta
+ε epsilon
+ζ zeta
+η eta
+θ theta
+ι iota
+κ kappa
+λ lambda
+μ mu
+ν nu
+ξ xi
+ο omicron
+π pi
+ρ rho
+σ sigma
+τ tau
+υ upsilon
+φ phi
+χ chi
+ψ psi
+ω omega
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Equality, Identity, Equivalence, Approx, Congruence
+≠ = ⩵ ⩶
+
+≝ ≞ ≟ ≎ ≏ ⪮
+
+≐ ⩦ ≑ ≒ ≓ ⩷
+
+≔ ≕ ⩴
+
+≖ ≗ ≘ ≙ ≚ ≛ ⩮ ≜ ⩬ ⩭
+
+⩱ ⩲
+
+Identity
+≡ ≢ ⩧
+
+Equivalence
+≍ ≭ ≣ ⩸
+
+tilde
+≁ ≂ ⋍
+
+asymptotic
+≃ ≄
+
+Approx
+≈ ≅ ≊
+≆ ≇ ≉
+
+≋ ≌ ⩯ ⩰
+
+
+
+
+
+
+
+
+Emoji Arrows
+these always show as emoji.
+
+🔙 🔚 🔛 🔜 🔝
+
+🔁 🔂 🔃 🔄
+
+Common Arrows
+← → ↔ ↑ ↓ , ↕ , ↖ ↗ ↘ ↙ , ⤡ ⤢
+
+stroked arrow
+↚ ↛ ↮ , ⇷ ⇸ ⇹ ⤉ ⤈ , ⇺ ⇻ ⇼ ⇞ ⇟
+
+arrow to bar
+⇤ ⇥ ⤒ ⤓ ↨
+
+arrow to dot
+⤝ ⤞ ⤟ ⤠
+
+arrow from bar
+↤ ↦ ↥ ↧
+
+paired arrow
+⇇ ⇉ ⇈ ⇊ , ⇆ ⇄ ⇅ ⇵
+
+black arrow
+⬅ ( ⮕ ➡ ) ⬆ ⬇ , ⬌ ⬍ , ⬉ ⬈ ⬊ ⬋
+
+white arrow
+⇦ ⇨ ⇧ ⇩ , ⬁ ⬀ ⬂ ⬃ , ⬄ ⇳
+
+sans-serif arrow
+🡐 🡒 🡘 , 🡑 🡓 🡙 , 🡔 🡕 🡖 🡗
+
+open-headed head
+⇽ ⇾ ⇿ ⇒
+
+long arrow
+⟵ ⟶ ⟷ , ⟸ ⟹ ⟺ , ⟻ ⟼
+
+Double Lines Arrow
+double arrow
+⇐ ⇒ ⇔ , ⇑ ⇓ ⇕ , ⇖ ⇗ ⇘ ⇙
+
+stroked double arrow
+⇍ ⇏ ⇎ , ⤂ ⤃ ⤄
+
+double arrow from bar
+⤆ ⤇
+
+triple lines arrow
+⬱ ⇶ , ⇚ ⇛ ⤊ ⤋
+
+quadruple lines arrow
+⭅ ⭆ ⟰ ⟱
+
+Two Headed
+TWO HEADED
+↞ ↠ ↟ ↡
+
+double head with stroke
+⬴ ⤀ , ⬵ ⤁
+
+⬶ ⤅
+
+Fishbone Arrows
+arrow with tail
+↢ ↣ , ⬹ ⤔ , ⬺ ⤕
+
+double head with tail and stroke
+⬻ ⤖ , ⬼ ⤗ , ⬽ ⤘
+
+Squiggle and Wave Arrow
+squiggle arrow
+⇜ ⇝ , ⬳ ⟿
+
+wave arrow
+↜ ↝ ↭ , ⬿ ⤳
+
+Dashed Arrow
+dashed arrow
+⇠ ⇢ ⇡ ⇣ , ⤌ ⤍ ⤎ ⤏
+dotted stem arrow
+⬸ ⤑ , ⬷ ⤐
+
+Harpoon Arrow
+harpoon arrow
+↼ ⇀ ↽ ⇁ , ↿ ↾ ⇃ ⇂
+
+double sided harpoon
+⥊ ⥋ ⥌ ⥍ , ⥎ ⥐ ⥑ ⥏
+
+harpoon to bar
+⥒ ⥓ ⥖ ⥗ , ⥔ ⥕ ⥘ ⥙
+
+harpoon with bar tail
+⥚ ⥛ ⥞ ⥟ ⥜ ⥝ ⥠ ⥡
+
+double harpoon
+⥢ ⥤ ⥣ ⥥
+
+⥮ ⥯ ⇋ ⇌ ,
+⥦ ⥨ ⥧ ⥩ ,
+⥪ ⥬ ⥫ ⥭
+
+Sharp Turn, Bent
+sharp turn arrow
+↰ ↱ ↲ ↳ , ⬐ ⬎ ⬑ ⬏ , ↴ ↵
+
+bent arrow
+⭜ ⭝ , ⭞ ⭟ , ↯ ⭍
+
+Hook Tail, Loop Tail, Fish Tail
+arrow with hook
+↩ ↪ , ⤣ ⤤ ⤥ ⤦
+
+slanted hook arrow
+⭚ ⭛
+
+arrows with loop
+↫ ↬
+
+arrow-tail
+⤙ ⤚ , ⤛ ⤜
+
+fish tail
+⥼ ⥽ ⥾ ⥿
+
+Arrow Dingbats
+feathered
+➳ ➵ ➴ ➶ ➸ ➷ ➹
+
+⇪ ⮸ ⇫ ⇬ ⇭ ⇮ ⇯
+
+➙ ➘ ➚
+
+➾ ⇰
+
+➛ ➜ ➔ ➝ ➞ ➟ ➠ ➧ ➨
+
+➺ ➻ ➼ ➽
+
+cross arrow
+⤪ ⤨ ⤧ ⤩ ,
+⤭ ⤮ ⤱ ⤲ ,
+⤯ ⤰ , ⤫ ⤬
+
+Triangle Arrowhead
+triangle arrowhead
+⭠ ⭢ ⭤ ⭡ ⭣ ⭥ ,
+⭦ ⭧ ⭨ ⭩
+
+diff size arrow head
+🠀 🠂 🠁 🠃 ,
+🠄 🠆 🠅 🠇 ,
+🠈 🠊 🠉 🠋
+
+triangle-headed arrow, diff shaft sizes
+🠠 🠢 🠡 🠣 ,
+🠤 🠦 🠥 🠧 ,
+🠨 🠪 🠩 🠫 ,
+🠬 🠮 🠭 🠯 ,
+🠰 🠲 🠱 🠳
+
+equilateral triangle arrowhead
+🠐 🠒 🠑 🠓 ,
+🠔 🠖 🠕 🠗 ,
+🠘 🠚 🠙 🠛 ,
+🠜 🠞 🠝 🠟
+
+⭰ ⭲ ⭱ ⭳ ,
+⭶ ⭷ ⭸ ⭹
+
+triangle-headed dashed
+⭪ ⭬ ⭫ ⭭
+
+paired arrow, triangle-headed
+⮄ ⮆ ⮅ ⮇ ,
+⮀ ⮂ ⮁ ⮃
+
+triangle-headed
+⭺ ⭼ ⭻ ⭽
+
+triangle double head
+⯬ ⯭ ⯮ ⯯
+
+sharp turn long tip
+⮠ ⮡ ⮢ ⮣ ,
+⮤ ⮥ ⮦ ⮧
+
+wide-headed Barb Arrow
+🡠 🡢 🡡 🡣 🡤 🡥 🡦 🡧 ,
+🡨 🡪 🡩 🡫 🡬 🡭 🡮 🡯 ,
+🡰 🡲 🡱 🡳 🡴 🡵 🡶 🡷 ,
+🡸 🡺 🡹 🡻 🡼 🡽 🡾 🡿 ,
+🢀 🢂 🢁 🢃 🢄 🢅 🢆 🢇
+
+Circled Arrow
+➲ , ⮈ ⮊ ⮉ ⮋
+
+black arrowhead
+➤ , ⮜ ⮞ ⮝ ⮟
+black white arrowhead
+➢ ➣ , ⮘ ⮚ ⮙ ⮛
+
+Circular Arrow
+circle arc
+↶ ↷ ⤾ ⤿ , ⤺ ⤻ ⤹ ⤸ , ⭯ ⭮ ↺ ↻
+
+cycle
+⟲ ⟳ , ⥀ ⥁ , 🗘 ⮔
+
+Turning Arrow
+U-turn arrow
+⮎ ⮌ ⮏ ⮍
+
+⤶ ⤷ ⤴ ⤵
+
+ribbon arrow
+⮰ ⮱ , ⮲ ⮳ , ⮴ ⮵ , ⮶ ⮷
+
+curved arrow
+➥ ➦ , ⮨ ⮩ ⮪ ⮫ , ⮬ ⮭ ⮮ ⮯
+
+Shaded / Shadowed arrows
+shaded
+➩ ➪ , 🢠 🢡 , 🢢 🢣 , 🢤 🢧 , 🢦 🢥
+
+shadowed
+➭ ➮ , ➯ ➱
+
+shadowed, tilted
+➫ ➬ , 🢨 🢩 , 🢪 🢫
+
+Fat Arrows
+squared arrow
+🠹 🠸 🠻 🠺
+
+heavy arrow
+🡄 🡆 🡅 🡇
+
+
+
+arrow shaft
+🢜 🢝 🢞 🢟 🢬 🢭
+
+Misc
+🠴 🠶 🠵 🠷
+
+🢘 🢚 🢙 🢛
+
+⭎ ⭏
+
+⥂ ⥃ ⥄
+
+
+
+
+
+
+
+
+∀	∁	∂	∃	∄	∅	∆	∇	∈	∉	∊	∋	∌	∍	∎	∏
+U+221x	∐	∑	−	∓	∔	∕	∖	∗	∘	∙	√	∛	∜	∝	∞	∟
+U+222x	∠	∡	∢	∣	∤	∥	∦	∧	∨	∩	∪	∫	∬	∭	∮	∯
+U+223x	∰	∱	∲	∳	∴	∵	∶	∷	∸	∹	∺	∻	∼	∽	∾	∿
+U+224x	≀	≁	≂	≃	≄	≅	≆	≇	≈	≉	≊	≋	≌	≍	≎	≏
+U+225x	≐	≑	≒	≓	≔	≕	≖	≗	≘	≙	≚	≛	≜	≝	≞	≟
+U+226x	≠	≡	≢	≣	≤	≥	≦	≧	≨	≩	≪	≫	≬	≭	≮	≯
+U+227x	≰	≱	≲	≳	≴	≵	≶	≷	≸	≹	≺	≻	≼	≽	≾	≿
+U+228x	⊀	⊁	⊂	⊃	⊄	⊅	⊆	⊇	⊈	⊉	⊊	⊋	⊌	⊍	⊎	⊏
+U+229x	⊐	⊑	⊒	⊓	⊔	⊕	⊖	⊗	⊘	⊙	⊚	⊛	⊜	⊝	⊞	⊟
+U+22Ax	⊠	⊡	⊢	⊣	⊤	⊥	⊦	⊧	⊨	⊩	⊪	⊫	⊬	⊭	⊮	⊯
+U+22Bx	⊰	⊱	⊲	⊳	⊴	⊵	⊶	⊷	⊸	⊹	⊺	⊻	⊼	⊽	⊾	⊿
+U+22Cx	⋀	⋁	⋂	⋃	⋄	⋅	⋆	⋇	⋈	⋉	⋊	⋋	⋌	⋍	⋎	⋏
+U+22Dx	⋐	⋑	⋒	⋓	⋔	⋕	⋖	⋗	⋘	⋙	⋚	⋛	⋜	⋝	⋞	⋟
+U+22Ex	⋠	⋡	⋢	⋣	⋤	⋥	⋦	⋧	⋨	⋩	⋪	⋫	⋬	⋭	⋮	⋯
+U+22Fx	⋰	⋱	⋲	⋳	⋴	⋵	⋶	⋷	⋸	⋹	⋺	⋻	⋼	⋽	⋾	⋿
+
+
+
+
+
+
+
+
+
