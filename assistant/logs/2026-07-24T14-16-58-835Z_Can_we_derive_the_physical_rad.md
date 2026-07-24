@@ -81,3 +81,7 @@ All of these contain $\sin\theta_{\text{sur}}$ (or equivalently $z_{\text{surf}}
 
 **Socratic counter-question:**  
 If you insist that $R_{\text{sur}}$ should be derivable from “standard gravitational parameters” alone, which *specific* orbital observable (precession, period, redshift, deflection, etc.) do you claim carries information about the central body’s physical size, and how would that information survive the shell theorem / Birkhoff’s theorem that WILL RG’s $\kappa^2 = R_s/r$ explicitly encodes?
+
+**User:** Lets analyse the tau_D invariant. Especially this form tau_D=\sqrt{\frac{\pi}{G\rho}} lets check if it holds I have some doubts
+
+**Assistant (Powered by Nemotron 550B):** 
