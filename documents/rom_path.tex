@@ -1,0 +1,61 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\begin{document}
+
+\begin{center}
+\Large \textbf{Relational Orbital Mechanics (R.O.M.)} \\
+\normalsize \textit{Parameter-Free Derivation from Earth Observables to Mercury Precession}
+\end{center}
+\vspace{0.5cm}
+
+\noindent \textbf{1. Earth's Relational Scale ($R_{s\oplus}$)} \\
+Inputs: Earth radius $R_\oplus = 6371008.7$ m, surface acceleration $g = 9.8$ m/s$^2$.
+\begin{align}
+    \kappa_\oplus^2 &= \frac{2 R_\oplus g}{c^2} \\
+    R_{s\oplus} &= \kappa_\oplus^2 R_\oplus = \frac{2 R_\oplus^2 g}{c^2} \approx 0.00887 \text{ m}
+\end{align}
+
+\noindent \textbf{2. Earth-Moon Distance ($a_M$)} \\
+Inputs: Moon sidereal period $T_M = 2.3606 \times 10^6$ s. 
+\begin{equation}
+    a_M = \left( \frac{R_{s\oplus} c^2}{8\pi^2} \right)^{1/3} T_M^{2/3} \approx 3.83 \times 10^8 \text{ m}
+\end{equation}
+
+\noindent \textbf{3. Earth-Sun Distance ($a_\oplus$)} \\
+Inputs: Lunar dichotomy angle $\Phi \approx 89.853^\circ$.
+\begin{equation}
+    a_\oplus = \frac{a_M}{\cos \Phi} \approx 1.496 \times 10^{11} \text{ m}
+\end{equation}
+
+\noindent \textbf{4. Sun's Relational Scale ($R_{s\odot}$)} \\
+Inputs: Earth sidereal period $T_\oplus = 31557600$ s.
+\begin{equation}
+    R_{s\odot} = \frac{8\pi^2 a_\oplus^3}{T_\oplus^2 c^2} \approx 2953 \text{ m}
+\end{equation}
+
+\noindent \textbf{5. Mercury's Relational Projections} \\
+Inputs: Mercury period $T_m = 87.969 \text{ days} = 7600521.6$ s, eccentricity $e_m = 0.2056$.
+\begin{align}
+    \beta &= \left( \frac{\pi R_{s\odot}}{T_m c} \right)^{1/3} \quad \text{(Kinematic Amplitude)} \\
+    \kappa^2 &= 2\beta^2 \quad \text{(Potential Closure)}
+\end{align}
+
+\noindent \textbf{6. Anomalous Precession of Mercury} \\
+Relational phase divergence ($\tau_Y^2$) and secular shift per orbit ($\Delta\varphi$):
+\begin{align}
+    \tau_Y^2 &= \beta^2 + \kappa^2 - \beta^2\kappa^2 \\
+    \Delta\varphi &= \frac{2\pi \tau_Y^2}{1-e_m^2} \approx 5.018 \times 10^{-7} \text{ rad/orbit}
+\end{align}
+Total shift per century ($\approx 415.2$ orbits):
+\begin{equation}
+    \Delta\varphi_{\text{century}} = \Delta\varphi \times \frac{36525 \text{ days}}{87.969 \text{ days}} \times \frac{180 \times 3600}{\pi} \approx 43.01 \text{ arcsec/cy}
+\end{equation}
+
+\vspace{0.5cm}
+\noindent \rule{\textwidth}{0.4pt} \\
+\textit{Conclusion: The entire local configuration is parameterized exactly using only local lengths, chronological cycles, and pure angular ratios. Legacy primitives $G$ and $M$ are algebraically eliminated from the causal chain.}
+
+\end{document}
