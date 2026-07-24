@@ -89,3 +89,7 @@ If you insist that $R_{\text{sur}}$ should be derivable from “standard gravita
 **User:** Lets analyse the tau_D invariant. Especially this form tau_D=\sqrt{\frac{\pi}{G\rho}} lets check if it holds I have some doubts
 
 **Assistant:** Upstream error from Nvidia: ResourceExhausted: Worker local total request limit reached (331/32)
+
+**User:** Lets analyse the tau_D invariant. Especially this form tau_D=\sqrt{\frac{\pi}{G\rho}} lets check if it holds I have some doubts
+
+**Assistant (Powered by Nemotron 550B):** Your doubt is well-founded. **The equation $\tau_D = \sqrt{\frac{\pi}{G\rho}}$ as written in the text is ambiguous and, depending on the
