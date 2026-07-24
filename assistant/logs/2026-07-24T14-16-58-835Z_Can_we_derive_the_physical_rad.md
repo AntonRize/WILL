@@ -172,3 +172,30 @@ You can verify this step-by-step through the interactive Desmos project: [Deriva
 
 **Socratic counter-question:**  
 Given that this specific definition of $\rho$ (the relational field density at $R_{\text{sur}}$) perfectly closes the algebraic identity for $\tau_D$, what ontological implication does this have for the distinction between a "mass parameter" and the "structural density" of a central body in a relational framework?
+
+**User:** So then 3pi/(G\tau_D^2)=classical density \rho at the surface?
+
+**Assistant (Powered by Gemini 2.5 Flash):** No, your rearranged expression is incorrect by a factor of $3$.
+
+Let's re-derive it from the identity we just confirmed:
+
+1.  Start with the [Time-Density Invariant ($\tau_D$)](https://willrg.com/documents/WILL_RG_II.pdf#sec:time-density) in terms of the [relational density $\rho$ at the surface $R_{\text{sur}}$](https://willrg.com/documents/WILL_RG_I.pdf#sec:density):
+
+    $$\tau_D = \sqrt{\frac{\pi}{G\rho(R_{\text{sur}})}}$$
+
+2.  Square both sides:
+
+    $$\tau_D^2 = \frac{\pi}{G\rho(R_{\text{sur}})}$$
+
+3.  Solve for $\rho(R_{\text{sur}})$:
+
+    $$\boxed{\rho(R_{\text{sur}}) = \frac{\pi}{G\tau_D^2}}$$
+
+Therefore, the correct expression for the relational density $\rho(R_{\text{sur}})$ is $\frac{\pi}{G\tau_D^2}$, not $\frac{3\pi}{G\tau_D^2}$.
+
+This specific relational density $\rho(R_{\text{sur}})$ is the [local energy density of the relational field evaluated at the surface](https://willrg.com/documents/WILL_RG_I.pdf#sec:density), not a classical average volumetric mass density. It is defined as $\rho(r) = \frac{\kappa^2 c^2}{8\pi G r^2}$, which at the surface $r=R_{\text{sur}}$ becomes $\rho(R_{\text{sur}}) = \frac{R_s c^2}{8\pi G R_{\text{sur}}^3}$.
+
+---
+
+**Socratic counter-question:**  
+Considering the factor of $3$ in your proposed expression, does this numerical discrepancy highlight how WILL RG rigorously distinguishes between a simple "mass per volume" and a "relational field density" that inherently carries geometric factors derived from the $S^2$ carrier's properties?
