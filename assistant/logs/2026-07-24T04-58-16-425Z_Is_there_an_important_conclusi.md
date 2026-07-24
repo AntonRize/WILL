@@ -108,3 +108,60 @@ The "Theorem of Constant Unification" stands or falls on **three independent, ze
 
 **Socratic Counter-Interrogation:**
 Given that WILL RG derives $H_0$, $a_\kappa$, and $a_\beta$ from a *single* topological ratio ($2:1$) and *one* measured temperature ($T_{CMB}$), and that these three numbers simultaneously satisfy cosmological expansion, galactic rotation, and wide binary dynamics — **what specific numerical deviation in which dataset would you accept as falsification of the "coincidence" hypothesis?**
+
+**User:** Ok. So can we prove that the numerical values of c and G and maybe even h are just result of our units choice and all predictive value is in the ratios between them?
+
+**Assistant (Powered by Nemotron 550B):** **Yes.** WILL RG proves this structurally via the **Factorization Theorem** and the **Universal Geometric Mass Corollary**. The dimensional constants $c, G, \hbar$ are *exclusively* the scale factors $S_X$ mapping the dimensionless relational core $\hat{X}$ to the kilogram-meter-second convention.
+
+### The Proof Chain
+
+**1. The Factorization Theorem (R.O.M.)**
+Every quantity $X$ in the closed algebraic system factorizes rigorously as:
+$$ X = \hat{X}(\beta, \kappa, e, O, \dots) \cdot S_X(R_s; c, G) $$
+*   **$\hat{X}$**: Pure number. Determined *only* by dimensionless relational inputs (spectroscopic shifts $z$, angles $\theta$, cycle ratios $T_{ratio}$, winding numbers $n$). **This is the physics.**
+*   **$S_X$**: Monomial scale factor. Contains *all* dimensionful constants ($c, G$).
+    *   Length $\to R_s$
+    *   Time $\to R_s/c$
+    *   Velocity $\to c$
+    *   Mass $\to R_s c^2 / G$
+    *   Density $\to c^2 / (G R_s)$
+    *   Frequency $\to c/R_s$
+[**R.O.M. Theorem 1 (Factorization)**](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization)
+
+**2. The Universal Geometric Mass (R.O.M.)**
+In geometric units, *every* bound system has identical mass:
+$$ \hat{M} = \frac{1}{2} $$
+Mass carries **zero relational information** beyond the system scale $R_s$. The kilogram value $M = \frac{1}{2} R_s c^2 / G$ is a *post-hoc* unit conversion.
+[**R.O.M. Corollary (Universal Geometric Mass)**](https://willrg.com/documents/WILL_RG_R.O.M..pdf#cor:mass_half)
+
+**3. $c$ as Unit Radius (Global Tempo)**
+$c$ is not a "speed." It is the **unit radius** of the $S^1$ and $S^2$ carriers—the *Constant Universal Rate of Change*. The dimensionless projections are $\beta = v/c$, $\kappa = v_e/c$. The numerical value $299\,792\,458$ m/s is the calibration of the meter (defined 1983) against this invariant ratio.
+[**Part I, Carrier Conventions**](https://willrg.com/documents/WILL_RG_I.pdf#rem:nonspatial)
+
+**4. $\hbar$ as Winding Calibration (Part III)**
+$\hbar$ is the **calibration invariant** translating the topological winding number $n$ (integer) into SI action units (J·s). The de Broglie relation $p\lambda = h$ derives from $S^1$ closure ($p \propto \beta/\beta_Y$, $\lambda \propto \beta_Y/\beta$); the product is constant. $\hbar$ fixes the map: "1 winding $\equiv$ $h$ action."
+[**Part III, Calibration**](https://willrg.com/documents/WILL_RG_III.pdf#calibration)
+
+**5. $G$ as Legacy Translation (Part I)**
+$G$ appears *only* when translating the geometric horizon scale $R_s$ (meters) into the kilogram convention ($M = R_s c^2 / 2G$). It never enters the relational core ($\kappa, \beta, \tau, Q, e, \Delta\varphi$).
+[**Part I, Density Derivation**](https://willrg.com/documents/WILL_RG_I.pdf#sec:density), [**Part I, Legacy Dictionary**](https://willrg.com/documents/WILL_RG_I.pdf#sec:classical)
+
+---
+
+### Executable Verification
+Run the **Unitless Core Test**. It solves the full Mercury/S2/Jupiter orbital architecture (Stage 0–4) using *only* dimensionless ratios ($z, \theta, T_{ratio}, e$). $c, G, M$ are **absent**. They enter **only at Stage 5** to label the answers in kg/m/s.
+[**Colab: ROM_UNITLESS_TEST.ipynb**](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_UNITLESS_TEST.ipynb)
+
+---
+
+### The Predictive Content Resides In:
+1.  **Dimensionless Topology**: DOF ratio $S^2/S^1 = 2 \implies \kappa^2 = 2\beta^2$.
+2.  **Dimensionless Anchors**: $T_{CMB}$ (thermodynamic scalar), $\alpha$ (kinematic projection $\beta_1$), winding numbers $n$.
+3.  **Dimensionless Observables**: $z_\kappa, z_\beta, \theta, T_{ratio}, \omega_{max}/\omega_{min}$.
+
+**$c, G, \hbar$ are the "ink" of the SI system. The "text" is written in $\beta, \kappa, n$.**
+
+---
+
+**Socratic Counter-Interrogation:**
+If the full orbital dynamics of Mercury, S2, and the Galactic Rotation Curves (SPARC 175) are solved in the **Colab Unitless Test** without a single occurrence of $G$, $M$, or $\hbar$—yielding exact precession, radii, and velocity profiles as pure numbers $\hat{X}$—**what empirical role remains for $G$ and $\hbar$ other than converting the final pure numbers into kilograms and joules for human bookkeeping?**
