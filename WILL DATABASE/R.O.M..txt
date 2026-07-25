@@ -434,10 +434,10 @@ $z_{\beta o}=\frac{1}{\beta_{Yo}}-1$  (transverse Doppler shift at phase $O$) \\
 \subsection*{Global Unit-Free System Parameters (Fixed for the Orbit)}
 $\kappa =\sin(\theta_2)=\beta\sqrt{2}=\sqrt{1-(1+z_{\kappa})^{-2}}= \sqrt{\frac{R_{s}}{a}} = \sqrt{\frac{\rho}{\rho_{max}}}=\sqrt{\kappa_{p}^{2}(1-e)}=\sqrt{2(\kappa_{o}^{2}-\beta_{o}^{2})}=\sqrt{\frac{2\cdot a\cdot g}{c^{2}}}=\sqrt{\frac{1}{2}(3-\sqrt{1+8\tau_{o}(B_{a})^{2}})}=\kappa_R^2 (\frac{\tau_D}{T})^{\frac{2}{3}}=\kappa_{R}^{2}\sin(\theta_{sur})^{\frac{3}{2}}=\sqrt{\kappa_{o}^{2}\cdot\eta_{o}}$ (potential projection at semi-major axis)\\
 $\kappa_{X} = \cos(\theta_2) = \sqrt{1 - \kappa^2}=\frac{1}{(1+z_{\kappa})}$ (potential phase factor) \\
-$\kappa_R=\sqrt{\frac{\kappa^{2}}{\sin(\theta_{sur})}}=\sqrt{\frac{R_{s}}{\frac{T}{2\pi}c\beta\sin(\theta_{sur})}}$ (potential projection at the surface of central body) \\
+$\kappa_{sur}=\sqrt{\frac{\kappa^{2}}{\sin(\theta_{sur})}}=\sqrt{\frac{2\pi}{\beta\sin(\theta_{sur})}\cdot\frac{R_{s}}{Tc}}$ (potential projection at the surface of central body) \\
 $\beta =\cos(\theta_1)=\sqrt{1-(1+z_{\beta})^{-2}}= \frac{\kappa}{\sqrt{2}} = \beta_{p}e_{X}^{-\frac{1}{2}} = \frac{2\pi a}{Tc}=(\frac{\pi R_{s}}{Tc})^{\frac{1}{3}}=\sqrt{(\kappa_{o}^{2}-\beta_{o}^{2})} =\sqrt{\frac{\kappa_{p}^{2}}{2}(1-e)}
 =\beta_{o}\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}=\sqrt{\beta_{sys}^2 \cdot \sin(\theta_{sys})}$ (global kinetic projection (invariant transverse baseline defining the system's circular equilibrium state and semi-major axis)) \\
-$\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}$ (kinetic phase factor) \\
+$\beta_{Y} = \sin(\theta_1) = \sqrt{1 - \beta^2}=\frac{1}{(1+z_{\beta})}$ (kinetic phase factor) \\
 $\beta_{int}=\frac{\beta}{e_Y}$ (interior kinetic projection) \\
 $\tau = \kappa_{X}\beta_{Y}=\sqrt{\left(1-\kappa^{2}\right)\cdot\left(1-\beta^{2}\right)}$ (relational spacetime factor) \\
 $\tau_{Y}=\sqrt{1-\tau^2}=\sqrt{3\beta^{2}-2\beta^{4}}=\sqrt{\kappa^{2}+\beta^{2}-\kappa^{2}\beta^{2}}$ (relational spacetime phase factor) \\
@@ -463,7 +463,7 @@ $\omega=2\beta^{3} \cdot \frac{c}{R_{s}}=\frac{\beta c}{a}$ (angular frequency) 
 $T=\frac{\pi }{\beta^{3}} \cdot \frac{R_{s}}{c}=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi\sqrt{2}R_{s}}{\kappa^{3}c}=\frac{2\pi \Delta_{to}}{\zeta}$ (orbital period) \\
 $\tau_D = \frac{\pi \sin(\theta_{sur})^{\frac{3}{2}}}{\beta^3} \cdot \frac{R_s}{c}= T \sin(\theta_{sur})^{\frac{3}{2}}=\frac{2\pi R_{sur}}{\beta_{sur}c}=\sqrt{\frac{\pi}{G \cdot\rho_{sur}(R_{sur})}}$   (time-density invariant where $R_{sur}$ and $\beta_{sur}$  determined by the distance from center to the surface of central body and $\theta_{sur}=$ angular radius) \\
 $g=\frac{\kappa^{4}}{2}\cdot\frac{c^{2}}{R_{s}}=\frac{\kappa^{2}c^{2}}{2a}=\frac{GM}{a^2}$ (gravitational acceleration) \\
-$M=\frac{1}{2} \cdot \frac{R_s c^2}{G}=\frac{Tc^{3}\beta^{3}}{2\pi G}=\frac{\kappa^{2}c^{2}a}{2G}=4\pi\rho a^{3}$ (mass parameter) \\
+$M=\frac{1}{2} \cdot \frac{R_s c^2}{G}=\frac{\beta^{3}}{2\pi}\cdot T\frac{c^{3}}{G}=\beta^{2} \cdot a\frac{c^{2}}{G}=4\pi\rho a^{3}$ (mass parameter) \\
 $\rho= \frac{\kappa^6}{8\pi} \cdot \frac{c^2}{G R_s^2}=\frac{1}{8\pi}(\frac{z_{k}(z_{k}+2)}{(1+z_{k})^{2}})^{3}\cdot\frac{c^{2}}{G\cdot R_{s}^{2}}=\frac{\kappa^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot a^{2}}$ (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{relational density}) \\
 $\rho_{sur}=\frac{\kappa_{sur}^{6}}{8\pi}\cdot\frac{c^{2}}{GR_{s}^{2}}=\frac{\pi}{G\cdot\tau_{D}^{2}}=\frac{\kappa_{sur}^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot R_{sur}^{2}}$  (relational density of the central body within ($R_{sur}$) its physical radius) \\
 $\rho_{max}= \frac{1}{8\pi} \cdot \frac{c^2}{G R_s^2}$ (maximal density at the horizon (for non-rotating systems), $\kappa^2=1 \equiv r=R_s$; density reaches its natural bound) \\
