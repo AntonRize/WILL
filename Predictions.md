@@ -1,4 +1,4 @@
----
+F---
 layout: default
 title: "Predictions"
 permalink: /predictions/
@@ -147,9 +147,7 @@ Applied to the 24-year astrometric and radial-velocity dataset of the S2 star (1
 
 $$f_{\mathrm{prec}} = \frac{3\beta^{2} - 2\beta^{4}}{1-e^{2}}, \qquad R_s = \frac{T\,c\,\beta^{3}}{\pi}$$
 
-The improvement over the standard model arises entirely from coupling the precession to the *true anomaly* ($$\omega_{\mathrm{shift}}\propto\nu$$) rather than to coordinate time; the precession magnitude itself is numerically identical to GR 1PN.
-
-**Result:** $$\Delta\chi^{2}\approx 74$$ improvement over GR 1PN — $$\chi^{2}=727.20$$ vs $$800.81$$ with the same nine parameters; derived mass $$4.34\times10^{6}\,M_\odot$$ and distance consistent with the GRAVITY and Keck collaborations, without $$G$$ or $$M$$.
+At the precision of current S2 data, R.O.M. is observationally equivalent to General Relativity. It reaches this equivalence from a closed dimensionless algebra: the advance magnitude matches GR 1PN to $3\times10^{-5}$, the full physical scale follows from chronometric and spectroscopic ratios alone through $R_s=Tc\beta^{3}/\pi$, with $G$ and $M$ entering only as a posteriori unit conversions, and the complete fit is evaluated in closed form. The genuine point of departure between the frameworks is of order $\beta^{4}$, where $f_{\rm prec}=(3\beta^{2}-2\beta^{4})/(1-e^{2})$ separates from the GR second post-Newtonian structure; at S2's $\beta^{2}\approx4\times10^{-5}$ this lies four orders of magnitude below the sensitivity of the dataset. 
 
 *Source: R.O.M. — "S2 Star (Sgr A*) Data Alignment Comparison: RG vs GR"*
 
