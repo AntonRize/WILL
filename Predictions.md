@@ -1,4 +1,4 @@
-F---
+---
 layout: default
 title: "Predictions"
 permalink: /predictions/
