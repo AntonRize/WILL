@@ -2,7 +2,7 @@
 layout: default
 title: Help This Research
 permalink: /help/
-description: "Support independent, open, first-principles physics research. Help advance WILL Relational Geometry — a unified framework challenging dark matter and dark energy."
+description: "Support independent open research in the foundations of physics. WILL Relational Geometry is developed entirely outside academia and published in full. It covers gravitation and orbital mechanics through to cosmology and quantum foundations. It offers alternatives to both dark matter and dark energy. Sponsorship funds the computation and publication work and keeps the data and notebooks freely available to everyone."
 ---
 
 # Help This Research

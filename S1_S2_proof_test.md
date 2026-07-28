@@ -2,7 +2,7 @@
 layout: default
 title: "S¹ and S² as Minimal Relational Carriers"
 permalink: /S1_S2_proof_test/
-description: "Step-by-step argument that the S¹ and S² carriers are sufficient to reproduce special relativity, general relativity and quantum structure with no free parameters. Every step is open to empirical audit."
+description: "A step-by-step argument that the two minimal relational carriers are sufficient to reproduce special relativity, general relativity and quantum mechanics with no free parameters. Nothing is postulated: every step is either a methodological commitment or a logical consequence of the previous one, and each is open to empirical audit."
 ---
 # Derivation of S¹ and S² as Minimal Relational Carriers — Refined Argument
 

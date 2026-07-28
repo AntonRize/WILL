@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Cosmology Forum (archived)"
+description: "Discussion of cosmological models and parameters in WILL Relational Geometry. Topics include dark energy and the cosmological constant and vacuum density. The Hubble constant and the CMB acoustic spectrum come up regularly. So does cosmic expansion and how the results compare against Planck and supernova observations."
 ---
 
 <div class="bg-amber-900/30 border-l-4 border-amber-500 p-4 rounded-lg mb-8">

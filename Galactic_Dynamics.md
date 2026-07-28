@@ -5,7 +5,7 @@ permalink: /galactic_dynamics/
 redirect_from: 
  - /Galactic_Dynamics/
  - /galactic-dynamics/
-description: "Galaxy rotation curves explained without Dark Matter. Interactive SPARC database test (175 galaxies) using WILL Relational Geometry — zero free parameters."
+description: "Galaxy rotation curves explained without dark matter and without free parameters, a genuine alternative to dark matter rather than a rescaling of it. Flat rotation curves emerge as resonant interference between the local baryonic potential and the cosmic horizon. Interactive zero-parameter test on the SPARC 175 galaxies database, covering the missing mass problem, the baryonic Tully-Fisher relation (BTFR), the universal radial acceleration relation, the baryonic escape threshold, galactic scale, dwarf galaxies, Gaia DR3 wide binaries, the solar system test, and comparison against NFW halo fits and MOND."
 ---
 
 {% include interactive/galaxy_zoo.html %}

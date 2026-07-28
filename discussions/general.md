@@ -2,6 +2,7 @@
 layout: default
 title: "General discussion"
 permalink: /discussions/general/
+description: "Open conversation about WILL Relational Geometry: ideas, reactions, objections and informal discussion of relational spacetime, the foundations of physics and independent research outside academia."
 ---
 
 <!-- giscus wired to GitHub Discussions category "General discussion" in AntonRize/WILL. Theme/position match giscus.app selections. -->

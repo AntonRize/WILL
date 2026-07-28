@@ -2,7 +2,7 @@
 layout: default
 title: "RGvsGR"
 permalink: /RGvsGR/
-description: "Methodology comparison of General Relativity (GR) with WILL Relational Geometry (RG) across four major domains of gravitational physics: **Parameterization, Precession, Light Deflection, and Scale Determination.**"
+description: "Side-by-side methodological comparison of General Relativity with WILL Relational Geometry across foundational primitives, tensor calculus versus dimensionless algebra, Mercury's orbital precession, gravitational light deflection and lensing, and the mass parameterisation problem. Covers the Schwarzschild metric, the geodesic equation, the first post-Newtonian limit and where the two approaches diverge."
 ---
 
 # Methodology comparison of General Relativity (GR) with WILL Relational Geometry (RG)

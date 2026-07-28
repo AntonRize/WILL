@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "LOGOS MAP"
-description: "LOGOS MAP — the complete logical structure of WILL Relational Geometry visualized. Interactive flowchart tracing every derivation from Axiom 0 (Spacetime is Energy) to the unified field equation."
+description: "The complete logical structure of WILL Relational Geometry as an interactive flowchart. Traces every derivation from the founding identity through the minimal carriers to special and general relativity, orbital mechanics, cosmology and quantum structure, so each result can be followed back to the assumption it rests on."
 permalink: /logos_map/
 redirect_from: /LOGOS_MAP/
 ---

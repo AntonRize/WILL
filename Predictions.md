@@ -3,7 +3,7 @@ layout: default
 title: "Predictions"
 permalink: /predictions/
 toc: false
-description: "Testable predictions of the WILL Relational Geometry framework — falsifiable experiments in gravitational physics, cosmology, and quantum mechanics."
+description: "Sixty falsifiable, testable predictions derived with no free parameters and no fitted constants. Each one links to its own derivation and to a runnable notebook. The gravitational results include GPS time dilation, Mercury's perihelion precession and the S2 star orbit around Sgr A*. The cosmological results include the Hubble constant obtained from the CMB temperature and the fine-structure constant. The galactic results are tested on SPARC rotation curves and on Gaia DR3 wide binaries. The quantum results include the Bohr radius, the Sommerfeld-Dirac formula and the electron mass derivation."
 ---
 
 # Testable Predictions

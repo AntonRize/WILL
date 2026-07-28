@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Technical Support Forum (archived)"
+description: "Technical discussion of the WILL Relational Geometry website, interactive calculators and notebooks. Report bugs, request features and discuss the reproducible research tooling behind the published results."
 ---
 
 <div class="bg-amber-900/30 border-l-4 border-amber-500 p-4 rounded-lg mb-8">

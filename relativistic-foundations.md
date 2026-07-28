@@ -2,7 +2,7 @@
 layout: default
 title: "Relativistic Foundations"
 permalink: /relativistic-foundations/
-description: "A friendly entrance to WILL Relational Geometry (Part I) and Relational Orbital Mechanics (R.O.M.). From one principle — spacetime ≡ energy — Special and General Relativity, the Minkowski and Schwarzschild intervals, the equivalence principle, and the full algebra of orbital motion, with zero free parameters."
+description: "An entry point to WILL Relational Geometry Part I and Relational Orbital Mechanics. It traces the derivation from ontological primitives through the two minimal carriers to relativistic effects. Rest energy and mass and momentum follow from the same closure. So does the inverse-square law and the Minkowski interval. Gravitation then brings the equivalence principle and GPS time dilation and the gravitational deflection of light. The Schwarzschild radius and interval follow. The black hole horizon and the resolution of the gravitational singularity follow with them. The vacuum equation of state and the unified field equation close the chain. Everything here is parameter-free with no fitted constants."
 ---
 
 <style>

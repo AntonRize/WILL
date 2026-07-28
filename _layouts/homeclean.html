@@ -37,11 +37,10 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* If JavaScript never runs, the fade-in never fires and the whole page
-       would stay at opacity 0. Force it visible in that case. */
-    @media (prefers-reduced-motion: reduce) {
-      .section { opacity: 1; transform: none; transition: none; }
-    }
+    /* NOTE: do not add a `prefers-reduced-motion` rule here. It switches the
+       fade-in off entirely on any machine that has "reduce motion" enabled in
+       its operating system settings, which includes Anton's. The animation is
+       a deliberate part of the design. */
 
     .big-title {
       font-size: 2.75rem;
@@ -279,13 +278,13 @@
       sections.forEach(section => observer.observe(section));
     }
 
-    // DOMContentLoaded, not window.onload: onload waits for the footer's
-    // GitHub Sponsors iframe, which delayed the reveal noticeably.
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initAnimations);
-    } else {
+    // window.onload, as originally written. Firing earlier risks adding the
+    // 'visible' class before the browser has painted the opacity:0 state,
+    // in which case the transition is skipped and the section snaps in with
+    // no fade. Leave this alone.
+    window.onload = function() {
       initAnimations();
-    }
+    };
   </script>
 </body>
 </html>

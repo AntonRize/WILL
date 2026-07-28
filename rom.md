@@ -3,7 +3,7 @@ layout: default
 title: "Relational Orbital Mechanics"
 permalink: /rom/
 redirect_from: /ROM/
-description: "Relational Orbital Mechanics — derive full orbital dynamics from pure optical measurements (redshift). Interactive calculator for Mercury, binary pulsars, and S-stars."
+description: "Relational Orbital Mechanics derives full orbital dynamics from optical measurements alone. It uses no mass and no gravitational constant G and no metric and no spacetime geometry at all. The interactive engine covers Kepler's third law and the vis-viva equation. It handles eccentricity and orbital precession. Worked cases include Mercury's perihelion and the S2 star at Sagittarius A* and binary pulsars. Inputs are gravitational redshift and transverse Doppler shift."
 ---
 
 <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-300 font-sans leading-relaxed" markdown="1">

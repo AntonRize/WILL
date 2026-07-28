@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "About This Work"
-description: "About WILL Relational Geometry — independent open research by Anton Rize building a unified geometric framework for fundamental physics from first principles. about WILL Relational Geometry Free Research, personal philosophical journey, foundations of physics, independent research No free parameters, no dark matter, no dark energy."
+description: "About WILL Relational Geometry and the person behind it. Anton Rize is a self-taught physicist working outside academia on the foundations and philosophy of physics. What is spacetime made of, is spacetime physical, is spacetime emergent, and does absolute space exist at all? The question of absolute versus relative space runs through all of it. The work asks whether gravitation, cosmology and quantum structure can be derived from first principles under ontological minimalism and epistemic hygiene, parameter-free, with no fitted constants, no dark matter and no dark energy. It is published openly as a peer review alternative, archived with a Zenodo DOI."
 ---
 
 # 📖 About WILL Geometry Research

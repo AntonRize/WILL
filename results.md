@@ -2,7 +2,7 @@
 
 layout: default
 title: "Documents & Key Results"
-description: "Download WILL Relational Geometry Open Research papers, appendices, technical documents and all reproducible python scripts. Key results are covering domains from classical to Relational Orbital Mechanics (R.O.M.), background free and ontologically minimal Cosmology to fully deterministic and algebraic Relational Quantum Mechanics"
+description: "Every WILL Relational Geometry paper, appendix, technical document and reproducible Colab notebook, free to download, with the raw data published alongside. Covers the trilogy on relational geometry, cosmology and quantum mechanics, plus Relational Orbital Mechanics, the substantialism versus relationalism argument, the holographic decoder, the electron mass derivation and the full derivation chain. Released as a preprint outside journal peer review and archived with a Zenodo DOI."
 
 ---
 

@@ -2,7 +2,7 @@
 layout: default
 title: "Predictions Table"
 permalink: /predictions-table/
-description: "Derived WILL Relational Geometry values set against empirical measurements: the Hubble constant, CMB acoustic peaks and quadrupole power, SPARC galactic rotation curves, and solar orbital velocity."
+description: "Derived WILL Relational Geometry values set against empirical measurements in a single table: the Hubble constant against Planck 2018, CMB first acoustic peak and quadrupole power, SPARC galactic rotation curve bias across 175 galaxies, and solar orbital velocity against Gaia DR3, each with its deviation and physical formulation."
 redirect_from:
   - "/Predictions table/"
   - "/Predictions%20table/"

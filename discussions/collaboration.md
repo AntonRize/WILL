@@ -2,6 +2,7 @@
 layout: default
 title: "Collaboration"
 permalink: /discussions/collaboration/
+description: "Proposals for joint work and co-authoring and data sharing around WILL Relational Geometry. Research partnerships are welcome across gravitation and cosmology as well as galactic dynamics and quantum foundations."
 ---
 
 <!-- giscus wired to GitHub Discussions category "Collaboration" in AntonRize/WILL. -->

@@ -2,6 +2,7 @@
 layout: default
 title: "Questions to author"
 permalink: /discussions/questions/
+description: "Direct questions to Anton Rize about WILL Relational Geometry. Ask about a specific derivation or about the closure theorem. Orbital mechanics and the dark sector and the quantum results are all fair game. So is the methodology behind any of them. Answers can be marked as accepted."
 ---
 
 <!-- giscus wired to GitHub Discussions category "Questions to author" in AntonRize/WILL. -->

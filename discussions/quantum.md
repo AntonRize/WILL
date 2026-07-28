@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Quantum Mechanics Forum (archived)"
+description: "Discussion of quantum mechanics and atomic physics in WILL Relational Geometry. Topics include geometric quantization and matter waves and the fine structure constant alpha. The hydrogen atom and the Bohr radius come up often. So do spin and Pauli exclusion and Heisenberg uncertainty. Decoherence and entanglement lead into hidden variables and Bell's theorem. The delayed choice quantum eraser and interaction-free measurement with the Elitzur-Vaidman bomb tester are discussed here too."
 ---
 
 <div class="bg-amber-900/30 border-l-4 border-amber-500 p-4 rounded-lg mb-8">

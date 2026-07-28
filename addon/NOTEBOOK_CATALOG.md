@@ -2,7 +2,7 @@
 layout: default
 title: "Notebook Catalog"
 permalink: /addon/NOTEBOOK_CATALOG/
-description: "Index of the 37 reproducible Jupyter notebooks behind the WILL Relational Geometry results, covering CMB spectrum, SPARC rotation curves, Mercury precession, lensing and orbital decay."
+description: "This is the index of all 37 reproducible Jupyter and Colab notebooks behind the WILL Relational Geometry results. They cover the CMB acoustic spectrum, SPARC galaxy rotation curves, Mercury's perihelion precession, gravitational lensing, the Hubble constant, orbital decay and the electron mass derivation, each runnable in the browser with its raw data published alongside."
 ---
 # WILL Jupyter Notebook Catalog
 

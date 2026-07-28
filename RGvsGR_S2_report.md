@@ -2,7 +2,7 @@
 layout: default
 title: S2 report
 permalink: /S2_report/
-description: "Report on 24 years dataset alignment comparison between WILL Relational Geometry and General Relativity predictions for the S2 star."
+description: "Comparison of WILL Relational Geometry and General Relativity on the S2 star orbit around Sagittarius A*, using twenty-four years of combined astrometric and spectroscopic data from the galactic centre. Covers orbital fit, perihelion precession and gravitational redshift."
 ---
 
 

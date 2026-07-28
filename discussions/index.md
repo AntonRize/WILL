@@ -2,6 +2,7 @@
 layout: default
 title: "Forums"
 permalink: /discussions/
+description: "Open forums for questions, critique and collaboration on WILL Relational Geometry. Categories cover special and general relativity, cosmology, quantum mechanics, philosophical implications, technical support and direct questions to the author. Reading is open to everyone."
 ---
 
 # 💬 WILL RG Forums

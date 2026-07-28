@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Philosophy Forum (archived)"
+description: "Discussion of the philosophical implications of WILL Relational Geometry: relationalism versus substantivalism, background independence, the ontology of spacetime, the nature of physical law, and what it means to derive physics from geometry rather than postulate it."
 ---
 
 <div class="bg-amber-900/30 border-l-4 border-amber-500 p-4 rounded-lg mb-8">

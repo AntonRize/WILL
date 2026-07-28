@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Relativity Forum (archived)"
+description: "Discussion of special and general relativity within WILL Relational Geometry: geometric derivations, the equivalence principle, gravitational time dilation, the Minkowski and Schwarzschild intervals, light deflection and the theoretical foundations underneath them."
 ---
 
 <div class="bg-amber-900/30 border-l-4 border-amber-500 p-4 rounded-lg mb-8">

@@ -2,7 +2,7 @@
 layout: default
 title: "Research Map"
 permalink: /research_map/
-description: "Complete research map of the WILL Relational Geometry programme — full content, structure, derivations, predictions, and evidence base in a single navigable document."
+description: "The full research map of WILL Relational Geometry in one navigable document. It sets out the content and the structure and the complete derivation chain alongside the evidence base. Every paper and prediction and dataset and notebook is linked from here. Coverage runs from relativity and gravitation through orbital mechanics and cosmology to galactic dynamics and quantum foundations."
 ---
 
 
