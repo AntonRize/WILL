@@ -42,9 +42,17 @@ kramdown:
   syntax_highlighter: rouge
 
 # Navigation
+#
+# Pages deliberately left OUT of the header. They stay published, stay in the
+# sitemap and stay reachable by anyone with the link. They are simply not
+# advertised from the site itself:
+#
+#   /logos_map/          work in progress
+#   /discussions/        work in progress
+#   /assistant/chats/    exists for search engines and direct links, not
+#                        as a public browsing section
+#
 navigation:
-  - title: "LOGOS MAP"
-    url: /logos_map/
   - title: "Documents & Results"
     url: /results/
   - title: "Predictions"
@@ -53,16 +61,10 @@ navigation:
     url: /RGvsGR/
   - title: "WILL AI"
     url: /will-ai/
-  # /assistant/chats/ is deliberately NOT in the navigation. It exists so
-  # search engines can find the selected conversations, and so the pages can
-  # be shared by direct link. It is not meant as a public browsing section.
-  # Google reaches it through the sitemap.
-  - title: "Holographic Decoder"  
+  - title: "Holographic Decoder"
     url: /decoder/
   - title: "Galactic Dynamics"
     url: /galactic_dynamics/
-  - title: "Forums"
-    url: /discussions/
   - title: "About"
     url: /about/
   - title: "Help This Research"
