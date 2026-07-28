@@ -3,40 +3,22 @@
 
      Small screen fixes, shared by every layout.
 
-     The problem this solves: a single wide equation or wide table
-     is enough to make the whole page scroll sideways on a phone.
-     Once that happens the header, the text and everything else get
-     dragged out of alignment, and the page feels broken even though
-     only one element is too wide.
+     The problem: a single wide equation or wide table is enough to
+     make the whole page scroll sideways on a phone. Once that
+     happens the header and all the text get dragged out of position.
 
      The fix is to let the oversized thing scroll inside its own box
      instead of stretching the page around it.
+
+     IMPORTANT: those scroll boxes apply ONLY below 768px wide.
+     On a desktop screen nothing was overflowing in the first place,
+     so applying them there just drew a scrollbar under every symbol
+     and cluttered the page. Desktop rendering is left alone.
      ============================================================ -->
 <style>
-  /* Display equations, the ones on their own line.
-     Scroll horizontally inside their own box. */
-  mjx-container[jax="CHTML"][display="true"] {
-    display: block;
-    overflow-x: auto;
-    overflow-y: hidden;
-    max-width: 100%;
-    padding-bottom: 2px;
-  }
+  /* ---------- Safe everywhere, no visual change ---------- */
 
-  /* Inline equations, the ones sitting inside a sentence.
-     These were the real cause of pages scrolling sideways on phones.
-     A plain inline element ignores max-width entirely, so it has to be
-     made inline-block before it will agree to stay inside the screen.
-     Measured on /rom/: 928px of sideways overflow before, none after. */
-  mjx-container:not([display="true"]) {
-    display: inline-block;
-    max-width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    vertical-align: middle;
-  }
-
-  /* MathJax also emits a hidden copy of each equation for screen readers.
+  /* MathJax emits a hidden copy of each equation for screen readers.
      Keep it fully out of the layout so it cannot widen anything. */
   mjx-assistive-mml {
     position: absolute !important;
@@ -45,30 +27,18 @@
     overflow: hidden !important;
   }
 
-  /* Wide tables scroll inside their own box. */
-  .markdown-content table,
-  .logos-map-content table {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Long unbroken strings such as URLs and variable names. */
+  /* Long unbroken strings such as URLs. */
   .markdown-content,
   .msg-bubble,
   .ai-message-bubble {
     overflow-wrap: break-word;
-    word-break: break-word;
   }
 
-  /* Nothing embedded may exceed the screen width. */
+  /* Nothing embedded may exceed its container. */
   .markdown-content img,
   .markdown-content iframe,
   .markdown-content video,
   .markdown-content embed,
-  .markdown-content object,
   .msg-bubble img,
   .ai-message-bubble img {
     max-width: 100%;
@@ -83,16 +53,58 @@
     max-width: 100%;
   }
 
-  /* On phones, drop the horizontal padding that squeezes wide content
-     into an even narrower column, and ease off the largest headings. */
-  @media (max-width: 640px) {
+
+  /* ---------- Phones and small tablets only ---------- */
+  @media (max-width: 768px) {
+
+    /* Display equations, the ones on their own line. */
+    mjx-container[jax="CHTML"][display="true"] {
+      display: block;
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      font-size: 95%;
+    }
+
+    /* Inline equations, the ones sitting inside a sentence. These were
+       the real cause of pages scrolling sideways. A plain inline element
+       ignores max-width entirely, so it has to be made inline-block
+       before it will agree to stay inside the screen.
+       Measured on /rom/: 928px of sideways overflow before, none after. */
+    mjx-container:not([display="true"]) {
+      display: inline-block;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      vertical-align: middle;
+    }
+
+    /* Wide tables scroll inside their own box. */
+    .markdown-content table,
+    .logos-map-content table {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    /* Scrolling stays available by swiping, but the scrollbar itself is
+       hidden. A visible bar under every equation is heavy and ugly, and
+       on a touch screen it serves no purpose. */
+    mjx-container,
+    .markdown-content table,
+    .logos-map-content table {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    mjx-container::-webkit-scrollbar,
+    .markdown-content table::-webkit-scrollbar,
+    .logos-map-content table::-webkit-scrollbar {
+      display: none;
+    }
+
     .markdown-content h1 { font-size: 1.9em; }
     .markdown-content h2 { font-size: 1.5em; }
     .markdown-content h3 { font-size: 1.25em; }
-
-    /* Equations get a little more room to breathe. */
-    mjx-container[jax="CHTML"][display="true"] {
-      font-size: 95%;
-    }
   }
 </style>

@@ -119,8 +119,8 @@ def yaml_escape(text):
     """Make a string safe inside a double-quoted YAML scalar."""
     text = " ".join(str(text).split())
     text = text.replace("\\", "").replace('"', "'")
-    text = re.sub(r"-{3,}", "—", text)     # --- would end the front matter
-    return text
+    text = re.sub(r"\s*-{3,}\s*", ", ", text)   # --- would end the front matter
+    return " ".join(text.split())
 
 
 def load_logs():
