@@ -5,14 +5,14 @@ permalink: /galactic_dynamics/
 redirect_from: 
  - /Galactic_Dynamics/
  - /galactic-dynamics/
-description: "Galaxy rotation curves explained without Dark Matter. Interactive SPARC database analysis (175 galaxies) using WILL Relational Geometry — zero free parameters."
+description: "Galaxy rotation curves explained without Dark Matter. Interactive SPARC database test (175 galaxies) using WILL Relational Geometry — zero free parameters."
 ---
 
 {% include interactive/galaxy_zoo.html %}
 
-# Galactic Dynamics without Dark Matter
+# Galactic Rotation Curves without Dark Matter and free parameters
 
-**Flat rotation curves emerge naturally from the geometry of a closed relational universe.**
+**Observable flat rotation curves emerge naturally from the geometry of a closed relational universe.**
 
 ### The Standard Crisis
 Standard cosmology explains galactic rotation curves by adding an invisible halo of Dark Matter. This approach preserves General Relativity but requires ~5–10 times more mass than we can see — with no direct detection after decades of search.
