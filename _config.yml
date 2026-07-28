@@ -96,6 +96,12 @@ exclude:
   - NOTEBOOK_CATALOG_INDEX.json
   # Video upload instructions. Working notes, not research.
   - WILL DATABASE/video2a/
+  # React source saved with an .html extension. It was being served as a page
+  # and rendered as unformatted source code. It must be excluded here rather
+  # than given front matter: front matter makes Jekyll render the file as a
+  # template, and React's style={{ ... }} is indistinguishable from Liquid's
+  # own {{ ... }} syntax, which breaks the build.
+  - horizon.html
   # April brainstorming notes on outreach and YouTube plans. Kept in the repo,
   # not served on the website.
   - documents/WILL_RG_Strategy_Plan.md
