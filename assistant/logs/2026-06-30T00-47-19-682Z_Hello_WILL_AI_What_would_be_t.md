@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "What would be the best way of introduction to WILL RG in your opinion?"
 
 date: 2026-06-30T00:47:19.682Z
 
 user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: What would be the best way of introduction to WILL RG in your opinion?"
 
 ---
 

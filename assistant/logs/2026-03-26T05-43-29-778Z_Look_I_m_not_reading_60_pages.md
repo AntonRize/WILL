@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Look, I’m not reading 60 pages unless it passes basic sanity checks."
 
 date: 2026-03-26T05:43:29.778Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Look, I’m not reading 60 pages unless it passes basic sanity checks. Just tell me:"
 
 ---
 

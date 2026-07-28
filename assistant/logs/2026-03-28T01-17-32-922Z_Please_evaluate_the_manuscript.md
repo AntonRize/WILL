@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Please evaluate the manuscript against the following four…"
 
 date: 2026-03-28T01:17:32.922Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Please evaluate the manuscript against the following four non-negotiable criteria. Provide a concise, evidence-based assessment for each, and conclude…"
 
 ---
 

@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "I don't see earth's rotation on your gps estimatio"
+title: "I don't see earth's rotation on your gps estimation."
 
 date: 2026-02-05T01:00:38.053Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: I don't see earth's rotation on your gps estimation. Why?"
 
 ---
 

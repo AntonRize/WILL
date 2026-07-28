@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Tell me about mass degeneration problem M sin(i)"
+title: "Tell me about mass degeneration problem M sin(i)."
 
 date: 2026-03-02T03:09:57.760Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Tell me about mass degeneration problem M sin(i). What's all the fuss about?"
 
 ---
 

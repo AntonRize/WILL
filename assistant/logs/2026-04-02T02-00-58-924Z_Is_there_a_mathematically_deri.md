@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Bell, Kochen-Specker and CSL under WILL Relational Geometry"
 
 date: 2026-04-02T02:00:58.924Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0"
+
+description: "How the framework answers the quantum no-go theorems: hidden variables, contextuality, superdeterminism, and x-ray heating in continuous spontaneous localisation."
+
+title_locked: true
 
 ---
 

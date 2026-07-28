@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Disprove any part of this will bullshit"
 
 date: 2026-04-02T10:00:14.342Z
 
 user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Disprove any part of this will bullshit"
+
+title_locked: true
 
 ---
 

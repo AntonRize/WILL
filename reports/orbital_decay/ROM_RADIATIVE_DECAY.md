@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Relational Decay Law for Radiating Binaries"
+permalink: /reports/orbital_decay/ROM_RADIATIVE_DECAY/
+description: "The decay-law skeleton for radiating binaries in R.O.M. Every inspiral rate is algebraically locked to two per-cycle flux numbers. Opens with an explicit statement of what is forced and what is not."
+---
 # Relational Decay Law for Radiating Binaries (R.O.M.)
 
 **Sources:** `WILL DATABASE/WILL_RG_I.txt`, `WILL DATABASE/R.O.M..txt` (read in full; treated as ground hypothesis).

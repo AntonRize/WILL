@@ -8,6 +8,8 @@ date: 2026-03-01T16:37:39.131Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/29.0 Chrome/136.0.0.0 Mobile Safari/537.36"
 
+description: "WILL-AI conversation log: How you project z and y axis simultaneous"
+
 ---
 
 

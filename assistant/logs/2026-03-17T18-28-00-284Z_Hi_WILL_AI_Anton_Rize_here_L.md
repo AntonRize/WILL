@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Can we get rid of the mass and G in my Earth - GPS calculations as…"
 
 date: 2026-03-17T18:28:00.284Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Lets think together - can we get rid of the mass and G in my Earth - GPS calculations as elegant as we did for Mercury - Sun system?"
 
 ---
 

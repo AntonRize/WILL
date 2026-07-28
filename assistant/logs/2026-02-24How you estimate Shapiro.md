@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "How you estimate Shapiro effect?"
+title: "How WILL Relational Geometry estimates the Shapiro delay"
 
 date: 2026-02-24T13:14:43.124Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "Deriving the Shapiro time delay from relational phase projections rather than from a metric on a background spacetime."
+
+title_locked: true
 
 ---
 

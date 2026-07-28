@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Humble thinker"
+title: "What is will relational geometry?"
 
 date: 2026-04-17T10:28:13.898Z
 
 user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 YaBrowser/25.12.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: What is will relational geometry?"
 
 ---
 

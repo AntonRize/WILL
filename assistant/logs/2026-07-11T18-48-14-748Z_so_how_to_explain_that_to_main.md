@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "so how to explain that to maintain causality there"
+title: "Why causality forces a propagation limit c"
 
 date: 2026-07-11T18:48:14.748Z
 
 user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+
+description: "Deriving the speed of light as a causal propagation limit from relational closure, with the orbital precession chain worked through step by step."
+
+title_locked: true
 
 ---
 

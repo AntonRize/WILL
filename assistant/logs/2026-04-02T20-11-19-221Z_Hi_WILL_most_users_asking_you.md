@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Most users asking you to show differential time evolution equations."
 
 date: 2026-04-02T20:11:19.221Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+
+description: "WILL-AI conversation log: Hi WILL. most users asking you to show differential time evolution equations. What do you respond to them usually ?"
 
 ---
 

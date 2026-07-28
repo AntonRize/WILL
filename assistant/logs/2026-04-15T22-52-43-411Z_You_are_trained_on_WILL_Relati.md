@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "What WILL RG cannot currently verify — stated limits"
 
 date: 2026-04-15T22:52:43.411Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "A deliberately adversarial audit: concrete claims the framework cannot yet verify, how time ordering works without a time parameter, and where the gaps are."
+
+title_locked: true
 
 ---
 

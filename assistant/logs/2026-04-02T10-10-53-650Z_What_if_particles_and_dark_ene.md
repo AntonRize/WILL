@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Curious student"
+title: "What if particles and dark energy come from the same “alignment…"
 
 date: 2026-04-02T10:10:53.650Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+
+description: "WILL-AI conversation log: What if particles and dark energy come from the same “alignment problem” in space?"
 
 ---
 

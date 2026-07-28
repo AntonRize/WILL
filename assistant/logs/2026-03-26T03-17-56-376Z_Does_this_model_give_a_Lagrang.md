@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Does WILL RG give a Lagrangian formulation?"
 
 date: 2026-03-26T03:17:56.376Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "Whether the relational framework admits a Lagrangian, and what a variational principle would mean without a background spacetime."
+
+title_locked: true
 
 ---
 

@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Can you please explain relational energy using the"
+title: "Can you please explain relational energy using the gps example?"
 
 date: 2026-07-16T16:55:37.024Z
 
 user_agent: "Mozilla/5.0 (iPhone; CPU iPhone OS 26_5_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/150.0.7871.113 Mobile/15E148 Safari/604.1"
+
+description: "WILL-AI conversation log: Can you please explain relational energy using the gps example?"
 
 ---
 

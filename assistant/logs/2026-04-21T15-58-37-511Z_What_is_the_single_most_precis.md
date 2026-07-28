@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "The sharpest WILL RG prediction that differs from LambdaCDM"
 
 date: 2026-04-21T15:58:37.511Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0"
+
+description: "Quantitative, falsifiable departures from LambdaCDM: the dark energy density, the cosmic acceleration rate, and H0 from CMB versus local measurement."
+
+title_locked: true
 
 ---
 

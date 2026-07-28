@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "So if SR can be fully expressed as S^1, why everybody have to study…"
 
 date: 2026-04-03T07:26:39.102Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: So if SR can be fully expressed as S^1, why everybody have to study this dumb Minkovski space?"
 
 ---
 

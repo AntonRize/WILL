@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Humble thinker"
+title: "Can you outline your capabilities for me?"
 
 date: 2026-04-03T23:17:41.740Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+
+description: "WILL-AI conversation log: Can you outline your capabilities for me?"
 
 ---
 

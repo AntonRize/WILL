@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Topological Definition of Orbital Decay"
+permalink: /reports/orbital_decay/ROM_TOPOLOGICAL_DECAY/
+description: "Tests the hypothesis that orbital decay is the failure of phase closure on the S¹ carrier, measured as a discrete per-cycle shift. 38 symbolic and numeric checks, all passing."
+---
 # Topological Definition of Orbital Decay — Test and Exact Consequences
 
 **Hypothesis (Anton, July 2026):** in a relationally closed dyad the contours of the kinematic projections self-intersect after one orbital phase cycle, $\beta_{Ao}(0) = \beta_{Ao}(2\pi)$; orbital decay is the failure of this closure on the $S^1$ carrier, an open boundary $\beta_{Ao}(0) < \beta_{Ao}(2\pi)$; the shed relational capacity per cycle is the discrete shift $\Delta\beta_{Ao}^2$ (or $\Delta\beta_{Ao}$); this mismatch is the direct algebraic measure of the closure defect $\langle\delta\rangle_{\text{cycle}} \neq 1$ and replaces continuous $dt$ evolution with an exact topological discontinuity.

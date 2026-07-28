@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Testing the Symmetry-Breaking Hypothesis for Binary Decay"
+permalink: /reports/orbital_decay/ROM_PAIR_MECHANISM/
+description: "A compatibility test of the directed-pair symmetry-breaking hypothesis for binary decay. Records which versions survive, which are rejected, and that one coupling constant remains underived."
+---
 # Testing the Symmetry-Breaking Hypothesis for Binary Decay
 
 **Hypothesis (Anton, July 2026):** the energy leak of a radiating binary comes from a chiral-style symmetry breaking on the *directed pair relation* (like the Kerr asymmetry, but not spin-based), with the causal lag of the relation as the breaking agent and the global structure of Part II (fundamental tone / horizon) as the receiver of the leaked energy.

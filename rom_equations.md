@@ -1,3 +1,9 @@
+---
+layout: default
+title: "R.O.M. — Complete Equation Set"
+permalink: /rom_equations/
+description: "Complete LaTeX reference for Relational Orbital Mechanics. 66 expressions verified algebraically closed at 50-digit precision. Classifies the allowed relational states of a bound system rather than equations of motion."
+---
 # R.O.M. — Complete Equation Set (LaTeX Reference)
 
 R.O.M. does **not** describe how a body moves under forces; it classifies the algebraically allowed relational states of a bound system. It is not equations of motion but an algebraically closed system of allowed states within WILL — allowed free will.

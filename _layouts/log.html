@@ -14,6 +14,7 @@
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     {% seo %}
     {% include seo_extras.html %}
+    {% include responsive.html %}
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -231,11 +232,11 @@ MathJax = {
     <!-- Meta info bar -->
     <div class="log-meta bg-gray-900/60 backdrop-blur-sm py-3">
         <div class="chat-container px-4 md:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-            <a href="{{ '/assistant/logs/' | relative_url }}" class="back-link text-sm flex items-center gap-1">
+            <a href="{% if page.curated %}{{ '/assistant/chats/' | relative_url }}{% else %}{{ '/assistant/logs/' | relative_url }}{% endif %}" class="back-link text-sm flex items-center gap-1">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                 </svg>
-                All Conversations
+                {% if page.curated %}All Selected Conversations{% else %}All Conversations{% endif %}
             </a>
             <div class="flex flex-col sm:items-end gap-0.5">
                 <span class="text-sm text-gray-400" id="log-date-display">
@@ -249,6 +250,72 @@ MathJax = {
             </div>
         </div>
     </div>
+
+    {% if page.curated %}
+    <!-- ============================================================
+         Curated conversation header.
+         Only rendered for hand-picked pages under /assistant/chats/.
+         Raw logs under /assistant/logs/ never show this, and are
+         noindexed folder-wide in _config.yml.
+         ============================================================ -->
+    <header class="chat-container px-4 md:px-8 pt-10 pb-2">
+      <nav aria-label="Breadcrumb" class="text-xs text-gray-500 mb-4">
+        <a href="{{ '/' | relative_url }}" class="hover:text-cyan-300">Home</a>
+        <span class="mx-1.5">/</span>
+        <a href="{{ '/assistant/chats/' | relative_url }}" class="hover:text-cyan-300">Selected Conversations</a>
+      </nav>
+
+      <h1 class="text-3xl md:text-4xl font-semibold text-white leading-tight mb-4">
+        {{ page.title }}
+      </h1>
+
+      {% if page.summary %}
+      <p class="text-gray-300 text-lg font-light leading-relaxed mb-4">
+        {{ page.summary }}
+      </p>
+      {% endif %}
+
+      {% if page.topics %}
+      <ul class="flex flex-wrap gap-2 mb-4 list-none p-0">
+        {% for topic in page.topics %}
+        <li class="text-xs px-2.5 py-1 rounded-full border border-gray-700 text-gray-400">{{ topic }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <p class="text-xs text-gray-500 border-t border-gray-800 pt-4">
+        A conversation with WILL AI, the assistant trained on the WILL Relational
+        Geometry corpus. Selected and published because it covers the material
+        in useful depth. Answers are generated and may contain errors. The
+        primary sources are the <a href="{{ '/results/' | relative_url }}" class="text-cyan-400 hover:text-cyan-300">papers and notebooks</a>.
+      </p>
+    </header>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "QAPage",
+      "mainEntity": {
+        "@type": "Question",
+        "name": {{ page.title | jsonify }},
+        "text": {{ page.summary | default: page.title | jsonify }},
+        "answerCount": 1,
+        "author": { "@type": "Person", "name": "Reader" },
+        "dateCreated": "{{ page.date | date_to_xmlschema }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "url": "{{ page.url | absolute_url }}",
+          "text": {{ page.summary | default: page.title | jsonify }},
+          "author": {
+            "@type": "Organization",
+            "name": "WILL AI",
+            "url": "{{ '/will-ai/' | absolute_url }}"
+          }
+        }
+      }
+    }
+    </script>
+    {% endif %}
 
     <!-- Chat area -->
     <main class="flex-1 overflow-y-auto py-6" id="chat-area">

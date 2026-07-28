@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Curious student"
+title: "Is there a chance this is all wrong."
 
 date: 2026-04-03T05:53:06.477Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+
+description: "WILL-AI conversation log: Is there a chance this is all wrong."
 
 ---
 

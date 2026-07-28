@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Lense-Thirring effect: R.O.M. compared with General Relativity"
 
 date: 2026-05-10T01:07:05.740Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+
+description: "Analytic comparison of the relational and General Relativity treatments of frame dragging, and why direct term-by-term translation is a category error."
+
+title_locked: true
 
 ---
 

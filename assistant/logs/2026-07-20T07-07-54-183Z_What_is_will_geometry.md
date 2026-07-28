@@ -8,6 +8,8 @@ date: 2026-07-20T07:07:54.183Z
 
 user_agent: "Mozilla/5.0 (iPhone; CPU iPhone OS 26_5_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/150.0.7871.113 Mobile/15E148 Safari/604.1"
 
+description: "WILL-AI conversation log: What is will geometry"
+
 ---
 
 

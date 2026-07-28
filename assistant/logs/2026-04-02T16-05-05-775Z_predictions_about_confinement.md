@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Predictions about confinement time in FRC"
 
 date: 2026-04-02T16:05:05.775Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Predictions about confinement time in FRC"
+
+title_locked: true
 
 ---
 

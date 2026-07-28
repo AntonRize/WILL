@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "What is the definition of a Joule?"
 
 date: 2026-04-17T17:15:03.437Z
 
 user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15"
+
+description: "WILL-AI conversation log: What is the definition of a Joule?"
 
 ---
 

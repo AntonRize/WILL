@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Ab Initio Odd-Kernel Derivation for the Radiating Pair"
+permalink: /reports/orbital_decay/ROM_ABINITIO_ODDKERNEL/
+description: "An ab initio odd-kernel derivation in relational variables, with the method contract stated before computation, all cancellations as outputs, and comparison with observation confined to the final section."
+---
 # Ab Initio Odd-Kernel Derivation for the Radiating Pair
 
 **Method contract stated before computation; all cancellations are outputs; comparison with observation appears only in the final section, labeled.**

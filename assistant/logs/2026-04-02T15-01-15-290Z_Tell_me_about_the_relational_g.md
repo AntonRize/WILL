@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Humble thinker"
+title: "Tell me about the relational geometry framework"
 
 date: 2026-04-02T15:01:15.290Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+
+description: "WILL-AI conversation log: Tell me about the relational geometry framework"
 
 ---
 

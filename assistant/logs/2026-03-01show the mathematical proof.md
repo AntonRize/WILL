@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "show the mathematical proof of how WILL produced t"
+title: "Show the mathematical proof of how WILL produced the following equation…"
 
 date: 2026-03-01T17:03:55.382Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Show the mathematical proof of how WILL produced the following equation beginarrayr @hspace2em l 1 & 2 3 & hspace1cm 4 endarray"
 
 ---
 

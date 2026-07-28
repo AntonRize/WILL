@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "What objections and push backs you expecting to hear from users and…"
 
 date: 2026-04-09T10:31:09.886Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Hi WILL. What objections and push backs you expecting to hear from users and what are your replies are?"
 
 ---
 

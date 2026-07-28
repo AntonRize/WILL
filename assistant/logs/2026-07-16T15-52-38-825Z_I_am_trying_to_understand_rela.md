@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "I am trying to understand relational total energy,"
+title: "I am trying to understand relational total energy, using the gps…"
 
 date: 2026-07-16T15:52:38.825Z
 
 user_agent: "Mozilla/5.0 (iPhone; CPU iPhone OS 26_5_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/150.0.7871.113 Mobile/15E148 Safari/604.1"
+
+description: "WILL-AI conversation log: I am trying to understand relational total energy, using the gps example. Can you explain?"
 
 ---
 

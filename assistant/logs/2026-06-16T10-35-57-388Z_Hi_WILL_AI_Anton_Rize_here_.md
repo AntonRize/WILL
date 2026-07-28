@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "In WILL_RG_I we show how Schwarzschild metric is just inflated S^2…"
 
 date: 2026-06-16T10:35:57.388Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: In WILL_RG_I we show how Schwarzschild metric is just inflated S^2 conservation. But we showing only the tt component. Lets try to map the full metric…"
 
 ---
 

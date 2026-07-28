@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Can ROM do all that standard orbital mechanics does?"
 
 date: 2026-04-23T12:22:28.570Z
 
 user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Can ROM do all that standard orbital mechanics does? And if yes - why than standard approach needs differential formalism and ROM does not?"
 
 ---
 

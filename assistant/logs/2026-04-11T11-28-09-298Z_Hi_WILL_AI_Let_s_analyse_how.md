@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "Let's analyse how RG derives and explains expansion of the Universe"
 
 date: 2026-04-11T11:28:09.298Z
 
 user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Let's analyse how RG derives and explains expansion of the Universe"
 
 ---
 

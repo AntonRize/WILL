@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Can we derive the physical radius of the central b"
+title: "Can we derive the physical radius of the central body R_sur without…"
 
 date: 2026-07-24T14:16:58.835Z
 
 user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Can we derive the physical radius of the central body R_sur without knowing its angular radius? Is it derivable from standard parameters of gravitational…"
 
 ---
 

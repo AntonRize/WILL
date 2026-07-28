@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Humble thinker"
+title: "The WILL framework claims to eliminate arbitrary anthropogenic…"
 
 date: 2026-06-04T10:35:57.515Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36 EdgA/148.0.0.0"
+
+description: "WILL-AI conversation log: The WILL framework claims to eliminate arbitrary anthropogenic dimensions like meters and seconds. However, the core projections are defined as beta = v/c…"
 
 ---
 

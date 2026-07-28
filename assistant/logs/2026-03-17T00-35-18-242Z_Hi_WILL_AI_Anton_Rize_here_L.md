@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Hi_WILL_AI_Anton_Rize_here_L"
+title: "I interpreting spacial or temporal distance as a 'tension' between 2…"
 
 date: 2026-03-17T00:35:18.242Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36"
+
+description: "WILL-AI conversation log: Lets switch in to research mode. Lets think together: I interpreting spacial or temporal distance as a 'tension' between 2 potential energy states. This 2…"
 
 ---
 

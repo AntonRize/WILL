@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "i asked, how to use experiment to measure z_k for "
+title: "Measuring z_k for the Earth-Moon system: a protocol"
 
 date: 2026-07-14T20:00:10.243Z
 
 user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+
+description: "An operational experimental protocol for measuring the relational phase shift z_k in the Earth-Moon system, with the full parameterization chain."
+
+title_locked: true
 
 ---
 

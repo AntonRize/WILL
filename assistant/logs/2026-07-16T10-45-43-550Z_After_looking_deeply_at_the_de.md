@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "After looking deeply at the derivations, it is cle"
+title: "After looking deeply at the derivations, it is clear that WILL RG does…"
 
 date: 2026-07-16T10:45:43.550Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: After looking deeply at the derivations, it is clear that WILL RG does not eliminate classical parameters or metrics; it simply reverse-engineers them…"
 
 ---
 

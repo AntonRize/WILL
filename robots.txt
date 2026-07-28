@@ -1,8 +1,30 @@
+# robots.txt — willrg.com
+#
+# NOTE ON /assistant/logs/
+# -----------------------
+# This folder used to carry "Disallow: /assistant/logs/". That was removed on
+# purpose, and it is NOT an oversight.
+#
+# Disallow blocks CRAWLING, not INDEXING. A blocked URL can still be listed in
+# search results as a bare link with no snippet, and — more importantly —
+# Google can never see a page it is not allowed to fetch. So a Disallow makes
+# it impossible for Google to discover the "noindex" tag and drop the page.
+# The old setup had the worst of both: ~100 log URLs submitted through the
+# sitemap, blocked from crawling, and therefore permanently stuck.
+#
+# The logs are now marked "noindex" for the whole folder in _config.yml and
+# excluded from the sitemap. Allowing the crawl is what lets Google read that
+# noindex and remove them for good.
+#
+# Once Search Console reports zero indexed URLs under /assistant/logs/
+# (typically a few weeks), a Disallow line may be added back purely to save
+# crawl budget. Do not add it before then.
+
 User-agent: *
 Allow: /
 
+# Build artefacts and internal areas with no public value
 Disallow: /Holster/
 Disallow: /proxy-server/
-Disallow: /assistant/logs/
 
 Sitemap: https://willrg.com/sitemap.xml

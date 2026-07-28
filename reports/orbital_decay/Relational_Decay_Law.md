@@ -1,3 +1,12 @@
+---
+layout: default
+title: "Relational Decay Law for Radiating Binaries (duplicate)"
+permalink: /reports/orbital_decay/Relational_Decay_Law/
+description: "Duplicate of the Relational Decay Law report. See the canonical version."
+canonical_url: https://willrg.com/reports/orbital_decay/ROM_RADIATIVE_DECAY/
+noindex: true
+sitemap: false
+---
 # Relational Decay Law for Radiating Binaries (R.O.M.)
 
 **Sources:** `WILL DATABASE/WILL_RG_I.txt`, `WILL DATABASE/R.O.M..txt` (read in full; treated as ground hypothesis).

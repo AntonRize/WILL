@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Humble thinker"
+title: "Explain WILL Relational Geometry in simple terms and a short form."
 
 date: 2026-06-24T02:14:09.286Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:152.0) Gecko/20100101 Firefox/152.0"
+
+description: "WILL-AI conversation log: Explain WILL Relational Geometry in simple terms and a short form."
 
 ---
 

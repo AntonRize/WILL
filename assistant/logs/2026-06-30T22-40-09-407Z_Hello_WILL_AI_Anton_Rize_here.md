@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "I would like to discuss and brainstorm with you the educational problem…"
 
 date: 2026-06-30T22:40:09.407Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: I would like to discuss and brainstorm with you the educational problem that we currently facing. The most common question that you receive from visitors…"
 
 ---
 

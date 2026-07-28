@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "The energy symmetry law — is it an approximation?"
+title: "The energy symmetry law is it approximation?"
 
 date: 2026-03-03T12:43:01.881Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36"
+
+description: "WILL-AI conversation log: The energy symmetry law is it approximation? It has 1/2 * beta Newtonian form..."
 
 ---
 

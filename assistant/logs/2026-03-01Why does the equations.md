@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Why does the equations for distance and angles hav"
+title: "Why distance and angle equations carry energy in WILL RG"
 
 date: 2026-03-01T16:41:34.113Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/29.0 Chrome/136.0.0.0 Mobile Safari/537.36"
+
+description: "Why the relational forms for distance and angle contain energy terms that the standard formulations for the same energy density leave out."
+
+title_locked: true
 
 ---
 

@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "What is the most significant and realistic prediction across all…"
 
 date: 2026-06-03T10:53:56.349Z
 
 user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: What is the most significant and realistic prediction across all documents? If you had to choose only 3 which 3 would you choose and why?"
 
 ---
 

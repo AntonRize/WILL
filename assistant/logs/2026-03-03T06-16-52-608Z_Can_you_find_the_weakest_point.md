@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Can you find the weakest point of RG and critic it"
+title: "The weakest point of WILL Relational Geometry"
 
 date: 2026-03-03T06:16:52.608Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "An adversarial critique of the framework's most vulnerable assumptions, argued without deference."
+
+title_locked: true
 
 ---
 

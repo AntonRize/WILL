@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "A physicist audits WILL RG: dimensionless inputs and SPARC"
 
 date: 2026-04-15T21:34:28.600Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+
+description: "Which dimensionless inputs the framework actually requires, whether the algebra is merely isomorphic to standard results, and the galactic rotation curve test."
+
+title_locked: true
 
 ---
 

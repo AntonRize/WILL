@@ -1,3 +1,9 @@
+---
+layout: default
+title: "R.O.M. — Algebraic Verification and Novelty Classification"
+permalink: /addon/ROM_FULL_TEST/
+description: "An algebra-only audit of the R.O.M. closed set: 66 identities checked at 50 significant digits with randomised c and G, and each result classified as novel or as a re-encoding of known orbital physics."
+---
 # R.O.M. — Algebraic Verification & Novelty Classification
 
 **Scope (as agreed):** Algebra only. Derivations are *assumed correct and independent*; today we test **results**, not their origin. Two questions: (1) Is the closed system internally consistent? (2) For each relation — is it new, or does it have a twin in classical mechanics / SR / GR?

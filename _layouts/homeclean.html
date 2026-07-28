@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+  {% include analytics.html %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   {% seo %}
+  {% include seo_extras.html %}
+    {% include responsive.html %}
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +36,11 @@
     .section.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+    /* If JavaScript never runs, the fade-in never fires and the whole page
+       would stay at opacity 0. Force it visible in that case. */
+    @media (prefers-reduced-motion: reduce) {
+      .section { opacity: 1; transform: none; transition: none; }
     }
 
     .big-title {
@@ -83,7 +91,68 @@
       color: var(--accent);
       font-weight: 500;
     }
+
+    .lede {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #cbd5e1;
+      font-weight: 300;
+    }
+    .lede strong { color: #e2e8f0; font-weight: 500; }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .constraints {
+      list-style: none;
+      padding: 0;
+      margin: 0.25rem 0 0;
+    }
+    .constraints li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+    .constraints li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.68em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(34, 211, 238, 0.55);
+    }
+
+    .reader-note {
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      background: rgba(15, 23, 42, 0.55);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    .reader-note a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .reader-note a:hover { color: #a5f3fc; }
+
   </style>
+
+  <noscript>
+    <style>
+      /* Without JS the IntersectionObserver never runs, so every .section
+         would remain at opacity 0 and the page would look blank. */
+      .section { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 </head>
 
 <body class="antialiased">
@@ -103,9 +172,9 @@
 
     <!-- Open Research -->
     <div id="open-research" class="section text-center mb-16 sm:mb-20">
-      <h1 class="big-title mb-4">
+      <p class="big-title mb-4">
         Open Research
-      </h1>
+      </p>
       <p class="small-sub">
         Independent • Public Access • Transparent • Foundations of Physics
       </p>
@@ -137,6 +206,58 @@
       </div>
     </div>
 
+    <!-- Method, datasets and a note to the reader.
+         Wording taken from Anton's own gateway document. No claim appears
+         here that he has not already stated himself. -->
+    <section id="overview" class="section mt-20 sm:mt-24">
+
+      <p class="eyebrow mb-4">Method</p>
+      <div class="lede space-y-4">
+        <p>
+          Independent research in the foundations of physics by Anton Rize, published
+          openly as it develops. It is built under four constraints:
+        </p>
+        <ul class="constraints">
+          <li><strong>Epistemic hygiene.</strong> No unjustified assumptions are imported.</li>
+          <li><strong>Relational origin.</strong> Physical quantities are defined by their relations. No background is allowed.</li>
+          <li><strong>Ontological minimalism.</strong> The fewest possible foundational primitives.</li>
+          <li><strong>Mathematical transparency.</strong> No ontologically vague mathematics.</li>
+        </ul>
+        <p>
+          Working this way means no new postulates, no free parameters and no arbitrary
+          choices. Laws are not introduced to fit observations.
+        </p>
+      </div>
+
+      <p class="eyebrow mt-12 mb-4">Compared against</p>
+      <div class="lede">
+        <ul class="constraints">
+          <li>S2 star orbit around Sgr A*, 24 years of astrometric and spectroscopic data</li>
+          <li><strong>SPARC</strong> galaxy rotation curves, 175 galaxies</li>
+          <li>Planck 2018 CMB acoustic spectrum</li>
+          <li>Pantheon+ Type Ia supernovae</li>
+          <li>Gaia DR3 wide binaries</li>
+        </ul>
+        <p class="mt-4">
+          Papers, derivations, runnable notebooks and the data are public, and archived
+          with a DOI.
+        </p>
+      </div>
+
+      <div class="reader-note mt-12">
+        <p class="eyebrow mb-3">A note to the reader</p>
+        <p class="lede">
+          Engaging with unknown independent research is a substantial commitment, and you
+          should not do it blindly. Define the criteria this work would have to meet to
+          justify your time, then put them to
+          <a href="{{ '/will-ai/' | relative_url }}">WILL AI</a> above. It is trained on
+          the papers, it will answer within its limits, and it will link you straight to
+          the relevant sections, notebooks and interactive projects.
+        </p>
+      </div>
+
+    </section>
+
   </main>
 
   {% include footer.html %}
@@ -159,9 +280,13 @@
       sections.forEach(section => observer.observe(section));
     }
 
-    window.onload = function() {
+    // DOMContentLoaded, not window.onload: onload waits for the footer's
+    // GitHub Sponsors iframe, which delayed the reveal noticeably.
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAnimations);
+    } else {
       initAnimations();
-    };
+    }
   </script>
 </body>
 </html>

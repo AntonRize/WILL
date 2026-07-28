@@ -2,11 +2,15 @@
 
 layout: log
 
-title: "i like the model that the space around the earth i"
+title: "Does space flow inward? Relativistic mass and gravity in RG"
 
 date: 2026-07-09T21:06:48.951Z
 
 user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+
+description: "Why WILL Relational Geometry rejects inflowing space and relativistic mass, and what replaces them: energy projection on the S2 relational carrier."
+
+title_locked: true
 
 ---
 

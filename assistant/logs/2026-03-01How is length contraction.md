@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "How is length contraction factored in simultaneous"
+title: "How is length contraction factored in simultaneous with time dilation"
 
 date: 2026-03-01T21:08:55.617Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36"
+
+description: "WILL-AI conversation log: How is length contraction factored in simultaneous with time dilation"
 
 ---
 

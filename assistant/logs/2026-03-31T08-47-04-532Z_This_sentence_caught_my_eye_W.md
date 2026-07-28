@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "This sentence caught my eye: Without metrics, tensors, or free…"
 
 date: 2026-03-31T08:47:04.532Z
 
 user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Safari/605.1.15"
+
+description: "WILL-AI conversation log: This sentence caught my eye: Without metrics, tensors, or free parameters, it reproduces Lorentz factors, the energy-momentum relation, Schwarzschild and…"
 
 ---
 

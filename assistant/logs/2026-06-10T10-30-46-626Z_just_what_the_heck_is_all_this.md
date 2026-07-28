@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Humble thinker"
+title: "Just what the heck is all this about?"
 
 date: 2026-06-10T10:30:46.626Z
 
 user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+
+description: "WILL-AI conversation log: Just what the heck is all this about?"
 
 ---
 

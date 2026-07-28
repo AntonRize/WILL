@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Rigorous physicist"
+title: "I'd like to discuss with you ways to present my research."
 
 date: 2026-03-28T04:33:22.166Z
 
 user_agent: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+
+description: "WILL-AI conversation log: I'd like to discuss with you ways to present my research. You see I'm an independent researcher. Don't have any affiliations and got non connections to…"
 
 ---
 

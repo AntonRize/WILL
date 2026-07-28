@@ -2,11 +2,13 @@
 
 layout: log
 
-title: "Curious student"
+title: "What is the unit of spacetime"
 
 date: 2026-04-15T10:46:43.257Z
 
 user_agent: "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Mobile/15E148 Safari/604.1"
+
+description: "WILL-AI conversation log: What is the unit of spacetime"
 
 ---
 
