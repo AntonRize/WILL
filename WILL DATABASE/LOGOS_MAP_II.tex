@@ -1,0 +1,170 @@
+% =====================================================================
+%  DERIVATION CHAIN MAP --- WILL RG II   (FIRST DRAFT)
+%  Built by reading WILL_RG_II.txt end to end.
+%
+%  Split into two boxes because a single tabular of this length will not
+%  break across a page. Box A = inherited inputs + Stage I.
+%  Box B = Stage II + closure.
+%
+%  Markers used in the tables:
+%     \dagger   the step introduces an assumption that is NOT derivable
+%               from the Part I core (Closure + Conservation + Isotropy).
+%               It functions as a new postulate of Part II.
+%     \ddagger  input imported from Part III (forward dependency).
+%     \S        the cross-reference in the current Part II source is
+%               broken, missing, or attributed to the wrong document.
+%
+%  Requires: tcolorbox, amsmath, array, hyperref (all already loaded).
+% =====================================================================
+
+
+% =====================================================================
+%  BOX A
+% =====================================================================
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black,
+                  title=Derivation Chain Map --- WILL RG II (A): Inherited Core and Stage I]
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|>{\centering\arraybackslash}p{0.88\textwidth}|}
+\hline
+
+\textbf{Inherited from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{WILL RG I} --- used, not re-derived:}\\[2pt]\hline
+$\underbrace{\beta^{2}+\beta_{Y}^{2}=1}_{\text{Kinematic }S^{1}}$ \qquad
+$\underbrace{\kappa^{2}+\kappa_{X}^{2}=1}_{\text{Potential }S^{2}}$ \qquad
+$\underbrace{\kappa^{2}=2\beta^{2}}_{\text{Closure Theorem}}$
+\quad \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{thm:closure}\\[8pt]\hline
+\textbf{Total Relational Shift:} $\;Q^{2}=\beta^{2}+\kappa^{2}=3\beta^{2}=\tfrac{3}{2}\kappa^{2}$
+\quad \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:DisQ}{sec:DisQ}\\[2pt]\hline
+\textbf{Density and pressure:} $\;\rho(r)=\dfrac{\kappa^{2}c^{2}}{8\pi Gr^{2}}$, \quad
+$\rho_{\max}(r)=\dfrac{c^{2}}{8\pi Gr^{2}}$, \quad
+$\kappa^{2}=\dfrac{\rho}{\rho_{\max}}$, \quad $P=-\rho c^{2}$
+\quad \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{sec:density}\\[8pt]\hline
+\textbf{Precession Law} $\;\Delta_{\phi}=\dfrac{2\pi Q^{2}}{1-e^{2}}$
+\quad \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:precession_law}{R.O.M. sec:precession\_law}$^{\S}$\\[6pt]\hline
+
+$\downarrow$ \textit{(import the ground-state kinematic projection from Part III)}$^{\ddagger}$ $\downarrow$\\\hline
+\textbf{Fine-structure constant as a projection:} $\;\alpha\equiv\beta_{1}=\sqrt{\tfrac{1}{2}R_{q}/a_{0}}$
+\quad \href{https://willrg.com/documents/WILL_RG_III.pdf#eq:beta=alpha}{WILL RG III}\\[4pt]\hline
+
+$\downarrow$ \textit{(normalise each projection by the total shift --- the one new definition Part II adds to the Part I algebra)} $\downarrow$\\\hline
+\textbf{Relational Weights:} $\;\boxed{\Omega_{pot}=\dfrac{\kappa^{2}}{Q^{2}}=\dfrac{2}{3}}\qquad
+\boxed{\Omega_{kin}=\dfrac{\beta^{2}}{Q^{2}}=\dfrac{1}{3}}$\\[8pt]\hline
+
+\textbf{\large STAGE I: GALACTIC DYNAMICS}\\\hline
+$\downarrow$ \textit{(WILL is relationally closed and boundary-free, so any causal propagation is recurrent)} $\downarrow$\\\hline
+\textbf{Lemma (Inevitability of Self-Interaction):} a relational perturbation cannot propagate indefinitely without re-encountering itself.\\\hline
+$\downarrow$ \textit{(only modes returning to the same phase persist, so the winding number must be a whole integer)} $\downarrow$\\\hline
+\textbf{Theorem (Phase Closure):} $\;\boxed{f_{n}=nf_{0},\qquad n=1,2,3,\dots}$ \\
+$n=1$ is the Fundamental Tone of the observable Universe.\\[4pt]\hline
+$\downarrow$ \textit{(Epistemic Hygiene forbids adopting a fitted $H_{0}$: the absolute value of $f_{0}$ must be derived)} $\downarrow$\\\hline
+\textbf{Radiation density from the CMB monopole:} $\;\rho_{\gamma}=\dfrac{4\sigma_{SB}T_{0}^{4}}{c^{3}}\approx 4.645\times10^{-31}\ \mathrm{kg\,m^{-3}}$\\[4pt]\hline
+$\downarrow$ \textit{(photons have no rest frame; identify the kinematic projection of the photon gas with the ground state, $\beta\equiv\alpha$, hence $Q^{2}=3\alpha^{2}$)}$^{\dagger\ddagger}$ $\downarrow$\\\hline
+\textbf{Saturation density:} $\;\rho_{\gamma}=Q^{2}\rho_{\max}\;\Longrightarrow\;
+\boxed{\rho_{\max}=\dfrac{\rho_{\gamma}}{3\alpha^{2}}}\approx 2.9075\times10^{-27}\ \mathrm{kg\,m^{-3}}$\\[6pt]\hline
+$\downarrow$ \textit{(saturation identity $\rho_{\max}=c^{2}/8\pi Gr^{2}$ with the horizon definition $H_{0}=c/r$)} $\downarrow$\\\hline
+\textbf{Hubble parameter:} $\;\boxed{H_{0}=\sqrt{8\pi G\rho_{\max}}\approx 68.15\ \mathrm{km\,s^{-1}\,Mpc^{-1}}}$\\
+\textit{inputs: $T_{0}$ and $\alpha$ only}\\[6pt]\hline
+$\downarrow$ \textit{(the closed horizon $R_{H}=c/H_{0}$ carries the $n=1$ standing wave)} $\downarrow$\\\hline
+\textbf{Fundamental Tone and Machian scale:} $\;f_{0}=\dfrac{c}{2\pi R_{H}}=\dfrac{H_{0}}{2\pi}$, \quad
+$a_{Mach}=f_{0}c=\dfrac{cH_{0}}{2\pi}\approx1.05\times10^{-10}\ \mathrm{m\,s^{-2}}$$^{\dagger}$\\[6pt]\hline
+$\downarrow$ \textit{(bifurcation: the carrier linking a local system to the horizon is assigned by the DOF of the relational link)}$^{\dagger}$ $\downarrow$\\\hline
+$\boxed{a_{\kappa}=\Omega_{pot}\,a_{Mach}=\dfrac{cH_{0}}{3\pi}}$ \qquad
+$\boxed{a_{\beta}=\Omega_{kin}\,a_{Mach}=\dfrac{cH_{0}}{6\pi}}$\\[2pt]
+$\underbrace{\text{2-DOF link }(S^{2}):\ \text{galaxies}}_{\ }$ \qquad
+$\underbrace{\text{1-DOF link }(S^{1}):\ \text{wide binaries}}_{\ }$\\[6pt]\hline
+$\downarrow$ \textit{(resonant stability posited as a geometric proportion $E_{loc}/E_{res}=E_{res}/E_{glob}$, with $E_{loc}=v_{N}^{2}$ and $E_{glob}=\Omega\,a_{Mach}r$)}$^{\dagger}$ $\downarrow$\\\hline
+\textbf{Resonant Bridge:} $\;\boxed{v_{obs}^{2}=\underbrace{v_{N}^{2}}_{\text{local capacity}}
++\underbrace{\sqrt{v_{N}^{2}\cdot(\Omega\,a_{Mach}\,r)}}_{\text{resonant bridge}}}$\\[10pt]\hline
+$\downarrow$ \textit{(evaluate the bridge in the point-mass, acceleration, threshold, metric and optical limits)} $\downarrow$\\\hline
+\textbf{Baryonic Tully--Fisher:} $\;r$ cancels identically $\;\Longrightarrow\;\boxed{V_{flat}^{4}=G\,a_{\kappa}\,M_{b}}$\\[4pt]\hline
+\textbf{Radial Acceleration Relation:} $\;\boxed{g_{obs}=g_{bar}+\sqrt{g_{bar}\,a_{\kappa}}}$\\[4pt]\hline
+\textbf{Baryonic Escape Threshold:} $\;R_{trans}=\sqrt{\dfrac{GM}{a_{\kappa}}}=\sqrt{\tfrac{3\pi}{2}R_{s}R_{H}}$, \quad
+$\dfrac{M_{obs}}{M_{bar}}=1+\dfrac{r}{R_{trans}}\;\Longrightarrow\;
+\boxed{V_{obs}(R_{trans})\equiv V_{esc}^{bary}}$\\[6pt]\hline
+\textbf{Topological Ruler:} $\;\boxed{R=\dfrac{(V_{obs}^{2}-V_{bar}^{2})^{2}}{V_{bar}^{2}\,a_{\kappa}}}$ \quad
+\textit{absolute size from spectroscopy alone, no distance ladder}\\[6pt]\hline
+\textbf{Lensing:} $\;\kappa_{obs}^{2}=\kappa_{bar}^{2}+\sqrt{\kappa_{bar}^{2}\kappa_{H}^{2}}$, \quad
+$\kappa_{H}^{2}=\dfrac{2ra_{\kappa}}{c^{2}}\;\Longrightarrow\;r$ cancels $\;\Longrightarrow\;
+\boxed{\kappa_{phantom}^{2}=\dfrac{2V_{flat}^{2}}{c^{2}}}$\\
+\textit{the ``isothermal halo'' constant, with no halo}\\[6pt]\hline
+
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+
+% =====================================================================
+%  BOX B
+% =====================================================================
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black,
+                  title=Derivation Chain Map --- WILL RG II (B): Stage II and Closure]
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|>{\centering\arraybackslash}p{0.88\textwidth}|}
+\hline
+
+\textbf{\large STAGE II: RELATIONAL COSMOLOGY}\\\hline
+$\downarrow$ \textit{(apply the Precession Law to the cosmological ground state: isotropy gives $e\to0$; ground-state coupling gives $\beta_{vac}\equiv\alpha$; closure gives $Q^{2}=3\alpha^{2}$)} $\downarrow$\\\hline
+\textbf{Cumulative Phase Divergence:} $\;\Delta_{\phi(vac)}=2\pi\cdot3\alpha^{2}\;\Longrightarrow\;
+\dfrac{d\omega_{shift}}{do}=3\alpha^{2}\;\Longrightarrow\;\boxed{\omega_{shift}(o)=3\alpha^{2}o}$\\[8pt]\hline
+$\downarrow$ \textit{(causal coherence severs when the cumulative shift completes one full geometric cycle, $\omega_{shift}=2\pi$)} $\downarrow$\\\hline
+\textbf{Universal Phase Horizon:} $\;\boxed{o_{\max}=\dfrac{2\pi}{3\alpha^{2}}\approx 39\,330}$\\[6pt]\hline
+$\downarrow$ \textit{(the spatial scale factor responds only to the structural sector: $da/a=\Omega_{pot}\,do/o$)} $\downarrow$\\\hline
+\textbf{Geometric Cooling Law:} $\;a(o)\propto o^{2/3}$, \quad
+$1+z(o)=\left(\dfrac{o_{\max}}{o}\right)^{2/3}$, \quad
+$T(o)=T_{0}\left(\dfrac{o_{\max}}{o}\right)^{2/3}$\\[8pt]\hline
+$\downarrow$ \textit{(self-centering at $z=0$ gives $o_{z}(0)=o_{\max}$: the causal depth of the observable Universe spans exactly one $2\pi$ cycle --- topological tautology)} $\downarrow$\\\hline
+$\downarrow$ \textit{(Unit Phase Condition: the small-angle regime $\sin o\approx o$ breaks at $o=1$, where arc length equals radius of curvature, $S=R$)}$^{\dagger}$ $\downarrow$\\\hline
+\textbf{Decoupling:} $\;\boxed{z_{dec}=o_{\max}^{2/3}-1\approx 1156,\qquad T_{dec}\approx 3150\ \mathrm{K}}$\\
+\textit{inputs: $\alpha$ and $T_{0}$ only}\\[6pt]\hline
+$\downarrow$ \textit{(partition the saturation density by the same weights)} $\downarrow$\\\hline
+\textbf{Cosmological density parameters:} $\;\boxed{\Omega_{m}\equiv\Omega_{kin}=\tfrac{1}{3}}\qquad
+\boxed{\Omega_{\Lambda}\equiv\Omega_{pot}=\tfrac{2}{3}}$\\
+\textit{a fixed $2{:}1$ ratio, not a fit}\\[6pt]\hline
+$\downarrow$ \textit{(equations of state: $d\kappa^{2}/dr=0\Rightarrow P_{kin}=0\Rightarrow\rho_{kin}\propto(1+z)^{3}$; \quad $P_{pot}=-\rho_{pot}c^{2}\Rightarrow\rho_{pot}=\mathrm{const}$)} $\downarrow$\\\hline
+\textbf{WILL--Friedmann Evolution:} $\;\boxed{H^{2}(z)=H_{0}^{2}\left[\tfrac{1}{3}(1+z)^{3}+\tfrac{2}{3}\right]}$\\
+\textit{the $1/3$ here is $\Omega_{kin}$, not the Friedmann factor from $8\pi G/3$}\\[6pt]\hline
+$\downarrow$ \textit{(evaluate against the late- and early-Universe observables)} $\downarrow$\\\hline
+\textbf{Supernova flux (Pantheon+):} $\mu_{WILL}(z)$ built from $H_{0}$, $\Omega_{m}=\tfrac13$, $\Omega_{\Lambda}=\tfrac23$;
+shape deviation $\le0.02$ mag after the expected $0.150$ mag calibration offset.\\[4pt]\hline
+\textbf{CMB acoustic spectrum:} $\;\ell_{vac}=\dfrac{1}{\alpha}(1+\Omega_{pot})\approx228.39$$^{\dagger}$, \quad
+$K_{comp}=\sqrt{\dfrac{\Omega_{pot}}{\Omega_{pot}+\Omega_{b}}}\;\Longrightarrow\;
+\boxed{\ell_{1}=\ell_{vac}K_{comp}\approx220.55}$\\[2pt]
+overtones from the $S^{2}$ Bessel roots of $J_{0}$: $\;R_{2}=x_{2}/x_{1}$, $\;R_{3}=x_{3}/x_{1}$\\[6pt]\hline
+\textbf{Low quadrupole:} $\;P(\ell)\propto\left(1+\dfrac{\mathcal{R}_{eff}}{\lambda_{\ell}}\right)^{-2}$, \quad
+$\lambda_{\ell}=\ell(\ell+1)\;\Longrightarrow\;$ corridor $D_{\ell=2}\approx0.16$--$0.32$$^{\dagger\S}$\\[6pt]\hline
+$\downarrow$ \textit{(treat the structural sector as a local field rather than a global budget)} $\downarrow$\\\hline
+\textbf{Vacuum sector:} $\;\rho_{\Lambda}(r)=\Omega_{pot}\rho_{\max}(r)=\dfrac{c^{2}}{12\pi Gr^{2}}$, \quad
+$P_{\Lambda}=-\rho_{\Lambda}c^{2}\ (w=-1)$, \quad
+$\boxed{\Lambda(r)=\dfrac{\Omega_{pot}}{r^{2}}=\dfrac{2}{3r^{2}}}$\\[8pt]\hline
+$\downarrow$ \textit{(excite the vacuum with the dynamic state of a bound system; the Normalization Identity gives $\rho=Q^{2}\rho_{\Lambda}$)} $\downarrow$\\\hline
+\textbf{Vacuum--Dynamic Equivalence:} $\;\rho=\underbrace{\left(3\dfrac{V^{2}}{c^{2}}\right)}_{Q^{2}}\cdot
+\underbrace{\left(\dfrac{c^{2}}{12\pi Gr^{2}}\right)}_{\rho_{\Lambda}}
+=\dfrac{V^{2}}{4\pi Gr^{2}}\equiv\boxed{\rho_{\mathrm{N}}}$\\[2pt]
+\textit{the ``halo'' is vacuum tension; the closure factor $3$ and the vacuum factor $1/12$ cancel to the Newtonian $1/4$}\\[8pt]\hline
+$\downarrow$ \textit{(project the particle's closed $S^{2}$ topology onto the linear macroscopic horizon $R^{1}$)}$^{\dagger}$ $\downarrow$\\\hline
+\textbf{Holographic Operator:} $\;\Gamma=\underbrace{\Gamma_{E}}_{\beta/\kappa\,=\,1/\sqrt{2}}\cdot
+\underbrace{\Gamma_{T}}_{D/C\,=\,1/\pi}=\dfrac{1}{\pi\sqrt{2}}$, \qquad
+Geometric Mach Equation $\;\boxed{\mathcal{R}_{int}\,\Gamma^{3}=\mathcal{R}_{ext}}$\\[8pt]\hline
+\textbf{Electron mass:} $\;\boxed{m_{e}=\dfrac{1}{\pi\sqrt{2}}
+\left(\dfrac{H_{0}(\alpha\hbar c)^{2}}{Gc^{3}}\right)^{1/3}}\approx9.064\times10^{-31}\ \mathrm{kg}$\\[8pt]\hline
+
+$\downarrow$ \textbf{Theoretical Ouroboros} $\downarrow$\\\hline
+$\boxed{\alpha\;\longrightarrow\;H_{0}}$ \ (micro $\to$ macro) \qquad
+$\boxed{H_{0}\;\longrightarrow\;m_{e}}$ \ (macro $\to$ micro)\\[4pt]\hline
+\textbf{Orthogonal Decoupling:} $H_{0}$ from thermodynamic saturation ($T_{0},\alpha$);
+$\ell_{vac}$ from topological resonance ($\alpha,\Omega_{\Lambda}$)
+$\;\Longrightarrow\;\boxed{\dfrac{\partial H_{0}}{\partial\ell_{peak}}=0}$\\[6pt]\hline
+
+\end{tabular}
+\end{center}
+
+\vspace{2pt}
+{\footnotesize
+\textbf{Markers.}
+$^{\dagger}$ the step introduces an assumption that is not derivable from the Part I core
+(Closure $+$ Conservation $+$ Isotropy); it functions as a new postulate of Part II.
+$^{\ddagger}$ input imported from Part III, i.e.\ a forward dependency inside the trilogy.
+$^{\S}$ the cross-reference in the current Part II source is broken, missing, or attributed
+to the wrong document.}
+\end{tcolorbox}
