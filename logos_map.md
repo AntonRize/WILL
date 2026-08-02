@@ -3,7 +3,10 @@ layout: default
 title: "LOGOS MAP"
 description: "Derivation Chain Map of WILL Relational Geometry. Logical structure of the first part of the WILL trilogy covering relativistic domain, with every node linked to its principle, theorem, lemma, definition or section in WILL_RG_I.pdf and WILL_RG_R.O.M..pdf."
 permalink: /logos_map/
-redirect_from: /LOGOS_MAP/
+redirect_from:
+  - /LOGOS_MAP/
+  - /Logos_Map/          # was a 404 in Search Console, crawled 2 Apr 2026
+  - /logos-map/
 ---
 
 {% include LOGOS_MAP/styles.html %}

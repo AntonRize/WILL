@@ -581,31 +581,74 @@ permalink: /assistant/logs/
 
     function formatDate(d) {
         d = ensureDate(d);
-        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+        var p = tzParts(d);
+        return p.month + ' ' + p.day + ', ' + p.year;
+    }
+
+    // --- Brisbane time helpers -------------------------------------------
+    // Timestamps are stored as UTC. Everything shown to a reader is converted
+    // to Australia/Brisbane, which is UTC+10 all year with no daylight saving.
+    var SITE_TZ = 'Australia/Brisbane';
+    var TZ_LABEL = 'AEST';
+
+    // Return the calendar parts of a date as they appear in Brisbane.
+    function tzParts(d) {
+        var parts = {};
+        try {
+            new Intl.DateTimeFormat('en-AU', {
+                timeZone: SITE_TZ,
+                year: 'numeric', month: 'short', day: 'numeric',
+                hour: 'numeric', minute: '2-digit', hour12: true
+            }).formatToParts(d).forEach(function (p) { parts[p.type] = p.value; });
+        } catch (e) {
+            // If Intl is unavailable, fall back to a fixed +10 hour shift.
+            var s = new Date(d.getTime() + 10 * 3600 * 1000);
+            var mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var hh = s.getUTCHours();
+            parts = {
+                year: String(s.getUTCFullYear()), month: mo[s.getUTCMonth()],
+                day: String(s.getUTCDate()),
+                hour: String(hh % 12 || 12),
+                minute: (s.getUTCMinutes() < 10 ? '0' : '') + s.getUTCMinutes(),
+                dayPeriod: hh >= 12 ? 'pm' : 'am'
+            };
+        }
+        return parts;
+    }
+
+    // "2026-03-17" as the calendar day in Brisbane, used for grouping.
+    function tzDayKey(d) {
+        try {
+            return new Intl.DateTimeFormat('en-CA', {
+                timeZone: SITE_TZ, year: 'numeric', month: '2-digit', day: '2-digit'
+            }).format(d);
+        } catch (e) {
+            return new Date(d.getTime() + 10 * 3600 * 1000).toISOString().slice(0, 10);
+        }
     }
 
     function formatTime(d) {
         d = ensureDate(d);
-        var h = d.getUTCHours();
-        var m = d.getUTCMinutes();
-        var ampm = h >= 12 ? 'PM' : 'AM';
-        h = h % 12 || 12;
-        return h + ':' + (m < 10 ? '0' : '') + m + ' ' + ampm + ' UTC';
+        var p = tzParts(d);
+        return p.hour + ':' + p.minute + ' ' + (p.dayPeriod || '').toUpperCase() + ' ' + TZ_LABEL;
     }
 
     function getDateGroup(d) {
         d = ensureDate(d);
-        var now = new Date();
-        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        var logDay = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-        var diff = (today - logDay) / (1000 * 60 * 60 * 24);
+        // Compare whole calendar days as they fall in Brisbane, so a log made
+        // late at night here is not pushed into the wrong day.
+        var todayKey = tzDayKey(new Date());
+        var logKey = tzDayKey(d);
+        var diff = Math.round(
+            (Date.parse(todayKey + 'T00:00:00Z') - Date.parse(logKey + 'T00:00:00Z')) / 86400000
+        );
 
-        if (diff < 1) return 'Today';
-        if (diff < 2) return 'Yesterday';
-        if (diff < 7) return 'This Week';
+        if (diff <= 0) return 'Today';
+        if (diff === 1) return 'Yesterday';
+        if (diff < 7)  return 'This Week';
         if (diff < 30) return 'This Month';
-        return formatDate(d).replace(/\d+,/, '').trim(); // Just "Mar 2026"
+        var p = tzParts(d);
+        return p.month + ' ' + p.year;              // e.g. "Mar 2026"
     }
 
         // --- Ensure date is a Date object (cache deserializes Dates as strings) ---
@@ -803,6 +846,8 @@ function detectDevice(title) {
 
             // Show time if we have it
             var d = ensureDate(log.date);
+            // 12:00 UTC is the sentinel used when a filename carries a date but
+            // no time, so this comparison must stay in UTC. It is not a display.
             if (d.getUTCHours() !== 12 || d.getUTCMinutes() !== 0) {
                 var timeSpan = document.createElement('span');
                 timeSpan.textContent = formatTime(d);

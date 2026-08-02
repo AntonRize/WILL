@@ -28,6 +28,12 @@ markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
 
+# Every date rendered by Jekyll is shown in this timezone. Log timestamps are
+# stored as UTC in each file's front matter; this converts them on the way out.
+# Brisbane is UTC+10 all year and does not observe daylight saving, so the
+# offset never changes.
+timezone: Australia/Brisbane
+
 # Plugins
 plugins:
   - jekyll-feed
