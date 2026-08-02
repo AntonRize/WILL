@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOGOS MAP - local preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body{font-family:'Inter',sans-serif;background:#080d17;color:#E5E7EB;margin:0;}
+main{max-width:72rem;margin:0 auto;padding:0 1.5rem;}
+.preview-note{position:fixed;right:1rem;bottom:1rem;z-index:99;background:#1e293b;
+ border:1px solid #334155;border-radius:.5rem;padding:.5rem .8rem;font-size:.72rem;color:#94a3b8;}
+</style>
+<script>
+MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']],
+  displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true,
+  processEnvironments: true, packages: {'[+]': ['ams','newcommand','mathtools','physics']} },
+  options: { ignoreHtmlClass:'tex2jax_ignore', processHtmlClass:'tex2jax_process' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head><body><main class="markdown-content">
+
+
+<!-- ============================================================
+     LOGOS MAP  ·  Derivation Chain Map
+     Self-contained design system. No Tailwind dependency.
+
+     Specificity note: the default layout ships blanket rules such as
+     `.markdown-content h3 { color:#fff }` and `.markdown-content a { ... }`
+     with specificity (0,1,1). Every component rule below is therefore
+     written as `.lm .lm-x` (0,2,0) so it wins on class count without
+     needing !important. Element resets keep !important because they
+     must beat the layout regardless of source order.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- 0. Page shell ---------------------------------- */
+body{background-color:#080d17!important;color:#dde5f0!important;}
+
+.lm,.lm-rail{
+  --bg:#080d17;
+  --ink:#e8eef7;
+  --dim:#9aa8bd;
+  --faint:#64748b;
+  --rule:rgba(148,163,184,.16);
+
+  --method:#a78bfa;   /* methodological principles       */
+  --core:#60a5fa;     /* foundational theorems           */
+  --legacy:#f59e0b;   /* inherited / standard primitives */
+  --will:#34d399;     /* the single primitive            */
+  --carrier:#22d3ee;  /* carriers, projections, metrics  */
+  --law:#f472b6;      /* energy laws & causal limits     */
+  --rom:#818cf8;      /* R.O.M. + unitless core          */
+  --final:#fbbf24;    /* closing identity                */
+
+  --mono:'JetBrains Mono','Fira Code',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+
+.lm{position:relative;max-width:60rem;margin:0 auto;padding:0 1rem 8rem;}
+
+/* Neutralise the layout's generic element styling inside the map */
+.lm h1,.lm h2,.lm h3,.lm h4,.lm h5{
+  border-bottom:none!important;padding-bottom:0!important;
+  margin:0!important;font-size:inherit!important;
+  font-weight:inherit!important;line-height:inherit!important;
+}
+.lm a{text-decoration:none!important;}
+.lm p{margin:0;}
+.lm ul{margin:0;padding:0;list-style:none;}
+.lm code{background:none!important;padding:0!important;border-radius:0!important;}
+
+/* ---------- 1. Hero ---------------------------------------- */
+.lm .lm-hero{text-align:center;padding:4.5rem 0 2.5rem;}
+.lm .lm-hero__eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:#7dd3fc;
+  border:1px solid rgba(125,211,252,.28);border-radius:999px;
+  padding:.4rem .95rem;margin-bottom:1.6rem;
+}
+.lm .lm-hero__title{
+  font-size:clamp(2.6rem,8vw,4.6rem)!important;font-weight:800!important;
+  letter-spacing:-.03em;line-height:1.04!important;
+  margin:0 0 1.1rem!important;padding-bottom:.12em!important;
+  background:linear-gradient(100deg,#a78bfa 0%,#60a5fa 32%,#22d3ee 64%,#34d399 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.lm .lm-hero__lead{
+  font-size:clamp(1.05rem,2.4vw,1.35rem);color:#c7d3e3;
+  max-width:44rem;margin:0 auto 1rem;line-height:1.55;
+}
+.lm .lm-hero__sub{
+  font-size:.95rem;color:var(--dim);max-width:40rem;
+  margin:0 auto;line-height:1.65;
+}
+.lm .lm-hero__sub em{color:#7dd3fc;font-style:normal;}
+
+/* ---------- 2. Legend -------------------------------------- */
+.lm .lm-legend{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;
+  margin:2.4rem auto 0;max-width:52rem;
+}
+.lm .lm-legend__item{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.74rem;color:var(--dim);
+  border:1px solid var(--rule);border-radius:999px;
+  padding:.32rem .8rem;background:rgba(148,163,184,.04);
+}
+.lm .lm-legend__dot{width:.55rem;height:.55rem;border-radius:2px;flex:none;}
+
+.lm .lm-howto{
+  margin:2rem auto 0;max-width:44rem;
+  border:1px dashed rgba(148,163,184,.28);border-radius:.85rem;
+  padding:.85rem 1.1rem;font-size:.82rem;color:var(--dim);
+  line-height:1.7;text-align:center;background:rgba(148,163,184,.03);
+}
+.lm .lm-howto code{
+  font-family:var(--mono);font-size:.78rem;color:#7dd3fc;
+  background:rgba(125,211,252,.09)!important;
+  padding:.1rem .35rem!important;border-radius:.3rem!important;
+}
+
+/* ---------- 3. Act header ---------------------------------- */
+.lm .lm-act{margin-top:4rem;}
+.lm .lm-act__head{
+  display:flex;align-items:center;gap:.9rem;
+  margin-bottom:1.6rem;padding-bottom:.85rem;
+  border-bottom:1px solid var(--rule);
+}
+.lm .lm-act__num{
+  font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  color:#0b1220;background:linear-gradient(135deg,#60a5fa,#22d3ee);
+  border-radius:.4rem;padding:.28rem .55rem;flex:none;
+}
+.lm .lm-act__title{font-size:1.05rem!important;font-weight:600!important;color:var(--ink);}
+.lm .lm-act__note{
+  margin-left:auto;font-size:.76rem;color:var(--faint);
+  text-align:right;line-height:1.4;
+}
+
+/* ---------- 4. Nodes --------------------------------------- */
+.lm .lm-row{display:flex;justify-content:center;}
+
+.lm .lm-node{
+  display:block;position:relative;width:100%;
+  background:linear-gradient(180deg,rgba(148,163,184,.055),rgba(148,163,184,.02));
+  border:1px solid var(--rule);
+  border-left:3px solid var(--accent,var(--core));
+  border-radius:.9rem;padding:1.05rem 1.2rem 1.1rem;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.lm a.lm-node:hover,.lm a.lm-node:focus-visible{
+  transform:translateY(-2px);outline:none;
+  border-color:color-mix(in srgb,var(--accent,var(--core)) 55%,transparent);
+  box-shadow:0 10px 34px -12px color-mix(in srgb,var(--accent,var(--core)) 60%,transparent);
+  background:linear-gradient(180deg,
+    color-mix(in srgb,var(--accent,var(--core)) 10%,transparent),
+    rgba(148,163,184,.02));
+}
+.lm a.lm-node:focus-visible{box-shadow:0 0 0 2px var(--accent,var(--core));}
+
+.lm .lm-node--method {--accent:var(--method);}
+.lm .lm-node--core   {--accent:var(--core);}
+.lm .lm-node--legacy {--accent:var(--legacy);}
+.lm .lm-node--will   {--accent:var(--will);}
+.lm .lm-node--carrier{--accent:var(--carrier);}
+.lm .lm-node--law    {--accent:var(--law);}
+.lm .lm-node--rom    {--accent:var(--rom);}
+.lm .lm-node--final  {--accent:var(--final);}
+
+.lm .lm-node__head{
+  display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.55rem;
+}
+.lm .lm-kind{
+  font-family:var(--mono);font-size:.63rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent,var(--core));
+  border:1px solid color-mix(in srgb,var(--accent,var(--core)) 38%,transparent);
+  background:color-mix(in srgb,var(--accent,var(--core)) 11%,transparent);
+  border-radius:.3rem;padding:.16rem .45rem;
+}
+.lm .lm-src{
+  margin-left:auto;display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--mono);font-size:.66rem;color:var(--faint);
+  white-space:nowrap;transition:color .18s ease;
+}
+.lm .lm-src::after{content:"↗";font-size:.72rem;opacity:.75;}
+.lm a.lm-node:hover .lm-src{color:var(--accent,var(--core));}
+.lm a.lm-src:hover,.lm a.lm-src:focus-visible{color:var(--accent,var(--core));outline:none;}
+.lm .lm-src__doc{
+  color:#cbd5e1;border:1px solid var(--rule);border-radius:.25rem;
+  padding:.05rem .3rem;background:rgba(148,163,184,.06);
+}
+.lm a.lm-src:hover .lm-src__doc{
+  border-color:color-mix(in srgb,var(--accent,var(--core)) 50%,transparent);
+}
+
+.lm .lm-node__title{
+  font-size:1.02rem!important;font-weight:600!important;color:#f1f5f9;
+  line-height:1.35!important;letter-spacing:-.01em;
+}
+.lm .lm-node__note{
+  margin-top:.5rem;font-size:.85rem;color:var(--dim);line-height:1.6;
+}
+.lm .lm-node__note strong{color:#cbd5e1;font-weight:600;}
+
+/* math slab inside a node */
+.lm .lm-math{
+  margin-top:.7rem;padding:.6rem .9rem;
+  border-radius:.55rem;overflow-x:auto;overflow-y:hidden;
+  background:rgba(2,6,23,.55);
+  border:1px solid color-mix(in srgb,var(--accent,var(--core)) 22%,transparent);
+  color:#e2e8f0;text-align:center;font-size:.95rem;
+}
+.lm .lm-math--tight{padding:.35rem .7rem;font-size:.88rem;}
+.lm .lm-math mjx-container{margin:0!important;}
+
+/* captions standing in for LaTeX underbraces */
+.lm .lm-under{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem 1.4rem;
+  margin-top:.45rem;font-size:.72rem;color:var(--faint);
+  font-style:italic;text-align:center;
+}
+
+/* ---------- 4b. Multi-source cards -------------------------- */
+/* A card whose row rests on more than one result: the card itself is a
+   <div> and each source is its own link chip (no nested anchors). */
+.lm .lm-node__refs{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.85rem;}
+.lm .lm-ref{
+  display:inline-flex;align-items:center;gap:.45rem;
+  border:1px solid var(--rule);border-radius:.5rem;
+  padding:.32rem .62rem;font-size:.78rem;color:#cbd5e1;
+  background:rgba(148,163,184,.05);
+  transition:border-color .16s ease,color .16s ease,background .16s ease,transform .16s ease;
+}
+.lm .lm-ref code{font-family:var(--mono);font-size:.65rem;color:var(--faint);transition:color .16s ease;}
+.lm .lm-ref::after{content:"↗";font-size:.66rem;opacity:.55;}
+.lm .lm-ref:hover,.lm .lm-ref:focus-visible{
+  transform:translateY(-1px);color:#fff;outline:none;
+  border-color:color-mix(in srgb,var(--accent,var(--core)) 55%,transparent);
+  background:color-mix(in srgb,var(--accent,var(--core)) 14%,transparent);
+}
+.lm .lm-ref:hover code{color:color-mix(in srgb,var(--accent,var(--core)) 85%,white);}
+
+/* tiles: several named results side by side inside one card */
+.lm .lm-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-top:.9rem;}
+.lm .lm-tiles--3{grid-template-columns:repeat(3,1fr);}
+.lm .lm-tile{
+  display:block;border:1px solid var(--rule);border-radius:.6rem;
+  padding:.62rem .75rem;background:rgba(148,163,184,.04);
+  transition:border-color .16s ease,background .16s ease,transform .16s ease;
+}
+.lm .lm-tile b{display:block;font-size:.85rem;font-weight:600;color:#e8eef7;line-height:1.3;}
+.lm .lm-tile em{
+  display:block;font-style:normal;font-size:.74rem;color:var(--dim);
+  margin-top:.22rem;line-height:1.45;
+}
+.lm .lm-tile code{
+  display:inline-block;margin-top:.35rem;font-family:var(--mono);
+  font-size:.62rem;color:var(--faint);transition:color .16s ease;
+}
+.lm a.lm-tile:hover,.lm a.lm-tile:focus-visible{
+  transform:translateY(-1px);outline:none;
+  border-color:color-mix(in srgb,var(--accent,var(--core)) 50%,transparent);
+  background:color-mix(in srgb,var(--accent,var(--core)) 12%,transparent);
+}
+.lm a.lm-tile:hover code{color:color-mix(in srgb,var(--accent,var(--core)) 85%,white);}
+.lm a.lm-tile:hover b{color:#fff;}
+
+/* two labelled halves inside one card (the inherited primitives) */
+.lm .lm-halves{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.85rem;}
+.lm .lm-half{
+  border:1px dashed rgba(148,163,184,.28);border-radius:.6rem;
+  padding:.6rem .75rem;background:rgba(2,6,23,.35);text-align:center;
+}
+.lm .lm-half b{display:block;font-size:.86rem;color:#e8eef7;font-weight:600;}
+.lm .lm-half em{
+  display:block;font-style:italic;font-size:.72rem;color:var(--faint);
+  margin-top:.3rem;line-height:1.4;
+}
+
+/* ---------- 4c. Provenance strip ---------------------------- */
+/* renders  [primitive] + [coordinate inflation] = [scaffolding] */
+.lm .lm-prov{
+  display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;
+  gap:.55rem;margin-top:.9rem;
+}
+.lm .lm-prov__cell{
+  flex:1 1 12rem;min-width:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;
+  padding:.65rem .7rem;border-radius:.55rem;text-align:center;
+  background:rgba(2,6,23,.55);
+  border:1px solid color-mix(in srgb,var(--accent,var(--core)) 26%,transparent);
+}
+.lm .lm-prov__cell--dim{border:1px dashed rgba(148,163,184,.26);background:rgba(148,163,184,.03);}
+.lm .lm-prov__eq{font-size:.9rem;color:#e8eef7;max-width:100%;overflow-x:auto;overflow-y:hidden;}
+.lm .lm-prov__cell span{font-size:.68rem;font-style:italic;color:var(--faint);line-height:1.35;}
+.lm .lm-prov__op{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:1.1rem;color:var(--faint);flex:none;
+}
+
+/* ---------- 4d. Implication chains -------------------------- */
+.lm .lm-chain{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:.4rem .5rem;margin-top:.9rem;
+}
+.lm .lm-chain__step{
+  padding:.35rem .68rem;border-radius:.45rem;font-size:.86rem;color:#e2e8f0;
+  background:rgba(2,6,23,.55);border:1px solid rgba(148,163,184,.2);
+}
+.lm .lm-chain__arrow{font-family:var(--mono);color:var(--faint);font-size:.9rem;}
+.lm .lm-chain__step--end{
+  font-weight:600;color:#fff;
+  border-color:color-mix(in srgb,var(--accent,var(--core)) 58%,transparent);
+  background:color-mix(in srgb,var(--accent,var(--core)) 14%,transparent);
+}
+
+/* ---------- 5. Split rows (parallel nodes) ------------------ */
+.lm .lm-split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;position:relative;}
+.lm .lm-split--3{grid-template-columns:repeat(3,1fr);}
+
+/* ---------- 6. Arrow connectors ----------------------------- */
+.lm .lm-arrow{
+  position:relative;display:flex;justify-content:center;
+  padding:1.15rem 0;min-height:3.4rem;
+}
+.lm .lm-arrow::before{  /* the spine */
+  content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,
+    rgba(148,163,184,.05) 0%,
+    rgba(148,163,184,.42) 22%,
+    rgba(148,163,184,.42) 78%,
+    rgba(148,163,184,.05) 100%);
+}
+.lm .lm-arrow::after{  /* arrowhead */
+  content:"";position:absolute;left:50%;bottom:.15rem;
+  width:.42rem;height:.42rem;
+  transform:translateX(-50%) rotate(45deg);
+  border-right:2px solid rgba(148,163,184,.55);
+  border-bottom:2px solid rgba(148,163,184,.55);
+}
+.lm .lm-arrow__pill{
+  position:relative;z-index:1;max-width:min(38rem,92%);
+  display:inline-flex;flex-direction:column;align-items:center;gap:.22rem;
+  background:var(--bg);border:1px solid var(--rule);border-radius:999px;
+  padding:.45rem 1.05rem;
+  font-size:.8rem;color:var(--dim);text-align:center;line-height:1.45;
+  transition:color .18s ease,border-color .18s ease,background .18s ease;
+}
+.lm a.lm-arrow__pill:hover,.lm a.lm-arrow__pill:focus-visible{
+  color:#e2e8f0;border-color:rgba(125,211,252,.5);
+  background:linear-gradient(180deg,rgba(34,211,238,.1),var(--bg));
+  outline:none;
+}
+.lm .lm-arrow__pill em{font-style:italic;}
+.lm .lm-arrow__tag{
+  font-family:var(--mono);font-size:.62rem;color:var(--faint);
+  letter-spacing:.04em;transition:color .18s ease;
+}
+.lm a.lm-arrow__pill:hover .lm-arrow__tag{color:#7dd3fc;}
+.lm .lm-arrow__tag--multi{display:flex;flex-wrap:wrap;justify-content:center;gap:.1rem .55rem;}
+
+/* an inference step licensed by more than one result: the pill is a <div>
+   and each named result inside it is its own link */
+.lm .lm-arrow__reflink{
+  font-family:var(--mono);font-size:.62rem;color:var(--faint);
+  border-bottom:1px dotted rgba(148,163,184,.4);
+  transition:color .16s ease,border-color .16s ease;
+}
+.lm .lm-arrow__reflink:hover,.lm .lm-arrow__reflink:focus-visible{
+  color:#7dd3fc;border-bottom-color:#7dd3fc;outline:none;
+}
+
+/* short spacer arrow carrying no label */
+.lm .lm-arrow--bare{padding:.75rem 0;min-height:2.2rem;}
+.lm .lm-arrow--bare .lm-arrow__pill{display:none;}
+
+/* ---------- 7. Terminal / result cards ---------------------- */
+.lm .lm-node--final{
+  border:1px solid rgba(251,191,36,.42);border-left-width:3px;
+  background:linear-gradient(135deg,rgba(251,191,36,.1),rgba(34,211,238,.07));
+  box-shadow:0 12px 44px -20px rgba(251,191,36,.55);
+}
+.lm .lm-ouroboros{text-align:center;margin-top:.35rem;}
+.lm .lm-ouroboros__eq{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.75rem;
+  font-family:var(--mono);font-weight:700;
+}
+.lm .lm-ouroboros__box{
+  border:2px solid rgba(251,191,36,.5);border-radius:.6rem;
+  padding:.55rem .95rem;color:#fde68a;font-size:.92rem;letter-spacing:.02em;
+  background:rgba(251,191,36,.06);
+}
+.lm .lm-ouroboros__link{color:#fbbf24;font-size:1.3rem;}
+
+/* ---------- 8. Footer strip -------------------------------- */
+.lm .lm-outro{
+  margin-top:4.5rem;padding-top:2rem;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;
+}
+.lm .lm-outro__btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid var(--rule);border-radius:.65rem;
+  padding:.6rem 1.05rem;font-size:.85rem;color:#cbd5e1;
+  background:rgba(148,163,184,.05);
+  transition:border-color .18s ease,color .18s ease,background .18s ease,transform .18s ease;
+}
+.lm .lm-outro__btn:hover,.lm .lm-outro__btn:focus-visible{
+  border-color:rgba(125,211,252,.5);color:#e2e8f0;
+  background:rgba(34,211,238,.09);transform:translateY(-1px);outline:none;
+}
+.lm .lm-outro__btn span{font-family:var(--mono);font-size:.7rem;color:var(--faint);}
+
+/* ---------- 9. Sticky act rail (desktop) -------------------- */
+.lm-rail{
+  position:fixed;left:max(1rem,calc(50vw - 34rem));top:50%;
+  transform:translateY(-50%);z-index:30;
+  display:none;flex-direction:column;gap:.45rem;
+}
+@media (min-width:1180px){.lm-rail{display:flex;}}
+.lm-rail .lm-rail__dot{
+  display:flex;align-items:center;gap:.55rem;
+  font-family:var(--mono);font-size:.62rem;color:var(--faint);
+  text-decoration:none!important;transition:color .18s ease;
+}
+.lm-rail .lm-rail__dot i{
+  width:.5rem;height:.5rem;border-radius:999px;flex:none;
+  background:rgba(148,163,184,.3);transition:background .18s ease,box-shadow .18s ease;
+}
+.lm-rail .lm-rail__dot span{opacity:0;transition:opacity .18s ease;white-space:nowrap;}
+.lm-rail .lm-rail__dot:hover span,.lm-rail .lm-rail__dot.is-active span{opacity:1;}
+.lm-rail .lm-rail__dot:hover i,.lm-rail .lm-rail__dot.is-active i{
+  background:#22d3ee;box-shadow:0 0 0 3px rgba(34,211,238,.18);
+}
+.lm-rail .lm-rail__dot:hover,.lm-rail .lm-rail__dot.is-active{color:#7dd3fc;}
+
+/* ---------- 10. Reveal animation ---------------------------- */
+.lm-reveal{opacity:0;transform:translateY(14px);
+  transition:opacity .5s ease,transform .5s ease;}
+.lm-reveal.is-visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .lm-reveal{opacity:1;transform:none;transition:none;}
+  .lm a.lm-node:hover{transform:none;}
+}
+
+/* ---------- 11. Responsive ---------------------------------- */
+@media (max-width:720px){
+  .lm{padding:0 .75rem 5rem;}
+  .lm .lm-hero{padding:3rem 0 1.5rem;}
+  .lm .lm-split,.lm .lm-split--3{grid-template-columns:1fr;gap:.85rem;}
+  .lm .lm-tiles,.lm .lm-tiles--3,.lm .lm-halves{grid-template-columns:1fr;}
+  .lm .lm-act__note{display:none;}
+  .lm .lm-node{padding:.9rem 1rem;}
+  .lm .lm-node__title{font-size:.96rem!important;}
+  .lm .lm-math{font-size:.85rem;padding:.5rem .6rem;}
+  .lm .lm-arrow__pill{font-size:.75rem;padding:.4rem .8rem;max-width:96%;}
+  .lm .lm-src{margin-left:0;}
+  .lm .lm-prov{flex-direction:column;}
+  .lm .lm-prov__cell{flex:1 1 auto;}
+  .lm .lm-chain{gap:.3rem .35rem;}
+  .lm .lm-chain__step{font-size:.78rem;padding:.28rem .5rem;}
+  .lm .lm-ouroboros__box{font-size:.8rem;padding:.45rem .7rem;}
+}
+
+/* scrollbar */
+::-webkit-scrollbar{width:9px;}
+::-webkit-scrollbar-track{background:#080d17;}
+::-webkit-scrollbar-thumb{background:#27354a;border-radius:5px;}
+::-webkit-scrollbar-thumb:hover{background:#3b4d68;}
+</style>
+
+
+<!-- LOGOS MAP · sticky act rail (desktop only) -->
+<nav class="lm-rail" aria-label="Derivation chain sections">
+  <a class="lm-rail__dot" href="#act-method"><i></i><span>I &middot; Method</span></a>
+  <a class="lm-rail__dot" href="#act-reduction"><i></i><span>II &middot; Reduction</span></a>
+  <a class="lm-rail__dot" href="#act-carriers"><i></i><span>III &middot; Carriers</span></a>
+  <a class="lm-rail__dot" href="#act-scaffolding"><i></i><span>IV &middot; Scaffolding</span></a>
+  <a class="lm-rail__dot" href="#act-energy"><i></i><span>V &middot; Energy</span></a>
+  <a class="lm-rail__dot" href="#act-closure"><i></i><span>VI &middot; Closure</span></a>
+  <a class="lm-rail__dot" href="#act-rom"><i></i><span>VII &middot; Application</span></a>
+  <a class="lm-rail__dot" href="#act-field"><i></i><span>VIII &middot; Loop closes</span></a>
+</nav>
+
+
+<div class="lm">
+
+<!-- LOGOS MAP · hero, legend, reading instructions -->
+<header class="lm-hero">
+  <div class="lm-reveal">
+    <span class="lm-hero__eyebrow">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9v3a3 3 0 0 1-3 3H9"/></svg>
+      Derivation Chain Map
+    </span>
+    <h1 class="lm-hero__title">LOGOS MAP</h1>
+    <p class="lm-hero__lead">
+      Logical structure of the first part of the WILL trilogy covering relativistic domain.
+    </p>
+    <p class="lm-hero__sub">
+      Each card opens the corresponding principle, theorem, lemma, definition or
+      section in the source PDF. Each connector opens the result named on it.
+    </p>
+  </div>
+
+  <div class="lm-legend lm-reveal">
+    <span class="lm-legend__item"><i class="lm-legend__dot" style="background:#a78bfa"></i>Methodological principle</span>
+    <span class="lm-legend__item"><i class="lm-legend__dot" style="background:#60a5fa"></i>Theorem / lemma</span>
+    <span class="lm-legend__item"><i class="lm-legend__dot" style="background:#f59e0b"></i>Standard primitives</span>
+    <span class="lm-legend__item"><i class="lm-legend__dot" style="background:#34d399"></i>WILL</span>
+    <span class="lm-legend__item"><i class="lm-legend__dot" style="background:#22d3ee"></i>Carriers, projections, intervals</span>
+    <span class="lm-legend__item"><i class="lm-legend__dot" style="background:#f472b6"></i>Energy symmetry and causal horizons</span>
+    <span class="lm-legend__item"><i class="lm-legend__dot" style="background:#818cf8"></i>R.O.M.</span>
+    <span class="lm-legend__item"><i class="lm-legend__dot" style="background:#fbbf24"></i>Ouroboros</span>
+  </div>
+
+  <p class="lm-howto lm-reveal">
+    Sources are given as document and anchor, for example
+    <code>RG&nbsp;I · thm:conservation</code>. Two documents are referenced:
+    <code>RG&nbsp;I</code> is <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf" target="_blank" rel="noopener noreferrer">WILL_RG_I.pdf</a>,
+    <code>R.O.M.</code> is <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_R.O.M..pdf" target="_blank" rel="noopener noreferrer">WILL_RG_R.O.M..pdf</a>.
+  </p>
+</header>
+
+
+<!-- ACT I · Foundational Methodological Principles -->
+<!-- All statement text on this page is taken from WILL_RG_I.tex / R.O.M..tex. -->
+<section class="lm-act" id="act-method">
+  <div class="lm-act__head lm-reveal">
+    <span class="lm-act__num">I</span>
+    <h2 class="lm-act__title">Foundational Methodological Principles</h2>
+  </div>
+
+  <!-- Row 1: the four methodological constraints -->
+  <div class="lm-row lm-reveal">
+    <div class="lm-node lm-node--method">
+      <div class="lm-node__head">
+        <span class="lm-kind">Principles</span>
+        <a class="lm-src" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational" target="_blank" rel="noopener noreferrer"><span class="lm-src__doc">RG&nbsp;I</span>sec:foundational</a>
+      </div>
+      <h3 class="lm-node__title">Methodological constraints</h3>
+      <div class="lm-tiles">
+        <a class="lm-tile" href="https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic" target="_blank" rel="noopener noreferrer">
+          <b>Epistemic Hygiene</b>
+          <em>Derives physics by removing hidden assumptions, rather than introducing new postulates. Contains zero free parameters.</em>
+          <code>pr:epistemic</code>
+        </a>
+        <a class="lm-tile" href="https://willrg.com/documents/WILL_RG_I.pdf#pr:relational" target="_blank" rel="noopener noreferrer">
+          <b>Relational Origin</b>
+          <em>All physical quantities must be defined by their relations.</em>
+          <code>pr:relational</code>
+        </a>
+        <a class="lm-tile" href="https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism" target="_blank" rel="noopener noreferrer">
+          <b>Ontological Minimalism</b>
+          <em>Maintain the minimum number of ontological assumptions and foundational primitives.</em>
+          <code>pr:minimalism</code>
+        </a>
+        <a class="lm-tile" href="https://willrg.com/documents/WILL_RG_I.pdf#pr:mathematical" target="_blank" rel="noopener noreferrer">
+          <b>Mathematical Transparency</b>
+          <em>Number of symbols = Number of independent physical ideas.</em>
+          <code>pr:mathematical</code>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:core" target="_blank" rel="noopener noreferrer">
+      <em>Epistemic Hygiene + Relational Origin + Ontological Minimalism + Mathematical Transparency</em>
+      <span class="lm-arrow__tag">sec:core</span>
+    </a>
+  </div>
+
+  <!-- Row 2: the three core theorems -->
+  <div class="lm-row lm-reveal">
+    <div class="lm-node lm-node--core">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorems</span>
+        <a class="lm-src" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:core" target="_blank" rel="noopener noreferrer"><span class="lm-src__doc">RG&nbsp;I</span>sec:core</a>
+      </div>
+      <h3 class="lm-node__title">The Foundational Core: Relational Geometry</h3>
+      <div class="lm-tiles lm-tiles--3">
+        <a class="lm-tile" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure" target="_blank" rel="noopener noreferrer">
+          <b>Relational Closure</b>
+          <em>A purely relational system cannot be geometrically open; any stable, self-contained system must be described by a closed and self-consistent relational geometry.</em>
+          <code>thm:relational_closure</code>
+        </a>
+        <a class="lm-tile" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity" target="_blank" rel="noopener noreferrer">
+          <b>Causal Continuity</b>
+          <em>Within any closed dynamical system there must exist an invariant quantitative measure of change. Without an external background any change must be perfectly balanced by a complementary change elsewhere in the system.</em>
+          <code>thm:causal_continuity</code>
+        </a>
+        <a class="lm-tile" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy" target="_blank" rel="noopener noreferrer">
+          <b>Isotropy</b>
+          <em>Within a background-free relational system, no spatial direction or coordinate can be a priori privileged. Therefore, the geometry encoding the relational balance (energy) must be maximally symmetric (isotropic).</em>
+          <code>thm:isotropy</code>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ACT II · Stage 0 -> Stage I: Ontological Construction (The Primitives) -->
+<section class="lm-act" id="act-reduction">
+  <div class="lm-act__head lm-reveal">
+    <span class="lm-act__num">II</span>
+    <h2 class="lm-act__title">Ontological Construction (The Primitives)</h2>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:epicycle" target="_blank" rel="noopener noreferrer">
+      <em>apply to existing physics</em>
+      <span class="lm-arrow__tag">sec:epicycle</span>
+    </a>
+  </div>
+
+  <!-- Row 3: standard primitives -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--legacy" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:epicycle" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Stage 0</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>sec:epicycle</span>
+      </div>
+      <h3 class="lm-node__title">Standard primitives</h3>
+      <div class="lm-halves">
+        <div class="lm-half">
+          <b>background manifold + metric</b>
+          <em>spacetime structure (not derived)</em>
+        </div>
+        <div class="lm-half">
+          <b>\(G,\; c,\; M,\; \text{fields}\)</b>
+          <em>energy dynamics (postulated)</em>
+        </div>
+      </div>
+      <p class="lm-node__note">
+        This manifold, even without a metric, carries topological and differential
+        structure &mdash; an absolute scaffold. This constitutes surplus ontology because
+        it introduces an entity (the manifold) that is neither derived nor observed.
+      </p>
+    </a>
+  </div>
+
+  <!-- Arrow: ontological reduction -->
+  <div class="lm-arrow lm-reveal">
+    <div class="lm-arrow__pill">
+      <em>ontological reduction by Relational Origin Principle &mdash; no background allowed</em>
+      <span class="lm-arrow__tag lm-arrow__tag--multi">
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf#lem:false-separation" target="_blank" rel="noopener noreferrer">lem:false-separation</a>
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf#cor:coincidence" target="_blank" rel="noopener noreferrer">cor:coincidence</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- Row 4: one primitive -->
+  <div class="lm-row lm-reveal">
+    <div class="lm-node lm-node--will">
+      <div class="lm-node__head">
+        <span class="lm-kind">Definition &amp; Principle</span>
+        <a class="lm-src" href="https://willrg.com/documents/WILL_RG_I.pdf#def:will" target="_blank" rel="noopener noreferrer"><span class="lm-src__doc">RG&nbsp;I</span>def:will</a>
+      </div>
+      <h3 class="lm-node__title">One Primitive: WILL &equiv; SPACE&ndash;TIME&ndash;ENERGY</h3>
+      <div class="lm-math">\[ \boxed{\;\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}\;} \]</div>
+      <p class="lm-node__note">
+        WILL &equiv; SPACE-TIME-ENERGY is the technical term used for the unified
+        relational structure determined by the Unifying Ontological Principle. All
+        physically meaningful quantities are relational features of WILL.
+      </p>
+      <p class="lm-node__note">
+        The structural arena and the dynamical content must be identified: structure is
+        dynamics, energy is spacetime.
+      </p>
+      <div class="lm-node__refs">
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying" target="_blank" rel="noopener noreferrer">Unifying Ontological Principle <code>pr:unifying</code></a>
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#def:will" target="_blank" rel="noopener noreferrer">Definition: WILL <code>def:will</code></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ACT III · Stage II: Geometric Derivation -->
+<section class="lm-act" id="act-carriers">
+  <div class="lm-act__head lm-reveal">
+    <span class="lm-act__num">III</span>
+    <h2 class="lm-act__title">Geometric Derivation</h2>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:carriers" target="_blank" rel="noopener noreferrer">
+      <em>by Relational Closure + Causal Continuity + Isotropy: derive relational energy carriers</em>
+      <span class="lm-arrow__tag">sec:carriers</span>
+    </a>
+  </div>
+
+  <!-- Row 5: the two carriers -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--carrier" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorem</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>thm:carriers</span>
+      </div>
+      <h3 class="lm-node__title">Minimal relational carriers</h3>
+      <div class="lm-math">\[ S^{1}\ \text{(1-DOF kinematic)} \qquad + \qquad S^{2}\ \text{(2-DOF potential)} \]</div>
+      <p class="lm-node__note">
+        The minimal relational carriers satisfying Closure, Conservation, Maximal
+        Symmetry, and Mathematical Transparency are: \(S^{1}\) for directional
+        (Kinematic) relational transformation; \(S^{2}\) for omnidirectional
+        (Potential) relational transformation.
+      </p>
+      <p class="lm-node__note">
+        <strong>\(S^{1}\) and \(S^{2}\) are not to be interpreted as spacetime geometries
+        but purely as relational carriers encoding energy conservation. Any reading
+        otherwise is a misinterpretation.</strong>
+      </p>
+    </a>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#lem:duality" target="_blank" rel="noopener noreferrer">
+      <em>by Duality of Relation Lemma</em>
+      <span class="lm-arrow__tag">lem:duality</span>
+    </a>
+  </div>
+
+  <!-- Row 6: conservation theorem -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--core" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorem</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>thm:conservation</span>
+      </div>
+      <h3 class="lm-node__title">Relational Conservation Theorem</h3>
+      <div class="lm-math">\[ \text{Amplitude}^{2} \;+\; \text{Phase}^{2} \;=\; 1 \]</div>
+      <div class="lm-under">
+        <span>External Transformation</span>
+        <span>Internal Change</span>
+      </div>
+      <p class="lm-node__note">
+        For both kinematic (\(S^{1}\)) and potential (\(S^{2}\)) modes, the sum of the
+        squared Amplitude and squared Phase is invariant.
+      </p>
+    </a>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:projections_symmetry" target="_blank" rel="noopener noreferrer">
+      <em>Relational Projections</em>
+      <span class="lm-arrow__tag">sec:projections_symmetry</span>
+    </a>
+  </div>
+
+  <!-- Row 7: the two relational projections -->
+  <div class="lm-split lm-reveal">
+    <a class="lm-node lm-node--carrier" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Kinematic S&sup1;</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>sec:spectroscopic_shift</span>
+      </div>
+      <h3 class="lm-node__title">Kinematic Phase Shift</h3>
+      <div class="lm-math lm-math--tight">\[ \beta^{2} + \beta_{Y}^{2} = 1 \]</div>
+      <div class="lm-math lm-math--tight">\[ 1/\beta_{Y} = 1 + z_{\beta} \]</div>
+      <div class="lm-under"><span>transverse Doppler shift</span></div>
+      <p class="lm-node__note">
+        The kinematic projection \(\beta^{2}\) is determined by the transverse Doppler
+        shift \(z_{\beta}\) via the symmetric identity
+        \(\beta^{2} = 1 - 1/(1+z_{\beta})^{2}\).
+      </p>
+    </a>
+
+    <a class="lm-node lm-node--carrier" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Potential S&sup2;</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>sec:spectroscopic_shift</span>
+      </div>
+      <h3 class="lm-node__title">Spectroscopic Phase Shift</h3>
+      <div class="lm-math lm-math--tight">\[ \kappa^{2} + \kappa_{X}^{2} = 1 \]</div>
+      <div class="lm-math lm-math--tight">\[ 1/\kappa_{X} = 1 + z_{\kappa} \]</div>
+      <div class="lm-under"><span>gravitational redshift</span></div>
+      <p class="lm-node__note">
+        The geometric projection \(\kappa^{2}\) is determined by the measurable
+        gravitational redshift \(z_{\kappa}\) via the identity
+        \(\kappa^{2} = 1 - 1/(1+z_{\kappa})^{2}\).
+      </p>
+    </a>
+  </div>
+</section>
+
+
+<!-- ACT IV · Metric intervals as inflation of the closures -->
+<section class="lm-act" id="act-scaffolding">
+  <div class="lm-act__head lm-reveal">
+    <span class="lm-act__num">IV</span>
+    <h2 class="lm-act__title">Metric Intervals as Inflation of the Closures</h2>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation" target="_blank" rel="noopener noreferrer">
+      <em>by Relational Conservation Theorem derive metric intervals as scaffolding</em>
+      <span class="lm-arrow__tag">thm:conservation</span>
+    </a>
+  </div>
+
+  <!-- Row 8: Minkowski -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--carrier" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:SR_interval" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Section</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>sec:SR_interval</span>
+      </div>
+      <h3 class="lm-node__title">Minkowski Interval as Inflation of the \(S^{1}\) Closure</h3>
+      <div class="lm-prov">
+        <div class="lm-prov__cell">
+          <div class="lm-prov__eq">\(\beta^{2} + \beta_{Y}^{2} = 1\)</div>
+          <span>irreducible primitive</span>
+        </div>
+        <div class="lm-prov__op">+</div>
+        <div class="lm-prov__cell lm-prov__cell--dim">
+          <div class="lm-prov__eq">\(x,\,y,\,z,\,t\,\ldots\)</div>
+          <span>coordinate inflation</span>
+        </div>
+        <div class="lm-prov__op">=</div>
+        <div class="lm-prov__cell lm-prov__cell--dim">
+          <div class="lm-prov__eq">\(c^{2}d\tau^{2} = c^{2}dt^{2} - dx^{2} - dy^{2} - dz^{2}\)</div>
+          <span>mathematical scaffolding</span>
+        </div>
+      </div>
+      <p class="lm-node__note">
+        In legacy Special Relativity the Minkowski interval is posited as the physical
+        metric of a 4D background manifold. We reverse the order of explanation. The
+        primitive object is the dimensionless kinematic closure on the relational
+        carrier \(S^{1}\).
+      </p>
+    </a>
+  </div>
+
+  <div class="lm-arrow lm-arrow--bare lm-reveal"><span class="lm-arrow__pill"></span></div>
+
+  <!-- Row 9: Schwarzschild -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--carrier" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:GR_interval" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Section</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>sec:GR_interval</span>
+      </div>
+      <h3 class="lm-node__title">Schwarzschild Interval as Inflation of the \(S^{2}\) Closure</h3>
+      <div class="lm-prov">
+        <div class="lm-prov__cell">
+          <div class="lm-prov__eq">\(\kappa^{2} + \kappa_{X}^{2} = 1\)</div>
+          <span>irreducible primitive</span>
+        </div>
+        <div class="lm-prov__op">+</div>
+        <div class="lm-prov__cell lm-prov__cell--dim">
+          <div class="lm-prov__eq">\(x,\,y,\,z,\,t\,\ldots\)</div>
+          <span>coordinate inflation</span>
+        </div>
+        <div class="lm-prov__op">=</div>
+        <div class="lm-prov__cell lm-prov__cell--dim">
+          <div class="lm-prov__eq">\(c^{2}d\tau^{2} = c^{2}\!\left(1 - \tfrac{R_{s}}{r}\right)dt^{2}\)</div>
+          <span>mathematical scaffolding</span>
+        </div>
+      </div>
+      <p class="lm-node__note">
+        The gravitational construction is strictly parallel to kinetic. The primitive
+        object is the dimensionless potential closure on the relational carrier
+        \(S^{2}\). It contains no radial coordinate, no central body, and no external
+        time. The Schwarzschild component \(g_{tt}\) is recovered only by appending
+        substantival posits.
+      </p>
+    </a>
+  </div>
+</section>
+
+
+<!-- ACT V · Energy Symmetry and Causal Continuity -->
+<section class="lm-act" id="act-energy">
+  <div class="lm-act__head lm-reveal">
+    <span class="lm-act__num">V</span>
+    <h2 class="lm-act__title">Energy Symmetry and Causal Continuity</h2>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <div class="lm-arrow__pill">
+      <em>by Relational Closure and Causal Continuity Theorems: any change must be balanced</em>
+      <span class="lm-arrow__tag lm-arrow__tag--multi">
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure" target="_blank" rel="noopener noreferrer">thm:relational_closure</a>
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity" target="_blank" rel="noopener noreferrer">thm:causal_continuity</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- Row 10: Energy Symmetry Law -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--law" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorem</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>sec:energy-symmetry</span>
+      </div>
+      <h3 class="lm-node__title">Energy Symmetry Law</h3>
+      <div class="lm-math">\[ \boxed{\;\Delta E_{A \to B} \;+\; \Delta E_{B \to A} \;=\; 0\;} \]</div>
+      <p class="lm-node__note">
+        Any closed system conserves its relational energy ledger with an invariant zero
+        sum of total transformations. Transitions between states of observers (per unit
+        of rest energy) must always sum to zero. Nothing is created, nothing is
+        destroyed.
+      </p>
+    </a>
+  </div>
+
+  <div class="lm-arrow lm-arrow--bare lm-reveal"><span class="lm-arrow__pill"></span></div>
+
+  <!-- Row 10b: the two transition costs -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--law" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:energy_quantities" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Section</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>sec:energy_quantities</span>
+      </div>
+      <h3 class="lm-node__title">Specific energy difference between two states</h3>
+      <div class="lm-math lm-math--tight">\[ \Delta E_{A \to B} = E_{0}\!\left( \frac{\kappa_{X,B}}{\beta_{Y,B}} - \frac{\kappa_{X,A}}{\beta_{Y,A}} \right) \]</div>
+      <div class="lm-math lm-math--tight">\[ \Delta E_{B \to A} = E_{0}\!\left( \frac{\kappa_{X,A}}{\beta_{Y,A}} - \frac{\kappa_{X,B}}{\beta_{Y,B}} \right) \]</div>
+      <p class="lm-node__note">
+        The energy of a system is determined by the ratio of the potential phase to the
+        kinematic phase, \(E = E_{0}\,\kappa_{X}/\beta_{Y}\). The specific energy
+        difference perceived for a transition between two states is determined by the
+        difference in their total phase scaling.
+      </p>
+    </a>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_horizons" target="_blank" rel="noopener noreferrer">
+      <em>Causal Horizons</em>
+      <span class="lm-arrow__tag">thm:causal_horizons</span>
+    </a>
+  </div>
+
+  <!-- Theorem statement -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--law" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_horizons" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorem</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>thm:causal_horizons</span>
+      </div>
+      <h3 class="lm-node__title">Causal Horizons</h3>
+      <p class="lm-node__note">
+        What we perceive as the speed of light or event horizon is the exhaustion of the
+        phase, as the constant rate becomes fully distributed onto the amplitude axis.
+        In legacy units this takes form of the universal speed limit
+        (\(v \leq c\)) and the Schwarzschild limit (\(r \geq R_{s}\)). In relational
+        ontology this limits emerge from the requirement of energetic symmetry as
+        natural boundaries of causal connection.
+      </p>
+    </a>
+  </div>
+
+  <div class="lm-arrow lm-arrow--bare lm-reveal"><span class="lm-arrow__pill"></span></div>
+
+  <!-- Rows 11 &amp; 12: the two limits -->
+  <div class="lm-split lm-reveal">
+    <a class="lm-node lm-node--law" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_horizons" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorem</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>thm:causal_horizons</span>
+      </div>
+      <h3 class="lm-node__title">Speed of light</h3>
+      <div class="lm-chain">
+        <span class="lm-chain__step">\(\beta \to 1\)</span>
+        <span class="lm-chain__arrow">&rarr;</span>
+        <span class="lm-chain__step">\(\beta_{Y} \to 0\)</span>
+        <span class="lm-chain__arrow">&rarr;</span>
+        <span class="lm-chain__step">\(E = E_{0}\cdot\kappa_{X}/0 \to \infty\)</span>
+        <span class="lm-chain__arrow">&rarr;</span>
+        <span class="lm-chain__step lm-chain__step--end">requires \(\infty\) energy</span>
+      </div>
+    </a>
+
+    <a class="lm-node lm-node--law" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_horizons" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorem</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>thm:causal_horizons</span>
+      </div>
+      <h3 class="lm-node__title">Event Horizon</h3>
+      <div class="lm-chain">
+        <span class="lm-chain__step">\(\kappa \to 1\)</span>
+        <span class="lm-chain__arrow">&rarr;</span>
+        <span class="lm-chain__step">\(\kappa_{X} \to 0\)</span>
+        <span class="lm-chain__arrow">&rarr;</span>
+        <span class="lm-chain__step">\(E = E_{0}\cdot 0/\beta_{Y} \to 0\)</span>
+        <span class="lm-chain__arrow">&rarr;</span>
+        <span class="lm-chain__step lm-chain__step--end">requires \(0\) energy</span>
+      </div>
+    </a>
+  </div>
+
+</section>
+
+
+<!-- ACT VI · Closure, Equivalence, and Classical Mechanics as Collapsed Two-Point Ontology -->
+<section class="lm-act" id="act-closure">
+  <div class="lm-act__head lm-reveal">
+    <span class="lm-act__num">VI</span>
+    <h2 class="lm-act__title">Closure and Equivalence</h2>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference" target="_blank" rel="noopener noreferrer">
+      <em>by DOF-Indifference Lemma: equal quadratic weight to each independent DOF</em>
+      <span class="lm-arrow__tag">lem:dof-indifference</span>
+    </a>
+  </div>
+
+  <!-- Row 13: Closure Theorem -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--core" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:closure" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorem</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>thm:closure</span>
+      </div>
+      <h3 class="lm-node__title">Closure Theorem</h3>
+      <div class="lm-prov">
+        <div class="lm-prov__cell">
+          <div class="lm-prov__eq">\(1 \cdot \text{Amplitude}^{2}\)</div>
+          <span>on \(S^{2}\)</span>
+        </div>
+        <div class="lm-prov__op">=</div>
+        <div class="lm-prov__cell">
+          <div class="lm-prov__eq">\(2 \cdot \text{Amplitude}^{2}\)</div>
+          <span>on \(S^{1}\)</span>
+        </div>
+      </div>
+      <div class="lm-math">\[ \boxed{\;\kappa^{2} \;=\; 2\beta^{2}\;} \]</div>
+      <p class="lm-node__note">
+        In a relationally closed system, the kinematic carrier \(S^{1}\) (1 DOF) and the
+        potential carrier \(S^{2}\) (2 DOF) exchange the active relational ledger in
+        proportion to their degrees of freedom.
+      </p>
+    </a>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#lem:unifiedscaling" target="_blank" rel="noopener noreferrer">
+      <em>by Unified Relational Scaling Lemma</em>
+      <span class="lm-arrow__tag">lem:unifiedscaling</span>
+    </a>
+  </div>
+
+  <!-- Row 14: Equivalence Principle -->
+  <div class="lm-row lm-reveal">
+    <div class="lm-node lm-node--core">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorem &amp; Corollary</span>
+        <a class="lm-src" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:equivalence" target="_blank" rel="noopener noreferrer"><span class="lm-src__doc">RG&nbsp;I</span>thm:equivalence</a>
+      </div>
+      <h3 class="lm-node__title">Equivalence Principle</h3>
+      <div class="lm-math">\[ \boxed{\;m_{g} \;\equiv\; m_{i} \;\equiv\; m_{\mathrm{eff}} \;=\; E_{0}/c^{2}\;} \]</div>
+      <p class="lm-node__note">
+        The total local energy scale is given by the phase ratio. The corresponding
+        inertial and gravitational projections share a single operational factor, both
+        governed by the same effective mass. The Einstein equivalence principle follows
+        as a necessary structural identity of WILL.
+      </p>
+      <div class="lm-node__refs">
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:equivalence" target="_blank" rel="noopener noreferrer">Equivalence <code>thm:equivalence</code></a>
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#cor:massinvariance" target="_blank" rel="noopener noreferrer">Mass Invariance under Relational Scaling <code>cor:massinvariance</code></a>
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass" target="_blank" rel="noopener noreferrer">Rest mass <code>cor:restmass</code></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:LH" target="_blank" rel="noopener noreferrer">
+      <em>Lagrangian and Hamiltonian derived as collapsed single-point approximations</em>
+      <span class="lm-arrow__tag">sec:LH</span>
+    </a>
+  </div>
+
+  <!-- Row 15: the collapse -->
+  <div class="lm-row lm-reveal">
+    <div class="lm-node lm-node--core">
+      <div class="lm-node__head">
+        <span class="lm-kind">Section</span>
+        <a class="lm-src" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:LH" target="_blank" rel="noopener noreferrer"><span class="lm-src__doc">RG&nbsp;I</span>sec:LH</a>
+      </div>
+      <h3 class="lm-node__title">Classical Mechanics as Collapsed Two-Point Relational Ontology</h3>
+      <div class="lm-prov">
+        <div class="lm-prov__cell">
+          <div class="lm-prov__eq">\(\Delta E_{A \to B} + \Delta E_{B \to A} = 0\)</div>
+          <span>exact symmetry law</span>
+        </div>
+        <div class="lm-prov__op">&asymp;</div>
+        <div class="lm-prov__cell lm-prov__cell--dim">
+          <div class="lm-prov__eq">\(\tfrac12\!\left(\kappa_{A}^{2} - \kappa_{B}^{2}\right) + \tfrac12\!\left(\beta_{B}^{2} - \beta_{A}^{2}\right)\)</div>
+          <span>first order approximation</span>
+        </div>
+        <div class="lm-prov__op">&asymp;</div>
+        <div class="lm-prov__cell lm-prov__cell--dim">
+          <div class="lm-prov__eq">\(T \pm V\)</div>
+          <span>ontological collapse</span>
+        </div>
+      </div>
+      <p class="lm-node__note">
+        In the standard formulation of mechanics, the Lagrangian \(L = T - V\) and the
+        Hamiltonian \(H = T + V\) are treated as fundamental functions of a single
+        configuration point. Relational Geometry reveals that both are linearized limits
+        of a deeper two-point energy balance: the Energy-Symmetry Law.
+      </p>
+      <div class="lm-node__refs">
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:classical" target="_blank" rel="noopener noreferrer">The Phase Scaling and the Classical \(\tfrac12\) <code>sec:classical</code></a>
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:third_law" target="_blank" rel="noopener noreferrer">Newton's Third Law as a Single-Point Limit <code>thm:third_law</code></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ACT VII · Relational Orbital Mechanics and the intrinsic unitless core -->
+<section class="lm-act" id="act-rom">
+  <div class="lm-act__head lm-reveal">
+    <span class="lm-act__num">VII</span>
+    <h2 class="lm-act__title">Relational Orbital Mechanics</h2>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:rom" target="_blank" rel="noopener noreferrer">
+      <em>apply RG to orbital mechanics</em>
+      <span class="lm-arrow__tag">sec:rom</span>
+    </a>
+  </div>
+
+  <!-- Row 16: R.O.M. -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--rom" href="https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Section</span>
+        <span class="lm-src"><span class="lm-src__doc">R.O.M.</span>eq:rom</span>
+      </div>
+      <h3 class="lm-node__title">R.O.M.: a closed algebraic system of equations</h3>
+      <p class="lm-node__note">
+        Derivations of all quantities are traceable back to the Methodological
+        Principles and two relational primitives (\(\beta\) on \(S^{1}\), \(\kappa\) on
+        \(S^{2}\)) linked by the Closure Theorem \(\kappa^{2} = 2\beta^{2}\). Everything
+        is expressed in direct observables (observed ratios, spectroscopic, chronometric
+        and astrometric readings) so that no background metric is required.
+      </p>
+      <p class="lm-node__note">
+        This closed algebraic system recovers the leading contributions to perihelion
+        precession, gravitational and transverse Doppler shifts, light deflection and
+        frame-dragging through elementary closed-form expressions.
+      </p>
+    </a>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization" target="_blank" rel="noopener noreferrer">
+      <em>by Factorization Theorem: every quantity \(X\) splits into unitless core \(\hat{X}\) and scale label \(S_{X}\)</em>
+      <span class="lm-arrow__tag">thm:factorization</span>
+    </a>
+  </div>
+
+  <!-- Row 17: unitless core -->
+  <div class="lm-row lm-reveal">
+    <div class="lm-node lm-node--rom">
+      <div class="lm-node__head">
+        <span class="lm-kind">Theorem</span>
+        <a class="lm-src" href="https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:unitless_core" target="_blank" rel="noopener noreferrer"><span class="lm-src__doc">R.O.M.</span>sec:unitless_core</a>
+      </div>
+      <h3 class="lm-node__title">Intrinsic Unitless Core</h3>
+      <div class="lm-math">\[ \boxed{\;X \;=\; \underbrace{\hat{X}(\beta,\,\kappa,\,e,\,O,\,i,\,\omega_{i},\,\kappa_{R})}_{\text{unitless core}} \;\cdot\; \underbrace{S_{X}(R_{s};\,c,\,G)}_{\text{units-scale}}\;} \]</div>
+      <p class="lm-node__note">
+        \(\hat{X}\) is a closed-form pure number determined entirely by dimensionless
+        relational inputs, and \(S_{X}\) is a monomial scale factor depending only on the
+        quantity class. Units, and the constants \(c\) and \(G\) that service them,
+        belong exclusively to the map.
+      </p>
+      <p class="lm-node__note">
+        A civilisation with different rulers, clocks, calendars and mathematical
+        conventions solves the identical core and obtains the identical pure numbers;
+        only the final labelling differs.
+      </p>
+      <div class="lm-node__refs">
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization" target="_blank" rel="noopener noreferrer">Factorization of R.O.M. <code>thm:factorization</code></a>
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:absolute_scale" target="_blank" rel="noopener noreferrer">Absolute scale <code>sec:absolute_scale</code></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ACT VIII · No Singularities, Field Equation, Ouroboros -->
+<section class="lm-act" id="act-field">
+  <div class="lm-act__head lm-reveal">
+    <span class="lm-act__num">VIII</span>
+    <h2 class="lm-act__title">Consequences and Direct Applications</h2>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <div class="lm-arrow__pill">
+      <em>by Inverse Square, Closure and Causal Continuity Theorems</em>
+      <span class="lm-arrow__tag lm-arrow__tag--multi">
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square" target="_blank" rel="noopener noreferrer">thm:inverse-square</a>
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:closure" target="_blank" rel="noopener noreferrer">thm:closure</a>
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity" target="_blank" rel="noopener noreferrer">thm:causal_continuity</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- Row 18 &amp; 19: no singularities -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--law" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Section</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>sec:no_singularities</span>
+      </div>
+      <h3 class="lm-node__title">No Singularities Within Admissible Relational Range</h3>
+      <div class="lm-chain">
+        <span class="lm-chain__step">\(\beta_{\max}^{2} = 1\)</span>
+        <span class="lm-chain__arrow">&rarr;</span>
+        <span class="lm-chain__step">\(\kappa_{\max}^{2} = 2\)</span>
+        <span class="lm-chain__arrow">&rarr;</span>
+        <span class="lm-chain__step">\(r_{\min} = R_{s}/\kappa_{\max}^{2}\)</span>
+        <span class="lm-chain__arrow">&rarr;</span>
+        <span class="lm-chain__step lm-chain__step--end">\(r_{\min} = R_{s}/2\)</span>
+      </div>
+      <p class="lm-node__note">
+        <strong>The point \(r = 0\) is absent from the admissible relational range.</strong>
+      </p>
+      <p class="lm-node__note">
+        Minimal radial distance is kept at \(r_{\min} = R_{s}/2\) by the fundamental
+        invariance of the light-speed limit. Parameters stay finite, and energy remains
+        bounded. Black holes become the boundary of relational difference between energy
+        states. Distance is not a foundational primitive but relational tension between
+        energy states.
+      </p>
+    </a>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <div class="lm-arrow__pill">
+      <em>apply 2D to 3D translation interfaces to derive Relational Field Equation</em>
+      <span class="lm-arrow__tag lm-arrow__tag--multi">
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:density" target="_blank" rel="noopener noreferrer">RG&nbsp;I&nbsp;sec:density</a>
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_I.pdf#lem:norm_id" target="_blank" rel="noopener noreferrer">RG&nbsp;I&nbsp;lem:norm_id</a>
+        <a class="lm-arrow__reflink" href="https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:translation" target="_blank" rel="noopener noreferrer">R.O.M.&nbsp;sec:translation</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- Row 20: relational field equation -->
+  <div class="lm-row lm-reveal">
+    <div class="lm-node lm-node--carrier">
+      <div class="lm-node__head">
+        <span class="lm-kind">Equation</span>
+        <a class="lm-src" href="https://willrg.com/documents/WILL_RG_I.pdf#eq:unified_field" target="_blank" rel="noopener noreferrer"><span class="lm-src__doc">RG&nbsp;I</span>eq:unified_field</a>
+      </div>
+      <h3 class="lm-node__title">Relational Field Equation</h3>
+      <div class="lm-math">\[ \boxed{\;\kappa^{2} \;=\; \frac{R_{s}}{r} \;=\; \frac{\rho_{\text{field}}}{\rho_{\max}}\;} \]</div>
+      <div class="lm-prov" style="margin-top:.75rem">
+        <div class="lm-prov__cell">
+          <div class="lm-prov__eq">Spacetime Geometry \(\left(R_{s}/r\right)\)</div>
+        </div>
+        <div class="lm-prov__op">&equiv;</div>
+        <div class="lm-prov__cell">
+          <div class="lm-prov__eq">Energy Density \(\left(\rho/\rho_{\max}\right)\)</div>
+        </div>
+      </div>
+      <p class="lm-node__note">
+        From the energy-geometry equivalence, the complete description of gravitational
+        phenomena reduces to a single algebraic relation linking the geometric scale to
+        the energy density ratio. This identity defines the local energy state of the
+        relational geometry itself. Here \(\rho_{\max} = c^{2}/(8\pi G r^{2})\) is the
+        saturation density limit, and \(\rho_{\text{field}}\) is the effective energy
+        density of the relational curvature.
+      </p>
+      <div class="lm-node__refs">
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#lem:norm_id" target="_blank" rel="noopener noreferrer">\(\kappa^{2} = \rho/\rho_{\max}\) <code>lem:norm_id</code></a>
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#eq:will_field_diff" target="_blank" rel="noopener noreferrer">Differential form <code>eq:will_field_diff</code></a>
+        <a class="lm-ref" href="https://willrg.com/documents/WILL_RG_I.pdf#rem:scope" target="_blank" rel="noopener noreferrer">Scope of the reproduced sector <code>rem:scope</code></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="lm-arrow lm-reveal">
+    <a class="lm-arrow__pill" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:ouroboros" target="_blank" rel="noopener noreferrer">
+      <em>Theoretical Ouroboros</em>
+      <span class="lm-arrow__tag">sec:ouroboros</span>
+    </a>
+  </div>
+
+  <!-- Row 21: closing identity -->
+  <div class="lm-row lm-reveal">
+    <a class="lm-node lm-node--final" href="https://willrg.com/documents/WILL_RG_I.pdf#eq:unified_identity" target="_blank" rel="noopener noreferrer">
+      <div class="lm-node__head">
+        <span class="lm-kind">Equation</span>
+        <span class="lm-src"><span class="lm-src__doc">RG&nbsp;I</span>eq:unified_identity</span>
+      </div>
+      <div class="lm-ouroboros">
+        <div class="lm-ouroboros__eq">
+          <span class="lm-ouroboros__box">SPACETIME &equiv; ENERGY</span>
+          <span class="lm-ouroboros__link">&hArr;</span>
+          <span class="lm-ouroboros__box">SPACETIME GEOMETRY &equiv; ENERGY DENSITY</span>
+        </div>
+      </div>
+      <p class="lm-node__note">
+        We started with SPACETIME &equiv; ENERGY, from which geometry and physical laws
+        are logically derived, and these derived laws then loop back to intrinsically
+        define and limit the very nature of energy and spacetime, proving the
+        self-consistency of the initial idea. The ratio of geometric scales equals the
+        ratio of energy densities.
+      </p>
+    </a>
+  </div>
+
+  <!-- Outro -->
+  <div class="lm-outro lm-reveal">
+    <a class="lm-outro__btn" href="https://willrg.com/documents/WILL_RG_I.pdf" target="_blank" rel="noopener noreferrer">
+      WILL RG I <span>PDF</span>
+    </a>
+    <a class="lm-outro__btn" href="https://willrg.com/documents/WILL_RG_R.O.M..pdf" target="_blank" rel="noopener noreferrer">
+      WILL RG R.O.M. <span>PDF</span>
+    </a>
+    <a class="lm-outro__btn" href="https://willrg.com/documents/WILL_RG_I.pdf#tab:GRvsRG" target="_blank" rel="noopener noreferrer">
+      GR vs RG <span>tab:GRvsRG</span>
+    </a>
+    <a class="lm-outro__btn" href="https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges" target="_blank" rel="noopener noreferrer">
+      Challenges <span>sec:challenges</span>
+    </a>
+  </div>
+</section>
+
+
+</div>
+
+<!-- LOGOS MAP · reveal on scroll + active section in the rail -->
+<script>
+(function () {
+  function init() {
+    /* ---- 1. reveal blocks as they enter the viewport ---- */
+    var blocks = document.querySelectorAll('.lm-reveal');
+
+    if (!('IntersectionObserver' in window)) {
+      blocks.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var delay = parseInt(el.getAttribute('data-lm-delay') || '0', 10);
+        window.setTimeout(function () { el.classList.add('is-visible'); }, delay);
+        revealObserver.unobserve(el);
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+    /* stagger siblings inside each act so a section arrives as a sequence */
+    document.querySelectorAll('.lm-act, .lm-hero').forEach(function (section) {
+      var items = section.querySelectorAll('.lm-reveal');
+      items.forEach(function (item, i) {
+        item.setAttribute('data-lm-delay', String(Math.min(i, 4) * 90));
+      });
+    });
+
+    blocks.forEach(function (el) { revealObserver.observe(el); });
+
+    /* ---- 2. highlight the current act in the sticky rail ---- */
+    var dots = Array.prototype.slice.call(document.querySelectorAll('.lm-rail__dot'));
+    if (!dots.length) return;
+
+    var acts = dots.map(function (dot) {
+      var id = dot.getAttribute('href').slice(1);
+      return document.getElementById(id);
+    });
+
+    var railObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var idx = acts.indexOf(entry.target);
+        if (idx < 0) return;
+        if (entry.isIntersecting) {
+          dots.forEach(function (d) { d.classList.remove('is-active'); });
+          dots[idx].classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+    acts.forEach(function (act) { if (act) railObserver.observe(act); });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+
+</main><div class="preview-note">local preview &middot; not the published page</div></body></html>
