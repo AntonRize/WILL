@@ -1,9 +1,351 @@
-<!-- Google Analytics (GA4). Single source of truth — include this in every
-     layout so no page silently drops out of the reporting. -->
+<!-- ============================================================
+     analytics.html
+
+     Google Analytics plus custom event tracking.
+     Included by every layout, so this is the single place to
+     change anything about measurement.
+
+     GA4 already records some things by itself when Enhanced
+     Measurement is switched on: page views, outbound clicks,
+     file downloads and a 90% scroll. Everything below is what it
+     does NOT give you: which paper was opened, whether a
+     simulation actually finished, which galaxy was tested, and
+     whether anyone spoke to WILL AI.
+     ============================================================ -->
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4YFFSYJGF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-M4YFFSYJGF');
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  // Send an event to Google Analytics. Everything goes through here so
+  // there is one place to add a console.log if you ever need to debug.
+  function track(name, params) {
+    try {
+      if (typeof gtag === "function") {
+        gtag("event", name, params || {});
+      }
+      if (window.WILL_DEBUG_EVENTS) {
+        console.log("[event]", name, params || {});
+      }
+    } catch (e) { /* never let tracking break the page */ }
+  }
+  window.willTrack = track;
+
+  // Fire an event only once per page load.
+  var fired = {};
+  function once(key, name, params) {
+    if (fired[key]) return;
+    fired[key] = true;
+    track(name, params);
+  }
+
+  var page = location.pathname;
+
+  // Walk backwards through the document to find the heading a link sits
+  // under. On /predictions/ every result is an <h3>, so this turns a click
+  // into "someone opened the derivation for the Hubble Parameter" rather
+  // than just "someone opened a PDF".
+  function nearestHeading(el) {
+    var node = el;
+    while (node && node !== document.body) {
+      var prev = node.previousElementSibling;
+      while (prev) {
+        if (/^H[1-4]$/.test(prev.tagName)) {
+          return prev.innerText.trim().replace(/\s+/g, " ").slice(0, 80);
+        }
+        var inner = prev.querySelectorAll ? prev.querySelectorAll("h1,h2,h3,h4") : [];
+        if (inner.length) {
+          return inner[inner.length - 1].innerText.trim().replace(/\s+/g, " ").slice(0, 80);
+        }
+        prev = prev.previousElementSibling;
+      }
+      node = node.parentElement;
+    }
+    return "(no heading)";
+  }
+
+  // ----------------------------------------------------------------
+  // 1. PAPERS AND NOTEBOOKS
+  //    Which documents people actually open, by name rather than by
+  //    a generic "a file was downloaded".
+  // ----------------------------------------------------------------
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    var abs;
+    try { abs = new URL(href, location.href); } catch (err) { return; }
+
+    // Which result on the page this link belongs to. On /predictions/ that
+    // is one of the sixty result headings.
+    var section = nearestHeading(a);
+
+    // On the predictions page every result offers the same three choices:
+    // read the derivation, run the notebook, or open the Desmos model.
+    // One event covering all three lets you compare them directly, so you
+    // can see whether people read the maths or go straight to running it.
+    function alsoRecordPrediction(action, destination) {
+      if (!/\/predictions\/?$/.test(page)) return;
+      track("prediction_explored", {
+        result_section: section,
+        action: action,               // derivation, notebook or desmos
+        destination: destination
+      });
+    }
+
+    // A PDF: one of the papers, appendices or reference documents.
+    if (/\.pdf($|[?#])/i.test(abs.pathname)) {
+      var file = decodeURIComponent(abs.pathname.split("/").pop());
+      var anchor = abs.hash ? abs.hash.replace("#", "") : "(none)";
+      track("paper_open", {
+        file_name: file,
+        file_path: abs.pathname,
+        from_page: page,
+        result_section: section,
+        // A link with a #section anchor means they were sent to a
+        // specific derivation rather than the front of the document.
+        deep_link: anchor
+      });
+      alsoRecordPrediction("derivation", file + (anchor !== "(none)" ? "#" + anchor : ""));
+      return;
+    }
+
+    // A Colab notebook. This is the strongest signal on the whole site:
+    // somebody is about to run the calculations themselves.
+    if (/colab\.research\.google\.com/i.test(abs.hostname)) {
+      var nb = decodeURIComponent((abs.pathname.split("/").pop() || "").replace(/\.ipynb$/i, ""));
+      track("notebook_open", {
+        notebook_url: abs.href,
+        notebook_name: nb || "(unknown)",
+        result_section: section,
+        from_page: page
+      });
+      alsoRecordPrediction("notebook", nb || abs.href);
+      return;
+    }
+
+    // A Jupyter notebook file served from the repo.
+    if (/\.ipynb($|[?#])/i.test(abs.pathname)) {
+      var nbf = decodeURIComponent(abs.pathname.split("/").pop());
+      track("notebook_open", {
+        notebook_url: abs.href,
+        notebook_name: nbf,
+        result_section: section,
+        from_page: page
+      });
+      alsoRecordPrediction("notebook", nbf);
+      return;
+    }
+
+    // A Desmos model. Same intent as a notebook: they want to move the
+    // parameters themselves rather than read about the result.
+    if (/desmos\.com/i.test(abs.hostname)) {
+      track("desmos_open", {
+        desmos_url: abs.href,
+        calculator_id: (abs.pathname.split("/").pop() || "(unknown)"),
+        result_section: section,
+        from_page: page
+      });
+      alsoRecordPrediction("desmos", abs.pathname.split("/").pop() || abs.href);
+      return;
+    }
+
+    // Funding links.
+    if (/github\.com\/sponsors|patreon\.com/i.test(abs.href)) {
+      track("sponsor_click", { destination: abs.hostname, from_page: page });
+      return;
+    }
+
+    // Anything leaving the site, labelled by where it goes.
+    if (abs.hostname && abs.hostname !== location.hostname) {
+      track("outbound_click", {
+        destination: abs.hostname,
+        link_url: abs.href,
+        from_page: page
+      });
+    }
+  }, true);
+
+  // ----------------------------------------------------------------
+  // 2. HOLOGRAPHIC DECODER
+  //    Starting a run is cheap. Finishing one takes real patience,
+  //    so the two are tracked separately and the gap between them
+  //    tells you how many people give up part way.
+  // ----------------------------------------------------------------
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest("#run-generator");
+    if (btn) {
+      var mode = document.querySelector("#mode-rigorous.active, #mode-rigorous[aria-pressed='true']")
+        ? "rigorous" : "guided";
+      var seedEl = document.getElementById("seed-input");
+      track("decoder_run_start", {
+        mode: mode,
+        seed: seedEl && seedEl.value ? seedEl.value : "(random)"
+      });
+    }
+  }, true);
+
+  // app.js adds the class "done" to #status-strip when the whole
+  // pipeline has finished, so watching for that is more reliable
+  // than trying to hook into the worker messages.
+  (function watchDecoder() {
+    var strip = document.getElementById("status-strip");
+    if (!strip) return;
+    var obs = new MutationObserver(function () {
+      if (strip.classList.contains("done")) {
+        var medians = document.getElementById("mcmc-medians");
+        once("decoder_done", "decoder_run_complete", {
+          summary: medians ? medians.innerText.slice(0, 100) : "(no summary)"
+        });
+      }
+    });
+    obs.observe(strip, { attributes: true, attributeFilter: ["class"] });
+  })();
+
+  // ----------------------------------------------------------------
+  // 3. GALACTIC DYNAMICS
+  //    Which galaxies get tested, and whether anyone moves the
+  //    mass-to-light sliders, which is the point of the page.
+  // ----------------------------------------------------------------
+  document.addEventListener("change", function (e) {
+    var t = e.target;
+    if (!t || !t.id) return;
+
+    if (t.id === "gd-galaxy-select") {
+      track("galaxy_selected", { galaxy: t.value });
+    }
+    if (t.id === "gd-autofit-check") {
+      track("galaxy_autofit_toggle", { enabled: !!t.checked });
+    }
+  }, true);
+
+  // Sliders fire continuously while dragging, so wait until the person
+  // stops moving before recording anything.
+  (function trackSliders() {
+    var timer = null;
+    document.addEventListener("input", function (e) {
+      var t = e.target;
+      if (!t || (t.id !== "gd-ydisk-slider" && t.id !== "gd-ybulge-slider")) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        var sel = document.getElementById("gd-galaxy-select");
+        var chi = document.getElementById("res-chi");
+        track("galaxy_param_adjust", {
+          control: t.id === "gd-ydisk-slider" ? "disk_mass_to_light" : "bulge_mass_to_light",
+          value: t.value,
+          galaxy: sel ? sel.value : "(unknown)",
+          resulting_chi: chi ? chi.innerText.trim().slice(0, 20) : "(none)"
+        });
+      }, 900);
+    }, true);
+  })();
+
+  document.addEventListener("click", function (e) {
+    if (e.target.closest && e.target.closest("#gd-analyze-types-btn")) {
+      track("galaxy_type_analysis", { from_page: page });
+    }
+    // Galaxy Zoo browser at the top of the page.
+    var f = e.target.closest && e.target.closest(".filter-btn");
+    if (f) {
+      track("galaxy_zoo_filter", { filter: (f.id || "").replace("btn-", "") });
+    }
+  }, true);
+
+  // ----------------------------------------------------------------
+  // 4. WILL AI
+  //    Whether anyone actually talks to it, and at which level.
+  // ----------------------------------------------------------------
+  document.addEventListener("click", function (e) {
+    var lvl = e.target.closest && e.target.closest(".level-btn, a[href*='will-ai/?level=']");
+    if (lvl) {
+      var label = (lvl.innerText || "").trim() ||
+                  decodeURIComponent((lvl.getAttribute("href") || "").split("level=")[1] || "");
+      track("will_ai_level_selected", { level: label.slice(0, 40) });
+    }
+  }, true);
+
+  // The chat is React, so rather than hooking its internals, count a
+  // message whenever the person submits the textarea or presses the
+  // send control.
+  (function trackChat() {
+    if (!/\/will-ai\//.test(page)) return;
+    var count = 0;
+    function sent(how) {
+      count += 1;
+      track("will_ai_message_sent", { message_number: count, method: how });
+      if (count === 3) once("chat_engaged", "will_ai_conversation", { depth: "3_or_more" });
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && !e.shiftKey &&
+          e.target && e.target.tagName === "TEXTAREA" && e.target.value.trim()) {
+        sent("enter_key");
+      }
+    }, true);
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest("button");
+      if (!b) return;
+      var ta = document.querySelector("textarea");
+      var looksLikeSend = /send/i.test(b.innerText || "") ||
+                          /send/i.test(b.getAttribute("aria-label") || "") ||
+                          b.querySelector("svg");
+      if (looksLikeSend && ta && ta.value.trim()) sent("send_button");
+    }, true);
+  })();
+
+  // ----------------------------------------------------------------
+  // 5. DID THEY ACTUALLY READ IT
+  //    GA4 only reports a 90% scroll. On pages this long the
+  //    interesting question is how far people get before leaving.
+  // ----------------------------------------------------------------
+  (function trackReading() {
+    var marks = [25, 50, 75, 100];
+    var hit = {};
+    function check() {
+      var doc = document.documentElement;
+      var total = doc.scrollHeight - window.innerHeight;
+      if (total < 400) return;                 // too short to be worth it
+      var pct = Math.round((window.scrollY / total) * 100);
+      marks.forEach(function (m) {
+        if (pct >= m && !hit[m]) {
+          hit[m] = true;
+          track("read_progress", { percent: m, page_path: page });
+        }
+      });
+    }
+    var t = null;
+    window.addEventListener("scroll", function () {
+      clearTimeout(t); t = setTimeout(check, 200);
+    }, { passive: true });
+  })();
+
+  // Someone who stays a full minute is reading rather than bouncing.
+  setTimeout(function () {
+    if (!document.hidden) once("dwell60", "engaged_60s", { page_path: page });
+  }, 60000);
+
+  // ----------------------------------------------------------------
+  // 6. TEXT COPIED
+  //
+  //    Note: there is deliberately no "equation copied" event. Selecting
+  //    rendered MathJax and pressing copy produces mangled text, not
+  //    usable LaTeX, so nobody copies equations that way and the event
+  //    would only ever record noise. The real signal that someone wants
+  //    to work with an equation is that they open its derivation, its
+  //    notebook or its Desmos model, which is covered above.
+  // ----------------------------------------------------------------
+  document.addEventListener("copy", function () {
+    var sel = (window.getSelection() || "").toString();
+    if (sel.length < 40) return;          // ignore stray selections
+    track("text_copied", { length: sel.length, page_path: page });
+  }, true);
+
+})();
 </script>
