@@ -151,6 +151,21 @@ defaults:
       sitemap: false
 
   # ---------------------------------------------------------------------
+  # Social preview image for every page.
+  #
+  # jekyll-seo-tag reads `page.image` but ignores the site-level `image`
+  # setting, so without this default it emitted no og:image at all and fell
+  # back to the small "summary" Twitter card. Setting it as a page default
+  # lets the plugin produce both correctly, and avoids the duplicate
+  # twitter:card tag that resulted from writing them by hand as well.
+  # Any page can still override it with its own `image:` value.
+  # ---------------------------------------------------------------------
+  - scope:
+      path: ""
+    values:
+      image: /images/WILL_OG.png
+
+  # ---------------------------------------------------------------------
   # CURATED CHATS — hand-picked, edited, and meant to rank.
   # ---------------------------------------------------------------------
   - scope:

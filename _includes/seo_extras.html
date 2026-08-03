@@ -21,12 +21,14 @@
      matter can still override it with its own `image:` value. -->
 {% assign og_image = page.image | default: site.image | default: '/images/WILL_OG.png' %}
 {% assign og_image_abs = og_image | absolute_url %}
-<meta property="og:image" content="{{ og_image_abs }}">
+<!-- og:image, twitter:card and twitter:image are emitted by jekyll-seo-tag
+     itself, using the page-level `image` default set in _config.yml. Writing
+     them again here produced two twitter:card tags, and the plugin's copy came
+     first, so social networks saw the small card. Only the extras the plugin
+     does not provide are set below. -->
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{{ page.title | default: site.title | escape }} | {{ site.title }}">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{{ og_image_abs }}">
 <meta name="twitter:creator" content="@{{ site.twitter.username }}">
 
 <!-- ---------- Crawler directives ----------
