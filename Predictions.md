@@ -675,7 +675,7 @@ $$n \lambda_n = 2\pi r_n, \qquad p_n r_n = n\hbar$$
 
 ### The Electromagnetic Critical Radius ($R_q$)
 
-Because WILL RG removes the ontological separation between "field" and "geometry", electrostatic saturation must mirror gravitational saturation at the Schwarzschild horizon. $R_q$ is the intrinsic scale where potential energy saturation equals half the rest energy ($|U| = \frac{1}{2}E_0$).
+Because WILL RG removes the ontological separation between "field" and "geometry", electrostatic saturation must mirror gravitational saturation at the Schwarzschild horizon. $R_q$ is the intrinsic scale where potential energy saturation equals half the rest energy $(|U| = \frac{1}{2}E_0)$.
 
 $$R_q = \frac{2e^2}{4\pi\varepsilon_0 m_e c^2}$$
 
