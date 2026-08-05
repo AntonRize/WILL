@@ -50,6 +50,37 @@ export default async function handler(req, res) {
       ? `${dateMatch[1]}T${dateMatch[2]}:${dateMatch[3]}:${dateMatch[4]}.${dateMatch[5]}Z`
       : new Date().toISOString();
 
+    // Build the transcript itself.
+    const transcript = messages
+      .map(m => {
+        // Record which AI produced each assistant message, e.g.
+        // "**Assistant (Powered by Gemini 2.5 Flash):** ...". User lines unchanged.
+        if (m.user) return `**User:** ${m.raw || ''}`;
+        const tag = m.model ? ` (${m.model})` : '';
+        return `**Assistant${tag}:** ${m.raw || ''}`;
+      })
+      .join('\n\n')
+      // A visitor could type the closing tag themselves and end the raw block
+      // early. A zero-width space breaks the tag: invisible on the page, no
+      // longer something Liquid recognises.
+      .replace(/\{%(\s*)endraw(\s*)%\}/g, '{%$1endraw​$2%}');
+
+    // Wrap the transcript in {% raw %}.
+    //
+    // Jekyll runs Liquid over every file it builds, including these logs. The
+    // text is whatever a visitor typed, and LaTeX like
+    //     \resizebox{\textwidth}{!}{%
+    // contains the sequence {% which Liquid reads as the opening of a tag. It
+    // then looks for a closing %}, never finds one, and the entire site build
+    // fails with "Tag '{%' was not properly terminated". One pasted paper takes
+    // down willrg.com. These transcripts contain no intentional Liquid, so the
+    // whole body is marked raw and passed through untouched.
+    //
+    // The tag strings are assembled from pieces so that this source file can be
+    // edited without the tags being interpreted if it is ever itself processed.
+    const RAW_OPEN = '{' + '% raw %' + '}';
+    const RAW_CLOSE = '{' + '% endraw %' + '}';
+
     const content = [
       '---',
       'layout: log',
@@ -58,15 +89,10 @@ export default async function handler(req, res) {
       `user_agent: "${ua.replace(/"/g, '\\"')}"`,
       '---',
       '',
-    ]
-      .concat(messages.map(m => {
-        // Record which AI produced each assistant message, e.g.
-        // "**Assistant (Powered by Gemini 2.5 Flash):** ...". User lines unchanged.
-        if (m.user) return `**User:** ${m.raw || ''}`;
-        const tag = m.model ? ` (${m.model})` : '';
-        return `**Assistant${tag}:** ${m.raw || ''}`;
-      }))
-      .join('\n\n');
+      RAW_OPEN,
+      transcript,
+      RAW_CLOSE,
+    ].join('\n\n');
 
     const path = `assistant/logs/${sessionId.replace(/[:.]/g, '-')}.md`;
     const apiUrl = `https://api.github.com/repos/AntonRize/WILL/contents/${path}`;
