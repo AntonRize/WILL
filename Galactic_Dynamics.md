@@ -50,14 +50,9 @@ Mass-to-light ratios held at the population-synthesis values for every galaxy, n
 
 MOND's $a_0$ was fitted to these galaxies. $a_{\kappa}$ was derived from the microwave background and never saw a rotation curve. A number arriving from cosmology with nothing left to adjust reaches the accuracy of a formula built on the answer, and carries half its systematic bias.
 
-<figure style="margin:2rem 0;">
-  <img src="{{ site.baseurl }}/images/PLOTS/rar_gas_binned_final.png"
-       alt="Binned radial acceleration relation for gas-dominated galaxies"
-       style="width:100%; height:auto; border-radius:8px; border:1px solid #374151; background:#fff;">
-  <figcaption style="color:#9ca3af; font-size:0.9rem; margin-top:0.6rem;">
-    Gas-dominated galaxies, where the baryonic mass is known best. Binned offsets recomputed from raw SPARC: WILL RG $-0.044$ dex, MOND $-0.104$, Verlinde $-0.124$.
-  </figcaption>
-</figure>
+![Binned radial acceleration relation for gas-dominated galaxies]({{ site.baseurl }}/images/PLOTS/rar_gas_binned_final.png){: .plot}
+
+*Gas-dominated galaxies, where the baryonic mass is known best. Binned offsets recomputed from raw SPARC: WILL RG $-0.044$ dex, MOND $-0.104$, Verlinde $-0.124$.*
 
 > [Full protocol and results](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) · [Colab notebook](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb)
 
@@ -75,14 +70,9 @@ $$
 
 That radius is the geometric mean of the galaxy's own horizon and the cosmic horizon. Beyond it a star is moving faster than the visible matter could hold, and [what keeps the orbit bound is the horizon](https://willrg.com/documents/WILL_RG_II.pdf#sec:baryonic_escape), not hidden mass. Where the crossing falls is set entirely by $a_{\kappa}$, so the plot is a direct test of that number.
 
-<figure style="margin:2rem 0;">
-  <img src="{{ site.baseurl }}/images/Baryonic_Escape_Threshold.png"
-       alt="The Universal Escape Threshold: SPARC data in normalized coordinates crossing the point (1,1)"
-       style="width:100%; height:auto; border-radius:8px; border:1px solid #374151; background:#fff;">
-  <figcaption style="color:#9ca3af; font-size:0.9rem; margin-top:0.6rem;">
-    3007 points, 161 galaxies. Grey dashed: where a Newtonian universe would sit, flat at $0.707$. Orange: the same law with the wrong scale. Measured crossing $Y = 0.965 \pm 0.018$ against a predicted $1$.
-  </figcaption>
-</figure>
+![The Universal Escape Threshold: SPARC data in normalized coordinates crossing the predicted point]({{ site.baseurl }}/images/Baryonic_Escape_Threshold.png){: .plot}
+
+*3007 points, 161 galaxies. Grey dashed: where a Newtonian universe would sit, flat at $0.707$. Orange: the same law with the wrong scale. Measured crossing $Y = 0.965 \pm 0.018$ against a predicted $1$.*
 
 > [Derivation and test](https://willrg.com/documents/WILL_RG_II.pdf#sec:baryonic_escape) · [Colab notebook](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Baryonic_Escape_Threshold.ipynb)
 
