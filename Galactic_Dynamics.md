@@ -5,77 +5,128 @@ permalink: /galactic_dynamics/
 redirect_from: 
  - /Galactic_Dynamics/
  - /galactic-dynamics/
-description: "Galaxy rotation curves explained without dark matter and without free parameters, a genuine alternative to dark matter rather than a rescaling of it. Flat rotation curves emerge as resonant interference between the local baryonic potential and the cosmic horizon. Interactive zero-parameter test on the SPARC 175 galaxies database, covering the missing mass problem, the baryonic Tully-Fisher relation (BTFR), the universal radial acceleration relation, the baryonic escape threshold, galactic scale, dwarf galaxies, Gaia DR3 wide binaries, the solar system test, and comparison against NFW halo fits and MOND."
+description: "Galaxy rotation curves without dark matter and without free parameters. The acceleration scale is derived from the CMB temperature and the fine-structure constant, not fitted to galaxies. Zero-parameter results on the SPARC 175 galaxy database: rotation curves, the baryonic Tully-Fisher relation, the radial acceleration relation, the baryonic escape threshold, and Gaia DR3 wide binaries."
 ---
 
 {% include interactive/galaxy_zoo.html %}
 
-# Galactic Rotation Curves without Dark Matter and free parameters
+# Galactic Rotation Curves without Dark Matter and without Free Parameters
 
-**Observable flat rotation curves emerge naturally from the geometry of a closed relational universe.**
+**Stars at the edge of a galaxy orbit faster than the visible matter can account for. Nothing invisible is added, and nothing is fitted.**
 
-### The Standard Crisis
-Standard cosmology explains galactic rotation curves by adding an invisible halo of Dark Matter. This approach preserves General Relativity but requires ~5–10 times more mass than we can see — with no direct detection after decades of search.
+## Why the stars move too fast
 
-**WILL Relational Geometry** takes a different route. We do not add mass. We remove the hidden assumption that space is an empty container.  
+The universe is [relationally closed](https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure), so anything travelling through it eventually meets itself again. Only patterns that return in the same phase survive, which leaves the universe with [a single lowest note](https://willrg.com/documents/WILL_RG_II.pdf#sec:tone). That note puts a minimum energy floor under every interaction inside it.
 
-Instead, we treat **spacetime ≡ energy** as a single closed relational system (see [WILL RG Part I](https://willrg.com/documents/WILL_RG_I.pdf)). Geometry and dynamics become dual projections of the same invariant structure.
+Out at the thin edge of a galaxy, the visible matter on its own would leave a star below that floor. It cannot sit below the floor, so it moves faster. The extra speed is not extra mass. It is the star keeping step with the universe, the same way an electron has to fit a standing wave to stay bound inside an atom.
 
-### The Fundamental Tone of the Universe
-Because the universe is topologically closed, any perturbation must eventually re-encounter itself. This enforces a **Global Phase-Closure Constraint**: only resonant modes persist and accumulate macroscopic relational shift.
-
-The result is a single persistent **Fundamental Standing Wave** — the resonant “tone” of the observable universe, set by the Hubble horizon scale $H_0$.
-
-### The Law of Resonant Interference
-A star’s local Newtonian field interferes constructively with this global horizon tone. The observed velocity is the geometric-mean superposition:
+## The equation
 
 $$
 V_{\rm obs}^2 = V_{\rm bar}^2 + \sqrt{V_{\rm bar}^2 \cdot a_{\kappa} \cdot r}
+\qquad
+a_{\kappa} = \frac{c H_0}{3\pi} \approx 0.70 \times 10^{-10}\ \mathrm{m/s^2}
 $$
 
-where  
-- $V_{\rm bar}$ is the Newtonian velocity from visible baryons only,  
-- $r$ is the galactocentric radius,  
-- $a_{\kappa} = c H_0 / (3\pi) \approx 0.70 \times 10^{-10}$ m/s² is the **structural resonance scale**, derived directly from the measured CMB temperature $T_0$ and fine-structure constant $\alpha$ (no fitting, no free parameters).
+$V_{\rm bar}$ is what the visible matter alone would produce. The second term is [the coupling to the horizon](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics). Away from the visible mass [it stops depending on radius](https://willrg.com/documents/WILL_RG_II.pdf#sec:Tully-Fisher), which is why the curve levels off instead of falling.
 
-This single equation produces flat rotation curves, the Baryonic Tully–Fisher Relation ($V^4 \propto M_b$), and the Radial Acceleration Relation (RAR) across all galaxy types.
+$a_{\kappa}$ is not a free parameter. $H_0 = 68.15$ km/s/Mpc is [derived from the CMB temperature and the fine-structure constant](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0). The $3\pi$ is the [2:1 split between the two relational carriers](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) applied to that lowest note, [worked out here](https://willrg.com/documents/WILL_RG_II.pdf#sec:tone).
 
-### Zero-Parameter Test: SPARC Database (175 galaxies)
-We applied the interference law to the full SPARC sample — 175 disk galaxies with high-quality rotation curves and Spitzer photometry — using **fixed, population-synthesis mass-to-light ratios** and **zero adjustable parameters**.
+---
 
-**Key results** (full protocol-independent analysis):
+## SPARC: 175 galaxies, nothing tuned
 
-| Metric                  | WILL RG Value          | Interpretation                          |
-|-------------------------|------------------------|-----------------------------------------|
-| Median RMSE             | 12.64 km/s             | High absolute accuracy                  |
-| Median signed bias      | –2.26 km/s (full sample)<br>+0.53 km/s (gas-dominated) | Negligible systematic offset |
-| Median reduced $\chi^2$ | 3.49                   | Excellent fit quality                   |
-| RAR scatter             | 0.065 dex              | Matches or beats best phenomenological models |
+Mass-to-light ratios held at the population-synthesis values for every galaxy, no per-galaxy parameters, raw residuals.
 
-The same law also correctly predicts:
-- Milky Way solar-circle speed (~226 km/s, matches Gaia)
-- Wide-binary gravity boost (Gaia DR3/Chae 2023)
-- Baryonic Escape Threshold “bullseye” test
+| Model | MedAE | Bias | $F_{10}$ |
+|---|---|---|---|
+| Newton, baryons only | 38.46 | $+36.91$ | 0.08 |
+| $\Lambda$CDM, abundance matching | 13.32 | $-6.83$ | 0.36 |
+| MOND, $a_0$ fitted to this dataset | 10.43 | $-4.37$ | 0.48 |
+| Verlinde, $cH_0/6$ | 12.27 | $-8.52$ | 0.33 |
+| **WILL RG, $cH_0/3\pi$ derived** | 11.18 | $\mathbf{-2.26}$ | 0.47 |
 
-### Verify It Yourself — Live Galactic Dynamics Engine
-The interactive lab below runs the **exact same zero-parameter WILL RG model** on raw SPARC data in real time.
+**How to read it.** *MedAE* is the typical velocity error in km/s, lower is better. *Bias* is observed minus predicted in km/s, so positive means the model runs too slow and negative too fast, and zero is the target. *$F_{10}$* is the fraction of points landing within 10 km/s, higher is better.
 
-**How to use:**
-1. Select any galaxy from the dropdown (or browse the full catalogue).  
-2. Watch the **cyan line** (WILL prediction) overlay the observed data points.  
-3. Check the live RMSE, $\chi^2$, and residuals.  
+MOND's $a_0$ was fitted to these galaxies. $a_{\kappa}$ was derived from the microwave background and never saw a rotation curve. A number arriving from cosmology with nothing left to adjust reaches the accuracy of a formula built on the answer, and carries half its systematic bias.
+
+<figure style="margin:2rem 0;">
+  <img src="{{ site.baseurl }}/images/PLOTS/rar_gas_binned_final.png"
+       alt="Binned radial acceleration relation for gas-dominated galaxies"
+       style="width:100%; height:auto; border-radius:8px; border:1px solid #374151; background:#fff;">
+  <figcaption style="color:#9ca3af; font-size:0.9rem; margin-top:0.6rem;">
+    Gas-dominated galaxies, where the baryonic mass is known best. Binned offsets recomputed from raw SPARC: WILL RG $-0.044$ dex, MOND $-0.104$, Verlinde $-0.124$.
+  </figcaption>
+</figure>
+
+> [Full protocol and results](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) · [Colab notebook](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Rotation_Protocol_Independent_SPARC.ipynb)
+
+---
+
+## The escape threshold
+
+At one radius the horizon term equals the baryonic term. There, and only there, orbital speed equals baryonic escape speed:
+
+$$
+V_{\rm obs}(R_{\rm trans}) \equiv V_{\rm esc}^{\rm bary},
+\qquad
+R_{\rm trans} = \sqrt{\tfrac{3\pi}{2}\, R_s R_H}
+$$
+
+That radius is the geometric mean of the galaxy's own horizon and the cosmic horizon. Beyond it a star is moving faster than the visible matter could hold, and [what keeps the orbit bound is the horizon](https://willrg.com/documents/WILL_RG_II.pdf#sec:baryonic_escape), not hidden mass. Where the crossing falls is set entirely by $a_{\kappa}$, so the plot is a direct test of that number.
+
+<figure style="margin:2rem 0;">
+  <img src="{{ site.baseurl }}/images/Baryonic_Escape_Threshold.png"
+       alt="The Universal Escape Threshold: SPARC data in normalized coordinates crossing the point (1,1)"
+       style="width:100%; height:auto; border-radius:8px; border:1px solid #374151; background:#fff;">
+  <figcaption style="color:#9ca3af; font-size:0.9rem; margin-top:0.6rem;">
+    3007 points, 161 galaxies. Grey dashed: where a Newtonian universe would sit, flat at $0.707$. Orange: the same law with the wrong scale. Measured crossing $Y = 0.965 \pm 0.018$ against a predicted $1$.
+  </figcaption>
+</figure>
+
+> [Derivation and test](https://willrg.com/documents/WILL_RG_II.pdf#sec:baryonic_escape) · [Colab notebook](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Baryonic_Escape_Threshold.ipynb)
+
+---
+
+## Wide binaries: where a fitted curve and a derivation part company
+
+Wide binary stars are about a million times smaller than a galaxy. A galaxy couples to the horizon through the [potential carrier](https://willrg.com/documents/WILL_RG_II.pdf#def:rel_weight) at weight $2/3$. A binary is a two-body relation and couples through the kinetic carrier at $1/3$, giving exactly half the scale, $a_\beta = cH_0/6\pi$. Same derivation, different kind of link.
+
+| Gravity boost at $g_N = 10^{-9.8}$ | $\gamma$ |
+|---|---|
+| Observed, Gaia DR3 | 1.45 to 1.55 |
+| MOND, carrying its galaxy-fitted $a_0$ | 1.87 |
+| **WILL RG, kinetic channel** | **1.47** |
+
+MOND overshoots by more than 20% and needs an external field effect added by hand. Here the weaker anomaly is what the same closure condition already predicted.
+
+> [Wide binary test](https://willrg.com/documents/WILL_RG_II.pdf#sec:wide-binary) · [Colab notebook](https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Wide_binary_Chae_2023.ipynb)
+
+---
+
+## From the same equation
+
+| Result | Prediction | Observed |
+|---|---|---|
+| [Milky Way at the solar radius](https://willrg.com/documents/WILL_RG_II.pdf#sec:solar_system) | 226 km/s | $229 \pm 6$, Gaia |
+| [Baryonic Tully-Fisher slope](https://willrg.com/documents/WILL_RG_II.pdf#sec:Tully-Fisher) | exactly 4 | $4.0 \pm 0.1$ |
+| [Strong lensing](https://willrg.com/documents/WILL_RG_II.pdf#sec:lensing) | isothermal profile, no halo | SLACS, $1.00 \pm 0.02$ |
+
+Two limits the papers state directly: a weak-lensing forward model is [named as future work](https://willrg.com/documents/WILL_RG_II.pdf#sec:lensing), and systems that have not reached equilibrium, such as dwarf irregulars dominated by gas pressure, [violate the closure condition the equation assumes](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-ruler).
+
+---
+
+## Run it yourself
+
+Every galaxy, the raw catalogue, the same zero-parameter equation, in your browser.
 
 {% include interactive/galactic_dynamics.html %}
 
-**Reality filter note**: A small 5 km/s error floor accounts for natural turbulence and measurement scatter — the model itself remains perfectly smooth.
+---
 
-### What This Means
-The “missing mass” is not missing mass. It is the observable signature of a star’s resonant coupling to the cosmic horizon inside a closed relational geometry.  
-
-Dark Matter becomes redundant. The same framework that derives $H_0 \approx 68.15$ km/s/Mpc from $T_{\rm CMB}$ and $\alpha$ also explains galactic dynamics, supernova distances, CMB acoustics, and even returns the electron mass via holographic closure.
-
-**Full technical derivation** → [WILL Relational Geometry Part II (PDF)](https://willrg.com/documents/WILL_RG_II.pdf)  
-**All code & Colab notebooks** → [GitHub/AntonRize/WILL](https://github.com/AntonRize/WILL)
+**Full paper** → [WILL Relational Geometry Part II](https://willrg.com/documents/WILL_RG_II.pdf)  
+**Foundations** → [WILL Relational Geometry Part I](https://willrg.com/documents/WILL_RG_I.pdf)  
+**Code and data** → [GitHub/AntonRize/WILL](https://github.com/AntonRize/WILL)
 
 ---
 
