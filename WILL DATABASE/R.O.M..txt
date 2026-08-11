@@ -1035,6 +1035,57 @@ The 4D pseudo-Riemannian metric tensor $g_{\mu\nu}$ carries more ontological str
 \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Schwarzschild_metric_sympy.ipynb}{Schwarzschild metric sympy.ipynb}
 \end{tcolorbox}
 
+\subsection{Radiative Binary Systems}
+
+\textbf{1. Operational Observables}
+The optical interference signal $\Delta\phi$ provides a continuous temporal record of the orbital phase $O$. The operational inputs are the instantaneous orbital frequency $f$ and its dimensionless geometric gradient $d(\ln f)/dO = \frac{1}{f} \frac{df}{dO}$. Absolute masses ($M_1, M_2$) and source distance ($D$) are excluded from the primary derivation.
+
+\textbf{2. Radial Drift Formalization}
+For open systems ($\delta > 1$), the orthogonal orbital signature $\kappa_o^2 = \beta_R^2 + \beta_T^2 + \beta^2$ precludes the nullification of the radial kinematic projection $\beta_R$ at orbital turning points.  The radial spatial gradient defines $\beta_R$ as:
+\begin{equation}
+\beta_R = \frac{\beta}{a} \frac{da}{dO}
+\end{equation}
+Differentiating the frequency equation $f = \frac{2\beta^3 c}{\pi R_s}$ with respect to phase $O$ yields:
+\begin{equation}
+\beta_R = -\frac{2}{3} \beta \left( \frac{1}{f} \frac{df}{dO} \right)
+\end{equation}
+
+\textbf{3. Closure Defect and Dissipation}
+For quasi-circular collapsing orbits, the transverse projection converges to the global projection ($\beta_T = \beta$), reducing the orthogonal signature to:
+\begin{equation}
+\kappa^2 = \beta_R^2 + 2\beta^2
+\end{equation}
+Substituting the definition of the open system closure defect $\kappa^2 = 2\delta \beta^2$ isolates the radial projection square:
+\begin{equation}
+\beta_R^2 = 2\beta^2 (\delta - 1)
+\end{equation}
+Equating the expressions for $\beta_R^2$ algebraically removes the global amplitude $\beta^2$, determining the \href{https://willrg.com/documents/WILL_RG_I.pdf#def:closure_factor}{closure defect}  exclusively through the observed frequency gradient:
+\begin{equation}
+\delta = 1 + \frac{2}{9} \left( \frac{1}{f} \frac{df}{dO} \right)^2
+\end{equation}
+The dissipated relational resource generating the observed signal amplitude is formalized as:
+\begin{equation}
+\kappa^2 - 2\beta^2 = \frac{4}{9} \beta^2 \left( \frac{1}{f} \frac{df}{dO} \right)^2
+\end{equation}
+
+\textbf{4. Composite Kinematic Balance}
+In binary systems, the individual kinematic projections ($\beta_1, \beta_2$) form a unified global balance on the $S^1$ carrier. The composite relational amplitude is:
+\begin{equation}
+\beta_{sys}^2 = \frac{\beta_1^2 \beta_2^2}{\beta_1^2 + \beta_2^2}
+\end{equation}
+For a symmetric configuration ($\beta_1^2 = \beta_2^2 = \beta_*^2$), the composite amplitude evaluates to $\beta_{sys}^2 = \frac{1}{2} \beta_*^2$.
+
+\textbf{5. Topological Scale Calibration}
+The causal dynamic horizon defines the termination of orbital evolution at the absolute potential limit $\kappa_{max}^2 = 1$. The closure theorem dictates individual kinematic projections of $\beta_1^2 = \beta_2^2 = 1/2$. The symmetric composite kinematic state is locked at:
+\begin{equation}
+\beta_{sys} = \sqrt{\frac{1/4}{1}} = 0.5
+\end{equation}
+Substituting the ultimate state $\beta_{sys} = 0.5$ and the observed peak merger frequency $f_{merger}$ into the chronometric scale relation $R_s = \frac{2c}{\pi f} \beta_{sys}^3$ yields the absolute horizon scale:
+\begin{equation}
+R_s = \frac{c}{4\pi f_{merger}}
+\end{equation}
+The system scale is algebraically resolved without invoking Newtonian mass or spacetime curvature tensors. Asymmetries in components or intrinsic spins displace the final composite value of $\beta_{sys}$, generating unique peak frequencies $f_{merger}$ per system configuration.
+
 
 \section{Intrinsic Unitless Core: Relational Parameterization}
 \hypertarget{sec:unitless_core}{}\label{sec:unitless_core}
@@ -1297,7 +1348,7 @@ If a system's generative chain is algebraically complete without a specific para
 \hypertarget{sec:time-density}{}\label{sec:time-density}
 
 \begin{definition}[Time-Density Invariant]
-The time-density invariant $\tau_D$ establishes the systemic phase-space limit for any stable trajectory, defined strictly through the orbital period $T$ and visual angular radius $\theta$:
+The time-density invariant $\tau_D$ establishes the systemic phase-space limit for any stable trajectory, defined through the orbital period $T$ and visual angular radius $\theta$:
 \begin{equation}
 \tau_D = T \sin(\theta)^{\frac{3}{2}}
 \end{equation}
@@ -1317,33 +1368,37 @@ where $\beta_{sur}$ is the local kinematic projection at the surface.
 \begin{equation}
 \rho = \frac{\kappa^2 c^2}{8\pi G a^2}
 \end{equation}
-Isolating the invariant $\tau_D$ structures this relationship as the strict inverse determinant of the system's central density:
+Isolating the invariant $\tau_D$ structures this relationship as the inverse determinant of the system's central density:
 \begin{equation}
 \tau_D = \sqrt{\frac{\pi}{G\rho}}
 \end{equation}
 \end{proof}
 
+This shows that information about the density of the central body is encoded in the invariant product of directly observable period and angular radius for any stable orbit in the system:
+\begin{equation}
+\tau_D = T \sin(\theta)^{\frac{3}{2}}
+\end{equation}
 \begin{theorem}[Universal Horizon Constant]
 At the event horizon boundary limit, the proportional ratio of the limiting time-density $\tau_{D(limit)}$ to the system scale $R_s$ yields a universal horizon constant, operating exclusively on the universal tempo $c$ and geometric constant $\pi$.
 \end{theorem}
 
 \begin{proof}
-The systemic horizon scale $R_s$ isolates mathematically from the time-density invariant and surface kinematic projection $\beta_S$:
+The systemic horizon scale $R_s$ isolates mathematically from the time-density invariant and surface kinematic projection $\beta_{sur}$ :
 \begin{equation}
-R_s = \frac{c}{\pi} \tau_D \beta_S^3
+R_s = \frac{c}{\pi} \tau_D \beta_{sur} ^3
 \end{equation}
-At the event horizon boundary limit ($R_{surf} = R_s$), the potential projection reaches maximum ($\kappa^2 = 1$) and the kinematic projection fixes via the closure theorem (\ref{eq:rom}) ($\beta_S^2 = \frac{1}{2}$). The time-density limit evaluates to:
+At the event horizon boundary limit ($r = R_s$), the potential projection reaches maximum ($\kappa^2 = 1$) and the kinematic projection fixes via the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure theorem} ($\beta_{sur}^2 = \frac{1}{2}$). The time-density limit evaluates to:
 \begin{equation}
-\tau_{D(limit)} = \frac{2\sqrt{2}\pi R_s}{c}
+\tau_{D(limit)} = 2\pi\sqrt{2}\frac{ R_s}{c}
 \end{equation}
-The proportional ratio resolves to the universal geometric constant:
+The proportional ratio resolves to the universal geometric constant length ratio:
 \begin{equation}
-\boxed{\frac{\tau_{D(limit)}}{R_s} = \frac{2\sqrt{2}\pi}{c}}
+\boxed{\frac{\tau_{D(limit)}c}{R_s} = 2\pi\sqrt{2}}
 \end{equation}
 \end{proof}
 
 \begin{remark}[Ontological Consequence]
-The algebraic isolation of $\frac{\tau_{D(limit)}}{R_s}$ demonstrates that the boundary mechanics of a spacetime well operate exclusively on geometric proportionality and kinematic cycles. The parameters $G$ and $M$ are entirely absent from the limiting topological structure of the system.
+The algebraic isolation of $\frac{\tau_{D(limit)c}}{R_s}=2\pi\sqrt{2}}$ demonstrates that the boundary mechanics of a spacetime well operate exclusively on geometric proportionality and kinematic cycles. The parameters $G$ and $M$ are entirely absent from the limiting relational structure of the system.
 \end{remark}
 
 
