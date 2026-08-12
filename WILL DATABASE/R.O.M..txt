@@ -239,136 +239,21 @@ $\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1)$\\
 \hline
 $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
 \hline
- $p_{\beta}=E_0/c \cdot \beta/\beta_Y$&$p_{\beta}=E_0/c \cdot \cot(\theta_1) $\\
+ $E_{\beta}=E_0 \cdot 1/\beta_Y$&$E_{\beta}=E_0 \cdot \cot(\theta_1) $\\
  \hline
- $p_{\kappa}=E_0/c \cdot \kappa/\kappa_X$&$p_{\kappa}=E_0/c \cdot \tan(\theta_2)$\\\hline
+ $E_{\kappa}=E_0 \cdot 1/\kappa_X$&$E_{\kappa}=E_0 \cdot \tan(\theta_2)$\\\hline
+ $E=E_0 \cdot \kappa_X/\beta_Y$&$E=E_0 \cdot \tan(\theta_2)/\cot(\theta_1)$\\\hline
  $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
  $\tau_Y =\sqrt{1-\tau^2}$ &$\tau_Y =\sqrt{1-\tau^2}$\\\hline
  
  $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\\hline
  $  Q_Y = \sqrt{1-Q^2} = \sqrt{1-\kappa^2-\beta^2} = \sqrt{1-3\beta^2}  $&$Q_Y = \sqrt{1 - 3\cos^2(\theta_1)}$\\ \hline
 \end{tabular}
-\caption{Unified representation of relativistic and gravitational effects for closed systems.}
+\caption{Unified representation of relativistic and gravitational effects for relationally closed systems.}
 \end{table}
 
-
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}[scale=3, >=Latex]
-    % --- Definitions ---
-    \def\R{1.0} % Unit Radius (The Horizon)
-    \coordinate (A) at (0,0);       % A Center
-    \coordinate (B) at (0.65, 0.45); % B Center (Q end)
-    
-    % Projections of the B center
-    \coordinate (Bx) at (0.65, 0);
-    \coordinate (Ky) at (0, 0.45);
-
-    % --- Axes ---
-    % Drawing axes slightly longer than radius to show context
-    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
-    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Potential)};
-
-    % --- A Frame (Blue) ---
-    % The "horizon" of the A
-    \draw[blue, thick] (A) circle (\R);
-    \fill[blue] (A) circle (0.02) node[below left] {A $(0,0)$};
-
-    % --- B Frame (Red) ---
-    % The "horizon" of the B, centered at Q
-    \draw[red, thick, dashed] (B) circle (\R);
-    \fill[red] (B) circle (0.02) node[above right] {B $(0 , 0)$};
-
-    % --- Q ---
-    \draw[->, line width=1.5pt, black] (A) -- (B) node[midway, above left] {$Q$};
-
-    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
-    \draw[dotted, thick] (B) -- (Bx) node[below] {$\beta$};
-    \draw[dotted, thick] (B) -- (Ky) node[left] {$\kappa$};
-
-    % --- Annotations ---
-    % Optional: Show the Causal Lock condition physically
-    \node[blue, font=\small] at (-0.5, -0.8) {A's Horizon};
-    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
-
-\end{tikzpicture}
-\caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the amplitude projections $\beta$ and $\kappa$. Interaction is causal only when the relational origin (0, 0) of B lies within A's horizon ($Q < 1$), ensuring mutual coverage.}
-\hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
-\end{figure}
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
-\[
-\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
-\]
-There is no common background arena; only mutual total shift magnitudes $Q$, computed from each observer's own relational origin.
-\end{tcolorbox}
-
-\begin{table}[h]
-\centering
-\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|l|c|c|c|c|p{5.5cm}|}
-\hline
-\textbf{Phenomenon} & \textbf{Radius $r$} & $\beta^2$ & $\kappa^2$ & $Q^2$ & \textbf{Comment} \\
-\hline
-ISCO (Static location) & $3R_s$ & $0$ & $\frac{1}{3}$ & $\frac{1}{3}$ & Pure coordinate location, $r=R_s/\kappa^2$ \\\hline
-ISCO (Dynamic state) & $3R_s$ & $\frac{1}{6}$ & $\frac{1}{3}$ & $\frac{1}{2}$ & Marginal orbital stability, $Q^2 = Q_Y^2 = 1/2$ \\
-\hline
-Photon sphere (Static) & $\frac{3}{2}R_s$ & $0$ & $\frac{2}{3}$ & $\frac{2}{3}$ & Pure coordinate location \\\hline
-Causal Dynamic horizon & $\frac{3}{2}R_s$ & $\frac{1}{3}$ & $\frac{2}{3}$ & $1$ & Relational horizon under closure $\kappa^2=2\beta^2$, $Q=1$ \\
-\hline
-Causal Static horizon & $R_s$ & $0$ & $1$ & $1$ & Purely gravitational closure limit, $\kappa^2=1$ \\\hline
-Dynamic horizon & $R_s$ & $\frac{1}{2}$ & $1$ & $\frac{3}{2}$ & Orbital closure at Schwarzschild radius \\
-\hline
-Extremal Kerr horizon & $\frac{1}{2}R_s$ & $1$ & $2$ & $3$ & Maximal rotation, $\beta=1$, merged horizons \\
-\hline
-\end{tabular}
-\caption{Critical radii and their projectional parameters. Static coordinate locations ($\beta=0$) are strictly distinguished from their corresponding dynamic orbital states that emerge from the closure law $\kappa^2=2\beta^2$.}
-\end{table}
 
 \vspace{0.5cm}
-
-\begin{center}
-\begin{tikzpicture}[scale=2.5, thick]
-
-% Axes
-\draw[->] (-0.2,0) -- (1.3,0) node[right] {$\beta^2$};
-\draw[->] (0,-0.2) -- (0,2.3) node[above] {$\kappa^2$};
-
-% Dynamic Points on closure line (kappa^2 = 2 beta^2)
-\coordinate (ISCO_D) at (0.166,0.333); % 1/6, 1/3
-\coordinate (Photon_D) at (0.333,0.666); % 1/3, 2/3
-\coordinate (Schwarz_D) at (0.5,1.0); % 1/2, 1
-\coordinate (Kerr_D) at (1.0,2.0); % 1, 2
-
-% Static Points on Y axis (beta^2 = 0)
-\coordinate (ISCO_S) at (0,0.333);
-\coordinate (Photon_S) at (0,0.666);
-\coordinate (Schwarz_S) at (0,1.0);
-
-% Horizontal dotted lines linking static coordinates to dynamic states
-\draw[dotted, gray, thick] (ISCO_S) -- (ISCO_D);
-\draw[dotted, gray, thick] (Photon_S) -- (Photon_D);
-\draw[dotted, gray, thick] (Schwarz_S) -- (Schwarz_D);
-
-% Plot Dynamic points
-\filldraw[red] (ISCO_D) circle (1pt) node[below right] {ISCO (Dyn)};
-\filldraw[blue] (Photon_D) circle (1pt) node[right] {Causal Dyn. Horizon};
-\filldraw[green!60!black] (Schwarz_D) circle (1pt) node[right] {Dynamic Horizon};
-\filldraw[purple] (Kerr_D) circle (1pt) node[right] {Extremal Kerr};
-
-% Plot Static points
-\filldraw[gray] (ISCO_S) circle (1pt) node[left] {ISCO (Stat)};
-\filldraw[gray] (Photon_S) circle (1pt) node[left] {Photon (Stat)};
-\filldraw[gray] (Schwarz_S) circle (1pt) node[left] {Causal Stat. Horizon};
-
-% Line through dynamic points (kappa^2 = 2 beta^2)
-\draw[dashed, black] (0,0) -- (1.1,2.2) node[above right] {Closure Line: $\kappa^2 = 2\beta^2$};
-
-\end{tikzpicture}
-\end{center}
-
 
 \hypertarget{sec:rom}{}\label{sec:rom}
 \section{Closed Algebraical System of R.O.M. Equations}
@@ -451,7 +336,7 @@ $p_{\kappa}= \frac{\kappa}{2\kappa_X }\cdot R_{s}\frac{c^{2}}{G}$ (potential mom
 $a=\frac{1}{\kappa^{2}} \cdot R_{s}=\frac{T\beta c}{2\pi}=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e~cos(O)}}=\frac{\Delta_{to}(O)}{\zeta}\beta c=\frac{Tc\beta^{3}}{2\pi(\frac{K_{i}}{\ \sin(i)})^{2}(1-e^{2})}=\frac{\ \sqrt{1-e^{2}}}{2\pi\sin(i)}K_{i}Tc=\frac{R_{sys}}{\sin(\theta_{sys})}$ (semi-major axis) \\
 $h_{W}=\frac{e_Y}{2\beta}\cdot R_s c =\frac{\kappa^{2}}{\kappa_{o}^{2}}\cdot\beta_{T}\cdot a\cdot c=r_{o} \cdot \beta_{T} \cdot c=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}$ ( invariant angular momentum) \\
 $\omega=2\beta^{3} \cdot \frac{c}{R_{s}}=\frac{\beta c}{a}$ (angular frequency) \\
-$T=\frac{\pi }{\beta^{3}} \cdot \frac{R_{s}}{c}=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi\sqrt{2}R_{s}}{\kappa^{3}c}=\frac{2\pi \Delta_{to}}{\zeta}$ (orbital period) \\
+$T=\frac{\pi }{\beta^{3}} \cdot \frac{R_{s}}{c}=\frac{2\pi\sqrt{2}}{\kappa^{3}} \cdot \frac{R_{s}}{c}=\frac{2\pi}{\omega}=\frac{2\pi a}{\beta c}=\frac{2\pi \Delta_{to}}{\zeta}$ (orbital period) \\
 $\tau_D = \frac{\pi \sin(\theta_{sur})^{\frac{3}{2}}}{\beta^3} \cdot \frac{R_s}{c}= T \sin(\theta_{sur})^{\frac{3}{2}}=\frac{2\pi R_{sur}}{\beta_{sur}c}=\sqrt{\frac{\pi}{G \cdot\rho_{sur}(R_{sur})}}$   (time-density invariant where $R_{sur}$ and $\beta_{sur}$  determined by the distance from center to the surface of central body and $\theta_{sur}=$ angular radius) \\
 $g=\frac{\kappa^{4}}{2}\cdot\frac{c^{2}}{R_{s}}=\frac{\kappa^{2}c^{2}}{2a}=\frac{GM}{a^2}$ (gravitational acceleration) \\
 $M=\frac{1}{2} \cdot \frac{R_s c^2}{G}=\frac{\beta^{3}}{2\pi}\cdot T\frac{c^{3}}{G}=\beta^{2} \cdot a\frac{c^{2}}{G}=4\pi\rho a^{3}$ (mass parameter) \\
@@ -618,6 +503,7 @@ The affine connections ($\Gamma^\lambda_{\mu\nu}$) used to define parallel trans
 \section{Relational Origin of:}
 \hypertarget{sec:relation_origin}{}\label{sec:relation_origin}
 
+In this section we derive all major orbital elements, invariants and identities. This continue our derivation chain started from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{4 Foundational Methodological Principals} and reviling relational origin of orbital mechanics. 
 
 \subsection{Eccentricity}
 \hypertarget{sec:rel_ecc}{}\label{sec:rel_ecc}
@@ -1035,56 +921,6 @@ The 4D pseudo-Riemannian metric tensor $g_{\mu\nu}$ carries more ontological str
 \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Schwarzschild_metric_sympy.ipynb}{Schwarzschild metric sympy.ipynb}
 \end{tcolorbox}
 
-\subsection{Radiative Binary Systems}
-
-\textbf{1. Operational Observables}
-The optical interference signal $\Delta\phi$ provides a continuous temporal record of the orbital phase $O$. The operational inputs are the instantaneous orbital frequency $f$ and its dimensionless geometric gradient $d(\ln f)/dO = \frac{1}{f} \frac{df}{dO}$. Absolute masses ($M_1, M_2$) and source distance ($D$) are excluded from the primary derivation.
-
-\textbf{2. Radial Drift Formalization}
-For open systems ($\delta > 1$), the orthogonal orbital signature $\kappa_o^2 = \beta_R^2 + \beta_T^2 + \beta^2$ precludes the nullification of the radial kinematic projection $\beta_R$ at orbital turning points.  The radial spatial gradient defines $\beta_R$ as:
-\begin{equation}
-\beta_R = \frac{\beta}{a} \frac{da}{dO}
-\end{equation}
-Differentiating the frequency equation $f = \frac{2\beta^3 c}{\pi R_s}$ with respect to phase $O$ yields:
-\begin{equation}
-\beta_R = -\frac{2}{3} \beta \left( \frac{1}{f} \frac{df}{dO} \right)
-\end{equation}
-
-\textbf{3. Closure Defect and Dissipation}
-For quasi-circular collapsing orbits, the transverse projection converges to the global projection ($\beta_T = \beta$), reducing the orthogonal signature to:
-\begin{equation}
-\kappa^2 = \beta_R^2 + 2\beta^2
-\end{equation}
-Substituting the definition of the open system closure defect $\kappa^2 = 2\delta \beta^2$ isolates the radial projection square:
-\begin{equation}
-\beta_R^2 = 2\beta^2 (\delta - 1)
-\end{equation}
-Equating the expressions for $\beta_R^2$ algebraically removes the global amplitude $\beta^2$, determining the \href{https://willrg.com/documents/WILL_RG_I.pdf#def:closure_factor}{closure defect}  exclusively through the observed frequency gradient:
-\begin{equation}
-\delta = 1 + \frac{2}{9} \left( \frac{1}{f} \frac{df}{dO} \right)^2
-\end{equation}
-The dissipated relational resource generating the observed signal amplitude is formalized as:
-\begin{equation}
-\kappa^2 - 2\beta^2 = \frac{4}{9} \beta^2 \left( \frac{1}{f} \frac{df}{dO} \right)^2
-\end{equation}
-
-\textbf{4. Composite Kinematic Balance}
-In binary systems, the individual kinematic projections ($\beta_1, \beta_2$) form a unified global balance on the $S^1$ carrier. The composite relational amplitude is:
-\begin{equation}
-\beta_{sys}^2 = \frac{\beta_1^2 \beta_2^2}{\beta_1^2 + \beta_2^2}
-\end{equation}
-For a symmetric configuration ($\beta_1^2 = \beta_2^2 = \beta_*^2$), the composite amplitude evaluates to $\beta_{sys}^2 = \frac{1}{2} \beta_*^2$.
-
-\textbf{5. Topological Scale Calibration}
-The causal dynamic horizon defines the termination of orbital evolution at the absolute potential limit $\kappa_{max}^2 = 1$. The closure theorem dictates individual kinematic projections of $\beta_1^2 = \beta_2^2 = 1/2$. The symmetric composite kinematic state is locked at:
-\begin{equation}
-\beta_{sys} = \sqrt{\frac{1/4}{1}} = 0.5
-\end{equation}
-Substituting the ultimate state $\beta_{sys} = 0.5$ and the observed peak merger frequency $f_{merger}$ into the chronometric scale relation $R_s = \frac{2c}{\pi f} \beta_{sys}^3$ yields the absolute horizon scale:
-\begin{equation}
-R_s = \frac{c}{4\pi f_{merger}}
-\end{equation}
-The system scale is algebraically resolved without invoking Newtonian mass or spacetime curvature tensors. Asymmetries in components or intrinsic spins displace the final composite value of $\beta_{sys}$, generating unique peak frequencies $f_{merger}$ per system configuration.
 
 
 \section{Intrinsic Unitless Core: Relational Parameterization}
