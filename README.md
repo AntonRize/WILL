@@ -90,7 +90,7 @@ Encodes velocity / kinematic / directional relations.
 - **Projections:** β (horizontal) and β_Y (vertical), with β² + β_Y² = 1
 - β = v/c at low speeds; β_Y = 1/γ (reciprocal Lorentz factor)
 - **Derivations hosted:** Lorentz factor, rest energy, momentum, energy-momentum relation, Minkowski metric
-- **Key sections:** [sec:kinetic](https://willrg.com/documents/WILL_RG_I.pdf#sec:kinetic), [prop:momentum](https://willrg.com/documents/WILL_RG_I.pdf#prop:momentum), [cor:energymomentum](https://willrg.com/documents/WILL_RG_I.pdf#cor:energymomentum)
+- **Key sections:** [sec:kinetic](https://willrg.com/documents/WILL_RG_I.pdf#sec:kinetic), [prop:momentum](https://willrg.com/documents/WILL_RG_I.pdf#prop:p_beta), [cor:energymomentum](https://willrg.com/documents/WILL_RG_I.pdf#cor:energymomentum)
 
 ### S² — The Potential Carrier (sphere, 2 DOF)
 
@@ -138,10 +138,10 @@ Under closure: Q² = 3β² (circular orbits).
 |--------|----------|------|
 | Rest energy invariance | E·β_Y = E₀ | [thm:restenergy](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy) |
 | Rest mass equivalence | E₀ = m (c = 1) | [cor:restmass](https://willrg.com/documents/WILL_RG_I.pdf#cor:restmass) |
-| Momentum | p ≡ E·β | [prop:momentum](https://willrg.com/documents/WILL_RG_I.pdf#prop:momentum) |
+| Momentum | p ≡ E·β | [prop:momentum](https://willrg.com/documents/WILL_RG_I.pdf#prop:p_beta) |
 | Energy-momentum relation | E² = p² + m² | [cor:energymomentum](https://willrg.com/documents/WILL_RG_I.pdf#cor:energymomentum) |
 | Equivalence principle | (derived, not postulated) | [thm:equivalence](https://willrg.com/documents/WILL_RG_I.pdf#thm:equivalence) |
-| Mass invariance | | [cor:massinvariance](https://willrg.com/documents/WILL_RG_I.pdf#cor:massinvariance) |
+| Mass invariance | | [thm:equivalence](https://willrg.com/documents/WILL_RG_I.pdf#thm:equivalence) |
 | Unified scaling | | [lem:unifiedscaling](https://willrg.com/documents/WILL_RG_I.pdf#lem:unifiedscaling) |
 | Energy-Symmetry Law | ΔE = ½(κ_A² − κ_B²) + ½(β_B² − β_A²) | [sec:energy-symmetry](https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry) |
 | Nature of light | Single-axis energy transfer (β = 1, κ = 0) | [thm:single-axis](https://willrg.com/documents/WILL_RG_I.pdf#thm:single-axis) |

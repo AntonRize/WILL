@@ -165,7 +165,7 @@ $$\kappa^{2} = 1 - \frac{1}{(1+z_\kappa)^{2}}, \qquad \beta^{2} = 1 - \frac{1}{(
 
 *Source: R.O.M. — "Relational Origin of: Spectroscopic Shifts"*
 
-**Links:** [Derivation (R.O.M.)](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:spectroscopic_shift)
+**Links:** [Derivation (R.O.M.)](https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift)
 
 ---
 

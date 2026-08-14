@@ -253,7 +253,7 @@ Spatial distance is derived as the operational inverse of relational phase capac
 #### Theorem — Inverse-Square
 The inverse-square potential proportionality $$\kappa^2 \propto 1/r$$ is a geometric necessity of the $$S^2$$ carrier's relational capacity, determined without spatial primitives.
 
-**Proof.** By the [Spectroscopic Phase Shift Theorem](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:spectroscopic_shift), the potential projection $$\kappa^2$$ is extracted entirely from the dimensionless phase tension $$z_\kappa$$, independent of spatial parameters. Distance must therefore be defined by the relational tension between energy states. Normalizing the absolute geometric scale at saturation $$(\kappa^2 = 1 \equiv r = R_s)$$, distance $$r$$ emerges as the reciprocal measure of the omnidirectional projection amplitude:
+**Proof.** By the [Spectroscopic Phase Shift Theorem](https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift), the potential projection $$\kappa^2$$ is extracted entirely from the dimensionless phase tension $$z_\kappa$$, independent of spatial parameters. Distance must therefore be defined by the relational tension between energy states. Normalizing the absolute geometric scale at saturation $$(\kappa^2 = 1 \equiv r = R_s)$$, distance $$r$$ emerges as the reciprocal measure of the omnidirectional projection amplitude:
 
 $$\kappa = \sin\theta_2 \;\Longrightarrow\; \kappa^2 = \frac{R_s}{r} \;\Longrightarrow\; r = \frac{R_s}{\kappa^2} \;\Longrightarrow\; \kappa^2 \propto 1/r.$$
 
@@ -522,7 +522,7 @@ Each line is an identity among dimensionless projections; $$G$$ and $$M$$ appear
 
 Each classical orbital law reappears as a strict algebraic identity of the relational projections — no force, no acceleration primitive, no background metric.
 
-**Spectroscopic shifts — $$\kappa$$ and $$\beta$$ are observables.** By the Conservation Theorem and self-centering, $$\kappa^2 = 1 - 1/(1+z_\kappa)^2$$ and $$\beta^2 = 1 - 1/(1+z_\beta)^2$$: the projections are extracted directly from measured gravitational redshift and transverse Doppler shift, independent of $$G$$ and $$M$$. The single optical observable $$\tau$$ carries the complete structural state, $$\tau^2 = 1 - Q^2 + \kappa^2\beta^2$$. ([R.O.M. — Spectroscopic Shifts](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:spectroscopic_shift))
+**Spectroscopic shifts — $$\kappa$$ and $$\beta$$ are observables.** By the Conservation Theorem and self-centering, $$\kappa^2 = 1 - 1/(1+z_\kappa)^2$$ and $$\beta^2 = 1 - 1/(1+z_\beta)^2$$: the projections are extracted directly from measured gravitational redshift and transverse Doppler shift, independent of $$G$$ and $$M$$. The single optical observable $$\tau$$ carries the complete structural state, $$\tau^2 = 1 - Q^2 + \kappa^2\beta^2$$. ([R.O.M. — Spectroscopic Shifts](https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift))
 
 **Kepler's Third Law.** From $$\beta = 2\pi a/cT$$ and $$\kappa^2 = R_s/a$$, closure $$\kappa^2 = 2\beta^2$$ gives directly $$a^3 = \frac{R_s c^2}{8\pi^2}\,T^2$$, i.e. $$a \propto T^{2/3}$$ — with no mass and no gravitational constant. ([R.O.M. — Kepler's Third Law](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:orbital_prop))
 
