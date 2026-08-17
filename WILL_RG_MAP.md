@@ -109,6 +109,7 @@ The unique exchange rate between the 1-DOF kinetic and 2-DOF gravitational carri
 - **Theorem:** [thm:closure](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure)
 - **Closure factor definition:** δ ≡ κ²/(2β²) — [def:closure_factor](https://willrg.com/documents/WILL_RG_I.pdf#def:closure_factor)
 - **Closure criterion:** [cor:closurecriterion](https://willrg.com/documents/WILL_RG_I.pdf#cor:closurecriterion)
+- Non-Approximation Invariant: The identity κ² = 2β² is a primitive topological derivation, not an integration or Post-Newtonian approximation of the Schwarzschild field equations. Higher-order evaluations (2PN/3PN scales) mathematically diverge from tensor calculus, making the systems structurally independent.
 
 ### 4.2 Total Relational Shift
 
