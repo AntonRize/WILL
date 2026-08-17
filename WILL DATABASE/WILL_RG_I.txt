@@ -715,9 +715,6 @@ By the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:conservation}{Conser
 \begin{equation}
 \kappa^2 + \kappa_X^2 = 1 \quad \Longrightarrow \quad \kappa^2 = 1 - \kappa_X^2.
 \end{equation}
-
-By the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:reciprocity}{Relational Reciprocity Theorem}, an observer must self-center at the relational origin $(\beta, \kappa) = (0,0)$. Consequently, the observer's local phase is maximal: $\kappa_{X(obs)} \equiv 1$.
-
 By Duality of Relation Lemma (\ref{lem:duality}) the phase projection governs the intrinsic flow of proper time, the frequency of emitted light scales by the internal phase. The observable spectroscopic shift $z_\kappa$ is therefore the operational ratio between the observer's phase and the source's phase:
 \begin{equation}
 1 + z_\kappa = \frac{\kappa_{X(obs)}}{\kappa_{X(source)}}.
@@ -869,7 +866,7 @@ The inverse-square potential proportionality $\kappa^2 \propto 1/r$ is a geometr
 
 \begin{proof}
 \leavevmode
-Distance can not be \emph{a priori} foundational primitive. It violates the principles of Relational Origin (\ref{pr:relational}) and Ontological Minimalism (\ref{pr:minimalism}). Therefore it must be defined by the relational tension between energy states. By the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:spectroscopic_shift}{Spectroscopic Phase Shift Theorem}, the potential projection $\kappa^2$ is operationally extracted entirely from the dimensionless redshift ($z_\kappa$), independent of spatial parameters. 
+Distance can not be \emph{a priori} foundational primitive. It violates the principles of Relational Origin (\ref{pr:relational}) and Ontological Minimalism (\ref{pr:minimalism}). Therefore it must be defined by the relational tension between energy states. By the \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:spectroscopic_shift}{Spectroscopic Phase Shift Theorem}, the potential projection $\kappa^2$ is operationally extracted entirely from the dimensionless redshift ($z_\kappa$), independent of spatial parameters. 
 
 Normalizing the absolute geometric scale at saturation ($\kappa^2 = 1 \equiv r=R_s$ \ref{rem:Rs}), spatial distance $r$ emerges as the reciprocal measure of the omnidirectional projection amplitude on $S^2$:
 \begin{equation}
@@ -1319,24 +1316,21 @@ Now we can clearly see the underlying symmetry  between relativistic and gravita
 \textbf{Algebraic Form} & \textbf{Trigonometric Form} \\\hline
  $\beta=v/c$&$\beta=\cos(\theta_1)$\\\hline
  $\kappa=\sqrt{R_s/a}$&$\kappa=\sin(\theta_2)$\\\hline
-
 $\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1)$\\
 \hline
 $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
 \hline
- $E_{\beta}=E_0 \cdot 1/\beta_Y$&$E_{\beta}=E_0 \cdot \cot(\theta_1) $\\
+ $E_{\beta}=E_0 \cdot 1/\beta_Y$&$E_{\beta}=E_0 \cdot \csc(\theta_1) $\\
  \hline
- $E_{\kappa}=E_0 \cdot 1/\kappa_X$&$E_{\kappa}=E_0 \cdot \tan(\theta_2)$\\\hline
- $E=E_0 \cdot \kappa_X/\beta_Y$&$E=E_0 \cdot \tan(\theta_2)/\cot(\theta_1)$\\\hline
+ $E_{\kappa}=E_0 \cdot 1/\kappa_X$&$E_{\kappa}=E_0 \cdot \sec(\theta_2)$\\\hline
+ $E=E_0 \cdot \kappa_X/\beta_Y$&$E=E_0 \cdot \cos(\theta_2)\csc(\theta_1)$\\\hline
+ $p_{\beta}c = E_0 \cdot \beta/\beta_Y$&$p_{\beta}c = E_0 \cdot \cot(\theta_1)$\\\hline
+ $p_{\kappa}c = E_0 \cdot \kappa/\kappa_X$&$p_{\kappa}c = E_0 \cdot \tan(\theta_2)$\\\hline
  $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
  $\tau_Y =\sqrt{1-\tau^2}$ &$\tau_Y =\sqrt{1-\tau^2}$\\\hline
- 
- $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\\hline
- $  Q_Y = \sqrt{1-Q^2} = \sqrt{1-\kappa^2-\beta^2} = \sqrt{1-3\beta^2}  $&$Q_Y = \sqrt{1 - 3\cos^2(\theta_1)}$\\ \hline
 \end{tabular}
 \caption{Unified representation of relativistic and gravitational effects for relationally closed systems \label{tab:unified}.}
 \end{table}
-
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
 \textbf{The familiar SR and GR factors emerge here as projections of the same conserved resource. 
@@ -1545,8 +1539,6 @@ Because both channels derive from the same underlying carrier topology, their mu
 
 \section{Stage III: Legacy Translation \& Empirical Alignment}
 
-
-
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Derivation Chain Map]
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
@@ -1583,79 +1575,12 @@ $\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each 
 \end{tcolorbox}
 
 
-\begin{center}
-\begin{tikzpicture}[scale=2.0,>=Latex]
-% Left circle: kinematics
-\draw (0,0) circle (1);
-\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\beta=\cos\theta_1$};
-\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\beta_Y=\sin\theta_1$};
-% Q and legs
-\draw[->,thick] (0,0) -- (0.8,0.6) node[above right] {$E_{\beta}$};
-\draw[dashed] (0.8,0) -- (0.8,0.6);
-\draw[dashed] (0,0.6) -- (0.8,0.6);
-\node at (0.84,-0.12) {$\beta$};
-\node at (-0.14,0.6) {$\beta_Y$};
-\draw (0.25,0) arc (0:36.87:0.25);
-\node at (0.33,0.12) {$\theta_1$};
-\node at (0,-1.55) {\small \shortstack{$E_{\beta}=E_0/\beta_Y$ \\ $p_{\beta}=E_0\,\beta/\beta_Y=E_0\cot(\theta_1)$}};
-
-% Right circle: potential
-\begin{scope}[xshift=3.2cm]
-\draw (0,0) circle (1);
-\draw[->] (-1.2,0) -- (1.2,0) node[right] {$\kappa_X=\cos\theta_2$};
-\draw[->] (0,-1.2) -- (0,1.2) node[above] {$\kappa=\sin\theta_2$};
-% Q and legs
-\draw[->,thick] (0,0) -- (0.6,0.8) node[above right] {$E_{\kappa}$};
-\draw[dashed] (0.6,0) -- (0.6,0.8);
-\draw[dashed] (0,0.8) -- (0.6,0.8);
-\node at (0.6,-0.12) {$\kappa_X$};
-\node at (-0.14,0.8) {$\kappa$};
-\draw (0.25,0) arc (0:53.13:0.25);
-\node at (0.33,0.12) {$\theta_2$};
-\node at (0,-1.55) {\small \shortstack{$E_{\kappa}=E_0/\kappa_X$ \\ $p_{\kappa}=E_0\,\kappa/\kappa_X=E_0\tan(\theta_2)$}};
-\end{scope}
-
-% composition arrow
-\draw[->,thick] (1.3,0.6) -- (1.9,0.6);
-\node at (1.6,0.77) {\small compose};
-\end{tikzpicture}
-\end{center}
-
-
-\begin{table}[h]
-\centering
-\begin{tabular}{|c|c|}\hline
-\multicolumn{2}{|c|}{\( \theta_1= \arccos(\beta),\quad \theta_2 = \arcsin(\kappa)\),    $\kappa^2 = 2\beta^2$,  $a=\text{semi-major axis}$}\\
-\hline
-\textbf{Algebraic Form} & \textbf{Trigonometric Form} \\\hline
- $\beta=v/c$&$\beta=\cos(\theta_1)$\\\hline
- $\kappa=\sqrt{R_s/a}$&$\kappa=\sin(\theta_2)$\\\hline
-
-$\beta_Y = \sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1)$\\
-\hline
-$\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
-\hline
- $E_{\beta}=E_0 \cdot 1/\beta_Y$&$E_{\beta}=E_0 \cdot \cot(\theta_1) $\\
- \hline
- $E_{\kappa}=E_0 \cdot 1/\kappa_X$&$E_{\kappa}=E_0 \cdot \tan(\theta_2)$\\\hline
- $E=E_0 \cdot \kappa_X/\beta_Y$&$E=E_0 \cdot \tan(\theta_2)/\cot(\theta_1)$\\\hline
- $\tau = \beta_Y\kappa_X $&$\tau = \sin(\theta_1) \cos(\theta_2)$\\\hline
- $\tau_Y =\sqrt{1-\tau^2}$ &$\tau_Y =\sqrt{1-\tau^2}$\\\hline
- 
- $Q =\sqrt{\kappa^2 + \beta^2}=\sqrt{3}\beta$&$Q = \sqrt{3} \cos(\theta_1)$\\\hline
- $  Q_Y = \sqrt{1-Q^2} = \sqrt{1-\kappa^2-\beta^2} = \sqrt{1-3\beta^2}  $&$Q_Y = \sqrt{1 - 3\cos^2(\theta_1)}$\\ \hline
-\end{tabular}
-\caption{Unified representation of relativistic and gravitational effects for relationally closed systems  \label{tab:unified}.}
-\end{table}
-
-
-
 \subsection{Equivalence Principle as Derived Identity}
 
 \begin{lemma}[Unified Relational Scaling]
 \hypertarget{lem:unifiedscaling}{}\label{lem:unifiedscaling}
 Within relational ontology, both kinematic ($S^1$) and potential ($S^2$)
-transformations act as projections of the same invariant energy $E_0$. 
+transformations act as projections of the same invariant rest energy $E_0$. 
 The total local energy scale is determined by the ratio of the potential phase to the kinematic phase:
 \[
 E = E_0 \frac{\kappa_X}{\beta_Y} = E_0 \sqrt{\frac{1-\kappa^2}{1-\beta^2}}.
@@ -1680,26 +1605,27 @@ The corresponding inertial and gravitational projections share a single operatio
 \qquad 
  p_{\kappa} =\frac{E}{c} \kappa, 
 \]
-both governed by the same effective mass
+both governed by the same effective mass scaling
 \[
-m_{\mathrm{eff}} = \frac{E_0 \kappa_X}{\beta_Y c^2} = \frac{E}{c^2}.
+m_{\mathrm{eff}} = \frac{E}{c^2} = \frac{E_0 \kappa_X}{\beta_Y c^2}.
 \]
-Therefore,
+Therefore, the underlying invariant mass for both projections is identical:
 \[
-\boxed{\,m_g \equiv m_i \equiv m_{\mathrm{eff}}\,},
+\boxed{\,m_g \equiv m_i \equiv m = E_0/c^2\,},
 \]
 and the Einstein equivalence principle follows as a necessary structural identity of WILL Relational Geometry.
 \end{theorem}
+
 \begin{proof}
 \begin{itemize}
     \item \textbf{Inertial mass} is operationally defined as resistance to kinematic acceleration --- it appears in 
-$p_{\beta} = m_{\mathrm{eff}}⋅ \beta c$ \ref{prop:p_beta}. 
+$p_{\beta} = m_{\mathrm{eff}} \cdot \beta c$. 
     \item \textbf{Gravitational mass} is operationally defined as coupling to gravitational potential --- it appears in 
-$ p_{\kappa} =m_{\mathrm{eff}}⋅ \kappa c$ \ref{p_kappa}.
-\item \textbf{Both projections} share the identical prefactor $m_{\mathrm{eff}} =\frac{ \kappa_X}{\beta_Y } \cdot\frac{E_0}{c^2}   = \frac{E}{c^2}$ \ref{thm:energy-symmetry}  because both $p_{\beta}$ and $p_{\kappa} $ are projections of the same conserved internal rest state $E_0$ ($\beta_Y=\kappa_X=1$). Relational phase factors $\beta_Y$ and $\kappa_X$ rescale only external manifestations (energy, momentum, and rates), while $E_0$ remains unchanged. 
-\item \textbf{The equivalence} is the geometric consequence of $p_{\beta}$ and $p_{\kappa} $ being dual projections of a single relational rest state:
+$p_{\kappa} = m_{\mathrm{eff}} \cdot \kappa c$.
+    \item \textbf{Both projections} share the identical effective prefactor $m_{\mathrm{eff}} = \frac{E}{c^2}$ because both $p_{\beta}$ and $p_{\kappa}$ are projections of the same conserved internal rest state $E_0$ ($\beta_Y=\kappa_X=1$). Relational phase factors $\beta_Y$ and $\kappa_X$ rescale only external manifestations (effective energy and momentum), while the base invariant $E_0$ remains unchanged. 
+    \item \textbf{The equivalence} is the geometric consequence of $p_{\beta}$ and $p_{\kappa}$ being dual projections of a single relational rest state, requiring no independent mass parameters:
 \[
-\boxed{\,m_g \equiv m_i \equiv m_{\mathrm{eff}} = E_0/c^2\,}
+\boxed{\,m_g \equiv m_i \equiv m = E_0/c^2\,}
 \]
 \end{itemize}
 \end{proof}
@@ -1715,16 +1641,8 @@ E=\sum_a \left( E_0^{(a)} \frac{\kappa_X}{\beta_Y} \right).
 \]
 Since all channels scale by the same phase ratio $\frac{\kappa_X}{\beta_Y}$,
 ratios between channels cancel in all observables.  
-Therefore, composition-independence of motion (Eotvos universality) follows identically, 
+Therefore, composition-independence of motion (Eötvös universality) follows identically, 
 without requiring a postulate $m_g=m_i$.
-\end{remark}
-
-\begin{remark}[Quantum Interface]
-The relational phase increment inherits the same scaling:
-\[
-\Delta\phi \propto E\,\Delta\lambda,
-\]
-where $\Delta\lambda$ is the internal ordering parameter. Thus both kinematic and gravitational phase shifts share the same phase ratio scaling $\frac{\kappa_X}{\beta_Y}$, yielding composition-independent matter-wave interference patterns (see \href{https://willrg.com/documents/WILL_RG_III.pdf}{Part III: Relational Quantum Mechanics (R.Q.M.)}.
 \end{remark}
 
 
@@ -1927,25 +1845,21 @@ Therefore, within the single-point collapsed formalism:
 This completes the proof. Since all physical observations are relational (\ref{pr:relational}), embedding the energy budget within an absolute spatial container ($\vec{r}_A, \vec{r}_B$) introduces unobservable parameters, violating Epistemic Hygiene (\ref{pr:epistemic}). To remain empirically grounded, the collapsed potential $U$ must depend exclusively on the measurable physical relation $\vec{r}_B - \vec{r}_A$. Consequently, the law of equal and opposite forces emerges as the mathematical signature of any causally bound, background-independent system $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$.
 \end{proof}
 
-
-
 \subsection{Relational Orbital Mechanics (R.O.M.)}
 \hypertarget{sec:rom}{}\label{sec:rom}
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= Relational Orbital Mechanics (R.O.M.)]
-The natural evolution of this section within WILL RG Open Research led it to branch into its own, but not separate, \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M. paper}. It still remains structurally and logically a crucial part of this document and carries most of the empirical applications and computational tests.
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Relational Orbital Mechanics (R.O.M.)]
+The algebraic derivations and empirical applications of Relational Geometry are isolated in the supplementary document: \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{\textbf{R.O.M. paper}}. It functions as the operational extension of this document, containing the primary computational tests and phase-resolved orbital mechanics.
 \end{tcolorbox}
 
-This closed algebraic system recovers the leading contributions to perihelion precession, gravitational and transverse Doppler shifts, light deflection and frame-dragging through elementary closed-form expressions.
+This closed algebraic system recovers the leading contributions to perihelion precession, gravitational and transverse Doppler shifts, light deflection, and frame-dragging through elementary closed-form expressions.
 
 High-precision validation shows that all 66 multi-form identities are internally consistent to 50 significant digits and that the leading terms match the corresponding post-Newtonian expansions of general relativity. Higher-order differences remain below the sensitivity of current observations, including those of the S2 star.
 
 Complete phase-resolved orbits and system scales are recovered directly from spectroscopic and chronometric observables, with \(G\) and \(M\) entering only as unit-conversion factors. Key features of Kerr geometry follow algebraically from the same closure relation. Gravitational waves and the radiative two-body problem remain to be formulated within the relational ontology.
 
-
-\textbf{Within R.O.M. we reveal relational origin of:}
+\textbf{Within R.O.M., we reveal the relational origin of:}
 \begin{itemize}
-    \item Spectroscopic Shifts
     \item Kepler’s Third Law
     \item Eccentricity
     \item Vis-Viva
@@ -1955,28 +1869,28 @@ Complete phase-resolved orbits and system scales are recovered directly from spe
     \item Orbital Precession as Phase Accumulation
     \item Dynamic Event Horizon
     \item Gravitational Deflection and Lensing
-    \item Schwarzschild metric
-    \item Kerr metric
+    \item Schwarzschild Metric
+    \item Kerr Metric
     \item Algebraic Determination of System Scale
 \end{itemize}
 
 \textbf{We tested this closed algebraical system on:}
 \begin{itemize}
     \item GPS-Earth time dilation
-    \item Mercury’s Precession and Jupiter's orbit without mass or G
-    \item     Earth–Sun L1 Point Distance Derivation
+    \item Mercury’s Precession and Jupiter's orbit without mass or $G$
+    \item Earth–Sun L1 Point Distance Derivation
     \item S2 Star (Sgr A*) 24 Years Data Alignment Comparison: RG vs GR
     \item Lense-Thirring: LAGEOS-1 Satellite (Earth orbit)
 \end{itemize}
 
-Relational Orbital Mechanics, the algebraically closed system of equations developed in this supplement, demonstrates that the entire phenomenology of motion emerges as an algebraic consequence of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles}. All WILL RG results, including R.O.M., remain an unbroken chain of derivations from first principles under extreme methodological constraints with zero flexibility.
+Relational Orbital Mechanics demonstrates that the entire phenomenology of motion emerges as an algebraic consequence of the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:foundational}{Foundational Methodological Principles}. All results constitute an unbroken chain of derivation from first principles, maintaining the established epistemic constraints with zero free parameters.
 
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title= Colab Notebook R.O.M. Full Tests]
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook R.O.M. Full Tests]
 \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/ROM_FULL_TEST.ipynb}{ROM\_FULL\_TEST.ipynb} - In this notebook we perform three broad tests of Relational Orbital Mechanics:
 \begin{itemize}
-    \item Algebraically test the closed system (internal consistency of every multi-form identity). All 66 expressions  (50-digit, random c,G,M,a,e,O).
-    \item R.O.M. vs GR: We compute the exact Schwarzschild geodesic results by high-precision numerical integration (no approximation), then extract their Taylor coefficients in the SAME small parameter and compare term-by-term to R.O.M..
-    \item ROM reconstructs $a$, $R_s$, $r_p$, $r_a$ and the whole phase-resolved orbit, and recovers GM (a length$^3$/ time$^2$ combination, no G) and finally M (kg, G used ONLY here as a units conversion factor). 
+    \item Algebraically test the closed system (internal consistency of every multi-form identity). All 66 expressions (50-digit, random $c, G, M, a, e, O$).
+    \item R.O.M. vs GR: We compute the Schwarzschild geodesic results by high-precision numerical integration, extract their Taylor coefficients in the SAME small parameter, and compare term-by-term to R.O.M.
+    \item ROM reconstructs $a$, $R_s$, $r_p$, $r_a$ and the whole phase-resolved orbit, and recovers $GM$ (a length$^3$/time$^2$ combination, no $G$) and finally $M$ (kg, $G$ used ONLY here as a units conversion factor). 
 \end{itemize}
 \end{tcolorbox}
 
@@ -2152,7 +2066,7 @@ For a static, spherically symmetric configuration containing matter with density
 
 \begin{remark}[Scope of the reproduced sector]
 \hypertarget{rem:scope}{}\label{rem:scope}
-The differential form above reproduces the static $tt$-component. This is not the boundary of the framework: through \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{phase parametrization}  the same projections describe any single relational orbit --- bound at any \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:rel_ecc}{eccentricity} $e = 2\beta_p^2/\kappa_p^2 - 1$, and unbound \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_optics}{(deflection, lensing)}-- and rotating systems (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf\#sec:Kerr}{R.O.M. Kerr without metric}). \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:translation}{GR direct parameters translational mapping.} Current boundaries: \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges}{sec:challenges}.
+The differential form above reproduces the static $tt$-component. This is not the boundary of the framework: through \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{phase parametrization}  the same projections describe any single relational orbit --- bound at any \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:rel_ecc}{eccentricity} $e = 2\beta_p^2/\kappa_p^2 - 1$, and unbound \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_optics}{(deflection, lensing)}-- and rotating systems (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf\#sec:Kerr}{R.O.M. Kerr without metric}). \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:translation}{GR direct parameters translational mapping.} Current boundaries: \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:challenges}{sec:challenges}.
 \end{remark}
 
 \paragraph{The Vacuum Solution ($\rho_{matter} = 0$).}
