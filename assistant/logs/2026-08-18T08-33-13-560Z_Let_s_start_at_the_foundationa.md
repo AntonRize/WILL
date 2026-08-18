@@ -183,3 +183,44 @@ The Schrödinger equation emerges as the **continuum limit of the discrete closu
 | Entanglement (non-local) | Topological unity of shared phase network $S_{AB}$ |
 
 All quantum phenomena—quantization, uncertainty, superposition, entanglement, exclusion—are **necessary consequences of geometric closure on $S^1$ and $S^2$**, derived from the single principle $\text{SPACETIME} \equiv \text{ENERGY}$ ([WILL RG I, Principle 5](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying)).
+
+**User:** 1. **The 2PN Sign and Scaling Discrepancy**
+Your secular precession correction yields a negative $\mathcal{O}(\beta^4)$ term:
+
+$$\Delta\varphi_{\text{RG}} = \frac{3\pi R_s}{a(1-e^2)} - \frac{\pi R_s^2}{a^2(1-e^2)}$$
+
+
+
+In standard post-Newtonian General Relativity (2PN), the next-order contribution to periastron advance is strictly positive and scales with $(1-e^2)^{-2}$:
+
+$$\Delta\varphi_{\text{2PN}} \propto +\frac{R_s^2}{a^2(1-e^2)^2}$$
+
+
+
+How does your relational phase accumulation account for this sign difference and eccentricity scaling when tested against relativistic binary systems like PSR J0737−3039A/B?
+2. **$N$-Body Generalization Without a Background Metric**
+Your definition of spatial distance is explicitly keyed to a single horizon scale: $r = R_s / \kappa^2$. How do you formulate distance and relational phase closures for an $N$-body configuration of comparable masses where no single, central $R_s$ exists?
+
+**Assistant (Powered by Nemotron 550B):** ## 1. The 2PN Sign and Scaling Discrepancy
+
+**Direct Answer:** The WILL RG precession formula **does not reproduce the standard GR 2PN term**. The difference in sign ($-$ vs $+$) and eccentricity scaling ($(1-e^2)^{-1}$ vs $(1-e^2)^{-2}$) is a **structural prediction** of the relational phase accumulation, not an approximation error.
+
+### Derivation of the WILL RG $\mathcal{O}(\beta^4)$ Term
+From the **Precession Law** ([R.O.M., Thm. 5](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:precession_law)), the secular shift is the geometric accumulation of the relational phase divergence $\tau_Y^2 = 1 - \tau^2 = \beta^2 + \kappa^2 - \beta^2\kappa^2$ over a closed cycle:
+
+$$\Delta\varphi = \frac{2\pi \tau_Y^2}{1-e^2}.$$
+
+Imposing the **Closure Theorem** $\kappa^2 = 2\beta^2$ ([WILL RG I, Thm. 7](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure)) and the field identity $\kappa^2 = R_s/r$, evaluated at the semi-major axis $a$ ($\beta^2 = R_s/2a$, $\kappa^2 = R_s/a$), yields the **exact closed form**:
+
+$$\Delta\varphi_{\text{RG}} = \frac{2\pi}{1-e^2}\left( \frac{3R_s}{2a} - \frac{R_s^2}{2a^2} \right) = \underbrace{\frac{3\pi R_s}{a(1-e^2)}}_{\text{1PN}} \underbrace{- \frac{\pi R_s^2}{a^2(1-e^2)}}_{\mathcal{O}(\beta^4) \text{ WILL RG}}.$$
+
+The $\mathcal{O}(\beta^4)$ term originates **exclusively** from the cross-coupling $-\beta^2\kappa^2$ in $\tau_Y^2$. Its negative sign and $(1-e^2)^{-1}$ scaling are **rigid consequences** of the $S^1 \times S^2$ carrier topology and the closure condition $\kappa^2=2\beta^2$.
+
+### Status vs. GR 2PN and Binary Pulsars
+The documentation explicitly delimitates the scope of the verified identity ([R.O.M., Sec. 10](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:mercury)):
+
+> *"The scope of the present statement is restricted to the relation between the WILL RG closed-form expression and the **first-order post-Newtonian** GR precession formula. A comparison against fully non-linear geodesic integration in the Schwarzschild geometry --- which itself receives positive-definite corrections beyond the leading term --- is a separate calculation and is not addressed in this section."*
+
+For the **S2 star** ([R.O.M., Sec. 11](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:S2test)), the closure-locked precession $f_{\text{prec}} = (3\beta^2-2\beta^4)/(1-e^2)$ matches GR 1PN to $3\times10^{-5}$ relative. The $\mathcal{O}(\beta^4)$ deviation is **four orders of magnitude below current sensitivity** ($\beta^2 \sim 4\times10^{-5}$).
+
+**Regarding PSR J0737−3039A/B:** The current WILL documentation **does not explicitly cover** the double pulsar system. The framework predicts a specific, parameter-free $\mathcal
