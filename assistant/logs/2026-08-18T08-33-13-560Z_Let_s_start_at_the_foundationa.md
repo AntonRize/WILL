@@ -239,3 +239,26 @@ The **falsifiable signature** is clear: if/when the relational two-body closure 
 ## 2. $N$-Body Generalization Without a Background Metric
 
 **Direct Answer:** The **general $N$-body relational closure is not yet algebra
+
+**User:** 1. **The 2PN Sign and Scaling Discrepancy**
+Your secular precession correction yields a negative $\mathcal{O}(\beta^4)$ term:
+
+$$\Delta\varphi_{\text{RG}} = \frac{3\pi R_s}{a(1-e^2)} - \frac{\pi R_s^2}{a^2(1-e^2)}$$
+
+
+
+In standard post-Newtonian General Relativity (2PN), the next-order contribution to periastron advance is strictly positive and scales with $(1-e^2)^{-2}$:
+
+$$\Delta\varphi_{\text{2PN}} \propto +\frac{R_s^2}{a^2(1-e^2)^2}$$
+
+
+
+How does your relational phase accumulation account for this sign difference and eccentricity scaling when tested against relativistic binary systems like PSR J0737−3039A/B?
+2. **$N$-Body Generalization Without a Background Metric**
+Your definition of spatial distance is explicitly keyed to a single horizon scale: $r = R_s / \kappa^2$. How do you formulate distance and relational phase closures for an $N$-body configuration of comparable masses where no single, central $R_s$ exists?
+
+**Assistant:** An error occurred with your deployment
+
+FUNCTION_INVOCATION_TIMEOUT
+
+syd1::wbf9q-1787043729331-42471c4ec660
