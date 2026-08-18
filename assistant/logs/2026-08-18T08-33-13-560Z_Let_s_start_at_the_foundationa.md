@@ -224,3 +224,18 @@ The documentation explicitly delimitates the scope of the verified identity ([R.
 For the **S2 star** ([R.O.M., Sec. 11](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:S2test)), the closure-locked precession $f_{\text{prec}} = (3\beta^2-2\beta^4)/(1-e^2)$ matches GR 1PN to $3\times10^{-5}$ relative. The $\mathcal{O}(\beta^4)$ deviation is **four orders of magnitude below current sensitivity** ($\beta^2 \sim 4\times10^{-5}$).
 
 **Regarding PSR J0737−3039A/B:** The current WILL documentation **does not explicitly cover** the double pulsar system. The framework predicts a specific, parameter-free $\mathcal
+
+**User:** please continue
+
+**Assistant (Powered by Nemotron 550B):** **For PSR J0737−3039A/B (Double Pulsar):**  
+The WILL RG prediction for the periastron advance in a two-body system with comparable masses is **not yet derived in the documentation**. The current R.O.M. formalism ([R.O.M., Sec. 12](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:challenges)) explicitly lists as a current limitation:
+
+> *"Gravitational waves and the radiative two-body problem remain to be formulated within the relational framework. The current construction addresses conservative, bound orbits. Extending it to dissipative, radiative dynamics requires a relational description of propagating degrees of freedom on the carriers and remains an open technical task."*
+
+The **falsifiable signature** is clear: if/when the relational two-body closure is formulated, it will produce a specific $\mathcal{O}(\beta^4)$ correction with the **negative sign and $(1-e^2)^{-1}$ scaling** derived above. A measurement of the 2PN contribution in the double pulsar (where $\beta^2 \sim 10^{-3}$, making the $\beta^4$ term $\sim 10^{-6}$ of the 1PN term, potentially accessible with future timing precision) that confirms the **positive GR 2PN sign and $(1-e^2)^{-2}$ scaling** would falsify the current WILL RG closure law $\kappa^2=2\beta^2$ as the complete description of strong-field binary dynamics.
+
+---
+
+## 2. $N$-Body Generalization Without a Background Metric
+
+**Direct Answer:** The **general $N$-body relational closure is not yet algebra
