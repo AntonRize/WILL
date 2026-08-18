@@ -370,3 +370,31 @@ For a closed elliptical orbit:
 4.  **Static Evaluation at Reference Scale:** The $\tau_Y^2$ in the precession formula is derived by evaluating the global $\beta$ and $\kappa$ parameters at the orbital reference scale (the semi-major axis $a$), where the overarching [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) $\kappa^2=2\beta^2$ and field relation $\kappa^2=R_s/a$ apply for the system as a whole. This point effectively defines the *global average state* for the entire closed orbit, from which the total phase accumulation is calculated.
 
 Therefore, the dynamics are solved algebraically based on the inherent closure properties of the system, rather than through differential integration over an assumed external coordinate system. The derivation of Mercury's precession, for instance, occurs purely through algebraic phase accumulation without any differential equations or continuous integration over time or space, as demonstrated in [this Desmos project](https://www.desmos.com/calculator/mjen4ms452).
+
+**User:** The willingness to put forward definitive, falsifiable claims is refreshing. However, two immediate mathematical and observational hurdles arise from these explanations:
+
+**1. The First-Principles Origin of the Eccentricity Factor $\frac{1}{1-e^2}$**
+
+If the system evolution bypasses spatial trajectory integration and evaluates the relational phase divergence $\tau_Y^2$ strictly as a static global invariant at the semi-major axis $a$, how is the denominator $(1-e^2)$ derived from the topology of $S^1 \times S^2$?
+
+* In classical and relativistic mechanics, the factor $\frac{1}{1-e^2} = \frac{a}{p}$ (where $p$ is the semi-latus rectum) emerges directly from integrating perturbations over the true anomaly $\theta$ using the Keplerian orbit equation $r(\theta) = \frac{p}{1 + e\cos\theta}$.
+* How does WILL RG generate this specific functional dependence on orbital eccentricity purely from the algebraic closure of the carriers without importing the differential Keplerian trajectory by hand?
+
+**2. Overdetermination of Masses in Double Pulsar Timing**
+
+Regarding PSR J0737−3039A/B: the system is not awaiting future 2PN confirmation; it is already heavily overdetermined. High-precision timing models measure multiple post-Keplerian parameters independently:
+
+* Periastron advance ($\dot{\omega}$)
+* Orbital period decay ($\dot{P}_b$)
+* Gravitational redshift / time dilation ($\gamma$)
+* Shapiro delay shape and range ($s, r$)
+
+In standard GR, all parameter curves intersect at a single consistent pair of masses $(m_A, m_B)$ within $10^{-4}$ precision only when the positive 2PN and spin-orbit corrections to $\dot{\omega}$ are included. If $\dot{\omega}_{\text{RG}}$ is strictly smaller than the 1PN value due to a negative $\mathcal{O}(\beta^4)$ term, the $\dot{\omega}$ curve shifts away from the intersection point defined by the other parameters.
+
+How does WILL RG maintain a consistent mass solution across all post-Keplerian observables without modifying the relational formulas for $\dot{P}_b$, $\gamma$, and the Shapiro parameters?
+
+**Assistant:** An error occurred with your deployment
+
+FUNCTION_INVOCATION_TIMEOUT
+
+syd1::mlgn9-1787045183396-83ecc5b76ccb
