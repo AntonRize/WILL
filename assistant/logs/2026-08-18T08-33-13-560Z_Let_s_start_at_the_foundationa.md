@@ -324,3 +324,49 @@ The documentation explicitly states this as a current limitation and an area for
 The conceptual approach, "nested-contour," suggests a hierarchical application of relational closures, where each pair of interacting bodies defines its own local $S^1 \times S^2$ carrier pair and its own closure relation $\kappa^2 = 2\beta^2$. The interaction between these local closures would then be resolved by a higher-order, overarching relational closure. This complex algebraic formulation is a challenging but necessary step for a complete background-free $N$-body dynamics.
 
 Progress on this front is currently limited by mathematical facility rather than by any intrinsic prohibition within the relational ontology, and collaboration is invited.
+
+**User:** I appreciate the candor regarding the current mathematical boundaries and open problems in the framework. Stating explicitly that the negative sign at $\mathcal{O}(\beta^4)$ is an unambiguous, falsifiable prediction is precisely how theoretical physics should operate.
+
+Let’s zero in on two specific mechanical questions that follow directly from your answers:
+
+**1. The 2PN Precession in Binary Pulsars (PSR J0737−3039A/B)**
+For the double pulsar PSR J0737−3039A/B, relativistic timing models include the 2PN periastron advance contribution (roughly $+0.0004^\circ/\text{yr}$ on a secular rate of $\dot{\omega} \approx 16.90^\circ/\text{yr}$).
+
+* Because $\Delta\varphi_{\text{RG}}$ produces a **negative** $\mathcal{O}(\beta^4)$ shift, does WILL RG predict that the true total periastron advance for this system is **strictly smaller** than the 1PN value, directly contrary to GR?
+
+**2. Radial vs. Tangential Phase Coupling**
+In evaluating $\Delta\varphi = \frac{2\pi \cdot \tau_Y^2}{1-e^2}$, the phase divergence $\tau_Y^2 = \beta^2 + \kappa^2 - \beta^2\kappa^2$ was evaluated statically at the semi-major axis $a$ ($\kappa^2 = R_s/a$, $\beta^2 = R_s/2a$).
+
+* In eccentric orbits ($e > 0$), local values $\kappa(r)$ and $\beta(r)$ vary continuously between periapsis and apoapsis. Why is $\tau_Y^2$ evaluated as a static global constant rather than integrated along the closed trajectory $\oint \tau_Y^2(r) \, d\theta$?
+
+**Assistant (Powered by Gemini 2.5 Flash):** Thank you for your precise and rigorous questions.
+
+---
+
+## 1. The 2PN Precession in Binary Pulsars (PSR J0737−3039A/B)
+
+Yes, based on the current derivation of WILL Relational Geometry (RG), the framework predicts that the true total periastron advance for systems like PSR J0737−3039A/B would be **strictly smaller** than the 1PN value. This is directly contrary to the positive sign of the 2PN contribution in General Relativity (GR).
+
+As derived from the [Precession Law](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:precession_law) and the underlying [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure), the WILL RG secular precession includes a higher-order term with a fixed negative sign and specific eccentricity scaling:
+
+$$\Delta\varphi_{\text{RG}} = \underbrace{\frac{3\pi R_s}{a(1-e^2)}}_{\text{GR 1PN}} \;-\; \underbrace{\frac{\pi R_s^2}{a^2(1-e^2)}}_{\mathcal{O}(\beta^4) \text{ WILL RG correction}}.$$
+
+This negative $\mathcal{O}(\beta^4)$ term arises from the cross-coupling $-\beta^2\kappa^2$ within the relational phase divergence $\tau_Y^2$. If this derived form holds for comparable mass binary systems (which is an open research question within the framework, as stated in [R.O.M., Sec. 12](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:challenges)), then the total observed periastron advance would be reduced by this negative contribution.
+
+Therefore, for PSR J0737−3039A/B, WILL RG's current derivation implies a total precession value that is diminished by this term, directly contrasting the standard GR 2PN result, which adds a positive correction. This constitutes a clear, falsifiable prediction of the WILL RG framework.
+
+---
+
+## 2. Radial vs. Tangential Phase Coupling
+
+Your question assumes a continuous integration along an external spatial coordinate $r$ or an angular increment $d\theta$, as in classical or General Relativistic frameworks. WILL RG fundamentally rejects space and time as external, pre-existing containers over which integration occurs.
+
+In WILL RG, system evolution is described through **relational parameterization** and internal phase dependencies, not by differential equations of time ($d/dt$) or integration over a background manifold. Dynamics are derived from the algebraic closure of the system, which determines allowed states rather than continuous trajectories through an external space.
+
+For a closed elliptical orbit:
+1.  **Global Invariance:** The precession $\Delta\varphi$ is an **accumulated global phase shift per orbital cycle**, not a local instantaneous quantity that needs to be summed up at every point along a pre-defined path. The fundamental parameters $\beta$ and $\kappa$ in the $\tau_Y^2$ definition represent the *global, cycle-averaged* kinematic and potential amplitudes of the entire bound system.
+2.  **Binding Energy Invariant:** While local values $\kappa_o(O)$ and $\beta_o(O)$ vary throughout the orbit, their *difference of squares* remains a global invariant. As proven in the [Vis-Viva section](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:vis-viva), $\beta^2 = \kappa_o^2(O) - \beta_o^2(O) = \text{const}$. This constant $\beta^2$ represents the system's global binding energy, invariant across all orbital phases.
+3.  **Topological Closure:** For a bound elliptical orbit to be **relationally closed**, the *cycle-averaged* closure factor $\langle\delta\rangle_{\text{cycle}}$ must equal $1$ ([WILL RG I, Def. 9](https://willrg.com/documents/WILL_RG_I.pdf#def:closure_factor)). This implies that the overall energetic exchange between the $S^1$ and $S^2$ carriers must be balanced over a complete cycle.
+4.  **Static Evaluation at Reference Scale:** The $\tau_Y^2$ in the precession formula is derived by evaluating the global $\beta$ and $\kappa$ parameters at the orbital reference scale (the semi-major axis $a$), where the overarching [Closure Theorem](https://willrg.com/documents/WILL_RG_I.pdf#thm:closure) $\kappa^2=2\beta^2$ and field relation $\kappa^2=R_s/a$ apply for the system as a whole. This point effectively defines the *global average state* for the entire closed orbit, from which the total phase accumulation is calculated.
+
+Therefore, the dynamics are solved algebraically based on the inherent closure properties of the system, rather than through differential integration over an assumed external coordinate system. The derivation of Mercury's precession, for instance, occurs purely through algebraic phase accumulation without any differential equations or continuous integration over time or space, as demonstrated in [this Desmos project](https://www.desmos.com/calculator/mjen4ms452).
