@@ -1,0 +1,1490 @@
+settings@{
+  randomSeed:"7c1e4a9b2f6d8033ab5e19c4d7f20e6a",
+  viewport:@{
+    xmin:-6.6,
+    xmax:10.4,
+    ymin:-5.1,
+    ymax:3.3,
+  },
+  showGrid:false,
+  showXAxis:false,
+  showYAxis:false,
+  lockViewport:true,
+}
+
+"WILL RG — R.O.M.: GRAVITATIONAL ACCELERATION AND THE PHASE-RESOLVED ORBIT \nhttps://willrg.com/documents/WILL_RG_I.pdf#sec:acceleration  https://doi.org/10.5281/zenodo.17115270"
+
+"THIS IS INTERACTIVE GRAPH"
+
+"All five presets share ONE central body: the Sun. The R.O.M. primitive is the system scale R_s, not M or G. \nEverything below is derived from R_s, the global kinetic projection beta, the eccentricity e and the phase O."
+
+
+folder"INPUTS"{
+  "Speed of light in metres per second"
+
+  c=299792458@{color:"#2d70b3",slider:@{min:299792458,max:299792458}}
+
+  "Gravitational constant. Used ONLY for the legacy cross-check M = R_s c^2 / 2G and the Newtonian comparison g = GM/r^2. No R.O.M. quantity needs it."
+
+  G=6.6743 cross 10^-11@{color:"#388c46"}
+
+  "System scale of the central body (the Sun). This is the R.O.M. primitive: R_s = kappa_o^2 * r_o at every radius. Derived from the IAU nominal GM_sun."
+
+  R_s=2953.2500765@{color:"#c74440",slider:@{min:2953.2500765,max:2953.2500765}}
+
+  "Physical radius of the central body (IAU nominal solar radius) in metres. Sets the inner bound of physical validity."
+
+  R_sur=695700000@{color:"#ffa500",slider:@{min:695700000,max:695700000}}
+
+  "Astronomical unit in metres"
+
+  D_au=1.495978707 cross 10^11@{color:"#000000"}
+
+  "Seconds in one Julian century, for the arcsec/century precession readout"
+
+  Y_cen=3.15576 cross 10^9@{color:"#000000"}
+
+  "MASTER SLIDER 1 - global kinetic projection beta, on a log10 scale because beta spans two decades from the solar surface out to Jupiter. beta fixes the semi-major axis through a = R_s / (2 beta^2)."
+
+  L_beta=-4.002828@{color:"#2d70b3",slider:@{min:-5.2,max:-2.5,step:0.000001}}
+
+  "MASTER SLIDER 2 - orbital eccentricity. Named e_obs because bare e is Euler's number in Desmos."
+
+  e_obs=0.0167086@{color:"#c74440",slider:@{min:0,max:0.95,step:0.0001}}
+
+  "MASTER SLIDER 3 - free radial probe, log10 of the distance in AU. Independent of the orbit: it answers 'what is g at THIS radius'."
+
+  L_r=0@{color:"#6042a6",slider:@{min:-2.5,max:2,step:0.0001}}
+
+  "VISUAL ONLY - precession drawn per orbit, in degrees. The physical value is of order 1e-5 degrees and would be invisible, so the rose exaggerates it. The exaggeration factor is reported live on the graph."
+
+  N_prec=20@{color:"#388c46",slider:@{min:0,max:90,step:0.1}}
+
+  "Animation parameter: the idealised phase o, i.e. the azimuth angle swept in the plane. Runs over 24 orbits, then loops."
+
+  o=0@{
+    color:"#6042a6",
+    slider:@{
+      playing:true,
+      loopMode:"LOOP_FORWARD",
+      period:70000,
+      min:0,
+      max:150.79644737231007,
+    },
+  }
+}@{collapsed:true}
+
+folder"PRESET VALUES"{
+  "Preset values are stored as named constants so each preset button is a single action list. \nEdit a number here and the corresponding button picks it up immediately."
+
+  "Sun surface: grazing circular state at r = R_sun. Reference surface gravity 274 m/s^2."
+
+  b_sun=-2.836576@{color:"#ffa500"}
+
+  e_sun=0@{color:"#ffa500"}
+
+  L_sun=-2.332503@{color:"#ffa500"}
+
+  "Mercury: the precession benchmark. Observed anomalous advance 42.98 +/- 0.04 arcsec/century."
+
+  b_merc=-3.796738@{color:"#c74440"}
+
+  e_merc=0.20563@{color:"#c74440"}
+
+  L_merc=-0.412179@{color:"#c74440"}
+
+  "Earth: a = 1 AU by construction, so the probe log slider reads 0."
+
+  b_earth=-4.002828@{color:"#2d70b3"}
+
+  e_earth=0.0167086@{color:"#2d70b3"}
+
+  L_earth=0@{color:"#2d70b3"}
+
+  "Mars: the largest eccentricity among the inner presets after Mercury."
+
+  b_mars=-4.094275@{color:"#388c46"}
+
+  e_mars=0.0933941@{color:"#388c46"}
+
+  L_mars=0.182894@{color:"#388c46"}
+
+  "Jupiter: weakest field of the set, g at the semi-major axis drops to 2.19 x 10^-4 m/s^2."
+
+  b_jup=-4.360988@{color:"#6042a6"}
+
+  e_jup=0.0489@{color:"#6042a6"}
+
+  L_jup=0.716321@{color:"#6042a6"}
+
+  "The five preset actions. Clicking one rewrites beta, e and the radial probe together."
+
+  A_sun=(L_beta->b_sun,e_obs->e_sun,L_r->L_sun)@{color:"#ffa500"}
+
+  A_merc=(L_beta->b_merc,e_obs->e_merc,L_r->L_merc)@{color:"#c74440"}
+
+  A_earth=(L_beta->b_earth,e_obs->e_earth,L_r->L_earth)@{color:"#2d70b3"}
+
+  A_mars=(L_beta->b_mars,e_obs->e_mars,L_r->L_mars)@{color:"#388c46"}
+
+  A_jup=(L_beta->b_jup,e_obs->e_jup,L_r->L_jup)@{color:"#6042a6"}
+}@{collapsed:true}
+
+folder"OUTPUTS — GLOBAL SYSTEM"{
+  "Global kinetic projection recovered from the log slider. This is the invariant transverse baseline that defines the circular equilibrium state of the orbit."
+
+  beta=10^(L_beta)@{color:"#2d70b3"}
+
+  "Closure theorem: kappa^2 = 2 beta^2. The potential projection on the S^2 carrier is fixed by the kinetic projection on S^1 — one relational resource, two carriers.\nhttps://willrg.com/documents/WILL_RG_I.pdf#sec:closure"
+
+  kappa=beta*sqrt(2)@{color:"#c74440"}
+
+  "Potential phase factor: the fraction of phase capacity left over after the potential projection. Equals 1/(1+z_kappa)."
+
+  kappa_X=sqrt(1-kappa^2)@{color:"#c74440"}
+
+  "Kinetic phase factor on the S^1 carrier. Equals 1/(1+z_beta)."
+
+  beta_Y=sqrt(1-beta^2)@{color:"#2d70b3"}
+
+  "Relational spacetime factor tau = kappa_X beta_Y = 1/Z_sys. This single number is what a spectrograph actually measures."
+
+  tau=kappa_X*beta_Y@{color:"#6042a6"}
+
+  "Relational spacetime phase factor. tau_Y^2 = 3 beta^2 - 2 beta^4 is the exact second-order quantity that drives perihelion precession."
+
+  tau_Y=sqrt(3*beta^2-2*beta^4)@{color:"#6042a6"}
+
+  "Total relational shift: the magnitude of the state difference on the combined carrier."
+
+  Q=sqrt(3)*beta@{color:"#388c46"}
+
+  "Semi-major axis. a = R_s / kappa^2 — the scale of the system is the reciprocal of its potential projection, no mass required.\nEarth reference: 1.496 x 10^11 m"
+
+  a=R_s/kappa^2@{color:"#000000"}
+
+  "Orthogonal eccentricity"
+
+  e_Y=sqrt(1-e_obs^2)@{color:"#c74440"}
+
+  "Shape factor: the ratio r_a/r_p, and simultaneously beta_p/beta_a and kappa_p^2/kappa_a^2. Structural and dynamical symmetry are the same number."
+
+  e_X=(1+e_obs)/(1-e_obs)@{color:"#c74440"}
+
+  "Perihelion and aphelion radii"
+
+  r_p=a*(1-e_obs)@{color:"#c74440"}
+
+  r_a=a*(1+e_obs)@{color:"#2d70b3"}
+
+  "Local projections at the apsides"
+
+  kappa_p=kappa/sqrt(1-e_obs)@{color:"#c74440"}
+
+  beta_p=beta*sqrt(e_X)@{color:"#c74440"}
+
+  beta_a=beta/sqrt(e_X)@{color:"#2d70b3"}
+
+  kappa_a=sqrt(beta^2+beta_a^2)@{color:"#2d70b3"}
+
+  "Orbital period from the projection alone. T = 2 pi a / (beta c).\nEarth reference: 365.2575 days"
+
+  T=(2*pi*a)/(beta*c)@{color:"#000000"}
+
+  "Angular frequency"
+
+  omega=(beta*c)/a@{color:"#000000"}
+
+  "Invariant angular momentum: the fixed exchange rate between the S^2 and S^1 carriers.\nEarth reference: 4.455 x 10^15 m^2/s"
+
+  h_W=a*beta*c*e_Y@{color:"#6042a6"}
+
+  "Legacy mass parameter, recovered rather than assumed. This is the ONLY place G enters.\nSolar reference: 1.9884 x 10^30 kg"
+
+  M=(R_s*c^2)/(2*G)@{color:"#388c46"}
+
+  "Relational density of the system inside the semi-major axis"
+
+  rho=(kappa^2*c^2)/(8*pi*G*a^2)@{color:"#388c46"}
+
+  "Density bound at the horizon condition kappa^2 = 1"
+
+  rho_max=c^2/(8*pi*G*a^2)@{color:"#388c46"}
+
+  "Temporal radius of the system"
+
+  t_sys=a/c@{color:"#000000"}
+
+  "Binding energy — the energy invariant, written directly as beta^2 = R_s/(2a)"
+
+  E_b=beta^2@{color:"#c74440"}
+
+  "GRAVITATIONAL ACCELERATION at the semi-major axis. Pure R.O.M. form: the fourth power of the potential projection divided by twice the system scale.\nSolar-surface preset reference: 274.2 m/s^2"
+
+  g_a=(kappa^4*c^2)/(2*R_s)@{color:"#c74440"}
+
+  "Same quantity at perihelion — used to normalise the acceleration arrow in the visualisation."
+
+  g_p=(kappa_p^4*c^2)/(2*R_s)@{color:"#c74440"}
+
+  "Perihelion precession per orbit, exact to second order.\nMercury reference: 5.019 x 10^-7 rad/orbit"
+
+  Delta_phi=(2*pi*tau_Y^2)/(1-e_obs^2)@{color:"#c74440"}
+
+  "Precession per phase radian"
+
+  Omega_phi=tau_Y^2/(1-e_obs^2)@{color:"#c74440"}
+
+  "Constant ratio between the true phase O and the idealised phase o"
+
+  Omega=1-Omega_phi@{color:"#c74440"}
+
+  "Precession converted to the standard observational unit.\nMercury reference: 42.98 +/- 0.04 arcsec/century"
+
+  P_cy=Delta_phi*(Y_cen/T)*(180/pi)*3600@{color:"#c74440"}
+}@{collapsed:true}
+
+folder"OUTPUTS — FREE RADIAL PROBE"{
+  "This block answers the question the dashboard was built for: given a radial distance, what is the gravitational acceleration? It is independent of the orbit — the probe may sit anywhere."
+
+  "Probe radius in metres, from the log10-AU slider"
+
+  r_pr=10^(L_r)*D_au@{color:"#6042a6"}
+
+  "Local potential projection at the probe. kappa_o^2 = R_s / r is the whole of R.O.M.'s 'field': one scalar, no metric."
+
+  kappa_pr=sqrt(R_s/r_pr)@{color:"#6042a6"}
+
+  "GRAVITATIONAL ACCELERATION AT THE PROBE — the R.O.M. expression. Taking d/dr of the orbital invariant kappa_o^2 - beta_o^2 = beta^2 gives -R_s/r^2 = (2/c^2) a_acc, hence g = kappa_o^4 c^2 / 2 R_s = R_s c^2 / 2 r^2.\nhttps://willrg.com/documents/WILL_RG_I.pdf#sec:acceleration"
+
+  g_pr=(kappa_pr^4*c^2)/(2*R_s)@{color:"#c74440"}
+
+  "The same acceleration by the Newtonian route, using the recovered mass parameter. Shown only as a cross-check — it is not an input anywhere."
+
+  g_N=(G*M)/r_pr^2@{color:"#000000"}
+
+  "Ratio of the two routes. Must read 1 to every displayed digit."
+
+  g_ratio=g_pr/g_N@{color:"#388c46"}
+
+  "Circular-orbit kinetic projection at the probe radius: beta_c^2 = R_s / 2r. Defined at any radius."
+
+  beta_c=sqrt(R_s/(2*r_pr))@{color:"#2d70b3"}
+
+  "Instantaneous kinetic projection a body ON THE CURRENT ORBIT would carry at the probe radius. Real only while r_p <= r <= r_a; outside that band the orbit never reaches this radius and the readout goes undefined, which is the correct answer."
+
+  beta_opr=sqrt(R_s/r_pr-R_s/(2*a))@{color:"#2d70b3"}
+
+  "Transverse component at the probe radius, fixed by the angular-momentum invariant"
+
+  beta_Tpr=(R_s*e_Y)/(r_pr*2*beta)@{color:"#388c46"}
+
+  "Radial component at the probe radius — same domain restriction as beta_opr"
+
+  beta_Rpr=sqrt(beta_opr^2-beta_Tpr^2)@{color:"#c74440"}
+}@{collapsed:true}
+
+folder"OUTPUTS — PHASE VARIABLES AT TRUE PHASE O"{
+  "The relational state of the orbiting body is a function of one angle. Everything in this block is exact for the value of O shown, whatever the animation is doing on screen."
+
+  "Visual analog of Omega = O/o, chosen so that the apsis advance drawn on screen is exactly N_prec degrees per orbit. Only the RATE at which the apsis turns is exaggerated; every quantity below is exact at the O it reports. At the physical precession this form and the R.O.M. form Omega = 1 - Omega_phi agree to fourteen digits."
+
+  Omega_v=1/(1+N_prec/360)@{color:"#388c46"}
+
+  "Exaggeration factor actually applied to the drawn rose: drawn advance divided by the true Delta_phi"
+
+  N_ex=(N_prec*(pi/180))/Delta_phi@{color:"#388c46"}
+
+  "True phase (anomaly measured from the moving perihelion)"
+
+  O=Omega_v*o@{color:"#6042a6"}
+
+  "Same phase folded into one revolution, for readouts"
+
+  O_d=mod(O,2*pi)@{color:"#6042a6"}
+
+  O_deg=O_d*(180/pi)@{color:"#6042a6"}
+
+  "Normalised radial distance"
+
+  eta_o=(1-e_obs^2)/(1+e_obs*cos(O))@{color:"#000000"}
+
+  "Radial distance at phase O"
+
+  r_o=a*eta_o@{color:"#000000"}
+
+  r_oAU=r_o/D_au@{color:"#000000"}
+
+  "Local potential projection: kappa_o^2 = R_s / r_o"
+
+  kappa_o=sqrt(R_s/r_o)@{color:"#c74440"}
+
+  kappa_Xo=sqrt(1-kappa_o^2)@{color:"#c74440"}
+
+  "GRAVITATIONAL ACCELERATION AT THE BODY'S CURRENT RADIUS"
+
+  g_o=(kappa_o^4*c^2)/(2*R_s)@{color:"#c74440"}
+
+  "Radial kinetic projection — the line-of-sight breathing of the orbit. Zero at both apsides, extremal near the balance points."
+
+  beta_R=(beta*e_obs*sin(O))/e_Y@{color:"#c74440"}
+
+  "Transverse kinetic projection — the sideways sweep that carries the angular momentum"
+
+  beta_T=(beta*(1+e_obs*cos(O)))/e_Y@{color:"#388c46"}
+
+  "Total instantaneous kinetic projection. Pythagorean sum of the two components."
+
+  beta_o=(beta*sqrt(1+e_obs^2+2*e_obs*cos(O)))/e_Y@{color:"#2d70b3"}
+
+  beta_Yo=sqrt(1-beta_o^2)@{color:"#2d70b3"}
+
+  "Local closure factor: the running ratio kappa_o^2 / 2 beta_o^2. Equals 1 exactly at the two balance points where r = a."
+
+  delta_o=kappa_o^2/(2*beta_o^2)@{color:"#6042a6"}
+
+  "Local total relational shift"
+
+  Q_o=sqrt(kappa_o^2+beta_o^2)@{color:"#6042a6"}
+
+  "Angular speed at phase O"
+
+  omega_o=((beta*c)/a)*((1+e_obs*cos(O))^2)/((1-e_obs^2)*e_Y)@{color:"#000000"}
+
+  "Phase spacetime factor — the reciprocal of the system redshift an observer would record at this phase"
+
+  tau_o=kappa_Xo*beta_Yo@{color:"#6042a6"}
+
+  "Gravitational redshift and transverse Doppler shift at this phase"
+
+  z_ko=1/kappa_Xo-1@{color:"#c74440"}
+
+  z_bo=1/beta_Yo-1@{color:"#2d70b3"}
+
+  "Velocity components in km/s, for readability"
+
+  v_R=(beta_R*c)/1000@{color:"#c74440"}
+
+  v_T=(beta_T*c)/1000@{color:"#388c46"}
+
+  v_o=(beta_o*c)/1000@{color:"#2d70b3"}
+
+  v_cir=(beta_c*c)/1000@{color:"#2d70b3"}
+
+  "Mean-anomaly analog zeta. R.O.M. states it as two branches, ascending and descending, differing by 2 pi. The first R.O.M. term 2 arctan( sin(O/2) / (e_X^(1/2) cos(O/2)) ) IS the eccentric anomaly, and the second term e e_Y sin(O)/(1+e cos O) IS e sin(E). The single continuous expression below is that same closed form with the branch test removed — algebraically identical on both branches, no discontinuity at O = pi."
+
+  E_ecc=O_d-2*arctan((e_obs*sin(O_d))/(1+e_Y+e_obs*cos(O_d)))@{color:"#000000"}
+
+  zeta_o=E_ecc-e_obs*sin(E_ecc)@{color:"#000000"}
+
+  "Elapsed time since the last perihelion passage, in days"
+
+  t_pd=((T/(2*pi))*zeta_o)/86400@{color:"#000000"}
+
+  "Convenience readouts"
+
+  a_AU=a/D_au@{color:"#000000"}
+
+  T_d=T/86400@{color:"#000000"}
+
+  r_prAU=10^(L_r)@{color:"#6042a6"}
+
+  r_prR=r_pr/R_sur@{color:"#ffa500"}
+
+  "R.O.M. recovers the full gravitational description of a bound system — acceleration, speed, redshift, period, angular momentum, precession — from a single scalar projection kappa_o^2 = R_s/r and its kinetic partner. No metric tensor, no force, no mass parameter, no background container of space and time."
+}@{collapsed:true}
+
+folder"CONSISTENCY"{
+  "Every check below reaches an already-defined quantity by a structurally different algebraic route. A trivial rearrangement would prove nothing."
+
+  "Closure theorem, the axiom the whole system rests on. Must be 1."
+
+  C_1=kappa^2/(2*beta^2)@{color:"#388c46"}
+
+  "Binding energy recovered from the PHASE variables rather than from R_s/2a. kappa_o comes from the geometric radius, beta_o from the ellipse — independent paths. Must be 1 at every phase."
+
+  C_2=(kappa_o^2-beta_o^2)/beta^2@{color:"#388c46"}
+
+  "Pythagorean decomposition of the kinetic projection on the S^1 carrier. Must be 1."
+
+  C_3=(beta_R^2+beta_T^2)/beta_o^2@{color:"#388c46"}
+
+  "Angular momentum from the phase pair (r_o, omega_o) against the global closed form. Must be 1."
+
+  C_4=(r_o^2*omega_o)/h_W@{color:"#388c46"}
+
+  "Phase invariant beta_T^2 eta_o^2 = beta^2 (1 - e^2). Must be 1."
+
+  C_5=(beta_T*eta_o)/(beta*e_Y)@{color:"#388c46"}
+
+  "Total relational shift by two routes: Q = sqrt(kappa^2 + beta^2) versus Q = sqrt(3/2) kappa. Must be 1."
+
+  C_6=sqrt(kappa^2+beta^2)/Q@{color:"#388c46"}
+
+  "Kepler's third law falls out of R_s = 8 pi^2 a^3 / (T^2 c^2), reached through the unit-full chain rather than through beta. Must be 1."
+
+  C_7=((8*pi^2*a^3)/(T^2*c^2))/R_s@{color:"#388c46"}
+
+  "Local closure factor from the projections versus its closed trigonometric form. Must be 1."
+
+  C_8=delta_o*((1+e_obs^2+2*e_obs*cos(O))/(1+e_obs*cos(O)))@{color:"#388c46"}
+
+  "Precession by the unit-full route: 3 pi R_s / a(1-e^2) minus pi R_s^2 / a^2(1-e^2), against the projection route 2 pi tau_Y^2/(1-e^2)."
+
+  Delta_alt=(3*pi*R_s)/(a*(1-e_obs^2))-(pi*R_s^2)/(a^2*(1-e_obs^2))@{color:"#6042a6"}
+
+  C_9=Delta_alt/Delta_phi@{color:"#388c46"}
+
+  "Gravitational acceleration: R.O.M. projection route against the Newtonian mass route. Must be 1."
+
+  C_10=g_pr/g_N@{color:"#388c46"}
+
+  "Semi-major-axis acceleration re-derived from the probe expression evaluated at r = a. Must be 1."
+
+  C_11=g_a/((R_s*c^2)/(2*a^2))@{color:"#388c46"}
+
+  "Mass parameter recovered from the projection instead of from R_s. Duplicate-definition workaround."
+
+  sqrt(M^2)=(kappa^2*c^2*a)/(2*G)@{color:"#2d70b3"}
+
+  "Schwarzschild radius recovered from the phase pair (kappa_o, r_o) at the current phase."
+
+  sqrt(R_s^2)=kappa_o^2*r_o@{color:"#c74440"}
+
+  "Period against 2 pi / omega. Must be 1."
+
+  C_12=((2*pi)/omega)/T@{color:"#388c46"}
+}@{collapsed:true}
+
+folder"VISUALIZATION"{
+  "Geometry helpers. S_v auto-fits the orbit to the frame for any eccentricity."
+
+  S_v=1.7/(1+e_obs)@{color:"#000000",hidden:true}
+
+  "Azimuth of the CURRENT perihelion, so the highlighted ellipse tracks the precessing apsis"
+
+  psi=o-O_d/Omega_v@{color:"#000000",hidden:true}
+
+  "Body position on the drawn rose"
+
+  X_b=S_v*eta_o*cos(o)@{color:"#000000",hidden:true}
+
+  Y_b=S_v*eta_o*sin(o)@{color:"#000000",hidden:true}
+
+  "Arrow scales: velocity normalised to the perihelion speed, acceleration to the perihelion value"
+
+  V_sc=0.85/beta_p@{color:"#000000",hidden:true}
+
+  G_sc=0.6/g_p@{color:"#000000",hidden:true}
+
+  "Drawn radius of the central body and of the probe circle (the probe circle saturates at the frame edge when the probe lies outside the plotted region)"
+
+  R_d=S_v*(R_sur/a)@{color:"#000000",hidden:true}
+
+  R_v=min(S_v*(r_pr/a),1.92)@{color:"#000000",hidden:true}
+
+  "Baseline and vertical scale of the log-log g(r) strip at the bottom of the frame"
+
+  Y_g0=-3.731@{color:"#000000",hidden:true}
+
+  S_g=0.1556@{color:"#000000",hidden:true}
+
+  "THE PRECESSION ROSE — 24 successive orbits. This is the R.O.M. orbit r(O) = a(1-e^2)/(1+e cos O) traced against the azimuth o, with O = Omega o. Because the apsis advances a little each orbit the curve never closes, and the family of orbits sweeps out a rose."
+
+  (
+    S_v*((1-e_obs^2)/(1+e_obs*cos(Omega_v*t)))*cos(t),
+    S_v*((1-e_obs^2)/(1+e_obs*cos(Omega_v*t)))*sin(t)
+  )@{
+    color:"#6042a6",
+    lines:@{opacity:0.35,width:1.4},
+    domain:@{t:@{min:0,max:150.79644737231007}},
+  }
+
+  "The osculating ellipse the body is on RIGHT NOW, highlighted against the rose"
+
+  (
+    S_v*((1-e_obs^2)/(1+e_obs*cos(t)))*cos(t+psi),
+    S_v*((1-e_obs^2)/(1+e_obs*cos(t)))*sin(t+psi)
+  )@{
+    color:"#000000",
+    lines:@{opacity:0.9,width:2.2},
+    domain:@{t:@{min:0,max:6.283185307179586}},
+  }
+
+  "Central body, drawn to true scale relative to the semi-major axis"
+
+  (R_d*cos(t),R_d*sin(t))@{
+    color:"#ffa500",
+    lines:@{opacity:0.9,width:2},
+    domain:@{t:@{min:0,max:6.283185307179586}},
+  }
+
+  (0,0)@{
+    color:"#ffd700",
+    points:@{size:16},
+    label:@{
+      text:"focus",
+      size:0.8,
+      orientation:"below_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "Free radial probe drawn as a dashed circle of radius r"
+
+  (R_v*cos(t),R_v*sin(t))@{
+    color:"#6042a6",
+    lines:@{opacity:0.8,width:1.6,style:"DASHED"},
+    domain:@{t:@{min:0,max:6.283185307179586}},
+  }
+
+  "Radius vector from the focus to the body"
+
+  (X_b*t,Y_b*t)@{
+    color:"#000000",
+    lines:@{opacity:0.45,width:1.2,style:"DASHED"},
+    domain:@{t:@{min:0,max:1}},
+  }
+
+  "Apsides of the current orbit"
+
+  (S_v*(1-e_obs)*cos(psi),S_v*(1-e_obs)*sin(psi))@{
+    color:"#c74440",
+    points:@{size:9},
+    label:@{
+      text:"perihelion",
+      size:0.8,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (S_v*(1+e_obs)*cos(psi+pi),S_v*(1+e_obs)*sin(psi+pi))@{
+    color:"#2d70b3",
+    points:@{size:9},
+    label:@{
+      text:"aphelion",
+      size:0.8,
+      orientation:"left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "TRANSVERSE kinetic projection beta_T, drawn from the body perpendicular to the radius"
+
+  (X_b-V_sc*beta_T*sin(o)*t,Y_b+V_sc*beta_T*cos(o)*t)@{
+    color:"#388c46",
+    lines:@{width:3.5},
+    domain:@{t:@{min:0,max:1}},
+  }
+
+  (X_b-V_sc*beta_T*sin(o),Y_b+V_sc*beta_T*cos(o))@{
+    color:"#388c46",
+    points:@{size:8,style:"OPEN"},
+    label:@{
+      text:"β_T",
+      size:1,
+      orientation:"above_right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "RADIAL kinetic projection beta_R, drawn along the radius. It reverses sign at aphelion and vanishes at both apsides."
+
+  (X_b+V_sc*beta_R*cos(o)*t,Y_b+V_sc*beta_R*sin(o)*t)@{
+    color:"#c74440",
+    lines:@{width:3.5},
+    domain:@{t:@{min:0,max:1}},
+  }
+
+  (X_b+V_sc*beta_R*cos(o),Y_b+V_sc*beta_R*sin(o))@{
+    color:"#c74440",
+    points:@{size:8,style:"OPEN"},
+    label:@{
+      text:"β_R",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "TOTAL kinetic projection beta_o = the vector sum"
+
+  (
+    X_b+V_sc*(beta_R*cos(o)-beta_T*sin(o))*t,
+    Y_b+V_sc*(beta_R*sin(o)+beta_T*cos(o))*t
+  )@{
+    color:"#2d70b3",
+    lines:@{opacity:0.55,width:6},
+    domain:@{t:@{min:0,max:1}},
+  }
+
+  "GRAVITATIONAL ACCELERATION vector, pointing at the focus, length proportional to g. Watch it grow as the inverse square of the radius."
+
+  (X_b-G_sc*g_o*cos(o)*t,Y_b-G_sc*g_o*sin(o)*t)@{
+    color:"#ffa500",
+    lines:@{width:5},
+    domain:@{t:@{min:0,max:1}},
+  }
+
+  (X_b-G_sc*g_o*cos(o),Y_b-G_sc*g_o*sin(o))@{
+    color:"#ffa500",
+    points:@{size:8,style:"OPEN"},
+    label:@{
+      text:"g",
+      size:1.3,
+      orientation:"below_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "The orbiting body"
+
+  (X_b,Y_b)@{
+    color:"#000000",
+    points:@{size:13},
+    label:@{
+      text:"O = ${O_{deg}}°",
+      size:0.9,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "PRESET BUTTONS — the action feature. Each one rewrites beta, e and the probe together."
+
+  (-6.4,3.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"▣ PRESETS — click one",
+      size:1.1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.4,2.6)@{
+    color:"#ffa500",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"☀ SUN SURFACE   g ≈ 274 m/s²",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_sun,
+    clickDescription:"",
+  }
+
+  (-6.4,2.15)@{
+    color:"#c74440",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"☿ MERCURY   e = 0.2056",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_merc,
+    clickDescription:"",
+  }
+
+  (-6.4,1.7)@{
+    color:"#2d70b3",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"⊕ EARTH   a = 1 AU",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_earth,
+    clickDescription:"",
+  }
+
+  (-6.4,1.25)@{
+    color:"#388c46",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"♂ MARS   e = 0.0934",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_mars,
+    clickDescription:"",
+  }
+
+  (-6.4,0.8)@{
+    color:"#6042a6",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"♃ JUPITER   a = 5.20 AU",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_jup,
+    clickDescription:"",
+  }
+
+  (-6.4,0.25)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"All presets share one central body:\nthe Sun. R_s is fixed at 2953.25 m.\nOnly β, e and the probe change.",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.4,-0.75)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"The rose exaggerates precession by\n×${N_{ex}} so it is visible at all.\nEvery number on the right is exact\nat the phase O it reports.",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "COLUMN A — local relational state of the body at the true phase O"
+
+  (2.3,3.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◆ BODY AT TRUE PHASE O",
+      size:1.1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,2.6)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"g = ${g_{o}} m/s²",
+      size:1.5,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,2.15)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"β_R = ${\\beta_{R}}   (${v_{R}} km/s)",
+      size:1.2,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,1.75)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"O = ${O_{deg}}°",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,1.42)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"r = ${r_{o}} m",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,1.09)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"r = ${r_{oAU}} AU",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,0.76)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"β_T = ${\\beta_{T}}   (${v_{T}} km/s)",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,0.43)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"β_o = ${\\beta_{o}}   (${v_{o}} km/s)",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,0.1)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"κ_o = ${\\kappa_{o}}",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-0.23)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"δ_o = ${\\delta_{o}}",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-0.56)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Q_o = ${Q_{o}}",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-0.89)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"z_κo = ${z_{ko}}",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-1.22)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"z_βo = ${z_{bo}}",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-1.55)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"since perihelion: ${t_{pd}} d",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "COLUMN B — global system parameters and precession"
+
+  (6.3,3.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"● GLOBAL SYSTEM (fixed for the orbit)",
+      size:1.1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,2.6)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"β = ${\\beta}",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,2.27)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"κ = ${\\kappa}   (κ² = 2β²)",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,1.94)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"a = ${a} m",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,1.61)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"a = ${a_{AU}} AU",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,1.28)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"R_s = ${R_{s}} m",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,0.95)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"M = ${M} kg   (recovered, not assumed)",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,0.62)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"T = ${T_{d}} days",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,0.29)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"h_W = ${h_{W}} m²/s",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,-0.04)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"binding energy β² = ${E_{b}}",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,-0.37)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"ρ = ${\\rho} kg/m³   g(a) = ${g_{a}} m/s²",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,-0.75)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"↻ PRECESSION (R.O.M., exact to 2nd order)",
+      size:1.1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,-1.13)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Δφ = ${\\Delta_{phi}} rad/orbit",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,-1.46)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Δφ = ${P_{cy}} arcsec/century",
+      size:1.2,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.3,-1.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Ω_φ = ${\\Omega_{phi}}   (Mercury: 42.98 observed)",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "CONTROL ROW — draggable gauges. Each point carries its own live readout."
+
+  (t,-2.35)@{
+    color:"#2d70b3",
+    lines:@{opacity:0.35,width:2},
+    domain:@{t:@{min:-5.2,max:-2.5}},
+  }
+
+  (L_beta,-2.35)@{
+    color:"#2d70b3",
+    points:@{size:11,drag:"X"},
+    label:@{
+      text:"⟸ β = ${\\beta} ⟹",
+      size:1,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.2,-2.75)@{
+    color:"#388c46",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"↺ set β = Earth orbit",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:L_beta->b_earth,
+    clickDescription:"",
+  }
+
+  (t,-2.75)@{
+    color:"#c74440",
+    lines:@{opacity:0.35,width:2},
+    domain:@{t:@{min:-1.6,max:1.44}},
+  }
+
+  (-1.6+e_obs*3.2,-2.75)@{
+    color:"#c74440",
+    points:@{size:11,drag:"X"},
+    label:@{
+      text:"⟸ e = ${e_{obs}} ⟹",
+      size:1,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (1.6,-2.75)@{
+    color:"#388c46",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"↺ set e = 0",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:e_obs->0,
+    clickDescription:"",
+  }
+
+  (t,-2.35)@{
+    color:"#388c46",
+    lines:@{opacity:0.35,width:2},
+    domain:@{t:@{min:3.2,max:8.2}},
+  }
+
+  (3.2+N_prec/18,-2.35)@{
+    color:"#388c46",
+    points:@{size:11,drag:"X"},
+    label:@{
+      text:"⟸ drawn precession = ${N_{prec}}°/orbit  (×${N_{ex}} exaggerated) ⟹",
+      size:0.9,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (3.2,-2.75)@{
+    color:"#388c46",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"↺ set drawn precession = 20°",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:N_prec->20,
+    clickDescription:"",
+  }
+
+  (6.6,-2.75)@{
+    color:"#388c46",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"↺ set o = 0  (restart animation)",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:o->0,
+    clickDescription:"",
+  }
+
+  "g(r) STRIP — the free radial probe. Log-log, so the inverse-square law is a straight line of slope -2. Drag the purple dot along the line to choose a radius."
+
+  (t,Y_g0+S_g*log((R_s*c^2)/(2*(10^(t)*D_au)^2)))@{
+    color:"#c74440",
+    lines:@{width:3},
+    domain:@{t:@{min:-2.5,max:2}},
+  }
+
+  (t,-4.92)@{
+    color:"#000000",
+    lines:@{opacity:0.5,width:1.2},
+    domain:@{t:@{min:-2.5,max:2}},
+  }
+
+  (L_r,Y_g0+S_g*log(g_pr))@{
+    color:"#6042a6",
+    points:@{size:13,drag:"X"},
+    label:@{
+      text:"⟸ drag ⟹",
+      size:0.9,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (L_r,-4.92)@{
+    color:"#6042a6",
+    points:@{size:7,drag:"X"},
+    label:@{
+      text:"${r_{prAU}} AU",
+      size:0.85,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (L_sun,Y_g0+S_g*log((R_s*c^2)/(2*(10^(L_sun)*D_au)^2)))@{
+    color:"#ffa500",
+    points:@{size:7},
+    label:@{
+      text:"☀",
+      size:1,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (L_merc,Y_g0+S_g*log((R_s*c^2)/(2*(10^(L_merc)*D_au)^2)))@{
+    color:"#c74440",
+    points:@{size:7},
+    label:@{
+      text:"☿",
+      size:1,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (L_earth,Y_g0+S_g*log((R_s*c^2)/(2*(10^(L_earth)*D_au)^2)))@{
+    color:"#2d70b3",
+    points:@{size:7},
+    label:@{
+      text:"⊕",
+      size:1,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (L_mars,Y_g0+S_g*log((R_s*c^2)/(2*(10^(L_mars)*D_au)^2)))@{
+    color:"#388c46",
+    points:@{size:7},
+    label:@{
+      text:"♂",
+      size:1,
+      orientation:"below_right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (L_jup,Y_g0+S_g*log((R_s*c^2)/(2*(10^(L_jup)*D_au)^2)))@{
+    color:"#6042a6",
+    points:@{size:7},
+    label:@{
+      text:"♃",
+      size:1,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.5,-3.12)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"g(r) = κ_r⁴c²/2R_s = R_s c²/2r²   (log–log, slope −2)",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "PROBE READOUT"
+
+  (2.4,-3.5)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◈ FREE RADIAL PROBE",
+      size:1.1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.4,-3.88)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"g = ${g_{pr}} m/s²",
+      size:1.5,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.4,-4.3)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"r = ${r_{pr}} m  =  ${r_{prAU}} AU  =  ${r_{prR}} R☉",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.4,-4.63)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"κ_r = ${\\kappa_{pr}}   circular v = ${v_{cir}} km/s",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (7.2,-3.88)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Newton GM/r² = ${g_{N}} m/s²",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (7.2,-4.21)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"R.O.M. / Newton = ${g_{ratio}}",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (7.2,-4.54)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"β_R on this orbit here = ${\\beta_{Rpr}}",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (7.2,-4.87)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"(undefined unless r_p ≤ r ≤ r_a)",
+      size:0.8,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+}@{collapsed:true}

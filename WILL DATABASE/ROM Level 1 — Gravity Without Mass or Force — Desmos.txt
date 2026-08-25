@@ -1,0 +1,882 @@
+settings@{
+  randomSeed:"3b8f1d6a4e2c90577fa1c3e85d40b219",
+  viewport:@{
+    xmin:-7.6,
+    xmax:7.6,
+    ymin:-4.8,
+    ymax:3.6,
+  },
+  showGrid:false,
+  showXAxis:false,
+  showYAxis:false,
+  lockViewport:true,
+}
+
+"WILL RG — GRAVITY WITHOUT MASS, FORCE OR G (LEVEL 1) \nhttps://willrg.com  https://doi.org/10.5281/zenodo.17115270"
+
+"THIS IS INTERACTIVE GRAPH"
+
+"Everything on the screen is built from two lengths and their ratio. Drag the black probe with your mouse. Nothing else is required to follow it."
+
+folder"BODIES — the five buttons"{
+  "Each body is described by exactly two numbers: R_s, the length that belongs to the body, and R_b, the radius you would actually measure with a tape. Nothing else about the body is ever used."
+
+  "Earth. R_s is under nine millimetres."
+
+  R_sE=0.008870056@{color:"#2d70b3"}
+
+  R_bE=6371000@{color:"#2d70b3"}
+
+  "Jupiter"
+
+  R_sJ=2.819156@{color:"#ffa500"}
+
+  R_bJ=71492000@{color:"#ffa500"}
+
+  "The Sun"
+
+  R_sS=2953.2500765@{color:"#ffd700"}
+
+  R_bS=695700000@{color:"#ffd700"}
+
+  "Neutron star: 1.4 solar masses squeezed into a 12 km ball"
+
+  R_sN=4134.5501071@{color:"#6042a6"}
+
+  R_bN=12000@{color:"#6042a6"}
+
+  "Black hole: 10 solar masses. Here the two lengths are the same number, which is what a black hole IS."
+
+  R_sB=29532.500765@{color:"#000000"}
+
+  R_bB=29532.500765@{color:"#000000"}
+
+  "Compactness of each body, written as a power of ten. This is the single number that sets its position on the ladder at the bottom of the screen."
+
+  L_qE=log(R_sE/R_bE)@{color:"#2d70b3"}
+
+  L_qJ=log(R_sJ/R_bJ)@{color:"#ffa500"}
+
+  L_qS=log(R_sS/R_bS)@{color:"#ffd700"}
+
+  L_qN=log(R_sN/R_bN)@{color:"#6042a6"}
+
+  L_qB=log(R_sB/R_bB)@{color:"#000000"}
+
+  "The five buttons. Each one sets the body and puts the probe back at 3 radii, released from 6."
+
+  A_earth=(R_b->R_bE,L_q->L_qE,n_r->3,n_0->6)@{color:"#2d70b3"}
+
+  A_jup=(R_b->R_bJ,L_q->L_qJ,n_r->3,n_0->6)@{color:"#ffa500"}
+
+  A_sun=(R_b->R_bS,L_q->L_qS,n_r->3,n_0->6)@{color:"#ffd700"}
+
+  A_ns=(R_b->R_bN,L_q->L_qN,n_r->3,n_0->6)@{color:"#6042a6"}
+
+  A_bh=(R_b->R_bB,L_q->L_qB,n_r->3,n_0->6)@{color:"#000000"}
+}@{collapsed:true}
+
+folder"INPUTS — the four things you can move"{
+  "Speed of light in metres per second. The only constant of nature on this screen."
+
+  c=299792458@{color:"#2d70b3",slider:@{min:299792458,max:299792458}}
+
+  "Gravity at the Earth's surface, used only as a familiar yardstick for the acceleration readout."
+
+  g_E=9.80665@{color:"#388c46",slider:@{min:9.80665,max:9.80665}}
+
+  "WHERE THE PROBE IS, counted in radii of the body. 1 means standing on the surface."
+
+  n_r=3@{color:"#000000",slider:@{min:1,max:6,step:0.001}}
+
+  "WHERE THE PROBE STARTED, at rest, counted in the same radii. It fell from here to where it is now."
+
+  n_0=6@{color:"#ffd700",slider:@{min:1,max:6,step:0.001}}
+
+  "HOW COMPACT THE BODY IS, written as a power of ten: -9 means R_s is a billionth of the body's radius. Set by the buttons, or drag the marker on the ladder."
+
+  L_q=-8.856301@{color:"#c74440",slider:@{min:-10,max:0,step:0.0001}}
+
+  "HOW BIG THE BODY IS, in metres. Set by the buttons."
+
+  R_b=6371000@{color:"#ffa500",slider:@{min:10000,max:1000000000}}
+}@{collapsed:true}
+
+folder"WHAT FOLLOWS FROM THEM"{
+  "The body's own length. Compactness times size. This is the only thing about the body that the probe can feel."
+
+  kappa_R=sqrt(10^(L_q))@{color:"#c74440"}
+
+  R_s=kappa_R^2*R_b@{color:"#c74440"}
+
+  "Where the probe is, and where it started, in metres."
+
+  r=n_r*R_b@{color:"#000000"}
+
+  r_0=n_0*R_b@{color:"#ffd700"}
+
+  "DEPTH. The ratio of the two lengths, and the whole of what people call a gravitational field. It runs from almost nothing far away to exactly 1 at the red circle."
+
+  kappa_o=sqrt(R_s/r)@{color:"#c74440"}
+
+  "THE PART THAT IS HELD BACK. Fixed the moment the probe was released and never changes afterwards, however far the probe falls. This is the conserved quantity."
+
+  beta=sqrt(R_s/r_0)@{color:"#2d70b3"}
+
+  "THE PART THAT HAS TURNED INTO MOTION. Depth minus the held part. Every bit of depth the probe gains shows up here and nowhere else."
+
+  beta_o=sqrt(max(kappa_o^2-beta^2,0))@{color:"#c74440"}
+
+  "The same motion written as a speed, in metres per second and in kilometres per second."
+
+  v_o=beta_o*c@{color:"#c74440"}
+
+  v_k=v_o/1000@{color:"#c74440"}
+
+  "ACCELERATION. The rate of the trade, rewritten per second of clock time. Not a cause of anything: a convenience."
+
+  g=(R_s*c^2)/(2*r^2)@{color:"#ffa500"}
+
+  "The same acceleration measured in Earth surface gravities."
+
+  n_g=g/g_E@{color:"#ffa500"}
+
+  "Distance in kilometres, for readability."
+
+  r_k=r/1000@{color:"#000000"}
+
+  "The depth the probe would reach standing on the surface. The full height of the bar on the right."
+
+  q_sur=kappa_R^2@{color:"#c74440"}
+
+  "Depth at the probe, as a plain number for the ladder."
+
+  q_o=kappa_o^2@{color:"#c74440"}
+}@{collapsed:true}
+
+folder"PICTURE"{
+  "Scene geometry. The body is always drawn the same size, so that only the numbers change when you switch bodies. That is the point: the geometry is identical, the ratio is not."
+
+  X_c=-2.6@{color:"#000000",hidden:true}
+
+  Y_c=0.35@{color:"#000000",hidden:true}
+
+  S_c=0.34@{color:"#000000",hidden:true}
+
+  "Ladder scale: one decade of depth per 1.1818 units of screen"
+
+  W_dec=1.1818182@{color:"#000000",hidden:true}
+
+  "Bar heights. Full height 3.2 means the probe is standing on the surface."
+
+  H_1=3.2/n_0@{color:"#2d70b3",hidden:true}
+
+  H_2=max(3.2/n_r,H_1)@{color:"#c74440",hidden:true}
+
+  "THE BODY, drawn to a fixed size"
+
+  (X_c+S_c*cos(t),Y_c+S_c*sin(t))@{
+    color:"#ffa500",
+    lines:@{width:3},
+    domain:@{t:@{min:0,max:6.283185307179586}},
+  }
+
+  (X_c,Y_c)@{color:"#ffa500",points:@{size:14}}
+
+  (X_c,Y_c-0.52)@{
+    color:"#ffa500",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"the body",
+      size:0.95,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE RED CIRCLE: the distance at which the depth would reach exactly 1. For the Earth it is 9 millimetres across and cannot be drawn. For a black hole it sits exactly on the surface."
+
+  (X_c+S_c*(10^(L_q))*cos(t),Y_c+S_c*(10^(L_q))*sin(t))@{
+    color:"#c74440",
+    lines:@{width:2.5},
+    domain:@{t:@{min:0,max:6.283185307179586}},
+  }
+
+  "WHERE THE PROBE STARTED, at rest. Drag the gold handle below the body to move it."
+
+  (X_c+S_c*n_0*cos(t),Y_c+S_c*n_0*sin(t))@{
+    color:"#ffd700",
+    lines:@{opacity:0.8,width:2,style:"DASHED"},
+    domain:@{t:@{min:0,max:6.283185307179586}},
+  }
+
+  (X_c,Y_c-S_c*n_0)@{
+    color:"#ffd700",
+    points:@{size:11,drag:"Y"},
+    label:@{
+      text:"⇧ released from rest here: ${n_{0}} radii ⇩",
+      size:0.9,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "The slot the probe runs along"
+
+  (X_c+S_c*t,Y_c)@{
+    color:"#000000",
+    lines:@{opacity:0.3,width:2},
+    domain:@{t:@{min:1,max:6}},
+  }
+
+  "THE PROBE. This is the one thing to drag."
+
+  (X_c+S_c*n_r,Y_c)@{color:"#000000",points:@{size:15,drag:"X"}}
+
+  (X_c+S_c*3.5,Y_c+0.78)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"⟸  drag the black dot  ⟹",
+      size:1.15,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "How fast it is going, drawn as a blue arrow. Length is the speed compared with the fastest this body could give it."
+
+  (X_c+S_c*n_r-0.8*sqrt(max(1/n_r-1/n_0,0))*t,Y_c+0.3)@{
+    color:"#2d70b3",
+    lines:@{width:5},
+    domain:@{t:@{min:0,max:1}},
+  }
+
+  (X_c+S_c*n_r-0.8*sqrt(max(1/n_r-1/n_0,0)),Y_c+0.3)@{
+    color:"#2d70b3",
+    points:@{size:8,style:"OPEN"},
+    label:@{
+      text:"speed",
+      size:0.9,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "How hard it is being pulled, drawn as an orange arrow. Length falls off as the square of the distance, which you can watch happen."
+
+  (X_c+S_c*n_r-(0.8/n_r^2)*t,Y_c-0.3)@{
+    color:"#ffa500",
+    lines:@{width:5},
+    domain:@{t:@{min:0,max:1}},
+  }
+
+  (X_c+S_c*n_r-0.8/n_r^2,Y_c-0.3)@{
+    color:"#ffa500",
+    points:@{size:8,style:"OPEN"},
+    label:@{
+      text:"pull",
+      size:0.9,
+      orientation:"below_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE BAR — the whole lesson in one picture. Watch the blue block while you drag."
+
+  P_1=(1.2,-1.6)@{color:"#000000",hidden:true}
+
+  P_2=(1.9,-1.6)@{color:"#000000",hidden:true}
+
+  P_3=(1.9,-1.6+H_1)@{color:"#000000",hidden:true}
+
+  P_4=(1.2,-1.6+H_1)@{color:"#000000",hidden:true}
+
+  P_5=(1.9,-1.6+H_2)@{color:"#000000",hidden:true}
+
+  P_6=(1.2,-1.6+H_2)@{color:"#000000",hidden:true}
+
+  polygon(P_1,P_2,P_3,P_4)@{
+    color:"#2d70b3",
+    lines:@{opacity:0.9,width:1.5},
+    fill:0.75,
+  }
+
+  polygon(P_4,P_3,P_5,P_6)@{
+    color:"#c74440",
+    lines:@{opacity:0.9,width:1.5},
+    fill:0.75,
+  }
+
+  polygon((1.2,-1.6),(1.9,-1.6),(1.9,1.6),(1.2,1.6))@{
+    color:"#000000",
+    lines:@{opacity:0.7,width:1.5,style:"DASHED"},
+  }
+
+  (1.2,2.15)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"THE TRADE",
+      size:1.3,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (1.2,1.8)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"full box = on the surface",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.0,-1.6+H_1/2)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"held back",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.0,-1.6+(H_1+H_2)/2)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"motion",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (1.2,-1.95)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"whole bar = depth R_s/r",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE BUTTONS"
+
+  (-7.4,2.45)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"▣ CHOOSE A BODY",
+      size:1.2,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.4,2.05)@{
+    color:"#2d70b3",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"⊕  EARTH",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_earth,
+    clickDescription:"",
+  }
+
+  (-7.4,1.7)@{
+    color:"#ffa500",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"♃  JUPITER",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_jup,
+    clickDescription:"",
+  }
+
+  (-7.4,1.35)@{
+    color:"#ffd700",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"☀  THE SUN",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_sun,
+    clickDescription:"",
+  }
+
+  (-7.4,1)@{
+    color:"#6042a6",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"✦  NEUTRON STAR",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_ns,
+    clickDescription:"",
+  }
+
+  (-7.4,0.65)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"●  BLACK HOLE",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_bh,
+    clickDescription:"",
+  }
+
+  (-7.4,0.15)@{
+    color:"#388c46",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"↺ put the probe back at 3 radii",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:n_r->3,
+    clickDescription:"",
+  }
+
+  (-7.4,-0.2)@{
+    color:"#388c46",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"↺ release it from 6 radii again",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:n_0->6,
+    clickDescription:"",
+  }
+
+  "TITLE"
+
+  (-7.4,3.35)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"GRAVITY, WITHOUT MASS OR FORCE",
+      size:1.7,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.4,2.95)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Pick a body. Then drag the black probe in and out and watch the bar on the right.",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "READOUTS"
+
+  (4.7,3.3)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◆ THE BODY",
+      size:1.15,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,2.9)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"its length R_s = ${R_{s}} m",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,2.55)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"its radius = ${R_{b}} m",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,2.1)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◆ THE PROBE",
+      size:1.15,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,1.7)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"distance = ${n_{r}} radii",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,1.35)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"             = ${r_{k}} km",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,0.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"DEPTH  R_s / r = ${q_{o}}",
+      size:1.35,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,0.35)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"SPEED = ${v_{k}} km/s",
+      size:1.35,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,-0.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"        = ${\\beta_{o}} of light speed",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,-0.5)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◆ THE PULL",
+      size:1.15,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,-0.95)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"g = ${g} m/s²",
+      size:1.35,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.7,-1.35)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"  = ${n_{g}} × Earth gravity",
+      size:1.1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE LADDER — where each body sits, across ten powers of ten"
+
+  (t,-2.6)@{
+    color:"#000000",
+    lines:@{opacity:0.5,width:1.5},
+    domain:@{t:@{min:-6.5,max:6.5}},
+  }
+
+  (-6.5+(11+L_qE)*W_dec,-2.6)@{
+    color:"#2d70b3",
+    points:@{size:9},
+    label:@{
+      text:"Earth",
+      size:0.85,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5+(11+L_qJ)*W_dec,-2.6)@{
+    color:"#ffa500",
+    points:@{size:9},
+    label:@{
+      text:"Jupiter",
+      size:0.85,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5+(11+L_qS)*W_dec,-2.6)@{
+    color:"#ffd700",
+    points:@{size:9},
+    label:@{
+      text:"Sun",
+      size:0.85,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5+(11+L_qN)*W_dec,-2.6)@{
+    color:"#6042a6",
+    points:@{size:9},
+    label:@{
+      text:"neutron star",
+      size:0.85,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5+(11+L_qB)*W_dec,-2.6)@{
+    color:"#000000",
+    points:@{size:9},
+    label:@{
+      text:"black hole",
+      size:0.85,
+      orientation:"above_right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "The body you have chosen — drag it along the ladder to make the body more or less compact"
+
+  (-6.5+(11+L_q)*W_dec,-2.6)@{
+    color:"#c74440",
+    points:@{size:14,drag:"X"},
+    label:@{
+      text:"⟸ this body ⟹",
+      size:0.95,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "The probe's own depth, always to the left of the body it is orbiting"
+
+  (-6.5+(11+log(q_o))*W_dec,-2.6)@{
+    color:"#388c46",
+    points:@{size:9,style:"OPEN"},
+    label:@{
+      text:"probe",
+      size:0.85,
+      orientation:"below_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5+W_dec,-2.95)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"depth 0.0000000001",
+      size:0.8,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.5,-2.95)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"depth 1",
+      size:0.8,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (0,-2.95)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"how deep the surface of each body is",
+      size:0.8,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE THREE SENTENCES"
+
+  (-7.4,-3.45)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"TWO LENGTHS — R_s belongs to the body, r is how far out the probe sits. Only their ratio matters. That ratio is the DEPTH.",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.4,-3.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"THE TRADE — drag the probe inward. Depth grows, and exactly that much reappears as speed. The blue block never moves.",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.4,-4.25)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"WHAT IS MISSING — no mass, no force, no gravitational constant. None of them were needed to draw any of this.",
+      size:1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.4,-4.62)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"The depth is exact everywhere. The pull g is the trade rate rewritten per second of clock time; for the last two bodies read it as a first estimate.",
+      size:0.8,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+}@{collapsed:true}

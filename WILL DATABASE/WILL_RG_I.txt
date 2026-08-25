@@ -195,6 +195,8 @@ $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hli
 $\downarrow$ \textit{(by Duality of Relation Lemma)} $\downarrow$\\\hline
 \textbf{Relational Conservation Theorem:} $\underbrace{\text{Amplitude}^2}_{\text{External Transformation}} + \underbrace{\text{Phase}^2}_{\text{Internal Change}} = 1$\\[10pt]\hline
 $\boxed{\underbrace{1/\beta_Y=1+z_{\beta}}_{\text{transverse Doppler shift}} \underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic $S^1$}}}$ \textbf{Relational Projections} $\boxed{\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential $S^2$}} \underbrace{1/\kappa_X = 1+z_{\kappa}}_{\text{gravitational redshift}}}$\\[8pt]\hline
+$\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
+\textbf{Closure Theorem:} $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$ $\Longrightarrow$ $ \boxed{ \kappa^2 = 2\beta^2}$\\\hline
 $\downarrow$ \textit{(by Relational Conservation Theorem derive metric intervals as scaffolding)} $\downarrow$\\\hline
 \textbf{Minkowski:} $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
 \textbf{Schwarzschild:} $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2\!\left(1 - (R_s/r)\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
@@ -207,8 +209,6 @@ E = E_0 \cdot \kappa_X/0 \to \infty
 \textbf{Event Horizon:} $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
 E = E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt]\hline
-$\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
-\textbf{Closure Theorem:} $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$ $\Longrightarrow$ $ \boxed{ \kappa^2 = 2\beta^2}$\\\hline
 $\downarrow$ \textit{(by Unified Relational Scaling Lemma)} $\downarrow$\\\hline
 \textbf{Equivalence Principle} $\boxed{m_g \equiv m_i \equiv m = E_0/c^2}$\\\hline
 $\downarrow$ \textit{(\textbf{Lagrangian and Hamiltonian} derived as collapsed single-point approximations)} $\downarrow$\\\hline
@@ -652,7 +652,7 @@ A point on $S^1$ and $S^2$ is not a position but a partition: how much of the sy
 \begin{lemma}[Duality of Relation]
 \hypertarget{lem:duality}{}\label{lem:duality}
 \leavevmode
-By the Principle of Relational Origin (\ref{pr:relational}), the physical manifestation of a state cannot be quantified by a single absolute magnitude. The identification of spacetime with energy necessitates a complementary internal ratio of two measures:
+By the Principle of Relational Origin (\ref{pr:relational}), the physical manifestation of a state cannot be quantified by a single absolute magnitude. The elimination of background manifolds necessitates a complementary internal ratio of two measures:
 \begin{enumerate}
     \item the \textbf{amplitude} of transformation (external shift), and
     \item the \textbf{phase} of transformation (internal order).
@@ -699,6 +699,22 @@ For both kinematic ($S^1$) and potential ($S^2$) modes, the sum of the squared A
 By Theorem~\ref{thm:carriers}, the balanced relational ledger is carried by the maximally symmetric geometries $S^1$ and $S^2$. Normalizing the total relational ledger to unity (1), any physical state corresponds to a point on these carriers. The algebraic identity of orthogonal projections on a unit circle and two-sphere dictates that the sum of their squares must equal the squared radius. Therefore, the parameters satisfy $\beta^2 + \beta_Y^2 = 1$ and $\kappa^2 + \kappa_X^2 = 1$, encoding the finite, closed relational ledger. 
 \end{proof}
 
+\subsubsection{Consequence: Relativistic Effects}
+
+\begin{proposition}[Physical Interpretation: Relativistic Effects]
+\hypertarget{prop:relativity}{}\label{prop:relativity}
+\leavevmode
+The Conservation of Relation Theorem~\ref{thm:conservation} implies that any redistribution between the orthogonal components manifests physically as the relativistic effects of time dilation and length contraction.
+\end{proposition}
+
+\begin{proof}
+\leavevmode
+By Theorem~\ref{thm:conservation}, the components satisfy $\beta^2 + \beta_Y^2 = 1$ and $\kappa^2 + \kappa_X^2 = 1$. 
+An increase in Amplitude ($\beta, \kappa$) enforces a geometric decrease in Phase measure ($\beta_Y, \kappa_X$). 
+This necessary reduction of $\beta_Y$ and $\kappa_X$ corresponds to the dilation of proper time and the contraction of proper length, while the growth of $\beta$ and $\kappa$ represents momentum or potential depth. Thus, the kinematic and potential trade-off is the direct, un-parameterized physical expression of the geometric closure of the $S^1$ and $S^2$ relational carriers.  
+\end{proof}
+
+This identifies Relativistic and Gravitational Time Dilation not as a mysterious ``slowing down'' of clocks, but as geometric \textbf{phase rotation}. As a system invests more of its relational energy ledger into external Amplitude ($\beta$ or $\kappa$), it necessarily withdraws from its internal Phase ($\beta_Y$ or $\kappa_X$), changing the rate of its proper time evolution.
 
 \subsection{Phase Projections as Spectroscopic Shifts}
 \hypertarget{sec:spectroscopic_shift}{}\label{sec:spectroscopic_shift}
@@ -720,15 +736,15 @@ By Duality of Relation Lemma (\ref{lem:duality}) the phase projection governs th
 1 + z_\kappa = \frac{\kappa_{X(obs)}}{\kappa_{X(source)}}.
 \end{equation}
 
-Substituting the observer's maximal phase ($\kappa_{X(obs)} = 1$), the phase of the source is isolated:
+Substituting the observer's maximal phase ($\kappa_{X(obs)} = 1$) --- representing the invariance of the local measurement against the local frame --- the phase of the source is isolated:
 \begin{equation}
 \kappa_{X(source)} = \frac{1}{1+z_\kappa}.
 \end{equation}
 
 Substituting this internal phase back into the initial closure invariant yields the algebraic identity:
-\begin{equation}
-\kappa^2 = 1 - \frac{1}{(1+z_\kappa)^2}.
-\end{equation}
+
+$\boxed{\kappa^2 = 1-\frac{1}{(1+z_{\kappa})^2}}$  ($z_{\kappa}=$ gravitational redshift) \\
+
 \end{proof}
 
 \begin{theorem}[Kinematic Phase Shift (Transverse Doppler)]
@@ -744,22 +760,19 @@ By the $S^1$ closure invariant (\href{https://willrg.com/documents/WILL_RG_I.pdf
 \beta^2 + \beta_Y^2 = 1 \quad \Longrightarrow \quad \beta^2 = 1 - \beta_Y^2.
 \end{equation}
 
-Following self-centering, the observer's external kinematic projection is zero ($\beta_{obs} = 0$), yielding maximum internal kinematic phase: $\beta_{Y(obs)} \equiv 1$.
-
-The transverse Doppler shift $z_\beta$ (measured orthogonally to eliminate classical line-of-sight kinematics) is the pure operational measure of the proper time discrepancy. The optical scaling ratio equates to the phase ratio:
+The transverse Doppler shift $z_\beta$ (without observer dependant line-of-sight kinematics) is the optical measure of phase discrepancy ratio:
 \begin{equation}
 1 + z_\beta = \frac{\beta_{Y(obs)}}{\beta_{Y(source)}}.
 \end{equation}
-
-Substituting $\beta_{Y(obs)} = 1$, we isolate the internal phase of the moving source:
+The observer's external kinematic projection is zero against local frame ($\beta_{obs} = 0$), yielding internal kinematic phase: $\beta_{Y(obs)} \equiv 1$. Substituting $\beta_{Y(obs)} = 1$, we isolate the internal phase of the moving source:
 \begin{equation}
 \beta_{Y(source)} = \frac{1}{1+z_\beta}.
 \end{equation}
 
 Substituting this back into the $S^1$ closure invariant yields the algebraic identity:
-\begin{equation}
-\beta^2 = 1 - \frac{1}{(1+z_\beta)^2}.
-\end{equation}
+
+$\boxed{\beta^2=1-\frac{1}{(1+z_{\beta})^{2}}}$  ($z_{\beta}=$ transverse Doppler shift) \\
+
 \end{proof}
 
 \hypertarget{thm:operational}{}\label{thm:operational}
@@ -772,15 +785,12 @@ The relational projections are encoded in the combined phase interactions of lig
 Spectroscopy does not measure "gravitational potential" or "kinematic velocity" as independent isolated vectors; it measures the total accumulated phase discrepancy between the source and the observer. We define the \textbf{Relational Spacetime Factor} $\tau$ as the inverse of the system's combined measured redshift:
 \hypertarget{eq:tau_observable}{}\label{eq:tau_observable}
 
-$\boxed{\kappa^2 = 1-\frac{1}{(1+z_{\kappa})^2}}$  ($z_{\kappa}=$ gravitational redshift) \\
-$\boxed{\beta^2=1-\frac{1}{(1+z_{\beta})^{2}}}$  ($z_{\beta}=$ transverse Doppler shift) \\
-
 \begin{equation}
 \tau \equiv \frac{1}{Z_{sys}} =  \frac{1}{(1+z_{\kappa})(1+z_{\beta})}.
 \end{equation}
 This single observable represents the product of the internal phase projections of the carriers $S^2$ and $S^1$:
 \begin{equation}
-\tau = \underbrace{\kappa_X}_{\text{Gravitational Phase}} \cdot \underbrace{\beta_Y}_{\text{Kinematic Phase}} = \sqrt{1-\kappa^2}\sqrt{1-\beta^2}.
+\tau = \underbrace{\kappa_X}_{\text{Potential Phase}} \cdot \underbrace{\beta_Y}_{\text{Kinematic Phase}} = \sqrt{1-\kappa^2}\sqrt{1-\beta^2}.
 \end{equation}
 
 \textbf{Step 2: Relational Identity.}
@@ -790,6 +800,61 @@ Expanding the product of the squared phases yields the relationship between the 
 \end{equation}
 The optical signal contains the complete information regarding the system's structural relational state, acquired directly through observation without invoking absolute properties.
 \end{proof}
+
+
+
+
+\subsection{Relational Origin of Spatial Distance}
+\hypertarget{sec:inverse_square}{}\label{sec:inverse_square}
+
+Spatial distance is derived as the inverse of the potential projection. The familiar inverse-square force law appears only in the metric scaffolding of legacy coordinate descriptions and is not part of the relational core.
+
+\begin{theorem}[Inverse-Distance Potential Amplitude]
+\hypertarget{thm:inverse-square}{}\label{thm:inverse-square}
+\leavevmode
+The inverse-distance potential proportionality \(\kappa^2 \propto 1/r\) is a geometric necessity of the \(S^2\) carrier's relational ledger, determined without spatial primitives. 
+\end{theorem}
+
+\begin{proof}
+\leavevmode
+Distance cannot be an \emph{a priori} foundational primitive. It violates the principles of Relational Origin (\ref{pr:relational}) and Ontological Minimalism (\ref{pr:minimalism}). Therefore it must be defined by the relational tension between energy states. By the \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:spectroscopic_shift}{Spectroscopic Phase Shift Theorem}, the potential projection \(\kappa^2\) is operationally extracted entirely from the dimensionless redshift \(z_\kappa\), independent of spatial parameters.
+
+\(S^2\) is the omnidirectional relational carrier with two degrees of freedom. Let \(\kappa\) be the active potential projection per independent degree of freedom. Since the omnidirectional ledger distributes identically over both DOF (\ref{lem:dof-indifference}), the dimensionless radial measure $\tilde{r}$ is the inverse of the external amplitude projection counted once for each DOF:
+\begin{equation}
+\tilde{r}
+=
+\frac{1}{\kappa}
+\cdot
+\frac{1}{\kappa}
+=
+\frac{1}{\kappa^2}.
+\end{equation}
+Saturation point $\kappa^2=1$ defines causal horizon $r = R_s$ \ref{rem:Rs} and spatial distance emerges as
+\begin{equation}
+r = \frac{R_s}{\kappa^2},
+\qquad
+\Longleftrightarrow
+\qquad
+\kappa^2 = \frac{R_s}{r}.
+\label{eq:r_label}
+\end{equation}
+Thus \(\kappa^2 \propto 1/r\). No background manifold, coordinate derivative, or force law is introduced. This is a direct realization of the Unifying Principle (\ref{pr:unifying}). The \(1/r\) proportionality is an analytic identity defining spatial distance, not an empirical input.
+\end{proof}
+
+\begin{remark}
+\label{rem:Rs}
+    Here and in all RG papers the causal horizon \(\kappa=1\) is symbolised with the usual letters for the Schwarzschild radius \(R_s\) for translational ease. Despite their ontological difference, these two horizons are mathematically identical. In order to keep the number of newly introduced symbols at a minimum, the historical symbols remain. The complete independence of causal horizon \(\kappa=1\) from its historical origin \(R_s=\frac{2GM}{c^2}\) is proven in \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{R.O.M.} sections \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:unitless_core}{sec:unitless core}, \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization}{sec:relational\_parameterization},  \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:absolute_scale}{sec:absolute\_scale}, \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr}{sec:Kerr} and others. 
+\end{remark}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
+The inverse-square proportionality does not exist because physical space dictates how forces dilute. It exists because ``spatial distance'' is the descriptive vocabulary assigned to the inverse amplitude of the potential relational carrier \(S^2\).
+\begin{center}
+    \textbf{The geometry of spacetime is dictated by the Relations of energy states.}
+\end{center}
+\end{tcolorbox}
+
+
+
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=The Projections are Cross-Cultural Invariants]
 
@@ -804,7 +869,7 @@ The optical signal contains the complete information regarding the system's stru
 
 \begin{center}
 The unit radius of kinetic and potential carriers represents the Constant Universal Rate of Change, the Global Tempo of Transformations. The angles $\theta_1$ and $\theta_2$ control the distribution of this constant rate between the phase and amplitude components.
-\emph{Any two observers regardless of there cultural  difference (including hypothetical extraterrestrial intelligence) assign $\beta$ and $\kappa$ ratios the same value for the same state, whatever their unit system --- or even their descriptive vocabulary. These mappings are NOT definitions:}
+\emph{Any two observers regardless of their cultural  differences (including hypothetical extraterrestrial intelligence) assign $\beta$ and $\kappa$ ratios the same value for the same state, whatever their unit system --- or even their descriptive vocabulary. These mappings are NOT definitions:}
 \end{center}
 \[
 \beta = \frac{v}{c}, \qquad \kappa = \frac{v_e}{c} = \sqrt{\frac{R_s}{r}}=\sqrt{\frac{\rho}{\rho_{max}}}
@@ -814,23 +879,106 @@ The unit radius of kinetic and potential carriers represents the Constant Univer
 \end{center}
 \end{tcolorbox}
 
-\subsubsection{Consequence: Relativistic Effects}
 
-\begin{proposition}[Physical Interpretation: Relativistic Effects]
-\hypertarget{prop:relativity}{}\label{prop:relativity}
-\leavevmode
-The conservation law of Theorem~\ref{thm:conservation} implies that any redistribution between the orthogonal components manifests physically as the relativistic effects of time dilation and length contraction.
-\end{proposition}
+\subsection{Closure: Relational Origin of the Virial Theorem}
+\hypertarget{sec:closure}{}\label{sec:closure}
+
+Having established that directional (kinematic) and omnidirectional (potential) relations are carried by the $S^1$ and $S^2$ respectively, we now derive the relationship that unifies them.
+
+\subsubsection*{Derivation of the Energetic Exchange Rate}
+
+\begin{remark}[From slice to whole $S^2$]
+Although we parametrise a single meridional great circle $(\kappa_X,\kappa)$ for algebraic convenience, the amplitude $\kappa^2$ denotes the \emph{total active omnidirectional ledger} over the $S^2$ carrier. The exchange-rate factor $2$ reflects that $S^2$ has two independent relational degrees of freedom even when calculations are carried out on a representative great-circle section.
+\end{remark}
+
+\subsubsection*{Uniqueness of the Exchange Rate (No Hidden Weighting)}
+
+\begin{lemma}[DOF-Indifference]
+\hypertarget{lem:dof-indifference}{}\label{lem:dof-indifference}
+By maximal symmetry (no privileged directions, Theorem~\ref{thm:isotropy}) and ontological minimalism (no hidden structure, Principle~\ref{pr:minimalism}), each independent degree of freedom (DOF) has equal relational weight. WILL has no preferred directions and no preferred degrees of freedom.
+\end{lemma}
 
 \begin{proof}
-\leavevmode
-By Theorem~\ref{thm:conservation}, the components satisfy $\beta^2 + \beta_Y^2 = 1$ and $\kappa^2 + \kappa_X^2 = 1$. 
-An increase in Amplitude ($\beta, \kappa$) enforces a geometric decrease in Phase measure ($\beta_Y, \kappa_X$). 
-This necessary reduction of $\beta_Y$ and $\kappa_X$ corresponds precisely to the dilation of proper time and the contraction of proper length, while the growth of $\beta$ and $\kappa$ represents momentum or potential depth. Thus, the kinematic and potential trade-off is the direct, un-parameterized physical expression of the geometric closure of the $S^1$ and $S^2$ carriers.  
+Any unequal weights to DOF's would create a preferred direction on maximally symmetric carriers violating the \textbf{Relational Isotropy Theorem} (\ref{thm:isotropy}). It would require an extra rule that distinguishes the carriers on grounds other than their internal dimensions. Such a rule would constitute hidden structure, violating all four methodological principles (\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, \ref{pr:epistemic}). Therefore, each independent DOF must receive an identical relational weight $l$.
 \end{proof}
 
-This identifies Relativistic and Gravitational Time Dilation not as a mysterious ``slowing down'' of clocks, but as geometric \textbf{phase rotation}. As a system invests more of its relational existence into external Amplitude ($\beta$ or $\kappa$), it necessarily withdraws from its internal Phase ($\beta_Y$ or $\kappa_X$), changing the rate of its proper time evolution.
+\begin{theorem}[Closure]
+\hypertarget{thm:closure}{}\label{thm:closure}
+In a relationally closed system, the kinematic carrier $S^1$ (1 DOF) and the potential carrier $S^2$ (2 DOF) exchange the active relational ledger in proportion to their degrees of freedom. Consequently, any relationally closed system must globally satisfy
+$$ \boxed{\kappa^2 = 2\beta^2} $$
+\end{theorem}
 
+\begin{proof}
+By the Conservation Theorem (\ref{thm:conservation}) external amplitudes ($\beta$, $\kappa$) complete their ledger only in their quadratic forms ($\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$). Let $l$ be the active relational ledger allocated to one independent quadratic degree of freedom. By Lemma~\ref{lem:dof-indifference}, every active quadratic DOF receives exactly this amount $l$.
+
+\begin{itemize}
+    \item \textbf{Square amplitude on $S^1$ (1 DOF):}  $ \beta^2 = 1 \cdot l $
+    \item \textbf{Square amplitude on $S^2$ (2 DOF):}  $ \kappa^2 = 2 \cdot l $
+    \item \textbf{Substituting $l$ immediately yields closure:} $ \kappa^2 = 2\beta^2 $
+\end{itemize}
+
+Any non-quadratic exchange law, same as any exchange rate other than $2$ would require introduction of unjustified ontology either unequal weighting of degrees of freedom violating DOF-Indifference Lemma (\ref{lem:dof-indifference}) or an additional free parameters violating all four principles (\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, \ref{pr:epistemic}). 
+Therefore:
+$$ \underbrace{1 \text{Amplitude}^2}_{\text{on } S^2} = \underbrace{2 \text{Amplitude}^2}_{\text{on } S^1} $$
+\end{proof}
+
+\begin{remark}[Carrier capacities fix the rate]
+\hypertarget{rem:capacities}{}\label{rem:capacities}
+The exchange rate $2$ exactly mirrors the ratio of the carriers' maximum absolute capacities. 
+The one-DOF carrier $S^1$ saturates at $\beta^2_{\max} = 1$ (light, $\beta_Y = 0$). 
+The two-DOF carrier $S^2$ saturates at $\kappa^2_{\max} = 2$ (the combined extremal-Kerr state $r = \tfrac{1}{2}R_s$, $\beta = 1$ as proved in (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr}{R.O.M. sec:Kerr})). 
+Equal quadratic weight per DOF (Lemma~\ref{lem:dof-indifference}) guarantees that the active ledger ratio ($\kappa^2/\beta^2 = 2$) is identical to the maximal ratio ($\kappa^2_{\max}/\beta^2_{\max} = 2$).
+\end{remark}
+
+\hypertarget{def:closure_factor}{}\label{def:closure_factor}
+\begin{definition}[Closure Factor]
+$$ \delta \equiv \frac{\kappa_o^2}{2\beta_o^2} $$
+Here and throughout all RG papers $\kappa$, $\beta$ are global and $\kappa_o$, $ \beta_o$ are orbital-phase-dependent local amplitudes:
+$\kappa^2=\langle\kappa_o^2 \rangle$ and $\beta^2= \langle\beta_o^2\rangle$
+For circular orbits, $\delta \equiv 1$.
+For elliptic orbits locally, $\delta_{\text{cycle}} \neq 1$ as proven in \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:rel_ecc}{R.O.M. eccentricity section} . 
+For bound elliptical orbits, $\langle\delta\rangle_{\text{cycle}} = 1$ to remain \emph{relationally closed} as proven in \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:vis-viva}{R.O.M. vis-viva section}.
+\end{definition}
+
+\begin{corollary}[Relational Closure Condition]
+\hypertarget{cor:condition}{}\label{cor:condition}
+Closed systems (momentary or periodic) satisfy $\kappa^2 = 2\beta^2$.  
+Open systems display $\langle\delta\rangle_{\text{cycle}} \neq 1$, the magnitude of which quantifies the energy flow through unaccounted channels. When all channels are included, closure is restored.
+\end{corollary}
+
+\paragraph{Illustrative Examples.}
+\begin{itemize}
+\item \textbf{Circular Orbit (Closed).}  
+A body at any orbital phase satisfies $\kappa_o^2 = 2\beta_o^2$.  
+The entire active ledger is partitioned identically between kinetic and gravitational projections; no internal geometric oscillation and no external channel exists.
+\item \textbf{Elliptical Orbit (Closed).} 
+A body satisfies $\langle\kappa_o^2\rangle = 2\langle\beta_o^2\rangle$ as an average per orbital cycle due to the internal geometric oscillation ("breathing") of eccentric systems. This internal oscillation is restricted by the Energy-Symmetry Law (\ref{sec:energy-symmetry}) so that the difference $\beta^2 =\kappa_o^2 - \beta_o^2 = \text{constant}$ at any orbital phase (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:vis-viva}{R.O.M. sec:vis-viva}). No external channel exists.
+\item \textbf{Radiating Binary (Open).}  
+An elliptical compact binary violates $\langle\kappa_o^2\rangle = 2\langle\beta_o^2\rangle$ when only orbital degrees of freedom are counted. The closure defect $\delta$ quantifies the relational ledger lost to gravitational radiation. Including all channels restores closure.
+\end{itemize}
+
+\begin{remark}[Geometric Origin of Physical Law]
+The relation between kinetic and potential energy projections is a geometric necessity of closure.  Aspects of WILL maintain coherence through the invariant DOF ratio.  This is the relational origin of the \textbf{virial theorem}:  
+\[
+\boxed{\text{Geometric Distribution }(\kappa^2)
+\;\equiv\;
+2\times\text{Kinetic Distribution }(\beta^2).}
+\]
+\end{remark}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Structural Independence of the Force Law and Virial Coefficient]
+In classical mechanics, the virial coefficient is dynamically coupled to the spatial force law. For a power-law potential $V \propto r^n$, the general virial theorem dictates $2\langle T \rangle = (n+1)\langle V \rangle$. For Newtonian gravity ($n = -1$), this yields the coefficient $2$. In this legacy view, the force law dictates the virial coefficient; they are two sides of the same dynamical coin.
+
+WILL Relational Geometry decouples them. The $1/r$ proportionality and the virial coefficient $2$ are proven to emerge from \textbf{entirely independent geometric channels}:
+
+\begin{itemize}
+    \item \textbf{Channel 1 (Potential--Distance):} The $\kappa^2 \propto 1/r$ relation is derived strictly from the operational definition of spatial distance and the $S^2$ carrier's saturation geometry. The $S^1$ carrier and DOF ratios are entirely absent from this derivation.
+    \item \textbf{Channel 2 (Potential--Kinetic Exchange):} The $\kappa^2 = 2\beta^2$ relation is derived strictly from the topological DOF ratio (1 for $S^1$, 2 for $S^2$) enforced by DOF-Indifference. Spatial distance $r$ is entirely absent from this derivation.
+\end{itemize}
+
+Because both channels derive from the same underlying carrier topology, their mutual consistency is guaranteed \textit{geometrically}, not dynamically. WILL precludes the possibility of a $1/r$ gravitational potential exhibiting a virial coefficient other than $2$. This structural identity replaces the need for postulated equations of motion, Lagrangians, or action principles as foundational primitives.
+\end{tcolorbox}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Derivation Chain Map]
 \begin{center}
@@ -848,46 +996,12 @@ $\downarrow$ \textit{(by Relational Closure $+$ Causal Continuity $+$ Isotropy: 
 $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hline
 $\downarrow$ \textit{(by Duality of Relation Lemma)} $\downarrow$\\\hline
 \textbf{Relational Conservation Theorem:} $\underbrace{\text{Amplitude}^2}_{\text{External Transformation}} + \underbrace{\text{Phase}^2}_{\text{Internal Change}} = 1$\\[10pt]\hline
+$\boxed{\underbrace{1/\beta_Y=1+z_{\beta}}_{\text{transverse Doppler shift}} \underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic $S^1$}}}$ \textbf{Relational Projections} $\boxed{\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential $S^2$}} \underbrace{1/\kappa_X = 1+z_{\kappa}}_{\text{gravitational redshift}}}$\\[8pt]\hline
+$\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
+\textbf{Closure Theorem:} $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$ $\Longrightarrow$ $ \boxed{ \kappa^2 = 2\beta^2}$\\\hline
 \end{tabular}
 \end{center}
 \end{tcolorbox}
-
-
-\subsection{Relational Origin of Spatial Distance and the Inverse-Square Law }
-\hypertarget{sec:inverse_square}{}\label{sec:inverse_square}
-
-Spatial distance is derived as the inverse of relational phase ledger. Treating distance as an \emph{a priori} foundational primitive violates the principles of Relational Origin (\ref{pr:relational}) and Ontological Minimalism (\ref{pr:minimalism}).
-
-\begin{theorem}[Inverse-Square]
-\hypertarget{thm:inverse-square}{}\label{thm:inverse-square}
-\leavevmode
-The inverse-square potential proportionality $\kappa^2 \propto 1/r$ is a geometric necessity of the $S^2$ carrier's relational ledger, determined without spatial primitives.
-\end{theorem}
-
-\begin{proof}
-\leavevmode
-Distance can not be \emph{a priori} foundational primitive. It violates the principles of Relational Origin (\ref{pr:relational}) and Ontological Minimalism (\ref{pr:minimalism}). Therefore it must be defined by the relational tension between energy states. By the \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:spectroscopic_shift}{Spectroscopic Phase Shift Theorem}, the potential projection $\kappa^2$ is operationally extracted entirely from the dimensionless redshift ($z_\kappa$), independent of spatial parameters. 
-
-Normalizing the absolute geometric scale at saturation ($\kappa^2 = 1 \equiv r=R_s$ \ref{rem:Rs}), spatial distance $r$ emerges as the reciprocal measure of the omnidirectional projection amplitude on $S^2$:
-\begin{equation}
-\kappa=\sin(\theta_2) \Longrightarrow \kappa^2 = \frac{R_s}{r} \Longrightarrow r = \frac{R_s}{\kappa^2} \Longrightarrow \kappa^2 \propto 1/r.
-\label{eq:r_label}
-\end{equation}
-This is a direct realization of the Unifying Principle (\ref{pr:unifying}). The $1/r$ proportionality is an analytic identity defining spatial distance, not an empirical input.
-\end{proof}
-\begin{remark}
-\label{rem:Rs}
-    Here and in all RG papers the causal horizon $\kappa=1$ is symbolised with the usual letters for the Schwarzschild radius $R_s$ for translational ease. Despite their ontological difference, these two horizons are mathematically identical. In order to keep the number of newly introduced symbols at a minimum, the historical symbols remain. The complete independence of causal horizon $\kappa=1$ from its historical origin $R_s=\frac{2GM}{c^2}$ is proven in \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{R.O.M.} sections \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:unitless_core}{sec:unitless core}, \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_parameterization}{sec:relational\_parameterization},  \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:absolute_scale}{sec:absolute\_scale}, \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr}{sec:Kerr} and others. 
-\end{remark}
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
-The inverse-square proportionality does not exist because physical space dictates how forces dilute. It exists because "spatial distance" is the descriptive vocabulary assigned to the inverse amplitude of the potential relational carrier $S^2$.
-\begin{center}
-    \textbf{The geometry of spacetime is dictated by the Relations of energy states.}
-\end{center}
-\end{tcolorbox}
-
 
 
 \subsection{Kinetic Energy Projection $\beta$ on $S^1$}
@@ -1006,9 +1120,9 @@ E_{\beta}^{2} = (p_{\beta}c)^{2} + (mc^{2})^{2}.
 \begin{proof}
 \leavevmode
 By Conservation Theorem (\ref{thm:conservation}), $(E_{\beta}\beta)^2 + (E_{\beta}\beta_Y)^2 = E_{\beta}^2$. 
-Substituting $p=E_{\beta}\beta$ and $m=E_0$ proves the claim. 
+Substituting $p_{\beta}=E_{\beta}\beta$ and $m=E_0$ proves the claim. 
 Restoring $c$ is dimensional bookkeeping:
-$p\mapsto pc$ and $m\mapsto mc^{2}$, while $E_{\beta}$ remains $E_{\beta}$, yielding the standard form. Any surplus complexity is excluded by epistemic and ontological principals \ref{pr:epistemic}, \ref{pr:minimalism}.
+$p\mapsto pc$ and $m\mapsto mc^{2}$, while $E_{\beta}$ remains $E_{\beta}$, yielding the standard form. Any surplus complexity is excluded by epistemic and ontological principles \ref{pr:epistemic}, \ref{pr:minimalism}.
 \end{proof}
 
 \begin{remark}[Geometric Forms]
@@ -1023,7 +1137,7 @@ These are equivalent renderings of the same geometric necessity.
 \begin{remark}[Units sanity check - bookkeeping]
 In natural units ($c = 1$), the identification is $p_{\beta} \equiv E_{\beta}\beta$. Restoring $c$ via dimensional bookkeeping ($p \mapsto pc$) yields:
 \begin{equation}
-    p_{\beta}c = E_{\beta}\beta = \frac{E_{\beta}}{c}v \implies p = \frac{E_{\beta}}{c^2}v.
+    p_{\beta}c = E_{\beta}\beta = \frac{E_{\beta}}{c}v \implies p_{\beta} = \frac{E_{\beta}}{c^2}v.
 \end{equation}
 With $E_{\beta} = \gamma mc^2$, this reduces to $p_{\beta} = \gamma mv$, the standard relativistic momentum. No new parameters are introduced.
 \end{remark}
@@ -1043,7 +1157,7 @@ $\beta_Y = \sqrt{1-(v/c)^2}=\sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) $\\\hli
 \end{table}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
-\textbf{The energy--momentum relation $E_{\beta}^{2} = (pc)^{2} + (mc^{2})^{2}$ is geometric identity of $S^1$ relational energy carrier.}
+\textbf{The energy--momentum relation $E_{\beta}^{2} = (p_{\beta}c)^{2} + (mc^{2})^{2}$ is geometric identity of $S^1$ relational energy carrier.}
 \end{tcolorbox}
 
 \subsubsection{Minkowski Interval as Inflation of the $S^1$ Closure}
@@ -1061,7 +1175,7 @@ This is a single, parameter-free relation between the external (amplitude) and i
     \item \textbf{A container.} The relation is declared to unfold \emph{within} a pre-existing spatial manifold.
     \item \textbf{Spatial coordinates.} Orthogonal labels $x, y, z$ are imposed on the container to localize the amplitude projection.
     \item \textbf{Externally flowing time.} An independent coordinate time $t$ is posited and granted an autonomous flow, demoting the internal phase $\beta_Y$ to a mere ratio of proper to coordinate time, $\beta_Y \equiv d\tau/dt$.
-    \item \textbf{A coordinate reference scale.} An \textbf{absolute temporal scale} $c^2 dt^2$ as an external reference against which the dimensionless closure is measured. This precisely the kind of unjustified background absolute that Relational Origin Principle \ref{pr:relational} forbids.
+    \item \textbf{A coordinate reference scale.} An \textbf{absolute temporal scale} $c^2 dt^2$ as an external reference against which the dimensionless closure is measured. This is precisely the kind of unjustified background absolute that Relational Origin Principle \ref{pr:relational} forbids.
 \end{enumerate}
 
 \paragraph{The inflation.} Under these posits the projections take their coordinate forms. The amplitude becomes the coordinate speed fraction distributed over the three container axes,
@@ -1190,7 +1304,7 @@ trigonometric forms.
 \subsubsection{Schwarzschild Interval as Inflation of the $S^2$ Closure}
 \hypertarget{sec:GR_interval}{}\label{sec:GR_interval}
 
-The gravitational construction is strictly parallel to kinetic. The primitive object is the dimensionless potential closure on the relational carrier $S^2$ (Theorem~\ref{thm:conservation}):
+The gravitational construction is parallel to the kinetic. The primitive object is the dimensionless potential closure on the relational carrier $S^2$ (Theorem~\ref{thm:conservation}):
 \begin{equation}
 \kappa^2 + \kappa_X^2 = 1 ,
 \label{eq:s2_closure_primary}
@@ -1433,108 +1547,6 @@ Thus, the universal speed limit and the Event Horizon emerge identically as the 
 \textbf{The Speed of Light and the Schwarzschild radius} are legacy units expressions of the boundaries beyond which the energy symmetry law breaks down. 
 \textbf{Causality} is an \textbf{inevitable} feature of \textbf{Relational Geometry}.
 \end{tcolorbox}
-
-
-\subsection{Closure: Relational Origin of the Virial Theorem}
-\hypertarget{sec:closure}{}\label{sec:closure}
-
-Having established that directional (kinematic) and omnidirectional (potential) relations are carried by the $S^1$ and $S^2$ respectively, we now derive the relationship that unifies them.
-
-\subsubsection*{Derivation of the Energetic Exchange Rate}
-
-\begin{remark}[From slice to whole $S^2$]
-Although we parametrise a single meridional great circle $(\kappa_X,\kappa)$ for algebraic convenience, the amplitude $\kappa^2$ denotes the \emph{total active omnidirectional ledger} over the $S^2$ carrier. The exchange-rate factor $2$ reflects that $S^2$ has two independent relational degrees of freedom even when calculations are carried out on a representative great-circle section.
-\end{remark}
-
-\subsubsection*{Uniqueness of the Exchange Rate (No Hidden Weighting)}
-
-\begin{lemma}[DOF-Indifference]
-\hypertarget{lem:dof-indifference}{}\label{lem:dof-indifference}
-By maximal symmetry (no privileged directions, Theorem~\ref{thm:isotropy}) and ontological minimalism (no hidden structure, Principle~\ref{pr:minimalism}), each independent degree of freedom (DOF) has equal relational weight. WILL has no preferred directions and no preferred degrees of freedom.
-\end{lemma}
-
-\begin{proof}
-Any unequal weights to DOF's would create a preferred direction on maximally symmetric carriers violating the \textbf{Relational Isotropy Theorem} (\ref{thm:isotropy}). It would require an extra rule that distinguishes the carriers on grounds other than their internal dimensions. Such a rule would constitute hidden structure, violating all four methodological principles (\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, \ref{pr:epistemic}). Therefore, each independent DOF must receive an identical relational weight $l$.
-\end{proof}
-
-\begin{theorem}[Closure]
-\hypertarget{thm:closure}{}\label{thm:closure}
-In a relationally closed system, the kinematic carrier $S^1$ (1 DOF) and the potential carrier $S^2$ (2 DOF) exchange the active relational ledger in proportion to their degrees of freedom. Consequently, any relationally closed system must globally satisfy
-$$ \boxed{\kappa^2 = 2\beta^2} $$
-\end{theorem}
-
-\begin{proof}
-By the Conservation Theorem (\ref{thm:conservation}) external amplitudes ($\beta$, $\kappa$) complete their ledger only in their quadratic forms ($\underbrace{\text{Amplitude}^2}_{\text{External Interaction}} + \underbrace{\text{Phase}^2}_{\text{Internal Existence}} = 1$). Let $l$ be the active relational ledger allocated to one independent quadratic degree of freedom. By Lemma~\ref{lem:dof-indifference}, every active quadratic DOF receives exactly this amount $l$.
-
-\begin{itemize}
-    \item \textbf{Square amplitude on $S^1$ (1 DOF):}  $ \beta^2 = 1 \cdot l $
-    \item \textbf{Square amplitude on $S^2$ (2 DOF):}  $ \kappa^2 = 2 \cdot l $
-    \item \textbf{Substituting $l$ immediately yields closure:} $ \kappa^2 = 2\beta^2 $
-\end{itemize}
-
-Any non-quadratic exchange law, same as any exchange rate other than $2$ would require introduction of unjustified ontology either unequal weighting of degrees of freedom violating DOF-Indifference Lemma (\ref{lem:dof-indifference}) or an additional free parameters violating all four principles (\ref{pr:relational}, \ref{pr:minimalism}, \ref{pr:mathematical}, \ref{pr:epistemic}). 
-Therefore:
-$$ \underbrace{1 \text{Amplitude}^2}_{\text{on } S^2} = \underbrace{2 \text{Amplitude}^2}_{\text{on } S^1} $$
-\end{proof}
-
-\begin{remark}[Carrier capacities fix the rate]
-\hypertarget{rem:capacities}{}\label{rem:capacities}
-The exchange rate $2$ exactly mirrors the ratio of the carriers' maximum absolute capacities. 
-The one-DOF carrier $S^1$ saturates at $\beta^2_{\max} = 1$ (light, $\beta_Y = 0$). 
-The two-DOF carrier $S^2$ saturates at $\kappa^2_{\max} = 2$ (the combined extremal-Kerr state $r = \tfrac{1}{2}R_s$, $\beta = 1$ as proved in (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr}{R.O.M. sec:Kerr})). 
-Equal quadratic weight per DOF (Lemma~\ref{lem:dof-indifference}) guarantees that the active ledger ratio ($\kappa^2/\beta^2 = 2$) is identical to the maximal ratio ($\kappa^2_{\max}/\beta^2_{\max} = 2$).
-\end{remark}
-
-\hypertarget{def:closure_factor}{}\label{def:closure_factor}
-\begin{definition}[Closure Factor]
-$$ \delta \equiv \frac{\kappa_o^2}{2\beta_o^2} $$
-Here and throughout all RG papers $\kappa$, $\beta$ are global and $\kappa_o$, $ \beta_o$ are orbital-phase-dependent local amplitudes:
-$\kappa^2=\langle\kappa_o^2 \rangle$ and $\beta^2= \langle\beta_o^2\rangle$
-For circular orbits, $\delta \equiv 1$.
-For elliptic orbits locally, $\delta_{\text{cycle}} \neq 1$ as proven in \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:rel_ecc}{R.O.M. eccentricity section} . 
-For bound elliptical orbits, $\langle\delta\rangle_{\text{cycle}} = 1$ to remain \emph{relationally closed} as proven in \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:vis-viva}{R.O.M. vis-viva section}.
-\end{definition}
-
-\begin{corollary}[Relational Closure Condition]
-\hypertarget{cor:condition}{}\label{cor:condition}
-Closed systems (momentary or periodic) satisfy $\kappa^2 = 2\beta^2$.  
-Open systems display $\langle\delta\rangle_{\text{cycle}} \neq 1$, the magnitude of which quantifies the energy flow through unaccounted channels. When all channels are included, closure is restored.
-\end{corollary}
-
-\paragraph{Illustrative Examples.}
-\begin{itemize}
-\item \textbf{Circular Orbit (Closed).}  
-A body at any orbital phase satisfies $\kappa_o^2 = 2\beta_o^2$.  
-The entire active ledger is partitioned identically between kinetic and gravitational projections; no internal geometric oscillation and no external channel exists.
-\item \textbf{Elliptical Orbit (Closed).} 
-A body satisfies $\langle\kappa_o^2\rangle = 2\langle\beta_o^2\rangle$ as an average per orbital cycle due to the internal geometric oscillation ("breathing") of eccentric systems. This internal oscillation is restricted by the Energy-Symmetry Law (\ref{sec:energy-symmetry}) so that the difference $\beta^2 =\kappa_o^2 - \beta_o^2 = \text{constant}$ at any orbital phase (\href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:vis-viva}{R.O.M. sec:vis-viva}). No external channel exists.
-\item \textbf{Radiating Binary (Open).}  
-An elliptical compact binary violates $\langle\kappa_o^2\rangle = 2\langle\beta_o^2\rangle$ when only orbital degrees of freedom are counted. The closure defect $\delta$ quantifies the relational ledger lost to gravitational radiation. Including all channels restores closure.
-\end{itemize}
-
-\begin{remark}[Geometric Origin of Physical Law]
-The relation between kinetic and potential energy projections is a geometric necessity of closure.  Aspects of WILL maintain coherence through the invariant DOF ratio.  This is the relational origin of the \textbf{virial theorem}:  
-\[
-\boxed{\text{Geometric Distribution }(\kappa^2)
-\;\equiv\;
-2\times\text{Kinetic Distribution }(\beta^2).}
-\]
-\end{remark}
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Structural Independence of the Force Law and Virial Coefficient]
-In classical mechanics, the virial coefficient is dynamically coupled to the spatial force law. For a power-law potential $V \propto r^n$, the general virial theorem dictates $2\langle T \rangle = (n+1)\langle V \rangle$. For Newtonian gravity ($n = -1$), this yields the coefficient $2$. In this legacy view, the force law dictates the virial coefficient; they are two sides of the same dynamical coin.
-
-WILL Relational Geometry decouples them. The $1/r$ proportionality and the virial coefficient $2$ are proven to emerge from \textbf{entirely independent geometric channels}:
-
-\begin{itemize}
-    \item \textbf{Channel 1 (Potential--Distance):} The $\kappa^2 \propto 1/r$ relation is derived strictly from the operational definition of spatial distance and the $S^2$ carrier's saturation geometry. The $S^1$ carrier and DOF ratios are entirely absent from this derivation.
-    \item \textbf{Channel 2 (Potential--Kinetic Exchange):} The $\kappa^2 = 2\beta^2$ relation is derived strictly from the topological DOF ratio (1 for $S^1$, 2 for $S^2$) enforced by DOF-Indifference. Spatial distance $r$ is entirely absent from this derivation.
-\end{itemize}
-
-Because both channels derive from the same underlying carrier topology, their mutual consistency is guaranteed \textit{geometrically}, not dynamically. WILL precludes the possibility of a $1/r$ gravitational potential exhibiting a virial coefficient other than $2$. This structural identity replaces the need for postulated equations of motion, Lagrangians, or action principles as foundational primitives.
-\end{tcolorbox}
-
 
 
 \section{Stage III: Legacy Translation \& Empirical Alignment}

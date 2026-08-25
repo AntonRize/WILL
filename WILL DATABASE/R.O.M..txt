@@ -147,6 +147,8 @@ $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hli
 $\downarrow$ \textit{(by Duality of Relation Lemma)} $\downarrow$\\\hline
 \textbf{Relational Conservation Theorem:} $\underbrace{\text{Amplitude}^2}_{\text{External Transformation}} + \underbrace{\text{Phase}^2}_{\text{Internal Change}} = 1$\\[10pt]\hline
 $\boxed{\underbrace{1/\beta_Y=1+z_{\beta}}_{\text{transverse Doppler shift}} \underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic $S^1$}}}$ \textbf{Relational Projections} $\boxed{\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential $S^2$}} \underbrace{1/\kappa_X = 1+z_{\kappa}}_{\text{gravitational redshift}}}$\\[8pt]\hline
+$\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
+\textbf{Closure Theorem:} $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$ $\Longrightarrow$ $ \boxed{ \kappa^2 = 2\beta^2}$\\\hline
 $\downarrow$ \textit{(by Relational Conservation Theorem derive metric intervals as scaffolding)} $\downarrow$\\\hline
 \textbf{Minkowski:} $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
 \textbf{Schwarzschild:} $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2\!\left(1 - (R_s/r)\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
@@ -159,8 +161,6 @@ E = E_0 \cdot \kappa_X/0 \to \infty
 \textbf{Event Horizon:} $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
 E = E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt]\hline
-$\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
-\textbf{Closure Theorem:} $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$ $\Longrightarrow$ $ \boxed{ \kappa^2 = 2\beta^2}$\\\hline
 $\downarrow$ \textit{(by Unified Relational Scaling Lemma)} $\downarrow$\\\hline
 \textbf{Equivalence Principle} $\boxed{m_g \equiv m_i \equiv m = E_0/c^2}$\\\hline
 $\downarrow$ \textit{(\textbf{Lagrangian and Hamiltonian} derived as collapsed single-point approximations)} $\downarrow$\\\hline
@@ -1109,7 +1109,7 @@ Converting this pure geometric phase shift to standard observational units yield
 \textbf{6. Absolute System Scale (Metric Translation)} \\
 To translate the geometric scale into legacy metric units (meters), we map Mercury's orbital period ($T_M = 7,600,521.6$ s) and the speed of light ($c$) to the global kinematic projection ($\beta$):
 \[
-    R_{sRG} = T_M \cdot c \cdot \frac{\beta^3}{\pi} \approx 2954.8 \text{ m}
+    R_{sRG} = \frac{\beta^3}{\pi}  \cdot  T_M c  \approx 2954.8 \text{ m}
 \]
 Standard GR value:
 \[

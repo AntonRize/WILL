@@ -1,0 +1,1894 @@
+settings@{
+  randomSeed:"5e2a91c7d4b3806fae15c2d9370b48e6",
+  viewport:@{
+    xmin:-8.2,
+    xmax:8.2,
+    ymin:-9,
+    ymax:3.7,
+  },
+  showGrid:false,
+  showXAxis:false,
+  showYAxis:false,
+  lockViewport:true,
+}
+
+"WILL RG — GRAVITY IN R.O.M. SYMBOLS (LEVEL 1) \nhttps://willrg.com  https://doi.org/10.5281/zenodo.17115270"
+
+"THIS IS INTERACTIVE GRAPH"
+
+"Every symbol here is written exactly as it appears in the R.O.M. equation set, so that nothing has to be unlearned later. Drag the black probe."
+
+folder"BODIES — the five buttons"{
+  "Each body is two numbers and nothing else: R_s, the length that belongs to the body, and R_sur, its physical radius."
+
+  "Earth. R_s is under nine millimetres."
+
+  R_sE=0.008870056@{color:"#2d70b3"}
+
+  R_surE=6371000@{color:"#2d70b3"}
+
+  "Jupiter"
+
+  R_sJ=2.819156@{color:"#ffa500"}
+
+  R_surJ=71492000@{color:"#ffa500"}
+
+  "The Sun"
+
+  R_sS=2953.2500765@{color:"#ffd700"}
+
+  R_surS=695700000@{color:"#ffd700"}
+
+  "Neutron star: 1.4 solar masses inside a 12 km ball"
+
+  R_sN=4134.5501071@{color:"#6042a6"}
+
+  R_surN=12000@{color:"#6042a6"}
+
+  "Black hole: 10 solar masses. R_s and R_sur are the same number, which is what a black hole IS."
+
+  R_sB=29532.500765@{color:"#000000"}
+
+  R_surB=29532.500765@{color:"#000000"}
+
+  "kappa_sur^2 = R_s/R_sur for each body, as a power of ten. This single number places the body on the ladder."
+
+  L_qE=log(R_sE/R_surE)@{color:"#2d70b3"}
+
+  L_qJ=log(R_sJ/R_surJ)@{color:"#ffa500"}
+
+  L_qS=log(R_sS/R_surS)@{color:"#ffd700"}
+
+  L_qN=log(R_sN/R_surN)@{color:"#6042a6"}
+
+  L_qB=log(R_sB/R_surB)@{color:"#000000"}
+
+  "The five buttons."
+
+  A_earth=(R_sur->R_surE,L_q->L_qE,n_r->3,n_0->6)@{color:"#2d70b3"}
+
+  A_jup=(R_sur->R_surJ,L_q->L_qJ,n_r->3,n_0->6)@{color:"#ffa500"}
+
+  A_sun=(R_sur->R_surS,L_q->L_qS,n_r->3,n_0->6)@{color:"#ffd700"}
+
+  A_ns=(R_sur->R_surN,L_q->L_qN,n_r->3,n_0->6)@{color:"#6042a6"}
+
+  A_bh=(R_sur->R_surB,L_q->L_qB,n_r->3,n_0->6)@{color:"#000000"}
+}@{collapsed:true}
+
+folder"INPUTS — the four things you can move"{
+  "Speed of light in metres per second. The only constant of nature in this file."
+
+  c=299792458@{color:"#2d70b3",slider:@{min:299792458,max:299792458}}
+
+  "Gravity at the Earth's surface, used only as a familiar yardstick."
+
+  g_E=9.80665@{color:"#388c46",slider:@{min:9.80665,max:9.80665}}
+
+  "Seconds in one year, for the clock-lag column."
+
+  Y_r=31557600@{color:"#388c46",slider:@{min:31557600,max:31557600}}
+
+  "WHERE THE PROBE IS, as a multiple of R_sur. 1 means standing on the surface."
+
+  n_r=3@{color:"#000000",slider:@{min:1,max:6,step:0.001}}
+
+  "WHERE THE PROBE WAS RELEASED FROM REST, as a multiple of R_sur. This one number fixes the global beta for the whole fall."
+
+  n_0=6@{color:"#ffd700",slider:@{min:1,max:6,step:0.001}}
+
+  "kappa_sur^2 = R_s/R_sur as a power of ten. Set by the buttons, or drag the marker on the ladder."
+
+  L_q=-8.856301@{color:"#c74440",slider:@{min:-10,max:0,step:0.0001}}
+
+  "R_sur, the body's physical radius in metres. Set by the buttons."
+
+  R_sur=6371000@{color:"#ffa500",slider:@{min:10000,max:1000000000}}
+}@{collapsed:true}
+
+folder"GLOBAL PROJECTIONS — fixed for the whole fall"{
+  "kappa_sur is the potential projection at the body's own surface. R_s follows from it."
+
+  kappa_sur=sqrt(10^(L_q))@{color:"#c74440"}
+
+  R_s=kappa_sur^2*R_sur@{color:"#c74440"}
+
+  "The probe's radius r, and the radius it was released from."
+
+  r=n_r*R_sur@{color:"#000000"}
+
+  r_rel=n_0*R_sur@{color:"#ffd700"}
+
+  "GLOBAL KINETIC PROJECTION. A drop from rest is the degenerate R.O.M. orbit e = 1 with a = r_rel/2, so beta^2 = R_s/2a = R_s/r_rel. It is fixed the instant the probe is released and never changes again."
+
+  beta=sqrt(R_s/r_rel)@{color:"#2d70b3"}
+
+  "GLOBAL KINETIC PHASE FACTOR beta_Y = sqrt(1 - beta^2). Equals 1/(1+z_beta)."
+
+  beta_Y=sqrt(1-beta^2)@{color:"#2d70b3"}
+
+  "GLOBAL POTENTIAL PROJECTION, from the closure theorem kappa^2 = 2 beta^2.\nhttps://willrg.com/documents/WILL_RG_I.pdf#sec:closure"
+
+  kappa=beta*sqrt(2)@{color:"#c74440"}
+
+  "GLOBAL POTENTIAL PHASE FACTOR kappa_X = sqrt(1 - kappa^2). Equals 1/(1+z_kappa)."
+
+  kappa_X=sqrt(1-kappa^2)@{color:"#c74440"}
+
+  "GLOBAL RELATIONAL SPACETIME FACTOR tau = kappa_X * beta_Y = 1/Z_sys."
+
+  tau=kappa_X*beta_Y@{color:"#6042a6"}
+}@{collapsed:true}
+
+folder"LOCAL PROJECTIONS — at the probe, radius r"{
+  "The subscript o means 'at the probe's position'. This is R.O.M.'s own convention."
+
+  "LOCAL POTENTIAL PROJECTION. kappa_o^2 = R_s/r is the whole of what is usually called a gravitational field."
+
+  kappa_o=sqrt(R_s/r)@{color:"#c74440"}
+
+  q_o=kappa_o^2@{color:"#c74440"}
+
+  "LOCAL POTENTIAL PHASE FACTOR."
+
+  kappa_Xo=sqrt(1-kappa_o^2)@{color:"#c74440"}
+
+  "LOCAL KINETIC PROJECTION, from the binding-energy invariant kappa_o^2 - beta_o^2 = beta^2. Clamped at zero outside the release radius, where the probe never was."
+
+  beta_o=sqrt(max(kappa_o^2-beta^2,0))@{color:"#2d70b3"}
+
+  "LOCAL KINETIC PHASE FACTOR."
+
+  beta_Yo=sqrt(1-beta_o^2)@{color:"#2d70b3"}
+
+  "LOCAL RELATIONAL SPACETIME FACTOR tau_o = kappa_Xo * beta_Yo. This is the clock rate."
+
+  tau_o=kappa_Xo*beta_Yo@{color:"#6042a6"}
+
+  "ESCAPE VELOCITY. v_e = kappa_o * c, at every radius, with no exceptions."
+
+  v_esc=(kappa_o*c)/1000@{color:"#388c46"}
+
+  "The probe's own speed, beta_o * c."
+
+  v_k=(beta_o*c)/1000@{color:"#c74440"}
+
+  "GRAVITATIONAL ACCELERATION in R.O.M. form: the fourth power of the local potential projection over twice the system scale. Identical to R_s c^2 / 2 r^2.\nhttps://willrg.com/documents/WILL_RG_I.pdf#sec:acceleration"
+
+  g=(kappa_o^4*c^2)/(2*R_s)@{color:"#ffa500"}
+
+  n_g=g/g_E@{color:"#ffa500"}
+
+  r_k=r/1000@{color:"#000000"}
+
+  "THE SURFACE REFERENCE for time dilation: the same three quantities evaluated at r = R_sur."
+
+  kappa_Xsur=sqrt(1-kappa_sur^2)@{color:"#c74440"}
+
+  beta_osur=sqrt(max(kappa_sur^2-beta^2,0))@{color:"#2d70b3"}
+
+  beta_Ysur=sqrt(1-beta_osur^2)@{color:"#2d70b3"}
+
+  tau_sur=kappa_Xsur*beta_Ysur@{color:"#6042a6"}
+
+  "TIME DILATION. Delta_t = tau_o(R_sur) / tau_o(r): how fast a clock at the surface runs compared with a clock at r. Exactly 1 at the surface itself."
+
+  D_t=tau_sur/tau_o@{color:"#6042a6"}
+
+  "The same thing as seconds lost per year, which is easier to feel."
+
+  S_lag=(1-D_t)*Y_r@{color:"#6042a6"}
+}@{collapsed:true}
+
+folder"RANGE TABLE — the maths behind the rows"{
+  "Seven fixed radii, each a multiple of R_sur. Every column below is the same expression as the live readout, evaluated at that radius."
+
+  m_1=1@{color:"#000000"}
+
+  m_2=1.5@{color:"#000000"}
+
+  m_3=2@{color:"#000000"}
+
+  m_4=3@{color:"#000000"}
+
+  m_5=5@{color:"#000000"}
+
+  m_6=10@{color:"#000000"}
+
+  m_7=100@{color:"#000000"}
+
+  "kappa_o^2 = R_s/r at each row"
+
+  q_1=kappa_sur^2/m_1@{color:"#c74440"}
+
+  q_2=kappa_sur^2/m_2@{color:"#c74440"}
+
+  q_3=kappa_sur^2/m_3@{color:"#c74440"}
+
+  q_4=kappa_sur^2/m_4@{color:"#c74440"}
+
+  q_5=kappa_sur^2/m_5@{color:"#c74440"}
+
+  q_6=kappa_sur^2/m_6@{color:"#c74440"}
+
+  q_7=kappa_sur^2/m_7@{color:"#c74440"}
+
+  "v_e = kappa_o * c in km/s at each row"
+
+  w_1=(sqrt(q_1)*c)/1000@{color:"#388c46"}
+
+  w_2=(sqrt(q_2)*c)/1000@{color:"#388c46"}
+
+  w_3=(sqrt(q_3)*c)/1000@{color:"#388c46"}
+
+  w_4=(sqrt(q_4)*c)/1000@{color:"#388c46"}
+
+  w_5=(sqrt(q_5)*c)/1000@{color:"#388c46"}
+
+  w_6=(sqrt(q_6)*c)/1000@{color:"#388c46"}
+
+  w_7=(sqrt(q_7)*c)/1000@{color:"#388c46"}
+
+  "g = kappa_o^4 c^2 / 2 R_s at each row"
+
+  G_1=(q_1^2*c^2)/(2*R_s)@{color:"#ffa500"}
+
+  G_2=(q_2^2*c^2)/(2*R_s)@{color:"#ffa500"}
+
+  G_3=(q_3^2*c^2)/(2*R_s)@{color:"#ffa500"}
+
+  G_4=(q_4^2*c^2)/(2*R_s)@{color:"#ffa500"}
+
+  G_5=(q_5^2*c^2)/(2*R_s)@{color:"#ffa500"}
+
+  G_6=(q_6^2*c^2)/(2*R_s)@{color:"#ffa500"}
+
+  G_7=(q_7^2*c^2)/(2*R_s)@{color:"#ffa500"}
+
+  "tau_o = kappa_Xo * beta_Yo at each row"
+
+  u_1=sqrt(1-q_1)*sqrt(1-max(q_1-beta^2,0))@{color:"#6042a6"}
+
+  u_2=sqrt(1-q_2)*sqrt(1-max(q_2-beta^2,0))@{color:"#6042a6"}
+
+  u_3=sqrt(1-q_3)*sqrt(1-max(q_3-beta^2,0))@{color:"#6042a6"}
+
+  u_4=sqrt(1-q_4)*sqrt(1-max(q_4-beta^2,0))@{color:"#6042a6"}
+
+  u_5=sqrt(1-q_5)*sqrt(1-max(q_5-beta^2,0))@{color:"#6042a6"}
+
+  u_6=sqrt(1-q_6)*sqrt(1-max(q_6-beta^2,0))@{color:"#6042a6"}
+
+  u_7=sqrt(1-q_7)*sqrt(1-max(q_7-beta^2,0))@{color:"#6042a6"}
+
+  "Delta_t = tau_o(R_sur)/tau_o(r) at each row"
+
+  d_1=tau_sur/u_1@{color:"#6042a6"}
+
+  d_2=tau_sur/u_2@{color:"#6042a6"}
+
+  d_3=tau_sur/u_3@{color:"#6042a6"}
+
+  d_4=tau_sur/u_4@{color:"#6042a6"}
+
+  d_5=tau_sur/u_5@{color:"#6042a6"}
+
+  d_6=tau_sur/u_6@{color:"#6042a6"}
+
+  d_7=tau_sur/u_7@{color:"#6042a6"}
+
+  "Seconds lost per year at each row"
+
+  z_1=(1-d_1)*Y_r@{color:"#6042a6"}
+
+  z_2=(1-d_2)*Y_r@{color:"#6042a6"}
+
+  z_3=(1-d_3)*Y_r@{color:"#6042a6"}
+
+  z_4=(1-d_4)*Y_r@{color:"#6042a6"}
+
+  z_5=(1-d_5)*Y_r@{color:"#6042a6"}
+
+  z_6=(1-d_6)*Y_r@{color:"#6042a6"}
+
+  z_7=(1-d_7)*Y_r@{color:"#6042a6"}
+
+}@{collapsed:true}
+
+folder"PICTURE"{
+  "Scene geometry. The body is drawn the same size for every choice, so that only the numbers change. That is the point: the geometry is identical, the ratio kappa_sur^2 is not."
+
+  X_c=-2.2@{color:"#000000",hidden:true}
+
+  Y_c=0.35@{color:"#000000",hidden:true}
+
+  S_c=0.34@{color:"#000000",hidden:true}
+
+  W_dec=1.1818182@{color:"#000000",hidden:true}
+
+  "Bar heights. Full height 3.2 means the probe is standing on the surface, where kappa_o^2 = kappa_sur^2."
+
+  H_2=3.2/n_r@{color:"#c74440",hidden:true}
+
+  H_1=min(3.2/n_0,3.2/n_r)@{color:"#2d70b3",hidden:true}
+
+  "THE BODY"
+
+  (X_c+S_c*cos(t),Y_c+S_c*sin(t))@{
+    color:"#ffa500",
+    lines:@{width:3},
+    domain:@{t:@{min:0,max:6.283185307179586}},
+  }
+
+  (X_c,Y_c)@{color:"#ffa500",points:@{size:14}}
+
+  (X_c,Y_c-0.52)@{
+    color:"#ffa500",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"the body",
+      size:0.95,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE RED CIRCLE r = R_s, where kappa_o = 1. For the Earth it is 9 millimetres across and cannot be drawn. For a black hole it lies exactly on the surface."
+
+  (X_c+S_c*(10^(L_q))*cos(t),Y_c+S_c*(10^(L_q))*sin(t))@{
+    color:"#c74440",
+    lines:@{width:2.5},
+    domain:@{t:@{min:0,max:6.283185307179586}},
+  }
+
+  "WHERE THE PROBE WAS RELEASED. Drag the gold handle below the body."
+
+  (X_c+S_c*n_0*cos(t),Y_c+S_c*n_0*sin(t))@{
+    color:"#ffd700",
+    lines:@{opacity:0.8,width:2,style:"DASHED"},
+    domain:@{t:@{min:0,max:6.283185307179586}},
+  }
+
+  (X_c,Y_c-S_c*n_0)@{
+    color:"#ffd700",
+    points:@{size:11,drag:"Y"},
+    label:@{
+      text:"⇧ released from rest at ${n_{0}} R_sur ⇩",
+      size:0.9,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "The slot the probe runs along"
+
+  (X_c+S_c*t,Y_c)@{
+    color:"#000000",
+    lines:@{opacity:0.3,width:2},
+    domain:@{t:@{min:1,max:6}},
+  }
+
+  "THE PROBE"
+
+  (X_c+S_c*n_r,Y_c)@{color:"#000000",points:@{size:15,drag:"X"}}
+
+  (X_c+S_c*3.5,Y_c+0.78)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"⟸  drag the black dot  ⟹",
+      size:1.15,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "beta_o c drawn as a blue arrow, scaled against kappa_sur c"
+
+  (X_c+S_c*n_r-0.8*sqrt(max(1/n_r-1/n_0,0))*t,Y_c+0.3)@{
+    color:"#2d70b3",
+    lines:@{width:5},
+    domain:@{t:@{min:0,max:1}},
+  }
+
+  (X_c+S_c*n_r-0.8*sqrt(max(1/n_r-1/n_0,0)),Y_c+0.3)@{
+    color:"#2d70b3",
+    points:@{size:8,style:"OPEN"},
+    label:@{
+      text:"βₒc",
+      size:1,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "g drawn as an orange arrow, scaled against its value at the surface. It shrinks as the square of the distance."
+
+  (X_c+S_c*n_r-(0.8/n_r^2)*t,Y_c-0.3)@{
+    color:"#ffa500",
+    lines:@{width:5},
+    domain:@{t:@{min:0,max:1}},
+  }
+
+  (X_c+S_c*n_r-0.8/n_r^2,Y_c-0.3)@{
+    color:"#ffa500",
+    points:@{size:8,style:"OPEN"},
+    label:@{
+      text:"g",
+      size:1.2,
+      orientation:"below_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE BAR: kappa_o^2 split into the part held back and the part turned into motion."
+
+  B_1=(1.4,-1.6)@{color:"#000000",hidden:true}
+
+  B_2=(2.1,-1.6)@{color:"#000000",hidden:true}
+
+  B_3=(2.1,-1.6+H_1)@{color:"#000000",hidden:true}
+
+  B_4=(1.4,-1.6+H_1)@{color:"#000000",hidden:true}
+
+  B_5=(2.1,-1.6+H_2)@{color:"#000000",hidden:true}
+
+  B_6=(1.4,-1.6+H_2)@{color:"#000000",hidden:true}
+
+  polygon(B_1,B_2,B_3,B_4)@{color:"#2d70b3",lines:@{opacity:0.9,width:1.5},fill:0.75}
+
+  polygon(B_4,B_3,B_5,B_6)@{color:"#c74440",lines:@{opacity:0.9,width:1.5},fill:0.75}
+
+  polygon((1.4,-1.6),(2.1,-1.6),(2.1,1.6),(1.4,1.6))@{color:"#000000",lines:@{opacity:0.7,width:1.5,style:"DASHED"}}
+
+  (1.4,2.15)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"THE TRADE",
+      size:1.25,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (1.4,1.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"κₒ² = β² + βₒ²",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.2,-1.6+H_1/2)@{
+    color:"#2d70b3",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"β²",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.2,-1.6+(H_1+H_2)/2)@{
+    color:"#c74440",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"βₒ²",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (1.4,-2.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"full box = κₛᵤᵣ²",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "TITLE AND BUTTONS"
+
+  (-8.0,3.45)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"GRAVITY IN R.O.M. SYMBOLS",
+      size:1.65,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,3.12)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Pick a body. Drag the black probe. Everything follows from two lengths, R_s and r.",
+      size:1.0,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,2.82)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"κₒ² = β² + βₒ² : whatever depth the probe gains turns into motion. β² never moves.",
+      size:1.0,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,2.52)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"No mass, no force, no gravitational constant appears anywhere on this screen.",
+      size:1.0,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,2.12)@{
+    color:"#2d70b3",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"⊕  EARTH",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_earth,
+    clickDescription:"",
+  }
+
+  (-8.0,1.79)@{
+    color:"#ffa500",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"♃  JUPITER",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_jup,
+    clickDescription:"",
+  }
+
+  (-8.0,1.46)@{
+    color:"#ffd700",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"☀  THE SUN",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_sun,
+    clickDescription:"",
+  }
+
+  (-8.0,1.13)@{
+    color:"#6042a6",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"✦  NEUTRON STAR",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_ns,
+    clickDescription:"",
+  }
+
+  (-8.0,0.8)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"●  BLACK HOLE",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:A_bh,
+    clickDescription:"",
+  }
+
+  (-8.0,0.42)@{
+    color:"#388c46",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"↺ set r = 3 R_sur",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:n_r->3,
+    clickDescription:"",
+  }
+
+  (-8.0,0.09)@{
+    color:"#388c46",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"↺ release from 6 R_sur",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+    onClick:n_0->6,
+    clickDescription:"",
+  }
+
+  (-8.0,-0.35)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◆ THE BODY",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,-0.68)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"R_s = ${R_{s}} m",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,-1.01)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"R_sur = ${R_{sur}} m",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,-1.34)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◆ THE PROBE",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,-1.67)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"r = ${n_{r}} R_sur = ${r_{k}} km",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,2.25)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◆ GLOBAL — fixed by the gold circle",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,1.93)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"β = ${\\beta}      β_Y = ${\\beta_{Y}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,1.61)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"κ = ${\\kappa}      κ_X = ${\\kappa_{X}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,1.29)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"τ = κ_X·β_Y = ${\\tau}       (κ² = 2β²)",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,0.93)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◆ LOCAL — at the probe (subscript o)",
+      size:1.05,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,0.57)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"κₒ² = R_s/r = ${q_{o}}",
+      size:1.15,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,0.21)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"v_e = κₒ·c = ${v_{esc}} km/s",
+      size:1.15,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-0.15)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"βₒ·c = ${v_{k}} km/s",
+      size:1.15,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-0.51)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"g = ${g} m/s²  = ${n_{g}} g⊕",
+      size:1.15,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-0.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"κₒ = ${\\kappa_{o}}      κ_Xo = ${\\kappa_{Xo}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-1.17)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"βₒ = ${\\beta_{o}}      β_Yo = ${\\beta_{Yo}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-1.49)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"τₒ = κ_Xo·β_Yo = ${\\tau_{o}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-1.81)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Δt = τₒ(R_sur)/τₒ(r) = ${D_{t}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE LADDER — where each body sits, across eleven powers of ten in kappa_sur^2"
+
+  (t,-2.5)@{
+    color:"#000000",
+    lines:@{opacity:0.5,width:1.5},
+    domain:@{t:@{min:-6.5,max:6.5}},
+  }
+
+  (-6.5+(11+L_qE)*W_dec,-2.5)@{
+    color:"#2d70b3",
+    points:@{size:9},
+    label:@{
+      text:"Earth",
+      size:0.85,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5+(11+L_qJ)*W_dec,-2.5)@{
+    color:"#ffa500",
+    points:@{size:9},
+    label:@{
+      text:"Jupiter",
+      size:0.85,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5+(11+L_qS)*W_dec,-2.5)@{
+    color:"#ffd700",
+    points:@{size:9},
+    label:@{
+      text:"Sun",
+      size:0.85,
+      orientation:"above",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5+(11+L_qN)*W_dec,-2.5)@{
+    color:"#6042a6",
+    points:@{size:9},
+    label:@{
+      text:"neutron star",
+      size:0.85,
+      orientation:"above_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5+(11+L_qB)*W_dec,-2.5)@{
+    color:"#000000",
+    points:@{size:9},
+    label:@{
+      text:"black hole",
+      size:0.85,
+      orientation:"above_right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "The chosen body. Drag it along the ladder to change kappa_sur^2 without changing R_sur."
+
+  (-6.5+(11+L_q)*W_dec,-2.5)@{
+    color:"#c74440",
+    points:@{size:14,drag:"X"},
+    label:@{
+      text:"⟸ this body ⟹",
+      size:0.95,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "The probe, always to the left of the body it sits above"
+
+  (-6.5+(11+log(q_o))*W_dec,-2.5)@{
+    color:"#388c46",
+    points:@{size:9,style:"OPEN"},
+    label:@{
+      text:"κₒ²",
+      size:0.85,
+      orientation:"below_left",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-6.5,-2.82)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"κₛᵤᵣ² = 10⁻¹¹",
+      size:0.8,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.5,-2.82)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"κₛᵤᵣ² = 1",
+      size:0.8,
+      orientation:"below",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE SYMBOL LEGEND"
+
+  (-8.0,-3.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"SUBSCRIPT o means «at the probe, radius r». No subscript means «fixed for the whole fall by the gold circle».",
+      size:0.9,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,-3.35)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"κₒ² = R_s/r      v_e = κₒ·c      κ_Xo = √(1−κₒ²)      β_Yo = √(1−βₒ²)      τₒ = κ_Xo·β_Yo      Δt = τₒ(R_sur)/τₒ(r)",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "THE RANGE TABLE"
+
+  (-7.9,-3.78)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"◆ THE WHOLE RANGE FOR THIS BODY   —   probe released from rest at ${n_{0}} R_sur",
+      size:1.1,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (t,-3.95)@{
+    color:"#c74440",
+    lines:@{opacity:0.4,width:1.2},
+    domain:@{t:@{min:-8.0,max:7.0}},
+  }
+
+  (t,-4.35)@{
+    color:"#c74440",
+    lines:@{opacity:0.4,width:1.2},
+    domain:@{t:@{min:-8.0,max:7.0}},
+  }
+
+  (t,-4.77)@{
+    color:"#000000",
+    lines:@{opacity:0.6,width:1.2},
+    domain:@{t:@{min:-8.0,max:7.0}},
+  }
+
+  (-7.9,-4.15)@{
+    color:"#c74440",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${n_{r}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.4,-4.15)@{
+    color:"#c74440",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${q_{o}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.9,-4.15)@{
+    color:"#c74440",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${v_{esc}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-0.3,-4.15)@{
+    color:"#c74440",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${g}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-4.15)@{
+    color:"#c74440",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${D_{t}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-4.15)@{
+    color:"#c74440",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${S_{lag}}",
+      size:0.95,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (6.9,-4.15)@{
+    color:"#c74440",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"← the probe right now",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.9,-4.55)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"r / R_sur",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.4,-4.55)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"κₒ² = R_s/r",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.9,-4.55)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"v_e = κₒ·c  km/s",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-0.3,-4.55)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"g   m/s²",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-4.55)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"Δt",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-4.55)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"clock lag  s/yr",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.9,-5.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"1",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.4,-5.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${q_{1}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.9,-5.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${w_{1}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-0.3,-5.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${G_{1}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-5.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${d_{1}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-5.05)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${z_{1}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.9,-5.41)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"1.5",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.4,-5.41)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${q_{2}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.9,-5.41)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${w_{2}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-0.3,-5.41)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${G_{2}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-5.41)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${d_{2}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-5.41)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${z_{2}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.9,-5.77)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"2",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.4,-5.77)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${q_{3}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.9,-5.77)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${w_{3}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-0.3,-5.77)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${G_{3}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-5.77)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${d_{3}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-5.77)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${z_{3}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.9,-6.13)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"3",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.4,-6.13)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${q_{4}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.9,-6.13)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${w_{4}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-0.3,-6.13)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${G_{4}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-6.13)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${d_{4}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-6.13)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${z_{4}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.9,-6.49)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"5",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.4,-6.49)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${q_{5}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.9,-6.49)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${w_{5}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-0.3,-6.49)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${G_{5}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-6.49)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${d_{5}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-6.49)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${z_{5}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.9,-6.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"10",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.4,-6.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${q_{6}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.9,-6.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${w_{6}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-0.3,-6.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${G_{6}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-6.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${d_{6}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-6.85)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${z_{6}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-7.9,-7.21)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"100",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-5.4,-7.21)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${q_{7}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-2.9,-7.21)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${w_{7}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-0.3,-7.21)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${G_{7}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (2.3,-7.21)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${d_{7}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (4.9,-7.21)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"NONE"},
+    label:@{
+      text:"${z_{7}}",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  "FOOTNOTES"
+
+  (-8.0,-7.62)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"v_e = κₒ·c at every radius. At the red circle κₒ = 1, so v_e = c and nothing escapes. That is what a black hole is.",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,-7.9)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Δt uses the falling probe's own βₒ. Drag the gold circle down to 1 R_sur to remove the motion and see depth alone.",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,-8.18)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Rows outside the gold circle: the probe never fell from there, so βₒ = 0 and β_Yo = 1.",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,-8.46)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Black hole: τₒ(R_sur) = 0, so Δt has no value at its surface and reads 0 everywhere else. The clock has stopped.",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+  (-8.0,-8.74)@{
+    color:"#000000",
+    hidden:true,
+    points:@{opacity:0.9,size:9,drag:"XY"},
+    label:@{
+      text:"Drag the probe to half the release radius: there κₒ = κ and βₒ = β, and κₒ² = 2β². That is the closure theorem.",
+      size:0.85,
+      orientation:"right",
+      angle:0,
+      editableMode:"NONE",
+    },
+  }
+
+}@{collapsed:true}
