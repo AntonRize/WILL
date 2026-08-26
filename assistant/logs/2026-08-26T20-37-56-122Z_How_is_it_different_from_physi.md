@@ -29,3 +29,7 @@ The research is structured as a trilogy of self-contained documents:
 |------|----------|-------|
 | **I** | [WILL_RG_I.pdf](https://willrg.com/documents/WILL_RG_I.pdf) | **Relational Geometry** — Derivation of SR, GR, orbital mechanics (R.O.M.), equivalence principle, and singularity resolution from $S^1/S^2$ carrier closure ($\kappa^2=2\beta^2$). |
 | **II** | [WILL_RG_II.pdf](https://willrg.com/documents/W
+
+**User:** Can any of this be applied to REAL world engineering  tasks?
+
+**Assistant:** Upstream error from Nvidia: Service temporarily overloaded
