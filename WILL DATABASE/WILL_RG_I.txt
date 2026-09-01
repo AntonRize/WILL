@@ -216,7 +216,7 @@ $\underbrace{ \Delta E_{A \to B} + \Delta E_{B \to A} = 0}_{\text{exact symmetry
 $\downarrow$ \textit{(apply RG to orbital mechanics)} $\downarrow$\\\hline
 \textbf{Relational Orbital Mechanics $\boxed{\text{R.O.M.}}$: a closed algebraic system of equations}\\\hline
 $\downarrow$\textit{(by Factorization Theorem: every quantity $X$ splits into unitless core $\hat{X}$ and scale label $S_X$)}$\downarrow$\\\hline
-\textbf{Unitless Core:} $\underbrace{X = \hat{X}(β, e)}_{\text{unitless core}}⋅ \underbrace{S_X(R_s, c, G)}_{\text{units-scale}}$ \textbf{G and M are unit-conversion factors.}\\\hline
+\textbf{Unitless Core:} $\underbrace{X = \hat{X}(\beta, e)}_{\text{unitless core}}⋅ \underbrace{S_X(R_s, c, G)}_{\text{units-scale}}$ \textbf{G and M are unit-conversion factors.}\\\hline
 $\downarrow$ \textit{(by Inverse Square, Closure and Causal Continuity Theorems)} $\downarrow$\\\hline
 \textbf{No Singularities:} $\beta_{\max}^2 = 1 \;\rightarrow\; \kappa_{\max}^2 = 2 \;\rightarrow\;
 r_{\min} = R_s/\kappa_{\max}^2 \;\rightarrow\; r_{\min} = R_s/2$\\\hline
@@ -644,6 +644,7 @@ This derivation proceeds by construction from traced origins. Each object enteri
 \end{remark}
 
 \subsection{The Amplitude-Phase Duality}
+\hypertarget{sec:duality}{}\label{sec:duality}
 
 $S^1$ and $S^2$ encode the \textit{ratio} of internal to external relational energy (state transformation ledger \ref{def:energy}). 
 A point on $S^1$ and $S^2$ is not a position but a partition: how much of the system's transformation is externally expressed (amplitude $\beta, \kappa$) versus internally retained (phase $\beta_Y$, $\kappa_X$). The carrier geometry makes this partition exact and parameter-free.
@@ -1160,8 +1161,13 @@ $\beta_Y = \sqrt{1-(v/c)^2}=\sqrt{1-\beta^2}$& $\beta_Y = \sin(\theta_1) $\\\hli
 \textbf{The energy--momentum relation $E_{\beta}^{2} = (p_{\beta}c)^{2} + (mc^{2})^{2}$ is geometric identity of $S^1$ relational energy carrier.}
 \end{tcolorbox}
 
-\subsubsection{Minkowski Interval as Inflation of the $S^1$ Closure}
+\subsubsection{Reductio ad absurdum of Minkowski Interval as Inflation of the $S^1$ Closure}
 \hypertarget{sec:SR_interval}{}\label{sec:SR_interval}
+
+\begin{remark}
+\label{rem:absurdum}
+    This is the first section presented as reductio ad absurdum argument. Here we showing that legacy formulas arise only after relational primitives has been inflated or collapsed by unjustified assumptions. The appearance of standard equations is therefore an\textbf{ indictment }of those assumptions. The relational primitives are the physical content; the standard formalisms are its distorted shadows.   
+\end{remark}
 
 In legacy Special Relativity the Minkowski interval is posited as the physical metric of a 4D background manifold. We reverse the order of explanation. The primitive object is the dimensionless kinematic closure on the relational carrier $S^1$ (Theorem~\ref{thm:conservation}):
 \begin{equation}
@@ -1301,10 +1307,10 @@ projections of the closed relational geometry, expressed through complementary
 trigonometric forms.
 \end{tcolorbox}
 
-\subsubsection{Schwarzschild Interval as Inflation of the $S^2$ Closure}
+\subsubsection{Reductio ad absurdum of Schwarzschild Interval as Inflation of the $S^2$ Closure}
 \hypertarget{sec:GR_interval}{}\label{sec:GR_interval}
 
-The gravitational construction is parallel to the kinetic. The primitive object is the dimensionless potential closure on the relational carrier $S^2$ (Theorem~\ref{thm:conservation}):
+The gravitational \ref{rem:absurdum}  construction is parallel to the kinetic. The primitive object is the dimensionless potential closure on the relational carrier $S^2$ (Theorem~\ref{thm:conservation}):
 \begin{equation}
 \kappa^2 + \kappa_X^2 = 1 ,
 \label{eq:s2_closure_primary}
@@ -1661,42 +1667,19 @@ without requiring a postulate $m_g=m_i$.
 
 
 
-\subsection{Classical Mechanics as Collapsed Two-Point Relational Ontology }
+\subsection{Reductio ad absurdum of Classical Mechanics as Collapsed Two-Point Relational Ontology }
 \hypertarget{sec:classical}{}\label{sec:classical}
 
-\subsubsection{The Phase Scaling and the Classical $\frac{1}{2}$}
-
-The total energy in RG is given by the phase ratio:
-\begin{equation}
-\frac{E}{E_0} = \frac{\kappa_X}{\beta_Y} = \frac{\sqrt{1-\kappa^2}}{\sqrt{1-\beta^2}} = (1-\kappa^2)^{1/2} (1-\beta^2)^{-1/2}
-\end{equation}
-
-In the weak-field, low-velocity regime ($\beta \ll 1$, $\kappa \ll 1$), the Taylor expansion of the phase scaling yields:
-\begin{equation}
-\frac{E}{E_0} \approx \left(1 - \frac{1}{2}\kappa^2\right) \left(1 + \frac{1}{2}\beta^2\right) \approx 1 - \frac{1}{2}\kappa^2 + \frac{1}{2}\beta^2
-\end{equation}
-
-The excess energy (the kinetic and potential ledgers) per unit rest energy is therefore:
-\begin{equation}
-\frac{E - E_0}{E_0} \approx \frac{1}{2}\beta^2 - \frac{1}{2}\kappa^2
-\end{equation}
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Relational Origin of the Classical $\frac{1}{2}$]
-The historical factor $\frac{1}{2}$ in classical kinetic and potential energy formulas is the first-order Taylor coefficient of the phase ratio $\kappa_X / \beta_Y$. Newtonian physics emerges as the linear approximation of the relational phase ratio. Classical mechanics captures the first-order, a testament to its empirical adequacy in the weak-field regime.
-\end{tcolorbox}
-
-\subsubsection*{Physical Interpretation}
-
-This demonstrates that the Keplerian total energy is a direct linear projection of a deeper relational structure. The difference of squared amplitudes ($\beta^2 - \kappa^2$) emerges invariantly from the closed geometry of the carriers. The structure of the energy relation is a direct consequence of the relational closure of $S^1$ and $S^2$.
+In this section, similar to metric intervals above, all derivations of classical mechanics presented as \textbf{reductio ad absurdum} \ref{rem:absurdum}  arguments. We are not validating relational ontology by deriving classical equations. We are devaluating classical equations by showing there pure relational origin and there form as distorted shadow of this origin.
 
 \subsubsection{Lagrangian and Hamiltonian}
 \hypertarget{sec:LH}{}\label{sec:LH}
 
-In the standard formulation of mechanics, the Lagrangian \(L = T - V\) and the Hamiltonian \(H = T + V\) are treated as fundamental functions of a single configuration point \(\mathbf{r}\). Relational Geometry reveals that both are linearized limits of a deeper two‑point energy balance: the \textbf{Energy‑Symmetry Law}
+In the standard formulation of mechanics, the Lagrangian \(L = T - V\) and the Hamiltonian \(H = T + V\) are treated as fundamental functions of a single configuration point \(\mathbf{r}\). Relational Geometry reveals that both are linearized limits of a deeper two‑point energy balance: the \textbf{Energy‑Symmetry Law} (\ref{sec:energy-symmetry})
 \[
 \Delta E_{A \to B} + \Delta E_{B \to A} = 0 ,
 \]
-where the specific energy (per unit rest energy) perceived by an observer at state \(A\) for a transition to state \(B\) is determined by the difference in their total phase scaling:
+where the specific energy (\textbf{per unit rest energy}) perceived by an observer at state \(A\) for a transition to state \(B\) is determined by the difference in their total phase scaling (\ref{sec:energy_quantities}):
 \begin{equation}
 \boxed{\;
 \Delta E_{A \to B}
@@ -1705,7 +1688,7 @@ where the specific energy (per unit rest energy) perceived by an observer at sta
 \;}.
 \label{eq:two_point_energy}
 \end{equation}
-Here $\beta = v/c$ is the kinematic projection on the carrier $S^{1}$ and $\kappa^{2} = R_{s}/r$ is the potential projection on the carrier $S^{2}$. 
+Here $\beta = v/c$ is the kinematic amplitude projection on the carrier $S^{1}$ with complementary phase projection $\beta_Y=\sqrt{1-\beta^2}$ and $\kappa^{2} = R_{s}/r$ is the potential amplitude projection on the carrier $S^{2}$ with complementary phase projection $\kappa_X=\sqrt{1-\kappa^2}$.
 
 \subsubsection*{The linearized relational limit}
 
@@ -1713,39 +1696,97 @@ To connect with legacy mechanics, we examine the weak-field, low-velocity regime
 \[
 \Delta E_{A \to B} \approx \left(1 - \tfrac12\kappa_B^2 + \tfrac12\beta_B^2\right) - \left(1 - \tfrac12\kappa_A^2 + \tfrac12\beta_A^2\right).
 \]
-The constant $1$ cancels out, leaving the linearized specific energy transfer:
+The constant $1$ cancels out, leaving the linearized specific energy (\textbf{per unit rest energy}) transfer:
 \begin{equation}
 \Delta E_{A \to B} \approx \tfrac12\bigl(\kappa_A^{2} - \kappa_B^{2}\bigr)
    + \tfrac12\bigl(\beta_B^{2} - \beta_A^{2}\bigr).
 \label{eq:linearized_two_point}
 \end{equation}
-The factor $\tfrac12$ appears here as the first-order Taylor coefficient of the inverse-phase scaling. 
+
+\subsubsection*{Physical Interpretation}
+
+This demonstrates that the Keplerian total energy is a direct linear projection of a deeper relational structure. The difference of squared amplitudes ($\beta^2 - \kappa^2$) emerges invariantly from the closed geometry of the carriers. The structure of the energy relation is a direct consequence of the relational closure of $S^1$ and $S^2$.
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Relational Origin of the Classical $\frac{1}{2}$]
+The historical factor $\frac{1}{2}$ in classical kinetic and potential energy formulas is the first-order Taylor coefficient of the phase ratio $\kappa_X / \beta_Y$. Newtonian physics emerges as the linear approximation of the relational phase ratio. Classical mechanics captures the first-order, a testament to its empirical adequacy in the weak-field regime.
+\end{tcolorbox}
+
 
 \subsubsection*{Hamiltonian}
 
-The standard Newtonian Hamiltonian is obtained by the first ontological collapse. By the Relational Reciprocity Theorem (\ref{thm:reciprocity}), an observer self-centers at their own relational origin, meaning observer $A$ measures their own state as $\kappa_A = 0$ and $\beta_A = 0$. (Legacy physics interprets this self-centered zero-state as placing the reference frame at "infinity"). 
+The standard Newtonian Hamiltonian is obtained by the first ontological collapse: assuming that energy is an intrinsic property of an object and does not have relational origin. Legacy physics is postulating operationally impossible and physically contradictory reference frame at "infinity". Meaning observer $A$ measures their own state as $\kappa_A = 0$ and $\beta_A = 0$.
 
-Applying this self-centered zero-state to the linearized two-point law (Eq. \ref{eq:linearized_two_point}), the transition collapses into a property of a single state $B$:
+Applying this reference zero-state to the linearized two-point law (Eq. \ref{eq:two_point_energy}), the transition collapses into a property of a single state $B$:
 \[
 E \approx \tfrac12\beta_B^{2} - \tfrac12\kappa_B^{2}.
 \]
-Multiplying by $mc^2$ and substituting the legacy definitions of $\beta$ and $\kappa$ gives:
+Multiplying by $E_0$ and substituting the legacy definitions of kinetic $\beta$ and potential $\kappa$ gives:
 \[
-H \;=\; \tfrac12 m v^{2} \;-\; \frac{GMm}{r} ,
+H \;=\; \tfrac12 m v^{2} \;-\; \frac{GMm}{r}  \approx E_0 \cdot(\tfrac12\beta_B^{2} - \tfrac12\kappa_B^{2}),
 \]
-which is the Newtonian Hamiltonian. The potential information, which belongs to the two-point difference, is reassigned to a single point via an externally postulated potential function $V(r) = -GMm/r$.
+which is the Newtonian Hamiltonian derived as distorted shadow of its relational origin. 
 
 \subsubsection*{Lagrangian}
 
-If one starts from the same two-point energy symmetry law $\Delta E_{A \to B} + \Delta E_{B \to A} = 0$ but commits the second ontological collapse --- forcing the two distinct points to occupy the same spatial coordinate, $r_A = r_B = r$ --- the relational structure collapses further. Setting $\kappa_A^2 = \kappa^2(r)$ and $\beta_A = 0$ while keeping $\beta_B = \beta$, the linearized equation becomes:
+In the standard formulation, the Lagrangian \(L = T - V\) is treated as a fundamental starting point. Relational Geometry exposes that this form arises only after a series of speculative metaphysical commitments. We list these assumptions, each of which violates one or more of the methodological principles of the relational ontology.
+
+\begin{enumerate}[label=\textbf{A\arabic*.}, leftmargin=2.5em]
+
+    \item \textbf{Single-point ontology.}  
+    The system is described by a single configuration point \(q_i(t)\). This erases the two-point nature of relational change. The true primitive is the Energy-Symmetry Law between two states \(A\) and \(B\):
+    \[
+    \Delta E_{A\to B} + \Delta E_{B\to A} = 0,
+    \]
+    not a function of a single point.
+
+    \item \textbf{Absolute time parameter.}  
+    Time \(t\) is introduced as an external, monotonically flowing background coordinate, making \(t\) an independent parameter is a substantival unjustified inflation forbidden by Epistemic Hygiene (\ref{pr:epistemic}).
+
+    \item \textbf{Pre-existing configuration space.}  
+    The coordinates \(q_i\) are assumed to live in a background manifold with a fixed topology and metric. This imports a container that relational logic does not require and constitutes surplus ontology.
+
+    \item \textbf{Existence of a scalar potential \(V(q)\).}  
+    The potential is usually inserted as a function of position, e.g.\ \(V(r) = -GMm/r\). In the relational two-point law, potential differences arise naturally from the difference of the squared potential amplitudes \(\kappa^2\) between two states. They are not properties of a single point in an absolute space.
+
+    \item \textbf{Kinetic energy as an absolute function of velocity.}  
+    \(T = \tfrac12 m v^2\) assumes that velocity is defined relative to an absolute inertial frame or an observer at infinity. In Relational Geometry, the kinematic amplitude \(\beta = v/c\) is a projection on \(S^1\) relative to a specific observer; it is not an intrinsic property of the object.
+
+    \item \textbf{The minus sign in \(L = T - V\).}  
+    The sign of the potential term is chosen purely to make the Euler-Lagrange equations reproduce Newton's second law. There is no ontological reason why the potential should enter with a negative sign and the kinetic term with a positive sign. This convention is an additional postulate, not a property of the Universe.
+
+    \item \textbf{The action principle.}  
+    The postulate \(\delta \int L\,dt = 0\) is an unexplained extremization principle. It is often called "least action", but no relational derivation exists for why nature should extremise such a quantity. It is an extra axiom on top of the equations of motion. It existence is an artifact of surplus degrees of freedom created by assumptions above.
+
+    \item \textbf{The second ontological collapse: \(r_A = r_B\).}  
+    This is the critical step that generates the Lagrangian from the relational law. The exact linearized two-point energy difference is
+    \[
+    \Delta E_{A\to B} \approx \frac12(\kappa_A^2 - \kappa_B^2) + \frac12(\beta_B^2 - \beta_A^2).
+    \]
+    To obtain the Lagrangian, one forces the two distinct states \(A\) and \(B\) to occupy the same radial distance, \(r_A = r_B\). Then the potential terms cancel identically, leaving only the kinetic difference:
+    \[
+    \Delta E_{A\to B} \approx \frac12 \beta_B^2 - \frac12 \beta_A^2.
+    \]
+    At this point, to recover dynamics, one must \emph{manually} add an external potential function \(V(r)\) with a chosen sign. This insertion is not derived; it is an act of ontological violence that reintroduces the very potential that was lost in the second collapse.
+
+\end{enumerate}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary of the Lagrangian collapse]
+The Lagrangian is obtained only after:
+\begin{itemize}
+    \item erasing the two-point relational structure,
+    \item imposing an external time and a background configuration space,
+    \item assuming a pre-existing scalar potential,
+    \item choosing an arbitrary sign for that potential,
+    \item postulating an extremal action principle,
+    \item and forcing the two relational states to coincide, which eliminates the potential from the ledger and then reinserting it by hand.
+\end{itemize}
+In the relational ontology, the true primitive is the phase-ratio difference between two states, given by
 \[
-\Delta E_{A \to B} \approx \tfrac12\bigl(\kappa^{2}(r) - \kappa^{2}(r)\bigr) + \tfrac12\beta^{2} = \tfrac12\beta^{2}.
+\Delta E_{A\to B} = \left( \frac{\kappa_X}{\beta_Y} \right)_B - \left( \frac{\kappa_X}{\beta_Y} \right)_A .
 \]
-The potential information completely vanishes from the relational ledger. To recover a dynamical equation, legacy mechanics must separately postulate an external potential energy function $V(r)$ and add it by hand to the kinetic term. Assigning the opposite sign convention to this postulated potential yields the Newtonian Lagrangian:
-\[
-L \;=\; \tfrac12 m v^{2} \;+\; \frac{GMm}{r}.
-\]
-Both the Hamiltonian and the Lagrangian are revealed as single-point artifacts of collapsing the true two-point phase ratio law.
+The Lagrangian is its distorted shadow after all relational content has been collapsed away and replaced by absolute structures. This is precisely the reductio ad absurdum: classical mechanics appears only after a series of unjustified metaphysical speculations.
+\end{tcolorbox}
+
 
 \subsubsection*{Summary}
 
@@ -1772,8 +1813,7 @@ H &= \tfrac12 m v^2 - \dfrac{GMm}{r}
 \\
 \hline
 \multicolumn{2}{|p{0.93\textwidth}|}{\centering
-\textbf{The collapse is performed by Taylor linearizing the phase ratio (introducing the $\frac12$), applying the self-centered origin (Hamiltonian), and identifying $r_A=r_B$ (Lagrangian). The two-point phase ratio contains the full energy balance without the need for a separate potential.}
-} \\
+\textbf{The collapse is performed by Taylor linearizing the phase ratio (introducing the $\frac12$), applying the reference frame at infinity (Hamiltonian), and identifying $r_A=r_B$ (Lagrangian). The two-point phase ratio contains the full energy balance without the need for a separate potential.}} \\
 \hline
 \end{tabular}
 \caption{True two-point relational law versus collapsed single-point forms.}
@@ -1782,7 +1822,7 @@ H &= \tfrac12 m v^2 - \dfrac{GMm}{r}
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Key insight]
 The Lagrangian and Hamiltonian are linearized artifacts of the single‑point collapse of the two‑point Energy‑Symmetry Law. In the relational framework, all dynamical information is encoded in the dimensionless phase ratio $\kappa_X / \beta_Y$ and its geometric closure. No potential function, no force law, and no action principle are required as foundational primitives.
 \begin{center}
-$\underbrace{ \Delta E_{A \to B} + \Delta E_{B \to A} = 0}_{\text{exact symmetry law}}$ $\approx$ $\underbrace{\tfrac12\bigl(\kappa_A^{2} - \kappa_B^{2}\bigr) + \tfrac12\bigl(\beta_B^{2} - \beta_A^{2}\bigr)}_{\text{first order  approximation}}$ $\approx\underbrace{T \pm V}_{\text{ontological collapse}}$
+$\underbrace{ \Delta E_{A \to B} + \Delta E_{B \to A} = 0}_{\text{exact symmetry law}}$ $\approx$ $\underbrace{\tfrac12\bigl(\kappa_A^{2} - \kappa_B^{2}\bigr) + \tfrac12\bigl(\beta_B^{2} - \beta_A^{2}\bigr)}_{\text{first order  approximation}}$ $\approx\underbrace{(T \pm V)/E_0}_{\text{ontological collapse}}$
 \end{center}
 \end{tcolorbox}
 
@@ -1815,7 +1855,7 @@ We now demonstrate that Newton's Third Law, like the Lagrangian and Hamiltonian,
 
 \hypertarget{thm:third_law}{}\label{thm:third_law}
 \begin{theorem}[Newton's Third Law as a Single-Point Limit]
-The Energy--Symmetry Law ($\Delta E_{A \to B} + \Delta E_{B \to A} = 0$) mathematically necessitates Newton's Third Law ($\vec{F}_{AB} = - \vec{F}_{BA}$) in the classical, non-relativistic limit where the two-point relational energy budget is collapsed into a single-point potential function $U(\vec{r})$.
+The Energy--Symmetry Law ($\Delta E_{A \to B} + \Delta E_{B \to A} = 0$) mathematically necessitates Newton's Third Law ($\vec{F}_{AB} = - \vec{F}_{BA}$) in the classical, non-relativistic limit where the two-point relational energy leger is collapsed into a single-point potential function $U(\vec{r})$.
 \end{theorem}
 
 \begin{proof}
