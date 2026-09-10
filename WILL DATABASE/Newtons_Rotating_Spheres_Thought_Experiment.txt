@@ -1,268 +1,176 @@
 
+
 \subsection{Newton's Rotating Spheres Thought Experiment}
 \hypertarget{sec:Newtons_thought}{}\label{sec:Newtons_thought}
 
-\subsubsection*{The thought experiment}
+\subsubsection*{The Thought Experiment as Newton States It}
 
-Two spheres \(A\) and \(B\) are joined by a cord and placed in an otherwise empty universe. Two configurations are compared. In one, the pair does not rotate and the cord is slack. In the other, the pair rotates about its common centre and the cord is under tension. The two states are physically distinct. The question is what, if anything, the rotation is relative to, given that no external body has been listed.
+Two globes are kept at a given distance from one another by a cord that connects them, and are revolved about their common centre of gravity. From the tension of the cord we discover the endeavour of the globes to recede from the axis of their motion, and from that we compute the quantity of their circular motion. Newton states that this holds in an immense vacuum, where nothing external or sensible exists with which the globes could be compared.
 
-Write \(d\) for the length of the cord and \(D\) for the operational separation of the two spheres.
-Slack means \(d>D\). Tension means the constraint is active: \(d=D\).
+Three features of this wording fix the problem. The cord is taut throughout, since the globes are kept at a given distance, so the separation is the cord length. The quantity to be computed is continuous, because Newton asks how much circular motion there is rather than whether there is any. The centre of rotation is named by Newton as the common centre of gravity, so it belongs to the given system.
 
-\subsubsection*{\textbf{Two camps in dispute}}
+The question is what the rotation is relative to, given that no external body has been listed.
 
-\textit{Camp I (substantival / absolute inertial structure).}
-The rotation is relative to space itself, which exists independently of matter and supplies the inertial structure. The taut state is distinguished by angular motion with respect to that structure. 
-In modern language: the pair has nonzero angular velocity relative to a background absolute space, or a substantival spacetime manifold. 
-\textbf{Required primitive: spacetime manifold.}
+\subsubsection*{Two Camps in Dispute}
 
-\textit{Camp II (Machian / cosmic matter).}
-The rotation is relative to the matter of the universe as a whole. Inertia is a relation among all masses.
-In a genuinely empty universe there is no such relation, so there is no taut state. The distinction Newton draws can appear only when the matter of the rest of the Universe included. 
-\textbf{Required primitive: matter of the universe as a whole.}
+\begin{itemize}
+    \item \textit{Camp I (substantival):} The rotation is relative to space itself, which exists independently of matter and supplies the inertial structure. The tension is the endeavour of the globes to recede from an axis fixed in that structure. \textbf{Required primitive: the spacetime manifold.}
 
-The logical conflict is a dependence claim.
-Camp~I holds that the distinguishing quantity survives in the limit where all other matter is removed.
-Camp~II holds that it vanishes in that limit. Both camps accept Newton's framing: if the two states differ, the difference is a motion \emph{relative to something}. They disagree only about the identity of that something. 
-The disagreement is on which fundamental primitive required.
+    \item \textit{Camp II (Machian):} The rotation is relative to the matter of the universe as a whole, and inertia is a relation among all masses. In a genuinely empty universe there is no such relation and therefore no tension. \textbf{Required primitive: the matter of the universe as a whole.}
+\end{itemize}
 
-\subsubsection*{Third camp WILL RG}
+Both camps accept Newton's framing, that a state of motion must be motion relative to something. They disagree only about the identity of that something. The dispute is a disagreement over which primitive to admit.
 
-The third position does not require any extra primitives. It based on operational realism and use only direct observed readings available within the relational A, B, d system to predict its two allowed states $S_0$ and $S_b$.
-
-The epistemologically direct inventory of the given system is:
+\begin{itemize}
+    \item \textit{Camp III ( Relational Geometry):} The third position admits no further primitive and reads the state from the participants Newton already listed.
+\end{itemize}
 
 \begin{definition}[Inventory]
 \begin{itemize}
-\item \(A\): sphere A;
-\item \(B\): sphere B;
-\item \(D\): operational distance between A and B;
-\item \(d\): cord between A and B of length \(d\);
-\item \(t_d\): light-time along the cord d;
-\item \(t_D\): light-time of the actual separation D;
-\item \(C\): point on the cord, located by light-time as the point equidistant from A and B, \(C=d/2\);
-\item \(z_\beta\): transverse Doppler effect - fractional frequency shift of light emitted at \(A\) or B and received at the cord midpoint $C$;
-\item No spacetime container, no external time, no distant mass, and no intrinsic absolute properties like mass are entered as primitives.
+\item \(A\), \(B\): the two globes, each a physical body standing in a mutual relation of potential amplitude \(\kappa\);
+\item \(d\): the cord, held at its given length, carrying potential amplitude \(\kappa_{\text{cord}}\);
+\item \(C\): the common centre, located by light-time as the point equidistant from \(A\) and \(B\);
+\item \(t_d\): light-time along the cord;
+\item \(Z_{sys}\): the system shift of light emitted at \(A\) or \(B\) and received at \(C\).
 \end{itemize}
+No spacetime container, no external time axis, no distant matter, and no intrinsic mass are entered as primitives.
 \end{definition}
 
-\begin{remark}[No external period]
-In the taut state ($S_b$) the mutual arrangement of \(A\), \(B\) and the cord does not change: the cord co-rotates with the pair. Period \(T\) counted against the sky is therefore not a reading of this inventory. If a period is wanted it is derived from the internal pair \((z_\beta,t_d)\), not postulated.
-\end{remark}
+Each globe stands in relation to \(C\) at distance \(d/2\), so the relational radius of the pair is \(a=d/2\). The cord holds both globes at fixed and equal radius, so the radial amplitude vanishes, the eccentricity is zero, and the kinematic amplitude is the same at every phase.
 
-The range \(D\) is fixed in both states under comparison, so any kinematic shift \(z_\beta\) is transverse.
-Define
+\subsubsection*{The Reading}
+
+Light emitted at a globe and received at the centre carries both phases of the relation, because the globe is displaced from \(C\) on both carriers at once. The single observable is the product of the two shifts (\ref{sec:spectroscopic_shift}),
 \begin{equation}
-\beta^{2}
-\;=\;
-1-\frac{1}{(1+z_\beta)^{2}},
+Z_{sys} \;=\; (1+z_\kappa)(1+z_\beta) \;=\; \frac{1}{\tau},
 \qquad
-\Theta
-\;=\;
-d-D,
-\qquad
-\frac{t_D}{t_d}
-\;=\;
-\frac{D}{d}.
-\label{eq:globes-readings}
+\tau \;=\; \kappa_{X}\,\beta_{Y}.
+\label{eq:globes-Zsys}
 \end{equation}
-Here \(\beta\) is the kinematic amplitude projection on the carrier \(S^{1}\) (\ref{sec:carriers}). It is not a velocity relative to a container but measure of state transformation within the invariant ledger of the system (\ref{cor:energy}).  The quantity \(\Theta\) records whether the cord constraint is idle or active.
 
-\subsubsection*{The two configurations}
+\subsubsection*{Two Channels, One Ledger}
 
-\begin{definition}[States \(S_{0}\) and \(S_{b}\)]
-\label{def:two-states}
-\begin{align}
-S_{0}:&\qquad
-z_\beta=0
-\;\Rightarrow\;
-\beta=0,
-&\qquad
-t_D<t_d
-\;\Rightarrow\;
-\Theta>0;
-\label{eq:S0}\\[4pt]
-S_{b}:&\qquad
-z_\beta>0
-\;\Rightarrow\;
-\beta>0,
-&\qquad
-t_D=t_d
-\;\Rightarrow\;
-\Theta=0,
-&\qquad e=0 (\text{eccentricity}).
-\label{eq:Sb}
-\end{align}
-\end{definition}
-
-\(S_{0}\) is a "frozen" system. No change, interaction or transformation is taking place. Non of the carriers (\ref{sec:carriers}) are active.
-The Closure Theorem \(\kappa^{2}=2\beta^{2}\) (\ref{sec:closure}) is imposed only on \(S_{b}\).
-
-\begin{theorem}[Closed taut state]
-\label{thm:closed-sb}
-\(S_{b}\)  state is relationally closed.
+The globes bind each other, and the cord binds them further. Both are potential relations and both are carried on \(S^{2}\). The relational ledger is allocated in quadratic form (\ref{sec:closure}), so each channel contributes its own squared amplitude and the contributions add:
 \begin{equation}
-\kappa^{2}=2\beta^{2},
-\qquad
+\delta \;=\; \frac{\kappa^{2}+\kappa_{\text{cord}}^{2}}{2\beta^{2}} \;=\; 1.
+\label{eq:globes-closure}
+\end{equation}
+
+\begin{theorem}[Share of the cord]
+\hypertarget{thm:globes-cord}{}\label{thm:globes-cord}
+The potential amplitude carried by the cord ($\kappa_{\text{cord}}^2$) is the part of the double kinematic amplitude ($2\beta^2$) that the mutual potential of the globes does not bind:
+\begin{equation}
+\kappa_{\text{cord}}^{2} \;=\; 2\beta^{2}-\kappa^{2}.
+\label{eq:globes-cord}
+\end{equation}
+Three scenarios dictated by potential ($\kappa^2$) vs kinetic ($2\beta^2$) distribution:
+\begin{itemize}
+    \item $ 2\beta^{2}<\kappa^{2}$ --- in fall orbit and loos cord;
+    \item $ 2\beta^{2}=\kappa^{2}$ --- stable circular orbit;
+    \item $ 2\beta^{2}>\kappa^{2}$ --- escape orbit and taut cord.
+\end{itemize}
+So the excessive kinetic energy that would turn stable circular orbit in to escape one is the tension energy that the cord bind $\kappa_{\text{cord}}^{2} $. 
+\end{theorem}
+
+\begin{proof}
+The pair is relationally closed (\ref{thm:relational_closure}), so every channel acting on it belongs to its ledger and the closure factor is unity (\ref{def:closure_factor}). Constancy of the cord length gives fixed and equal radius for both globes, hence \(e=0\) and \(\beta_{R}=0\), so the kinematic amplitude is the global invariant \(\beta\). Degree-of-freedom indifference (\ref{lem:dof-indifference}) assigns equal quadratic weight to each independent degree of freedom, so the total potential amplitude $(\kappa_{\text{total}}^2=\kappa^2+\kappa_{\text{cord}}^2)$ of the closed pair is equal to \(2\beta^{2}\) and each channel enters through its own square. Rearranging \eqref{eq:globes-closure} isolates the cord's share. Unequal weighting of the two channels, or any addition law other than the quadratic one, would violate the DOF Indifference Lemma (\ref{lem:dof-indifference}).
+\end{proof}
+
+The causal order runs from the kinematic amplitude ($\beta$) to the cord. The cord does not generate the state. The globes carry an amplitude \(\beta\) that the mutual potential ($\kappa$) alone cannot bind, and the cord holds the remainder. When \(\kappa^{2}=2\beta^{2}\) the mutual potential binds the whole kinetic amplitude, the cord carries nothing, and the pair is a stable circular orbit. Newton's cord is loaded, so \(\kappa^{2}<2\beta^{2}\).
+
+\subsubsection*{Newton's Question Answered}
+
+Newton asks for the quantity of the circular motion. The complementary phases of the closed pair are
+\begin{equation}
 \beta_{Y}=\sqrt{1-\beta^{2}},
 \qquad
 \kappa_{X}=\sqrt{1-2\beta^{2}},
-\label{eq:sb-phases}
-\end{equation}
-with admissible range \(\beta^{2}<1/2\).
-\end{theorem}
-
-\begin{proof}
-Constancy of $d$ gives gives constant and equal radius for A and B $r=d/2$ and no eccentricity \(e=0\) and \(\beta_{R}=0\), so kinematic amplitude projection \(\beta\) is invariant.
-The Closure Theorem (\ref{sec:closure}), forced by degree-of-freedom indifference (\ref{lem:dof-indifference}) on the carriers \(S^{1}\) and \(S^{2}\) (\ref{sec:carriers}) , sets \(\kappa^{2}=2\beta^{2}\).
-The complementary phases are the Pythagorean remainders on each carrier (\ref{sec:duality}).
-Saturation \(\beta^{2}=1/2\) forces \(\kappa^{2}=1\) and is excluded by Energy Symmetry Law (\ref{sec:energy}).
-\end{proof}
-
-\begin{theorem}[Slack--taut lock]
-\label{thm:slack-taut}
-On the inventory of the two states \(S_{0}\) and \(S_{b}\),
-\begin{equation}
-\beta=0
-\;\Longleftrightarrow\;
-\Theta>0,
 \qquad
-\beta>0
-\;\Longleftrightarrow\;
-\Theta=0.
-\label{eq:slack-taut}
+\beta^{2}<\tfrac{1}{2},
+\label{eq:globes-phases}
 \end{equation}
-The loaded cord is the visible form of a nonzero kinematic amplitude projection.
-\end{theorem}
-
-\begin{proof}
-By definition \(S_{0}\) is the idle pair and \(S_{b}\) is the taut pair. The only kinematic reading available between \(A-C\) and \(B-C\) is \(z_\beta\). Vanishing \(z_\beta\) is \(\beta=0\) and is recorded together with state $S_0$ slack cord. Non-vanishing \(z_\beta\) is \(\beta>0\) and is recorded together with state $S_b$ taut cord \(D=d\). 
-\end{proof}
-No additional ontological commitments or speculative operationally unobserved parameters are required to connect the two facts.
-
-\subsubsection*{Scale and energy}
-
-Within relational ontology there's no intrinsic property stored in an isolated body. 
-By \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization}{Factorization Theorem} mass is the horizon scale \(R_s\) of a closed relation, later labelled in kilograms if a unit convention is wanted.
-
-\begin{theorem}[Scale assignment]
-\label{thm:scale}
-Horizon scale $R_s$ is admissible only as relation and can not be operationally assigned as intrinsic property in isolation:
-\begin{align}
-S_{0}:&\qquad
-R_s \,
-\text{operationally undefined, no causal relational bonds or interactions to constrain with Horizon $R_s$};
-\label{eq:Rs-S0}\\
-S_{b}:&\qquad
-R_s
-\;=\;
-\beta^{2}\,d
-\;=\;
-d\left(1-\frac{1}{(1+z_\beta)^{2}}\right) \text{constraining the scale of causal relational bonds.}
-\label{eq:Rs-Sb}
-\end{align}
-\end{theorem}
-
-\begin{proof}
-State \(S_{b}\), take the relational radius of the pair to be the half of taut separation itself, \(a=d/2\).
-The potential projection \(\kappa^{2}=R_s/a\) together with the closed taut state yields \(R_s=2\beta^{2}a\).
-Substitute the definition of \(\beta^{2}\) from the internal $z_{\beta}$ readings between \(A-C\) or \(B-C\). 
-
-State \(S_{0}\) has \(\beta=0\) and no causal relational bonds or interactions.  There's no Change taking place so the same identification never starts. Isolation supplies no operationally valid solution. Introduction of operationally undetectable intrinsic properties constitutes as epistemic violation or simply saying - speculation.
-\end{proof}
-
-\begin{corollary}[No intrinsic mass]
-\label{cor:no-mass}
-Mass is not an intrinsic property of \(A\) or of \(B\). The idle pair \(S_{0}\) carries no \(R_s\).
-A laboratory body is not \(S_{0}\): it has causal relational bonds.
-\end{corollary}
-
-\begin{theorem}[Energy of the two states]
-\label{thm:energy_of_2}
-The unitless invariant that distinguishes the configurations  \(S_{0}\)  and \(S_{b}\)  and there for  provides the answer to the question raised by Newton more then 300+ years ago is - \(\beta^{2}\), read from \(z_\beta\).
-\end{theorem}
-
-\begin{proof}
-The dimensionless energy of the relation is the mixed phase \(E/E_{0}=\kappa_{X}/\beta_{Y}\) (\ref{sec:energy}). 
-In this thought experiment no gravitational potential is listed in the inventory. However the cable $d$  is preforming exact the same function as $\kappa^2$ on $S^2$ relational potential carrier binding the kinematic projection $\beta$ to circular orbit where Closure Theorem demands $\kappa^2=2\beta^2$  (\ref{sec:closure}).
-By Relational Conservation Theorem (\ref{thm:conservation}) on the empty-universe reading of \(S_{0}\) (no amplitude, \(\beta=0 \rightarrow \beta_Y=1\)), and reading of \(S_{b}\) (kinetic amplitude, \(\beta>0 \rightarrow \beta_Y<1\)):
+so the single observable \eqref{eq:globes-Zsys} becomes
 \begin{equation}
-\left.\frac{E}{E_{0}}\right|_{S_{0}}
-\;=\;
-1,
-\qquad
-\left.\frac{E}{E_{0}}\right|_{S_{b}}
-\;=\;
-\sqrt{\frac{1-2\beta^{2}}{1-\beta^{2}}}.
-\label{eq:energy-states}
+\tau^{2} \;=\; \left(1-2\beta^{2}\right)\left(1-\beta^{2}\right).
+\label{eq:globes-tau}
+\end{equation}
+Inverting for the amplitude gives the quantity Newton asked for, from one optical reading taken inside the system:
+\begin{equation}
+\boxed{\;\beta^{2} \;=\; \frac{1}{4}\left(3-\sqrt{1+8\tau^{2}}\right)\;}
+\label{eq:globes-answer}
 \end{equation}
 
-The result is a property of the taut configuration. It is not kinetic energy evaluated in an external frame, and it is not work against a background potential.
-\end{proof}
-
+The scale of the relation follows from the double kinetic projection and orbital radius:
+\begin{equation}
+R_{s} \;=\; 2\beta^{2}a \;=\; \beta^{2}d
+\label{eq:globes-scale}
+\end{equation}
 
 \begin{remark}[Optional period]
-If a period of \(S_{b}\) is required for comparison with a clock convention, it is a derived label,
+The globes co-rotate with the cord, so their mutual arrangement never changes and a period counted against the sky is not a reading of this inventory. If a period is wanted for comparison with a clock convention it is a derived label,
 \begin{equation}
-T
-\;=\;
-\frac{\pi t_d}{\beta},
-\label{eq:derived-T}
+T \;=\; \frac{\pi t_d}{\beta},
+\qquad
+N \;=\; \frac{T}{t_d} \;=\; \frac{\pi}{\beta},
+\label{eq:globes-period}
 \end{equation}
-and is not an input.
-Equivalently, \(N=T/t_d=\pi/\beta\) is the number of cord light-crossings per derived revolution.
+where \(N\) is the number of cord light-crossings per derived revolution.
 \end{remark}
 
-
-\subsubsection*{What the algebra does not use}
+\subsubsection*{What the Algebra Does Not Use}
 
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
-Extra primitive & Role in the RG algebra\\
+Extra primitive & Role in the relational algebra \\
 \hline
 Container / absolute space & none \\\hline
 External time axis & none \\\hline
-Intrinsic mass of \(A\) or \(B\) & none; idle pair carries no \(R_s\) \\\hline
+Intrinsic mass of \(A\) or \(B\) & none \\\hline
 \(G\), \(M\) as sources & none \\\hline
 Distant cosmic matter & none \\\hline
-Energy as intrinsic property& none; energy is relational mesuer of state transformation \(\kappa_{X}/\beta_{Y}\)\\\hline
-Period versus the sky & none; \(T=\pi t_d/\beta\) is optional\\
+Force as a primitive & none; the cord carries \(\kappa_{\text{cord}}^{2}\) \\\hline
+Energy as intrinsic property & none; energy is the relational measure \(\kappa_{X}/\beta_{Y}\) \\\hline
+Period versus the sky & none; \(T=\pi t_d/\beta\) is optional \\
 \hline
 \end{tabular}
 \end{center}
 
-\begin{itemize}
-    \item \textbf{Camp~I Newton:} Required primitive: spacetime manifold.
-    \item \textbf{Camp~II Mach:} Required primitive: matter of the universe as a whole.
-    \item \textbf{Camp~III Relational Geometry:} Only internal readings \(t_d\), \(t_D\), \(z_\beta\). No extra primitives are introduced. The two states remain distinct.
-\end{itemize}
-
-\subsubsection*{Settlement of the thought experiment}
+\subsubsection*{Settlement of the Thought Experiment}
 
 \begin{theorem}[No extra primitive is required]
-\label{thm:dissolution}
-The distinguishing quantity of Newton's two states is the internal reading \(\beta^{2}\) obtained from \(z_\beta\).
-The question ``relative to what does the pair rotate?'' does not arise.
-Camp~I's required primitive (spacetime manifold) and Camp~II's required primitive (matter of the universe as a whole) are not used and demonstrated as surplus and operationally redundant metaphysical speculations.
+\hypertarget{thm:globes-settlement}{}\label{thm:globes-settlement}
+The quantity of circular motion Newton asks for is \(\beta^{2}\), obtained from the system shift received at the common centre. The load in the cord is \(\kappa_{\text{cord}}^{2}=2\beta^{2}-\kappa^{2}\), the share of the ledger the mutual relation of the globes leaves unbound. The question of what the rotation is relative to does not arise. Camp~I's spacetime manifold and Camp~II's cosmic matter are surplus to the computation Newton himself demanded.
 \end{theorem}
 
 \begin{proof}
-Every symbol in \(S_{0}\) and \(S_{b}\) is either a listed participant \(A\), \(B\), \(C\), \(d\) or a direct reading exchanged among them: \(D\), \(t_d\), \(t_D\), \(z_\beta\).
-On \(S_{0}\) the carriers are inactive, \(\beta=0\), \(\Theta>0\), and \(R_s\) is operationally undefined.
-On \(S_{b}\) the kinematic projection is active, \(\beta>0\), the cord binds that projection to a circular state exactly as \(\kappa^{2}\) binds \(\beta\) on \(S^{2}\), and Closure Theorem (\ref{sec:closure}) gives \(\kappa^{2}=2\beta^{2}\).
-The two states therefore differ by a partition of the invariant ledger (\ref{cor:energy}), not by motion versus an unlisted standard.
-A spacetime container is not an input.
-The matter of the remaining universe is not an input.
-The taut cord is \(\Theta=0\) with \(\beta>0\). It is not evidence of a hidden manifold and it is not evidence of omitted galaxies.
+Every symbol in \eqref{eq:globes-Zsys} through \eqref{eq:globes-scale} is either a listed participant, namely the two globes, the cord and its centre, or a reading exchanged among them, namely \(t_d\) and \(Z_{sys}\). The relational radius is the cord length halved. The amplitudes \(\beta\), \(\kappa\) and \(\kappa_{\text{cord}}\) are projections of one closed ledger, tied by degree-of-freedom indifference alone. No further relatum is quantified over at any step. Newton's own demand, that the quantity be obtainable in an immense vacuum with nothing external to compare against, is met by construction, because nothing external appears in the inventory.
 \end{proof}
 
-\begin{remark}[Scope]
-The result classifies Newton's two states on the listed inventory.
-It does not compute a laboratory force in the cord: tension is the active constraint \(\Theta=0\).
-It applies the Closure Theorem (\ref{sec:closure}) to this circular pair as the same algebraic rule used for a closed orbit in \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{R.O.M.}
-A laboratory body is not \(S_{0}\): it has causal relational bonds.
-\end{remark}
+\subsubsection*{Reductio ad Absurdum of the Classical Tension}
+
+The classical expression for the tension is recovered by appending posits to \eqref{eq:globes-cord}, in the same manner as the Minkowski and Schwarzschild intervals, the Lagrangian, the Hamiltonian and Newton's third law (\ref{rem:absurdum}).
+
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Intrinsic mass.} Each globe is granted a scalar \(m\) belonging to it in isolation.
+\item \textbf{Force as a primitive.} A force is posited and related to motion by \(F=ma\).
+\item \textbf{An inertial frame.} Acceleration is defined as a second derivative of position, which requires a frame in which the globes accelerate.
+\item \textbf{Externally flowing time.} An angular rate \(\omega=d\theta/dt\) is posited against an autonomous coordinate time.
+\item \textbf{A coordinate grid.} The motion is resolved into radial and transverse components against imposed axes.
+\end{enumerate}
+
+Under these posits the derived period \eqref{eq:globes-period} becomes an angular rate \(\omega=2\beta c/d\), each globe is assigned a centripetal acceleration at radius \(d/2\), and the cord is assigned the force that supplies whatever the mutual attraction does not:
+\begin{equation}
+T_{\text{ension}} \;=\; m\,\omega^{2}\,\frac{d}{2}-\frac{G m^{2}}{d^{2}} \;=\; \frac{E_{0}}{d}\left(2\beta^{2}-\kappa^{2}\right) \;=\; \frac{E_{0}\,\kappa_{\text{cord}}^{2}}{d}.
+\label{eq:globes-tension}
+\end{equation}
+The tension is the cord's share of the ledger wearing a mass label and a force label.
+
+The classical route presupposes what Newton's argument concludes. The angular rate is measured against a reference direction, and an immense vacuum supplies none. The substantival camp has one escape and it closes on them: they may define the angular rate by the tension itself, in which case they has no independent handle on it and the tension is a relabelling of the amplitude the relation already carries.
+
+                                                                \subsubsection*{Conclusion}
+
+This demonstrate that Newton’s background stage and Mach’s omitted galaxies same as human measurement systems with their historical values are mathematically redundant metaphysical baggage. It transforms the problem into a self-contained, mathematically transparent description of the objects and relations themselves. The computation Newton demanded is closed on the listed participants. The forced choice between background space and the matter of the universe as a whole, is surplus.
 
 \vspace{1em}
 \noindent
@@ -271,22 +179,20 @@ A laboratory body is not \(S_{0}\): it has causal relational bonds.
 \centering
 \vspace{0.4em}
 \(\displaystyle
-S_{0}:\ \beta=0,\ \Theta>0,\ R_s\text{ operationally undefined}
+\kappa^{2}+\kappa_{\text{cord}}^{2}=2\beta^{2},
 \qquad
-S_{b}:\ \beta^{2}=1-(1+z_\beta)^{-2},\ \Theta=0,\ R_s=\beta^{2}d
+\beta^{2}=\tfrac{1}{4}\left(3-\sqrt{1+8\tau^{2}}\right),
+\qquad
+a=\frac{d}{2},
+\qquad
+R_{s}=\beta^{2}d
 \)
 \vspace{0.3em}
 
 \medskip
 \textsc{No extra primitive.
-Mass is a closed scale.
+The cord binds what the globes leave unbound.
 Spacetime \(\equiv\) energy.}
 \vspace{0.4em}
 \end{minipage}%
 }
-
-\subsubsection*{Conclusion}
-
-Newton believed a taut cord was evidence of an invisible, background manifold. Mach believed it was evidence of the distant galaxies. WILL Relational Geometry mathematically proves that the taut cord is nothing more than the physical, measurable manifestation of a nonzero kinematic amplitude projection (\(\beta > 0 \Longleftrightarrow \Theta = 0\)) within a self-contained system. 
-This demonstrate that Newton’s background stage and Mach’s omitted galaxies same as human measurement systems with there historical variables are mathematically redundant metaphysical baggage. It transforms the problem into a self-contained, mathematically transparent description of the objects and relations themselves.
-Dispute between Camp I (Newton's Absolute Space) and Camp II (Mach's Cosmic Matter) was a false dilemma caused by an artificial separation of space, time, and energy, supporting the Unifying Ontological Principle (\ref{pr:unifying})
