@@ -130,7 +130,7 @@ This paper, the first in the \textbf{WILL RG Trilogy:}
 \begin{itemize}
     \item \textbf{Derivation of \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf}{Relational Orbital Mechanics}} (Background-free and algebraically closed),
     \item \textbf{Resolution of gravitational singularities} (via bounded radial distance $ r_{min} = R_s/2 $ (\ref{sec:no_singularities})),
-    \item \textbf{Derivation of the equivalence principle} (from the rest-invariant state scaling,  \ref{thm:equivalence}),
+    \item \textbf{Derivation of the equivalence principle} (from the rest-invariant state scaling,  \ref{lem:equivalence}),
     \item \textbf{Removal of local energy density ambiguity} $\rho=\frac{\kappa^{2}c^{2}}{8\pi G r^{2}}$ (\ref{lem:norm_id}), 
     \item \textbf{Revelation of a clear relational symmetry between kinematic and potential} energies (\ref{sec:projections_symmetry}),
     \item \textbf{Establishment of a computationally simpler and ontologically consistent foundation} (for subsequent papers on cosmology (\href{https://willrg.com/documents/WILL_RG_II.pdf}{Part~II}) and quantum mechanics (\href{https://willrg.com/documents/WILL_RG_III.pdf}{Part~III})).
@@ -334,32 +334,35 @@ As humans, we often project ourselves onto observed phenomena, obscuring the tru
 \begin{principle}[Epistemic Hygiene]
 \hypertarget{pr:epistemic}{}\label{pr:epistemic}
 \leavevmode
- \emph{Epistemic Hygiene as Refusal to Import Unjustified Assumptions.}
- This line of reasoning derives physics by \textbf{removing hidden assumptions}, rather than introducing new postulates. This construction is deliberate and contains zero free parameters.  This is not a simplification - it is a deliberate epistemic constraint. No assumptions are introduced and no constructs are retained unless they are geometrically or energetically necessary.
+ \emph{Refusal to import unjustified assumptions or arbitrary choices.}
 \end{principle}
+ This line of reasoning derives physics by \textbf{removing hidden assumptions}, rather than introducing new postulates. This construction is deliberate and contains zero free parameters.  This is not a simplification - it is a deliberate epistemic constraint. No assumptions are introduced and no constructs are retained unless they are geometrically or energetically necessary.
 
 \begin{principle}[Relational Origin]
 \hypertarget{pr:relational}{}\label{pr:relational}
 \leavevmode
- \emph{All physical quantities must be defined by their relations.} 
-Any introduction of absolute properties risks reintroducing metaphysical artefacts and contradicts the foundational insight of relationalism.
+ \emph{As default epistemic stance, all physical quantities defined by their relations, until and if their absolute nature is proven.} 
 \end{principle}
+Any introduction of unproven absolute properties risks reintroducing metaphysical artefacts and contradicts the foundational insight of relationalism.
 
 \begin{principle}[Ontological Minimalism]
 \hypertarget{pr:minimalism}{}\label{pr:minimalism}
 \leavevmode
-Maintain the minimum number of ontological assumptions and foundational primitives. 
-Absolute backgrounds --- spatial container, axis of time, absolute distance, forces, fields --- are excluded as preexisting primitives but may appear as translation into common descriptive vocabulary.
+Maintain the minimum number of foundational primitives by peeling off interpretational layers until only irreducible core is left.  Spatial container, axis of time, distance, forces, fields, intrinsic isolated properties --- are excluded as preexisting primitives.
 \end{principle}
+The terms (time, distance, forces, fields) later appear as translation into common descriptive vocabulary.
 
 \begin{principle}[Mathematical Transparency]
 \hypertarget{pr:mathematical}{}\label{pr:mathematical}
 \leavevmode
-Every  mathematical expression, phrase, operation, or identity is treated as a binding ontological statement. This force the formalism to always reflect direct physical meaning preventing obscure mathematical constructs. 
+Every  mathematical expression, phrase, operation, or identity is treated as a binding ontological statement. This force's mathematics to always reflect direct physical meaning preventing obscure mathematical constructs. 
 Every symbol must be anchored to unique physical idea with transparent ontological origin. 
+\end{principle}
+This Introduction of any mathematical construct or even element 
 Introducing symbols  without explicit necessity constitutes \textbf{Over-parameterization}: the proliferation of symbols without corresponding physical meaning.
 Number of symbols = Number of independent physical ideas.
-\end{principle}
+
+
 \begin{quote}
 \textit{Mathematics is a language, not a world. Its symbols must never outnumber the physical meanings they encode.}
 \end{quote}
@@ -2261,8 +2264,6 @@ $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$ $\Leftrightarrow$ $\boxed{\text{
 
 Two globes are kept at a given distance from one another by a cord that connects them, and are revolved about their common centre of gravity. From the tension of the cord we discover the endeavour of the globes to recede from the axis of their motion, and from that we compute the quantity of their circular motion. Newton states that this holds in an immense vacuum, where nothing external or sensible exists with which the globes could be compared.
 
-Three features of this wording fix the problem. The cord is taut throughout, since the globes are kept at a given distance, so the separation is the cord length. The quantity to be computed is continuous, because Newton asks how much circular motion there is rather than whether there is any. The centre of rotation is named by Newton as the common centre of gravity, so it belongs to the given system.
-
 The question is what the rotation is relative to, given that no external body has been listed.
 
 \subsubsection*{Two Camps in Dispute}
@@ -2273,10 +2274,10 @@ The question is what the rotation is relative to, given that no external body ha
     \item \textit{Camp II (Machian):} The rotation is relative to the matter of the universe as a whole, and inertia is a relation among all masses. In a genuinely empty universe there is no such relation and therefore no tension. \textbf{Required primitive: the matter of the universe as a whole.}
 \end{itemize}
 
-Both camps accept Newton's framing, that a state of motion must be motion relative to something. They disagree only about the identity of that something. The dispute is a disagreement over which primitive to admit.
+Both camps accept Newton's framing, that a state of motion must be motion relative to something. But crucially they both assumes that the distance is the fundamental irreducible primitive despite the fact that there's no operational method to measure the distance directly. They disagree only about the identity of that something. The dispute is a disagreement over which primitive to admit.
 
 \begin{itemize}
-    \item \textit{Camp III ( Relational Geometry):} The third position admits no further primitive and reads the state from the participants Newton already listed.
+    \item \textit{Camp III ( Relational Geometry):} Admits no further primitive and reads the state from the perspective of participants already listed. No extra primitives added.
 \end{itemize}
 
 \begin{definition}[Inventory]
@@ -2304,7 +2305,7 @@ Z_{sys} \;=\; (1+z_\kappa)(1+z_\beta) \;=\; \frac{1}{\tau},
 
 \subsubsection*{Two Channels, One Ledger}
 
-The globes bind each other, and the cord binds them further. Both are potential relations and both are carried on \(S^{2}\). The relational ledger is allocated in quadratic form (\ref{sec:closure}), so each channel contributes its own squared amplitude and the contributions add:
+The globes bind each other, and the cord binds them further. Both are potential relations and both are carried on \(S^{2}\). The relational ledger is allocated in quadratic form (\ref{sec:closure}), so each channel contributes its own squared amplitude and the contributions add (\ref{def:closure_factor}).:
 \begin{equation}
 \delta \;=\; \frac{\kappa^{2}+\kappa_{\text{cord}}^{2}}{2\beta^{2}} \;=\; 1.
 \label{eq:globes-closure}
