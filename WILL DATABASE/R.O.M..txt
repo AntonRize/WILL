@@ -298,10 +298,10 @@ No dimensional constant enters any $\hat{X}$. All dynamics are solved within the
 DESMOS: \href{https://www.desmos.com/calculator/gr7qykzicf}{https://www.desmos.com/calculator/gr7qykzicf} interactive user-friendly R.O.M. solver.
 \end{tcolorbox}
 
+\subsection*{Spectroscopic Inputs}
 $\boxed{\kappa^2 = 1-\frac{1}{(1+z_{\kappa})^2}}$  $z_{\kappa}=$ gravitational redshift \\
 $\boxed{\beta^2=1-\frac{1}{(1+z_{\beta})^{2}}}$  $z_{\beta}=$ transverse Doppler shift \\
 
-\subsection*{Observational Inputs}
 $Z_{sys}=(1+z_{\kappa})(1+z_{\beta})=\frac{1}{\tau}$ (product of gravitational red shift and transverse Doppler shift) \\
 $\tau=\kappa_{X}\cdot\beta_{Y}= \frac{1}{Z_{sys}}$  (product of projectional phase factors on $S^1$ and $S^2$ carriers) \\
 $z_{\kappa} = \frac{1}{\kappa_{X}}-1$ (gravitational redshift) \\
@@ -336,33 +336,65 @@ $E_{\beta}=\frac{1}{2\beta_Y}\cdot R_{s}\frac{c^{4}}{G}$ (energy on $S^1$ relati
 $E_{\kappa}=\frac{1}{2\kappa_X}\cdot R_{s}\frac{c^{4}}{G}$ (energy on $S^2$ relational carrier) \\
 $p_{\beta}=\frac{\beta}{2\beta_Y }\cdot R_{s}\frac{c^{3}}{G}$ (kinetic momentum) \\
 $p_{\kappa}= \frac{\kappa}{2\kappa_X }\cdot R_{s}\frac{c^{3}}{G}$ (potential momentum) \\
-$a=\frac{1}{\kappa^{2}} \cdot R_{s}=\frac{T\beta c}{2\pi}=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e~cos(O)}}=\frac{\Delta_{to}(O)}{\zeta}\beta c=\frac{Tc\beta^{3}}{2\pi(\frac{K_{i}}{\ \sin(i)})^{2}(1-e^{2})}=\frac{\ \sqrt{1-e^{2}}}{2\pi\sin(i)}K_{i}Tc=\frac{R_{sys}}{\sin(\theta_{sys})}$ (semi-major axis) \\
+$a=\frac{1}{\kappa^{2}} \cdot R_{s}=\frac{\beta }{2\pi} \cdot Tc=\frac{\beta_{o}c}{\omega}\cdot\frac{\sqrt{1-e^{2}}}{\sqrt{1+e^{2}+2e~cos(O)}}=\frac{\Delta_{to}(O)}{\zeta}\beta c=\frac{Tc\beta^{3}}{2\pi(\frac{K_{i}}{\ \sin(i)})^{2}(1-e^{2})}=\frac{\ \sqrt{1-e^{2}}}{2\pi\sin(i)}K_{i}Tc=\frac{R_{sys}}{\sin(\theta_{sys})}$ (semi-major axis) \\
 $h=\frac{e_Y}{2\beta}\cdot R_s c =\frac{\kappa^{2}}{\kappa_{o}^{2}}\cdot\beta_{T}\cdot a\cdot c=r_{o} \cdot \beta_{T} \cdot c=r_{o}^{2} \cdot \omega_{o}=a\cdot\beta c\cdot e_{Y}$ ( invariant angular momentum) \\
-$\omega=2\beta^{3} \cdot \frac{c}{R_{s}}=\frac{\beta c}{a}$ (angular frequency) \\
+$\omega=2\beta^{3} \cdot \frac{c}{R_{s}}=\beta \cdot \frac{ c}{a}$ (angular frequency) \\
 $T=\frac{\pi }{\beta^{3}} \cdot \frac{R_{s}}{c}=\frac{2\pi\sqrt{2}}{\kappa^{3}} \cdot \frac{R_{s}}{c}=\frac{2\pi }{\beta } \cdot \frac{a}{c}=\frac{2\pi}{\omega}=\frac{2\pi \Delta_{to}}{\zeta}$ (orbital period) \\
 $\tau_D = \frac{\pi \sin(\theta_{sur})^{\frac{3}{2}}}{\beta^3} \cdot \frac{R_s}{c}= T \sin(\theta_{sur})^{\frac{3}{2}}=\frac{2\pi R_{sur}}{\beta_{sur}c}=\sqrt{\frac{\pi}{G \cdot\rho_{sur}(R_{sur})}}$   (time-density invariant where $R_{sur}$ and $\beta_{sur}$  determined by the distance from center to the surface of central body and $\theta_{sur}=$ angular radius) \\
 $g=\frac{\kappa^{4}}{2}\cdot\frac{c^{2}}{R_{s}}=\frac{\kappa^{2}c^{2}}{2a}=\frac{GM}{a^2}$ (gravitational acceleration) \\
 $M=\frac{1}{2} \cdot \frac{R_s c^2}{G}=\frac{\beta^{3}}{2\pi}\cdot T\frac{c^{3}}{G}=\beta^{2} \cdot a\frac{c^{2}}{G}=4\pi\rho a^{3}$ (mass parameter) \\
-$\rho= \frac{\kappa^6}{8\pi} \cdot \frac{c^2}{G R_s^2}=\frac{1}{8\pi}(\frac{z_{k}(z_{k}+2)}{(1+z_{k})^{2}})^{3}\cdot\frac{c^{2}}{G\cdot R_{s}^{2}}=\frac{\kappa^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot a^{2}}$ (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{relational density}) \\
-$\rho_{sur}=\frac{\kappa_{sur}^{6}}{8\pi}\cdot\frac{c^{2}}{GR_{s}^{2}}=\frac{\pi}{G\cdot\tau_{D}^{2}}=\frac{\kappa_{sur}^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot R_{sur}^{2}}$  (relational density of the central body within ($R_{sur}$) its physical radius) \\
-$\rho_{max}= \frac{1}{8\pi} \cdot \frac{c^2}{G R_s^2}$ (maximal density at the horizon (for non-rotating systems), $\kappa^2=1 \equiv r=R_s$; density reaches its natural bound) \\
+$\rho= \frac{\kappa^6}{8\pi} \cdot \frac{c^2}{G R_s^2}=\frac{\kappa^{6}}{4\pi}\cdot\frac{M}{R_{s}^{3}} =\frac{1}{8\pi}(\frac{z_{k}(z_{k}+2)}{(1+z_{k})^{2}})^{3}\cdot\frac{c^{2}}{G\cdot R_{s}^{2}}=\frac{\kappa^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot a^{2}}$ (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:density}{relational density}) \\
+$\rho_{sur}=\pi \cdot \frac{1}{G\cdot\tau_{D}^{2}}=\frac{\kappa_{sur}^{6}}{8\pi}\cdot\frac{c^{2}}{GR_{s}^{2}}=\frac{\kappa_{sur}^{2}\cdot c^{2}}{8\cdot\pi\cdot G\cdot R_{sur}^{2}}$  (relational density of the central body within ($R_{sur}$) its physical radius) \\
+$\rho_{max}= \frac{\kappa^{4}}{8\pi}\cdot\frac{c^{2}}{GR_{s}^{2}}=\frac{1}{8\pi} \cdot \frac{c^2}{G a^2}$ (maximal density at the horizon (for non-rotating systems), $\kappa^2=1 \equiv r=R_s$; density reaches its natural bound) \\
 $ R_{sur} =\frac{\sin(\theta_{sur})}{\kappa^2} \cdot R_s=a \cdot \sin(\theta_{sur})=\sqrt[3]{\frac{\pi a^{3}}{GT^{2}\rho(R_{sur})}} $ (system's central body's physical radius) \\
-$t=\frac{1}{\kappa^{2}}\cdot\frac{R_{s}}{c}=\frac{a}{c}$(temporal radius of the system) \\
+$t=\frac{1}{\kappa^{2}}\cdot\frac{R_{s}}{c}=\frac{a}{c}$  (light radius of the system) \\
 
 
 \subsection*{Eccentricity Relations}
 $e=\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}}-1=1-\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}=\frac{1}{\delta_{p}}-1=\frac{r_{a}-r_{p}}{r_{p}+r_{a}}=1-\eta_{o}(0)=\eta_{o}(\pi)-1=\sqrt{1 - \frac{\beta_T^2 \cdot \eta_o^2}{\beta^2}}=\frac{1}{2} \cdot (-\eta_o \cos(O) + \sqrt{\eta_o^2 \cos^2(O) - 4(\eta_o - 1)} )$ (eccentricity derived from \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{closure theorem}) \\
 $e_{Y}=\sqrt{1-e^{2}}$ (eccentricity's orthogonal complement ) \\
-$e_{X}=\frac{1+e}{1-e}=\frac{r_{a}}{r_{p}}=\frac{\delta_{a}}{\delta_{p}}=\frac{\beta_{p}}{\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (shape factor) \\
+$e_{X}=\frac{1+e}{1-e}=\frac{r_{a}}{r_{p}}=\frac{\delta_{a}}{\delta_{p}}=\frac{\beta_{p}}{\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (shape factor; remarkable equivalence of structural ($\kappa$ on $S^2$ carrier) and dynamical ($\beta$ on $S^1$ carrier) symmetry suggesting once again that $SPACETIME \equiv ENERGY$) \\
+
+\subsection*{Phase Variables (Depend on phases o and $O$)} 
+$o = \frac{O}{\Omega}$ (idealised orbital phase in radians, represent phase $o$ progression without orbital precession)  \\
+$O=\Omega \cdot o =o-\Omega_{\phi}o$ (true orbital phase with precession) \\
+$\eta_{o} =\frac{\kappa^{2}}{\kappa_{o}^{2}}=\frac{1-e^{2}}{1+e\cdot\cos (O)}=\frac{r_o }{a}=  \frac{R_{s}}{\kappa_{o}^{2}a} = 2-\frac{2\beta_{o}^{2}}{\kappa_{o}^{2}} $ (normalised true radial distance at phase O) \\
+$\kappa_{o} =\kappa\cdot\sqrt{\frac{1+e\cdot\cos(O)}{1-e^{2}}}=\sqrt{\beta_R^2 + \beta_T^2 + \beta^2}= \sqrt{\frac{R_{s}}{r_o}} = \sqrt{1-(1+z_{\kappa o})^{-2}} =\kappa_{p}\sqrt{\frac{1+e\cos (O)}{1+e}}=\kappa\ \cdot\eta_{o}^{-\frac{1}{2}}=\sqrt{\beta^{2}+\beta_{o}^{2}}=\sqrt{\kappa_{sur}^2 \cdot \sin(\theta_{sur,o})}$ (local amplitude potential projection at the phase $O$) \\
+$\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=(z_{\kappa o}+1)^{-1}$   (potential phase projection at phase $O$) \\
+$\beta_{o}=\sqrt{\beta_{R}^{2}+\beta_{T}^{2}}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}{\sqrt{1-e^{2}}}= \sqrt{\kappa_{o}^{2}-\beta^2}=\frac{\kappa_{o}}{\sqrt{2 \delta_{o}\ }}=\sqrt{\frac{\kappa_{o}^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(O)}{\ \ 1+e\cdot\cos(O)}}=\sqrt{\frac{R_{s}}{r_{o}}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o})^{-2}}$  (Instantaneous translational kinetic projection at phase $O$)\\
+$\beta_{R}=\beta\ \frac{e\sin (O)}{e_Y}=\sqrt{\beta_{o}^{2}-\beta_{T}^{2}}$  (Instantaneous radial kinetic projection at phase $O$) \\
+$\beta_{T}=\beta\frac{1+e\cos(O)}{e_Y}=\frac{e_Y}{2\beta}\frac{R_{s}}{r_{o}}=\kappa_o^2 \frac{e_Y}{2\beta}=\frac{r_{o}\omega_{o}}{c}$  (Instantaneous transverse kinetic projection at phase $O$) \\
+$\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{\beta o}+1)^{-1}$    (kinetic phase projection at phase $O$) \\
+$\delta_{o} = \frac{1+e\cos (O)}{1+e^{2}+2e\cos (O)} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $O$) \\
+$Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift at phase $O$) \\
+$\tau_o=\kappa_{Xo}\cdot\beta_{Yo}= Z_{sys,o}^{-1}$ (spacetime factor at phase O) \\
+$\tau_{Yo}=\sqrt{1-\tau_{o}^2}$  (complement spacetime factor at phase O) \\
+
+$r = r_o=  \frac{1}{\kappa_o^2} \cdot R_s=a\frac{1-e^{2}}{1+e\cos (O)} =\frac{T}{2\pi}\cdot\beta c\cdot\frac{1-e^{2}}{1+e\cdot\cos(O)}= a \cdot \eta_{o}$  (radial distance at phase $O$) \\
+$\omega_{o}=\beta_{T}\kappa_{o}^{2}\cdot\frac{c}{R_{s}}=\frac{\beta_{T}}{t_{o}}=\beta_{T}\cdot\frac{c}{r_{o}}=\frac{\beta_{T}^{2}}{\beta\ e_{Y}}\cdot\frac{c}{a}= 2\beta^3\frac{(1+e\cos(O))^2}{(1-e^2)^{3/2}} \cdot \frac{c}{R_s}=\frac{\beta\cdot c}{a}\cdot\frac{(1+e\cdot cos(O))^{2}}{(1-e^{2})^{\frac{3}{2}}}$ (angular frequency at phase O) \\
+$t_o=\frac{1}{\kappa_o^2} \cdot \frac{R_s}{c}=\frac{ r_o}{c}$ (light time scale at phase O) \\
+
 
 \subsection*{Time-phase}
-$\zeta=\frac{2\pi\Delta_{t}}{T}=\frac{\Delta_{t}c}{R_{s}}2\beta^{3}=(1-e^{2})^{\frac{3}{2}}\cdot(\int_{0}^{O}(1+e\cdot\cos(\theta))^{-2}d\theta)=\frac{1}{\sqrt{1-e^{2}}}\int_{0}^{O}(\frac{t_{o}(\theta)}{t})^{2}d\theta$ (Temporal Phase interval (mean anomaly analog) ) \\
+$\zeta=2\beta^{3} \cdot \frac{\Delta_{t} \cdot c}{R_{s}}=2\pi \cdot \frac{\Delta_{t}}{T}=e_{Y}^{3}\cdot(\int_{0}^{O}(1+e\cdot\cos(\theta))^{-2}d\theta)=\frac{1}{\sqrt{1-e^{2}}}\int_{0}^{O}(\frac{t_{o}(\theta)}{t})^{2}d\theta$ (Temporal Phase interval (mean anomaly analog) ) \\
 $\zeta(<\pi)=2\arctan(\frac{\sin(\frac{O}{2})}{e_{X}^{\frac{1}{2}}\cos(\frac{O}{2})})-\frac{e\cdot e_{Y}\sin(O)}{1+e\cos(O)}$  (Temporal Phase interval ascending orbit from $0$ to $\pi$) \\
 $\zeta(>\pi)=2\arctan(\frac{\sin(\frac{O}{2})}{e_{X}^{\frac{1}{2}}\cos(\frac{O}{2})})-\frac{e\cdot e_{Y}\sin(O)}{1+e\cos(O)}+2\pi$ (Temporal Phase interval descending orbit from  $\pi$ to $2\pi$)\\
 $\zeta_{B}=\left(1+\frac{\beta^{2}}{2}-\kappa^{2}\right)\cdot2\arctan\left(\frac{\sin(\frac{O}{2})}{e_{X}^{\frac{1}{2}}\cos(\frac{O}{2})}\right)-\left(1+\frac{\beta^{2}}{2}\right)\cdot\frac{e\cdot e_{Y}\sin(O)}{1+e\cos(O)}$  (Coordinate Temporal Phase interval ascending orbit from $0$ to $\pi$) \\
 
-$\omega_{o}= 2\beta^3\frac{(1+e\cos(O))^2}{(1-e^2)^{3/2}} \cdot \frac{c}{R_s}=\frac{\beta\cdot c}{a}\cdot\frac{(1+e\cdot cos(O))^{2}}{(1-e^{2})^{\frac{3}{2}}}$ (angular frequency at phase O) \\
-$\Delta_{to}  =\frac{\zeta}{2\beta^{3}}\cdot \frac{R_s}{c}= \int_{0}^{O}\frac{1}{\omega_{o}(\theta)}\,d\theta =\frac{a}{\beta c}\zeta= \frac{T}{2\pi}\zeta$  (time duration of given phase interval) \\
+$\Delta_{to}  =\frac{\zeta}{2\beta^{3}}\cdot \frac{R_s}{c}= \frac{\zeta}{2\pi} \cdot T=\frac{\zeta}{\beta} \cdot \frac{a}{c}= \int_{0}^{O}\frac{1}{\omega_{o}(\theta)}\,d\theta $  (time duration of given phase interval) \\
+
+
+
+\subsection*{Relational Geometry (WILL)} 
+$\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical)  \\
+$\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical) \\
+$\kappa^2=2\beta^2$  (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{Closure Theorem}) \\
+$\Delta E_{A \to B} + \Delta E_{B \to A} = 0\quad \Delta E_{A \to B} = E_0 ( \frac{\kappa_{X,B}}{\beta_{Y,B}} - \frac{\kappa_{X,A}}{\beta_{Y,A}} ); \quad  \Delta E_{B \to A} = E_0 ( \frac{\kappa_{X,A}}{\beta_{Y,A}} - \frac{\kappa_{X,B}}{\beta_{Y,B}} )$ (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry}{\textbf{Energy Symmetry Law}} is the universal relational energy ledger, the origin of causality) \\
+$\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational shift amplitude at phase $O$) \\
+$B_{a} = \arccos(1-\delta_p^{-1}) = \arccos(-e)=\arccos(1-\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}})=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (ascending orbital balance point where $a=r$ and $\kappa_o^2=2\beta_o^2$ are true) \\
+$B_{d} = 2\pi-\arccos(-e)$ (descending orbital balance point where $a=r$ and $\kappa_o^2=2\beta_o^2$ are true) \\
+$2\beta^3 = \beta \cdot \kappa^2 =\omega \cdot \frac{R_s}{c}$ (relational orbital phase progression (just $\beta$ times $\kappa^2=2\beta^2$)) \\ 
+
 
 \subsection*{Perihelion Relations} 
 $\kappa_{p} = \kappa\sqrt{\frac{1}{1-e}} = \sqrt{\frac{2\beta^2}{1-e}}=Q_{p}\sqrt{\frac{2}{3+e}}$ (potential projection at perihelion) \\
@@ -381,62 +413,10 @@ $Q_{a} = \sqrt{\kappa_{a}^{2}+\beta_{a}^{2}}$  (relational shift at aphelion) \\
 
 $r_a= \frac{1}{\kappa_a^2} \cdot R_s=a(1+e)$ (radius at aphelion)  \\
 
-\subsection*{Phase Variables (Depend on phases o and $O$)} 
-$o = \frac{O}{\Omega}$ (idealised orbital phase in radians, represent phase $o$ progression without orbital precession)  \\
-$O=\Omega \cdot o =o-\Omega_{\phi}o$ (true orbital phase with precession) \\
-$\eta_{o} =\frac{\kappa^{2}}{\kappa_{o}^{2}}=\frac{1-e^{2}}{1+e\cdot\cos (O)}=\frac{r_o }{a}=  \frac{R_{s}}{\kappa_{o}^{2}a} = 2-\frac{2\beta_{o}^{2}}{\kappa_{o}^{2}} $ (normalised true radial distance at phase O) \\
-$\kappa_{o} =\kappa\cdot\sqrt{\frac{1+e\cdot\cos(O)}{1-e^{2}}}=\sqrt{\beta_R^2 + \beta_T^2 + \beta^2}= \sqrt{\frac{R_{s}}{r_o}} = \sqrt{1-(1+z_{\kappa o})^{-2}} =\kappa_{p}\sqrt{\frac{1+e\cos (O)}{1+e}}=\kappa\ \cdot\eta_{o}^{-\frac{1}{2}}=\sqrt{\beta^{2}+\beta_{o}^{2}}=\sqrt{\kappa_{sur}^2 \cdot \sin(\theta_{sur,o})}$ (local amplitude potential projection at the phase $O$) \\
-$\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=(z_{\kappa o}+1)^{-1}$   (potential phase projection at phase $O$) \\
-$\beta_{o}=\sqrt{\beta_{R}^{2}+\beta_{T}^{2}}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}{\sqrt{1-e^{2}}}= \sqrt{\kappa_{o}^{2}-\beta^2}=\frac{\kappa_{o}}{\sqrt{2 \delta_{o}\ }}=\sqrt{\frac{\kappa_{o}^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(O)}{\ \ 1+e\cdot\cos(O)}}=\sqrt{\frac{R_{s}}{r_{o}}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o})^{-2}}$  (Instantaneous translational kinetic projection at phase $O$)\\
-$\beta_{R}=\beta\ \frac{e\sin (O)}{\sqrt{1-e^{2\ }}}=\sqrt{\beta_{o}^{2}-\beta_{T}^{2}}$  (Instantaneous radial kinetic projection at phase $O$) \\
-$\beta_{T}=\frac{r_{o}\omega_{o}}{c}=\beta\frac{1+e\cos(O)}{\sqrt{1-e^{2}}}=\kappa_o^2 \frac{\sqrt{1-e^2}}{2\beta}=\frac{R_{s}\sqrt{1-e^{2}}}{r_{o}2\beta}$  (Instantaneous transverse kinetic projection at phase $O$) \\
-$\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{\beta o}+1)^{-1}$    (kinetic phase projection at phase $O$) \\
-$\delta_{o} = \frac{1+e\cos (O)}{1+e^{2}+2e\cos (O)} = \frac{\kappa_{o}^2}{2\beta_{o}^2}$ (local closure factor at phase $O$) \\
-$Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift at phase $O$) \\
-$\tau_o=\kappa_{Xo}\cdot\beta_{Yo}= Z_{sys,o}^{-1}$ (spacetime factor at phase O) \\
-$\tau_{Yo}=\sqrt{1-\tau_{o}^2}$  (complement spacetime factor at phase O) \\
-
-$r = r_o=  \frac{1}{\kappa_o^2} \cdot R_s=a\frac{1-e^{2}}{1+e\cos (O)} =\frac{T}{2\pi}\cdot\beta c\cdot\frac{1-e^{2}}{1+e\cdot\cos(O)}= a \cdot \eta_{o}$  (radial distance at phase $O$) \\
-$t_o=\frac{1}{\kappa_o^2} \cdot \frac{R_s}{c}=\frac{ r_o}{c}$ (light time scale at phase O) \\
-
-
-\subsection*{Orbital Phase Invariants}
-
-\begin{tcolorbox}[colback=white, colframe=black, title=Holographic Decryption Invariant]
-\begin{equation}
-Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2
-\end{equation}
-\end{tcolorbox}
-
-$\Delta E_{A \to B} + \Delta E_{B \to A} = 0$ \\ 
-$\beta^2=(\kappa_{o}^{2}-\beta_{o}^{2})$ \\
-$\beta^{2}-\beta_{o}^{2}=\kappa^{2}-\kappa_{o}^{2}$  \\
-$\frac{\beta_T}{\kappa_o^2} = \frac{e_Y}{2\beta}$ \\
-$\beta_{T} ^{2}\eta_{o}^{2}=\beta^{2}(1-e^{2})$ \\
-$B_{a}-\zeta(B_{a})=\zeta(B_{d})-B_{d}$ \\
-$\frac{Z_{raw}\left(-\omega_{i}\right)}{Z_{sys}\left(-\omega_{i}\right)}=1+K_{i}\left(1+e\cdot\cos\left(\omega_{i}\right)\right)$ \\
-$\frac{\kappa_{o}^{2}}{\kappa^{2}}=\frac{a}{r_{o}}$ \\
-$\beta\cdot\eta_{o}=\frac{2\pi\cdot t_{o}}{T}$ \\
-$\frac{\kappa_{o}^{2}}{\kappa^{2}}e_Y^2=1+e\cos(O)$ \\
-
-
-
-\subsection*{Relational Geometry (WILL)} 
-$\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical)  \\
-$\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical) \\
-$\kappa^2=2\beta^2$  (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{Closure Theorem}) \\
-$\Delta E_{A \to B} + \Delta E_{B \to A} = 0\quad \Delta E_{A \to B} = E_0 ( \frac{\kappa_{X,B}}{\beta_{Y,B}} - \frac{\kappa_{X,A}}{\beta_{Y,A}} ); \quad  \Delta E_{B \to A} = E_0 ( \frac{\kappa_{X,A}}{\beta_{Y,A}} - \frac{\kappa_{X,B}}{\beta_{Y,B}} )$ (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry}{\textbf{Energy Symmetry Law}} is the universal relational energy ledger, the origin of causality) \\
-$\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational shift amplitude at phase $O$) \\
-$B_{a} = \arccos(1-\delta_p^{-1}) = \arccos(-e)=\arccos(1-\frac{2\beta_{p}^{2}}{\kappa_{p}^{2}})=\arccos(\frac{2\beta_{a}^{2}}{\kappa_{a}^{2}}-1)$ (ascending orbital balance point where $a=r$ and $\kappa_o^2=2\beta_o^2$ are true) \\
-$B_{d} = 2\pi-\arccos(-e)$ (descending orbital balance point where $a=r$ and $\kappa_o^2=2\beta_o^2$ are true) \\
-
-\subsection*{Structural-Dynamical Equivalence}
-$\frac{r_{a}}{r_{p}}= \frac{\delta_{a}}{\delta_{p}} = \frac{1+e}{1-e}=\frac{\beta_{p}}  {\beta_{a}}=\frac{\kappa_{p}^{2}}{\kappa_{a}^{2}}=\frac{\kappa_{a}^{2}\beta_{p}^{2}}{\kappa_{p}^{2}\beta_{a}^{2}}$ (remarkable equivalence of structural ($\kappa$ on $S^2$ carrier) and dynamical ($\beta$ on $S^1$ carrier) symmetry suggesting once again that $SPACETIME \equiv ENERGY$) \\
-
 
 \subsection*{Observer dependent}
 $\theta_{sur}(r)=\arcsin(\frac{R_{sur}}{r})=\sqrt[3]{\frac{\pi}{\rho(R_{sur})GT^{2}}}$ (angular radius of central body viewed from distance r) \\
-$Z_{raw}(O)=(1+\beta_{int}(\cos(O+\omega_{i})+e\cos(\omega_{i}))\sin(i))\ Z_{sys}(O)$ (raw light shift including the line of sight Doppler at phase o) \\
+$Z_{raw}(O)=(1+\beta_{int}(\cos(O+\omega_{i})+e\cos(\omega_{i}))\sin(i))\ Z_{sys}(O)$ (raw light shift including the line of sight Doppler at phase O) \\
 $\beta_{z}(O)=\frac{\beta}{\sqrt{1-e^{2}}}(\cos(O+\omega_{i})+e\cos(\omega_{i}))\sin(i)$  (line of sight light shift) \\
 $i=$ (orbital inclination in relation to line of sight and orbital plane)  \\
 $\omega_{i}=$ (phase turn or argument of periapsis) \\
@@ -447,6 +427,26 @@ $B_{ai}=(B_{a}+\omega_{i})$ \\
 $Z_{sys}(-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}+2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1+e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
 $Z_{sys}(\pi-\omega_{i})=(1-\beta^{2}\frac{1+e^{2}-2e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}(1-2\beta^{2}\frac{1-e\cos(\omega_{i})}{1-e^{2}})^{-\frac{1}{2}}$ \\
 $Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2$ (Holographic Decryption Invariant) \\
+
+
+\subsection*{Orbital Phase Invariants}
+\begin{tcolorbox}[colback=white, colframe=black, title=Holographic Decryption Invariant]
+\begin{equation}
+Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2
+\end{equation}
+\end{tcolorbox}
+
+$\Delta E_{A \to B} + \Delta E_{B \to A} = 0 \,\rightarrow \,  E_0 ( \frac{\kappa_{X,B}}{\beta_{Y,B}} - \frac{\kappa_{X,A}}{\beta_{Y,A}} )+E_0 ( \frac{\kappa_{X,A}}{\beta_{Y,A}} - \frac{\kappa_{X,B}}{\beta_{Y,B}} )=0$ \\ 
+$\beta^2=(\kappa_{o}^{2}-\beta_{o}^{2})$ \\
+$\beta^{2}-\beta_{o}^{2}=\kappa^{2}-\kappa_{o}^{2}$  \\
+$\frac{\beta_T}{\kappa_o^2} = \frac{e_Y}{2\beta}$ \\
+$\beta_{T} ^{2}\eta_{o}^{2}=\beta^{2}(1-e^{2})$ \\
+$B_{a}-\zeta(B_{a})=\zeta(B_{d})-B_{d}$ \\
+$\frac{Z_{raw}\left(-\omega_{i}\right)}{Z_{sys}\left(-\omega_{i}\right)}=1+K_{i}\left(1+e\cdot\cos\left(\omega_{i}\right)\right)$ \\
+$\frac{\kappa_{o}^{2}}{\kappa^{2}}=\frac{a}{r_{o}}$ \\
+$\beta\cdot\eta_{o}=\frac{2\pi\cdot t_{o}}{T}$ \\
+$\frac{\kappa_{o}^{2}}{\kappa^{2}}e_Y^2=1+e\cos(O)$ \\
+
 
 
 \subsection*{Background Free Parametric Equations for the Observed Orbit}
@@ -702,32 +702,32 @@ $$\text{SPACETIME} \equiv \text{ENERGY}$$
 In elliptical systems, the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{ global closure theorem $\kappa^2 = 2\beta^2$} is conserved across the entire orbital cycle, while local phase variations manifest as an internal ``breathing'' of relational projections. We now derive the  conservation law governing this local dynamic distribution.
 
 \begin{proposition}[Global Kinetic Amplitude]
-The difference between the square of the local potential projection $\kappa_o^2(o)$ and the square of the local kinetic projection $\beta_o^2(o)$ is a global binding invariant kinetic amplitude equal to $\beta^2$.
+The difference between the square of the local potential projection $\kappa_o^2$ and the square of the local kinetic projection $\beta_o^2$ is a global binding invariant kinetic amplitude equal to $\beta^2$.
 \end{proposition}
 
 \begin{proof}
 The binding parameter $\beta^2$ defines the global relational depth of the system:
 \[  \kappa^2 = 2\beta^2 \]
 From the definitions of the $S^2$ and $S^1$ projections at any arbitrary phase $O$:
-\[ \kappa_o^2(o) = \frac{2\beta^2(1+e\cos o)}{1-e^2} \]
-\[ \beta_o^2(o) = \frac{\beta^2(1+e^2+2e\cos o)}{1-e^2} \]
+\[ \kappa_o^2= \frac{2\beta^2(1+e\cos O)}{1-e^2} \]
+\[ \beta_o^2 = \frac{\beta^2(1+e^2+2e\cos O)}{1-e^2} \]
 Subtracting the local kinetic projection from the local potential projection:
-\[ \kappa_o^2(o) - \beta_o^2(o) = \frac{2\beta^2 + 2\beta^2 e\cos o - (\beta^2 + \beta^2 e^2 + 2\beta^2 e\cos o)}{1-e^2} \]
-\[ \kappa_o^2(o) - \beta_o^2(o) = \frac{\beta^2(1-e^2)}{1-e^2} = \beta^2  \]
+\[ \kappa_o^2 - \beta_o^2 = \frac{2\beta^2 + 2\beta^2 e\cos O - (\beta^2 + \beta^2 e^2 + 2\beta^2 e\cos O)}{1-e^2} \]
+\[ \kappa_o^2 - \beta_o^2 = \frac{\beta^2(1-e^2)}{1-e^2} = \beta^2  \]
 Thus, the algebraic distance between the omnidirectional carrier $S^2$ and directional carrier $S^1$ relations remains globally constant irrespective of orbital phase and shape.
 \end{proof}
 
 \begin{theorem}[The Orthogonal Signature of the Orbit]
-The square of the local potential projection $\kappa_o^2(o)$ on the $S^2$ carrier is the Pythagorean square sum of the local radial $\beta_R^2(o)$, transverse $ \beta_T^2(o)$ and the global $\beta^2$ kinetic projections.
+The square of the local potential projection $\kappa_o^2$ on the $S^2$ carrier is the Pythagorean square sum of the local radial $\beta_R^2$, transverse $ \beta_T^2$ and the global $\beta^2$ kinetic projections.
 \end{theorem}
 
 \begin{proof}
 The total local kinetic projection on the $S^1$ carrier splits orthogonally into radial and transverse components within the orbital plane:
-\[ \beta_o^2(o) = \beta_R^2(o) + \beta_T^2(o) \]
-Substituting this orthogonal decomposition into the phase-invariant relation $\kappa_o^2(o) - \beta_o^2(o) = \beta^2$:
-\[ \kappa_o^2(o) - (\beta_R^2(o) + \beta_T^2(o)) = \beta^2 \]
+\[ \beta_o^2 = \beta_R^2 + \beta_T^2 \]
+Substituting this orthogonal decomposition into the phase-invariant relation $\kappa_o^2 - \beta_o^2 = \beta^2$:
+\[ \kappa_o^2 - (\beta_R^2 + \beta_T^2 = \beta^2 \]
 Rearranging yields the three-dimensional algebraic relational closure:
-\[ \boxed{\kappa_o^2(o) = \beta_R^2(o) + \beta_T^2(o) + \beta^2} \]
+\[ \boxed{\kappa_o^2 = \beta_R^2 + \beta_T^2 + \beta^2} \]
 \end{proof}
 
 \begin{remark}[Ontological Replacement of Vis-Viva]
@@ -777,28 +777,28 @@ Within the system, energy conservation is required by the closure theorem (\href
 The conservation of specific angular momentum $h$ is derived as a phase-independent structural invariant of the relational balance.
 
 \begin{proposition}[Invariant Ratio of Projections]
-The transverse kinetic projection $\beta_T(o)$ is strictly proportional to the local potential projection $\kappa_o^2(o)$ scaled by the global system constants.
+The transverse kinetic projection $\beta_T$ is strictly proportional to the local potential projection $\kappa_o^2$ scaled by the global system constants.
 \end{proposition}
 
 \begin{proof}
 From the definition of the local potential projection (based on \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{closure theorem} $\kappa^2= 2\beta^2$ and geometry of ellipse):
-\[ \kappa_o^2(o) = 2\beta^2 \frac{(1+e\cos o)}{1-e^2} \implies (1+e\cos o) = \kappa_o^2(o) \frac{1-e^2}{2\beta^2} \]
-The transverse kinetic projection $\beta_T(o)$ is defined on the $S^1$ carrier as:
-\[ \beta_T(o) = \beta \frac{1+e\cos o}{\sqrt{1-e^2}} \]
-Substituting the expression for $(1+e\cos o)$ into the definition of $\beta_T(o)$:
-\[ \beta_T(o) = \beta ( \kappa_o^2(o) \frac{1-e^2}{2\beta^2} ) \frac{1}{\sqrt{1-e^2}} = \kappa_o^2(o) \frac{\sqrt{1-e^2}}{2\beta} \]
+\[ \kappa_o^2 = 2\beta^2 \frac{(1+e\cos O)}{1-e^2} \implies (1+e\cos O) = \kappa_o^2 \frac{1-e^2}{2\beta^2} \]
+The transverse kinetic projection $\beta_T$ is defined on the $S^1$ carrier as:
+\[ \beta_T = \beta \frac{1+e\cos O}{\sqrt{1-e^2}} \]
+Substituting the expression for $(1+e\cos O)$ into the definition of $\beta_T$:
+\[ \beta_T= \beta ( \kappa_o^2 \frac{1-e^2}{2\beta^2} ) \frac{1}{\sqrt{1-e^2}} = \kappa_o^2 \frac{\sqrt{1-e^2}}{2\beta} \]
 Rearranging to isolate the invariant ratio of the phase-dependent projections:
-\[ \frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt{1-e^2}}{2\beta} \]
+\[ \frac{\beta_T}{\kappa_o^2} = \frac{\sqrt{1-e^2}}{2\beta} \]
 \end{proof}
 
 \begin{theorem}[Conservation of Angular Momentum]
-The specific angular momentum $h$, defined as the product of the local scale $r_o(o)$ and the transverse kinetic projection, is a global phase invariant.
+The specific angular momentum $h$, defined as the product of the local scale $r_o$ and the transverse kinetic projection, is a global phase invariant.
 \end{theorem}
 
 \begin{proof}
-Using the local scale $r_o(o) = R_s / \kappa_o^2(o)$, we define $h$:
-\[ h = r_o(o) \beta_T(o) c = \frac{R_s}{\kappa_o^2(o)} \beta_T(o) c \]
-Substituting the invariant ratio $\frac{\beta_T(o)}{\kappa_o^2(o)} = \frac{\sqrt{1-e^2}}{2\beta}$:
+Using the local scale $r_o = R_s / \kappa_o^2$, we define $h$:
+\[ h = r_o \beta_T c = \frac{R_s}{\kappa_o^2} \beta_T c \]
+Substituting the invariant ratio $\frac{\beta_T}{\kappa_o^2} = \frac{\sqrt{1-e^2}}{2\beta}$:
 \[ \boxed{h = R_s c \frac{\sqrt{1-e^2}}{2\beta}} \]
 Since $R_s$, $e$, and $\beta$ are global invariants, $h$ does not depend on phase $o$. Angular momentum is thus the manifestation of the fixed structural exchange rate between the $S^2$ and the $S^1$ carriers and their projections.
 \end{proof}
@@ -983,23 +983,25 @@ where $\kappa_p^2(\theta_E)$ is algebraically locked to the observable baselines
     Testing showed that this lensing and deflection formalisation are only approximations. The derivation of exact solution is an ongoing research.
 \end{remark}
 
-\subsection{Schwarzschild Metric}
+\subsection{Reductio ad Absurdum of Schwarzschild Metric}
 \hypertarget{sec:Schwarzschild}{}\label{sec:Schwarzschild}
 
-The Schwarzschild metric is the coordinate-inflated projection of the potential phase $\kappa_{Xo}$ and kinematic amplitudes $\beta_R, \beta_T$ scaled for coordinate reference. The fundamental primitive is the dimensionless algebraic phase factor of the relational state $\tau_o^2 = \kappa_{Xo}^2 \beta_{Yo}^2$. The metric is recovered by appending substantival posits.
+This section continues the \href{https://willrg.com/documents/WILL_RG_I.pdf#rem:absurdum}{Reductio ad Absurdum line of arguments} as we showed with Minkowski metric, Hamiltonian, Lagrangian and Newtons third law. The Schwarzschild metric is the coordinate-inflated projection of the potential phase $\kappa_{Xo}$ and kinematic radial $\beta_R$ and transversal $\beta_T$ amplitudes,  scaled for coordinate reference. The irreducible primitive is the dimensionless algebraic phase factor of the relational state $\tau_o^2 = \kappa_{Xo}^2 \beta_{Yo}^2$. The metric is recovered by appending unjustified substantival posits.
 
 \begin{enumerate}[label=(\roman*)]
-    \item \textbf{A spatial container.} A background manifold is imposed to host the geometry.
-    \item \textbf{Externally flowing time.} An autonomous coordinate time $t$ is introduced.
+
+    \item \textbf{A container.} The relation is declared to unfold \emph{within} a pre-existing spatial manifold.
+    \item \textbf{Externally flowing time.} Coordinate time $t$ is posited and granted an autonomous flow and agency.
     \item \textbf{Coordinate grid.} Kinematic projections are decomposed onto imposed spatial axes $r$ and $\phi$, transforming dimensionless amplitudes into differential coordinate ratios.
     \item \textbf{Arbitrary scale reference.} The scalar composition is multiplied by an external magnitude $c^2 dt^2$.
 \end{enumerate}
 
-By \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:duality}{Conservation of Relation Theorem} the relational projections map to the posited coordinate differentials through the local potential phase scaling:
+ By \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:duality}{Conservation of Relation Theorem} for the remote observer to account for the units contraction and dilation the local potential phase factor has to be applied to any kinetic motion:
+ 
 \begin{itemize}
-    \item \textbf{Temporal potential phase:} $\kappa_{Xo}^2 = 1 - \kappa_o^2 = 1 - \frac{R_s}{r}$
-    \item \textbf{Radial coordinate velocity:} $\frac{dr}{c dt} = \kappa_{Xo}^2 \beta_R$ (an extra $\kappa_Xo$ is dictated by changing potential with radial motion)
-    \item \textbf{Transverse coordinate velocity:} $\frac{r d\phi}{c dt} = \kappa_{Xo} \beta_T$
+    \item \textbf{Local potential phase factor:} $\kappa_{Xo}^2 = 1 - \kappa_o^2 = 1 - \frac{R_s}{r}$
+    \item \textbf{Radial coordinate velocity:} $\frac{dr}{c dt} = \kappa_{Xo}^2 \beta_R$ (the power in $\kappa_{Xo}^2$ is dictated by changing potential with radial motion)
+    \item \textbf{Transverse coordinate velocity:} $\frac{r d\phi}{c dt} = \kappa_{Xo} \beta_T$ (no change in radial distance dictates $\kappa_{Xo}^1$)
 \end{itemize}
 
 Substituting these coordinate functions into the standard Schwarzschild metric interval evaluates directly to the pure relational phase factorization:
@@ -1062,7 +1064,7 @@ where $\hat{X}$ is a closed-form pure number determined entirely by dimensionles
 projections, shifts, angles, phases & $1$ & frequency & $c/R_s$ \\\hline
 length & $R_s$ & specific angular momentum & $R_s\,c$ \\\hline
 time & $R_s/c$ & mass & $R_s \cdot c^2/G$\\\hline
-velocity & $c$ & density & $1/R_s \cdot c^2/G$\\\hline
+velocity & $c$ & density & $1/R_s^2 \cdot c^2/G$\\\hline
 \end{tabular}
 \end{center}
 No dimensional constant enters any $\hat{X}$.
@@ -1078,7 +1080,7 @@ In its own geometric units every bound system has the same mass, $\hat{M} = \fra
 In this section we use $(\beta, e)$ as the intrinsic input pair, simply as an example. The system is fully algebraically closed and any parameters can be used as an input.
 
 The normalization also exposes the Universal Horizon Constant (\ref{sec:time-density}) as the pure number
-$\hat{\tau}_{D(limit)} = 2\sqrt{2}\,\pi$ at $\kappa_R \to 1$.
+$\hat{\tau}_{D(limit)} = 2\sqrt{2}\,\pi$ at $\kappa_{sur} \to 1$.
 \end{remark}
 
 \subsection{Observational Input Channels}
@@ -1114,7 +1116,7 @@ Channels B3 and E4 exploit the balance points: at $B_a = \arccos(-e)$ the measur
     \item[\textbf{Stage 2}] \textbf{Solve the global block:} $\kappa, \kappa_X, \beta_Y, \tau, \tau_Y, Q, \hat{a}, \hat{r}_p, \hat{r}_a, \kappa_p, \beta_p, \kappa_a, \beta_a, \delta_p, \delta_a, e_X, e_Y, \Delta\phi, \Omega, \hat{T}, \hat{\omega}, \hat{h}, B_a, B_d, \hat{\rho}, \hat{M} = \frac{1}{2}$ --- all closed-form pure numbers.
     \item[\textbf{Stage 3}] \textbf{Phase-resolve} at any $O$: $\eta_o, \hat{r}_o, \kappa_o, \beta_o, \beta_R, \beta_T, \delta_o, Q_o, \hat{\omega}_o, \tau_o, Z_{sys}(O), \zeta(O), \hat{\Delta}_{to}$.
     \item[\textbf{Stage 4}] \textbf{Observer-project} with $(i, \omega_i)$: $K_i, \beta_z, Z_{raw}$, sky-plane parametric orbit ---- still pure numbers (sky lengths in units of $\hat{a}$).
-    \item[\textbf{Stage 5}] \textbf{(Optional) Inject one anchor.} A single dimensional reading --- chronometric $T$ giving $R_s = T c \beta^3/\pi$, or astrometric $r_p$ giving $R_s = r_p \kappa_p^2$ --- scales the entire solved system: lengths $\times R_s$, times $\times R_s/c$, frequencies $\times c/R_s$, mass $= \frac{1}{2} c^2 R_s/G$. The system was already solved at Stage 2; this stage only names the answers in local units.
+    \item[\textbf{Stage 5}] \textbf{(Optional) Inject one anchor.} A single dimensional reading --- chronometric $T$ giving $R_s = T c \beta^3/\pi$, or astrometric $r_p$ giving $R_s = r_p \kappa_p^2$ --- scales the entire solved system: lengths $\times R_s$, times $\times R_s/c$, frequencies $\times c/R_s$, mass $= \frac{1}{2} R_s \cdot c^2/G$. The system was already solved at Stage 2; this stage only names the answers in local units.
 \end{enumerate}
 
 \begin{corollary}[Cross-Cultural Invariance]
