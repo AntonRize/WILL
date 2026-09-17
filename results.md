@@ -156,7 +156,7 @@ description: "WILL Relational Geometry Open Research all papers by Anton Rize, a
   <!-- R.O.M. -->
   <div class="document-item">
     <h4>R.O.M. — Relational Orbital Mechanics</h4>
-    <p>Closed algebraic system for bound gravitational systems. Recovering all major orbital phenomena within pure relational ontology. No differential equations required. Foundations of physics. Mercury’s precession, S2 star (Sgr A*), L1 equilibrium point, relational gravitational waves, LAGEOS I Lense-Thirring. Theoretical physics. Computational physics. Orbital mechanics. Astrophysics.</p>
+    <p>Closed algebraic system for bound gravitational systems. Recovering all major orbital phenomena within pure relational ontology. No differential equations required. Mercury’s precession, S2 star (Sgr A*), L1 equilibrium point, relational gravitational waves, LAGEOS I Lense-Thirring. Foundations of physics. Theoretical physics. Computational physics. Orbital mechanics. Astrophysics.</p>
     <div class="document-actions">
       <a href="/documents/WILL_RG_R.O.M..pdf" target="_blank" class="btn-main" style="background:#2563eb;">Open PDF</a>
       <a href="/documents/WILL_RG_R.O.M..pdf" download class="btn-supplement">Download</a>
@@ -208,7 +208,7 @@ description: "WILL Relational Geometry Open Research all papers by Anton Rize, a
       <a href="/documents/WILL_RG_III.pdf" target="_blank" class="btn-main" style="background:#15803d;">Open PDF</a>
       <a href="/documents/WILL_RG_III.pdf" download class="btn-supplement">Download</a>
     </div>
-    <p style="margin-top:0.5rem; font-size:0.85rem; color:#4ade80;">Ongoing research started in June 2024</p>
+    <p style="margin-top:0.5rem; font-size:0.85rem; color:#4ade80;">Ongoing research started in October 2025</p>
   </div>
 
 </div>
