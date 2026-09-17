@@ -100,7 +100,7 @@
 \textit{Relational Quantum Mechanics}}
 \author{Anton Rize \\ antonrize@willrg.com \\
 \thanks{This work is archived on Zenodo: \href{https://doi.org/10.5281/zenodo.17115270}{DOI: 10.5281/zenodo.17115270}}}
-\date{October 2025}
+\date{Ongoing research started in October 2025}
 
 
 \begin{document}
@@ -141,6 +141,8 @@ $S^1$ \textbf{(1-DOF kinematic)} $+$ $S^2$ \textbf{(2-DOF potential)}\\[2pt]\hli
 $\downarrow$ \textit{(by Duality of Relation Lemma)} $\downarrow$\\\hline
 \textbf{Relational Conservation Theorem:} $\underbrace{\text{Amplitude}^2}_{\text{External Transformation}} + \underbrace{\text{Phase}^2}_{\text{Internal Change}} = 1$\\[10pt]\hline
 $\boxed{\underbrace{1/\beta_Y=1+z_{\beta}}_{\text{transverse Doppler shift}} \underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{Kinematic $S^1$}}}$ \textbf{Relational Projections} $\boxed{\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{Potential $S^2$}} \underbrace{1/\kappa_X = 1+z_{\kappa}}_{\text{gravitational redshift}}}$\\[8pt]\hline
+$\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
+\textbf{Closure Theorem:} $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$ $\Longrightarrow$ $ \boxed{ \kappa^2 = 2\beta^2}$\\\hline
 $\downarrow$ \textit{(by Relational Conservation Theorem derive metric intervals as scaffolding)} $\downarrow$\\\hline
 \textbf{Minkowski:} $\underbrace{\beta^2 + \beta_Y^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2 dt^2 - dx^2 - dy^2 - dz^2}_{\text{mathematical scaffolding}}$\\[10pt]\hline
 \textbf{Schwarzschild:} $\underbrace{\kappa^2 + \kappa_X^2 = 1}_{\text{irreducible primitive}}$ + $\underbrace{x, y, z, t...}_{\text{coordinate inflation}}$ = $\underbrace{c^2 d\tau^2 = c^2\!\left(1 - (R_s/r)\right)dt^2}_{\text{mathematical scaffolding}}$\\[12pt]\hline
@@ -153,8 +155,6 @@ E = E_0 \cdot \kappa_X/0 \to \infty
 \textbf{Event Horizon:} $\kappa \to 1 \;\rightarrow\; \kappa_X \to 0 \;\rightarrow\;
 E = E_0\cdot 0/\beta_Y \to 0
 \;\rightarrow\;$ \textbf{requires $0$ energy}\\[4pt]\hline
-$\downarrow$ \textit{(by DOF-Indifference Lemma: equal quadratic weight to each independent DOF)} $\downarrow$\\\hline
-\textbf{Closure Theorem:} $\underbrace{1\,\text{Amplitude}^2}_{\text{on }S^2} = \underbrace{2\,\text{Amplitude}^2}_{\text{on }S^1}$ $\Longrightarrow$ $ \boxed{ \kappa^2 = 2\beta^2}$\\\hline
 $\downarrow$ \textit{(by Unified Relational Scaling Lemma)} $\downarrow$\\\hline
 \textbf{Equivalence Principle} $\boxed{m_g \equiv m_i \equiv m = E_0/c^2}$\\\hline
 $\downarrow$ \textit{(\textbf{Lagrangian and Hamiltonian} derived as collapsed single-point approximations)} $\downarrow$\\\hline
@@ -245,58 +245,6 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
 \caption{Unified representation of relativistic and gravitational effects for closed systems.}
 \end{table}
 
-
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}[scale=3, >=Latex]
-    % --- Definitions ---
-    \def\R{1.0} % Unit Radius (The Horizon)
-    \coordinate (A) at (0,0);       % A Center
-    \coordinate (B) at (0.65, 0.45); % B Center (Q end)
-    
-    % Projections of the B center
-    \coordinate (Bx) at (0.65, 0);
-    \coordinate (Ky) at (0, 0.45);
-
-    % --- Axes ---
-    % Drawing axes slightly longer than radius to show context
-    \draw[->, gray, thick] (-1.2,0) -- (1.3,0) node[right, black] {$\beta$ (Kinematic)};
-    \draw[->, gray, thick] (0,-1.2) -- (0,1.3) node[above, black] {$\kappa$ (Potential)};
-
-    % --- A Frame (Blue) ---
-    % The "horizon" of the A
-    \draw[blue, thick] (A) circle (\R);
-    \fill[blue] (A) circle (0.02) node[below left] {A $(0,0)$};
-
-    % --- B Frame (Red) ---
-    % The "horizon" of the B, centered at Q
-    \draw[red, thick, dashed] (B) circle (\R);
-    \fill[red] (B) circle (0.02) node[above right] {B $(0 , 0)$};
-
-    % --- Q ---
-    \draw[->, line width=1.5pt, black] (A) -- (B) node[midway, above left] {$Q$};
-
-    % --- Projections (The Logic of Q^2 = beta^2 + kappa^2) ---
-    \draw[dotted, thick] (B) -- (Bx) node[below] {$\beta$};
-    \draw[dotted, thick] (B) -- (Ky) node[left] {$\kappa$};
-
-    % --- Annotations ---
-    % Optional: Show the Causal Lock condition physically
-    \node[blue, font=\small] at (-0.5, -0.8) {A's Horizon};
-    \node[gray, font=\small, align=center] at (0.8, -1.4) {\textbf{Interaction Condition:}\\$Q < 1$ (Centers are mutually enclosed)};
-
-\end{tikzpicture}
-\caption{\textbf{Relational Self-Centering.} The total shift $Q$ is defined by the amplitude projections $\beta$ and $\kappa$. Interaction is causal only when the relational origin (0, 0) of B lies within A's horizon ($Q < 1$), ensuring mutual coverage.}
-\hypertarget{fig:relational_shift}{}\label{fig:relational_shift}
-\end{figure}
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Summary]
-\[
-\boxed{\text{Relational reciprocity} \;=\; \text{invariance of the norm $Q$ under self--centering}.}
-\]
-There is no common background arena; only mutual total shift magnitudes $Q$, computed from each observer's own relational origin.
-\end{tcolorbox}
 
 \begin{table}[h]
 \centering
@@ -451,22 +399,22 @@ n \frac{h}{p_n} = 2\pi r_n \quad \implies \quad \boxed{p_n r_n = n\hbar}
 
 \section{The Universal Scale Principle and Relational Projections}
 
-As established in Part I, the state of any system is fully described by its potential projection ($\kappa$) and kinetic projection ($\beta$). The potential projection is governed by a universal principle connecting the system's geometry to its intrinsic limits.
+As established in Part I, the state of any system is described by its potential projection ($\kappa$) and kinetic projection ($\beta$).
 
 \begin{principle}[Universal Scale Principle]
 \hypertarget{pr:scale}{}\label{pr:scale}
-The potential projection $\kappa^2$ is the dimensionless ratio of a system's intrinsic critical scale to its current observational scale.
+The potential amplitude projection $\kappa^2$ represents the ratio of a critical to current state.
 \[
 \kappa^2 = \frac{r_{\text{critical}}}{r_{\text{current}}}
 \]
 \end{principle}
 
 \begin{remark}[Structural Symmetry of Interactions]
-The identical inverse-square form of the gravitational and electromagnetic interactions ($F \propto 1/r^2$) is not a coincidence. It reflects that both are manifestations of the same underlying geometric principle. This compels us to define a critical scale for electromagnetism that is directly analogous to gravity's Schwarzschild radius.
+The identical \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:inverse-square}{inverse form} of the gravitational and electromagnetic potentials ($\kappa^2 \propto 1/r$) reflects that both originate from the same underlying Relational Geometry. This compels us to define a critical state for electromagnetism that is analogous to \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:absolute_scale}{Horizon radius from WILL part 1}.
 \end{remark}
 
 \begin{definition}[Electromagnetic Critical Radius]
-The electromagnetic critical radius, $R_q$, is the intrinsic scale at which a particle's electrostatic potential energy budget becomes saturated. In the WILL framework, this corresponds to the radius where the potential energy magnitude equals half the particle's rest energy, consistent with the limit $\kappa = 1$ in our energy budget formalism $|U| = \frac{1}{2}E_0 \kappa^2$.
+The electromagnetic critical radius, $R_q$, corresponds to the state when electrostatic potential saturated $\kappa_q=1$. In the WILL framework, this corresponds to the radius where the potential energy magnitude equals half the particle's rest energy, consistent with the limit $\kappa = 1$ in our energy budget formalism $|U| = \frac{1}{2}E_0 \kappa^2$.
 \end{definition}
 
 
@@ -544,7 +492,7 @@ It is crucial to note that we continue to use the exact same RG principles estab
 We strictly reject any ad-hoc introduction of hyperbolic or open geometries. Both cosmological and atomic systems are governed by the same compact, circular invariants.
 \end{remark}
 
-\begin{theorem}[The Fine Structure Constant as the Ground-State Kinetic Projection]
+\begin{theorem}[Relational Origin of $\alpha$]
 The fine structure constant, $\alpha$, is identical to the kinetic projection, $\beta_1$, of the electron in the ground state of the hydrogen atom.
 \[
 \boxed{\alpha \equiv \beta_1}
@@ -835,21 +783,15 @@ This exclusion mechanism is the origin of valence and chemical bonding.
 
 Thus, chemistry is the mechanics of interlocking geometric chiralities.
 
-\section{The Schrödinger Equation as the Result of Ontological Collapse}
+\section{The Schrödinger Equation as \textit{Reductio ad Absurdum}}
 \hypertarget{sec:schrodinger}{}\label{sec:schrodinger}
 
-\textit{The Schrödinger equation arises as the algebraic shadow of the second ontological collapse—the fusion of two amplitude–phase manifolds $(\beta,\kappa)$ into a single complex energetic amplitude $\psi$.}
+\textit{The Schrödinger equation arises as the  ontological collapse of two amplitude projections $(\beta,\kappa)$ into a single complex wave function $\psi$.}
 
 \subsection*{I. Pre–Collapse Structure}
 
-Before collapse, the system is described by two real projections of one conserved energetic resource:
-\[
-E_0 \;\Rightarrow\; (\beta,\kappa),
-\qquad
-\text{with invariant} \quad
-\boxed{\;\kappa^2 = 2\,\beta^2\;}
-\]
-Here $\beta$ denotes the kinematic projection (electromagnetic channel) and $\kappa$ the potential projection (gravitational channel).
+Before collapse, the system is described by two relational projections of one conserved energetic ledger:
+$\beta$ denotes the kinematic projection (electromagnetic channel) and $\kappa$ the potential projection (gravitational channel).
 Each belongs to its own relational circle:
 \[
 (\beta_X,\beta_Y)\in S^1,\qquad

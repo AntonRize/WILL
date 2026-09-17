@@ -1,8 +1,8 @@
 ---
 
 layout: default
-title: "Documents & Key Results"
-description: "Every WILL Relational Geometry paper, appendix, technical document and reproducible Colab notebook, free to download, with the raw data published alongside. Covers the trilogy on relational geometry, cosmology and quantum mechanics, plus Relational Orbital Mechanics, the substantialism versus relationalism argument, the holographic decoder, the electron mass derivation and the full derivation chain. Released as a preprint outside journal peer review and archived with a Zenodo DOI."
+title: "Documents & Results"
+description: "WILL Relational Geometry Open Research all papers by Anton Rize, appendix, technical document and reproducible Colab notebooks. Covers the WILL Trilogy on Relational Geometry, Relational Orbital Mechanics, Relational Cosmology, Galactic Dynamics and Relational Quantum Mechanics. Deriving Special and General relativities main results and predictions with falsifiable higher order divergence, no singularities,  breaking \(M \sin(i)\) degeneracy, derivation of Hubble parameter from CMB temperature and fine structure constant \( \alpha \), wide binaries acceleration, dark matter, dark energy, substantialism versus relationalism, Mach principle. Released live as developing."
 
 ---
 
@@ -145,17 +145,18 @@ description: "Every WILL Relational Geometry paper, appendix, technical document
   <!-- Main Paper -->
   <div class="document-item" style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.08);">
     <h4>WILL Part I: Relational Geometry</h4>
-    <p>Core foundational paper. Derives SR &amp; GR as special cases of relational geometry from first principles.</p>
+    <p>Core foundational paper unfolding ontology from epistemology. Deriving Special and General relativities main results and predictions with falsifiable higher order divergence, no singularities,  breaking \(M \sin(i)\) degeneracy. Philosophy of science. Philosophy of physics. Ontology and epistemology. Foundations of physics. Theoretical physics. Computational physics.</p>
     <div class="document-actions">
       <a href="/documents/WILL_RG_I.pdf" target="_blank" class="btn-main" style="background:#2563eb;">Open PDF</a>
       <a href="/documents/WILL_RG_I.pdf" download class="btn-supplement">Download</a>
     </div>
+       <p style="margin-top:0.5rem; font-size:0.85rem; color:#a78bfa;">Ongoing research started in June 2024</p>
   </div>
 
   <!-- R.O.M. -->
   <div class="document-item">
     <h4>R.O.M. — Relational Orbital Mechanics</h4>
-    <p>Closed algebraic system for bound gravitational systems. Recovering all major orbital phenomena. No differential equations or acceleration term required.</p>
+    <p>Closed algebraic system for bound gravitational systems. Recovering all major orbital phenomena within pure relational ontology. No differential equations required. Foundations of physics. Mercury’s precession, S2 star (Sgr A*), L1 equilibrium point, relational gravitational waves, LAGEOS I Lense-Thirring. Theoretical physics. Computational physics. Orbital mechanics. Astrophysics.</p>
     <div class="document-actions">
       <a href="/documents/WILL_RG_R.O.M..pdf" target="_blank" class="btn-main" style="background:#2563eb;">Open PDF</a>
       <a href="/documents/WILL_RG_R.O.M..pdf" download class="btn-supplement">Download</a>
@@ -183,12 +184,12 @@ description: "Every WILL Relational Geometry paper, appendix, technical document
 
   <div class="document-item" style="border-color: #8e44ad; background: rgba(142, 68, 173, 0.08);">
     <h4>WILL Part II: Relational Cosmology</h4>
-    <p>Application of Relational Geometry to galactic dynamics and cosmology across 20 orders of magnitude. Replaces dark sector with transparent geometric ontology.</p>
+    <p>Application of Relational Geometry to galactic dynamics and cosmology across 40 orders of magnitude. Replaces dark sector with transparent geometric ontology. Derivation of Hubble parameter from CMB temperature and fine structure constant \( \alpha \), wide binaries acceleration, dark matter, dark energy. Theoretical physics. Computational physics. Cosmology. Galactic rotations. Astrophysics. Foundations of physics.</p>
     <div class="document-actions">
       <a href="/documents/WILL_RG_II.pdf" target="_blank" class="btn-main" style="background:#7e22ce;">Open PDF</a>
       <a href="/documents/WILL_RG_II.pdf" download class="btn-supplement">Download</a>
     </div>
-    <p style="margin-top:0.5rem; font-size:0.85rem; color:#a78bfa;">In active development</p>
+    <p style="margin-top:0.5rem; font-size:0.85rem; color:#a78bfa;">Ongoing research started in September 2025</p>
   </div>
 
 </div>
@@ -202,12 +203,12 @@ description: "Every WILL Relational Geometry paper, appendix, technical document
 
   <div class="document-item" style="border-color: #15803d; background: rgba(21, 128, 61, 0.08);">
     <h4>WILL Part III: Relational Quantum Mechanics</h4>
-    <p>Derivation of quantum structure (hydrogen atom, fine structure, spin) from closure on the relational carriers.</p>
+    <p>Derivation of quantum structure (hydrogen atom, fine structure, spin) from closure on the relational carriers. New approach to quantum physics.</p>
     <div class="document-actions">
       <a href="/documents/WILL_RG_III.pdf" target="_blank" class="btn-main" style="background:#15803d;">Open PDF</a>
       <a href="/documents/WILL_RG_III.pdf" download class="btn-supplement">Download</a>
     </div>
-    <p style="margin-top:0.5rem; font-size:0.85rem; color:#4ade80;">In active development</p>
+    <p style="margin-top:0.5rem; font-size:0.85rem; color:#4ade80;">Ongoing research started in June 2024</p>
   </div>
 
 </div>
