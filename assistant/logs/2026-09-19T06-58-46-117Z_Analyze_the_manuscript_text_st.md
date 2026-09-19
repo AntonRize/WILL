@@ -136,3 +136,50 @@ user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 | Parameter | Predicted Value | Measurement / Comparison | Source |
 |-----------|-----------------|--------------------------|--------|
 | $H_0$ | $68.15$ km/s/Mpc | Planck 2018: $67.4\pm0.5$ | [WILL_RG_II.pdf#sec:deriving-H0](https://willrg.com/documents/WILL_RG_
+
+**User:** Please continue
+
+**Assistant (Powered by Nemotron 550B):** ## Analysis of WILL RG Manuscript Against Four Criteria (Continued)
+
+### 3. Quantitative Precision (Completed)
+
+**Specific Numerical Predictions / Measurable Parameters (Extracted):**
+
+| Parameter | Predicted Value | Measurement / Comparison | Source |
+|-----------|-----------------|--------------------------|--------|
+| $H_0$ | $68.15$ km/s/Mpc | Planck 2018: $67.4\pm0.5$ | [WILL_RG_II.pdf#sec:deriving-H0](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) |
+| $\rho_{\max}$ | $2.9075\times10^{-27}$ kg/m³ | Derived from $T_0$, $\alpha$ | [WILL_RG_II.pdf#sec:deriving-H0](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) |
+| $a_\kappa$ (galactic) | $cH_0/3\pi \approx 0.70\times10^{-10}$ m/s² | MOND $a_0\approx1.2\times10^{-10}$ | [WILL_RG_II.pdf#sec:galactic-dynamics](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics) |
+| $a_\beta$ (wide binary) | $cH_0/6\pi \approx 0.35\times10^{-10}$ m/s² | Gaia DR3 $\gamma\approx1.45-1.55$ | [WILL_RG_II.pdf#sec:wide-binary](https://willrg.com/documents/WILL_RG_II.pdf#sec:wide-binary) |
+| $a_{\rm Mach}$ | $cH_0/2\pi \approx 1.05\times10^{-10}$ m/s² | Fundamental tone floor | [WILL_RG_II.pdf#sec:galactic-dynamics](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics) |
+| Mercury precession | $42.9807844914''$/century | GR 1PN: $42.9807852220''$; diff $=-7.306\times10^{-7}''$ | [WILL_RG_I.pdf#sec:mercury](https://willrg.com/documents/WILL_RG_I.pdf#sec:mercury) |
+| GPS time shift | $38.5421472752\,\mu$s/day | GR: $38.5421472451\,\mu$s/day; diff $=3.017\times10^{-8}\,\mu$s/day | [WILL_RG_I.pdf#sec:earth-gps](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps) |
+| CMB $\ell_1$ | $220.55$ | Planck: $220.6\pm0.6$ ($-0.02\%$) | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| CMB $\ell_2$ | $544.32$ | Planck: $537.5\pm0.7$ ($+1.27\%$) | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| CMB $\ell_3$ | $793.66$ | Planck: $810.8\pm0.7$ ($-2.11\%$) | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| CMB quadrupole $D_{\ell=2}$ | $[0.156, 0.320]$ corridor | Planck: $\approx0.20$ (within) | [WILL_RG_II.pdf#sec:low-quadrupole](https://willrg.com/documents/WILL_RG_II.pdf#sec:low-quadrupole) |
+| SPARC MedAE | $11.18$ km/s | MOND: $10.43$; LCDM: $13.32$ | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| SPARC Bias | $-2.26$ km/s | MOND: $-4.37$; LCDM: $-6.83$ | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| Gas-dominated MedAE | $7.00$ km/s | MOND: $7.70$; LCDM: $7.42$ | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| Gas-dominated Bias | $+0.53$ km/s | MOND: $-5.12$; LCDM: $-3.91$ | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| RAR RMSE | $0.065$ dex | $\Lambda$CDM typically $>0.1$ dex | [WILL_RG_II.pdf#fig:rar](https://willrg.com/documents/WILL_RG_II.pdf#fig:rar) |
+| RAR Mean Offset | $0.007$ dex ($\approx1.5\%$) | Near zero systematic bias | [WILL_RG_II.pdf#fig:rar](https://willrg.com/documents/WILL_RG_II.pdf#fig:rar) |
+| Solar velocity | $226.4$ km/s | IAU: $220$; Gaia: $229\pm6$ | [WILL_RG_II.pdf#sec:solar_system](https://willrg.com/documents/WILL_RG_II.pdf#sec:solar_system) |
+| L1 distance | $1.498\times10^9$ m | Standard: $\approx1.5\times10^9$ m ($<0.3\%$) | [R.O.M..pdf#sec:L1](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:L1) |
+| Electron mass | $9.064\times10^{-31}$ kg | CODATA: $9.109\times10^{-31}$ kg ($0.49\%$) | [WILL_RG_II.pdf#sec:gamma_operator](https://willrg.com/documents/WILL_RG_II.pdf#sec:gamma_operator) |
+| $\Omega_m$ | $1/3 \approx 0.333$ | $\Lambda$CDM: $0.315$ | [WILL_RG_II.pdf#sec:tension](https://willrg.com/documents/WILL_RG_II.pdf#sec:tension) |
+| $\Omega_\Lambda$ | $2/3 \approx 0.667$ | $\Lambda$CDM: $0.685$ | [WILL_RG_II.pdf#sec:tension](https://willrg.com/documents/WILL_RG_II.pdf#sec:tension) |
+| $\Lambda(r)$ | $2/(3r^2)$ | Scale-dependent; $\Lambda(R_H)\approx\Lambda_{\Lambda\rm CDM}/3$ | [WILL_RG_II.pdf#sec:dark_energy](https://willrg.com/documents/WILL_RG_II.pdf#sec:dark_energy) |
+| Recombination $z_{\rm dec}$ | $\approx 1156$ | $\Lambda$CDM visibility: $1089.80$ | [WILL_RG_II.pdf#sec:recombination](https://willrg.com/documents/WILL_RG_II.pdf#sec:recombination) |
+| Recombination $T_{\rm dec}$ | $\approx 3150$ K | Saha: $3740$ K; Peebles: $3290$ K | [WILL_RG_II.pdf#sec:recombination](https://willrg.com/documents/WILL_RG_II.pdf#sec:recombination) |
+| Phase horizon $o_{\max}$ | $2\pi/(3\alpha^2)\approx 39,330$ rad | Geometric definition | [WILL_RG_II.pdf#sec:phase_evolution](https://willrg.com/documents/WILL_RG_II.pdf#sec:phase_evolution) |
+| $r_{\min}$ (no singularity) | $R_s/2$ | GR: $r=0$ singularity | [WILL_RG_I.pdf#sec:no_singularities](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities) |
+| $\kappa_{\max}^2$ (extremal) | $2$ | Static: $\kappa^2=1$ | [WILL_RG_I.pdf#rem:capacities](https://willrg.com/documents/WILL_RG_I.pdf#rem:capacities) |
+| Photon sphere | $\kappa_p^2=2/3$ ($r=1.5R_s$) | GR: $r=3GM/c^2$ | [R.O.M..pdf#sec:grav_deflection](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_deflection) |
+| ISCO (dynamic) | $Q^2=Q_Y^2=1/2$ | GR: $r=6GM/c^2$ | [WILL_RG_III.pdf](https://willrg.com/documents/WILL_RG_III.pdf) table |
+
+**Non-Falsifiable / Qualitative-Only Claims (Flagged):**
+
+1. **"Theoretical Ouroboros" as validation**: The claim that $\text{SPACETIME}\equiv\text{ENERGY} \Leftrightarrow \text{SPACETIME GEOMETRY}\equiv\text{ENERGY DENSITY}$ [WILL_RG_I.pdf#sec:ouroboros](https://willrg.com/documents/WILL_RG_I.pdf#sec:ouroboros) is presented as a self-consistency check, not an independent falsifiable prediction.
+
+2. **WILL invariant $W_{\rm ILL}=1$**: Defined as $
