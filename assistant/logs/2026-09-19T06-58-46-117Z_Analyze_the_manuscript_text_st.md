@@ -112,3 +112,27 @@ user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 5. **Pantheon+ shape residuals**: The $\sim 0.02$ mag shape deviation trend ($\Delta\mu_{\rm shape}\approx+0.020-0.060z$) is acknowledged but **not derived from first principles** — it is noted as "comparable to the reported systematic floor" [WILL_RG_II.pdf#sec:supernova-flux](https://willrg.com/documents/WILL_RG_II.pdf#sec:supernova-flux).
 
 6. **CMB $\ell_2$, $\ell_3$ peaks**: Predictions show $+1.27\%$ and $-2.11\%$ deviations respectively, attributed to "baryonic hysteresis" and "Silk damping effects expected at higher multipoles, which are not included in this pure geometric derivation" [WILL_RG_II.pdf#sec:cm
+
+**User:** Please continue
+
+**Assistant (Powered by Nemotron 550B):** ## Analysis of WILL RG Manuscript Against Four Criteria (Continued)
+
+### 2. Correspondence Documentation (Completed)
+
+**Unsupported Claims (continued):**
+
+6. **CMB $\ell_2$, $\ell_3$ peaks**: Predictions show $+1.27\%$ and $-2.11\%$ deviations respectively, attributed to "baryonic hysteresis" and "Silk damping effects expected at higher multipoles, which are not included in this pure geometric derivation" [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic). The asymmetric loading model for $\ell_2$ is introduced *ad hoc* ("We model this as a $K_{rare}$ Counter-Loading effect") without derivation from the foundational principles.
+
+7. **Recombination epoch**: Predicted $z_{\rm dec}\approx 1156$, $T_{\rm dec}\approx 3150$ K vs. $\Lambda$CDM visibility peak $z^*=1089.80$. The text acknowledges this is "not a direct measurement but the output of a computational pipeline" and that "a self-consistent comparison within the RG ontology would require recomputing the visibility function using RG-derived $H(z)$... deferred to future work" [WILL_RG_II.pdf#sec:recombination](https://willrg.com/documents/WILL_RG_II.pdf#sec:recombination).
+
+8. **S2 star orbit**: "At the precision of current S2 data, R.O.M. is observationally equivalent to General Relativity" [WILL_RG_II.pdf#sec:S2test](https://willrg.com/documents/WILL_RG_II.pdf#sec:S2test). The $\mathcal{O}(\beta^4)$ difference is "four orders of magnitude below the sensitivity of the dataset" — **no distinguishing observation exists yet**.
+
+---
+
+### 3. Quantitative Precision
+
+**Specific Numerical Predictions / Measurable Parameters (Extracted):**
+
+| Parameter | Predicted Value | Measurement / Comparison | Source |
+|-----------|-----------------|--------------------------|--------|
+| $H_0$ | $68.15$ km/s/Mpc | Planck 2018: $67.4\pm0.5$ | [WILL_RG_II.pdf#sec:deriving-H0](https://willrg.com/documents/WILL_RG_
