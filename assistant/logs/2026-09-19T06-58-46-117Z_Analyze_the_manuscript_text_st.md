@@ -183,3 +183,76 @@ user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 1. **"Theoretical Ouroboros" as validation**: The claim that $\text{SPACETIME}\equiv\text{ENERGY} \Leftrightarrow \text{SPACETIME GEOMETRY}\equiv\text{ENERGY DENSITY}$ [WILL_RG_I.pdf#sec:ouroboros](https://willrg.com/documents/WILL_RG_I.pdf#sec:ouroboros) is presented as a self-consistency check, not an independent falsifiable prediction.
 
 2. **WILL invariant $W_{\rm ILL}=1$**: Defined as $
+
+**User:** Please continue
+
+**Assistant (Powered by Nemotron 550B):** ## Analysis of WILL RG Manuscript Against Four Criteria (Continued)
+
+### 3. Quantitative Precision (Completed)
+
+**Non-Falsifiable / Qualitative-Only Claims (Flagged):**
+
+1. **"Theoretical Ouroboros" as validation**: The claim that $\text{SPACETIME}\equiv\text{ENERGY} \Leftrightarrow \text{SPACETIME GEOMETRY}\equiv\text{ENERGY DENSITY}$ [WILL_RG_I.pdf#sec:ouroboros](https://willrg.com/documents/WILL_RG_I.pdf#sec:ouroboros) is presented as a self-consistency check, not an independent falsifiable prediction.
+
+2. **WILL invariant $W_{\rm ILL}=1$**: Defined as $W_{\rm ILL}=ET/(ML)=1$ [WILL_RG_I.pdf#sec:willinvariant](https://willrg.com/documents/WILL_RG_I.pdf#sec:willinvariant). The text states: "This equation does not bring any new predictive power, but its ontological meaning shows that any coherent unit system will naturally collapse into unity." **Explicitly admitted as non-predictive.**
+
+3. **Qualitative description of "Phase" as time**: Statements like "Phase of 1 represents maximal internal flow (rest), while a Phase of 0 represents the collapse of internal causality" [WILL_RG_I.pdf#sec:duality](https://willrg.com/documents/WILL_RG_I.pdf#sec:duality) lack measurable operational definition beyond the redshift identities.
+
+4. **Entanglement as "topological unity"**: [WILL_RG_III.pdf#sec:entanglement](https://willrg.com/documents/WILL_RG_III.pdf#sec:entanglement) describes entanglement geometrically but provides **no quantitative Bell inequality test prediction** or deviation from standard QM.
+
+5. **Path integral as "combinatorial count"**: [WILL_RG_III.pdf#sec:pathintegral](https://willrg.com/documents/WILL_RG_III.pdf#sec:pathintegral) claims the path integral reduces to "a combinatorial count of topologically allowed states" but **no concrete calculation** (e.g., propagator for a free particle, double-slit interference pattern) is shown.
+
+6. **Decoherence hypothesis**: [WILL_RG_III.pdf#sec:decoherence](https://willrg.com/documents/WILL_RG_III.pdf#sec:decoherence) lists qualitative test cases (C₆₀ molecules, electrons in air) with **no quantitative decoherence rate formula** or comparison to experimental visibility curves.
+
+7. **"Geometric origin of spin"**: [WILL_RG_III.pdf#sec:spin-exclusion](https://willrg.com/documents/WILL_RG_III.pdf#sec:spin-exclusion) identifies spin with Hopf fibration topology ($720^\circ$ return) but **does not derive $g$-factor, magnetic moment, or Stern-Gerlach splitting**.
+
+---
+
+### 4. Domain Boundaries
+
+**Explicitly Stated Limitations (from text):**
+
+| Domain | Stated Boundary / Status | Source |
+|--------|--------------------------|--------|
+| **Gravitational waves** | "Remain to be formulated within the relational ontology" | [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges) |
+| **Radiative two-body problem** | "Remains an open technical task" | [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges) |
+| **Multi-body systems** | "Awaits algebraic realisation... beyond the collinear L1 case" | [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges) |
+| **Weak lensing** | "Priority direction for future work" | [WILL_RG_II.pdf#sec:lensing](https://willrg.com/documents/WILL_RG_II.pdf#sec:lensing) |
+| **Full Kerr metric** | "Key features... follow algebraically" — only horizons/ergosphere shown | [R.O.M..pdf#sec:Kerr](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr) |
+| **CMB $\ell \ge 4$ peaks** | "Not included in this pure geometric derivation" (Silk damping, etc.) | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| **Recombination visibility peak** | "Deferred to future work" — RG prediction ($z\approx1156$) differs from $\Lambda$CDM extraction ($z^*=1089.80$) | [WILL_RG_II.pdf#sec:recombination](https://willrg.com/documents/WILL_RG_II.pdf#sec:recombination) |
+| **S2 star $\mathcal{O}(\beta^4)$ test** | "Four orders of magnitude below sensitivity of the dataset" — no current falsification possible | [WILL_RG_II.pdf#sec:S2test](https://willrg.com/documents/WILL_RG_II.pdf#sec:S2test) |
+| **Pantheon+ shape residuals** | $\sim 0.02$ mag trend "comparable to systematic floor" — not derived from principles | [WILL_RG_II.pdf#sec:supernova-flux](https://willrg.com/documents/WILL_RG_II.pdf#sec:supernova-flux) |
+| **DESI DR2 evolving $\Lambda$** | "Dedicated quantitative comparison... deferred to future work" | [WILL_RG_II.pdf#rem:desi](https://willrg.com/documents/WILL_RG_II.pdf#rem:desi) |
+| **Quantum field theory** | "No Lagrangian density is needed" — only qualitative network description | [WILL_RG_III.pdf#sec:qft](https://willrg.com/documents/WILL_RG_III.pdf#sec:qft) |
+| **Standard Model particles** | Only electron/hydrogen derived; no quarks, gauge bosons, Higgs | [WILL_RG_III.pdf](https://willrg.com/documents/WILL_RG_III.pdf) |
+| **Cosmological perturbation theory** | Not developed — no CMB power spectrum $C_\ell$ calculation beyond $\ell_1,\ell_2,\ell_3$ | [WILL_RG_II.pdf](https://willrg.com/documents/WILL_RG_II.pdf) |
+
+**Unstated / Implicit Boundaries (Scientifically Unsounded):**
+
+1. **No energy scale cutoff**: The framework claims applicability from atomic ($\alpha$) to cosmic ($H_0$) scales [WILL_RG_II.pdf#tab:cosmology_comparison](https://willrg.com/documents/WILL_RG_II.pdf#tab:cosmology_comparison) but **never specifies** where the $\kappa^2=2\beta^2$ closure might break down (e.g., Planck scale, QCD scale, neutrino masses).
+
+2. **No validity condition for "closure factor $\delta=1$"**: The text defines $\delta=\kappa_o^2/(2\beta_o^2)$ [WILL_RG_I.pdf#def:closure_factor](https://willrg.com/documents/WILL_RG_I.pdf#def:closure_factor) and says closed systems satisfy $\langle\delta\rangle_{\rm cycle}=1$, but **does not quantify** the tolerance for "open systems" or define when the approximation fails.
+
+3. **No domain for $\beta\ll1$, $\kappa\ll1$ expansion**: The linearized limit recovering Newtonian mechanics [WILL_RG_I.pdf#sec:classical](https://willrg.com/documents/WILL_RG_I.pdf#sec:classical) is used for GPS, Mercury, etc., but **no error bound** is given for the $\mathcal{O}(\beta^4)$ truncation beyond the few test cases.
+
+4. **No specification of when $S^1/S^2$ carrier description fails**: The text excludes higher carriers ($S^n, n\ge3$) as "not required by presently observable phenomena" [WILL_RG_I.pdf#thm:carriers](https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers) but gives **no criterion** for when they would become necessary.
+
+5. **No breakdown condition for "relational parameterization"**: The claim that $G,M$ are "only unit-conversion factors" [R.O.M..pdf#thm:factorization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization) is demonstrated for bound orbits but **not tested** for unbound cosmological expansion, early universe, or quantum gravity regimes.
+
+6. **No domain for "geometric mean" resonance formula**: The galactic rotation law $v_{\rm obs}^2=v_N^2+\sqrt{v_N^2 a_\kappa r}$ [WILL_RG_II.pdf#eq:resonance](https://willrg.com/documents/WILL_RG_II.pdf#eq:resonance) is applied to SPARC galaxies but **no validity range** in terms of surface brightness, gas fraction, or environment (cluster vs. field) is given.
+
+7. **No quantization condition for non-Coulomb potentials**: The hydrogen derivation [WILL_RG_III.pdf#sec:atomic-structure](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure) relies on $\kappa_q^2=R_q/r$ (inverse-square). **No extension** to harmonic oscillator, Yukawa, or confining potentials is addressed.
+
+---
+
+## Summary Judgment
+
+| Criterion | Status | Key Deficit |
+|-----------|--------|-------------|
+| **1. Axiomatic Explicitness** | **Partial** | Core terms (WILL, Change, DOF) used before definition; Unifying Principle dual status (derived vs. axiomatic) unresolved |
+| **2. Correspondence Documentation** | **Strong for tested regimes** | Full Kerr metric, gravitational waves, multi-body, weak lensing, CMB $\ell\ge4$, recombination visibility — all **explicitly deferred** |
+| **3. Quantitative Precision** | **Strong numerical predictions** | WILL invariant, entanglement, path integral, decoherence, spin — **qualitative only, no measurable variables defined** |
+| **4. Domain Boundaries** | **Explicit for known gaps** | **No positive validity domain** — no energy cutoff, no $\delta$ tolerance, no carrier breakdown condition, no resonance formula limits |
+
+**Overall**: The manuscript is **internally consistent and quantitatively precise within its demonstrated domains** (solar system, galactic rotation, CMB acoustic peaks, hydrogen atom). It **explicitly acknowledges its boundaries** for gravitational radiation, multi-body, weak lensing, and QFT. However, it **lacks a positive specification of its range of validity** — no criteria for when the $S^1/S^2$ closure fails, when higher carriers enter, or when the geometric mean resonance formula breaks down. This is a **significant scientific gap** for a framework claiming "generative physics" across 20 orders of magnitude.
