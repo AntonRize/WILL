@@ -75,3 +75,40 @@ user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 | Light deflection | $\Delta\varphi=2\arcsin\left(\frac{\kappa_p^2(1+\beta_p^2)}{\beta_p^2(2-\kappa_p^2)-\kappa_p^2(1+\beta_p^2)}\right)$ | Photon sphere at $\kappa_p^2=2/3$ ($r=1.5R_s$) | [WILL_RG_I.pdf#sec:grav_deflection](https://willrg.com/documents/WILL_RG_I.pdf#sec:grav_deflection) |
 | Frame-dragging (LAGEOS) | $\Delta\varphi_{\text{ablated}}\simeq\frac{4\pi GJ}{c^2r^2v}$ | Lense-Thirring formula | [R.O.M..pdf#sec:chiral](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:chiral) |
 | $H_0$ derivation | $H_0=\sqrt{8\pi G
+
+**User:** Please continue
+
+**Assistant (Powered by Nemotron 550B):** ## Analysis of WILL RG Manuscript Against Four Criteria (Continued)
+
+### 2. Correspondence Documentation (Completed)
+
+**Supported Claims (continued):**
+
+| Phenomenon | WILL RG Equation/Result | GR/Standard Limit | Document Location |
+|------------|-------------------------|-------------------|-------------------|
+| $H_0$ derivation | $H_0=\sqrt{8\pi G\rho_\gamma/(3\alpha^2)}\approx 68.15$ km/s/Mpc | Planck 2018: $67.4\pm0.5$ | [WILL_RG_II.pdf#sec:deriving-H0](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) |
+| CMB $\ell_1$ peak | $\ell_1=220.55$ | Planck: $220.6\pm0.6$ | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| CMB quadrupole | $D_{\ell=2}\in[0.156, 0.320]$ | Planck: $\approx0.20$ | [WILL_RG_II.pdf#sec:low-quadrupole](https://willrg.com/documents/WILL_RG_II.pdf#sec:low-quadrupole) |
+| Galactic rotation (SPARC) | $V_{\rm RG}^2=V_b^2+\sqrt{a_\kappa V_b^2 r}$; $a_\kappa=cH_0/3\pi$ | MedAE=11.18 km/s, Bias=-2.26 km/s | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| RAR (Radial Acceleration Relation) | $g_{\rm obs}=g_{\rm bar}+\sqrt{g_{\rm bar}a_\kappa}$ | RMSE=0.065 dex, offset=0.007 dex | [WILL_RG_II.pdf#fig:rar](https://willrg.com/documents/WILL_RG_II.pdf#fig:rar) |
+| Wide binaries (Gaia DR3) | $\gamma=1+\sqrt{a_\beta/g_N}$; $a_\beta=cH_0/6\pi$ | $\gamma\approx1.47$ at $g_N=10^{-9.8}$; MOND overpredicts $\gamma\approx1.87$ | [WILL_RG_II.pdf#sec:wide-binary](https://willrg.com/documents/WILL_RG_II.pdf#sec:wide-binary) |
+| Baryonic Tully-Fisher | $V_{\rm flat}^4=G a_\kappa M_b$ | Slope 4, normalization matches at $r\sim 2-3 r_t$ | [WILL_RG_II.pdf#sec:Tully-Fisher](https://willrg.com/documents/WILL_RG_II.pdf#sec:Tully-Fisher) |
+| Electron mass | $m_e=\frac{1}{\pi\sqrt{2}}\left(\frac{H_0(\alpha\hbar c)^2}{Gc^3}\right)^{1/3}\approx 9.064\times10^{-31}$ kg | CODATA: $9.109\times10^{-31}$ kg (0.49% deviation) | [WILL_RG_II.pdf#sec:gamma_operator](https://willrg.com/documents/WILL_RG_II.pdf#sec:gamma_operator) |
+| Bohr radius | $a_0=4\pi\varepsilon_0\hbar^2/(m_e e^2)$ | Exact match | [WILL_RG_III.pdf#sec:atomic-structure](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure) |
+| Fine structure constant | $\alpha\equiv\beta_1=\sqrt{R_q/(2a_0)}$ | CODATA $\alpha\approx1/137.036$ | [WILL_RG_III.pdf#sec:alpha](https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha) |
+| Hydrogen energy levels | $E_n=-\alpha^2 m_e c^2/(2n^2)$ | Exact match | [WILL_RG_III.pdf#sec:atomic-structure](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure) |
+| Sommerfeld fine structure | $E_{n,j}=m_e c^2/\sqrt{1+(Z\alpha/n_{\rm eff})^2}$ | Identical to Dirac/Sommerfeld formula | [WILL_RG_III.pdf#thm:unified-energy](https://willrg.com/documents/WILL_RG_III.pdf#thm:unified-energy) |
+
+**Unsupported Claims (asserted agreement without derivation shown in text):**
+
+1. **Full Kerr metric reproduction**: Text states "Key features of Kerr geometry follow algebraically from the same closure relation" [WILL_RG_I.pdf#sec:rom](https://willrg.com/documents/WILL_RG_I.pdf#sec:rom) and [R.O.M..pdf#sec:Kerr](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr) shows horizon/ergosphere formulas, but **no derivation of the full Kerr metric tensor components** $g_{\mu\nu}$ is provided in the text.
+
+2. **Gravitational waves**: Explicitly listed as "remain to be formulated within the relational ontology" [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges), [R.O.M..pdf#sec:relational_waves](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_waves) is marked "WORK IN PROGRESS".
+
+3. **Multi-body systems**: "A self-consistent multi-body architecture that extends beyond the collinear L1 case awaits algebraic realisation" [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges).
+
+4. **Weak lensing**: "Developing a fully consistent weak-lensing forward model within the WILL RG framework constitutes a priority direction for future work" [WILL_RG_II.pdf#sec:lensing](https://willrg.com/documents/WILL_RG_II.pdf#sec:lensing).
+
+5. **Pantheon+ shape residuals**: The $\sim 0.02$ mag shape deviation trend ($\Delta\mu_{\rm shape}\approx+0.020-0.060z$) is acknowledged but **not derived from first principles** — it is noted as "comparable to the reported systematic floor" [WILL_RG_II.pdf#sec:supernova-flux](https://willrg.com/documents/WILL_RG_II.pdf#sec:supernova-flux).
+
+6. **CMB $\ell_2$, $\ell_3$ peaks**: Predictions show $+1.27\%$ and $-2.11\%$ deviations respectively, attributed to "baryonic hysteresis" and "Silk damping effects expected at higher multipoles, which are not included in this pure geometric derivation" [WILL_RG_II.pdf#sec:cm
