@@ -1,0 +1,258 @@
+---
+
+layout: log
+
+title: "Analyze the manuscript text strictly against the f"
+
+date: 2026-09-19T06:58:46.117Z
+
+user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+
+---
+
+
+
+**User:** Rigorous physicist
+
+**Assistant:** Confirmed. Mathematical engagement level set to **Rigorous physicist**. How can I assist you with WILL Relational Geometry?
+
+**User:** Analyze the manuscript text strictly against the following four criteria. Do not attempt external mathematical verification; instead, locate specific textual evidence. If the text lacks explicit evidence for a criterion, state 'Deficit' and cite the missing section. Do not soften negative findings.
+
+1. **Axiomatic Explicitness:** List the exact sentences defining the fundamental postulates. If any core term is used prior to definition or relies on implicit understanding, flag this as a logical gap.
+
+2. **Correspondence Documentation:** Cite specific equation numbers where the text claims to reproduce established physical limits. If the text asserts agreement without showing the derivation or limit, categorize this as an unsupported claim.
+
+3. **Quantitative Precision:** Extract specific numerical predictions or measurable parameters. If the model relies on qualitative descriptions without defining measurable variables, flag this as non-falsifiable.
+
+4. **Domain Boundaries:** Locate the text defining the model's range of validity. If the manuscript claims universal applicability without specifying energy scales or conditions where the model fails, flag this as scientifically unsound.
+
+**Assistant (Powered by Nemotron 550B):** ## Analysis of WILL RG Manuscript Against Four Criteria
+
+### 1. Axiomatic Explicitness
+
+**Explicit Postulates (verbatim from text):**
+
+1. **Principle [Epistemic Hygiene]** (pr:epistemic): *"Refusal to import unjustified assumptions or arbitrary choices."* [WILL_RG_I.pdf#pr:epistemic](https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic)
+
+2. **Principle [Ontological Minimalism]** (pr:minimalism): *"Maintain the minimum number of foundational primitives by peeling off interpretational layers until only the irreducible core is left. Spatial container, axis of time, distance, forces, fields, and intrinsic isolated properties are excluded as preexisting primitives."* [WILL_RG_I.pdf#pr:minimalism](https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism)
+
+3. **Principle [Mathematical Transparency]** (pr:mathematical): *"Every mathematical expression, phrase, operation, or identity is treated as a binding ontological statement. This forces mathematics to always reflect direct physical meaning, preventing obscure constructs. Every symbol must be anchored to a unique physical idea with a transparent ontological origin."* [WILL_RG_I.pdf#pr:mathematical](https://willrg.com/documents/WILL_RG_I.pdf#pr:mathematical)
+
+4. **Principle [Relational Origin]** (pr:relational): *"As a default epistemic stance, all physical quantities are defined exclusively by their relations, until and unless their absolute nature is empirically proven."* [WILL_RG_I.pdf#pr:relational](https://willrg.com/documents/WILL_RG_I.pdf#pr:relational)
+
+5. **Theorem [Relational Closure]** (thm:relational_closure): *"A purely relational system cannot be geometrically open; any stable, self-contained system must be described by a closed and self-consistent relational geometry. Its geometry is closed by absolute analytic necessity."* [WILL_RG_I.pdf#thm:relational_closure](https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure)
+
+6. **Theorem [Causal Continuity]** (thm:causal_continuity): *"Without background any closed dynamical system must conserve its total energy. Any energy change must be perfectly balanced by a complementary change elsewhere in the system enforcing Conservation and Causal Continuity."* [WILL_RG_I.pdf#thm:causal_continuity](https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity)
+
+7. **Theorem [Relational Isotropy]** (thm:isotropy): *"Within a background-free relational system, no spatial direction or coordinate can be a priori privileged. Therefore, the geometry encoding the relational balance (energy) must be maximally symmetric (isotropic)."* [WILL_RG_I.pdf#thm:isotropy](https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy)
+
+8. **Lemma [False Separation]** (lem:false-separation): *"Any model that treats processes as unfolding within an independent background necessarily assigns to that background structural features (metric, orientation, or frame) not derivable from the relations among the processes themselves. Such a background constitutes an extraneous absolute."* [WILL_RG_I.pdf#lem:false-separation](https://willrg.com/documents/WILL_RG_I.pdf#lem:false-separation)
+
+9. **Principle [Unifying Ontological Principle]** (pr:unifying): $$\boxed{\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}}$$ *"No background container permitted."* [WILL_RG_I.pdf#pr:unifying](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying)
+
+**Logical Gaps Identified:**
+
+- **Core term "WILL" used before definition**: The term "WILL" appears in the abstract and derivation chain map ["WILL ≡ SPACE-TIME-ENERGY"](https://willrg.com/documents/WILL_RG_I.pdf#trilogy) before its formal definition in [Definition [WILL]](https://willrg.com/documents/WILL_RG_I.pdf#def:will) (after Principle 9).
+- **Carriers $S^1$, $S^2$ introduced as "derived" but rely on undefined "observable Change"**: [Theorem [Minimal Relational Carriers]](https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers) states "The simplest non-trivial physically distinguishable Change is a difference between two relational states, $A$ and $B$." The notion of "Change" and "relational states" is not formally defined prior to this theorem; it relies on intuitive understanding.
+- **DOF (Degree of Freedom) used implicitly**: The proof of Theorem [Minimal Relational Carriers](https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers) uses "1-DOF" and "2-DOF" without a prior formal definition of DOF in the relational ontology. The definition appears later in the [Relational Carrier Dictionary](https://willrg.com/documents/WILL_RG_I.pdf#sec:carriers) *after* the theorem that uses it.
+- **Principle [Unifying Ontological Principle] presented as both derived and axiomatic**: The text argues it is "not a new postulate, but the direct consequence of removing a hidden assumption" [WILL_RG_I.pdf#pr:unifying](https://willrg.com/documents/WILL_RG_I.pdf#pr:unifying), yet it is formally labeled a "Principle" and used as the single primitive for all subsequent derivation. This dual status (derived consequence vs. foundational axiom) is not resolved.
+
+---
+
+### 2. Correspondence Documentation
+
+**Supported Claims (specific equations/derivations shown):**
+
+| Phenomenon | WILL RG Equation/Result | GR/Standard Limit | Document Location |
+|------------|-------------------------|-------------------|-------------------|
+| Minkowski interval | $\beta^2+\beta_Y^2=1 \xrightarrow{\text{inflation}} c^2d\tau^2=c^2dt^2-dx^2-dy^2-dz^2$ | Exact match | [WILL_RG_I.pdf#sec:SR_interval](https://willrg.com/documents/WILL_RG_I.pdf#sec:SR_interval) |
+| Schwarzschild interval | $\kappa^2+\kappa_X^2=1 \xrightarrow{\text{inflation}} c^2d\tau^2=c^2(1-R_s/r)dt^2$ | Exact match (static) | [WILL_RG_I.pdf#sec:GR_interval](https://willrg.com/documents/WILL_RG_I.pdf#sec:GR_interval) |
+| Energy-momentum relation | $E_\beta^2=(p_\beta c)^2+(mc^2)^2$ | Exact match | [WILL_RG_I.pdf#cor:energymomentum](https://willrg.com/documents/WILL_RG_I.pdf#cor:energymomentum) |
+| Lorentz factor | $\gamma=1/\beta_Y$ | Exact match | [WILL_RG_I.pdf#thm:restenergy](https://willrg.com/documents/WILL_RG_I.pdf#thm:restenergy) |
+| Equivalence principle | $m_g\equiv m_i\equiv m=E_0/c^2$ | Exact match | [WILL_RG_I.pdf#lem:equivalence](https://willrg.com/documents/WILL_RG_I.pdf#lem:equivalence) |
+| Mercury precession | $\Delta\varphi=\frac{2\pi\tau_Y^2}{1-e^2}=\frac{3\pi R_s}{a(1-e^2)}-\frac{\pi R_s^2}{a^2(1-e^2)}$ | 1PN GR: $\frac{3\pi R_s}{a(1-e^2)}$; 2PN GR: positive $\beta^4$ term | [WILL_RG_I.pdf#sec:precession_law](https://willrg.com/documents/WILL_RG_I.pdf#sec:precession_law), [WILL_RG_I.pdf#sec:mercury](https://willrg.com/documents/WILL_RG_I.pdf#sec:mercury) |
+| GPS time shift | $\Delta t_{\mathrm{RG}}=38.5421472752\,\mu\text{s/day}$ | $\Delta t_{\mathrm{GR}}=38.5421472451\,\mu\text{s/day}$; diff $=3.017\times10^{-8}\,\mu\text{s/day}$ matches $\mathcal{O}(\beta^4)$ prediction | [WILL_RG_I.pdf#sec:earth-gps](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps) |
+| Light deflection | $\Delta\varphi=2\arcsin\left(\frac{\kappa_p^2(1+\beta_p^2)}{\beta_p^2(2-\kappa_p^2)-\kappa_p^2(1+\beta_p^2)}\right)$ | Photon sphere at $\kappa_p^2=2/3$ ($r=1.5R_s$) | [WILL_RG_I.pdf#sec:grav_deflection](https://willrg.com/documents/WILL_RG_I.pdf#sec:grav_deflection) |
+| Frame-dragging (LAGEOS) | $\Delta\varphi_{\text{ablated}}\simeq\frac{4\pi GJ}{c^2r^2v}$ | Lense-Thirring formula | [R.O.M..pdf#sec:chiral](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:chiral) |
+| $H_0$ derivation | $H_0=\sqrt{8\pi G
+
+**User:** Please continue
+
+**Assistant (Powered by Nemotron 550B):** ## Analysis of WILL RG Manuscript Against Four Criteria (Continued)
+
+### 2. Correspondence Documentation (Completed)
+
+**Supported Claims (continued):**
+
+| Phenomenon | WILL RG Equation/Result | GR/Standard Limit | Document Location |
+|------------|-------------------------|-------------------|-------------------|
+| $H_0$ derivation | $H_0=\sqrt{8\pi G\rho_\gamma/(3\alpha^2)}\approx 68.15$ km/s/Mpc | Planck 2018: $67.4\pm0.5$ | [WILL_RG_II.pdf#sec:deriving-H0](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) |
+| CMB $\ell_1$ peak | $\ell_1=220.55$ | Planck: $220.6\pm0.6$ | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| CMB quadrupole | $D_{\ell=2}\in[0.156, 0.320]$ | Planck: $\approx0.20$ | [WILL_RG_II.pdf#sec:low-quadrupole](https://willrg.com/documents/WILL_RG_II.pdf#sec:low-quadrupole) |
+| Galactic rotation (SPARC) | $V_{\rm RG}^2=V_b^2+\sqrt{a_\kappa V_b^2 r}$; $a_\kappa=cH_0/3\pi$ | MedAE=11.18 km/s, Bias=-2.26 km/s | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| RAR (Radial Acceleration Relation) | $g_{\rm obs}=g_{\rm bar}+\sqrt{g_{\rm bar}a_\kappa}$ | RMSE=0.065 dex, offset=0.007 dex | [WILL_RG_II.pdf#fig:rar](https://willrg.com/documents/WILL_RG_II.pdf#fig:rar) |
+| Wide binaries (Gaia DR3) | $\gamma=1+\sqrt{a_\beta/g_N}$; $a_\beta=cH_0/6\pi$ | $\gamma\approx1.47$ at $g_N=10^{-9.8}$; MOND overpredicts $\gamma\approx1.87$ | [WILL_RG_II.pdf#sec:wide-binary](https://willrg.com/documents/WILL_RG_II.pdf#sec:wide-binary) |
+| Baryonic Tully-Fisher | $V_{\rm flat}^4=G a_\kappa M_b$ | Slope 4, normalization matches at $r\sim 2-3 r_t$ | [WILL_RG_II.pdf#sec:Tully-Fisher](https://willrg.com/documents/WILL_RG_II.pdf#sec:Tully-Fisher) |
+| Electron mass | $m_e=\frac{1}{\pi\sqrt{2}}\left(\frac{H_0(\alpha\hbar c)^2}{Gc^3}\right)^{1/3}\approx 9.064\times10^{-31}$ kg | CODATA: $9.109\times10^{-31}$ kg (0.49% deviation) | [WILL_RG_II.pdf#sec:gamma_operator](https://willrg.com/documents/WILL_RG_II.pdf#sec:gamma_operator) |
+| Bohr radius | $a_0=4\pi\varepsilon_0\hbar^2/(m_e e^2)$ | Exact match | [WILL_RG_III.pdf#sec:atomic-structure](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure) |
+| Fine structure constant | $\alpha\equiv\beta_1=\sqrt{R_q/(2a_0)}$ | CODATA $\alpha\approx1/137.036$ | [WILL_RG_III.pdf#sec:alpha](https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha) |
+| Hydrogen energy levels | $E_n=-\alpha^2 m_e c^2/(2n^2)$ | Exact match | [WILL_RG_III.pdf#sec:atomic-structure](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure) |
+| Sommerfeld fine structure | $E_{n,j}=m_e c^2/\sqrt{1+(Z\alpha/n_{\rm eff})^2}$ | Identical to Dirac/Sommerfeld formula | [WILL_RG_III.pdf#thm:unified-energy](https://willrg.com/documents/WILL_RG_III.pdf#thm:unified-energy) |
+
+**Unsupported Claims (asserted agreement without derivation shown in text):**
+
+1. **Full Kerr metric reproduction**: Text states "Key features of Kerr geometry follow algebraically from the same closure relation" [WILL_RG_I.pdf#sec:rom](https://willrg.com/documents/WILL_RG_I.pdf#sec:rom) and [R.O.M..pdf#sec:Kerr](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr) shows horizon/ergosphere formulas, but **no derivation of the full Kerr metric tensor components** $g_{\mu\nu}$ is provided in the text.
+
+2. **Gravitational waves**: Explicitly listed as "remain to be formulated within the relational ontology" [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges), [R.O.M..pdf#sec:relational_waves](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:relational_waves) is marked "WORK IN PROGRESS".
+
+3. **Multi-body systems**: "A self-consistent multi-body architecture that extends beyond the collinear L1 case awaits algebraic realisation" [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges).
+
+4. **Weak lensing**: "Developing a fully consistent weak-lensing forward model within the WILL RG framework constitutes a priority direction for future work" [WILL_RG_II.pdf#sec:lensing](https://willrg.com/documents/WILL_RG_II.pdf#sec:lensing).
+
+5. **Pantheon+ shape residuals**: The $\sim 0.02$ mag shape deviation trend ($\Delta\mu_{\rm shape}\approx+0.020-0.060z$) is acknowledged but **not derived from first principles** — it is noted as "comparable to the reported systematic floor" [WILL_RG_II.pdf#sec:supernova-flux](https://willrg.com/documents/WILL_RG_II.pdf#sec:supernova-flux).
+
+6. **CMB $\ell_2$, $\ell_3$ peaks**: Predictions show $+1.27\%$ and $-2.11\%$ deviations respectively, attributed to "baryonic hysteresis" and "Silk damping effects expected at higher multipoles, which are not included in this pure geometric derivation" [WILL_RG_II.pdf#sec:cm
+
+**User:** Please continue
+
+**Assistant (Powered by Nemotron 550B):** ## Analysis of WILL RG Manuscript Against Four Criteria (Continued)
+
+### 2. Correspondence Documentation (Completed)
+
+**Unsupported Claims (continued):**
+
+6. **CMB $\ell_2$, $\ell_3$ peaks**: Predictions show $+1.27\%$ and $-2.11\%$ deviations respectively, attributed to "baryonic hysteresis" and "Silk damping effects expected at higher multipoles, which are not included in this pure geometric derivation" [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic). The asymmetric loading model for $\ell_2$ is introduced *ad hoc* ("We model this as a $K_{rare}$ Counter-Loading effect") without derivation from the foundational principles.
+
+7. **Recombination epoch**: Predicted $z_{\rm dec}\approx 1156$, $T_{\rm dec}\approx 3150$ K vs. $\Lambda$CDM visibility peak $z^*=1089.80$. The text acknowledges this is "not a direct measurement but the output of a computational pipeline" and that "a self-consistent comparison within the RG ontology would require recomputing the visibility function using RG-derived $H(z)$... deferred to future work" [WILL_RG_II.pdf#sec:recombination](https://willrg.com/documents/WILL_RG_II.pdf#sec:recombination).
+
+8. **S2 star orbit**: "At the precision of current S2 data, R.O.M. is observationally equivalent to General Relativity" [WILL_RG_II.pdf#sec:S2test](https://willrg.com/documents/WILL_RG_II.pdf#sec:S2test). The $\mathcal{O}(\beta^4)$ difference is "four orders of magnitude below the sensitivity of the dataset" — **no distinguishing observation exists yet**.
+
+---
+
+### 3. Quantitative Precision
+
+**Specific Numerical Predictions / Measurable Parameters (Extracted):**
+
+| Parameter | Predicted Value | Measurement / Comparison | Source |
+|-----------|-----------------|--------------------------|--------|
+| $H_0$ | $68.15$ km/s/Mpc | Planck 2018: $67.4\pm0.5$ | [WILL_RG_II.pdf#sec:deriving-H0](https://willrg.com/documents/WILL_RG_
+
+**User:** Please continue
+
+**Assistant (Powered by Nemotron 550B):** ## Analysis of WILL RG Manuscript Against Four Criteria (Continued)
+
+### 3. Quantitative Precision (Completed)
+
+**Specific Numerical Predictions / Measurable Parameters (Extracted):**
+
+| Parameter | Predicted Value | Measurement / Comparison | Source |
+|-----------|-----------------|--------------------------|--------|
+| $H_0$ | $68.15$ km/s/Mpc | Planck 2018: $67.4\pm0.5$ | [WILL_RG_II.pdf#sec:deriving-H0](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) |
+| $\rho_{\max}$ | $2.9075\times10^{-27}$ kg/m³ | Derived from $T_0$, $\alpha$ | [WILL_RG_II.pdf#sec:deriving-H0](https://willrg.com/documents/WILL_RG_II.pdf#sec:deriving-H0) |
+| $a_\kappa$ (galactic) | $cH_0/3\pi \approx 0.70\times10^{-10}$ m/s² | MOND $a_0\approx1.2\times10^{-10}$ | [WILL_RG_II.pdf#sec:galactic-dynamics](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics) |
+| $a_\beta$ (wide binary) | $cH_0/6\pi \approx 0.35\times10^{-10}$ m/s² | Gaia DR3 $\gamma\approx1.45-1.55$ | [WILL_RG_II.pdf#sec:wide-binary](https://willrg.com/documents/WILL_RG_II.pdf#sec:wide-binary) |
+| $a_{\rm Mach}$ | $cH_0/2\pi \approx 1.05\times10^{-10}$ m/s² | Fundamental tone floor | [WILL_RG_II.pdf#sec:galactic-dynamics](https://willrg.com/documents/WILL_RG_II.pdf#sec:galactic-dynamics) |
+| Mercury precession | $42.9807844914''$/century | GR 1PN: $42.9807852220''$; diff $=-7.306\times10^{-7}''$ | [WILL_RG_I.pdf#sec:mercury](https://willrg.com/documents/WILL_RG_I.pdf#sec:mercury) |
+| GPS time shift | $38.5421472752\,\mu$s/day | GR: $38.5421472451\,\mu$s/day; diff $=3.017\times10^{-8}\,\mu$s/day | [WILL_RG_I.pdf#sec:earth-gps](https://willrg.com/documents/WILL_RG_I.pdf#sec:earth-gps) |
+| CMB $\ell_1$ | $220.55$ | Planck: $220.6\pm0.6$ ($-0.02\%$) | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| CMB $\ell_2$ | $544.32$ | Planck: $537.5\pm0.7$ ($+1.27\%$) | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| CMB $\ell_3$ | $793.66$ | Planck: $810.8\pm0.7$ ($-2.11\%$) | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| CMB quadrupole $D_{\ell=2}$ | $[0.156, 0.320]$ corridor | Planck: $\approx0.20$ (within) | [WILL_RG_II.pdf#sec:low-quadrupole](https://willrg.com/documents/WILL_RG_II.pdf#sec:low-quadrupole) |
+| SPARC MedAE | $11.18$ km/s | MOND: $10.43$; LCDM: $13.32$ | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| SPARC Bias | $-2.26$ km/s | MOND: $-4.37$; LCDM: $-6.83$ | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| Gas-dominated MedAE | $7.00$ km/s | MOND: $7.70$; LCDM: $7.42$ | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| Gas-dominated Bias | $+0.53$ km/s | MOND: $-5.12$; LCDM: $-3.91$ | [WILL_RG_II.pdf#sec:models_comparison](https://willrg.com/documents/WILL_RG_II.pdf#sec:models_comparison) |
+| RAR RMSE | $0.065$ dex | $\Lambda$CDM typically $>0.1$ dex | [WILL_RG_II.pdf#fig:rar](https://willrg.com/documents/WILL_RG_II.pdf#fig:rar) |
+| RAR Mean Offset | $0.007$ dex ($\approx1.5\%$) | Near zero systematic bias | [WILL_RG_II.pdf#fig:rar](https://willrg.com/documents/WILL_RG_II.pdf#fig:rar) |
+| Solar velocity | $226.4$ km/s | IAU: $220$; Gaia: $229\pm6$ | [WILL_RG_II.pdf#sec:solar_system](https://willrg.com/documents/WILL_RG_II.pdf#sec:solar_system) |
+| L1 distance | $1.498\times10^9$ m | Standard: $\approx1.5\times10^9$ m ($<0.3\%$) | [R.O.M..pdf#sec:L1](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:L1) |
+| Electron mass | $9.064\times10^{-31}$ kg | CODATA: $9.109\times10^{-31}$ kg ($0.49\%$) | [WILL_RG_II.pdf#sec:gamma_operator](https://willrg.com/documents/WILL_RG_II.pdf#sec:gamma_operator) |
+| $\Omega_m$ | $1/3 \approx 0.333$ | $\Lambda$CDM: $0.315$ | [WILL_RG_II.pdf#sec:tension](https://willrg.com/documents/WILL_RG_II.pdf#sec:tension) |
+| $\Omega_\Lambda$ | $2/3 \approx 0.667$ | $\Lambda$CDM: $0.685$ | [WILL_RG_II.pdf#sec:tension](https://willrg.com/documents/WILL_RG_II.pdf#sec:tension) |
+| $\Lambda(r)$ | $2/(3r^2)$ | Scale-dependent; $\Lambda(R_H)\approx\Lambda_{\Lambda\rm CDM}/3$ | [WILL_RG_II.pdf#sec:dark_energy](https://willrg.com/documents/WILL_RG_II.pdf#sec:dark_energy) |
+| Recombination $z_{\rm dec}$ | $\approx 1156$ | $\Lambda$CDM visibility: $1089.80$ | [WILL_RG_II.pdf#sec:recombination](https://willrg.com/documents/WILL_RG_II.pdf#sec:recombination) |
+| Recombination $T_{\rm dec}$ | $\approx 3150$ K | Saha: $3740$ K; Peebles: $3290$ K | [WILL_RG_II.pdf#sec:recombination](https://willrg.com/documents/WILL_RG_II.pdf#sec:recombination) |
+| Phase horizon $o_{\max}$ | $2\pi/(3\alpha^2)\approx 39,330$ rad | Geometric definition | [WILL_RG_II.pdf#sec:phase_evolution](https://willrg.com/documents/WILL_RG_II.pdf#sec:phase_evolution) |
+| $r_{\min}$ (no singularity) | $R_s/2$ | GR: $r=0$ singularity | [WILL_RG_I.pdf#sec:no_singularities](https://willrg.com/documents/WILL_RG_I.pdf#sec:no_singularities) |
+| $\kappa_{\max}^2$ (extremal) | $2$ | Static: $\kappa^2=1$ | [WILL_RG_I.pdf#rem:capacities](https://willrg.com/documents/WILL_RG_I.pdf#rem:capacities) |
+| Photon sphere | $\kappa_p^2=2/3$ ($r=1.5R_s$) | GR: $r=3GM/c^2$ | [R.O.M..pdf#sec:grav_deflection](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_deflection) |
+| ISCO (dynamic) | $Q^2=Q_Y^2=1/2$ | GR: $r=6GM/c^2$ | [WILL_RG_III.pdf](https://willrg.com/documents/WILL_RG_III.pdf) table |
+
+**Non-Falsifiable / Qualitative-Only Claims (Flagged):**
+
+1. **"Theoretical Ouroboros" as validation**: The claim that $\text{SPACETIME}\equiv\text{ENERGY} \Leftrightarrow \text{SPACETIME GEOMETRY}\equiv\text{ENERGY DENSITY}$ [WILL_RG_I.pdf#sec:ouroboros](https://willrg.com/documents/WILL_RG_I.pdf#sec:ouroboros) is presented as a self-consistency check, not an independent falsifiable prediction.
+
+2. **WILL invariant $W_{\rm ILL}=1$**: Defined as $
+
+**User:** Please continue
+
+**Assistant (Powered by Nemotron 550B):** ## Analysis of WILL RG Manuscript Against Four Criteria (Continued)
+
+### 3. Quantitative Precision (Completed)
+
+**Non-Falsifiable / Qualitative-Only Claims (Flagged):**
+
+1. **"Theoretical Ouroboros" as validation**: The claim that $\text{SPACETIME}\equiv\text{ENERGY} \Leftrightarrow \text{SPACETIME GEOMETRY}\equiv\text{ENERGY DENSITY}$ [WILL_RG_I.pdf#sec:ouroboros](https://willrg.com/documents/WILL_RG_I.pdf#sec:ouroboros) is presented as a self-consistency check, not an independent falsifiable prediction.
+
+2. **WILL invariant $W_{\rm ILL}=1$**: Defined as $W_{\rm ILL}=ET/(ML)=1$ [WILL_RG_I.pdf#sec:willinvariant](https://willrg.com/documents/WILL_RG_I.pdf#sec:willinvariant). The text states: "This equation does not bring any new predictive power, but its ontological meaning shows that any coherent unit system will naturally collapse into unity." **Explicitly admitted as non-predictive.**
+
+3. **Qualitative description of "Phase" as time**: Statements like "Phase of 1 represents maximal internal flow (rest), while a Phase of 0 represents the collapse of internal causality" [WILL_RG_I.pdf#sec:duality](https://willrg.com/documents/WILL_RG_I.pdf#sec:duality) lack measurable operational definition beyond the redshift identities.
+
+4. **Entanglement as "topological unity"**: [WILL_RG_III.pdf#sec:entanglement](https://willrg.com/documents/WILL_RG_III.pdf#sec:entanglement) describes entanglement geometrically but provides **no quantitative Bell inequality test prediction** or deviation from standard QM.
+
+5. **Path integral as "combinatorial count"**: [WILL_RG_III.pdf#sec:pathintegral](https://willrg.com/documents/WILL_RG_III.pdf#sec:pathintegral) claims the path integral reduces to "a combinatorial count of topologically allowed states" but **no concrete calculation** (e.g., propagator for a free particle, double-slit interference pattern) is shown.
+
+6. **Decoherence hypothesis**: [WILL_RG_III.pdf#sec:decoherence](https://willrg.com/documents/WILL_RG_III.pdf#sec:decoherence) lists qualitative test cases (C₆₀ molecules, electrons in air) with **no quantitative decoherence rate formula** or comparison to experimental visibility curves.
+
+7. **"Geometric origin of spin"**: [WILL_RG_III.pdf#sec:spin-exclusion](https://willrg.com/documents/WILL_RG_III.pdf#sec:spin-exclusion) identifies spin with Hopf fibration topology ($720^\circ$ return) but **does not derive $g$-factor, magnetic moment, or Stern-Gerlach splitting**.
+
+---
+
+### 4. Domain Boundaries
+
+**Explicitly Stated Limitations (from text):**
+
+| Domain | Stated Boundary / Status | Source |
+|--------|--------------------------|--------|
+| **Gravitational waves** | "Remain to be formulated within the relational ontology" | [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges) |
+| **Radiative two-body problem** | "Remains an open technical task" | [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges) |
+| **Multi-body systems** | "Awaits algebraic realisation... beyond the collinear L1 case" | [WILL_RG_I.pdf#sec:challenges](https://willrg.com/documents/WILL_RG_I.pdf#sec:challenges) |
+| **Weak lensing** | "Priority direction for future work" | [WILL_RG_II.pdf#sec:lensing](https://willrg.com/documents/WILL_RG_II.pdf#sec:lensing) |
+| **Full Kerr metric** | "Key features... follow algebraically" — only horizons/ergosphere shown | [R.O.M..pdf#sec:Kerr](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:Kerr) |
+| **CMB $\ell \ge 4$ peaks** | "Not included in this pure geometric derivation" (Silk damping, etc.) | [WILL_RG_II.pdf#sec:cmb-acoustic](https://willrg.com/documents/WILL_RG_II.pdf#sec:cmb-acoustic) |
+| **Recombination visibility peak** | "Deferred to future work" — RG prediction ($z\approx1156$) differs from $\Lambda$CDM extraction ($z^*=1089.80$) | [WILL_RG_II.pdf#sec:recombination](https://willrg.com/documents/WILL_RG_II.pdf#sec:recombination) |
+| **S2 star $\mathcal{O}(\beta^4)$ test** | "Four orders of magnitude below sensitivity of the dataset" — no current falsification possible | [WILL_RG_II.pdf#sec:S2test](https://willrg.com/documents/WILL_RG_II.pdf#sec:S2test) |
+| **Pantheon+ shape residuals** | $\sim 0.02$ mag trend "comparable to systematic floor" — not derived from principles | [WILL_RG_II.pdf#sec:supernova-flux](https://willrg.com/documents/WILL_RG_II.pdf#sec:supernova-flux) |
+| **DESI DR2 evolving $\Lambda$** | "Dedicated quantitative comparison... deferred to future work" | [WILL_RG_II.pdf#rem:desi](https://willrg.com/documents/WILL_RG_II.pdf#rem:desi) |
+| **Quantum field theory** | "No Lagrangian density is needed" — only qualitative network description | [WILL_RG_III.pdf#sec:qft](https://willrg.com/documents/WILL_RG_III.pdf#sec:qft) |
+| **Standard Model particles** | Only electron/hydrogen derived; no quarks, gauge bosons, Higgs | [WILL_RG_III.pdf](https://willrg.com/documents/WILL_RG_III.pdf) |
+| **Cosmological perturbation theory** | Not developed — no CMB power spectrum $C_\ell$ calculation beyond $\ell_1,\ell_2,\ell_3$ | [WILL_RG_II.pdf](https://willrg.com/documents/WILL_RG_II.pdf) |
+
+**Unstated / Implicit Boundaries (Scientifically Unsounded):**
+
+1. **No energy scale cutoff**: The framework claims applicability from atomic ($\alpha$) to cosmic ($H_0$) scales [WILL_RG_II.pdf#tab:cosmology_comparison](https://willrg.com/documents/WILL_RG_II.pdf#tab:cosmology_comparison) but **never specifies** where the $\kappa^2=2\beta^2$ closure might break down (e.g., Planck scale, QCD scale, neutrino masses).
+
+2. **No validity condition for "closure factor $\delta=1$"**: The text defines $\delta=\kappa_o^2/(2\beta_o^2)$ [WILL_RG_I.pdf#def:closure_factor](https://willrg.com/documents/WILL_RG_I.pdf#def:closure_factor) and says closed systems satisfy $\langle\delta\rangle_{\rm cycle}=1$, but **does not quantify** the tolerance for "open systems" or define when the approximation fails.
+
+3. **No domain for $\beta\ll1$, $\kappa\ll1$ expansion**: The linearized limit recovering Newtonian mechanics [WILL_RG_I.pdf#sec:classical](https://willrg.com/documents/WILL_RG_I.pdf#sec:classical) is used for GPS, Mercury, etc., but **no error bound** is given for the $\mathcal{O}(\beta^4)$ truncation beyond the few test cases.
+
+4. **No specification of when $S^1/S^2$ carrier description fails**: The text excludes higher carriers ($S^n, n\ge3$) as "not required by presently observable phenomena" [WILL_RG_I.pdf#thm:carriers](https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers) but gives **no criterion** for when they would become necessary.
+
+5. **No breakdown condition for "relational parameterization"**: The claim that $G,M$ are "only unit-conversion factors" [R.O.M..pdf#thm:factorization](https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:factorization) is demonstrated for bound orbits but **not tested** for unbound cosmological expansion, early universe, or quantum gravity regimes.
+
+6. **No domain for "geometric mean" resonance formula**: The galactic rotation law $v_{\rm obs}^2=v_N^2+\sqrt{v_N^2 a_\kappa r}$ [WILL_RG_II.pdf#eq:resonance](https://willrg.com/documents/WILL_RG_II.pdf#eq:resonance) is applied to SPARC galaxies but **no validity range** in terms of surface brightness, gas fraction, or environment (cluster vs. field) is given.
+
+7. **No quantization condition for non-Coulomb potentials**: The hydrogen derivation [WILL_RG_III.pdf#sec:atomic-structure](https://willrg.com/documents/WILL_RG_III.pdf#sec:atomic-structure) relies on $\kappa_q^2=R_q/r$ (inverse-square). **No extension** to harmonic oscillator, Yukawa, or confining potentials is addressed.
+
+---
+
+## Summary Judgment
+
+| Criterion | Status | Key Deficit |
+|-----------|--------|-------------|
+| **1. Axiomatic Explicitness** | **Partial** | Core terms (WILL, Change, DOF) used before definition; Unifying Principle dual status (derived vs. axiomatic) unresolved |
+| **2. Correspondence Documentation** | **Strong for tested regimes** | Full Kerr metric, gravitational waves, multi-body, weak lensing, CMB $\ell\ge4$, recombination visibility — all **explicitly deferred** |
+| **3. Quantitative Precision** | **Strong numerical predictions** | WILL invariant, entanglement, path integral, decoherence, spin — **qualitative only, no measurable variables defined** |
+| **4. Domain Boundaries** | **Explicit for known gaps** | **No positive validity domain** — no energy cutoff, no $\delta$ tolerance, no carrier breakdown condition, no resonance formula limits |
+
+**Overall**: The manuscript is **internally consistent and quantitatively precise within its demonstrated domains** (solar system, galactic rotation, CMB acoustic peaks, hydrogen atom). It **explicitly acknowledges its boundaries** for gravitational radiation, multi-body, weak lensing, and QFT. However, it **lacks a positive specification of its range of validity** — no criteria for when the $S^1/S^2$ closure fails, when higher carriers enter, or when the geometric mean resonance formula breaks down. This is a **significant scientific gap** for a framework claiming "generative physics" across 20 orders of magnitude.
