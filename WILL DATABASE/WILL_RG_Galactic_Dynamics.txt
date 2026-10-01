@@ -19,28 +19,25 @@ its own propagated history (echoes).
 
 \begin{lemma}[Inevitability of Self-Interaction]
 \hypertarget{lem:self-interaction}{}\label{lem:self-interaction}
-In a closed relational system $\bf{WILL}$ (\href{https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure}{thm:relational closure}) with invariant measure of \href{https://willrg.com/documents/WILL_RG_I.pdf#cor:energy}{energy resource} (\href{https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_invariance}{thm:relational invariance}), any \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry}{relational perturbation} cannot propagate indefinitely without re-encountering itself.
+Any \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry}{relational perturbation} cannot propagate indefinitely without re-encountering itself.
 \end{lemma}
 
 \begin{proof}
-Since $\bf{WILL}$ is relationally closed and boundary-free (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{WILL RG Part I: Lemma Closure}),
-any causal propagation along $\bf{WILL}$ is recurrent.
-Therefore the local \href{https://willrg.com/documents/WILL_RG_I.pdf#cor:energy}{relational state} generically includes contributions from
-its own propagated history (echoes).
+By \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure}{Relational Closure}, \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity}{Conservation and Causal Continuity} theorems \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:WILL}{$\bf{WILL}$} is \href{https://willrg.com/documents/WILL_RG_I.pdf#def:closed}{closed relational system} with conserved \href{https://willrg.com/documents/WILL_RG_I.pdf#cor:energy}{energy ledger}. By \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure}{Relational Closure} the topology of \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:WILL}{$\bf{WILL}$} must be closed so any causal propagation is recurrent.
 \end{proof}
 
 \begin{theorem}[Phase Closure]
     \hypertarget{thm:phase-closure}{}\label{thm:phase-closure}
-A system in a stable, stationary state must be represented by a geometry that is topologically closed. All relational phases describing the system must return to their initial values after a complete cycle, ensuring the continuity and integrity of the configuration.
+All relational phases describing the system must return to their initial values after a complete cycle, ensuring the continuity and integrity of the configuration with the Fundamental Tone.
 \end{theorem}
 
 \begin{proof}
 Established in \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_closure}{ WILL Part I Relational Closure} dictates that any stable, self-contained system must be described by a closed and self-consistent relational geometry.  By Inevitability of Self-Interaction  \ref{lem:self-interaction} Lemma the only stable modes are the ones that completed the full cycle and came back exactly into the same phase effectively phase closing there causal propagation.  In order to come back in exactly the same phase the winding number has to be a whole integer.
-By \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:relational_invariance}{Theorem (Relational Invariance} the relational measure is conserved, so a closing $n$-winding configuration neither grows nor decays: it is a stable persistent mode, not a transient. By \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy}{Theorem (Relational Isotropy)} the carrier is uniform, so the $n$-fold configuration runs at exactly $n$ times the rate of the lowest one, giving the evenly spaced harmonic spectrum
+By \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity}{Conservation and Causal Continuity} theorem the \href{}{relational ledger} is conserved, so a closing $n$-winding configuration neither grows nor decays: it is a stable persistent mode, not a transient. By \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy}{Theorem (Relational Isotropy)} the carrier is uniform, so the $n$-fold configuration runs at exactly $n$ times the rate of the lowest one, giving the evenly spaced harmonic spectrum
 \[
 \boxed{\,f_n = n\,f_0,\qquad n=1,2,3,\dots\,}
 \]
-The lowest closing mode, $n=1$ — a single complete cycle of state transformation spanning the entire closed $\bf{WILL}$ --- is the irreducible persistent excitation; every other persistent mode is an integer repetition of it.
+The lowest closing mode, $n=1$ --- a Fundamental Tone. A single complete cycle of state transformation spanning the entire closed $\bf{WILL}$ --- is the irreducible persistent excitation; every other persistent mode is an integer repetition of it.
 \end{proof}
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Interactive visualisation]
 \href{https://willrg.com/quantazation.html}{https://willrg.com/quantazation.html}
@@ -1048,7 +1045,7 @@ NGC 2841 & Bulge-Dominated HSB (Cepheid) & 14.10 & 0.63 & 39.59 & 19.22 & \textb
 
 
 \subsection{Clean-Sample Verification: Methodology and Results}
-\hypertarget{subsec:ladder-clean}{}\label{subsec:ladder-clean}
+\hypertarget{subsec:ladder-clean}{}\label{sec:ladder-clean}
 
 \paragraph{Motivation.}
 The two distances compared in this test do not have the same exposure to data quality. The catalogue distance $D_{SPARC}$ is obtained by an independent method (Hubble flow, tip of the red giant branch, Cepheids, cluster membership or supernovae) and is unaffected by the quality of the rotation curve or of the photometric decomposition. The Galactic Ladder distance $D_{RG}$ (Eq.~\ref{eq:galactic_overtone_distance}) is built entirely from these two data streams. A galaxy whose tabulated profiles are physically inconsistent therefore corrupts $D_{RG}$ but not $D_{SPARC}$, and a comparison on the full catalogue would measure data defects as much as the relational algorithm. By \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic}{Epistemic Hygiene}, the algorithm is tested only on galaxies whose data satisfy explicit physical-consistency criteria, fixed before any distance was computed. None of the criteria uses $V_{obs}$ against a distance, or $D_{SPARC}$ itself, so the selection cannot be tuned toward agreement.
@@ -1207,6 +1204,6 @@ All clean galaxies (Hubble flow corrected) & 31 & 10 & 21 & 24 & $-0.1\%$ & $15.
     \item \textbf{Zero point.} With no calibration against any standard distance, the clean sample shows no offset at the level resolvable by this sample. The seven galaxies with $H_0$-independent distances have a median difference of $+0.5\%$, and the full clean sample $-0.1\%$. The Ursa Major members lie at $-9.3\%$, a statement about five galaxies sharing a single assigned distance.
     \item \textbf{The $H_0$ calibration of the catalogue.} For the Hubble-flow galaxies the median difference is $+7.0\%$ against $D_{SPARC}$ as tabulated and $-0.1\%$ once the catalogue's $H_0=73$ is replaced by the derived $H_0$. The shift is in the direction and of the size expected if the derived value is correct; the statistical weight a group of 19 galaxies can place on this is assessed separately.
     \item \textbf{Single-galaxy precision.} Ignoring sign, the median difference over the clean sample is $15.7\%$ of the target distance. This is the operational precision of a single-galaxy determination under the present data, to be compared with the $\sim5\%$ quoted for tip-of-the-red-giant-branch distances. The largest departures (UGC\,07399, NGC\,2915, UGC\,06786, UGC\,06787) are left for individual examination.
-    \item \textbf{Scope.} The result holds for galaxies whose baryonic budget converges smoothly beyond the Equivalence Point (criterion C3). It uses the median over the Tone-dominated profile and signed $V_{gas}$; the numbers therefore differ slightly from the headline figures of Section~\ref{subsec:ladder-sparc}, which use a different point selection and truncate negative $V_{gas}$.
+    \item \textbf{Scope.} The result holds for galaxies whose baryonic budget converges smoothly beyond the Equivalence Point (criterion C3). It uses the median over the Tone-dominated profile and signed $V_{gas}$; the numbers therefore differ slightly from the headline figures of Section~\ref{sec:ladder-sparc}, which use a different point selection and truncate negative $V_{gas}$.
 \end{enumerate}
 
