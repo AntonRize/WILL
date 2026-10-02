@@ -39,3 +39,21 @@ In total, ~200 pages of unbroken derivation chains. I cannot compress them into 
 The foundational principle, as detailed in [Ontological Reduction](https://willrg.com/documents/WILL_RG_I.pdf#sec:reduction), is the direct consequence of removing the hidden assumption from physics: the separation of "structure" (spacetime) and "dynamics" (energy). This leads to the single irreducible primitive, $\textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY}$, where $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$. All physically meaningful quantities are relational features of this unified structure.
 
 Since you've identified as a rigorous physicist, to help me tailor our discussion further, could you tell me where you heard about WILL RG?
+
+**User:** Ok but how ontology is build? What axioms and premisses are used?
+
+**Assistant (Powered by Gemini 2.5 Flash):** The ontology of WILL Relational Geometry is built not on arbitrary axioms or postulates, but through a rigorous process of **ontological reduction** driven by **methodological constraints**. The foundational premise of $\boxed{\text{SPACETIME} \equiv \text{ENERGY}}$ is not introduced as a new postulate, but as the direct consequence of removing an inherited, untested ontological assumption from physics: the separation of "structure" (spacetime) and "dynamics" (energy) [Ontological Reduction](https://willrg.com/documents/WILL_RG_I.pdf#sec:reduction).
+
+The framework operates under four **Foundational Epistemic Principles**, which serve as rules of logical engagement rather than ontological axioms:
+
+1.  **Epistemic Hygiene:** This principle mandates the refusal to import unjustified assumptions or arbitrary choices. The theory is built by removing hidden assumptions, not by introducing new ones [Epistemic Hygiene](https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic).
+
+2.  **Ontological Minimalism:** This demands maintaining the minimum number of foundational primitives by peeling off interpretational layers until only the irreducible core remains. Traditional concepts like space, time, distance, forces, and intrinsic properties are excluded as pre-existing primitives [Ontological Minimalism](https://willrg.com/documents/WILL_RG_I.pdf#pr:minimalism).
+
+3.  **Mathematical Transparency:** Every mathematical expression or operation is treated as a binding ontological statement, ensuring mathematics always reflects direct physical meaning. This prevents the introduction of symbols without a transparent ontological origin, avoiding over-parameterization [Mathematical Transparency](https://willrg.com/documents/WILL_RG_I.pdf#pr:mathematical).
+
+4.  **Relational Origin:** All physical quantities are defined exclusively by their relations, unless and until their absolute nature is empirically proven. The introduction of unproven absolute properties is actively resisted [Relational Origin](https://willrg.com/documents/WILL_RG_I.pdf#pr:relational).
+
+These principles lead to the **Ontological Reduction** where structure and dynamics are identified as a single ontological element, making $\textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY}$ the single irreducible primitive [Irreducible Primitive](https://willrg.com/documents/WILL_RG_I.pdf#cor:coincidence). This is considered the "null hypothesis" because it introduces zero independent ontology by canceling the container postulate [Asymmetric Dependency](https://willrg.com/documents/WILL_RG_I.pdf#lem:asymmetric-dependency).
+
+All subsequent laws and phenomena, such as relativistic effects, orbital mechanics, and cosmological parameters, are then derived as **necessary geometric consequences** of this unified relational structure, not as additional postulates. You can explore the complete logical dependency graph on the [Logos Map](https://willrg.com/logos_map/).
