@@ -2538,10 +2538,9 @@ Both camps accept Newton's framing that a state of motion must be relative to an
     \item \(\beta_{sep} = \beta_{AC}+\beta_{BC} = \beta_{AC}/x_A\): kinematic projection carried on the separation baseline.
     \item \(\beta_{Y,AC} = \sqrt{1-\beta_{AC}^{2}}\): complementary kinematic phase on \(S^1\).
     \item \(\beta_{R} = 0\): radial kinematic projection, vanishing because the cord holds the separation fixed.
-    \item \(\kappa_{AC}^{2} = R_{sA}/r_{AC}\): gravitational potential projection between \(A\) and \(C\), with \(\kappa_{X,AC}=\sqrt{1-\kappa_{AC}^{2}}\).
+    \item         \(\kappa_{AC}^{2} = R_{sB}\,x_A/d\): potential projection holding \(A\) on its link to \(C\), set by its partner \(B\); likewise \(\kappa_{BC}^{2} = R_{sA}\,x_B/d\) for \(B\).
     \item \(\kappa_{sep}^{2} = (R_{sA}+R_{sB})/d\): gravitational potential projection on the separation baseline.
     \item \(\kappa_{cord}^{2}\): mechanical potential share carried by the cord.
-    \item \(\tau_{AC} = \kappa_{X,AC}\,\beta_{Y,AC}\): relational phase of the \(A\)--\(C\) reading.
 \end{itemize}
 \end{definition}
 
@@ -2551,17 +2550,16 @@ Both camps accept Newton's framing that a state of motion must be relative to an
 
 \subsubsection*{The Reading}
 
-Light emitted at a globe and received at \(C\) carries both phases of the relation simultaneously, because the globe is displaced from \(C\) on both carriers (\ref{sec:spectroscopic_shift}). The single observable is the product of the two shifts:
+Light from \(A\) read at \(C\) is affected by both potential sources \(A\) and \(B\) at both ends of its path, and by the motion of \(A\):
 \begin{equation}
-Z_{sysAC} \;=\; (1+z_{\kappa AC})(1+z_{\beta AC}) \;=\; \frac{1}{\tau_{AC}},
-\qquad
-\tau_{AC} \;=\; \kappa_{X,AC}\,\beta_{Y,AC}
+Z_{sysAC} \;=\; \frac{\sqrt{1-\dfrac{R_{sA}}{r_{AC}}-\dfrac{R_{sB}}{r_{BC}}}}{\sqrt{1-\dfrac{R_{sA}}{c\,t_A}-\dfrac{R_{sB}}{d}}\;\;\beta_{Y,AC}}
 \label{eq:globes-Zsys}
 \end{equation}
 
-\begin{remark}[The cord is not carried by the light]
+
+\begin{remark}[The cord does not shift the light]
 \hypertarget{rem:cord-not-optical}{}\label{rem:cord-not-optical}
-The cord holds the separation fixed; it does not enter the optical shift. The potential phase in \eqref{eq:globes-Zsys} is the gravitational projection alone, \(\kappa_{X,AC}=\sqrt{1-\kappa_{AC}^{2}}\). Were the mechanical channel optically active, a rotating body held by a material bond would exhibit a shift at its axis differing from the transverse Doppler value by a factor of three at leading order, which is excluded by stored-ion and rotor measurements of the second-order shift.
+The cord holds the globe on its circle but does not shift its light. Only gravity and motion enter the light reading.
 \end{remark}
 
 \subsubsection*{Relational Closure}
@@ -2587,7 +2585,7 @@ The pair is relationally closed (\ref{thm:relational_closure}), enforcing a clos
 
 \begin{remark}[Why the separation baseline]
 \hypertarget{rem:baseline}{}\label{rem:baseline}
-No gravitating body resides at the node \(C\), so gravitational closure belongs to the separation \(d\) between \(A\) and \(B\) rather than to either centre-distance alone. On the separation baseline, free circular equilibrium (\(\kappa_{sep}^{2}=2\beta_{sep}^{2}\)) reproduces \(R_{sA}+R_{sB}=8\pi^{2}d^{3}/(T^{2}c^{2})\), the standard horizon-scale form in \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M.} For equal globes \(\kappa_{sep}^{2}=\kappa_{AC}^{2}\) identically; for unequal globes the two differ by \(R_{sB}/R_{sA}\), and the relation between the closure baseline and the optical baseline in the asymmetric case remains open.
+Each globe is held by its partner. On the link from \(A\) to \(C\) both projections are the separation projections scaled by \(x_A\): \(\kappa_{AC}^{2} = x_A^{2}\,\kappa_{sep}^{2}\) and \(\beta_{AC} = x_A\,\beta_{sep}\). Closure (\ref{cor:condition}) on each link is equal to closure on the separation for equal and unequal globes. On the separation, free circular equilibrium reproduces \(R_{sA}+R_{sB}=8\pi^{2}d^{3}/(T^{2}c^{2})\), the standard horizon-scale form in \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#eq:rom}{R.O.M.}
 \end{remark}
 
 Equation \eqref{eq:globes-cord} defines three geometric regimes:
@@ -2603,15 +2601,14 @@ The causal order runs from the kinematic amplitude to the cord. The cord does no
 
 Newton demands the ``quantity of the circular motion.'' Inverting the optical reading \eqref{eq:globes-Zsys} isolates the kinematic amplitude:
 \begin{equation}
-\boxed{\;\beta_{AC}^{2} \;=\; 1 - \frac{\tau_{AC}^{2}}{1-\kappa_{AC}^{2}}\;,
-\qquad \tau_{AC} = \frac{1}{Z_{sysAC}}\;}
+\boxed{\;\beta_{AC}^{2} \;=\; 1 - \frac{1-\dfrac{R_{sA}}{r_{AC}}-\dfrac{R_{sB}}{r_{BC}}}{Z_{sysAC}^{2}\left(1-\dfrac{R_{sA}}{c\,t_A}-\dfrac{R_{sB}}{d}\right)}\;}
 \label{eq:globes-answer}
 \end{equation}
 with \(\beta_{sep} = \beta_{AC}/x_A\) on the separation baseline.
 
 \begin{remark}[Why one reading does not suffice]
 \hypertarget{rem:two-readings}{}\label{rem:two-readings}
-The reading \(Z_{sysAC}\) delivers the product \(\kappa_{X,AC}\beta_{Y,AC}\), giving one equation in two unknowns. Separating them requires the surface readings, which independently fix \(R_{sA}\) and \(\kappa_{AC}^{2}\). The single-reading inversion \(\beta^{2}=\tfrac14(3-\sqrt{1+8\tau^{2}})\) is the \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#thm:balance_point}{balance-point identity}, which holds only when \(2\beta^{2}\) is purely gravitational (\(\kappa_{cord}^{2}=0\)). Because a loaded cord violates that condition, the surface readings are required.
+A single reading at \(C\) contains both gravity and motion. The surface readings and the light-times give the gravity at both ends of the light path. What remains in the reading is the motion of \(A\).
 \end{remark}
 
 \subsubsection*{The Surface Reading}
@@ -2626,16 +2623,16 @@ Inverting \eqref{eq:globes-ZA} yields the horizon scale of \(A\):
 R_{sA} \;=\; \frac{c\left(Z_A^{2}-1\right)}{\dfrac{Z_A^{2}}{t_A}-\dfrac{1}{t_A+\Delta t_A}}
 \label{eq:globes-RsA}
 \end{equation}
-and identically for \(R_{sB}\) from \(Z_B\), \(t_B\), \(\Delta t_B\). Three shifts (\(Z_A, Z_B, Z_{sysAC}\)) and five light-times (\(t_A, \Delta t_A, t_B, \Delta t_B, t_d\)) close the system, with \(Z_{sysBC}\) providing an over-determined consistency check. The constant \(c\) cancels algebraically in the dimensionless ratios \(\kappa_{AC}^{2} = R_{sA}/(x_A c\,t_d)\) and \(\kappa_{sep}^{2} = (R_{sA}+R_{sB})/(c\,t_d)\).
+and identically for \(R_{sB}\) from \(Z_B\), \(t_B\), \(\Delta t_B\). Three shifts (\(Z_A, Z_B, Z_{sysAC}\)) and five light-times (\(t_A, \Delta t_A, t_B, \Delta t_B, t_d\)) close the system, with \(Z_{sysBC}\) providing an over-determined consistency check. The constant \(c\) cancels in every ratio of this section. Each horizon scale from \eqref{eq:globes-RsA} contains one factor of \(c\), and each ratio divides it by \(c\) times a light-time.
 
 \subsubsection*{The Operational Algorithm}
 
 \begin{enumerate}[noitemsep]
     \item \textbf{Measure separation:} Compute \(d = c\,t_d\) from the cord light-time.
     \item \textbf{Measure horizon scales:} Evaluate \(R_{sA}\) and \(R_{sB}\) from the surface readings via \eqref{eq:globes-RsA}.
-    \item \textbf{Locate the relational centre:} Compute \(\eta = R_{sA}R_{sB}/(R_{sA}+R_{sB})^{2}\), the fractions \(x_A, x_B\), and the centre-distances \(r_{AC}=x_Ad\), \(r_{BC}=x_Bd\).
-    \item \textbf{Evaluate gravitational potentials:} Compute \(\kappa_{AC}^{2}=R_{sA}/r_{AC}\) and \(\kappa_{sep}^{2}=(R_{sA}+R_{sB})/d\).
-    \item \textbf{Extract kinematic amplitude:} Set \(\tau_{AC}=1/Z_{sysAC}\), solve for \(\beta_{AC}^{2}\) via \eqref{eq:globes-answer}, and scale to the separation baseline \(\beta_{sep}=\beta_{AC}/x_A\).
+    \item \textbf{Locate the relational centre:} Compute \(\eta = R_{sA}R_{sB}/(R_{sA}+R_{sB})^{2}\), the fractions \(x_A, x_B\), and the centre-distances \(r_{AC}=x_Ad\), \(r_{BC}=x_Bd\).   
+    \item  \textbf{Evaluate gravitational potentials:} Compute \(\kappa_{AC}^{2}=R_{sB}\,x_A/d\), \(\kappa_{sep}^{2}=(R_{sA}+R_{sB})/d\), and the potentials at the surface of \(A\) and at \(C\).
+    \item \textbf{Extract kinematic amplitude:} Solve \eqref{eq:globes-answer} for \(\beta_{AC}^{2}\). Divide \(\beta_{AC}\) by \(x_A\) to obtain \(\beta_{sep}\).
     \item \textbf{Compute cord load:} Evaluate \(\kappa_{cord}^{2}=2\beta_{sep}^{2}-\kappa_{sep}^{2}\) via \eqref{eq:globes-cord}.
 \end{enumerate}
 The reading \(Z_{sysBC}\) supplies a consistency check: \(\beta_{BC}\) recovered independently from \(Z_{sysBC}\) satisfies \(\beta_{BC} = x_B\beta_{sep}\).
@@ -2708,7 +2705,7 @@ Intrinsic mass of \(A\) or \(B\) & none \\\hline
 \(G\), \(M\) as sources & none; unit labels only \\\hline
 Distant cosmic matter & none \\\hline
 Force as a primitive & none; the cord carries \(\kappa_{cord}^{2}\) \\\hline
-Energy as intrinsic property & none; energy is the relational measure \(\kappa_{X,AC}/\beta_{Y,AC}\)\\\hline
+Energy as intrinsic property & none; energy is the relational measure \(\kappa_{X,AC}/\beta_{Y,AC}\) of Change\\\hline
 Period versus the sky & none; \(T=2\pi t_d/\beta_{sep}\) is optional\\
 \hline
 \end{tabular}
@@ -2745,7 +2742,7 @@ This transforms the problem into a self-contained, mathematically transparent de
 
 \textbf{Objection 4: Optical propagation delays.}
 \textit{Claim:} Rotating systems incur Sagnac or Shapiro delays, corrupting \(t_d\).
-\textit{Resolution:} A Sagnac phase shift requires an enclosed area, whereas the \(AC\) light path is one-dimensional. Shapiro delay is a coordinate-dependent correction derived from a posited background metric. In Relational Geometry, the phase projection \(\tau_{AC}\) and the light-time \(t_d\) are the primary observables; adding metric delay terms double-counts the gravitational phase.
+\textit{Resolution:} A Sagnac phase shift requires an enclosed area, whereas the \(AC\) light path is one-dimensional. Shapiro delay is a coordinate-dependent correction derived from a posited background metric. The reading \(Z_{sysAC}\) and the light-times are the observables. They already contain the gravitational phase, so adding metric delay terms would count it twice.
 
 \textbf{Objection 5: The grounding objection.}
 \textit{Claim:} Even if absolute space or cosmic matter is not needed to compute the readings, it may still be real, and may still ground the inertial structure that the relational ledger describes. Operational redundancy does not entail ontological redundancy.
