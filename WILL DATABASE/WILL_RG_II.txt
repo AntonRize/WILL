@@ -283,7 +283,7 @@ $\kappa_X = \sqrt{1-\kappa^2}$&$\kappa_X = \cos(\theta_2)$\\
 
 \subsection{The Energetic Closure Condition}
 \hypertarget{eq:closure}{}\label{eq:closure}
-For any stable, self-contained system, the energy budget must be partitioned between these carriers. The exchange rate is  determined by the ratio of their \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference}{relational degrees of freedom} ($\text{DOF}_{S^2}/\text{DOF}_{S^1} = 2$). This yields the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{Closure Theorem} governing all bound closed0 systems (relational origin of virial equilibrium):
+For any stable, self-contained system, the energy exchange rate is  determined by the ratio of their \href{https://willrg.com/documents/WILL_RG_I.pdf#lem:dof-indifference}{relational degrees of freedom} ($\text{DOF}_{S^2}/\text{DOF}_{S^1} = 2$). This yields the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{Closure Theorem} governing all bound closed systems (relational origin of virial equilibrium):
 \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{$$\boxed{\kappa^2 = 2\beta^2}$$}
 This geometric identity replaces the Newtonian dynamical postulate. It implies that for any closed system, the gravitational potential energy ($\kappa^2$) must be exactly twice the kinetic energy ($\beta^2$) to maintain topological stability.
 
@@ -1438,6 +1438,12 @@ SPARC computed $Rad$ and each of $V_{gas}^2$, $V_{disk}^2$, $V_{bulge}^2$ at the
     \item \textbf{Rotation-curve quality.} Require SPARC $\mathrm{Qual}\le2$, excluding curves with major asymmetries or strong non-circular motions.
     \item \textbf{Inclination.} Require $i\ge30^\circ$; $V_{obs}$ is deprojected by $1/\sin i$ and $D_{RG}\propto V_{obs}^2$, so low inclinations amplify inclination errors into the distance.
 \end{enumerate}
+
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/WILL_RG_Clean_Sample_Verification.ipynb}{WILL RG Clean Sample Verification.ipynb}
+\end{tcolorbox}
+
 \begin{table}[H]
 \centering
 \caption{Sequential application of the selection criteria to the 175 SPARC galaxies.}
