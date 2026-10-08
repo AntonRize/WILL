@@ -663,16 +663,15 @@ Our objective is to assess whether raw mathematics reflex physical a fixed physi
 
 \subsection{Data}
 
-We utilize the SPARC database (Table~2), comprising $175$ disk galaxies. Observed circular velocities $V_{\rm obs}(r)$ and baryonic components ($V_{\rm gas}, V_{\rm disk}, V_{\rm bulge}$) are taken directly from the catalog. To ensure physical causality, negative baryonic velocity components (artifacts of observational noise decomposition) are truncated to zero prior to squaring.
+We utilize the SPARC database (Table~2), comprising $175$ disk galaxies. Observed circular velocities $V_{\rm obs}(r)$ and baryonic components ($V_{\rm gas}, V_{\rm disk}, V_{\rm bulge}$) are taken directly from the catalog.
 
 \subsection{Baryonic Reference Model}
 
 The baryonic circular velocity is defined as:
-\begin{equation}
-V_b^2(r) = V_{\rm gas}^2(r)
-+ \Upsilon_{\rm disk} V_{\rm disk}^2(r)
-+ \Upsilon_{\rm bulge} V_{\rm bulge}^2(r).
-\end{equation}
+$$V_b^2(r) = \pm V_{\rm gas}^2(r)
++ \Upsilon_{\rm disk}\,(\pm V_{\rm disk}^2(r))
++ \Upsilon_{\rm bulge}\,(\pm V_{\rm bulge}^2(r)).$$
+
 \textbf{Fixed Mass-to-Light Ratios:} Unlike standard dark matter analyses that often treat $\Upsilon_*$ as a nuisance parameter to be fitted per galaxy, we enforce a strict global Stellar Population Synthesis expectations for the 3.6 $\mu$m band (Lelli et al., 2016): 
 \[
 \Upsilon_{\rm disk} = 0.5, \qquad
@@ -757,7 +756,7 @@ Performance is evaluated using three robust metrics: Median Absolute Error (MedA
 \hline
 \textbf{Model} & \textbf{MedAE} [km/s] & \textbf{Bias} [km/s] & \textbf{$F_{10}$} \\
 \hline
-Newtonian (baryons only) & 38.46 & $+36.91$ & 0.08 \\\hline
+Newtonian (baryons only) & 38.46 & $+36.91$ & 0.07\\\hline
 LCDM (Abundance Matching) & 13.32& -6.83& 0.36\\\hline
 MOND (Standard $a_0$) & \textbf{10.43} & $-4.37$ & \textbf{0.48} \\\hline
 Verlinde ($a_0=cH_0/6$) & 12.27 & $-8.52$ & 0.33 \\\hline
@@ -767,7 +766,7 @@ WILL RG ($a_{\kappa}=cH_0/3\pi$)& 11.18 & \textbf{$-2.26$} & 0.47 \\
 \end{table}
 
 \subsubsection{Analysis of Gas-Dominated Systems}
-To isolate physical validity from stellar mass-to-light ratio uncertainties, we analyze the subset of galaxies dominated by gas [$V_{\rm gas}^2>(\Upsilon V_{\rm disk}^2+\Upsilon V_{\rm bul}^2)$]. In this regime, the baryonic mass distribution is known with high precision.
+To isolate physical validity from stellar mass-to-light ratio uncertainties, we analyse the subset of galaxies dominated by gas [$V_{\rm gas}^2>(\Upsilon V_{\rm disk}^2+\Upsilon V_{\rm bul}^2)$]. In this regime, the baryonic mass distribution is known with high precision.
 
 \begin{table}[H]
 \centering
@@ -779,7 +778,7 @@ To isolate physical validity from stellar mass-to-light ratio uncertainties, we 
 
 MOND (Standard) & 7.70 & $-5.12$  &0.70\\\hline
 Verlinde ($1/6$) & 8.04 & $-5.90$  &0.71\\\hline
-WILL RG ($1/3\pi$) & \textbf{7.00} & \textbf{+0.53}& 0.66\\
+WILL RG ($1/3\pi$) & \textbf{6.99}& \textbf{+0.53}& 0.66\\
 \hline
 \end{tabular}
 \end{table}
@@ -1465,4 +1464,75 @@ All clean galaxies (Hubble flow corrected) & 31 & 10 & 21 & 24 & $-0.1\%$ & $15.
     \item \textbf{Single-galaxy precision.} Ignoring sign, the median difference over the clean sample is $15.7\%$ of the target distance. This is the operational precision of a single-galaxy determination under the present data, to be compared with the $\sim5\%$ quoted for tip-of-the-red-giant-branch distances. The largest departures (UGC\,07399, NGC\,2915, UGC\,06786, UGC\,06787) are left for individual examination.
     \item \textbf{Scope.} The result holds for galaxies whose baryonic budget converges smoothly beyond the Equivalence Point (criterion C3). It uses the median over the Tone-dominated profile and signed $V_{gas}$; the numbers therefore differ slightly from the headline figures of Section~\ref{sec:ladder-sparc}, which use a different point selection and truncate negative $V_{gas}$.
 \end{enumerate}
+
+
+
+\section{Gravitational Lensing}
+\hypertarget{sec:lensing}{}\label{sec:lensing}
+
+
+\subsection{Exact Algebraic Lensing of the Resonant Horizon (Replacing Dark Matter Lensing)}
+
+In standard cosmology, the deflection of light by galaxies requires the postulation of an extended "Dark Matter" halo (typically modeled as a Singular Isothermal Sphere, SIS). This is because the baryonic potential projection $\kappa_{bar}^2 \propto 1/r$ decays too rapidly to reproduce the large observed Einstein radii. 
+
+In WILL Relational Geometry, Dark Matter is redundant. The observed potential projection $\kappa_{obs}^2$ acting on photons is augmented by the same \textbf{Resonant Horizon} that flattens galactic rotation curves, governed by the derived scale $a_{\kappa} = cH_0/3\pi$.
+
+\begin{theorem}[Geometric Mean of Lensing Projections]
+The total geometric projection $\kappa_{obs}^2$ acting on any test entity (including light) is the sum of the local baryonic projection and the geometric mean of the baryonic and Universal Horizon projections:
+\begin{equation}
+\kappa_{obs}^2(r) = \kappa_{bar}^2(r) + \underbrace{\sqrt{\kappa_{bar}^2(r) \cdot \kappa_H^2(r)}}_{\kappa_{phantom}^2}
+\end{equation}
+where $\kappa_H^2 = \frac{2 r a_\kappa}{c^2}$ is the structural capacity of the Global Horizon evaluated at the local radial scale $r$.
+\end{theorem}
+
+\begin{proof}
+From the WILL RG galactic dynamics (Section \ref{sec:galactic-dynamics}), the effective acceleration is $g_{obs} = g_{bar} + \sqrt{g_{bar} a_\kappa}$.
+Multiplying the entire equation by $\frac{2r}{c^2}$ maps the kinematic accelerations into dimensionless geometric projections on the $S^2$ carrier ($\kappa^2 = \frac{2rg}{c^2}$):
+\begin{equation}
+\frac{2r}{c^2} g_{obs} = \frac{2r}{c^2} g_{bar} + \frac{2r}{c^2} \sqrt{g_{bar} a_\kappa}
+\end{equation}
+\begin{equation}
+\kappa_{obs}^2 = \kappa_{bar}^2 + \sqrt{ \left(\frac{2r}{c^2} g_{bar}\right) \left(\frac{2r}{c^2} a_\kappa\right) } = \kappa_{bar}^2 + \sqrt{\kappa_{bar}^2 \cdot \kappa_H^2}
+\end{equation}
+\end{proof}
+
+\subsubsection{The Emergence of the "Isothermal Halo" Constant}
+Let us evaluate the resonance term, $\kappa_{phantom}^2$, in the region outside the bulk of the baryonic mass $M_{b}$, where the baryonic projection falls as $\kappa_{bar}^2 = \frac{2GM_{b}}{r c^2}$:
+\begin{equation}
+\kappa_{phantom}^2 = \sqrt{ \left(\frac{2GM_{b}}{r c^2}\right) \left(\frac{2 r a_\kappa}{c^2}\right) } = \sqrt{ \frac{4 G M_{b} a_\kappa}{c^4} } = \frac{2 \sqrt{G M_{b} a_\kappa}}{c^2}
+\end{equation}
+
+Crucially, the radial distance $r$ \textbf{cancels out completely}. Using the derived Baryonic Tully-Fisher Relation ($V_{flat}^4 = G M_{b} a_\kappa$), the phantom projection reduces to a strict geometric constant:
+\begin{equation}
+\kappa_{phantom}^2 = \frac{2 V_{flat}^2}{c^2}
+\end{equation}
+
+In standard General Relativity, a potential projection that does not decay with radius produces a constant deflection angle, which is the exact mathematical signature of a Singular Isothermal Sphere (SIS) dark matter halo. WILL RG perfectly generates this extended isothermal geometry not from invisible particles, but from the algebraic cancellation of $r$ in the geometric mean between the localized baryon mass and the expansive cosmic horizon.
+
+\subsubsection{The Unified Lensing Equation with Horizon Resonance}
+By substituting the enhanced resonant projection into the exact algebraic Einstein Ring equation (derived in Section \ref{sec:lensing}), we obtain the full, non-linear Dark Lensing radius without Dark Matter:
+
+\begin{equation}
+\boxed{ \theta_E = 2 \frac{D_{LS}}{D_S} \arcsin( \frac{(\kappa_{bar}^2(\theta_E) + \kappa_{phantom}^2(\theta_E)) (1 + \beta_p^2)}{2\beta_p^2 - (\kappa_{bar}^2(\theta_E) + \kappa_{phantom}^2(\theta_E)) (1 + \beta_p^2)} ) }
+\end{equation}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Dark_Lensing.ipynb}{Dark Lensing.ipynb}
+\end{tcolorbox}
+
+For light ($\beta_p = 1$, depleting the phase buffer $\beta_Y \to 0$), the geometric interaction gradient $\mathcal{G} = 1$, and the equation calculates the exact macroscopic strong lensing observed in galaxy clusters and SLACS data, unified under a single relational ontology.
+
+\subsection{External Validation: The SLACS Survey}
+
+The Sloan Lens ACS (SLACS) Survey \citep{Bolton2008} provides the definitive observational test. Across $\sim$60 early-type galaxy lenses with both spectroscopic velocity dispersions and HST-measured Einstein radii, combined lensing-and-dynamics analyses have consistently confirmed:
+\begin{equation}
+f_e \equiv \frac{\sigma_{\star}}{\sigma_{SIS}} \approx 1.00 \pm 0.02
+\end{equation}
+(Treu et al., 2006; Koopmans et al., 2009; \citealt{Auger2009}).
+
+The total lensing mass within the Einstein radius (typically $4$--$8$ kpc) is fully accounted for by the dynamical mass inferred from stellar motions, with no systematic offset across the entire sample. This is precisely the outcome predicted by the universal action of Phantom Inertia on both carriers.
+
+\subsection{Weak Lensing: Future Work}
+
+Weak gravitational lensing probes mass distributions on larger scales through statistical shape distortions, but the observables are reconstructed through multi-step pipelines (PSF deconvolution, shape-noise suppression, tomographic binning, intrinsic alignment modelling) and are dominated by line-of-sight projections through dynamically unrelaxed structures. Developing a fully consistent weak-lensing forward model within the WILL RG framework constitutes a priority direction for future work.
 
