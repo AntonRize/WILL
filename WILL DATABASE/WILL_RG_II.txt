@@ -408,7 +408,7 @@ The most robust, model-independent absolute scale available in cosmology is the 
 
 As derived in WILL RG Part III, the fine-structure constant $\alpha$ acts as the kinematic projection of the ground state ($\beta_1 \equiv \alpha$), connecting micro- and macro-closure. This fixes the RG scaling ratio between the radiation density $\rho_{\gamma}$ and the geometric saturation density $\rho_{max}$ (derived in WILL Part I as density at  $ r=R_s  \Longrightarrow \kappa^2=1$).
 
-\subsection{Prerequisite: The Geometric Identity of $\alpha$ (Summary of Part III)}
+\subsection*{Prerequisite: The Geometric Identity of $\alpha$ (Summary of Part III)}
 
 In  \href{https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha}{WILL RG III (click to see derivation)}  atomic stability is derived not from force equilibrium, but from the \textbf{Geometric Closure Condition} between the potential ($S^2$) and kinetic ($S^1$) carriers: $\kappa^2 = 2\beta^2$.
 
@@ -422,7 +422,7 @@ The Fine Structure Constant $\alpha$ is rigorously identified as the unique \tex
 Thus, $\alpha$ is the scaling factor defining the ratio between the \textbf{critical limit of the field} and the \textbf{stable state of matter}. This rigid geometric scaling ($\beta \rightarrow \kappa$) allows us to use $\alpha$ to map the macroscopic saturation density $\rho_{max}$ in the following section.
 
 
-\subsection{Input Parameters and Constants}
+\subsection*{Input Parameters and Constants}
 
 All input values are taken from standard CODATA (2018) and Planck (2018) datasets. No model-specific fitting parameters are used.
 
@@ -442,15 +442,15 @@ Gravitational Const. & $G$ & \SI{6.674e-11}{\m\cubed\per\kg\per\s\squared} & COD
 \hline
 Speed of Light & $c$ & \SI{2.99792e8}{\m\per\s} & Exact \\
 \hline
-Stefan-Boltzmann Const. & $\sigma_{SB}$ & \SI{5.67037e-8}{\W\per\m\squared\per\K\tothe{4}} & CODATA
+Stefan-Boltzmann Const. & $\sigma_{SB}$ & \SI{5.67037e-8}{\W\per\m\squared\per\K\tothe{4}} & CODATA \\
 \hline
 \end{tabular}
 \caption{Core inputs for the calculation. Colab notebook link: \href{https://github.com/AntonRize/WILL/blob/8967a5fac8a7a42433e9cc66fffbbbbc4e18b6a1/Colab_Notebooks/H_0_from_T_CMB_and_alpha.ipynb}{$H_0$ from $T_{CMB}$ and $\alpha$.ipynb}}
 \end{table}
 
-\subsection{Step-by-Step Derivation}
+\subsection*{Step-by-Step Derivation}
 
-\subsection{Step 1: Radiation Density Calculation ($\rho_{\gamma}$)}
+\subsection*{Step 1: Radiation Density Calculation ($\rho_{\gamma}$)}
 \textit{Objective:} Determine the photon mass-energy density of the  Universe. This provides the "Energy" input for the $Spacetime \equiv Energy$ equivalence.
 
 \begin{equation}
@@ -461,7 +461,7 @@ Using the input $T_0 = 2.7255$ K:
     \rho_{\gamma} \approx 4.64495\times10^{-31}  \, \text{kg/m}^3
 \end{equation}
 
-\subsection{Step 2: Maximal Structural Density}
+\subsection*{Step 2: Maximal Structural Density}
 
 From the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{Closure Theorem} we have the invariant relation \(\kappa^2 = 2\beta^2\). The total relational shift of the system is therefore
 \[
@@ -491,7 +491,7 @@ Using the observed CMB temperature \(T_0 = 2.7255\) K we obtain \(\rho_\gamma \a
 \rho_{\max} \approx 2.9075 \times 10^{-27} \text{ kg m}^{-3}.
 \]
 
-\subsection{Step 3: The Hubble Parameter ($H_0$)}
+\subsection*{Step 3: The Hubble Parameter ($H_0$)}
 \textit{Objective:} Convert the saturation density into the frequency parameter.
 
 \textit{Logic:} Using the WILL RG saturation identity $\rho_{max}(r)=c^2/(8\pi G r^2)$ together with the horizon definition $H_0=c/r$, we obtain the relation:
@@ -499,7 +499,7 @@ Using the observed CMB temperature \(T_0 = 2.7255\) K we obtain \(\rho_\gamma \a
     H_0 = \sqrt{8\pi G \rho_{max}}.
 \end{equation}
 
-\subsection{Results and Numerical Calculation}
+\subsection*{Results and Numerical Calculation}
 
 Substituting the derived $\rho_{max}$ into the final equation:
 
@@ -509,7 +509,7 @@ Substituting the derived $\rho_{max}$ into the final equation:
     H_0 &\approx 2.2084\times10^{-18} \, \text{s}^{-1}
 \end{align*}
 
-\subsection{Unit Conversion}
+\subsection*{Unit Conversion}
 Converting from SI units ($s^{-1}$) to standard cosmological units (km/s/Mpc):
 $$ \text{Conversion Factor} = \frac{3.0857 \times 10^{22} \text{ m/Mpc}}{1000 \text{ m/km}} \approx 3.0857 \times 10^{19} $$
 
@@ -611,7 +611,7 @@ This equation derives the flat rotation curves of galaxies without invoking Dark
 
 In this section we will demonstrate that derived above Horizon Resonance Eq.~\eqref{eq:resonance} is the same closure restoring equivalence as we used in WILL Part I to solve the \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:Newtons_thought}{Newtons Thought Experiment}. We will show that \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:globes-cord}{rotating-globes construction Theorem} and  Horizon Resonance Eq.~\eqref{eq:resonance}  was derived for vastly different domains, yet uniting them \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:causal_continuity}{Causal Continuity} and \href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{Closure} Theorems are scale invariant fundamental primitives of the Universe.
 $a_{\kappa}=cH_0/3\pi=c^{2}/3\pi R_H$ and $a_{\beta}=cH_0/6\pi=c^{2}/6\pi R_H$: structural and kinetic resonance scales of Sec.~\ref{sec:galactic-dynamics}.
-\subsubsection{Notation Bridge}
+\subsubsection*{Notation Bridge}
 
 \begin{itemize}
     \item  $\beta_{obs}=v/c$: observed \textbf{kinematic Push}.
@@ -632,7 +632,7 @@ $a_{\kappa}=cH_0/3\pi=c^{2}/3\pi R_H$ and $a_{\beta}=cH_0/6\pi=c^{2}/6\pi R_H$: 
     \item $\kappa_{sep}^{2}$, $\kappa_{cord}^{2}$, $\beta_{sep}$: the \href{https://willrg.com/documents/WILL_RG_I.pdf#eq:globes-cord}{globes ledger} counterparts of $\kappa_{vis}^{2}$, $\kappa_{H}^{2}$, $\beta_{obs}$.
 \end{itemize}
 
-\subsubsection{The Restored Ledger}
+\subsubsection*{The Restored Ledger}
 
 \begin{theorem}[One Ledger, Two Holders]
 \hypertarget{thm:one-ledger}{}\label{thm:one-ledger}
@@ -666,7 +666,7 @@ By Eq.~\eqref{eq:kH-deficit} the deficit tracks $R_s(r)$ alone, so it stops grow
 which is Eq.~\eqref{eq:BTFR} stripped of its unit converters.
 \end{corollary}
 
-\subsubsection{The Bullseye Coordinates}
+\subsubsection*{The Bullseye Coordinates}
 
 \begin{theorem}[The Bullseye Abscissa is an Eccentricity]
 \hypertarget{thm:bullseye-is-e}{}\label{thm:bullseye-is-e}
@@ -695,7 +695,7 @@ so the scaling law of Sec.~\ref{sec:baryonic_escape} reads $M_{obs}/M_{bar}=1+e$
 
 The Baryonic Tully-Fisher Relation (BTFR) is one of the tightest empirical correlations in extragalactic astronomy: the asymptotic rotation velocity of a disk galaxy scales as $V_{flat}^4 \propto M_b$, where $M_b$ is the total baryonic mass. We derive this scaling, including its slope and normalization, directly from the Resonant Bridge established in Section~\ref{sec:galactic-dynamics}.
 
-\subsection{Asymptotic Limit of the Horizon Resonance}
+\subsection*{Asymptotic Limit of the Horizon Resonance}
 
 The total observed velocity at radius $r$ from a baryonic mass $M_b$ is given by the Resonant Bridge equation:
 \begin{equation}
@@ -725,7 +725,7 @@ Squaring both sides gives the \textbf{Baryonic Tully-Fisher Relation}:
 \label{eq:BTFR}
 \end{equation}
 
-\subsection{Properties of the Derived Relation}
+\subsection*{Properties of the Derived Relation}
 
 \paragraph{1. Slope.} The exponent $V^4 \propto M$ (logarithmic slope of 4) is an exact structural consequence of the geometric mean form of the Horizon resonance term. This matches the observed BTFR slope of $4.0 \pm 0.1$ (McGaugh, 2012; Lelli et al., 2016).
 
@@ -760,7 +760,7 @@ $r \to \infty$ & 1.00 & $0.70 \times 10^{-10}$ \\
 
 At a typical observational measurement radius of $r \approx 3\text{--}5\, r_t$, the effective coefficient falls in the range $a_{eff} \approx (1.0 \text{--} 1.25) \times 10^{-10}$ m/s$^2$. This is consistent with the empirically fitted MOND acceleration scale $a_0 \approx 1.2 \times 10^{-10}$ m/s$^2$, which represents neither a fundamental constant nor an asymptotic limit, but an effective average over the transition region.
 
-\subsection{Structural Distinction from MOND}
+\subsection*{Structural Distinction from MOND}
 
 Although the asymptotic scaling $V^4 \propto M$ coincides with the deep-MOND prediction, the functional form of the RG Resonant Bridge differs in a testable way. The RG equation~\eqref{eq:V_obs_TF} contains an explicit additive Newtonian term ($V_N^2$), whereas the standard MOND interpolation function $\nu(g_{bar}/a_0)$ folds both contributions into a single nonlinear expression.
 
@@ -772,7 +772,7 @@ This structural difference has two observational consequences:
 
 These predictions are, in principle, testable with extended rotation curves reaching well beyond $5\,r_t$.
 
-\subsection{Comparison with Observed BTFR}
+\subsection*{Comparison with Observed BTFR}
 
 The observed BTFR from gas-rich galaxy samples (McGaugh, 2012; Lelli et al., 2016) yields a normalization $M_b \approx 47\,M_\odot\,(\text{km/s})^{-4} \cdot V_{flat}^4$. Inverting this relation corresponds to an effective acceleration scale $a_{eff} \approx 1.6 \times 10^{-10}$ m/s$^2$ --- higher than the RG asymptotic value $a_{\kappa} \approx 0.70 \times 10^{-10}$, but consistent with the effective coefficient at $r \approx 2\,r_t$ (Table~\ref{tab:BTFR_eff}).
 
@@ -784,7 +784,7 @@ The full rotation curve analysis on the 175-galaxy SPARC sample (Section~\ref{se
 \section{Protocol Independent Models Comparison}
 \hypertarget{sec:models_comparison}{}\label{sec:models_comparison}
 
-\subsection{Motivation and Protocol}
+\subsection*{Motivation and Protocol}
 
 The central empirical challenge addressed here is the discrepancy between observed galactic rotation velocities and the predictions of Newtonian and GR gravity sourced solely by baryons. 
 Standard analyses often employ complex error weighting, likelihood maximization, and galaxy-specific parameter tuning (e.g., varying mass-to-light ratios), which can obscure the distinction between a model's predictive power and its parametric flexibility.
@@ -796,18 +796,17 @@ Our objective is to assess whether raw mathematics reflex physical a fixed physi
     \item \textbf{Raw Deviation Metrics:} We evaluate raw residuals without weighting by observational uncertainties, preventing the suppression of physical systematics by error bars.
 \end{enumerate}
 
-\subsection{Data}
+\subsection*{Data}
 
-We utilize the SPARC database (Table~2), comprising $175$ disk galaxies. Observed circular velocities $V_{\rm obs}(r)$ and baryonic components ($V_{\rm gas}, V_{\rm disk}, V_{\rm bulge}$) are taken directly from the catalog. To ensure physical causality, negative baryonic velocity components (artifacts of observational noise decomposition) are truncated to zero prior to squaring.
+We utilize the SPARC database (Table~2), comprising $175$ disk galaxies. Observed circular velocities $V_{\rm obs}(r)$ and baryonic components ($V_{\rm gas}, V_{\rm disk}, V_{\rm bulge}$) are taken directly from the catalog.
 
-\subsection{Baryonic Reference Model}
+\subsection*{Baryonic Reference Model}
 
 The baryonic circular velocity is defined as:
-\begin{equation}
-V_b^2(r) = V_{\rm gas}^2(r)
-+ \Upsilon_{\rm disk} V_{\rm disk}^2(r)
-+ \Upsilon_{\rm bulge} V_{\rm bulge}^2(r).
-\end{equation}
+$$V_b^2(r) = \pm V_{\rm gas}^2(r)
++ \Upsilon_{\rm disk}\,(\pm V_{\rm disk}^2(r))
++ \Upsilon_{\rm bulge}\,(\pm V_{\rm bulge}^2(r)).$$
+
 \textbf{Fixed Mass-to-Light Ratios:} Unlike standard dark matter analyses that often treat $\Upsilon_*$ as a nuisance parameter to be fitted per galaxy, we enforce a strict global Stellar Population Synthesis expectations for the 3.6 $\mu$m band (Lelli et al., 2016): 
 \[
 \Upsilon_{\rm disk} = 0.5, \qquad
@@ -815,7 +814,7 @@ V_b^2(r) = V_{\rm gas}^2(r)
 \]
 applied uniformly across the entire sample. This eliminates "per-galaxy tuning" completely.
 
-\subsection{Dynamical Prescriptions Evaluated}
+\subsection*{Dynamical Prescriptions Evaluated}
 
 Five distinct physical prescriptions are compared.
 
@@ -876,7 +875,7 @@ This yields a theoretical $H_0 \approx 68.15$ km/s/Mpc and $a_{\kappa} \approx 0
 
 Performance is evaluated using three robust metrics: Median Absolute Error (MedAE), Median Signed Bias (systematic offset), and the fraction of data points predicted within $10$ km/s ($F_{10}$).
 
-\subsubsection{\textbf{Understanding the Metrics:}}
+\subsubsection*{\textbf{Understanding the Metrics:}}
 
 \begin{itemize}
     \item \textbf{MedAE (Median Absolute Error):} This indicates the typical magnitude of the error in velocity prediction, regardless of whether it's an over-prediction or under-prediction. A lower MedAE means the model's predictions are closer to the observed values on average.
@@ -892,7 +891,7 @@ Performance is evaluated using three robust metrics: Median Absolute Error (MedA
 \hline
 \textbf{Model} & \textbf{MedAE} [km/s] & \textbf{Bias} [km/s] & \textbf{$F_{10}$} \\
 \hline
-Newtonian (baryons only) & 38.46 & $+36.91$ & 0.08 \\\hline
+Newtonian (baryons only) & 38.46 & $+36.91$ & 0.07\\\hline
 LCDM (Abundance Matching) & 13.32& -6.83& 0.36\\\hline
 MOND (Standard $a_0$) & \textbf{10.43} & $-4.37$ & \textbf{0.48} \\\hline
 Verlinde ($a_0=cH_0/6$) & 12.27 & $-8.52$ & 0.33 \\\hline
@@ -901,8 +900,8 @@ WILL RG ($a_{\kappa}=cH_0/3\pi$)& 11.18 & \textbf{$-2.26$} & 0.47 \\
 \end{tabular}
 \end{table}
 
-\subsubsection{Analysis of Gas-Dominated Systems}
-To isolate physical validity from stellar mass-to-light ratio uncertainties, we analyze the subset of galaxies dominated by gas [$V_{\rm gas}^2>(\Upsilon V_{\rm disk}^2+\Upsilon V_{\rm bul}^2)$]. In this regime, the baryonic mass distribution is known with high precision.
+\subsubsection*{Analysis of Gas-Dominated Systems}
+To isolate physical validity from stellar mass-to-light ratio uncertainties, we analyse the subset of galaxies dominated by gas [$V_{\rm gas}^2>(\Upsilon V_{\rm disk}^2+\Upsilon V_{\rm bul}^2)$]. In this regime, the baryonic mass distribution is known with high precision.
 
 \begin{table}[H]
 \centering
@@ -914,7 +913,7 @@ To isolate physical validity from stellar mass-to-light ratio uncertainties, we 
 
 MOND (Standard) & 7.70 & $-5.12$  &0.70\\\hline
 Verlinde ($1/6$) & 8.04 & $-5.90$  &0.71\\\hline
-WILL RG ($1/3\pi$) & \textbf{7.00} & \textbf{+0.53}& 0.66\\
+WILL RG ($1/3\pi$) & \textbf{6.99}& \textbf{+0.53}& 0.66\\
 \hline
 \end{tabular}
 \end{table}
@@ -942,7 +941,7 @@ WILL RG derived from CMB temperature and $\alpha$, with no tuning on galaxy dyna
 
 We subjected the WILL framework to the rigorous Radial Acceleration Relation (RAR) test using the full SPARC database (175 galaxies, $>3000$ data points). Unlike standard Dark Matter models, which treat the halo as a free component with arbitrary fitting parameters for each galaxy, WILL RG predicts a rigid, universal functional relationship between the baryonic acceleration $g_{bar}$ and the observed acceleration $g_{obs}$.
 
-\subsection{The Zero-Parameter Prediction}
+\subsection*{The Zero-Parameter Prediction}
 The theoretical curve is derived solely from the \textbf{Horizon Resonance}. The observed acceleration is the global phase closure principle:
 
 \begin{equation}
@@ -956,7 +955,7 @@ a_{\kappa} = \frac{c H_0}{3\pi} \approx 7.02 \times 10^{-11} \, \text{m/s}^2
 \end{equation}
 where $H_0 \approx 68.15$ km/s/Mpc is the theoretically derived Hubble parameter.
 
-\subsection{Statistical Validation}
+\subsection*{Statistical Validation}
 Figure \ref{fig:rar} demonstrates the resulting "Main Sequence of Galaxies". Despite the vast diversity of morphological types---ranging from gas-dominated dwarfs to massive high-surface-brightness spirals---the data collapses onto the single theoretical curve predicted by Eq. (14).
 
 The statistical analysis of the residuals (logarithmic deviation) yields:
@@ -983,7 +982,7 @@ The statistical analysis of the residuals (logarithmic deviation) yields:
 
 To demonstrate the precision of RG, we apply the derived rotation speed law to our own local environment: the motion of the Sun within the Milky Way. This test is critical because it relies on high-precision local data rather than statistical ensembles.
 
-\subsection{Inputs: Zero Free Parameters}
+\subsection*{Inputs: Zero Free Parameters}
 
 Local Baryonic Baseline ($V_{bar}$):
 According to  \cite{Iocco2015} standard mass models of the Milky Way (bulge + disk + gas), the circular velocity contribution solely from visible baryonic matter at the Solar radius ($R_0 \approx 8.0$ kpc) is approximately:
@@ -992,7 +991,7 @@ According to  \cite{Iocco2015} standard mass models of the Milky Way (bulge + di
     \end{equation}
     This value represents the purely Newtonian potential of the luminous galaxy, excluding any Dark Matter halo.
 
-\subsection{The Prediction}
+\subsection*{The Prediction}
 
 We apply the \textbf{Horizon Resonance} derived for galactic dynamics. The total observed velocity squared is the sum of the local self-energy and the resonant coupling to the horizon:
 
@@ -1000,7 +999,7 @@ We apply the \textbf{Horizon Resonance} derived for galactic dynamics. The total
 V_{obs}^2 = V_{bar}^2 + \sqrt{V_{bar}^2 \, a_{\kappa} \, R_0}
 \end{equation}
 
-\subsection{Calculation}
+\subsection*{Calculation}
 
 Substituting the input values ($R_0 = 8.0 \text{ kpc} \approx 2.47 \times 10^{20}$ m):
 
@@ -1021,7 +1020,7 @@ Taking the square root yields the predicted orbital velocity:
   \href{https://www.desmos.com/calculator/s9gvcuttqm}{DERIVATION OF H_0 AND SUN'S ROTATION VELOCITY}
 \end{tcolorbox}
 
-\subsection{Result}
+\subsection*{Result}
 
 The predicted velocity of $\approx 226$ km/s is in excellent agreement with the IAU standard value ($220$ km/s) and recent Gaia kinematic derivations ($229 \pm 6$ km/s).
 
@@ -1032,7 +1031,7 @@ Crucially, the "missing" velocity component ($\approx 56$ km/s), traditionally a
 \section{The Kinetic Resonance: Wide Binary Anomaly}
 \hypertarget{sec:wide-binary}{}\label{sec:wide-binary}
 
-\subsection{The Problem: Breakdown of Newton in the Solar Neighbourhood}
+\subsection*{The Problem: Breakdown of Newton in the Solar Neighbourhood}
 
 While the Radial Acceleration Relation (RAR) establishes the geometric link between baryons and the horizon on galactic scales ($10^{20}$ m), a critical test of any modified gravity framework is its applicability to small-scale systems ($10^{14}$ m) that are free from the complexities of dark matter halos and hydrodynamic gas pressure. Wide Binary Stars ($r > 2000$ AU) provide exactly such a laboratory.
 
@@ -1043,7 +1042,7 @@ Recent high-precision analyses of the Gaia DR3 catalog \citep{Chae2023, Hernande
 \end{itemize}
 To resolve this, standard MOND requires ad-hoc ``External Field Effects'' (EFE). In contrast, WILL Relational Geometry predicts this ``weakened'' anomaly naturally as a consequence of geometric bifurcation.
 
-\subsection{Empirical Verification against Gaia DR3}
+\subsection*{Empirical Verification against Gaia DR3}
 
 We test this Kinetic Resonance prediction ($a_{\beta} = cH_0/6\pi$) against the binned data from Chae (2023) for pure binary systems. The theoretical boost factor is calculated as:
 \begin{equation}
@@ -1075,7 +1074,7 @@ At the characteristic low-acceleration point $g_N = 10^{-9.8} \, \mathrm{m/s^2}$
 \end{itemize}
 
 
-\subsection{Conclusion regarding Local Dynamics}
+\subsection*{Conclusion regarding Local Dynamics}
 The successful prediction of the Wide Binary anomaly confirms the \textbf{bifurcation of gravitational dynamics}:
 \begin{itemize}
     \item Structural systems (Galaxies) resonate via $\Omega_{pot}=2/3$.
@@ -1087,7 +1086,7 @@ Both scales are governed by the single Universal Horizon parameter $H_0$, unifyi
 \section{The Escape Threshold (Bullseye Test)}
 \hypertarget{sec:baryonic_escape}{}\label{sec:baryonic_escape}
 
-\subsection{Derivation of the Transition Scale ($R_{trans}$)}
+\subsection*{Derivation of the Transition Scale ($R_{trans}$)}
 
 We proceed directly from the \textbf{Horizon Resonance} derived in the Galactic Dynamics analysis. The total observed acceleration $g_{obs}$ is defined by the resonance between the local baryonic source $g_{bar}$ and the global Machian acceleration $a_{\kappa}$:
 
@@ -1109,7 +1108,7 @@ R_{trans} = \sqrt{\frac{GM}{a_{\kappa}}} = \sqrt{\frac{3\pi}{2} R_s R_H}
 
 This radius defines the \textbf{escape threshold} of the galaxy: the distance where the local curvature structurally couples to the global topology.
 
-\subsection{The Physics of the Equivalence Point}
+\subsection*{The Physics of the Equivalence Point}
 
 WILL RG mandates a precise dynamical condition at the transition radius $r = R_{trans}$.
 Substituting this condition into the mass equation yields:
@@ -1129,7 +1128,7 @@ Since the Newtonian escape velocity is defined as $V_{esc} = V_{orb}\sqrt{2}$, w
 
 \textbf{Physical Definition:} The "Dark Matter" phenomenon is the observational signature of containment. When the orbital velocity exceeds the local baryonic escape velocity ($V > V_{esc}^{bary}$), the system couples to the global Horizon, stabilizing the orbit.
 
-\subsection{Methodology of the "Bullseye" Test}
+\subsection*{Methodology of the "Bullseye" Test}
 
 We test this identity against the SPARC database \citep{Lelli2016}, comprising 161 galaxies. The analysis adheres to a strict \textbf{Zero Free Parameters} protocol:
 
@@ -1145,7 +1144,7 @@ We test this identity against the SPARC database \citep{Lelli2016}, comprising 1
 
 \textbf{The Prediction:} The data must collapse onto the curve $Y = \sqrt{(1+X)/2}$ and pass strictly through the "Bullseye" point $(1, 1)$.
 
-\subsection{Results}
+\subsection*{Results}
 
 Figure~\ref{fig:bullseye} presents the results of the analysis.
 
@@ -1170,7 +1169,7 @@ Figure~\ref{fig:bullseye} presents the results of the analysis.
     \item \textbf{Global Bias:} Across the full radial range, the mean model bias is $+1.3\%$.
 \end{itemize}
 
-\subsection{Robustness}
+\subsection*{Robustness}
 
 To verify that the result is not an artifact of axis interdependence:
 \begin{enumerate}
@@ -1180,13 +1179,13 @@ The precise intersection confirms the geometric link between the\textbf{ thermod
 \end{enumerate}
 
 
-\section{Galactic Ladder: Cosmic Distance Determination via Horizon Resonance}
-\hypertarget{sec:galactic-ladder}{}\label{sec:galactic-ladder}
+\section{Overtone Scale: Cosmic Distance Determination via Horizon Resonance}
+\hypertarget{sec:overtone_scale}{}\label{sec:overtone_scale}
 
-\subsection{Parameter Inventory}
-\hypertarget{subsec:ladder-parameters}{}\label{subsec:ladder-parameters}
+\subsection*{Parameter Inventory}
+\hypertarget{sec:ladder-parameters}{}\label{sec:overtone_parameters}
 
-Every quantity in the Galactic Ladder derivation belongs to one of three operational classes: distance-independent telescope observables, parameter-free global horizon invariants, or relational geometry projections.
+Every quantity in the Overtone Scale derivation belongs to one of three operational classes: distance-independent telescope observables, parameter-free global horizon invariants, or relational geometry projections.
 
 \paragraph{I. Direct Telescope Observables (Distance-Independent)}
 \begin{itemize}
@@ -1220,8 +1219,8 @@ Every quantity in the Galactic Ladder derivation belongs to one of three operati
     \item $D(\theta) = \frac{r(\theta)}{\theta}$ $[\mathrm{Mpc}]$: Physical cosmic distance to the system.
 \end{itemize}
 
-\subsection{Tone Projections and Fundamental Tone Eccentricity}
-\hypertarget{subsec:tone-projections}{}\label{subsec:tone-projections}
+\subsection*{Tone Projections and Fundamental Tone Eccentricity}
+\hypertarget{sec:tone-projections}{}\label{sec:tone-projections}
 
 \paragraph{1. Tone Kinetic Projection ($\beta_0$) on $S^1$.}
 Normalizing the Horizon Resonance relation $V_{obs}^2 = V_{bar}^2 + \sqrt{V_{bar}^2 a_\kappa r}$ (\ref{eq:resonance}) by $c^2$ expresses the orbital relation in terms of dimensionless kinetic Push projections on the $S^1$ carrier (\href{https://willrg.com/documents/WILL_RG_I.pdf#thm:carriers}{Minimal Relational Carriers Theorem}):
@@ -1230,19 +1229,19 @@ Normalizing the Horizon Resonance relation $V_{obs}^2 = V_{bar}^2 + \sqrt{V_{bar
 \label{eq:beta_obs_resonance}
 \end{equation}
 where $\beta_{bar}^2 = \frac{R_s}{2r} = \frac{\tau_s}{2t_d}$ is the local baryonic kinetic projection squared, and $\beta_0$ is the \textbf{Tone kinetic projection} generated by phase closure between $\beta_{bar}^2$ and the potential-weighted Fundamental Tone phase delay $\Omega_{pot} f_0 t_d = \frac{H_0}{3\pi} t_d = \frac{r}{3\pi R_H}$:
-\hypertarget{eq:beta_0}{}
+\hypertarget{eq:beta_0}{}\label{eq:beta_0}
 \begin{equation}
 \beta_0^2 = \sqrt{\beta_{bar}^2 \frac{a_\kappa r}{c^2}} = \sqrt{\beta_{bar}^2 \frac{H_0}{3\pi} t_d} = \left(\frac{\beta_{bar}^2 r}{3\pi R_H}\right)^{1/2} = \left(\frac{R_s}{6\pi R_H}\right)^{1/2}
-\label{eq:beta_0}
+
 \end{equation}
 
 \paragraph{2. Fundamental Tone Eccentricity ($e_0$) as a Local Closure Defect.}
 By the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{Closure Theorem}, a closed circular orbit satisfies $\kappa^2 = 2\beta^2$, corresponding to a unit \href{https://willrg.com/documents/WILL_RG_I.pdf#def:closure_factor}{Closure Factor} $\delta_o \equiv \frac{2\beta_o^2}{\kappa_o^2} = 1$. By the \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:rel_ecc}{Geometric Eccentricity Theorem}, any projectional deviation from circular equilibrium determines the orbital eccentricity $e = \frac{2\beta_p^2}{\kappa_p^2} - 1 = \delta_p - 1$. Evaluating the observed kinetic projection $\beta_{obs}^2$ against the local baryonic potential projection $\kappa_{bar}^2 = 2\beta_{bar}^2 = \frac{R_s}{r}$ yields the \textbf{Fundamental Tone eccentricity} $e_0$:
-\hypertarget{eq:e_0}{}
-\begin{equation}
-e_0(\theta) = \delta_{bar}(\theta) - 1 = \frac{2\beta_{obs}^2(\theta)}{\kappa_{bar}^2(\theta)} - 1 = \frac{2\left(\beta_{bar}^2(\theta) + \beta_0^2\right)}{2\beta_{bar}^2(\theta)} - 1 = \frac{\beta_0^2}{\beta_{bar}^2(\theta)} = \frac{r(\theta)}{R_{trans}}
-\label{eq:e_0}
-\end{equation}
+\hypertarget{eq:e_0}{}\label{eq:e_0}
+
+$$e_0(\theta) = \delta_{bar}(\theta) - 1 = \frac{2\beta_{obs}^2(\theta)}{\kappa_{bar}^2(\theta)} - 1 = \frac{2\left(\beta_{bar}^2(\theta) + \beta_0^2\right)}{2\beta_{bar}^2(\theta)} - 1 = \frac{\beta_0^2}{\beta_{bar}^2(\theta)} = \frac{r(\theta)}{R_{trans}}$$
+
+
 Expressing $\beta_{bar}^2(\theta) = \frac{g_{bar}(\theta) r(\theta)}{c^2}$ and $\beta_0^2(\theta) = \frac{\sqrt{g_{bar}(\theta) a_\kappa}\,r(\theta)}{c^2}$ in terms of the distance-independent surface-brightness acceleration $g_{bar}(\theta)$ cancels $r(\theta)$ and eliminates dependence on prior distance assumptions:
 \begin{equation}
 e_0(\theta) = \frac{\sqrt{g_{bar}(\theta) a_\kappa}}{g_{bar}(\theta)} = \sqrt{\frac{a_\kappa}{g_{bar}(\theta)}}
@@ -1251,10 +1250,10 @@ e_0(\theta) = \frac{\sqrt{g_{bar}(\theta) a_\kappa}}{g_{bar}(\theta)} = \sqrt{\f
 
 \paragraph{3. Tone Potential Projection ($\kappa_0$) on $S^2$ and Restoration of Closure.}
 For $r > R_{trans}$, Eq.~(\ref{eq:e_0}) yields $e_0 > 1$ ($V_{obs} > V_{esc}^{bary}$, Section~\ref{sec:baryonic_escape}). By the \href{https://willrg.com/documents/WILL_RG_I.pdf#cor:condition}{Relational Closure Condition}, observing $\delta_{bar} \neq 1$ quantifies the energy flow through an unaccounted relational channel, and when all active channels are included, closure is restored. Applying the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:closure}{Closure Theorem} to the Fundamental Tone channel on $S^2$ defines the \textbf{Tone potential projection} $\kappa_0$:
-\hypertarget{eq:kappa_0}{}
+\hypertarget{eq:kappa_0}{}\label{eq:kappa_0}
 \begin{equation}
 \kappa_0^2 = 2\beta_0^2 = \kappa_{bar}^2 e_0 = 2\sqrt{\beta_{bar}^2 \frac{H_0}{3\pi} t_d} = \frac{R_s}{R_{trans}}
-\label{eq:kappa_0}
+
 \end{equation}
 Including $\kappa_0^2$ alongside the local baryonic potential projection $\kappa_{bar}^2$ restores the total Closure Factor to unity ($\delta_{tot} = 1$) and maintains circular orbital containment ($e_{tot} = 0$) at all radii:
 \begin{equation}
@@ -1262,8 +1261,8 @@ Including $\kappa_0^2$ alongside the local baryonic potential projection $\kappa
 \label{eq:containment_closure}
 \end{equation}
 
-\subsection{The Galactic Overtone Scale Theorem}
-\hypertarget{subsec:overtone-theorem}{}\label{subsec:overtone-theorem}
+\subsection*{The Galactic Overtone Scale Theorem}
+\hypertarget{sec:overtone-theorem}{}\label{sec:overtone-theorem}
 
 \begin{theorem}[Galactic Overtone Scale]
 \hypertarget{thm:galactic_overtone_scale}{}\label{thm:galactic_overtone_scale}
@@ -1308,12 +1307,12 @@ where $\beta_{obs}(\theta)$ is the observed kinetic Push projection, $\beta_0$ i
 By the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:operational}{Operational Measurability Theorem}, both $\beta_{obs}(\theta)$ and $e_0(\theta) = \sqrt{a_\kappa / g_{bar}(\theta)}$ are invariant under prior distance scaling, closing $r(\theta)$ and $D(\theta)$ from local spectroscopy, surface brightness, and the Fundamental Tone of the Universe.
 \end{proof}
 
-\subsection{System Identities and Dynamical Regimes}
+\subsection*{System Identities and Dynamical Regimes}
 \hypertarget{subsec:ladder-identities}{}\label{subsec:ladder-identities}
 
 The coupled galactic system satisfies the closed set of relational identities:
 \begin{align}
-\beta_{obs} &= \left(\beta_{bar}^2 + \sqrt{\beta_{bar}^2 \frac{H_0}{3\pi} t_d}\right)^{1/2} \\
+\beta_{obs} &=\beta_{bar}^{2}+\beta_{0}^{2} =\left(\beta_{bar}^2 + \sqrt{\beta_{bar}^2 \frac{H_0}{3\pi} t_d}\right)^{1/2} \\
 \beta_{bar}^2 \beta_{obs}^2 &= \beta_{bar}^4 + \beta_{bar}^2 \beta_0^2 \\
 e_0 &= \frac{\beta_0^2}{\beta_{bar}^2} = \frac{r}{R_{trans}} = \frac{2\beta_{obs}^2}{\kappa_{bar}^2} - 1 = \sqrt{\frac{a_\kappa}{g_{bar}}} \\
 \kappa_{bar}^2 &= 2\beta_{obs}^2 - \kappa_0^2 \\
@@ -1335,7 +1334,7 @@ Equation~(\ref{eq:galactic_overtone_radius}) governs three dynamical regimes acr
     \item \textbf{Tone-Dominated Outer Halo ($e_0 \gg 1$):} $\Lambda(\theta) \to e_0 = \sqrt{\frac{a_\kappa}{g_{bar}}}$, where sensitivity to the stellar mass-to-light conversion factor attenuates from $\Upsilon^{-1}$ to $\Upsilon^{-1/2}$ and neutral hydrogen gas ($\mathrm{HI}$) dominates the baryonic budget.
 \end{enumerate}
 
-\subsection{Empirical Verification on the SPARC Database}
+\subsection*{Empirical Verification on the SPARC Database}
 \hypertarget{subsec:ladder-sparc}{}\label{subsec:ladder-sparc}
 
 Theorem~\ref{thm:galactic_overtone_scale} is tested against the SPARC database \citep{Lelli2016} (175 galaxies, 3,391 radial points; 149 quality-filtered galaxies with $\mathrm{Qual} \le 2$ and inclination $i \ge 30^\circ$, totaling $N = 3,150$ radial measurements) under a zero-free-parameter protocol ($H_0 = 68.15\,\mathrm{km/s/Mpc}$, $a_\kappa = 7.0253 \times 10^{-11}\,\mathrm{m/s^2}$, $\Upsilon_{disk} = 0.5$, $\Upsilon_{bulge} = 0.7$).
@@ -1392,16 +1391,51 @@ NGC 2841 & Bulge-Dominated HSB (Cepheid) & 14.10 & 0.63 & 39.59 & 19.22 & \textb
 \end{figure}
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
- \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Galactic_Overtone_Verification.ipynb}{Galactic Overtone Scale Verification.ipynb}
+\href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Overtone_Scale_SPARC_test26_09_26.ipynb}{Overtone Scale SPARC test 26_09_26.ipynb}
 \end{tcolorbox}
 
 
+\section{Cross-Catalog Validation: The LITTLE THINGS Dwarf Sample}
+\hypertarget{sec:little_things}{}\label{sec:little_things}
 
-\subsection{Clean-Sample Verification: Methodology and Results}
-\hypertarget{subsec:ladder-clean}{}\label{sec:ladder-clean}
+To verify that the Horizon Resonance is a universal geometric property and not an artifact of the SPARC dataset selection, we apply the WILL Relational Geometry (RG) zero-parameter methodology to the LITTLE THINGS catalog. This dataset consists of 26 local-volume dwarf irregular galaxies. In standard analyses, these systems are modeled as heavily dark-matter-dominated, providing a severe stress test for the geometric coupling scale $a_\kappa = c H_0 / 3\pi$.
+
+\subsection*{Methodological Constraints and the Finite-Radius Limit}
+
+Unlike the massive, rotationally supported spiral galaxies in the SPARC sample, dwarf irregular galaxies exhibit extended, diffuse neutral hydrogen (HI) disks and elevated turbulent velocity dispersions. Furthermore, the LITTLE THINGS catalog provides only global mass integrals ($M_{gas}$, $M_{star}$) rather than point-by-point radial surface-brightness profiles. This precludes the application of the overtone scale tracking (Criterion C3) used in Section~\ref{sec:ladder-clean} to isolate the pure asymptotic plateau.
+
+Because the outermost kinematic measurement ($R_{max}$) in these truncated datasets frequently falls near the transition boundary ($R_{trans}$), the local baryonic potential ($V_{bar}$) remains an active, non-negligible component of the total observed velocity ($V_{obs}$). Treating the outermost data point as a pure asymptotic limit ($r \to \infty$) artificially introduces a truncation error. 
+
+To evaluate the structural capacity of the local boundaries, the system is tested against the finite-radius Horizon Resonance prediction. From the core resonance equation $V_{obs}^2(r) = V_{bar}^2(r) + \sqrt{V_{bar}^2(r) a_\kappa r}$, expressing the local baryonic component as $V_{bar}^2 = V_{flat}^2 / e_0$ where $e_0 = r/R_{trans}$ yields the theoretical prediction for a truncated radius:
+
+\begin{equation}
+V_{pred}(r) = V_{flat} \sqrt{\frac{1 + e_0}{e_0}}
+\end{equation}
+
+Here, $V_{flat} = (G M_{bar} a_\kappa)^{1/4}$ is the geometric saturation speed and $e_0$ evaluates the fundamental Tone eccentricity at the outer boundary ($e_{0\_edge} = R_{max}/R_{trans}$).
+
+\subsection*{Results and Statistical Validation}
+
+The finite-radius limit was tested against a gas-dominated, boundary-crossing subset of the LITTLE THINGS catalog (Gas Fraction $> 0.8$, $e_{0\_edge} > 1.5$, $N=18$). 
+
+\begin{itemize}
+    \item \textbf{Median Absolute Error (MedAE):} $8.34$ km/s.
+    \item \textbf{Median Signed Bias:} $-3.49$ km/s.
+\end{itemize}
+
+The finite-radius application successfully collapses the systematic bias and restricts the absolute error to within the characteristic velocity dispersion typical of dwarf irregulars ($\sim 8-10$ km/s). 
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Overtone_Scale_Little_Things.ipynb}{Overtone Scale Little Things.ipynb}
+\end{tcolorbox}
+
+The distances to the LITTLE THINGS galaxies ($0.7 \text{--} 10.3$ Mpc) are derived from primary standard candles (Tip of the Red Giant Branch, Cepheids) rather than cosmological redshift, isolating the test from Hubble-flow scale calibrations. The alignment between the observed kinematic boundaries and the theoretical $V_{pred}$ confirms that the Universal Tone ($H_0 = 68.15$ km/s/Mpc) and the structural coupling constant ($a_\kappa$) govern local dwarf kinematics with the identical geometric scale applied to the SPARC dataset. The dynamics are entirely accounted for by the global causal horizon, requiring zero parameter tuning or dark matter halos.
+
+\subsection*{Clean-Sample Verification: Methodology and Results}
+\hypertarget{sec:overtone_clean}{}\label{sec:overtone_clean}
 
 \paragraph{Motivation.}
-The two distances compared in this test do not have the same exposure to data quality. The catalogue distance $D_{SPARC}$ is obtained by an independent method (Hubble flow, tip of the red giant branch, Cepheids, cluster membership or supernovae) and is unaffected by the quality of the rotation curve or of the photometric decomposition. The Galactic Ladder distance $D_{RG}$ (Eq.~\ref{eq:galactic_overtone_distance}) is built entirely from these two data streams. A galaxy whose tabulated profiles are physically inconsistent therefore corrupts $D_{RG}$ but not $D_{SPARC}$, and a comparison on the full catalogue would measure data defects as much as the relational algorithm. By \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic}{Epistemic Hygiene}, the algorithm is tested only on galaxies whose data satisfy explicit physical-consistency criteria, fixed before any distance was computed. None of the criteria uses $V_{obs}$ against a distance, or $D_{SPARC}$ itself, so the selection cannot be tuned toward agreement.
+The two distances compared in this test do not have the same exposure to data quality. The catalogue distance $D_{SPARC}$ is obtained by an independent method (Hubble flow, tip of the red giant branch, Cepheids, cluster membership or supernovae) and is unaffected by the quality of the rotation curve or of the photometric decomposition. The Overtone Scale clean distance $D_{RG}$ (Eq.~\ref{eq:galactic_overtone_distance}) is built entirely from these two data streams. A galaxy whose tabulated profiles are physically inconsistent therefore corrupts $D_{RG}$ but not $D_{SPARC}$, and a comparison on the full catalogue would measure data defects as much as the relational algorithm. By \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic}{Epistemic Hygiene}, the algorithm is tested only on galaxies whose data satisfy explicit physical-consistency criteria, fixed before any distance was computed. None of the criteria uses $V_{obs}$ against a distance, or $D_{SPARC}$ itself, so the selection cannot be tuned toward agreement.
 
 \paragraph{Global scale.}
 The only global input is the structural resonance scale, computed from the inputs of Section~\ref{sec:deriving-H0} ($T_0=2.7255\,\mathrm{K}$, $\alpha=7.29735\times10^{-3}$, $G=6.674\times10^{-11}$, $\sigma_{SB}=5.67037\times10^{-8}$, $c=299\,792\,458\,\mathrm{m/s}$):
@@ -1441,7 +1475,7 @@ SPARC computed $Rad$ and each of $V_{gas}^2$, $V_{disk}^2$, $V_{bulge}^2$ at the
 
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
- \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/WILL_RG_Clean_Sample_Verification.ipynb}{WILL RG Clean Sample Verification.ipynb}
+ \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Overtone_Scale_Clean_Sample_Verification.ipynb}{Overtone Scale Clean Sample Verification.ipynb}
 \end{tcolorbox}
 
 \begin{table}[H]
@@ -1572,7 +1606,7 @@ All clean galaxies (Hubble flow corrected) & 31 & 10 & 21 & 24 & $-0.1\%$ & $15.
 \hypertarget{sec:lensing}{}\label{sec:lensing}
 
 
-\subsection{Exact Algebraic Lensing of the Resonant Horizon (Replacing Dark Matter Lensing)}
+\subsection*{Exact Algebraic Lensing of the Resonant Horizon (Replacing Dark Matter Lensing)}
 
 In standard cosmology, the deflection of light by galaxies requires the postulation of an extended "Dark Matter" halo (typically modeled as a Singular Isothermal Sphere, SIS). This is because the baryonic potential projection $\kappa_{bar}^2 \propto 1/r$ decays too rapidly to reproduce the large observed Einstein radii. 
 
@@ -1597,7 +1631,7 @@ Multiplying the entire equation by $\frac{2r}{c^2}$ maps the kinematic accelerat
 \end{equation}
 \end{proof}
 
-\subsubsection{The Emergence of the "Isothermal Halo" Constant}
+\subsubsection*{The Emergence of the "Isothermal Halo" Constant}
 Let us evaluate the resonance term, $\kappa_{phantom}^2$, in the region outside the bulk of the baryonic mass $M_{b}$, where the baryonic projection falls as $\kappa_{bar}^2 = \frac{2GM_{b}}{r c^2}$:
 \begin{equation}
 \kappa_{phantom}^2 = \sqrt{ \left(\frac{2GM_{b}}{r c^2}\right) \left(\frac{2 r a_\kappa}{c^2}\right) } = \sqrt{ \frac{4 G M_{b} a_\kappa}{c^4} } = \frac{2 \sqrt{G M_{b} a_\kappa}}{c^2}
@@ -1610,7 +1644,7 @@ Crucially, the radial distance $r$ \textbf{cancels out completely}. Using the de
 
 In standard General Relativity, a potential projection that does not decay with radius produces a constant deflection angle, which is the exact mathematical signature of a Singular Isothermal Sphere (SIS) dark matter halo. WILL RG perfectly generates this extended isothermal geometry not from invisible particles, but from the algebraic cancellation of $r$ in the geometric mean between the localized baryon mass and the expansive cosmic horizon.
 
-\subsubsection{The Unified Lensing Equation with Horizon Resonance}
+\subsubsection*{The Unified Lensing Equation with Horizon Resonance}
 By substituting the enhanced resonant projection into the exact algebraic Einstein Ring equation (derived in Section \ref{sec:lensing}), we obtain the full, non-linear Dark Lensing radius without Dark Matter:
 
 \begin{equation}
@@ -1623,7 +1657,7 @@ By substituting the enhanced resonant projection into the exact algebraic Einste
 
 For light ($\beta_p = 1$, depleting the phase buffer $\beta_Y \to 0$), the geometric interaction gradient $\mathcal{G} = 1$, and the equation calculates the exact macroscopic strong lensing observed in galaxy clusters and SLACS data, unified under a single relational ontology.
 
-\subsection{External Validation: The SLACS Survey}
+\subsection*{External Validation: The SLACS Survey}
 
 The Sloan Lens ACS (SLACS) Survey \citep{Bolton2008} provides the definitive observational test. Across $\sim$60 early-type galaxy lenses with both spectroscopic velocity dispersions and HST-measured Einstein radii, combined lensing-and-dynamics analyses have consistently confirmed:
 \begin{equation}
@@ -1633,7 +1667,7 @@ f_e \equiv \frac{\sigma_{\star}}{\sigma_{SIS}} \approx 1.00 \pm 0.02
 
 The total lensing mass within the Einstein radius (typically $4$--$8$ kpc) is fully accounted for by the dynamical mass inferred from stellar motions, with no systematic offset across the entire sample. This is precisely the outcome predicted by the universal action of Phantom Inertia on both carriers.
 
-\subsection{Weak Lensing: Future Work}
+\subsection*{Weak Lensing: Future Work}
 
 Weak gravitational lensing probes mass distributions on larger scales through statistical shape distortions, but the observables are reconstructed through multi-step pipelines (PSF deconvolution, shape-noise suppression, tomographic binning, intrinsic alignment modelling) and are dominated by line-of-sight projections through dynamically unrelaxed structures. Developing a fully consistent weak-lensing forward model within the WILL RG framework constitutes a priority direction for future work.
 
@@ -1658,7 +1692,7 @@ In \href{https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:precession_law}{R.O
 \end{equation}
 \textbf{Ground State kinetic projection:} As with derivation of Hubble parameter  (\ref{sec:deriving-H0}), by \href{https://willrg.com/documents/WILL_RG_III.pdf#sec:alpha}{Relational Origin of $\alpha$ Theorem}, the ground state kinematic projection is $\beta_{0} \equiv \alpha$.
 
-\textbf{Global Isotropy:} By \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy}{Relational Isotropy Theorem} the Universe is maximally symmetric, implying zero eccentricity     $ e \to 0 $$.
+\textbf{Global Isotropy:} By \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:isotropy}{Relational Isotropy Theorem} the Universe is maximally symmetric, implying zero eccentricity     $ e \to 0 $.
 
 \begin{equation}
 \boxed{
@@ -2584,7 +2618,8 @@ Since $\rho$ provides 100\% of the required dynamical mass density purely throug
 
 
 
-\section{Consolidating Mach's Principle: Derivation of Electron Mass: The Geometric Capacity Resonance}   
+\section{Consolidating Mach's Principle: Derivation of Electron Mass: The Geometric Capacity Resonance}
+\hypertarget{sec:electron_mass}{}\label{sec:electron_mass}
 
 \subsection{Topological Invariants}
 We derive the electron mass directly from the resonance between the internal geometry of the particle and the global geometry of the Universe. We define two dimensionless topological invariants describing the system state:

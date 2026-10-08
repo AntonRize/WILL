@@ -457,6 +457,19 @@ $z_{depth} = \frac{\sin(O + \omega_i)\sin(i)}{\kappa_o^2(O)} \cdot R_s$ \\
 $x_{orb} = \frac{\cos(O + \omega_i)}{\kappa_o^2(O)} \cdot R_s$ \\
 $y_{orb} = \frac{\sin(O + \omega_i)}{\kappa_o^2(O)} \cdot R_s$ \\
 
+\subsection*{Galactic Dynamics (Work in progress)}
+\begin{align}
+\beta_{obs} &=\beta_{bar}^{2}+\beta_{0}^{2} =\left(\beta_{bar}^2 + \sqrt{\beta_{bar}^2 \frac{H_0}{3\pi} t_d}\right)^{1/2} \\
+\beta_{bar}^2 \beta_{obs}^2 &= \beta_{bar}^4 + \beta_{bar}^2 \beta_0^2 \\
+e_0 &= \frac{\beta_0^2}{\beta_{bar}^2} = \frac{r}{R_{trans}} = \frac{2\beta_{obs}^2}{\kappa_{bar}^2} - 1 = \sqrt{\frac{a_\kappa}{g_{bar}}} \\
+\kappa_{bar}^2 &= 2\beta_{obs}^2 - \kappa_0^2 \\
+\kappa_0^2 &= 2\beta_0^2 = \kappa_{bar}^2 e_0 = 2\sqrt{\beta_{bar}^2 \frac{H_0}{3\pi} t_d} = \frac{R_s}{R_{trans}} \\
+\beta_0^2 &= \beta_{obs}^2 - \beta_{bar}^2 = \sqrt{\beta_{bar}^2 \frac{H_0}{3\pi} t_d} = \left(\frac{\beta_{bar}^2 r}{3\pi R_H}\right)^{1/2} = \left(\frac{R_s}{6\pi R_H}\right)^{1/2} \\
+R_{trans} &= 3\pi \beta_0^2 R_H = \frac{\left(\beta_{obs}^2 - \beta_{bar}^2\right)c^2}{a_\kappa} = \sqrt{\frac{3\pi}{2} R_s R_H} \\
+r(\theta) &= \frac{\beta_0^4}{\beta_{bar}^2}\, 3\pi R_H = 3\pi \beta_{obs}^2(\theta) \left(\frac{e_0^2(\theta)}{1 + e_0(\theta)}\right) R_H = \frac{\beta_{obs}^2(\theta) c^2}{a_\kappa} \left(\frac{e_0^2(\theta)}{1 + e_0(\theta)}\right) \\
+\Lambda(\theta) &\equiv \frac{r(\theta)}{3\pi R_H \beta_{obs}^2(\theta)} = \frac{e_0^2(\theta)}{1 + e_0(\theta)}, \qquad R_s = \kappa_{bar}^2 r, \qquad t_d = \frac{r}{c}
+\end{align}
+
 \subsection{Translation to Legacy Tensor Parameters}
 \hypertarget{sec:translation}{}\label{sec:translation}
 
