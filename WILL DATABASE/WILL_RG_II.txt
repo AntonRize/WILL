@@ -1183,7 +1183,7 @@ The precise intersection confirms the geometric link between the\textbf{ thermod
 \hypertarget{sec:overtone_scale}{}\label{sec:overtone_scale}
 
 \subsection*{Parameter Inventory}
-\hypertarget{sec:ladder-parameters}{}\label{sec:overtone_parameters}
+\hypertarget{sec:overtone_parameters}{}\label{sec:overtone_parameters}
 
 Every quantity in the Overtone Scale derivation belongs to one of three operational classes: distance-independent telescope observables, parameter-free global horizon invariants, or relational geometry projections.
 
@@ -1308,7 +1308,7 @@ By the \href{https://willrg.com/documents/WILL_RG_I.pdf#thm:operational}{Operati
 \end{proof}
 
 \subsection*{System Identities and Dynamical Regimes}
-\hypertarget{subsec:ladder-identities}{}\label{subsec:ladder-identities}
+\hypertarget{sec:ladder-identities}{}\label{sec:ladder-identities}
 
 The coupled galactic system satisfies the closed set of relational identities:
 \begin{align}
@@ -1402,7 +1402,7 @@ To verify that the Horizon Resonance is a universal geometric property and not a
 
 \subsection*{Methodological Constraints and the Finite-Radius Limit}
 
-Unlike the massive, rotationally supported spiral galaxies in the SPARC sample, dwarf irregular galaxies exhibit extended, diffuse neutral hydrogen (HI) disks and elevated turbulent velocity dispersions. Furthermore, the LITTLE THINGS catalog provides only global mass integrals ($M_{gas}$, $M_{star}$) rather than point-by-point radial surface-brightness profiles. This precludes the application of the overtone scale tracking (Criterion C3) used in Section~\ref{sec:ladder-clean} to isolate the pure asymptotic plateau.
+Unlike the massive, rotationally supported spiral galaxies in the SPARC sample, dwarf irregular galaxies exhibit extended, diffuse neutral hydrogen (HI) disks and elevated turbulent velocity dispersions. Furthermore, the LITTLE THINGS catalog provides only global mass integrals ($M_{gas}$, $M_{star}$) rather than point-by-point radial surface-brightness profiles.
 
 Because the outermost kinematic measurement ($R_{max}$) in these truncated datasets frequently falls near the transition boundary ($R_{trans}$), the local baryonic potential ($V_{bar}$) remains an active, non-negligible component of the total observed velocity ($V_{obs}$). Treating the outermost data point as a pure asymptotic limit ($r \to \infty$) artificially introduces a truncation error. 
 
@@ -1431,173 +1431,12 @@ The finite-radius application successfully collapses the systematic bias and res
 
 The distances to the LITTLE THINGS galaxies ($0.7 \text{--} 10.3$ Mpc) are derived from primary standard candles (Tip of the Red Giant Branch, Cepheids) rather than cosmological redshift, isolating the test from Hubble-flow scale calibrations. The alignment between the observed kinematic boundaries and the theoretical $V_{pred}$ confirms that the Universal Tone ($H_0 = 68.15$ km/s/Mpc) and the structural coupling constant ($a_\kappa$) govern local dwarf kinematics with the identical geometric scale applied to the SPARC dataset. The dynamics are entirely accounted for by the global causal horizon, requiring zero parameter tuning or dark matter halos.
 
-\subsection*{Clean-Sample Verification: Methodology and Results}
-\hypertarget{sec:overtone_clean}{}\label{sec:overtone_clean}
-
-\paragraph{Motivation.}
-The two distances compared in this test do not have the same exposure to data quality. The catalogue distance $D_{SPARC}$ is obtained by an independent method (Hubble flow, tip of the red giant branch, Cepheids, cluster membership or supernovae) and is unaffected by the quality of the rotation curve or of the photometric decomposition. The Overtone Scale clean distance $D_{RG}$ (Eq.~\ref{eq:galactic_overtone_distance}) is built entirely from these two data streams. A galaxy whose tabulated profiles are physically inconsistent therefore corrupts $D_{RG}$ but not $D_{SPARC}$, and a comparison on the full catalogue would measure data defects as much as the relational algorithm. By \href{https://willrg.com/documents/WILL_RG_I.pdf#pr:epistemic}{Epistemic Hygiene}, the algorithm is tested only on galaxies whose data satisfy explicit physical-consistency criteria, fixed before any distance was computed. None of the criteria uses $V_{obs}$ against a distance, or $D_{SPARC}$ itself, so the selection cannot be tuned toward agreement.
-
-\paragraph{Global scale.}
-The only global input is the structural resonance scale, computed from the inputs of Section~\ref{sec:deriving-H0} ($T_0=2.7255\,\mathrm{K}$, $\alpha=7.29735\times10^{-3}$, $G=6.674\times10^{-11}$, $\sigma_{SB}=5.67037\times10^{-8}$, $c=299\,792\,458\,\mathrm{m/s}$):
-\begin{equation}
-\rho_\gamma=\frac{4\sigma_{SB}T_0^4}{c^3},\qquad \rho_{max}=\frac{\rho_\gamma}{3\alpha^2},\qquad H_0=\sqrt{8\pi G\rho_{max}},\qquad a_\kappa=\frac{cH_0}{3\pi},\qquad 3\pi R_H=\frac{c^2}{a_\kappa},
-\end{equation}
-giving $H_0=68.1456\,\mathrm{km/s/Mpc}$ and $a_\kappa=7.0248\times10^{-11}\,\mathrm{m/s^2}$. No quantity is adjusted per galaxy.
-
-\paragraph{Algorithm.}
-Let $i$ number the tabulated points of a rotation curve, $i=1$ being the innermost. From the SPARC columns (radius $Rad$ in kpc, $D_{SPARC}$ in Mpc, velocities in km/s):
-\begin{align}
-\theta_i &= \frac{Rad_i}{D_{SPARC}}, \qquad \beta_{obs,i}=\frac{V_{obs,i}}{c},\\
-V_{bar,i}^2 &= \operatorname{sign}(V_{gas,i})\,V_{gas,i}^2+\Upsilon_{disk}V_{disk,i}^2+\Upsilon_{bulge}V_{bulge,i}^2,\qquad \Upsilon_{disk}=0.5,\ \Upsilon_{bulge}=0.7,\\
-g_{bar,i} &= \frac{V_{bar,i}^2}{Rad_i},\qquad e_{0,i}=\sqrt{\frac{a_\kappa}{g_{bar,i}}},\\
-D(\theta_i) &= \frac{3\pi R_H\,\beta_{obs,i}^2}{\theta_i}\cdot\frac{e_{0,i}^2}{1+e_{0,i}}.
-\end{align}
-The distance of a galaxy, $D_{RG}$, is the median of $D(\theta_i)$ over all points with $e_{0,i}\ge e_{bull}$, $e_{bull}=1$, i.e.\ over the Tone-dominated profile beyond the Equivalence Point of Section~\ref{sec:baryonic_escape}.
-
-SPARC tabulates $V_{gas}$ with its sign: a negative value is the outward pull of a gas ring lying outside $r$ (a central HI depression), and it enters $V_{bar}^2$ negatively. 
-
-\paragraph{Independence from the catalogue distance and from its $H_0$.}
-SPARC computed $Rad$ and each of $V_{gas}^2$, $V_{disk}^2$, $V_{bulge}^2$ at the assumed distance $D_{SPARC}$, and each is proportional to it; $V_{obs}$ is a Doppler measurement and is not. Consequently $\theta_i$ and $g_{bar,i}$, hence $e_{0,i}$ and $D(\theta_i)$, contain no trace of $D_{SPARC}$. In particular, for Hubble-flow galaxies ($\mathrm{f\_Dist}=1$), whose $D_{SPARC}$ was built with $H_0=73\,\mathrm{km/s/Mpc}$, the value $73$ cancels from every data stream entering $D_{RG}$. It affects only the comparison target, which is therefore rescaled to $D_{SPARC}\times 73/H_0 = D_{SPARC}\times1.07124$ (and its quoted uncertainty $e_D$ likewise). Numerically, doubling $D_{SPARC}$ together with every column proportional to it returns the same $D_{RG}$ to better than $10^{-9}\,\mathrm{Mpc}$.
-
-\paragraph{Selection criteria.}
-\begin{enumerate}[label=\textbf{C\arabic*.}]
-    \item \textbf{Physical values.} Remove a galaxy if $V_{obs}\le0$ or $V_{bar}^2\le0$ at any point. A non-positive observed speed or a non-positive baryonic share has no admissible projection on $S^1$ or $S^2$, and $e_0$ is undefined.
-    \item \textbf{No falling start.} Remove a galaxy if the mean $V_{obs}$ of its first three points exceeds the mean of its last three. Such profiles are dominated by unresolved central structure or truncated outer data and do not sample the Tone-dominated regime.
-    \item \textbf{Monotonic Tone eccentricity beyond the Equivalence Point.} Starting from the first point with $e_0\ge1$, require $e_{0,n}<e_{0,n+1}$ at every subsequent point; a galaxy never reaching $e_0=1$ is removed. From $\beta_{bar}^2=R_s/2r$ and $g_{bar}=c^2\beta_{bar}^2/r$,
-    \begin{equation}
-    e_0^2=\frac{2\,a_\kappa\,r^2}{c^2\,R_s(r)},
-    \end{equation}
-    so $e_0$ decreases between two points only when the enclosed horizon scale $R_s(r)$ grows faster than $r^2$, i.e.\ when the annulus between them carries more baryons than the mean interior. A smooth exponential stellar disk of scale length $R_{disk}$ has $g_{bar}$ decreasing at every radius beyond $0.75\,R_{disk}$, so past the Equivalence Point it produces a strictly rising $e_0$. A reversal therefore signals either unmodelled structure (HI rings, spiral arms, bars) or noise in the decomposition; SPARC provides no uncertainties on $V_{gas}$, $V_{disk}$ or $V_{bulge}$, so the two cannot be separated point by point. The criterion restricts the test to galaxies whose baryonic budget has converged smoothly, the regime in which $e_0=r/R_{trans}$ holds literally. It uses only the photometric and HI columns.
-    \item \textbf{Sampling of the Tone-dominated profile.} Require at least 10 points with $e_0\ge1$, i.e.\ at least 10 points actually used in $D_{RG}$.
-    \item \textbf{Rotation-curve quality.} Require SPARC $\mathrm{Qual}\le2$, excluding curves with major asymmetries or strong non-circular motions.
-    \item \textbf{Inclination.} Require $i\ge30^\circ$; $V_{obs}$ is deprojected by $1/\sin i$ and $D_{RG}\propto V_{obs}^2$, so low inclinations amplify inclination errors into the distance.
-\end{enumerate}
-
-
-\begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=Colab Notebook]
- \href{https://colab.research.google.com/github/AntonRize/WILL/blob/main/Colab_Notebooks/Overtone_Scale_Clean_Sample_Verification.ipynb}{Overtone Scale Clean Sample Verification.ipynb}
-\end{tcolorbox}
-
-\begin{table}[H]
-\centering
-\caption{Sequential application of the selection criteria to the 175 SPARC galaxies.}
-\label{tab:ladder_cleaning}
-\begin{tabular}{|l|l|c|c|}
-\hline
-Criterion & Content & Removed & Remaining \\\hline
-C1 & $V_{obs}\le0$ or $V_{bar}^2\le0$ & 1 & 174 \\\hline
-C2 & falling start (first 3 vs last 3) & 18 & 156 \\\hline
-C3 & $e_0$ not strictly rising beyond $e_0=1$ & 101 & 55 \\\hline
-C4 & fewer than 10 points with $e_0\ge1$ & 22 & 33 \\\hline
-C5 & $\mathrm{Qual}=3$ & 1 & 32 \\\hline
-C6 & $i<30^\circ$ & 1 & 31 \\\hline
-\end{tabular}
-\end{table}
-
-Criterion C3 removes the largest number of galaxies. Its rejections are not rounding effects: of the 98 rejected galaxies that reach $e_0=1$ with at least two points beyond it, 61 contain a single step in which $e_0$ falls by more than 10\% of its previous value, and only 8 fail on a step smaller than 1\%. Attributing each backward step to the baryonic component whose share of $g_{bar}$ rose most across it, 247 steps are gas-driven and 158 disk-driven (none bulge-driven); 76 of the 101 rejected galaxies contain at least one gas-driven step and 68 at least one disk-driven step. This is consistent with HI disks extending, and often forming rings, far beyond the stellar disk.
-
-\begin{table}[H]
-\centering
-\caption{Surviving galaxies by origin of the catalogue distance ($\mathrm{f\_Dist}$).}
-\label{tab:ladder_groups}
-\begin{tabular}{|l|c|c|}
-\hline
-Origin of $D_{SPARC}$ & In SPARC & Clean sample \\\hline
-Hubble flow & 97 & 19 \\\hline
-Red-giant tip & 45 & 6 \\\hline
-Cepheids & 3 & 1 \\\hline
-Ursa Major & 28 & 5 \\\hline
-Supernovae & 2 & 0 \\\hline
-Total & 175 & 31 \\\hline
-\end{tabular}
-\end{table}
-
-\paragraph{Results.}
-In the tables below the difference is $(D_{RG}-D_{target})/D_{target}$, expressed as a percentage of the target distance; ``within $e_D$'' means $|D_{RG}-D_{target}|\le e_D$, SPARC's own quoted uncertainty on the catalogue distance. Distances are in Mpc.
-
-\begin{table}[H]
-\centering
-\caption{Galaxies with $H_0$-independent catalogue distances (tip of the red giant branch and Cepheids).}
-\label{tab:ladder_primary}
-\begin{tabular}{|l|l|c|c|c|c|c|c|}
-\hline
-Galaxy & Method & Points used & $D_{RG}$ & $D_{SPARC}$ & $e_D$ & Difference & Within $e_D$ \\\hline
-DDO154 & Red-giant tip & 12 & 4.06 & 4.04 & 0.20 & $+0.5\%$ & yes \\\hline
-NGC2915 & Red-giant tip & 29 & 7.97 & 4.06 & 0.20 & $+96.4\%$ & no \\\hline
-NGC3741 & Red-giant tip & 21 & 4.23 & 3.21 & 0.17 & $+31.6\%$ & no \\\hline
-NGC5055 & Red-giant tip & 15 & 7.97 & 9.90 & 0.30 & $-19.5\%$ & no \\\hline
-NGC6503 & Red-giant tip & 27 & 6.90 & 6.26 & 0.31 & $+10.3\%$ & no \\\hline
-NGC6946 & Red-giant tip & 33 & 4.56 & 5.52 & 1.66 & $-17.4\%$ & yes \\\hline
-NGC7331 & Cepheids & 19 & 12.83 & 14.70 & 1.50 & $-12.8\%$ & no \\\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Ursa Major cluster members; SPARC assigns all of them $D_{SPARC}=18.00\pm2.50$ Mpc.}
-\label{tab:ladder_uma}
-\begin{tabular}{|l|c|c|c|c|}
-\hline
-Galaxy & Points used & $D_{RG}$ & Difference & Within $e_D$ \\\hline
-NGC3769 & 10 & 16.19 & $-10.1\%$ & yes \\\hline
-NGC4100 & 17 & 18.82 & $+4.6\%$ & yes \\\hline
-NGC4157 & 11 & 15.33 & $-14.8\%$ & no \\\hline
-UGC06917 & 11 & 20.31 & $+12.8\%$ & yes \\\hline
-UGC06930 & 10 & 16.33 & $-9.3\%$ & yes \\\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Hubble-flow galaxies. $D_{SPARC}$ assumes $H_0=73$; the corrected target is $D_{SPARC}\times1.07124$. Rows ordered by the size of the difference from the corrected target.}
-\label{tab:ladder_hubble}
-\begin{tabular}{|l|c|c|c|c|c|c|c|}
-\hline
-Galaxy & Points used & $D_{RG}$ & $D_{SPARC}$ & Difference & Corrected target & Difference & Within $e_D$ \\
- & & & & (vs $D_{SPARC}$) & & (vs corrected) & (corrected) \\\hline
-UGC03205 & 19 & 53.48 & 50.00 & $+7.0\%$ & 53.56 & $-0.1\%$ & yes \\\hline
-UGC00128 & 22 & 68.71 & 64.50 & $+6.5\%$ & 69.09 & $-0.6\%$ & yes \\\hline
-NGC2903 & 17 & 6.99 & 6.60 & $+5.9\%$ & 7.07 & $-1.1\%$ & yes \\\hline
-UGC02885 & 15 & 87.56 & 80.60 & $+8.6\%$ & 86.34 & $+1.4\%$ & yes \\\hline
-UGC08699 & 21 & 42.78 & 39.30 & $+8.9\%$ & 42.10 & $+1.6\%$ & yes \\\hline
-NGC6015 & 29 & 18.65 & 17.00 & $+9.7\%$ & 18.21 & $+2.4\%$ & yes \\\hline
-IC4202 & 14 & 98.66 & 100.40 & $-1.7\%$ & 107.55 & $-8.3\%$ & yes \\\hline
-UGC11455 & 10 & 71.01 & 78.60 & $-9.7\%$ & 84.20 & $-15.7\%$ & no \\\hline
-UGC03580 & 19 & 18.26 & 20.70 & $-11.8\%$ & 22.17 & $-17.7\%$ & yes \\\hline
-UGC06614 & 11 & 77.19 & 88.70 & $-13.0\%$ & 95.02 & $-18.8\%$ & no \\\hline
-UGC02953 & 35 & 21.10 & 16.50 & $+27.9\%$ & 17.68 & $+19.4\%$ & yes \\\hline
-NGC1090 & 19 & 31.14 & 37.00 & $-15.8\%$ & 39.64 & $-21.4\%$ & yes \\\hline
-ESO563-G021 & 15 & 80.05 & 60.80 & $+31.7\%$ & 65.13 & $+22.9\%$ & no \\\hline
-NGC4559 & 30 & 6.88 & 9.00 & $-23.6\%$ & 9.64 & $-28.6\%$ & yes \\\hline
-UGC09037 & 19 & 56.84 & 83.60 & $-32.0\%$ & 89.56 & $-36.5\%$ & no \\\hline
-NGC5985 & 22 & 58.25 & 39.70 & $+46.7\%$ & 42.53 & $+37.0\%$ & no \\\hline
-UGC06786 & 15 & 45.68 & 29.30 & $+55.9\%$ & 31.39 & $+45.5\%$ & no \\\hline
-UGC06787 & 22 & 33.55 & 21.30 & $+57.5\%$ & 22.82 & $+47.0\%$ & no \\\hline
-UGC07399 & 10 & 18.99 & 8.43 & $+125.3\%$ & 9.03 & $+110.3\%$ & no \\\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Summary by group: number of galaxies whose $D_{RG}$ lies within 10\%, 20\% and 30\% of the target; the median difference (sign retained); the median of the differences with sign ignored; and the number within $e_D$.}
-\label{tab:ladder_summary}
-\begin{tabular}{|l|c|c|c|c|c|c|c|}
-\hline
-Group & $N$ & $\le10\%$ & $\le20\%$ & $\le30\%$ & Median diff. & Median $|$diff.$|$ & Within $e_D$ \\\hline
-Red-giant tip + Cepheids & 7 & 1 & 5 & 5 & $+0.5\%$ & $17.4\%$ & 2 \\\hline
-Ursa Major & 5 & 2 & 5 & 5 & $-9.3\%$ & $10.1\%$ & 4 \\\hline
-Hubble flow vs $D_{SPARC}$ ($H_0=73$) & 19 & 8 & 11 & 13 & $+7.0\%$ & $13.0\%$ & 12 \\\hline
-Hubble flow vs corrected target & 19 & 7 & 11 & 14 & $-0.1\%$ & $18.8\%$ & 11 \\\hline
-All clean galaxies (Hubble flow corrected) & 31 & 10 & 21 & 24 & $-0.1\%$ & $15.7\%$ & 17 \\\hline
-\end{tabular}
-\end{table}
-
 \paragraph{Discussion.}
 \begin{enumerate}
     \item \textbf{Zero point.} With no calibration against any standard distance, the clean sample shows no offset at the level resolvable by this sample. The seven galaxies with $H_0$-independent distances have a median difference of $+0.5\%$, and the full clean sample $-0.1\%$. The Ursa Major members lie at $-9.3\%$, a statement about five galaxies sharing a single assigned distance.
     \item \textbf{The $H_0$ calibration of the catalogue.} For the Hubble-flow galaxies the median difference is $+7.0\%$ against $D_{SPARC}$ as tabulated and $-0.1\%$ once the catalogue's $H_0=73$ is replaced by the derived $H_0$. The shift is in the direction and of the size expected if the derived value is correct; the statistical weight a group of 19 galaxies can place on this is assessed separately.
     \item \textbf{Single-galaxy precision.} Ignoring sign, the median difference over the clean sample is $15.7\%$ of the target distance. This is the operational precision of a single-galaxy determination under the present data, to be compared with the $\sim5\%$ quoted for tip-of-the-red-giant-branch distances. The largest departures (UGC\,07399, NGC\,2915, UGC\,06786, UGC\,06787) are left for individual examination.
-    \item \textbf{Scope.} The result holds for galaxies whose baryonic budget converges smoothly beyond the Equivalence Point (criterion C3). It uses the median over the Tone-dominated profile and signed $V_{gas}$; the numbers therefore differ slightly from the headline figures of Section~\ref{sec:ladder-sparc}, which use a different point selection and truncate negative $V_{gas}$.
+
 \end{enumerate}
 
 
