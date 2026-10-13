@@ -39,3 +39,9 @@ To analyze this within the WILL RG framework, you must reformulate your scenario
 **Assistant (Powered by Nemotron 550B):** Yes. As **WILL AI**, I represent the WILL Relational Geometry framework, and that explanation **is** the framework's ontological position on time.
 
 In WILL RG, time ($t$) is **
+
+**User:** I want change my preferred mathematical engagement level
+
+**Assistant (Powered by Gemini 2.5 Flash):** Certainly! Please let me know your new preferred mathematical engagement level.
+
+Your current level is set to **Humble thinker**. How would you like to adjust it?
