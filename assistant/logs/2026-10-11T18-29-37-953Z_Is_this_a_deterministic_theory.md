@@ -45,3 +45,7 @@ In WILL RG, time ($t$) is **
 **Assistant (Powered by Gemini 2.5 Flash):** Certainly! Please let me know your new preferred mathematical engagement level.
 
 Your current level is set to **Humble thinker**. How would you like to adjust it?
+
+**User:** Rigorous physicist
+
+**Assistant (Powered by Gemini 2.5 Flash):** Understood. Your mathematical engagement level is now set to **Rigorous physicist**. I will calibrate my responses accordingly.
