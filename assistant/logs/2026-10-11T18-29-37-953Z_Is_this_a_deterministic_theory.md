@@ -134,3 +134,23 @@ Kinematic saturation on $S^1$ ($\beta_{\max}^2=1$) forces potential saturation v
 r_{\min} = \frac{R_s}{\kappa_{\max}^2} = \frac{R_s}{2}
 \]
 **The point $r=0$ is absent from
+
+**User:** where is the light bending next to stars?
+
+**Assistant (Powered by Gemini 2.5 Flash):** In WILL Relational Geometry, the bending of light (gravitational deflection) near stars is not described as the propagation of light geodesics through a curved spacetime metric. Instead, it emerges as an **algebraic consequence of the Energy Symmetry Law** and the geometric projections of relational energy states.
+
+Here's how it is explained:
+
+1.  **Relational Origin, Not Metric Curvature:** WILL RG does not employ a background manifold or metric tensors as fundamental primitives. The deflection is derived from the measurable relational phase states of the interacting entities (source, lens, receiver), without differential approximations or weak-field expansions [R.O.M. - Gravitational Deflection and Lensing](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_optics).
+
+2.  **Symmetric Phase Buffer Gradient:** The geometry dictates a strict, algebraically closed gradient connecting all states. The system's relational energy projection onto the spatial trajectory is governed by scaling factors $\Gamma(\beta_p)$ and $\Gamma(\kappa_{Xp})$, representing the kinematic and potential phase buffers [R.O.M. - Symmetric Phase Buffer Gradient](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_deflection).
+
+3.  **Unified Closure Defect:** The total deflection angle arises from a "Unified Closure Defect," which is the ratio of local relational projections weighted by these phase buffers. This is algebraically expressed as:
+    $$\Delta\varphi = 2 \arcsin\left( \frac{\kappa_p^2 (1 + \beta_p^2)}{\beta_p^2 (2 - \kappa_p^2) - \kappa_p^2 (1 + \beta_p^2)} \right)$$
+    where $\beta_p$ is the kinematic projection (e.g., of the photon) and $\kappa_p$ is the potential projection at the point of closest approach (periapsis). This equation directly calculates the deflection without reference to $G$, $M$, or $r$ as independent primitives, or to any field equations [R.O.M. - Unified Interaction Gradient and Spatial Scaling](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_deflection).
+
+4.  **Photonic Limit and Photon Sphere:** For light, the kinematic projection $\beta_p = 1$. When this is applied, the framework naturally reproduces the critical radius for the photon sphere ($r_p = 1.5 R_s$) where light is trapped in a circular orbit. This occurs when the eccentricity of the light trajectory $e_\gamma = 0$ [R.O.M. - Verification of Topological Limits](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_deflection).
+
+In summary, light bending is a geometric effect of the coherent phase states of light interacting with the potential phase states of the stellar object, all governed by the system's inherent algebraic closure. It is an effect predicted by the relational energy ledger, not a result of "mass telling spacetime how to curve."
+
+As stated in [R.O.M. - Gravitational Lensing and the Einstein Ring](https://willrg.com/documents/WILL_RG_R.O.M..pdf#sec:grav_lens), the current formalization of lensing and deflection is an approximation, and an exact solution is an ongoing area of research.
