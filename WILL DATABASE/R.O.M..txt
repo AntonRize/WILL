@@ -292,6 +292,19 @@ DESMOS: \href{https://www.desmos.com/calculator/gr7qykzicf}{https://www.desmos.c
 $\boxed{\kappa^2 = 1-\frac{1}{(1+z_{\kappa})^2}}$  $z_{\kappa}=$ gravitational redshift \\
 $\boxed{\beta^2=1-\frac{1}{(1+z_{\beta})^{2}}}$  $z_{\beta}=$ transverse Doppler shift \\
 
+$\boxed{\frac{1}{\kappa_{X}}=1+z_{\kappa}} $ $z_{\kappa}=$ gravitational redshift \\
+$\boxed{\frac{1}{\beta_{Y}}=1+z_{\beta}}$  $z_{\beta}=$ transverse Doppler shift \\
+$\boxed{\tau=\beta_{Y}\kappa_{X}}$ 
+$\boxed{\frac{1}{\tau}=Z_{sys}=(1+z_{\kappa})(1+z_{\beta})}$ 
+
+\begin{tcolorbox}[colback=white, colframe=black, title=Holographic Decryption Invariant]
+\begin{equation}
+Z_{raw}(-\omega_i) \tau(-\omega_i) (1 - e\cos\omega_i) + Z_{raw}(\pi-\omega_i) \tau(\pi-\omega_i) (1 + e\cos\omega_i) = 2
+\end{equation}
+\end{tcolorbox}
+
+
+
 $Z_{sys}=(1+z_{\kappa})(1+z_{\beta})=\frac{1}{\tau}$ (product of gravitational red shift and transverse Doppler shift) \\
 $\tau=\kappa_{X}\cdot\beta_{Y}= \frac{1}{Z_{sys}}$  (product of projectional phase factors on $S^1$ and $S^2$ carriers) \\
 $z_{\kappa} = \frac{1}{\kappa_{X}}-1$ (gravitational redshift) \\
@@ -353,11 +366,11 @@ $O=\Omega \cdot o =o-\Omega_{\phi}o$ (true orbital phase with precession) \\
 $\eta_{o} =\frac{\kappa^{2}}{\kappa_{o}^{2}}=\frac{e_Y^2}{1+e\cdot\cos (O)}=\frac{r_o }{a}=  \frac{R_{s}}{\kappa_{o}^{2}a} = 2-\frac{2\beta_{o}^{2}}{\kappa_{o}^{2}} $ (normalised true radial distance at phase O) \\
 $\kappa_{o} =\kappa\cdot\sqrt{\frac{1+e\cdot\cos(O)}{e_{Y}^{2}}}=\sqrt{\beta_R^2 + \beta_T^2 + \beta^2}= \sqrt{\frac{R_{s}}{r_o}} = \sqrt{1-(1+z_{\kappa o})^{-2}} =\kappa_{p}\sqrt{\frac{1+e\cos (O)}{1+e}}=\kappa\ \cdot\eta_{o}^{-\frac{1}{2}}=\sqrt{\beta^{2}+\beta_{o}^{2}}=\sqrt{\kappa_{sur}^2 \cdot \sin(\theta_{sur,o})}$ (local amplitude potential projection at the phase $O$) \\
 $\kappa_{Xo} = \sqrt{1 - \kappa_o^{2}}=(z_{\kappa o}+1)^{-1}$   (potential phase projection at phase $O$) \\
-$\beta_{o}=\sqrt{\beta_{R}^{2}+\beta_{T}^{2}}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}{e_{Y}}= \sqrt{\kappa_{o}^{2}-\beta^2}=\frac{\kappa_{o}}{\sqrt{2 \delta_{o}\ }}=\sqrt{\frac{\kappa_{o}^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(O)}{\ \ 1+e\cdot\cos(O)}}=\sqrt{\frac{R_{s}}{r_{o}}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o})^{-2}}$  (Instantaneous translational kinetic projection at phase $O$)\\
+$\beta_{o}=\sqrt{\beta_{R}^{2}+\beta_{T}^{2}}=\beta\cdot\frac{\sqrt{1+e^{2}+2\cdot e\cdot\cos(O)}}{e_{Y}}= \sqrt{\kappa_{o}^{2}-\beta^2}=\kappa_{o}\sqrt{\frac{\delta_{o}}{2}}=\sqrt{\frac{\kappa_{o}^{2}}{2}\frac{1+e^{2}+2\cdot e\cdot\cos(O)}{\ \ 1+e\cdot\cos(O)}}=\sqrt{\frac{R_{s}}{r_{o}}-\frac{R_{s}}{2a}}=\sqrt{1-(1+z_{\beta o})^{-2}}$  (Instantaneous translational kinetic projection at phase $O$)\\
 $\beta_{R}=\beta\ \frac{e\sin (O)}{e_Y}=\sqrt{\beta_{o}^{2}-\beta_{T}^{2}}$  (Instantaneous radial kinetic projection at phase $O$) \\
 $\beta_{T}=\beta\frac{1+e\cos(O)}{e_Y}=\frac{e_Y}{2\beta}\frac{R_{s}}{r_{o}}=\kappa_o^2 \frac{e_Y}{2\beta}=\frac{r_{o}\omega_{o}}{c}$  (Instantaneous transverse kinetic projection at phase $O$) \\
 $\beta_{Yo} = \sqrt{1 - \beta_o^{2}}=(z_{\beta o}+1)^{-1}$    (kinetic phase projection at phase $O$) \\
-$\delta_{o} = \frac{2\beta_{o}^2}{\kappa_{o}^2}= \frac{1+e^{2}+2e\cos (O)}{1+e\cos (O)}$ (local closure factor at phase $O$) \\
+$\delta_{o} = \frac{2\beta_{o}^2}{\kappa_{o}^2}=2-\frac{r_{o}}{a}= \frac{1+e^{2}+2e\cos (O)}{1+e\cos (O)}$ (local closure factor at phase $O$) \\
 $Q_{o} = \sqrt{\kappa_{o}^{2}+\beta_{o}^{2}}$ (local relational shift at phase $O$) \\
 $\tau_o=\kappa_{Xo}\cdot\beta_{Yo}= Z_{sys,o}^{-1}=\sqrt{\kappa_{Xo}^{2}-\frac{(\kappa_{Xo}^{2}\beta_{R})^{2}}{\kappa_{Xo}^{2}}-\kappa_{Xo}^{2}\beta_{T}^{2}}= \sqrt{(1 - \frac{R_s}{r}) - \frac{(\frac{dr}{c dt})^2}{1 - \frac{R_s}{r}} - (\frac{r d\phi}{c dt})^2}=\frac{d\tau}{dt}$ (spacetime factor (equivalent to Schwarzschild line element) at phase O) \\
 $\tau_{Yo}=\sqrt{1-\tau_{o}^2}$  (complement spacetime factor at phase O) \\
@@ -379,8 +392,8 @@ $\Delta_{t}  =\frac{\zeta}{2\beta^{3}}\cdot \frac{R_s}{c}= \frac{\zeta}{2\pi} \c
 
 
 \subsection*{Relational Geometry (WILL)} 
-$\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-physical)  \\
-$\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-physical) \\
+$\theta_{1} = \arccos(\beta)$  (distribution angle on $S^1$, non-operational)  \\
+$\theta_{2} = \arcsin(\kappa)$ (distribution angle on $S^2$, non-operational) \\
 $\kappa^2=2\beta^2$  (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:closure}{Closure Theorem}) \\
 $\Delta E_{A \to B} + \Delta E_{B \to A} = 0\quad \Delta E_{A \to B} = E_0 ( \frac{\kappa_{X,B}}{\beta_{Y,B}} - \frac{\kappa_{X,A}}{\beta_{Y,A}} ); \quad  \Delta E_{B \to A} = E_0 ( \frac{\kappa_{X,A}}{\beta_{Y,A}} - \frac{\kappa_{X,B}}{\beta_{Y,B}} )$ (\href{https://willrg.com/documents/WILL_RG_I.pdf#sec:energy-symmetry}{\textbf{Energy Symmetry Law}} is the universal relational energy ledger, the origin of causality) \\
 $\Delta_{Q} = Q_{o}^{2}-Q^{2}$ (phase relational shift amplitude at phase $O$) \\
@@ -459,7 +472,7 @@ $y_{orb} = \frac{\sin(O + \omega_i)}{\kappa_o^2(O)} \cdot R_s$ \\
 
 \subsection*{Galactic Dynamics (Work in progress)}
 \begin{align}
-\beta_{obs} &=\beta_{bar}^{2}+\beta_{0}^{2} =\left(\beta_{bar}^2 + \sqrt{\beta_{bar}^2 \frac{H_0}{3\pi} t_d}\right)^{1/2} \\
+\beta_{obs}^2 &=\beta_{bar}^{2}+\beta_{0}^{2} =\left(\beta_{bar}^2 + \sqrt{\beta_{bar}^2 \frac{H_0}{3\pi} t_d}\right)^{1/2} \\
 \beta_{bar}^2 \beta_{obs}^2 &= \beta_{bar}^4 + \beta_{bar}^2 \beta_0^2 \\
 e_0 &= \frac{\beta_0^2}{\beta_{bar}^2} = \frac{r}{R_{trans}} = \frac{2\beta_{obs}^2}{\kappa_{bar}^2} - 1 = \sqrt{\frac{a_\kappa}{g_{bar}}} \\
 \kappa_{bar}^2 &= 2\beta_{obs}^2 - \kappa_0^2 \\
@@ -918,7 +931,7 @@ For a perfectly circular orbit ($e = 0$) at this causal limit, the precession ev
 
 In General Relativity, the deflection of light is obtained by integrating the null geodesic equations over a curved spacetime manifold. Within WILL Relational Geometry (RG), we employ neither a background manifold nor series approximations.
 
-The system consists exclusively of its participants: the Source, the Lens (at periapsis $p$), and the Receiver. The total deflection angle must be derived as algebraic difference between their measurable relational phase states. The distances $D_{LS}$ (Lens-Source), $D_L$ (Receiver-Lens), and $D_S$ (Receiver-Source) are defined strictly as flat relational baselines measured by the Receiver.
+The system consists exclusively of its participants: the Source, the Lens (at periapsis $p$), and the Receiver. The total deflection angle must be derived as algebraic difference between their measurable relational phase states. The distances $D_{LS}$ (Lens-Source), $D_L$ (Receiver-Lens), and $D_S$ (Receiver-Source) are defined as flat relational baselines measured by the Receiver.
 
 \subsubsection*{Unified Interaction Gradient and Spatial Scaling}
 \hypertarget{sec:grav_deflection}{}\label{sec:grav_deflection}

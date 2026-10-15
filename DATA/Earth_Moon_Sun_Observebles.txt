@@ -1,0 +1,30 @@
+| Item code | Quantity | Value (all digits) | Uncertainty | Unit | Exact definition | How obtained | Full citation (with DOI/URL) | Primary or secondary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **1** | Constant of sine parallax for the Moon | $3422.451$ | none given | arcseconds | Ratio of a fictitious mean equatorial radius of the Earth to the mean distance to the Moon ($\arcsin(a_e / r_m)$). | Adopted by the IAU in 1964 and used in ephemerides. **[FLAG: Computed]** (Derived from Earth's equatorial radius and the lunar mean distance). | Moyer, T. D. (1971). *Mathematical Formulation of the Double-Precision Planetary Ephemeris Program (DPPEP)*. NASA TR 32-1527, p. 11. Also: *Transactions of the IAU*, Vol XIIB (1964). | Primary |
+| **2** | Sidereal month | $27.321662$ | none given | days | Time to make one complete orbit around Earth with respect to the fixed stars. | Time averaging of lunar positions against star catalogs (ELP-2000). Measured directly. | "Orbit of the Moon", Wikipedia (citing ELP lunar theory constants). | Secondary |
+| **3** | Earth's equatorial radius ($a_e$) | $6378.160$<br>
+
+<br>$6378.140$ | none given<br>
+
+<br>$\pm 0.005$ | km | Equatorial radius of the Earth's reference ellipsoid. | Fitted to geodetic and satellite tracking data. Measured directly. | 1964 value: *Transactions of the IAU* Vol. XIIB (1964). 1976 value: *IAU (1976) System of Astronomical Constants*. | Primary |
+| **4(b)** | Constant of lunar inequality ($L$) | $6.43987$ | none given | arcseconds | Earth's monthly displacement about the Earth-Moon barycentre as seen from the Sun. | **[FLAG: Computed]** Derived by the IAU from the adopted Earth/Moon mass ratio ($1/81.30$) and solar parallax. | *Transactions of the IAU*, Vol XIIB (1964) / *The Indian Ephemeris And Nautical Almanac* (1973). | Primary |
+| **5** | Solar parallax ($\pi_\odot$) | $8.794148$ | $\pm 0.000007$ | arcseconds | Defined mathematically as $\arcsin(a_e/A)$, where $a_e$ is Earth's equatorial radius and $A$ is 1 au. | **[FLAG: Computed]** Derived from the adopted values of the astronomical unit and Earth's equatorial radius. | *IAU (1976) System of Astronomical Constants*. | Primary |
+| **5** | Light-time for 1 au ($\tau_A$) | $499.004782$ | $\pm 0.000002$ | seconds | Time taken by light to travel 1 astronomical unit in a vacuum. | Fitted from planetary radar ranging signal delays. Measured directly. | *IAU (1976) System of Astronomical Constants*. | Primary |
+
+### Endnotes & Warnings
+
+**Conflicts Between Sources:**
+
+* **Earth's equatorial radius (Item 3):** The IAU 1964 system defined it as $6378.160$ km, which corresponds directly to the 1964 lunar sine parallax constant of $3422.451''$. The IAU 1976 system revised the radius down to $6378.140$ km.
+
+**Missing Data (NOT FOUND):**
+
+* **Item 4(a) Direct observational determination of Lunar Equation:** While the literature search located the specific primary citations for the direct measurement via asteroid radar/optical ranging (e.g., Delano, E. (1950) "The Lunar Equation From Observations of Eros, 1930-1931." *Astronomical Journal*, Vol. 55), the exact, unrounded numerical arcsecond values extracted by Delano and Rabe could not be retrieved in full before search constraints were exhausted.
+* **Item 6 (Geodetic satellite orbit):** Primary orbit determination papers containing the unrounded semi-major axis and exact orbital period for LAGEOS-1 could not be retrieved within the search limits.
+* **Item 7 (Fallback lunar orbiter):** Primary tracking data yielding exact orbital periods and radii for GRAIL, LRO, or Lunar Prospector could not be retrieved within the search limits.
+
+**Circular Values to Avoid:**
+
+* **Item 1 (Sine parallax):** The standard constant of sine parallax is explicitly defined as a geometric ratio of lengths ($\arcsin(a_e / r_m)$). Since $r_m$ (mean distance) is itself a Keplerian semi-major axis heavily dependent on the assumed GM of the Earth and Moon, this value is fully circular and computed.
+* **Item 4(b) (Lunar inequality constant):** The official IAU value of $6.43987''$ was not an independent measurement; it was derived structurally from the adopted Earth/Moon mass ratio (81.30) multiplied by the solar parallax. It cannot be used as an independent geometric observable.
+* **Item 5 (Solar parallax):** The IAU 1976 solar parallax ($8.794148''$) is a computed angle, directly derived from the predefined Earth radius and the radar-measured astronomical unit.

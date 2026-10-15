@@ -334,9 +334,9 @@ These traditional terms (time, distance, forces, fields) later emerge naturally 
 \begin{principle}[\textbf{Mathematical Transparency}]
 \hypertarget{pr:mathematical}{}\label{pr:mathematical}
 \leavevmode
-Every mathematical expression, phrase, operation, or identity is treated as a binding ontological statement. This forces mathematics to always reflect direct physical meaning, preventing obscure constructs. Every symbol must be anchored to a unique physical idea with a transparent ontological origin.
+Every mathematical expression, phrase, operation, or identity is treated as a binding ontological statement.  Every symbol must be anchored to a unique physical idea with a transparent ontological origin. Mathematics is not merely an arbitrary toolbox used at whim but the language where every expression has to be meaningful.
 \end{principle}
-This principle transforms mathematics from merely an arbitrary toolbox used at whim into a rigorous language where every single element must be ontologically justified by internal derivation or direct, external empirical measurement. Introducing symbols without explicit necessity constitutes \textbf{over-parameterization}: the proliferation of symbols without corresponding physical meaning, governed by the equivalence:
+This principle transforms mathematics into a rigorous language where every single element must be ontologically justified by internal derivation or direct, external empirical measurement. Introducing symbols without explicit necessity constitutes \textbf{over-parameterization}: the proliferation of symbols without corresponding physical meaning, governed by the equivalence:
 \begin{center}
     $\text{Number of symbols} = \text{Number of independent physical ideas}$
 \end{center}
@@ -351,7 +351,55 @@ This principle transforms mathematics from merely an arbitrary toolbox used at w
 Any introduction of unproven absolute properties risks reintroducing metaphysical artifacts and directly contradicts the foundational insight of relationalism.
 \end{itemize}
 
-A detailed exploration of these philosophical roots is beyond the scope of this paper, which remains focused on an empirically measurable physical reality.
+
+\subsection{Why the Scientific Method Demands These Principles}
+\hypertarget{sec:method_demands}{}\label{sec:method_demands}
+
+The four principles follow from a single definition of what makes a claim scientific.
+
+\begin{definition}[Scientific Claim]
+\hypertarget{def:scientific_claim}{}\label{def:scientific_claim}
+A claim is scientific when some possible observation could contradict it.
+\end{definition}
+
+A claim that no possible observation could contradict cannot consider scientific. Each principle is this one definition applied to a different elements that a theory contains:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{3.6cm}|p{2.6cm}|p{9.2cm}|}
+\hline
+\textbf{Principle} & \textbf{Element} & \textbf{The definition applied} \\
+\hline
+Epistemic Hygiene& assumptions & an assumption that no observation tests is not admitted \\
+\hline
+Ontological Minimalism& entities & an element whose presence changes no observation is not admitted\\
+\hline
+Relational Origin& properties & every measurement is a comparison --- one reading against another; a property ``in itself'' is not what any measurement records, so it demands evidence that proves it\\
+\hline
+Mathematical Transparency& formalism & a symbol or operation without physical meaning is a claim that cannot be tested, hidden inside the mathematics\\
+\hline
+\end{tabular}
+\end{center}
+
+This is the refutability criterion of Karl Popper (\textit{The Logic of Scientific Discovery}, 1959), applied not only to theories as wholes but to every element.
+
+\subsubsection*{The Strongest Objection}
+
+The serious objection to this principles deserves to be stated in its strongest form:
+
+\begin{quote}
+\emph{Every posit must pay in evidence --- and the spacetime container has paid. The theory built on it predicted the bending of light, the gravitational time shift of orbiting clocks, the precession of planetary orbits and all were confirmed.}
+\end{quote}
+
+\subsubsection*{The Resolution Conditions}
+
+The objection is valid, and it defines exactly what would settle the question.
+\begin{itemize}
+    \item If the same or better operational empirical results are obtained \textbf{without} the container, the objection dissolves by its own conditions.
+    \item If any operational empirical result can be obtained \textbf{only with} the container, the objection stands.
+\end{itemize}
+
+The aim of this research is to demonstrate the derivation of this empirical results. 
 
 \begin{tcolorbox}[colback=gray!5, colframe=black!80!black, title=\textbf{A Note on Methodology vs. Ontology}]
 It may be objected that these foundational principles constitute a set of axioms, thereby contradicting the claim of \textit{zero assumptions}. This objection, however, conflates \textit{methodological constraints} with \textit{ontological axioms}. 
@@ -367,8 +415,6 @@ These principles function as rules of logical engagement designed to prevent the
 \subsection{Ontological Reduction}
 \hypertarget{sec:reduction}{}\label{sec:reduction}
 
-Without background "container" and without introducing new primitives we should see structure and dynamics as a single ontological element ~\ref{lem:false-separation}. This leads to Ontological Reduction.
-
 \begin{lemma}[False Separation]
 \hypertarget{lem:false-separation}{}\label{lem:false-separation}
 \leavevmode
@@ -377,32 +423,7 @@ Any model that treats processes as unfolding \emph{within} an independent backgr
 
 \begin{proof}
 \leavevmode
-Suppose an independent background exists. Then at least one of its structural attributes - metric relations, a preferred orientation, or dimensions number - remains fixed regardless of inter-process data. This attribute is not derived but posited a priori. It thereby violates the Relational Origin principle (\ref{pr:relational}) and Relational Closure theorem (\ref{thm:relational_closure}): it introduces a non-relational absolute external to the system. Hence the separation is unwarranted.
-\end{proof}
-
-\begin{corollary}[Irreducible Primitive]
-\hypertarget{cor:coincidence}{}\label{cor:coincidence}
-\leavevmode
-Without introducing new primitives ~\ref{lem:false-separation}, we should see structure and dynamics as a single ontological element. This leads to Ontological Reduction to a Single  The structural arena and the dynamical content must be identified: structure is dynamics,  energy is spacetime. \[
-\boxed{\textbf{SPACETIME} \;\equiv\; \textbf{ENERGY}}
-\]
-\end{corollary}
-
-\begin{lemma}[Asymmetric Dependency]
-\hypertarget{lem:asymmetric-dependency}{}\label{lem:asymmetric-dependency}
-\leavevmode
-$\text{SPACETIME} \equiv \text{ENERGY}$ constitutes the epistemic null hypothesis, proven by the asymmetric dependency of its formulation.
-\end{lemma}
-
-\begin{proof}
-\leavevmode
-\begin{enumerate}
-    \item The standard bi-variable syntax posits two distinct primitives: a background manifold (the container spacetime)  and energy dynamics (the content).
-    \item The relational stance posits the unification $\text{SPACETIME} \equiv \text{ENERGY}$, actively rejecting the background manifold and  bi-variable syntax.
-    \item If the container postulate is removed from the initial premise, the relational claim dissolves entirely, as there is no remaining structural separation to collapse. 
-    \item Conversely, if the relational claim is removed, the container postulate remains intact as an independent, unverified physical assumption.
-\end{enumerate}
-Because the relational unification exists exclusively as the logical cancellation of the container postulate, it introduces zero independent ontology. It is therefore not a competing ontology,  it is the default epistemic stance --- the null hypothesis.
+Suppose an independent background exists. Then at least one of its structural attributes - metric relations, a preferred orientation, or dimensions number - remains fixed regardless of content within. This attribute is not derived but postulated a priori. It violates the Relational Origin (\ref{pr:relational}) and Ontological Minimalism (\ref{pr:minimalism}): it introduces a non-relational absolute external to the system. Hence the separation is unwarranted.
 \end{proof}
 
 \begin{definition}[Ontological weight]
@@ -421,7 +442,7 @@ Relational: WILL (one self-relating structure) & $1$ \\
 \end{center}
 \end{definition}
 
-This leads us to a single irreducible primitive with \emph{negative ontological weight} (\ref{def:ontological_weight}): it reduces the number of primitives and removes the separation between structure and dynamics. Spacetime is not a "container" but relational tension between energy states.
+This leads us to a single irreducible primitive that reduces the number of primitives and removes the separation between structure and content. Spacetime is not a "container" but relational tension between energy states.
 
 \begin{theorem}[\emph{\textbf{WILL}}]
 \hypertarget{thm:WILL}{}\label{thm:WILL}
@@ -434,8 +455,25 @@ By Ontological Minimalism, Relational Origin Principles (\ref{pr:minimalism}, \r
 \emph{$ \textbf{WILL}\equiv\ \textbf{SPACE-TIME-ENERGY} $} is the technical term we use for this structure.
 \end{proof}
 
-This Ontological Reduction is the operation physics has performed at every unification \ref{pattern}. Each merged two primitives into one. $\textbf{SPACETIME} \equiv \textbf{ENERGY}$ applies the identical operation.
-\textbf{WILL does not add, it subtracts: it removes the hidden assumptions.  Structure and dynamics are two aspects of a single primitive that we call WILL.}
+This operation physics has performed at every unification \ref{pattern}. Each merged two primitives into one. $\textbf{SPACETIME} \equiv \textbf{ENERGY}$ applies the identical operation.
+\textbf{WILL does not add, it subtracts: it removes the hidden assumptions.  Structure and content are two aspects of a single primitive that we call WILL.}
+
+\begin{lemma}[Asymmetric Dependency]
+\hypertarget{lem:asymmetric-dependency}{}\label{lem:asymmetric-dependency}
+\leavevmode
+$\text{SPACETIME} \equiv \text{ENERGY}$ is the epistemic null hypothesis.
+\end{lemma}
+
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+    \item The standard bi-variable syntax posits two distinct primitives: a background manifold (the container spacetime)  and energy dynamics (the content).
+    \item The relational stance posits the unification $\text{SPACETIME} \equiv \text{ENERGY}$, actively rejecting the background manifold and  bi-variable syntax.
+    \item If the container postulate is removed from the initial premise, the relational claim dissolves entirely, as there is no remaining structural separation to collapse. 
+    \item Conversely, if the relational claim is removed, the container postulate remains intact as an independent, unverified physical assumption.
+\end{enumerate}
+Because the relational unification exists exclusively as the logical cancellation of the container postulate, it introduces zero independent ontology. It is therefore not a competing ontology,  it is the default epistemic stance --- the null hypothesis.
+\end{proof}
 
 \begin{remark}[Auditability]
 \leavevmode
@@ -452,14 +490,13 @@ $\boxed{\text{All physically meaningful quantities are relational features of WI
 \end{center}
 \end{tcolorbox}
 
-
-\subsection{The Foundational Core: Topology of WILL}
+\subsection{Topology of WILL}
 \hypertarget{sec:core}{}\label{sec:core}
 
 \begin{definition}[Closed System]
 \hypertarget{def:closed}{}\label{def:closed}
 \leavevmode
-The term\emph{ \textbf{Closed System}} we use to describe a complete accounting of all relevant relational channels. No input or output left unbalanced. The system is fully self-contained.  
+The term\emph{ \textbf{Closed System}} we use to describe a complete accounting of all relevant relational channels. No input or output left unbalanced. The system is fully self-contained.
 \end{definition}
 
 \begin{theorem}[\textbf{Relational Closure}]
@@ -475,7 +512,29 @@ A purely relational system cannot be geometrically open; any stable, self-contai
     \item \textbf{Premise 2 (Interaction as Integration):} If a hypothetical ``outside'' entity or boundary were to physically interact with the system, that interaction itself constitutes a relation.
     \item \textbf{Deduction (The Tautology):} As relation is formed, it is mathematically and physically integrated into the system. 
 \end{enumerate}
-An ``open relational system'' experiencing external influence is a logical contradiction. The system is closed not by a spatial boundary or a metric container, but by the strict impossibility of an interacting non-relation. The system is relationally closed by definition.
+An ``open relational system'' experiencing external influence is a logical contradiction. The system is closed not by a spatial boundary or a metric container, but by the strict impossibility of an interacting non-relation. The system is relationally closed by analytic necessity. 
+\end{proof}
+
+\begin{remark}
+    The term "open system" in all RG papers is used to describe observer dependant incomplete accounting of relational channels.
+\end{remark}
+
+\begin{theorem}[\textbf{Conservation and Causal Continuity}]
+\hypertarget{thm:causal_continuity}{}\label{thm:causal_continuity}
+\leavevmode
+Without background any closed dynamical system must conserve its total energy. 
+Any energy change must be perfectly balanced by a complementary change elsewhere in the system enforcing 
+\textbf{Conservation and Causal Continuity}.
+\end{theorem}
+
+\begin{proof}[Proof by Structural Necessity]
+\leavevmode
+\begin{enumerate}
+    \item \textbf{Premise 1 (No background allowed):} by False Separation lemma (\ref{lem:false-separation}).
+    \item \textbf{Premise 2 (Empirical Change):} States undergo observable Change.
+    \item \textbf{Premise 3 (Relational Closure):} As proven in Theorem \ref{thm:relational_closure}, the relational system is analytically closed. There is no external background, void, or hidden container to absorb or inject influence.
+    \item \textbf{Deduction (Causal Continuity):} Because the system is closed (Premise 3), and no background allowed (Premise 1), an empirical change (Premise 2) cannot vanish into a void or emerge from one. To maintain the structural integrity of the relations (Premise 1), any change must be perfectly balanced by a complementary change elsewhere in the system.  This enforcing \textbf{Conservation and Causal Continuity}.
+\end{enumerate}
 \end{proof}
 
 \subsection{What is Energy in Relational Ontology?}
@@ -511,24 +570,6 @@ In classical and relativistic mechanics, this derived invariant measure of chang
 Consider a completely closed economy with no physical currency --- no dollar bills, no gold coins, and no central bank (acting as an absolute container). It is a purely relational economy consisting solely of a massive ledger of debts and credits between individuals. If one account decreases, another must increase. If the system is frozen at any given moment, the sum of all debts and credits across the entire ledger must equal zero. "Money" does not exist as a physical object; it is simply the mathematical rule that the ledger must always balance. Energy functions identically: it is not a substance, but the invariant rule of relational accounting.
 \end{remark}
 
-\begin{theorem}[\textbf{Conservation and Causal Continuity}]
-\hypertarget{thm:causal_continuity}{}\label{thm:causal_continuity}
-\leavevmode
-Without background any closed dynamical system must conserve its total energy. 
-Any energy change must be perfectly balanced by a complementary change elsewhere in the system enforcing 
-\textbf{Conservation and Causal Continuity}.
-\end{theorem}
-
-\begin{proof}[Proof by Structural Necessity]
-\leavevmode
-\begin{enumerate}
-    \item \textbf{Premise 1 (Relational Origin):} Physical quantities are defined exclusively by their relations. No background allowed (Principle \ref{pr:relational}).
-    \item \textbf{Premise 2 (Empirical Change):} States undergo observable Change.
-    \item \textbf{Premise 3 (Relational Closure):} As proven in Theorem \ref{thm:relational_closure}, the relational system is analytically closed. There is no external background, void, or hidden container to absorb or inject influence.
-    \item \textbf{Deduction (Causal Continuity):} Because the system is closed (Premise 3), and no background allowed (Premise 1), an empirical change (Premise 2) cannot vanish into a void or emerge from one. To maintain the structural integrity of the relations (Premise 1), any change must be perfectly balanced by a complementary change elsewhere in the system.  This enforcing \textbf{Conservation and Causal Continuity}.
-\end{enumerate}
-\end{proof}
-
 \begin{theorem}[\textbf{Relational Isotropy}]
 \hypertarget{thm:isotropy}{}\label{thm:isotropy}
 \leavevmode
@@ -538,11 +579,11 @@ Within a background-free relational system, the energy state has no direction or
 \begin{proof}[Proof by Relational Origin]
 \leavevmode
 \begin{enumerate}
-    \item \textbf{Premise 1 (Absence of a Grid):} As established by Theorem \ref{thm:relational_closure}  (Relational Closure), the relational system possesses no external container, absolute metric tensor, or underlying coordinate grid.
+    \item \textbf{Premise 1 (Absence of a Grid):} As established by False Separation lemma (\ref{lem:false-separation}), the relational system possesses no external container.
     \item \textbf{Premise 2 (Direction requires Relation):} Under the Principle of Relational Origin (Principle \ref{pr:relational}), ``direction'' or ``orientation'' (not only spatial) cannot exist in a void; it only physically manifests as a specific interaction or measurement between defined participants. 
-    \item \textbf{Deduction (Pure Gauge):} Because there is no absolute grid (Premise 1), assigning an intrinsic, absolute axis to the unmeasured relational ledger (energy) introduces unobservable ``surplus ontology.'' Any such arbitrary orientation is a mathematical artifact (pure gauge).
+    \item \textbf{Deduction (No privileged direction):} Because there is no absolute grid (Premise 1), assigning an intrinsic, absolute axis to the unmeasured relational energy ledger introduces unobservable ``surplus ontology.'' Any such arbitrary orientation is a mathematical artifact.
 \end{enumerate}
-Therefore, prior to a specific interaction defining a local axis, the pure relational structure encoding this conserved energy ledger must possess no intrinsic privileged direction. It must be isotropic. 
+Therefore, prior to a specific interaction, the pure relational structure encoding this conserved energy ledger must possess no intrinsic privileged direction. It must be isotropic. 
 \end{proof}
 
 
@@ -563,19 +604,19 @@ All references to ``carriers'' within WILL RG open research are to be read in th
 The minimum number of independent relational variations required to encode a physically distinguishable, observable Change. DOF counts the irreducible relational structure required by the phenomenon being represented; it is not an independently posited geometric dimension.
 
 \item \textbf{Direction:}
-An oriented relation in state space. Opposite orientations are physically distinct and not identified.
+An oriented relation in state space. Opposite orientations are physically distinct. If opposite orientations were identified, a Change and its balancing counter-change would be the same element, and the balance required by Causal Continuity theorem (\ref{thm:causal_continuity}) could not be expressed.
 
 \item \textbf{Closed carrier:}
-Compact and without boundary; relational ledger cannot leak into an external void.
+By Relational Closure theorem (\ref{thm:relational_closure}) compact and without boundary; relational energy ledger cannot leak into an external void .
 
 \item \textbf{No background:}
-No external embedding state space. All geometric structure is reconstructible solely from relations between participants.
+By False Separation lemma (\ref{lem:false-separation}) no external embedding state space. All geometric structure is reconstructible solely from relations between participants.
 
 \item \textbf{Maximal symmetry:}
-The carrier is homogeneous and isotropic with respect to oriented directions.
+By Relational Isotropy theorem (\ref{thm:isotropy} ) the carrier is homogeneous and isotropic with respect to oriented directions.
 
 \item \textbf{Minimal relational carrier:}
-A closed, maximally symmetric carrier containing exactly the minimum DOF required to represent the corresponding observable relational Change, without arbitrary additional structure.
+By Ontological Minimalism principle (\ref{pr:minimalism}) carrier containing exactly the minimum DOF required to represent the corresponding observable relational Change, without arbitrary additional structure.
 
 \end{itemize}
 \end{tcolorbox}
@@ -585,7 +626,7 @@ A closed, maximally symmetric carrier containing exactly the minimum DOF require
 \begin{theorem}[Minimal Relational Carriers of the Conserved Relational Ledger]
 \hypertarget{thm:carriers}{}\label{thm:carriers}
 \leavevmode
-The minimal relational carriers of the same conserved energy ledger satisfying methodological constrains (\ref{sec:foundational}) and foundational core (\ref{sec:core}) of Relational Closure, Conservation, Maximal Symmetry Theorems are:
+The minimal relational carriers of the same conserved energy ledger satisfying methodological constrains (\ref{sec:foundational}) and foundational core (\ref{sec:core}) of Relational Closure, Conservation, Relational Isotropy Theorems are:
 \begin{enumerate}[label=(\alph*)]
 \item $S^1$ for the minimal 1-DOF directional (Kinematic) relational Change;
 \item $S^2$ for the minimal 2-DOF omnidirectional (Potential) relational Change.
@@ -662,11 +703,6 @@ Ontological Minimalism and Mathematical Transparency therefore retain $S^1$ and 
 
 \end{proof}
 
-\begin{itemize}
-\item 1-DOF: minimum irreducible relational structure required to encode a directional Push (kinematic)
-\item 2-DOF: minimum irreducible relational structure required to encode an isotropic omnidirectional Pull (potential)
-\item 3-DOF+: not introduced unless empirical observations require an additional irreducible relational degree of freedom
-\end{itemize}
 
 \begin{tcolorbox}[colback=red!5!white, colframe=red!75!black, title=\textbf{WARNING: The Spatial Container Fallacy}]
 \hypertarget{rem:nonspatial}{}\label{rem:nonspatial}
@@ -680,7 +716,7 @@ $S^1$ and $S^2$ are not to be interpreted as physical geometries embedded in a s
 \[
 \boxed{\textbf{Relational Carriers}\, S^1 \textbf{and}\, S^2 \equiv\textbf{Logic of the Proportions}}
 \]
-Spatial distance ($r$) and time ($t$) are emergent descriptive labels that observers attach to these underlying algebraic phase ratios. The phase projection dictates the space; the space does not dictate the phase.
+Spatial distance ($r$) and time ($t$) are emergent descriptive labels that observers attach to these underlying algebraic phase ratios. The projections dictate the space; the space does not dictate the projections. 
 \end{tcolorbox}
 
 \begin{remark}[Constructive Derivation Protocol]
@@ -760,7 +796,7 @@ An increase in Amplitude ($\beta, \kappa$) enforces a geometric decrease in Phas
 This necessary reduction of $\beta_Y$ and $\kappa_X$ corresponds to the dilation of proper time and the contraction of proper length, while the growth of $\beta$ and $\kappa$ represents momentum or potential depth. Thus, the kinematic and potential trade-off is the direct, un-parameterized physical expression of the geometric closure of the $S^1$ and $S^2$ relational carriers.  
 \end{proof}
 
-This identifies Relativistic and Gravitational Time Dilation not as a mysterious ``slowing down'' of clocks, but as geometric \textbf{phase rotation}. As a system invests more of its relational energy ledger into external Amplitude ($\beta$ or $\kappa$), it necessarily withdraws from its internal Phase ($\beta_Y$ or $\kappa_X$), changing the rate of its proper time evolution.
+This identifies Relativistic and Gravitational Time Dilation not as a mysterious ``slowing down'' of clocks, but as geometric \textbf{phase rotation}. As system invests more of its relational energy ledger into external Amplitude ($\beta$ or $\kappa$), it necessarily withdraws from its internal Phase ($\beta_Y$ or $\kappa_X$), changing the rate of its local time.
 
 \subsection{Phase Projections as Spectroscopic Shifts}
 \hypertarget{sec:spectroscopic_shift}{}\label{sec:spectroscopic_shift}
@@ -1592,38 +1628,77 @@ Relativistic ($\beta$) and gravitational ($\kappa$) modes are not separate "effe
 
 
 \subsection{Energy and Causal Continuity}
-\hypertarget{sec:energy}{}\label{sec:energy} 
+\hypertarget{sec:energy}{}\label{sec:energy}
+
+RG employs four relational quantities built from the internal phases $\beta_Y$ and $\kappa_X$. Confusing them is the most common source of ambiguity. Each one answers a different question about Change. By Mathematical Transparency (\ref{pr:mathematical}) every mathematical operation is a binding ontological statement about the role the corresponding carrier plays in that question.
+
+\begin{lemma}[Role of a Channel]
+\hypertarget{lem:channel_role}{}\label{lem:channel_role}
+Let a question about Change be fixed by the physical situation. Each active carrier enters the answer through its internal phase, according to its role in that question:
+
+\begin{enumerate}
+    \item a carrier that \textbf{carries} the Change enters as the reciprocal of its phase (increasing the value with $1/\beta_Y$ or $1/\kappa_X$);
+    \item a carrier that \textbf{opposes} the Change enters as its phase (decreasing the value with $\beta_Y$ or $\kappa_X$).
+\end{enumerate}
+
+Carriers acting on the same rest state $E_0$ compose by multiplication. No sign is assigned to any carrier: the direction of a carrier's contribution is provided entirely by its role.
+\end{lemma}
+
+\begin{proof}
+\textbf{(1) Carrying.} By the Invariant Projection of Rest Energy theorem (\ref{thm:restenergy}), a carrier that carries the Change must keep its internal projection equal to the rest state, $E_{\beta}\,\beta_Y = E_0$. The energy available to the Change therefore scales as $E_0/\beta_Y$. The identical argument on $S^2$ gives $E_0/\kappa_X$.
+
+\textbf{(2) Opposing.} By the Duality of Relation lemma (\ref{lem:duality}), the amplitude of a carrier is the share of its energy ledger allocated to the external relation, and its phase is the share that remains internal. A carrier opposes the Change when its amplitude is withdrawn from what the question measures. What remains available to the Change is the internal share, so the answer scales as the phase ($\kappa_X$ on $S^2$, $\beta_Y$ on $S^1$).
+
+\textbf{(3) Composition.} Both carriers are projections of the same Unity invariant rest state $E_0$ (\ref{thm:carriers}). Their scaling act on that single invariant and therefore compose by multiplication, exactly as the internal phases compose in the observable $\tau=\kappa_X\beta_Y$ (\ref{eq:tau_observable}).
+\end{proof}
 
 \begin{lemma}[Unified Relational Scaling]
 \hypertarget{lem:unifiedscaling}{}\label{lem:unifiedscaling}
-Within relational ontology, both kinematic ($S^1$) and potential ($S^2$)
-transformations act as projections of the same invariant rest energy $E_0$. 
-The total local energy scale is determined by the ratio of the potential phase to the kinematic phase:
+The ability of a system to Change its state against the potential acting upon it is
 \[
 E = E_0 \frac{\kappa_X}{\beta_Y} = E_0 \sqrt{\frac{1-\kappa^2}{1-\beta^2}}.
 \]
 \end{lemma}
 
 \begin{proof}
-On the kinematic circle $S^1$, the internal phase corresponds to $\beta_Y=\sin\theta_1$.
-On the potential sphere $S^2$, the internal phase is $\kappa_X=\cos\theta_2$. 
-The total local energy is defined by the ratio of these internal phases, scaling the invariant rest energy $E_0$. This scaling preserves the closure identity of the respective carriers and governs all external manifestations of the system's energy.
+When both carriers are active, the physical situation fixes the question: the system Changes its state through the kinematic relation while the potential relation acts upon it. By the Role of a Channel lemma (\ref{lem:channel_role}), the kinematic carrier carries the Change and enters as $1/\beta_Y$; the potential carrier opposes it and enters as $\kappa_X$. Composing both on the rest state gives $E = E_0\,\kappa_X/\beta_Y$.
 \end{proof}
 
-RG employs three distinct energies. Confusing them is the most common source of ambiguity, so we define and relate them explicitly. None of them presupposes a background frame; each is defined purely from the carrier closures.
+None of the four quantities presupposes a background frame; each is defined purely from the carrier closures and the question it answers.
 
 \begin{itemize}
-    \item \textbf{Kinematic carrier energy $E_{\beta}$:} From the invariant rest energy projection theorem (~\ref{thm:restenergy}), $E_{\beta}\,\beta_Y = E_0$, so $E_{\beta} = E_0/\beta_Y = E_0/\sin\theta_1$. This is the energy of a state whose only shift is kinematic ($\kappa = 0$). It reduces to the rest energy at $\beta = 0$ and diverges as $\beta \to 1$ (the speed-of-light horizon). It is the relational analogue of $\gamma m c^2$.
+    \item \textbf{Kinematic carrier energy $E_{\beta}$.} \emph{Question: what is the system's ability to Change its state through the kinematic relation only?} The kinematic carrier carries the Change: $E_{\beta} = E_0/\beta_Y = E_0/\sin\theta_1$ (\ref{thm:restenergy}). This is the energy of a state whose only shift is kinematic ($\kappa = 0$). It reduces to the rest energy at $\beta = 0$ and diverges as $\beta \to 1$ (the speed-of-light horizon). It is the relational analogue of $\gamma m c^2$.
 
-    \item \textbf{Potential carrier energy $E_{\kappa}$:} From the analogous invariant projection (Sec.~\ref{sec:potential}),
-$E_{\kappa}\,\kappa_X = E_0$, so $E_{\kappa} = E_0/\kappa_X = E_0/\cos\theta_2$. This is the energy of a state whose only shift is gravitational 
-($\beta = 0$). It reduces to the rest energy at $\kappa= 0$ and diverges as $\kappa \to 1$ (the causal horizon). Like $E_{\beta}$, it is a boosted carrier energy; it is not the energy of the combined state.
+    \item \textbf{Potential carrier energy $E_{\kappa}$.} \emph{Question: what is the system's ability to Change its state within potential relations only?} The potential carrier carries the Change: $E_{\kappa} = E_0/\kappa_X = E_0/\cos\theta_2$ (Sec.~\ref{sec:potential}). This is the energy of a state whose only shift is gravitational ($\beta = 0$). It reduces to the rest energy at $\kappa = 0$ and diverges as $\kappa \to 1$ (the causal horizon). Like $E_{\beta}$, it is a carrier energy; it is not the energy of the combined state.
 
-    \item \textbf{Relational total energy $E$:} When both carriers are active, the single conserved energy of the relation --- the quantity the Energy-Symmetry Law balances --- is the phase-ratio $E = E_0\,\kappa_X/\beta_Y$. 
-$E$ is the mixed quantity conserved by Causal Continuity Theorem (\ref{thm:causal_continuity}). 
-So at the asymptotic limit ($\beta=0$) the total relational and potential energy's are reciprocal duals $ E \cdot E_{\kappa} = E_0^2$.
+    \item \textbf{Relational total energy $E$.} \emph{Question: what is the system's ability to Change its state against the potential acting upon it?} The kinematic carrier carries the Change and the potential carrier opposes it: $E = E_0\,\kappa_X/\beta_Y$ (\ref{lem:unifiedscaling}). This is the single conserved energy of the relation --- the quantity the Energy-Symmetry Law balances and the Causal Continuity Theorem (\ref{thm:causal_continuity}) conserves. It diverges as $\beta_Y \to 0$ and vanishes as $\kappa_X \to 0$ (\ref{thm:causal_horizons}). At $\beta = 0$ the relational total energy and the potential carrier energy are reciprocal duals, $E \cdot E_{\kappa} = E_0^2$, because the same potential carrier carries the Change in one question and opposes it in the other.
+
+    \item \textbf{Relational spacetime factor $\tau$.} \emph{Question: what share of the source's internal phase reaches the observer?} Both amplitudes are withdrawn from the internal phase (\ref{thm:relativistic_effects}), so both carriers oppose: $\tau = \kappa_X\,\beta_Y$ (\ref{eq:tau_observable}).
 \end{itemize}
 
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{6.2cm}|c|c|c|}
+\hline
+\textbf{Question about Change} & \textbf{Kinematic carrier} & \textbf{Potential carrier} & \textbf{Result} \\
+\hline
+through the kinematic relation only & carries: $1/\beta_Y$ & --- & $E_{\beta} = E_0/\beta_Y$ \\
+\hline
+within potential relations only & --- & carries: $1/\kappa_X$ & $E_{\kappa} = E_0/\kappa_X$ \\
+\hline
+against the potential acting upon the system & carries: $1/\beta_Y$ & opposes: $\kappa_X$ & $E = E_0\,\kappa_X/\beta_Y$ \\
+\hline
+share of the source's internal phase reaching the observer & opposes: $\beta_Y$ & opposes: $\kappa_X$ & $\tau = \kappa_X\,\beta_Y$ \\
+\hline
+\end{tabular}
+\caption{One rule (\ref{lem:channel_role}), four questions, four quantities.}
+\label{tab:channel_roles}
+\end{table}
+
+\begin{remark}[Legacy signs]
+Legacy mechanics assigns the potential term a sign by hand (\ref{sec:LH}, point A6). In RG no sign is assigned: the potential carrier opposes the Change in the question answered by $E$, and therefore enters as $\kappa_X$. The legacy sign is the shadow of this role.
+\end{remark}
 
 \subsubsection{Energy Symmetry}
 \hypertarget{sec:energy-symmetry}{}\label{sec:energy-symmetry}
